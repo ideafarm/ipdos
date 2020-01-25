@@ -1,0 +1,97 @@
+
+//
+// Copyright (c) 1992-2019 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 25 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+
+}
+    _OUT_
+
+    }
+        }
+            __NZ( bDelete ) ;
+            boolT bDelete = bksData.readF( tinP , pbP , cbP , *pHandleP , flBOOKScrEAD_STILLhUNGRYiSoK | flBOOKScrEAD_CURRENTbOOKoNLY ) ;
+            cbP = - 1 ;
+            pbP = 0 ;
+
+            if( !*pHandleP ) bksData.selectBookF( tinP , flBOOKScsELECT_WOTH ) ;
+
+            booksC& bksData = *pJot ;
+        {
+        if( pJot )
+    {
+    else
+    }
+        }
+            pbP = (byteT*)ed - 3 * sizeof( countT ) ;
+            ((countT*)(byteT*)ed)[ - 2 ] = 1 ;
+            putNegAM( ((countT*)(byteT*)ed)[ - 3 ] , FINGERnEG_SOULc ) ;
+        {
+        else
+        if( !(byteT*)ed ) pbP = (byteT*)pcZe ; 
+    {
+    if( !postNameJot )
+
+    _INoLD_
+
+    }
+        if( POOP ) return ;
+        __NZ( !postNameJot &&  pHandleP ) ;
+        __NZ(  postNameJot && !pHandleP ) ;
+        __NZ( cbP ) ;
+        __NZ( pbP ) ;
+        if( POOP ) return ;
+    {
+    IFbEcAREFUL
+{
+/*1*/voidT soulC::pbSoulF( tinS& tinP , const byteT*& pbP , countT& cbP , handleC* pHandleP )/*1*/
+
+countT pcZe[] = { -(sCountT)FINGERnEG_SOULc , 1 , 0 } ;
+
+/**/
+*/
+  there appears to be a race condition when earDropC is reallocating
+ i appear to be thread safe if jotC is used but not thread safe if earDropC is used
+thread safety
+ this comment is obsoleted by changes to the prolog format (addition of fingerprint and...
+  the length prefix is a countT object that is set to the number of bytes that follow for one item
+ this is followed by a length prefixed image for each item in the soul
+ there is a countT value at the beginning that contains the number of bytes that follow
+the layout of the bytes is platform independent
+  if another thread pushes to *this, a subsequent call to me will return a new image that contains the newly pushed content
+  when all images have been obtained in that way, subsequent calls to me will result in pbP == 0 with *pHandleP unchanged
+  call me repeatedly, until i return pbP==0, to obtain all images
+  when i return, *pHandleP will point to the position in *pJot immediately following the image at pbP
+  if not 0 then must point to a closed handle of type ifcIDtYPEhANDLE_BOOKS
+  if jotC is     used then must not be 0
+  if jotC is not used then must     be 0
+ pHandleP
+  if jotC is     used and i am empty then cbP will remain 0
+  if jotC is used then cbP will be set to the length of the image pointed to by pbP
+  if jotC is not used then cbP will remain 0
+  must be 0
+ cbP
+  if jotC is     used and i am empty then pbP will remain 0
+  if jotC is     used then pbP will point to wo of possibly multiple unprefixed images
+  if jotC is not used then pbP will point to a prefix that is followed by the image
+  will point to an image
+  must be 0
+ pbP
+ tinP
+parameters
+  if *this does     use jotC then multiple images exist and the caller must call me repeatedly to obtain all images
+  if *this does not use jotC then a single image is returned that includes a prefix
+ the layout of the returned information differs according to whether *this uses a jotC backing object
+i return the backing image(s) for *this
+/*
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 25 years.
+//
+// Copyright (c) 1992-2019 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+

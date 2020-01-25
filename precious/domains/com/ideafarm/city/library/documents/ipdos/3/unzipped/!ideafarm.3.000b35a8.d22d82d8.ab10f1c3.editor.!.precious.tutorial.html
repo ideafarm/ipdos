@@ -1,0 +1,147 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+    <title>
+        Tutorial
+    </title>
+    <script type="text/javascript">
+
+        var bTimer = 0 ;
+        var hTimer = 0 ;
+        var idDefaultMessageLath = 0 ;
+
+        function clearMessageF()
+        {
+            document.getElementById( "message" ).innerHTML = "&thinsp;" ;
+        }
+
+        function sayMessageF( postP , msP )
+        {
+            if( !postP && !msP ) msP = 16000 ;
+            
+            if( bTimer )
+            {
+                bTimer = 0 ;
+                clearTimeout( hTimer ) ;
+                hTimer = 0 ;
+            }
+
+            if( postP ) document.getElementById( "message" ).innerHTML = postP ;
+            else        sayMessageDefaultF( msP ) ;
+
+            if( msP )
+            {
+                bTimer = 1 ;
+                hTimer = setTimeout( " clearMessageF() ; bTimer = 0 ; hTimer = 0 ; " , msP ) ;
+            }
+        }
+
+        function sayMessageDefaultF( msP )
+        {
+            switch( ( ++ idDefaultMessageLath ) % 0x10 )
+            {
+                case 1  : { sayMessageF( "This is an IdeaFarm (tm) Knowledge Tree, rendered as foreign (conventional linear) text." , msP ) ; break ; }
+                case 4  : { sayMessageF( "Do not fear that you will die.  Fear that you might never live!" , msP ) ; break ; }
+                default : { clearMessageF() ; break ; }
+            }
+        }
+
+     </script>
+</head>
+
+
+<BODY STYLE="background-color:#000 ; color:#ff6" onload="sayMessageDefaultF( 16000 )">
+    <STYLE type="text/css">
+        A:link
+        {
+            color: #ff6 ;
+            text-decoration: none ;
+            border-style: solid ;
+            border-width: 0px 0px 0px 1px ;
+            border-color: green ;
+        }
+        A:visited
+        {
+            color: #ff6 ;
+            text-decoration: none ;
+            border-style: solid ;
+            border-width: 0px 0px 0px 1px ;
+            border-color: red ;
+        } 
+        A:hover
+        {
+            color: #ff6 ;
+            text-decoration: none ;
+            border-style: solid ;
+            border-width: 1px 1px 1px 1px ;
+            border-color: #ff6 ;
+        }
+        A:active
+        {
+            color: white ;
+            text-decoration: none ;
+            border-style: solid ;
+            border-width: 1px 1px 1px 1px ;
+            border-color: white ;
+        }
+        H3
+        {
+            color: #ff6 ;
+            text-decoration: none ;
+            border-style: solid ;
+            border-width: 1px 8px 1px 8px ;
+            border-color: #ff6 ;
+        }
+    </STYLE>
+    <table>
+        <tr>
+            <td valign="top">
+                <form action="mailto:1.ideafarm.city@gmail.com?body=%7Bsoil_1%3A+%7Bclass%3A+ktb_comment+%7D%0A%0D%0A%7Bthankyou%3A++Your+comment+will+be+received+with+joy%2E%7D%0D%0A%0D%0A%7Binstructions%3A++Put+your+comment+where+the+%27X%27+is+below%2E++Precede+curly+brackets+and+backslashes+with+another+backslash%2E+%7D%0D%0A%0D%0A%7Bwhy%3A++This+email+introduces+you+to+the+format+of+a+SOIL+%28tm%29+utterance%2E+%7D%0D%0A%0D%0A%7Burl%3A+index+%7D%0D%0A%0D%0A%7Bbranch%3A+This+is+the+knowledge+tree+of+Wo%27O+Ideafarm%2e%7D%0D%0A%0D%0A%7Bcomment%3A%0D%0A%0D%0AX%0D%0A%0D%0A%7D%7D&subject=Comment+on+an+IDEAFARM%2ECOM+page%2E" method="post" enctype="multipart/form-data">
+                    <input type="image" src="!ideafarm.3.000b2f40.cfa8c536.ab10f1c3.archiveold.gather.to.!.000b2f40.cfa8c536.ideafarm.blob.ifc.ico" alt="Submit" onmouseout="sayMessageF( 0 , 16000 )" onmouseover='sayMessageF( "Click to email a comment to Wo&#39;O Ideafarm." , 0 )'/>
+                </form>
+            </td>
+            <td valign="top">
+                <table>
+                    <tr>
+                        <td valign="top">
+                            <table>
+                                <tr>
+                                    <td valign="top">
+                                        <a href="../index.html" onmouseout="sayMessageF( 0 , 16000 )" onmouseover="sayMessageF( 'Click to climb down to the root branch (home page).' , 0 )">root</a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="top">
+                            <span style="color:lightblue" onmouseout="sayMessageF( 0 , 16000 )" onmouseover="sayMessageF( 'Hints, beneficial thought steering, and other messages are displayed here.' , 0 )"><i><span id="message">&thinsp;</span></i></span>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+
+        <p>
+        <h3>Tutorial</h3>
+        <p>
+        This tutorial will eventually display a self guiding practice tree.
+        Until I can put that together for you, just experiment with these actions until you see what is going on:
+        <ol>
+        <li>Click the first sentence of a paragraph and then click "down1", which should take you back to where you were.
+        <li>Click a detail sentence (any sentence other than the first sentence) and then click "down2", which should take you back to where you were.
+        <li>Click up into the tree aways randomly.  Note the title of the page.  Click down1, noting where that same text now appears within the "containing" page.
+        <li>Climb around, paying attention to the title of each page and where it appears whenever you click "down1" or "down2" from it.
+        <li>Continue to play / explore until you see how an IdeaFarm (tm) Knowledge Tree works.
+        <li>Remember always that trees grow upwards.  When climbing an IdeaFarm (tm) Knowledge Tree, you click on a sentence (branch) to climb UP onto it!
+        </ol>
+        This is a fundamentally new kind of writing.
+        Human beings have never been able to communicate in writing in three dimensions before; it simply cannot be done using paper.
+        With a little bit of practice, I hope that you will see and enjoy the simplicity and power of this writing form.
+
+</BODY>
+</html>
+
+
+      

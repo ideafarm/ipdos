@@ -1,0 +1,263 @@
+
+//
+// Copyright (c) 1992-2019 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 25 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+
+}
+    _OUT_
+    }
+        #endif
+
+            //U: IF bMonitoredP THEN DO THE MONITORING LOOP HERE AND REPLACE bMonitoredP WITH A POINTER TO THE CALLER'S HANDLER FUNCTION
+
+            }
+                }
+                    hThread.resetF() ;
+                    tinP.pAdamGlobal4->_thirdC_grab_lOsTid.ungrabF( tinP ) ;
+                    *tinP.pAdamGlobal1->_thirdC_.pSwThreadHandle = hThread.osF( ifcIDtYPEhANDLE_THREAD ) ; // THIS HANDLE NEEDS TO BE KEPT BECAUSE THERE IS NO WAY TO GET IT LATER
+                    tinP.pAdamGlobal1->_thirdC_.lOsTid = tidP ;
+                    tinP.pAdamGlobal4->_thirdC_grab_lOsTid.grabF( tinP , TAG( TAGiDnULL ) ) ;
+                {
+                if( tidP && tidP != - 1 && F(flagsP) & flPROCESShIRE_REGISTERtHREADhANDLE )
+    
+                }
+                    hProcess.resetF() ;
+                    tinP.pAdamGlobal4->_thirdC_grab_lOsPid.ungrabF( tinP ) ;
+                    *tinP.pAdamGlobal1->_thirdC_.pSwProcessHandle = hProcess.osF( ifcIDtYPEhANDLE_PROCESS ) ;
+                    tinP.pAdamGlobal1->_thirdC_.lOsPid = pidP ;
+                    tinP.pAdamGlobal4->_thirdC_grab_lOsPid.grabF( tinP , TAG( TAGiDnULL ) ) ;
+                {
+                if( pidP && pidP != - 1 && F(flagsP) & flPROCESShIRE_REGISTERpROCESShANDLE )
+
+                tidP = pinfo.dwThreadId ;
+                pidP = pinfo.dwProcessId ;
+            {
+            else
+            }
+                hProcess.closeIfF() ;
+                hThread.closeIfF() ;
+            {
+            if( POOP )
+
+            if( !hProcess ) __1
+            hProcess.osF( ifcIDtYPEhANDLE_PROCESS , (countT)pinfo.hProcess ) ;
+            handleC hProcess( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_PROCESS ) ;
+
+            if( !hThread ) __1
+            hThread.osF( ifcIDtYPEhANDLE_THREAD , (countT)pinfo.hThread ) ;
+            handleC hThread( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_THREAD ) ;
+
+            delF( tinP , postAll ) ;
+            }
+                BOSpOOP
+
+                LOGrAW( "\"\r\n" ) ;
+                LOGrAW( postAll ) ;
+                LOGrAW( "could not launch process: \"" ) ;
+
+                delF( tinP , postp ) ;
+                }
+                    thirdC::c_strncpyIF( tinP , postp , postm , costap ) ;
+                    newF( tinP , LF , postp , costap ) ; ___( postp ) ;
+                    const countT costap = 1 + c_strlenIF( tinP , postm ) ;
+                    osTextT* postm = "there is no \"path\" environment variable for this process" ;
+                {
+                if( !postp )
+                dosScanEnvF( tinP , postp , "path" ) ; ___( postp ) ;
+                ZE( osTextT* , postp ) ;
+                //THIS CODE IS DUPLICATED IN 102006a AND 102005d
+
+                LOGrAW3( "dosExecPgmF/CreateProcess/failed and GetLastError returned [brcRaw]" , tinP.brcRaw , "\r\n" ) ;
+                BOSdOnOTtEST( WHATgbo , GetLastError() )
+            {
+            if( tinP.bosFail )
+
+            }
+                }
+                    DeleteProcThreadAttributeList( (_PROC_THREAD_ATTRIBUTE_LIST*)pcInfo2 ) ;
+
+                    }
+                        }
+                            BOS( WHATsfr , BOSoK , CreateProcess( 0 , postAll , &sa , &sa , 0 , flags1 , 0 , 0 , (STARTUPINFO*)&sinfo , &pinfo ) )
+                            //CONoUTrAW( "\r\n" ) ;
+                            //CONoUTrAW( postAll ) ;
+                            //CONoUTrAW( "CreateProcess: " ) ;
+                        {
+                        else
+                        }
+                            //BOS( WHATsfr , BOSoK , CreateProcessWithLogonW( (wchar_t*)puntUser , (wchar_t*)puntDomainDot , (wchar_t*)puntPassword , flagsLogonP , 0 , (wchar_t*)puntAll                 , flags1 , 0 , 0 , (STARTUPINFOW*)&sinfo , &pinfo ) )
+
+                            countT foo2 = sizeof( STARTUPINFOW ) ;
+                            countT foo1 = sizeof( STARTUPINFOA ) ;
+            
+                            { ZE( countT , off ) ; while( postAll[       off ] && off < TUCK ) { puntAll[      off ] = postAll[       off ] ; off ++ ; } puntAll[       off ] = 0 ; }
+                            { ZE( countT , off ) ; while( postPasswordP[ off ] && off < TUCK ) { puntPassword[ off ] = postPasswordP[ off ] ; off ++ ; } puntPassword[  off ] = 0 ; }
+                            { ZE( countT , off ) ; while( postDomainP[   off ] && off < TUCK ) { puntDomain[   off ] = postDomainP[   off ] ; off ++ ; } puntDomain[    off ] = 0 ; }
+                            { ZE( countT , off ) ; while( postUserP[     off ] && off < TUCK ) { puntUser[     off ] = postUserP[     off ] ; off ++ ; } puntUser[      off ] = 0 ; }
+
+                            unTextT puntDomainDot[ TUCK ] = { '.' , 0 } ;
+
+                            unTextT puntAll[      TUCK ] ;
+                            unTextT puntPassword[ TUCK ] ;
+                            unTextT puntDomain[   TUCK ] ;
+                            unTextT puntUser[     TUCK ] ;
+
+                            BLAMMO ; //NOT SUPPORTED AS A MATTER OF POLICY:  CreateProcessWithLogonW IS NOT AVAILABLE TO WINDOWS VERSION 0400 (PLAIN NT) WHICH IS THE DEFAULT REV LEVEL FOR THE WINDOWS VERSION HEADER FILE
+                        {
+                        if( postUserP )
+                        BOSnOvALUE( WHATgbo , SetLastError( 0 ) )
+
+                        //LOGrAW( "\"\r\n" ) ;
+                        //LOGrAW( postAll ) ;
+                        //LOGrAW( "launching \"" ) ;
+
+                        SECURITYaTTRIBUTE_saUNRESTRICTED ;
+
+                        }
+                            c_strcatIF( tinP , postAll , ostoSay ) ;
+                            OStEXTC(  ostoSay , processGlobal1I.idNumaNode , 0 ) ;
+                            OStEXTAK( ostoSay , " !idNumaNode " ) ;
+                            OStEXT(   ostoSay , TUCK ) ;
+                        {
+                        if( processGlobal1I.idNumaNode && c_strstrIF( tinP , postExeP , "\\ideafarm." ) && ( c_strstrIF( tinP , postExeP , ".ipdos-we" ) || c_strstrIF( tinP , postExeP , ".ipdos-we" ) ) )
+                        c_strcatIF( tinP , postAll , postArgsP ) ;
+                        c_strcatIF( tinP , postAll , " " ) ;            //U::postExeP SHOULD BE PASSED AS WOTH PARAM TO CreateProcess TO AVOID SECURITY VULNERABILITY; SEE DOC FOR CreateProcess; THE ISSUE ARISES WHEN postExe CONTAINS A PATH THAT CONTAINS A SPACE, WHICH WILL CAUSE INCORRECTD PARSING
+                        c_strcpyIF( tinP , postAll , postExeP ) ;
+                        newF( tinP , LF , postAll , costae ) ; ___( postAll ) ;
+
+                        costae += TUCK ; // FOR !idNumaNode 12345678
+
+                        }
+                            costae = tinP.brcRaw + 1 ;
+                            BOSdOnOTtEST( WHATgbo , strlen( postExeP ) )
+                        {
+                        else
+                        }
+                            costae = c1 + 1 + tinP.brcRaw + 1 ;
+                            BOSdOnOTtEST( WHATgbo , strlen( postArgsP ) )
+                            countT c1 = tinP.brcRaw ;
+                            BOSdOnOTtEST( WHATgbo , strlen( postExeP ) )
+                        {
+                        if( postArgsP )
+                        ZE( countT , costae ) ;
+
+                        sinfo.lpAttributeList = (_PROC_THREAD_ATTRIBUTE_LIST*)pcInfo2 ;
+                        sinfo.StartupInfo.dwFillAttribute = BACKGROUND_GREEN ;
+                        sinfo.StartupInfo.dwYCountChars = 0x300 ;
+                        sinfo.StartupInfo.dwXCountChars = 0x400 ;
+                        sinfo.StartupInfo.dwY = sinfo.StartupInfo.dwX = 0 ;
+                        sinfo.StartupInfo.wShowWindow = /*SW_SHOWMAXIMIZED*/ SW_SHOWMINNOACTIVE ;
+                        sinfo.StartupInfo.dwFlags = STARTF_USESHOWWINDOW | STARTF_USEPOSITION | STARTF_USECOUNTCHARS | STARTF_USEFILLATTRIBUTE ;
+                        sinfo.StartupInfo.cb = sizeof sinfo ;
+                        c_memsetIF( tinP , (byteT*)&sinfo , sizeof sinfo ) ;
+                        STARTUPINFOEX sinfo ;
+                    {
+                    if( bOk )
+
+                    }
+                        }
+                            bOk = 1 ;
+                        {
+                        if( UpdateProcThreadAttribute( (_PROC_THREAD_ATTRIBUTE_LIST*)pcInfo2 , 0 , PROC_THREAD_ATTRIBUTE_PREFERRED_NODE , &offNodePreferred , sizeof offNodePreferred , 0 , 0 ) )
+                        WORD offNodePreferred = (WORD)offNumaNodeValidChosen ;  // THE NEXT LINE WILL FAIL WITH ANY SIZE OTHER THAN WORD
+                        bOk = 0 ;
+                    {
+                    if( offNumaNodeValidChosen != NUMA_NO_PREFERRED_NODE )
+                    countT offNumaNodeValidChosen = thirdC::osOffNumaNodeValidChosenIF( processGlobal1I.idNumaNode ) ;
+                    boolT bOk = 1 ;
+                {
+                if( InitializeProcThreadAttributeList( (_PROC_THREAD_ATTRIBUTE_LIST*)pcInfo2 , 1 , 0 , &cba ) )
+
+                memset( pcInfo2 , 0 , cba ) ;
+                unsigned pcInfo2[ 0x100 / sizeof( unsigned ) ] ;
+            {
+            if( cba < 0x100 )
+            c_memsetIF( tinP , (byteT*)&pinfo , sizeof pinfo ) ;
+            PROCESS_INFORMATION pinfo ;
+            ZE( osTextT* , postAll ) ;
+
+            InitializeProcThreadAttributeList( 0 , 1 , 0 , &cba ) ;
+            SIZE_T cba = 0 ;
+
+            else                                    flags1 |= DETACHED_PROCESS ;
+            if( F(flagsP) & flPROCESShIRE_VISIBLE ) flags1 |= CREATE_NEW_CONSOLE ;
+            if( F(flagsP) & flPROCESShIRE_MONITORED ) flags1 |= DEBUG_PROCESS | DEBUG_ONLY_THIS_PROCESS /*U: | CREATE_SUSPENDED */ ;
+            flagsT flags1 = CREATE_DEFAULT_ERROR_MODE | NORMAL_PRIORITY_CLASS | EXTENDED_STARTUPINFO_PRESENT ;
+            BOSnOvALUE( WHATgbo , SetLastError( 0 ) )
+
+        #elif defined( __NT__ )
+
+            pidP = info.codeTerminate ;
+            BOSpOOP
+            BOSI( WHATsfr , BOSfAIL , DosExecPgm( postBadGuy , sizeof postBadGuy , EXEC_ASYNCRESULT , postArgsP , 0 , &info , postExeP ) )
+            RESULTCODES info ;
+            osTextT postBadGuy[ 0x80 ] ;
+            //U: ENSURE THAT KID PROCESS INHERITS THE PRIORITY OF THE CURRENT PROCESS
+
+            __( F(flagsP) ) ; //U: SUPPORT
+
+        #ifdef __OS2__
+    {
+    _INoLD_
+
+    //LOGrAW( "\r\n" ) ;
+    //LOGrAW( postArgsP ) ;
+    //LOGrAW( "\r\n" ) ;
+    //LOGrAW( postExeP ) ;
+    //LOGrAW( "\r\n" ) ;
+    //COMMENT OUT IN PRODUCTION.  TO FIND A BUG
+
+
+    }
+        if( POOP ) return ;
+        FV( flPROCESShIRE , flagsP )                                                                                        \
+        __( !tinP.pAdamGlobal1->_thirdC_.pSwThreadHandle ) ;
+        __( !tinP.pAdamGlobal1->_thirdC_.pSwProcessHandle ) ;
+        __Z( postExeP ) ;
+        __( pidP ) ;
+        if( POOP ) return ;
+    {
+    IFbEcAREFUL    
+    SCOOP
+{
+/*1*/voidT thirdC::dosExecPgmF( tinS& tinP , countT& tidP , countT& pidP , const osTextT* const postExeP , const osTextT* const postArgsP , const flagsT flagsP , const osTextT* const postUserP , const osTextT* const postPasswordP , const flagsT flagsLogonP , const osTextT* const postDomainP )/*1*/
+
+//U:COMBINE INTO A SINGLE API: 102006a AND 102005d
+
+/**/
+
+*/
+  it is illegal to set a value other than the default when calling from the definition of an adam
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/1snip.00101db.flPROCESShIRE!||
+ flagsP
+ postArgsP
+ postExeP
+  the caller must close this handle when it is not going to use it any more
+  must be 0
+ hProcessP
+  the caller must close this handle when it is not going to use it any more
+  must be 0
+ hThreadP
+ pidP
+ tidP
+arguments
+ conj: occasionally, these threads are never terminated, resulting in leakage (gradual accumulation of live threads)
+operating system bug: on some os's, this call will cause threads to be launched that remain alive for about 6 tocks
+this instruction returns immediately; it does not block until the process dies
+constructs a process
+it is illegal to refer to this symbol in the definition of an adam
+\<A HREF=\"5.102006a.1.0.html\"\>definition\</A\>
+\<A HREF=\"6.$dosExecPgmF.0.html\"\>instances\</A\>
+/*
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 25 years.
+//
+// Copyright (c) 1992-2019 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+

@@ -1,0 +1,47 @@
+
+//
+// Copyright (c) 1992-2019 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 25 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+
+;
+                                                                                                                                      \
+    value [ebx]                                                                                                                       \
+    modify [esi eax ebx]                                                                                                              \
+    parm [esi] [edi] [edx] [ecx]                                                                                                      \
+    "FIN:           pause                                         "  /*                                                         */    \
+    "               mov          dword ptr [esi] , 0              "  /* INTENTIONAL BLAMMO                                      */    \
+    "               jz           FIN                              "  /*                                                         */    \
+    "               test         eax , eax                        "  /* WAS A SQUATTER VALUE ALREADY IN keyToP?                 */    \
+    "               lock cmpxchg dword ptr [edi] , ecx            "  /* eax WILL RECEIVE SQUATTER VALUE                         */    \
+    "LOADKEY:       mov          eax , 0h                         "  /* CONDITIONALLY LOAD keyToP FROM keyFromP                 */    \
+    "               mov          dword ptr [esi] , 0              "  /* INTENTIONAL BLAMMO                                      */    \
+    "               jb           LOADKEY                          "  /*                                                         */    \
+    "               bt           esi , edx                        "  /* DID I REALLY SET THE BIT?                               */    \
+    "               jb           FIN                              "  /*                                                         */    \
+    "               bt           ebx , 0                          "  /* WAS THE BIT ALREADY SET?                                */    \
+    "               setc         bl                               "  /*                                                         */    \
+    "               mov          ebx , 0                          "  /* STORE THE PRIOR BIT VALUE                               */    \
+    "               mov          esi , dword ptr [esi]            "  /* SNAPSHOT THE RESULT (MUST ALWAYS BE 1)                  */    \
+    "               lock bts     dword ptr [esi] , edx            "  /* ATOMIC TEST AND SET ; CARRY FLAG RECEIVES OLD BIT VALUE */    \
+                                                                                                                                      \
+#pragma aux btsKeyedAM =                                                                                                              \
+
+countT __export btsKeyedAM( byteT* pbP , countT& keyToP , countT offP , countT keyFromP ) ;
+
+
+/*1*/countT __export btsKeyedAM( byteT* pbP , countT& keyToP , countT offP , countT keyFromP ) ;/*1*/
+/**/
+*/
+/*
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 25 years.
+//
+// Copyright (c) 1992-2019 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+

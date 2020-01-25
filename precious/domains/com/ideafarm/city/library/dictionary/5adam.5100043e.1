@@ -1,0 +1,267 @@
+
+//
+// Copyright (c) 1992-2019 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 25 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+
+//VISIBLE
+
+REST
+
+}
+    }
+        }
+            ++ s ; ether.osSleepF( tinP , TOCK ) ;
+            sleepC s( tinP , TAG( TAGiDnULL ) ) ;
+        {
+        if( !cIn )
+        TELL( "taking my cycle nap" ) ;
+
+        }
+            etThread.delF( tinP , pstt1m ) ;
+            }
+                etThread.osThreadF( tinP , countTC() , tmSuperF , 0 , flTHREADlAUNCH_null , 0 , (countT)psttFile , ++ idFile , (countT)&bFace ) ;
+                etThread.diskMoveFileOrDirF( tinP , psttFile , psttc1 ) ;
+                etThread.strMakeF( tinP , psttFile , tStage2+TI(ifcIDtEXTgEN_UNIQUE) ) ; ___( psttFile ) ;
+                ZE( strokeS* , psttFile ) ;
+            {
+            FORsTRINGSiN1( pstt1m )
+            etThread.boxMenuF( tinP , soul1m , tStage1+tStar ) ; ___( pstt1m ) ;
+            ZE( strokeS* , pstt1m ) ;
+        {
+        TELL( "promoting each stage 1 file to stage 2 and launching a supervisor thread for it" ) ;
+
+        }
+            etThread.delF( tinP , pstt1m ) ;
+            FORsTRINGSiN1( pstt1m ) etThread.diskMoveFileOrDirF( tinP , tStage1+TI(ifcIDtEXTgEN_UNIQUE) , psttc1 ) ;
+            cIn = etThread.boxMenuF( tinP , soul1m , tIn+tStar ) ; ___( pstt1m ) ;
+            ZE( strokeS* , pstt1m ) ;
+        {
+        ZE( countT , cIn ) ;
+        TELL( "moving new job files into the stage 1 directory" ) ;
+
+        bFace.ungrabF( tinP ) ;
+        etThread.strokeF( tinP , T("\r")+TT(timeN1,timeN2) ) ;
+        bFace.grabF( tinP , TAG( TAGiDnULL ) ) ;
+        TN( tStage2  , "" ) ; tStage2 = T("///ideafarm/ephemeral/domains/com/ideafarm/")+T(DDNUMB)+T("/2/") ;
+        TN( tStage1  , "" ) ; tStage1 = T("///ideafarm/ephemeral/domains/com/ideafarm/")+T(DDNUMB)+T("/1/") ;
+        etThread.osTimeNowF( tinP , timeN1 , timeN2 ) ;
+        ZE( sCountT , timeN2 ) ;
+        ZE( countT , timeN1 ) ;
+    {
+    while( !ether && !etThread )
+    TN( tIn , "" ) ; tIn = T("///ideafarm/ephemeral/domains/com/ideafarm/")+T(DDNUMB)+T("/in/" ) ;
+    strokeS sttr('-') ;
+    TN( tStar    , "*" ) ;
+    ZE( countT , idFile ) ;
+
+    boxC boxDebug( tinP , etThread , T("///ideafarm/ephemeral/domains/com/ideafarm/debug/")+TF1(DDNUMB) ) ; //U::WORKAROUND TO PREVENT LOCKUP
+    stateS state( tinP , etThread ) ;
+    TELL( "setting up" )
+{
+batonC bFace( tinP , TAG( TAGiDnULL ) ) ;
+
+//U::HIRE( T("mail.out") , 0 , 0x1000000 , 0 , 0x1000000 )
+//{ countT idAdam = 0x40104c5 ; etThread.ifcHireF( tinP , T("port..expireTime") , idAdam , 0 , flHIRE_DISPLAYaUTO , nicNameC() ) ; }
+//{ countT idAdam = 0x40104b8 ; etThread.ifcHireF( tinP , T("port..expireTime") , idAdam , 0 , flHIRE_DISPLAYaUTO , nicNameC() ) ; }
+HIRE( T("mail.out") , 0x4010418 , 0x1000000 , 0 , 0x1000000 )
+//ENABLE WHEN WANT GORILLA TESTERS TO BE ACTIVE
+
+//{ countT idAdam = 0x401048c ; etThread.ifcHireF( tinP , T("port..expireTime") , idAdam , 0 , flHIRE_DISPLAYaUTO , nicNameC() ) ; }
+//ENABLE WHEN AM EDITING THE SITE OR THE DICTIONARY
+
+TELL( "preparing for work" ) ;
+etThread.winSetTitleF( tinP , TF1(DDNUMB) ) ; //U::
+TODO
+
+DONE( tmSuperF )
+}
+    doWoF( tinP , etThread , psttFile , idFile , bFace ) ;
+
+    batonC&  bFace    = *(batonC*)pTaskP->c3 ;
+    countT   idFile   =           pTaskP->c2 ;
+    strokeS* psttFile = (strokeS*)pTaskP->c1 ;
+{
+if( pTaskP && pTaskP->c1 && pTaskP->c2 )
+TASK( tmSuperF )
+
+}
+    etThread.delF( tinP , psttFileP ) ;
+    etThread = 0 ;
+    etThread.boxZapF( tinP , psttFileP ) ;
+    TELL( "deleting a new job file" ) ;
+
+    etThread.delF( tinP , posti ) ;
+    etThread.delF( tinP , psttu ) ;
+    etThread.boxPutUniqueF( tinP , psttu , T("///ideafarm/ephemeral/domains/com/ideafarm/")+T(DDNUMB)+T(bFail?"/tryLater":"/aok")+T("/item") , posti , costi ) ;
+    ZE( strokeS* , psttu ) ;
+    TELL( "archiving a new job file to aok" )
+
+    etThread.strokeF( tinP , T("\r\n")+TF1(idFileP)+T("| ")+T(psttFileP)+T(bFail?": TRYlATER\r\n":": AOK\r\n") ) ;
+    boolT bFail = mailItemF( tinP , *tinP.zEtScratch , T(posti) ) ;
+    TELL( "handling a new job file" )
+
+    etThread.boxGetShadowF( tinP , posti , costi , psttFileP ) ; ___( posti ) ;
+    ZE( countT   , costi ) ;
+    ZE( osTextT* , posti ) ;
+    bFaceP.ungrabF( tinP ) ;
+    etThread.strokeF( tinP , T("\r\n")+TF1(idFileP)+T("| ")+T(psttFileP)+T(": BEGUN\r\n") ) ;
+    bFaceP.grabF( tinP , TAG( TAGiDnULL ) ) ;
+    TELL( "reading a new job file" ) ;
+{
+voidT doWoF( tinS& tinP , etherC& etThread , strokeS* psttFileP , const countT idFileP , batonC& bFaceP )
+
+}
+    return bFail ;
+    if( bFail ) *tinP.zEtScratch = 0 ;
+    boolT bFail = !!*tinP.zEtScratch ;
+    //tinP.zEtScratch->ifcSayF( tinP , TF1(DDNUMB)+T("/hired ")+TF1(ifcIDaDAMoLD_MAILcLERK)+T(" to do a !mailOut job") , flSAY_APPEND | flSAY_LOG ) ;
+    tinP.zEtScratch->ifcJobF( tinP , stCourses , ifcIDaDAMoLD_MAILcLERK , sOrder , stOrders , TF1(DDNUMB)+T("mail.out/!mailOut/")+TF1((countT)st_psttTo) , 1 ) ;
+    //tinP.zEtScratch->ifcSayF( tinP , TF1(DDNUMB)+T("/hiring ")+TF1(ifcIDaDAMoLD_MAILcLERK)+T(" to do a !mailOut job") , flSAY_APPEND | flSAY_LOG ) ;
+    stOrders << new( 0 , tinP , LF ) soulC( tinP , TAG( TAGiDnULL ) ) ;
+    stackC stOrders(  tinP , *tinP.zEtScratch , TAG( TAGiDnULL ) , flSTACKc_FIFO | flSTACKc_GIVEsIGNnEWpLATE , ifcSTACKtYPE_PTR_soulC ) ;
+    stackC stCourses( tinP , *tinP.zEtScratch , TAG( TAGiDnULL ) , flSTACKc_FIFO | flSTACKc_GIVEsIGNnEWpLATE , ifcSTACKtYPE_PTR_soulC ) ;
+
+    tinP.zEtScratch->delF( tinP , psttBody ) ;
+    sOrder << psttBody ;
+
+    }
+        tinP.zEtScratch->delF( tinP , psttTo ) ;
+        sOrder << psttTo ;
+        st_psttTo >> psttTo ;
+        ZE( strokeS* , psttTo ) ;
+    {
+    while( st_psttTo )
+    sOrder << (countT)st_psttTo ;
+
+    sOrder << (countT)1 ;
+    sOrder << (strokeS*)tJob ;
+    soulC sOrder( tinP , TAG( TAGiDnULL ) , flSOUL_null , ifcIDcMDjOBoRDER_NAMED ) ;
+
+    TN( tJob , "!mailOut" ) ;
+
+    tinP.zEtScratch->strConcatenateF( tinP , psttBody , st_psttLines , T("\r\n") ) ; ___( psttBody ) ;
+    ZE( strokeS* , psttBody ) ;
+
+    }
+        }
+            tinP.zEtScratch->delF( tinP , psttw1 ) ;
+            else                                                tinP.zEtScratch->delF( tinP , psttl ) ;
+            if( tinP.zEtScratch->strCompareF( tinP , psttw1 , tBcc ) ) st_psttLines << psttl ;
+
+            }
+                else                                                                       tinP.zEtScratch->delF( tinP , psttw2 ) ;
+                if( psttw2 && psttw2->idAdam && tinP.zEtScratch->strIdF( tinP , sttAt , psttw2 ) ) st_psttTo << psttw2 ;
+                tinP.zEtScratch->strTrimF( tinP , psttw2 , 0 , T(TbLACKnEWlINE) , T(" ") ) ; ___( psttw2 ) ;                                  // "abc@foobar.com"
+
+                }
+                    psttw2 = psttw3 ;
+                    tinP.zEtScratch->delF( tinP , psttw2 ) ;
+                    tinP.zEtScratch->strSubstringF( tinP , psttw3 , idf3 , sttq3 , sttGT , psttw2 ) ; ___( psttw3 ) ;         // " abc@foobar.com "
+                    tinP.zEtScratch->delF( tinP , psttw3 ) ;
+                    tinP.zEtScratch->strSubstringF( tinP , psttw3 , idf3 , sttq3 , sttLT , psttw2 ) ; ___( psttw3 ) ;         // " \"Anthony B. Cullen\" "
+                    ZE( strokeS* , psttw3 ) ;
+                    strokeS sttq3( (countT)0 , sc_IGNOREqUOTES ) ;
+                    countT idf3 = 1 ;
+                {
+                if( idLT && idLT < idGT )
+                countT idGT = tinP.zEtScratch->strIdF( tinP , sttGT , psttw2 ) ;
+                countT idLT = tinP.zEtScratch->strIdF( tinP , sttLT , psttw2 ) ;
+                tinP.zEtScratch->strWordF( tinP , psttw2 , psttl , sttq , sttColon , 2 ) ; ___( psttw2 ) ;                    // " \"Anthony B. Cullen\" < abc@foobar.com > "
+                ZE( strokeS* , psttw2 ) ;
+                //sttq = ze ;
+            {
+            if( !tinP.zEtScratch->strCompareF( tinP , psttw1 , tTo ) || !tinP.zEtScratch->strCompareF( tinP , psttw1 , tBcc ) || !tinP.zEtScratch->strCompareF( tinP , psttw1 , tCc ) )
+
+            tinP.zEtScratch->strConvertToLowerCaseF( tinP , psttw1 ) ; ___( psttw1 ) ;                                     // "to"
+            tinP.zEtScratch->strTrimF( tinP , psttw1 , 0 , T(TbLACKnEWlINE) , T(" ") ) ; ___( psttw1 ) ;                                  // "TO"
+            tinP.zEtScratch->strWordF( tinP , psttw1 , psttl , sttq , sttColon , 1 ) ; ___( psttw1 ) ;                    // " TO "
+            ZE( strokeS* , psttw1 ) ;
+            //sttq = ze ;
+
+            if( !psttl ) break ;
+            tinP.zEtScratch->strSubstringLineF( tinP , psttl , idf , sttq , psttP ) ; ___( psttl ) ;
+            ZE( strokeS* , psttl ) ;
+        {
+        while( !*tinP.zEtScratch && idf )
+        countT idf = 1 ;
+        TN( tBcc , "bcc" ) ;
+        TN( tCc  , "cc" ) ;
+        TN( tTo  , "to" ) ;
+        strokeS sttGT('>') ;
+        strokeS sttLT('<') ;
+        strokeS sttAt('@') ;
+        strokeS sttq( (countT)0 , sc_IGNOREqUOTES ) ;
+        strokeS sttColon(':') ;
+
+        }
+            st_psttLines << psttl ;
+
+            }
+                psttl = psttOldC( tinP , *tinP.zEtScratch , T("from: \"Oo'o Ideafarm\" <" ifcEMAIL_OLDfROM ">") ) ; ___( psttl ) ;
+                tinP.zEtScratch->delF( tinP , psttl ) ;
+            {
+            if( tinP.zEtScratch->diskIdF( tinP , T("///c") ) == 0x2c1f032d )
+
+            strokeS* psttl = psttOldC( tinP , *tinP.zEtScratch , T("from: \"Wo'O Ideafarm\" <" ifcEMAIL_OLDfROM ">") ) ; ___( psttl ) ;
+        {
+    {
+    stackC st_psttLines( tinP , *tinP.zEtScratch , TAG( TAGiDnULL ) , flSTACKc_FIFO , ifcSTACKtYPE_PTR_strokeS ) ;
+    stackC st_psttTo(    tinP , *tinP.zEtScratch , TAG( TAGiDnULL ) , flSTACKc_FIFO , ifcSTACKtYPE_PTR_strokeS ) ;
+{
+boolT mailItemF( tinS& tinP , const strokeS* const psttP )
+
+}
+{
+stateC( tinP , etherP , sizeof *this , 0 , translateStateF )
+stateS::stateS( tinS& tinP , etherC& etherP ) :
+
+TRANSLATEsTATE_END
+    state.idMe ++ ;
+TRANSLATEsTATE_MIDDLE
+               state.idTransLast = stateOther.idTransLast ; }
+    case 1 : { state.idMe        = stateOther.idMe        ;
+TRANSLATEsTATE_BEGIN( stateS , 1 )
+
+;
+}
+    stateS( tinS& tinP , etherC& etherP ) ;
+
+    countT idTransLast ;
+    countT idMe ;
+    countT idVersion ;
+{
+struct stateS : public stateC
+
+    "i am 1440104, made by Wo'O Ideafarm.  i am now on the job\r\n"
+    "\r\n"                                                                                                                          \
+    "subject: 1440104 has been hired to handle your outgoing mail\r\n"                                                              \
+    "to: " ifcEMAIL_OLDfROM "\r\n"                                                                                                        \
+                                                                                                                                    \
+#define postSEASONtHEpAN                                                                                                            \
+
+/*1*/WAKEhIDE( "mail.out" )/*1*/
+/**/
+*/
+   f340104/smtp   : delivers text item to smtp server via telnet
+  f340104/f340104 : initiate and supervise jobs that each specify the recipients for wo smtp server
+ 1440104/f340104  : initiate and supervise a job that specifies all recipients
+ human/1440104    : places text file into a new file with an arbitrary name into "///ideafarm/ephemeral/backed.up.daily/mailOut/new/"
+pseudocode for how an outgoing mail item destined for nnn@i deafarm.com is handled
+i am hardcoded to work only for " ifcEMAIL_OLDfROM "
+i mail out each file that appears
+i continuously watch for the appearance of files in a particular directory
+i mail out email
+\<A HREF=\"5.1440104.1.0.html\"\>definition\</A\>
+/*
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 25 years.
+//
+// Copyright (c) 1992-2019 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+

@@ -1,0 +1,32 @@
+
+//
+// Copyright (c) 1992-2019 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 25 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+
+#define PnO(pvP) ( (voidT*)( (countT)(pvP) & ~BM_HIGH ) )
+
+/*1*//*PnO(pvP)*//*1*/
+
+//A:ASSUME: THE HIGH BIT IS NEVER SET IN A POINTER VALUE (THIS IS TRUE FOR WIN32, WHICH RESERVES THE TOP HALF OF THE ADDRESS SPACE FOR SYSTEM USE)
+
+/**/
+*/
+ i exist to eliminate the need for complex casting and to make the code self documenting
+ but it is bad style to use me to set the high bit when pvP is not a reference to a pointer
+ i will compile for nonpointer references pvP
+use me only for pointers
+code that uses me is probably using the high bit for some application purpose
+i evaluate to a pointer value with the high bit reset
+/*
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 25 years.
+//
+// Copyright (c) 1992-2019 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+

@@ -1,0 +1,137 @@
+
+//
+// Copyright (c) 1992-2019 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 25 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+
+REST
+
+etThread.delF( tinP , psttNameOn   ) ;
+etThread.delF( tinP , psttNameFrom ) ;
+etThread.delF( tinP , psttNameTo   ) ;
+
+}
+    etThread.delF( tinP , pbAll ) ;
+    tinP.zEtScratch->boxPutF( tinP , psttNameTo , pbAll , cbAll ) ;
+    
+    }
+        off += cbf ;
+        tinP.zEtScratch->delF( tinP , pbf ) ;
+        tinP.zEtScratch->memCopyF( tinP , pbAll + off , pbf , cbf ) ;
+        tinP.zEtScratch->strokeF( tinP , T("got ")+TF1(cbf)+T(" bytes at offset ")+TF1(off)+T("\r\n") ) ;
+        }
+            }
+                etThread.strokeF( tinP , T("retrying query for bytes at offset ")+TF1(off)+T("\r\n") ) ;
+                tinP.zEtScratch->delF( tinP , pbf ) ;
+                *tinP.zEtScratch = 0 ;
+            {
+            else
+            if( !*tinP.zEtScratch ) break ;
+            getF( tinP , *tinP.zEtScratch , pbf , cbf , cbr , psttNameFrom , nnOn , off , CBeACH ) ; ___( pbf ) ;
+        {
+        for(;;)
+        ZE( countT , cbr ) ;
+        ZE( countT , cbf ) ;
+        ZE( byteT* , pbf ) ;
+    {
+    while( off < cbAll )
+    ZE( countT , off ) ;
+    
+    if( pbAll ) pbAll[ cbAll ] = 0 ;
+    tinP.zEtScratch->newF( tinP , LF , pbAll , cbAll + 1 ) ; ___( pbAll ) ;
+    countT cbAll = cbr ;
+    ZE( byteT* , pbAll ) ;
+    
+    tinP.zEtScratch->delF( tinP , pbf ) ;
+    }
+        }
+            etThread.strokeF( tinP , T("retrying (file size query)\r\n") ) ;
+            tinP.zEtScratch->delF( tinP , pbf ) ;
+            *tinP.zEtScratch = 0 ;
+        {
+        else
+        if( !*tinP.zEtScratch ) break ;
+        getF( tinP , *tinP.zEtScratch , pbf , cbf , cbr , psttNameFrom , nnOn , 0 , 0 ) ; ___( pbf ) ;
+    {
+    for(;;)
+    ZE( countT , cbr ) ;
+    ZE( countT , cbf ) ;
+    ZE( byteT* , pbf ) ;
+    
+    if( !psttNameTo ) { etThread.strMakeF( tinP , psttNameTo , psttNameFrom ) ; ___( psttNameTo ) ; }
+    
+    if( psttNameOn ) nnOn = etThread.sockNicNameF( tinP , psttNameOn ) ;
+    nicNameC nnOn ;
+{
+if( psttNameFrom )
+
+}
+    }
+        }
+            default: { __( idArm ) ; }
+            case 3 : { idArm = 0 ; etThread.delF( tinP , psttNameOn   ) ; etThread.strMakeF( tinP , psttNameOn   , psttc1 ) ; ___( psttNameOn   ) ;  break ; }
+            case 2 : { idArm = 0 ; etThread.delF( tinP , psttNameFrom ) ; etThread.strMakeF( tinP , psttNameFrom , psttc1 ) ; ___( psttNameFrom ) ;  break ; }
+            case 1 : { idArm = 0 ; etThread.delF( tinP , psttNameTo   ) ; etThread.strMakeF( tinP , psttNameTo   , psttc1 ) ; ___( psttNameTo   ) ;  break ; }
+            }
+                break ;
+                else if( !etThread.strCompareF( tinP , psttc1 , tOn   ) ) idArm = 3 ;
+                else if( !etThread.strCompareF( tinP , psttc1 , tFrom ) ) idArm = 2 ;
+                     if( !etThread.strCompareF( tinP , psttc1 , tTo   ) ) idArm = 1 ;
+            {
+            case 0 :
+        {
+        switch( idArm )
+        
+        etThread.strokeF( tinP , T("parm: \"")+T(psttc1)+T("\"\r\n") ) ;
+    {
+    FORsTRINGSiN1( pstt1pp )
+    strokeS*& pstt1pp = etThread.ether_pstt1_processParametersI_F( tinP ) ;
+    ZE( countT , idArm ) ;
+    TN( tOn   , "!on" ) ;
+    TN( tFrom , "!from" ) ;
+    TN( tTo   , "!to" ) ;
+{
+ZE( strokeS* , psttNameOn   ) ;
+ZE( strokeS* , psttNameFrom ) ;
+ZE( strokeS* , psttNameTo   ) ;
+
+TODO
+
+}
+    etherP.strokeF( tinP , T("got it\r\n") ) ;
+    sIn.shiftRightF( tinP , pbP , cbP ) ; ___( pbP ) ;
+    sIn >> cbrP ;
+    
+    sock.readF( tinP , sIn ) ;
+    soulC sIn( tinP , TAG( TAGiDnULL ) ) ;
+    
+    sock.writeF( tinP , sOut ) ;
+    etherP.strokeF( tinP , T("requesting \"")+T(psttP)+T("\" offset ")+TF1(offP)+T("\r\n") ) ;
+    sock.connectF( tinP , ifcPORToLD2_IFCfTP , nnOnP , 0 , TOCK * 0x20 ) ;
+    etherP.strokeF( tinP , T("connecting\r\n") ) ;
+    socketC sock( tinP , etherP , TAG( TAGiDnULL ) ) ;
+
+    sOut << cbwP ;
+    sOut << offP ;
+    sOut << psttP ;
+    soulC sOut( tinP , TAG( TAGiDnULL ) ) ;
+{
+voidT getF( tinS& tinP , etherC& etherP , byteT*& pbP , countT& cbP , countT& cbrP , const strokeS* const psttP , nicNameC& nnOnP , const countT offP = 0 , const countT cbwP = - 1 )
+
+#define CBeACH 0x10000
+
+/*1*/WAKEhIDE( "tool.client.blob" )/*1*/
+/**/
+*/
+/*
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 25 years.
+//
+// Copyright (c) 1992-2019 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+

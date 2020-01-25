@@ -1,0 +1,81 @@
+
+//
+// Copyright (c) 1992-2019 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 25 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+
+;
+    parm [eax] [ebx] [ecx] [edx]                                                                                                                                                                                                                            \
+                                                                                                                                                                                                                                                            \
+    "           fstp dword ptr 020h[eax]                 " /* COS(-H)                                   SIN(-H)                 COS(E)           SIN(E)           COS(B)           SIN(B)                                                             */    \
+    "           fmul st(0) , st(1)                       " /* COS(E)*COS(-H)                            COS(-H)                 SIN(-H)          COS(E)           SIN(E)           COS(B)           SIN(B)                                            */    \
+    "           fld st(2)                                " /* COS(E)                                    COS(-H)                 SIN(-H)          COS(E)           SIN(E)           COS(B)           SIN(B)                                            */    \
+    "           fstp dword ptr 018h[eax]                 " /* COS(-H)                                   SIN(-H)                 COS(E)           SIN(E)           COS(B)           SIN(B)                                                             */    \
+    "           fchs                                     " /* -COS(E)*SIN(-H)                           COS(-H)                 SIN(-H)          COS(E)           SIN(E)           COS(B)           SIN(B)                                            */    \
+    "           fmul st(0) , st(2)                       " /* COS(E)*SIN(-H)                            COS(-H)                 SIN(-H)          COS(E)           SIN(E)           COS(B)           SIN(B)                                            */    \
+    "           fld st(2)                                " /* COS(E)                                    COS(-H)                 SIN(-H)          COS(E)           SIN(E)           COS(B)           SIN(B)                                            */    \
+    "           fstp dword ptr 04h[eax]                  " /* COS(-H)                                   SIN(-H)                 COS(E)           SIN(E)           COS(B)           SIN(B)                                                             */    \
+    "           fchs                                     " /* -SIN(B)*COS(E)                            COS(-H)                 SIN(-H)          COS(E)           SIN(E)           COS(B)           SIN(B)                                            */    \
+    "           fmul st(0) , st(3)                       " /* SIN(B)*COS(E)                             COS(-H)                 SIN(-H)          COS(E)           SIN(E)           COS(B)           SIN(B)                                            */    \
+    "           fld st(5)                                " /* SIN(B)                                    COS(-H)                 SIN(-H)          COS(E)           SIN(E)           COS(B)           SIN(B)                                            */    \
+    "           fincstp                                  " /* COS(-H)                                   SIN(-H)                 COS(E)           SIN(E)           COS(B)           SIN(B)                                                             */    \
+    "           ffree st(0)                              " /* [f]                                       COS(-H)                 SIN(-H)          COS(E)           SIN(E)           COS(B)           SIN(B)                                            */    \
+    "           fstp dword ptr 08h[eax]                  " /* SIN(E)*SIN(B)*COS(-H)                     COS(-H)                 SIN(-H)          COS(E)           SIN(E)           COS(B)           SIN(B)                                            */    \
+    "           fadd st(0) , st(1)                       " /* COS(B)*SIN(-H)+SIN(E)*SIN(B)*COS(-H)      SIN(E)*SIN(B)*COS(-H)   COS(-H)          SIN(-H)          COS(E)           SIN(E)           COS(B)                   SIN(B)                   */    \
+    "           fmul st(0) , st(3)                       " /* COS(B)*SIN(-H)                            SIN(E)*SIN(B)*COS(-H)   COS(-H)          SIN(-H)          COS(E)           SIN(E)           COS(B)                   SIN(B)                   */    \
+    "           fld st(5)                                " /* COS(B)                                    SIN(E)*SIN(B)*COS(-H)   COS(-H)          SIN(-H)          COS(E)           SIN(E)           COS(B)                   SIN(B)                   */    \
+    "           fmul st(0) , st(1)                       " /* SIN(E)*SIN(B)*COS(-H)                     COS(-H)                 SIN(-H)          COS(E)           SIN(E)           COS(B)           SIN(B)                                            */    \
+    "           fmul st(0) , st(6)                       " /* SIN(E)*SIN(B)                             COS(-H)                 SIN(-H)          COS(E)           SIN(E)           COS(B)           SIN(B)                                            */    \
+    "           fst dword ptr 01ch[eax]                  " /* |                                                                                                                                                                                       */    \
+    "           fld st(3)                                " /* SIN(E)                                    COS(-H)                 SIN(-H)          COS(E)           SIN(E)           COS(B)           SIN(B)                                            */    \
+    "           fincstp                                  " /* COS(-H)                                   SIN(-H)                 COS(E)           SIN(E)           COS(B)           SIN(B)                                                             */    \
+    "           ffree st(0)                              " /* [f]                                       COS(-H)                 SIN(-H)          COS(E)           SIN(E)           COS(B)           SIN(B)                                            */    \
+    "           fstp dword ptr 0ch[eax]                  " /* COS(B)*SIN(E)*SIN(-H)                     COS(-H)                 SIN(-H)          COS(E)           SIN(E)           COS(B)           SIN(B)                                            */    \
+    "           fadd st(0) , st(1)                       " /* SIN(B)*COS(-H)+COS(B)*SIN(E)*SIN(-H)      COS(B)*SIN(E)*SIN(-H)   COS(-H)          SIN(-H)          COS(E)           SIN(E)           COS(B)                   SIN(B)                   */    \
+    "           fmul st(0) , st(2)                       " /* SIN(B)*COS(-H)                            COS(B)*SIN(E)*SIN(-H)   COS(-H)          SIN(-H)          COS(E)           SIN(E)           COS(B)                   SIN(B)                   */    \
+    "           fld st(6)                                " /* SIN(B)                                    COS(B)*SIN(E)*SIN(-H)   COS(-H)          SIN(-H)          COS(E)           SIN(E)           COS(B)                   SIN(B)                   */    \
+    "           fmul st(0) , st(2)                       " /* COS(B)*SIN(E)*SIN(-H)                     COS(-H)                 SIN(-H)          COS(E)           SIN(E)           COS(B)           SIN(B)                                            */    \
+    "           fdiv st(0) , st(1)                       " /* COS(B)*SIN(E)                             COS(-H)                 SIN(-H)          COS(E)           SIN(E)           COS(B)           SIN(B)                                            */    \
+    "           fstp dword ptr 014h[eax]                 " /* COS(B)*SIN(E)*COS(-H)                     COS(-H)                 SIN(-H)          COS(E)           SIN(E)           COS(B)           SIN(B)                                            */    \
+    "           fsub st(0) , st(1)                       " /* SIN(B)*SIN(-H)-COS(B)*SIN(E)*COS(-H)      COS(B)*SIN(E)*COS(-H)   COS(-H)          SIN(-H)          COS(E)           SIN(E)           COS(B)                   SIN(B)                   */    \
+    "           fmul st(0) , st(3)                       " /* SIN(B)*SIN(-H)                            COS(B)*SIN(E)*COS(-H)   COS(-H)          SIN(-H)          COS(E)           SIN(E)           COS(B)                   SIN(B)                   */    \
+    "           fld st(6)                                " /* SIN(B)                                    COS(B)*SIN(E)*COS(-H)   COS(-H)          SIN(-H)          COS(E)           SIN(E)           COS(B)                   SIN(B)                   */    \
+    "           fmul st(0) , st(4)                       " /* COS(B)*SIN(E)*COS(-H)                     COS(-H)                 SIN(-H)          COS(E)           SIN(E)           COS(B)           SIN(B)                                            */    \
+    "           fstp dword ptr 0h[eax]                   " /* COS(B)*COS(-H)                            COS(-H)                 SIN(-H)          COS(E)           SIN(E)           COS(B)           SIN(B)                                            */    \
+    "           fsubr st(0) , st(1)                      " /* COS(B)*COS(-H)-SIN(B)*SIN(E)*SIN(-H)      COS(B)*COS(-H)          COS(-H)          SIN(-H)          COS(E)           SIN(E)           COS(B)                   SIN(B)                   */    \
+    "           fmul st(0) , st(3)                       " /* SIN(B)*SIN(E)*SIN(-H)                     COS(B)*COS(-H)          COS(-H)          SIN(-H)          COS(E)           SIN(E)           COS(B)                   SIN(B)                   */    \
+    "           fmul st(0) , st(5)                       " /* SIN(B)*SIN(E)                             COS(B)*COS(-H)          COS(-H)          SIN(-H)          COS(E)           SIN(E)           COS(B)                   SIN(B)                   */    \
+    "           fld st(6)                                " /* SIN(B)                                    COS(B)*COS(-H)          COS(-H)          SIN(-H)          COS(E)           SIN(E)           COS(B)                   SIN(B)                   */    \
+    "           fmul st(0) , st(1)                       " /* COS(B)*COS(-H)                            COS(-H)                 SIN(-H)          COS(E)           SIN(E)           COS(B)           SIN(B)                                            */    \
+    "           fld st(4)                                " /* COS(B)                                    COS(-H)                 SIN(-H)          COS(E)           SIN(E)           COS(B)           SIN(B)                                            */    \
+    "           fstp dword ptr 010h[eax]                 " /* COS(-H)                                   SIN(-H)                 COS(E)           SIN(E)           COS(B)           SIN(B)                                                             */    \
+    "           fmul st(0) , st(3)                       " /* COS(B)*COS(E)                             COS(-H)                 SIN(-H)          COS(E)           SIN(E)           COS(B)           SIN(B)                                            */    \
+    "           fld st(4)                                " /* COS(B)                                    COS(-H)                 SIN(-H)          COS(E)           SIN(E)           COS(B)           SIN(B)                                            */    \
+    "           fsincos                                  " /* COS(-H)                                   SIN(-H)                 COS(E)           SIN(E)           COS(B)           SIN(B)                                                             */    \
+    "           fchs                                     " /* -H                                        COS(E)                  SIN(E)           COS(B)           SIN(B)                                                                              */    \
+    "           fld dword ptr [ebx]                      " /* H                                         COS(E)                  SIN(E)           COS(B)           SIN(B)                                                                              */    \
+    "           fsincos                                  " /* COS(E)                                    SIN(E)                  COS(B)           SIN(B)                                                                                               */    \
+    "           fld dword ptr [ecx]                      " /* E                                                                 COS(B)           SIN(B)                                                                                               */    \
+    "           fsincos                                  " /* COS(B)                                    SIN(B)                                                                                                                                        */    \
+    "           fld dword ptr [edx]                      " /* B                                                                                                                                                                                       */    \
+    "           finit                                    " /*                                                                                                                                                                                         */    \
+    "                                                    " /* 0                                         1                       2                3                4                5                6                        7                        */    \
+                                                                                                                                                                                                                                                            \
+#pragma aux rotationAM =                                                                                                                                                                                                                                    \
+
+/*1*/voidT __export rotationAM( measureT* pmRP , const measureT* pmaHeadingP , const measureT* pmaElevationP , const measureT* pmaBankP ) ;/*1*/
+
+/**/
+*/
+/*
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 25 years.
+//
+// Copyright (c) 1992-2019 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+

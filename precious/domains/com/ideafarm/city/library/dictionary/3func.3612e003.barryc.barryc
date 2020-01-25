@@ -1,0 +1,117 @@
+
+//
+// Copyright (c) 1992-2019 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 25 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+
+}
+    bitsPerField = 1 << expBitsPerField ;
+
+    countsPerBook = 1 << expCountsPerBook ;
+    expCountsPerBook = expBytesPerBookP - expBytesPerCount ;
+
+    fieldsPerCount = 1 << expFieldsPerCount ;
+    expFieldsPerCount = expBitsPerCount - expBitsPerField ;
+
+    }
+        }
+            __( hBitBook.c2F() - idb ) ;
+            __NZ( hBitBook.c1F() ) ;
+            __( hBitBook.cNote1F() - cBytesPerBook ) ;
+
+            }
+                pBksBits->writeF( tinP , hBitBookLath , &bLath , sizeof bLath ) ;
+                ZE( byteT , bLath ) ;
+                handle0111C hBitBookLath ;
+            {
+            if( idb < cBooksNeeded )
+
+            pBksBits->writeF( tinP , hBitBook , 0 , 0 , 0 , 0 , flBOOKScwRITE_SETrEMAINING ) ;
+            handle0111C hBitBook ;
+        {
+        for( countT idb = 1 ; idb <= cBooksNeeded ; idb ++ )
+
+        pBksBits = new( 0 , tinP , pbBksBits , sizeof pbBksBits ) booksC( tinP , TAG( TAGiDnULL ) , T("barryC.")+TF2((countT)this,flFORMAT_UNSIGNED|flFORMAT_NObIGITvALUES)+T(".")+TF2(tinP.osPid,flFORMAT_UNSIGNED|flFORMAT_NObIGITvALUES)+T(".")+TF2(tinP.monitor.idThread,flFORMAT_UNSIGNED|flFORMAT_NObIGITvALUES) , ifcIDsTATEsPACE_SCRATCH , /*flBOOKSc_LOCK |*/ flBOOKSc_DOnOTiNITIALIZEdATA | flBOOKSc_WRITER | flBOOKSc_PURGEoNcT | flBOOKSc_PURGEoNdT , cBytesPerBook + 1 , 3 ) ; // 1 EXTRA BYTE IS ALLOCATED THAT WILL NEVER BE WRITTEN TO, SO THAT CREATION OF ANOTHER BOOK IS AVOIDED
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      //20170109@1746: ", 3" ADDED TO KEEP 3 INACTIVE AFTER INSPECTING LOG
+        /*const countT*/ cBytesPerBook = 1 << expBytesPerBookP ;
+
+        /*const countT*/ cBooksNeeded = 1 << expBooksNeeded ;
+
+        /*const countT*/ expBooksNeeded = expBytesNeeded - expBytesPerBookP ;
+
+        if( expBytesPerBookP > expBytesNeeded ) expBytesPerBookP = expBytesNeeded ;
+
+        ;
+            : 0
+            ? expBitsNeeded - expBitsPerByte
+        /*const countT*/ expBytesNeeded = expBitsNeeded > expBitsPerByte
+        /*const countT*/ expBitsNeeded = ( cBitsIndex ? cBitsIndex : 1 << expBitsPerCount ) + expBitsPerFieldP ;
+    {
+    if( !POOP )
+
+    ZE( countT , cBytesPerBook ) ;
+    ZE( countT , cBooksNeeded ) ;
+    ZE( countT , expBooksNeeded ) ;
+    ZE( countT , expBytesNeeded ) ;
+    ZE( countT , expBitsNeeded ) ;
+
+    __( expBitsPerFieldP > expBitsPerCount ) ; //FOR EFFICIENCY AND SIMPLICITY, I ONLY SUPPORT FIELDS THAT FIT WITHIN A countT
+
+    const countT expBitsPerCount = expBitsPerByte + expBytesPerCount ;
+
+    while( 1 << expBytesPerCount < sizeof( countT ) ) ++ expBytesPerCount ; //A:ASSUME: sizeof( countT ) IS A POWER OF 2
+
+    while( 1 << expBitsPerByte < SB ) ++ expBitsPerByte ; //A:ASSUME: SB IS A POWER OF 2
+    ZE( countT , expBitsPerByte ) ;
+
+    }
+        if( POOP ) return ;
+        __( expBytesPerBookP < 0x10 ) ; //TO PREVENT UNINTENTIONAL CREATION OF A HUGE NUMBER OF TINY BACKING FILES
+        if( POOP ) return ;
+    {
+    IFbEcAREFUL
+
+    //if(  expBytesPerBookP > 0x1d ) expBytesPerBookP = 0x1d ; // THIS IS 02 TICKS, WHICH IS 1/4 OF TOTAL APPLICATION ADDRESS SPACE ; BIG ENOUGH FOR countT ARRAY OF 1 BIT ; #BOOKS WILL EQUAL THE NUMBER OF BITS IN EACH FIELD (ARRAY ELEMENT)
+    //if( !expBytesPerBookP ) expBytesPerBookP = 0x1d + expBitsPerFieldP ; // ACCOMODATES ENTIRE countT INDEX RANGE IN A SINGLE BOOK
+
+    if(  expBytesPerBookP > 0x1b ) expBytesPerBookP = 0x1b ; // THIS IS 8 TICKS, WHICH IS 1/16 OF TOTAL APPLICATION ADDRESS SPACE ; BIG ENOUGH FOR countT ARRAY OF 1 BIT ; #BOOKS WILL EQUAL THE NUMBER OF BITS IN EACH FIELD (ARRAY ELEMENT)
+    if( !expBytesPerBookP ) expBytesPerBookP = 0x1b + expBitsPerFieldP ; // ACCOMODATES ENTIRE countT INDEX RANGE IN 4 BOOK
+{
+cBitsIndex( cBitsIndexP )
+countsPerBook( 0 ) ,
+expCountsPerBook( 0 ) ,
+fieldsPerCount( 0 ) ,
+expFieldsPerCount( 0 ) ,
+bitsPerField( 0 ) ,
+expBytesPerCount( 0 ) ,
+expBitsPerField( expBitsPerFieldP ) ,
+pBksBits( 0 ) ,
+/*1*/barryC::barryC( tinS& tinP , const countT expBitsPerFieldP , countT cBitsIndexP , countT expBytesPerBookP ) :/*1*/
+
+/**/
+
+*/
+   bits per field must not exceed the number of bits in a countT
+   if 0 then 1 bit is allocated for each field
+  bits per array field
+ expBitsPerFieldP
+  0x1d results in 1 book needed if each field is a single bit
+   random access to multiple books is much slower because only 1 book is kept open at a time
+  specify 0 to use default unless address space is in short supply or access will be sequential
+  if not 0 then must be >= 0x10
+  if 0 then default is used
+ expBytesPerBookP
+ tinP
+parameters
+/*
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 25 years.
+//
+// Copyright (c) 1992-2019 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+

@@ -1,0 +1,69 @@
+
+//
+// Copyright (c) 1992-2019 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 25 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+
+DONE( tmMakeTraysF )
+}
+    TELL( "tmMakeTraysF: cleaning up" )
+    soDn.writeF( tinP , sNull ) ;
+    soulC sNull( tinP , TAG( TAGiDnULL ) ) ;
+    TELL( "writing downward a null tray" )
+
+    }
+        if( bFail || !sData ) break ;
+
+        soDn.writeF( tinP , sTray ) ; // CAN SET IMPOTENCE IF CLIENT IS GONE
+        TELL( "writing downward a tray containing a course containing data notes codes" )
+        sTray << sCourse ;
+        soulC sTray( tinP , TAG( TAGiDnULL ) , flSOUL_null , ifcIDcMDsESSION_JOBrEPLY ) ;
+
+        sCourse << sNotesData ;
+        sCourse << sNotesText ;
+        sCourse << sData ;
+        sCourse << sCodes ;
+        soulC sCourse( tinP , TAG( TAGiDnULL ) ) ;
+
+        sCodes << (countT)( bFail           ? ifcIDeRRORjOBcOURSE_JOBdONEwITHeRRORSsTATEaOK : ifcIDeRRORjOBcOURSE_JOBdONEaOK     ) ; /*U: AM LYING HERE SINCE STATE MIGHT HAVE BEEN CORRUPTED*/
+        sCodes << (countT)( bFail || !sData ? ifcIDrEPLYjOBcOURSE_FINALcOURSE               : ifcIDrEPLYjOBcOURSE_NONfINALcOURSE ) ;
+        sCodes << (countT)1 ; // idVersion
+        TELL( "filling a course soulC with data, notes, codes, and then putting this course into a tray" )
+
+        etThread = 0 ;
+        boolT bFail = etThread ;
+        (*jobFillCourseF)( tinP , ether , etThread , sData , sNotesText , sNotesData , ++ idCourse , idAdam , idChatSession , sOrder , cArg , c8arg ) ;
+        soulC sNotesData( tinP , TAG( TAGiDnULL ) ) ;
+        soulC sNotesText( tinP , TAG( TAGiDnULL ) ) ;
+        soulC sData( tinP , TAG( TAGiDnULL ) ) ;
+        soulC sCodes( tinP , TAG( TAGiDnULL ) ) ;
+        TELL( "calling handler so that it can inspect the order and fill data and notes soulC objects" )
+    {
+    while( !etThread )
+    ZE( countT , idCourse ) ;
+
+    countT   idChatSession         =                  pTaskP->c7 ;
+    jobFillCourseFT jobFillCourseF = (jobFillCourseFT)pTaskP->c6 ;
+    count8S& c8arg                 =       *(count8S*)pTaskP->c5 ;
+    countT&  cArg                  =        *(countT*)pTaskP->c4 ;
+    countT   idAdam                =                  pTaskP->c3 ;
+    soulC&   sOrder                =         *(soulC*)pTaskP->c2 ;
+    socketC& soDn                  =       *(socketC*)pTaskP->c1 ;
+    TELL( "setting up" )
+{
+if( pTaskP && pTaskP->c1 && pTaskP->c2 && pTaskP->c3 && pTaskP->c4 && pTaskP->c5 && pTaskP->c6 && pTaskP->c7 )
+/*1*/TASK( tmMakeTraysF )/*1*/
+/**/
+*/
+/*
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 25 years.
+//
+// Copyright (c) 1992-2019 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+

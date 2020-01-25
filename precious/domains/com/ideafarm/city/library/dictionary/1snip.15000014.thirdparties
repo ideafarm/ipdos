@@ -1,0 +1,203 @@
+
+//
+// Copyright (c) 1992-2019 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 25 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+
+#endif
+
+    #endif
+
+
+
+        // *****************************************************************************************************************************************
+        // *****************************************************************************************************************************************
+        // *****************************************************************************************************************************************
+        // *****************************************************************************************************************************************
+        // ********                   **************************************************************************************************************
+        // ********  zlib (END)       **************************************************************************************************************
+        // ********                   **************************************************************************************************************
+        // *****************************************************************************************************************************************
+        // *****************************************************************************************************************************************
+        // *****************************************************************************************************************************************
+        // *****************************************************************************************************************************************
+
+        //----------------------------------------------------- END
+
+        extern "C" typedef int (__stdcall *zlib_inflateEndFT  )( z_streamp strm ) ;
+        extern "C" typedef int (__stdcall *zlib_inflateFT     )( z_streamp strm , int level ) ;
+        extern "C" typedef int (__stdcall *zlib_inflateInit2FT)( z_streamp strm , int  windowBits , const char *version , int stream_size ) ;
+        extern "C" typedef int (__stdcall *zlib_inflateInitFT )( z_streamp strm , const char *version , int stream_size ) ;
+        extern "C" typedef int (__stdcall *zlib_deflateEndFT  )( z_streamp strm ) ;
+        extern "C" typedef int (__stdcall *zlib_deflateFT     )( z_streamp strm , int level , const char *version , int stream_size ) ;
+        extern "C" typedef int (__stdcall *zlib_deflateInitFT )( z_streamp strm , int level , const char *version , int stream_size ) ;
+
+        //----------------------------------------------------- BEGIN
+
+        #include "d:\ideafarm.home.1\precious\domains\com\ideafarm\city\workshop\zlib\unzipped.zlib123\zlib.h"
+
+        // - BUT IT'S A BIT OF A PAIN IN THE ASS (PITA) TO SET UP EACH API
+        // * WILL ENABLE AN IDEAFARM HOME TO HAVE "FEATURES" THAT CAN BE ENABLED OR DISABLED, AND YOU PAY ONLY FOR WHAT YOU USE (LOAD TIME, DISK SPACE)
+        // * APP CODE NEVER HAS TO DEAL WITH POINTERS TO FUNCTIONS BECAUSE THEY ARE ALL WRAPPED BY thirdC MEMBERS
+        // * DON'T NEED TO WORRY ABOUT HEADER/COMPIER INCOMPATIBILITIES
+        // THIS MIGHT BE A BETTER WAY TO BUILD THIRD PARTY FUNCTIONALITY INTO IPDOS (tm)
+        // LINKED DYNAMICALLY BECAUSE zlib HEADERS DON'T WORK WITH OpenWatcom COMPILER
+
+        // *****************************************************************************************************************************************
+        // *****************************************************************************************************************************************
+        // *****************************************************************************************************************************************
+        // *****************************************************************************************************************************************
+        // ********                   **************************************************************************************************************
+        // ********  zlib (BEGIN)     **************************************************************************************************************
+        // ********                   **************************************************************************************************************
+        // *****************************************************************************************************************************************
+        // *****************************************************************************************************************************************
+        // *****************************************************************************************************************************************
+        // *****************************************************************************************************************************************
+
+        // *****************************************************************************************************************************************
+        // *****************************************************************************************************************************************
+        // *****************************************************************************************************************************************
+        // *****************************************************************************************************************************************
+        // ********                   **************************************************************************************************************
+        // ********  OpenSSL (END)    **************************************************************************************************************
+        // ********                   **************************************************************************************************************
+        // *****************************************************************************************************************************************
+        // *****************************************************************************************************************************************
+        // *****************************************************************************************************************************************
+        // *****************************************************************************************************************************************
+
+        //----------------------------------------------------- END
+
+        typedef int               (__syscall *openSsl_pShutdownFT     )( SSL* pWrapP )                                                                         ; // int SSL_shutdown(SSL *ssl);
+
+        typedef int               (__syscall *openSsl_pReadFT         )( SSL* pWrapP , void* pbP , int cbP )                                                   ; // int SSL_read(SSL *ssl, void *buf, int num);
+
+        typedef int               (__syscall *openSsl_pWriteFT        )( SSL* pWrapP , const void* pbP , int cbP )                                             ; // int SSL_write(SSL *ssl, const void *buf, int num);
+
+        typedef int               (__syscall *openSsl_pConnectShakeFT )( SSL* pWrapP )                                                                         ; // int SSL_connect(SSL *ssl);
+
+        typedef int               (__syscall *openSsl_pAcceptShakeFT  )( SSL* pWrapP )                                                                         ; // int SSL_accept(SSL *ssl);
+
+        typedef int               (__syscall *openSsl_pWrapFT         )( SSL* pWrapP , int hSockP )                                                            ; // int SSL_set_fd(SSL *ssl, int fd);
+
+        typedef void              (__syscall *openSsl_pWrapperFreeFT  )( SSL* pWrapP )                                                                         ; // void SSL_free(SSL *ssl);
+
+        typedef SSL*              (__syscall *openSsl_pWrapperFT      )( SSL_CTX* pContextP )                                                                  ; // SSL *SSL_new(SSL_CTX *ctx) ;
+
+        typedef void              (__syscall *openSsl_pContextFreeFT  )( SSL_CTX* pContextP )                                                                  ; // void SSL_CTX_free(SSL_CTX *ctx) ;
+
+        typedef SSL_CTX*          (__syscall *openSsl_pContextFT      )( const SSL_METHOD* pMethodP )                                                          ; // SSL_CTX* __syscall SSL_CTX_new( const SSL_METHOD* method ) ;
+
+        typedef int               (__syscall *openSsl_pInitFT         )( void )                                                                                ; // int __syscall SSL_library_init( void ) ;
+
+        typedef const SSL_METHOD* (__syscall *openSsl_pMethodFT       )( void )                                                                                ; // const SSL_METHOD *SSLv23_method(void);  /* SSLv3 but can rollback to v2 */
+
+        typedef int               (__syscall *openSsl_pGetError2FT    )( const char** ppostFileP , int* pIdLineP , const char** ppostDaataP , int* pOsFlagsP ) ; // unsigned long ERR_get_error_line_data(const char **file, int *line, const char **data, int *flags);
+
+        typedef int               (__syscall *openSsl_pGetError1FT    )( const SSL* pWrapP , int rcP )                                                         ; // int SSL_get_error( const SSL *ssl , int ret ) ;
+
+        //CS:CODEsYNC:DUPLICATED: 15000014 01000002
+
+        //----------------------------------------------------- BEGIN
+
+        #endif
+            #include "d:\ideafarm.home.1\precious\domains\com\ideafarm\city\workshop\openssl\include\openssl\ssl.h"
+        #else
+            #include "d:\ideafarm.home.1\precious\domains\com\ideafarm\city\workshop\openssl\include\openssl\ssl.h"
+        #if defined( HOMEdRIVEiS_i )
+
+        // - BUT IT'S A BIT OF A PAIN IN THE ASS (PITA) TO SET UP EACH API
+        // * WILL ENABLE AN IDEAFARM HOME TO HAVE "FEATURES" THAT CAN BE ENABLED OR DISABLED, AND YOU PAY ONLY FOR WHAT YOU USE (LOAD TIME, DISK SPACE)
+        // * APP CODE NEVER HAS TO DEAL WITH POINTERS TO FUNCTIONS BECAUSE THEY ARE ALL WRAPPED BY thirdC MEMBERS
+        // * DON'T NEED TO WORRY ABOUT HEADER/COMPIER INCOMPATIBILITIES
+        // THIS MIGHT BE A BETTER WAY TO BUILD THIRD PARTY FUNCTIONALITY INTO IPDOS (tm)
+        // LINKED DYNAMICALLY BECAUSE OpenSSL HEADERS DON'T WORK WITH OpenWatcom COMPILER
+
+        // *****************************************************************************************************************************************
+        // *****************************************************************************************************************************************
+        // *****************************************************************************************************************************************
+        // *****************************************************************************************************************************************
+        // ********                   **************************************************************************************************************
+        // ********  OpenSSL (BEGIN)  **************************************************************************************************************
+        // ********                   **************************************************************************************************************
+        // *****************************************************************************************************************************************
+        // *****************************************************************************************************************************************
+        // *****************************************************************************************************************************************
+        // *****************************************************************************************************************************************
+
+        extern "C" BOOL __stdcall K32QueryWorkingSetEx( HANDLE hProcess , PVOID pv , DWORD cb ) ;
+        extern "C" BOOL __stdcall    QueryWorkingSetEx( HANDLE hProcess , PVOID pv , DWORD cb ) ;
+
+        #include <userenv.h>
+        //#include <multimon.h>
+        #include <ntsecapi>
+        #include <shlwapi.h>
+        //#include <conio.h>
+        #include <psapi.h>
+        #include <windows.h>
+        //#include <winsock2.h>
+
+        #define _WIN32_WINNT _WIN32_WINNT_WS08
+        //#define _WIN32_WINNT _WIN32_WINNT_WIN7
+
+        #undef  _WIN32_WINNT
+
+        #define NTDDI_VERSION NTDDI_WS08
+        //#define NTDDI_VERSION NTDDI_WIN7
+
+        #undef  NTDDI_VERSION
+
+        #define PSAPI_VERSION 1
+        #undef  PSAPI_VERSION
+
+    #elif defined( __NT__ )
+
+        #include <socket.h>
+        #include <un.h>
+        #include <in.h> 
+        #include <types.h>
+        #include <netdb.h>
+        #include <os2.h>
+        #define  INCL_DOSSESMGR
+        #define  INCL_DOSSEMAPHORES
+        #define  INCL_DOSPROCESS
+        #define  INCL_DOSNMPIPES
+        #define  INCL_DOSMODULEMGR
+        #define  INCL_DOSMISC
+        #define  INCL_DOSMEMMGR
+        #define  INCL_DOSFILEMGR
+        #define  INCL_DOSEXCEPTIONS
+        #define  INCL_DOSERRORS
+
+    #ifdef __OS2__
+
+    #include <time.h>
+    #include <stdlib.h>
+    #include <process.h>
+    #include <math.h>
+    #include <malloc.h>
+    #include <stdio.h>
+    #include <conio.h>
+
+#if defined( ifcENABLEtHIRDpARTIES )
+
+//conio ADDED TO ALLOW USE OF getch; CONJ: REDUNDANT AND SHOULD NOT HAVE BEEN ADDED
+
+/*1*//*define and include statements for base operating system*//*1*/
+/**/
+*/
+it is illegal to refer to this symbol in the definition of an adam
+\<A HREF=\"5.15000014.1.0.html\"\>definition\</A\>
+/*
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 25 years.
+//
+// Copyright (c) 1992-2019 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+

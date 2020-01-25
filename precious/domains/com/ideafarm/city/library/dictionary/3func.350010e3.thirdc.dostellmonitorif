@@ -1,0 +1,143 @@
+
+//
+// Copyright (c) 1992-2019 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 25 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+
+}
+    }
+        //}
+        //    if( F(tinP.flagsThreadMode1) & flTHREADmODE1_SUPPRESStELLmONITOR ) POPUP( TF1(processGlobal1I.idAdamRoot)+T(": tell is suppressed for the thread") ) ;
+        //    if( F(processGlobal1I._thirdC_flagsModeProcess2)    & flMODEpROCESS2_SUPPRESStELLS           ) POPUP( TF1(processGlobal1I.idAdamRoot)+T(": tell is suppressed for the process") ) ;
+        //    _bWoth = 0 ;
+        //{
+        //else if( _bWoth ) //U::
+        }
+            _OUT_
+        
+            //U::COMMENTED OUT TO DEBUG A BUG: }
+            //U::COMMENTED OUT TO DEBUG A BUG:     }
+            //U::COMMENTED OUT TO DEBUG A BUG:         thirdC::dosSleepRawIF( tinP , 0x20 ) ; //U::PASS ebp INTO sleepC OBJECT SO THAT IT WON'T USE TINSL
+            //U::COMMENTED OUT TO DEBUG A BUG:         ++ s ;
+            //U::COMMENTED OUT TO DEBUG A BUG:     {
+            //U::COMMENTED OUT TO DEBUG A BUG:     while( head.ipMe )
+            //U::COMMENTED OUT TO DEBUG A BUG:     //while( head.ipMe ) { ++ s ; thirdC::dosSleepWinkIF( tinP ) ; }
+            //U::COMMENTED OUT TO DEBUG A BUG:     sleepC s( tinP , TAG( TAGiDnULL ) ) ;
+            //U::COMMENTED OUT TO DEBUG A BUG: {
+            //U::COMMENTED OUT TO DEBUG A BUG: tellS& head = *(tellS*)(byteT*)tellP ;
+    
+            #endif
+    
+                //}
+                //    countT idType = ((tellS*)(byteT*)tellP)->idType ;
+                //{
+                //if( F(processGlobal1I.flCt) & flCTdTg_THREADlOCALsTORAGE && !( F(processGlobal1I.flDt) & flCTdTg_THREADlOCALsTORAGE ) )
+                //U::
+    
+                THREADmODE1rESTORE
+                THREADmODE2rESTORE
+
+                processGlobal3I.bksTelemetry.writeF( tinP , tellP , tellP , 0 , 0 , flBOOKScwRITE_ALLoRnONE | flBOOKScwRITE_ELSEfILLtOeND | flBOOKScwRITE_HEADfINGER1 | flBOOKScwRITE_HEADiDfORMAT | flBOOKScwRITE_HEADcBdATA | flBOOKScwRITE_HEADfINGER2 | flBOOKScwRITE_TAILfINGER | flBOOKScwRITE_FLUSHbOOKhEADoNcHANGE | flBOOKScwRITE_FLUSHb4tAIL | flBOOKScwRITE_FLUSHaTpAGE ) ; //THESE FLAGS OPTIMIZE FOR DATA INTEGRITY AND WILL PRODUCE 1 DISK WRITE FOR EACH TELEMETRY EVENT PLUS A DISK WRITE AT THE END OF EACH PAGE
+
+                //20191006@1920: ENABLED TO TEST
+                //20180610@1819: DISABLED TO OPTIMIZE SPEED
+                //20180607@1731: ENABLED AFTER SEEING LAPTOP STARTUP FAIL TO PROGRESS FOR A LONG TIME IN ae5 (AND THEN PROGRESSING)
+                //20180228@0847: DISABLED TO OPTIMIZE SPEED, AFTER OBSERVING PRODUCTION RUNNING AOK THROUGH COMPLETE GENERATION AND PARTIAL UPLOADING OF ARCHIVE HTML
+                //20180209@1347: ENABLED AFTER ENHANCING poolC TO DIVERT REQUESTS TO A NEW heapC MEMBER OF processGlobal3I
+                //20180131@0447: DISABLED CONJ: CNR NONMONOTONIC GRAB BLAMMO
+                //20161112@1449: ENABLED TO DEBUG FACTORY SERVER
+                //U::20160711@1316: DISABLED TO ELIMINATE HUGE AMOUNT OF I/O CONJ: DUE TO EPHEMERAL THREADS
+                //U::20160525@0920: ENABLED BECAUSE NEED GLASS WALLS TO FIND OTHER BUGS
+                //U::20160524@0753: DISABLED; tmReportF FAILS WITH grabitC::ungrabF TRYING TO UNGRAB A BIT THAT IS NOT SET; IT'S ALWAYS THE SAME, ALWAYS WITHIN sexC::sexC, AND ALWAYS TAKES MORE THAN A DAY ; SAMEO USE FULL SERVER PUBLICATION CONFIGURATION ALL YEARS NO GMAIL
+                //U::20151116@1526: ENABLED IN THE HOPE THAT I WILL BE ABLE TO DEBUG THIS QUICKLY.  THIS IS A BASIC GLASS WALLS FEATURE; I WANT IT TO WORK SO THAT I CAN DEBUG QUIT QUALITY AND OTHER DEFECTS
+                //U::BUG: COMMENTED OUT IN PRODUCTION TO AVOID 6d9 BLAMMO DOCUMENTED IN booksC::writeF (SEE COMMENT CONTAINING: "20141206@0700: OBSERVED WITHIN ifcIDaDAM_CLOUD WHILE 3 INSTANCES EXISTED ; 20151026@2013: DITTO WHILE MORE THAN 3 EXISTED BUT ONLY WO WAS ACTIVE AT A TIME")
+                //U:: COMMENT OUT IN PRODUCTION ; ENABLED TO STUDY DEADLOCK IN GRAPHICS TEST ADAM
+                //U:: 20141206@2020: COMMENTED OUT BECAUSE SAW TELEMETRY OVERFLOW THE SCRATCH BUFFER ; ALSO, CLOUD ADMINISTRATION GENERATES LOTS OF TELEMETRY, WHICH WOULD FILL AVAILABLE HARD DRIVE SPACE
+
+                //CONoUTrAW3( "\r\nDosTellMonitorIF: calling bksTelemetry.writeF [idIn]: " , incv02AM( idInLath ) , "" ) ;
+                //static countT idInLath ;
+                /* ENABLE WHEN CONFIDENT THAT THIS WORKS RELIABLY OR WHEN NEED IT FOR DEBUGGING: */
+
+                // 2. tmEatTelemetryF READS FILL BYTES AS head.  CURRENT EATING CODE WILL DUMP THE HEAD BYTES TO LOG AND THEN EXCEPT.  FILL BYTE WAS CHANGED FROM 0xFF TO 0xEE BUT NOW CNR.  IT SAMEOD SEVERAL TIMES AT 5 CONVENTIONAL HOURS AND AT WOTH SEEMED TO BE AT WILL, BUT BECAME CNR WHEN THE FILL VALUE WAS CHANGED
+                // 1. THE TELEMETRY BOOK'S LAST MODIFIED TIMESTAMP STOPS ADVANCING, APPARENTLY INDICATING THAT WRITING TELEMETRY DEADLOCKS
+                //U:: THOROUGHLY BURN-IN TEST, LOOKING FOR THE FOLLOWING DEFECTS
+                //U:: SYSTEM FOR PURGING OLD VOLUMES OF THE BOOK SO THAT THE DISK USAGE DOES NOT GROW UNBOUNDEDLY
+
+                //CS:CODEsYNC: 0010506 102010a: THE TOTAL SIZE OF THE HEAD AND TAIL THAT I AM REQUESTING HERE IS HARDCODED IN 0010506
+                //CONoUTrAW( "." ) ;
+                //CONoUTrAW3( "tell [cb]: " , tellP , "\r\n" ) ;
+
+                //}
+                //    LOGrAW3( "cbMax is now " , cbMax , "\r\n" ) ;
+                //    CONoUTrAW3( "cbMax is now " , cbMax , "\r\n" ) ;
+                //    cbMax = tellP ;
+                //{
+                //if( cbMax < tellP )
+                //static countT cbMax ;
+    
+                //U:: }
+                //U::     ++ s ; thirdC::thirdWriteToMonitorIF( tinP , tellP , tellP ) ;
+                //U::     sleepC s( tinP , TAG( TAGiDnULL ) ) ;
+                //U:: {
+                //U:: COMMENTED OUT TO FIND A BUG: CONJ: SERVER WILL BE STABLE IF NOTHING IS WRITTEN TO THE MONITOR
+    
+                THREADmODE2oN( flTHREADmODE2_DISALLOWpUSE )
+                THREADmODE1oN( flTHREADmODE1_ALLOWsTOPwHILEgRABBING )
+    
+                //)
+                //    OutputDebugString( pbTell ) ;
+                //(
+                //OSm
+                //OBSOLETE
+    
+            #elif defined( __NT__ )
+                //U:
+            #if defined( __OS2__ )
+    
+            //byteT* pbTell = tellP ;
+                    
+            _INoLD_
+        
+            }
+                if( POOP ) return ;
+                __( !(byteT*)tellP ) ;
+                if( POOP ) return ;
+            {
+            IFbEcAREFUL
+        {
+        )
+            !( F(tinP.flagsThreadMode1) & flTHREADmODE1_SUPPRESStELLmONITOR )
+            !( F(processGlobal1I._thirdC_flagsModeProcess2)    & flMODEpROCESS2_SUPPRESStELLS      ) &&
+            !( F(home.flags)            & flHOMEs_SUPPRESStELLS             ) &&
+        (
+        if
+        homeS& home = homeS::homeIF() ;
+    
+        if( F(tinP.flagsThreadMode1) & flTHREADmODE1_DISALLOWtELLmONITOR ) { BLAMMO ; }
+    {
+    if( F(processGlobal1I.flCt) & flCTdTg_bksTelemetry && !( F(processGlobal1I.flDt) & flCTdTg_bksTelemetry ) )
+{
+/*1*/voidT thirdC::dosTellMonitorIF( tinS& tinP , const tellC& tellP )/*1*/
+
+//boolT _bWoth = 1 ; //U::
+
+/**/
+*/
+even in the system code, use TELLc1 or TELLc3 where practical
+use TELLc1 or TELLc3
+i work unconditionally (even if impotence has occured on this thread)
+it is illegal to refer to this symbol in the definition of an adam
+\<A HREF=\"5.102010a.1.0.html\"\>definition\</A\>
+\<A HREF=\"6.$dosTellMonitorIF.0.html\"\>instances\</A\>
+/*
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 25 years.
+//
+// Copyright (c) 1992-2019 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+

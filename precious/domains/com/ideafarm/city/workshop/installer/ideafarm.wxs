@@ -1,0 +1,38 @@
+<?xml version='1.0'?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+    <Product Id='{081CF8AB-956A-415F-9432-C7C95C692A67}' Name='IdeaFarm (tm) Piggyback Distributed Operating System' Language='1033' Version='1.0.0.0' Manufacturer="Wo'O Ideafarm" UpgradeCode='{E9527B12-DB42-4B5E-BA57-69F38217A3B5}'>
+        <Package Description='IdeaFarm (tm) Piggyback Distributed Operating System' Comments='See http://ideafarm.com' Manufacturer="Wo'O Ideafarm" InstallerVersion='200' Compressed='yes' />
+        <Media Id='1' Cabinet='product.cab' EmbedCab='yes' />
+        <Directory Id='TARGETDIR' Name='SourceDir'>
+            <Directory Id="ProgramMenuFolder">
+                <Directory Id="ApplicationProgramsFolder" Name="IdeaFarm (tm)"/>
+            </Directory>
+            <Directory Id='ProgramFilesFolder' Name='PFiles'>
+                <Directory Id='MyDir' Name='IdeaFarm (tm)'>
+                    <Directory Id='iddirectory' Name='service'>
+                        <Component Id='idcomponentservice' Guid='{9D29C7C6-43BD-43EE-B777-3C8B9369C50D}'>
+                            <File Id='idfileexe'    Name='ideafarm.service.ipdos.exe' DiskId='1' KeyPath='yes' Source='d:\\ideafarm.home.1\\ephemeral\\domains\\com\\ideafarm\\city\\workshop\\exe\\ideafarm.service.ipdos' Checksum='yes' Vital='yes' />
+                            <File Id='idfilereadme' Name='readme.txt'                 DiskId='1'               Source='d:\\ideafarm.home.1\\precious\\domains\\com\\ideafarm\\city\\workshop\\installer\\readme.txt'                       Vital='yes' />
+                            <ServiceInstall Id='idsiservice' Name='IPDOS (tm)' DisplayName='IdeaFarm (tm) Piggyback Distributed Operating System' Description='A general purpose computing environment for the C++ and SOIL (tm) programming languages.' Start='auto' Type='ownProcess' Vital='yes' ErrorControl='normal'>
+                                <ServiceConfig OnInstall='yes' DelayedAutoStart='yes' />
+                            </ServiceInstall>
+                            <ServiceControl Id='idsiservice' Name='IPDOS (tm)' Remove='uninstall' Start='install' />
+                        </Component>
+                    </Directory>
+                </Directory>
+            </Directory>
+        </Directory>
+        <DirectoryRef Id="ApplicationProgramsFolder">
+            <Component Id="ApplicationShortcut" Guid="{49AA3490-2AA0-4D3D-892F-5DC0B3381B45}">
+                <Shortcut Id="ApplicationStartMenuShortcut" Name="IdeaFarm (tm) Knowledge Tree" Description="Human Interface to IPDOS (tm)" Target="[iddirectory]ideafarm.service.ipdos.exe" WorkingDirectory="idcomponentservice" Show="minimized" />
+                <RemoveFolder Id="ApplicationProgramsFolder" On="uninstall" />
+                <RegistryValue Root="HKCU" Key="Software\IdeaFarm (tm)\IPDOS (tm)" Name="installed" Type="integer" Value="1" KeyPath="yes" />
+            </Component>
+        </DirectoryRef>
+        <Feature Id='idfeatureservice' Title='IdeaFarm (tm) Service' Level='1'>
+            <ComponentRef Id='idcomponentservice' />
+            <ComponentRef Id="ApplicationShortcut" />
+        </Feature>
+    </Product>
+</Wix>
+                                                               

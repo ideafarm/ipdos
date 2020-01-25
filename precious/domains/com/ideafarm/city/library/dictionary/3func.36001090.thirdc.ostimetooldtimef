@@ -1,0 +1,174 @@
+
+//
+// Copyright (c) 1992-2019 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 25 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+
+}
+    _OUT_
+
+    }
+        msP = local.wMilliseconds     ;
+        ssP = local.wSecond           ;
+        mmP = local.wMinute           ;
+        hhP = local.wHour             ;
+        dP  = local.wDay          - 1 ;
+        mP  = local.wMonth        - 1 ;
+        yP  = local.wYear         - 1 ;
+
+        BOSpOOP
+        BOS( WHATgbo , BOSoK , SystemTimeToTzSpecificLocalTime( 0 , &utc , &local ) ) ;
+        thirdC::c_memsetIF( tinP , (byteT*)&local , sizeof local ) ;
+        SYSTEMTIME local ;
+        utc.wMilliseconds = (WORD)msP ;
+        utc.wSecond       = (WORD)ssP ;
+        utc.wMinute       = (WORD)mmP ;
+        utc.wHour         = (WORD)hhP ;
+        utc.wDay          = (WORD)( dP + 1 ) ;
+        utc.wDayOfWeek    = (WORD)0 ;
+        utc.wMonth        = (WORD)( mP + 1 ) ;
+        utc.wYear         = (WORD)( yP + 1 ) ;
+        SYSTEMTIME utc ;
+    {
+    if( !( F(flagsP) & flOStIMEfROMoLDtIME_OLDtIMEiSutc ) )
+
+    }
+        } } } } } } } } } } } }
+        else { __( time2r ) ;        
+        else { time2r -= 30                    ; mP ++ ; if( time2r < 31                    ) dP = time2r ; // DEC
+        else { time2r -= 31                    ; mP ++ ; if( time2r < 30                    ) dP = time2r ; // NOV
+        else { time2r -= 30                    ; mP ++ ; if( time2r < 31                    ) dP = time2r ; // OCT
+        else { time2r -= 31                    ; mP ++ ; if( time2r < 30                    ) dP = time2r ; // SEP
+        else { time2r -= 31                    ; mP ++ ; if( time2r < 31                    ) dP = time2r ; // AUG
+        else { time2r -= 30                    ; mP ++ ; if( time2r < 31                    ) dP = time2r ; // JUL
+        else { time2r -= 31                    ; mP ++ ; if( time2r < 30                    ) dP = time2r ; // JUN
+        else { time2r -= 30                    ; mP ++ ; if( time2r < 31                    ) dP = time2r ; // MAY
+        else { time2r -= 31                    ; mP ++ ; if( time2r < 30                    ) dP = time2r ; // APR
+        else { time2r -= 28 + bLeapYearF( yP ) ; mP ++ ; if( time2r < 31                    ) dP = time2r ; // MAR
+        else { time2r -= 31                    ; mP ++ ; if( time2r < 28 + bLeapYearF( yP ) ) dP = time2r ; // FEB
+                                                         if( time2r < 31                    ) dP = time2r ; // JAN
+    {
+    // time2r CONTAINS THE OFFSET OF THE DAY IN YEAR yP
+    // SET mP
+
+    }
+        osTimeSubtractF( tinP , time1r , time2r , time1 , time2 ) ;
+        yP = yTrial ;
+        }
+            osTimeFromOldTimeIF( tinP , time1 , time2 , yTrial , 0 , 0 , 0 , 0 , 0 , 0 , flOStIMEfROMoLDtIME_OLDtIMEiSutc ) ;
+            time2 = 0 ;
+            time1 = 0 ;
+            yTrial -- ;
+        {
+        while( time2 > time2r )
+        osTimeFromOldTimeIF( tinP , time1 , time2 , yTrial , 0 , 0 , 0 , 0 , 0 , 0 , flOStIMEfROMoLDtIME_OLDtIMEiSutc ) ;
+        ZE( sCountT , time2 ) ;
+        ZE( countT , time1 ) ;
+        countT yTrial = 1 + (measureT)time2r / mDaysPerYear ;
+        measureT mDaysPerYear = 365.25 - 1.0 / 100.0 + 1.0 / 400.0 ;
+    {
+    // SET yP
+
+    dowP = ( time2r + 1 ) % 7 ;
+
+    sCountT time2r = time2P ;
+    countT  time1r = time1P ;
+
+    }
+        if( time1 > mTimePerMs / 2 ) msP ++ ;
+
+        msP = (measureT)time1 / mTimePerMs   ; time1 %= (countT)mTimePerMs   ;
+        ssP = (measureT)time1 / mTimePerSec  ; time1 %= (countT)mTimePerSec  ;
+        mmP = (measureT)time1 / mTimePerMin  ; time1 %= (countT)mTimePerMin  ;
+        hhP = (measureT)time1 / mTimePerHour ; time1 %= (countT)mTimePerHour ;
+
+        countT time1 = time1P ;
+
+        const measureT mTimePerMs   = (measureT)0x80000000 / (measureT)( 12 * 60 * 60 * 100 ) ;
+        const measureT mTimePerSec  = (measureT)0x80000000 / (measureT)( 12 * 60 * 60 ) ;
+        const measureT mTimePerMin  = (measureT)0x80000000 / (measureT)( 12 * 60 ) ;
+        const measureT mTimePerHour = (measureT)0x80000000 / (measureT)( 12 ) ;
+    {
+
+    _INoLD_
+
+        // msP: [0,999]
+        // ssP: [0,59]
+        // mmP: [0,59]
+        // hhP: [0,23]
+        // dP: [0,30]
+        // mP: [0,11]
+        // yP: [-inf,inf] (yP=0 INDICATES A TIME IN THE FIRST YEAR OF OUR LORD
+        // NOTE THAT mP, dP, ETC ARE UNSIGNED; THEY ARE OFFSETS FROM THE BEGINNING OF THE YEAR, EVEN IF THE YEAR IS NEGATIVE
+        // ALL PARAMETERS ARE ASSUMED TO BE OFFSETS (E.G. TIMES WITHIN YEAR OF OUR LORD 1997 WOULD HAVE yP=1996)
+        // THE OFF OF "Dec 31,  -1" IS -1
+        // THE OFF OF "Jan 1, 0000" IS 0
+
+    }
+        if( POOP ) return ;
+        __( yP ) ;
+        __( mP ) ;
+        __( dP ) ;
+        __( hhP ) ;
+        __( mmP ) ;
+        __( ssP ) ;
+        __( msP ) ;
+        if( POOP ) return ;
+    {
+    IFbEcAREFUL        
+    SCOOP
+{
+/*1*/voidT thirdC::osTimeToOldTimeF( tinS& tinP , countT& msP , countT& ssP , countT& mmP , countT& hhP , countT& dP , countT& mP , sCountT& yP , countT& dowP , const countT time1P , const sCountT time2P , const flagsT flagsP )/*1*/
+
+/**/
+*/
+  the domain of this parameter is [0-6]
+  the number of complete days in the current week
+ dowP: the day of the week
+  the domain of this parameter is unrestricted; any value can be specified
+  set yP = -1 for a time in the last year before our lord
+  set yP = 0 for a time in the first year of our lord
+  the number of complete years since Jesus's conventional time of birth
+ yP
+  the domain of this parameter is [0,11]
+  the number of complete months after yP since Jesus's conventional time of birth
+ mP
+  the domain of this parameter is [0,30]
+  the number of complete days after yP mP since Jesus's conventional time of birth
+ dP
+  the domain of this parameter is [0,23]
+  the number of complete hours after yP dP since Jesus's conventional time of birth
+ hhP
+  the domain of this parameter is [0,59]
+  the number of complete minutes after yP dP hhP since Jesus's conventional time of birth
+ mmP
+  the domain of this parameter is [0,59]
+  the number of complete seconds after yP dP hhP mmP since Jesus's conventional time of birth
+ ssP
+  the domain of this parameter is [0,999]
+  the number of complete milliseconds after yP dP hhP mmP ssP since Jesus's conventional time of birth
+ msP
+ time2P
+ time1P
+arguments
+all arguments are ze based offsets
+  a year is a leap year if, and only if, !(Y%4) && ( !!(Y%100) || ( Y && !(Y%400) ) )
+ this function correctly accounts for leap years and leap centuries
+calculates conventional calendar time from city time
+  \<A HREF=\"5.ab30104.1.1.0.html\"\>ab30104:  WAKEsHOW( "example.simplest.func.10200a3.thirdC.osTimeToOldTimeF" )\</A\>
+ simplest
+examples
+\<A HREF=\"5.10200a3.1.0.html\"\>definition\</A\>
+\<A HREF=\"6.$osTimeToOldTimeF.0.html\"\>instances\</A\>
+/*
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 25 years.
+//
+// Copyright (c) 1992-2019 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+

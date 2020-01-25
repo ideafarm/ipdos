@@ -1,0 +1,171 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+    <title>
+        Leave a tip for the author here.
+    </title>
+    <script type="text/javascript">
+
+        var bTimer = 0 ;
+        var hTimer = 0 ;
+        var idDefaultMessageLath = 0 ;
+
+        function clearMessageF()
+        {
+            document.getElementById( "message" ).innerHTML = "&thinsp;" ;
+        }
+
+        function sayMessageF( postP , msP )
+        {
+            if( !postP && !msP ) msP = 16000 ;
+            
+            if( bTimer )
+            {
+                bTimer = 0 ;
+                clearTimeout( hTimer ) ;
+                hTimer = 0 ;
+            }
+
+            if( postP ) document.getElementById( "message" ).innerHTML = postP ;
+            else        sayMessageDefaultF( msP ) ;
+
+            if( msP )
+            {
+                bTimer = 1 ;
+                hTimer = setTimeout( " clearMessageF() ; bTimer = 0 ; hTimer = 0 ; " , msP ) ;
+            }
+        }
+
+        function sayMessageDefaultF( msP )
+        {
+            switch( ( ++ idDefaultMessageLath ) % 0x10 )
+            {
+                case 1  : { sayMessageF( "This is an IdeaFarm (tm) Knowledge Tree, rendered as foreign (conventional linear) text." , msP ) ; break ; }
+                case 4  : { sayMessageF( "Do not fear that you will die.  Fear that you might never live!" , msP ) ; break ; }
+                default : { clearMessageF() ; break ; }
+            }
+        }
+
+     </script>
+</head>
+
+
+<BODY STYLE="background-color:#000 ; color:#ff6" onload="sayMessageDefaultF( 16000 )">
+    <STYLE type="text/css">
+        A:link
+        {
+            color: #ff6 ;
+            text-decoration: none ;
+            border-style: solid ;
+            border-width: 0px 0px 0px 1px ;
+            border-color: green ;
+        }
+        A:visited
+        {
+            color: #ff6 ;
+            text-decoration: none ;
+            border-style: solid ;
+            border-width: 0px 0px 0px 1px ;
+            border-color: red ;
+        } 
+        A:hover
+        {
+            color: #ff6 ;
+            text-decoration: none ;
+            border-style: solid ;
+            border-width: 1px 1px 1px 1px ;
+            border-color: #ff6 ;
+        }
+        A:active
+        {
+            color: white ;
+            text-decoration: none ;
+            border-style: solid ;
+            border-width: 1px 1px 1px 1px ;
+            border-color: white ;
+        }
+        H3
+        {
+            color: #ff6 ;
+            text-decoration: none ;
+            border-style: solid ;
+            border-width: 1px 8px 1px 8px ;
+            border-color: #ff6 ;
+        }
+    </STYLE>
+    <table>
+        <tr>
+            <td valign="top">
+                <form action="mailto:1.ideafarm.city@gmail.com?body=%7Bsoil_1%3A+%7Bclass%3A+ktb_comment+%7D%0A%0D%0A%7Bthankyou%3A++Your+comment+will+be+received+with+joy%2E%7D%0D%0A%0D%0A%7Binstructions%3A++Put+your+comment+where+the+%27X%27+is+below%2E++Precede+curly+brackets+and+backslashes+with+another+backslash%2E+%7D%0D%0A%0D%0A%7Bwhy%3A++This+email+introduces+you+to+the+format+of+a+SOIL+%28tm%29+utterance%2E+%7D%0D%0A%0D%0A%7Burl%3A+index+%7D%0D%0A%0D%0A%7Bbranch%3A+This+is+the+knowledge+tree+of+Wo%27O+Ideafarm%2e%7D%0D%0A%0D%0A%7Bcomment%3A%0D%0A%0D%0AX%0D%0A%0D%0A%7D%7D&subject=Comment+on+an+IDEAFARM%2ECOM+page%2E" method="post" enctype="multipart/form-data">
+                    <input type="image" src="!ideafarm.3.000b2f40.cfa8c536.ab10f1c3.archiveold.gather.to.!.000b2f40.cfa8c536.ideafarm.blob.ifc.ico" alt="Submit" onmouseout="sayMessageF( 0 , 16000 )" onmouseover='sayMessageF( "Click to email a comment to Wo&#39;O Ideafarm." , 0 )'/>
+                </form>
+            </td>
+            <td valign="top">
+                <table>
+                    <tr>
+                        <td valign="top">
+                            <table>
+                                <tr>
+                                    <td valign="top">
+                                        <a href="../index.html" onmouseout="sayMessageF( 0 , 16000 )" onmouseover="sayMessageF( 'Click to climb down to the root branch (home page).' , 0 )">root</a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="top">
+                            <span style="color:lightblue" onmouseout="sayMessageF( 0 , 16000 )" onmouseover="sayMessageF( 'Hints, beneficial thought steering, and other messages are displayed here.' , 0 )"><i><span id="message">&thinsp;</span></i></span>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+
+        <p>
+        <h3>Leave a tip for the author here.</h3>
+        <p>
+        <center>
+            <table>
+                <tr>
+                    <td valign=middle>
+                        <br>
+                        <span onmouseout="sayMessageF( 0 , 16000 )" onmouseover='sayMessageF( "A restaurant server works for tips, and so do I!" , 0 )'>
+                            <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+                            <input type="hidden" name="cmd" value="_s-xclick">
+                            <input type="hidden" name="hosted_button_id" value="P83GBVGS2JS58">
+                            <input type="image" src="http://ideafarm.com/blob/btn_tip.for.author.CC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+                            <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+                            </form>
+                        </span>
+                    </td>
+                    <td align=left valign=middle>A restaurant server works for tips, and so do I.
+                        This knowledge tree is not cluttered with ads (thought assault).
+                        The tip that you leave is my only compensation for the labor of writing this for you.
+                        You would not sneak out of a restaurant without leaving a tip for the person who served you.
+                        Please also treat me honorably.
+                    </td>
+                </tr>
+            </table>
+        </center>
+        <p>
+        The recommended tip is $4 USD, which includes the "office hour" privilege.
+        If you do not want the office hour privilege, the recommended tip is $2 USD.
+        (Anyone can send me a comment, and all constructive comments are appreciated.
+        But I will only converse with people who have the office hour privilege.)
+        <p>
+        Please leave the recommended tip, plus or minus a random number of cents.
+        The amount, date, and time of every tip is listed on the disclosure page of this web site within 48 hours.
+        You can see how well The Knowledge Tree of Wo'O Ideafarm is being received.
+        <p>
+        Perhaps I am the first ebook author to work for tips rather than beg for donations or "thought assault" his readers with a clutter of ads.
+        My success "writing for tips" will encourage other authors to do the same, reducing the blights of beggar web sites and web sites that are cluttered with thought assault ads.
+        <p>
+        You are only obliged to leave a tip once, for lifetime access to this ebook.
+
+</BODY>
+</html>
+
+
+      

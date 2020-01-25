@@ -1,0 +1,37 @@
+README.NT                                               16 April 2000
+-------------------------------------------------------------------------------
+
+Contents of the UnZip 5.41 distribution archive for Win9x/NT (intel):
+
+    README                      general information
+    WHERE                       where to get the current Info-ZIP software
+    LICENSE                     terms and conditions for using Info-Zip code
+    COPYING                     additional Copyright notes
+    unzip.doc                   UnZip manual (preformatted unix man page)
+    unzipsfx.doc                UnZipSFX manual (dto.)
+    zipinfo.doc                 manual for UnZip's ZipInfo mode
+    funzip.doc                  manual for fUnZip
+    README.NT                   this file ...
+    unzip.exe                   UnZip for NT command line utility, MSVC++ 6.0
+    unzipsfx.exe                console mode SFX stub for NT, MSVC++ 6.0
+    funzip.exe                  UnZip "filter" utility
+    SFXWiz32.exe                GUI mode SFX stub for NT, MSVC++ 6.0
+    unzipsfx-gcc.exe            console mode SFX stub for NT, gcc/mingw32
+    SFXWiz32-gcc.exe            GUI mode SFX stub for NT, gcc/mingw32
+
+
+unzip.exe and funzip.exe were compiled with MS Visual C++ 6.0 SP3 (MSC v12.00),
+using the win32/Makefile as supplied in the UnZip 5.41 source distribution.
+For the sfx stub, the optimization option were changed into "-Oy1"
+
+The alternative unzipsfx-gcc.exe and SFXWiz32-gcc.exe stubs were compiled
+by gcc 2.95.2 using the mingw32 environment. These stubs are significantly
+smaller, but require the presence of the "crtdll.dll" C runtime DLL.
+Normally, this should not be a problem, since this dll is supplied as part
+of the operating system core for WinNT/Win2k (at least since version 3.5)
+and Windows 95/98. The dll is not supplied in a Win32s environment, but
+this should be a minor problem. (For the text-mode stub this is not a
+problem at all; Win32s cannot be used to run text-mode applications, anyway.)
+
+--------
+Christian Spieler

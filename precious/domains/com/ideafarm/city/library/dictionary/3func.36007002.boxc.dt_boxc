@@ -1,0 +1,212 @@
+
+//
+// Copyright (c) 1992-2019 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 25 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+
+}
+    _OUT_
+    }
+        __1
+        ether = 0 ;
+    {
+    if( POOP )
+
+    }
+        DEL( pBatHPR  ) ;
+        DEL( pBatHPC  ) ;
+        DEL( pBatTap  ) ;
+        DEL( pBatHose ) ;
+
+        DEL( pSgnTapFinished  ) ;
+        DEL( pSgnTapReady     ) ;
+        DEL( pSgnHoseFinished ) ;
+    {
+    if( pBatHose )
+
+    }
+        pBatTap->ungrabF( tinP ) ;
+        pSgnTapFinished->giveF( tinP ) ;
+    {
+    else if( fTap2 )
+    }
+        pBatHose->ungrabF( tinP ) ;
+        pSgnTapFinished->waitF( tinP ) ;
+        pSgnHoseFinished->giveF( tinP ) ;
+    {
+    if( fHose2 )
+    ether.delF( tinP , psttAll  ) ;
+    ether.delF( tinP , psttName ) ;
+    ether.delF( tinP , psttPass ) ;
+    ether.delF( tinP , psttUser ) ;
+    ether.delF( tinP , psttType ) ;
+    ether.delF( tinP , psttHost ) ;
+
+    else __1
+    }
+        else __1
+        else if( psttType && !psttType->idAdam ) ;
+        }
+            pbNapkin = 0 ;
+            pv = (voidT*)( pbNapkin - sizeof(countT) ) ;
+            ZE( voidT* , pv ) ;
+        {
+        else if( !ether.strCompareF( tinP , psttType , T("napkin.make") ) || !ether.strCompareF( tinP , psttType , T("napkin") ) )
+        }
+            DEL( pHoseProcessError ) ;
+            if( !ether && pHoseProcessError ) pHoseProcessError->closeNewClientF( tinP ) ;
+        {
+        else if( !ether.strCompareF( tinP , psttType , T("process.error") ) )
+        }
+            DEL( pHoseProcessOut ) ;
+            if( !ether && pHoseProcessOut ) pHoseProcessOut->closeNewClientF( tinP ) ;
+        {
+        else if( !ether.strCompareF( tinP , psttType , T("process.out") ) )
+        }
+            //U:
+        {
+        else if( !ether.strCompareF( tinP , psttType , T("process.in") ) )
+        }
+            //U:DEL( pHoseProcessIn    ) ;
+            DEL( pHoseProcessOut   ) ;
+            DEL( pHoseProcessError ) ;
+
+            //{ countT hAliasError2 = 2 ; hAliasError2 = hAliasError ; }
+            //{ countT hAliasOut2   = 1 ; hAliasOut2   = hAliasOut   ; }
+            //{ countT hAliasIn2    = 0 ; hAliasIn2    = hAliasIn    ; }
+            //U:: THIS CODE IS BUGGY
+
+            ether.fileWriteF( tinP , h2 , "\xDB" ) ; //U:NT (HANDLE 2 IS HARDCODED)
+            ether.fileWriteF( tinP , h1 , "\xDB" ) ; //U:NT (HANDLE 1 IS HARDCODED)
+            h2.osF( ifcIDtYPEhANDLE_FILE , 2 ) ;
+            h1.osF( ifcIDtYPEhANDLE_FILE , 1 ) ;
+            handleC h2( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_FILE ) ;
+            handleC h1( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_FILE ) ;
+            __( value ) ;
+            __( idDeathType ) ;
+            ether.osProcessWaitF( tinP , value , idDeathType , pid ) ;
+            ZE( countT , idDeathType ) ;
+            ZE( countT , value ) ;
+        {
+        else if( !ether.strCompareF( tinP , psttType , T("process") ) )
+        }
+            #endif
+                fHose2 = 1 ;
+            #elif defined( __NT__ )
+            #ifdef __OS2__
+        {
+        else if( !ether.strCompareF( tinP , psttType , T("hose") ) )
+        }
+            #endif
+                fTap2 = 1 ;
+                pSgnHoseFinished->waitF( tinP ) ;
+            #elif defined( __NT__ )
+            #ifdef __OS2__
+        {
+        if( !ether.strCompareF( tinP , psttType , T("tap") ) )
+    {
+    else if( psttHost && !psttHost->idAdam )
+    }
+    {
+    else if( !ether.strCompareF( tinP , psttType , T("fyle") ) )
+    }
+        DEL( pSControl ) ;
+        verifyReplyF( tinP , 205 ) ;
+        if( pSControl ) pSControl->writeF( tinP , (osTextT*)T("quit\r\n") ) ;
+    {
+    else if( !ether.strCompareF( tinP , psttType , T("news") ) )
+    }
+        DEL( pSControl ) ;
+        verifyReplyF( tinP ) ;
+        if( pSControl ) pSControl->writeF( tinP , (osTextT*)T("quit\r\n") ) ;
+    {
+    else if( !ether.strCompareF( tinP , psttType , T("pop") ) )
+    }
+        DEL( pSControl ) ;
+    {
+    else if( !ether.strCompareF( tinP , psttType , T("http") ) )
+    }
+    {
+    else if( !ether.strCompareF( tinP , psttType , T("smtp") ) )
+    }
+        DEL( pSControl ) ;
+        verifyReplyF( tinP , 221 ) ;
+        if( pSControl ) pSControl->writeF( tinP , (osTextT*)T("quit\r\n") ) ;
+    {
+    else if( !ether.strCompareF( tinP , psttType , T("ftp") ) )
+    }
+        DEL( pSControl ) ;
+    {
+    )
+        !ether.strCompareF( tinP , psttType , T("dispatcher"       ) )
+        !ether.strCompareF( tinP , psttType , T("time"             ) ) ||
+        !ether.strCompareF( tinP , psttType , T("box.sucker"       ) ) ||
+        !ether.strCompareF( tinP , psttType , T("box.server.adam"  ) ) ||
+        !ether.strCompareF( tinP , psttType , T("box.server.deputy") ) ||
+        !ether.strCompareF( tinP , psttType , T("box.server"       ) ) ||
+    (
+    if
+
+    }
+        ether = 0 ;
+        __1
+    {
+    if( POOP )
+
+    ZE( boolT , fHose2 ) ;
+    ZE( boolT , fTap2 ) ;
+    // CLOSE THE BACKING FILE
+    _INoLD_
+
+    }
+        if( POOP ) return ;
+        }
+            DEL( pSControl ) ;
+            ether.delF( tinP , psttAll  ) ;
+            ether.delF( tinP , psttName ) ;
+            ether.delF( tinP , psttPass ) ;
+            ether.delF( tinP , psttUser ) ;
+            ether.delF( tinP , psttType ) ;
+            ether.delF( tinP , psttHost ) ;
+        {
+        if( POOP )
+        __Z( psttName ) ;
+        __Z( psttType ) ;
+        __Z( psttHost ) ;
+    {
+    IFbEcAREFUL
+
+    if( POOP ) return ;
+    }
+        DEL( pSControl ) ;
+        ether.delF( tinP , psttAll  ) ;
+        ether.delF( tinP , psttName ) ;
+        ether.delF( tinP , psttPass ) ;
+        ether.delF( tinP , psttUser ) ;
+        ether.delF( tinP , psttType ) ;
+        ether.delF( tinP , psttHost ) ;
+    {
+    if( POOP )
+    SCOOP
+    TINSL
+{
+/*1*/boxC::~boxC( voidT )/*1*/
+
+/**/
+*/
+  \<A HREF=\"5.5120104.1.1.0.html\"\>5120104:  WAKEsHOW( "example.simplest.func.1090002.boxC.dt_boxC" )\</A\>
+ simplest
+examples
+\<A HREF=\"5.1090002.1.0.html\"\>definition\</A\>
+/*
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 25 years.
+//
+// Copyright (c) 1992-2019 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+

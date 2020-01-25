@@ -1,0 +1,130 @@
+
+//
+// Copyright (c) 1992-2019 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 25 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+
+}
+    _OUT_
+    }
+        }
+            _OUT_
+            (*pCbfP)( tinP , cDirsP , cFilesP , bQuitP , 0 , pcArgP , pModuloDirsP , pModuloFilesP ) ;          //20180406@1337: ADDED WITHOUT ANALYSIS
+            _INoLD_
+        {
+        if( pCbfP )
+        BOSdOnOTtEST( WHATgbo , strcpy( postSuffix , "" ) )                                                 //20180406@1337: ADDED WITHOUT ANALYSIS
+
+        BOSpOOP ;
+        BOS( WHATsfr , BOSoK , FindClose( oshFind ) ) ;
+        }
+            if( !tinP.brcRaw ) break ;
+            if( tinP.bosFail && tinP.brcQuery != ERROR_NO_MORE_FILES ) BOSpOOP ;
+            BOS( WHATsfr , BOSoK , FindNextFile( oshFind , &info ) ) ;
+    
+            }
+                }
+                    if( pCbfP ) (*pCbfP)( tinP , cDirsP , cFilesP , bQuitP , postNameP , pcArgP , pModuloDirsP , pModuloFilesP ) ;
+                    BOSdOnOTtEST( WHATgbo , strcpy( postSuffix , info.cFileName ) )
+                    cFilesP ++ ;
+                {
+                if( bDoIt )
+    
+                //;
+                //    : 1
+                //    ? ( strcpy( postSuffix , info.cFileName ) , tinP.pc Utility[ 0 ] = (countT)&info , (*pCbfP)( tinP , cDirsP , cFilesP , postNameP , pcArgP , pModuloDirsP , pModuloFilesP ) )
+                //boolT bDoIt = pCbfP && ( !pModuloFilesP || !( cDirsP % *pModuloFilesP ) )
+                //I CANNOT REMEMBER WHY THESE ARE COMMENTED OUT, BUT I DO NEED TO CALL THE CALLBACK; THAT'S THE WHOLE IDEA
+
+                boolT bDoIt = 1 ;
+            {
+            else
+            }
+                }
+                    *postSuffix = 0 ;
+    
+                    diskWalkPrivateIF( tinP , cDirsP , cFilesP , postNameP , bQuitP , pCbfP , pcArgP , pModuloDirsP , pModuloFilesP ) ;
+
+                    }
+                        if( pCbfP ) (*pCbfP)( tinP , cDirsP , cFilesP , bQuitP , postNameP , pcArgP , pModuloDirsP , pModuloFilesP ) ;
+                        cDirsP ++ ;
+                    {
+                    if( bDoIt )
+    
+                    //;
+                    //    : 1
+                    //    ? tinP.pc Utility[ 0 ] = (countT)&info , (*pCbfP)( tinP , cDirsP , cFilesP , postNameP , pcArgP , pModuloDirsP , pModuloFilesP )
+                    //boolT bDoIt = pCbfP && ( !pModuloDirsP || !( cDirsP % *pModuloDirsP ) )
+                    //I CANNOT REMEMBER WHY THESE ARE COMMENTED OUT, BUT I DO NEED TO CALL THE CALLBACK; THAT'S THE WHOLE IDEA
+
+                    boolT bDoIt = 1 ;
+    
+                    BOSdOnOTtEST( WHATgbo , strcat( postSuffix , "\\" ) )
+                    BOSdOnOTtEST( WHATgbo , strcpy( postSuffix , info.cFileName ) )
+                {
+                if( b1 && b2 )
+                boolT b2 = tinP.brcRaw ;
+                BOSdOnOTtEST( WHATgbo , strcmp( info.cFileName , ".." ) )
+                boolT b1 = tinP.brcRaw ;
+                BOSdOnOTtEST( WHATgbo , strcmp( info.cFileName , "." ) )
+            {
+            else if( info.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY )
+            if( info.dwFileAttributes & FILE_ATTRIBUTE_SYSTEM ) ;
+        {
+        while( !bQuitP )
+    {
+    if( oshFind != INVALID_HANDLE_VALUE )
+    HANDLE oshFind = (HANDLE)tinP.brcRaw ;
+
+    }
+        }
+            default :                  { BOSpOOP          ; break ; }
+            case ERROR_ACCESS_DENIED : { tinP.bosFail = 0 ; break ; }
+            case ERROR_HOST_UNREACHABLE :                                   //20180602@1653: ADDED TO MAKE WALK OF c :\ WORK (OTHERWISE FAILS FOR postNameP == "d:\DFSRoots\Shared Folders\Company\*")
+            case ERROR_PATH_NOT_FOUND :
+            case ERROR_NO_MORE_FILES :
+        {
+        switch( tinP.brcQuery )
+    {
+    if( tinP.bosFail )
+    BOS( WHATsfr , BOShANDLE , FindFirstFile( postNameP , &info ) )
+    WIN32_FIND_DATA info ;
+
+    BOSdOnOTtEST( WHATgbo , strcpy( postSuffix , "*" ) )
+    osTextT* const postSuffix = postNameP + costLike ;
+    countT costLike = tinP.brcRaw ;
+    BOSdOnOTtEST( WHATgbo , strlen( postNameP ) )
+    _INoLD_
+{
+/*1*/voidT thirdC::diskWalkPrivateIF( tinS& tinP , countT& cDirsP , countT& cFilesP , osTextT* const postNameP , boolT& bQuitP , diskWalkCBFT pCbfP , countT* const pcArgP , countT* pModuloDirsP , countT* pModuloFilesP )/*1*/
+
+/**/
+*/
+ pModuloFilesP
+ pModuloDirsP
+ pcArgP
+ pCbfP
+ bQuitP
+   recommend: use size TUCK << 1
+  must be a writeable buffer large enough to hold the longest possible fully qualified directory name plus a terminating '\' followed by a terminating 0
+  will be modified
+ postNameP
+ cFilesP
+ cDirsP
+ tinP
+arguments
+ the callback function is also called with a null postNameP at the end of each enumeration of a directory
+ all are counted except when the callback function returns 0
+i walk the directory tree, counting as i go
+/*
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 25 years.
+//
+// Copyright (c) 1992-2019 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+

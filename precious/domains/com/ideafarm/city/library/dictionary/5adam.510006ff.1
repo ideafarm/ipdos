@@ -1,0 +1,37 @@
+
+//
+// Copyright (c) 1992-2019 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 25 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+                            
+REST
+
+MYaLLOC( posta , 8 )
+
+byteT* pbc = postHeap ;
+
+TODO
+
+osTextT* const posta = 0 ;
+osTextT postHeap[ TUCK ] ;
+
+#define MYaLLOC(lvalueP,cbP) if( !(lvalueP) ) { *(byteT**)&(lvalueP) = pbc ; pbc += (cbP) ; }  // "if( !(lvalueP) )" CONDITIONALITY IS SO MYaLLOC CONFORMS TO BEHAVIOR OF poolC::newF, WHICH IS FOR RESISTANCE TO LEAKAGE (TO PREVENT A POINTER VALUE FROM BEING OVERWRITTEN TO BECOME A LEAK)
+//B: WON'T COMPILE: #define MYaLLOC(lvalueP,cbP) if( !*(byteT**)&(lvalueP) ) { *(byteT**)&(lvalueP) = pbc ; pbc += (cbP) ; }  // "if( !(lvalueP) )" CONDITIONALITY IS SO MYaLLOC CONFORMS TO BEHAVIOR OF poolC::newF, WHICH IS FOR RESISTANCE TO LEAKAGE (TO PREVENT A POINTER VALUE FROM BEING OVERWRITTEN TO BECOME A LEAK)
+
+
+/*1*/WAKEsHOWtEXT( "example.woth.compiler.bug.cast.of.lvalue.pointer" )/*1*/
+/**/
+*/
+20160617@1701: compiler appears to not correctly compile "if( !*(byteT**)&(lvalueP) )"
+/*
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 25 years.
+//
+// Copyright (c) 1992-2019 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+

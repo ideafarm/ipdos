@@ -1,0 +1,641 @@
+
+//
+// Copyright (c) 1992-2019 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 25 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+
+;
+    value  [eax]                                                                                                                                                    \
+    modify [ebx ecx edx esi edi esp]                                                                                                                                \
+    parm   [eax]                                                                                                                                                    \
+                                                                                                                                                                    \
+    "               add         esp , 0a0h                          " /* DEALLOCATE FOR LOCALS                                                                  */  \
+    "               frstor      dword ptr [esp]                     " /*                                                                                        */  \
+    "               mov         ebp , dword ptr 074h[esp]           " /* ebp (save)                                                                             */  \
+    "FIN:           mov         eax , 080h[esp]                     " /* bFail                                                                                  */  \
+    "                                                               " /*                                                                                        */  \
+    "               jmp         POINT1                              " /*                                                                                        */  \
+    "               inc         dword ptr [edx]                     " /* *psout                                                                                 */  \
+    "               dec         dword ptr [ebx]                     " /* *psin                                                                                  */  \
+    "               dec         dword ptr 084h[esp]                 " /* cOutMaxP                                                                               */  \
+    "                                                               " /*                                                                                        */  \
+    "               ffree       st(5)                               " /* [N.x N.y N.z fuzz 0.0]                                                                 */  \
+    "               ffree       st(6)                               " /* [N.x N.y N.z fuzz 0.0 L.z]                                                             */  \
+    "               ffree       st(7)                               " /* [N.x N.y N.z fuzz 0.0 L.z fuzz]                                                        */  \
+    "               fincstp                                         " /* [N.x N.y N.z fuzz 0.0 L.z fuzz 0.0]                                                    */  \
+    "               fst         st(5)                               " /* [0.0 N.x N.y N.z fuzz 0.0 L.z fuzz]                                                    */  \
+    "               fincstp                                         " /* [0.0 N.x N.y N.z fuzz L.y L.z fuzz]                                                    */  \
+    "               fst         st(5)                               " /* [fuzz 0.0 N.x N.y N.z fuzz L.y L.z]                                                    */  \
+    "               fdecstp                                         " /* [fuzz 0.0 N.x N.y N.z L.x L.y L.z]                                                     */  \
+    "               fdecstp                                         " /* [0.0 N.x N.y N.z L.x L.y L.z fuzz]                                                     */  \
+    "               fdecstp                                         " /* [N.x N.y N.z L.x L.y L.z fuzz 0.0]                                                     */  \
+    "               fdecstp                                         " /* [N.y N.z L.x L.y L.z fuzz 0.0 N.x]            REPLACE LAG WITH NOW                     */  \
+    "                                                               " /*                                                                                        */  \
+    "               add         edi , 0ch                           " /* ppout                                                                                  */  \
+    "               fst         dword ptr 08h[edi]                  " /*                                                                                        */  \
+    "               fincstp                                         " /* [N.z L.x L.y L.z fuzz 0.0 N.x N.y]                                                     */  \
+    "               fst         dword ptr 04h[edi]                  " /*                                                                                        */  \
+    "               fincstp                                         " /* [N.y N.z L.x L.y L.z fuzz 0.0 N.x]                                                     */  \
+    "               fst         dword ptr [edi]                     " /*                                                                                        */  \
+    "OUTNOW:                                                        " /* [N.x N.y N.z L.x L.y L.z fuzz 0.0]                                                     */  \
+    "OUTNOWP1:      fxch        st(2)                               " /* [N.x N.y N.z L.x L.y L.z fuzz 0.0]                                                     */  \
+    "OUTNOWP2:      fxch        st(5)                               " /* [N.z N.y N.x L.x L.y L.z fuzz 0.0]                                                     */  \
+    "               jmp         OUTNOW                              " /*                                                                                        */  \
+    "OUTNOWP3:      mov         ecx , 0h                            " /* bWoth                                                                                  */  \
+    "                                                               " /*                                                                                        */  \
+    "               jmp         OUTNOW                              " /*                                                                                        */  \
+    "               fincstp                                         " /* [N.x N.y N.z 0.0 0.0 0.0 fuzz 0.0]                                                     */  \
+    "               fldz                                            " /* [0.0 N.x N.y N.z 0.0 0.0 0.0 fuzz]                                                     */  \
+    "               fstp        st(7)                               " /* [N.x N.y N.z 0.0 0.0 0.0 fuzz]                                                         */  \
+    "               fstp        st(7)                               " /* [fuzz N.x N.y N.z 0.0 0.0 0.0]                                                         */  \
+    "               fstp        st(7)                               " /* [0.0 fuzz N.x N.y N.z 0.0 0.0]                                                         */  \
+    "               fstp        st(7)                               " /* [0.0 0.0 fuzz N.x N.y N.z 0.0]                                                         */  \
+    "               fldz                                            " /* [0.0 0.0 0.0 fuzz N.x N.y N.z]                                                         */  \
+    "               fldz                                            " /* [0.0 0.0 fuzz N.x N.y N.z]                                                             */  \
+    "               fldz                                            " /* [0.0 fuzz N.x N.y N.z]                                                                 */  \
+    "               ffree       st(5)                               " /* [fuzz N.x N.y N.z]                                                                     */  \
+    "               fld         st(4)                               " /* [fuzz N.x N.y N.z * fuzz]                                                              */  \
+    "               ffree       st(3)                               " /* [N.x N.y N.z * fuzz]                                                                   */  \
+    "               fadd        st(0) , st(3)                       " /* [N.x N.y N.z L.x fuzz]                                                                 */  \
+    "               fincstp                                         " /* [D.x N.y N.z L.x fuzz]                                                                 */  \
+    "               ffree       st(0)                               " /* [* D.x N.y N.z L.x fuzz]                                                               */  \
+    "               inc         dword ptr [edx]                     " /* *psout                                                                                 */  \
+    "               dec         dword ptr 084h[esp]                 " /* cOutMaxP                                                                               */  \
+    "               add         edi , 0ch                           " /* ppout                                                                                  */  \
+    "INSERTDONE:                                                    " /* [ratio D.x N.y N.z L.x fuzz]                                                           */  \
+    "                                                               " /*                                                                                        */  \
+    "               fstp        dword ptr [edi]                     " /* [ratio D.x N.y N.z L.x fuzz]                                                OUTPUT I.x */  \
+    "               fstp        st(7)                               " /* [D.x*ratio+L.x ratio D.x N.y N.z L.x fuzz]                                             */  \
+    "NOTFUZZx:                                                      " /* [fuzz D.x*ratio+L.x ratio D.x N.y N.z L.x]                                             */  \
+    "                                                               " /*                                                                                        */  \
+    "               jmp         INSERTDONE                          " /*                                                                                        */  \
+    "               fstp        dword ptr [edi]                     " /* [ratio D.x N.y N.z L.x fuzz]                                        OUTPUT 0.0 FOR I.x */  \
+    "               fldz                                            " /* [0.0 ratio D.x N.y N.z L.x fuzz]                                                       */  \
+    "               ffree       st(6)                               " /* [ratio D.x N.y N.z L.x fuzz]                                                           */  \
+    "               fstp        st(7)                               " /* [ratio D.x N.y N.z L.x fuzz D.x*ratio+L.x]                                             */  \
+    "               fstp        st(7)                               " /* [D.x*ratio+L.x ratio D.x N.y N.z L.x fuzz]                                             */  \
+    "                                                               " /*                                                                                        */  \
+    "               ja          NOTFUZZx                            " /*                                                                                        */  \
+    "               fchs                                            " /* [fuzz D.x*ratio+L.x ratio D.x N.y N.z L.x]                                             */  \
+    "               fcomi       st(0) , st(1)                       " /*                                                                                        */  \
+    "               fchs                                            " /* [-fuzz D.x*ratio+L.x ratio D.x N.y N.z L.x]                                            */  \
+    "                                                               " /*                                                                                        */  \
+    "               jb          NOTFUZZx                            " /*                                                                                        */  \
+    "               fcomi       st(0) , st(1)                       " /*                                                                                        */  \
+    "               fdecstp                                         " /* [fuzz D.x*ratio+L.x ratio D.x N.y N.z L.x]                                             */  \
+    "               fadd        st(0) , st(5)                       " /* [D.x*ratio+L.x ratio D.x N.y N.z L.x * fuzz]                                           */  \
+    "               fmul        st(0) , st(1)                       " /* [D.x*ratio ratio D.x N.y N.z L.x * fuzz]                                               */  \
+    "               fld         st(1)                               " /* [D.x ratio D.x N.y N.z L.x * fuzz]                                       CALCULATE I.x */  \
+    "               ffree       st(5)                               " /* [ratio D.x N.y N.z L.x * fuzz]                                                         */  \
+    "               fxch        st(2)                               " /* [ratio D.x N.y N.z L.x L.y fuzz]                                                       */  \
+    "               fadd        st(0) , st(5)                       " /* [N.y D.x ratio N.z L.x L.y fuzz]                                                       */  \
+    "INSERTx:       fxch        st(2)                               " /* [D.y D.x ratio N.z L.x L.y fuzz]                                           RECOVER N.y */  \
+    "               fstp        dword ptr 04h[edi]                  " /* [ratio D.x D.y N.z L.x L.y fuzz]                                            OUTPUT I.y */  \
+    "               fincstp                                         " /* [D.y*ratio+L.y ratio D.x D.y N.z L.x L.y fuzz]                                         */  \
+    "NOTFUZZy:                                                      " /* [fuzz D.y*ratio+L.y ratio D.x D.y N.z L.x L.y]                                         */  \
+    "                                                               " /*                                                                                        */  \
+    "               jmp         INSERTx                             " /*                                                                                        */  \
+    "               fstp        dword ptr 04h[edi]                  " /* [ratio D.x D.y N.z L.x L.y fuzz]                                    OUTPUT 0.0 FOR I.y */  \
+    "               fldz                                            " /* [0.0 ratio D.x D.y N.z L.x L.y fuzz]                                                   */  \
+    "               fincstp                                         " /* [ratio D.x D.y N.z L.x L.y fuzz]                                                       */  \
+    "               ffree       st(0)                               " /* [* ratio D.x D.y N.z L.x L.y fuzz]                                                     */  \
+    "               fincstp                                         " /* [D.y*ratio+L.y ratio D.x D.y N.z L.x L.y fuzz]                                         */  \
+    "                                                               " /*                                                                                        */  \
+    "               ja          NOTFUZZy                            " /*                                                                                        */  \
+    "               fchs                                            " /* [fuzz D.y*ratio+L.y ratio D.x D.y N.z L.x L.y]                                         */  \
+    "               fcomi       st(0) , st(1)                       " /*                                                                                        */  \
+    "               fchs                                            " /* [-fuzz D.y*ratio+L.y ratio D.x D.y N.z L.x L.y]                                        */  \
+    "                                                               " /*                                                                                        */  \
+    "               jb          NOTFUZZy                            " /*                                                                                        */  \
+    "               fcomi       st(0) , st(1)                       " /*                                                                                        */  \
+    "               fld         dword ptr 088h[esp]                 " /* [fuzz D.y*ratio+L.y ratio D.x D.y N.z L.x L.y]                              DEFUZZ I.y */  \
+    "               fadd        st(0) , st(6)                       " /* [D.y*ratio+L.y ratio D.x D.y N.z L.x L.y]                                              */  \
+    "               fmul        st(0) , st(1)                       " /* [D.y*ratio ratio D.x D.y N.z L.x L.y]                                                  */  \
+    "               fld         st(2)                               " /* [D.y ratio D.x D.y N.z L.x L.y]                                                        */  \
+    "               ffree       st(7)                               " /* [ratio D.x D.y N.z L.x L.y]                                                            */  \
+    "               fld         st(6)                               " /* [ratio D.x D.y N.z L.x L.y * ratio]                                                    */  \
+    "               fxch        st(2)                               " /* [D.x D.y N.z L.x L.y * ratio]                                                          */  \
+    "               ffree       st(5)                               " /* [N.z D.y D.x L.x L.y * ratio]                                            CALCULATE I.y */  \
+    "               fadd        st(0) , st(5)                       " /* [N.z D.y D.x L.x L.y L.z ratio]                                                        */  \
+    "               fxch        st(2)                               " /* [D.z D.y D.x L.x L.y L.z ratio]                                            RECOVER N.z */  \
+    "                                                               " /*                                                                                        */  \
+    "               je          CALCNOW                             " /*                                                                                        */  \
+    "               cmp         eax , 1h                            " /* {idCaller}                                                                             */  \
+    "               fstp        st(7)                               " /* [D.x D.y D.z L.x L.y L.z ratio]                                                        */  \
+    "               fincstp                                         " /* [ratio D.x D.y D.z L.x L.y L.z]                                                        */  \
+    "               ffree       st(0)                               " /* [* ratio D.x D.y D.z L.x L.y L.z]                                                      */  \
+    "               fincstp                                         " /* [D.z*ratio+L.z ratio D.x D.y D.z L.x L.y L.z]                                          */  \
+    "               fchs                                            " /* [L.z D.z*ratio+L.z ratio D.x D.y D.z L.x L.y]                                          */  \
+    "               fsub        st(0) , st(1)                       " /* [-L.z D.z*ratio+L.z ratio D.x D.y D.z L.x L.y]                                         */  \
+    "               fmul        st(0) , st(2)                       " /* [D.z*ratio D.z*ratio+L.z ratio D.x D.y D.z L.x L.y]                                    */  \
+    "               fld         st(4)                               " /* [D.z D.z*ratio+L.z ratio D.x D.y D.z L.x L.y]                                          */  \
+    "RECOVERDz:                                                     " /* [D.z*ratio+L.z ratio D.x D.y D.z L.x L.y]                                              */  \
+    "                                                               " /*                                                                                        */  \
+    "               mov         eax , 0h                            " /* {idCaller}                                                                             */  \
+    "               fst         dword ptr 08h[edi]                  " /*                                                                             OUTPUT I.z */  \
+    "               fincstp                                         " /* [D.z*ratio+L.z ratio D.x D.y D.z L.x L.y]                                              */  \
+    "               ffree       st(0)                               " /* [* D.z*ratio+L.z ratio D.x D.y D.z L.x L.y]                                            */  \
+    "NOTFUZZz:                                                      " /* [fuzz D.z*ratio+L.z ratio D.x D.y D.z L.x L.y]                                         */  \
+    "                                                               " /*                                                                                        */  \
+    "               jmp         RECOVERDz                           " /*                                                                                        */  \
+    "               fstp        dword ptr 08h[edi]                  " /* [D.z*ratio+L.z ratio D.x D.y D.z L.x L.y]                                              */  \
+    "               fldz                                            " /* [0.0 D.z*ratio+L.z ratio D.x D.y D.z L.x L.y]                                          */  \
+    "               fincstp                                         " /* [D.z*ratio+L.z ratio D.x D.y D.z L.x L.y]                                              */  \
+    "               ffree       st(0)                               " /* [* D.z*ratio+L.z ratio D.x D.y D.z L.x L.y]                                            */  \
+    "                                                               " /*                                                                     OUTPUT 0.0 FOR I.z */  \
+    "                                                               " /*                                                                                        */  \
+    "               ja          NOTFUZZz                            " /*                                                                                        */  \
+    "               fchs                                            " /* [fuzz D.z*ratio+L.z ratio D.x D.y D.z L.x L.y]                                         */  \
+    "               fcomi       st(0) , st(1)                       " /* [-fuzz D.z*ratio+L.z ratio D.x D.y D.z L.x L.y]                                        */  \
+    "               fchs                                            " /* [-fuzz D.z*ratio+L.z ratio D.x D.y D.z L.x L.y]                                        */  \
+    "                                                               " /*                                                                                        */  \
+    "               jb          NOTFUZZz                            " /*                                                                                        */  \
+    "               fcomi       st(0) , st(1)                       " /* [fuzz D.z*ratio+L.z ratio D.x D.y D.z L.x L.y]                                         */  \
+    "INSERT2:                                                       " /* [fuzz D.z*ratio+L.z ratio D.x D.y D.z L.x L.y]                                         */  \
+    "INSERT1:       fld         dword ptr 088h[esp]                 " /* [fuzz D.z*ratio+L.z ratio D.x D.y D.z L.x L.y]                                         */  \
+    "                                                               " /*                                                                                        */  \
+    "               jmp         OUTNOW                              " /* DO NOT INSERT                                                                          */  \
+    "               fincstp                                         " /* [N.x N.y N.z L.x L.y L.z fuzz 0.0]                                                     */  \
+    "               fldz                                            " /* [0.0 N.x N.y N.z L.x L.y L.z fuzz]                                                     */  \
+    "               fstp        st(7)                               " /* [N.x N.y N.z L.x L.y L.z fuzz]                                                         */  \
+    "               fld         dword ptr 088h[esp]                 " /* [fuzz N.x N.y N.z L.x L.y L.z]                                                         */  \
+    "               ffree       st(6)                               " /* [N.x N.y N.z L.x L.y L.z]                                                              */  \
+    "               ffree       st(7)                               " /* [N.x N.y N.z L.x L.y L.z N.x]                                                          */  \
+    "               fld         st(5)                               " /* [N.x N.y N.z L.x L.y L.z N.x N.y]                                                      */  \
+    "               fld         st(5)                               " /* [N.y N.z L.x L.y L.z N.x N.y *]                                                        */  \
+    "               fadd        st(0) , st(3)                       " /* [N.z L.x L.y L.z N.x N.y * *]                                                          */  \
+    "               fstp        st(6)                               " /* [D.z L.x L.y L.z N.x N.y]                                                              */  \
+    "               fadd        st(0) , st(3)                       " /* [N.y D.z L.x L.y L.z N.x]                                                              */  \
+    "               fstp        st(6)                               " /* [D.y D.z L.x L.y L.z N.x]                                                              */  \
+    "               fadd        st(0) , st(3)                       " /* [N.x D.y D.z L.x L.y L.z]                                                              */  \
+    "               ffree       st(6)                               " /* [D.x D.y D.z L.x L.y L.z]                                                              */  \
+    "CALCNOW:                                                       " /* [D.x D.y D.z L.x L.y L.z ratio]                                                        */  \
+    "                                                               " /*                                                                                        */  \
+    "               jmp         RECOVERDz                           " /*                                                                                        */  \
+    "               mov         eax , 01h                           " /* {idCaller}                                                                             */  \
+    "               fincstp                                         " /* [D.z*ratio+L.z ratio D.x D.y D.z L.x L.y]                                              */  \
+    "               ffree       st(0)                               " /* [* D.z*ratio+L.z ratio D.x D.y D.z L.x L.y]                                            */  \
+    "                                                               " /* RECOVER Nx,y,z WITHOUT ACCESSING MEMORY                                                */  \
+    "                                                               " /*                                                                                        */  \
+    "               jae         INSERT2                             " /*                                                                                        */  \
+    "               fcomi       st(0) , st(1)                       " /*                                                                                        */  \
+    "               fld         dword ptr 088h[esp]                 " /* [fuzz D.z*ratio+L.z ratio D.x D.y D.z L.x L.y]                                         */  \
+    "                                                               " /*                                                                                        */  \
+    "               je          INSERT1                             " /*                                                                                        */  \
+    "               fcomip      st(0) , st(3)                       " /* [D.z*ratio+L.z ratio D.x D.y D.z L.x L.y]                                              */  \
+    "               fldz                                            " /* [0.0 D.z*ratio+L.z ratio D.x D.y D.z L.x L.y]                                          */  \
+    "               ffree       st(7)                               " /* [D.z*ratio+L.z ratio D.x D.y D.z L.x L.y]                                              */  \
+    "               fadd        st(0) , st(7)                       " /* [D.z*ratio+L.z ratio D.x D.y D.z L.x L.y L.z]  I.z                                     */  \
+    "               fmul        st(0) , st(1)                       " /* [D.z*ratio ratio D.x D.y D.z L.x L.y L.z]                                              */  \
+    "               fld         st(3)                               " /* [D.z ratio D.x D.y D.z L.x L.y L.z]                                                    */  \
+    "GOTRATIO:                                                      " /* [ratio D.x D.y D.z L.x L.y L.z]                                                        */  \
+    "                                                               " /*                                                                                        */  \
+    "               fdiv        st(0) , st(3)                       " /* [ratio D.x D.y D.z L.x L.y L.z]          ratio=-L.z/D.z                                */  \
+    "               fchs                                            " /* [-L.z D.x D.y D.z L.x L.y L.z]                                                         */  \
+    "USEz:          fld         st(5)                               " /* [L.z D.x D.y D.z L.x L.y L.z]                                                          */  \
+    "                                                               " /*                                                                                        */  \
+    "               jmp         GOTRATIO                            " /*                                                                                        */  \
+    "               fdiv        st(0) , st(1)                       " /* [ratio D.x D.y D.z L.x L.y L.z]          ratio=-L.x/D.x                                */  \
+    "               fchs                                            " /* [-L.x D.x D.y D.z L.x L.y L.z]                                                         */  \
+    "               fld         st(3)                               " /* [L.x D.x D.y D.z L.x L.y L.z]                                                          */  \
+    "                                                               " /*                                                                                        */  \
+    "               je          USEz                                " /*                                                                                        */  \
+    "               ffree       st(6)                               " /* [D.x D.y D.z L.x L.y L.z]                                                              */  \
+    "               ffree       st(7)                               " /* [D.x D.y D.z L.x L.y L.z fuzz]                                                         */  \
+    "               fcomi       st(0) , st(7)                       " /* CALCULATE RATIO                                                                        */  \
+    "                                                               " /*                                                                                        */  \
+    "               fdecstp                                         " /* [D.x D.y D.z L.x L.y L.z fuzz 0.0]                                                     */  \
+    "               fdecstp                                         " /* [D.y D.z L.x L.y L.z fuzz 0.0 D.x]                                                     */  \
+    "               fsub        st(0) , st(3)                       " /* [D.z L.x L.y L.z fuzz 0.0 D.x D.y]                                                     */  \
+    "               fincstp                                         " /* [N.z L.x L.y L.z fuzz 0.0 D.x D.y]                                                     */  \
+    "               fsub        st(0) , st(3)                       " /* [D.y N.z L.x L.y L.z fuzz 0.0 D.x]                                                     */  \
+    "               fincstp                                         " /* [N.y N.z L.x L.y L.z fuzz 0.0 D.x]                                                     */  \
+    "               fsub        st(0) , st(3)                       " /* [D.x N.y N.z L.x L.y L.z fuzz 0.0]                                                     */  \
+    "                                                               " /* CALCULATE DELTAx,y,z                                                                   */  \
+    "                                                               " /*                                                                                        */  \
+    "INSERT:                                                        " /* [N.x N.y N.z L.x L.y L.z fuzz 0.0]                                                     */  \
+    "INSERTP1:      fxch        st(3)                               " /* [N.x N.y N.z L.x L.y L.z fuzz 0.0]                                                     */  \
+    "                                                               " /*                                                                                        */  \
+    "               jmp         INSERT                              " /*                                                                                        */  \
+    "               fxch        st(2)                               " /* [N.x N.y N.z L.x L.y L.z fuzz 0.0]                                                     */  \
+    "               fxch        st(5)                               " /* [N.z N.y N.x L.x L.y L.z fuzz 0.0]                                                     */  \
+    "                                                               " /*                                                                                        */  \
+    "               je          OUTNOWP2                            " /* DO NOT INSERT                                                                          */  \
+    "               fcomi       st(0) , st(7)                       " /*                                                                                        */  \
+    "               fxch        st(5)                               " /* [L.z N.y N.x L.x L.y N.z fuzz 0.0]                                                     */  \
+    "                                                               " /*                                                                                        */  \
+    "               je          OUTNOWP1                            " /* DO NOT INSERT                                                                          */  \
+    "               fcomi       st(0) , st(7)                       " /*                                                                                        */  \
+    "               fxch        st(2)                               " /* [N.z N.y N.x L.x L.y L.z fuzz 0.0]                                                     */  \
+    "                                                               " /*                                                                                        */  \
+    "                                                               " /* IF EITHER IS ON ME OR DIRECTLY ABOVE OR BELOW ME                                       */  \
+    "                                                               " /*                                                                                        */  \
+    "INSPECT8:                                                      " /* [N.x N.y N.z L.x L.y L.z fuzz 0.0]                                                     */  \
+    "INSPECT8P1:    fxch        st(2)                               " /* [N.x N.y N.z L.x L.y L.z fuzz 0.0]                                                     */  \
+    "INSPECT8P2:    fxch        st(5)                               " /* [N.z N.y N.x L.x L.y L.z fuzz 0.0]                                                     */  \
+    "                                                               " /*                                                                                        */  \
+    "               jmp         OUTNOW                              " /* DO NOT INSERT                                                                          */  \
+    "               fxch        st(2)                               " /* [N.x N.y N.z L.x L.y L.z fuzz 0.0]                                                     */  \
+    "               fxch        st(5)                               " /* [N.z N.y N.x L.x L.y L.z fuzz 0.0]                                                     */  \
+    "                                                               " /*                                                                                        */  \
+    "               jae         INSPECT8P2                          " /*                                                                                        */  \
+    "               fcomi       st(0) , st(7)                       " /*                                                                                        */  \
+    "               fxch        st(5)                               " /* [L.z N.y N.x L.x L.y N.z fuzz 0.0]                                                     */  \
+    "                                                               " /*                                                                                        */  \
+    "               jae         INSPECT8P1                          " /*                                                                                        */  \
+    "               fcomi       st(0) , st(7)                       " /*                                                                                        */  \
+    "               fxch        st(2)                               " /* [N.z N.y N.x L.x L.y L.z fuzz 0.0]                                                     */  \
+    "                                                               " /*                                                                                        */  \
+    "                                                               " /* IF BOTH ARE BEHIND ME                                                                  */  \
+    "               fxch        st(3)                               " /* [N.x N.y N.z L.x L.y L.z fuzz 0.0]                                                     */  \
+    "                                                               " /*                                                                                        */  \
+    "               jne         INSERTP1                            " /* INSERT                                                                                 */  \
+    "               fcomi       st(0) , st(7)                       " /*                                                                                        */  \
+    "               fxch        st(3)                               " /* [L.x N.y N.z N.x L.y L.z fuzz 0.0]                                                     */  \
+    "                                                               " /*                                                                                        */  \
+    "               jne         INSERT                              " /* INSERT                                                                                 */  \
+    "               fcomi       st(0) , st(7)                       " /*                                                                                        */  \
+    "                                                               " /*                                                                                        */  \
+    "                                                               " /* IF EITHER IS TO MY SIDE                                                                */  \
+    "                                                               " /*                                                                                        */  \
+    "INSPECT7:                                                      " /* [N.x N.y N.z L.x L.y L.z fuzz 0.0]                                                     */  \
+    "INSPECT7P1:    fxch        st(3)                               " /* [N.x N.y N.z L.x L.y L.z fuzz 0.0]                                                     */  \
+    "                                                               " /*                                                                                        */  \
+    "               jmp         OUTNOW                              " /* DO NOT INSERT                                                                          */  \
+    "               fxch        st(3)                               " /* [N.x N.y N.z L.x L.y L.z fuzz 0.0]                                                     */  \
+    "                                                               " /*                                                                                        */  \
+    "               je          INSPECT7P1                          " /*                                                                                        */  \
+    "               fcomi       st(0) , st(7)                       " /*                                                                                        */  \
+    "               fxch        st(3)                               " /* [L.x N.y N.z N.x L.y L.z fuzz 0.0]                                                     */  \
+    "                                                               " /*                                                                                        */  \
+    "               jne         INSPECT7                            " /*                                                                                        */  \
+    "               fcomi       st(0) , st(7)                       " /*                                                                                        */  \
+    "                                                               " /*                                                                                        */  \
+    "                                                               " /* IF NOW IS NOT TO MY SIDE BUT LAG IS                                                    */  \
+    "                                                               " /*                                                                                        */  \
+    "INSPECT6:                                                      " /* [N.x N.y N.z L.x L.y L.z fuzz 0.0]                                                     */  \
+    "INSPECT6P1:    fxch        st(3)                               " /* [N.x N.y N.z L.x L.y L.z fuzz 0.0]                                                     */  \
+    "                                                               " /*                                                                                        */  \
+    "               jmp         OUTNOW                              " /* DO NOT INSERT                                                                          */  \
+    "               fxch        st(3)                               " /* [N.x N.y N.z L.x L.y L.z fuzz 0.0]                                                     */  \
+    "                                                               " /*                                                                                        */  \
+    "               jne         INSPECT6P1                          " /*                                                                                        */  \
+    "               fcomi       st(0) , st(7)                       " /*                                                                                        */  \
+    "               fxch        st(3)                               " /* [L.x N.y N.z N.x L.y L.z fuzz 0.0]                                                     */  \
+    "                                                               " /*                                                                                        */  \
+    "               je          INSPECT6                            " /*                                                                                        */  \
+    "               fcomi       st(0) , st(7)                       " /*                                                                                        */  \
+    "                                                               " /*                                                                                        */  \
+    "                                                               " /* IF NOW IS TO MY SIDE BUT LAG IS NOT                                                    */  \
+    "                                                               " /*                                                                                        */  \
+    "INSPECT5:                                                      " /* [N.x N.y N.z L.x L.y L.z fuzz 0.0]                                                     */  \
+    "INSPECT5P1:    fxch        st(3)                               " /* [N.x N.y N.z L.x L.y L.z fuzz 0.0]                                                     */  \
+    "                                                               " /*                                                                                        */  \
+    "               jmp         OUTNOW                              " /* DO NOT INSERT                                                                          */  \
+    "               fxch        st(3)                               " /* [N.x N.y N.z L.x L.y L.z fuzz 0.0]                                                     */  \
+    "                                                               " /*                                                                                        */  \
+    "               jbe         INSPECT5P1                          " /*                                                                                        */  \
+    "               fcomi       st(0) , st(7)                       " /*                                                                                        */  \
+    "               fxch        st(3)                               " /* [L.x N.y N.z N.x L.y L.z fuzz 0.0]                                                     */  \
+    "                                                               " /*                                                                                        */  \
+    "               jbe         INSPECT5                            " /*                                                                                        */  \
+    "               fcomi       st(0) , st(7)                       " /*                                                                                        */  \
+    "                                                               " /*                                                                                        */  \
+    "                                                               " /* IF BOTH ARE TO MY RIGHT                                                                */  \
+    "                                                               " /*                                                                                        */  \
+    "INSPECT4:                                                      " /* [N.x N.y N.z L.x L.y L.z fuzz 0.0]                                                     */  \
+    "INSPECT4P1:    fxch        st(3)                               " /* [N.x N.y N.z L.x L.y L.z fuzz 0.0]                                                     */  \
+    "                                                               " /*                                                                                        */  \
+    "               jmp         OUTNOW                              " /* DO NOT INSERT                                                                          */  \
+    "               fxch        st(3)                               " /* [N.x N.y N.z L.x L.y L.z fuzz 0.0]                                                     */  \
+    "                                                               " /*                                                                                        */  \
+    "               jae         INSPECT4P1                          " /*                                                                                        */  \
+    "               fcomi       st(0) , st(7)                       " /*                                                                                        */  \
+    "               fxch        st(3)                               " /* [L.x N.y N.z N.x L.y L.z fuzz 0.0]                                                     */  \
+    "                                                               " /*                                                                                        */  \
+    "               jae         INSPECT4                            " /*                                                                                        */  \
+    "               fcomi       st(0) , st(7)                       " /*                                                                                        */  \
+    "                                                               " /*                                                                                        */  \
+    "                                                               " /* IF BOTH ARE TO MY LEFT                                                                 */  \
+    "                                                               " /*                                                                                        */  \
+    "INSPECT3:                                                      " /* [N.x N.y N.z L.x L.y L.z fuzz 0.0]                                                     */  \
+    "INSPECT3P1:    fxch        st(2)                               " /* [N.x N.y N.z L.x L.y L.z fuzz 0.0]                                                     */  \
+    "INSPECT3P2:    fxch        st(5)                               " /* [N.z N.y N.x L.x L.y L.z fuzz 0.0]                                                     */  \
+    "                                                               " /*                                                                                        */  \
+    "               jmp         OUTNOW                              " /* DO NOT INSERT                                                                          */  \
+    "               fxch        st(2)                               " /* [N.x N.y N.z L.x L.y L.z fuzz 0.0]                                                     */  \
+    "               fxch        st(5)                               " /* [N.z N.y N.x L.x L.y L.z fuzz 0.0]                                                     */  \
+    "                                                               " /*                                                                                        */  \
+    "               jbe         INSPECT3P2                          " /*                                                                                        */  \
+    "               fcomi       st(0) , st(7)                       " /*                                                                                        */  \
+    "               fxch        st(5)                               " /* [L.z N.y N.x L.x L.y N.z fuzz 0.0]                                                     */  \
+    "                                                               " /*                                                                                        */  \
+    "               jbe         INSPECT3P1                          " /*                                                                                        */  \
+    "               fcomi       st(0) , st(7)                       " /*                                                                                        */  \
+    "               fxch        st(2)                               " /* [N.z N.y N.x L.x L.y L.z fuzz 0.0]                                                     */  \
+    "                                                               " /*                                                                                        */  \
+    "                                                               " /* IF BOTH ARE IN FRONT OF ME                                                             */  \
+    "                                                               " /*                                                                                        */  \
+    "INSPECT2:                                                      " /* [N.x N.y N.z L.x L.y L.z fuzz 0.0]                                                     */  \
+    "INSPECT2P1:    fdecstp                                         " /* [N.x N.y N.z L.x L.y L.z fuzz 0.0]                                                     */  \
+    "INSPECT2P2:    fdecstp                                         " /* [N.y N.z L.x L.y L.z fuzz 0.0 N.x]                                                     */  \
+    "                                                               " /*                                                                                        */  \
+    "               jmp         OUTNOW                              " /* DO NOT INSERT                                                                          */  \
+    "               fdecstp                                         " /* [N.x N.y N.z L.x L.y L.z fuzz 0.0]                                                     */  \
+    "               fdecstp                                         " /* [N.y N.z L.x L.y L.z fuzz 0.0 N.x]                                                     */  \
+    "                                                               " /*                                                                                        */  \
+    "               jne         INSPECT2P2                          " /*                                                                                        */  \
+    "               fcomi       st(0) , st(3)                       " /*                                                                                        */  \
+    "               fincstp                                         " /* [N.z L.x L.y L.z fuzz 0.0 N.x N.y]                                                     */  \
+    "                                                               " /*                                                                                        */  \
+    "               jne         INSPECT2P1                          " /*                                                                                        */  \
+    "               fcomi       st(0) , st(3)                       " /*                                                                                        */  \
+    "               fincstp                                         " /* [N.y N.z L.x L.y L.z fuzz 0.0 N.x]                                                     */  \
+    "                                                               " /*                                                                                        */  \
+    "               jne         INSPECT2                            " /*                                                                                        */  \
+    "               fcomi       st(0) , st(3)                       " /*                                                                                        */  \
+    "                                                               " /*                                                                                        */  \
+    "                                                               " /* IF NOT DISTINCT                                                                        */  \
+    "                                                               " /*                                                                                        */  \
+    "INSPECT1:                                                      " /* [N.x N.y N.z L.x L.y L.z fuzz 0.0]                                                     */  \
+    "                                                               " /*                                                                                        */  \
+    "               je          OUTNOWP3                            " /* DO NOT INSERT                                                                          */  \
+    "BWOTH:         cmp         ecx , 1h                            " /* bWoth                                                                                  */  \
+    "               fcmovb      st(0) , st(7)                       " /*                                                                                        */  \
+    "               fcomi       st(0) , st(6)                       " /*                                                                                        */  \
+    "DEFUZZx2:                                                      " /* [N.x N.y N.z L.x L.y L.z fuzz 0.0]                                                     */  \
+    "                                                               " /*                                                                                        */  \
+    "               jmp         BWOTH                               " /*                                                                                        */  \
+    "               fchs                                            " /* [N.x N.y N.z L.x L.y L.z fuzz 0.0]                                                     */  \
+    "               fcmovb      st(0) , st(7)                       " /*                                                                                        */  \
+    "               fcomi       st(0) , st(6)                       " /*                                                                                        */  \
+    "               fchs                                            " /* [-N.x N.y N.z L.x L.y L.z fuzz 0.0]                                                    */  \
+    "                                                               " /*                                                                                        */  \
+    "               jae         DEFUZZx2                            " /*                                                                                        */  \
+    "               fcomi       st(0) , st(7)                       " /*                                                                                        */  \
+    "               add         esi , 0ch                           " /* ppin                                                                                   */  \
+    "DEFUZZx:       fld         dword ptr [esi]                     " /* [N.x N.y N.z L.x L.y L.z fuzz 0.0]                                                     */  \
+    "                                                               " /*                                                                                        */  \
+    "               fcmovb      st(0) , st(6)                       " /*                                                                                        */  \
+    "DEFUZZy2:      fcomi       st(0) , st(5)                       " /*                                                                                        */  \
+    "                                                               " /*                                                                                        */  \
+    "               jmp         DEFUZZx                             " /*                                                                                        */  \
+    "               fchs                                            " /* [N.y N.z L.x L.y L.z fuzz 0.0]                                                         */  \
+    "               fcmovb      st(0) , st(6)                       " /*                                                                                        */  \
+    "               fcomi       st(0) , st(5)                       " /*                                                                                        */  \
+    "               fchs                                            " /* [-N.y N.z L.x L.y L.z fuzz 0.0]                                                        */  \
+    "                                                               " /*                                                                                        */  \
+    "               jae         DEFUZZy2                            " /*                                                                                        */  \
+    "               fcomi       st(0) , st(6)                       " /*                                                                                        */  \
+    "DEFUZZy:       fld         dword ptr 04h[esi]                  " /* [N.y N.z L.x L.y L.z fuzz 0.0]                                                         */  \
+    "                                                               " /*                                                                                        */  \
+    "               fcmovb      st(0) , st(5)                       " /*                                                                                        */  \
+    "DEFUZZz2:      fcomi       st(0) , st(4)                       " /*                                                                                        */  \
+    "                                                               " /*                                                                                        */  \
+    "               jmp         DEFUZZy                             " /*                                                                                        */  \
+    "               fchs                                            " /* [N.z L.x L.y L.z fuzz 0.0]                                                             */  \
+    "               fcmovb      st(0) , st(5)                       " /*                                                                                        */  \
+    "               fcomi       st(0) , st(4)                       " /*                                                                                        */  \
+    "               fchs                                            " /* [-N.z L.x L.y L.z fuzz 0.0]                                                            */  \
+    "                                                               " /*                                                                                        */  \
+    "               jae         DEFUZZz2                            " /*                                                                                        */  \
+    "               fcomi       st(0) , st(5)                       " /*                                                                                        */  \
+    "DEFUZZz:       fld         dword ptr 08h[esi]                  " /* [N.z L.x L.y L.z fuzz 0.0]     "N":"NOW"                                               */  \
+    "                                                               " /*                                                                                        */  \
+    "               jmp         FIN                                 " /*                                                                                        */  \
+    "               mov         dword ptr 080h[esp] , 01h           " /* bFail                    FAIL RETURN BECAUSE NOT ENOUGH ROOM FOR 2 MORE POINTS         */  \
+    "                                                               " /*                                                                                        */  \
+    "               ja          DEFUZZz                             " /*                                                                                        */  \
+    "POINT2:        cmp         dword ptr 084h[esp] , 01h           " /* cOutMaxP                 ROOM FOR 2 MORE POINTS IN THE OUTPUT BUFFER?                  */  \
+    "                                                               " /*                                                                                        */  \
+    "               jmp         GLYPH                               " /*                                                                                        */  \
+    "               add         edx , 04h                           " /* psout                                                                                  */  \
+    "               add         ebx , 04h                           " /* psin                     SET UP FOR NEW GLYPH AND JUMP BACK TO PROCESS IT              */  \
+    "               fincstp                                         " /* [fuzz 0.0]                                                                             */  \
+    "               fincstp                                         " /* [* fuzz 0.0]                                                                           */  \
+    "               fincstp                                         " /* [* * fuzz 0.0]                                                                         */  \
+    "               ffree       st(2)                               " /* [* * * fuzz 0.0]                                                                       */  \
+    "               ffree       st(1)                               " /* [* * L.z fuzz 0.0]                                                                     */  \
+    "               ffree       st(0)                               " /* [* L.y L.z fuzz 0.0]                                                                   */  \
+    "                                                               " /*                                                                                        */  \
+    "               jne         POINT2                              " /*                                                                                        */  \
+    "POINT1:        cmp         dword ptr [ebx] , 0h                " /* *psin                    ANY MORE POINTS IN THIS GLYPH?                                */  \
+    "                                                               " /*                                                                                        */  \
+    "               mov         ecx , 01h                           " /* bWoth                                                                                  */  \
+    "               mov         dword ptr [edx] , 0h                " /* *psout                                                                                 */  \
+    "               inc         dword ptr [ebp]                     " /* *pcgout                                                                                */  \
+    "               fldz                                            " /* [L.x L.y L.z fuzz 0.0]                                                                 */  \
+    "               fldz                                            " /* [L.y L.z fuzz 0.0]                                                                     */  \
+    "               fldz                                            " /* [L.z fuzz 0.0]           "L":"LAG"                                                     */  \
+    "               dec         dword ptr 0a0h[esp]                 " /* cgin                                                                                   */  \
+    "                                                               " /*                                                                                        */  \
+    "               je          FIN                                 " /*                                                                                        */  \
+    "GLYPH:         cmp         dword ptr 0a0h[esp] , 0h            " /* cgin                     ANY MORE GLYPHS?                                              */  \
+    "                                                               " /*                                                                                        */  \
+    "                                                               " /* **********************************************************************************     */  \
+    "                                                               " /* **********************************************************************************     */  \
+    "                                                               " /* **********************************************************************************     */  \
+    "                                                               " /* **********************************************************************************     */  \
+    "                                                               " /* ****                                                                          ****     */  \
+    "                                                               " /* **** PROCESS A GLYPH                                                          ****     */  \
+    "                                                               " /* ****                                                                          ****     */  \
+    "                                                               " /* **********************************************************************************     */  \
+    "                                                               " /* **********************************************************************************     */  \
+    "                                                               " /* **********************************************************************************     */  \
+    "                                                               " /* **********************************************************************************     */  \
+    "                                                               " /*                                                                                        */  \
+    "               fst         dword ptr 088h[esp]                 " /*                  fuzz    IF NEEDED, I CAN DISCARD fuzz FROM FPU AND RELOAD FROM HERE   */  \
+    "               fdivp       st(1) , st(0)                       " /* [fuzz 0.0]               fuzz=1.0/4096.0                                               */  \
+    "               pop         eax                                 " /*                                                                                        */  \
+    "               fild        dword ptr [esp]                     " /* [4096.0 1.0 0.0]                                                                       */  \
+    "               push        eax                                 " /*                                                                                        */  \
+    "               shl         eax , 0ch                           " /*                                                                                        */  \
+    "               mov         eax , 01h                           " /*                                                                                        */  \
+    "               fld1                                            " /* [1.0 0.0]                                                                              */  \
+    "               fldz                                            " /* [0.0]                                                                                  */  \
+    "                                                               " /*                                                                                        */  \
+    "               mov         dword ptr 080h[esp] , 0h            " /* bFail                                                                                  */  \
+    "               mov         edi , dword ptr 0b4h[esp]           " /* ppout                                                                                  */  \
+    "               mov         esi , dword ptr 0a8h[esp]           " /* ppin                                                                                   */  \
+    "               mov         dword ptr [ebp] , 0h                " /* *pcgout                                                                                */  \
+    "               mov         ebp , dword ptr 0ach[esp]           " /* pcgout                                                                                 */  \
+    "               mov         edx , dword ptr 0b0h[esp]           " /* psout                                                                                  */  \
+    "               mov         ebx , dword ptr 0a4h[esp]           " /* psin                                                                                   */  \
+    "               mov         dword ptr 084h[esp] , eax           " /* cOutMaxP                                                                               */  \
+    "               mov         dword ptr 074h[esp] , ebp           " /* ebp (save)                                                                             */  \
+    "                                                               " /*                                                                                        */  \
+    "               fldcw       dword ptr 070h[esp]                 " /* {fpcw}                                                                                 */  \
+    "               and         dword ptr 070h[esp] , 0fff0h        " /* {fpcw}                                                                                 */  \
+    "               fstcw       dword ptr 070h[esp]                 " /* {fpcw}                   UNMASK ALL FP EXCEPTIONS FOR STRONG TYPE CHECKING             */  \
+    "                                                               " /*                                                                                        */  \
+    "               fsave       dword ptr [esp]                     " /*                                                                                        */  \
+    "               sub         esp , 0a0h                          " /* ALLOCATE FOR LOCALS AND SET UP REFERENCE REGISTERS                                     */  \
+    "                                                               " /*                                                                                        */  \
+    "                                                               " /* **********************************************************************************     */  \
+    "                                                               " /* **********************************************************************************     */  \
+    "                                                               " /* **********************************************************************************     */  \
+    "                                                               " /* **********************************************************************************     */  \
+    "                                                               " /* ****                                                                          ****     */  \
+    "                                                               " /* **** SET UP                                                                   ****     */  \
+    "                                                               " /* ****                                                                          ****     */  \
+    "                                                               " /* **********************************************************************************     */  \
+    "                                                               " /* **********************************************************************************     */  \
+    "                                                               " /* **********************************************************************************     */  \
+    "                                                               " /* **********************************************************************************     */  \
+    "                                                               " /*                                                                                        */  \
+    "                                                               " /* **********************************************************************************     */  \
+    "                                                               " /* **********************************************************************************     */  \
+    "                                                               " /* **********************************************************************************     */  \
+    "                                                               " /* **********************************************************************************     */  \
+    "                                                               " /* ****                                                                          ****     */  \
+    "                                                               " /* **** I RETURN bFail.                                                          ****     */  \
+    "                                                               " /* ****                                                                          ****     */  \
+    "                                                               " /* **** POINT THAT REPRESENTS THE POINT ON THE LINE THAT IS DIRECTLY ABOVE ME.   ****     */  \
+    "                                                               " /* **** THAT WO OF THE POINTS IS BEHIND ME AND WO IS AHEAD OF ME, I INSERT A     ****     */  \
+    "                                                               " /* **** WHEN A LINE BETWEEN TWO ADJACENT POINTS PASSES DIRECTLY ABOVE ME, SUCH   ****     */  \
+    "                                                               " /* ****                                                                          ****     */  \
+    "                                                               " /* **** SPLIT.                                                                   ****     */  \
+    "                                                               " /* **** INSERT THE POINT ON THAT LINE THAT IS DIRECTLY BEHIND ME.  THE GLYPH IS  ****     */  \
+    "                                                               " /* **** WHEN A LINE BETWEEN TWO ADJACENT POINTS PASSES DIRECTLY BEHIND ME, I     ****     */  \
+    "                                                               " /* ****                                                                          ****     */  \
+    "                                                               " /* **** GLYPH.  THE INSERTED POINT IS ALWAYS ON THE X=0 PLANE.  (THE YZ-PLANE).  ****     */  \
+    "                                                               " /* **** SINGLE POINT ON THE LINE SEGMENT BETWEEN OO ADJACENT POINTS WITHIN A     ****     */  \
+    "                                                               " /* **** POINTS.  ALL INPUT POINTS ARE COPIED TO OUTPUT.  MY JOB IS TO INSERT A   ****     */  \
+    "                                                               " /* **** OUTPUTS AN ARRAY OF (X,Y,Z) POINTS GIVEN AN INPUT ARRAY OF (X,Y,Z)       ****     */  \
+    "                                                               " /* ****                                                                          ****     */  \
+    "                                                               " /* **********************************************************************************     */  \
+    "                                                               " /* **********************************************************************************     */  \
+    "                                                               " /* **********************************************************************************     */  \
+    "                                                               " /* **********************************************************************************     */  \
+    "                                                               " /*                                                                                        */  \
+    /*                                                                                                                                                          */  \
+    /* esp           stack frame                                                                                                                                */  \
+    /* ebp           pcgout                                                                                                                                     */  \
+    /* edi           cursor: point output                                                                                                                       */  \
+    /* esi           cursor: point input                                                                                                                        */  \
+    /* edx           psout                                                                                                                                      */  \
+    /* ecx           bWoth                                  TRUE IFF CURRENT INPUT POINT IS THE WOTH POINT IN A GLYPH                                           */  \
+    /* ebx           psin                                                                                                                                       */  \
+    /* eax           temporary: {idCaller}                                                                                                                      */  \
+    /*                                                                                                                                                          */  \
+    /* 0a0h         (end)                                                                                                                                       */  \
+    /* 09ch                                                                                                                                                     */  \
+    /* 098h                                                                                                                                                     */  \
+    /* 094h                                                                                                                                                     */  \
+    /* 090h                                                                                                                                                     */  \
+    /* 08ch                                                                                                                                                     */  \
+    /* 088h         fuzz                                    IF I NEED TO DISCARD fuzz FROM THE FPU STACK, I CAN DO SO AND THEN RELOAD IT FROM HERE              */  \
+    /* 084h         cOutMaxP                                                                                                                                    */  \
+    /* 080h         bFail                                                                                                                                       */  \
+    /* 07ch         dim                                                                                                                                         */  \
+    /* 078h         bBehind                                                                                                                                     */  \
+    /* 074h         ebp (save)                                                                                                                                  */  \
+    /* 070h         temporary: {fpcw}                                                                                                                           */  \
+    /* 06ch         debugging temporary: {idIn}                                                                                                                 */  \
+    /* 000h         fpuState                                                                                                                                    */  \
+    /*                                                                                                                                                          */  \
+    /* REGISTER AND STACK VARIABLES                                                                                                                             */  \
+    /*                                                                                                                                                          */  \
+    /* 014h         0b4h[esp]     ppout                                                                                                                         */  \
+    /* 010h         0b0h[esp]     psout                                                                                                                         */  \
+    /* 00ch         0ach[esp]     pcgout                                                                                                                        */  \
+    /* 008h         0a8h[esp]     ppin                                                                                                                          */  \
+    /* 004h         0a4h[esp]     psin                                                                                                                          */  \
+    /* 000h         0a0h[esp]     cgin                                                                                                                          */  \
+    /*                                                                                                                                                          */  \
+    /* ONeNTRY      AFTERfRAMED                                                                                                                                 */  \
+    /*                                                                                                                                                          */  \
+    /* OFFSETS TO MASTER PARAMETERS ON THE STACK                                                                                                                */  \
+                                                                                                                                                                    \
+#pragma aux insertX0PointAM =                                                                                                                                       \
+                                                                                
+/*1*/boolT __export insertX0PointAM( countT cOutMaxP ) ;/*1*/          
+
+/**/
+*/
+ | 
+ |  emit the original defuzzed point
+ |    emit insert
+ |   if bInsert
+ | 
+ |    if deltax && insertz > 0 bInsert = 0
+ | 
+ |    replace fuzz with 0.0 for insertx,y,z
+ |    insertz = lag.z + ratio * deltaz
+ |    inserty = lag.y + ratio * deltay
+ |    insertx = lag.x + ratio * deltax
+ | 
+ |     ratio  = - lag.x / deltax
+ |    else
+ |     ratio  = - lag.z / deltaz
+ |    if !deltax
+ | 
+ |    deltaz = now.z - lag.z
+ |    deltay = now.y - lag.y
+ |    deltax = now.x - lag.x
+ | 
+ |   if bInsert // NOW AND LAG ARE ON OPPOSITE SIDES OF THE YZ-PLANE OR ( BOTH ARE ON THE YZ-PLANE AND THEY ARE NOT ON THE SAME SIDE OF THE XY-PLANE AND NEITHER IS DIRECTLY ABOVE OR BELOW ME )
+ | 
+ |   //
+ |   //
+ |   // THIS IMPLIES THAT A UNIQUE X=0 POINT EXISTS XOR A UNIQUE Z=0 POINT EXISTS
+ |   //
+ |   //
+ |   //     BOTH ARE ON YZ-PLANE AND ARE ON OPPOSITE SIDES OF THE XY-PLANE
+ |   //     ON OPPOSITE SIDES OF YZ-PLANE
+ |   //
+ |   // THIS IMPLIES DISTINCT AND THAT NOT BOTH ARE IN FRONT OF XY-PLANE AND THAT ONE OF THE FOLLOWING IS TRUE
+ |   //
+ |   //
+ |   //      NEITHER IS ON THE XY-PLANE
+ |   //      NOT BOTH ARE BEHIND XY-PLANE
+ |   //     IF BOTH ARE ON YZ-PLANE
+ |   //     NOT EXACTLY WO ON YZ-PLANE
+ |   //     NOT ON SAME SIDE OF YZ-PLANE
+ |   //     NOT BOTH ARE IN FRONT OF XY-PLANE
+ |   //     DISTINCT
+ |   //
+ |   // IF bInsert THEN THE FOLLOWING ARE ALL TRUE
+ | 
+ |    if lag.z == 0 bInsert = 0
+ |    if now.z == 0 bInsert = 0
+ |    // IF WO OR BOTH ARE DIRECTLY ABOVE OR BELOW OR ON ME THEN DO NOT INSERT
+ | 
+ |    if now.z < 0 && lag.z < 0 bInsert = 0
+ |    // IF BOTH ARE BEHIND ME THEN DO NOT INSERT
+ | 
+ |   if bInsert && now.x == 0 && lag.x == 0
+ |   // IF NEITHER IS TO THE SIDE OF ME
+ | 
+ |   if now.x != 0 && lag.x == 0 bInsert = 0
+ |   if now.x == 0 && lag.x != 0 bInsert = 0
+ |   // IF EXACTLY WO IS TO THE SIDE OF ME THEN DO NOT INSERT
+ | 
+ |   if now.x > 0 && lag.x > 0 bInsert = 0
+ |   if now.x < 0 && lag.x < 0 bInsert = 0
+ |   // IF BOTH ARE ON SAME SIDE OF ME THEN DO NOT INSERT
+ | 
+ |   if now.z > 0 && lag.z > 0 bInsert = 0
+ |   // IF BOTH ARE IN FRONT OF ME THEN DO NOT INSERT
+ | 
+ |   if now.x == lag.x && now.y == lag.y && now.z == lag.z bInsert = 0
+ |   // IF NOT DISTINCT
+ | 
+ |   bInsert = 1
+ |  if not woth
+ |  replace fuzz with 0.0 for x,y,z
+ | for each point
+ | 
+pseudocode (this pseudocode was written before the code and was used to guide the writing of the code)
+/*
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 25 years.
+//
+// Copyright (c) 1992-2019 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+

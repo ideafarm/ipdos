@@ -1,0 +1,31 @@
+
+//
+// Copyright (c) 1992-2019 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 25 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+
+#define QUITO(pcQuitP) const countT* _pcQuitSave = tinP.pcQuit ; tinP.pcQuit = (pcQuitP) ;
+
+/**/
+/*1*//*QUITO(pcQuitP)*//*1*/
+*/
+code that refers to me -must- use QUITR to undo my effects
+ to cause quitting to be controled by some other countT value, specify QUITO( &someCount )
+to suppress quitting, either specify QUITOZ or QUITO( )
+for example, etherC::boxMenuF will return a useable but incomplete list if asynch impotence occurs while it is working
+on each thread, tinP.pcQuit is initially set to &(const countT&)etPrime
+some system functions inspect tinP.pcQuit and silently quit early (no impotence) if *tinP.pcQuit
+use me to modify the default early quit behavior for system functions
+\<A HREF=\"5.0010216.1.0.html\"\>definition\</A\>
+/*
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 25 years.
+//
+// Copyright (c) 1992-2019 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+

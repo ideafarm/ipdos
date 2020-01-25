@@ -1,0 +1,106 @@
+
+//
+// Copyright (c) 1992-2019 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 25 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+
+}
+    _OUT_
+
+    sBigOutP << psttOldCommentP ;                          // a
+    sBigOutP << processGlobal1I.idAdamRoot ;               // 9
+
+    sBigOutP << (countT)0 ;                             // 8 cRelays: WILL BE INCREMENTED BY EACH CHAT SERVER (1140104) TO TOUCH ME
+    sBigOutP << bDirectP ;                              // 7 NORMALLY 0: SETTING THIS CAUSES THE CHAT RELAY (1140104) ON THE TARGET HOST TO BE BYPASSED
+    sBigOutP << cTriesP ;                               // 6 NORMALLY 0: CONTROLS connectF CALLS WHILE ESTABLISHING THE CONNECTION SPLINE
+    nicNameP >> sBigOutP ;                              // 5 NORMALLY 0: HOST ON WHICH THE TARGET CELL RESIDES
+    sBigOutP << idPortP ;                               // 4 NORMALLY 0: PORT ON WHICH THE TARGET SENTIENT IS LISTENING FOR CHAT CONNECTION REQUESTS
+    sBigOutP << idAdamP ;                               // 3 TARGET SENTIENT
+    sBigOutP << sSmallOutP ;                            // 2 PAYLOAD
+    sBigOutP << (countT)ifcIDcMDsESSION_RELAYcHAT ;     // 1
+
+    _INoLD_
+
+    }
+        if( POOP ) return ;
+        __( !psttOldCommentP->idAdam ) ;
+        if( POOP ) return ;
+        __Z( psttOldCommentP ) ;
+        __( sBigOutP ) ;
+        __( !idAdamP && !idPortP ) ;
+        if( POOP ) return ;
+    {
+    IFbEcAREFUL
+    SCOOP
+{
+/*1*/voidT etherC::ifcChatRelayPackageF( tinS& tinP , soulC& sBigOutP , soulC& sSmallOutP , const countT idAdamP , const strokeS* const psttOldCommentP , const countT cTriesP , const countT idPortP , const nicNameC& nicNameP , const boolT bDirectP )/*1*/
+
+/**/
+*/
+   this is because firewalls will break applications that set bDirectP
+  setting bDirectP is bad style unless performance considerations require it
+  if 1 then a receiving chat server will relay the payload directly to idPortP of nicNameP
+  if 0 then a receiving chat server will relay to a remote chat server unless nicNameP is local
+  normally should be 0 unless there is definitely no firewall blocking direct access to idPortP of nicNameP
+  can be 0 or 1
+ bDirectP
+  normally is 0
+   if 0 and idAdamP is not 0 then a cell will be chosen randomly by the chat server
+   if 0 and idPortP is not 0 then the local host is implied
+  can be 0
+ nicNameP
+  normally is 0 unless idAdamP is 0
+  can be 0
+ idPortP
+    the actual elapsed time will also include time spent establishing the partial connection spline and then unwinding it
+   a calculation based on this value will underestimate the time that will elapse before timeout
+   the standard sleep interval between tries is TUCK * 0x40
+  specify a value greater than 1 if the application wants to imply a timeout value for the establishment of the connection spline
+  specify 1 if the application wants to see a failure event if the entire connection spline cannot be established immediately
+  specify 0 if the application wants to block until the entire connection spline is in place
+  all chat relay servers will use this value when connecting upward as the connection spline is established
+  can be 0
+ cTriesP
+   this is not currently enforced, but might be enforced in the future
+  must not contain CRLF "\r\n" or other control characters
+  must not be of length 0
+  must not be 0
+    use as much length as you need in order to include all relevant information
+   completeness is more important than conciseness
+   for some reporting purposes a truncation of this value might, and may, be used
+  although length is not currently limited, please be concise and state the most important information wo'th
+  the value of this field is used to mark log entries to assist in tracking and debugging the progress and completion of related relay chat sessions
+  specify a meaningful, specific, and thoughtful comment to communicate the purpose, objective, and identity of this particular relay chat session
+ psttOldCommentP
+  normally is not ze
+  can be 0 unless idPortP is also 0
+ idAdamP
+  normally will not be empty
+  can be empty
+ sSmallOutP
+  must be empty
+ sBigOutP
+ tinP
+arguments
+ this is because this creates multiple virtual circuits between the same oo hosts
+it is bad style to write sBigOutP directly to a remote chat server unless performance considerations require it
+normally sBigOutP should be written to the local chat server
+after i return, sBigOutP will be ready to write to the local (or a remote) ifcCHAT port server
+i do not use sockets
+my only function is to fill sBigOutP
+i package sSmallOutP so that it will be carried via relay to a local or remote adam who is listening for chat connections
+\<A HREF=\"5.103017b.1.0.html\"\>definition\</A\>
+\<A HREF=\"6.$ifcChatRelayPackageF.0.html\"\>instances\</A\>
+/*
+
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 25 years.
+//
+// Copyright (c) 1992-2019 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+

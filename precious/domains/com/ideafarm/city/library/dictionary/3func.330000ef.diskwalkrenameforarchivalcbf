@@ -1,0 +1,392 @@
+
+//
+// Copyright (c) 1992-2019 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 25 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+
+}
+    return bDoIt ;
+
+    _OUT_
+
+    }
+        }
+            }
+                }
+                    }
+                        }
+                            }
+                                etThread.boxPutF(            tinP , tNewFileMetaPathLeaf    , tPathLeaf , tPathLeaf.csF( tinP ) ) ;
+                                etThread.boxPutF(            tinP , tNewFileMetaPathRoot    , tPathRoot , tPathRoot.csF( tinP ) ) ;
+                                etThread.boxPutF(            tinP , tNewFileMetaCurrentName , tShort    , tShort.csF(    tinP ) ) ;
+                                etThread.boxPutF(            tinP , tNewFileMetaHashedName  , tShort    , tShort.csF(    tinP ) ) ;
+                                etThread.diskMoveFileOrDirF( tinP , tNewFileData            , tOld ) ;
+
+                                etThread.traceF( tinP , tNewFileMetaCurrentName ) ;
+                                etThread.traceF( tinP , tNewFileMetaHashedName ) ;
+
+                                etThread.traceF( tinP , tNewFileData+T("    ")+tOld , flTRACE_null , ifcIDtRACEdIVERT_8 ) ;
+
+                                }
+                                    ) ;
+                                        || etThread.diskFileExistsF( tinP , tNewFileMetaPathLeaf    )
+                                        || etThread.diskFileExistsF( tinP , tNewFileMetaPathRoot    )
+                                        || etThread.diskFileExistsF( tinP , tNewFileMetaCurrentName )
+                                        || etThread.diskFileExistsF( tinP , tNewFileMetaHashedName  )
+                                           etThread.diskFileExistsF( tinP , tNewFileData            )
+                                    (
+                                    while
+                                    }
+                                        tNewFileMetaPathLeaf    = tTo+tNewPrefix+tTimePair+tDot+tSequenceNumber+tDot+tHash+tDot+TF3(  idSeq,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE|flFORMAT_FOREIGN,8)+tDotTypeMetaDotPathLeaf    ;
+                                        tNewFileMetaPathRoot    = tTo+tNewPrefix+tTimePair+tDot+tSequenceNumber+tDot+tHash+tDot+TF3(  idSeq,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE|flFORMAT_FOREIGN,8)+tDotTypeMetaDotPathRoot    ;
+                                        tNewFileMetaCurrentName = tTo+tNewPrefix+tTimePair+tDot+tSequenceNumber+tDot+tHash+tDot+TF3(  idSeq,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE|flFORMAT_FOREIGN,8)+tDotTypeMetaDotCurrentName ;
+                                        tNewFileMetaHashedName  = tTo+tNewPrefix+tTimePair+tDot+tSequenceNumber+tDot+tHash+tDot+TF3(  idSeq,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE|flFORMAT_FOREIGN,8)+tDotTypeMetaDotHashedName  ;
+                                        tNewFileData            = tTo+tNewPrefix+tTimePair+tDot+tSequenceNumber+tDot+tHash+tDot+TF3(++idSeq,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE|flFORMAT_FOREIGN,8)+tDotTypeData+tDotExt       ;
+                                    {
+                                    do
+                                    ZE( countT , idSeq ) ;
+
+                                    }
+                                        etThread.delF( tinP , psttHash ) ;
+                                        tHash = T(psttHash) ;
+                                        hasher.queryStringF( tinP , psttHash ) ; ___( psttHash ) ;
+                                        ZE( strokeS* , psttHash ) ;
+
+                                        hasher.eatF( tinP , tShort , tShort.csF( tinP ) ) ;
+                                        hasherC hasher( tinP , etThread ) ;
+                                    {
+                                    TN( tHash , "" ) ;
+                                {
+                                TN( tNewFileMetaPathLeaf , "" ) ;
+                                TN( tNewFileMetaPathRoot , "" ) ;
+                                TN( tNewFileMetaCurrentName , "" ) ;
+                                TN( tNewFileMetaHashedName , "" ) ;
+                                TN( tNewFileData , "" ) ;
+
+                                }
+                                    }
+                                        etThread.delF( tinP , psttSansDots ) ;
+                                        tTimePair = T(psttSansDots) ;
+                                        etThread.strSubstringF( tinP , psttSansDots , idf , idl , tTimePair ) ; ___( psttSansDots ) ;
+                                        countT idl = tTimePair.csF( tinP) - 1 ;
+                                        countT idf = 2 ;
+                                        ZE( strokeS* , psttSansDots ) ;
+                                    {
+                                    if( tTimePair.csF( tinP ) > 2 )
+
+                                    }
+                                        }
+                                            }
+                                                }
+                                                    tTimePair = tDot+tTimeFromPrefix+tDot+tDateAtTimeFromFileMeta+tDot ;
+                                                {
+                                                else                    // THERE IS NO TIME AFTER HEY
+                                                }
+                                                    etThread.delF( tinP , psttSingleTime ) ;
+                                                    tTimePair = T(psttSingleTime)+tDateAtTimeFromFileMeta+tDot ;
+                                                    etThread.strSubstringF( tinP , psttSingleTime , idf , idl , tShort ) ; ___( psttSingleTime ) ;
+                                                    countT idf = idHit2 ;
+                                                    countT idl = idf - 1 ;
+                                                    ZE( strokeS* , psttSingleTime ) ;
+                                                {
+                                                if( idHit2 )            // I HAVE A SINGLE TIME AFTER HEY                                                  
+                                                idHit2 = etThread.strIdF( tinP, idf , sttq , tSssDotDateAtTimeDot , tShort ) ;
+                                                idf = idfSave ;
+                                            {
+                                            else
+                                            }
+                                                etThread.delF( tinP , psttDoubleTime ) ;
+                                                tTimePair = T(psttDoubleTime) ;
+                                                etThread.strSubstringF( tinP , psttDoubleTime , idf , idl , tShort ) ; ___( psttDoubleTime ) ;
+                                                countT idf = idHit2 ;
+                                                countT idl = idf - 1 ;
+                                                ZE( strokeS* , psttDoubleTime ) ;
+                                            {
+                                            if( idHit2 )            // I HAVE A DOUBLE TIME AFTER HEY                                                  
+                                            countT idHit2 = etThread.strIdF( tinP, idf , sttq , tSssDotDateAtTimeDotDateAtTimeDot , tShort ) ;
+                                            countT idfSave = -- idf ;                             
+                                        {
+                                        else                        // I HAVE A DOT HEY DOT
+                                        }
+                                            tTimePair = tDot+tTimeFromPrefix+tDot+tDateAtTimeFromFileMeta+tDot ;
+                                        {
+                                        if( !idHit )
+                                        idHit = etThread.strIdF( tinP, idf , sttq , tDotHeyDot , tShort ) ;
+
+                                        tSequenceNumber = tSequenceNumberFromPrefix ;
+                                        }
+                                            etThread.delF( tinP , psttSequenceNumberFromPrefix ) ;
+                                            tSequenceNumberFromPrefix = T(psttSequenceNumberFromPrefix) ;
+                                            etThread.strSubstringF( tinP , psttSequenceNumberFromPrefix , idf , idl , tShort ) ; ___( psttSequenceNumberFromPrefix ) ;
+                                            countT idl = ++ idf + 2 ;
+                                            ZE( strokeS* , psttSequenceNumberFromPrefix ) ;
+                                        {
+                                        TN( tSequenceNumberFromPrefix , "" ) ;
+
+                                        }
+                                            etThread.delF( tinP , psttTimeFromPrefix ) ;
+                                            tTimeFromPrefix = T(psttTimeFromPrefix) ;
+                                            etThread.strSubstringF( tinP , psttTimeFromPrefix , idf , idl , tShort ) ; ___( psttTimeFromPrefix ) ;
+                                            countT idl = idf + 0xc ;
+                                            ZE( strokeS* , psttTimeFromPrefix ) ;
+                                        {
+                                        TN( tTimeFromPrefix , "" ) ;
+                                    {
+                                    else                            // I HAVE A PREFIX
+                                    }
+                                        }
+                                            }
+                                                }
+                                                    }
+                                                        }
+                                                            tTimePair = tDot+tDateAtTimeFromFileMeta+tDot+tDateAtTimeFromFileMeta+tDot ;
+                                                        {
+                                                        else
+                                                        }
+                                                            etThread.delF( tinP , psttMMDDYYHHMM ) ;
+                                                            tTimePair = tDot+T(psttSingle)+tDot+tDateAtTimeFromFileMeta+tDot ;
+
+                                                            etThread.strFuseF( tinP , psttSingle , psttMMDDYYHHMM[ CSpREFIX + 0x09 ] ) ;
+                                                            etThread.strFuseF( tinP , psttSingle , psttMMDDYYHHMM[ CSpREFIX + 0x08 ] ) ;
+                                                            etThread.strFuseF( tinP , psttSingle , psttMMDDYYHHMM[ CSpREFIX + 0x07 ] ) ;
+                                                            etThread.strFuseF( tinP , psttSingle , psttMMDDYYHHMM[ CSpREFIX + 0x06 ] ) ;
+                                                            etThread.strFuseF( tinP , psttSingle , tAt                               ) ;
+                                                            etThread.strFuseF( tinP , psttSingle , psttMMDDYYHHMM[ CSpREFIX + 0x03 ] ) ;
+                                                            etThread.strFuseF( tinP , psttSingle , psttMMDDYYHHMM[ CSpREFIX + 0x02 ] ) ;
+                                                            etThread.strFuseF( tinP , psttSingle , psttMMDDYYHHMM[ CSpREFIX + 0x01 ] ) ;
+                                                            etThread.strFuseF( tinP , psttSingle , psttMMDDYYHHMM[ CSpREFIX + 0x00 ] ) ;
+                                                            etThread.strFuseF( tinP , psttSingle , psttMMDDYYHHMM[ CSpREFIX + 0x05 ] ) ;
+                                                            etThread.strFuseF( tinP , psttSingle , psttMMDDYYHHMM[ CSpREFIX + 0x04 ] ) ;
+                                                            etThread.strMakeF( tinP , psttSingle , t20                               , TUCK ) ; ___( psttSingle ) ; // TUCK IS WAY MORE THAN NEEDED
+                                                            ZE( strokeS* , psttSingle ) ;
+
+                                                            etThread.strSubstringF( tinP , psttMMDDYYHHMM , idf , idl , tShort ) ; ___( psttMMDDYYHHMM ) ;
+                                                            countT idf = idHit ;
+                                                            countT idl = idf - 1 ;
+                                                            ZE( strokeS* , psttMMDDYYHHMM ) ;
+                                                        {
+                                                        if( idHit == 1 )
+                                                        idHit = etThread.strIdF( tinP, idf , sttq , tSssMMDDYYHHMM , tShort ) ;
+                                                        idf = 1 ;
+                                                    {
+                                                    else
+                                                    }
+                                                        etThread.delF( tinP , psttSingleTime ) ;
+                                                        tTimePair = tDot+T(psttSingleTime)+tDateAtTimeFromFileMeta+tDot ;
+                                                        etThread.strSubstringF( tinP , psttSingleTime , idf , idl , tShort ) ; ___( psttSingleTime ) ;
+                                                        countT idf = idHit ;
+                                                        countT idl = idf - 1 ;
+                                                        ZE( strokeS* , psttSingleTime ) ;
+                                                    {
+                                                    if( idHit == 1 )
+                                                    idHit = etThread.strIdF( tinP, idf , sttq , tSssDateAtTimeDot , tShort ) ;
+                                                    idf = 1 ;
+                                                {
+                                                else
+                                                }
+                                                    etThread.delF( tinP , psttSingleTime ) ;
+                                                    tTimePair = T(psttSingleTime)+tDateAtTimeFromFileMeta+tDot ;
+                                                    etThread.strSubstringF( tinP , psttSingleTime , idf , idl , tShort ) ; ___( psttSingleTime ) ;
+                                                    countT idf = idHit ;
+                                                    countT idl = idf - 1 ;
+                                                    ZE( strokeS* , psttSingleTime ) ;
+                                                {
+                                                if( idHit )
+                                                idHit = etThread.strIdF( tinP, idf , sttq , tSssDotDateAtTimeDot , tShort ) ;
+                                                idf = 1 ;
+                                            {
+                                            else
+                                            }
+                                                etThread.delF( tinP , psttDoubleTime ) ;
+                                                tTimePair = tDot+T(psttDoubleTime) ;
+                                                etThread.strSubstringF( tinP , psttDoubleTime , idf , idl , tShort ) ; ___( psttDoubleTime ) ;
+                                                //etThread.traceF( tinP , T("[idf,idl]:    ")+TF2(idf,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+TF2(idl,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
+                                                countT idf = idHit ;
+                                                countT idl = idf - 1 ;
+                                                ZE( strokeS* , psttDoubleTime ) ;
+                                            {
+                                            if( idHit == 1 )
+                                            idHit = etThread.strIdF( tinP, idf , sttq , tSssDateAtTimeDotDateAtTimeDot , tShort ) ;
+                                            idf = 1 ;
+                                        {
+                                        else
+                                        }
+                                            etThread.delF( tinP , psttDoubleTime ) ;
+                                            tTimePair = T(psttDoubleTime) ;
+                                            etThread.strSubstringF( tinP , psttDoubleTime , idf , idl , tShort ) ; ___( psttDoubleTime ) ;
+                                            countT idf = idHit ;
+                                            countT idl = idf - 1 ;
+                                            ZE( strokeS* , psttDoubleTime ) ;
+                                        {
+                                        if( idHit )
+                                        idHit = etThread.strIdF( tinP, idf , sttq , tSssDotDateAtTimeDotDateAtTimeDot , tShort ) ;
+                                        idf = 1 ;
+
+                                        //etThread.traceF( tinP , T("[tPatt2]: ")+tSssDotDateAtTimeDotDateAtTimeDot ) ;                             
+                                        //etThread.traceF( tinP , T("[tShort]: ")+tShort ) ;                             
+                                    {
+                                    if( idHit != 1 )
+
+                                    countT idHit = etThread.strIdF( tinP, idf , sttq , tPrefix6 , tShort ) ;
+
+                                    TN( tPrefix6   , "!ideafarm.6." ) ;
+                                    TN( tDotHeyDot , ".!." ) ;
+                                    TN( tDot , "." ) ;
+                                    strokeS sttq( 0 , sc_IGNOREqUOTES ) ;
+                                    countT idf = 1 ;
+                                {
+                                TN( tSequenceNumber , "001" ) ;
+                                TN( tTimePair , "" ) ;
+                            {
+                            if( 1 != etThread.strIdF( tinP , tNewPrefix , tShort ) )
+                        {
+                        if( tShort.csF( tinP ) )
+
+                        }
+                            etThread.delF( tinP , psttDotExt ) ;
+                            etThread.delF( tinP , psttnu ) ;
+                            tDotExt = T(psttDotExt) ;
+                            etThread.strBisectF( tinP , psttnu , psttDotExt , tShort , tDot , - 1 , flSTRbISECT_PREPENDdELIMITER ) ; ___( psttnu ) ; ___( psttDotExt ) ;
+                            ZE( strokeS* , psttDotExt ) ;
+                            ZE( strokeS* , psttnu ) ;
+                        {
+                        TN( tDotExt , "" ) ;
+
+                        }
+                            ;
+    
+                                +TF4(mm,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE|flFORMAT_FOREIGN|flFORMAT_NObASE,2,0xa)
+                                +TF4(hh,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE|flFORMAT_FOREIGN|flFORMAT_NObASE,2,0xa)
+                                +S1C('@')
+                                +TF4(1+da,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE|flFORMAT_FOREIGN|flFORMAT_NObASE,2,0xa)
+                                +TF4(1+mo,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE|flFORMAT_FOREIGN|flFORMAT_NObASE,2,0xa)
+                                 TF4(1+ye,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE|flFORMAT_FOREIGN|flFORMAT_NObASE,4,0xa)
+    
+                            tDateAtTimeFromFileMeta =
+    
+                            etThread.osTimeToOldTimeF( tinP , ms , ss , mm , hh , da , mo , ye , dow , pInfo->timeWritten1 , pInfo->timeWritten2 ) ;
+                            ZE( countT , dow ) ;
+                            ZE( sCountT , ye ) ;
+                            ZE( countT , mo ) ;
+                            ZE( countT , da ) ;
+                            ZE( countT , hh ) ;
+                            ZE( countT , mm ) ;
+                            ZE( countT , ss ) ;
+                            ZE( countT , ms ) ;
+                        {
+                        TN( tDateAtTimeFromFileMeta , "" ) ;
+
+                        }
+                            etThread.delF( tinP , psttPathRoot ) ;
+                            etThread.delF( tinP , psttPathLeaf ) ;
+                            tPathLeaf  = T(psttPathLeaf) ;
+                            tPathRoot  = T(psttPathRoot) ;
+                            etThread.strBisectF( tinP , psttPathRoot , psttPathLeaf , tPath , tSlash , - 1 , flSTRbISECT_APPENDdELIMITER ) ; ___( psttPathLeaf ) ; ___( psttPathRoot ) ;
+                            ZE( strokeS* , psttPathLeaf ) ;
+                            ZE( strokeS* , psttPathRoot ) ;
+                        {
+                        TN( tPathLeaf , "" ) ;
+                        TN( tPathRoot , "" ) ;
+
+                        }
+                            etThread.delF( tinP , psttShort ) ;
+                            etThread.delF( tinP , psttPath ) ;
+                            tShort = T(psttShort) ;
+                            tPath  = T(psttPath) ;
+                            etThread.strBisectF( tinP , psttPath , psttShort , tOld , tSlash , - 1 , flSTRbISECT_null ) ; ___( psttPath ) ; ___( psttShort ) ;
+                            ZE( strokeS* , psttShort ) ;
+                            ZE( strokeS* , psttPath ) ;
+                        {
+                        TN( tShort , "" ) ;
+                        TN( tPath , "" ) ;
+                    {
+
+                    }
+                        etThread.diskFileQueryF( tinP , pInfo , hFile ) ; ___( pInfo ) ;
+                        etThread.fileOpenF( tinP , hFile , countTC() , tOld , ifcOPENaCCESS_R , ifcOPENsHARE_R , flOPENdETAILS_NOcACHE | flOPENdETAILS_DOnOTvALIDATE | flOPENdETAILS_DOnOTrEGISTER | flOPENdETAILS_LOCnONE , ifcOPENhOW_nFeO ) ;
+                        handleC hFile( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_FILE ) ;
+                    {
+                    //U::ZE( infoFileS* , pInfo ) ;
+                    static infoFileS* pInfo ;
+
+                    TN( tTo , ifFileNameC( tinP , etThread , postzToP ) ) ;                                       // DESTINATION FOLDER
+                {
+                if( postzToP )
+
+                textC& t20                               = *pptSpecP[ 0x12 ] ;
+                textC& tAt                               = *pptSpecP[ 0x11 ] ;
+                textC& tDotTypeMetaDotPathLeaf           = *pptSpecP[ 0x10 ] ;
+                textC& tDotTypeMetaDotPathRoot           = *pptSpecP[ 0x0f ] ;
+                textC& tDotTypeMetaDotCurrentName        = *pptSpecP[ 0x0e ] ;
+                textC& tDotTypeMetaDotHashedName         = *pptSpecP[ 0x0d ] ;
+                textC& tDotTypeData                      = *pptSpecP[ 0x0c ] ;
+                textC& tNewPrefix                        = *pptSpecP[ 0x0b ] ;
+                textC& tSDDS                             = *pptSpecP[ 0x0a ] ;
+                textC& tSDS                              = *pptSpecP[ 0x09 ] ;
+                textC& tDot                              = *pptSpecP[ 0x08 ] ;
+                textC& tSssMMDDYYHHMM                    = *pptSpecP[ 0x07 ] ;
+                textC& tSssDateAtTimeDot                 = *pptSpecP[ 0x06 ] ;
+                textC& tSssDateAtTimeDotDateAtTimeDot    = *pptSpecP[ 0x05 ] ;
+                textC& tSssDotDateAtTimeDot              = *pptSpecP[ 0x04 ] ;
+                textC& tSssDotDateAtTimeDotDateAtTimeDot = *pptSpecP[ 0x03 ] ;
+                if( cSpecP < 0xe ) { BLAMMO ; }
+
+                countT&  idSequenceLathP  = *(countT*)infoP.pcArgApp[ 4 ] ;
+                textC&   tDateAtTimeLathP =  *(textC*)infoP.pcArgApp[ 3 ] ;
+                countT   cSpecP           =           infoP.pcArgApp[ 2 ] ;
+                textC**  pptSpecP         =  (textC**)infoP.pcArgApp[ 1 ] ;
+                osTextT* postzToP         = (osTextT*)infoP.pcArgApp[ 0 ] ;
+            {
+            if( !etThread.strIdF( tinP , tSlash+tIdeaFarmDot7Dot , tOld ) )
+            TN( tSlash , "/" ) ;
+            TN( tOld , ifFileNameC( tinP , etThread , postNameP ) ) ;                                       // OLD IFC FILE NAME
+            TN( tIdeaFarmDot7Dot , "!ideafarm.8.2.00000000.00000001." ) ;
+            TN( tIdeaFarmDot6Dot , "!ideafarm.6." ) ;
+            etherC& etThread = *tinP.pEther ;
+        {
+        if( bDoIt )
+
+        //U::EDIT TO MAP EACH OCCURANCE OF "!" TO "!!"
+
+        ;
+            : 1
+            ? (*infoP.pCbf)( tinP , cDirsP , cFilesP , postNameP , pcArgP )
+        bDoIt = infoP.pCbf
+
+        diskWalkCopyInfoS& infoP = *(diskWalkCopyInfoS*)pcArgP ;
+    {
+    if( postNameP && postNameP[ thirdC::c_strlenIF( tinP , postNameP ) - 1 ] != '\\' && tinP.pEther ) // IF NOT A DIRECTORY
+    ZE( boolT , bDoIt ) ;
+    _INoLD_
+{
+/*1*/boolT diskWalkRenameForArchivalCBF( tinS& tinP , countT& cDirsP , countT& cFilesP , boolT& bQuitP , const osTextT* const postNameP , countT* const pcArgP , const countT* const pModuloFilesP , const countT* const pModuloDirsP )/*1*/
+
+/**/
+*/
+    if no override filetime is found in the name then the file time, converted to foreign datetime format, is used
+    it is removed from [shortfilename] and placed into early position so that it controls sorting
+   [overridetime]: is a time specified in [shortfilename]
+   !ideafarm.4.[overridetime].[filetime].[cid].[leafdir].!.[shortfilename]
+  example of format 4: !ideafarm.4.20130423@1824.000b3577.bb88e99f.3c1f01ba.leafdir.!.blabla.test
+   !ideafarm. 3.[time].[cid].[leafdir].!.[shortfilename]
+  example of format 3: !ideafarm. 3.000b3577.bb88e99f.3c1f01ba.leafdir.!.blabla.test
+    it has nothing to do with the 8.3 encoded name in some file systems
+    this is the name of the file with the path removed
+   "!s": "short file name"
+   all occurances of "!" in the old name are changed to "!!"
+  example of format 2: !ideafarm.2.000b3577.bb88e99f.leafdir.!s.blabla.test
+  example of format 1: !ideafarm.1.000b3577.bb88e99f.blabla.test
+ ideafarm file name format specification
+i rename each file with a nonconforming name so that its name conforms to the ideafarm file name specification format 3
+/*
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 25 years.
+//
+// Copyright (c) 1992-2019 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+

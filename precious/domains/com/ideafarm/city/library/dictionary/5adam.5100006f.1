@@ -1,0 +1,77 @@
+
+//
+// Copyright (c) 1992-2019 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 25 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+
+//VISIBLE
+
+REST
+etThread.osProcessIdPhaseAdamF( tinP , ifcIDpHASEhANDOFFoLD_SHUTTINGdOWN ) ;
+
+}
+    etThread.osSleepF( tinP , TOCK * 0x10 ) ;
+    ether = 0 ;
+    time2last = time2 ;
+    time1last = time1 ;
+
+    if( bNewTick ) etThread.beeHonkF( tinP ) ;
+
+    else                     etThread.strokeF( tinP , T("\r" BLANK79 "\ra beep will sound when the beginning of a new tick has occured") ) ;
+    else if( bNewTick      ) etThread.strokeF( tinP , T("\r" BLANK79 "\rnew tick: this will display 100 (256_9) times per day") ) ;
+    else if( bNewHour      ) etThread.strokeF( tinP , T("\r" BLANK79 "\rnew hour: this will display 10 (16_9) times per day") ) ;
+    else if( bNewDay       ) etThread.strokeF( tinP , T("\r" BLANK79 "\rnew day: this will display once per day") ) ;
+    else if( bNewStrongEnd ) etThread.strokeF( tinP , T("\r" BLANK79 "\rthe strong end has begun!: this will display once per 8 days, at the beginning of the last two days of each strong") ) ;
+    else if( bNewStrong    ) etThread.strokeF( tinP , T("\r" BLANK79 "\rnew strong: this will display once per 8 days, at the beginning of the strong") ) ;
+    else if( bNewQtr       ) etThread.strokeF( tinP , T("\r" BLANK79 "\rnew quarter: this will display once per  40  (64_9) days") ) ;
+         if( bNewDuck      ) etThread.strokeF( tinP , T("\r" BLANK79 "\rnew duck: this will display once per 100 (256_9) days") ) ;
+
+    const boolT bNewStrongEnd = bNewDay && ( offDAY( time2 ) == 0x6 || offDAY( time2 ) == 0xe ) ;
+
+    const boolT bNewTick      = bNewHour   || offTICK(   time1 ) != offTICK(   time1last ) ;
+    const boolT bNewHour      = bNewDay    || offHOUR(   time1 ) != offHOUR(   time1last ) ;
+    const boolT bNewDay       = bNewStrong || offDAY(    time2 ) != offDAY(    time2last ) ;
+    const boolT bNewStrong    = bNewQtr    || offSTRONG( time2 ) != offSTRONG( time2last ) ;
+    const boolT bNewQtr       = bNewDuck   || offQTR(    time2 ) != offQTR(    time2last ) ;
+    const boolT bNewDuck      =               offDUCK(   time2 ) != offDUCK(   time2last ) ;
+
+    etThread.osTimeNowF( tinP , time1 , time2 ) ;
+    ZE( sCountT , time2 ) ;
+    ZE( countT , time1 ) ;
+{
+while( !ether )
+etThread.osTimeNowF( tinP , time1last , time2last ) ;
+ZE( sCountT , time2last ) ;
+ZE( countT , time1last ) ;
+
+etThread.strokeF( tinP , T("press the enter key to fire me\r\n\r\n") ) ;
+{ ZE( countT , tnu ) ; etThread.osThreadF( tinP , tnu , tmHearF ) ; }
+
+TODO
+
+DONE( tmHearF )
+}
+    etThread.etherFireImpersonateMonitorIF( tinP ) ;
+    HEAReNTER( ether )    
+    etThread.osSleepF( tinP , TOCK * 4 ) ;
+{
+if( pTaskP )
+TASK( tmHearF )
+
+/*1*/WAKEhIDE( "example.simplest.time.periods" )/*1*/
+/**/
+*/
+hire me to notify you when a new time tick begins
+\<A HREF=\"5.e600104.1.0.html\"\>definition\</A\>
+/*
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 25 years.
+//
+// Copyright (c) 1992-2019 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+

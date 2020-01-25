@@ -1,0 +1,42 @@
+
+//
+// Copyright (c) 1992-2019 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 25 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+
+;
+                                                                                                                            \
+    value [eax]                                                                                                             \
+    parm [ecx] [ebx]                                                                                                        \
+                                                                                                                            \
+    "FIN:           nop                                 "                                                                   \
+    "NOTfOUND:      mov         eax , -1                "                                                                   \
+    "               jmp         AGAIN                   "                                                                   \
+    "               dec         ebx                     "                                                                   \
+    "               inc         eax                     "                                                                   \
+    "               jnc         FIN                     "                                                                   \
+    "               lock bts    dword ptr [ecx] , eax   "                                                                   \
+    "               jz          NOTfOUND                "                                                                   \
+    "AGAIN:         test        ebx , -1                "                                                                   \
+    "               mov         eax , 0                 "                                                                   \
+                                                                                                                            \
+#pragma aux btsWothAM =                                                                                                     \
+
+/*1*/countT __export btsWothAM( byteT* pbP , countT cBitsP ) ;/*1*/
+/**/
+*/
+i am slower and larger and use more registers than btsLathAM
+ if i do not set a bit, i evaluate to -1
+i evaluate to the offset of the bit that i set
+/*
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 25 years.
+//
+// Copyright (c) 1992-2019 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+

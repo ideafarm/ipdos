@@ -1,0 +1,86 @@
+
+//
+// Copyright (c) 1992-2019 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 25 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+
+}
+    scRandom2 = pscRandom[ 0 ] ;
+
+    }
+        if( offr < sizeof pscRandom / sizeof pscRandom[ 0 ] ) pscRandom[ offr ] = scRandom ;
+        drawPrivateF() ;
+    {
+    for( sCountT offr = sizeof pscRandom / sizeof pscRandom[ 0 ] + 7 ; offr >= 0 ; offr -- )
+
+    if( scRandom < 1 ) scRandom = 1 ;
+    if( scRandom < 0 ) scRandom = - scRandom ;
+
+    // "NTAB": sizeof pscRandom / sizeof pscRandom[ 0 ]
+    // "temp": mRandom
+    // "iv": pscRandom
+    // "k": scRandom3
+    // "iy": scRandom2
+    // "*idum": scRandom
+{
+scRandom3( 0 )
+scRandom2( 0 ) ,
+scRandom( cSeedP ? cSeedP : thirdC::osTimeIF() + thirdC::osClockIF( tinP ) ) , // - 1 IN "NUMERICAL RECIPES IN C" BOOK
+mRandom( 0.5 ) ,
+cnRNMAX( 1.0 - cnEPS ) ,
+cnEPS( 1.2e-7 ) ,
+cnNDIV( 1 + ( cnIM - 1 ) / ( sizeof pscRandom / sizeof pscRandom[ 0 ] ) ) ,
+cnIR( 2836 ) ,
+cnIQ( 127773 ) ,
+cnAM( 1.0 / cnIM ) ,
+cnIM( 2147483647 ) ,
+cnIA( 16807 ) ,
+mRange( mRangeP ) ,
+/*1*/ranUniC::ranUniC( tinS& tinP , const measure04T mRangeP , const countT cSeedP )/*1*/ :
+
+/**/
+*/
+  "true" randomness is needed when a separate ranUniC object is constructed to obtain a single value
+  pseudorandomness is easier to debug, but the sequence will be the same over repeated trials starting with the same seed
+   behavior will be completely determined by the state of the calling process
+  specify -1 (or another nonze value) for pseudorandomness
+   behavior will be random w.r.t. the state of the calling process
+  specify 0 for "true" randomness
+  defaults to 0
+  if 0 then thirdC::osTimeIF() will be used
+  can be 0
+ cSeedP
+  if 0 then mRange==1 is implied
+  drawing results will be in (0,mRange)
+ mRangeP
+arguments
+   for example, it might obviate the need for requiring a caller to pass in a ranUniC argument to a function
+  these deficiencies are acceptable when constructing a separate ranUniC for each drawing yields increased code simplicity
+    this would happen, for example, if the underlying hardware has a large grainsize
+   it is possible that the thirdC::osTimeIF()+thirdC::osClockIF( tinP ) function is not very random on some platforms
+  if a ze cSeedP value is used then the sequence will only be as random as the thirdC::osTimeIF()+thirdC::osClockIF( tinP ) function is
+   all of the values in the sequence will be equal
+  if a nonze cSeedP value is used then this will not work at all
+ it is acceptable, but bad form, to construct a separate ranUniC object for each value
+   it is determined in part by the system clock
+  it is "truly" random in the sense that the behavior of the process is not completely determined by the state of the process
+ "truly" random: the sequence will differ because the system clock value is used as the seed
+  but every time the process is run, exactly the same sequence is drawn
+  this sequence will look random
+  consider a process that constructs a ranUniC object with a nonze seed and then draws a sequence of 001 values
+ pseudorandom: the sequence will always be the same
+this value sequence will be either pseudorandom or truly random
+after construction, i can be used to obtain a sequence of random values
+\<A HREF=\"5.14a0003.1.0.html\"\>definition\</A\>
+/*
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 25 years.
+//
+// Copyright (c) 1992-2019 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+

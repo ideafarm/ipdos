@@ -1,0 +1,160 @@
+
+//
+// Copyright (c) 1992-2019 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 25 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+
+REST
+
+etThread.delF( tinP , pbOut ) ;
+etThread.delF( tinP , pbIn ) ;
+etThread.delF( tinP , pcCode ) ;
+
+//etThread.strokeF( tinP , T("out: \"")+T(pbOut)+T("\"\r\nin:  \"")+T(pbIn)+T("\"\r\n") ) ;
+
+etThread.boxPutF( tinP , T("///d/test.copy") , pbIn , cbIn ) ;
+etThread.strokeF( tinP , T("done\r\n") ) ;
+
+dad( tinP , pbIn , cbIn , pcCode , ccCode ) ; ___( pbIn ) ;
+ZE( countT , cbIn ) ;
+ZE( byteT* , pbIn ) ;
+etThread.strokeF( tinP , T("phase 2: decoding\r\n") ) ;
+
+//etThread.strokeF( tinP , T("\r\n") ) ;
+//for( countT off = 0 ; off < ccCode ; off ++ ) etThread.strokeF( tinP , TF3(pcCode[off],flFORMAT_UNSIGNED,8)+T(off%8==7?"\r\n":" ") ) ;
+//etThread.strokeF( tinP , T("code:\r\n") ) ;
+
+etThread.boxPutF( tinP , T("///d/test.codes") , (byteT*)pcCode , ccCode * sizeof( countT ) ) ;
+
+mom( tinP , pcCode , ccCode , pbOut , cbOut ) ; ___( pcCode ) ;
+ZE( countT  , ccCode ) ;
+ZE( countT* , pcCode ) ;
+etThread.strokeF( tinP , T("phase 1: encoding\r\n") ) ;
+
+etThread.boxGetShadowF( tinP , pbOut , cbOut , T("///d/test") ) ; ___( pbOut ) ;
+ZE( countT , cbOut ) ;
+ZE( byteT* , pbOut ) ;
+//byteT*  pbOut   = "wxyzwxyzwxyz" ;
+
+spouseC dad( tinP , etThread ) ;
+spouseC mom( tinP , etThread ) ;
+
+TODO
+
+}
+    }
+        pbP[ off ] = 0 ;
+        for( countT off = 0 ; off < ccP ; off ++ ) pbP[ off ] = (*this)( tinP , pcP[ off ] ) ;
+    {
+    if( pbP )
+    ether.newF( tinP , LF , pbP , cbP + 1 ) ; ___( pbP ) ;
+    cbP = ccP ;
+    if( !ccP ) ccP = ether.strBodyLengthF( tinP , pcP ) ;
+{
+voidT spouseC::operator ()( tinS& tinP , byteT*& pbP , countT& cbP , const countT* const pcP , countT ccP )
+
+}
+    if( pcP ) for( countT off = 0 ; off < cbP ; off ++ ) pcP[ off ] = (*this)( tinP , pbP[ off ] ) ;
+    ether.newF( tinP , LF , pcP , ccP ) ; ___( pcP ) ;
+    ccP = cbP ;
+    if( !cbP ) cbP = ether.strBodyLengthF( tinP , pbP ) ;
+{
+voidT spouseC::operator ()( tinS& tinP , countT*& pcP , countT& ccP , const byteT* const pbP , countT cbP )
+
+}
+    return bb ;
+    if( tinP.fingerprint ) ;
+
+    pbInAll[ offIn ++ ] = bb ;
+
+    byteT bb = pbInAll[ offPrior ] ;
+
+    if( !( offIn % 0x100 ) ) { CONoUTrAW( "." ) ; }
+
+    countT offPrior = offIn - cP ;
+
+    }
+        offIn ++ ;
+        pbInAll[ offIn ] = (byteT)offIn ;
+    {
+    while( offIn < 0x100 )
+{
+byteT spouseC::operator ()( tinS& tinP , const countT cP ) //"dad" LISTENER, DECODER
+
+}
+    return ( offIn ++ ) - code ; //SET code TO THE BACKWARD OFFSET OF THE OCCURANCE
+    if( tinP.fingerprint ) ;
+
+    swsOff << offIn ;
+
+    else                 code = bP ;
+    else if( swsOff )    code = swsOff[ 1 ] ;
+    if( swsOff > 0x100 ) swsOff >> code ;
+    lever = bP ;
+    ZE( countT , code ) ; //SET code TO THE ABSOLUTE OFFSET OF AN EARLIER OCCURANCE
+
+    if( !offIn ) offIn = 0x100 ;
+{
+countT spouseC::operator ()( tinS& tinP , const byteT bP ) //"mom" TALKER, ENCODER
+
+}
+    ether.memSetF( tinP , pbInAll , cbInAllMax + 1 ) ;
+    ether.newF( tinP , LF , pbInAll , cbInAllMax + 1 ) ; ___( pbInAll ) ;
+    cbInAllMax = 0x10000 ;
+{
+cbInAllMax( 0 )
+cbInAll( 0 ) ,
+pbInAll( 0 ) ,
+offIn( 0 ) ,
+swsOff( tinP , etherP , TAG( TAGiDnULL ) , flSTACKc_null , lever , flSTACKc_FIFO ) ,
+lever( 0 ) ,
+ether( etherP ) ,
+spouseC::spouseC( tinS& tinP , etherC& etherP ) :
+
+}
+    ether.delF( tinP , pbInAll ) ;
+    TINSL
+{
+spouseC::~spouseC( voidT )
+
+;
+}
+  voidT operator ()( tinS& tinP , byteT*& pbP , countT& cbP , const countT* const pcP , countT ccP ) ;
+  voidT operator ()( tinS& tinP , countT*& pcP , countT& ccP , const byteT* const pbP , countT cbP = 0 ) ;
+ /*utilities*/
+
+  byteT operator ()( tinS& tinP , const countT cP ) ; //IF THIS IS USED, CALL THE OBJECT "dad" (LISTENER)
+  countT operator ()( tinS& tinP , const byteT bP ) ; //IF THIS IS USED, CALL THE OBJECT "mom" (TALKER)
+ /*encode,decode*/ //EACH spouseC OBJECT IS EITHER THE TALKER (ENCODER,MOM) OR THE LISTENER (DECODER,DAD)
+
+  spouseC( tinS& tinP , etherC& etherP ) ;
+  ~spouseC( voidT ) ;
+ /*birth,death*/
+
+ public :
+
+ countT       cbInAllMax ;
+ countT       cbInAll ;
+ byteT*       pbInAll ;
+ countT       offIn ;
+ switchStackC swsOff ;
+ countT       lever ;
+ etherC&      ether ;
+{
+class spouseC
+
+/*1*/WAKEhIDE( "doodle.spouseC" )/*1*/
+/**/
+*/
+/*
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 25 years.
+//
+// Copyright (c) 1992-2019 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+

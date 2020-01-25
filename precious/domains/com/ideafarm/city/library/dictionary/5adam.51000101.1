@@ -1,0 +1,67 @@
+
+//
+// Copyright (c) 1992-2019 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 25 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+
+//VISIBLE
+
+REST
+etThread.osProcessIdPhaseAdamF( tinP , ifcIDpHASEhANDOFFoLD_SHUTTINGdOWN ) ;
+
+etThread.loafIF( tinP ) ;
+
+) ;
+    T("\r\n\r\npress esc\r\n")
+    T(    "\r\n\r\nseconds per million trials : ")+T(mSecondsPerMillionTrials)+T("    (")+TF4((countT)mSecondsPerMillionTrials,flFORMAT_FOREIGN,0,0xa)+T(")")+
+    T(    "\r\ntrials per second              : ")+T(mTrialsPerSecond        )+T("    (")+TF4((countT)mTrialsPerSecond        ,flFORMAT_FOREIGN,0,0xa)+T(")")+
+    T(    "\r\ntrials per day                 : ")+T(mTrialsPerDay           )+T("    (")+TF4((countT)mTrialsPerDay           ,flFORMAT_FOREIGN,0,0xa)+T(")")+
+    T(    "\r\ntrials per tock                : ")+T(mTrialsPerTock          )+T("    (")+TF4((countT)mTrialsPerTock          ,flFORMAT_FOREIGN,0,0xa)+T(")")+
+    T("\r\n\r\ntrials per time unit           : ")+T(mTrialsPerTime          )+T("    (")+TF4((countT)mTrialsPerTime          ,flFORMAT_FOREIGN,0,0xa)+T(")")+
+    T(    "\r\nnumber of trials               : ")+T(cTrials                 )+T("    (")+TF4((countT)cTrials                 ,flFORMAT_FOREIGN,0,0xa)+T(")")+
+    T(      "\ftotal time                     : ")+TT(timeA1,timeA2)+
+etThread.strokeF( tinP ,
+
+measureT mSecondsPerMillionTrials = 1e6 / mTrialsPerSecond ;
+measureT mTrialsPerSecond = mTrialsPerDay / 86400 ;
+measureT mTrialsPerDay    = mTrialsPerTock * TOCK ;
+measureT mTrialsPerTock   = mTrialsPerTime * TOCK ;
+measureT mTrialsPerTime   = (measureT)cTrials / (measureT)timeA1 ;
+
+etThread.osTimeSubtractF( tinP , timeA1 , timeA2 , timeB1 , timeB2 ) ;
+
+etThread.osTimeNowF( tinP , timeA1 , timeA2 ) ;
+while( cTries -- ) (measureT)ran ;
+countT cTries = cTrials ;
+const countT cTrials = 0x01000000 ;
+etThread.osTimeNowF( tinP , timeB1 , timeB2 ) ;
+
+etThread.strokeF( tinP , T("please wait about 01 tocks\r\n") ) ;
+
+ZE( sCountT , timeA2 ) ;
+ZE( countT , timeA1 ) ;
+ZE( sCountT , timeB2 ) ;
+ZE( countT , timeB1 ) ;
+
+ranUniC ran ;
+
+thirdC& thThread = etThread ;
+
+TODO
+
+/*1*/WAKEhIDE( "example.simplest.func.14a0004.ranUniC.operator_measureT" )/*1*/
+/**/
+*/
+\<A HREF=\"5.1010104.1.0.html\"\>definition\</A\>
+/*
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 25 years.
+//
+// Copyright (c) 1992-2019 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+

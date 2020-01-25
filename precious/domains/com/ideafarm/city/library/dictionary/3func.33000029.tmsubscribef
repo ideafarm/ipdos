@@ -1,0 +1,119 @@
+
+//
+// Copyright (c) 1992-2019 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 25 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+
+DONE( tmSubscribeF )
+
+}
+    TELL( "tmSubscribeF: cleaning up" )
+    sgnDone_tmQuitSubscribe.waitF( tinP ) ;
+    TELL( "cleaning up: waiting for sgnDone_tmQuitSubscribe to be given" )
+
+    }
+        }
+            DEL( pso ) ;
+            TELL( "closing connection" )
+
+            }
+                }
+                    break ;
+
+                    sgn_pbv.giveF( tinP ) ;
+                    }
+                        bus.pbv = pbv ;
+                        if( cbv ) pso->readF( tinP , pbv , cbv ) ;
+                        TELL( "idCMDbUS_WRITE idCMDbUS_READ: reading bytes" )
+                        pbv[ cbv ] = 0 ;
+                    {
+                    if( pbv )
+                    ether.newF( tinP , LF , pbv , cbv + 1 ) ; ___( pbv ) ;
+                    ZE( byteT* , pbv ) ;
+
+                    bus.cbv = cbv ;
+                    pso->readF( tinP , (byteT*)&cbv , sizeof cbv ) ;
+                    TELL( "idCMDbUS_WRITE idCMDbUS_READ: reading cbv" )
+                    ZE( countT , cbv ) ;
+
+                    ether.delF( tinP , bus.pbv ) ;
+                {
+                case idCMDbUS_READ :
+                case idCMDbUS_WRITE :
+                }
+                    break ;
+
+                    sgn_cSubscribers.giveF( tinP ) ;
+                    bus.cSubscribers = cSub ;
+                    pso->readF( tinP , (byteT*)&cSub , sizeof cSub ) ;
+                    TELL( "idCMDbUS_GOODbYE: reading cSub" )
+                    ZE( countT , cSub ) ;
+                {
+                case idCMDbUS_GOODbYE :
+                }
+                    break ;
+
+                    sgn_cSubscribers.giveF( tinP ) ;
+                    bus.cSubscribers = cSub ;
+                    pso->readF( tinP , (byteT*)&cSub , sizeof cSub ) ;
+                    TELL( "idCMDbUS_HELLO: reading cSub" )
+                    ZE( countT , cSub ) ;
+                {
+                case idCMDbUS_HELLO :
+            {
+            switch( idCmd )
+
+            pso->readF( tinP , (byteT*)&idCmd , sizeof idCmd ) ;
+            TELL( "reading idCmd" )
+            ZE( countT , idCmd ) ;
+        {
+        else if( pso )
+        if( bQuitSubscribe ) { DEL( pso ) ; }
+        __( bRefuse ) ;
+        sockSub.acceptF( tinP , pso , idPortPeer , nnPeer , bRefuse ) ; ___( pso ) ;
+        ZE( boolT , bRefuse ) ;
+        ZE( countT , idPortPeer ) ;
+        nicNameC nnPeer ;
+        TELL( "waiting for a client to connect" )
+        ZE( socketC* , pso ) ;
+    {
+    while( !ether && !etThread && !bQuitSubscribe )
+
+    sgnReady.giveF( tinP ) ;
+    sockSub.listenF( tinP ) ;
+    idPortSubscribe = sockSub.bindF( tinP ) ;
+    socketC sockSub( tinP , etThread , TAG( TAGiDnULL ) ) ;
+
+    { ZE( countT , tnu ) ; ether.osThreadF( tinP , tnu , tmQuitSubscribeF , &sgnDone_tmQuitSubscribe , flTHREADlAUNCH_null , 0 , (countT)&sgnQuit_tmSubscribe , (countT)&bQuitSubscribe , (countT)&idPortSubscribe ) ; }
+    signC sgnDone_tmQuitSubscribe( tinP , TAG( TAGiDnULL ) ) ;
+    ZE( boolT , bQuitSubscribe ) ;
+
+    signC&  sgn_pbv             = *(signC*) pTaskP->c6 ;
+    signC&  sgn_cSubscribers    = *(signC*) pTaskP->c5 ;
+    signC&  sgnReady            = *(signC*) pTaskP->c4 ;
+    countT& idPortSubscribe     = *(countT*)pTaskP->c3 ;
+    signC&  sgnQuit_tmSubscribe = *(signC*) pTaskP->c2 ;
+    busC&   bus                 = *(busC*)  pTaskP->c1 ;
+{
+if( !etThread )
+
+__( pTaskP && !pTaskP->c2 ) ;
+__( pTaskP && !pTaskP->c1 ) ;
+__Z( pTaskP ) ;
+
+TELL( "setting up" )
+/*1*/TASK( tmSubscribeF )/*1*/
+/**/
+*/
+/*
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 25 years.
+//
+// Copyright (c) 1992-2019 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+

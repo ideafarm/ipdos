@@ -1,0 +1,138 @@
+
+//
+// Copyright (c) 1992-2019 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 25 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+
+REST
+etThread.osProcessIdPhaseAdamF( tinP , ifcIDpHASEhANDOFFoLD_SHUTTINGdOWN ) ;
+
+}
+    etThread = 0 ;
+
+    etThread.delF( tinP , psttNickname ) ;
+    etThread.delF( tinP , psttEmail ) ;
+    etThread.delF( tinP , psttPayor ) ;
+
+    }
+        etThread.strokeF( tinP , T("payment acknowledgement mailed to \"")+T(psttEmail)+T("\"\r\n") ) ;
+        etThread.delF( tinP , postr ) ;
+        etThread.boxPutF( tinP , T("ideafarm.com//smtp/" ifcEMAIL_OLDfROM "/")+T(psttEmail)+T("//" ifcEMAIL_OLDfROM "") , postr , costr ) ;
+
+        { ZE( strokeS* , psttnu ) ; etThread.boxPutUniqueF( tinP , psttnu , T("///ideafarm/ephemeral/domains/com/ideafarm/9d30104/email") , postr , costr ) ; etThread.delF( tinP , psttnu ) ; }
+
+        }
+            etThread.delF( tinP , psttr1 ) ;
+            costr = etThread.strMakeF( tinP , postr , psttr1 ) ; ___( postr ) ;
+
+            }
+                ) ; ___( psttr1 ) ;
+
+                    "This payment was made by (approximate name): ")+T(psttPayor)+T("\r\n")
+                    "\r\n"
+                    "Credited to idCitizen: ")+TF1(idCitizen)+T("  (")+T(psttNickname)+T(")\r\n"
+                    "\r\n"
+                    "Payment amount: $")+TF4(mPayin,flFORMAT_EXPONENT,2,6)+T("  (  ")+TF4(cDollars,flFORMAT_NObASE,0,0xa)+T(".")+TF4(cCents,0,0,0xa)+T("  )\r\n"
+                    "\r\n"
+                    "The following payment has just been received.  Thank you:\r\n"
+                    "\r\n"
+                    "\r\n"
+                    "IdeaFarm " "(tm) City / Citizen ")+TF1(idCitizen)+T(" Payment Acknowledgement\r\n"
+                    "\r\n"
+                    "\r\n"
+                    ifcEMAIL_WEBsITEcONTACT " or see http://www.ideafarm.com .  Thank you.\r\n"
+                    "is strongly opposed to spam.  If you received this in error, please contact\r\n"
+                    "obtained citizenship in IdeaFarm (tm) City for your email address.  IdeaFarm " "(tm) City\r\n"
+                    "You are receiving this report because you, or an impostxr who claimed to be you,\r\n"
+                    T("Subject: Payment Acknowledgement\r\n\r\n"
+
+                etThread.strMakeF( tinP , psttr1 ,
+            {
+            ZE( strokeS* , psttr1 ) ;
+
+            countT cCents   = cPayin % 100 ;
+            countT cDollars = cPayin / 100 ;
+        {
+        ZE( countT   , costr ) ;
+        ZE( osTextT* , postr ) ;
+
+        etThread.delF( tinP , pstt1d ) ;
+        }
+            etThread.ether_idCitizenHirer_F( tinP ) = idchs ;
+            etThread.ifcDatumF( tinP , flDATUM1_CLASSpAYiN , flDATUM2_null , *(countT*)&mPayin , pcPart , pstt1d ) ;
+            etThread.ether_idCitizenHirer_F( tinP ) = idCitizen ;
+            countT idchs = etThread.ether_idCitizenHirer_F( tinP ) ;
+        {
+        countT pcPart[] = { DDNUMB , 1 , idCitizen , idCheck , 0 } ;
+
+        etThread.strFuseSeparateF( tinP , pstt1d , psttPayor ) ; ___( pstt1d ) ;
+        etThread.strFuseSeparateF( tinP , pstt1d , psttNickname ) ; ___( pstt1d ) ;
+        etThread.strFuseSeparateF( tinP , pstt1d , psttEmail , 0 , 0 , 0 , 0 , /*U::SOUL?*/ CSpREFIX * 2 +  psttNickname->idAdam + psttPayor->idAdam ) ; ___( pstt1d ) ;
+        ZE( strokeS* , pstt1d ) ;
+    {
+    if( !ether && !etThread && psttEmail && psttNickname && psttPayor )
+
+    }
+        etThread.delF( tinP , psttw ) ;
+        etThread.faceHearF( tinP , psttPayor ) ; ___( psttPayor ) ;
+        etThread.strokeF( tinP , T("quickly enter the payor's approximate name: ") ) ;
+
+        mPayin = (measureT)cPayin / 100 ;
+        __Z( cPayin ) ;
+        etThread.delF( tinP , psttw ) ;
+        cPayin = etThread.strDigitsToSCountF( tinP , psttw , 0xa ) ;
+        etThread.faceHearF( tinP , psttw ) ; ___( psttw ) ;
+        etThread.strokeF( tinP , T("enter (using a radix 10 number) the nonze""ro number of cents paid in (for $25, enter 2500): ") ) ;
+
+        __Z( idCheck ) ;
+        etThread.delF( tinP , psttw ) ;
+        idCheck = etThread.strDigitsToSCountF( tinP , psttw ) ;
+        etThread.faceHearF( tinP , psttw ) ; ___( psttw ) ;
+        etThread.strokeF( tinP , T("enter nonze""ro check number (or date other nonze""ro identifying number): ") ) ;
+
+        etThread.strokeF( tinP , TP(psttEmail,0x20)+T("  ")+T(psttNickname)+T("\r\n") ) ;
+        etThread.ifcNicknameFromIdCitizenF( tinP , psttNickname , idCitizen ) ; ___( psttNickname ) ;
+        etThread.ifcExternalEmailFromIdCitizenF( tinP , psttEmail , idCitizen ) ; ___( psttEmail ) ;
+
+        etThread.delF( tinP , psttw ) ;
+        idCitizen = etThread.strDigitsToSCountF( tinP , psttw ) ;
+    {
+    ZE( strokeS* , psttPayor    ) ;
+    ZE( strokeS* , psttNickname ) ;
+    ZE( strokeS* , psttEmail    ) ;
+    ZE( measureT , mPayin       ) ;
+    ZE( countT   , idCheck      ) ;
+    ZE( countT   , idCitizen    ) ;
+    ZE( countT   , cPayin       ) ;
+
+    }
+        break ;
+        etThread.delF( tinP , psttw ) ;
+    {
+    if( !psttw || !psttw->idAdam )
+    etThread.faceHearF( tinP , psttw ) ; ___( psttw ) ;
+    etThread.strokeF( tinP , T("(optional) enter an idCitizen value: ") ) ;
+
+    ZE( strokeS* , psttw ) ;
+{
+while( !ether && !etThread )
+
+etThread.strokeF( tinP , T("IdeaFarm " "(tm) City Payin Recorder\r\ni record payments made by citizens into the IFC kitty\r\n\r\n") ) ;
+
+TODO
+
+/*1*/WAKEhIDE( "payIn" )/*1*/
+/**/
+*/
+/*
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 25 years.
+//
+// Copyright (c) 1992-2019 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+

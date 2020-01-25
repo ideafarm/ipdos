@@ -1,0 +1,124 @@
+
+//
+// Copyright (c) 1992-2019 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 25 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+
+}
+    _OUT_
+
+    }
+        LOGrAW( ostoSay ) ;
+        OStEXTAK(  ostoSay , "\r\n" ) ;
+        OStEXTC(   ostoSay , cbFree , ' ' ) ;
+        OStEXTAK(  ostoSay , "    " ) ;
+        OStEXTC(   ostoSay , cbUsed , ' ' ) ;
+        OStEXTAK(  ostoSay , "                " ) ;
+        OStEXTC(   ostoSay , cFree , ' ' ) ;
+        OStEXTAK(  ostoSay , "    " ) ;
+        OStEXTC(   ostoSay , cUsed , ' ' ) ;
+        OStEXTAK(  ostoSay , "heapC::testF [cUsed,cFree,cbUsed,cbFree]:    " ) ;
+    {
+
+    }
+        ostoSay.truncateF() ;
+        LOGrAW( ostoSay ) ;
+        OStEXTAK( ostoSay , "\r\n" ) ;
+        OStEXTC(  ostoSay , pbc-pbe , ' ' ) ;
+        OStEXTAK( ostoSay , "\r\n" ) ;
+        OStEXTC(  ostoSay , pbe-pbc , ' ' ) ;
+        OStEXTAK( ostoSay , "    " ) ;
+        OStEXTC(  ostoSay , pbe , ' ' ) ;
+        OStEXTAK( ostoSay , "    " ) ;
+        OStEXTC(  ostoSay , pbc , ' ' ) ;
+        OStEXTAK( ostoSay , "\r\nerror [pbc,pbe,pbe-pbc,pbc-pbe]:    " ) ;
+    {
+    else
+    }
+        LOGrAW( "\r\npbc == pbe\r\n" ) ;
+    {
+    if( pbc == pbe )
+
+    ostoSay.truncateF() ;
+    LOGrAW( ostoSay ) ;
+
+    }
+        }
+            cbFree += cbHereGross ;
+            cFree ++ ;
+        {
+        else
+        }
+            cbUsed += cbHereGross ;
+            cUsed ++ ;
+        {
+        if( cbHereNet & BM_HIGH )
+
+        }
+            ostoSay.truncateF() ;
+            LOGrAW( ostoSay ) ;
+        {
+        if( CBsAYmAX - ostoSay.costF() < TUCK )
+
+        OStEXTAK( ostoSay , "\r\n" ) ;
+        OStEXTC(  ostoSay , idiFile , ' ' ) ;
+        OStEXTAK( ostoSay , "    " ) ;
+        OStEXTC(  ostoSay , idLine , ' ' ) ;
+        OStEXTAK( ostoSay , "    " ) ;
+        OStEXTC(  ostoSay , cbHereNet & ~BM_HIGH , ' ' ) ;
+        OStEXTA(  ostoSay , cbHereNet & BM_HIGH ? ".       " : "free    " ) ;
+
+        pbc += cbHereGross ;
+
+        countT cbHereGross = sizeof( countT ) + ( *(countT*)pbc & ~BM_HIGH ) ;
+
+        countT idiFile     = ((countT*)pbc)[ 2 ] ;
+        countT idLine      = ((countT*)pbc)[ 1 ] ;
+        countT cbHereNet   = ((countT*)pbc)[ 0 ] ;
+
+        OStEXTAK( ostoSay , "    " ) ;
+        OStEXTC(  ostoSay , pbc , ' ' ) ;
+        OStEXTAK( ostoSay , "    " ) ;
+        OStEXTC(  ostoSay , pbe - pbc , ' ' ) ;
+    {
+    while( pbc < pbe )
+    byteT* const pbe = pbHeap + sizeof pbHeap ;
+    byteT*       pbc = pbHeap ;
+
+    OStEXTAK( ostoSay , "\r\n\r\ncbRemaining pbc         inUse   cbHereNet   idLine      idiFile\r\n\r\n" ) ;
+    OStEXTC(  ostoSay , sizeof pbHeap , ' ' ) ;
+    OStEXTAK( ostoSay , "    " ) ;
+    OStEXTC(  ostoSay , pbHeap + sizeof pbHeap , ' ' ) ;
+    OStEXTAK( ostoSay , "    " ) ;
+    OStEXTC(  ostoSay , pbHeap , ' ' ) ;
+    OStEXTAK( ostoSay , " )\r\n[pbHeap,pbEnd,cbHeap]:    " ) ;
+    OStEXTA(  ostoSay , post2P ) ;
+    OStEXTAK( ostoSay , " ; " ) ;
+    OStEXTA(  ostoSay , post1P ) ;
+    OStEXTAK( ostoSay , "heapC::dumpF ( " ) ;
+    OStEXT(   ostoSay , CBsAYmAX ) ;
+
+    ZE( countT , cbFree ) ;
+    ZE( countT , cbUsed ) ;
+    ZE( countT , cFree ) ;
+    ZE( countT , cUsed ) ;
+
+    _INoLD_
+{
+/*1*/voidT heapC::dumpF( tinS& tinP , const osTextT* const post1P , const osTextT* const post2P )/*1*/
+
+#define CBsAYmAX ( TOCK << 4 )
+
+/**/
+*/
+/*
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 25 years.
+//
+// Copyright (c) 1992-2019 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//

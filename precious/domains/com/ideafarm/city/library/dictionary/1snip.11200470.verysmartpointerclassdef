@@ -1,0 +1,93 @@
+
+//
+// Copyright (c) 1992-2019 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 25 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+
+    ;
+    }                                                                                                                                               \
+        friend class classSPP##SP ;                                                                                                                 \
+                                                                                                                                                    \
+        inline countT cArgF( voidT ) const { return cArg ; }                                                                                        \
+                                                                                                                                                    \
+        classSPP##VSP& operator =( const classSPP##SP&   spP ) ;                                                                                    \
+        classSPP##VSP& operator =( const classSPP##VSP& vspP ) ;                                                                                    \
+        classSPP##VSP& operator =( classP* pvP               ) ;                                                                                    \
+        operator classP*( voidT ) ;                                                                                                                 \
+        voidT gaspDispensedF( voidT ) ;                                                                                                             \
+        classSPP##VSP( const classSPP##SP&  spP  , vspCBFT pCBFP = 0 , countT cArgP = 0 , flagsT flagsP = flVSP_null ) ;                            \
+        classSPP##VSP( const classSPP##VSP& vspP , vspCBFT pCBFP = 0 , countT cArgP = 0 , flagsT flagsP = flVSP_null ) ;                            \
+        classSPP##VSP( classP* pvP = 0           , vspCBFT pCBFP = 0 , countT cArgP = 0 , flagsT flagsP = flVSP_null ) ;                            \
+        ~classSPP##VSP( voidT ) ;                                                                                                                   \
+                                                                                                                                                    \
+        NEWdELcLASSpROTOS                                                                                                                           \
+                                                                                                                                                    \
+        public :                                                                                                                                    \
+                                                                                                                                                    \
+        countT  cArg ;                                                                                                                              \
+        vspCBFT pCBF ;                                                                                                                              \
+        flagsT  flags ;                                                                                                                             \
+    {                                                                                                                                               \
+    class _export classSPP##VSP : public classSPP##SP                                                                                               \
+                                                                                                                                                    \
+    SMARTpOINTERcLASSdEF( classSPP , classP , bitsCRefP )                                                                                           \
+                                                                                                                                                    \
+#define VERYsMARTpOINTERcLASSdEF(classSPP,classP,bitsCRefP)                                                                                         \
+
+/*1*//*VERYsMARTpOINTERcLASSdEF(classSPP,classP,bitsCRefP)*//*1*/
+/**/
+*/
+  number of bytes to test, beginning with the byte pointed to by the supplied pointer
+ cbTestP
+  the number of bytes that the cRefWrite field is offset from the beginning of the cRef field
+ offCRefWriteP
+  the number of bits in the cRefWrite field, in ifc bit order
+ bitsCRefWriteP
+  this must correspond to the type specified for count##bitsCRefP##T
+  the number of bits in the cRef field, in ifc bit order
+ bitsCRefP
+   if count##bitsCRefP##T is count01T then cRef is 4 fields below the supplied pointer, where each field is the size of the cRef field
+  example: - 4
+  the offset from the supplied pointer to the cRef field, specified as the number of count##bitsCRefP##T instances
+ offCRefP
+  example: byteT
+  the class or type of the pointer that will be specified during construction
+ classP
+   example (omit quote marks): "blob"
+   "VSP" wll be appended
+  the root portion of the name of the class being defined
+ classSPP
+parameters
+when i am used to define a VERYsMARTpOINTERcLASSdEF class, the corresponding SMARTpOINTERcLASSdEF class is also defined
+use SMARTpOINTERcLASSdEF if instances must be sizeof( countT ) or if my callback capability is not needed
+ U::conj: error: this should be 4 * sizeof( countT )
+instances of me are of size 3 * sizeof( countT )
+to encourage alignment, cRef must be countT aligned relative to the start of the containing object
+code can inspect spcRef to see whether any smart pointers exist that point to the memory that contains spcRef
+when instances of the defined smart pointer class are constructed or destructed, the value in spcRef will be updated
+ a count of the number of instances that have dispensed pointers to nonconstant memory is maintained
+ a callback function can be specified so that application code is notified of events
+"very" refers to additional functionality provided beyond that of SMARTpOINTERcLASSdEF
+   this is because cRef fields are incremented and decremented using assembler routines that are machine specific
+   sp_cRef must be of an explicitly sized type in order to avoid bugs introduced when porting across different machine word sizes
+  illegal: countT
+  count02T
+  count01T
+  byteT
+ sp_cRef can be of any of the following types
+ for example, if spcRef is immediately below the address pointed to, then specify offCrefP = - 1
+ style: name this field sp_cRef
+the object pointed to must provide a null initiated value that the smart pointer class can use to count references
+use me to define a class of very smart pointer that points to an object of specified type
+/*
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 25 years.
+//
+// Copyright (c) 1992-2019 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+

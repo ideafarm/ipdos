@@ -1,0 +1,362 @@
+
+//
+// Copyright (c) 1992-2019 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 25 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+
+}
+    thirdC::diskWalkIF( tinP , cDirsP , cFilesP , postFromP , *(boolT*)&bQuitP , diskWalkRenameForArchivalCBF , (countT*)&info ) ;
+
+    info.pcArgApp     = pcArgApp ;
+    info.pCbf         = pCbfP ;
+    info.costFromRoot = tinP.brcRaw ;
+    BOSdOnOTtEST( WHATgbo , strlen( postFromP ) )
+    diskWalkCopyInfoS info ;
+
+    countT pcArgApp[] = { (countT)postToP , (countT)pptSpec , sizeof pptSpec / sizeof pptSpec[ 0 ] , (countT)&tDateAtTimeLath , (countT)&idSequenceLath } ;
+
+    ZE( countT , idSequenceLath ) ;
+    TN( tDateAtTimeLath , "" ) ;
+
+    } ;
+        &t20                                        // 12
+        &tAt ,                                      // 11
+        &tDotTypeMetaDotPathLeaf ,                  // 01
+        &tDotTypeMetaDotPathRoot ,                  // f
+        &tDotTypeMetaDotCurrentName ,               // e
+        &tDotTypeMetaDotHashedName ,                // d
+        &tDotTypeData ,                             // c
+        &tNewPrefix ,                               // b
+        &tSDDS ,                                    // a
+        &tSDS ,                                     // 9
+        &tDot ,                                     // 8
+        &tSssMMDDYYHHMM ,                           // 7
+        &tSssDateAtTimeDot ,                        // 6
+        &tSssDateAtTimeDotDateAtTimeDot ,           // 5
+        &tSssDotDateAtTimeDot ,                     // 4
+        &tSssDotDateAtTimeDotDateAtTimeDot ,        // 3
+        &tSssDateTime3 ,                            // 2
+        &tSssDateTime2 ,                            // 1
+        &tSssDateTime1 ,                            // 0
+    {
+    textC* pptSpec[] =
+
+    TN( tDotTypeMetaDotPathLeaf    , ".meta.pathleaf" ) ;
+    TN( tDotTypeMetaDotPathRoot    , ".meta.pathroot" ) ;
+    TN( tDotTypeMetaDotCurrentName , ".meta.currentname" ) ;
+    TN( tDotTypeMetaDotHashedName , ".meta.hashedname" ) ;
+    TN( tDotTypeData , ".data" ) ;
+    TN( tNewPrefix , "!ideafarm.8.2.00000000.00000001." ) ;
+    TN( tSDDS , "/../" ) ;
+    TN( tSDS , "/./" ) ;
+    TN( t20 , "20" ) ;
+    TN( tAt , "@" ) ;
+    TN( tDot , "." ) ;
+    //ALSO USED BY CBF; CT HERE TO SPEED THINGS UP
+
+    ;
+
+        +S2(sa_SSSaNDeND,sc_ccSSS)
+        +tPatternMMDDYYHHMM
+        +S2(sa_SSSaND,sc_ccSSS)
+        T("")
+
+    TN( tSssMMDDYYHHMM , "" ) ; tSssMMDDYYHHMM =
+    // "0721171234"
+    //  mmddyyhhmm
+
+    ;
+
+        +S2(sa_SSSaNDeND,sc_ccSSS)
+            +S2(sa_SSSoReND,sc_ccSSS)
+                +T("._")
+            +S2(sa_SSSoR,sc_ccSSS)
+            //+T(".")
+            +tPatternDateAtTime
+        +S2(sa_SSSaND,sc_ccSSS)
+        T("")
+
+    TN( tSssDateAtTimeDot , "" ) ; tSssDateAtTimeDot =
+    // "20130510@2359."
+    //  yyyymmdd hhmm
+
+    ;
+
+        +S2(sa_SSSaNDeND,sc_ccSSS)
+            +S2(sa_SSSoReND,sc_ccSSS)
+                +T("._")
+            +S2(sa_SSSoR,sc_ccSSS)
+            //+T(".")
+            +tPatternDateAtTime
+            +S2(sa_SSSoReND,sc_ccSSS)
+                +T("._")
+            +S2(sa_SSSoR,sc_ccSSS)
+            //+T(".")
+            +tPatternDateAtTime
+        +S2(sa_SSSaND,sc_ccSSS)
+        T("")
+
+    TN( tSssDateAtTimeDotDateAtTimeDot , "" ) ; tSssDateAtTimeDotDateAtTimeDot =
+    // "20130510@2359.20130510@2359."
+    //  yyyymmdd hhmm yyyymmdd hhmm
+
+    ;
+
+        +S2(sa_SSSaNDeND,sc_ccSSS)
+            +S2(sa_SSSoReND,sc_ccSSS)
+                +T("._")
+            +S2(sa_SSSoR,sc_ccSSS)
+            //+T(".")
+            +tPatternDateAtTime
+            +S2(sa_SSSoReND,sc_ccSSS)
+                +T("._")
+            +S2(sa_SSSoR,sc_ccSSS)
+            //+T(".")
+        +S2(sa_SSSaND,sc_ccSSS)
+        T("")
+
+    TN( tSssDotDateAtTimeDot , "" ) ; tSssDotDateAtTimeDot =
+    // ".20130510@2359."
+    //   yyyymmdd hhmm
+
+    ;
+
+        +S2(sa_SSSaNDeND,sc_ccSSS)
+            +S2(sa_SSSoReND,sc_ccSSS)
+                +T("._")
+            +S2(sa_SSSoR,sc_ccSSS)
+            //+T(".")
+            +tPatternDateAtTime
+            +S2(sa_SSSoReND,sc_ccSSS)
+                +T("._")
+            +S2(sa_SSSoR,sc_ccSSS)
+            //+T(".")
+            +tPatternDateAtTime
+            +S2(sa_SSSoReND,sc_ccSSS)
+                +T("._")
+            +S2(sa_SSSoR,sc_ccSSS)
+            //+T(".")
+            //20190512@0912:  CHANGED TO MATCH ON "." OR "_" RATHER THAN JUST ON ".", IN ORDER TO FIND DATETIME IN FILENAME WHEN "_" ARE USED (SONY SOUND ORGANIZER REPLACES DOTS WITH UNDERSCORES)
+        +S2(sa_SSSaND,sc_ccSSS)
+        T("")
+
+    TN( tSssDotDateAtTimeDotDateAtTimeDot , "" ) ; tSssDotDateAtTimeDotDateAtTimeDot =
+    // ".20130510@2359.20130510@2359."
+    //   yyyymmdd hhmm yyyymmdd hhmm
+
+    ;
+
+        +S2(sa_SSSoReND,sc_ccSSS)
+            +T("0123456789")
+        +S2(sa_SSSoR,sc_ccSSS)
+        +S2(sa_SSSoReND,sc_ccSSS)
+            +T("012345")
+        +S2(sa_SSSoR,sc_ccSSS)
+        +S2(sa_SSSoReND,sc_ccSSS)
+            +T("0123456789")
+        +S2(sa_SSSoR,sc_ccSSS)
+        +S2(sa_SSSoReND,sc_ccSSS)
+            +T("012")
+        +S2(sa_SSSoR,sc_ccSSS)
+        +S2(sa_SSSoReND,sc_ccSSS)
+            +T("0123456789")
+        +S2(sa_SSSoR,sc_ccSSS)
+        +S2(sa_SSSoReND,sc_ccSSS)
+            +T("12")                    //WILL FAIL FOR YEAR 30 (2030)
+        +S2(sa_SSSoR,sc_ccSSS)
+        +S2(sa_SSSoReND,sc_ccSSS)
+            +T("0123456789")
+        +S2(sa_SSSoR,sc_ccSSS)
+        +S2(sa_SSSoReND,sc_ccSSS)
+            +T("0123")
+        +S2(sa_SSSoR,sc_ccSSS)
+        +S2(sa_SSSoReND,sc_ccSSS)
+            +T("0123456789")
+        +S2(sa_SSSoR,sc_ccSSS)
+        +S2(sa_SSSoReND,sc_ccSSS)
+            +T("01")
+        +S2(sa_SSSoR,sc_ccSSS)
+        T("")
+
+    TN( tPatternMMDDYYHHMM , "" ) ; tPatternMMDDYYHHMM =
+    // "0721171234"
+    //  mmddyyhhmm
+
+    ;
+
+        +S2(sa_SSSoReND,sc_ccSSS)
+            +T("xz")                                                 // "x" OR "z" ARE ALLOWED AS A DIGIT.  IT MEANS "UNKNOWN"
+            +S2(sa_SSSmARKnUMERIC9,sc_cSSSmARK)
+        +S2(sa_SSSoR,sc_ccSSS)
+        +S3(2,sc_ccSSSrEPEAT,2)
+        +S2(sa_SSSoReND,sc_ccSSS)
+            +T("012xz")
+        +S2(sa_SSSoR,sc_ccSSS)
+        +T("@")
+        +S2(sa_SSSoReND,sc_ccSSS)
+            +T("xz")                                                 // "x" OR "z" ARE ALLOWED AS A DIGIT.  IT MEANS "UNKNOWN"
+            +S2(sa_SSSmARKnUMERIC9,sc_cSSSmARK)
+        +S2(sa_SSSoR,sc_ccSSS)
+        +S3(7,sc_ccSSSrEPEAT,7)
+        T("")
+
+    TN( tPatternDateAtTime , "" ) ; tPatternDateAtTime =
+    // "20130510@2359"
+    //  yyyymmdd hhmm
+
+    //   IF FIND 0 THEN USE TIME AFTER ".6." FOR WOTH TIME AND FILE TIME FOR OOTH TIME
+    //   IF FIND 1 THEN USE IT AND FOLLOW IT WITH THE FILE TIME
+    //   IF FIND 2 USE THEM IN THE ORDER FOUND, EVEN IF NOT IN ORDER
+    //  LOOK FOR OO TIMES AFTER ".!."
+    //  
+    // RECIPE
+    // EXAMPLE: !ideafarm.6.19981028@0000.001.!.day.title.ttt
+    // EXAMPLE: !ideafarm.6.19991228@0000.001.000b3751.c44d5e6f.2f9afda7.scanner.!.19991228@0000.notarized.declaration.of.legal.name.change.0600x.jpg
+
+    // THE PRECEDING SPECS ARE NOT USED BUT ARE RETAINED SO THAT THEY CAN BE USED IF NEEDED TO MORE ACCURATELY TIMESTAMP; BY NOT USING THEM WE RELY ON FILE TIME RATHER THAN TIME PUT INTO THE FILENAME BY E.G. A VOICE RECORDER OR CAMERA
+    //20170103@1339: THE FOLLOWING SPECS WERE ADDED SO THAT I CAN CONVERT FORMAT 6 FILES TO FORMAT 7 FILESETS ("FILESET" HERE MEANS A DATA FILE WITH ACCOMPANYING META FILE INFORMATION, USING WO O.S. FILE FOR EACH META FIELD)
+
+    ;
+
+        +S2(sa_SSSaNDeND,sc_ccSSS)
+
+            +T("-")
+
+            +S2(sa_SSSmARKnUMERIC9,sc_cSSSmARK)
+            +S2(sa_SSSoReND,sc_ccSSS)
+                +T("012345")
+            +S2(sa_SSSoR,sc_ccSSS)                  // ss
+
+            +S2(sa_SSSmARKnUMERIC9,sc_cSSSmARK)
+            +S2(sa_SSSoReND,sc_ccSSS)
+                +T("012345")
+            +S2(sa_SSSoR,sc_ccSSS)                  // mm
+
+            +S2(sa_SSSmARKnUMERIC9,sc_cSSSmARK)
+            +S2(sa_SSSoReND,sc_ccSSS)
+                +T("012")
+            +S2(sa_SSSoR,sc_ccSSS)                  // hh
+
+            +T("-")
+
+            +S2(sa_SSSmARKnUMERIC9,sc_cSSSmARK)
+            +S2(sa_SSSoReND,sc_ccSSS)
+                +T("0123")
+            +S2(sa_SSSoR,sc_ccSSS)                  // dd
+    
+            +S2(sa_SSSmARKnUMERIC9,sc_cSSSmARK)
+            +S2(sa_SSSoReND,sc_ccSSS)
+                +T("01")
+            +S2(sa_SSSoR,sc_ccSSS)                  // mm
+    
+            +S2(sa_SSSmARKnUMERIC9,sc_cSSSmARK)
+            +S3(1,sc_ccSSSrEPEAT,1)
+            +T("_20")                               // yyyy               BUG: THIS WILL STOP WORKING AFTER THE YEAR 2099
+
+            +S2(sa_SSSmARKnUMERIC9,sc_cSSSmARK)
+            +S2(sa_SSSoReND,sc_ccSSS)
+                +T("01")
+            +S2(sa_SSSoR,sc_ccSSS)                  // mm (IGNORE)
+
+            +T("_")
+
+            +S2(sa_SSSmARKnUMERIC9,sc_cSSSmARK)
+            +S3(1,sc_ccSSSrEPEAT,1)
+            +T("20")                                // yyyy (IGNORE)      BUG: THIS WILL STOP WORKING AFTER THE YEAR 2099
+
+        +S2(sa_SSSaND,sc_ccSSS)
+        T("")
+
+    TN( tSssDateTime3 , "" ) ; tSssDateTime3 =
+    // "\internet\2013_01_20130128-174843-"
+    //                    yyyymmdd hhmm
+
+    ;
+
+        +S2(sa_SSSaNDeND,sc_ccSSS)
+
+            +S2(sa_SSSoReND,sc_ccSSS)
+                +T("._")
+            +S2(sa_SSSoR,sc_ccSSS)
+
+            +S2(sa_SSSmARKnUMERIC9,sc_cSSSmARK)
+            +S2(sa_SSSoReND,sc_ccSSS)
+                +T("012345")
+            +S2(sa_SSSoR,sc_ccSSS)                  // mm
+
+            +T("_")
+
+            +S2(sa_SSSmARKnUMERIC9,sc_cSSSmARK)
+            +S2(sa_SSSoReND,sc_ccSSS)
+                +T("012")
+            +S2(sa_SSSoR,sc_ccSSS)                  // hh
+
+            +T("_")
+
+            +S2(sa_SSSmARKnUMERIC9,sc_cSSSmARK)
+            +S2(sa_SSSoReND,sc_ccSSS)
+                +T("0123")
+            +S2(sa_SSSoR,sc_ccSSS)                  // dd
+
+            +T("_")
+
+            +S2(sa_SSSmARKnUMERIC9,sc_cSSSmARK)
+            +S2(sa_SSSoReND,sc_ccSSS)
+                +T("01")
+            +S2(sa_SSSoR,sc_ccSSS)                  // mm
+
+            +T("_")
+
+            +S2(sa_SSSmARKnUMERIC9,sc_cSSSmARK)
+            +S3(1,sc_ccSSSrEPEAT,1)
+            +T("_20")                               // yyyy               BUG: THIS WILL STOP WORKING AFTER THE YEAR 2099
+
+        +S2(sa_SSSaND,sc_ccSSS)
+        T("")
+
+    TN( tSssDateTime2 , "" ) ; tSssDateTime2 =
+    // "_2009_06_06_19_51_"
+    // "_2009_06_06_19_51."
+    //   yyyy mm dd hh mm
+
+    ;
+
+        +S2(sa_SSSaNDeND,sc_ccSSS)
+            +S2(sa_SSSoReND,sc_ccSSS)
+                +T("x")                                                 // "x" IS ALLOWED AS A DIGIT.  IT MEANS "UNKNOWN"
+                +S2(sa_SSSmARKnUMERIC9,sc_cSSSmARK)
+            +S2(sa_SSSoR,sc_ccSSS)
+            +S3(2,sc_ccSSSrEPEAT,2)
+            +S2(sa_SSSoReND,sc_ccSSS)
+                +T("012x")
+            +S2(sa_SSSoR,sc_ccSSS)
+            +T("@")
+            +S2(sa_SSSoReND,sc_ccSSS)
+                +T("x")                                                 // "x" IS ALLOWED AS A DIGIT.  IT MEANS "UNKNOWN"
+                +S2(sa_SSSmARKnUMERIC9,sc_cSSSmARK)
+            +S2(sa_SSSoR,sc_ccSSS)
+            +S3(5,sc_ccSSSrEPEAT,5)
+            +T("20")                                                    //BUG: THIS WILL STOP WORKING AFTER THE YEAR 2099
+        +S2(sa_SSSaND,sc_ccSSS)
+        T("")
+
+    TN( tSssDateTime1 , "" ) ; tSssDateTime1 =
+    // "20130510@2359"
+    //  yyyymmdd hhmm
+{
+/*1*/voidT thirdC::diskWalkRenameForArchivalF( tinS& tinP , countT& cDirsP , countT& cFilesP , const boolT& bQuitP , const osTextT* const postToP , const osTextT* const postFromP , diskWalkCopyCBFT pCbfP )/*1*/
+
+/**/
+*/
+/*
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 25 years.
+//
+// Copyright (c) 1992-2019 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+

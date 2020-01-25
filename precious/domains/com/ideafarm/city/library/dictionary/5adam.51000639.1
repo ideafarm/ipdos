@@ -1,0 +1,69 @@
+
+//
+// Copyright (c) 1992-2019 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 25 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+
+REST
+
+LOGrAW( T("\r\n\r\nPI/4: ")+TF6(PI/4.0,flFORMAT_EXPONENT,0,0,2,6)+T("\r\n\r\n") ) ;
+LOGrAW( T("\r\n\r\nPI/2: ")+TF6(PI/2.0,flFORMAT_EXPONENT,0,0,2,6)+T("\r\n\r\n") ) ;
+
+LOGrAW( T("\r\n\r\nb [aHeading,aElevation]: ")+TF6(aHeadingb,flFORMAT_EXPONENT,0,0,2,6)+T(" ")+TF6(aElevationb,flFORMAT_EXPONENT,0,0,2,6)+T("\r\n\r\n") ) ;
+LOGrAW( T("\r\n\r\n2 [aHeading,aElevation]: ")+TF6(aHeading2,flFORMAT_EXPONENT,0,0,2,6)+T(" ")+TF6(aElevation2,flFORMAT_EXPONENT,0,0,2,6)+T("\r\n\r\n") ) ;
+LOGrAW( T("\r\n\r\n1 [aHeading,aElevation]: ")+TF6(aHeading1,flFORMAT_EXPONENT,0,0,2,6)+T(" ")+TF6(aElevation1,flFORMAT_EXPONENT,0,0,2,6)+T("\r\n\r\n") ) ;
+directionF( aHeadingb , aElevationb , behind ) ;
+directionF( aHeading2 , aElevation2 , e2 ) ;
+directionF( aHeading1 , aElevation1 , e1 ) ;
+ZE( measureT , aElevationb ) ;        
+ZE( measureT , aHeadingb ) ;        
+ZE( measureT , aElevation2 ) ;        
+ZE( measureT , aHeading2 ) ;        
+ZE( measureT , aElevation1 ) ;        
+ZE( measureT , aHeading1 ) ;        
+
+behind.sayF( tinP ) ;
+LOGrAW( "\r\nbehind:\r\n" ) ;
+
+vectorOldC behind = behindF( tinP , etThread , e1 , e2 ) ;
+
+e2.sayF( tinP ) ;
+LOGrAW( "\r\ne2:\r\n" ) ;
+
+e1.sayF( tinP ) ;
+LOGrAW( "e1:\r\n" ) ;
+
+vectorOldC e2 = eyeF( tinP , etThread , w2 ) ;
+vectorOldC e1 = eyeF( tinP , etThread , w1 ) ;
+
+w2( 3 ) =   0 ;
+w2( 2 ) =   1 ;
+w2( 1 ) =   1 ;
+vectorOldC w2( tinP , etThread ) ;
+
+w1( 3 ) =   0 ;
+w1( 2 ) =   1 ;
+w1( 1 ) = - 1 ;
+vectorOldC w1( tinP , etThread ) ;
+
+TODO
+
+// THIS DEF HAS BEEN CANNIBALIZED INTO eyeC MEMBER FUNCTIONS SO WILL NO LONGER BUILD
+
+/*1*/WAKEsHOWtEXT( "doodle.geometry.rotations" )/*1*/
+/**/
+*/
+the eye is assumed to be at the world origin
+this doodle maps world coordinates to eye coordinates
+/*
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 25 years.
+//
+// Copyright (c) 1992-2019 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+

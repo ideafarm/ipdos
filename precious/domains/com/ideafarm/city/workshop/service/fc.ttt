@@ -1,0 +1,201 @@
+Comparing files service.bad.cpp and SERVICE.CPP
+***** service.bad.cpp
+
+    SERVICE_STATUS_HANDLE oshStatus = RegisterServiceCtrlHandlerEx( "" , handlerF , 0 ) ;
+    if( !oshStatus )
+***** SERVICE.CPP
+
+    oshStatus = RegisterServiceCtrlHandlerEx( "" , handlerF , 0 ) ;
+    if( !oshStatus )
+*****
+
+***** service.bad.cpp
+{
+    unsigned bStop = 0 ;
+    for( unsigned offa = 0 ; offa < cArgP ; offa ++ )
+    {
+        if( !strcmp( ppostArgP[ offa ] , "!stop" ) )
+        {
+            bStop = 1 ;
+            break ;
+        }
+    }
+
+    {
+***** SERVICE.CPP
+{
+    {
+*****
+
+***** service.bad.cpp
+            }
+            else if( bStop )
+            {
+                static SERVICE_STATUS_PROCESS status ;
+
+                static SERVICE_CONTROL_STATUS_REASON_PARAMSA info ;
+                info.dwReason = SERVICE_STOP_REASON_FLAG_UNPLANNED | SERVICE_STOP_REASON_MAJOR_OPERATINGSYSTEM | SERVICE_STOP_R
+EASON_MINOR_NONE ;
+                info.pszComment = (LPSTR)"MS Windows sucks, so I had to manually send the "!stop control." ;
+                info.ServiceStatus = &status ;
+
+                unsigned bOk = ControlServiceExA( oshService , SERVICE_CONTROL_STOP , SERVICE_CONTROL_STATUS_REASON_INFO , &inf
+o ) ;
+                if( !bOk )
+***** SERVICE.CPP
+            }
+            else
+            {
+                SERVICE_PRESHUTDOWN_INFO info ;
+                info.dwPreshutdownTimeout = 1800000 ; // 30 MINUTES
+                BOOL bOk = ChangeServiceConfig2A( oshService , SERVICE_CONFIG_PRESHUTDOWN_INFO , &info ) ;
+                if( !bOk )
+*****
+
+***** service.bad.cpp
+                    unsigned rc = GetLastError() ;
+                    logTimeGF( "IPDOS (tm) serviceMainF / could not send the STOP control value [rc]:   " ) ;
+                    logGF( rc ) ;
+***** SERVICE.CPP
+                    unsigned rc = GetLastError() ;
+                    logTimeGF( "IPDOS (tm) serviceMainF / could not change preshutdown timeout value [rc]:   " ) ;
+                    logGF( rc ) ;
+*****
+
+***** service.bad.cpp
+                {
+                    logTimeGF( "IPDOS (tm) serviceMainF / sent the STOP control value\r\n" ) ;
+                }
+            }
+            else
+            {
+                static SERVICE_PRESHUTDOWN_INFO info ;
+                info.dwPreshutdownTimeout = 1800000 ; // 30 MINUTES
+                BOOL bOk = ChangeServiceConfig2A( oshService , SERVICE_CONFIG_PRESHUTDOWN_INFO , &info ) ;
+                if( !bOk )
+                {
+                    unsigned rc = GetLastError() ;
+                    logTimeGF( "IPDOS (tm) serviceMainF / could not change preshutdown timeout value [rc]:   " ) ;
+                    logGF( rc ) ;
+                    logGF( "\r\n" ) ;
+***** SERVICE.CPP
+                {
+                    logTimeGF( "IPDOS (tm) serviceMainF / preshutdown timeout value changed to [minutes]:   " ) ;
+                    logGF( info.dwPreshutdownTimeout / 1000 / 60 ) ;
+                    logGF( "\r\n" ) ;
+*****
+
+***** service.bad.cpp
+                }
+                else
+                {
+                    logTimeGF( "IPDOS (tm) serviceMainF / preshutdown timeout value changed to [minutes]:   " ) ;
+                    logGF( info.dwPreshutdownTimeout / 1000 / 60 ) ;
+                    logGF( "\r\n" ) ;
+                }
+                CloseServiceHandle( oshService ) ;
+***** SERVICE.CPP
+                }
+                CloseServiceHandle( oshService ) ;
+*****
+
+***** service.bad.cpp
+
+    if( !bStop )
+    {
+        char postIdHomeSolo[ 1 + 2 * sizeof( int ) ] ; postIdHomeSolo[ 0 ] = 0 ;
+        {
+            int bArmed = 0 ;
+            for( int offi = 1 ; offi < cArgP ; offi ++ )
+            {
+                if( bArmed )
+                {
+                    bArmed = 0 ;
+                    if( isBigitsF( ppostArgP[ offi ] ) )
+                    {
+                        strcpy( postIdHomeSolo , ppostArgP[ offi ] ) ;
+                    }
+                }
+                else if( !strcmp( ppostArgP[ offi ] , "!idHome" ) ) bArmed = 1 ;
+                else bArmed = 0 ;
+            }
+***** SERVICE.CPP
+
+    char postIdHomeSolo[ 1 + 2 * sizeof( int ) ] ; postIdHomeSolo[ 0 ] = 0 ;
+    {
+        int bArmed = 0 ;
+        for( int offi = 1 ; offi < cArgP ; offi ++ )
+        {
+            if( bArmed )
+            {
+                bArmed = 0 ;
+                if( isBigitsF( ppostArgP[ offi ] ) )
+                {
+                    strcpy( postIdHomeSolo , ppostArgP[ offi ] ) ;
+                }
+            }
+            else if( !strcmp( ppostArgP[ offi ] , "!idHome" ) ) bArmed = 1 ;
+            else bArmed = 0 ;
+        }
+    }
+
+    findHomesF( postIdHomeSolo ) ;
+
+    char postUser[ 0x100 ] ;
+    DWORD costaUser = sizeof postUser ;
+    if( GetUserName( postUser , &costaUser ) )
+    {
+        if( !strcmp( postUser , "SYSTEM" ) )
+        {
+            SERVICE_TABLE_ENTRY pInfo[] =
+            {
+                "" , serviceMainF ,
+                0  , 0
+            } ;
+            
+            BOOL rc = StartServiceCtrlDispatcher( pInfo ) ;
+        }
+        else
+        {
+            for( int offo = 0 ; offo < sizeof pTblHomeDisk / sizeof pTblHomeDisk[ 0 ] ; offo ++ )
+            {
+                if( *pTblHomeDisk[ offo ].postIdHome ) hireF( pTblHomeDisk[ offo ] ) ;
+            }
+*****
+
+***** service.bad.cpp
+        }
+
+        findHomesF( postIdHomeSolo ) ;
+
+        char postUser[ 0x100 ] ;
+        DWORD costaUser = sizeof postUser ;
+        if( GetUserName( postUser , &costaUser ) )
+        {
+            if( !strcmp( postUser , "SYSTEM" ) )
+            {
+                SERVICE_TABLE_ENTRY pInfo[] =
+                {
+                    "" , serviceMainF ,
+                    0  , 0
+                } ;
+                
+                BOOL rc = StartServiceCtrlDispatcher( pInfo ) ;
+            }
+            else
+            {
+                for( int offo = 0 ; offo < sizeof pTblHomeDisk / sizeof pTblHomeDisk[ 0 ] ; offo ++ )
+                {
+                    if( *pTblHomeDisk[ offo ].postIdHome ) hireF( pTblHomeDisk[ offo ] ) ;
+                }
+            }
+        }
+    }
+
+    return 0 ;
+***** SERVICE.CPP
+        }
+    }
+    return 0 ;
+*****
+

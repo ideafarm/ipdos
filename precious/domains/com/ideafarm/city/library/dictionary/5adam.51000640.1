@@ -1,0 +1,58 @@
+
+//
+// Copyright (c) 1992-2019 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 25 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+
+REST
+
+ether.osThreadF( TaRG1( tmWorkF ) , (countT)&bat2 , (countT)&bat1 ) ;
+ether.osThreadF( TaRG1( tmWorkF ) , (countT)&bat1 , (countT)&bat2 ) ;
+
+batonC bat2( tinP , TAG( TAGiDnULL ) ) ;
+batonC bat1( tinP , TAG( TAGiDnULL ) ) ;
+
+TODO
+
+DONE( tmWorkF )
+}
+    CONoUTrAW( "Bye!\r\n" ) ;
+
+    batOoP.ungrabF( tinP ) ;
+    batWoP.ungrabF( tinP ) ;
+
+    CONoUTrAW5( "grabbed  [idThread,&batOoP]: " , tinP.monitor.idThread , " " , &batOoP , "\r\n" ) ;
+    batOoP.grabF( tinP , TAG( TAGiDnULL ) ) ;
+    CONoUTrAW5( "grabbing [idThread,&batOoP]: " , tinP.monitor.idThread , " " , &batOoP , "\r\n" ) ;
+    TELL( "grabbing to intentionally deadlock" )
+
+    ++ s ; etThread.osSleepF( tinP , TOCK ) ;
+    sleepC s( tinP , TAG( TAGiDnULL ) ) ;
+
+    CONoUTrAW5( "grabbed  [idThread,&batWoP]: " , tinP.monitor.idThread , " " , &batWoP , "\r\n" ) ;
+    batWoP.grabF( tinP , TAG( TAGiDnULL ) ) ;
+    CONoUTrAW5( "grabbing [idThread,&batWoP]: " , tinP.monitor.idThread , " " , &batWoP , "\r\n" ) ;
+
+    THREADmODE1oN( flTHREADmODE1_ALLOWsTOPwHILEgRABBING ) ;
+
+    batonC& batOoP = *(batonC*)pTaskP->c2 ;
+    batonC& batWoP = *(batonC*)pTaskP->c1 ;
+{
+if( pTaskP && pTaskP->c1 && pTaskP->c2 )
+TASK( tmWorkF )
+
+/*1*/WAKEsHOWtEXT( "tool.test.monitor.deadlock" )/*1*/
+/**/
+*/
+/*
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 25 years.
+//
+// Copyright (c) 1992-2019 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+

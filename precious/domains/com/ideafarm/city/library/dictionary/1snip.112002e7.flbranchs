@@ -1,0 +1,39 @@
+
+//
+// Copyright (c) 1992-2019 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 25 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+
+/*3*/
+#define flBRANCHs_LABELED       /*fl*/
+#define flBRANCHs_MISSING       /*fl*/
+#define flBRANCHs_SHADOW        /*fl*/
+#define flBRANCHs_MALE          /*fl*/
+/*3*/
+
+// MULTITHREADED WALKING OF THE TREE OF branchS INSTANCES IS DONE (BY putFileIF), SO TEMPORARY MARKING OF INSTANCES BY SETTING A FLAG IS NOT SUPPORTED
+
+/*1*//*flBRANCHs*//*1*/
+/**/
+*/
+ it will probably be illegal for application code to specify this flag in treeC::newF()
+  as of this writing, flBRANCHs_SHADOW is defined but not used and not supported
+  to the operator, climbing to a shadow branch is like jumping within the tree 
+  the restriction is intended to prevent cycling and to keep the topology of a tree understandable
+ for shadow branches, value is the address of another, nonshadow, branch
+ for normal branches, treeC assumes no semantic meaning for value
+flBRANCHs_SHADOW is reserved for future enhancement
+ it is only used by lookF to mark slots that are not occupied by branches
+flBRANCHs_MISSING is never set in a branchS object
+/*
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 25 years.
+//
+// Copyright (c) 1992-2019 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+

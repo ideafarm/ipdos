@@ -1,0 +1,73 @@
+
+//
+// Copyright (c) 1992-2019 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 25 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+
+;
+}
+    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.36139005.napkinsC.ctFileNameIF!||
+    voidT ctFileNameIF( tinS& tinP , textC& tP , const osTextT* const postNameP ) ;
+    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.36139004.napkinsC.operator_element!||
+    byteT* operator []( const countT offElementP ) ;
+    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.36139003.napkinsC.napkinsC!||
+    napkinsC( tinS& tinP , const countT idLineCtP , const countT idiFileCtP , const byteT* const pbBitsCtP , const osTextT* const postP , countT expCbPerNapkinP , countT expCbPerItemP , const countT idStateSpaceP = 0 , const flagsT flagsP = flNAPKINSc_null ) ;
+    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.36139002.napkinsC.dt_napkinsC!||
+    ~napkinsC( voidT ) ;
+
+
+    NEWdELcLASSpROTOS
+
+    public :
+
+    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.36139006.napkinsC.ctFileF!||
+    voidT ctFileF( tinS& tinP , const countT offDockP , const osTextT* const postNameP ) ;
+
+    const flagsT flagsCt ;
+    const countT expCbPerItem ;
+    const countT expCbPerNapkin ;
+    osTextT      postName[ TUCK ] ;
+    poopC        poop ;
+
+    const countT idStateSpace ;
+
+    countT       offDockNextCt ;
+    const countT cDocks ;
+    countT       pcDockOffNapkin[ 1              << 2 ] ; // cDocks IS IMPLICITLY SET HERE BY "<< 2"
+    byteT        pbDockNapkin[    SIZEOF_napkinC << 2 ] ; // cDocks IS IMPLICITLY SET HERE BY "<< 2"
+    byteT        pbDockFile[      SIZEOF_fileC   << 2 ] ; // cDocks IS IMPLICITLY SET HERE BY "<< 2"
+
+    const        byteT  pbBitsCt[ CBbITScT ] ;
+    const        countT idiFileCt ;
+    const        countT idLineCt ;
+{
+/*1*/class _export napkinsC/*1*/
+
+/**/
+*/
+ this statement assumes that countT is 02 (32_9) bits
+the element size must be an integral multiple of 2 between 1 and TOCK
+an instance, in effect, makes an infinitely large array available to application code
+ both member function definitions and application code construct index values on the thread stack
+ a limit is hardcoded because poolC is not used (for speed)
+ the code can be modified easily to support larger index (offset) values
+ as of this writing, 128 bit indexes are supported in the code (4 countT)
+ syntactically, there is no limit to the magnitude of an index
+the array index is specified as a length prefixed string of countT
+it is not thread safe; only wo thread should use each instance and instances should be distinct (different parametric names)
+this class is designed for speed and has minimal error checking
+the catch: you may only use the most recently obtained pointer
+infinite capacity memory, accessed using array syntax "array[ offset ]"
+/*
+
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 25 years.
+//
+// Copyright (c) 1992-2019 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+

@@ -1,0 +1,202 @@
+
+//
+// Copyright (c) 1992-2019 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 25 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+
+REST
+
+etherC::loafIF( tinP ) ;
+
+}
+    vtProgress.setF( tinP , tSay ) ;
+
+    ;
+
+        +S2(0,scOld_POPfRAME)
+        +tValue
+        +S3((measureT)tValue.csF(tinP),scOld_mmFRAMEcELLS,1.0)
+
+    TN( tSay , "" ) ; tSay = tn
+
+    TN( tValue , "done" ) ;
+{
+
+}
+    ++ s ; ether.osSleepF( tinP , TOCK ) ;
+
+    }
+        vtProgress.setF( tinP , tSay ) ;
+
+        ;
+
+            +S2(0,scOld_POPcOLOR)
+            +S3(rDirs,scOld_mmLINEtO,rFiles)
+            +S2(rgb,scOld_cPUSHcOLOR)
+
+        TN( tSay , "" ) ; tSay = tn
+        
+        countT rgb = pcRGB[ ( idCycle ++ ) % ( sizeof pcRGB / sizeof pcRGB[ 0 ] ) ] ;
+
+        if( rFiles > 1.0 ) rFiles = 1.0 ;
+        if( rDirs  > 1.0 ) rDirs  = 1.0 ;
+        measureT rFiles = (measureT)cFilesCopied / (measureT)cFiles ;
+        measureT rDirs  = (measureT)cDirsCopied  / (measureT)cDirs  ;
+    {
+    if( cDirs && cFiles )
+{
+while( !ether && !bDoneCopying || ( cAfter && cAfter -- ) )
+ZE( countT , idCycle ) ;
+countT cAfter = 1 ;
+
+;
+}
+    ifcRGB_B4
+    ifcRGB_G4 ,
+    ifcRGB_R4 ,
+{
+countT pcRGB[] =
+
+++ s ; etThread.osSleepF( tinP , TOCK ) ;
+etThread.osThreadF( TaRG1( tmCopyF ) , (countT)&cDirsCopied , (countT)&cFilesCopied , (countT)&bDoneCopying  ) ;
+
+}
+    vtProgress.setF( tinP , tSay ) ;
+
+    ;
+
+        +S2(0,scOld_POPfRAME)
+        +tValue
+        +S3((measureT)tValue.csF(tinP),scOld_mmFRAMEcELLS,1.0)
+
+    TN( tSay , "" ) ; tSay = tn
+
+    TN( tValue , "" ) ; tValue = TF2(cDirs+cFiles,flFORMAT_UNSIGNED) ;
+
+    }
+        else                      break ;
+        if( cExtra && cExtra -- ) ;
+    {
+    if( cDirsSnap == cDirs && cFilesSnap == cFiles )
+
+    ++ s ; ether.osSleepF( tinP , TOCK << 2 ) ;
+    countT cFilesSnap = cFiles ;
+    countT cDirsSnap  = cDirs  ;
+{
+while( !ether )
+countT cExtra = 1 ;
+
+etThread.osThreadF( TaRG1( tmCountF ) , (countT)&cDirs , (countT)&cFiles , (countT)&bDoneCounting ) ;
+ZE( boolT  , bDoneCopying  ) ;
+ZE( boolT  , bDoneCounting ) ;
+ZE( countT , cFilesCopied  ) ;
+ZE( countT , cDirsCopied   ) ;
+ZE( countT , cFiles        ) ;
+ZE( countT , cDirs         ) ;
+
+++ s ; ether.osSleepF( tinP , TOCK ) ;
+sleepC s( tinP , TAG( TAGiDnULL ) ) ;
+
+etThread.strokeF( tinP , tSay ) ;
+
+;
+
+                    +S2(0,scOld_POPfRAME)
+                        +S2(0,scOld_POPfRAME)
+                            +S2(0,scOld_POPfRAME)
+                                +vtProgress
+                            +S3(0.0,scOld_mmFRAMEpELtO,0.0)
+                            +S2(0,scOld_cOVERRIDEnEXTsTROKE)
+                            +S3(-8.0,scOld_mmMOVEpEL,-8.0)
+                            +S3(1.0,scOld_mmMOVEtO,1.0)
+                            +S2(0,scOld_PUSHoVERRIDEcOLrOW)
+                            +S2(0,scOld_POPcOLOR)
+                            +S3(8.0,scOld_mmMOVEpEL,8.0)    
+                            +S3(0.0,scOld_mmLINEtO,0.0)
+                            +S3(0.0,scOld_mmLINEtO,1.0)
+                            +S3(1.0,scOld_mmLINEtO,1.0)
+                            +S3(1.0,scOld_mmLINEtO,0.0)
+                            +S3(0.0,scOld_mmMOVEtO,0.0)
+                            +S2(ifcRGB_YELLOW,scOld_cPUSHcOLOR)
+                +S2(0,scOld_POPoFFfRAME)
+            +S3(0.8,scOld_mmFRAMEtO,0.8)
+            +S3(0.2,scOld_mmMOVEtO,0.2)
+            +S2(0,scOld_FRAMEdETACH)
+                        +S2(3,scOld_cPUSHoFFfRAME)
+                        +tTitle
+                    +S2(0,scOld_POPoFFfRAME)
+                +S3((measureT)tTitle.csF(tinP),scOld_mmFRAMEcELLS,16.0)
+                    +S2(1,scOld_cPUSHoFFfRAME)
+                    tn
+//FRAME:    1   2   3   4   5   6
+
+TN( tSay , "" ) ; tSay =
+
+vTextC vtProgress( tinP , "vtProgress" , 0 , 1 ) ;
+TN( tTitle , "" ) ; tTitle = tcQuit+T("  Copying files and folders") ;
+tcButtonQuitC tcQuit( tinP , "tcQuit" , flTCfEATURE_defaultButton | flTCfEATURE_TABpARTICIPANT ) ;
+TN( tcr , "\r\n" ) ;
+TN( tb , " " ) ;
+TN( tn , "" ) ;
+
+TODO
+
+DONE( tmCopyF )
+}
+    bDoneP = 1 ;
+
+    ((thirdC&)etThread).diskWalkCopyF( tinP , cDirsP , cFilesP , ether , postTO , postFROM , myCBF ) ;
+
+    boolT&  bDoneP  =  *(boolT*)pTaskP->c3 ;
+    countT& cFilesP = *(countT*)pTaskP->c2 ;
+    countT& cDirsP  = *(countT*)pTaskP->c1 ;
+{
+if( pTaskP && pTaskP->c1 && pTaskP->c2 && pTaskP->c3 )
+TASK( tmCopyF )
+
+DONE( tmCountF )
+}
+    bDoneP = 1 ;
+    cFilesP -- ;
+    cDirsP -- ;
+
+    thirdC::diskWalkIF( tinP , cDirsP , cFilesP , postFROM , *(boolT*)&(const boolT&)ether ) ;
+
+    ++ s ; ether.osSleepF( tinP , TOCK << 3 ) ;
+    sleepC s( tinP , TAG( TAGiDnULL ) ) ;
+
+    cFilesP ++ ;
+    cDirsP ++ ;
+
+    boolT&  bDoneP  =  *(boolT*)pTaskP->c3 ;
+    countT& cFilesP = *(countT*)pTaskP->c2 ;
+    countT& cDirsP  = *(countT*)pTaskP->c1 ;
+{
+if( pTaskP && pTaskP->c1 && pTaskP->c2 && pTaskP->c3 )
+TASK( tmCountF )
+
+#define postTO   "\\test.copy\\"
+#define postFROM "\\ideafarm.home.1\\precious\\"
+
+}
+    return bDoIt ;
+
+    boolT  bDoIt = !thirdC::c_strstrIF( tinP , postNameP , "do.not.copy.a.file.with.this.in.its.name" ) ;
+{
+boolT myCBF( tinS& tinP , countT& cDirsP , countT& cFilesP , const osTextT* const postNameP , countT* const pcArgP )
+
+/*1*/WAKEsHOW( "ifcIDaDAM_STARTER4.progress" )/*1*/
+/**/
+*/
+/*
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 25 years.
+//
+// Copyright (c) 1992-2019 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+

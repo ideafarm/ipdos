@@ -1,0 +1,461 @@
+
+//
+// Copyright (c) 1992-2019 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 25 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+
+}
+    DEL( pInfo ) ;
+    }
+        ether.delF( tinP , pbBuffer ) ;
+        }
+            }
+                eatF( tinP , pbBuffer , cbNow ) ;
+                ether.fileReadF( tinP , pbBuffer , cbNow , fi ) ;
+
+                cDoLo -= cbNow ;
+                if( cDoLo < cbNow ) cDoHi -- ;
+
+                if( !cDoHi && cbNow > cDoLo ) cbNow = cDoLo ;
+                countT cbNow = cbChunk ;
+            {
+            while( cDoHi || cDoLo )
+
+            countT cDoHi = 0   ;
+            countT cDoLo = pInfo->cbUsed ;
+        {
+        if( pbBuffer )
+
+        ether.newF( tinP , LF , pbBuffer , cbChunk ) ; ___( pbBuffer ) ;
+        ZE( byteT* , pbBuffer ) ;
+
+        ;
+            : TOCK
+            ? pInfo->cbUsed
+        countT cbChunk = pInfo->cbUsed < TOCK
+    {
+    if( !POOP )
+
+    __Z( pInfo ) ;
+    ether.diskFileQueryF( tinP , pInfo , fi ) ; ___( pInfo ) ;
+    ZE( infoFileS* , pInfo ) ;
+
+    fileC fi( tinP , psttP , ifcOPENaCCESS_R , ifcOPENsHARE_R , flOPENdETAILS_LOCsEQ , ifcOPENhOW_nFeO ) ;
+{
+/*wo*/voidT hasherC::eatF( tinS& tinP , const strokeS* const psttP )/*wo*/
+
+/**/
+*/
+/*
+
+
+}
+    ether.strDumpIF( tinP , psttP , (char*)pbOut , sizeof pbOut , flSTRdUMP_FOREIGN ) ; ___( psttP ) ;
+
+    queryF( tinP , pbOut , sizeof pbOut ) ;
+    byteT pbOut[ 4 * sizeof( int ) ] ;
+{
+/*wo*/voidT hasherC::queryStringF( tinS& tinP , strokeS*& psttP )/*wo*/
+
+/**/
+*/
+/*
+
+
+}
+    MD5_Final( (unsigned char*)pbP , (MD5_CTX*)pbState ) ;
+
+    if( cbP != 4 * sizeof( count02T ) ) { BLAMMO ; }
+{
+/*wo*/voidT hasherC::queryF( tinS& tinP , byteT* const pbP , const countT cbP )/*wo*/
+
+/**/
+*/
+/*
+
+
+}
+    MD5_Update( (MD5_CTX*)pbState , pbP , cbP ) ;
+{
+/*wo*/voidT hasherC::eatF( tinS& tinP , const byteT* const pbP , const countT cbP )/*wo*/
+
+/**/
+*/
+/*
+
+
+}
+    MD5_Init( (MD5_CTX*)pbState ) ;
+
+    if( aa != bb ) { BLAMMO ; }
+    countT bb = sizeof( MD5_CTX ) ;
+    countT aa = sizeof pbState ;
+{
+ether( etherP )
+/*1*/hasherC::hasherC( tinS& tinP , etherC& etherP ) :/*1*/
+
+#endif
+
+}
+	memset(ctx, 0, sizeof(*ctx));
+
+	result[15] = (char)( ctx->d >> 24 ) ;
+	result[14] = (char)( ctx->d >> 16 ) ;
+	result[13] = (char)( ctx->d >> 8 ) ;
+	result[12] = (char)( ctx->d ) ;
+	result[11] = (char)( ctx->c >> 24 ) ;
+	result[10] = (char)( ctx->c >> 16 ) ;
+	result[9] = (char)( ctx->c >> 8 ) ;
+	result[8] = (char)( ctx->c ) ;
+	result[7] = (char)( ctx->b >> 24 ) ;
+	result[6] = (char)( ctx->b >> 16 ) ;
+	result[5] = (char)( ctx->b >> 8 ) ;
+	result[4] = (char)( ctx->b ) ;
+	result[3] = (char)( ctx->a >> 24 ) ;
+	result[2] = (char)( ctx->a >> 16 ) ;
+	result[1] = (char)( ctx->a >> 8 ) ;
+	result[0] = (char)( ctx->a ) ;
+
+	body(ctx, ctx->buffer, 64);
+
+	ctx->buffer[63] = (char)( ctx->hi >> 24 ) ;
+	ctx->buffer[62] = (char)( ctx->hi >> 16 ) ;
+	ctx->buffer[61] = (char)( ctx->hi >> 8 ) ;
+	ctx->buffer[60] = (char)( ctx->hi ) ;
+	ctx->buffer[59] = (char)( ctx->lo >> 24 ) ;
+	ctx->buffer[58] = (char)( ctx->lo >> 16 ) ;
+	ctx->buffer[57] = (char)( ctx->lo >> 8 ) ;
+	ctx->buffer[56] = (char)( ctx->lo ) ;
+	ctx->lo <<= 3;
+
+	memset(&ctx->buffer[used], 0, available - 8);
+
+	}
+		available = 64;
+		used = 0;
+		body(ctx, ctx->buffer, 64);
+		memset(&ctx->buffer[used], 0, available);
+	if (available < 8) {
+
+	available = 64 - used;
+
+	ctx->buffer[used++] = 0x80;
+
+	used = ctx->lo & 0x3f;
+
+	unsigned long used, available;
+{
+void MD5_Final(unsigned char *result, MD5_CTX *ctx)
+
+}
+	memcpy(ctx->buffer, data, size);
+
+	}
+		size &= 0x3f;
+		data = body(ctx, data, size & ~(unsigned long)0x3f);
+	if (size >= 64) {
+
+	}
+		body(ctx, ctx->buffer, 64);
+		size -= available;
+		data = (const unsigned char *)data + available;
+		memcpy(&ctx->buffer[used], data, available);
+
+		}
+			return;
+			memcpy(&ctx->buffer[used], data, size);
+		if (size < available) {
+
+		available = 64 - used;
+	if (used) {
+
+	used = saved_lo & 0x3f;
+
+	ctx->hi += size >> 29;
+		ctx->hi++;
+	if ((ctx->lo = (saved_lo + size) & 0x1fffffff) < saved_lo)
+	saved_lo = ctx->lo;
+
+	unsigned long used, available;
+	MD5_u32plus saved_lo;
+{
+void MD5_Update(MD5_CTX *ctx, const void *data, unsigned long size)
+
+}
+	ctx->hi = 0;
+	ctx->lo = 0;
+
+	ctx->d = 0x10325476;
+	ctx->c = 0x98badcfe;
+	ctx->b = 0xefcdab89;
+	ctx->a = 0x67452301;
+{
+void MD5_Init(MD5_CTX *ctx)
+
+}
+	return ptr;
+
+	ctx->d = d;
+	ctx->c = c;
+	ctx->b = b;
+	ctx->a = a;
+
+	} while (size -= 64);
+		ptr += 64;
+
+		d += saved_d;
+		c += saved_c;
+		b += saved_b;
+		a += saved_a;
+
+		STEP(MD5_I, b, c, d, a, GET(9), 0xeb86d391, 21)
+		STEP(MD5_I, c, d, a, b, GET(2), 0x2ad7d2bb, 15)
+		STEP(MD5_I, d, a, b, c, GET(11), 0xbd3af235, 10)
+		STEP(MD5_I, a, b, c, d, GET(4), 0xf7537e82, 6)
+		STEP(MD5_I, b, c, d, a, GET(13), 0x4e0811a1, 21)
+		STEP(MD5_I, c, d, a, b, GET(6), 0xa3014314, 15)
+		STEP(MD5_I, d, a, b, c, GET(15), 0xfe2ce6e0, 10)
+		STEP(MD5_I, a, b, c, d, GET(8), 0x6fa87e4f, 6)
+		STEP(MD5_I, b, c, d, a, GET(1), 0x85845dd1, 21)
+		STEP(MD5_I, c, d, a, b, GET(10), 0xffeff47d, 15)
+		STEP(MD5_I, d, a, b, c, GET(3), 0x8f0ccc92, 10)
+		STEP(MD5_I, a, b, c, d, GET(12), 0x655b59c3, 6)
+		STEP(MD5_I, b, c, d, a, GET(5), 0xfc93a039, 21)
+		STEP(MD5_I, c, d, a, b, GET(14), 0xab9423a7, 15)
+		STEP(MD5_I, d, a, b, c, GET(7), 0x432aff97, 10)
+		STEP(MD5_I, a, b, c, d, GET(0), 0xf4292244, 6)
+/* Round 4 */
+
+		STEP(MD5_H2, b, c, d, a, GET(2), 0xc4ac5665, 23)
+		STEP(MD5_H, c, d, a, b, GET(15), 0x1fa27cf8, 16)
+		STEP(MD5_H2, d, a, b, c, GET(12), 0xe6db99e5, 11)
+		STEP(MD5_H, a, b, c, d, GET(9), 0xd9d4d039, 4)
+		STEP(MD5_H2, b, c, d, a, GET(6), 0x04881d05, 23)
+		STEP(MD5_H, c, d, a, b, GET(3), 0xd4ef3085, 16)
+		STEP(MD5_H2, d, a, b, c, GET(0), 0xeaa127fa, 11)
+		STEP(MD5_H, a, b, c, d, GET(13), 0x289b7ec6, 4)
+		STEP(MD5_H2, b, c, d, a, GET(10), 0xbebfbc70, 23)
+		STEP(MD5_H, c, d, a, b, GET(7), 0xf6bb4b60, 16)
+		STEP(MD5_H2, d, a, b, c, GET(4), 0x4bdecfa9, 11)
+		STEP(MD5_H, a, b, c, d, GET(1), 0xa4beea44, 4)
+		STEP(MD5_H2, b, c, d, a, GET(14), 0xfde5380c, 23)
+		STEP(MD5_H, c, d, a, b, GET(11), 0x6d9d6122, 16)
+		STEP(MD5_H2, d, a, b, c, GET(8), 0x8771f681, 11)
+		STEP(MD5_H, a, b, c, d, GET(5), 0xfffa3942, 4)
+/* Round 3 */
+
+		STEP(MD5_G, b, c, d, a, GET(12), 0x8d2a4c8a, 20)
+		STEP(MD5_G, c, d, a, b, GET(7), 0x676f02d9, 14)
+		STEP(MD5_G, d, a, b, c, GET(2), 0xfcefa3f8, 9)
+		STEP(MD5_G, a, b, c, d, GET(13), 0xa9e3e905, 5)
+		STEP(MD5_G, b, c, d, a, GET(8), 0x455a14ed, 20)
+		STEP(MD5_G, c, d, a, b, GET(3), 0xf4d50d87, 14)
+		STEP(MD5_G, d, a, b, c, GET(14), 0xc33707d6, 9)
+		STEP(MD5_G, a, b, c, d, GET(9), 0x21e1cde6, 5)
+		STEP(MD5_G, b, c, d, a, GET(4), 0xe7d3fbc8, 20)
+		STEP(MD5_G, c, d, a, b, GET(15), 0xd8a1e681, 14)
+		STEP(MD5_G, d, a, b, c, GET(10), 0x02441453, 9)
+		STEP(MD5_G, a, b, c, d, GET(5), 0xd62f105d, 5)
+		STEP(MD5_G, b, c, d, a, GET(0), 0xe9b6c7aa, 20)
+		STEP(MD5_G, c, d, a, b, GET(11), 0x265e5a51, 14)
+		STEP(MD5_G, d, a, b, c, GET(6), 0xc040b340, 9)
+		STEP(MD5_G, a, b, c, d, GET(1), 0xf61e2562, 5)
+/* Round 2 */
+
+		STEP(MD5_F, b, c, d, a, SET(15), 0x49b40821, 22)
+		STEP(MD5_F, c, d, a, b, SET(14), 0xa679438e, 17)
+		STEP(MD5_F, d, a, b, c, SET(13), 0xfd987193, 12)
+		STEP(MD5_F, a, b, c, d, SET(12), 0x6b901122, 7)
+		STEP(MD5_F, b, c, d, a, SET(11), 0x895cd7be, 22)
+		STEP(MD5_F, c, d, a, b, SET(10), 0xffff5bb1, 17)
+		STEP(MD5_F, d, a, b, c, SET(9), 0x8b44f7af, 12)
+		STEP(MD5_F, a, b, c, d, SET(8), 0x698098d8, 7)
+		STEP(MD5_F, b, c, d, a, SET(7), 0xfd469501, 22)
+		STEP(MD5_F, c, d, a, b, SET(6), 0xa8304613, 17)
+		STEP(MD5_F, d, a, b, c, SET(5), 0x4787c62a, 12)
+		STEP(MD5_F, a, b, c, d, SET(4), 0xf57c0faf, 7)
+		STEP(MD5_F, b, c, d, a, SET(3), 0xc1bdceee, 22)
+		STEP(MD5_F, c, d, a, b, SET(2), 0x242070db, 17)
+		STEP(MD5_F, d, a, b, c, SET(1), 0xe8c7b756, 12)
+		STEP(MD5_F, a, b, c, d, SET(0), 0xd76aa478, 7)
+/* Round 1 */
+
+		saved_d = d;
+		saved_c = c;
+		saved_b = b;
+		saved_a = a;
+	do {
+
+	d = ctx->d;
+	c = ctx->c;
+	b = ctx->b;
+	a = ctx->a;
+
+	ptr = (const unsigned char *)data;
+
+	MD5_u32plus saved_a, saved_b, saved_c, saved_d;
+	MD5_u32plus a, b, c, d;
+	const unsigned char *ptr;
+{
+static const void* body( MD5_CTX* ctx , const void* data , unsigned long size )
+
+ */
+ * the bit counters.  There are no alignment requirements.
+ * This processes one or more 64-byte data blocks, but does NOT update
+/*
+
+#endif
+	(ctx->block[(n)])
+#define GET(n) \
+	((MD5_u32plus)ptr[(n) * 4 + 3] << 24))
+	((MD5_u32plus)ptr[(n) * 4 + 2] << 16) | \
+	((MD5_u32plus)ptr[(n) * 4 + 1] << 8) | \
+	(MD5_u32plus)ptr[(n) * 4] | \
+	(ctx->block[(n)] = \
+#define SET(n) \
+#else
+	SET(n)
+#define GET(n) \
+	(*(MD5_u32plus *)&ptr[(n) * 4])
+#define SET(n) \
+#if defined(__i386__) || defined(__x86_64__) || defined(__vax__)
+
+ */
+ * doesn't work.
+ * memory accesses is just an optimization.  Nothing will break if it
+ * The check for little-endian architectures that tolerate unaligned
+ *
+ * in a properly aligned word in host byte order.
+ * SET reads 4 input bytes in little-endian byte order and stores them
+/*
+
+	(a) += (b);
+	(a) = (((a) << (s)) | (((a) & 0xffffffff) >> (32 - (s)))); \
+	(a) += f((b), (c), (d)) + (x) + (t); \
+#define STEP(f,a,b,c,d,x,t,s) \
+
+ */
+ * The MD5 transformation for all four rounds.
+/*
+
+#define MD5_I(x,y,z)			((y) ^ ((x) | ~(z)))
+#define MD5_H2(x,y,z)			((x) ^ ((y) ^ (z)))
+#define MD5_H(x,y,z)			(((x) ^ (y)) ^ (z))
+#define MD5_G(x,y,z)			((y) ^ ((z) & ((x) ^ (y))))
+#define MD5_F(x,y,z)			((z) ^ ((x) & ((y) ^ (z))))
+
+ */
+ * implementation.
+ * architectures that lack an AND-NOT instruction, just like in Colin Plumb's
+ * F and G are optimized compared to their RFC 1321 definitions for
+ *
+ * The basic MD5 functions.
+/*
+
+#ifndef HAVE_OPENSSL
+
+ */
+ * compile-time configuration.
+ * optimizations are not included to reduce source code size and avoid
+ * It is meant to be fast, but not as fast as possible.  Some known
+ * The primary goals of this implementation are portability and ease of use.
+ *
+ * the properties of the two independent implementations.
+ * Colin Plumb's implementation has been reused; this comment merely compares
+ * configuration, and the function prototypes match OpenSSL's.  No code from
+ * unsigned integer data type will do), there's no compile-time endianness
+ * no exactly 32-bit integer data type is required (any 32-bit or wider
+ * This differs from Colin Plumb's older public domain implementation in that
+ *
+ * (This is a heavily cut-down "BSD license".)
+ *
+ * There's ABSOLUTELY NO WARRANTY, express or implied.
+ *
+ * modification, are permitted.
+ * Redistribution and use in source and binary forms, with or without
+ *
+ * general public under the following terms:
+ * Copyright (c) 2001 Alexander Peslyak and it is hereby released to the
+ * public domain is deemed null and void, then the software is
+ * In case this attempt to disclaim copyright and place the software in the
+ * claimed, and the software is hereby placed in the public domain.
+ * This software was written by Alexander Peslyak in 2001.  No copyright is
+ *
+ * Alexander Peslyak, better known as Solar Designer <solar at openwall.com>
+ * Author:
+ *
+ * http://openwall.info/wiki/people/solar/software/public-domain-source-code/md5
+ * Homepage:
+ *
+ * MD5 Message-Digest Algorithm (RFC 1321).
+ * This is an OpenSSL-compatible implementation of the RSA Data Security, Inc.
+/*
+
+
+#endif
+
+extern void MD5_Final(unsigned char *result, MD5_CTX *ctx);
+extern void MD5_Update(MD5_CTX *ctx, const void *data, unsigned long size);
+extern void MD5_Init(MD5_CTX *ctx);
+
+} MD5_CTX;
+	MD5_u32plus block[16];
+	unsigned char buffer[64];
+	MD5_u32plus a, b, c, d;
+	MD5_u32plus lo, hi;
+typedef struct {
+
+typedef unsigned int MD5_u32plus;
+/* Any 32-bit or wider unsigned integer data type will do */
+
+#define _MD5_H
+#elif !defined(_MD5_H)
+#include <openssl/md5.h>
+#ifdef HAVE_OPENSSL
+
+ */
+ * See md5.c for more information.
+ *
+ * There's ABSOLUTELY NO WARRANTY, express or implied.
+ *
+ * modification, are permitted.
+ * Redistribution and use in source and binary forms, with or without
+ *
+ * general public under the following terms:
+ * Copyright (c) 2001 Alexander Peslyak and it is hereby released to the
+ * public domain is deemed null and void, then the software is
+ * In case this attempt to disclaim copyright and place the software in the
+ * claimed, and the software is hereby placed in the public domain.
+ * This software was written by Alexander Peslyak in 2001.  No copyright is
+ *
+ * Alexander Peslyak, better known as Solar Designer <solar at openwall.com>
+ * Author:
+ *
+ * http://openwall.info/wiki/people/solar/software/public-domain-source-code/md5
+ * Homepage:
+ *
+ * MD5 Message-Digest Algorithm (RFC 1321).
+ * This is an OpenSSL-compatible implementation of the RSA Data Security, Inc.
+/*
+
+/**/
+*/
+  the only modification was to rename some symbolic constants to avoid collision
+  it was not edited to make it conform to ifc variable naming conventions, formatting, etc.
+ the public domain code used here suffered only minimal modifications
+  this is to avoid having the symbolic constants that are defined here visible to other code
+ the file is nonconformant in that all code for the entire class (all member functions) is here, in a single file
+ the file is self contained
+this file defines a class that wraps md5 hash calculation code
+/*
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 25 years.
+//
+// Copyright (c) 1992-2019 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+

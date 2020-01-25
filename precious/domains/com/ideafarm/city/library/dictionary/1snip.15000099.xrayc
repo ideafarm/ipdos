@@ -1,0 +1,71 @@
+
+//
+// Copyright (c) 1992-2019 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 25 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+
+;
+}
+ /**/
+
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400b.xrayC.allocF!||
+ voidT allocF( tinS& tinP , const countT cNewP ) ;
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400c.xrayC.freeAllF!||
+ voidT freeAllF( tinS& tinP ) ;
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34009.xrayC.freeF!||
+ countT freeF( tinS& tinP , const boolT bFifoLathP = 0 ) ;
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400a.xrayC.operator_elt!||
+ countT& operator []( sCountT idP ) ;
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34004.xrayC.operator_countT!||
+ operator countT( voidT ) const ;
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34003.xrayC.xrayC!||
+ xrayC( tinS& tinP , const flagsT flagsP = flXRAY_null , const countT cbElementP = sizeof( countT ) , const countT cxRetainP = 0x8 ) ;
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34002.xrayC.dt_xrayC!||
+ ~xrayC( voidT ) ;
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34001.xrayC.NEWdELcLASSuSEnORMALpOOLoLD!||
+ NEWdELcLASSpROTOS
+
+ /**/
+
+    public :
+
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34005.xrayC.offxsrF!||
+ voidT offxsrF( countT& offxP , countT& offsrP , countT offSlotP ) const ;
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34007.xrayC.offsrF!||
+ countT offsrF( countT offSlotP ) const ;
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34008.xrayC.csaxF!||
+ countT csaxF( countT offxP ) const ;
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34006.xrayC.offxF!||
+ countT offxF( countT offSlotP ) const ;
+
+    countT offsrFifoPull ;
+    countT offxFifoPull ;
+    countT offsrFifoPush ;
+    countT offxFifoPush ;
+    flagsT flags ;
+    countT cxRetain ;
+    countT cElements ;
+    const  countT cbElement ;
+    countT pcsx[ CxRAYeXTENTS ] ; //SLOTS IN THIS EXTENT (USED ONLY IF FIFO)
+    byteT* ppbx[ CxRAYeXTENTS ] ; //EXTENTS
+{
+/*1*/class _export xrayC/*1*/
+
+// "e": "ELEMENT" : ELEMENT: SLOT: USED WHEN INDEX IS FROM APPLICATION POV (POINT OF VIEW)
+// "s": "SLOT"    : SLOT: USED WHEN INDEX IS RELATIVE TO SLOT 0 OF EXTENT 0
+// "x": "EXTENT"  : RANGE OF ON DEMAND ALLOCATED BYTES
+
+/**/
+*/
+/*
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 25 years.
+//
+// Copyright (c) 1992-2019 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+

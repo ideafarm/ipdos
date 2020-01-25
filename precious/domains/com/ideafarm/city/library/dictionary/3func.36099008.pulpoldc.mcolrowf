@@ -1,0 +1,202 @@
+
+//
+// Copyright (c) 1992-2019 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 25 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+
+}
+    }
+        }
+            break ;
+
+            //LOGrAW( tSay ) ; //U::
+            //TN( tSay , "" ) ; tSay = T("\r\nmColRowF is using mPadRight: ")+TF1(rCache.mPadRight)+T("\r\n") ;
+
+            ;
+                : sf.mIdRow - 1.0 + sf.mRows / mCellsTall - rCache.mPadUp    * ( mCellsTall - 1.0 ) / mCellsTall
+                ? mIdRowNow
+            mRowToP = !mCellsTall
+
+            ;
+                : sf.mIdCol - 1.0 + sf.mCols / mCellsWide - rCache.mPadRight * ( mCellsWide - 1.0 ) / mCellsWide
+                ? mIdColNow
+            mColToP = !mCellsWide
+
+            const measureT mCellsTall = mp2 ;
+            const measureT mCellsWide = mp1 ;
+
+            //mRowToP = sf.mIdRow + ( sf.mRows - 1.0 ) / mp2 - ( rCache.mPadUp    + 1.0 ) * ( 1.0 - 1.0 / mp2 ) ;
+            //mColToP = sf.mIdCol + ( sf.mCols - 1.0 ) / mp1 - ( rCache.mPadRight + 1.0 ) * ( 1.0 - 1.0 / mp1 ) ;
+            //OLD AND INCORRECT
+
+            if( mp2 >            TUCK ) mp2 =            TUCK ;
+            if( mp2 < - (sCountT)TUCK ) mp2 = - (sCountT)TUCK ;
+            if( mp1 >            TUCK ) mp1 =            TUCK ;
+            if( mp1 < - (sCountT)TUCK ) mp1 = - (sCountT)TUCK ;
+
+            //                  = 1 + 7 = 8
+            //  mColToP         : 1 + ( 8 - 1 ) / 1 - ( 1 + 1 ) * ( 1 - 1 / 1 )
+            //  rCache.mPadRight: 1
+            //  sf.mCols        : 8
+            //  sf.mIdCol       : 1
+            // EXAMPLE: 1 COLUMNS
+
+
+            //  mColToP         : 8.3           (3 and 1/2)
+            //  rCache.mPadRight: 1
+            //  sf.mCols        : 8
+            //  sf.mIdCol       : 1
+            // EXAMPLE: 2 COLUMNS
+
+            //                  =       4
+            //                  =     8.4 - 8.0
+            //  mColToP         : 1 + 8.3 - 8.0 ;
+            //  rCache.mPadRight: 0
+            //  sf.mCols        : 8
+            //  sf.mIdCol       : 1
+            // EXAMPLE: 2 COLUMNS
+
+            //
+            // IF 0.25 THEN MOVE TO QUARTILE COLUMN LESS mPadRight LESS 1 PEL
+            // IF 0.5  THEN MOVE TO MEDIAN COLUMN LESS mPadRight LESS 1 PEL
+            // IF 1.0  THEN MOVE TO RIGHT COLUMN
+            // IF 0.0  THEN MOVE TO LEFT COLUMN
+            //
+            //SPEC (OBSOLETED)
+        {
+        case 4 /*scOld_mmMOVEcELLS*/ : //LIKE MOVEtO BUT MAKES ROOM FOR mPadUp mPadRight
+        }
+            break ;
+            mRowToP = mp2 ;
+            mColToP = mp1 ;
+
+            if( mp2 >            TOCK ) mp2 =            TOCK ;
+            if( mp2 < - (sCountT)TOCK ) mp2 = - (sCountT)TOCK ;
+            if( mp1 >            TOCK ) mp1 =            TOCK ;
+            if( mp1 < - (sCountT)TOCK ) mp1 = - (sCountT)TOCK ;
+
+            // THE USE OF ORIGIN INFO HERE WAS REMOVED AS PART OF MIGRATING TO APPLYING IT AT A LOWER LEVEL
+            //
+            // IF 1.0 THEN MOVE TO COL 1 RELATIVE TO STROKING ORIGIN
+            //
+            //SPEC
+        {
+        case 3 /*scOld_mmMOVEpELtO*/ :
+        }
+            break ;
+            mRowToP = mIdRowNow + mp2 ;
+            mColToP = mIdColNow + mp1 ;
+
+            if( mp2 >            TOCK ) mp2 =            TOCK ;
+            if( mp2 < - (sCountT)TOCK ) mp2 = - (sCountT)TOCK ;
+            if( mp1 >            TOCK ) mp1 =            TOCK ;
+            if( mp1 < - (sCountT)TOCK ) mp1 = - (sCountT)TOCK ;
+
+            //
+            // IF 1.0 THEN MOVE 1 COLUMNS
+            //
+            //SPEC
+        {
+        case 2 /*scOld_mmMOVEpEL*/ :
+        }
+            break ;
+            if( mp2 != MAXmEASUREt ) mRowToP = sf.mIdRow + mp2 * ( sf.mRows - 1.0 ) ;
+            if( mp1 != MAXmEASUREt ) mColToP = sf.mIdCol + mp1 * ( sf.mCols - 1.0 ) ;
+
+            if( mp2 >            TUCK ) mp2 =            TUCK ;
+            if( mp2 < - (sCountT)TUCK ) mp2 = - (sCountT)TUCK ;
+            if( mp1 >            TUCK ) mp1 =            TUCK ;
+            if( mp1 < - (sCountT)TUCK ) mp1 = - (sCountT)TUCK ;
+
+            // 
+            // 1 + 2 * ( 8 - 1 ) + 1 + 4 = 41
+            // 
+            // d           41        cell2
+            // 9           c         pad1
+            // 1           8         cell1
+            // idColStart  idColEnd  description
+            // 
+            // pad = 4
+            // mCols = 8
+            // 
+            // TO SEE WHY THIS WORKS, STUDY THIS:
+            // 
+            // +S2(0,scOld_POPfRAMEdETACH)
+            //     +S2(0,scOld_POPfRAME)
+            //     +T("O")
+            //     +S3(0.0,scOld_mmFRAMEpELtO,0.0)
+            //     +S2(0,scOld_cOVERRIDEnEXTsTROKE)
+            //     +S3(1.0,scOld_mmMOVEpEL,0.0)
+            //     +S2(0,scOld_mMOVEpADrIGHT)
+            //     +S3(2.0,scOld_mmMOVEtO,1.0)
+            //     +S2(0,scOld_PUSHoVERRIDEcOLrOW)
+            // +S2(0,scOld_FRAMEdETACH)
+            // 
+            // EXAMPLE: RECIPE TO RENDER A DOUBLEWIDE STROKE
+            // VALUES OUTSIDE OF [0.0,1.0] CAN BE USED
+            //
+            // IF 1.0 THEN MOVE TO RIGHT COLUMN
+            // IF 0.0 THEN MOVE TO LEFT COLUMN
+            //
+            //SPEC
+        {
+        case 1 /*scOld_mmMOVEtO*/ :
+        }
+            break ;
+            mRowToP = mIdRowNow + mp2 * sf.mRows ;
+            mColToP = mIdColNow + mp1 * sf.mCols ;
+
+            if( mp2 >            TUCK ) mp2 =            TUCK ;
+            if( mp2 < - (sCountT)TUCK ) mp2 = - (sCountT)TUCK ;
+            if( mp1 >            TUCK ) mp1 =            TUCK ;
+            if( mp1 < - (sCountT)TUCK ) mp1 = - (sCountT)TUCK ;
+
+            //
+            // IF 1.0 AND FRAME IS 100.0 THEN MOVE 100.0
+            // IF 0.0 THEN MOVE NOT AT ALL
+            //
+            //SPEC
+        {
+        case 0 /*scOld_mmMOVE*/ :
+    {
+    switch( idCasteP - idCasteBaseP )
+
+    measureT mp2 = *(measureT*)&sttP.cNote ;
+    measureT mp1 = *(measureT*)&sttP.idAdam ;
+
+    //}
+    //    if( thirdC::c_memcmpIF( tinP , (byteT*)&sfqr , (byteT*)&sf , sizeof sf ) ) { BLAMMO ; }
+    //    strokingFrameS& sfqr = *(strokingFrameS*)&stqr_strokingFrame[ 1 + off ] ;
+    //    TINSL
+    //{
+
+    //}
+    //    LOGrAWtID8( "windowOldC mColRowF: (sf)" , R( sf.mIdCol ) , " " , R( sf.mIdRow ) , " " , R( sf.mCols ) , " " , R( sf.mRows )  ) ;
+    //{
+    //if( x1.back.x1.backIdTypeF() == ifcIDtYPEpAPERbACK_windowOldC )
+
+    strokingFrameS& sf   = *(strokingFrameS*)&stqr_strokingFrame[ 1 + off ] ;
+    if( off > stqr_strokingFrame - 1 ) off = stqr_strokingFrame - 1 ;
+    countT off = rCache.offFrame ;
+{
+/*1*/voidT pulpOldC::mColRowF( measureT& mColToP , measureT& mRowToP , const countT idCasteP , const countT idCasteBaseP , strokeS& sttP )/*1*/
+
+/**/
+*/
+ correction is applied so that illegal content values will not crash the rendering code
+ bounds correction is needed because some countT values are nan or inf or are so small or large that nan or inf will be produced in intermediate or final calculations
+ this bounds checking is usually triggeredd by providing countT rather than measureT arguments in S3()
+ i will ignore invalid input and use the nearest valid input value instead
+i calculate the new [col,row] implied by a command
+/*
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 25 years.
+//
+// Copyright (c) 1992-2019 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+

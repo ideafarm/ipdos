@@ -1,0 +1,145 @@
+
+//
+// Copyright (c) 1992-2019 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 25 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+
+}
+    if( postDescriptionP ) ; //U::
+    _OUT_
+
+    }
+        BOSpOOP
+        BOSrAW( WHATgbo , BOSsUCCESScODE , RegCloseKey( hKey1 ) )
+        
+        BOSpOOP
+        BOSrAW( WHATgbo , BOSsUCCESScODE , RegCloseKey( hKey2 ) )
+        
+        BOSpOOP
+        BOSrAW( WHATgbo , BOSsUCCESScODE , RegCloseKey( hKey3 ) )
+        
+        BOSpOOP
+        BOSrAW( WHATgbo , BOSsUCCESScODE , RegCloseKey( hKey4 ) )
+        
+        BOSpOOP
+        BOSrAW( WHATgbo , BOSsUCCESScODE , RegSetValueEx( hKey4 , "Description" , 0 , REG_SZ , (CONST BYTE*)postDescriptionP , 1 + c_strlenIF( postDescriptionP ) ) )
+        
+        BOSpOOP
+        BOSrAW( WHATgbo , BOSsUCCESScODE , RegOpenKeyEx( hKey3 , postNameP , 0 , KEY_ALL_ACCESS , &hKey4 ) )
+        
+        BOSpOOP
+        BOSrAW( WHATgbo , BOSsUCCESScODE , RegOpenKeyEx( hKey2 , "Services" , 0 , KEY_ALL_ACCESS , &hKey3 ) )
+        
+        BOSpOOP
+        BOSrAW( WHATgbo , BOSsUCCESScODE , RegOpenKeyEx( hKey1 , "CurrentControlSet" , 0 , KEY_ALL_ACCESS , &hKey2 ) )
+        
+        BOSpOOP
+        BOSrAW( WHATgbo , BOSsUCCESScODE , RegOpenKeyEx( HKEY_LOCAL_MACHINE , "SYSTEM" , 0 , KEY_ALL_ACCESS , &hKey1 ) )
+        
+        ZE( HKEY , hKey4 ) ;
+        ZE( HKEY , hKey3 ) ;
+        ZE( HKEY , hKey2 ) ;
+        ZE( HKEY , hKey1 ) ;
+    {
+    if( !POOP )
+
+    BOSpOOP
+    BOS( WHATgbo , BOSoK , CloseServiceHandle( hsm ) )
+    }
+        BOSpOOP
+        BOS( WHATgbo , BOSoK , CloseServiceHandle( hsv ) )
+        hsv = (SC_HANDLE)tinP.brcRaw ;
+        BOSpOOP
+        BOS( WHATgbo , BOSoK , CreateService( hsm , postNameP , postDisplayNameP , SERVICE_ALL_ACCESS , SERVICE_WIN32_OWN_PROCESS | SERVICE_INTERACTIVE_PROCESS , bManualStart ? SERVICE_DEMAND_START : SERVICE_AUTO_START , SERVICE_ERROR_NORMAL , postFileP , 0 , 0 , 0 , "LocalSystem" , 0 ) )
+        //U::DOES NOT WORK: hsv = CreateService( hsm , postNameP , postNameP , SERVICE_ALL_ACCESS , SERVICE_WIN32_OWN_PROCESS | SERVICE_INTERACTIVE_PROCESS , SERVICE_AUTO_START , SERVICE_ERROR_NORMAL , postFileP , 0 , 0 , 0 , "administrator" , "m9oqbV3s" ) ;
+
+        //bManualStart = 1 ; //U::RETAIN THIS UNTIL HAVE PROTECTION AGAINST CONTINUAL REBOOT CYCLING
+
+        }
+            //if( idHome == 1 ) bManualStart = 1 ; //FOR EXTRA SAFETY; REMOVE THIS WHEN RELEASE NO LONGER REMOVES ITSELF WHEN FIRED
+
+            if( idHome == 0xffffff || idHome < 0x100 || idHome > 0x1ff ) bManualStart = 1 ; //1:DOWNLOADER OR DEVELOPMENT; 2-ff:TEST 001-ff1: SERVER; 002+: RESERVED; ffffff:timecard
+            //if( idHome != 0xffffff && idHome != 1 ) bManualStart = 1 ;
+            pEtherContainsMe->osDriverParseNameF( tinP , idHome , idAdam , idVersion , T(postNameP) ) ;
+            ZE( countT , idVersion ) ;
+            ZE( countT , idAdam ) ;
+            ZE( countT , idHome ) ;
+        {
+        if( pEtherContainsMe )
+        ZE( boolT , bManualStart ) ;
+    
+        }
+            hsv = 0 ;
+            BOSpOOP
+            BOS( WHATgbo , BOSoK , CloseServiceHandle( hsv ) )
+            BOSpOOP
+            BOS( WHATgbo , BOSoK , DeleteService( hsv ) )
+        {
+        if( hsv )
+        SC_HANDLE hsv = (SC_HANDLE)tinP.brcRaw ;
+        BOS( WHATgbo , BOSoK , OpenService( hsm , postNameP , SERVICE_ALL_ACCESS ) )
+    {
+    if( !POOP )
+    BOSpOOP
+    SC_HANDLE hsm = (SC_HANDLE)tinP.brcRaw ;
+    BOS( WHATgbo , BOSoK , OpenSCManager( 0 , 0 , SC_MANAGER_ALL_ACCESS ) )
+
+    }
+        DEL( pInfo ) ;
+        if( pInfo ) __( !pInfo->bLocal ) ;
+        dosQueryFSInfoF( tinP , pInfo , ifFileNameC( tinP , *this , postFileP ) ) ; ___( pInfo ) ;
+        ZE( infoDisk1S* , pInfo ) ;
+    {
+
+    unregisterObsoleteDriversF( tinP , *this , postNameP ) ;
+
+    _INoLD_
+
+    }
+        if( POOP ) return ;
+        __( postNameP == c_strchrIF( tinP , postNameP , '.' ) ) ; // WINDOWS
+        __( !!c_strchrIF( tinP , postNameP , '*' ) ) ; // WINDOWS
+        __( !!c_strchrIF( tinP , postNameP , '?' ) ) ; // WINDOWS
+        __( !!c_strchrIF( tinP , postNameP , '\\' ) ) ; // WINDOWS
+        __( !!c_strchrIF( tinP , postNameP , ' ' ) ) ; // WINDOWS
+       if( POOP ) return ;
+        __Z( postFileP ) ;
+        __Z( postNameP ) ;
+        if( POOP ) return ;
+    {
+    IFbEcAREFUL    
+    SCOOP
+{
+/*1*/voidT thirdC::osDriverRegisterF( tinS& tinP , const osTextT* const postNameP , const osTextT* const postDisplayNameP , const osTextT* const postDescriptionP , const osTextT* const postFileP )/*1*/
+
+/**/
+*/
+  must reside on a local drive
+  must not be 0
+ postFileP
+  must not begin with '.'
+  must not contain ' ', '\\', '?', '*'
+  must not be 0
+ postNameP
+ tinP
+arguments
+ until this issue is handled, other adam classes "like" e040104 cannot be implemented
+  alt: IdeaFarm " "(tm) City service chat can be used to give startup parameters to a process
+  this is too late for ifc services, which analyze command line to choose the dll to load, which calls ServiceMain
+  it provides parameters, but these are not available until within the ServiceMain function
+ windows nt does not provide a way to specify "real" command line parameters
+U: support pseudo command line parameters that are to be made available to the service
+\<A HREF=\"5.10200dc.1.0.html\"\>definition\</A\>
+\<A HREF=\"6.$osDriverRegisterF.0.html\"\>instances\</A\>
+/*
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 25 years.
+//
+// Copyright (c) 1992-2019 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+
