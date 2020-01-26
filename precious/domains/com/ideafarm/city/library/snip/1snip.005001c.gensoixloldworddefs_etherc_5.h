@@ -1,32 +1,4 @@
 
-voidT strFromIdJotF_4P33_GF( tinS& tinP , etherC& etherP , soulC& slP , const strokeS* const _psttNameP )
-{
-    countT idArgNext = 1 ;
-    ZE( byteT* , pbFieldNext ) ;
-    ZE( countT , idTypeNext ) ;
-    ZE( flagsT , flagsNext ) ;
-    ZE( countT , cbFieldNext ) ;
-
-    SOIXLoLDtESTeMPTY( 0xdddd8017 , etherC )
-    SOIXLoLDtESTtYPE( 0xdddd8017 , etherC )
-    ZE( strokeS* , psttP ) ;
-    if( !POOP ) { slP >> psttP ; ___( psttP ) ; idArgNext ++ ; }
-
-   SOIXLoLDtESTeMPTY( 0xdddd8003 , etherC )
-   SOIXLoLDtESTtYPE( 0xdddd8003 , etherC )
-    ZE( countT , idJotP ) ;
-    if( !POOP ) { slP >> idJotP ; idArgNext ++ ; }
-
-   SOIXLoLDtESTeMPTY( 0xdddd8003 , etherC )
-   SOIXLoLDtESTtYPE( 0xdddd8003 , etherC )
-    ZE( countT , cbJotStringDecodePrefixP ) ;
-    if( !POOP ) { slP >> cbJotStringDecodePrefixP ; idArgNext ++ ; }
-    if( !POOP ) etherP.strFromIdJotF( tinP , psttP , idJotP , cbJotStringDecodePrefixP ) ;
-
-    if( !POOP ) slP << psttP ;
-    etherP.delF( tinP , psttP ) ;
-}
-
 voidT strFuseSeparateF_4P4P33hPgrabCP3_GF( tinS& tinP , etherC& etherP , soulC& slP , const strokeS* const _psttNameP )
 {
     countT idArgNext = 1 ;

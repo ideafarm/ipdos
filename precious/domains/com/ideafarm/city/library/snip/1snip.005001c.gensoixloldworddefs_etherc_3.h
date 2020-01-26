@@ -1781,26 +1781,6 @@ voidT openSsl_wrapHandleF_bb_GF( tinS& tinP , etherC& etherP , soulC& slP , cons
     if( !POOP ) etherP.openSsl_wrapHandleF( tinP , handleP , hContextP ) ;
 }
 
-voidT openSsl_wrapSocketF_bb_GF( tinS& tinP , etherC& etherP , soulC& slP , const strokeS* const _psttNameP )
-{
-    countT idArgNext = 1 ;
-    ZE( byteT* , pbFieldNext ) ;
-    ZE( countT , idTypeNext ) ;
-    ZE( flagsT , flagsNext ) ;
-    ZE( countT , cbFieldNext ) ;
-
-   SOIXLoLDtESTeMPTY( 0xdddd8014 , etherC )
-   SOIXLoLDtESTtYPE( 0xdddd8014 , etherC )
-    handleC hWrapperP( /*GOOEY*/tinP , TAG( TAGiDnULL ) ) ;
-    if( !POOP ) { hWrapperP << slP ; idArgNext ++ ; }
-
-   SOIXLoLDtESTeMPTY( 0xdddd8014 , etherC )
-   SOIXLoLDtESTtYPE( 0xdddd8014 , etherC )
-    handleC hSocketP( /*GOOEY*/tinP , TAG( TAGiDnULL ) ) ;
-    if( !POOP ) { hSocketP << slP ; idArgNext ++ ; }
-    //if( !POOP ) etherP.openSsl_wrapSocketF( tinP , hWrapperP , hSocketP ) ;
-}
-
 voidT openSsl_acceptShakeHandsF_b_GF( tinS& tinP , etherC& etherP , soulC& slP , const strokeS* const _psttNameP )
 {
     countT idArgNext = 1 ;
@@ -2196,5 +2176,16 @@ voidT socksSetupF__GF( tinS& tinP , etherC& etherP , soulC& slP , const strokeS*
     ZE( flagsT , flagsNext ) ;
     ZE( countT , cbFieldNext ) ;
     if( !POOP ) etherP.socksSetupF( tinP ) ;
+    if( tinP.fingerprint && _psttNameP && slP ) ;
+}
+
+voidT socksShutdownF__GF( tinS& tinP , etherC& etherP , soulC& slP , const strokeS* const _psttNameP )
+{
+    countT idArgNext = 1 ;
+    ZE( byteT* , pbFieldNext ) ;
+    ZE( countT , idTypeNext ) ;
+    ZE( flagsT , flagsNext ) ;
+    ZE( countT , cbFieldNext ) ;
+    if( !POOP ) etherP.socksShutdownF( tinP ) ;
     if( tinP.fingerprint && _psttNameP && slP ) ;
 }

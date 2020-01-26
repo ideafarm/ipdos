@@ -5207,35 +5207,33 @@ it is illegal to refer to this symbol in the definition of an adam
 
         //CS:CODEsYNC:DUPLICATED: 15000014 01000002
 
-        typedef int               (__syscall *openSsl_pGetError1FT    )( const SSL* pWrapP , int rcP )               ; // int SSL_get_error( const SSL *ssl , int ret ) ;
+        typedef int               (__syscall *openSsl_pGetError1FT    )( const SSL* pWrapP , int rcP )                                                         ; // int SSL_get_error( const SSL *ssl , int ret ) ;
 
-        typedef int               (__syscall *openSsl_pGetError2FT    )( void )                                      ; // int ERR_get_error( void ) ;
+        typedef int               (__syscall *openSsl_pGetError2FT    )( const char** ppostFileP , int* pIdLineP , const char** ppostDaataP , int* pOsFlagsP ) ; // unsigned long ERR_get_error_line_data(const char **file, int *line, const char **data, int *flags);
 
-        typedef void              (__syscall *openSsl_pGetErrorTextFT )( unsigned long e , char *buf , size_t len )  ; // void ERR_error_string_n( unsigned long e , char *buf , size_t len ) ;
+        typedef const SSL_METHOD* (__syscall *openSsl_pMethodFT       )( void )                                                                                ; // const SSL_METHOD *SSLv23_method(void);  /* SSLv3 but can rollback to v2 */
 
-        typedef const SSL_METHOD* (__syscall *openSsl_pMethodFT       )( void )                                      ; // const SSL_METHOD *SSLv23_method(void);  /* SSLv3 but can rollback to v2 */
+        typedef int               (__syscall *openSsl_pInitFT         )( void )                                                                                ; // int __syscall SSL_library_init( void ) ;
 
-        typedef int               (__syscall *openSsl_pInitFT         )( void )                                      ; // int __syscall SSL_library_init( void ) ;
+        typedef SSL_CTX*          (__syscall *openSsl_pContextFT      )( const SSL_METHOD* pMethodP )                                                          ; // SSL_CTX* __syscall SSL_CTX_new( const SSL_METHOD* method ) ;
 
-        typedef SSL_CTX*          (__syscall *openSsl_pContextFT      )( const SSL_METHOD* pMethodP )                ; // SSL_CTX* __syscall SSL_CTX_new( const SSL_METHOD* method ) ;
+        typedef void              (__syscall *openSsl_pContextFreeFT  )( SSL_CTX* pContextP )                                                                  ; // void SSL_CTX_free(SSL_CTX *ctx) ;
 
-        typedef void              (__syscall *openSsl_pContextFreeFT  )( SSL_CTX* pContextP )                        ; // void SSL_CTX_free(SSL_CTX *ctx) ;
+        typedef SSL*              (__syscall *openSsl_pWrapperFT      )( SSL_CTX* pContextP )                                                                  ; // SSL *SSL_new(SSL_CTX *ctx) ;
 
-        typedef SSL*              (__syscall *openSsl_pWrapperFT      )( SSL_CTX* pContextP )                        ; // SSL *SSL_new(SSL_CTX *ctx) ;
+        typedef void              (__syscall *openSsl_pWrapperFreeFT  )( SSL* pWrapP )                                                                         ; // void SSL_free(SSL *ssl);
 
-        typedef void              (__syscall *openSsl_pWrapperFreeFT  )( SSL* pWrapP )                               ; // void SSL_free(SSL *ssl);
+        typedef int               (__syscall *openSsl_pWrapFT         )( SSL* pWrapP , int hSockP )                                                            ; // int SSL_set_fd(SSL *ssl, int fd);
 
-        typedef int               (__syscall *openSsl_pWrapFT         )( SSL* pWrapP , int hSockP )                  ; // int SSL_set_fd(SSL *ssl, int fd);
+        typedef int               (__syscall *openSsl_pAcceptShakeFT  )( SSL* pWrapP )                                                                         ; // int SSL_accept(SSL *ssl);
 
-        typedef int               (__syscall *openSsl_pAcceptShakeFT  )( SSL* pWrapP )                               ; // int SSL_accept(SSL *ssl);
+        typedef int               (__syscall *openSsl_pConnectShakeFT )( SSL* pWrapP )                                                                         ; // int SSL_connect(SSL *ssl);
 
-        typedef int               (__syscall *openSsl_pConnectShakeFT )( SSL* pWrapP )                               ; // int SSL_connect(SSL *ssl);
+        typedef int               (__syscall *openSsl_pWriteFT        )( SSL* pWrapP , const void* pbP , int cbP )                                             ; // int SSL_write(SSL *ssl, const void *buf, int num);
 
-        typedef int               (__syscall *openSsl_pWriteFT        )( SSL* pWrapP , const void* pbP , int cbP )   ; // int SSL_write(SSL *ssl, const void *buf, int num);
+        typedef int               (__syscall *openSsl_pReadFT         )( SSL* pWrapP , void* pbP , int cbP )                                                   ; // int SSL_read(SSL *ssl, void *buf, int num);
 
-        typedef int               (__syscall *openSsl_pReadFT         )( SSL* pWrapP , void* pbP , int cbP )         ; // int SSL_read(SSL *ssl, void *buf, int num);
-
-        typedef int               (__syscall *openSsl_pShutdownFT     )( SSL* pWrapP )                               ; // int SSL_shutdown(SSL *ssl);
+        typedef int               (__syscall *openSsl_pShutdownFT     )( SSL* pWrapP )                                                                         ; // int SSL_shutdown(SSL *ssl);
 
         //----------------------------------------------------- END
 
@@ -28323,8 +28321,11 @@ applications should avoid using thirdC objects
 /* openSsl: foreign encryption standard */
 
   static countT openSsl_getError1IF( tinS& tinP , const handleC& hWrapperP , const countT rcP ) ;
+  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.350011ab.thirdc.openssl_getError1IF!||
   static countT openSsl_getError2IF( tinS& tinP ) ;
+  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.350011ac.thirdc.openssl_getError2IF!||
   static voidT openSsl_getErrorTextIF( tinS& tinP , osTextT* postP , countT costaP , countT errorCodeP ) ;
+  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.350011ad.thirdc.openssl_getErrorTextIF!||
   static voidT openSsl_setupIF( voidT ) ;
   //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3500119f.thirdC.openSsl_setupIF!||
   static voidT openSsl_shutdownIF( voidT ) ;
@@ -39115,7 +39116,6 @@ base class to make a derived class of objects easily contained by a stackC objec
             HMODULE                     openSsl_hModule2       ;
             openSsl_pGetError1FT        openSsl_pGetError1F    ;
             openSsl_pGetError2FT        openSsl_pGetError2F    ;
-            openSsl_pGetErrorTextFT     openSsl_pGetErrorTextF ;
             openSsl_pMethodFT           openSsl_pMethodF       ;
             openSsl_pInitFT             openSsl_pInitF         ;
             openSsl_pContextFT          openSsl_pContextF      ;

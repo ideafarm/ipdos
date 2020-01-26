@@ -140,7 +140,6 @@
     "    . openSsl_shutdownF_       . ?? ")+T(postName)+T("\r\n"
     "    . openSsl_getContextF_b       . ?? ")+T(postName)+T("\r\n"
     "    . openSsl_wrapHandleF_bb       . ?? ")+T(postName)+T("\r\n"
-    "    . openSsl_wrapSocketF_bb       . ?? ")+T(postName)+T("\r\n"
     "    . openSsl_acceptShakeHandsF_b       . ?? ")+T(postName)+T("\r\n"
     "    . openSsl_connectShakeHandsF_b       . ?? ")+T(postName)+T("\r\n"
     "    . openSsl_writeF_b1@3       . ?? ")+T(postName)+T("\r\n"

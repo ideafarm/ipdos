@@ -283,8 +283,6 @@ voidT openSsl_getContextF_b_GF( tinS& tinP , etherC& etherP , soulC& slP , const
 
 voidT openSsl_wrapHandleF_bb_GF( tinS& tinP , etherC& etherP , soulC& slP , const strokeS* const _psttNameP ) ;
 
-voidT openSsl_wrapSocketF_bb_GF( tinS& tinP , etherC& etherP , soulC& slP , const strokeS* const _psttNameP ) ;
-
 voidT openSsl_acceptShakeHandsF_b_GF( tinS& tinP , etherC& etherP , soulC& slP , const strokeS* const _psttNameP ) ;
 
 voidT openSsl_connectShakeHandsF_b_GF( tinS& tinP , etherC& etherP , soulC& slP , const strokeS* const _psttNameP ) ;

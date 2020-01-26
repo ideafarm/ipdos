@@ -1135,14 +1135,6 @@
     _pSwSoixlOldApi->ungrabF( tinP ) ;
 }
 {
-    TN( tNameSoixlOld , "openSsl_wrapSocketF_bb" ) ;
-    _pSwSoixlOldApi->grabF( tinP , TAG( TAGiDnULL ) ) ;
-    _psttLeverSoixlOldApi = tNameSoixlOld ;
-    if( *_pSwSoixlOldApi ) { BLAMMO ; }
-    *_pSwSoixlOldApi = (countT)openSsl_wrapSocketF_bb_GF ;
-    _pSwSoixlOldApi->ungrabF( tinP ) ;
-}
-{
     TN( tNameSoixlOld , "openSsl_acceptShakeHandsF_b" ) ;
     _pSwSoixlOldApi->grabF( tinP , TAG( TAGiDnULL ) ) ;
     _psttLeverSoixlOldApi = tNameSoixlOld ;

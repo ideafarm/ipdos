@@ -1,0 +1,112 @@
+# Pipeline
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+schedules:
+- cron: "7 0 * * *"
+  displayName: "Daily midnight build"
+  branches:
+    include:
+    - master
+
+variables: 
+  image_nt:       'vs2017-win2016'
+  script_nt:      ci\buildx.cmd
+
+stages:
+  - stage: buildnt
+    displayName: "Build on Windows"
+    dependsOn:
+      - start
+    jobs:
+      - template: ci/boot.yml
+        parameters:
+          arch:     nt
+          title:    Bootstrap Windows
+  - stage: buildnt
+    displayName: "Build Windows"
+    dependsOn:
+      - bootnt
+    jobs:
+      - template: ci/build.yml
+        parameters:
+          arch:     nt
+          title:    Build Windows
+  - stage: testsnt
+    displayName: "Tests Windows"
+    dependsOn:
+      - buildnt
+    jobs:
+      - template: ci/tests.yml
+        parameters:
+          arch:     nt
+          title:    Tests Windows
+  - stage: docsnt
+    displayName: "Docs Build Windows"
+    dependsOn:
+      - bootnt
+    jobs:
+      - template: ci/docs.yml
+        parameters:
+          arch:     nt
+          title:    Documentation Build DOS
+          doctype:  docdos
+      - template: ci/docs.yml
+        parameters:
+          arch:     nt
+          title:    Documentation Build Html
+          doctype:  dochtml
+      - template: ci/docs.yml
+        parameters:
+          arch:     nt
+          title:    Documentation Build NT
+          doctype:  docnt
+      - template: ci/docs.yml
+        parameters:
+          arch:     nt
+          title:    Documentation Build OS2
+          doctype:  docos2
+      - template: ci/docs.yml
+        parameters:
+          arch:     nt
+          title:    Documentation Build PDF
+          doctype:  docpdf
+      - template: ci/docs.yml
+        parameters:
+          arch:     nt
+          title:    Documentation Build WIN
+          doctype:  docwin
+  - stage: instalnt
+    displayName: "Installers Build Windows"
+    dependsOn:
+      - testsnt
+      - testslnx
+      - docsnt
+    condition: >
+      and(
+        succeeded(), 
+        in( variables['Build.Reason'], 'Schedule', 'Manual' )
+      )
+    jobs:
+      - template: ci/install.yml
+        parameters:
+          arch:     nt
+          title:    Installers Build Windows
+  - stage: scanlnx
+    displayName: "Coverity Scan Linux"
+    dependsOn:
+      - buildlnx
+    condition: >
+      and(
+        succeeded(), 
+        in( variables['Build.Reason'], 'Schedule', 'Manual') 
+      )
+    jobs:
+      - template: ci/coverity.yml
+        parameters:
+          arch:     lnx
+          title:    Coverity Scan Linux
+      #- template: ci/coverity.yml
+      #  parameters:
+      #    arch:     nt
+      #    title:    Coverity Scan Windows
