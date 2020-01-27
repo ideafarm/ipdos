@@ -5211,6 +5211,8 @@ it is illegal to refer to this symbol in the definition of an adam
 
         typedef int               (__syscall *openSsl_pGetError2FT    )( const char** ppostFileP , int* pIdLineP , const char** ppostDaataP , int* pOsFlagsP ) ; // unsigned long ERR_get_error_line_data(const char **file, int *line, const char **data, int *flags);
 
+        typedef void              (__syscall *openSsl_pGetErrorTextFT )( unsigned long eP , char* postP , size_t costaP )                                      ; // void ERR_error_string_n( unsigned long e , char *buf , size_t len ) ;
+
         typedef const SSL_METHOD* (__syscall *openSsl_pMethodFT       )( void )                                                                                ; // const SSL_METHOD *SSLv23_method(void);  /* SSLv3 but can rollback to v2 */
 
         typedef int               (__syscall *openSsl_pInitFT         )( void )                                                                                ; // int __syscall SSL_library_init( void ) ;
@@ -39116,6 +39118,7 @@ base class to make a derived class of objects easily contained by a stackC objec
             HMODULE                     openSsl_hModule2       ;
             openSsl_pGetError1FT        openSsl_pGetError1F    ;
             openSsl_pGetError2FT        openSsl_pGetError2F    ;
+            openSsl_pGetErrorTextFT     openSsl_pGetErrorTextF ;
             openSsl_pMethodFT           openSsl_pMethodF       ;
             openSsl_pInitFT             openSsl_pInitF         ;
             openSsl_pContextFT          openSsl_pContextF      ;
