@@ -5211,7 +5211,7 @@ it is illegal to refer to this symbol in the definition of an adam
 
         typedef int               (__syscall *openSsl_pGetError2FT    )( const char** ppostFileP , int* pIdLineP , const char** ppostDaataP , int* pOsFlagsP ) ; // unsigned long ERR_get_error_line_data(const char **file, int *line, const char **data, int *flags);
 
-        typedef void              (__syscall *openSsl_pGetErrorTextFT )( unsigned long eP , char* postP , size_t costaP )                                      ; // void ERR_error_string_n( unsigned long e , char *buf , size_t len ) ;
+        typedef void              (__syscall *openSsl_pGetErrorTextFT )( char* postP , size_t costaP , unsigned long eP )                                      ; // void ERR_error_string_n(unsigned long e, char *buf, size_t len);
 
         typedef const SSL_METHOD* (__syscall *openSsl_pMethodFT       )( void )                                                                                ; // const SSL_METHOD *SSLv23_method(void);  /* SSLv3 but can rollback to v2 */
 
