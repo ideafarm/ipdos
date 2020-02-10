@@ -42,15 +42,7 @@
         if(    F(flags) & flSOCKETc_CANbROADCAST   && idType == ifcSOCKETtYPE_DATAgRAM ) pEther->sockOptionBroadcastF( tinP , handle ) ;
         if( !( F(flags) & flSOCKETc_NOsENDnOW    ) && idType == ifcSOCKETtYPE_STREAM   ) pEther->sockOptionSendNowF(   tinP , handle ) ;
         if( !( F(flags) & flSOCKETc_NOlINGER     ) && idType == ifcSOCKETtYPE_STREAM   ) pEther->sockOptionLingerF(    tinP , handle ) ; //U: PROBABLY DON'T WANT TO ALTER THE PROPERTIES OF THE SPECIFIED SOCKET
-
         __Z( handle ) ;
-    
-        }
-            pEther->sockF( tinP , handle , idType , &hContext ) ;
-            pEther->openSsl_getContextF( tinP , hContext ) ;
-            handleC hContext( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_openSslContext ) ;
-        {
-        if( F(flags) & flSOCKETc_CRYPTfOREIGNsSL )
         handle << handleP ;
     
         bRead.grabF( tinP , TAG( TAGiDnULL ) ) ;
@@ -60,6 +52,8 @@
     
         else            thirdC::c_memsetIF( tinP , (byteT*)pbBitsCt , sizeof pbBitsCt ) ;
         if( pbBitsCtP ) thirdC::c_memcpyIF( tinP , (byteT*)pbBitsCt , (byteT*)pbBitsCtP , sizeof pbBitsCt ) ;
+
+        if( F(flags) & flSOCKETc_CRYPTfOREIGNsSL ) etherP.openSsl_getContextF( tinP , hSslContext ) ;
 
         if( idleTimeAllowedWrite && idleTimeAllowedWrite != SOCKETtIMEOUTdEFAULTwAN && idleTimeAllowedRead  != SOCKETtIMEOUTdEFAULTlAN ) pEther->traceF( tinP , T("socketC / unusual parameter value [this,idleTimeAllowedWrite]: ")+TF2((countT)this,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+TF2(idleTimeAllowedWrite,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
         if( idleTimeAllowedRead  && idleTimeAllowedRead  != SOCKETtIMEOUTdEFAULTwAN && idleTimeAllowedRead  != SOCKETtIMEOUTdEFAULTlAN ) pEther->traceF( tinP , T("socketC / unusual parameter value [this,idleTimeAllowedRead ]: ")+TF2((countT)this,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+TF2(idleTimeAllowedRead ,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
@@ -76,10 +70,10 @@
             {
             if( *pEther )
 
+            FV( flSOCKETc , flagsP ) ;
             __( idType == ifcSOCKETtYPE_DATAgRAM && F(flags) & flSOCKETc_DOnOTrEGISTERqUITTER ) ;
             __( idType == ifcSOCKETtYPE_DATAgRAM && F(flags) & flSOCKETc_NOlINGER             ) ;
             __( idType == ifcSOCKETtYPE_STREAM   && F(flags) & flSOCKETc_CANbROADCAST         ) ;
-            FV( flSOCKETc , flagsP ) ;
 
             }
                 return ;

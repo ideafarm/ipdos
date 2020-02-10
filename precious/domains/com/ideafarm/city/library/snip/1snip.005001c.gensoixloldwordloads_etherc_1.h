@@ -1127,27 +1127,27 @@
     _pSwSoixlOldApi->ungrabF( tinP ) ;
 }
 {
-    TN( tNameSoixlOld , "openSsl_wrapHandleF_bb" ) ;
+    TN( tNameSoixlOld , "openSsl_getWrapperF_bb" ) ;
     _pSwSoixlOldApi->grabF( tinP , TAG( TAGiDnULL ) ) ;
     _psttLeverSoixlOldApi = tNameSoixlOld ;
     if( *_pSwSoixlOldApi ) { BLAMMO ; }
-    *_pSwSoixlOldApi = (countT)openSsl_wrapHandleF_bb_GF ;
+    *_pSwSoixlOldApi = (countT)openSsl_getWrapperF_bb_GF ;
     _pSwSoixlOldApi->ungrabF( tinP ) ;
 }
 {
-    TN( tNameSoixlOld , "openSsl_acceptShakeHandsF_b" ) ;
+    TN( tNameSoixlOld , "openSsl_wrapSocketF_bb" ) ;
     _pSwSoixlOldApi->grabF( tinP , TAG( TAGiDnULL ) ) ;
     _psttLeverSoixlOldApi = tNameSoixlOld ;
     if( *_pSwSoixlOldApi ) { BLAMMO ; }
-    *_pSwSoixlOldApi = (countT)openSsl_acceptShakeHandsF_b_GF ;
+    *_pSwSoixlOldApi = (countT)openSsl_wrapSocketF_bb_GF ;
     _pSwSoixlOldApi->ungrabF( tinP ) ;
 }
 {
-    TN( tNameSoixlOld , "openSsl_connectShakeHandsF_b" ) ;
+    TN( tNameSoixlOld , "openSsl_shakeHandsF_b" ) ;
     _pSwSoixlOldApi->grabF( tinP , TAG( TAGiDnULL ) ) ;
     _psttLeverSoixlOldApi = tNameSoixlOld ;
     if( *_pSwSoixlOldApi ) { BLAMMO ; }
-    *_pSwSoixlOldApi = (countT)openSsl_connectShakeHandsF_b_GF ;
+    *_pSwSoixlOldApi = (countT)openSsl_shakeHandsF_b_GF ;
     _pSwSoixlOldApi->ungrabF( tinP ) ;
 }
 {

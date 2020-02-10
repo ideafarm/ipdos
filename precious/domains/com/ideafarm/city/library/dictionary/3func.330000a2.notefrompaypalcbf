@@ -346,7 +346,7 @@
             }
                 }
                     ++ s ; etThread.osSleepF( tinP , TOCK ) ;
-                    etThread.traceF( tinP , T("Paypal verification (")+TF2(cTries,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("): napping because did not receive a valid reply from PayPal indicating whether this ipn is valid") ) ;
+                    //LOGrAW3( "" , cTries , ": napping because did not receive a valid reply from www.paypal.com to confirm that the ipn is valid\r\n" ) ;
                 {
                 if( !bGot && cTries )
 
@@ -378,43 +378,30 @@
                     if( bNull ) break ;
                     etThread.delF( tinP , psttl ) ;
                     boolT bNull = !psttl || !psttl->idAdam ;
-                    etThread.traceF( tinP , T(psttl) ) ;
                     sock.readWoLineF( tinP , psttl , TOCK ) ; ___( psttl ) ;
                     ZE( strokeS* , psttl ) ;
                 {
                 while( !POOP )
 
-                sock.writeF( tinP , (osTextT*)tSayDebug , tSayDebug.csF( tinP ) ) ;
-                etThread.traceF( tinP , tSayDebug ) ;
-
-                sock.connectF( tinP , 443 , nnPayPal ) ;
-                socketC sock( tinP , *tinP.pEtScratch , TAG( TAGiDnULL ) , ifcSOCKETtYPE_STREAM , flSOCKETc_CRYPTfOREIGNsSL ) ;
+                sock.writeF( tinP , (osTextT*)tSay , tSay.csF( tinP ) ) ;
+                sock.connectF( tinP , 0x50 , nnPayPal ) ;
+                socketC sock( tinP , *tinP.pEtScratch , TAG( TAGiDnULL ) ) ;
             {
             if( nnPayPal ) while( !bGot && cTries -- )
             sleepC s( tinP , TAG( TAGiDnULL ) ) ;
             countT cTries = TUCK >> 4 ;
 
-            nicNameC nnPayPal = socketC::nicNameIF( tinP , *tinP.pEtScratch , T("ipnpb.sandbox.paypal.com") ) ;
+            nicNameC nnPayPal = socketC::nicNameIF( tinP , *tinP.pEtScratch , T("www.paypal.com") ) ;
         
             SCOOPS
         {
         IFsCRATCH
 
         }
-            LOGrAW( "\r\n" USCORE79 "\r\n" ) ;
-            LOGrAW( postSay ) ;
-            LOGrAW( "\r\n" USCORE79 "\r\n" ) ;
-
-            const osTextT* const postSay = tSay ;
-        {
-
-        TN( tSayDebug , "GET /cgi-bin/webscr?cmd=_notify-validate&foo=goo HTTP/1.0\r\n\r\n" ) ;
-
-        }
             tSay = tSay1+tSayBody+tSay2 ;
             TN( tSay2 , " HTTP/1.0\r\n\r\n" ) ;
             TN( tSayBody , postBodyP ) ;
-            TN( tSay1 , "POST /cgi-bin/webscr?cmd=_notify-validate&" ) ;
+            TN( tSay1 , "GET /cgi-bin/webscr?cmd=_notify-validate&" ) ;
         {                        
         TN( tSay , "" ) ;
     {

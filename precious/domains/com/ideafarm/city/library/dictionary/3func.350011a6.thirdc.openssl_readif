@@ -15,53 +15,12 @@
     #endif
 
 
-        }
-            BLAMMO ; //U:: REMOVE IN PRODUCTION
-            }
-                #endif
 
-                etherC::etTextIF( tinP ).traceF( tinP , T("openSsl_readIF / failed [idFailure,postFailure]:    ")+TF2(idFailure,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+T(postFailure) ) ;
-
-                }
-                    default                         : { postFailure = "(unexpected idFailure)"                  ; break ; }
-                    case SSL_ERROR_SSL              : { postFailure = "SSL_ERROR_SSL"                           ; break ; }
-                    case SSL_ERROR_SYSCALL          : { postFailure = "SSL_ERROR_SYSCALL"                       ; break ; }
-                    case SSL_ERROR_WANT_X509_LOOKUP : { postFailure = "SSL_ERROR_WANT_X509_LOOKUP"              ; break ; }
-                    case SSL_ERROR_WANT_ACCEPT      : { postFailure = "SSL_ERROR_WANT_ACCEPT"                   ; break ; }
-                    case SSL_ERROR_WANT_CONNECT     : { postFailure = "SSL_ERROR_WANT_CONNECT"                  ; break ; }
-                    case SSL_ERROR_WANT_WRITE       : { postFailure = "SSL_ERROR_WANT_WRITE"                    ; break ; }
-                    case SSL_ERROR_WANT_READ        : { postFailure = "SSL_ERROR_WANT_READ"                     ; break ; }
-                    case SSL_ERROR_ZERO_RETURN      : { postFailure = "SSL_ERROR_ZERO_RETURN"                   ; break ; }
-                    case SSL_ERROR_NONE             : { postFailure = "SSL_ERROR_NONE"             ; bEmpty = 1 ; break ; }
-                {
-                switch( idFailure )
-                ZE( osTextT* , postFailure ) ;
-
-                #if defined( NEVERdEFINED )
-                //THIS CODE IS USED FOR Error1 WHICH SUCKS (Error2 is much better)
-
-                etherC::etTextIF( tinP ).traceF( tinP , T("openSsl_readIF / failed [idFailure,postText]:    ")+TF2(idFailure,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+T(postText) ) ;
-
-                postText[ sizeof postText - 1 ] = 0 ;
-                openSsl_getErrorTextIF( tinP , postText , sizeof postText - 1 , idFailure ) ;
-                osTextT postText[ TUCK << 2 ] ;
- 
-                if( !idFailure ) break ;
-                countT idFailure = c_openSsl_getError2IF( &ec , processGlobal1I.openSsl_pGetError2F  ) ;
-                //countT idFailure = c_openSsl_getError1IF( &ec , processGlobal1I.openSsl_pGetError1F , cbRead , (const SSL*)hWrapperP.cNote2F() ) ;
-            {
-            while( !bEmpty && cDo -- )
-            ZE( boolT , bEmpty ) ;
-            countT cDo = TOCK ;
-        {
-        if( cbRead <= 0 )
 
         __( ec ) ;
         if( ec ) etherC::etTextIF( tinP ).traceF( tinP , T("openSsl_readIF / exception caught") ) ;
-        sCountT cbRead     = c_openSsl_readIF( &ec , processGlobal1I.openSsl_pReadF , pbP , cbP , (SSL*)hWrapperP.cNote2F() ) ;
+        countT cbRead     = c_openSsl_readIF( &ec , processGlobal1I.openSsl_pReadF , pbP , cbP , (SSL*)hWrapperP.cNoteF() ) ;
         ZE( countT , ec ) ;
-
-        tinP.pEther->traceF( tinP , T("thirdC::openSsl_readIF [osh,cNote2]:    ")+TF2(hWrapperP.osF(ifcIDtYPEhANDLE_SOCKET),flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+TF2(hWrapperP.cNote2F(),flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
 
     #elif defined( __NT__ )
     #ifdef __OS2__

@@ -11,37 +11,34 @@
     _OUT_
     #endif
 
+        //BOSpOOP
+        //BOS( WHATgbo , BOSoK , ExitWindowsEx( EWX_FORCE | ( bDoNotComeBackP ? EWX_POWEROFF : EWX_REBOOT ) , 0 ) )
+
         }
-            //BOSpOOP
-            //BOS( WHATgbo , BOSoK , ExitWindowsEx( EWX_FORCE | ( bDoNotComeBackP ? EWX_POWEROFF : EWX_REBOOT ) , 0 ) )
-
-            }
-                BOSpOOP
-            {
-            if( tinP.bosFail && tinP.brcLath != ERROR_SHUTDOWN_IN_PROGRESS )
-
-            BOS( WHATgbo , BOSoK , InitiateSystemShutdown( 0 , 0 , 0 , 1 , !bDoNotComeBackP ) )
-            
-            }
-                BOSpOOP
-                BOS( WHATgbo , BOSoK , AdjustTokenPrivileges( (HANDLE)hToken.osF( ifcIDtYPEhANDLE_PROCESStOKEN ) , 0 , &info , sizeof info , 0 , 0 ) )
-                info.Privileges[ 0 ].Attributes = SE_PRIVILEGE_ENABLED ;
-                BOSpOOP
-                BOS( WHATgbo , BOSoK , LookupPrivilegeValue( "" , SE_SHUTDOWN_NAME , &info.Privileges[ 0 ].Luid ) )
-                info.PrivilegeCount = 1 ;
-                TOKEN_PRIVILEGES info ;
-            
-                hToken.osF( ifcIDtYPEhANDLE_PROCESStOKEN , (countT)osh ) ;
-                BOSpOOP
-                BOS( WHATgbo , BOSoK , OpenProcessToken( (HANDLE)handle.osF( ifcIDtYPEhANDLE_PROCESS ) , TOKEN_ADJUST_PRIVILEGES , &osh ) )
-                ZE( HANDLE , osh ) ;
-                handleC hToken( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_PROCESStOKEN ) ; //NOT REALLY A HANDLE, SO I DO NOT REGISTER/DEREGISTER IT; NOTE THAT I DO NOT "CLOSE" IT
-            
-                osOpenProcessIF( tinP , handle ) ;
-                handleC handle( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_PROCESS ) ;
-            {
+            BOSpOOP
         {
-        if( etherC::ifc_idHomeI_IF() > 100 )  //U:: SHOULD THIS BE 0x100 OR 100?:  HOW IS "ideafarm.home.101" INTERPRETED?
+        if( tinP.bosFail && tinP.brcLath != ERROR_SHUTDOWN_IN_PROGRESS )
+
+        BOS( WHATgbo , BOSoK , InitiateSystemShutdown( 0 , 0 , 0 , 1 , !bDoNotComeBackP ) )
+        
+        }
+            BOSpOOP
+            BOS( WHATgbo , BOSoK , AdjustTokenPrivileges( (HANDLE)hToken.osF( ifcIDtYPEhANDLE_PROCESStOKEN ) , 0 , &info , sizeof info , 0 , 0 ) )
+            info.Privileges[ 0 ].Attributes = SE_PRIVILEGE_ENABLED ;
+            BOSpOOP
+            BOS( WHATgbo , BOSoK , LookupPrivilegeValue( "" , SE_SHUTDOWN_NAME , &info.Privileges[ 0 ].Luid ) )
+            info.PrivilegeCount = 1 ;
+            TOKEN_PRIVILEGES info ;
+        
+            hToken.osF( ifcIDtYPEhANDLE_PROCESStOKEN , (countT)osh ) ;
+            BOSpOOP
+            BOS( WHATgbo , BOSoK , OpenProcessToken( (HANDLE)handle.osF( ifcIDtYPEhANDLE_PROCESS ) , TOKEN_ADJUST_PRIVILEGES , &osh ) )
+            ZE( HANDLE , osh ) ;
+            handleC hToken( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_PROCESStOKEN ) ; //NOT REALLY A HANDLE, SO I DO NOT REGISTER/DEREGISTER IT; NOTE THAT I DO NOT "CLOSE" IT
+        
+            osOpenProcessIF( tinP , handle ) ;
+            handleC handle( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_PROCESS ) ;
+        {
 
     #elif defined( __NT__ )
         //U:

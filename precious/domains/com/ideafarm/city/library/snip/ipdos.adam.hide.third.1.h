@@ -24549,8 +24549,8 @@ it is illegal to refer to this symbol anywhere but in the definition of a BwOTHs
 /*
 */
 /**/
-/*1*//*S3(idAdamP,idCasteP,cNote1P)*//*1*/
-#define S3(idAdamP,idCasteP,cNote1P) strokeS( (idAdamP) , (idCasteP) , (cNote1P) )
+/*1*//*S3(idAdamP,idCasteP,cNoteP)*//*1*/
+#define S3(idAdamP,idCasteP,cNoteP) strokeS( (idAdamP) , (idCasteP) , (cNoteP) )
 
 
 //
@@ -40346,9 +40346,9 @@ optimized for speed
 */
 /**/
 
-/*1*//*APPENDcc(psttP,idCasteP,idAdamP,cNote1P)*//*1*/
+/*1*//*APPENDcc(psttP,idCasteP,idAdamP,cNoteP)*//*1*/
 
-#define APPENDcc(psttP,idCasteP,idAdamP,cNote1P) if( !psttP[ 2 ].idAdam ) { BLAMMO ; } else { countT _offo = CSpREFIX + psttP->idAdam ; psttP[ _offo ].idCaste = (idCasteP) ; psttP[ _offo ].idAdam = (idAdamP) ; psttP[ _offo ].cNote = (cNote1P) ; psttP[ 2 ].idAdam -- ; psttP->idAdam ++ ; }
+#define APPENDcc(psttP,idCasteP,idAdamP,cNoteP) if( !psttP[ 2 ].idAdam ) { BLAMMO ; } else { countT _offo = CSpREFIX + psttP->idAdam ; psttP[ _offo ].idCaste = (idCasteP) ; psttP[ _offo ].idAdam = (idAdamP) ; psttP[ _offo ].cNote = (cNoteP) ; psttP[ 2 ].idAdam -- ; psttP->idAdam ++ ; }
 
 
 //
@@ -40373,9 +40373,9 @@ optimized for speed
 */
 /**/
 
-/*1*//*APPENDmm(psttP,idCasteP,idAdamP,cNote1P)*//*1*/
+/*1*//*APPENDmm(psttP,idCasteP,idAdamP,cNoteP)*//*1*/
 
-#define APPENDmm(psttP,idCasteP,idAdamP,cNote1P) { measureT m1 = (idAdamP) ; measureT m2 = (cNote1P) ; APPENDcc( psttP , idCasteP , *(countT*)&m1 , *(countT*)&m2 ) }
+#define APPENDmm(psttP,idCasteP,idAdamP,cNoteP) { measureT m1 = (idAdamP) ; measureT m2 = (cNoteP) ; APPENDcc( psttP , idCasteP , *(countT*)&m1 , *(countT*)&m2 ) }
 
 
 //
@@ -43210,31 +43210,3 @@ see FORsTRINGSiNsPANNEDhEAD
 //
 
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004a3.forstringsinspannedcombinedhead8 END
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004a4.blathstringspannedcombined BEGIN
-
-
-//
-// Copyright (c) 1992-2019 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 25 years.
-// Respecting the rights of other people is an important part of empowering one another.
-//
-
-/*
-use only within a FORsTRINGSiN loop snippet
-it is illegal to refer to this symbol anywhere but in the definition of a BlATHsTRING? constant
-*/
-/**/
-/*1*//*BlATHsTRING*//*1*/
-
-#define BlATHsTRING(idP) ( psttc##idP + CSpREFIX + psttc##idP->idAdam == pstte##idP )
-
-
-//
-// Respecting the rights of other people is an important part of empowering one another.
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 25 years.
-//
-// Copyright (c) 1992-2019 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004a4.blathstringspannedcombined END

@@ -32051,7 +32051,7 @@ members
  countT oshInvalid ;
  countT osh ;
  countT osPidOwner ;
- countT cNote1 ;
+ countT cNote ;
  HANDLEaPPnOTEScOUNTcLASS c2AppNote ; //NOT USED BY ANY FUNCTIONALITY RELATED TO OPENING OR CLOSING THE HANDLE; USED TO STORE INFORMATION ABOUT THE BACKING OBJECT THAT IS NEEDED TO USE THAT OBJECT; EXAMPLE: NUMBER OF ROWS IN A BITMAP OBJECT
 
  public :
@@ -32080,7 +32080,7 @@ members
 /*commands*/
  countT osF( const countT idTypeVerifyP ) const ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34007.handleC.osF!||
- voidT osF( const countT idTypeVerifyP , const countT oshP , const countT osPidOwnerP = 0 , const countT cNote1P = 0 , const countT cNote2P = 0 ) ;
+ voidT osF( const countT idTypeVerifyP , const countT oshP , const countT osPidOwnerP = 0 , const countT cNoteP = 0 ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34008.handleC.osF!||
  boolT operator ==( const handleC& oshP ) const ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34009.handleC.operator_equals!||
@@ -32096,9 +32096,8 @@ members
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400b.handleC.operator_shiftLeft!||
  voidT cloneF( const handleC& oshP , const countT osPidOwnerToP , const handleC& hProcessToP , const handleC& hProcessFromP ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400c.handleC.cloneF!||
- countT& cNote1F( voidT ) ;
- countT& cNote2F( voidT ) ;
- //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400e.handleC.cNote1F!||
+ countT& cNoteF( voidT ) ;
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400e.handleC.cNoteF!||
  boolT operator !( voidT ) const ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34006.handleC.operator_not!||
  boolT operator ~( voidT ) const ;
@@ -32108,8 +32107,7 @@ members
  inline operator const HANDLEaPPnOTEScOUNTcLASS&( voidT ) const { return c2AppNote ; }
  inline operator       HANDLEaPPnOTEScOUNTcLASS&( voidT )       { return c2AppNote ; }
  inline countT idTypeF( voidT ) const { return idType ; }
- inline countT cNote1F( voidT ) const { return cNote1 ; }
- inline countT cNote2F( voidT ) const { return cNote2 ; }
+ inline countT cNoteF( voidT ) const { return cNote ; }
 
  inline operator >>( handle1000C& hP ) { if( osh == oshInvalid ) { ZE( countT* , pcb ) ; *pcb = 0xbbaabb11 ; } hP.osh = osh                                                                  ; resetF() ; }
  inline operator >>( handle0100C& hP ) { if( osh == oshInvalid ) { ZE( countT* , pcb ) ; *pcb = 0xbbaabb11 ; }                hP.cNote = cNote                                               ; resetF() ; }
@@ -40279,7 +40277,6 @@ applications should avoid using thirdC objects
 
 /* openSsl: foreign encryption standard */
 
-  static countT openSsl_getError1IF( tinS& tinP , const handleC& hWrapperP , const countT rcP ) ;
   static voidT openSsl_setupIF( voidT ) ;
   //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3500119f.thirdC.openSsl_setupIF!||
   static voidT openSsl_shutdownIF( voidT ) ;

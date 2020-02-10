@@ -58,7 +58,7 @@ etThread.openSsl_shutdownF( tinP ) ;
 
                 }
                     hSock.resetF() ;
-                    etThread.openSsl_wrap SocketF( tinP , hSslWrapper , hSock ) ;
+                    etThread.openSsl_wrapSocketF( tinP , hSslWrapper , hSock ) ;
                     hSock.osF( ifcIDtYPEhANDLE_SOCKET , oshSock ) ;
                     handleC hSock( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_SOCKET ) ;
                 {
@@ -78,7 +78,7 @@ etThread.openSsl_shutdownF( tinP ) ;
     {
     if( ~hSslWrapper )
 
-    etThread.openSsl_wrapHandleF( tinP , hSslWrapper , hSslContext ) ;
+    etThread.openSsl_getWrapperF( tinP , hSslWrapper , hSslContext ) ;
     handleC hSslWrapper( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_openSslWrapper ) ;
 {
 if( ~hSslContext )

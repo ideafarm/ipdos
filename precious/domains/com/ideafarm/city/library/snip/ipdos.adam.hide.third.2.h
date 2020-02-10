@@ -1,3 +1,31 @@
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004a4.blathstringspannedcombined BEGIN
+
+
+//
+// Copyright (c) 1992-2019 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 25 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+/*
+use only within a FORsTRINGSiN loop snippet
+it is illegal to refer to this symbol anywhere but in the definition of a BlATHsTRING? constant
+*/
+/**/
+/*1*//*BlATHsTRING*//*1*/
+
+#define BlATHsTRING(idP) ( psttc##idP + CSpREFIX + psttc##idP->idAdam == pstte##idP )
+
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 25 years.
+//
+// Copyright (c) 1992-2019 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004a4.blathstringspannedcombined END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004a5.openfileread BEGIN
 
 
@@ -5207,35 +5235,27 @@ it is illegal to refer to this symbol in the definition of an adam
 
         //CS:CODEsYNC:DUPLICATED: 15000014 01000002
 
-        typedef int               (__syscall *openSsl_pGetError1FT    )( const SSL* pWrapP , int rcP )                                                         ; // int SSL_get_error( const SSL *ssl , int ret ) ;
+        typedef const SSL_METHOD* (__syscall *openSsl_pMethodFT      )( void )                                      ; //const SSL_METHOD *SSLv23_method(void);  /* SSLv3 but can rollback to v2 */
 
-        typedef int               (__syscall *openSsl_pGetError2FT    )( const char** ppostFileP , int* pIdLineP , const char** ppostDaataP , int* pOsFlagsP ) ; // unsigned long ERR_get_error_line_data(const char **file, int *line, const char **data, int *flags);
+        typedef int               (__syscall *openSsl_pInitFT        )( void )                                      ; //int __syscall SSL_library_init( void ) ;
 
-        typedef void              (__syscall *openSsl_pGetErrorTextFT )( char* postP , size_t costaP , unsigned long eP )                                      ; // void ERR_error_string_n(unsigned long e, char *buf, size_t len);
+        typedef SSL_CTX*          (__syscall *openSsl_pContextFT     )( const SSL_METHOD* pMethodP )                ; //SSL_CTX* __syscall SSL_CTX_new( const SSL_METHOD* method ) ;
 
-        typedef const SSL_METHOD* (__syscall *openSsl_pMethodFT       )( void )                                                                                ; // const SSL_METHOD *SSLv23_method(void);  /* SSLv3 but can rollback to v2 */
+        typedef void              (__syscall *openSsl_pContextFreeFT )( SSL_CTX* pContextP )                        ; // void SSL_CTX_free(SSL_CTX *ctx) ;
 
-        typedef int               (__syscall *openSsl_pInitFT         )( void )                                                                                ; // int __syscall SSL_library_init( void ) ;
+        typedef SSL*              (__syscall *openSsl_pWrapperFT     )( SSL_CTX* pContextP )                        ; // SSL *SSL_new(SSL_CTX *ctx) ;
 
-        typedef SSL_CTX*          (__syscall *openSsl_pContextFT      )( const SSL_METHOD* pMethodP )                                                          ; // SSL_CTX* __syscall SSL_CTX_new( const SSL_METHOD* method ) ;
+        typedef void              (__syscall *openSsl_pWrapperFreeFT )( SSL* pWrapP )                               ; // void SSL_free(SSL *ssl);
 
-        typedef void              (__syscall *openSsl_pContextFreeFT  )( SSL_CTX* pContextP )                                                                  ; // void SSL_CTX_free(SSL_CTX *ctx) ;
+        typedef int               (__syscall *openSsl_pWrapFT        )( SSL* pWrapP , int hSockP )                  ; // int SSL_set_fd(SSL *ssl, int fd);
 
-        typedef SSL*              (__syscall *openSsl_pWrapperFT      )( SSL_CTX* pContextP )                                                                  ; // SSL *SSL_new(SSL_CTX *ctx) ;
+        typedef int               (__syscall *openSsl_pShakeFT       )( SSL* pWrapP )                               ; //  int SSL_connect(SSL *ssl);
 
-        typedef void              (__syscall *openSsl_pWrapperFreeFT  )( SSL* pWrapP )                                                                         ; // void SSL_free(SSL *ssl);
+        typedef int               (__syscall *openSsl_pWriteFT       )( SSL* pWrapP , const void* pbP , int cbP )   ; // int SSL_write(SSL *ssl, const void *buf, int num);
 
-        typedef int               (__syscall *openSsl_pWrapFT         )( SSL* pWrapP , int hSockP )                                                            ; // int SSL_set_fd(SSL *ssl, int fd);
+        typedef int               (__syscall *openSsl_pReadFT        )( SSL* pWrapP , void* pbP , int cbP )         ; // int SSL_read(SSL *ssl, void *buf, int num);
 
-        typedef int               (__syscall *openSsl_pAcceptShakeFT  )( SSL* pWrapP )                                                                         ; // int SSL_accept(SSL *ssl);
-
-        typedef int               (__syscall *openSsl_pConnectShakeFT )( SSL* pWrapP )                                                                         ; // int SSL_connect(SSL *ssl);
-
-        typedef int               (__syscall *openSsl_pWriteFT        )( SSL* pWrapP , const void* pbP , int cbP )                                             ; // int SSL_write(SSL *ssl, const void *buf, int num);
-
-        typedef int               (__syscall *openSsl_pReadFT         )( SSL* pWrapP , void* pbP , int cbP )                                                   ; // int SSL_read(SSL *ssl, void *buf, int num);
-
-        typedef int               (__syscall *openSsl_pShutdownFT     )( SSL* pWrapP )                                                                         ; // int SSL_shutdown(SSL *ssl);
+        typedef int               (__syscall *openSsl_pShutdownFT    )( SSL* pWrapP )                               ; // int SSL_shutdown(SSL *ssl);
 
         //----------------------------------------------------- END
 
@@ -16814,13 +16834,13 @@ examples
 
 /*1*/class _export handle0100C/*1*/
 {
-    countT cNote1 ;
+    countT cNote ;
 
     public :
 
-    inline handle0100C( countT cNote1P = 0 ) : cNote1( cNote1P ) {}
+    inline handle0100C( countT cNoteP = 0 ) : cNote( cNoteP ) {}
 
-    inline countT cNote1F( voidT ) const { return cNote1 ; }
+    inline countT cNoteF( voidT ) const { return cNote ; }
 
     friend class handleC ;
 }
@@ -16852,14 +16872,14 @@ examples
 /*1*/class _export handle1100C/*1*/
 {
     countT osh ;
-    countT cNote1 ;
+    countT cNote ;
 
     public :
 
-    inline handle1100C( countT oshP = 0 , countT cNote1P = 0 ) : osh( oshP ) , cNote1( cNote1P ) {}
+    inline handle1100C( countT oshP = 0 , countT cNoteP = 0 ) : osh( oshP ) , cNote( cNoteP ) {}
 
     inline countT oshF(   voidT ) const { return osh   ; }
-    inline countT cNote1F( voidT ) const { return cNote1 ; }
+    inline countT cNoteF( voidT ) const { return cNote ; }
 
     friend class handleC ;
 }
@@ -16966,14 +16986,14 @@ examples
 
 /*1*/class _export handle0110C/*1*/
 {
-    countT cNote1 ;
+    countT cNote ;
     countT c1 ;
 
     public :
 
-    inline handle0110C( countT cNote1P = 0 , countT c1P = 0 ) : cNote1( cNote1P ) , c1( c1P ) {}
+    inline handle0110C( countT cNoteP = 0 , countT c1P = 0 ) : cNote( cNoteP ) , c1( c1P ) {}
 
-    inline countT cNote1F( voidT ) const { return cNote1 ; }
+    inline countT cNoteF( voidT ) const { return cNote ; }
     inline countT c1F(    voidT ) const { return c1    ; }
 
     friend class handleC ;
@@ -17006,15 +17026,15 @@ examples
 /*1*/class _export handle1110C/*1*/
 {
     countT osh ;
-    countT cNote1 ;
+    countT cNote ;
     countT c1 ;
 
     public :
 
-    inline handle1110C( countT oshP = 0 , countT cNote1P = 0 , countT c1P = 0 ) : osh( oshP ) , cNote1( cNote1P ) , c1( c1P ) {}
+    inline handle1110C( countT oshP = 0 , countT cNoteP = 0 , countT c1P = 0 ) : osh( oshP ) , cNote( cNoteP ) , c1( c1P ) {}
 
     inline countT oshF(   voidT ) const { return osh   ; }
-    inline countT cNote1F( voidT ) const { return cNote1 ; }
+    inline countT cNoteF( voidT ) const { return cNote ; }
     inline countT c1F(    voidT ) const { return c1    ; }
 
     friend class handleC ;
@@ -17126,15 +17146,15 @@ examples
 
 /*1*/class _export handle0111C/*1*/
 {
-    countT cNote1 ;
+    countT cNote ;
     countT c1 ;
     countT c2 ;
 
     public :
 
-    inline handle0111C( countT cNote1P = 0 , countT c1P = 0 , countT c2P = 0 ) : cNote1( cNote1P ) , c1( c1P ) , c2( c2P ) {}
+    inline handle0111C( countT cNoteP = 0 , countT c1P = 0 , countT c2P = 0 ) : cNote( cNoteP ) , c1( c1P ) , c2( c2P ) {}
 
-    inline countT cNote1F( voidT ) const { return cNote1 ; }
+    inline countT cNoteF( voidT ) const { return cNote ; }
     inline countT c1F(    voidT ) const { return c1    ; }
     inline countT c2F(    voidT ) const { return c2    ; }
 
@@ -17168,16 +17188,16 @@ examples
 /*1*/class _export handle1111C/*1*/
 {
     countT osh ;
-    countT cNote1 ;
+    countT cNote ;
     countT c1 ;
     countT c2 ;
 
     public :
 
-    inline handle1111C( countT oshP = 0 , countT cNote1P = 0 , countT c1P = 0 , countT c2P = 0 ) : osh( oshP ) , cNote1( cNote1P ) , c1( c1P ) , c2( c2P ) {}
+    inline handle1111C( countT oshP = 0 , countT cNoteP = 0 , countT c1P = 0 , countT c2P = 0 ) : osh( oshP ) , cNote( cNoteP ) , c1( c1P ) , c2( c2P ) {}
 
     inline countT oshF(   voidT ) const { return osh   ; }
-    inline countT cNote1F( voidT ) const { return cNote1 ; }
+    inline countT cNoteF( voidT ) const { return cNote ; }
     inline countT c1F(    voidT ) const { return c1    ; }
     inline countT c2F(    voidT ) const { return c2    ; }
 
@@ -17219,8 +17239,7 @@ examples
  countT oshInvalid ;
  countT osh ;
  countT osPidOwner ;
- countT cNote1 ;
- countT cNote2 ; //20200118@1436: ADDED SO CAN STORE SSL CONTEXT FOR A SOCKET HERE.  (IT IS CURRENTLY STORED IN A handleC MEMBER OF socketC)
+ countT cNote ;
  HANDLEaPPnOTEScOUNTcLASS c2AppNote ; //NOT USED BY ANY FUNCTIONALITY RELATED TO OPENING OR CLOSING THE HANDLE; USED TO STORE INFORMATION ABOUT THE BACKING OBJECT THAT IS NEEDED TO USE THAT OBJECT; EXAMPLE: NUMBER OF ROWS IN A BITMAP OBJECT
 
  public :
@@ -17233,7 +17252,7 @@ examples
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34002.handleC.dt_handleC!||
  handleC( tinS& tinP , const countT idLineCtP , const countT idiFileCtP , const byteT* const pbBitsCtP , const countT idTypeP = 0 , const flagsT flagsP = flHANDLEc_null , const osTextT* const postNameP = 0 ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34003.handleC.handleC!||
- handleC( const handleC& handleP , const osTextT* const postNameP = 0 ) ;
+ handleC( const handleC& oshP , const osTextT* const postNameP = 0 ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34010.handleC.handleC!||
 
 /*soixlOld*/
@@ -17249,26 +17268,24 @@ examples
 /*commands*/
  countT osF( const countT idTypeVerifyP ) const ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34007.handleC.osF!||
- voidT osF( const countT idTypeVerifyP , const countT oshP , const countT osPidOwnerP = 0 , const countT cNote1P = 0 , const countT cNote2P = 0 ) ;
+ voidT osF( const countT idTypeVerifyP , const countT oshP , const countT osPidOwnerP = 0 , const countT cNoteP = 0 ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34008.handleC.osF!||
- boolT operator ==( const handleC& handleP ) const ;
+ boolT operator ==( const handleC& oshP ) const ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34009.handleC.operator_equals!||
- boolT operator !=( const handleC& handleP ) const ;
+ boolT operator !=( const handleC& oshP ) const ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400d.handleC.operator_notEquals!||
  voidT closeIfF( voidT ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34005.handleC.closeIfF!||
- voidT operator =( const handleC& handleP ) ;
+ voidT operator =( const handleC& oshP ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400a.handleC.operator_assign!||
  voidT operator =( const countT cP ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400f.handleC.operator_assign!||
- voidT operator <<( handleC& handleP ) ;
+ voidT operator <<( handleC& oshP ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400b.handleC.operator_shiftLeft!||
- voidT cloneF( const handleC& handleP , const countT osPidOwnerToP , const handleC& hProcessToP , const handleC& hProcessFromP ) ;
+ voidT cloneF( const handleC& oshP , const countT osPidOwnerToP , const handleC& hProcessToP , const handleC& hProcessFromP ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400c.handleC.cloneF!||
- countT& cNote1F( voidT ) ;
- //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400e.handleC.cNote1F!||
- countT& cNote2F( voidT ) ;
- //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400?.handleC.cNote2F!||
+ countT& cNoteF( voidT ) ;
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400e.handleC.cNoteF!||
  boolT operator !( voidT ) const ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34006.handleC.operator_not!||
  boolT operator ~( voidT ) const ;
@@ -17278,32 +17295,31 @@ examples
  inline operator const HANDLEaPPnOTEScOUNTcLASS&( voidT ) const { return c2AppNote ; }
  inline operator       HANDLEaPPnOTEScOUNTcLASS&( voidT )       { return c2AppNote ; }
  inline countT idTypeF( voidT ) const { return idType ; }
- inline countT cNote1F( voidT ) const { return cNote1 ; }
- inline countT cNote2F( voidT ) const { return cNote2 ; }
+ inline countT cNoteF( voidT ) const { return cNote ; }
 
  inline operator >>( handle1000C& hP ) { if( osh == oshInvalid ) { ZE( countT* , pcb ) ; *pcb = 0xbbaabb11 ; } hP.osh = osh                                                                  ; resetF() ; }
- inline operator >>( handle0100C& hP ) { if( osh == oshInvalid ) { ZE( countT* , pcb ) ; *pcb = 0xbbaabb11 ; }                hP.cNote1 = cNote1                                               ; resetF() ; }
- inline operator >>( handle1100C& hP ) { if( osh == oshInvalid ) { ZE( countT* , pcb ) ; *pcb = 0xbbaabb11 ; } hP.osh = osh ; hP.cNote1 = cNote1                                               ; resetF() ; }
+ inline operator >>( handle0100C& hP ) { if( osh == oshInvalid ) { ZE( countT* , pcb ) ; *pcb = 0xbbaabb11 ; }                hP.cNote = cNote                                               ; resetF() ; }
+ inline operator >>( handle1100C& hP ) { if( osh == oshInvalid ) { ZE( countT* , pcb ) ; *pcb = 0xbbaabb11 ; } hP.osh = osh ; hP.cNote = cNote                                               ; resetF() ; }
  inline operator >>( handle0010C& hP ) { if( osh == oshInvalid ) { ZE( countT* , pcb ) ; *pcb = 0xbbaabb11 ; }                                   hP.c1 = c2AppNote.c1                        ; resetF() ; }
  inline operator >>( handle1010C& hP ) { if( osh == oshInvalid ) { ZE( countT* , pcb ) ; *pcb = 0xbbaabb11 ; } hP.osh = osh                    ; hP.c1 = c2AppNote.c1                        ; resetF() ; }
- inline operator >>( handle0110C& hP ) { if( osh == oshInvalid ) { ZE( countT* , pcb ) ; *pcb = 0xbbaabb11 ; }                hP.cNote1 = cNote1 ; hP.c1 = c2AppNote.c1                        ; resetF() ; }
- inline operator >>( handle1110C& hP ) { if( osh == oshInvalid ) { ZE( countT* , pcb ) ; *pcb = 0xbbaabb11 ; } hP.osh = osh ; hP.cNote1 = cNote1 ; hP.c1 = c2AppNote.c1                        ; resetF() ; }
+ inline operator >>( handle0110C& hP ) { if( osh == oshInvalid ) { ZE( countT* , pcb ) ; *pcb = 0xbbaabb11 ; }                hP.cNote = cNote ; hP.c1 = c2AppNote.c1                        ; resetF() ; }
+ inline operator >>( handle1110C& hP ) { if( osh == oshInvalid ) { ZE( countT* , pcb ) ; *pcb = 0xbbaabb11 ; } hP.osh = osh ; hP.cNote = cNote ; hP.c1 = c2AppNote.c1                        ; resetF() ; }
  inline operator >>( handle0011C& hP ) { if( osh == oshInvalid ) { ZE( countT* , pcb ) ; *pcb = 0xbbaabb11 ; }                                   hP.c1 = c2AppNote.c1 ; hP.c2 = c2AppNote.c2 ; resetF() ; }
  inline operator >>( handle1011C& hP ) { if( osh == oshInvalid ) { ZE( countT* , pcb ) ; *pcb = 0xbbaabb11 ; } hP.osh = osh                    ; hP.c1 = c2AppNote.c1 ; hP.c2 = c2AppNote.c2 ; resetF() ; }
- inline operator >>( handle0111C& hP ) { if( osh == oshInvalid ) { ZE( countT* , pcb ) ; *pcb = 0xbbaabb11 ; }                hP.cNote1 = cNote1 ; hP.c1 = c2AppNote.c1 ; hP.c2 = c2AppNote.c2 ; resetF() ; }
- inline operator >>( handle1111C& hP ) { if( osh == oshInvalid ) { ZE( countT* , pcb ) ; *pcb = 0xbbaabb11 ; } hP.osh = osh ; hP.cNote1 = cNote1 ; hP.c1 = c2AppNote.c1 ; hP.c2 = c2AppNote.c2 ; resetF() ; }
+ inline operator >>( handle0111C& hP ) { if( osh == oshInvalid ) { ZE( countT* , pcb ) ; *pcb = 0xbbaabb11 ; }                hP.cNote = cNote ; hP.c1 = c2AppNote.c1 ; hP.c2 = c2AppNote.c2 ; resetF() ; }
+ inline operator >>( handle1111C& hP ) { if( osh == oshInvalid ) { ZE( countT* , pcb ) ; *pcb = 0xbbaabb11 ; } hP.osh = osh ; hP.cNote = cNote ; hP.c1 = c2AppNote.c1 ; hP.c2 = c2AppNote.c2 ; resetF() ; }
 
  inline operator <<( handle1000C& hP ) { tinS& tinP = *pTinF() ; if( hP.osh == oshInvalid ) { ZE( countT* , pcb ) ; *pcb = 0xbbaabb33 ; } closeIfF() ; osPidOwner = dosGetInfoBlocksIdProcessIF( tinP ) ; osh = hP.osh                                                                  ; }
- inline operator <<( handle0100C& hP ) { tinS& tinP = *pTinF() ;                                                                                                                                                       ; cNote1 = hP.cNote1                                               ; }
- inline operator <<( handle1100C& hP ) { tinS& tinP = *pTinF() ; if( hP.osh == oshInvalid ) { ZE( countT* , pcb ) ; *pcb = 0xbbaabb33 ; } closeIfF() ; osPidOwner = dosGetInfoBlocksIdProcessIF( tinP ) ; osh = hP.osh ; cNote1 = hP.cNote1                                               ; }
+ inline operator <<( handle0100C& hP ) { tinS& tinP = *pTinF() ;                                                                                                                                                       ; cNote = hP.cNote                                               ; }
+ inline operator <<( handle1100C& hP ) { tinS& tinP = *pTinF() ; if( hP.osh == oshInvalid ) { ZE( countT* , pcb ) ; *pcb = 0xbbaabb33 ; } closeIfF() ; osPidOwner = dosGetInfoBlocksIdProcessIF( tinP ) ; osh = hP.osh ; cNote = hP.cNote                                               ; }
  inline operator <<( handle0010C& hP ) { tinS& tinP = *pTinF() ;                                                                                                                                                                          ; c2AppNote.c1 = hP.c1                        ; }
  inline operator <<( handle1010C& hP ) { tinS& tinP = *pTinF() ; if( hP.osh == oshInvalid ) { ZE( countT* , pcb ) ; *pcb = 0xbbaabb33 ; } closeIfF() ; osPidOwner = dosGetInfoBlocksIdProcessIF( tinP ) ; osh = hP.osh                    ; c2AppNote.c1 = hP.c1                        ; }
- inline operator <<( handle0110C& hP ) { tinS& tinP = *pTinF() ;                                                                                                                                                       ; cNote1 = hP.cNote1 ; c2AppNote.c1 = hP.c1                        ; }
- inline operator <<( handle1110C& hP ) { tinS& tinP = *pTinF() ; if( hP.osh == oshInvalid ) { ZE( countT* , pcb ) ; *pcb = 0xbbaabb33 ; } closeIfF() ; osPidOwner = dosGetInfoBlocksIdProcessIF( tinP ) ; osh = hP.osh ; cNote1 = hP.cNote1 ; c2AppNote.c1 = hP.c1                        ; }
+ inline operator <<( handle0110C& hP ) { tinS& tinP = *pTinF() ;                                                                                                                                                       ; cNote = hP.cNote ; c2AppNote.c1 = hP.c1                        ; }
+ inline operator <<( handle1110C& hP ) { tinS& tinP = *pTinF() ; if( hP.osh == oshInvalid ) { ZE( countT* , pcb ) ; *pcb = 0xbbaabb33 ; } closeIfF() ; osPidOwner = dosGetInfoBlocksIdProcessIF( tinP ) ; osh = hP.osh ; cNote = hP.cNote ; c2AppNote.c1 = hP.c1                        ; }
  inline operator <<( handle0011C& hP ) { tinS& tinP = *pTinF() ;                                                                                                                                                                          ; c2AppNote.c1 = hP.c1 ; c2AppNote.c2 = hP.c2 ; }
  inline operator <<( handle1011C& hP ) { tinS& tinP = *pTinF() ; if( hP.osh == oshInvalid ) { ZE( countT* , pcb ) ; *pcb = 0xbbaabb33 ; } closeIfF() ; osPidOwner = dosGetInfoBlocksIdProcessIF( tinP ) ; osh = hP.osh                    ; c2AppNote.c1 = hP.c1 ; c2AppNote.c2 = hP.c2 ; }
- inline operator <<( handle0111C& hP ) { tinS& tinP = *pTinF() ;                                                                                                                                                       ; cNote1 = hP.cNote1 ; c2AppNote.c1 = hP.c1 ; c2AppNote.c2 = hP.c2 ; }
- inline operator <<( handle1111C& hP ) { tinS& tinP = *pTinF() ; if( hP.osh == oshInvalid ) { ZE( countT* , pcb ) ; *pcb = 0xbbaabb33 ; } closeIfF() ; osPidOwner = dosGetInfoBlocksIdProcessIF( tinP ) ; osh = hP.osh ; cNote1 = hP.cNote1 ; c2AppNote.c1 = hP.c1 ; c2AppNote.c2 = hP.c2 ; }
+ inline operator <<( handle0111C& hP ) { tinS& tinP = *pTinF() ;                                                                                                                                                       ; cNote = hP.cNote ; c2AppNote.c1 = hP.c1 ; c2AppNote.c2 = hP.c2 ; }
+ inline operator <<( handle1111C& hP ) { tinS& tinP = *pTinF() ; if( hP.osh == oshInvalid ) { ZE( countT* , pcb ) ; *pcb = 0xbbaabb33 ; } closeIfF() ; osPidOwner = dosGetInfoBlocksIdProcessIF( tinP ) ; osh = hP.osh ; cNote = hP.cNote ; c2AppNote.c1 = hP.c1 ; c2AppNote.c2 = hP.c2 ; }
 
  static countT cInstancesIF( voidT ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34015.handleC.cInstancesIF!||
@@ -28322,25 +28338,18 @@ applications should avoid using thirdC objects
 
 /* openSsl: foreign encryption standard */
 
-  static countT openSsl_getError1IF( tinS& tinP , const handleC& hWrapperP , const countT rcP ) ;
-  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.350011ab.thirdc.openssl_getError1IF!||
-  static countT openSsl_getError2IF( tinS& tinP ) ;
-  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.350011ac.thirdc.openssl_getError2IF!||
-  static voidT openSsl_getErrorTextIF( tinS& tinP , osTextT* postP , countT costaP , countT errorCodeP ) ;
-  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.350011ad.thirdc.openssl_getErrorTextIF!||
   static voidT openSsl_setupIF( voidT ) ;
   //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3500119f.thirdC.openSsl_setupIF!||
   static voidT openSsl_shutdownIF( voidT ) ;
   //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.350011a0.thirdC.openSsl_shutdownIF!||
   static voidT openSsl_getContextIF( tinS& tinP , handleC& handleP ) ;
   //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.350011a1.thirdC.openSsl_getContextIF!||
-  static voidT openSsl_wrapHandleIF( tinS& tinP , handleC& handleP , handleC& hContextP ) ;
-  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.350011a2.thirdC.openSsl_wrapHandleIF!||
-  static voidT openSsl_wrapSocketIF( tinS& tinP , const handleC& hSocketP , const handleC& hWrapperP ) ;
+  static voidT openSsl_getWrapperIF( tinS& tinP , handleC& handleP , const handleC& hContextP ) ;
+  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.350011a2.thirdC.openSsl_getWrapperIF!||
+  static voidT openSsl_wrapSocketIF( tinS& tinP , const handleC& hWrapperP , const handleC& hSocketP ) ;
   //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.350011a3.thirdC.openSsl_wrapSocketIF!||
-  static voidT openSsl_acceptShakeHandsIF( tinS& tinP , const handleC& hWrapperP ) ;
-  static voidT openSsl_connectShakeHandsIF( tinS& tinP , const handleC& hWrapperP ) ;
-  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.350011a4.thirdC.openSsl_connectShakeHandsIF!||
+  static voidT openSsl_shakeHandsIF( tinS& tinP , const handleC& hWrapperP ) ;
+  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.350011a4.thirdC.openSsl_shakeHandsIF!||
   static countT openSsl_writeIF( tinS& tinP , const handleC& hWrapperP , const byteT* const pbP , const countT cbP = 0 ) ;
   //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.350011a5.thirdC.openSsl_writeIF!||
   static countT openSsl_readIF( tinS& tinP , byteT* const pbP , const countT cbP , const handleC& hWrapperP ) ;
@@ -28367,7 +28376,7 @@ applications should avoid using thirdC objects
   //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3403d.thirdC.s_setupF!||
   static voidT s_shutdownIF( tinS& tinP ) ;
   //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3403e.thirdC.s_shutdownIF!||
-  voidT s_socketF( tinS& tinP , handleC& handleP , const boolT idTypeP = 0 , handleC* const phContextP = 0 ) ;
+  voidT s_socketF( tinS& tinP , handleC& handleP , const boolT idTypeP = 0 , const handleC* const phContextP = 0 ) ;
   //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3403f.thirdC.s_socketF!||
 
  /* connection */
@@ -31627,11 +31636,12 @@ examples
   //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.360021d2.etherC.openSsl_shutdownF!||
   voidT openSsl_getContextF( tinS& tinP , handleC& handleP ) ;
   //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.360021d3.etherC.openSsl_getContextF!||
-  voidT openSsl_wrapHandleF( tinS& tinP , handleC& handleP , handleC& hContextP ) ;
-  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.360021d4.etherC.openSsl_wrapHandleF!||
-  voidT openSsl_acceptShakeHandsF( tinS& tinP , const handleC& hWrapperP ) ;
-  voidT openSsl_connectShakeHandsF( tinS& tinP , const handleC& hWrapperP ) ;
-  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.360021d6.etherC.openSsl_connectShakeHandsF!||
+  voidT openSsl_getWrapperF( tinS& tinP , handleC& handleP , const handleC& hContextP ) ;
+  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.360021d4.etherC.openSsl_getWrapperF!||
+  voidT openSsl_wrapSocketF( tinS& tinP , const handleC& hWrapperP , const handleC& hSocketP ) ;
+  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.360021d5.etherC.openSsl_wrapSocketF!||
+  voidT openSsl_shakeHandsF( tinS& tinP , const handleC& hWrapperP ) ;
+  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.360021d6.etherC.openSsl_shakeHandsF!||
   countT openSsl_writeF( tinS& tinP , const handleC& hWrapperP , const byteT* const pbP , const countT cbP = 0 ) ;
   //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.360021d7.etherC.openSsl_writeF!||
   countT openSsl_readF( tinS& tinP , byteT* const pbP , const countT cbP , const handleC& hWrapperP ) ;
@@ -31658,7 +31668,7 @@ examples
   //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34046.etherC.socksSetupF!||
   voidT socksShutdownF( tinS& tinP ) ;
   //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34045.etherC.socksShutdownF!||
-  voidT sockF( tinS& tinP , handleC& handleP , const boolT idTypeP = 0 , handleC* const phContextP = 0 ) ;
+  voidT sockF( tinS& tinP , handleC& handleP , const boolT idTypeP = 0 , const handleC* const phContextP = 0 ) ;
   //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3403c.etherC.sockF!||
   voidT chokeAttackerF( tinS& tinP , handleC& handleP , const countT cbRequestReadP = 0 , const countT cbRequestWriteP = 0 ) ;
   //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.341a8.etherC.chokeAttackerF!||
@@ -32616,9 +32626,8 @@ examples
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34004.socketC.bindF!||
  voidT connectF( tinS& tinP , countT idPortP = 0 , const nicNameC nicNameP = nicNameC() , countT cTriesP = 0 , const countT time1P = 0 , const sCountT time2P = 0 ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34006.socketC.connectF!||
- voidT acceptShakeHandsF( tinS& tinP ) ;
- voidT connectShakeHandsF( tinS& tinP ) ;
- //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3600502e.socketc.connectShakeHandsF!||
+ voidT shakeHandsF( tinS& tinP ) ;
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3600502e.socketc.shakeHandsF!||
  static nicNameC nicNameIF( tinS& tinP , etherC& etherP , const strokeS* const psttP = 0 ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34007.socketC.nicNameIF!||
  static voidT nicNameIF( tinS& tinP , etherC& ether , nicNameC*& pNicNameP , countT& cNicNameP , const strokeS* const psttP = 0 ) ;
@@ -36178,7 +36187,7 @@ conforms to rfc 1035
  count01T           cQuerys             ;
  count01T           cAnswers            ;
  count01T           cAuthorities        ;
- count01T           cNote1s              ;
+ count01T           cNotes              ;
 
 /* birth , death */
   dnsMsgHeaderS( tinS& tinP ) ;
@@ -39114,32 +39123,27 @@ base class to make a derived class of objects easily contained by a stackC objec
             CONTEXT                     cInfo ;
             EXCEPTION_POINTERS          ecInfo ;
     
-            HMODULE                     openSsl_hModule1       ;
-            HMODULE                     openSsl_hModule2       ;
-            openSsl_pGetError1FT        openSsl_pGetError1F    ;
-            openSsl_pGetError2FT        openSsl_pGetError2F    ;
-            openSsl_pGetErrorTextFT     openSsl_pGetErrorTextF ;
-            openSsl_pMethodFT           openSsl_pMethodF       ;
-            openSsl_pInitFT             openSsl_pInitF         ;
-            openSsl_pContextFT          openSsl_pContextF      ;
-            openSsl_pContextFreeFT      openSsl_pContextFreeF  ;
-            openSsl_pWrapperFT          openSsl_pWrapperF      ;
-            openSsl_pWrapperFreeFT      openSsl_pWrapperFreeF  ;
-            openSsl_pWrapFT             openSsl_pWrapF         ;
-            openSsl_pAcceptShakeFT      openSsl_pAcceptShakeF  ;
-            openSsl_pConnectShakeFT     openSsl_pConnectShakeF ;
-            openSsl_pWriteFT            openSsl_pWriteF        ;
-            openSsl_pReadFT             openSsl_pReadF         ;
-            openSsl_pShutdownFT         openSsl_pShutdownF     ;
+            HMODULE                     openSsl_hModule       ;
+            openSsl_pMethodFT           openSsl_pMethodF      ;
+            openSsl_pInitFT             openSsl_pInitF        ;
+            openSsl_pContextFT          openSsl_pContextF     ;
+            openSsl_pContextFreeFT      openSsl_pContextFreeF ;
+            openSsl_pWrapperFT          openSsl_pWrapperF     ;
+            openSsl_pWrapperFreeFT      openSsl_pWrapperFreeF ;
+            openSsl_pWrapFT             openSsl_pWrapF        ;
+            openSsl_pShakeFT            openSsl_pShakeF       ;
+            openSsl_pWriteFT            openSsl_pWriteF       ;
+            openSsl_pReadFT             openSsl_pReadF        ;
+            openSsl_pShutdownFT         openSsl_pShutdownF    ;
 
-            HMODULE                     zlib_hModule           ;
-            zlib_deflateInitFT          zlib_pDeflateInitF     ;
-            zlib_deflateFT              zlib_pDeflateF         ;
-            zlib_deflateEndFT           zlib_pDeflateEndF      ;
-            zlib_inflateInitFT          zlib_pInflateInitF     ;
-            zlib_inflateInit2FT         zlib_pInflateInit2F    ;
-            zlib_inflateFT              zlib_pInflateF         ;
-            zlib_inflateEndFT           zlib_pInflateEndF      ;
+            HMODULE                     zlib_hModule          ;
+            zlib_deflateInitFT          zlib_pDeflateInitF    ;
+            zlib_deflateFT              zlib_pDeflateF        ;
+            zlib_deflateEndFT           zlib_pDeflateEndF     ;
+            zlib_inflateInitFT          zlib_pInflateInitF    ;
+            zlib_inflateInit2FT         zlib_pInflateInit2F   ;
+            zlib_inflateFT              zlib_pInflateF        ;
+            zlib_inflateEndFT           zlib_pInflateEndF     ;
 
         #endif
 

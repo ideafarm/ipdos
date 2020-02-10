@@ -10,7 +10,7 @@
 }
     _OUT_
 
-    osTraceWrongNodeIF( tinP , (byteT*)handleP.cNote1F() , "dosOpenSharedMemIF: cNote1" ) ;
+    osTraceWrongNodeIF( tinP , (byteT*)handleP.cNoteF() , "dosOpenSharedMemIF: cNote" ) ;
 
     }
         }
@@ -23,7 +23,7 @@
         {
         if( tinP.bosFail )
 
-        BOS( WHATgbo , BOSoK , VirtualLock( (byteT*)handleP.cNote1F() , cbP ) )
+        BOS( WHATgbo , BOSoK , VirtualLock( (byteT*)handleP.cNoteF() , cbP ) )
                   
         CONoUTrAW( ostoSay ) ; //U::TO FIND A BUG
         OStEXTAK( ostoSay , "\"\r\n" ) ;
@@ -31,7 +31,7 @@
         OStEXTAK( ostoSay , "    \"" ) ;
         OStEXTC(  ostoSay , cbP , 0 ) ;
         OStEXTAK( ostoSay , "    " ) ;
-        OStEXTC(  ostoSay , handleP.cNote1F() , 0 ) ;
+        OStEXTC(  ostoSay , handleP.cNoteF() , 0 ) ;
         OStEXTAK( ostoSay , "locking [pb,cb,name]:    " ) ;
         OStEXT(   ostoSay , TUCK << 1 ) ;
 
@@ -42,8 +42,8 @@
 
     }
         //__( tinP.brcRaw ) ;
-        //BOSdOnOTtEST( WHATgbo , IsBadReadPtr( (voidT*)handleP.cNote1F() , cbP ? cbP : 1 ) ) //U:: ACCORDING TO WIN32 DOC AT 20121216@0913, THIS FUNCTION DOES NOT WORK AND SHOULD NOT BE USED: http://msdn.microsoft.com/en-us/library/aa366713(VS.85).aspx
-        __( !handleP.cNote1F() ) ;
+        //BOSdOnOTtEST( WHATgbo , IsBadReadPtr( (voidT*)handleP.cNoteF() , cbP ? cbP : 1 ) ) //U:: ACCORDING TO WIN32 DOC AT 20121216@0913, THIS FUNCTION DOES NOT WORK AND SHOULD NOT BE USED: http://msdn.microsoft.com/en-us/library/aa366713(VS.85).aspx
+        __( !handleP.cNoteF() ) ;
         __Z( handleP ) ;
         __( bFail ) ;
         }

@@ -55,7 +55,7 @@ thirdC::openSsl_shutdownIF( tinP ) ;
 
                 TN( tSayBody ,
                 thirdC::openSsl_shakeHandsIF( tinP , hSslWrapper ) ;
-                thirdC::openSsl_wrapSocketIF( tinP , hSock , hSslWrapper ) ;
+                thirdC::openSsl_wrapSocketIF( tinP , hSslWrapper , hSock ) ;
 
                 int rc = connect( hSock , (sockaddr*)&info , sizeof info ) ;
                 info.sin_addr.s_addr = *(int*)pInfo->h_addr_list[ 0 ] ;
@@ -72,7 +72,7 @@ thirdC::openSsl_shutdownIF( tinP ) ;
     {
     if( ~hSslWrapper )
 
-    thirdC::openSsl_wrapHandleIF( tinP , hSslWrapper , hSslContext ) ;
+    thirdC::openSsl_getWrapperIF( tinP , hSslWrapper , hSslContext ) ;
     handleC hSslWrapper( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_openSslWrapper ) ;
 {
 if( ~hSslContext )

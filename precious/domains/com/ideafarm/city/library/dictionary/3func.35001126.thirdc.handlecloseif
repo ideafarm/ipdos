@@ -72,7 +72,7 @@
             }
                 break ;
 
-                if( handleP.cNote1F() ) { BOSnOvALUE( WHATgbo , (*processGlobal1I.openSsl_pWrapperFreeF)( (SSL*)handleP.cNote1F() ) ) }
+                if( handleP.cNoteF() ) { BOSnOvALUE( WHATgbo , (*processGlobal1I.openSsl_pWrapperFreeF)( (SSL*)handleP.cNoteF() ) ) }
     
                 #endif
                     
@@ -100,7 +100,7 @@
                     TINSL
                 {
 
-                if( handleP.cNote1F() ) { BOSnOvALUE( WHATgbo , (*processGlobal1I.openSsl_pShutdownF)(    (SSL*)handleP.cNote1F() ) ) }
+                if( handleP.cNoteF() ) { BOSnOvALUE( WHATgbo , (*processGlobal1I.openSsl_pShutdownF)(    (SSL*)handleP.cNoteF() ) ) }
             {
             case ifcIDtYPEhANDLE_SOCKET :
             }
@@ -178,7 +178,7 @@
                         //U:
                     #if defined( __OS2__ )
                 {
-                if( !handleP.cNote1 )
+                if( !handleP.cNote )
             {
             case ifcIDtYPEhANDLE_WINDOW :
             }
@@ -229,7 +229,7 @@
                         BOS( WHATgbo , BOSfAIL , DosClose( (HFILE)handleP.osh ) )
                     #ifdef __OS2__
                 {
-                if( handleP.idType != ifcIDtYPEhANDLE_PROCESS || !handleP.cNote1 )
+                if( handleP.idType != ifcIDtYPEhANDLE_PROCESS || !handleP.cNote )
             {
             case ifcIDtYPEhANDLE_THREAD         :
             case ifcIDtYPEhANDLE_PROCESS        :
@@ -239,12 +239,12 @@
                 // INTENTIONAL FALLTHROUGH
 
                 BOSpOOP
-                BOS( WHATgbo , BOSoK , UnmapViewOfFile( (voidT*)handleP.cNote1 ) )
+                BOS( WHATgbo , BOSoK , UnmapViewOfFile( (voidT*)handleP.cNote ) )
             {
             case ifcIDtYPEhANDLE_FILEmAPPING    :
             }
                 break ;
-                handleP.cNote1 = 0 ;
+                handleP.cNote = 0 ;
                 #endif
 
                     BOSpOOP
@@ -256,7 +256,7 @@
                         }
                             //if( tinP.pcUtility[ 0 ] ) CONoUTrAW( "thirdC::handleCloseIF / 1\r\n" ) ;
                             BOSpOOP
-                            BOS( WHATgbo , BOSoK , UnmapViewOfFile( (voidT*)handleP.cNote1 ) )
+                            BOS( WHATgbo , BOSoK , UnmapViewOfFile( (voidT*)handleP.cNote ) )
                             //if( tinP.pcUtility[ 0 ] ) CONoUTrAW( "thirdC::handleCloseIF / 2\r\n" ) ;
                         {
                         if( !bFoundAlias )
@@ -283,7 +283,7 @@
                                 {
                                 )
                                     &he       != &handleP
-                                    he.cNote1  ==  handleP.cNote1               &&
+                                    he.cNote  ==  handleP.cNote               &&
                                     he.idType ==  handleP.idType              &&
                                 (
                                 if
@@ -355,7 +355,7 @@
 
                         TINSL
                     {
-                    if( handleP.cNote1 ) //WILL BE 0 IF WAS NOT ABLE TO MAP A VIEW
+                    if( handleP.cNote ) //WILL BE 0 IF WAS NOT ABLE TO MAP A VIEW
                     //if( tinP.pcUtility[ 0 ] ) CONoUTrAW( "thirdC::handleCloseIF / g\r\n" ) ;
 
                     linkedC::checkIF( tinP ) ; //U:: TO FIND A BUG
@@ -381,7 +381,7 @@
     
                 #elif defined( __NT__ )
 
-                    BOSdOnOTtEST( WHATgbo , DosFreeMem( (voidT*)handleP.cNote1 ) )
+                    BOSdOnOTtEST( WHATgbo , DosFreeMem( (voidT*)handleP.cNote ) )
 
                 #ifdef __OS2__
             {
@@ -429,7 +429,7 @@
                         {
                         if( tinP.pAdamGlobal1->_thirdC_.pSwFileOpen ) //DEREGISTRATION MUST OCCUR BEFORE HANDLE CLOSURE BECAUSE THE OS MIGHT IMMEDIATELY REUSE THAT HANDLE, RESULTING IN AN ATTEMPT TO REGISTER IT (WHICH WOULD FAIL IF IT WINS THE RACE)
                     {
-                    if( F(handleP.cNote1) & flFILEhANDLEnOTE_OPENrEGISTERED )
+                    if( F(handleP.cNote) & flFILEhANDLEnOTE_OPENrEGISTERED )
                     ZE( fileOpenS* , pInfo ) ;
 
                     TINSL

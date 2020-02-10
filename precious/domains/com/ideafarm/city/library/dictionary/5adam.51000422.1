@@ -21,7 +21,7 @@ REST
         logLabelsF( tinP , pbc , (byteT*)&header ) ;
     {
     while( cResources -- )
-    countT cResources = header.cAnswers + header.cAuthorities + header.cNote1s ;
+    countT cResources = header.cAnswers + header.cAuthorities + header.cNotes ;
     pbc = pbi + sizeof( headerS ) + sizeof( questionS ) ;
 
     question.logF( tinP ) ;
@@ -99,7 +99,7 @@ voidT questionS::logF( tinS& tinP )
 voidT questionS::swabF( voidT )
 
 }
-    cNote1s       = SWAB2( cNote1s       ) ;
+    cNotes       = SWAB2( cNotes       ) ;
     cAuthorities = SWAB2( cAuthorities ) ;
     cAnswers     = SWAB2( cAnswers     ) ;
     cQuestions   = SWAB2( cQuestions   ) ;
@@ -114,13 +114,13 @@ idType( 1 ) ,
 questionS::questionS( voidT ) :
 
 }
-    thirdC::logIF( tinP , T("header: cQuestions: ")+TF1(cQuestions)+T(" cAnswers: ")+TF1(cAnswers)+T(" cAuthorities: ")+TF1(cAuthorities)+T(" cNote1s: ")+TF1(cNote1s) ) ;
+    thirdC::logIF( tinP , T("header: cQuestions: ")+TF1(cQuestions)+T(" cAnswers: ")+TF1(cAnswers)+T(" cAuthorities: ")+TF1(cAuthorities)+T(" cNotes: ")+TF1(cNotes) ) ;
 {
 voidT headerS::logF( tinS& tinP )
 
 }
 {
-cNote1s( 0 )
+cNotes( 0 )
 cAuthorities( 0 ) ,
 cAnswers( 0 ) ,
 cQuestions( 1 ) ,
@@ -224,7 +224,7 @@ struct questionS
     voidT logF( tinS& tinP ) ;
     headerS( voidT ) ;
 
-    count01T           cNote1s              ;
+    count01T           cNotes              ;
     count01T           cAuthorities        ;
     count01T           cAnswers            ;
     count01T           cQuestions          ;

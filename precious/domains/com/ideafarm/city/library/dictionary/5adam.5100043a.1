@@ -52,17 +52,17 @@ thirdC::logIF( tinP , T("==== END ==============================================
 
     }
         thirdC::logIF( tinP , T(postSep) ) ;
-        else if( cNote1 && cNote1 -- ) postSep = "==== NOTE =====================================================================================================================" ;
+        else if( cNote && cNote -- ) postSep = "==== NOTE =====================================================================================================================" ;
         else if( cAuth && cAuth -- ) postSep = "==== AUTHORITY ================================================================================================================" ;
              if( cAnsw && cAnsw -- ) postSep = "==== ANSWER ===================================================================================================================" ;
         ZE( osTextT* , postSep ) ;
     {
 {
 while( cResources -- )
-countT cNote1 = header.cNote1s       ;
+countT cNote = header.cNotes       ;
 countT cAuth = header.cAuthorities ;
 countT cAnsw = header.cAnswers     ;
-countT cResources = header.cAnswers + header.cAuthorities + header.cNote1s ;
+countT cResources = header.cAnswers + header.cAuthorities + header.cNotes ;
 
 pbc += 2 * sizeof( count01T ) ;
 ) ;
@@ -205,7 +205,7 @@ voidT queryF( tinS& tinP , etherC& etThread , byteT*& pbP , countT& cbP , const 
 voidT rHeaderS::swabF( voidT )
 
 }
-    cNote1s       = SWAB2( cNote1s       ) ;
+    cNotes       = SWAB2( cNotes       ) ;
     cAuthorities = SWAB2( cAuthorities ) ;
     cAnswers     = SWAB2( cAnswers     ) ;
     cQuerys   = SWAB2( cQuerys   ) ;
@@ -214,13 +214,13 @@ voidT rHeaderS::swabF( voidT )
 voidT headerS::swabF( voidT )
 
 }
-    thirdC::logIF( tinP , T("header: cQuerys: ")+TF1(cQuerys)+T(" cAnswers: ")+TF1(cAnswers)+T(" cAuthorities: ")+TF1(cAuthorities)+T(" cNote1s: ")+TF1(cNote1s) ) ;
+    thirdC::logIF( tinP , T("header: cQuerys: ")+TF1(cQuerys)+T(" cAnswers: ")+TF1(cAnswers)+T(" cAuthorities: ")+TF1(cAuthorities)+T(" cNotes: ")+TF1(cNotes) ) ;
 {
 voidT headerS::logF( tinS& tinP )
 
 }
 {
-cNote1s( 0 )
+cNotes( 0 )
 cAuthorities( 0 ) ,
 cAnswers( 0 ) ,
 cQuerys( 1 ) ,
@@ -312,7 +312,7 @@ struct rHeaderS //THIS IS THE PART OF THE "RESOURCE RECORD" THAT FOLLOWS THE LAB
     voidT logF( tinS& tinP ) ;
     headerS( voidT ) ;
 
-    count01T           cNote1s              ;
+    count01T           cNotes              ;
     count01T           cAuthorities        ;
     count01T           cAnswers            ;
     count01T           cQuerys          ;

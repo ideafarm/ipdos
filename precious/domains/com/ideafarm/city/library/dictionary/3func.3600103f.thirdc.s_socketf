@@ -11,39 +11,40 @@
     _OUT_
     if( !handleP ) __1
 
-    tinP.pEther->traceF( tinP , T("s_socketF [osh,cNote2]:    ")+TF2(handleP.osF(ifcIDtYPEhANDLE_SOCKET),flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+TF2(handleP.cNote2F(),flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
-
-    if( phContextP ) openSsl_wrapHandleIF( tinP , handleP , *phContextP ) ;
+    }
+        handleP.osF( ifcIDtYPEhANDLE_SOCKET , oshSocket , 0 , c_pWrapper ) ;
+        handleP.resetF() ;
+        countT c_pWrapper = handleP.cNoteF() ;
+        openSsl_getWrapperIF( tinP , handleP , *phContextP ) ;
+        countT oshSocket = tinP.brcRaw ;
+    {
+    else
+    if( !phContextP ) handleP.osF( ifcIDtYPEhANDLE_SOCKET , tinP.brcRaw ) ;
 
     }
-        handleP.osF( ifcIDtYPEhANDLE_SOCKET , tinP.brcRaw ) ;
-
-        //}
-        //    LOGrAW5( "" , oshSocket , "    " , tinP.pAdamGlobal1->idAdam , " ++++\r\n" ) ;
-        //    countT oshSocket = tinP.brcRaw ;
-        //{
-        BOSpOOP
-        BOS( WHATgbo , BOSsOCKETcODE , socket( PF_INET , idTypeOs , 0 ) )
-
-        //#endif
-        //    if( 'w' == osIdIF( tinP ) ) { int opt = SO_SYNCHRONOUS_NONALERT ; __( NO_ERROR - setsockopt( INVALID_SOCKET , SOL_SOCKET , SO_OPENTYPE , (char*)&opt , sizeof opt ) ) ; } // OPTIMIZE: THIS ONLY NEEDS TO BE DONE ONCE FOR EACH THREAD
-        //#if defined( __NT__ )
-
-        }
-            }
-                __1
-                __( idType ) ;
-            {
-            default :
-            case ifcSOCKETtYPE_DATAgRAM : { idTypeOs = SOCK_DGRAM  ; break ; }
-            case ifcSOCKETtYPE_STREAM   : { idTypeOs = SOCK_STREAM ; break ; }
-        {
-        switch( idType )
-        ZE( countT , idTypeOs ) ;
-
-        countT idType = idTypeP ? idTypeP : ifcSOCKETtYPE_STREAM ;
+        //LOGrAW5( "" , oshSocket , "    " , tinP.pAdamGlobal1->idAdam , " ++++\r\n" ) ;
+        countT oshSocket = tinP.brcRaw ;
     {
-    if( !handleP )
+    BOSpOOP
+    BOS( WHATgbo , BOSsOCKETcODE , socket( PF_INET , idTypeOs , 0 ) )
+
+    //#endif
+    //    if( 'w' == osIdIF( tinP ) ) { int opt = SO_SYNCHRONOUS_NONALERT ; __( NO_ERROR - setsockopt( INVALID_SOCKET , SOL_SOCKET , SO_OPENTYPE , (char*)&opt , sizeof opt ) ) ; } // OPTIMIZE: THIS ONLY NEEDS TO BE DONE ONCE FOR EACH THREAD
+    //#if defined( __NT__ )
+
+    }
+        }
+            __1
+            __( idType ) ;
+        {
+        default :
+        case ifcSOCKETtYPE_DATAgRAM : { idTypeOs = SOCK_DGRAM  ; break ; }
+        case ifcSOCKETtYPE_STREAM   : { idTypeOs = SOCK_STREAM ; break ; }
+    {
+    switch( idType )
+    ZE( countT , idTypeOs ) ;
+
+    countT idType = idTypeP ? idTypeP : ifcSOCKETtYPE_STREAM ;
 
     _INoLD_
 
@@ -53,7 +54,7 @@
     IFbEcAREFUL    
     SCOOP
 {
-/*1*/voidT thirdC::s_socketF( tinS& tinP , handleC& handleP , const boolT idTypeP , handleC* const phContextP )/*1*/
+/*1*/voidT thirdC::s_socketF( tinS& tinP , handleC& handleP , const boolT idTypeP , const handleC* const phContextP )/*1*/
 
 /**/
 */
