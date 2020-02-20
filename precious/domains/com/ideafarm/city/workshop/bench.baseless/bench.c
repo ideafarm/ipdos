@@ -79,6 +79,10 @@ int main( void )
 {
     //int rc = deflateInit3( 0 , 0 ) ;
 
+    int foo = 0x12345678 ;
+    int goo = 0x87654321 ;
+
+    if( foo < goo ) ;
 
 
     fooF( 3 ) ;
