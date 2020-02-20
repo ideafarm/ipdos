@@ -1,0 +1,68 @@
+README.DLL
+
+Contents of this binary distribution for the Win32 Zip DLL:
+   LICENSE              The Info-ZIP redistribution and usage license
+   README               general ReadMe notes
+   README.CR            Notes on the encryption code
+   WHATSNEW             What is new in Zip 2.31
+   WHERE                Where to find Info-ZIP distribution packages
+   README.DLL           this file...
+   windll.txt           technical Zip Windows DLL documentation
+   zip32.lib            import link library
+   zip32.exp            exported symbols
+   zip32.dll            DLL executable
+   c-headers/           C header files containing the DLL interface definitions
+     api.h
+     tailor.h
+     zip.h
+     win32/osdep.h
+     windll/windll.h
+     windll/structs.h
+   csharp/              C# example on .NET 1.1 for calling the Zip DLL
+     readmeCS.txt
+     zip/
+       App.ico
+       AssemblyInfo.cs
+       CSharpInfoZip_ZipSample.csproj
+       Form1.cs
+       Form1.resx
+       Zip.cs
+       ZipDLLPrintMessageEventArgs.cs
+       ZipDLLServiceMessageEventArgs.cs
+   vb/                  Visual Basic example for calling the Zip DLL
+     readmeVB.txt
+     Vbzip.vbp
+     VBZIP.vbw
+     VBZipBas.bas
+     Vbzipfrm.frm
+   example.c            simplistic example of how to load and use the dll
+   example.h            header file for example.c
+
+
+
+Some notes about the supplied Windows DLL binaries and their build options:
+
+A) The supplied i386 Windows DLL "zip32.dll" was compiled and linked with
+   Microsoft Visual C++ 6.0 SP6 (Microsoft C 12.00).
+   The link process provided:
+     zip32.dll      the DLL executable
+     zip32.exp      the exported symbol definitions
+     zip32.lib      the import link library
+
+   Compared to the settings as found in project file of the Zip232 source
+   distribution, the following change was applied:
+
+    * The build process was modified to use the assembler i386 CRC32 source
+      instead of the generic C code.
+
+   Please note:
+   The Zip DLL is compiled with a structure member alignment setting of
+   "-Zp4" (align at 32-bit boundary), which is NOT the default alignment
+   setting of Microsoft C.
+   In the current state, the Zip DLL code is not reentrant.  You should
+   take caution when using the Zip DLL in a multi-threading environment.
+
+
+Please report any problems to:  Zip-Bugs at www.info-zip.org
+
+Last updated:  01 July 2006
