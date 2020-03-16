@@ -529,7 +529,7 @@ VOID WINAPI serviceMainF( DWORD cArgP , LPTSTR* ppostArgP )
     {
         for( unsigned offa = 0 ; offa < cArgP ; offa ++ )
         {
-            logTimeGF( "[ppostArgP[" ) ;
+            logTimeGF( "IdeaFarm (tm) Service [ppostArgP[" ) ;
             logGF( offa ) ;
             logGF( "]: " ) ;
             logGF( ppostArgP[ offa ] ) ;
@@ -795,17 +795,6 @@ VOID WINAPI serviceMainF( DWORD cArgP , LPTSTR* ppostArgP )
 
 int main( int cArgP , char* ppostArgP[] , char* ppostEnvP[] )
 {
-    unsigned bStop = 0 ;
-    for( unsigned offa = 0 ; offa < cArgP ; offa ++ )
-    {
-        if( !strcmp( ppostArgP[ offa ] , "!stop" ) )
-        {
-            bStop = 1 ;
-            logTimeGF( "IPDOS (tm) Service / stopping the service\r\n" ) ;
-            break ;
-        }
-    }
-
     {
         char _pbsd[ SECURITY_DESCRIPTOR_MIN_LENGTH + sizeof( int ) ] ;
 
@@ -828,7 +817,23 @@ int main( int cArgP , char* ppostArgP[] , char* ppostEnvP[] )
         CreateDirectory( "c:\\tmp" , &sa ) ;
     }
 
+    logTimeGF( "IPDOS (tm) Service / main entered\r\n" ) ;
+    unsigned bStop = 0 ;
+    logTimeGF( "IPDOS (tm) Service / inspecting parameters\r\n" ) ;
+    for( unsigned offa = 0 ; offa < cArgP ; offa ++ )
     {
+        logTimeGF( "IPDOS (tm) Service / inspecting a parameter\r\n" ) ;
+        if( !strcmp( ppostArgP[ offa ] , "!stop" ) )
+        {
+            bStop = 1 ;
+            logTimeGF( "IPDOS (tm) Service / stopping the service\r\n" ) ;
+            break ;
+        }
+    }
+    logTimeGF( "IPDOS (tm) Service / all parameters, if any, inspected\r\n" ) ;
+
+    {
+        logTimeGF( "IPDOS (tm) Service / calling OpenSCManager\r\n" ) ;
         SC_HANDLE oshManager = OpenSCManagerA( 0 , SERVICES_ACTIVE_DATABASE , GENERIC_READ ) ;
         if( !oshManager )
         {
@@ -839,6 +844,7 @@ int main( int cArgP , char* ppostArgP[] , char* ppostEnvP[] )
         }
         else
         {
+            logTimeGF( "IPDOS (tm) Service / calling OpenService\r\n" ) ;
             SC_HANDLE oshService = OpenServiceA( oshManager , "IPDOS (tm)" , SERVICE_CHANGE_CONFIG | SERVICE_STOP ) ;
             if( !oshService )
             {
@@ -868,6 +874,7 @@ int main( int cArgP , char* ppostArgP[] , char* ppostEnvP[] )
             }
             else
             {
+                logTimeGF( "IPDOS (tm) Service / changing preshutdown timeout value\r\n" ) ;
                 static SERVICE_PRESHUTDOWN_INFO info ;
                 info.dwPreshutdownTimeout = 1800000 ; // 30 MINUTES
                 BOOL bOk = ChangeServiceConfig2A( oshService , SERVICE_CONFIG_PRESHUTDOWN_INFO , &info ) ;
@@ -916,7 +923,9 @@ int main( int cArgP , char* ppostArgP[] , char* ppostEnvP[] )
         DWORD costaUser = sizeof postUser ;
         if( GetUserName( postUser , &costaUser ) )
         {
-            if( !strcmp( postUser , "SYSTEM" ) )
+            //20200314@1539: THE NEXT LINE WAS PREVENTING SERVICE LAUNCH WHEN SERVICE IS CONFIGURED TO RUN UNDER A USER LOG ON, WHICH IS NEEDED TO ACCESS NETWORK SHARES
+            //if( !strcmp( postUser , "SYSTEM" ) )
+
             {
                 SERVICE_TABLE_ENTRY pInfo[] =
                 {
@@ -926,13 +935,15 @@ int main( int cArgP , char* ppostArgP[] , char* ppostEnvP[] )
                 
                 BOOL rc = StartServiceCtrlDispatcher( pInfo ) ;
             }
-            else
-            {
-                for( int offo = 0 ; offo < sizeof pTblHomeDisk / sizeof pTblHomeDisk[ 0 ] ; offo ++ )
-                {
-                    if( *pTblHomeDisk[ offo ].postIdHome ) hireF( pTblHomeDisk[ offo ] ) ;
-                }
-            }
+
+            //THIS APPEARS TO ALLOW THE SERVICE EXE TO BE RUN AT THE COMMAND LINE, WHICH I CAN'T REMEMBER EVER DOING OR NEEDING TO DO.  THIS MIGHT BECOME USEFUL FOR LINUX
+            //else
+            //{
+            //    for( int offo = 0 ; offo < sizeof pTblHomeDisk / sizeof pTblHomeDisk[ 0 ] ; offo ++ )
+            //    {
+            //        if( *pTblHomeDisk[ offo ].postIdHome ) hireF( pTblHomeDisk[ offo ] ) ;
+            //    }
+            //}
         }
     }
 

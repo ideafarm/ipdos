@@ -17,7 +17,10 @@
     {
     if( F(flags) & flSTACKc_XRAY )
 
-    if( F(flags) & ( flSTACKc_GIVEsIGNnEWpLATE | flSTACKc_GIVEsIGNdELpLATE ) ) { pSgnEvent = new( 0 , tinP , LF ) signC( tinP , TAG( TAGiDnULL ) ) ; ___CT( pSgnEvent ) ; }
+    }
+        pSgnEvent = new( 0 , tinP , LF ) signC( tinP , TAG( TAGiDnULL ) ) ; ___CT( pSgnEvent ) ; //U:: SEPARATE LINE TO FIND A BUG
+    {
+    if( F(flags) & ( flSTACKc_GIVEsIGNnEWpLATE | flSTACKc_GIVEsIGNdELpLATE ) )
 
     if( pSoulP ) operator <<( *pSoulP ) ;
 
