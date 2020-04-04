@@ -238,4 +238,6 @@
 0xdddd0423 , "cloudInfoS" ,
 0xdddd0424 , "napkinsC" ,
 0xdddd0425 , "keyValuePairsC" ,
-0xdddd0426 , "inOutFrameC"
+0xdddd0426 , "inOutFrameC" ,
+0xdddd0427 , "fileWindowC" ,
+0xdddd0428 , "fileWindowSC"

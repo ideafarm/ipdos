@@ -1,4 +1,4 @@
-//#define DEBUG
+#define DEBUG
 
 #if not defined( DEBUG )
     #define RELEASE
@@ -2928,6 +2928,7 @@ void elf_obey_C::liveF( void )
                 //THIS LIST IS IN REVERSE ORDER OF WHAT WILL APPEAR IN ipdos.h
                 char* ppostFrom[] =
                 {
+                    "1snip.15*.fileWindowsC"                    ,
                     "1snip.15*.fileWindowC"                     ,
                     "1snip.15*.hasherC"                         ,
                     "1snip.15*.cloudC"                          ,

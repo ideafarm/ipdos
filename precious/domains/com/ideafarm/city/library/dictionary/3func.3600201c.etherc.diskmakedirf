@@ -14,21 +14,46 @@
     }
         }
             bExisted = diskMakeDirStupidlyF( tinP , psttP ) ;
-            delF( tinP , pstt ) ;
-            diskMakeDirF( tinP , pstt ) ;
-            strSubstringF( tinP , pstt , idf , id , psttP ) ; ___( pstt ) ;
-            countT idf = 1 ;
-            ZE( strokeS* , pstt ) ;
+
+            }
+                delF( tinP , psttDad ) ;
+                diskMakeDirF( tinP , psttDad ) ;
+                strSubstringF( tinP , psttDad , idf , idSlashDad , psttP ) ; ___( psttDad ) ;
+                countT idf = 1 ;
+                ZE( strokeS* , psttDad ) ;
+            {
+            else
             }
                 __1
                 LOGcALLnEST( "diskMakeDirF" )
                 LOGrAW( tSay ) ;
                 CONoUTrAW( tSay ) ;
-                TN( tSay , "" ) ; tSay = T("diskMakeDirF/lath prior slash is at position less than 4: \"")+T(psttP)+T("\"\r\n") ;
+                TN( tSay , "" ) ; tSay = T("diskMakeDirF/could not make psttP, and dad is the name of either a drive or a network share [psttP]: \"")+T(psttP)+T("\"\r\n") ;
             {
-            if( id < 4 )
-            countT id = strIdF( tinP , countTC( 1 ) , sttq , S1C('/') , psttP , psttP->idAdam - 1 , - 1 ) ;
-            strokeS sttq( (countT)0 , sc_IGNOREqUOTES ) ;
+            if( idSlashDad <= idSlashStop ) // SHOULDN'T EVER BE TRUE
+
+            }
+                idSlashDad = strIdF( tinP , countTC( 1 ) , sttq , S1C('/') , psttP , psttP->idAdam - 1 , - 1 ) ;
+                strokeS sttq( (countT)0 , sc_IGNOREqUOTES ) ;
+            {
+            ZE( countT , idSlashDad ) ;
+
+            }
+                idSlashStop = strIdF( tinP , countTC( 1 ) , sttq , S1C('/') , psttP , psttP->idAdam - 1 , ( bLan ? 6 : 4 ) ) ;
+                strokeS sttq( (countT)0 , sc_IGNOREqUOTES ) ;
+            {
+            ZE( countT , idSlashStop ) ;
+
+            ;
+                && psttP[ 3 ] == S1C('/')
+                && psttP[ 2 ] == S1C('/')
+                && psttP[ 1 ] == S1C('/')
+                   psttP[ 0 ] == S1C('/')
+            boolT bLan =                        //20200319@1858: EDITED TO HANDLE psttP OF THE FORM "////factory9/x/tmp/"  (4TH SLASH INDICATES NetBIOS HOST NAME FOLLOWS)
+            //CS:CODEsYNCH: PSEUDODUPLICATE: 3600201c 3600201d
+
+            // COULDN'T MAKE psttP SO WILL CALL MYSELF TO MAKE DAD AND THEN TRY AGAIN
+
             SCOOPSdEL
             POOPR
         {
@@ -40,6 +65,8 @@
     IFsCRATCH
     ZE( boolT , bExisted ) ;
     _INoLD_
+
+    //LOGrAW( T("diskMakeDirF [psttP]:    \"")+T(psttP)+T("\"\r\n") ) ; //U::
 
     }
         if( POOP ) return 0 ;
@@ -53,6 +80,13 @@
         SCOOP
 {
 /*1*/boolT etherC::diskMakeDirF( tinS& tinP , const strokeS* const psttP )/*1*/
+
+//RULE FOR NETBIOS psttP: DON'T TRY TO MAKE THE SHARE NAME
+
+// 20200319@1842: EDIT TO HANDLE NAMES OF THE FORM "////factory9/x/tmp/foo.ttt"
+//                                                 "////n/x/tmp/foo.ttt"
+//                                                 "///x/tmp/foo.ttt"
+//                                                  12345678
 
 /**/
 */

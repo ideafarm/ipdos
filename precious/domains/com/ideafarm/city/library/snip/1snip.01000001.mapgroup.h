@@ -370,4 +370,5 @@
     ((countT)0x36140) , "tellinfoprocessglobal3s" ,
     ((countT)0x36141) , "heapC" ,
     ((countT)0x36142) , "processglobal0s" ,
+    ((countT)0x36143) , "fileWindowsC" ,
     ((countT)0x41000) , "citygate" ,

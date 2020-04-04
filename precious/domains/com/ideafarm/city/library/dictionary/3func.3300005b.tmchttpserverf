@@ -936,37 +936,53 @@ _OUT_
                 {
                 else
                 }
-                    etThread.traceF( tinP , T("U:: debug 0 after possible socket dt") ) ;
                     if( bClose ) { DEL( pso ) ; }
-                    TELL( "writing reply" ) ;
 
-                    etThread.delF( tinP , postBody ) ;
                     }
-                        // LOGrAW( "\"\r\n" ) ;
-                        // LOGrAW( tReply ) ;
-                        // LOGrAW( "debug: header for hardcoded image reply:\r\n\"" ) ;
+                        }
+                            else               pso->writeF( tinP , pbw , cbw ) ;
+                            if( !pbw || !cbw ) break ;
 
-                        etThread.traceF( tinP , T("U:: debug 1") ) ;
-                        pso->writeF( tinP , postBody , costBody ) ;
-                        etThread.traceF( tinP , T("U:: debug 2") ) ;
+                            fws.getF( tinP , pbw , cbw ) ;
+                            ZE( countT , cbw ) ;
+                            ZE( byteT* , pbw ) ;
+                        {
+                        while( !POOP )
+
                         pso->writeF( tinP , (osTextT*)tReply , tReply.csF( tinP ) ) ;
-                        etThread.traceF( tinP , T("U:: debug 3") ) ;
-                        TN( tReply , "" ) ; tReply = T("HTTP/1.1 200 OK\r\nServer: IPDOS (tm) IdeaFarm (tm) Piggyback Distributed Operating System (tm)\r\nContent-Type: image/jpeg\r\nContent-Length: ")+TF4(costBody,flFORMAT_NObIGITvALUES|flFORMAT_FOREIGN|flFORMAT_NObASE,0,0xa)+T("\r\n\r\n") ;
-                        etThread.traceF( tinP , T("U:: debug 4") ) ;
+                        TN( tReply , "" ) ; tReply = T("HTTP/1.1 200 OK\r\nServer: IPDOS (tm) IdeaFarm (tm) Piggyback Distributed Operating System (tm)\r\nContent-Type: ")+tContentType+T("\r\nContent-Length: ")+TF4(cbBody,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FOREIGN|flFORMAT_NObASE,0,0xa)+T("\r\n\r\n") ;
+
+                        }
+                            etThread.delF( tinP , psttLower ) ;
+
+                            else if( psttLower->idAdam - 4 == etThread.strIdF( tinP , T(".jpeg") , psttLower , - 1 ) ) tContentType = T("image/jpeg") ;
+                            else if( psttLower->idAdam - 3 == etThread.strIdF( tinP , T(".jpg" ) , psttLower , - 1 ) ) tContentType = T("image/jpeg") ;
+                            else if( psttLower->idAdam - 3 == etThread.strIdF( tinP , T(".png" ) , psttLower , - 1 ) ) tContentType = T("image/png" ) ;
+                            else if( psttLower->idAdam - 3 == etThread.strIdF( tinP , T(".mp3" ) , psttLower , - 1 ) ) tContentType = T("audio/mp3" ) ;
+                            else if( psttLower->idAdam - 3 == etThread.strIdF( tinP , T(".mp4" ) , psttLower , - 1 ) ) tContentType = T("video/mp4" ) ;
+                                 if( psttLower->idAdam - 3 == etThread.strIdF( tinP , T(".avi" ) , psttLower , - 1 ) ) tContentType = T("video/avi" ) ;
+
+                            etThread.strConvertToLowerCaseF( tinP , psttLower , psttName ) ; ___( psttLower ) ;
+                            ZE( strokeS* , psttLower ) ;
+                        {
+                        TN( tContentType , "" ) ;
+
+                        sCountC cbBody( tinP , etThread , pcLoHi , SC << 1 ) ;
+                        countT pcLoHi[] = { fws.cbFileLoF() , fws.cbFileHiF() } ;
                     {
                     else
                     }
-                        etThread.traceF( tinP , T("U:: debug 5") ) ;
+                        pso->writeF( tinP , (osTextT*)tReply , tReply.csF( tinP ) ) ;
+                        TN( tReply , "" ) ; tReply = T("HTTP/1.1 404 Not Found\r\nServer: IPDOS (tm) IdeaFarm (tm) Piggyback Distributed Operating System (tm)\r\nContent-Type: text")+T("\r\nContent-Length: ")+TF4(tBody.csF(tinP),flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FOREIGN|flFORMAT_NObASE,0,0xa)+T("\r\n\r\n")+tBody ;
+
+                        TN( tBody , "The page (or other resource) that you requested does not exist here.\r\n\r\nIf you think that this is our error, please let us know.\r\n" ) ;
+
                         POOPR ;
                     {
                     if( POOP )
-                    etThread.traceF( tinP , T("U:: debug 6") ) ;
-                    tinP.pEtScratch->boxGetShadowF( tinP , postBody , costBody , T("////factory9/x/archive")+T(psttName) ) ;
-                    //tinP.pEtScratch->boxGetShadowF( tinP , postBody , costBody , T("////factory9/x/archive/1999/!ideafarm.8.2.00000000.00000001.00000000@0000.20170131@0012.001.2a24e441984f7650ef8982bc85155e1c.00000001.data.jpg") ) ;
-                    ZE( countT   , costBody ) ;
-                    ZE( osTextT* , postBody ) ;
 
-                    etThread.traceF( tinP , T("U:: debug 7 calling boxGetShadowF") ) ;
+                    fileWindowsC fws( tinP , *tinP.pEtScratch , tFileIn , flFILEwINDOW_null , 1 ) ;
+                    TN( tFileIn , "" ) ; tFileIn = T("////factory9/x/archive")+T(psttName) ;
                     etThread.traceF( tinP , T("file [psttName]:    ")+T(psttName) ) ;
                 {
                 if( bFile )
