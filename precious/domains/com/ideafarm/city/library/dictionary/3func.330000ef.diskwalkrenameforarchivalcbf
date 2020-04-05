@@ -45,6 +45,10 @@
                                         tNewFileMetaCurrentName = tTo+tNewPrefix+tTimePair+tDot+tSequenceNumber+tDot+tHash+tDot+TF3(  idSeq,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE|flFORMAT_FOREIGN,8)+tDotTypeMetaDotCurrentName ;
                                         tNewFileMetaHashedName  = tTo+tNewPrefix+tTimePair+tDot+tSequenceNumber+tDot+tHash+tDot+TF3(  idSeq,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE|flFORMAT_FOREIGN,8)+tDotTypeMetaDotHashedName  ;
                                         tNewFileData            = tTo+tNewPrefix+tTimePair+tDot+tSequenceNumber+tDot+tHash+tDot+TF3(++idSeq,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE|flFORMAT_FOREIGN,8)+tDotTypeData+tDotExt       ;
+
+                                        //U:: DECISION: FOR THE NEXT FORMAT REVISION, ELIMINATE tSequenceNumber AND SHORTEN THE RENDERING OF idSeq TO 3 OR 4
+                                        //U:: LOOK: WHAT IS THE ORIGIN OF THE tSequenceNumber VALUE?: IT IS FROM A FORMAT 6 NAME
+                                        //U:: 20200405@1155: CONJ: CAN ELIMINATE THE tSequenceNumber SEQUENCE NUMBER AND ALSO SHORTEN THE idSeq RENDERING TO 3 BIGITS: CONJ: THERE IS NO NEED TO PRESERVE tSequenceNumber; ITS ONLY PURPOSE IS TO ENSURE THAT THERE ARE NO FILE COLLISIONS
                                     {
                                     do
                                     ZE( countT , idSeq ) ;

@@ -19020,8 +19020,9 @@ after i return, that countT object will contain 1
 #define ifcIDmEMORYsPACE_KERNEL       1
 #define ifcIDmEMORYsPACE_MEMBRANE     2
 #define ifcIDmEMORYsPACE_WATCH        3
-#define ifcIDmEMORYsPACE_APPLICATIONS 4
-#define ifcIDmEMORYsPACE_max          4
+#define ifcIDmEMORYsPACE_BANGrELAY    4
+#define ifcIDmEMORYsPACE_APPLICATIONS 5
+#define ifcIDmEMORYsPACE_max          5
 
 
 //
