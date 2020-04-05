@@ -7784,7 +7784,7 @@ typedef countT (*/*ff*/ifcCountCountFT/*ff*/)( countT cP ) ;         /*ff*//**//
 /**/
 /*1*//*diskWalkCBFT*//*1*/
 
-typedef boolT (*/*ff*/diskWalkCBFT/*ff*/)( tinS& tinP , countT& cDirsP , countT& cFilesP , boolT& bQuitP , const osTextT* const postNameP , countT* const pcArgP , const countT* const pModuloDirsP , const countT* const pModuloFilesP ) ; /*ff*//**//*ff*/
+typedef boolT (*/*ff*/diskWalkCBFT/*ff*/)( tinS& tinP , countT& cDirsP , countT& cFilesP , const boolT& bQuitP , const osTextT* const postNameP , countT* const pcArgP , const countT* const pModuloDirsP , const countT* const pModuloFilesP ) ; /*ff*//**//*ff*/
 
 
 //
@@ -11922,7 +11922,7 @@ TASK0PROTO( tmDrawF ) ;
 */
 /**/
 
-/*1*/boolT diskWalkCopyCBF( tinS& tinP , countT& cDirsP , countT& cFilesP , boolT& bQuitP , const osTextT* const postNameP , countT* const pcArgP , const countT* const pModuloFilesP , const countT* const pModuloDirsP ) ;/*1*/
+/*1*/boolT diskWalkCopyCBF( tinS& tinP , countT& cDirsP , countT& cFilesP , const boolT& bQuitP , const osTextT* const postNameP , countT* const pcArgP , const countT* const pModuloFilesP , const countT* const pModuloDirsP ) ;/*1*/
 
 
 //
@@ -11947,7 +11947,7 @@ TASK0PROTO( tmDrawF ) ;
 */
 /**/
 
-/*1*/boolT diskWalkGatherCBF( tinS& tinP , countT& cDirsP , countT& cFilesP , boolT& bQuitP , const osTextT* const postNameP , countT* const pcArgP , const countT* const pModuloFilesP , const countT* const pModuloDirsP ) ;/*1*/
+/*1*/boolT diskWalkGatherCBF( tinS& tinP , countT& cDirsP , countT& cFilesP , const boolT& bQuitP , const osTextT* const postNameP , countT* const pcArgP , const countT* const pModuloFilesP , const countT* const pModuloDirsP ) ;/*1*/
 
 
 //
@@ -11972,7 +11972,7 @@ TASK0PROTO( tmDrawF ) ;
 */
 /**/
 
-/*1*/boolT diskWalkTimePrefixCBF( tinS& tinP , countT& cDirsP , countT& cFilesP , boolT& bQuitP , const osTextT* const postNameP , countT* const pcArgP , const countT* const pModuloFilesP , const countT* const pModuloDirsP ) ;/*1*/
+/*1*/boolT diskWalkTimePrefixCBF( tinS& tinP , countT& cDirsP , countT& cFilesP , const boolT& bQuitP , const osTextT* const postNameP , countT* const pcArgP , const countT* const pModuloFilesP , const countT* const pModuloDirsP ) ;/*1*/
 
 
 //
@@ -14757,7 +14757,7 @@ TASK0PROTO( tmGrabTabF ) ;
 */
 /**/
 
-/*1*/boolT diskWalkRenameForArchivalCBF( tinS& tinP , countT& cDirsP , countT& cFilesP , boolT& bQuitP , const osTextT* const postNameP , countT* const pcArgP , const countT* const pModuloFilesP , const countT* const pModuloDirsP ) ;/*1*/
+/*1*/boolT diskWalkRenameForArchivalCBF( tinS& tinP , countT& cDirsP , countT& cFilesP , const boolT& bQuitP , const osTextT* const postNameP , countT* const pcArgP , const countT* const pModuloFilesP , const countT* const pModuloDirsP ) ;/*1*/
 
 
 //
@@ -15237,7 +15237,7 @@ TASK0PROTO( tmRelayBlowTeatF ) ;
 */
 /**/
 
-/*1*/boolT diskWalkSearchCBF( tinS& tinP , countT& cDirsP , countT& cFilesP , boolT& bQuitP , const osTextT* const postNameP , countT* const pcArgP , const countT* const pModuloFilesP , const countT* const pModuloDirsP ) ;/*1*/
+/*1*/boolT diskWalkSearchCBF( tinS& tinP , countT& cDirsP , countT& cFilesP , const boolT& bQuitP , const osTextT* const postNameP , countT* const pcArgP , const countT* const pModuloFilesP , const countT* const pModuloDirsP ) ;/*1*/
 
 
 //
@@ -27698,7 +27698,7 @@ applications should avoid using thirdC objects
                             //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3405b.thirdC.dosAllocSharedMemIF!||
     static voidT            dosGetSharedMemIF( tinS& tinP , handleC& handleP , const osTextT* const postP , const countT idMemorySpaceP = 0 , const flagsT flagsP = flOPENsHAREDmEMORY_null ) ;
                             //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34061.thirdC.dosGetSharedMemIF!||
-    static voidT            diskWalkPrivateIF( tinS& tinP , countT& cDirsP , countT& cFilesP , osTextT* const postNameP , boolT& bQuitP , diskWalkCBFT pCbfP = 0 , countT* const pcArgP = 0 , countT* pModuloDirsP = 0 , countT* pModuloFilesP = 0 ) ;
+    static voidT            diskWalkPrivateIF( tinS& tinP , countT& cDirsP , countT& cFilesP , osTextT* const postNameP , const boolT& bQuitP , diskWalkCBFT pCbfP = 0 , countT* const pcArgP = 0 , countT* pModuloDirsP = 0 , countT* pModuloFilesP = 0 ) ;
                             //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34192.thirdC.diskWalkPrivateIF!||
 
     static flagsT           fileAttrIfFromOsIF( tinS& tinP , flagsT osfP ) ;
@@ -28133,7 +28133,7 @@ applications should avoid using thirdC objects
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3418d.thirdC.bCanAccessMemoryIF!||
  static voidT ctrlCIF( tinS& tinP ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3418e.thirdC.ctrlCIF!||
- static voidT diskWalkIF( tinS& tinP , countT& cDirsP , countT& cFilesP , const osTextT* const postNameP , boolT& bQuitP , diskWalkCBFT pCbfP = 0 , countT* const pcArgP = 0 , countT* pModuloDirsP = 0 , countT* pModuloFilesP = 0 ) ;
+ static voidT diskWalkIF( tinS& tinP , countT& cDirsP , countT& cFilesP , const osTextT* const postNameP , const boolT& bQuitP , diskWalkCBFT pCbfP = 0 , countT* const pcArgP = 0 , countT* pModuloDirsP = 0 , countT* pModuloFilesP = 0 ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34193.thirdC.diskWalkIF!||
  voidT diskWalkCopyF( tinS& tinP , countT& cDirsP , countT& cFilesP , const boolT& bQuitP , const osTextT* const postToP , const osTextT* const postFromP , diskWalkCopyCBFT pCbfP = 0 , countT* pcArgP = 0 ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34194.thirdC.diskWalkCopyF!||
@@ -31287,7 +31287,7 @@ examples
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34067.etherC.diskSelectF!||
  boolT diskWaitDirF( tinS& tinP , handleC& handleP , const boolT& bQuitP , const strokeS* const psttDirP , const flagsT flagsP = flWAITdIR_null ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3416e.etherC.diskWaitDirF!||
- voidT diskWalkF( tinS& tinP , countT& cDirsP , countT& cFilesP , const strokeS* const psttNameP , boolT& bQuitP , diskWalkCBFT pCbfP = 0 , countT* const pcArgP = 0 , countT* pModuloDirsP = 0 , countT* pModuloFilesP = 0 ) ;
+ voidT diskWalkF( tinS& tinP , countT& cDirsP , countT& cFilesP , const strokeS* const psttNameP , const boolT& bQuitP , diskWalkCBFT pCbfP = 0 , countT* const pcArgP = 0 , countT* pModuloDirsP = 0 , countT* pModuloFilesP = 0 ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.341ba.etherC.diskWalkF!||
  voidT diskWalkCopyF( tinS& tinP , countT& cDirsP , countT& cFilesP , const boolT& bQuitP , const strokeS* const psttToP , const strokeS* const psttFromP , diskWalkCopyCBFT pCbfP = 0 , countT* pcArgP = 0 ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.341bb.etherC.diskWalkCopyF!||
