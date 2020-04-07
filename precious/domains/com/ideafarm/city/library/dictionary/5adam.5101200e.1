@@ -14,6 +14,8 @@ etThread.traceF( tinP , T("ok") ) ;
 
 }
     etThread.osThreadF( TaRG1( tmWorkerF ) , (countT)ptRoot[ offt ] , (countT)pcArgInner ) ;
+
+    countT pcArgInner[] = { (countT)&etThread , (countT)&sttq , (countT)ptRoot[ offt ] , (countT)&tPatternOld } ;
 {
 for( countT offt = 0 ; offt < sizeof ptRoot / sizeof ptRoot[ 0 ] ; offt ++ )
 
@@ -26,7 +28,6 @@ TN( tRootW , "///w/archive/" ) ;
 //TN( tRootE , "///e/archive/" ) ;
 TN( tRootG , "///g/archive/" ) ;
 
-countT pcArgInner[] = { (countT)&etThread , (countT)&tPatternOld , (countT)&sttq } ;
 
 strokeS sttq( 0 , sc_IGNOREqUOTES ) ;
 
@@ -37,7 +38,7 @@ TODO
 DONE( tmWorkerF )
 }
     etThread.traceF( tinP , T("root ---- [cFiles,cDirs]:    ")+*ptRootP+tb4+TF2(cFiles,flFORMAT_UNSIGNED|flFORMAT_NObIGITvALUES)+tb4+TF2(cDirs,flFORMAT_UNSIGNED|flFORMAT_NObIGITvALUES) ) ;
-    etThread.diskWalkF( tinP , cDirs , cFiles , *ptRootP , ether , healCBF , pcArgInnerP , 0 , 0 ) ;
+    etThread.diskWalkF( tinP , cDirs , cFiles , *ptRootP , ether , flDISKwALK_null , healCBF , pcArgInnerP , 0 , 0 ) ;
     etThread.traceF( tinP , T("root ++++               :    ")+*ptRootP ) ;
     ZE( countT , cFiles ) ;
     ZE( countT , cDirs ) ;
@@ -54,16 +55,25 @@ TASK( tmWorkerF )
     return 0 ;
 
     }
-        etherP.traceF( tinP , T("[name:    ")+tNameOld ) ;
+        }
+            etherP.delF( tinP , psttRelative ) ;
+            etherP.traceF( tinP , T("[relative name:    ")+T(psttRelative) ) ;
+            etherP.strSubstringF( tinP , psttRelative , idf , idl , tNameOld ) ; ___( psttRelative ) ;
+            ZE( countT , idl ) ;
+            ZE( strokeS* , psttRelative ) ;
+        {
+        if( !POOP )
 
-        countT idHit = etherP.strIdF( tinP, idf , sttqP , tPatternOldP , tNameOld ) ;
+        __( idHit - 1 ) ;
+        countT idHit = etherP.strIdF( tinP, idf , sttqP , tRootP , tNameOld ) ;
         countT idf = 1 ;
 
         TN( tNameOld , ifName ) ;
         ifFileNameC ifName( tinP , etherP , postNameP ) ;
 
-        strokeS sttqP        = *(strokeS*)pcArgP[ 2 ] ;
         textC&  tPatternOldP =   *(textC*)pcArgP[ 1 ] ;
+        textC&  tRootP       =   *(textC*)pcArgP[ 2 ] ;
+        strokeS sttqP        = *(strokeS*)pcArgP[ 1 ] ;
         etherC& etherP       =  *(etherC*)pcArgP[ 0 ] ;
     {
     if( postNameP )

@@ -1,6 +1,4 @@
 
-#define ifcIDaDAM_ROOThEAL                                                 0x5100075e
-
 // IPDOS (tm) <> IdeaFarm (tm) Piggyback Distributed Operating System
 
 // For build environment info, see file "\ideafarm.work\backed.up.never\txt\readme.first.ipdos.build.environment.txt"
@@ -11734,12 +11732,7 @@ if ifcIDtYPEjOBcOURSE_NAMED is used then this value must be followed immediately
 //CODEsYNCH: 0050014 00101a1 (ifcIDaDAM_KERNEL2MONITOR)
 
 /*3*/
-#define ifcIDaDAM_MONTHLYwOtABLEnOTICEeMAILS                           0x51000758
-#define ifcIDaDAM_WATCHiDLEcPU                                         0x51000757
-#define ifcIDaDAM_GORILLAhTTPiDEAFARMcOMrEPORTER                       0x51000754
-#define ifcIDaDAM_GORILLAhTTPiDEAFARMcOM                               0x51000752
 #define ifcIDaDAMoLD_BASELINErOOT                                      0x51000000
-#define ifcIDaDAM_TOOLwALKsEARCH                                       0x5100074e
 #define ifcIDaDAM_ROOTfTPsERVER                                        0x5100034e
 #define ifcIDaDAM_PATCHaLLmASTERS                                      0x51000359
 #define ifcIDaDAM_DEFiDiMMUTABLE                                       0x510003bd
@@ -11772,7 +11765,6 @@ if ifcIDtYPEjOBcOURSE_NAMED is used then this value must be followed immediately
 #define ifcIDaDAM_ROOThTTPsERVER                                       0x5100057b
 #define ifcIDaDAM_KERNELwATCHdATABASE                                  0x51000592
 #define ifcIDaDAM_TOOLuPLOADER                                         0x51000593
-#define ifcIDaDAM_ROOTmAILoUT                                          0x51000750
 #define ifcIDaDAM_ROOTwATCHMAN                                         0x5100059e
 #define ifcIDaDAM_ROOTgORILLA                                          0x510005a5
 #define ifcIDaDAM_ROOTlEAKlOGGER                                       0x510005a6
@@ -11810,6 +11802,13 @@ if ifcIDtYPEjOBcOURSE_NAMED is used then this value must be followed immediately
 #define ifcIDaDAM_ACCESSeVENTS6bOOKbYcONTAINERuRI                      0x51000746
 #define ifcIDaDAM_ACCESSeVENTS7rEPORTbYcONTAINERuRI                    0x51000747
 #define ifcIDaDAM_ACCESSeVENTS8aUDITbOOKS                              0x51000748
+#define ifcIDaDAM_TOOLwALKsEARCH                                       0x5100074e
+#define ifcIDaDAM_ROOTmAILoUT                                          0x51000750
+#define ifcIDaDAM_GORILLAhTTPiDEAFARMcOM                               0x51000752
+#define ifcIDaDAM_GORILLAhTTPiDEAFARMcOMrEPORTER                       0x51000754
+#define ifcIDaDAM_WATCHiDLEcPU                                         0x51000757
+#define ifcIDaDAM_MONTHLYwOtABLEnOTICEeMAILS                           0x51000758
+#define ifcIDaDAM_ROOThEAL                                                 0x5100075e
 #define ifcIDaDAM_STARTER1                                             0x51001001
 #define ifcIDaDAM_STARTER2                                             0x51001002
 #define ifcIDaDAM_STARTER3                                             0x51001003
@@ -19012,8 +19011,9 @@ after i return, that countT object will contain 1
 // 1                  DRIVER+MONITOR PROCESS                           : SIMPLE SMALL FUNCTIONAL SCOPE TO PRODUCE ENOUGH DIAGNOSTIC INFORMATION TO ANALYZE DEADLOCKS AND EXCEPTIONS; MUST BE ROCK SOLID
 // 2                  MEMBRANE ACCESSIBLE BY BOTH KERNEL AND APP CODE  : NOT CURRENTLY USED; SIMPLE SMALL FUNCTIONAL SCOPE; MUST BE ROCK SOLID
 // 3                  WATCH (MAINTENANCE AND ANCILLARY DIAGNOSTIC)     : SELF TUNING AND LEARNING, ARCHIVAL, GLASS WALLS
-// 4                  APPLICATIONS CODE                                : ALL FUNCTIONALITY GOES HERE UNLESS IT MUST GO ELSEWHERE
-// 5-fffffff7         RESERVED FOR FUTURE SYSTEM USE
+// 4                  BANGrELAY                                        : BANG RELAY INTERHOME COMMUNICATION SUBSYSTEM
+// 5                  APPLICATIONS CODE                                : ALL FUNCTIONALITY GOES HERE UNLESS IT MUST GO ELSEWHERE
+// 6-fffffff7         RESERVED FOR FUTURE SYSTEM USE
 // 00000008-ffffffff  RESERVED FOR FUTURE APPLICATION USE (WHEN SYSTEM SUPPORTS SPECIFICATION OF MEMORY SPACE)
 
 #define ifcIDmEMORYsPACE_min          1

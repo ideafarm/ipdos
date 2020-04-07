@@ -5067,6 +5067,35 @@ use this rather than _ to avoid the overhead of _
 //
 
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200541.flhomesAdams END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200542.flDiskWalk BEGIN
+
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 25 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+/*
+*/
+/**/
+/*1*//*flDISKwALK*//*1*/
+
+/*3*/
+#define flDISKwALK_DIRECTORIESoNLY           0xe0000109
+/*3*/
+#define flDISKwALK_null    0xe0000009
+
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 25 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200542.flDiskWalk END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200542.ifcIDtRACEdIVERT BEGIN
 
 
@@ -27698,7 +27727,7 @@ applications should avoid using thirdC objects
                             //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3405b.thirdC.dosAllocSharedMemIF!||
     static voidT            dosGetSharedMemIF( tinS& tinP , handleC& handleP , const osTextT* const postP , const countT idMemorySpaceP = 0 , const flagsT flagsP = flOPENsHAREDmEMORY_null ) ;
                             //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34061.thirdC.dosGetSharedMemIF!||
-    static voidT            diskWalkPrivateIF( tinS& tinP , countT& cDirsP , countT& cFilesP , osTextT* const postNameP , const boolT& bQuitP , diskWalkCBFT pCbfP = 0 , countT* const pcArgP = 0 , countT* pModuloDirsP = 0 , countT* pModuloFilesP = 0 ) ;
+    static voidT            diskWalkPrivateIF( tinS& tinP , countT& cDirsP , countT& cFilesP , osTextT* const postNameP , const boolT& bQuitP , const flagsT flagsP = flDISKwALK_null , diskWalkCBFT pCbfP = 0 , countT* const pcArgP = 0 , countT* pModuloDirsP = 0 , countT* pModuloFilesP = 0 ) ;
                             //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34192.thirdC.diskWalkPrivateIF!||
 
     static flagsT           fileAttrIfFromOsIF( tinS& tinP , flagsT osfP ) ;
@@ -28133,11 +28162,11 @@ applications should avoid using thirdC objects
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3418d.thirdC.bCanAccessMemoryIF!||
  static voidT ctrlCIF( tinS& tinP ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3418e.thirdC.ctrlCIF!||
- static voidT diskWalkIF( tinS& tinP , countT& cDirsP , countT& cFilesP , const osTextT* const postNameP , const boolT& bQuitP , diskWalkCBFT pCbfP = 0 , countT* const pcArgP = 0 , countT* pModuloDirsP = 0 , countT* pModuloFilesP = 0 ) ;
+ static voidT diskWalkIF( tinS& tinP , countT& cDirsP , countT& cFilesP , const osTextT* const postNameP , const boolT& bQuitP , const flagsT flagsP = flDISKwALK_null , diskWalkCBFT pCbfP = 0 , countT* const pcArgP = 0 , countT* pModuloDirsP = 0 , countT* pModuloFilesP = 0 ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34193.thirdC.diskWalkIF!||
  voidT diskWalkCopyF( tinS& tinP , countT& cDirsP , countT& cFilesP , const boolT& bQuitP , const osTextT* const postToP , const osTextT* const postFromP , diskWalkCopyCBFT pCbfP = 0 , countT* pcArgP = 0 ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34194.thirdC.diskWalkCopyF!||
- voidT diskWalkSearchF( tinS& tinP , countT& cDirsP , countT& cFilesP , const boolT& bQuitP , const osTextT* const postP , const osTextT* const postFindP , diskWalkSearchCBFT pCbfP = 0 , countT* pcArgP = 0 ) ;
+ voidT diskWalkSearchF( tinS& tinP , countT& cDirsP , countT& cFilesP , const boolT& bQuitP , const osTextT* const postP , const osTextT* const postFindP , const flagsT flagsP = flDISKwALK_null , diskWalkSearchCBFT pCbfP = 0 , countT* pcArgP = 0 ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3600119e.thirdc.diskWalkSearchF!||
  voidT diskZipF( tinS& tinP , const osTextT* const postToP , const osTextT* const postFromP , const flagsT flagsP = flZIP_null ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34195.thirdC.diskZipF!||
@@ -31287,11 +31316,11 @@ examples
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34067.etherC.diskSelectF!||
  boolT diskWaitDirF( tinS& tinP , handleC& handleP , const boolT& bQuitP , const strokeS* const psttDirP , const flagsT flagsP = flWAITdIR_null ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3416e.etherC.diskWaitDirF!||
- voidT diskWalkF( tinS& tinP , countT& cDirsP , countT& cFilesP , const strokeS* const psttNameP , const boolT& bQuitP , diskWalkCBFT pCbfP = 0 , countT* const pcArgP = 0 , countT* pModuloDirsP = 0 , countT* pModuloFilesP = 0 ) ;
+ voidT diskWalkF( tinS& tinP , countT& cDirsP , countT& cFilesP , const strokeS* const psttNameP , const boolT& bQuitP , const flagsT flagsP = flDISKwALK_null , diskWalkCBFT pCbfP = 0 , countT* const pcArgP = 0 , countT* pModuloDirsP = 0 , countT* pModuloFilesP = 0 ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.341ba.etherC.diskWalkF!||
  voidT diskWalkCopyF( tinS& tinP , countT& cDirsP , countT& cFilesP , const boolT& bQuitP , const strokeS* const psttToP , const strokeS* const psttFromP , diskWalkCopyCBFT pCbfP = 0 , countT* pcArgP = 0 ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.341bb.etherC.diskWalkCopyF!||
- voidT diskWalkSearchF( tinS& tinP , countT& cDirsP , countT& cFilesP , const boolT& bQuitP , const strokeS* const psttP , const osTextT* const postFindP , diskWalkSearchCBFT pCbfP = 0 , countT* pcArgP = 0 ) ;
+ voidT diskWalkSearchF( tinS& tinP , countT& cDirsP , countT& cFilesP , const boolT& bQuitP , const strokeS* const psttP , const osTextT* const postFindP , const flagsT flagsP = flDISKwALK_null , diskWalkSearchCBFT pCbfP = 0 , countT* pcArgP = 0 ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.360021e5.etherC.diskWalkSearchF!||
  voidT diskZipF( tinS& tinP , const strokeS* const psttToP , const strokeS* const psttFromP , const flagsT flagsP = flZIP_null ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.341bc.etherC.diskZipF!||
@@ -43927,8 +43956,8 @@ i am nonconformant in that all of my member function definitions are in a single
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/func.36143003.fileWindowsC.fileWindowsC!||
     voidT getF( tinS& tinP , byteT*& pbP , countT& cbP , const countT cbWantP = TICK >> 2 ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.36143004.fileWindowsC.getF!||
-    inline countT cbFileHiF( voidT ) const { return cbFileHi ; }
     inline countT cbFileLoF( voidT ) const { return cbFileLo ; }
+    inline countT cbFileHiF( voidT ) const { return cbFileHi ; }
 }
 ;
 

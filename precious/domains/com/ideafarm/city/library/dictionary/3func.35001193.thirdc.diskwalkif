@@ -10,7 +10,7 @@
 }
     _OUT_
 
-    diskWalkPrivateIF( tinP , cDirsP , cFilesP , postBuffer , bQuitP , pCbfP , pcArgP , pModuloDirsP , pModuloFilesP ) ;
+    diskWalkPrivateIF( tinP , cDirsP , cFilesP , postBuffer , bQuitP , flagsP , pCbfP , pcArgP , pModuloDirsP , pModuloFilesP ) ;
     
     BOSdOnOTtEST( WHATgbo , strcpy( postBuffer , postNameP ) )
     osTextT postBuffer[ TUCK << 1 ] ; //A:ASSUME: THIS IS BIG ENOUGH TO HOLD THE LONGEST POSSIBLE DIRECTORY NAME INCLUDING DRIVE INDICATOR PLUS TERMINATING '\' PLUS TERMINATING 0
@@ -33,12 +33,13 @@
         __( costLike < 1 ) ;
         countT costLike = c_strlenIF( tinP , postNameP ) ;
         if( POOP ) return ;
+        FV( flDISKwALK , flagsP ) ;
         __Z( postNameP ) ;
         if( POOP ) return ;
     {
     IFbEcAREFUL
 {
-/*1*/voidT thirdC::diskWalkIF( tinS& tinP , countT& cDirsP , countT& cFilesP , const osTextT* const postNameP , const boolT& bQuitP , diskWalkCBFT pCbfP , countT* const pcArgP , countT* pModuloDirsP , countT* pModuloFilesP )/*1*/
+/*1*/voidT thirdC::diskWalkIF( tinS& tinP , countT& cDirsP , countT& cFilesP , const osTextT* const postNameP , const boolT& bQuitP , const flagsT flagsP , diskWalkCBFT pCbfP , countT* const pcArgP , countT* pModuloDirsP , countT* pModuloFilesP )/*1*/
 
 /**/
 */
