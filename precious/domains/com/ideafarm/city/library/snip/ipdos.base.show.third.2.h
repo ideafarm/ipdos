@@ -7839,7 +7839,7 @@ typedef boolT (*/*ff*/diskWalkCBFT/*ff*/)( tinS& tinP , countT& cDirsP , countT&
 /**/
 /*1*//*diskWalkCopyCBFT*//*1*/
 
-typedef boolT (*/*ff*/diskWalkCopyCBFT/*ff*/)( tinS& tinP , countT& cDirsP , countT& cFilesP , const osTextT* const postNameP , countT* const pcArgP ) ; /*ff*//**//*ff*/
+typedef boolT (*/*ff*/diskWalkCopyCBFT/*ff*/)( tinS& tinP , countT& cDirsP , countT& cFilesP , const boolT& bQuitP , const osTextT* const postNameP , countT* const pcArgP ) ; /*ff*//**//*ff*/
 
 
 //
@@ -8065,7 +8065,7 @@ typedef boolT (*/*ff*/diskWalkCopyCBFT/*ff*/)( tinS& tinP , countT& cDirsP , cou
 /**/
 /*1*//*diskWalkSearchCBFT*//*1*/
 
-typedef boolT (*/*ff*/diskWalkSearchCBFT/*ff*/)( tinS& tinP , countT& cDirsP , countT& cFilesP , const osTextT* const postNameP , countT* const pcArgP ) ; /*ff*//**//*ff*/
+typedef boolT (*/*ff*/diskWalkSearchCBFT/*ff*/)( tinS& tinP , countT& cDirsP , countT& cFilesP , const boolT& bQuitP , const osTextT* const postNameP , countT* const pcArgP ) ; /*ff*//**//*ff*/
 
 
 //
