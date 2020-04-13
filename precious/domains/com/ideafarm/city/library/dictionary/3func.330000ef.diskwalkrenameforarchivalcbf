@@ -40,11 +40,15 @@
                                     (
                                     while
                                     }
-                                        tNewFileMetaPathLeaf    = tTo+tNewPrefix+tTimePair+tDot+tSequenceNumber+tDot+tHash+tDot+TF3(  idSeq,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE|flFORMAT_FOREIGN,8)+tDotTypeMetaDotPathLeaf    ;
-                                        tNewFileMetaPathRoot    = tTo+tNewPrefix+tTimePair+tDot+tSequenceNumber+tDot+tHash+tDot+TF3(  idSeq,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE|flFORMAT_FOREIGN,8)+tDotTypeMetaDotPathRoot    ;
-                                        tNewFileMetaCurrentName = tTo+tNewPrefix+tTimePair+tDot+tSequenceNumber+tDot+tHash+tDot+TF3(  idSeq,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE|flFORMAT_FOREIGN,8)+tDotTypeMetaDotCurrentName ;
-                                        tNewFileMetaHashedName  = tTo+tNewPrefix+tTimePair+tDot+tSequenceNumber+tDot+tHash+tDot+TF3(  idSeq,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE|flFORMAT_FOREIGN,8)+tDotTypeMetaDotHashedName  ;
-                                        tNewFileData            = tTo+tNewPrefix+tTimePair+tDot+tSequenceNumber+tDot+tHash+tDot+TF3(++idSeq,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE|flFORMAT_FOREIGN,8)+tDotTypeData+tDotExt       ;
+                                        tNewFileMetaPathLeaf    = tPart1+tDotTypeMetaDotPathLeaf    ;
+                                        tNewFileMetaPathRoot    = tPart1+tDotTypeMetaDotPathRoot    ;
+                                        tNewFileMetaCurrentName = tPart1+tDotTypeMetaDotCurrentName ;
+                                        tNewFileMetaHashedName  = tPart1+tDotTypeMetaDotHashedName  ;
+                                        tNewFileData            = tPart1+tDotTypeData+tDotExt       ;
+
+                                        TN( tPart1 , "" ) ; tPart1 = tTo+tNewPrefix+tTimePair+tDot+tHash+tDot+TF3(++idSeq,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE|flFORMAT_FOREIGN,3) ;
+
+                                        //20200410@1946: MIGRATE FROM FORMAT 8 TO FORMAT 9 BY EDITING THE FOLLOWING CODE
 
                                         //U:: DECISION: FOR THE NEXT FORMAT REVISION, ELIMINATE tSequenceNumber AND SHORTEN THE RENDERING OF idSeq TO 3 OR 4
                                         //U:: LOOK: WHAT IS THE ORIGIN OF THE tSequenceNumber VALUE?: IT IS FROM A FORMAT 6 NAME
@@ -344,11 +348,10 @@
                 textC**  pptSpecP         =  (textC**)infoP.pcArgApp[ 1 ] ;
                 osTextT* postzToP         = (osTextT*)infoP.pcArgApp[ 0 ] ;
             {
-            if( !etThread.strIdF( tinP , tSlash+tIdeaFarmDot7Dot , tOld ) )
+            if( !etThread.strIdF( tinP , tSlash+tIdeaFarmDot9Dot , tOld ) )
             TN( tSlash , "/" ) ;
             TN( tOld , ifFileNameC( tinP , etThread , postNameP ) ) ;                                       // OLD IFC FILE NAME
-            TN( tIdeaFarmDot7Dot , "!ideafarm.8.2.00000000.00000001." ) ;
-            TN( tIdeaFarmDot6Dot , "!ideafarm.6." ) ;
+            TN( tIdeaFarmDot9Dot , "!ideafarm.9.2.00000000.00000001." ) ;                                   //U:: idOwner IS HARDCODED HERE TO ".2.00000000.00000001." (FOREIGN ORDERING)
             etherC& etThread = *tinP.pEther ;
         {
         if( bDoIt )

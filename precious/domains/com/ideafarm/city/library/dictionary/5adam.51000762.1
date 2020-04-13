@@ -21,7 +21,7 @@ textC* ptRoot[] = { &tRoot1 , &tRoot2 , &tRoot3 , &tRoot4 , &tRoot5 , &tRoot6 , 
 
 //textC* ptRoot[] = { &tRootTest } ;
 
-TN( tRootTest , "///d/archive.test/1999/" ) ;
+TN( tRootTest , "///d/archive.test/" ) ;
 
 TN( tRootc , "////factory9/z/archive/" ) ;
 TN( tRootb , "////factory9/y/archive.snap/" ) ;
@@ -44,39 +44,8 @@ strokeS sttq( 0 , sc_IGNOREqUOTES ) ;
 
     +S2(sa_SSSaNDeND,sc_ccSSS)
 
-        +T(".")
+        +T(".!.")
         // TERMINATOR
-
-        +S2(sa_SSSoReND,sc_ccSSS)
-            +S2(sa_SSSmARKnUMERICf,sc_cSSSmARK)
-        +S2(sa_SSSoR,sc_ccSSS)
-        +S3(2,sc_ccSSSrEPEAT,2)
-        +T(".")
-        // SEQUENCE NUMBER
-
-        +S2(sa_SSSoReND,sc_ccSSS)
-            +S2(sa_SSSmARKnUMERICf,sc_cSSSmARK)
-        +S2(sa_SSSoR,sc_ccSSS)
-        +S3(2,sc_ccSSSrEPEAT,2)
-        +T(".")
-        // SEQUENCE NUMBER
-
-        +S2(sa_SSSoReND,sc_ccSSS)
-            +T("xz")                                                 // "x" OR "z" ARE ALLOWED AS A DIGIT.  IT MEANS "UNKNOWN"
-            +S2(sa_SSSmARKnUMERIC9,sc_cSSSmARK)
-        +S2(sa_SSSoR,sc_ccSSS)
-        +S3(2,sc_ccSSSrEPEAT,2)
-        +S2(sa_SSSoReND,sc_ccSSS)
-            +T("012xz")
-        +S2(sa_SSSoR,sc_ccSSS)
-        +T("@")
-        +S2(sa_SSSoReND,sc_ccSSS)
-            +T("xz")                                                 // "x" OR "z" ARE ALLOWED AS A DIGIT.  IT MEANS "UNKNOWN"
-            +S2(sa_SSSmARKnUMERIC9,sc_cSSSmARK)
-        +S2(sa_SSSoR,sc_ccSSS)
-        +S3(7,sc_ccSSSrEPEAT,7)
-        +T(".")
-        // DATETIME
 
         +S2(sa_SSSoReND,sc_ccSSS)
             +T("xz")                                                 // "x" OR "z" ARE ALLOWED AS A DIGIT.  IT MEANS "UNKNOWN"
@@ -115,28 +84,20 @@ strokeS sttq( 0 , sc_IGNOREqUOTES ) ;
     +S2(sa_SSSaND,sc_ccSSS)
     T("")
 
+    // OLD: /!ideafarm.8.2.00000000.00000001.00000000@0000.!.control.page.keywords
+
 TN( tPatternOld , "" ) ; tPatternOld =
 
 TN( tSlashHey , "/!" ) ;
 TN( tSlash    , "/" ) ;
 TN( tDuplicatesSlash , "duplicates/" ) ;
 
-// KEEP: ---------------------------------------------------------------------------------    ----------------------------------------------------------------------->
-//  OLD: ///z/archive/1999/!ideafarm.8.2.00000000.00000001.19990903@1308.20150910@0202.001.001.7d84358e991c2d16afaa9d1acb468f55.00000001.meta.currentname
-//                        123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef0
-//                        0              1               2               3               4               5               6               7               8               9               a
-
-// KEEP: -------------------------------------------------------------------------------------------    ----------------------------------------------------------------------->
-//  OLD: ////factory9/z/archive/1999/!ideafarm.8.2.00000000.00000001.19990903@1308.20150910@0202.001.001.7d84358e991c2d16afaa9d1acb468f55.00000001.meta.currentname
-//                                  123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef0
-//                                  0              1               2               3               4               5               6               7               8               9               a
-
 TODO
 
 DONE( tmWorkerF )
 }
     etThread.traceF( tinP , T("root ---- [cFiles,cDirs]:    ")+*ptRootP+tb4+TF2(cFiles,flFORMAT_UNSIGNED|flFORMAT_NObIGITvALUES)+tb4+TF2(cDirs,flFORMAT_UNSIGNED|flFORMAT_NObIGITvALUES) ) ;
-    etThread.diskWalkF( tinP , cDirs , cFiles , *ptRootP , ether , flDISKwALK_null , cleanCBF , pcArgInnerP , 0 , 0 ) ;
+    etThread.diskWalkF( tinP , cDirs , cFiles , *ptRootP , ether , flDISKwALK_null , renameCBF , pcArgInnerP , 0 , 0 ) ;
     etThread.traceF( tinP , T("root ++++               :    ")+*ptRootP ) ;
     ZE( countT , cFiles ) ;
     ZE( countT , cDirs ) ;
@@ -234,9 +195,9 @@ TASK( tmWorkerF )
             IFsCRATCH
 
             etherP.traceF( tinP , T("new duplicate: ")+tNewPathRoot+tDuplicatesSlashP+tNewLeafShort ) ;
-            etherP.traceF( tinP , T("leaf: ")+tNewLeafShort ) ;
-            etherP.traceF( tinP , T("root: ")+tNewPathRoot ) ;
-            etherP.traceF( tinP , T(" new: ")+tNameNew ) ;
+            etherP.traceF( tinP , T("         leaf: ")+tNewLeafShort ) ;
+            etherP.traceF( tinP , T("         root: ")+tNewPathRoot ) ;
+            etherP.traceF( tinP , T("          new: ")+tNameNew ) ;
 
             }
                 etherP.delF( tinP , psttNewLeafShort ) ;
@@ -251,17 +212,12 @@ TASK( tmWorkerF )
             TN( tNewPathRoot , "" ) ;
 
             }
-                etherP.delF( tinP , psttSnip2 ) ;
                 etherP.delF( tinP , psttSnip1 ) ;
                 tNameNew = T(psttSnip1) ;
-                etherP.strFuseF( tinP , psttSnip1 , psttSnip2 ) ;
-                etherP.strSubstringF( tinP , psttSnip2 , idf , idl , tNameOld ) ; ___( psttSnip2 ) ;
-                idl = 0 ;
-                idf = idHitSlashHey + 0x45 ;
-                ZE( strokeS* , psttSnip2 ) ;
 
-                etherP.strSubstringF( tinP , psttSnip1 , idf , idl , tNameOld , tNameOld.csF( tinP ) ) ; ___( psttSnip1 ) ;
-                countT idl = idHitSlashHey + 0x40 ;
+                psttSnip1[ CSpREFIX + idHitSlashHey - 2 + 0xc ].idAdam = '9' ;
+                etherP.strSubstringF( tinP , psttSnip1 , idf , idl , tNameOld ) ; ___( psttSnip1 ) ;
+                countT idl = 0 ;
                 countT idf = 1 ;
                 ZE( strokeS* , psttSnip1 ) ;
             {
@@ -269,6 +225,11 @@ TASK( tmWorkerF )
 
             etherP.traceF( tinP , T("old: ")+tNameOld ) ;
             etherP.traceF( tinP , T("------------------------------------------------------------------") ) ;
+
+            //  NEW: /!ideafarm.9.2.00000000.00000001.00000000@0000.!.control.page.keywords
+            //  OLD: /!ideafarm.8.2.00000000.00000001.00000000@0000.!.control.page.keywords
+            //       123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef0
+            //       0              1               2               3               4               5               6               7               8               9               a
         {
         if( idHitSlashHey && idHit == idHitSlashHey )
         //etherP.traceF( tinP , T("[idHit,name:    ")+TF2(idHit,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+tNameOld ) ;
@@ -291,15 +252,15 @@ TASK( tmWorkerF )
     {
     if( postNameP )
 {
-boolT cleanCBF( tinS& tinP , countT& cDirsP , countT& cFilesP , const boolT& bQuitP , const osTextT* const postNameP , countT* const pcArgP , const countT* const pModuloDirsP , const countT* const pModuloFilesP )
+boolT renameCBF( tinS& tinP , countT& cDirsP , countT& cFilesP , const boolT& bQuitP , const osTextT* const postNameP , countT* const pcArgP , const countT* const pModuloDirsP , const countT* const pModuloFilesP )
 
 
 
-// NEW: ////factory9/z/archive/1999/!ideafarm.8.2.00000000.00000001.19990903@1308.20150910@0202.001.7d84358e991c2d16afaa9d1acb468f55.00000001.meta.currentname
-// OLD: ////factory9/z/archive/1999/!ideafarm.8.2.00000000.00000001.19990903@1308.20150910@0202.001.001.7d84358e991c2d16afaa9d1acb468f55.00000001.meta.currentname
+// NEW: ////factory9/z/archive/1999/!ideafarm.9.2.00000000.00000001.00000000@0000.!.control.page.keywords
+// OLD: ////factory9/z/archive/1999/!ideafarm.8.2.00000000.00000001.00000000@0000.!.control.page.keywords
 
 
-/*1*/WAKEsHOWtEXT( "tool.clean.archive.file.names.eliminate.ooth.sequence.number" )/*1*/
+/*1*/WAKEsHOWtEXT( "tool.archive.migrate.format.8.names.to.format.9.control.files" )/*1*/
 /**/
 */
 /*

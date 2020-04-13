@@ -34,9 +34,13 @@
                             (
                             while
                             }
-                                tNewFileMetaCurrentName = tPath+tNewPrefix+tTimePair+tDot+tSequenceNumber+tDot+tHash+tDot+TF3(  idSeq,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE|flFORMAT_FOREIGN,8)+tDotTypeMetaDotCurrentName ;
-                                tNewFileMetaHashedName  = tPath+tNewPrefix+tTimePair+tDot+tSequenceNumber+tDot+tHash+tDot+TF3(  idSeq,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE|flFORMAT_FOREIGN,8)+tDotTypeMetaDotHashedName ;
-                                tNewFileData            = tPath+tNewPrefix+tTimePair+tDot+tSequenceNumber+tDot+tHash+tDot+TF3(++idSeq,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE|flFORMAT_FOREIGN,8)+tDotTypeData+tDotExt ;
+                                tNewFileMetaCurrentName = tPart1+tDotTypeMetaDotCurrentName ;
+                                tNewFileMetaHashedName  = tPart1+tDotTypeMetaDotHashedName ;
+                                tNewFileData            = tPart1+tDotTypeData+tDotExt ;
+
+                                //U::20200410@2003: CONJ: THIS CODE IS INCOMPLETE ; THERE ARE NOW MORE META FILES IN EACH FILE GROUP
+
+                                TN( tPart1 , "" ) ; tPart1 = tPath+tNewPrefix+tTimePair+tDot+tHash+tDot+TF3(++idSeq,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE|flFORMAT_FOREIGN,3) ;
                             {
                             do
                             ZE( countT , idSeq ) ;
@@ -209,7 +213,7 @@
     TN( tDotTypeMetaDotCurrentName , ".meta.currentname" ) ;
     TN( tDotTypeMetaDotHashedName , ".meta.hashedname" ) ;
     TN( tDotTypeData , ".data" ) ;
-    TN( tNewPrefix , "!ideafarm.8.2.00000000.00000001." ) ;
+    TN( tNewPrefix , "!ideafarm.9.2.00000000.00000001." ) ;
     TN( tOsLikePath , osFileNameC( tinP , third , T(psttFolderMapped) ) ) ;
     TN( tSDDS , "/../" ) ;
     TN( tSDS , "/./" ) ;
@@ -276,7 +280,7 @@
     // EXAMPLE: !ideafarm.6.19981028@0000.001.!.day.title.ttt
     // EXAMPLE: !ideafarm.6.19991228@0000.001.000b3751.c44d5e6f.2f9afda7.scanner.!.19991228@0000.notarized.declaration.of.legal.name.change.0600x.jpg
 
-    //FILE NAME FORMAT: !ideafarm.8.2.00000000.00000001.
+    //FILE NAME FORMAT: !ideafarm.9.2.00000000.00000001.
 
     diskMapFileNameF( tinP , psttFolderMapped , psttFolderP ) ; ___( psttFolderMapped ) ;
     ZE( strokeS* , psttFolderMapped ) ;
