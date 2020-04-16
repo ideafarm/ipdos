@@ -1,5 +1,15 @@
 
-#define STR(pP) #pP
+#define IDcOMPUTER_FACTORY9            0xd685e27b
+#define IDcOMPUTER_FACTORY8            0x0
+#define IDcOMPUTER_FACTORY7            0x0
+#define IDcOMPUTER_FACTORY6            0x60720304
+#define IDcOMPUTER_FACTORY5            0x46c24685
+#define IDcOMPUTER_FACTORY4            0x224b6954
+#define IDcOMPUTER_FACTORY3            0xae55c831
+#define IDcOMPUTER_FACTORY2            0xe01a30fa
+#define IDcOMPUTER_FACTORY1            0xbe29b623
+
+#define ifcSTR(pP) #pP
 
 // IPDOS (tm) <> IdeaFarm (tm) Piggyback Distributed Operating System
 

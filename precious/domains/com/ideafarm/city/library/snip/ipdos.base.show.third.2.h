@@ -4027,7 +4027,6 @@ parameters
 #define IDcOMPUTER_IPDOSmASTERcRAFTWORK IDcOMPUTER_FACTORY1
 
 #define IDcOMPUTER_FACTORY1            0xbe29b623
-#define IDcOMPUTER_FACTORY2            0x54867b1a
 
 //
 // Respecting the rights of other people is an important part of empowering one another.
