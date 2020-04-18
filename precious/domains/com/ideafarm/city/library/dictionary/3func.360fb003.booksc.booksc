@@ -49,7 +49,7 @@
         //CONoUTrAW3( "[heap.cNew-cDel]:    " , processGlobal3S::_processGlobal3I_IF().heap.cNewF()-processGlobal3S::_processGlobal3I_IF().heap.cDelF() , "    psttFindLike\r\n" ) ;
         }
             tinP.pEther->strMakeF( tinP , psttFindLike , tLike ) ; ___( psttFindLike ) ;
-            tLike += T("/ideafarm/ipdos/memorySpaces/")+T(thirdC::postUserNameIF())+T("/")+TF2(idMemorySpace,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("/stateSpaces/")+TF2(idStateSpace,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("/")+T(postNameShort)+T(".booksC.1.book.*.bookC") ;
+            tLike += T("/ideafarm/ipdos/memorySpaces/")+T(thirdC::postUserNameIF())+T("/")+TF2(idMemorySpace?idMemorySpace:tinP.pAdamGlobal1->idMemorySpace,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("/stateSpaces/")+TF2(idStateSpace,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("/")+T(postNameShort)+T(".booksC.1.book.*.bookC") ;
             TN( tLike , "///ideafarm/ephemeral/backed.up.daily/domains/com" ) ;
         {
         if( !( F(flagsCt) & flBOOKSc_DOnOTuSEpUSE ) )
@@ -144,6 +144,7 @@
 
     }
         if( POOP ) return ;
+        __( idMemorySpaceP && !( F(tinP.flagsThreadMode3) & flTHREADmODE3_ALLOWeXPLICITmEMORYsPACE ) && thirdC::third_idPhaseAdam_IF( tinP ) >= ifcIDpHASEaDAM_PROLOGaDAMmAIN1 && thirdC::third_idPhaseAdam_IF( tinP ) < ifcIDpHASEaDAM_EPILOGaDAMmAINa1 ) ;
         //U:: DESIGN PROBLEM: INSTANCE SHARED BY MULTIPLE PROCESSES CANNOT PURGEoNcT: __NZ( F(flagsCt) & flBOOKSc_CYCLE && !( F(flagsCt) & flBOOKSc_PURGEoNcT ) ) ;
         __NZ( cbP && !( F(flagsP) & flBOOKSc_WRITER ) ) ;
         FV( flBOOKSc , flagsP ) ;
@@ -197,7 +198,7 @@ cKeepInactive( cKeepInactiveP ) ,
     tinP , idLineCtP , idiFileCtP , pbBitsCtP ,
 (
 grabBookNow
-idMemorySpace( idMemorySpaceP ? idMemorySpaceP : tinP.pAdamGlobal1->idMemorySpace ) ,
+idMemorySpace( idMemorySpaceP ) ,
 idStateSpace( idStateSpaceP ) ,
 cbBodyNew( cbP ) ,
 postBookNameScratch( 0 ) ,

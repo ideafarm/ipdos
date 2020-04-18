@@ -15662,7 +15662,7 @@ TASK0PROTO( tmRelayBlowTeatF ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34004.poopC.gruntF!||
  voidT resetF( voidT ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34005.poopC.resetF!||
- voidT chatterF( tinS& tinP ) const ;
+ voidT chatterF( tinS& tinP , const countT idLineP , const countT idiFileP ) const ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34006.poopC.chatterF!||
  inline flagsT flagsF( voidT ) const { return flags ; }
 

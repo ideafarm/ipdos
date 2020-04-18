@@ -287,6 +287,13 @@
             {
             case ifcIDaDAM_KERNEL2MONITOR :
             case ifcIDaDAM_KERNEL1DRIVER :
+            }
+                break ;
+                //conGF( "memory space changed\r\n" ) ;
+                bMemorySpaceChanged = 1 ;
+                *(countT*)&tinP.pAdamGlobal1->idMemorySpace = ifcIDmEMORYsPACE_CLOAK ; //ifcIDmEMORYsPACE_CLOAK IS RESERVED FOR THE EXCLUSIVE USE OF ifcIDaDAM_CLOAK (ANTI-MALWARE SYSTEM INTEGRITY CHECKER)
+            {
+            case ifcIDaDAM_CLOAK :
         {
         switch( processGlobal1I.idAdamRoot )
         ZE( boolT , bMemorySpaceChanged ) ;
@@ -498,7 +505,7 @@
         )
             F(flagsCt) & flNAPKINc_USEgRABuNIVERSEoVERRIDE
             ||
-            idMemorySpaceP != tinP.pAdamGlobal1->idMemorySpace
+            ( idMemorySpaceP && idMemorySpaceP != tinP.pAdamGlobal1->idMemorySpace )
         (
         &&
         !( F(flagsCt) & flNAPKINc_DOnOTsERIALIZEcT )
@@ -539,7 +546,8 @@
     //{
     //if( this == &processGlobal3I._grabC_napGrabWant )
 
-    if( !idMemorySpaceP ) idMemorySpaceP = tinP.pAdamGlobal1->idMemorySpace ;
+    //if( !idMemorySpaceP ) idMemorySpaceP = tinP.pAdamGlobal1->idMemorySpace ;
+    //20200417@1855: KEEP idMemorySpaceP NULL SO THAT CALLER DOES NOT HAVE TO SET flTHREADmODE3_ALLOWeXPLICITmEMORYsPACE
 
     //}
     //    cbP += sizeof( countT ) ;
@@ -606,6 +614,7 @@
 
     }
         if( POOP ) BLAMMO ;
+        __( idMemorySpaceP && !( F(tinP.flagsThreadMode3) & flTHREADmODE3_ALLOWeXPLICITmEMORYsPACE ) && thirdC::third_idPhaseAdam_IF( tinP ) >= ifcIDpHASEaDAM_PROLOGaDAMmAIN1 && thirdC::third_idPhaseAdam_IF( tinP ) < ifcIDpHASEaDAM_EPILOGaDAMmAINa1 ) ;
         __( F(tinP.flagsThreadMode3) & flTHREADmODE3_SUPPRESStRACING ) ;  // I USE THIS FLAG IN A WAY THAT DOES NOT SUPPORT RECURSION (I AND formattingIsDoneF RESET THE FLAG RATHER THAN USE RESTORE)
         if( POOP ) BLAMMO ; //U:: TO FIND A BUG
         FV(flNAPKINc,flagsCt)

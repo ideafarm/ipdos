@@ -1,4 +1,19 @@
 
+#define ifcIDmEMORYsPACE_max          6
+#define ifcIDmEMORYsPACE_APPLICATIONS 6
+#define ifcIDmEMORYsPACE_BANGrELAY    5
+#define ifcIDmEMORYsPACE_WATCH        4
+#define ifcIDmEMORYsPACE_MEMBRANE     3
+#define ifcIDmEMORYsPACE_KERNEL       2
+#define ifcIDmEMORYsPACE_CLOAK        1
+#define ifcIDmEMORYsPACE_min          1
+
+#define ifcIDaDAM_CLOAK                                                0x51000767
+
+#define POOPRqUIET { ((poopC&)POOP).resetF() ; }
+
+#define POOPR { ((poopC&)POOP).chatterF( tinP , LF ) ; ((poopC&)POOP).resetF() ; }
+
 #define IDcOMPUTER_FACTORY9            0xd685e27b
 #define IDcOMPUTER_FACTORY8            0x0
 #define IDcOMPUTER_FACTORY7            0x0
@@ -19028,14 +19043,6 @@ after i return, that countT object will contain 1
 // 6-fffffff7         RESERVED FOR FUTURE SYSTEM USE
 // 00000008-ffffffff  RESERVED FOR FUTURE APPLICATION USE (WHEN SYSTEM SUPPORTS SPECIFICATION OF MEMORY SPACE)
 
-#define ifcIDmEMORYsPACE_min          1
-#define ifcIDmEMORYsPACE_KERNEL       1
-#define ifcIDmEMORYsPACE_MEMBRANE     2
-#define ifcIDmEMORYsPACE_WATCH        3
-#define ifcIDmEMORYsPACE_BANGrELAY    4
-#define ifcIDmEMORYsPACE_APPLICATIONS 5
-#define ifcIDmEMORYsPACE_max          5
-
 
 //
 // Respecting the rights of other people is an important part of empowering one another.
@@ -23375,7 +23382,6 @@ examples
 
 /*1*//*POOPR*//*1*/
 
-#define POOPR ((poopC&)POOP).resetF() ;
 
 
 //
@@ -39209,6 +39215,7 @@ args
 #define flTHREADmODE3_GO                                        0xe08000c8
 #define flTHREADmODE3_LOGsPINcALLnEST                           0xe10000c8
 #define flTHREADmODE3_POOLaLLOCATEfROMhEAP                      0xe20000c8
+#define flTHREADmODE3_ALLOWeXPLICITmEMORYsPACE                  0xe40000c8
 /*3*/
 #define flTHREADmODE3_null    0xe00000c8
 

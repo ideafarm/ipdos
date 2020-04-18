@@ -16,10 +16,12 @@
     //CS:CODEsYNC: 2340004 2340005
     _INoLD_
 
-    if( !idMemorySpaceP ) idMemorySpaceP = tinP.pAdamGlobal1->idMemorySpace ;
+    //if( !idMemorySpaceP ) idMemorySpaceP = tinP.pAdamGlobal1->idMemorySpace ;
+    //20200417@1911: PRESERVE NULL idMemorySpaceP TO AVOID FORCING CALLER TO SET flTHREADmODE3_ALLOWeXPLICITmEMORYsPACE
 
     }
         if( POOP ) return ;
+        __( idMemorySpaceP && !( F(tinP.flagsThreadMode3) & flTHREADmODE3_ALLOWeXPLICITmEMORYsPACE ) && thirdC::third_idPhaseAdam_IF( tinP ) >= ifcIDpHASEaDAM_PROLOGaDAMmAIN1 && thirdC::third_idPhaseAdam_IF( tinP ) < ifcIDpHASEaDAM_EPILOGaDAMmAINa1 ) ;
         __( tP.csF( tinP ) ) ;
         __Z( idMemorySpaceP ) ;
         __Z( idStateSpaceP ) ;

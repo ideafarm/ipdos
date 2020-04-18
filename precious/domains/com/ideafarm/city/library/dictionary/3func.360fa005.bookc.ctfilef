@@ -44,7 +44,7 @@
             OStEXTC(  ostoName , idStateSpaceP , 0 ) ;                                                              thirdC::dosCreateDirIF( tinP , ostoName ) ;
             OStEXTAK( ostoName , "\\" ) ;
             OStEXTAK( ostoName , "\\stateSpaces" ) ;                                                                thirdC::dosCreateDirIF( tinP , ostoName ) ;
-            OStEXTC(  ostoName , idMemorySpaceP , 0 ) ;                                                             thirdC::dosCreateDirIF( tinP , ostoName ) ;
+            OStEXTC(  ostoName , idMemorySpaceP ? idMemorySpaceP : tinP.pAdamGlobal1->idMemorySpace , 0 ) ;         thirdC::dosCreateDirIF( tinP , ostoName ) ;
             OStEXTAK( ostoName , "\\" ) ;
             OStEXTA(  ostoName , thirdC::postUserNameIF() ) ;                                                       thirdC::dosCreateDirIF( tinP , ostoName ) ;
             OStEXTAK( ostoName , "\\" ) ;
@@ -73,14 +73,15 @@
 
     }
         if( POOP ) return ;
-        __Z( idMemorySpaceP ) ;
+        __( idMemorySpaceP && !( F(tinP.flagsThreadMode3) & flTHREADmODE3_ALLOWeXPLICITmEMORYsPACE ) && thirdC::third_idPhaseAdam_IF( tinP ) >= ifcIDpHASEaDAM_PROLOGaDAMmAIN1 && thirdC::third_idPhaseAdam_IF( tinP ) < ifcIDpHASEaDAM_EPILOGaDAMmAINa1 ) ;
         __Z( idStateSpaceP ) ;
         __Z( postNameP ) ;
         if( POOP ) return ;
     {
     IFbEcAREFUL    
 
-    if( !idMemorySpaceP ) idMemorySpaceP = tinP.pAdamGlobal1->idMemorySpace ;
+    //if( !idMemorySpaceP ) idMemorySpaceP = tinP.pAdamGlobal1->idMemorySpace ;
+    //20200417@1855: KEEP idMemorySpaceP NULL SO THAT CALLER DOES NOT HAVE TO SET flTHREADmODE3_ALLOWeXPLICITmEMORYsPACE
 {
 /*1*/voidT bookC::ctFileF( tinS& tinP , const osTextT* const postNameP , const countT idStateSpaceP , countT idMemorySpaceP )/*1*/
 
