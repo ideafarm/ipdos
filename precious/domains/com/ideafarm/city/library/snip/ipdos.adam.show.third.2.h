@@ -25907,6 +25907,7 @@ the element size must be an integral multiple of 2 between 1 and TOCK
     const        countT idiFileCt ;
     const        byteT  pbBitsCt[ CBbITScT ] ;
 
+    const countT idMemorySpaceCt ;
     byteT        pbDockFile[      SIZEOF_fileC   << 2 ] ; // cDocks IS IMPLICITLY SET HERE BY "<< 2"
     byteT        pbDockNapkin[    SIZEOF_napkinC << 2 ] ; // cDocks IS IMPLICITLY SET HERE BY "<< 2"
     countT       pcDockOffNapkin[ 1              << 2 ] ; // cDocks IS IMPLICITLY SET HERE BY "<< 2"
@@ -25931,7 +25932,7 @@ the element size must be an integral multiple of 2 between 1 and TOCK
 
     ~napkinsC( voidT ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.36139002.napkinsC.dt_napkinsC!||
-    napkinsC( tinS& tinP , const countT idLineCtP , const countT idiFileCtP , const byteT* const pbBitsCtP , const osTextT* const postP , countT expCbPerNapkinP , countT expCbPerItemP , const countT idStateSpaceP = 0 , const flagsT flagsP = flNAPKINSc_null ) ;
+    napkinsC( tinS& tinP , const countT idLineCtP , const countT idiFileCtP , const byteT* const pbBitsCtP , const osTextT* const postP , countT expCbPerNapkinP , countT expCbPerItemP , const countT idStateSpaceP = 0 , const flagsT flagsP = flNAPKINSc_null , const countT idMemorySpaceP = 0 ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.36139003.napkinsC.napkinsC!||
     byteT* operator []( const countT offElementP ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.36139004.napkinsC.operator_element!||
