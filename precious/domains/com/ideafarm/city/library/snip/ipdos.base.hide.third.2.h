@@ -43568,6 +43568,7 @@ VARIABLEcLASSdEF( countC , countT )
     const countT idStateSpaceCt ;
     const countT expNodesPerNapkinCt ;
     const countT cNodeMaxCt ;
+    const countT idMemorySpaceCt ;
 
     boolT newStepF( tinS& tinP ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3613b005.bitTreeC.newStepF!||
@@ -43586,7 +43587,7 @@ VARIABLEcLASSdEF( countC , countT )
 
     ~bitTreeC( voidT ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3613b002.bitTreeC.dt_bitTreeC!||
-    bitTreeC( tinS& tinP , const osTextT* const postP , const flagsT flagsP = flBITtREEc_null , const countT idStateSpaceP = 0 , const countT expNodesPerNapkinP = 0x15 , const countT cNodeMaxP = 0 ) ;
+    bitTreeC( tinS& tinP , const osTextT* const postP , const flagsT flagsP = flBITtREEc_null , const countT idStateSpaceP = 0 , const countT expNodesPerNapkinP = 0x15 , const countT cNodeMaxP = 0 , const countT idMemorySpaceP = 0 ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3613b003.bitTreeC.bitTreeC!||
 
     voidT newF( tinS& tinP , const countT idLineP , const countT idiFileP , const byteT* pbBitsP , countT offBitP , countT cBitsP , countT* const pcDatumP = 0 ) ;
