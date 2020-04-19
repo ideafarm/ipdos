@@ -163,7 +163,7 @@ DONE( tmCountF )
     cFilesP -- ;
     cDirsP -- ;
 
-    thirdC::diskWalkIF( tinP , cDirsP , cFilesP , postFROM , *(boolT*)&(const boolT&)ether ) ;
+    thirdC::diskWalkIF( tinP , cDirsP , cFilesP , postFROM , ether ) ;
 
     ++ s ; ether.osSleepF( tinP , TOCK << 3 ) ;
     sleepC s( tinP , TAG( TAGiDnULL ) ) ;
@@ -186,7 +186,7 @@ TASK( tmCountF )
 
     boolT  bDoIt = !thirdC::c_strstrIF( tinP , postNameP , "do.not.copy.a.file.with.this.in.its.name" ) ;
 {
-boolT myCBF( tinS& tinP , countT& cDirsP , countT& cFilesP , const osTextT* const postNameP , countT* const pcArgP )
+boolT myCBF( tinS& tinP , countT& cDirsP , countT& cFilesP , const boolT& bQuitP , const osTextT* const postNameP , countT* const pcArgP )
 
 /*1*/WAKEsHOW( "ifcIDaDAM_STARTER4.progress" )/*1*/
 /**/

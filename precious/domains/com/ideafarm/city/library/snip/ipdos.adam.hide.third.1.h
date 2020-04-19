@@ -1,31 +1,4 @@
 
-#define ifcIDmEMORYsPACE_max          6
-#define ifcIDmEMORYsPACE_APPLICATIONS 6
-#define ifcIDmEMORYsPACE_BANGrELAY    5
-#define ifcIDmEMORYsPACE_WATCH        4
-#define ifcIDmEMORYsPACE_MEMBRANE     3
-#define ifcIDmEMORYsPACE_KERNEL       2
-#define ifcIDmEMORYsPACE_CLOAK        1
-#define ifcIDmEMORYsPACE_min          1
-
-#define ifcIDaDAM_CLOAK                                                0x51000767
-
-#define POOPRqUIET { ((poopC&)POOP).resetF() ; }
-
-#define POOPR { ((poopC&)POOP).chatterF( tinP , LF ) ; ((poopC&)POOP).resetF() ; }
-
-#define IDcOMPUTER_FACTORY9            0xd685e27b
-#define IDcOMPUTER_FACTORY8            0x0
-#define IDcOMPUTER_FACTORY7            0x0
-#define IDcOMPUTER_FACTORY6            0x60720304
-#define IDcOMPUTER_FACTORY5            0x46c24685
-#define IDcOMPUTER_FACTORY4            0x224b6954
-#define IDcOMPUTER_FACTORY3            0xae55c831
-#define IDcOMPUTER_FACTORY2            0xe01a30fa
-#define IDcOMPUTER_FACTORY1            0xbe29b623
-
-#define ifcSTR(pP) #pP
-
 // IPDOS (tm) <> IdeaFarm (tm) Piggyback Distributed Operating System
 
 // For build environment info, see file "\ideafarm.work\backed.up.never\txt\readme.first.ipdos.build.environment.txt"
@@ -3041,7 +3014,7 @@ examples
   \<A HREF=\"5.6700104.1.1.0.html\"\>6700104:  WAKEsHOW( "example.simplest.snip.0010072.S" )\</A\>
 */
 /**/
-/*1*//*S(idAdamP)*//*1*/
+/*1*//*S1C(idAdamP)*//*1*/
 #define S1C(idAdamP) strokeS( (countT)(idAdamP) )
 
 
@@ -11835,7 +11808,8 @@ if ifcIDtYPEjOBcOURSE_NAMED is used then this value must be followed immediately
 #define ifcIDaDAM_GORILLAhTTPiDEAFARMcOMrEPORTER                       0x51000754
 #define ifcIDaDAM_WATCHiDLEcPU                                         0x51000757
 #define ifcIDaDAM_MONTHLYwOtABLEnOTICEeMAILS                           0x51000758
-#define ifcIDaDAM_ROOThEAL                                                 0x5100075e
+#define ifcIDaDAM_ROOThEAL                                             0x5100075e
+#define ifcIDaDAM_CLOAK                                                0x51000767
 #define ifcIDaDAM_STARTER1                                             0x51001001
 #define ifcIDaDAM_STARTER2                                             0x51001002
 #define ifcIDaDAM_STARTER3                                             0x51001003
@@ -19035,13 +19009,23 @@ after i return, that countT object will contain 1
 
 //MEMORY SPACES
 //
-// 1                  DRIVER+MONITOR PROCESS                           : SIMPLE SMALL FUNCTIONAL SCOPE TO PRODUCE ENOUGH DIAGNOSTIC INFORMATION TO ANALYZE DEADLOCKS AND EXCEPTIONS; MUST BE ROCK SOLID
-// 2                  MEMBRANE ACCESSIBLE BY BOTH KERNEL AND APP CODE  : NOT CURRENTLY USED; SIMPLE SMALL FUNCTIONAL SCOPE; MUST BE ROCK SOLID
-// 3                  WATCH (MAINTENANCE AND ANCILLARY DIAGNOSTIC)     : SELF TUNING AND LEARNING, ARCHIVAL, GLASS WALLS
-// 4                  BANGrELAY                                        : BANG RELAY INTERHOME COMMUNICATION SUBSYSTEM
-// 5                  APPLICATIONS CODE                                : ALL FUNCTIONALITY GOES HERE UNLESS IT MUST GO ELSEWHERE
-// 6-fffffff7         RESERVED FOR FUTURE SYSTEM USE
+// 1                  CLOAK                                            : ANTI-MALWARE SYSTEM INTEGRITY MONITOR
+// 2                  DRIVER+MONITOR PROCESS                           : SIMPLE SMALL FUNCTIONAL SCOPE TO PRODUCE ENOUGH DIAGNOSTIC INFORMATION TO ANALYZE DEADLOCKS AND EXCEPTIONS; MUST BE ROCK SOLID
+// 3                  MEMBRANE ACCESSIBLE BY BOTH KERNEL AND APP CODE  : NOT CURRENTLY USED; SIMPLE SMALL FUNCTIONAL SCOPE; MUST BE ROCK SOLID
+// 4                  WATCH (MAINTENANCE AND ANCILLARY DIAGNOSTIC)     : SELF TUNING AND LEARNING, ARCHIVAL, GLASS WALLS
+// 5                  BANGrELAY                                        : BANG RELAY INTERHOME COMMUNICATION SUBSYSTEM
+// 6                  APPLICATIONS CODE                                : ALL FUNCTIONALITY GOES HERE UNLESS IT MUST GO ELSEWHERE
+// 7-fffffff7         RESERVED FOR FUTURE SYSTEM USE
 // 00000008-ffffffff  RESERVED FOR FUTURE APPLICATION USE (WHEN SYSTEM SUPPORTS SPECIFICATION OF MEMORY SPACE)
+
+#define ifcIDmEMORYsPACE_min          1
+#define ifcIDmEMORYsPACE_CLOAK        1
+#define ifcIDmEMORYsPACE_KERNEL       2
+#define ifcIDmEMORYsPACE_MEMBRANE     3
+#define ifcIDmEMORYsPACE_WATCH        4
+#define ifcIDmEMORYsPACE_BANGrELAY    5
+#define ifcIDmEMORYsPACE_APPLICATIONS 6
+#define ifcIDmEMORYsPACE_max          6
 
 
 //
@@ -23382,6 +23366,7 @@ examples
 
 /*1*//*POOPR*//*1*/
 
+#define POOPR { ((poopC&)POOP).chatterF( tinP , LF ) ; ((poopC&)POOP).resetF() ; }
 
 
 //
@@ -43262,3 +43247,32 @@ it is illegal to refer to this symbol anywhere but in the definition of a BlATHs
 //
 
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004a4.blathstringspannedcombined END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004a5.openfileread BEGIN
+
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 25 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+/*
+*/
+/**/
+/*1*//*OPENfILErEAD(psttFileP,idP)*//*1*/
+
+#define OPENfILErEAD(psttFileP,idP)                                                                                                                                 \
+                                                                                                                                                                    \
+    handleC hFile##idP( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_FILE ) ;                                                                                          \
+    etThread.fileOpenF( tinP , hFile##idP , countTC() , (psttFileP) , ifcOPENaCCESS_R , ifcOPENsHARE_R , flOPENdETAILS_LOCsEQ , ifcOPENhOW_nFeO ) ;
+
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 25 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004a5.openfileread END

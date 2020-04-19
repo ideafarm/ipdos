@@ -1,32 +1,3 @@
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004a5.openfileread BEGIN
-
-
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 25 years.
-// Respecting the rights of other people is an important part of empowering one another.
-//
-
-/*
-*/
-/**/
-/*1*//*OPENfILErEAD(psttFileP,idP)*//*1*/
-
-#define OPENfILErEAD(psttFileP,idP)                                                                                                                                 \
-                                                                                                                                                                    \
-    handleC hFile##idP( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_FILE ) ;                                                                                          \
-    etThread.fileOpenF( tinP , hFile##idP , countTC() , (psttFileP) , ifcOPENaCCESS_R , ifcOPENsHARE_R , flOPENdETAILS_LOCsEQ , ifcOPENhOW_nFeO ) ;
-
-
-//
-// Respecting the rights of other people is an important part of empowering one another.
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 25 years.
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004a5.openfileread END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004a6.openfileread1 BEGIN
 
 
@@ -4027,6 +3998,17 @@ parameters
 #define IDcOMPUTER_IPDOSmASTERcRAFTWORK IDcOMPUTER_FACTORY1
 
 #define IDcOMPUTER_FACTORY1            0xbe29b623
+#define IDcOMPUTER_FACTORY2            0xe01a30fa
+#define IDcOMPUTER_FACTORY3            0xae55c831
+#define IDcOMPUTER_FACTORY4            0x224b6954
+#define IDcOMPUTER_FACTORY5            0x46c24685
+#define IDcOMPUTER_FACTORY6            0x60720304
+#define IDcOMPUTER_FACTORY7            0x0
+#define IDcOMPUTER_FACTORY8            0x0
+#define IDcOMPUTER_FACTORY9            0xd685e27b
+
+//NONCONFORMANT: THE FOLLOWING DEFINITION IS PLACED HERE TO ENSURE CONSISTENCY WITH PRECEDING DEFINITIONS
+#define IDcOMPUTER_NUMfACTORIES        0x9
 
 //
 // Respecting the rights of other people is an important part of empowering one another.
@@ -5132,6 +5114,59 @@ use this rather than _ to avoid the overhead of _
 //
 
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200542.ifcIDtRACEdIVERT END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200543.ifcSTR BEGIN
+
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 25 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+/*
+*/
+/**/
+/*1*//*ifcSTR(pP)*//*1*/
+
+#define ifcSTR(pP) #pP
+
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 25 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200543.ifcSTR END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200544.pooprquiet BEGIN
+
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 25 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+/*
+*/
+/**/
+
+/*1*//*POOPRqUIET*//*1*/
+
+#define POOPRqUIET { ((poopC&)POOP).resetF() ; }
+
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 25 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200544.pooprquiet END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.thirdParties : 1snip.15000014.thirdparties BEGIN
 
 
