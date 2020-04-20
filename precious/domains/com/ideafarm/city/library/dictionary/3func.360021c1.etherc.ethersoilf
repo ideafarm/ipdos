@@ -1070,7 +1070,7 @@
 /*N3U*/                                                 {
 /*N3U*/                                                 )
 /*N3U*/                                                     || !strCompareF( tinP , tKeyLevel2 , tKeyKtr       )
-/*N3U*/                                                     || !strCompareF( tinP , tKeyLevel2 , tKeyIPDOS )
+/*N3U*/                                                     || !strCompareF( tinP , tKeyLevel2 , tKeyIPDOS     )
 /*N3U*/                                                     || !strCompareF( tinP , tKeyLevel2 , tKeyCloudView )
 /*N3U*/                                                        !strCompareF( tinP , tKeyLevel2 , tKeyCloud     )
 /*N3U*/                                                 (
@@ -2285,7 +2285,37 @@
 /*N2U*/                                                         bAllowLevel2 = 0 ;
 /*N2U*/                                                         //traceF( tinP , "SETTINGS / CLOUD\r\n" ) ;
 /*N2U*/                                                     {
-/*N2U*/                                                     if( !strCompareF( tinP , psttKey , tKeyCloud ) )
+/*N2U*/                                                     else if( !strCompareF( tinP , psttKey , tKeyCloud ) )
+/*N3U*/                                                     }
+/*N2U*/                                                         }
+/*N2U*/                                                             }
+/*N2U*/                                                                 break ;
+/*N2U*/
+/*N2U*/                                                                 //delF( tinP , psttvt ) ;
+/*N2U*/                                                                 //strTrimF( tinP , psttvt , psttv ) ; ___( psttvt ) ;
+/*N2U*/                                                                 //ZE( strokeS* , psttvt ) ;
+/*N2U*/                                                             {
+/*N2U*/                                                             case ifcIDmODEeTHERsOIL_REPORT :
+/*N2U*/                                                             }
+/*N2U*/                                                                 break ;
+/*N2U*/                                                                 strFuseF( tinP , soulOut , psttv ) ;
+/*N2U*/                                                             {
+/*N2U*/                                                             case ifcIDmODEeTHERsOIL_LINT :
+/*N2U*/                                                         {
+/*N2U*/                                                         switch( idModeP )
+/*N2U*/
+/*N2U*/                                                         }
+/*N2U*/                                                             delF( tinP , psttvt ) ;
+/*N2U*/                                                             tMemory = T(psttvt) ;
+/*N2U*/                                                             strTrimF( tinP , psttvt , psttv ) ; ___( psttvt ) ;
+/*N2U*/                                                             ZE( strokeS* , psttvt ) ;
+/*N2U*/                                                         {
+/*N2U*/
+/*N2U*/                                                         //bAllowLevel3 = 1 ;
+/*N2U*/                                                         //bAllowLevel2 = 0 ;
+/*N2U*/                                                         traceF( tinP , T("SETTINGS / MEMORY SPACE\r\n") ) ;
+/*N2U*/                                                     {
+/*N2U*/                                                     if( !strCompareF( tinP , psttKey , tKeyMemory ) )
 /*N2U*/                                                 {
 /*N2U*/                                                 else if( !strCompareF( tinP , tKeyLevel1 , tKeySettings ) )
 /*N2U*/                                                 }
@@ -5143,60 +5173,91 @@
 /*N1D*/                                     }
 /*N1D*/                                         break ;
 /*N1D*/
-/*N1D*/                                         swSettings.freeAllF( tinP ) ;
-/*N1D*/                                         }
-/*N1D*/                                             delF( tinP , psttv ) ;
-/*N1D*/                                             delF( tinP , postk ) ;
-/*N1D*/
-/*N1D*/                                             kv.newF( tinP , LF , postk , 0 , costk * SB , postv , costv + 1 ) ;
-/*N1D*/
-/*N1D*/                                             //kv.newF( tinP , LF , postk , 0 , 1 , postv , costv + 1 ) ;
-/*N1D*/
-/*N1D*/                                             //kv.newF( tinP , LF , &bug , 0 , 1 , postv , costv + 1 ) ;
-/*N1D*/                                             //byteT bug = 0xff ;
-/*N1D*/                                             //TO FIND A BUG
-/*N1D*/
-/*N1D*/                                             for( countT offr = 0 ; offr < costk ; offr ++ ) postk[ offr ] = reverseBitsF( postk[ offr ] ) ; // SO THAT WALKING kv WILL PRESENT THE KEYS IN THE NORMAL COLLATION ORDER
-/*N1D*/                                             countT costv = strMakeF( tinP , postv , psttv    ) ; ___( postv ) ;
-/*N1D*/                                             countT costk = strMakeF( tinP , postk , psttzLeverSettings ) ; ___( postk ) ;
-/*N1D*/                                             ZE( osTextT* , postv ) ;
-/*N1D*/                                             ZE( osTextT* , postk ) ;
-/*N1D*/
-/*N1D*/                                             traceF( tinP , T("settings [key,value]:    \"")+T(psttzLeverSettings)+T("\"    \"")+T(psttv)+T("\"") ) ;
-/*N1D*/                                             strokeS*& psttv = *(strokeS**)&(countT&)swSettings ;
-/*N1D*/
-/*N1D*/                                             psttzLeverSettings = (strokeS*)swSettings.leverF( tinP , idf ) ;
-/*N1D*/                                         {
-/*N1D*/                                         for( countT idf = 1 ; idf <= cFlavors ; idf ++ )
-/*N1D*/                                         countT cFlavors = swSettings.cFlavorsF( tinP ) ;
-/*N1D*/
-/*N1D*/                                         keyValuePairsC kv( tinP , postTiny , flKEYvALUEpAIRSc_WRITE , ifcIDsTATEsPACE_MULTIPLEaDAMS ) ;
+/*N1D*/                                         tMemory = tn ;
 /*N1D*/
 /*N1D*/                                         }
+/*N1D*/                                             swSettings.freeAllF( tinP ) ;
 /*N1D*/                                             }
-/*N1D*/                                                 delF( tinP , pstt1f ) ;
-/*N1D*/                                                 }
-/*N1D*/                                                     //traceF( tinP , T("deleted : ")+T(psttc1) ) ;
-/*N1D*/                                                     diskFileOrDirDeleteF( tinP , psttc1 ) ;
-/*N1D*/                                                     //traceF( tinP , T("deleting: ")+T(psttc1) ) ;
-/*N1D*/                                                 {
-/*N1D*/                                                 FORsTRINGSiN1( pstt1f )
-/*N1D*/                                                 countT cFound = diskFindFileOrDirF( tinP , pstt1f , T(iffn)+T(postTiny)+T(".*") , 0 , 0 , 0 , 8 ) ; ___( pstt1f ) ;
-/*N1D*/                                                 ZE( strokeS* , pstt1f ) ;
+/*N1D*/                                                 delF( tinP , psttv ) ;
+/*N1D*/                                                 delF( tinP , postk ) ;
 /*N1D*/
-/*N1D*/                                                 traceF( tinP , T("state space path: ")+T(iffn) ) ;
+/*N1D*/                                                 kv.newF( tinP , LF , postk , 0 , costk * SB , postv , costv + 1 ) ;
 /*N1D*/
-/*N1D*/                                                 ifFileNameC iffn( tinP , third , postPath ) ;
+/*N1D*/                                                 //kv.newF( tinP , LF , postk , 0 , 1 , postv , costv + 1 ) ;
+/*N1D*/
+/*N1D*/                                                 //kv.newF( tinP , LF , &bug , 0 , 1 , postv , costv + 1 ) ;
+/*N1D*/                                                 //byteT bug = 0xff ;
+/*N1D*/                                                 //TO FIND A BUG
+/*N1D*/
+/*N1D*/                                                 for( countT offr = 0 ; offr < costk ; offr ++ ) postk[ offr ] = reverseBitsF( postk[ offr ] ) ; // SO THAT WALKING kv WILL PRESENT THE KEYS IN THE NORMAL COLLATION ORDER
+/*N1D*/                                                 countT costv = strMakeF( tinP , postv , psttv    ) ; ___( postv ) ;
+/*N1D*/                                                 countT costk = strMakeF( tinP , postk , psttzLeverSettings ) ; ___( postk ) ;
+/*N1D*/                                                 ZE( osTextT* , postv ) ;
+/*N1D*/                                                 ZE( osTextT* , postk ) ;
+/*N1D*/
+/*N1D*/                                                 traceF( tinP , T("settings [key,value]:    \"")+T(psttzLeverSettings)+T("\"    \"")+T(psttv)+T("\"") ) ;
+/*N1D*/                                                 strokeS*& psttv = *(strokeS**)&(countT&)swSettings ;
+/*N1D*/
+/*N1D*/                                                 psttzLeverSettings = (strokeS*)swSettings.leverF( tinP , idf ) ;
 /*N1D*/                                             {
-/*N1D*/                                             if( !POOP )
+/*N1D*/                                             for( countT idf = 1 ; idf <= cFlavors ; idf ++ )
+/*N1D*/                                             countT cFlavors = swSettings.cFlavorsF( tinP ) ;
 /*N1D*/
-/*N1D*/                                             __Z( *postPath ) ;
-/*N1D*/                                             thirdC::postPathStateSpaceIF( tinP , postPath , sizeof postPath , ifcIDsTATEsPACE_MULTIPLEaDAMS ) ;
-/*N1D*/                                             osTextT postPath[ TUCK << 1 ] ;
+/*N1D*/                                             THREADmODE3rESTORE
+/*N1D*/                                             keyValuePairsC kv( tinP , postTiny , flKEYvALUEpAIRSc_WRITE , ifcIDsTATEsPACE_MULTIPLEaDAMS , 0x15 , 0 , 0 , 0 , 0 , idMemorySpace ) ;
+/*N1D*/                                             THREADmODE3oN( flTHREADmODE3_ALLOWeXPLICITmEMORYsPACE )
+/*N1D*/
+/*N1D*/                                             }
+/*N1D*/                                                 }
+/*N1D*/                                                     delF( tinP , pstt1f ) ;
+/*N1D*/                                                     }
+/*N1D*/                                                         //traceF( tinP , T("deleted : ")+T(psttc1) ) ;
+/*N1D*/                                                         diskFileOrDirDeleteF( tinP , psttc1 ) ;
+/*N1D*/                                                         //traceF( tinP , T("deleting: ")+T(psttc1) ) ;
+/*N1D*/                                                     {
+/*N1D*/                                                     FORsTRINGSiN1( pstt1f )
+/*N1D*/                                                     countT cFound = diskFindFileOrDirF( tinP , pstt1f , T(iffn)+T(postTiny)+T(".*") , 0 , 0 , 0 , 8 ) ; ___( pstt1f ) ;
+/*N1D*/                                                     ZE( strokeS* , pstt1f ) ;
+/*N1D*/
+/*N1D*/                                                     traceF( tinP , T("state space path: ")+T(iffn) ) ;
+/*N1D*/
+/*N1D*/                                                     ifFileNameC iffn( tinP , third , postPath ) ;
+/*N1D*/                                                 {
+/*N1D*/                                                 if( !POOP )
+/*N1D*/
+/*N1D*/                                                 __Z( *postPath ) ;
+/*N1D*/                                                 THREADmODE3rESTORE
+/*N1D*/                                                 thirdC::postPathStateSpaceIF( tinP , postPath , sizeof postPath , ifcIDsTATEsPACE_MULTIPLEaDAMS , idMemorySpace ) ;
+/*N1D*/                                                 THREADmODE3oN( flTHREADmODE3_ALLOWeXPLICITmEMORYsPACE )
+/*N1D*/
+/*N1D*/                                                 osTextT postPath[ TUCK << 1 ] ;
+/*N1D*/                                             {
+/*N1D*/                                             //DELETE ALL OF THE EXISTING FILES ASSOCIATED WITH kv HERE
+/*N1D*/
+/*N1D*/                                             osTextT postTiny[] = "kv.settings.ipdos" ;
 /*N1D*/                                         {
-/*N1D*/                                         //DELETE ALL OF THE EXISTING FILES ASSOCIATED WITH kv HERE
+/*N1D*/                                         else
+/*N1D*/                                         }
+/*N1D*/                                             traceF( tinP , T("error: unknown memory specification:    ")+tMemory ) ;
+/*N1D*/                                         {
+/*N1D*/                                         if( !idMemorySpace )
 /*N1D*/
-/*N1D*/                                         osTextT postTiny[] = "kv.settings.ipdos" ;
+/*N1D*/                                         ;
+/*N1D*/                                                                     : 0
+/*N1D*/                                                                     ? ifcIDmEMORYsPACE_BANGrELAY
+/*N1D*/                                                                 : !strCompareF( tinP , tMemory , T("relay") )
+/*N1D*/                                                                 ? ifcIDmEMORYsPACE_WATCH
+/*N1D*/                                                             : !strCompareF( tinP , tMemory , T("watch") )
+/*N1D*/                                                             ? ifcIDmEMORYsPACE_MEMBRANE
+/*N1D*/                                                         : !strCompareF( tinP , tMemory , T("membrane") )
+/*N1D*/                                                         ? ifcIDmEMORYsPACE_KERNEL
+/*N1D*/                                                     : !strCompareF( tinP , tMemory , T("kernel") )
+/*N1D*/                                                     ? ifcIDmEMORYsPACE_CLOAK
+/*N1D*/                                                 : !strCompareF( tinP , tMemory , T("cloak") )
+/*N1D*/                                                 ? ifcIDmEMORYsPACE_APPLICATION
+/*N1D*/                                             : !strCompareF( tinP , tMemory , T("application") )
+/*N1D*/                                             ? ifcIDmEMORYsPACE_APPLICATION
+/*N1D*/                                         const countT idMemorySpace = !strCompareF( tinP , tMemory , tn )
 /*N1D*/                                     {
 /*N1D*/                                     case ifcIDmODEeTHERsOIL_REPORT :
 /*N1D*/                                 {
@@ -5970,6 +6031,7 @@
                 stackC stFileType(   tinP , *this , TAG( TAGiDnULL ) , flSTACKc_DOnOTsERIALIZE  , ifcSTACKtYPE_PTR_strokeS ) ; // FORMAT EXAMPLE: mp3
                 stackC stTimeMinMax( tinP , *this , TAG( TAGiDnULL ) , flSTACKc_DOnOTsERIALIZE | flSTACKc_XRAY | flSTACKc_BLOB , 2 * sizeof( strokeS* ) ) ; // FORMAT EXAMPLE: 20130711@1401 20130711@1401
                 countT idKtrMode = ifcIDmODEpUTfILE_OTHER ;
+                TN( tMemory         , "" ) ;
                 TN( tNameSpace      , "" ) ;
                 TN( tHtmlHead       , "" ) ;
                 TN( tHtmlBodySuffix , "" ) ;
@@ -6103,39 +6165,40 @@
             stackC stOkCard( tinP , third , TAG( TAGiDnULL ) , flSTACKc_DOnOTsERIALIZE , ifcSTACKtYPE_PTR_strokeS ) ;
             stackC stOkBuy(  tinP , third , TAG( TAGiDnULL ) , flSTACKc_DOnOTsERIALIZE , ifcSTACKtYPE_PTR_strokeS ) ;
 
-            /*const*/ countT offKeyOkTime = 0x38 ;
+            /*const*/ countT offKeyOkTime = 0x39 ;
             /*const*/ countT offKeyOkBuy  = 0x02 ;
 
             } ;
-                tKeyZip                     ,           // 04
-                tKeyWaitStep                ,           // f3
-                tKeyVendor                  ,           // e3
-                tKeyValidate                ,           // d3
-                tKeyUser                    ,           // c3
-                tKeyTimeRange               ,           // b3
-                tKeyTrace                   ,           // a3
-                tKeyTimecard                ,           // 93
-                tKeyTime                    ,           // 83
-                tKeyStep                    ,           // 73
-                tKeySplit                   ,           // 63
-                tKeySource                  ,           // 53
-                tKeySizeBytes               ,           // 43
-                tKeySettings                ,           // 33
-                tKeySell                    ,           // 23
-                tKeyReport                  ,           // 13
-                tKeyReplacements            ,           // 03
-                tKeyReplace                 ,           // f2
-                tKeyRepeat                  ,           // e2
-                tKeyRenameToHash            ,           // d2
-                tKeyRemainder2              ,           // c2
-                tKeyRemainder1              ,           // b2
-                tKeyNull                    ,           // a2
-                tKeyNapTocks                ,           // 92
-                tKeyNameSpace               ,           // 82
-                tKeyMoney                   ,           // 72
-                tKeyModulo2                 ,           // 62
-                tKeyModulo1                 ,           // 52
-                tKeyMode                    ,           // 42
+                tKeyZip                     ,           // 14
+                tKeyWaitStep                ,           // 04
+                tKeyVendor                  ,           // f3
+                tKeyValidate                ,           // e3
+                tKeyUser                    ,           // d3
+                tKeyTimeRange               ,           // c3
+                tKeyTrace                   ,           // b3
+                tKeyTimecard                ,           // a3
+                tKeyTime                    ,           // 93
+                tKeyStep                    ,           // 83
+                tKeySplit                   ,           // 73
+                tKeySource                  ,           // 63
+                tKeySizeBytes               ,           // 53
+                tKeySettings                ,           // 43
+                tKeySell                    ,           // 33
+                tKeyReport                  ,           // 23
+                tKeyReplacements            ,           // 13
+                tKeyReplace                 ,           // 03
+                tKeyRepeat                  ,           // f2
+                tKeyRenameToHash            ,           // e2
+                tKeyRemainder2              ,           // d2
+                tKeyRemainder1              ,           // c2
+                tKeyNull                    ,           // b2
+                tKeyNapTocks                ,           // a2
+                tKeyNameSpace               ,           // 92
+                tKeyMoney                   ,           // 82
+                tKeyModulo2                 ,           // 72
+                tKeyModulo1                 ,           // 62
+                tKeyMode                    ,           // 52
+                tKeyMemory                  ,           // 42
                 tKeyMath                    ,           // 32
                 tKeyLog                     ,           // 22
                 tKeyKVF                     ,           // 12
@@ -6204,6 +6267,7 @@
             TN( tKeyModulo2                 , "modulo2"                     ) ; // CS:CODEsYNC: ELEMENTS OF ppsttOkKey IMMEDIATELY FOLLOWING THESE DECLARATIONS
             TN( tKeyModulo1                 , "modulo1"                     ) ; // CS:CODEsYNC: ELEMENTS OF ppsttOkKey IMMEDIATELY FOLLOWING THESE DECLARATIONS
             TN( tKeyMode                    , "mode"                        ) ; // CS:CODEsYNC: ELEMENTS OF ppsttOkKey IMMEDIATELY FOLLOWING THESE DECLARATIONS
+            TN( tKeyMemory                  , "memory"                      ) ; // CS:CODEsYNC: ELEMENTS OF ppsttOkKey IMMEDIATELY FOLLOWING THESE DECLARATIONS
             TN( tKeyMath                    , "math"                        ) ; // CS:CODEsYNC: ELEMENTS OF ppsttOkKey IMMEDIATELY FOLLOWING THESE DECLARATIONS
             TN( tKeyLog                     , "log"                         ) ; // CS:CODEsYNC: ELEMENTS OF ppsttOkKey IMMEDIATELY FOLLOWING THESE DECLARATIONS
             TN( tKeyKVF                     , "kvf"                         ) ; // CS:CODEsYNC: ELEMENTS OF ppsttOkKey IMMEDIATELY FOLLOWING THESE DECLARATIONS

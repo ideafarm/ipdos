@@ -22,6 +22,14 @@ else etThread.traceF( tinP , T("locked the directory") ) ;
 if( osh == INVALID_HANDLE_VALUE )
 HANDLE osh = CreateFileA( "d:\\tmp\\locker" , GENERIC_READ , 0 , 0 , OPEN_EXISTING , FILE_FLAG_BACKUP_SEMANTICS , 0 ) ;
 
+etThread.traceF( tinP , T("folder:    ")+tFolder ) ;
+}
+    etThread.delF( tinP , psttFolder ) ;
+    tFolder = T(psttFolder) ;
+    ZE( strokeS* , psttFolder ) ; etThread.querySettingF( tinP , psttFolder , T("!ipdos.cloak.folder")  ) ; ___( psttFolder ) ;
+{
+TN( tFolder , "" ) ;
+
 TODO
 
 /*1*/WAKEhIDE( "ifcIDaDAM_CLOAK" )/*1*/

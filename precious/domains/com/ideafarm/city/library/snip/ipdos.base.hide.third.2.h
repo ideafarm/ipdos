@@ -40165,7 +40165,7 @@ base class to make a derived class of objects easily contained by a stackC objec
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3612d001.jotC.NEWdELcLASSb!||
     ~jotC( voidT ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3612d002.jotC.dt_jotC!||
-    jotC( tinS& tinP , const osTextT* const postNameP , const flagsT flagsP = flJOTc_null , const countT cbDataBookP = 0 , const countT cIndexEntriesBookP = 0 , const countT cKeepInactiveP = 0 , countT idGrabLayerP = ifcIDgRABlAYER_7BASEmISC1 , flagsT flagsGrabP = flGRABc_null ) ;
+    jotC( tinS& tinP , const osTextT* const postNameP , const flagsT flagsP = flJOTc_null , const countT cbDataBookP = 0 , const countT cIndexEntriesBookP = 0 , const countT cKeepInactiveP = 0 , countT idGrabLayerP = ifcIDgRABlAYER_7BASEmISC1 , flagsT flagsGrabP = flGRABc_null , countT idMemorySpaceP = 0 ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3612d003.jotC.jotC!||
     countT peekIdBookF( tinS& tinP , countT idP ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3612d008.jotC.peekIdBookF!||
