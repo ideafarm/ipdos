@@ -70,6 +70,8 @@ REST
             etThread.traceF( tinP , T("firing monitor [idMemory]:    ")+TF2(idMemory,flFORMAT_UNSIGNED|flFORMAT_NObIGITvALUES) ) ;
             memorySpaceS& memorySpace = *(memorySpaceS*)&(countT&)swMemorySpace ;
             cLeverIdMemory = idMemory ;
+
+            if( idMemory >= ifcIDmEMORYsPACE_RESERVEDmIN && idMemory <= ifcIDmEMORYsPACE_RESERVEDmAX ) continue ;
         {
         for( countT idMemory = idmMax ; idMemory > idmMin ; idMemory -- )
         etThread.traceF( tinP , T("firing the nonkernel queue monitors") ) ;
@@ -160,6 +162,8 @@ REST
                 byteT* pbms = (byteT*)&(countT&)swMemorySpace ;
                 cLeverIdMemory = idMemory ;
                 swMemorySpace.grabF( tinP , TAG( TAGiDnULL ) ) ;
+
+                if( idMemory >= ifcIDmEMORYsPACE_RESERVEDmIN && idMemory <= ifcIDmEMORYsPACE_RESERVEDmAX ) continue ;
             {
             for( countT idMemory = idmMin ; idMemory <= idmMax ; idMemory ++ )
             countT idMinuteZe = timeN1 >> 0x16 ;    // 8:TUCK 01:TOCK 81:TICK 61:MINUTE(QUARTERTICK)
@@ -228,7 +232,7 @@ etherC& etRock = etherC::etRockIF( tinP ) ;
 //U::TO FIND A BUG
 
 ether.traceF( tinP , T("initializing IPDOS (tm) IdeaFarm (tm) Piggyback Distributed Operating System") ) ;
-//U:: ENALBE IN PRODUCTION: ether.osSleepF( tinP , TICK ) ;
+//U:: ENABLE IN PRODUCTION: ether.osSleepF( tinP , TICK ) ;
 ether.traceF( tinP , T("napping for a tick to enable base o.s. to finish initializing") ) ;
 ether.ifcHireF( tinP , T("ifcIDaDAM_MONITOR") , ifcIDaDAM_CLOAK , T("!ignoreFireByOperator") , flHIRE_DISPLAYaUTO , nicNameC() ) ;
 ether.traceF( tinP , T("hiring cloak") ) ;

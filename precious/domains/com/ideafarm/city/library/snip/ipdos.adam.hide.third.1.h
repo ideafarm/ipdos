@@ -19018,14 +19018,16 @@ after i return, that countT object will contain 1
 // 7-fffffff7         RESERVED FOR FUTURE SYSTEM USE
 // 00000008-ffffffff  RESERVED FOR FUTURE APPLICATION USE (WHEN SYSTEM SUPPORTS SPECIFICATION OF MEMORY SPACE)
 
-#define ifcIDmEMORYsPACE_min          1
-#define ifcIDmEMORYsPACE_CLOAK        1
-#define ifcIDmEMORYsPACE_KERNEL       2
-#define ifcIDmEMORYsPACE_MEMBRANE     3
-#define ifcIDmEMORYsPACE_WATCH        4
-#define ifcIDmEMORYsPACE_BANGrELAY    5
-#define ifcIDmEMORYsPACE_APPLICATIONS 6
-#define ifcIDmEMORYsPACE_max          6
+#define ifcIDmEMORYsPACE_max          0x100
+#define ifcIDmEMORYsPACE_APPLICATIONS 0x100
+#define ifcIDmEMORYsPACE_RESERVEDmAX  0x0ff
+#define ifcIDmEMORYsPACE_RESERVEDmIN  0x006
+#define ifcIDmEMORYsPACE_BANGrELAY    0x005
+#define ifcIDmEMORYsPACE_WATCH        0x004
+#define ifcIDmEMORYsPACE_MEMBRANE     0x003
+#define ifcIDmEMORYsPACE_KERNEL       0x002
+#define ifcIDmEMORYsPACE_CLOAK        0x001
+#define ifcIDmEMORYsPACE_min          0x001
 
 
 //

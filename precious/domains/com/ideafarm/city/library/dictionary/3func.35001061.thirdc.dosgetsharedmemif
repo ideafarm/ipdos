@@ -157,8 +157,8 @@
         c_zReplaceIF( tinP , (osTextT*)(const osTextT*)ostoOsName , '/' , '.' ) ;
         OStEXTA(  ostoOsName  , postP ) ;
         OStEXTAK( ostoOsName  , "." ) ;
-        else                                                  { OStEXTC(  ostoOsName , idMemorySpaceP ? idMemorySpaceP : tinP.pAdamGlobal1->idMemorySpace , 0 ) ; }
-        if( F(flagsP) & flOPENsHAREDmEMORY_ALLmEMORYsPACES ) { OStEXTAK( ostoOsName  , "_" ) ; }
+        else                                                  { OStEXTCF( ostoOsName , idMemorySpaceP ? idMemorySpaceP : tinP.pAdamGlobal1->idMemorySpace , '0' ) ; }
+        if( F(flagsP) & flOPENsHAREDmEMORY_ALLmEMORYsPACES )  { OStEXTAK( ostoOsName  , "_" ) ; }
         OStEXTAK( ostoOsName  , "." ) ;
         else                                                  { OStEXTC(  ostoOsName , processGlobal1I.idAdamRoot == ifcIDaDAM_TOOLnAPwORDvIEWER && tinP.pAdamGlobal1->_thirdC_.idHomeOverride ? tinP.pAdamGlobal1->_thirdC_.idHomeOverride : processGlobal1I.idHome , 0 ) ; }
         if( F(flagsP) & flOPENsHAREDmEMORY_ALLhOMES         ) { OStEXTAK( ostoOsName  , "_" ) ; }

@@ -1027,7 +1027,7 @@ DONE( tmReportF )
                         if( bSnapShot )
                         //etRock.traceF( tinP , T("tmReportF 4/ ") ) ; //U:: TO FIND A BUG
 
-                        tFile += T(".rpt.kernel.idMemorySpace.")+TF2(idMemorySpaceP,flFORMAT_UNSIGNED|flFORMAT_NObIGITvALUES)+T(".")+TF2(idMinute,flFORMAT_UNSIGNED|flFORMAT_NObIGITvALUES|flFORMAT_FOREIGN|flFORMAT_FILLzE)+T(".txt") ;
+                        tFile += T(".rpt.kernel.idMemorySpace.")+TF3(idMemorySpaceP,flFORMAT_UNSIGNED|flFORMAT_NObIGITvALUES|flFORMAT_FOREIGN,3)+T(".")+TF2(idMinute,flFORMAT_UNSIGNED|flFORMAT_NObIGITvALUES|flFORMAT_FOREIGN|flFORMAT_FILLzE)+T(".txt") ;
                         else                                                              tFile += T("minute") ;
                         if( bSnapShot || F(home.flagsUtility) & flHOMEsuTILITY_SNAPsHOT ) tFile += textC(ifcIDtEXTgEN_TIMEnOW,tinP,TAG(TAGiDnULL))+T(".")+T(postSnapShotRequestP&&*postSnapShotRequestP?postSnapShotRequestP:"snapshot") ;
                         TN( tFile , "" ) ; tFile = T("///ideafarm/ephemeral/reports/") ;
@@ -1872,7 +1872,7 @@ DONE( tmReportF )
     ZE( countT , cLeverOsTid ) ;
 
     booksC bkReport( tinP , TAG( TAGiDnULL ) , tBooks , ifcIDsTATEsPACE_MULTIPLEaDAMS , flBOOKSc_WRITER , TICK ) ; //A SEPARATE BOOKS OBJECT IS USED FOR EACH MEMORY SPACE TO ELIMINATE SERIALIZATION COLLISIONS; WHICH ARE SUPPORTED BUT WHY TAKE A CHANCE WITH THE KERNEL!
-    tBooks = T("kernel.minute.reports.memoryspace.")+TF2(idMemorySpaceP,flFORMAT_UNSIGNED|flFORMAT_NObIGITvALUES) ;
+    tBooks = T("kernel.minute.reports.memoryspace.")+TF3(idMemorySpaceP,flFORMAT_UNSIGNED|flFORMAT_NObIGITvALUES|flFORMAT_FOREIGN,3) ;
     TN( tBooks , "" ) ;
 
     etThread.osThreadSwitchingDesireF( tinP , ifcTHREADpRIORITY_LAZIEST ) ; //CHANGE TO RUSH IF NEED TO ANALYZE BEHAVIOR INVOLVING CPU PEGGING
