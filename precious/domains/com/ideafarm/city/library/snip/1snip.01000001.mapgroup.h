@@ -371,4 +371,5 @@
     ((countT)0x36141) , "heapC" ,
     ((countT)0x36142) , "processglobal0s" ,
     ((countT)0x36143) , "fileWindowsC" ,
+    ((countT)0x36144) , "hoverC" ,
     ((countT)0x41000) , "citygate" ,

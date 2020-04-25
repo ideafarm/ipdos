@@ -11,8 +11,6 @@
     }
         if( F(pP.flags) & flBRANCHspUTfILEf_BEEP ) etherP.beeClickF( tinP ) ;
         etherP.traceF( tinP , T("put""FileIF/ - edition [idEdition]: ")+TF2(idEdition,flFORMAT_UNSIGNED|flFORMAT_NObIGITvALUES) ) ;
-        etherP.delF( tinP , psttSave ) ;
-        etherP.diskHoverF( tinP , psttSave ) ;
 
         }
             }
@@ -32,13 +30,13 @@
                     ZE( countT , idDeathType ) ;
                     ZE( countT , value ) ;
                     }
-                        etherP.diskHoverF( tinP , tPathArchive ) ;
+                        hoverC hover4( tinP , etherP , tPathArchive ) ;
                         etherP.osProcessF( tinP , countTC() , countTC() , value , idDeathType , tExe , tArgMove+tb+tFileReadme+tb+tFileShort+T(".html")+tb+tFileShort+T(".*.html") ) ;
                         ZE( countT , idDeathType ) ;
                         ZE( countT , value ) ;
                         TN( tArgMove , "-9rm " ) ; tArgMove += T(osfOut) ;
                         osFileNameC osfOut(  tinP , etherP , T("ideafarm.com.")+tFileShort+T(".kt.")+TF3(idVolume,flFORMAT_UNSIGNED|flFORMAT_NObIGITvALUES|flFORMAT_FOREIGN|flFORMAT_FILLzE,2)+T(".")+TF3(idZip,flFORMAT_UNSIGNED|flFORMAT_NObIGITvALUES|flFORMAT_FOREIGN|flFORMAT_FILLzE,2)+T(".zip") ) ;
-                        etherP.diskHoverF( tinP , tFileDir ) ;
+                        hoverC hover3( tinP , etherP , tFileDir ) ;
                     {
                     if( bLath )
                 {
@@ -234,7 +232,7 @@
             stackC stFile( tinP , etherP , TAG( TAGiDnULL ) , flSTACKc_FIFO|flSTACKc_DOnOTsERIALIZE ) ; //WILL CONTAIN fileSizeNameS* POINTERS, IN DECREASING ORDER OF FILE SIZE
             etherP.traceF( tinP , T("put""FileIF/ + edition ")+TF2(idEdition,flFORMAT_UNSIGNED|flFORMAT_NObIGITvALUES)+T(": loading stFile") ) ;
 
-            etherP.diskHoverF( tinP , tPathArchive ) ;
+            hoverC hover2( tinP , etherP , tPathArchive ) ;
             TN( tPathArchive , "" ) ; tPathArchive = T("///ideafarm/IdeaFarm " "(tm)/Drop Files Here To Archive/" ) ;
             //20130728@1422: DON'T KNOW WHY THE DRIVE LETTER IS HARDCODED: TN( tPathArchive , "" ) ; tPathArchive = T("///d/ideafarm.home.")+TF2(etherP.ifc_idHomeIdisk_IF(),flFORMAT_UNSIGNED|flFORMAT_NObIGITvALUES)+T("/IdeaFarm " "(tm)/Drop Files Here To Archive/" ) ;
 
@@ -286,10 +284,7 @@
         {
         TN( tFileReadme , "!readme.txt" ) ;
 
-        etherP.diskHoverF( tinP , tFileDir ) ;
-        etherP.diskGetHoverF( tinP , psttSave ) ; ___( psttSave ) ;
-        ZE( strokeS* , psttSave ) ;
-        //U::MIGRATE THIS INTO A hoverC CLASS EQUIVALENT TO WHAT IS USED IN ELVES
+        hoverC hover1( tinP , etherP , tFileDir ) ;
 
         }
             etherP.delF( tinP , psttDadShort ) ;

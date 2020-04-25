@@ -4185,9 +4185,6 @@
 /*N1D*/                                                                     DEL( pInfo ) ;
 /*N1D*/                                                                     }
 /*N1D*/                                                                         }
-/*N1D*/                                                                             delF( tinP , psttHoverWas ) ;
-/*N1D*/
-/*N1D*/                                                                             diskHoverF( tinP , psttHoverWas ) ;
 /*N1D*/                                                                             if( !value && !idDeathType ) diskFileOrDirDeleteF( tinP , pInfo->psttIfoName ) ;
 /*N1D*/
 /*N1D*/                                                                             //__( idDeathType ) ;
@@ -4198,10 +4195,7 @@
 /*N1D*/                                                                             //traceF( tinP , tArg ) ;
 /*N1D*/                                                                             //traceF( tinP , tExeUnzip ) ;
 /*N1D*/
-/*N1D*/                                                                             diskHoverF( tinP , tDirTemporary ) ; //U::NOT THREAD SAFE: ADD SERIALIZATION
-/*N1D*/                                                                             //traceF( tinP , psttHoverWas ) ;
-/*N1D*/                                                                             diskGetHoverF( tinP , psttHoverWas ) ;
-/*N1D*/                                                                             ZE( strokeS* , psttHoverWas ) ;
+/*N1D*/                                                                             hoverC hover( tinP , *this , tDirTemporary ) ; //U::NOT THREAD SAFE: ADD SERIALIZATION
 /*N1D*/
 /*N1D*/                                                                             TN( tArg , "" ) ; tArg = T(" \"")+T(osfnZipFile)+tQuote ;
 /*N1D*/
@@ -8175,9 +8169,6 @@ voidT obeyReplacementsF( tinS& tinP , etherC& etherP , strokeS*& psttP , switchC
                     etherP.diskFileOrDirDeleteF( tinP , tPathHover ) ;
 
                     }
-                        etherP.delF( tinP , psttHoverWas ) ;
-                        etherP.diskHoverF( tinP , psttHoverWas ) ;
-
                         }
                             etherP.delF( tinP , posti ) ;
                             }
@@ -8194,10 +8185,7 @@ voidT obeyReplacementsF( tinS& tinP , etherC& etherP , strokeS*& psttP , switchC
                         if( !value && !idDeathType )
 
                         etherP.osProcessF( tinP , countTC() , countTC() , value , idDeathType , tExeUnzip , tArg ) ; //THIS CAN FAIL (E.G. IF ZIP FILE IS CORRUPT
-                        //etherP.diskHoverF( tinP , tPathHover ) ; //U::NOT THREAD SAFE: ADD SERIALIZATION
-                        //etherP.traceF( tinP , psttHoverWas ) ;
-                        etherP.diskGetHoverF( tinP , psttHoverWas ) ;
-                        ZE( strokeS* , psttHoverWas ) ;
+                        //hoverC hover( tinP , etherP , tPathHover ) ; //U::NOT THREAD SAFE: ADD SERIALIZATION
                     {
 
                     etherP.delF( tinP , psttu ) ;

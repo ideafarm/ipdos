@@ -1,29 +1,3 @@
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004a6.openfileread1 BEGIN
-
-
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 25 years.
-// Respecting the rights of other people is an important part of empowering one another.
-//
-
-/*
-*/
-/**/
-/*1*//*OPENfILErEAD1(psttFileP)*//*1*/
-
-#define OPENfILErEAD1(psttFileP) OPENfILErEAD( (psttFileP) , 1 )
-
-
-//
-// Respecting the rights of other people is an important part of empowering one another.
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 25 years.
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004a6.openfileread1 END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004a7.openfileread2 BEGIN
 
 
@@ -28009,9 +27983,9 @@ applications should avoid using thirdC objects
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34045.thirdC.dosErrorMsgBox_offIF!||
  static voidT dosErrorMsgBox_onIF( tinS& tinP ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34046.thirdC.dosErrorMsgBox_onIF!||
- voidT dosExecPgmF( tinS& tinP , countT& tidP , countT& pidP , const osTextT* const postExeP , const osTextT* const postArgsP = 0 , const flagsT flagsP = flPROCESShIRE_null , const osTextT* const postUserP = 0 , const osTextT* const postPasswordP = 0 , const flagsT flagsLogonP = 0 , const osTextT* const postDomainP = 0 ) ;
+ voidT dosExecPgmF( tinS& tinP , countT& tidP , countT& pidP , const osTextT* const postExeP , const osTextT* const postArgsP = 0 , const flagsT flagsP = flPROCESShIRE_null , const handleC* phOutP = 0 , const handleC* phErrorP = 0 , const handleC* phInP = 0 , const osTextT* const postUserP = 0 , const osTextT* const postPasswordP = 0 , const flagsT flagsLogonP = 0 , const osTextT* const postDomainP = 0 ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34063.thirdC.dosExecPgmF!||
- voidT dosExecPgmF( tinS& tinP , countT& osTidP , countT& osPidP , countT& valueP , countT& idDeathTypeP , const osTextT* const postExeP , const osTextT* const postArgsP = 0 , const flagsT flagsP = flPROCESShIRE_null , const osTextT* const postUserP = 0 , const osTextT* const postPasswordP = 0 , const flagsT flagsLogonP = 0 , const osTextT* const postDomainP = 0 ) ;
+ voidT dosExecPgmF( tinS& tinP , countT& osTidP , countT& osPidP , countT& valueP , countT& idDeathTypeP , const osTextT* const postExeP , const osTextT* const postArgsP = 0 , const flagsT flagsP = flPROCESShIRE_null , const handleC* phOutP = 0 , const handleC* phErrorP = 0 , const handleC* phInP = 0 , const osTextT* const postUserP = 0 , const osTextT* const postPasswordP = 0 , const flagsT flagsLogonP = 0 , const osTextT* const postDomainP = 0 ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3406b.thirdC.dosExecPgmF!||
  voidT dosExitCritSecF( tinS& tinP ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3405f.thirdC.dosExitCritSecF!||
@@ -31493,7 +31467,7 @@ examples
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.340ef.etherC.ifcIdCitizenFromExternalEmailF!||
  voidT ifcJobF( tinS& tinP , stackC& stCoursesP , const countT idAdamP , soulC& sOrderPrimaryP , stackC& stOrdersP , const strokeS* const psttOldCommentP , countT cTriesP = 0 , const nicNameC nicNameP = nicNameC() ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34141.etherC.ifcJobF!||
- voidT ifcHireF( tinS& tinP , const strokeS* const psttOldCommentP , const countT idAdamP , const strokeS* const psttArgsP = 0 , flagsT flagsP = flHIRE_null , const countT time1LimitP = 0 , const sCountT time2LimitP = 0 , const countT cTriesP = 0 , nicNameC nicNameP = nicNameC() ) ;
+ countT ifcHireF( tinS& tinP , const strokeS* const psttOldCommentP , const countT idAdamP , const strokeS* const psttArgsP = 0 , flagsT flagsP = flHIRE_null , const countT time1LimitP = 0 , const sCountT time2LimitP = 0 , const countT cTriesP = 0 , nicNameC nicNameP = nicNameC() ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34131.etherC.ifcHireF!||
  voidT ifcNicknameFromIdCitizenF( tinS& tinP , strokeS*& psttP , const countT idP ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.340d6.etherC.ifcNicknameFromIdCitizenF!||
@@ -31547,6 +31521,7 @@ examples
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.341ae.etherC.ifcGetNextSerialNumberF!||
  countT ifcGetNextSerialNumberF( tinS& tinP , const countT* const pczP ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.341b5.etherC.ifcGetNextSerialNumberF!||
+ countT ifcIdCopyF( tinS& tinP , countT cNameP = 0 ) ;
 
 
 /* commands: operating system */
@@ -31598,13 +31573,13 @@ examples
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34111.etherC.osMakeHoverFileF!||
  countT osMessageBoxF( tinS& tinP , const strokeS* const psttP , const strokeS* const psttTitleP = 0 , const flagsT flagsButtonsP = flMESSAGEbOXbUTTON_null , const flagsT flagButtonSelectedP = flMESSAGEbOXbUTTON_null ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3412f.etherC.osMessageBoxF!||
- voidT osProcessF( tinS& tinP , countT& osTidP , countT& osPidP , countT& valueP , countT& idDeathTypeP , const countT idAdamP , const strokeS* const psttArgsP = 0 , const flagsT flagsP = flPROCESShIRE_null ) ;
+ voidT osProcessF( tinS& tinP , countT& osTidP , countT& osPidP , countT& valueP , countT& idDeathTypeP , const countT idAdamP , const strokeS* const psttArgsP = 0 , const flagsT flagsP = flPROCESShIRE_null , const handleC* phOutP = 0 , const handleC* phErrorP = 0 , const handleC* phInP = 0 ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.340bd.etherC.osProcessF!||
- voidT osProcessF( tinS& tinP , countT& osTidP , countT& osPidP , countT& valueP , countT& idDeathTypeP , const strokeS* const psttExeP , const strokeS* const psttArgsP = 0 , const flagsT flagsP = flPROCESShIRE_null ) ;
+ voidT osProcessF( tinS& tinP , countT& osTidP , countT& osPidP , countT& valueP , countT& idDeathTypeP , const strokeS* const psttExeP , const strokeS* const psttArgsP = 0 , const flagsT flagsP = flPROCESShIRE_null , const handleC* phOutP = 0 , const handleC* phErrorP = 0 , const handleC* phInP = 0 ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34092.etherC.osProcessF!||
- voidT osProcessF( tinS& tinP , countT& tidP , countT& pidP , const countT idAdamP , const strokeS* const psttArgsP = 0 , const flagsT flagsP = flPROCESShIRE_null ) ;
+ voidT osProcessF( tinS& tinP , countT& tidP , countT& pidP , const countT idAdamP , const strokeS* const psttArgsP = 0 , const flagsT flagsP = flPROCESShIRE_null , const handleC* phOutP = 0 , const handleC* phErrorP = 0 , const handleC* phInP = 0 ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.340bc.etherC.osProcessF!||
- voidT osProcessF( tinS& tinP , countT& tidP , countT& pidP , const strokeS* const psttExeP , const strokeS* const psttArgsP = 0 , const flagsT flagsP = flPROCESShIRE_null ) ;
+ voidT osProcessF( tinS& tinP , countT& tidP , countT& pidP , const strokeS* const psttExeP , const strokeS* const psttArgsP = 0 , const flagsT flagsP = flPROCESShIRE_null , const handleC* phOutP = 0 , const handleC* phErrorP = 0 , const handleC* phInP = 0 ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34084.etherC.osProcessF!||
  voidT osProcessForwardSignalsToMe_offF( tinS& tinP ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34093.etherC.osProcessForwardSignalsToMe_offF!||
@@ -36060,7 +36035,7 @@ it is illegal to refer to this symbol in the definition of an adam
 //
 
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.imageExeDllC : 1snip.15000035.imageexedllc END
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.ag1_masterC_C : 1snip.150000cb.ag1_masterc_c BEGIN
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.ag1_masterOldC_C : 1snip.150000cb.ag1_masterc_c BEGIN
 
 
 //
@@ -36074,16 +36049,16 @@ it is illegal to refer to this symbol in the definition of an adam
 */
 /**/
 
-/*1*/class ag1_masterC_C/*1*/
+/*1*/class ag1_masterOldC_C/*1*/
 {
-    masterC* pMePrime ;
+    masterOldC* pMePrime ;
 
     public :
 
-    ag1_masterC_C( voidT ) ;
+    ag1_masterOldC_C( voidT ) ;
 
-    friend class masterC ;
-    FRIENDS_masterC                                                                                                                                                                                                                                      \
+    friend class masterOldC ;
+    FRIENDS_masterOldC                                                                                                                                                                                                                                      \
 }
 ;
 
@@ -36095,8 +36070,8 @@ it is illegal to refer to this symbol in the definition of an adam
 // Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
 
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.ag1_masterC_C : 1snip.150000cb.ag1_masterc_c END
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.masterC : 1snip.15000036.masterc BEGIN
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.ag1_masterOldC_C : 1snip.150000cb.ag1_masterc_c END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.masterOldC : 1snip.15000036.masterc BEGIN
 
 
 //
@@ -36111,7 +36086,7 @@ it is illegal to refer to this symbol in the definition of an adam
 */
 /**/
 
-/*1*/class _export masterC/*1*/
+/*1*/class _export masterOldC/*1*/
 {
  upDnC    upDn ;
  etherC&  ether ;
@@ -36128,11 +36103,11 @@ it is illegal to refer to this symbol in the definition of an adam
  const byteT    pbBitsCt[ CBbITScT ] ;
 
  voidT ctF( tinS& tinP , const byteT* const pbSoulP , const countT cNameInspectP ) ;
- //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34004.masterC.ctF!||
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34004.masterOldC.ctF!||
  voidT ctInspectF( tinS& tinP , const countT cNameInspectP = 0 ) ;
- //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34005.masterC.ctInspectF!||
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34005.masterOldC.ctInspectF!||
  voidT soulF( tinS& tinP , byteT*& pbSoulP ) ;
- //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34006.masterC.soulF!||
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34006.masterOldC.soulF!||
 
  public :
 
@@ -36140,41 +36115,41 @@ it is illegal to refer to this symbol in the definition of an adam
 
 /* birth , death */
  NEWdELcLASSpROTOS
- //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34001.masterC.NEWdELcLASS!||
- ~masterC( voidT ) ;
- //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34002.masterC.dt_masterC!||
- masterC( tinS& tinP , etherC& etherP , const countT idLineCtP , const countT idiFileCtP , const byteT* const pbBitsCtP , const countT cNameInspectP = 0 , const boolT bIgnoreSoulFileP = 0 ) ;
- //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34003.masterC.masterC!||
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34001.masterOldC.NEWdELcLASS!||
+ ~masterOldC( voidT ) ;
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34002.masterOldC.dt_masterOldC!||
+ masterOldC( tinS& tinP , etherC& etherP , const countT idLineCtP , const countT idiFileCtP , const byteT* const pbBitsCtP , const countT cNameInspectP = 0 , const boolT bIgnoreSoulFileP = 0 ) ;
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34003.masterOldC.masterOldC!||
 
 /* commands: editing */
  voidT delNameIfF( tinS& tinP , const countT cNameP ) ;
- //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34007.masterC.delNameIfF!||
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34007.masterOldC.delNameIfF!||
  voidT newNameF( tinS& tinP , const countT cNameP , stackC& stUsesP , const flagsT flagsP = flMASTERc_null , const countT idCopyP = 0 ) ;
- //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34008.masterC.newNameF!||
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34008.masterOldC.newNameF!||
  voidT newNameF( tinS& tinP , const countT cNameP , const countT* const pczUsesP = 0 , const flagsT flagsP = flMASTERc_null , const countT idCopyP = 0 ) ;
- //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34009.masterC.newNameF!||
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34009.masterOldC.newNameF!||
  voidT obsoleteF( tinS& tinP , const countT cNameP ) ;
- //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400a.masterC.obsoleteF!||
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400a.masterOldC.obsoleteF!||
  voidT renumberObsoleteNamesF( tinS& tinP ) ;
- //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400b.masterC.renumberObsoleteNamesF!||
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400b.masterOldC.renumberObsoleteNamesF!||
  voidT resetFlagObsoleteF( tinS& tinP ) ;
- //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400c.masterC.resetFlagObsoleteF!||
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400c.masterOldC.resetFlagObsoleteF!||
 
 /* commands: reporting */
  countT cNameF( tinS& tinP , const countT idCopyP ) ;
- //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400d.masterC.cNameF!||
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400d.masterOldC.cNameF!||
  voidT strokeF( tinS& tinP ) ;
- //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400e.masterC.strokeF!||
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400e.masterOldC.strokeF!||
  countT idCopyF( tinS& tinP , const countT cNameP ) ;
- //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400f.masterC.idCopyF!||
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400f.masterOldC.idCopyF!||
  voidT idCopyF( tinS& tinP , switchC& swIdCopyP , countT& cLever_swIdCopyP , batonC& b_cLever_swIdCopyP ) ;
- //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34010.masterC.idCopyF!||
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34010.masterOldC.idCopyF!||
  voidT listObsoleteNamesF( tinS& tinP , stackC& stP ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/!||
  inline countT idCopyHighWaterF( voidT ) const { return idCopyHW ; }
 
 /**/
- FRIENDS_masterC
+ FRIENDS_masterOldC
 }
 ;
 
@@ -36186,7 +36161,7 @@ it is illegal to refer to this symbol in the definition of an adam
 // Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
 
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.masterC : 1snip.15000036.masterc END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.masterOldC : 1snip.15000036.masterc END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.dnsMsgHeaderS : 1snip.15000048.dnsmsgheaders BEGIN
 
 
@@ -39280,7 +39255,7 @@ base class to make a derived class of objects easily contained by a stackC objec
     ag1_grabNotesS_C            _grabNotesS_ ;
     ag1_grabC_C                 _grabC_ ;
     ag1_lexC_C                  _lexC_ ;
-    ag1_masterC_C               _masterC_ ;
+    ag1_masterOldC_C               _masterOldC_ ;
     ag1_neverUsedC_C            _neverUsedC_ ;
     ag1_paperOldC_C             _paperOldC_ ;
     ag1_pulpOldC_C              _pulpOldC_ ;
@@ -44006,3 +43981,39 @@ i am nonconformant in that all of my member function definitions are in a single
 //
 
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.fileWindowsC : 1snip.15000180.fileWindowsC END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.hoverC : 1snip.15000182.hoverC BEGIN
+
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 25 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+/*
+*/
+/*1*/class _export hoverC/*1*/
+{
+    etherC&  ether ;
+    strokeS* psttFolderWas ;
+
+    public :
+
+    NEWdELcLASSpROTOS
+    ~hoverC( voidT ) ;
+    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.36144002.hoverC.dt_hoverC!||
+    hoverC( tinS& tinP , etherC& etherP , const strokeS* const psttFolderP ) ;
+    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.36144003.hoverC.hoverC!||
+}
+;
+
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 25 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.hoverC : 1snip.15000182.hoverC END

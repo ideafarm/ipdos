@@ -82,7 +82,8 @@
 
                     }
                         }
-                            BOS( WHATsfr , BOSoK , CreateProcess( 0 , postAll , &sa , &sa , 0 , flags1 , 0 , 0 , (STARTUPINFO*)&sinfo , &pinfo ) )
+                            BOS( WHATsfr , BOSoK , CreateProcess( 0 , postAll , &sa , &sa , 1 , flags1 , 0 , 0 , (STARTUPINFO*)&sinfo , &pinfo ) )      //U::20200423@1807: WITHOUT ANALYSIS, CHANGED "0" TO "1" FOR bInherit
+
                             //CONoUTrAW( "\r\n" ) ;
                             //CONoUTrAW( postAll ) ;
                             //CONoUTrAW( "CreateProcess: " ) ;
@@ -115,7 +116,7 @@
                         //LOGrAW( postAll ) ;
                         //LOGrAW( "launching \"" ) ;
 
-                        SECURITYaTTRIBUTE_saUNRESTRICTED ;
+                        SECURITYaTTRIBUTE_saUNRESTRICTED( 0 ) ;
 
                         }
                             c_strcatIF( tinP , postAll , ostoSay ) ;
@@ -144,6 +145,26 @@
                         {
                         if( postArgsP )
                         ZE( countT , costae ) ;
+
+                        }
+                            ;
+                                : (HANDLE)GetStdHandle( STD_ERROR_HANDLE )
+                                ? (HANDLE)phErrorP->osF( phErrorP->idTypeF() )
+                            sinfo.StartupInfo.hStdError = phErrorP
+
+                            ;
+                                : (HANDLE)GetStdHandle( STD_OUTPUT_HANDLE )
+                                ? (HANDLE)phOutP->osF( phOutP->idTypeF() )
+                            sinfo.StartupInfo.hStdOutput = phOutP
+
+                            ;
+                                : (HANDLE)GetStdHandle( STD_INPUT_HANDLE )
+                                ? (HANDLE)phInP->osF( phInP->idTypeF() )
+                            sinfo.StartupInfo.hStdInput = phInP
+
+                            sinfo.StartupInfo.dwFlags |= STARTF_USESTDHANDLES ;
+                        {
+                        if( phOutP || phInP || phErrorP )
 
                         sinfo.lpAttributeList = (_PROC_THREAD_ATTRIBUTE_LIST*)pcInfo2 ;
                         sinfo.StartupInfo.dwFillAttribute = BACKGROUND_GREEN ;
@@ -214,7 +235,7 @@
 
     }
         if( POOP ) return ;
-        FV( flPROCESShIRE , flagsP )                                                                                        \
+        FV( flPROCESShIRE , flagsP )
         __( !tinP.pAdamGlobal1->_thirdC_.pSwThreadHandle ) ;
         __( !tinP.pAdamGlobal1->_thirdC_.pSwProcessHandle ) ;
         __Z( postExeP ) ;
@@ -224,7 +245,7 @@
     IFbEcAREFUL    
     SCOOP
 {
-/*1*/voidT thirdC::dosExecPgmF( tinS& tinP , countT& tidP , countT& pidP , const osTextT* const postExeP , const osTextT* const postArgsP , const flagsT flagsP , const osTextT* const postUserP , const osTextT* const postPasswordP , const flagsT flagsLogonP , const osTextT* const postDomainP )/*1*/
+/*1*/voidT thirdC::dosExecPgmF( tinS& tinP , countT& tidP , countT& pidP , const osTextT* const postExeP , const osTextT* const postArgsP , const flagsT flagsP , const handleC* phOutP , const handleC* phErrorP , const handleC* phInP , const osTextT* const postUserP , const osTextT* const postPasswordP , const flagsT flagsLogonP , const osTextT* const postDomainP )/*1*/
 
 //U:COMBINE INTO A SINGLE API: 102006a AND 102005d
 

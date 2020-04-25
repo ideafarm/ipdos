@@ -13,7 +13,7 @@
     #endif
 
         dosWaitChildF( tinP , valueP , idDeathTypeP , osPidP ) ;
-        dosExecPgmF( tinP , osTidP , osPidP , postExeP , postArgsP , flagsP | flPROCESShIRE_REGISTERpROCESShANDLE , postUserP , postPasswordP , flagsLogonP , postDomainP ) ;
+        dosExecPgmF( tinP , osTidP , osPidP , postExeP , postArgsP , flagsP | flPROCESShIRE_REGISTERpROCESShANDLE , phOutP , phErrorP , phInP , postUserP , postPasswordP , flagsLogonP , postDomainP ) ;
 
     #elif defined( __NT__ )
 
@@ -21,7 +21,7 @@
         else                                            __( info.codeTerminate ) ;
         else if( info.codeTerminate == TC_HARDERROR   ) idDeathTypeP = ifcPROCESSdEATH_HARDWAREfAILURE ;
         else if( info.codeTerminate == TC_EXCEPTION   ) idDeathTypeP = ifcPROCESSdEATH_SOFTWAREfAILURE ;
-        else if( info.codeTerminate == TC_KILLPROCESS ) idDeathTypeP = ifcPROCESSdEATHmURDERED        ;
+        else if( info.codeTerminate == TC_KILLPROCESS ) idDeathTypeP = ifcPROCESSdEATH_MURDERED        ;
              if( info.codeTerminate == TC_EXIT        ) idDeathTypeP = ifcPROCESSdEATH_NORMAL          ;
         BOSpOOP
         BOSI( WHATsfr , BOSfAIL , DosExecPgm( postBadGuy , sizeof postBadGuy , EXEC_SYNC , postArgsP , 0 , &info , postExeP ) )
@@ -43,7 +43,7 @@
     IFbEcAREFUL
     SCOOP
 {
-/*1*/voidT thirdC::dosExecPgmF( tinS& tinP , countT& osTidP , countT& osPidP , countT& valueP , countT& idDeathTypeP , const osTextT* const postExeP , const osTextT* const postArgsP , const flagsT flagsP , const osTextT* const postUserP , const osTextT* const postPasswordP , const flagsT flagsLogonP , const osTextT* const postDomainP )/*1*/
+/*1*/voidT thirdC::dosExecPgmF( tinS& tinP , countT& osTidP , countT& osPidP , countT& valueP , countT& idDeathTypeP , const osTextT* const postExeP , const osTextT* const postArgsP , const flagsT flagsP , const handleC* phOutP , const handleC* phErrorP , const handleC* phInP , const osTextT* const postUserP , const osTextT* const postPasswordP , const flagsT flagsLogonP , const osTextT* const postDomainP )/*1*/
 
 /**/
 */

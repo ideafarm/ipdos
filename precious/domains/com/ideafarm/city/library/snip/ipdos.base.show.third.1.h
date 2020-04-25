@@ -259,7 +259,7 @@ class   /*ff*/ag1_etherC_C/*ff*/                ; /*ff*//**//*ff*/
 class   /*ff*/ag1_grabNotesS_C/*ff*/            ; /*ff*//**//*ff*/
 class   /*ff*/ag1_grabC_C/*ff*/                 ; /*ff*//**//*ff*/
 class   /*ff*/ag1_lexC_C/*ff*/                  ; /*ff*//**//*ff*/
-class   /*ff*/ag1_masterC_C/*ff*/               ; /*ff*//**//*ff*/
+class   /*ff*/ag1_masterOldC_C/*ff*/               ; /*ff*//**//*ff*/
 class   /*ff*/ag1_neverUsedC_C/*ff*/            ; /*ff*//**//*ff*/
 class   /*ff*/ag1_paperOldC_C/*ff*/             ; /*ff*//**//*ff*/
 class   /*ff*/ag1_pulpOldC_C/*ff*/              ; /*ff*//**//*ff*/
@@ -275,7 +275,7 @@ class   /*ff*/ag1_tableC_C/*ff*/                ; /*ff*//**//*ff*/
 class   /*ff*/ag1_thirdC_C/*ff*/                ; /*ff*//**//*ff*/
 class   /*ff*/ag1_thugC_C/*ff*/                 ; /*ff*//**//*ff*/
 class   /*ff*/ag1_windowOldC_C/*ff*/            ; /*ff*//**//*ff*/
-class   /*ff*/masterC/*ff*/                     ; /*ff*//**//*ff*/
+class   /*ff*/masterOldC/*ff*/                     ; /*ff*//**//*ff*/
 class   /*ff*/marketC/*ff*/                     ; /*ff*//**//*ff*/
 class   /*ff*/adamC/*ff*/                       ; /*ff*//**//*ff*/
 class   /*ff*/x0SwitchStackC/*ff*/              ; /*ff*//**//*ff*/
@@ -373,7 +373,7 @@ class   /*ff*/vector3C/*ff*/                    ; /*ff*//**//*ff*/
 class   /*ff*/matrix3C/*ff*/                    ; /*ff*//**//*ff*/
 class   /*ff*/barryC/*ff*/                      ; /*ff*//**//*ff*/
 struct  /*ff*/htmlS/*ff*/                       ; /*ff*//**//*ff*/
-class   /*ff*/hasherC/*ff*/          ; /*ff*//**//*ff*/
+class   /*ff*/hasherC/*ff*/                     ; /*ff*//**//*ff*/
 struct  /*ff*/cloudInfoS/*ff*/                  ; /*ff*//**//*ff*/
 struct  /*ff*/rParam_new_S/*ff*/                ; /*ff*//**//*ff*/
 struct  /*ff*/bitNodeS/*ff*/                    ; /*ff*//**//*ff*/
@@ -381,6 +381,9 @@ class   /*ff*/bitTreeC/*ff*/                    ; /*ff*//**//*ff*/
 class   /*ff*/cloudC/*ff*/                      ; /*ff*//**//*ff*/
 class   /*ff*/napkinsC/*ff*/                    ; /*ff*//**//*ff*/
 class   /*ff*/heapC/*ff*/                       ; /*ff*//**//*ff*/
+class   /*ff*/fileWindowC/*ff*/                 ; /*ff*//**//*ff*/
+class   /*ff*/fileWindowsC/*ff*/                ; /*ff*//**//*ff*/
+class   /*ff*/hoverC/*ff*/                      ; /*ff*//**//*ff*/
 
 //INCLUDE GENERATED SNIPPETS HERE
 
@@ -898,6 +901,7 @@ examples
 #define flOPENdETAILS_INHERIT                   0xe0010004
 #define flOPENdETAILS_DOnOTvALIDATE             0xe0020004
 #define flOPENdETAILS_DOnOTrEGISTER             0xe0040004
+#define flOPENdETAILS_BUMPkEY                   0xe0080004
 /*3*/
 #define flOPENdETAILS_null    0xe0000004
 
@@ -1147,7 +1151,7 @@ examples
 /*1*//*ifcPROCESSdEATH*//*1*/
 /*3*/
 #define ifcPROCESSdEATH_NORMAL                   0xdddd000f
-#define ifcPROCESSdEATHmURDERED                 0xdddd0010
+#define ifcPROCESSdEATH_MURDERED                 0xdddd0010
 #define ifcPROCESSdEATH_SOFTWAREfAILURE          0xdddd0011
 #define ifcPROCESSdEATH_HARDWAREfAILURE          0xdddd0012
 /*3*/
@@ -7001,8 +7005,8 @@ to use this, the object must be of a class that provides operator byteT* which r
 */
 /**/
 
-/*1*//*FILEnAMEsOUL_masterC*//*1*/
-#define FILEnAMEsOUL_masterC ("///ideafarm/ephemeral/domains/com/ideafarm/masterC/soul")
+/*1*//*FILEnAMEsOUL_masterOldC*//*1*/
+#define FILEnAMEsOUL_masterOldC ("///ideafarm/ephemeral/domains/com/ideafarm/masterOldC/soul")
 
 
 //
@@ -7910,7 +7914,7 @@ it is illegal to refer to this symbol in the definition of an adam
 #define ifciDtYPEdROPnOTE_windowOldC                                    0xdddd037b
 #define ifciDtYPEdROPnOTE_recDirC                                       0xdddd037c
 #define ifciDtYPEdROPnOTE_imageExeDllC                                  0xdddd037d
-#define ifciDtYPEdROPnOTE_masterC                                       0xdddd037e
+#define ifciDtYPEdROPnOTE_masterOldC                                       0xdddd037e
 #define ifciDtYPEdROPnOTE_ranUniC                                       0xdddd037f
 #define ifciDtYPEdROPnOTE_nicNamesNearbyOldC                            0xdddd0380
 #define ifciDtYPEdROPnOTE_soulC                                         0xdddd0381
@@ -8768,16 +8772,16 @@ it is illegal to refer to this symbol in the definition of an adam
 // THIS DEF REMOVES ALL PROTECTION INCLUDING DENIAL OF ACCESS TO PROCESSES RUNNING ON OTHER LOGIN ACCOUNTS
 // TO RESTORE THE WALL BETWEEN LOGIN ACCOUNTS, COMMENT OUT THE LATH LINE SO THAT THE SACL IS NOT REMOVED
 
-/*1*//*SECURITYaTTRIBUTE_saUNRESTRICTED*//*1*/
+/*1*//*SECURITYaTTRIBUTE_saUNRESTRICTED(bInheritP)*//*1*/
 
-#define SECURITYaTTRIBUTE_saUNRESTRICTED                                                                                \
+#define SECURITYaTTRIBUTE_saUNRESTRICTED(bInheritP)                                                                     \
                                                                                                                         \
     byteT _pbsd[ SECURITY_DESCRIPTOR_MIN_LENGTH + sizeof( countT ) ] ;                                                  \
                                                                                                                         \
     SECURITY_ATTRIBUTES sa ;                                                                                            \
     sa.nLength = sizeof sa ;                                                                                            \
     sa.lpSecurityDescriptor = (SECURITY_DESCRIPTOR*)( _pbsd + CBtOaLIGN02( _pbsd ) ) ;                                  \
-    sa.bInheritHandle = 0 ;                                                                                             \
+    sa.bInheritHandle = (bInheritP) ;                                                                                   \
                                                                                                                         \
     BOS( WHATgbo , BOSoK , InitializeSecurityDescriptor( sa.lpSecurityDescriptor , SECURITY_DESCRIPTOR_REVISION ) )     \
     BOSpOOP                                                                                                             \
@@ -19014,20 +19018,20 @@ after i return, that countT object will contain 1
 // 3                  MEMBRANE ACCESSIBLE BY BOTH KERNEL AND APP CODE  : NOT CURRENTLY USED; SIMPLE SMALL FUNCTIONAL SCOPE; MUST BE ROCK SOLID
 // 4                  WATCH (MAINTENANCE AND ANCILLARY DIAGNOSTIC)     : SELF TUNING AND LEARNING, ARCHIVAL, GLASS WALLS
 // 5                  BANGrELAY                                        : BANG RELAY INTERHOME COMMUNICATION SUBSYSTEM
-// 6                  APPLICATIONS CODE                                : ALL FUNCTIONALITY GOES HERE UNLESS IT MUST GO ELSEWHERE
-// 7-fffffff7         RESERVED FOR FUTURE SYSTEM USE
-// 00000008-ffffffff  RESERVED FOR FUTURE APPLICATION USE (WHEN SYSTEM SUPPORTS SPECIFICATION OF MEMORY SPACE)
+// 6-ff               RESERVED FOR FUTURE SYSTEM USE
+// 001                APPLICATIONS CODE                                : ALL FUNCTIONALITY GOES HERE UNLESS IT MUST GO ELSEWHERE
+// 101-fff            RESERVED FOR FUTURE APPLICATION USE
 
-#define ifcIDmEMORYsPACE_max          0x100
-#define ifcIDmEMORYsPACE_APPLICATION  0x100
-#define ifcIDmEMORYsPACE_RESERVEDmAX  0x0ff
-#define ifcIDmEMORYsPACE_RESERVEDmIN  0x006
-#define ifcIDmEMORYsPACE_BANGrELAY    0x005
-#define ifcIDmEMORYsPACE_WATCH        0x004
-#define ifcIDmEMORYsPACE_MEMBRANE     0x003
-#define ifcIDmEMORYsPACE_KERNEL       0x002
-#define ifcIDmEMORYsPACE_CLOAK        0x001
 #define ifcIDmEMORYsPACE_min          0x001
+#define ifcIDmEMORYsPACE_CLOAK        0x001
+#define ifcIDmEMORYsPACE_KERNEL       0x002
+#define ifcIDmEMORYsPACE_MEMBRANE     0x003
+#define ifcIDmEMORYsPACE_WATCH        0x004
+#define ifcIDmEMORYsPACE_BANGrELAY    0x005
+#define ifcIDmEMORYsPACE_RESERVEDmIN  0x006
+#define ifcIDmEMORYsPACE_RESERVEDmAX  0x0ff
+#define ifcIDmEMORYsPACE_APPLICATION  0x100
+#define ifcIDmEMORYsPACE_max          0x100
 
 
 //
@@ -31738,9 +31742,9 @@ plateC& fooC::operator +=( plateC& plateP )                                     
 /*
 */
 /**/
-/*1*//*FRIENDS_masterC*//*1*/
+/*1*//*FRIENDS_masterOldC*//*1*/
 
-#define FRIENDS_masterC
+#define FRIENDS_masterOldC
 
 
 //
@@ -43278,3 +43282,29 @@ it is illegal to refer to this symbol anywhere but in the definition of a BlATHs
 //
 
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004a5.openfileread END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004a6.openfileread1 BEGIN
+
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 25 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+/*
+*/
+/**/
+/*1*//*OPENfILErEAD1(psttFileP)*//*1*/
+
+#define OPENfILErEAD1(psttFileP) OPENfILErEAD( (psttFileP) , 1 )
+
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 25 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004a6.openfileread1 END

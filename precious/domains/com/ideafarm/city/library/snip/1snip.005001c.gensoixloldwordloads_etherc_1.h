@@ -943,35 +943,35 @@
     _pSwSoixlOldApi->ungrabF( tinP ) ;
 }
 {
-    TN( tNameSoixlOld , "osProcessF_333334@7" ) ;
+    TN( tNameSoixlOld , "osProcessF_333334@7b@b@b@" ) ;
     _pSwSoixlOldApi->grabF( tinP , TAG( TAGiDnULL ) ) ;
     _psttLeverSoixlOldApi = tNameSoixlOld ;
     if( *_pSwSoixlOldApi ) { BLAMMO ; }
-    *_pSwSoixlOldApi = (countT)osProcessF_333334P7_GF ;
+    *_pSwSoixlOldApi = (countT)osProcessF_333334P7bPbPbP_GF ;
     _pSwSoixlOldApi->ungrabF( tinP ) ;
 }
 {
-    TN( tNameSoixlOld , "osProcessF_33334@4@7" ) ;
+    TN( tNameSoixlOld , "osProcessF_33334@4@7b@b@b@" ) ;
     _pSwSoixlOldApi->grabF( tinP , TAG( TAGiDnULL ) ) ;
     _psttLeverSoixlOldApi = tNameSoixlOld ;
     if( *_pSwSoixlOldApi ) { BLAMMO ; }
-    *_pSwSoixlOldApi = (countT)osProcessF_33334P4P7_GF ;
+    *_pSwSoixlOldApi = (countT)osProcessF_33334P4P7bPbPbP_GF ;
     _pSwSoixlOldApi->ungrabF( tinP ) ;
 }
 {
-    TN( tNameSoixlOld , "osProcessF_3334@7" ) ;
+    TN( tNameSoixlOld , "osProcessF_3334@7b@b@b@" ) ;
     _pSwSoixlOldApi->grabF( tinP , TAG( TAGiDnULL ) ) ;
     _psttLeverSoixlOldApi = tNameSoixlOld ;
     if( *_pSwSoixlOldApi ) { BLAMMO ; }
-    *_pSwSoixlOldApi = (countT)osProcessF_3334P7_GF ;
+    *_pSwSoixlOldApi = (countT)osProcessF_3334P7bPbPbP_GF ;
     _pSwSoixlOldApi->ungrabF( tinP ) ;
 }
 {
-    TN( tNameSoixlOld , "osProcessF_334@4@7" ) ;
+    TN( tNameSoixlOld , "osProcessF_334@4@7b@b@b@" ) ;
     _pSwSoixlOldApi->grabF( tinP , TAG( TAGiDnULL ) ) ;
     _psttLeverSoixlOldApi = tNameSoixlOld ;
     if( *_pSwSoixlOldApi ) { BLAMMO ; }
-    *_pSwSoixlOldApi = (countT)osProcessF_334P4P7_GF ;
+    *_pSwSoixlOldApi = (countT)osProcessF_334P4P7bPbPbP_GF ;
     _pSwSoixlOldApi->ungrabF( tinP ) ;
 }
 {

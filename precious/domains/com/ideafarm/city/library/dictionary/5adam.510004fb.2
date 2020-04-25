@@ -133,7 +133,7 @@ TASK( tmHireF )
                 BOS( WHATgbo , BOSoK , CreateThread( &sa , TOCK , tmGorillaRawF , 0 , 0 , &osTid ) )
                 ZE( DWORD , osTid ) ;
                 BOSnOvALUE( WHATgbo , SetLastError( 0 ) )
-                SECURITYaTTRIBUTE_saUNRESTRICTED ;
+                SECURITYaTTRIBUTE_saUNRESTRICTED( 0 ) ;
             {
             while( cDo -- )
             countT cDo = TUCK >> 4 ;
@@ -909,6 +909,27 @@ TELL( "cleaning up 0" )
 {
 if( pTaskP && pTaskP->c1 )
 TASK( tmEatTelemetryF )
+
+DONE( tmCloakF )
+}
+    }
+        etThread.traceF( tinP , T("this computer has been told to shut down") ) ;    
+        etThread.osFireF( tinP , 1 ) ;
+        etThread.traceF( tinP , T("shutting down this computer for security") ) ;    
+        etThread.traceF( tinP , T("i have not yet been fired, so cloak's death is unexplained") ) ;
+    {
+    if( !ether )
+    ether.osSleepF( tinP , TOCK ) ;
+    etThread.traceF( tinP , T("cloak has died ; napping for a TOCK") ) ;
+
+    //U:: TEST idDeathType AND IF CLOAK WAS MURDERED THEN DON'T NAP BEFORE SHUTTING DOWN
+    //U:: BUG: idDeathType IS 0 WHEN CLOAK IS KILLED WITHIN PROCESS EXPLORER
+    etThread.traceF( tinP , T("error: cloak has died [idDeathType]:    ")+TF2(idDeathType,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;    
+    countT idDeathType = etThread.ifcHireF( tinP , T("ifcIDaDAM_MONITOR") , ifcIDaDAM_CLOAK , T("!ignoreFireByOperator") , flHIRE_DISPLAYaUTO | flHIRE_WAIT , nicNameC() ) ;
+    etThread.traceF( tinP , T("hiring cloak") ) ;
+{
+if( pTaskP )
+TASK( tmCloakF )
 
 DONE( tmYellF )
 }

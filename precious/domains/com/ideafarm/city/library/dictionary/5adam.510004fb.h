@@ -15,6 +15,7 @@ TASK0PROTO( tmFooF ) ;
 TASK0PROTO( tmEatTelemetryF ) ;
 TASK0PROTO( tmFireAllF ) ;
 TASK0PROTO( tmConsoleF ) ;
+TASK0PROTO( tmCloakF ) ;
 TASK0PROTO( tmHireF ) ;
 TASK0PROTO( tmcMonitorServerF ) ;
 
