@@ -902,6 +902,7 @@ examples
 #define flOPENdETAILS_DOnOTvALIDATE             0xe0020004
 #define flOPENdETAILS_DOnOTrEGISTER             0xe0040004
 #define flOPENdETAILS_BUMPkEY                   0xe0080004
+#define flOPENdETAILS_DOnOTmAKEdIRiFnEEDED      0xe0100004
 /*3*/
 #define flOPENdETAILS_null    0xe0000004
 
@@ -936,9 +937,10 @@ examples
 #define ifcOPENrESULT_EXISTED                    0xdddd0001
 #define ifcOPENrESULT_CREATED                    0xdddd0002
 #define ifcOPENrESULT_TRUNCATED                  0xdddd0003
+#define ifcOPENrESULT_ERRORsHARINGvIOLATION      0xdddd0004
 /*3*/
 #define ifcOPENrESULT_min     0xdddd0001
-#define ifcOPENrESULT_max     0xdddd0003
+#define ifcOPENrESULT_max     0xdddd0004
 
 
 //
@@ -8484,7 +8486,7 @@ it is illegal to refer to this symbol in the definition of an adam
 #define BOS0(whatP,typeP,expP,expGetErrorP)                                                                                                             \
                                                                                                                                                         \
     {                                                                                                                                                   \
-        tinP.brcQuery = 0 ;                                                                                                                             \
+        tinP.brcLath = tinP.brcQuery = 0 ;                                                                                                              \
         countT _idWhatSaveBos = tinP.monitor.idWhat1 ;                                                                                                  \
         whatP                                                                                                                                           \
         countT _brcRawExp = (countT)(expP) ;                                                                                                            \

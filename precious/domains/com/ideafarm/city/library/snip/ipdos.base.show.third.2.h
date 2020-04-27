@@ -5039,6 +5039,7 @@ use this rather than _ to avoid the overhead of _
 
 /*3*/
 #define flDISKwALK_DIRECTORIESoNLY           0xe0000109
+#define flDISKwALK_FILESoNLY                 0xe0000209
 /*3*/
 #define flDISKwALK_null    0xe0000009
 

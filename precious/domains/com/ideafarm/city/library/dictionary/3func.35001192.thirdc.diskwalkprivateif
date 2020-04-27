@@ -44,32 +44,35 @@
             else if( !( F(flagsP) & flDISKwALK_DIRECTORIESoNLY ) )
             }
                 }
-                    *postSuffix = 0 ;
-    
-                    diskWalkPrivateIF( tinP , cDirsP , cFilesP , postNameP , bQuitP , flagsP , pCbfP , pcArgP , pModuloDirsP , pModuloFilesP ) ;
-
                     }
-                        if( pCbfP ) (*pCbfP)( tinP , cDirsP , cFilesP , bQuitP , postNameP , pcArgP , pModuloDirsP , pModuloFilesP ) ;
-                        cDirsP ++ ;
-                    {
-                    if( bDoIt )
-    
-                    //;
-                    //    : 1
-                    //    ? tinP.pc Utility[ 0 ] = (countT)&info , (*pCbfP)( tinP , cDirsP , cFilesP , postNameP , pcArgP , pModuloDirsP , pModuloFilesP )
-                    //boolT bDoIt = pCbfP && ( !pModuloDirsP || !( cDirsP % *pModuloDirsP ) )
-                    //I CANNOT REMEMBER WHY THESE ARE COMMENTED OUT, BUT I DO NEED TO CALL THE CALLBACK; THAT'S THE WHOLE IDEA
+                        *postSuffix = 0 ;
+        
+                        diskWalkPrivateIF( tinP , cDirsP , cFilesP , postNameP , bQuitP , flagsP , pCbfP , pcArgP , pModuloDirsP , pModuloFilesP ) ;
 
-                    boolT bDoIt = 1 ;
-    
-                    BOSdOnOTtEST( WHATgbo , strcat( postSuffix , "\\" ) )
-                    BOSdOnOTtEST( WHATgbo , strcpy( postSuffix , info.cFileName ) )
+                        }
+                            if( pCbfP ) (*pCbfP)( tinP , cDirsP , cFilesP , bQuitP , postNameP , pcArgP , pModuloDirsP , pModuloFilesP ) ;
+                            cDirsP ++ ;
+                        {
+                        if( bDoIt )
+        
+                        //;
+                        //    : 1
+                        //    ? tinP.pc Utility[ 0 ] = (countT)&info , (*pCbfP)( tinP , cDirsP , cFilesP , postNameP , pcArgP , pModuloDirsP , pModuloFilesP )
+                        //boolT bDoIt = pCbfP && ( !pModuloDirsP || !( cDirsP % *pModuloDirsP ) )
+                        //I CANNOT REMEMBER WHY THESE ARE COMMENTED OUT, BUT I DO NEED TO CALL THE CALLBACK; THAT'S THE WHOLE IDEA
+
+                        boolT bDoIt = 1 ;
+        
+                        BOSdOnOTtEST( WHATgbo , strcat( postSuffix , "\\" ) )
+                        BOSdOnOTtEST( WHATgbo , strcpy( postSuffix , info.cFileName ) )
+                    {
+                    if( b1 && b2 )
+                    boolT b2 = tinP.brcRaw ;
+                    BOSdOnOTtEST( WHATgbo , strcmp( info.cFileName , ".." ) )
+                    boolT b1 = tinP.brcRaw ;
+                    BOSdOnOTtEST( WHATgbo , strcmp( info.cFileName , "." ) )
                 {
-                if( b1 && b2 )
-                boolT b2 = tinP.brcRaw ;
-                BOSdOnOTtEST( WHATgbo , strcmp( info.cFileName , ".." ) )
-                boolT b1 = tinP.brcRaw ;
-                BOSdOnOTtEST( WHATgbo , strcmp( info.cFileName , "." ) )
+                if( !( F(flagsP) & flDISKwALK_FILESoNLY ) )
             {
             else if( info.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY )
             if( info.dwFileAttributes & FILE_ATTRIBUTE_SYSTEM ) ;
