@@ -1,3 +1,29 @@
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004a6.openfileread1 BEGIN
+
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 25 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+/*
+*/
+/**/
+/*1*//*OPENfILErEAD1(psttFileP)*//*1*/
+
+#define OPENfILErEAD1(psttFileP) OPENfILErEAD( (psttFileP) , 1 )
+
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 25 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004a6.openfileread1 END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004a7.openfileread2 BEGIN
 
 
@@ -1381,8 +1407,6 @@ arguments
 
 /*3*/
 #define flFILEc_DELETE                   0xe00001ea
-#define flFILEc_UNZIP                    0xe00002ea
-#define flFILEc_ZIP                      0xe00004ea
 /*3*/
 #define flFILEc_null    0xe00000ea
 
@@ -26325,6 +26349,7 @@ code may use setIfZeAM on *(countT*)this
     countT              idPortListServerEmailIdAccount ; //SET AND MAINTAINED BY ifcIDaDAM_LISTsERVEReMAILiDaCCOUNT
     countT              idPortListServerIdAccountDescription ; //SET AND MAINTAINED BY ifcIDaDAM_LISTsERVERiDaCCOUNTdESCRIPTION
     countT              idPortListMoneyBuckets ; // SET AND MAINTAINED BY ifcIDaDAM_LISTsERVERmONEYbUCKETS
+    countT              idPortCloak ; // SET AND MAINTAINED BY ifcIDaDAM_CLOAK
     idPortTimeC         idptRelay ; //SET AND MAINTAINED BY b150104 (U::THIS COMMENT PROBABLY IDENTIFIES THE WRONG ADAM)
     countT              idRank ;
     idPortC             idpTeat ;

@@ -1,4 +1,11 @@
 
+#define ifcIDcMDcLOAK_QUERYaLLlOCKEDfOLDERScONTENTS     0xd3434343
+#define ifcIDrEPLYcLOAK_ALLlOCKEDfOLDERScONTENTS        0xd1212121
+
+#define ifcIDrEPLYcLOAK_FOLDERcONTENTS                  0xd7654321
+
+#define ifcIDcMDcLOAK_QUERYfOLDERcONTENTS               0xd2345678
+
 // IPDOS (tm) <> IdeaFarm (tm) Piggyback Distributed Operating System
 
 // For build environment info, see file "\ideafarm.work\backed.up.never\txt\readme.first.ipdos.build.environment.txt"
@@ -1775,13 +1782,15 @@ use me iff pvP was obtained from operator new
 
 #define DEL(pvP)                                                                                                         \
                                                                                                                          \
-    if( *(countT*)&(pvP) )                                                                                               \
     {                                                                                                                    \
-        THREADmODE2oFF( flTHREADmODE2_DOnOTcaLLdELif )                                                                   \
-        delete (pvP) ;                                                                                                   \
-        THREADmODE2rESTORE                                                                                               \
-        (pvP) = 0 ;                                                                                                      \
-    }                                                                                                                    \
+        if( *(countT*)&(pvP) )                                                                                           \
+        {                                                                                                                \
+            THREADmODE2oFF( flTHREADmODE2_DOnOTcaLLdELif )                                                               \
+            delete (pvP) ;                                                                                               \
+            THREADmODE2rESTORE                                                                                           \
+            (pvP) = 0 ;                                                                                                  \
+        }                                                                                                                \
+    }
 
 
 //
@@ -9973,9 +9982,11 @@ flHIRE_SHOW
 #define FINGERnEG_WOtABLEuNCONFIRMEDeMAIL               ((countT)-(sCountT)0xcccc0058)
 #define FINGERnEG_WOtABLEcONFIRMEDeMAIL                 ((countT)-(sCountT)0xcccc0059)
 #define FINGERnEG_DATUMgORILLAiDEAFARMcOM               ((countT)-(sCountT)0xcccc005a)
+#define FINGERnEG_CLOAKrEPLY                            ((countT)-(sCountT)0xcccc005b)
+#define FINGERnEG_CLOAKcOMMAND                          ((countT)-(sCountT)0xcccc005c)
 /*3*/
 #define FINGERnEG_min     0xcccc0001
-#define FINGERnEG_max     0xcccc005a
+#define FINGERnEG_max     0xcccc005c
 
 
 //
@@ -43284,29 +43295,3 @@ it is illegal to refer to this symbol anywhere but in the definition of a BlATHs
 //
 
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004a5.openfileread END
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004a6.openfileread1 BEGIN
-
-
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 25 years.
-// Respecting the rights of other people is an important part of empowering one another.
-//
-
-/*
-*/
-/**/
-/*1*//*OPENfILErEAD1(psttFileP)*//*1*/
-
-#define OPENfILErEAD1(psttFileP) OPENfILErEAD( (psttFileP) , 1 )
-
-
-//
-// Respecting the rights of other people is an important part of empowering one another.
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 25 years.
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004a6.openfileread1 END
