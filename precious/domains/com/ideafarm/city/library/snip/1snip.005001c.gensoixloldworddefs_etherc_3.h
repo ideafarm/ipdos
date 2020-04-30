@@ -1,4 +1,19 @@
 
+voidT osDriverF_3_GF( tinS& tinP , etherC& etherP , soulC& slP , const strokeS* const _psttNameP )
+{
+    countT idArgNext = 1 ;
+    ZE( byteT* , pbFieldNext ) ;
+    ZE( countT , idTypeNext ) ;
+    ZE( flagsT , flagsNext ) ;
+    ZE( countT , cbFieldNext ) ;
+
+   SOIXLoLDtESTeMPTY( 0xdddd8003 , etherC )
+   SOIXLoLDtESTtYPE( 0xdddd8003 , etherC )
+    ZE( countT , idAdamP ) ;
+    if( !POOP ) { slP >> idAdamP ; idArgNext ++ ; }
+    if( !POOP ) etherP.osDriverF( tinP , idAdamP ) ;
+}
+
 voidT osDriverNameFromMasterF_4P3_GF( tinS& tinP , etherC& etherP , soulC& slP , const strokeS* const _psttNameP )
 {
     countT idArgNext = 1 ;
@@ -2481,16 +2496,5 @@ voidT socksSetupF__GF( tinS& tinP , etherC& etherP , soulC& slP , const strokeS*
     ZE( flagsT , flagsNext ) ;
     ZE( countT , cbFieldNext ) ;
     if( !POOP ) etherP.socksSetupF( tinP ) ;
-    if( tinP.fingerprint && _psttNameP && slP ) ;
-}
-
-voidT socksShutdownF__GF( tinS& tinP , etherC& etherP , soulC& slP , const strokeS* const _psttNameP )
-{
-    countT idArgNext = 1 ;
-    ZE( byteT* , pbFieldNext ) ;
-    ZE( countT , idTypeNext ) ;
-    ZE( flagsT , flagsNext ) ;
-    ZE( countT , cbFieldNext ) ;
-    if( !POOP ) etherP.socksShutdownF( tinP ) ;
     if( tinP.fingerprint && _psttNameP && slP ) ;
 }

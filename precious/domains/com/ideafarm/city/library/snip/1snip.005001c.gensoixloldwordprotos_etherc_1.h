@@ -193,6 +193,8 @@ voidT ifcQueryHandlesF_4P3d_GF( tinS& tinP , etherC& etherP , soulC& slP , const
 
 voidT ifcGetNextSerialNumberF_2P_GF( tinS& tinP , etherC& etherP , soulC& slP , const strokeS* const _psttNameP ) ;
 
+voidT ifcIdCopyF_3_GF( tinS& tinP , etherC& etherP , soulC& slP , const strokeS* const _psttNameP ) ;
+
 voidT querySettingF_4P4P_GF( tinS& tinP , etherC& etherP , soulC& slP , const strokeS* const _psttNameP ) ;
 
 voidT osClipboardFlavorsF__GF( tinS& tinP , etherC& etherP , soulC& slP , const strokeS* const _psttNameP ) ;

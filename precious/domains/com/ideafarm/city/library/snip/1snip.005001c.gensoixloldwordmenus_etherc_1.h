@@ -95,6 +95,7 @@
     "    . ifcMonitorQueryOldF_1@33       . ?? ")+T(postName)+T("\r\n"
     "    . ifcQueryHandlesF_4@3d       . ?? ")+T(postName)+T("\r\n"
     "    . ifcGetNextSerialNumberF_2@       . ?? ")+T(postName)+T("\r\n"
+    "    . ifcIdCopyF_3       . ?? ")+T(postName)+T("\r\n"
     "    . querySettingF_4@4@       . ?? ")+T(postName)+T("\r\n"
     "    . osClipboardFlavorsF_       . ?? ")+T(postName)+T("\r\n"
     "    . osClipboardGrabF_       . ?? ")+T(postName)+T("\r\n"

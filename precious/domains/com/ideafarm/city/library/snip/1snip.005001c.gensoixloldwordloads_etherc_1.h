@@ -775,6 +775,14 @@
     _pSwSoixlOldApi->ungrabF( tinP ) ;
 }
 {
+    TN( tNameSoixlOld , "ifcIdCopyF_3" ) ;
+    _pSwSoixlOldApi->grabF( tinP , TAG( TAGiDnULL ) ) ;
+    _psttLeverSoixlOldApi = tNameSoixlOld ;
+    if( *_pSwSoixlOldApi ) { BLAMMO ; }
+    *_pSwSoixlOldApi = (countT)ifcIdCopyF_3_GF ;
+    _pSwSoixlOldApi->ungrabF( tinP ) ;
+}
+{
     TN( tNameSoixlOld , "querySettingF_4@4@" ) ;
     _pSwSoixlOldApi->grabF( tinP , TAG( TAGiDnULL ) ) ;
     _psttLeverSoixlOldApi = tNameSoixlOld ;

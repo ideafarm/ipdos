@@ -1,4 +1,4 @@
-#define DEBUG
+//#define DEBUG
 
 #if not defined( DEBUG )
     #define RELEASE
