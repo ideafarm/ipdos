@@ -340,8 +340,12 @@ DONE( tmcCloakServerF )
     }
         DEL( psoP ) ;
         }
+            DEL( psOut ) ;
             }
-                psoP->writeF( tinP , sOut ) ;
+                psoP->writeF( tinP , *psOut ) ;
+                psOut = new( 0 , tinP , LF ) soulC( tinP , TAG( TAGiDnULL ) ) ; ___( psOut ) ;
+                DEL( psOut ) ;
+                psoP->writeF( tinP , *psOut ) ;
     
                 }
                     }
@@ -350,7 +354,7 @@ DONE( tmcCloakServerF )
                         }
                             swFlockP.ungrabF( tinP ) ;
                             }
-                                reportFilesF( tinP , etThread , sOut , pFlock , psttzLeverFolderP , flagsWant ) ;
+                                reportFilesF( tinP , etThread , psOut , psoP , pFlock , psttzLeverFolderP , flagsWant ) ;
 
                                 fileC*& pFlock   = *(fileC**)&(countT&)swFlockP ;
                                 psttzLeverFolderP = (strokeS*)swFlockP.leverF( tinP , idf ) ;
@@ -359,9 +363,9 @@ DONE( tmcCloakServerF )
                             countT cFlavors = swFlockP.cFlavorsF( tinP ) ;
                             swFlockP.grabF( tinP , TAG( TAGiDnULL ) ) ;
 
-                            sOut << (countT)ifcIDrEPLYcLOAK_ALLlOCKEDfOLDERScONTENTS ;
-                            sOut << (countT)1 ;
-                            sOut << (countT)FINGERnEG_CLOAKrEPLY ;
+                            *psOut << (countT)ifcIDrEPLYcLOAK_ALLlOCKEDfOLDERScONTENTS ;
+                            *psOut << (countT)1 ;
+                            *psOut << (countT)FINGERnEG_CLOAKrEPLY ;
                         {
                         else
                         if( POOP ) etThread.traceF( tinP , T("error: invalid value received [flagsWant]:    ")+TF2(flagsWant,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
@@ -377,14 +381,14 @@ DONE( tmcCloakServerF )
                         }
                             swFlockP.ungrabF( tinP ) ;
                             }
-                                reportFilesF( tinP , etThread , sOut , pFlock , psttFolder , flagsWant ) ;
+                                reportFilesF( tinP , etThread , psOut , psoP , pFlock , psttFolder , flagsWant ) ;
 
                                 fileC*& pFlock   = *(fileC**)&(countT&)swFlockP ;
                                 psttzLeverFolderP = psttFolder ;
 
-                                sOut << (countT)ifcIDrEPLYcLOAK_FOLDERcONTENTS ;
-                                sOut << (countT)1 ;
-                                sOut << (countT)FINGERnEG_CLOAKrEPLY ;
+                                *psOut << (countT)ifcIDrEPLYcLOAK_FOLDERcONTENTS ;
+                                *psOut << (countT)1 ;
+                                *psOut << (countT)FINGERnEG_CLOAKrEPLY ;
                             {
                             if( swFlockP.idSlotOfLeverF( tinP , (countT)psttFolder ) )
                             swFlockP.grabF( tinP , TAG( TAGiDnULL ) ) ;
@@ -418,7 +422,7 @@ DONE( tmcCloakServerF )
     
             psoP->readF( tinP , sIn ) ;
 
-            soulC sOut( tinP , TAG( TAGiDnULL ) ) ;
+            soulC* psOut = new( 0 , tinP , LF ) soulC( tinP , TAG( TAGiDnULL ) ) ; ___( psOut ) ;
             soulC sIn(  tinP , TAG( TAGiDnULL ) ) ;
         {
         while( !POOP && !etThread && !ether && psoP )
@@ -446,6 +450,13 @@ TASK( tmcCloakServerF )
             }
                 }
                     }
+                        }
+                            psOutP = new( 0 , tinP , LF ) soulC( tinP , TAG( TAGiDnULL ) ) ; ___( psOutP ) ;
+                            DEL( psOutP ) ;
+                            psoP->writeF( tinP , *psOutP ) ;
+                        {
+                        if( *psOutP >= TUCK )   // THIS IS TO AVOID CAPACITY CONSTRAINT AND TO ALLOW CLIENT TO BEGIN PROCESSING THE FILE LIST
+
                         else                        break ;
                         if( info3.NextEntryOffset ) pbInfo3 += info3.NextEntryOffset ;
 
@@ -462,7 +473,7 @@ TASK( tmcCloakServerF )
                                 if( F(flagsP) & flFILEiNFO_TIMEcREATED ) ;
                                 if( F(flagsP) & flFILEiNFO_IDsERIAL ) ;
 
-                                if( F(flagsP) & flFILEiNFO_NAME ) sOutP << (strokeS*)T(postName) ;
+                                if( F(flagsP) & flFILEiNFO_NAME ) *psOutP << (strokeS*)T(postName) ;
                             {
                             if( thirdC::c_strcmpIF( tinP , postName , "." ) && thirdC::c_strcmpIF( tinP , postName , ".." ) )
 
@@ -521,7 +532,7 @@ TASK( tmcCloakServerF )
     {
     if( F(flagsP) )
 
-    sOutP << psttFolderP ;
+    *psOutP << psttFolderP ;
 
     }
         if( POOP ) return ;
@@ -530,7 +541,7 @@ TASK( tmcCloakServerF )
     {
     IFbEcAREFUL
 {
-voidT reportFilesF( tinS& tinP , etherC& etherP , soulC& sOutP , fileC*& pFlockP , const strokeS* const psttFolderP , const flagsT flagsP )
+voidT reportFilesF( tinS& tinP , etherC& etherP , soulC*& psOutP , socketC* psoP , fileC*& pFlockP , const strokeS* const psttFolderP , const flagsT flagsP )
 
 }
     THREADmODE1rESTORE
