@@ -1,4 +1,41 @@
 
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 25 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+/*
+*/
+/**/
+/*1*//*flFILEiNFO*//*1*/
+
+/*3*/
+#define flFILEiNFO_IDsERIAL                     0xe00001ff
+#define flFILEiNFO_TIMEcREATED                  0xe00002ff
+#define flFILEiNFO_TIMEaCCESSED                 0xe00004ff
+#define flFILEiNFO_TIMEwRITTEN                  0xe00008ff
+#define flFILEiNFO_TIMEcHANGED                  0xe00010ff
+#define flFILEiNFO_OFFSETeNDoFfILE              0xe00020ff
+#define flFILEiNFO_CBaLLOCATED                  0xe00040ff
+#define flFILEiNFO_ATTRIBUTES                   0xe00080ff
+#define flFILEiNFO_CBeXTENDEDaTTRIBUTES         0xe00100ff
+#define flFILEiNFO_CBnAME                       0xe00200ff
+#define flFILEiNFO_NAME                         0xe00400ff
+/*3*/
+#define flFILEiNFO_null                         0xe00000ff
+
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 25 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+
+
 #define ifcIDcMDcLOAK_QUERYaLLlOCKEDfOLDERScONTENTS     0xd3434343
 #define ifcIDrEPLYcLOAK_ALLlOCKEDfOLDERScONTENTS        0xd1212121
 

@@ -145,10 +145,22 @@ ZE( strokeS* , psttzLeverFolder ) ;
 }
     }
         }
-            psttf = 0 ; // psttf HAS BEEN SUNK, SO THIS COPY IS A ZOMBIE
-            etThread.diskWalkF( tinP , cDirs , cFiles , psttf , ether , flDISKwALK_DIRECTORIESoNLY , sinkFolderToCloakCBF , pcArg , 0 , 0 ) ;
-            ZE( countT , cFiles ) ;
-            ZE( countT , cDirs ) ;
+            }
+                psttf = 0 ; // psttf HAS BEEN SUNK, SO THIS COPY IS A ZOMBIE
+
+                }
+                    etThread.traceF( tinP , T("error: could not walk:    ")+T(psttf) ) ;
+                    POOPR
+                {
+                if( POOP )
+
+                tinP.pEtScratch->diskWalkF( tinP , cDirs , cFiles , psttf , ether , flDISKwALK_DIRECTORIESoNLY , sinkFolderToCloakCBF , pcArg , 0 , 0 ) ;
+                ZE( countT , cFiles ) ;
+                ZE( countT , cDirs ) ;
+
+                SCOOPS
+            {
+            IFsCRATCH
         {
         else
         if( !ids ) etThread.delF( tinP , psttf ) ;
@@ -161,7 +173,7 @@ ZE( strokeS* , psttzLeverFolder ) ;
     {
     while( stFoldersToWalk )
 
-    countT pcArg[] = { (countT)&etThread , (countT)&stFolderToCloak , (countT)&stFolderExclude , (countT)&stFoldersExclude } ;
+    countT pcArg[] = { (countT)tinP.pEtScratch , (countT)&stFolderToCloak , (countT)&stFolderExclude , (countT)&stFoldersExclude } ;
 
     }
         //else       psttf = 0 ;
@@ -335,38 +347,54 @@ DONE( tmcCloakServerF )
                     }
                         break ;
 
-                        swFlockP.ungrabF( tinP ) ;
                         }
-                            reportFilesF( tinP , etThread , sOut , pFlock , psttzLeverFolderP ) ;
+                            swFlockP.ungrabF( tinP ) ;
+                            }
+                                reportFilesF( tinP , etThread , sOut , pFlock , psttzLeverFolderP , flagsWant ) ;
 
-                            fileC*& pFlock   = *(fileC**)&(countT&)swFlockP ;
-                            psttzLeverFolderP = (strokeS*)swFlockP.leverF( tinP , idf ) ;
+                                fileC*& pFlock   = *(fileC**)&(countT&)swFlockP ;
+                                psttzLeverFolderP = (strokeS*)swFlockP.leverF( tinP , idf ) ;
+                            {
+                            for( countT idf = 1 ; idf <= cFlavors ; idf ++ )
+                            countT cFlavors = swFlockP.cFlavorsF( tinP ) ;
+                            swFlockP.grabF( tinP , TAG( TAGiDnULL ) ) ;
+
+                            sOut << (countT)ifcIDrEPLYcLOAK_ALLlOCKEDfOLDERScONTENTS ;
+                            sOut << (countT)1 ;
+                            sOut << (countT)FINGERnEG_CLOAKrEPLY ;
                         {
-                        for( countT idf = 1 ; idf <= cFlavors ; idf ++ )
-                        countT cFlavors = swFlockP.cFlavorsF( tinP ) ;
-                        swFlockP.grabF( tinP , TAG( TAGiDnULL ) ) ;
+                        else
+                        if( POOP ) etThread.traceF( tinP , T("error: invalid value received [flagsWant]:    ")+TF2(flagsWant,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
 
-                        sOut << (countT)ifcIDrEPLYcLOAK_ALLlOCKEDfOLDERScONTENTS ;
-                        sOut << (countT)1 ;
-                        sOut << (countT)FINGERnEG_CLOAKrEPLY ;
+                        //FV(flFILEiNFO,flagsWant) ;
+                        sIn >> flagsWant ;
+                        ZE( flagsT , flagsWant ) ;
                     {
                     case ifcIDcMDcLOAK_QUERYaLLlOCKEDfOLDERScONTENTS :
                     }
                         break ;
 
-                        swFlockP.ungrabF( tinP ) ;
                         }
-                            reportFilesF( tinP , etThread , sOut , pFlock , psttFolder ) ;
+                            swFlockP.ungrabF( tinP ) ;
+                            }
+                                reportFilesF( tinP , etThread , sOut , pFlock , psttFolder , flagsWant ) ;
 
-                            fileC*& pFlock   = *(fileC**)&(countT&)swFlockP ;
-                            psttzLeverFolderP = psttFolder ;
+                                fileC*& pFlock   = *(fileC**)&(countT&)swFlockP ;
+                                psttzLeverFolderP = psttFolder ;
 
-                            sOut << (countT)ifcIDrEPLYcLOAK_FOLDERcONTENTS ;
-                            sOut << (countT)1 ;
-                            sOut << (countT)FINGERnEG_CLOAKrEPLY ;
+                                sOut << (countT)ifcIDrEPLYcLOAK_FOLDERcONTENTS ;
+                                sOut << (countT)1 ;
+                                sOut << (countT)FINGERnEG_CLOAKrEPLY ;
+                            {
+                            if( swFlockP.idSlotOfLeverF( tinP , (countT)psttFolder ) )
+                            swFlockP.grabF( tinP , TAG( TAGiDnULL ) ) ;
                         {
-                        if( swFlockP.idSlotOfLeverF( tinP , (countT)psttFolder ) )
-                        swFlockP.grabF( tinP , TAG( TAGiDnULL ) ) ;
+                        else
+                        if( POOP ) etThread.traceF( tinP , T("error: invalid value received [flagsWant]:    ")+TF2(flagsWant,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
+
+                        //FV(flFILEiNFO,flagsWant) ;
+                        sIn >> flagsWant ;
+                        ZE( flagsT , flagsWant ) ;
 
                         sIn >> psttFolder ;
                         ZE( strokeS* , psttFolder ) ;
@@ -409,6 +437,102 @@ TELL( "setting up" )
 TASK( tmcCloakServerF )
 
 }
+    }
+        replaceCloakF( tinP , etherP , pFlockP , psttFolderP ) ;
+
+        }
+            etherP.delF( tinP , pbBuffer ) ;
+            while( !POOP && !bDone ) ;
+            }
+                }
+                    }
+                        else                        break ;
+                        if( info3.NextEntryOffset ) pbInfo3 += info3.NextEntryOffset ;
+
+                        }
+                            }
+                                if( F(flagsP) & flFILEiNFO_CBnAME ) ;
+                                if( F(flagsP) & flFILEiNFO_CBeXTENDEDaTTRIBUTES ) ;
+                                if( F(flagsP) & flFILEiNFO_ATTRIBUTES ) ;
+                                if( F(flagsP) & flFILEiNFO_CBaLLOCATED ) ;
+                                if( F(flagsP) & flFILEiNFO_OFFSETeNDoFfILE ) ;
+                                if( F(flagsP) & flFILEiNFO_TIMEcHANGED ) ;
+                                if( F(flagsP) & flFILEiNFO_TIMEwRITTEN ) ;
+                                if( F(flagsP) & flFILEiNFO_TIMEaCCESSED ) ;
+                                if( F(flagsP) & flFILEiNFO_TIMEcREATED ) ;
+                                if( F(flagsP) & flFILEiNFO_IDsERIAL ) ;
+
+                                if( F(flagsP) & flFILEiNFO_NAME ) sOutP << (strokeS*)T(postName) ;
+                            {
+                            if( thirdC::c_strcmpIF( tinP , postName , "." ) && thirdC::c_strcmpIF( tinP , postName , ".." ) )
+
+                            etherP.traceF( tinP , T("    [name]:    ")+T(postName) ) ;
+                            if( bOk ) ;
+
+                            unicodeToAnsiF( postName , sizeof postName , (byteT*)info3.FileName , info3.FileNameLength >> 1 ) ;
+
+                            thirdC::c_memsetIF( tinP , postName , sizeof postName ) ;
+                            osTextT postName[ TUCK << 1 ] ;
+                        {
+                        if( !( info3.FileAttributes & FILE_ATTRIBUTE_DIRECTORY ) )
+
+                        FILE_FULL_DIR_INFO& info3 = *(FILE_FULL_DIR_INFO*)pbInfo3 ;
+                    {
+                    for(;;)
+                {
+                else
+                }
+                    }
+                        }
+                            break ;
+                            bDone = 1 ;
+                        {
+                        case ERROR_NO_MORE_FILES :
+                        }
+                            break ;
+                            thirdC::c_memsetIF( tinP , pbBuffer , cbBuffer ) ;
+                            etherP.newF( tinP , LF , pbBuffer , cbBuffer ) ; ___( pbBuffer ) ;
+                            cbBuffer <<= 1 ;
+                            etherP.delF( tinP , pbBuffer ) ;
+                        {
+                        case ERROR_BAD_LENGTH :
+                        case ERROR_MORE_DATA :
+                    {
+                    switch( rc )
+                    etherP.traceF( tinP , T("[rc]:    ")+TF2(rc,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
+                    countT rc = GetLastError() ;
+                {
+                if( !bOk )
+                boolT bOk = GetFileInformationByHandleEx( (HANDLE)hFile.osF( ifcIDtYPEhANDLE_FILE ) , (FILE_INFO_BY_HANDLE_CLASS)FileFullDirectoryInfo_updated , pbBuffer , cbBuffer ) ;
+                byteT* pbInfo3 = pbBuffer ;
+            {
+            do
+            ZE( boolT , bDone ) ;
+
+            etherP.traceF( tinP , T("[sizeof FILE_FULL_DIR_INFO]:    ")+TF2( sizeof FILE_FULL_DIR_INFO , flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED ) ) ;
+
+            thirdC::c_memsetIF( tinP , pbBuffer , cbBuffer ) ;
+            etherP.newF( tinP , LF , pbBuffer , cbBuffer ) ; ___( pbBuffer ) ;
+            countT cbBuffer = TUCK << 1 ;
+            ZE( byteT* , pbBuffer ) ;
+
+            handleC& hFile = *pFlockP ;
+        {
+    {
+    if( F(flagsP) )
+
+    sOutP << psttFolderP ;
+
+    }
+        if( POOP ) return ;
+        //FV(flFILEiNFO,flagsP) ;
+        if( POOP ) return ;
+    {
+    IFbEcAREFUL
+{
+voidT reportFilesF( tinS& tinP , etherC& etherP , soulC& sOutP , fileC*& pFlockP , const strokeS* const psttFolderP , const flagsT flagsP )
+
+}
     THREADmODE1rESTORE
     }
         }
@@ -438,52 +562,8 @@ TASK( tmcCloakServerF )
     //U:: ALT: IF I CANNOT REOPEN THE FILE, SHUT DOWN THE COMPUTER IMMEDIATELY (DECISION: DO THIS)
     //U:: ALT: SUPPORT THIS COMMAND ONLY ONCE PER PERIOD AND LAUNCH A THREAD TO WAIT A RANDOM AMOUNT OF TIME BEFORE CLOSING AND IMMEDIATELY REOPENING THIS FILE
     //U:: SECURITY HOLE: A MALICIOUS CLIENT CAN EXPLOIT THIS BY EMITTING THIS COMMAND AND THEN STARTING A CYCLING RACE TO TRY TO OPEN THE HANDLE ITSELF, PREVENTING ME FROM OPENING IT
-
-    }
-        }
-            }
-                }
-                    else                        break ;
-                    if( info3.NextEntryOffset ) pbInfo3 += info3.NextEntryOffset ;
-
-                    }
-                        }
-                            sOutP << (strokeS*)T(postName) ;
-                        {
-                        if( thirdC::c_strcmpIF( tinP , postName , "." ) && thirdC::c_strcmpIF( tinP , postName , ".." ) )
-
-                        etherP.traceF( tinP , T("    [name]:    ")+T(postName) ) ;
-                        if( bOk ) ;
-
-                        unicodeToAnsiF( postName , sizeof postName , (byteT*)info3.FileName , info3.FileNameLength >> 1 ) ;
-
-                        thirdC::c_memsetIF( tinP , postName , sizeof postName ) ;
-                        osTextT postName[ TUCK << 1 ] ;
-                    {
-                    if( !( info3.FileAttributes & FILE_ATTRIBUTE_DIRECTORY ) )
-
-                    FILE_FULL_DIR_INFO& info3 = *(FILE_FULL_DIR_INFO*)pbInfo3 ;
-                {
-                for(;;)
-            {
-            else
-            }
-                if( rc ) ;
-                countT rc = GetLastError() ;
-            {
-            if( !bOk )
-            boolT bOk = GetFileInformationByHandleEx( (HANDLE)hFile.osF( ifcIDtYPEhANDLE_FILE ) , (FILE_INFO_BY_HANDLE_CLASS)FileFullDirectoryInfo_updated , pbBuffer , sizeof pbBuffer ) ;
-            byteT* pbInfo3 = pbBuffer ;
-        {
-
-        byteT pbBuffer[ TOCK ] ;
-
-        handleC& hFile = *pFlockP ;
-    {
-
-    sOutP << psttFolderP ;
 {
-voidT reportFilesF( tinS& tinP , etherC& etherP , soulC& sOutP , fileC*& pFlockP , const strokeS* const psttFolderP )
+voidT replaceCloakF( tinS& tinP , etherC& etherP , fileC*& pFlockP , const strokeS* const psttFolderP )
 
 }
     return 0 ;
@@ -580,6 +660,7 @@ boolT unicodeToAnsiF( byteT* pbOutP , const countT cbOutP , const byteT* pbInP ,
   ULONG         NextEntryOffset;
 typedef struct _FILE_FULL_DIR_INFO {
 //CONJ: WATCOM'S NT HEADERS ARE OLD
+
 
 
 } FILE_INFO_BY_HANDLE_CLASS_updated, *PFILE_INFO_BY_HANDLE_CLASS_updated;

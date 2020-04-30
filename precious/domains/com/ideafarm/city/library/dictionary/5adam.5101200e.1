@@ -12,10 +12,14 @@ REST
 etherC::loafIF( tinP ) ;
 etThread.traceF( tinP , T("ok") ) ;
 
+etThread.traceF( tinP , T(USCORE127 " wo folder (end)") ) ;
 queryFileListF( tinP , tFolder ) ;
-TN( tFolder , "///d/tmp/locked.test/docked/" ) ;
+etThread.traceF( tinP , T(USCORE127 " wo folder (begin)") ) ;
+TN( tFolder , "///d/tmp/locked.test/2/" ) ;
 
+etThread.traceF( tinP , T(USCORE127 " all (end)") ) ;
 queryFileListAllF( tinP ) ;
+etThread.traceF( tinP , T(USCORE127 " all (begin)") ) ;
 
 TODO
 
@@ -45,6 +49,7 @@ TODO
         static soulC sIn( tinP , TAG( TAGiDnULL ) ) ;
     
         sock.writeF( tinP , sOut ) ;
+        sOut << (countT)flFILEiNFO_NAME ;
         sOut << psttFolderP ;
         sOut << (countT)ifcIDcMDcLOAK_QUERYfOLDERcONTENTS ;
         sOut << (countT)1 ;
@@ -88,6 +93,7 @@ voidT queryFileListF( tinS& tinP , const strokeS* const psttFolderP )
         static soulC sIn( tinP , TAG( TAGiDnULL ) ) ;
     
         sock.writeF( tinP , sOut ) ;
+        sOut << (countT)flFILEiNFO_NAME ;
         sOut << (countT)ifcIDcMDcLOAK_QUERYaLLlOCKEDfOLDERScONTENTS ;
         sOut << (countT)1 ;
         sOut << (countT)FINGERnEG_CLOAKcOMMAND ;
