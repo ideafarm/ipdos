@@ -17,7 +17,7 @@
     if( !bMatch )
 
     }
-        idsDoP = ++ idsMax ; // ')'
+        idsDoP = ++ idsLathOuter ; // ')'
 
         }
             }
@@ -60,7 +60,7 @@
                 else
                 if( !cRepeat && ( !cRepeatIf || idbDoP == psttBigP->idAdam ) ) break ;      // WE ARE DONE
             {
-            if( idsDoP == idsMax )
+            if( idsDoP == idsLathOuter )
 
             if( bDisarmUndoIf ) bDisarmUndoIf = bUndoIfNotMatch = 0 ;
             if( cArmLiterals  ) cArmLiterals -- ;
@@ -92,7 +92,7 @@
                 &&
                 psttSmallP[ CSpREFIX + idsDoP ].idCaste == sc_cSSSmARK
                 &&
-                idsDoP < idsMax
+                idsDoP < idsLathOuter
             (
             if
             // AS OF THIS WRITING, THE ONLY SPECIFICATION THAT MUST BE OBEYED USING LOOK AHEAD IS: sa_SSSmARKlINEeND
@@ -115,7 +115,7 @@
                             idbDoP = idbDoLathMatch ;
                             idsDoP = idsDoLathMatch ;
                         {
-                        if( idsDoP == idsMax )
+                        if( idsDoP == idsLathOuter )
 
                         bUndoIfNotMatch = 0 ;
                     {
@@ -149,7 +149,7 @@
                             idbDoP = idbDoLathMatch ;
                             idsDoP = idsDoLathMatch ;
                         {
-                        if( idsDoP == idsMax )
+                        if( idsDoP == idsLathOuter )
 
                         bUndoIfNotMatch = 0 ;
                     {
@@ -178,7 +178,7 @@
                             idbDoP = idbDoLathMatch ;
                             idsDoP = idsDoLathMatch ;
                         {
-                        if( idsDoP == idsMax )
+                        if( idsDoP == idsLathOuter )
 
                         bUndoIfNotMatch = 0 ;
                     {
@@ -198,8 +198,34 @@
                     idsDoP ++ ;
                 {
                 else
-                if( idsDoP == idsMax ) break ;
+                if( idsDoP == idsLathOuter ) break ;
 
+                }
+                    }
+                        }
+                            break ;
+                            bMatch = 0 ;
+                        {
+                        else
+                        }
+                            }
+                                break ;
+                                bMatch = 0 ;
+                                idsDoP = 0 ;
+                            {
+                            if( idsDoP > psttSmallP->idAdam )
+                            idsDoP = idsLathMe ;
+                        {
+                        if( !POOP )
+
+                        __Z( idsLathMe ) ;
+                        countT idsLathMe = idsLathF( psttSmallP , idsDoP ) ;
+                    {
+                    while( cIgnore -- && idsDoP <= psttSmallP->idAdam )
+                    idsDoP ++ ;
+                    countT cIgnore = psttSmallP[ CSpREFIX - 1 + idsDoP ].cNote ;
+                {
+                else if( psttSmallP[ CSpREFIX - 1 + idsDoP ].idAdam == -1 && psttSmallP[ CSpREFIX - 1 + idsDoP ].cNote )            // SPECIAL VALUES THAT MEAN: "IGNORE THE NEXT cNote SUBEXPRESSIONS"
                 }
                     cRepeatIf = psttSmallP[ CSpREFIX - 1 + idsDoP ].cNote  - cRepeat ;
                     cRepeat   = psttSmallP[ CSpREFIX - 1 + idsDoP ].idAdam           ;
@@ -214,7 +240,7 @@
                     cArmLiterals = 0 ;
                 {
                 else
-                if( idsDoP == idsMax ) break ; // SHOULD BE IMPOSSIBLE SINCE THE CODE THAT SETS idsMax OBEYS sa_SSSlITERAL
+                if( idsDoP == idsLathOuter ) break ; // SHOULD BE IMPOSSIBLE SINCE THE CODE THAT SETS idsLathOuter OBEYS sa_SSSlITERAL
             {
             else if( psttSmallP[ CSpREFIX - 1 + idsDoP ].idCaste == sc_ccSSS && psttSmallP[ CSpREFIX - 1 + idsDoP ].idAdam == sa_SSSlITERALeND )
             }
@@ -224,7 +250,7 @@
                     cArmLiterals = - 1 ;
                 {
                 else
-                if( idsDoP == idsMax ) break ; // SHOULD BE IMPOSSIBLE SINCE THE CODE THAT SETS idsMax OBEYS sa_SSSlITERAL
+                if( idsDoP == idsLathOuter ) break ; // SHOULD BE IMPOSSIBLE SINCE THE CODE THAT SETS idsLathOuter OBEYS sa_SSSlITERAL
             {
             else if( !cArmLiterals && psttSmallP[ CSpREFIX - 1 + idsDoP ].idCaste == sc_ccSSS && psttSmallP[ CSpREFIX - 1 + idsDoP ].idAdam == sa_SSSlITERALbEGIN )
             }
@@ -234,7 +260,7 @@
                     cArmLiterals = 1 ;
                 {
                 else
-                if( idsDoP == idsMax ) break ; // SHOULD BE IMPOSSIBLE SINCE THE CODE THAT SETS idsMax OBEYS sa_SSSlITERAL
+                if( idsDoP == idsLathOuter ) break ; // SHOULD BE IMPOSSIBLE SINCE THE CODE THAT SETS idsLathOuter OBEYS sa_SSSlITERAL
             {
             if( !cArmLiterals && psttSmallP[ CSpREFIX - 1 + idsDoP ].idCaste == sc_ccSSS && psttSmallP[ CSpREFIX - 1 + idsDoP ].idAdam == sa_SSSlITERAL )
 
@@ -242,7 +268,7 @@
             const countT idbDoSaveInLoop = idbDoP ;
             const countT idsDoSaveInLoop = idsDoP ;
         {
-        if( idsDoP <= idsMax && idbDoP <= psttBigP->idAdam ) for(;;)
+        if( idsDoP <= idsLathOuter && idbDoP <= psttBigP->idAdam ) for(;;)
         ZE( countT , idbDoLathMatch ) ;
         ZE( countT , idsDoLathMatch ) ;
 
@@ -255,62 +281,15 @@
         ZE( countT , cRepeatIf ) ;
         ZE( countT , cRepeat ) ;
 
-        idsMax -- ; // LATH BEFORE ')'
         bMatch = 1 ; // A NULL LENGTH PATTERN WILL ALWAYS MATCH
+
+        idsLathOuter -- ; // LATH BEFORE ')'
+        idsDoP ++ ;                           // WOTH AFTER '('
     {
     if( !POOP )
 
-    // --------------------------------------------------------------------------------------------------------------------------------------------------
-    // SET bMatch
-    // --------------------------------------------------------------------------------------------------------------------------------------------------
-
-    __Z( idsMax ) ;
-    }
-        if( idsMax > psttSmallP->idAdam ) idsMax = 0 ;
-
-        }
-            }
-                if( bFound ) break ;
-
-                }
-                    }
-                        break ;
-                        if( !( -- cLevels ) ) bFound = 1 ;
-                    {
-                    case sa_SSSaNDeND :
-                    }
-                        break ;
-                        ++ cLevels ;
-                    {
-                    case sa_SSSaND :
-                    }
-                        break ;
-                        cArmLiterals = - 1 ; //A:ASSUME: STRING LENGTH CANNOT EXCEED maxCountTT
-                    {
-                    case sa_SSSlITERALbEGIN :
-                    }
-                        break ;
-                        cArmLiterals = 1 ;
-                    {
-                    case sa_SSSlITERAL :
-                {
-                switch( psttSmallP[ CSpREFIX - 1 + idsMax ].idAdam )
-                ZE( boolT , bFound ) ;
-            {
-            else if( psttSmallP[ CSpREFIX - 1 + idsMax ].idCaste == sc_ccSSS )
-            else if( cArmLiterals                                            ) cArmLiterals -- ;
-                 if( psttSmallP[ CSpREFIX - 1 + idsMax ].idCaste == sc_ccSSS && psttSmallP[ CSpREFIX - 1 + idsMax ].idAdam == sa_SSSlITERALeND ) cArmLiterals = 0 ;
-        {
-        for( ; idsMax <= psttSmallP->idAdam ; idsMax ++ )
-        ZE( boolT , cArmLiterals ) ;
-        countT cLevels = 1 ;
-    {
-    countT idsMax = idsDoP ;
-    idsDoP ++ ;                           // WOTH AFTER '('
-
-    // --------------------------------------------------------------------------------------------------------------------------------------------------
-    // FIND THE MATCHING END
-    // --------------------------------------------------------------------------------------------------------------------------------------------------
+    __Z( idsLathOuter ) ;
+    countT idsLathOuter = idsLathF( psttSmallP , idsDoP ) ;              // SINCE idsDoP MUST POINT TO AN [sc_ccSSS,sa_SSSaND], idsLathOuter IS HERE SET TO THE CORRESPONDING [sc_ccSSS,sa_SSSaNDeND]
 
     const countT idbDoSave = idbDoP ;
 
@@ -333,6 +312,59 @@
     ZE( boolT , bMatch ) ;
 {
 /*1*/boolT etherC::sssAndF( tinS& tinP , const strokeS* const psttSmallP , const strokeS* const psttBigP ,  countT& idsDoP ,  countT& idbDoP )/*1*/
+
+}
+    return idsLath ;
+
+    if( idsLath > psttSmallP->idAdam ) idsLath = 0 ;
+
+    }
+        else if( !cNest ) break ;
+        }
+            if( bFound ) break ;
+
+            }
+                }
+                    break ;
+                    if( !( -- cNest ) ) bFound = 1 ;
+                {
+                case sa_SSSoReND :
+                case sa_SSSaNDeND :
+                }
+                    break ;
+                    ++ cNest ;
+                {
+                case sa_SSSoR :
+                case sa_SSSaND :
+                }
+                    break ;
+                    cArmLiterals = 0 ;
+                {
+                case sa_SSSlITERALeND :
+                }
+                    break ;
+                    cArmLiterals = - 1 ; //A:ASSUME: STRING LENGTH CANNOT EXCEED maxCountTT
+                {
+                case sa_SSSlITERALbEGIN :
+                }
+                    break ;
+                    cArmLiterals = 1 ;
+                {
+                case sa_SSSlITERAL :
+            {
+            switch( psttSmallP[ CSpREFIX - 1 + idsLath ].idAdam )
+            ZE( boolT , bFound ) ;
+        {
+        else if( psttSmallP[ CSpREFIX - 1 + idsLath ].idCaste == sc_ccSSS )
+        else if( cArmLiterals                                            ) cArmLiterals -- ;
+             if( psttSmallP[ CSpREFIX - 1 + idsLath ].idCaste == sc_ccSSS && psttSmallP[ CSpREFIX - 1 + idsLath ].idAdam == sa_SSSlITERALeND ) cArmLiterals = 0 ;
+    {
+    for( ; idsLath <= psttSmallP->idAdam ; idsLath ++ )
+    countT idsLath = idsWothP ;
+    ZE( boolT , cArmLiterals ) ;
+    ZE( countT , cNest ) ;
+{
+countT idsLathF( const strokeS* const psttSmallP , countT idsWothP )          // WILL RETURN idsWothP EXCEPT WHEN idsWoth POINTS TO THE BEGINNING OF AN AND OR OR OR LITERAL SUBEXPRESSION
 
 /**/
 

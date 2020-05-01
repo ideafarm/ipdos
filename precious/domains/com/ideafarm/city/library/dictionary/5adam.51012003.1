@@ -11,107 +11,156 @@ REST
 
 etherC::loafIF( tinP ) ;                            
 
+etThread.traceF( tinP , T(USCORE127 " all filtered (end)") ) ;
+etThread.delF( tinP , pstt1m ) ;
 }
+    break ; //U::
+
     }
-        }
-            etThread.traceF( tinP , T("ok [disk,cDirs,cFiles]:    ")+T(postDisk)+T("    ")+TF2(cDirs,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+TF2(cFiles,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
-            
-            etThread.diskWalkF( tinP , cDirs , cFiles , T(postDisk) , bQuit , diskWalkSearchCBF , pcArg ) ;
-            ZE( boolT , bQuit ) ;
-            ZE( countT , cFiles ) ;
-            ZE( countT , cDirs ) ;
+        etThread.traceF( tinP , T("                ")+T("0              1               2               3") ) ;
+        etThread.traceF( tinP , T("                ")+T("123456789abcdef0123456789abcdef0123456789abcdef0") ) ;
+        etThread.traceF( tinP , T("                ")+tShortInspect ) ;
+        etThread.traceF( tinP , T("[idHit,idf]:    ")+TF2(idHit,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2(idf,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
+    {
+    /*if( idHit )*/
 
-            countT pcArg[] = { 0 , 0 } ;
-            
-            DEL( pInfo ) ;
-            etThread.traceF( tinP , T(postDisk) ) ;
-        {
-        else
-        if( POOP ) { POOPR ; }
-        tinP.pEtScratch->diskInfoF( tinP , pInfo , T(postDisk) , 1 ) ;
-        ZE( infoDiskS* , pInfo ) ;
-    {    
-    for( postDisk[ 3 ] = 'a' ; postDisk[ 3 ] <= 'z' ; postDisk[ 3 ] ++ )
-    
-    osTextT postDisk[] = "///./" ;
+    countT idHit = etThread.strIdF( tinP , idf , sttq , psttRegExp , tShortInspect , 0 , 1 ) ;
+    strokeS sttq( 0 , sc_IGNOREqUOTES ) ;
+    countT idf = 1 ;
 
-    SCOOPS
+    }
+        etThread.delF( tinP , psttShortInspect ) ;
+        etThread.delF( tinP , psttPathInspect ) ;
+        tShortInspect = T(psttShortInspect) ;
+        tPathInspect  = T(psttPathInspect) ;
+        etThread.strBisectF( tinP , psttPathInspect , psttShortInspect , psttc2 , tSlash , - 1 , flSTRbISECT_APPENDdELIMITER ) ; ___( psttPathInspect ) ; ___( psttShortInspect ) ;
+        ZE( strokeS* , psttShortInspect ) ;
+        ZE( strokeS* , psttPathInspect ) ;
+        TN( tSlash , "/" ) ;
+    {
+    TN( tShortInspect , "" ) ;
+    TN( tPathInspect , "" ) ;
 {
-IFsCRATCH
+FORsTRINGSiN2( pstt1m )
+etThread.diskFindFileOrDirF( tinP , pstt1m , tPathLike+tStar , 0 , 0 , 0 , 0 ) ; ___( pstt1m ) ;
+TN( tb4 , "    " ) ;
+TN( tStar , "*" ) ;
+etThread.traceF( tinP , T(USCORE127 " all filtered (begin)") ) ;
+
+etThread.traceF( tinP , T(USCORE127 " like (end)") ) ;
+etThread.delF( tinP , pstt1m ) ;
+}
+    etThread.traceF( tinP , psttc1 ) ;
+{
+FORsTRINGSiN1( pstt1m )
+etThread.diskFindFileOrDirF( tinP , pstt1m , tLike , 0 , 0 , 0 , 0 ) ; ___( pstt1m ) ;
+ZE( strokeS* , pstt1m ) ;
+etThread.traceF( tinP , T(USCORE127 " like (begin)") ) ;
+
+regularExpressionFromWildcardF( tinP , etThread , psttRegExp , tShortLike ) ; ___( psttRegExp ) ;
+ZE( strokeS* , psttRegExp ) ;
+
+}
+    etThread.delF( tinP , psttShortLike ) ;
+    etThread.delF( tinP , psttPathLike ) ;
+    tShortLike = T(psttShortLike) ;
+    tPathLike  = T(psttPathLike) ;
+    etThread.strBisectF( tinP , psttPathLike , psttShortLike , tLike , tSlash , - 1 , flSTRbISECT_APPENDdELIMITER ) ; ___( psttPathLike ) ; ___( psttShortLike ) ;
+    ZE( strokeS* , psttShortLike ) ;
+    ZE( strokeS* , psttPathLike ) ;
+    TN( tSlash , "/" ) ;
+{
+TN( tShortLike , "" ) ;
+TN( tPathLike , "" ) ;
+
+TN( tLike , "///d/tmp/wildcard.test/*.signc.*" ) ;
 
 TODO
 
-
 }
-    return bDoIt ;
+    etherP.strMakeF( tinP , psttRegExpP , tre ) ; ___( psttRegExpP ) ;
 
-    _OUT_
+    ;
+
+        +S2(sa_SSSaNDeND,sc_ccSSS)
+            //+S2(sa_SSSoReND,sc_ccSSS)
+            //    +S2(sa_SSSmARKaNY,sc_cSSSmARK)
+            //+S2(sa_SSSoR,sc_ccSSS)
+            //+S3(0,sc_ccSSSrEPEAT,-1)
+            //+T(".baton")
+            +S2(sa_SSSoReND,sc_ccSSS)
+                +S2(sa_SSSmARKaNY,sc_cSSSmARK)
+            +S2(sa_SSSoR,sc_ccSSS)
+            +S3(0,sc_ccSSSrEPEAT,-1)
+        +S2(sa_SSSaND,sc_ccSSS)
+
+        T("")
+
+    TN( tre , "" ) ; tre =
 
     }
         }
-            DEL( pInfo ) ;
-
             }
-                if( thirdC::c_strstrIF( tinP , pbBuffer , postFind ) ) tinP.pEther->traceF( tinP , T("hit contents:    ")+tName+T("    ")+T(pbBuffer) ) ;
+                break ;
 
-                }
-                    countT foo = 2 ;
-                {
-                if( pcArgP[ 0 ] == 0x19 )
-
-                tinP.pEther->traceF( tinP , TF2(pcArgP[0],flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    read:       ")+tName ) ;
-                tinP.pEther->fileReadF( tinP , pbBuffer , cbEat , file ) ;
-                tinP.pEther->traceF( tinP , TF2(pcArgP[0],flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    reading:    ")+tName ) ;
-
-                countT cbEat = pInfo->cbUsed < sizeof pbBuffer - 1 ? pInfo->cbUsed : sizeof pbBuffer - 1 ;
-
-                pcArgP[ 1 ] ++ ;
+                tre += tn + psttWildP[ CSpREFIX - 1 + ids ] ;
             {
-            if( pInfo && pInfo->cbUsed )
-            tinP.pEther->diskFileQueryF( tinP , pInfo , file ) ; ___( pInfo ) ;
-            ZE( infoFileS* , pInfo ) ;
+            default :
+            }
+                }
+                    etherP.delF( tinP , psttLiteral ) ;
+
+
+
+                    ;
+
+                        +S2(sa_SSSoReND,sc_ccSSS)
+                            +S2(sa_SSSmARKaNY,sc_cSSSmARK)
+                        +S2(sa_SSSoR,sc_ccSSS)
+                        +S3(0,sc_ccSSSrEPEAT,-1)
+
+                    tre += tn
+
+                    etherP.strSubstringF( tinP , psttLiteral , idf , idl , psttWildP , 0 ) ; ___( psttLiteral ) ;
+                    ZE( strokeS* , psttLiteral ) ;
+
+                    countT idl = idsTest > psttWildP->idAdam ? 0 : idsTest - 1 ;
+                    while( idsTest <= psttWildP->idAdam && psttWildP[ CSpREFIX - 1 + idsTest ].idAdam != '*' && psttWildP[ CSpREFIX - 1 + idsTest ].idAdam != '?' ) idsTest ++ ;        // IF NOT WILDCARD THEN KEEP SEARCHING
+                    idsTest = idf + 1 ;
+
+                    countT idfSave = idf ;
+                {
+                if( idf )
+
+                countT idf = idsTest > psttWildP->idAdam ? 0 : idsTest ;
+                while( idsTest <= psttWildP->idAdam && ( psttWildP[ CSpREFIX - 1 + idsTest ].idAdam == '*' || psttWildP[ CSpREFIX - 1 + idsTest ].idAdam == '?' ) ) idsTest ++ ;        // IF WILDCARD THEN KEEP SEARCHING
+                countT idsTest = ids + 1 ;
+                // FIND THE BEGINNING AND END OF THE WOTH LITERAL THAT FOLLOWS
+            {
+            case '*' :
+            }
+                break ;
+
+                ;
+
+                    +S2(sa_SSSoReND,sc_ccSSS)
+                        +S2(sa_SSSmARKaNY,sc_cSSSmARK)
+                    +S2(sa_SSSoR,sc_ccSSS)
+
+                tre += tn
+            {
+            case '?' :
         {
-        else
-        }
-            tinP.pEther->traceF( tinP , T("could not open a handle to file::    ")+tName ) ;
-            POOPR
-        {
-        if( POOP )
-
-        fileC file( tinP , postNameP , ifcOPENaCCESS_R , ifcOPENsHARE_R , flOPENdETAILS_LOCsEQ , ifcOPENhOW_nFeO , flFILEaTTR_null , flFILEc_null , 1 ) ;
-
-        if( thirdC::c_strstrIF( tinP , postNameP , postFind ) ) tinP.pEther->traceF( tinP , T("hit name:    ")+tName ) ;
-
-        pcArgP[ 0 ] ++ ;
-
-        TN( tName , ifName ) ;
-        ifFileNameC ifName( tinP , *tinP.pEther , postNameP ) ;
+        switch( psttWildP[ CSpREFIX - 1 + ids ].idAdam )
     {
-    else
-    }
-        tinP.pEther->traceF( tinP , T("directory::    ")+tName ) ;
-
-        TN( tName , ifName ) ;
-        ifFileNameC ifName( tinP , *tinP.pEther , postNameP ) ;
-    {
-    else if( postNameP[ thirdC::c_strlenIF( tinP , postNameP ) - 1 ] == '\\' && tinP.pEther ) // IF DIRECTORY
-    }
-        tinP.pEther->traceF( tinP , T("scan completed for a directory") ) ;
-    {
-    if( !postNameP )
-    ZE( boolT , bDoIt ) ;
-
-    _INoLD_
+    for( ids = 1 ; ids <= psttWildP->idAdam ; ids ++ )
+    
+    TN( tre , "" ) ;
+    TN( tn , "" ) ;
 {
-/*1*/boolT diskWalkSearchCBF( tinS& tinP , countT& cDirsP , countT& cFilesP , boolT& bQuitP , const osTextT* const postNameP , countT* const pcArgP , const countT* const pModuloFilesP , const countT* const pModuloDirsP )/*1*/
+voidT regularExpressionFromWildcardF( tinS& tinP , etherC& etherP , strokeS*& psttRegExpP , const strokeS* const psttWildP )
 
-countT idFile ;
-
-byteT   pbBuffer[ TUCK ] ;
-osTextT postFind[] = "20180504@" ;
-
-
-/*1*/WAKEsHOWtEXT( "tool.search.disk" )/*1*/
+/*1*/WAKEsHOWtEXT( "scratch.3.dut.craft.etherC.emulation.of.filename.wildcards" )/*1*/
 /**/
 */
 /*
