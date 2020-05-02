@@ -49,3 +49,23 @@ for saving RimStar state.
 
 
 
+Instructions for enabling the display of help within Rimstar:
+
+The following instructions will NOT enable the display of help within Rimstar,
+but will enable you to open the *.hlp files that you can find in the
+installed Rimstar directory.
+
+1. Open "winhlp32.msi".  This will install into c:\windows\WinHelp .
+
+2. Edit the path enviornment variable to place this folder at the beginning,
+or at least before c:\windows\system32.
+
+3. Use Windows Explorer to open any *.hlp file that you find within the
+Rimstar insteallation directory.
+
+Warning:  winhlp32.msi was downloaded from
+https://www.majorgeeks.com/files/details/winhlp32_for_windows_10.html
+on May 2, 2020.  Time will tell whether this is malware.  When I run
+it, Avast (my anti-malware scanner) does not complain.
+
+
