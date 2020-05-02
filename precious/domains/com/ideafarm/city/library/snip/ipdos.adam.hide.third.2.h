@@ -31899,7 +31899,7 @@ examples
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34140.etherC.strIdF!||
  countT strIdF( tinS& tinP , countT& idFirstP , const countT cSmallP , const countT* pcBigP , const countT ccBigP = 0 , sCountT idP = 1 ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3418f.etherC.strIdF!||
- countT strIdOptimizedClosureF( tinS& tinP , countT& idFirstP , strokeS& sttQuoteP , const strokeS* psttSmallP , const strokeS* psttBigP , const flagsT flagsP = flSTRiDoPTIMIZEDcLOSURE_null , const flagsT* pFlagsP = 0 , const countT idLastP = 0 , sCountT idP = 1 ) ;
+ countT strIdOptimizedClosureF( tinS& tinP , countT& idFirstP , strokeS& sttQuoteP , const strokeS* psttSmallP , const strokeS* psttBigP , const flagsT flagsP = flSTRiDoPTIMIZEDcLOSURE_null , const flagsT* pFlagsOverrideP = 0 , const countT* pcMinOverrideP = 0 , const countT* pcMaxOverrideP = 0 , const countT idLastP = 0 , sCountT idP = 1 ) ;
  countT strTallyF( tinS& tinP , const strokeS* const psttSmallP , const strokeS* psttBigP , strokeS& sttQuoteP ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3416d.etherC.strTallyF!||
  countT strIdAnyF( tinS& tinP , countT& idFirstP , strokeS& sttQuoteP , const strokeS* psttSmallP , const strokeS* psttBigP , const countT idLastP = 0 , sCountT idP = 1 , const flagsT flagsP = flSTRiDaNY_null ) ;

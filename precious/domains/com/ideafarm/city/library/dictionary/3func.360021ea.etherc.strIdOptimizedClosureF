@@ -26,10 +26,10 @@
                         patch_cNote  =   1 ;
                         patch_idAdam = - 1 ;                                        // END BY IGNORING THE SUBEXPRESSION
                     {
-                    if( !patch_cNote )
+                    if( patch_cNote == cMinMe )
 
                         break ;
-                    if( patch_idAdam == - 1 || ( !patch_idAdam && F(flagsMe) & flSTRiDoPTIMIZEDcLOSURE_DOnOTiGNORE ) )
+                    if( patch_idAdam == - 1 || ( patch_idAdam == cMinMe && F(flagsMe) & flSTRiDoPTIMIZEDcLOSURE_DOnOTiGNORE ) )
                 {
                 else
                 }
@@ -38,10 +38,10 @@
                         patch_idAdam ++ ;
                     {
                     else
-                    if( patch_idAdam == - 1 ) patch_idAdam = patch_cNote = 0 ;
+                    if( patch_idAdam == - 1 ) patch_idAdam = patch_cNote = cMinMe ;
 
                         break ;
-                    if( patch_idAdam == psttBigP->idAdam - 2 )
+                    if( patch_idAdam == cMaxMe )
                 {
                 if( F(flagsMe) & flSTRiDoPTIMIZEDcLOSURE_SHORTtOlONG )
 
@@ -50,25 +50,38 @@
                     break ;
                 if( idHit )                                                         //U:: TO FIND A BUG:  COMBINE THESE OO TESTS AND USE A SINGLE LINE
 
-                idHit = strIdOptimizedClosureF( tinP , idFirstP , sttQuoteP , psttSmallP , psttBigP , flagsP , ( ++ pFlagsOverrideP ) -- , idLastP , idP ) ;
+                idHit = strIdOptimizedClosureF( tinP , idFirstP , sttQuoteP , psttSmallP , psttBigP , flagsP , ( ++ pFlagsOverrideP ) -- , ( ++ pcMinOverrideP ) -- , ( ++ pcMaxOverrideP ) -- , idLastP , idP ) ;
 
                 countT idfSave = idFirstP ;
             {
             for(;;)
             ZE( countT , csttOptimal ) ;
 
-            else patch_idAdam = patch_cNote = psttBigP->idAdam - 2 ;                //MAXIMAL CLOSURE BEHAVIOR (WILL DECREASE THE LENGTH FROM THIS MAXIMUM UNTIL FIND A HIT
+            else patch_idAdam = patch_cNote = cMaxMe ;                                  //MAXIMAL CLOSURE BEHAVIOR (WILL DECREASE THE LENGTH FROM THIS MAXIMUM UNTIL FIND A HIT
             }
                 }
                     patch_cNote  =   1 ;
                     patch_idAdam = - 1 ;                                                // BEGIN BY IGNORING THE SUBEXPRESSION
                 {
                 else
-                if( F(flagsMe) & flSTRiDoPTIMIZEDcLOSURE_DOnOTiGNORE ) patch_cNote = patch_idAdam = 0 ;
+                if( F(flagsMe) & flSTRiDoPTIMIZEDcLOSURE_DOnOTiGNORE ) patch_cNote = patch_idAdam = cMinMe ;
             {
-            if( F(flagsMe) & flSTRiDoPTIMIZEDcLOSURE_SHORTtOlONG )                   //MINIMAL CLOSURE BEHAVIOR (WILL INCREASE THE LENGTH FROM THIS MINIMUM UNTIL FIND A HIT
+            if( F(flagsMe) & flSTRiDoPTIMIZEDcLOSURE_SHORTtOlONG )                      //MINIMAL CLOSURE BEHAVIOR (WILL INCREASE THE LENGTH FROM THIS MINIMUM UNTIL FIND A HIT
         {
         if( !POOP )
+
+        ;
+            : psttBigP->idAdam - 2
+            ? *pcMaxOverrideP & ~BM_HIGH
+        countT cMaxMe = pcMaxOverrideP && *pcMaxOverrideP
+
+        ;
+            : 0
+            ? *pcMinOverrideP & ~BM_HIGH
+        countT cMinMe = pcMinOverrideP && *pcMinOverrideP
+
+        if( pcMaxOverrideP && *pcMaxOverrideP ) { __Z( *pcMaxOverrideP & BM_HIGH ) ; }      //ENFORCES THE USE OF BM_HIGH ; CODE WOULD WORK CORRECTLY WITHOUT THAT BIT EXCEPT WHEN THE VALUE 0 IS INTENDED AS A VALUE RATHER THAN AS A TRMINATOR ; SO ENFORCEMENT IS DONE TO PREVENT BUGS THAT ARE DIFFICULT TO ANALYZE
+        if( pcMinOverrideP && *pcMinOverrideP ) { __Z( *pcMinOverrideP & BM_HIGH ) ; }      //ENFORCES THE USE OF BM_HIGH ; CODE WOULD WORK CORRECTLY WITHOUT THAT BIT EXCEPT WHEN THE VALUE 0 IS INTENDED AS A VALUE RATHER THAN AS A TRMINATOR ; SO ENFORCEMENT IS DONE TO PREVENT BUGS THAT ARE DIFFICULT TO ANALYZE
 
         //U::FV(flSTRiDoPTIMIZEDcLOSURE,flagsMe) ;
 
@@ -135,7 +148,7 @@
     {
     IFbEcAREFUL
 {
-/*1*/countT etherC::strIdOptimizedClosureF( tinS& tinP , countT& idFirstP , strokeS& sttQuoteP , const strokeS* psttSmallP , const strokeS* psttBigP , const flagsT flagsP , const flagsT* pFlagsOverrideP , const countT idLastP , sCountT idP )/*1*/
+/*1*/countT etherC::strIdOptimizedClosureF( tinS& tinP , countT& idFirstP , strokeS& sttQuoteP , const strokeS* psttSmallP , const strokeS* psttBigP , const flagsT flagsP , const flagsT* pFlagsOverrideP , const countT* pcMinOverrideP , const countT* pcMaxOverrideP , const countT idLastP , sCountT idP )/*1*/
 
 /**/                                          
 */
@@ -145,6 +158,28 @@
   this is the lath position that will be inspected when looking for a match
   the position in psttBigP to end the search
  idLastP
+   the effect of that example is that a match requires either 0 occurrances or at most 8 occurrances, and minimal closure is done
+    then 1, then 2, ... then 7, but no more, even if psttBigP is very long
+    then 0 is tried
+    ignore is tried
+   example: BM_HIGH | 7 , flSTRiDoPTIMIZEDcLOSURE_SHORTtOlONG , not flSTRiDoPTIMIZEDcLOSURE_DOnOTiGNORE:
+  whether "ignore" is tried is not affected
+   for example, if the element contains BM_HIGH | 7, then optimization will search only 7 or fewer repeats (8 or fewer occurances)
+  the value of each element, ignoring the high bit, overrides the default repeat maximum (which is psttBigP->idAdam - 2)
+  if not 0 then must point to a null terminated array of countT values, and each of these values must have the high bit set (using BM_HIGH)
+  may be 0
+ pcMaxOverrideP
+   the effect of that example is that a match requires either 0 occurrances or at least 8 occurrances, and minimal closure is done
+    then 8, then 9, then 0xa, ...
+    then 7 is tried
+    ignore is tried
+   example: BM_HIGH | 7 , flSTRiDoPTIMIZEDcLOSURE_SHORTtOlONG , not flSTRiDoPTIMIZEDcLOSURE_DOnOTiGNORE:
+  whether "ignore" is tried is not affected
+   for example, if the element contains BM_HIGH | 7, then optimization will search only 7 or more repeats (8 or more occurances)
+  the value of each element, ignoring the high bit, overrides the default repeat minimum (which is 0)
+  if not 0 then must point to a null terminated array of countT values, and each of these values must have the high bit set (using BM_HIGH)
+  may be 0
+ pcMinOverrideP
   for example, optimization of the woth "closure iteration" value encountered (normally the leftmost) is controlled by the woth element of the array
   all other valid flags override the corresponding flag in flagsP for the "closure iteration" occurance that corresponds to each element of the array
   flSTRiDoPTIMIZEDcLOSURE_RIGHTtOlEFT in these values is ignored (has no effect)

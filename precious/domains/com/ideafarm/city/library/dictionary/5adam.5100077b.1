@@ -33,11 +33,13 @@ etThread.traceF( tinP , T("                ")+tBig ) ;
 if( idHit )
 etThread.traceF( tinP , T("[idHit,idf]:    ")+TF2(idHit,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2(idf,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
 
-countT idHit = etThread.strIdOptimizedClosureF( tinP , idf , sttq , tre , tBig , flSTRiDoPTIMIZEDcLOSURE_RIGHTtOlEFT , pFlags ) ;
+countT idHit = etThread.strIdOptimizedClosureF( tinP , idf , sttq , tre , tBig , flSTRiDoPTIMIZEDcLOSURE_RIGHTtOlEFT , pFlagsOverride , pcMinOverride , pcMaxOverride ) ;
 strokeS sttq( 0 , sc_IGNOREqUOTES ) ;
 countT idf = 1 ;
 
-const flagsT pFlags[] = { flSTRiDoPTIMIZEDcLOSURE_null , flSTRiDoPTIMIZEDcLOSURE_SHORTtOlONG | flSTRiDoPTIMIZEDcLOSURE_DOnOTiGNORE , 0 } ;
+const countT pcMaxOverride[]  = { BM_HIGH | 3                  , BM_HIGH | 3                                                               , 0 } ;
+const countT pcMinOverride[]  = { BM_HIGH | 2                  , BM_HIGH | 2                                                               , 0 } ;
+const flagsT pFlagsOverride[] = { flSTRiDoPTIMIZEDcLOSURE_null , flSTRiDoPTIMIZEDcLOSURE_SHORTtOlONG | flSTRiDoPTIMIZEDcLOSURE_DOnOTiGNORE , 0 } ;
 
 ;
 
@@ -46,7 +48,7 @@ const flagsT pFlags[] = { flSTRiDoPTIMIZEDcLOSURE_null , flSTRiDoPTIMIZEDcLOSURE
             +S2(sa_SSSmARKaNY,sc_cSSSmARK)
         +S2(sa_SSSoR,sc_ccSSS)
         +S3(-1,sc_ccSSSrEPEAT,-1)                    // "-1" IS A SPECIAL idAdam VALUE THAT MEANS "IGNORE THE NEXT cNote SUBEXPRESSIONS", SO THE "OR" SUBEXPRESSION IS IGNORED
-        +T("fooey")
+        +T("x")
         +S2(sa_SSSoReND,sc_ccSSS)
             +S2(sa_SSSmARKaNY,sc_cSSSmARK)
         +S2(sa_SSSoR,sc_ccSSS)
@@ -55,7 +57,7 @@ const flagsT pFlags[] = { flSTRiDoPTIMIZEDcLOSURE_null , flSTRiDoPTIMIZEDcLOSURE
 
 TN( tre , "" ) ; tre = tn
 
-TN( tBig , "abcdfooeyefgh" ) ;
+TN( tBig , "abcdefghxijklmnop" ) ;
 TN( tb4 , "    " ) ;
 TN( tn , "" ) ;
 
