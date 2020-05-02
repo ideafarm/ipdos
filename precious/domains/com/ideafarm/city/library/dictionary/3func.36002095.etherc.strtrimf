@@ -33,7 +33,7 @@
                 cWanted = idd - 1 ;
                 if( idf1 ) continue ;
                 if( !idd ) break ;
-                countT idd = strIdAnyF( tinP , idf1 , sttq1 , psttDoomedList , psttw2 ) ;
+                countT idd = strIdAnyF( tinP , 0 , idf1 , sttq1 , psttDoomedList , psttw2 ) ;
             {
             while( !POOP )
             ZE( countT , cWanted ) ;
@@ -67,7 +67,7 @@
             {
             if( !idf1 )
 
-            countT idf1 = strIdAnyF( tinP , countTC( 1 ) , sttq1 , psttDoomedList , psttw , 0 , 1 , flSTRiDaNY_NOT ) ;
+            countT idf1 = strIdAnyF( tinP , 0 , countTC( 1 ) , sttq1 , psttDoomedList , psttw , 0 , 1 , flSTRiDaNY_NOT ) ;
             strokeS sttq1 = sttq ;
         {
         if( psttw )
@@ -83,7 +83,7 @@
         ZE( strokeS* , psttw ) ;
 
         // idd: ID OF NEXT DELIMITER
-        if( psttItemDelimiterP ) { countT idf1 = idf ; strokeS sttq1 = sttq ; idd = strIdF( tinP , idf1 , sttq1 , psttItemDelimiterP , psttOld ) ; }
+        if( psttItemDelimiterP ) { countT idf1 = idf ; strokeS sttq1 = sttq ; idd = strIdF( tinP , 0 , idf1 , sttq1 , psttItemDelimiterP , psttOld ) ; }
         ZE( countT , idd ) ;
     {
     while( !POOP && idf ) 
@@ -104,7 +104,7 @@
         psttd = psttOld ;
         ZE( strokeS* , psttd ) ;
         if( iddl != cs - cd + 1 ) break ;
-        countT iddl = strIdF( tinP , countTC( 1 ) , sttq , psttItemDelimiterP ,  psttOld , 0 , - 1 ) ;
+        countT iddl = strIdF( tinP , 0 , countTC( 1 ) , sttq , psttItemDelimiterP ,  psttOld , 0 , - 1 ) ;
         strokeS sttq( (countT)0 , sc_IGNOREqUOTES ) ;
         if( cs < cd ) break ;
         countT cd = psttItemDelimiterP ? psttItemDelimiterP->idAdam : 0 ;

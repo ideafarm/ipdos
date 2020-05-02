@@ -12,6 +12,14 @@ REST
 etherC::loafIF( tinP ) ;                            
 etThread.traceF( tinP , T("ok") ) ;
 
+}
+    etThread.delF( tinP , psttm ) ;
+    etThread.traceF( tinP , T("match: ")+T(psttm) ) ;
+    stMatch >> psttm ;
+    ZE( strokeS* , psttm ) ;
+{
+while( stMatch )
+
 
 etThread.traceF( tinP , T("                ")+T("0              1               2               3") ) ;
 etThread.traceF( tinP , T("                ")+T("123456789abcdef0123456789abcdef0123456789abcdef0") ) ;
@@ -33,9 +41,11 @@ etThread.traceF( tinP , T("                ")+tBig ) ;
 if( idHit )
 etThread.traceF( tinP , T("[idHit,idf]:    ")+TF2(idHit,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2(idf,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
 
-countT idHit = etThread.strIdOptimizedClosureF( tinP , idf , sttq , tre , tBig , flSTRiDoPTIMIZEDcLOSURE_RIGHTtOlEFT , pFlagsOverride , pcMinOverride , pcMaxOverride ) ;
+countT idHit = etThread.strIdOptimizedClosureF( tinP , &stMatch , idf , sttq , tre , tBig , flSTRiDoPTIMIZEDcLOSURE_RIGHTtOlEFT , pFlagsOverride , pcMinOverride , pcMaxOverride ) ;
 strokeS sttq( 0 , sc_IGNOREqUOTES ) ;
 countT idf = 1 ;
+
+stackC stMatch( tinP , etThread , TAG( TAGiDnULL ) , flSTACKc_DOnOTsERIALIZE , ifcSTACKtYPE_PTR_strokeS ) ;
 
 const countT pcMaxOverride[]  = { BM_HIGH | 3                  , BM_HIGH | 3                                                               , 0 } ;
 const countT pcMinOverride[]  = { BM_HIGH | 2                  , BM_HIGH | 2                                                               , 0 } ;
