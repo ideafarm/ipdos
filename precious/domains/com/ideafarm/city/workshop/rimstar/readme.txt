@@ -55,7 +55,8 @@ The following instructions will NOT enable the display of help within Rimstar,
 but will enable you to open the *.hlp files that you can find in the
 installed Rimstar directory.
 
-1. Open "winhlp32.msi".  This will install into c:\windows\WinHelp .
+1. Open "winhlp32.msi".  This will install into c:\windows\WinHelp .  Or, just 
+unzip WinHelp.zip into c:\windows or anywhere else.
 
 2. Edit the path enviornment variable to place this folder at the beginning,
 or at least before c:\windows\system32.
