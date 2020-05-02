@@ -1,4 +1,9 @@
 
+#define flSTRiDoPTIMIZEDcLOSURE_DOnOTiGNORE         0xe00004ff
+#define flSTRiDoPTIMIZEDcLOSURE_SHORTtOlONG         0xe00002ff
+#define flSTRiDoPTIMIZEDcLOSURE_RIGHTtOlEFT         0xe00001ff
+#define flSTRiDoPTIMIZEDcLOSURE_null                0xe00000ff
+
 
 //
 // Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
@@ -30136,7 +30141,6 @@ can be used for sCountC as well as measureT and sCountT and countT
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.1120032a.postfoldersmtpoutboxnotsent END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.1120032b.stridrecurse BEGIN
 
-
 //
 // Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
@@ -30150,7 +30154,7 @@ can be used for sCountC as well as measureT and sCountT and countT
 /*1*//*STRiDrECURSE(expP)*//*1*/
 #define STRiDrECURSE(expP)                                                                  \
                                                                                             \
-    ZE( countT , id ) ;                                                                     \
+    ZE( countT , idHit ) ;                                                                  \
     if( idP != 1 )                                                                          \
     {                                                                                       \
         if( idP > 0 )                                                                       \
@@ -30158,9 +30162,9 @@ can be used for sCountC as well as measureT and sCountT and countT
             countT idf = idFirstP ;                                                         \
             while( idf && idP && idP -- )                                                   \
             {                                                                               \
-                id = ( expP ) ;                                                             \
+                idHit = ( expP ) ;                                                          \
             }                                                                               \
-            if( idP ) id = 0 ;                                                              \
+            if( idP ) idHit = 0 ;                                                           \
             else      idFirstP = idf ;                                                      \
         }                                                                                   \
         else                                                                                \
@@ -30191,7 +30195,7 @@ can be used for sCountC as well as measureT and sCountT and countT
                     pcNext[ 1 ] = idf ;                                                     \
                 }                                                                           \
             }                                                                               \
-            id       = pcHere[ idP ] ;                                                      \
+            idHit    = pcHere[ idP ] ;                                                      \
             idFirstP = pcNext[ idP ] ;                                                      \
             delF( tinP , pcHere ) ;                                                         \
             delF( tinP , pcNext ) ;                                                         \

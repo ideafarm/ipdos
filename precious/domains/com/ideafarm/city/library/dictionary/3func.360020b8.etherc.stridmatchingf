@@ -7,27 +7,27 @@
 //
 
 }
-    return id ;
+    return idHit ;
 
     _OUT_
 
     }
         }
             }
-                default : { id = strIdF( tinP , idFirstP , sttQuoteP , psttBigP[ CSpREFIX - 2 + idFirstP ] , psttBigP ) ; break ; }
+                default : { idHit = strIdF( tinP , idFirstP , sttQuoteP , psttBigP[ CSpREFIX - 2 + idFirstP ] , psttBigP ) ; break ; }
                 }
                     break ;
                     delF( tinP , pstta ) ;_WQ
     
                     }
-                        if( cOpen ) id = 0 ;_WQ
+                        if( cOpen ) idHit = 0 ;_WQ
     
-                        else if( psttBigP[ CSpREFIX - 1 + id ] == stt2 ) cOpen -- ;
-                        else if( psttBigP[ CSpREFIX - 1 + id ] == stt1 ) cOpen ++ ;
-                        if( !id ) ;
+                        else if( psttBigP[ CSpREFIX - 1 + idHit ] == stt2 ) cOpen -- ;
+                        else if( psttBigP[ CSpREFIX - 1 + idHit ] == stt1 ) cOpen ++ ;
+                        if( !idHit ) ;
     
-                        if( id && idFirstP > id + 1 ) idFirstP = id + 1 ; // IF WE FIND E.G. "()((()))()()()", WE WANT TO PROCESS EACH ONE, NOT JUMP TO THE END OF THIS STRING OF PARENS
-                        id = strIdAnyF( tinP , idFirstP , sttQuoteP , pstta , psttBigP ) ;_WQ
+                        if( idHit && idFirstP > idHit + 1 ) idFirstP = idHit + 1 ; // IF WE FIND E.G. "()((()))()()()", WE WANT TO PROCESS EACH ONE, NOT JUMP TO THE END OF THIS STRING OF PARENS
+                        idHit = strIdAnyF( tinP , idFirstP , sttQuoteP , pstta , psttBigP ) ;_WQ
                     {
                     while( idFirstP && !POOP && cOpen )
                     countT cOpen = 1 ;_WQ

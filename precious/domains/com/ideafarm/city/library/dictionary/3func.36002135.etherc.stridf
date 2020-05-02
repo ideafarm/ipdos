@@ -8,7 +8,7 @@
 
 
 }
-    return id ;
+    return idHit ;
     _OUT_
 
     }
@@ -23,20 +23,20 @@
                 idSlotMin = idSlot ;_WQ
                 sttqMin = sttq ;_WQ
                 idfMin = idf ;_WQ
-                id = idt ;_WQ
+                idHit = idt ;_WQ
             {
-            else if( idt && ( !id || idt < id ) ) //MODIFIES THE RESULTS AND SIDE EFFECTS IFF ANOTHER HIT IS FOUND AND THAT HIT IS PREFERRED
+            else if( idt && ( !idHit || idt < idHit ) ) //MODIFIES THE RESULTS AND SIDE EFFECTS IFF ANOTHER HIT IS FOUND AND THAT HIT IS PREFERRED
             }
                 if( idt ) idSlotMin = idSlot ;_WQ
                 sttqMin = sttq ;_WQ
                 idfMin = idf ;_WQ
-                id = idt ;_WQ
+                idHit = idt ;_WQ
             {                        //DONE THIS WAY TO ENSURE THAT WHEN THERE IS WO PLATE, THE RESULT, INCLUDING SIDE EFFECTS, IS EXACTLY AS IF THE strokeS* OVERLOAD HAD BEEN CALLED
             if( !( idSlot ++ ) )
 
             ;_WQ
-                : strIdF(    tinP , idf , sttq , pstts , psttBigP , id )
-                ? strIdAnyF( tinP , idf , sttq , pstts , psttBigP , id )
+                : strIdF(    tinP , idf , sttq , pstts , psttBigP , idHit )
+                ? strIdAnyF( tinP , idf , sttq , pstts , psttBigP , idHit )
             countT idt = F(flagsP) & flSTRiD_ANY
             strokeS sttq = sttQuoteP ;_WQ
             countT idf = idFirstP ;_WQ
