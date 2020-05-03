@@ -18,7 +18,7 @@
             countT idf = idbDoSave ;
             ZE( strokeS* , psttm ) ;
         {
-        if( pstMatchP )
+        if( pstMatchP && F(flagsMatchP) & flSTRmATCH_AND )
 
         if( bLastActWasToIgnore ) idbDoP -- ;
     {
@@ -175,7 +175,7 @@
                     {
                     if( !bUndoIfNotMatch )
                 {
-                if( !sssOrF( tinP , pstMatchP , psttSmallP , psttBigP ,  idsDoP ,  idbDoP ) )
+                if( !sssOrF( tinP , pstMatchP , flagsMatchP , psttSmallP , psttBigP ,  idsDoP ,  idbDoP ) )
             {
             else if( !cArmLiterals && psttSmallP[ CSpREFIX - 1 + idsDoP ].idCaste == sc_ccSSS && psttSmallP[ CSpREFIX - 1 + idsDoP ].idAdam  == sa_SSSoR )
             }
@@ -204,7 +204,7 @@
                     {
                     if( !bUndoIfNotMatch )
                 {
-                if( !sssAndF( tinP , pstMatchP , psttSmallP , psttBigP ,  idsDoP ,  idbDoP ) )
+                if( !sssAndF( tinP , pstMatchP , flagsMatchP , psttSmallP , psttBigP ,  idsDoP ,  idbDoP ) )
             {
             else if( !cArmLiterals && psttSmallP[ CSpREFIX - 1 + idsDoP ].idCaste == sc_ccSSS && psttSmallP[ CSpREFIX - 1 + idsDoP ].idAdam == sa_SSSaND )
             }
@@ -316,6 +316,11 @@
 
     }
         if( POOP ) return bMatch ;
+        //FV(flSTRmATCH,flagsMatchP) ;
+        }
+            __( F( pstMatchP->flagsF( tinP ) ) & flSTACKc_FIFO ) ; // IF FIFO THEN WILL CONTAIN INCORRECT CONTENTS
+        {
+        if( pstMatchP )
         __NZ( psttSmallP[ CSpREFIX - 1 + idsDoP ].idAdam  - sa_SSSaND ) ;
         __NZ( psttSmallP[ CSpREFIX - 1 + idsDoP ].idCaste - sc_ccSSS  ) ;
         if( POOP ) return bMatch ;
@@ -332,7 +337,7 @@
 
     ZE( boolT , bMatch ) ;
 {
-/*1*/boolT etherC::sssAndF( tinS& tinP , stackC* const pstMatchP , const strokeS* const psttSmallP , const strokeS* const psttBigP ,  countT& idsDoP ,  countT& idbDoP )/*1*/
+/*1*/boolT etherC::sssAndF( tinS& tinP , stackC* const pstMatchP , const flagsT flagsMatchP , const strokeS* const psttSmallP , const strokeS* const psttBigP ,  countT& idsDoP ,  countT& idbDoP )/*1*/
 
 }
     return idsLath ;

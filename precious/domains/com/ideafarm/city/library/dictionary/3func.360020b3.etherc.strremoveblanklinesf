@@ -23,7 +23,7 @@
             {
             if( !idb || idb > 1 || idfb ) // IF THERE ARE EITHER LEADING OR TRAILING NONBLANKS
 
-            countT idb = strIdAnyF( tinP , 0 , idfb , sttqb , psttBlankList , psttl ) ; // FIND FIRST STRING OF BLANKS IN THIS LINE
+            countT idb = strIdAnyF( tinP , 0 , flSTRmATCH_null , idfb , sttqb , psttBlankList , psttl ) ; // FIND FIRST STRING OF BLANKS IN THIS LINE
             ZE( strokeS* , psttw ) ;
             strokeS sttqb( (countT)0 , sc_IGNOREqUOTES ) ;
             countT idfb = 1 ;
@@ -34,7 +34,7 @@
         {
         if( !ide || ide > idfSave ) // IF THIS LINE IS NOT NULL
 
-        countT ide = strIdAnyF( tinP , 0 , idf , sttq , psttEnd , psttOld ) ; // FIND EOL.  NOW idf IS AT BEGINNING OF NEXT LINE
+        countT ide = strIdAnyF( tinP , 0 , flSTRmATCH_null , idf , sttq , psttEnd , psttOld ) ; // FIND EOL.  NOW idf IS AT BEGINNING OF NEXT LINE
         strokeS sttqSave = sttq ;
         countT idfSave = idf ;
     {

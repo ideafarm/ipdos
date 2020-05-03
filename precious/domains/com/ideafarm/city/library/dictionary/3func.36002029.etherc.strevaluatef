@@ -17,7 +17,7 @@
         }
             }
                 delF( tinP , psttKid ) ;
-                if( !bTagsStillExist ){ idfTrim2 = 1 ; sttqTrim2 = sttq ; bTagsStillExist = !!strIdF( tinP , 0 , idfTrim2 , sttqTrim2 , T("/" "/" "|" "|" "!") , psttP ) ; }
+                if( !bTagsStillExist ){ idfTrim2 = 1 ; sttqTrim2 = sttq ; bTagsStillExist = !!strIdF( tinP , 0 , flSTRmATCH_null , idfTrim2 , sttqTrim2 , T("/" "/" "|" "|" "!") , psttP ) ; }
 
                 }
                     }
@@ -75,8 +75,8 @@
             else if( bTrim2 )            
             }
                 delF( tinP , psttKid ) ;
-                else     { idfTrim = 1 ; sttqTrim = sttq ; bTagsStillExist |= !!strIdF( tinP , 0 , idfTrim , sttqTrim , T("/" "/" "|" "|" "!") , psttKid ) ; }
-                if( bKt ){ idfKt   = 1 ; sttqKt   = sttq ; bTagsStillExist |= !!strIdF( tinP , 0 , idfKt   , sttqKt   , T("/" "/" "|" "|" "!") , psttKid ) ; }
+                else     { idfTrim = 1 ; sttqTrim = sttq ; bTagsStillExist |= !!strIdF( tinP , 0 , flSTRmATCH_null , idfTrim , sttqTrim , T("/" "/" "|" "|" "!") , psttKid ) ; }
+                if( bKt ){ idfKt   = 1 ; sttqKt   = sttq ; bTagsStillExist |= !!strIdF( tinP , 0 , flSTRmATCH_null , idfKt   , sttqKt   , T("/" "/" "|" "|" "!") , psttKid ) ; }
 
                 }
                     boxPutF( tinP , T("///d/tmpe.b")  , tb  , tb.csF( tinP  ) ) ; //U::
@@ -186,7 +186,7 @@
                         strokeS sLF( '\n' ) ;
                     {
                     if( idtInsert ) //MOVE CURSOR BACK TO THE BEGINNING OF THE CURRENT LINE
-                    idtInsert = strIdF( tinP , 0 , idf , sttq , tLink , psttKid ) ;
+                    idtInsert = strIdF( tinP , 0 , flSTRmATCH_null , idf , sttq , tLink , psttKid ) ;
                     countT idf = 1 ;
                     TN( tLink , "" ) ; tLink = T(".1.0.html\\\"\\>definition\\</A\\>\r\n") ;
                 {
@@ -194,7 +194,7 @@
                 ZE( countT , idtInsert ) ; //"idt" = "ID TAG"
 
                 }
-                    idtVisible = strIdF( tinP , 0 , idf , sttq , T("\r\n//VISIBLE\r\n") , psttKid ) ;
+                    idtVisible = strIdF( tinP , 0 , flSTRmATCH_null , idf , sttq , T("\r\n//VISIBLE\r\n") , psttKid ) ;
                     strokeS sttq( (countT)0 , sc_IGNOREqUOTES ) ;
                     countT idf = 1 ;
                 {
@@ -316,16 +316,16 @@
                 idf = idfRaw ;
             {
             if( bRaw )            
-            boolT bKt   = idf == strIdF( tinP , 0 , idfKt , sttqKt , T("kt|") , psttOld ) ;
+            boolT bKt   = idf == strIdF( tinP , 0 , flSTRmATCH_null , idfKt , sttqKt , T("kt|") , psttOld ) ;
             countT idfKt = idf ;
             strokeS sttqKt = sttq ;
-            boolT bTrim2 = idf == strIdF( tinP , 0 , idfTrim2 , sttqTrim2 , T("trim2|") , psttOld ) ;
+            boolT bTrim2 = idf == strIdF( tinP , 0 , flSTRmATCH_null , idfTrim2 , sttqTrim2 , T("trim2|") , psttOld ) ;
             strokeS sttqTrim2 = sttq ;
             countT idfTrim2 = idf ;
-            boolT bTrim = idf == strIdF( tinP , 0 , idfTrim , sttqTrim , T("trim|") , psttOld ) ;
+            boolT bTrim = idf == strIdF( tinP , 0 , flSTRmATCH_null , idfTrim , sttqTrim , T("trim|") , psttOld ) ;
             strokeS sttqTrim = sttq ;
             countT idfTrim = idf ;
-            boolT bRaw = idf == strIdF( tinP , 0 , idfRaw , sttqRaw , T("raw|") , psttOld ) ;
+            boolT bRaw = idf == strIdF( tinP , 0 , flSTRmATCH_null , idfRaw , sttqRaw , T("raw|") , psttOld ) ;
             strokeS sttqRaw = sttq ;
             countT idfRaw = idf ;
         {

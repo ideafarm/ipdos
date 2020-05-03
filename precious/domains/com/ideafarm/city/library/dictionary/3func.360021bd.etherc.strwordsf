@@ -75,7 +75,7 @@
                     ;
 
                         : !!strIdF( tinP , psttP[ CSpREFIX - 1 + idfSave ] , psttDelimiters )               // DOES THE DELIMITER STRING CONTAIN THE STROKE AT idfSave?
-                        ? 1 == strIdF( tinP , 0 , idf2 , sttq , psttDelimiters , psttP )                        // IS THE DELIMITER STRING                      AT idfSave?
+                        ? 1 == strIdF( tinP , 0 , flSTRmATCH_null , idf2 , sttq , psttDelimiters , psttP )                        // IS THE DELIMITER STRING                      AT idfSave?
 
                     bIsDelimiter = bDelimiterString
 
@@ -99,8 +99,8 @@
             countT idfDelim = idw ;
 
             ;
-                : strIdAnyF( tinP , 0 , idf , sttQuoteP , psttDelimiters , psttP )
-                ? strIdF   ( tinP , 0 , idf , sttQuoteP , psttDelimiters , psttP )
+                : strIdAnyF( tinP , 0 , flSTRmATCH_null , idf , sttQuoteP , psttDelimiters , psttP )
+                ? strIdF   ( tinP , 0 , flSTRmATCH_null , idf , sttQuoteP , psttDelimiters , psttP )
             countT idw = bDelimiterString
             sttQuoteP = sttqSave ; //NEEDED WHEN INPUT CONTAINS AN UNPAIRED QUOTE
             countT idfSave = idf ;

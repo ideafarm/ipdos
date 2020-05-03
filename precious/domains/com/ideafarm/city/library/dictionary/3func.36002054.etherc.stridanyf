@@ -55,7 +55,7 @@
         SETpREFIX( (strokeS*)psttOneNull , 1 , 0 ) ;_WQ
         const strokeS psttOneNull[] = { strokeS() , strokeS() , strokeS() , strokeS() } ;_WQ
     {
-    STRiDrECURSE( strIdAnyF( tinP , pstMatchP , idf , sttQuoteP , psttSmallP , psttBigP , idLastP , 1 , flagsP ) )
+    STRiDrECURSE( strIdAnyF( tinP , pstMatchP , flagsMatchP , idf , sttQuoteP , psttSmallP , psttBigP , idLastP , 1 , flagsP ) )
 
     const boolT bNot = F(flagsP) & flSTRiDaNY_NOT ;_WQ
 
@@ -63,6 +63,10 @@
 
     }
         if( POOP ) return 0 ;
+        }
+            __( F( pstMatchP->flagsF( tinP ) ) & flSTACKc_FIFO ) ; // IF FIFO THEN WILL CONTAIN INCORRECT CONTENTS
+        {
+        if( pstMatchP )
         __( psttSmallP && psttSmallP->idCaste != sc_PREFIXlENGTH ) ;_WQ
         __( psttBigP->idCaste != sc_PREFIXlENGTH ) ;_WQ
         if( POOP ) return 0 ;
@@ -78,7 +82,7 @@
     const boolT bUseQuotes = sttQuoteP.idCaste != sc_IGNOREqUOTES ;_WQ
     SCOOP
 {
-/*1*/countT etherC::strIdAnyF( tinS& tinP , stackC* const pstMatchP , countT& idFirstP , strokeS& sttQuoteP , const strokeS* psttSmallP , const strokeS* psttBigP , const countT idLastP , sCountT idP , const flagsT flagsP )/*1*/
+/*1*/countT etherC::strIdAnyF( tinS& tinP , stackC* const pstMatchP , const flagsT flagsMatchP , countT& idFirstP , strokeS& sttQuoteP , const strokeS* psttSmallP , const strokeS* psttBigP , const countT idLastP , sCountT idP , const flagsT flagsP )/*1*/
 
 /**/
 */

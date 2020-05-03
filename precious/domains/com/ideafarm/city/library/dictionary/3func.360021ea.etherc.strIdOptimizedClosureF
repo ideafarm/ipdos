@@ -52,7 +52,7 @@
                     break ;
                 if( idHit )                                                         //U:: TO FIND A BUG:  COMBINE THESE OO TESTS AND USE A SINGLE LINE
 
-                idHit = strIdOptimizedClosureF( tinP , pstMatchP , idFirstP , sttQuoteP , psttSmallP , psttBigP , flagsP , ( ++ pFlagsOverrideP ) -- , ( ++ pcMinOverrideP ) -- , ( ++ pcMaxOverrideP ) -- , idLastP , idP ) ;
+                idHit = strIdOptimizedClosureF( tinP , pstMatchP , flagsMatchP , idFirstP , sttQuoteP , psttSmallP , psttBigP , flagsP , ( ++ pFlagsOverrideP ) -- , ( ++ pcMinOverrideP ) -- , ( ++ pcMaxOverrideP ) -- , idLastP , idP ) ;
 
                 countT idfSave = idFirstP ;
             {
@@ -111,7 +111,7 @@
         //U:: TO FIND A BUG
     {
     else
-    if( !idsPatch ) idHit = strIdF( tinP , pstMatchP , idFirstP , sttQuoteP , psttSmallP , psttBigP , idLastP , idP ) ;
+    if( !idsPatch ) idHit = strIdF( tinP , pstMatchP , flagsMatchP , idFirstP , sttQuoteP , psttSmallP , psttBigP , idLastP , idP ) ;
     ZE( countT , idHit ) ;
 
     }
@@ -140,6 +140,10 @@
 
     }
         if( POOP ) return 0 ;
+        }
+            __( F( pstMatchP->flagsF( tinP ) ) & flSTACKc_FIFO ) ; // IF FIFO THEN WILL CONTAIN INCORRECT CONTENTS
+        {
+        if( pstMatchP )
         __Z( psttBigP->idAdam ) ;
         __Z( psttSmallP->idAdam ) ;
         if( POOP ) return 0 ;
@@ -152,7 +156,7 @@
     {
     IFbEcAREFUL
 {
-/*1*/countT etherC::strIdOptimizedClosureF( tinS& tinP , stackC* pstMatchP , countT& idFirstP , strokeS& sttQuoteP , const strokeS* psttSmallP , const strokeS* psttBigP , const flagsT flagsP , const flagsT* pFlagsOverrideP , const countT* pcMinOverrideP , const countT* pcMaxOverrideP , const countT idLastP , sCountT idP )/*1*/
+/*1*/countT etherC::strIdOptimizedClosureF( tinS& tinP , stackC* pstMatchP , const flagsT flagsMatchP , countT& idFirstP , strokeS& sttQuoteP , const strokeS* psttSmallP , const strokeS* psttBigP , const flagsT flagsP , const flagsT* pFlagsOverrideP , const countT* pcMinOverrideP , const countT* pcMaxOverrideP , const countT idLastP , sCountT idP )/*1*/
 
 /**/                                          
 */

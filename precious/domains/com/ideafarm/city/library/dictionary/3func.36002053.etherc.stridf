@@ -14,11 +14,14 @@
     }
         else pstMatchP->purgeF( tinP , cPlatesWas ) ;
         }
-            *pstMatchP << psttm ; psttm = 0 ;
-            strSubstringF( tinP , psttm , idf , idl , psttBigP ) ; ___( psttm ) ;
-            countT idl = idFirstP ? idFirstP - 1 : 0 ;
-            countT idf = idHit ;
-            ZE( strokeS* , psttm ) ;
+            }
+                *pstMatchP << psttm ; psttm = 0 ;
+                strSubstringF( tinP , psttm , idf , idl , psttBigP ) ; ___( psttm ) ;
+                countT idl = idFirstP ? idFirstP - 1 : 0 ;
+                countT idf = idHit ;
+                ZE( strokeS* , psttm ) ;
+            {
+            if( F(flagsMatchP) & flSTRmATCH_OUTERmOST )
         {
         if( idHit )
     {
@@ -47,7 +50,7 @@
                             else if( !strComparePrivateF( psttBigP + CSpREFIX - 1 + idHit , psttSmall ) ) break ;
                             }
                                 else                                                                 idbDo = 0 ;
-                                if( sssAndF( tinP , pstMatchP , psttSmallP , psttBigP , idsDo , idbDo ) ) break ;
+                                if( sssAndF( tinP , pstMatchP , flagsMatchP , psttSmallP , psttBigP , idsDo , idbDo ) ) break ;
                                 idbDo = idHit ;_WQ
                                 countT idsDo = 1 ;_WQ
                             {
@@ -77,7 +80,7 @@
 
         boolT bSSS = psttSmallP->idAdam && psttSmallP[ CSpREFIX ].idCaste == sc_ccSSS && psttSmallP[ CSpREFIX ].idAdam == sa_SSSaND ; // ENFORCE: ALL SSS MUST BE WRAPPED IN AND ; THIS IS JUST TO KEEP CODE SIMPLE
     {
-    STRiDrECURSE( strIdF( tinP , pstMatchP , idf , sttQuoteP , psttSmallP , psttBigP , idLastP , 1 ) )
+    STRiDrECURSE( strIdF( tinP , pstMatchP , flSTRmATCH_null , idf , sttQuoteP , psttSmallP , psttBigP , idLastP , 1 ) )
 
     countT cPlatesWas = pstMatchP ? *pstMatchP : 0 ;
 
@@ -85,6 +88,11 @@
 
     }
         if( POOP ) return 0 ;
+        //FV(flSTRmATCH,flagsMatchP) ;
+        }
+            __( F( pstMatchP->flagsF( tinP ) ) & flSTACKc_FIFO ) ; // IF FIFO THEN WILL CONTAIN INCORRECT CONTENTS
+        {
+        if( pstMatchP )
         __( psttBigP->idCaste != sc_PREFIXlENGTH ) ;_WQ
         __( psttSmallP && psttSmallP->idCaste != sc_PREFIXlENGTH ) ;_WQ
         if( POOP ) return 0 ;
@@ -100,7 +108,7 @@
     const boolT bIgnoreQuotes = sttQuoteP.idCaste == sc_IGNOREqUOTES ;_WQ
     SCOOP
 {
-/*1*/countT etherC::strIdF( tinS& tinP , stackC* const pstMatchP , countT& idFirstP , strokeS& sttQuoteP , const strokeS* psttSmallP , const strokeS* psttBigP , const countT idLastP , sCountT idP )/*1*/
+/*1*/countT etherC::strIdF( tinS& tinP , stackC* const pstMatchP , const flagsT flagsMatchP , countT& idFirstP , strokeS& sttQuoteP , const strokeS* psttSmallP , const strokeS* psttBigP , const countT idLastP , sCountT idP )/*1*/
 
 /**/
 */

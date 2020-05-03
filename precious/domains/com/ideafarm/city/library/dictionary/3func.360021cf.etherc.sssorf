@@ -17,7 +17,8 @@
         countT idf = idbDoSave ;
         ZE( strokeS* , psttm ) ;
     {
-    else if( pstMatchP )
+    else if( pstMatchP && F(flagsMatchP) & flSTRmATCH_OR )
+
     }
         if( pstMatchP ) pstMatchP->purgeF( tinP , cPlatesWas ) ;
         idbDoP = idbDoSave ;
@@ -67,7 +68,7 @@
                 {
                 if( bHit )
 
-                boolT bHit = sssOrF( tinP , pstMatchP , psttSmallP , psttBigP ,  idsDoP ,  idbDoP ) ;
+                boolT bHit = sssOrF( tinP , pstMatchP , flagsMatchP , psttSmallP , psttBigP ,  idsDoP ,  idbDoP ) ;
             {
             else if( !cArmLiterals && psttSmallP[ CSpREFIX - 1 + idsDoP ].idCaste == sc_ccSSS && psttSmallP[ CSpREFIX - 1 + idsDoP ].idAdam  == sa_SSSoR )
             }
@@ -77,7 +78,7 @@
                 {
                 if( bHit )
 
-                boolT bHit = sssAndF( tinP , pstMatchP , psttSmallP , psttBigP ,  idsDoP ,  idbDoP ) ;
+                boolT bHit = sssAndF( tinP , pstMatchP , flagsMatchP , psttSmallP , psttBigP ,  idsDoP ,  idbDoP ) ;
             {
             else if( !cArmLiterals && psttSmallP[ CSpREFIX - 1 + idsDoP ].idCaste == sc_ccSSS && psttSmallP[ CSpREFIX - 1 + idsDoP ].idAdam == sa_SSSaND )
             else if(                  psttSmallP[ CSpREFIX - 1 + idsDoP ].idCaste == sc_ccSSS && psttSmallP[ CSpREFIX - 1 + idsDoP ].idAdam == sa_SSSlITERALeND   ) cArmLiterals =   0 ;
@@ -163,6 +164,11 @@
 
     }
         if( POOP ) return 0 ;
+        //FV(flSTRmATCH,flagsMatchP) ;
+        }
+            __( F( pstMatchP->flagsF( tinP ) ) & flSTACKc_FIFO ) ; // IF FIFO THEN WILL CONTAIN INCORRECT CONTENTS
+        {
+        if( pstMatchP )
         __NZ( psttSmallP[ CSpREFIX - 1 + idsDoP ].idAdam  - sa_SSSoR ) ;
         __NZ( psttSmallP[ CSpREFIX - 1 + idsDoP ].idCaste - sc_ccSSS ) ;
         if( POOP ) return 0 ;
@@ -178,7 +184,7 @@
     IFbEcAREFUL
 
 {
-/*1*/boolT etherC::sssOrF( tinS& tinP , stackC* const pstMatchP , const strokeS* const psttSmallP , const strokeS* const psttBigP ,  countT& idsDoP ,  countT& idbDoP )/*1*/
+/*1*/boolT etherC::sssOrF( tinS& tinP , stackC* const pstMatchP , const flagsT flagsMatchP , const strokeS* const psttSmallP , const strokeS* const psttBigP ,  countT& idsDoP ,  countT& idbDoP )/*1*/
 
 /**/
 

@@ -1,4 +1,10 @@
 
+
+#define flSTRmATCH_OR                                   0xe00004ff
+#define flSTRmATCH_AND                                  0xe00002ff
+#define flSTRmATCH_OUTERmOST                            0xe00001ff
+#define flSTRmATCH_null                                 0xe00000ff
+
 #define flSTRiDoPTIMIZEDcLOSURE_DOnOTiGNORE         0xe00004ff
 #define flSTRiDoPTIMIZEDcLOSURE_SHORTtOlONG         0xe00002ff
 #define flSTRiDoPTIMIZEDcLOSURE_RIGHTtOlEFT         0xe00001ff
