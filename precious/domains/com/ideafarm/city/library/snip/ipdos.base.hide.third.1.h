@@ -1,5 +1,9 @@
 
+#define sa_SSSrEPORTmATCHeND                '}'
+#define sa_SSSrEPORTmATCH                   '{'
 
+
+#define flSTRmATCH_REPORTmATCH                          0xe00008ff
 #define flSTRmATCH_OR                                   0xe00004ff
 #define flSTRmATCH_AND                                  0xe00002ff
 #define flSTRmATCH_OUTERmOST                            0xe00001ff
