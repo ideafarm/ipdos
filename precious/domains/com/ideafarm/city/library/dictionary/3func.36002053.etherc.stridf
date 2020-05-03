@@ -12,13 +12,17 @@
     _OUT_
 
     }
-        *pstMatchP << psttm ; psttm = 0 ;
-        strSubstringF( tinP , psttm , idf , idl , psttBigP ) ; ___( psttm ) ;
-        countT idl = idFirstP ? idFirstP - 1 : 0 ;
-        countT idf = idHit ;
-        ZE( strokeS* , psttm ) ;
+        else pstMatchP->purgeF( tinP , cPlatesWas ) ;
+        }
+            *pstMatchP << psttm ; psttm = 0 ;
+            strSubstringF( tinP , psttm , idf , idl , psttBigP ) ; ___( psttm ) ;
+            countT idl = idFirstP ? idFirstP - 1 : 0 ;
+            countT idf = idHit ;
+            ZE( strokeS* , psttm ) ;
+        {
+        if( idHit )
     {
-    if( pstMatchP && idHit )
+    if( pstMatchP )
 
     }
         }
@@ -43,7 +47,7 @@
                             else if( !strComparePrivateF( psttBigP + CSpREFIX - 1 + idHit , psttSmall ) ) break ;
                             }
                                 else                                                                 idbDo = 0 ;
-                                if( sssAndF( tinP , psttSmallP , psttBigP , idsDo , idbDo ) ) break ;
+                                if( sssAndF( tinP , pstMatchP , psttSmallP , psttBigP , idsDo , idbDo ) ) break ;
                                 idbDo = idHit ;_WQ
                                 countT idsDo = 1 ;_WQ
                             {
@@ -74,6 +78,8 @@
         boolT bSSS = psttSmallP->idAdam && psttSmallP[ CSpREFIX ].idCaste == sc_ccSSS && psttSmallP[ CSpREFIX ].idAdam == sa_SSSaND ; // ENFORCE: ALL SSS MUST BE WRAPPED IN AND ; THIS IS JUST TO KEEP CODE SIMPLE
     {
     STRiDrECURSE( strIdF( tinP , pstMatchP , idf , sttQuoteP , psttSmallP , psttBigP , idLastP , 1 ) )
+
+    countT cPlatesWas = pstMatchP ? *pstMatchP : 0 ;
 
     _INoLD_
 

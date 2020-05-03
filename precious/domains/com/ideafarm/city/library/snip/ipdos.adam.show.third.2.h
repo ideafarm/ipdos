@@ -32047,9 +32047,9 @@ examples
 /* stroke string specifications a.k.a. regular expressions */
  boolT sssTestF( tinS& tinP , boolT& bDoNotAdvanceBigP , const strokeS* const psttSmallP , const strokeS* const psttBigP , const countT idsDoP , countT& idbDoP , const strokeS* const psttBlackP , const strokeS* const psttPunctuationP ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.360021cd.etherC.sssTestF!||
- boolT sssAndF( tinS& tinP , const strokeS* const psttSmallP , const strokeS* const psttBigP ,  countT& idsDoP ,  countT& idbDoP ) ;
+ boolT sssAndF( tinS& tinP , stackC* const pstMatchP , const strokeS* const psttSmallP , const strokeS* const psttBigP ,  countT& idsDoP ,  countT& idbDoP ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.360021ce.etherC.sssAndF!||
- boolT sssOrF( tinS& tinP , const strokeS* const psttSmallP , const strokeS* const psttBigP ,  countT& idsDoP ,  countT& idbDoP ) ;
+ boolT sssOrF( tinS& tinP , stackC* const pstMatchP , const strokeS* const psttSmallP , const strokeS* const psttBigP ,  countT& idsDoP ,  countT& idbDoP ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.360021cf.etherC.sssOrF!||
 
 /**/

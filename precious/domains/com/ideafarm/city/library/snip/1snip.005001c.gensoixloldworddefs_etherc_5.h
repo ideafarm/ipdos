@@ -2364,7 +2364,7 @@ voidT sssAndF_4P4P33_GF( tinS& tinP , etherC& etherP , soulC& slP , const stroke
     if( !POOP ) { slP >> idbDoP ; idArgNext ++ ; }
 
     ZE( boolT , noName ) ;
-    if( !POOP ) noName = etherP.sssAndF( tinP , psttSmallP , psttBigP , idsDoP , idbDoP ) ;
+    if( !POOP ) noName = etherP.sssAndF( tinP , 0 , psttSmallP , psttBigP , idsDoP , idbDoP ) ;
     etherP.delF( tinP , psttBigP ) ;
     etherP.delF( tinP , psttSmallP ) ;
 
@@ -2400,7 +2400,7 @@ voidT sssOrF_4P4P33_GF( tinS& tinP , etherC& etherP , soulC& slP , const strokeS
     if( !POOP ) { slP >> idbDoP ; idArgNext ++ ; }
 
     ZE( boolT , noName ) ;
-    if( !POOP ) noName = etherP.sssOrF( tinP , psttSmallP , psttBigP , idsDoP , idbDoP ) ;
+    if( !POOP ) noName = etherP.sssOrF( tinP , 0 , psttSmallP , psttBigP , idsDoP , idbDoP ) ;
     etherP.delF( tinP , psttBigP ) ;
     etherP.delF( tinP , psttSmallP ) ;
 
