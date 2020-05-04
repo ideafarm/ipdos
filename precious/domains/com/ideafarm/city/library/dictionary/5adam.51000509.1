@@ -40,7 +40,7 @@ etThread.delF( tinP , pstt1l ) ;
             parsePrototypeF( tinP , etThread , stAllDefs , stAllProtos , stAllLoads , stAllHelps , stAllMenus , psttc1 ) ;
         {
         )
-            ( idf = 1 , !etThread.strIdF( tinP , idf , sttq , tWake     , psttc1 ) )
+            ( idf = 1 , !etThread.strIdF( tinP , 0 , flSTRmATCH_null , idf , sttq , tWake     , psttc1 ) )
             SUPPRESS( "osThreadSwitchingDesireF" )
             SUPPRESS( "strClockOldF" )
             SUPPRESS( "strFromF" )
@@ -87,23 +87,23 @@ etThread.delF( tinP , pstt1l ) ;
             SUPPRESS( "lakeC" )
             SUPPRESS( "windowOldC" )
 
-            //( idf = 1 , etThread.strIdF( tinP , idf , sttq , T("ifcCellHostsF")  , psttc1 ) ) &&
-            //( idf = 1 , !etThread.strIdF( tinP , idf , sttq , T("fLeading")  , psttc1 ) ) &&
-            //( idf = 1 , etThread.strIdF( tinP , idf , sttq , T("strFuseF") , psttc1 ) ) &&
-            //( idf = 1 , etThread.strIdF( tinP , idf , sttq , T("strFuseSeparateF") , psttc1 ) ) &&
+            //( idf = 1 , etThread.strIdF( tinP , 0 , flSTRmATCH_null , idf , sttq , T("ifcCellHostsF")  , psttc1 ) ) &&
+            //( idf = 1 , !etThread.strIdF( tinP , 0 , flSTRmATCH_null , idf , sttq , T("fLeading")  , psttc1 ) ) &&
+            //( idf = 1 , etThread.strIdF( tinP , 0 , flSTRmATCH_null , idf , sttq , T("strFuseF") , psttc1 ) ) &&
+            //( idf = 1 , etThread.strIdF( tinP , 0 , flSTRmATCH_null , idf , sttq , T("strFuseSeparateF") , psttc1 ) ) &&
 
-            ( idf = 1 , !etThread.strIdF( tinP , idf , sttq , T("dnsSkipLabelsF") , psttc1 ) ) &&
-            ( idf = 1 , !etThread.strIdF( tinP , idf , sttq , tOperator , psttc1 ) ) &&
-            ( idf = 1 , !etThread.strIdF( tinP , idf , sttq , tFriend   , psttc1 ) ) &&
-            ( idf = 1 , !etThread.strIdF( tinP , idf , sttq , tEtherC   , psttc1 ) ) &&
-            ( idf = 1 , !etThread.strIdF( tinP , idf , sttq , tStatic   , psttc1 ) ) &&
-            ( idf = 1 , !etThread.strIdF( tinP , idf , sttq , tND       , psttc1 ) ) &&
-            ( idf = 1 , !etThread.strIdF( tinP , idf , sttq , tSpacer   , psttc1 ) ) &&
+            ( idf = 1 , !etThread.strIdF( tinP , 0 , flSTRmATCH_null , idf , sttq , T("dnsSkipLabelsF") , psttc1 ) ) &&
+            ( idf = 1 , !etThread.strIdF( tinP , 0 , flSTRmATCH_null , idf , sttq , tOperator , psttc1 ) ) &&
+            ( idf = 1 , !etThread.strIdF( tinP , 0 , flSTRmATCH_null , idf , sttq , tFriend   , psttc1 ) ) &&
+            ( idf = 1 , !etThread.strIdF( tinP , 0 , flSTRmATCH_null , idf , sttq , tEtherC   , psttc1 ) ) &&
+            ( idf = 1 , !etThread.strIdF( tinP , 0 , flSTRmATCH_null , idf , sttq , tStatic   , psttc1 ) ) &&
+            ( idf = 1 , !etThread.strIdF( tinP , 0 , flSTRmATCH_null , idf , sttq , tND       , psttc1 ) ) &&
+            ( idf = 1 , !etThread.strIdF( tinP , 0 , flSTRmATCH_null , idf , sttq , tSpacer   , psttc1 ) ) &&
             ( idpa && ( !idss || idss > idpa ) ) &&
         (
         if
         countT idpa = ( idf = 1 , etThread.strIdF( tinP , idf , sttq , sttOpen , psttc1 ) ) ;
-        countT idss = ( idf = 1 , etThread.strIdF( tinP , idf , sttq , tss  , psttc1 ) ) ;
+        countT idss = ( idf = 1 , etThread.strIdF( tinP , 0 , flSTRmATCH_null , idf , sttq , tss  , psttc1 ) ) ;
     {
     if( bPublic )
 
@@ -113,8 +113,8 @@ etThread.delF( tinP , pstt1l ) ;
             bPublic = 0 ;
         {
         )
-            ( idf = 1 , etThread.strIdF( tinP , idf , sttq , tPrivate   , psttc1 ) )
-            ( idf = 1 , etThread.strIdF( tinP , idf , sttq , tProtected , psttc1 ) ) ||
+            ( idf = 1 , etThread.strIdF( tinP , 0 , flSTRmATCH_null , idf , sttq , tPrivate   , psttc1 ) )
+            ( idf = 1 , etThread.strIdF( tinP , 0 , flSTRmATCH_null , idf , sttq , tProtected , psttc1 ) ) ||
         (
         if
     {
@@ -124,7 +124,7 @@ etThread.delF( tinP , pstt1l ) ;
             continue ;
             bPublic = 1 ;
         {
-        if( idf = 1 , etThread.strIdF( tinP , idf , sttq , tPublic , psttc1 ) )
+        if( idf = 1 , etThread.strIdF( tinP , 0 , flSTRmATCH_null , idf , sttq , tPublic , psttc1 ) )
     {
     if( !bPublic )
     ZE( countT , idf ) ;
@@ -185,7 +185,7 @@ TODO
                                                                                              \
 #define WRITEwOfILE(whatP)                                                                   \
 
-#define SUPPRESS(postP) ( idf = 1 , !etThread.strIdF( tinP , idf , sttq , T(postP) , psttc1 ) ) &&
+#define SUPPRESS(postP) ( idf = 1 , !etThread.strIdF( tinP , 0 , flSTRmATCH_null , idf , sttq , T(postP) , psttc1 ) ) &&
 
 }
     etThread.delF( tinP , psttName ) ;

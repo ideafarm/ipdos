@@ -32040,6 +32040,7 @@ examples
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.341b4.etherC.strSquishIF!||
  static voidT strSquishIF( tinS& tinP , countT*& pczP , const countT* pczInP ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.350021b5.etherc.strSquishIF!||
+ voidT strRegExpFromWildcardsF( tinS& tinP , strokeS*& psttRegExpP , flagsT& flagsOptimizeP , flagsT*& pFlagsOverrideP , countT*& pcMinOverrideP , countT*& pcMaxOverrideP , const strokeS* const psttWildP ) ;
 
  boolT strFileMatchF( tinS& tinP , const strokeS* const psttLikeP , const strokeS* const psttP ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.360021df.etherc.strfilematchf!||

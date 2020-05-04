@@ -12,21 +12,36 @@ REST
 etherC::loafIF( tinP ) ;                            
 
 etThread.traceF( tinP , T(USCORE127 " all filtered (end)") ) ;
+etThread.delF( tinP , pcMaxOverride ) ;
+etThread.delF( tinP , pcMinOverride ) ;
+etThread.delF( tinP , pFlagsOverride ) ;
 etThread.delF( tinP , pstt1m ) ;
+
 }
-    break ; //U::
+    }
+        etThread.delF( tinP , psttm ) ;
+        etThread.traceF( tinP , T("match: ")+T(psttm) ) ;
+        stMatch >> psttm ;
+        ZE( strokeS* , psttm ) ;
+    {
+    while( stMatch )
 
     }
-        etThread.traceF( tinP , T("                ")+T("0              1               2               3") ) ;
-        etThread.traceF( tinP , T("                ")+T("123456789abcdef0123456789abcdef0123456789abcdef0") ) ;
-        etThread.traceF( tinP , T("                ")+tShortInspect ) ;
-        etThread.traceF( tinP , T("[idHit,idf]:    ")+TF2(idHit,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2(idf,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
-    {
-    /*if( idHit )*/
+        //etThread.traceF( tinP , T("                ")+T("0              1               2               3") ) ;
+        //etThread.traceF( tinP , T("                ")+T("123456789abcdef0123456789abcdef0123456789abcdef0") ) ;
+        //etThread.traceF( tinP , T("                ")+tShortInspect ) ;
+        //etThread.traceF( tinP , T("[idHit,idf]:    ")+TF2(idHit,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2(idf,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
 
-    countT idHit = etThread.strIdF( tinP , idf , sttq , psttRegExp , tShortInspect , 0 , 1 ) ;
+        etThread.traceF( tinP , tShortInspect ) ;
+    {
+    if( idHit )
+
+    countT idHit = etThread.strIdOptimizedClosureF( tinP , &stMatch , flSTRmATCH_null , idf , sttq , psttRegExp , tShortInspect , flagsOptimize , pFlagsOverride , pcMinOverride , pcMaxOverride ) ;
     strokeS sttq( 0 , sc_IGNOREqUOTES ) ;
     countT idf = 1 ;
+    stackC stMatch( tinP , etThread , TAG( TAGiDnULL ) , flSTACKc_DOnOTsERIALIZE , ifcSTACKtYPE_PTR_strokeS ) ;
+
+    //etThread.traceF( tinP , T("?               ")+tShortInspect ) ;
 
     }
         etThread.delF( tinP , psttShortInspect ) ;
@@ -47,18 +62,15 @@ TN( tb4 , "    " ) ;
 TN( tStar , "*" ) ;
 etThread.traceF( tinP , T(USCORE127 " all filtered (begin)") ) ;
 
-etThread.traceF( tinP , T(USCORE127 " like (end)") ) ;
-etThread.delF( tinP , pstt1m ) ;
-}
-    etThread.traceF( tinP , psttc1 ) ;
-{
-FORsTRINGSiN1( pstt1m )
-etThread.diskFindFileOrDirF( tinP , pstt1m , tLike , 0 , 0 , 0 , 0 ) ; ___( pstt1m ) ;
 ZE( strokeS* , pstt1m ) ;
-etThread.traceF( tinP , T(USCORE127 " like (begin)") ) ;
 
-regularExpressionFromWildcardF( tinP , etThread , psttRegExp , tShortLike ) ; ___( psttRegExp ) ;
+etThread.strRegExpFromWildcardsF( tinP , psttRegExp , flagsOptimize , pFlagsOverride , pcMinOverride , pcMaxOverride , tShortLike ) ; ___( psttRegExp ) ; ___( pFlagsOverride ) ; ___( pcMinOverride ) ; ___( pcMaxOverride ) ;
+ZE( countT* , pcMaxOverride  ) ;
+ZE( countT* , pcMinOverride  ) ;
+ZE( flagsT* , pFlagsOverride ) ;
+ZE( flagsT  , flagsOptimize  ) ;
 ZE( strokeS* , psttRegExp ) ;
+etThread.traceF( tinP , T("wildcard expression:    ")+tShortLike ) ;
 
 }
     etThread.delF( tinP , psttShortLike ) ;
@@ -73,92 +85,21 @@ ZE( strokeS* , psttRegExp ) ;
 TN( tShortLike , "" ) ;
 TN( tPathLike , "" ) ;
 
-TN( tLike , "///d/tmp/wildcard.test/*.signc.*" ) ;
+}
+    etThread.traceF( tinP , T(USCORE127 " like (end)") ) ;
+    etThread.delF( tinP , pstt1m ) ;
+    }
+        etThread.traceF( tinP , psttc1 ) ;
+    {
+    FORsTRINGSiN1( pstt1m )
+    etThread.diskFindFileOrDirF( tinP , pstt1m , tLike , 0 , 0 , 0 , 0 ) ; ___( pstt1m ) ;
+    ZE( strokeS* , pstt1m ) ;
+    etThread.traceF( tinP , T(USCORE127 " like (begin)") ) ;
+{
+
+TN( tLike , "///d/tmp/wildcard.test/*.batonc.*" ) ;
 
 TODO
-
-}
-    etherP.strMakeF( tinP , psttRegExpP , tre ) ; ___( psttRegExpP ) ;
-
-    ;
-
-        +S2(sa_SSSaNDeND,sc_ccSSS)
-            //+S2(sa_SSSoReND,sc_ccSSS)
-            //    +S2(sa_SSSmARKaNY,sc_cSSSmARK)
-            //+S2(sa_SSSoR,sc_ccSSS)
-            //+S3(0,sc_ccSSSrEPEAT,-1)
-            //+T(".baton")
-            +S2(sa_SSSoReND,sc_ccSSS)
-                +S2(sa_SSSmARKaNY,sc_cSSSmARK)
-            +S2(sa_SSSoR,sc_ccSSS)
-            +S3(0,sc_ccSSSrEPEAT,-1)
-        +S2(sa_SSSaND,sc_ccSSS)
-
-        T("")
-
-    TN( tre , "" ) ; tre =
-
-    }
-        }
-            }
-                break ;
-
-                tre += tn + psttWildP[ CSpREFIX - 1 + ids ] ;
-            {
-            default :
-            }
-                }
-                    etherP.delF( tinP , psttLiteral ) ;
-
-
-
-                    ;
-
-                        +S2(sa_SSSoReND,sc_ccSSS)
-                            +S2(sa_SSSmARKaNY,sc_cSSSmARK)
-                        +S2(sa_SSSoR,sc_ccSSS)
-                        +S3(0,sc_ccSSSrEPEAT,-1)
-
-                    tre += tn
-
-                    etherP.strSubstringF( tinP , psttLiteral , idf , idl , psttWildP , 0 ) ; ___( psttLiteral ) ;
-                    ZE( strokeS* , psttLiteral ) ;
-
-                    countT idl = idsTest > psttWildP->idAdam ? 0 : idsTest - 1 ;
-                    while( idsTest <= psttWildP->idAdam && psttWildP[ CSpREFIX - 1 + idsTest ].idAdam != '*' && psttWildP[ CSpREFIX - 1 + idsTest ].idAdam != '?' ) idsTest ++ ;        // IF NOT WILDCARD THEN KEEP SEARCHING
-                    idsTest = idf + 1 ;
-
-                    countT idfSave = idf ;
-                {
-                if( idf )
-
-                countT idf = idsTest > psttWildP->idAdam ? 0 : idsTest ;
-                while( idsTest <= psttWildP->idAdam && ( psttWildP[ CSpREFIX - 1 + idsTest ].idAdam == '*' || psttWildP[ CSpREFIX - 1 + idsTest ].idAdam == '?' ) ) idsTest ++ ;        // IF WILDCARD THEN KEEP SEARCHING
-                countT idsTest = ids + 1 ;
-                // FIND THE BEGINNING AND END OF THE WOTH LITERAL THAT FOLLOWS
-            {
-            case '*' :
-            }
-                break ;
-
-                ;
-
-                    +S2(sa_SSSoReND,sc_ccSSS)
-                        +S2(sa_SSSmARKaNY,sc_cSSSmARK)
-                    +S2(sa_SSSoR,sc_ccSSS)
-
-                tre += tn
-            {
-            case '?' :
-        {
-        switch( psttWildP[ CSpREFIX - 1 + ids ].idAdam )
-    {
-    for( ids = 1 ; ids <= psttWildP->idAdam ; ids ++ )
-    
-    TN( tre , "" ) ;
-    TN( tn , "" ) ;
-{
-voidT regularExpressionFromWildcardF( tinS& tinP , etherC& etherP , strokeS*& psttRegExpP , const strokeS* const psttWildP )
 
 /*1*/WAKEsHOWtEXT( "scratch.3.dut.craft.etherC.emulation.of.filename.wildcards" )/*1*/
 /**/

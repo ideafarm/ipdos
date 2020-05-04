@@ -52,11 +52,27 @@
                     break ;
                 if( idHit )                                                         //U:: TO FIND A BUG:  COMBINE THESE OO TESTS AND USE A SINGLE LINE
 
-                idHit = strIdOptimizedClosureF( tinP , pstMatchP , flagsMatchP , idFirstP , sttQuoteP , psttSmallP , psttBigP , flagsP , ( ++ pFlagsOverrideP ) -- , ( ++ pcMinOverrideP ) -- , ( ++ pcMaxOverrideP ) -- , idLastP , idP ) ;
+                else if( foth_idsPatch == idsPatch ) tinP.pEther->traceF( tinP , T("----    ")+TF2(idCall,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb43+TF2(patch_idAdam,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2(patch_cNote,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2(idHit,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
+                else if( reth_idsPatch == idsPatch ) tinP.pEther->traceF( tinP , T("----    ")+TF2(idCall,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb42+TF2(patch_idAdam,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2(patch_cNote,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2(idHit,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
+                else if( ooth_idsPatch == idsPatch ) tinP.pEther->traceF( tinP , T("----    ")+TF2(idCall,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb41+TF2(patch_idAdam,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2(patch_cNote,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2(idHit,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
+                     if( woth_idsPatch == idsPatch ) tinP.pEther->traceF( tinP , T("----    ")+TF2(idCall,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2(patch_idAdam,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2(patch_cNote,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2(idHit,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
+ 
+                idHit = strIdOptimizedClosureF( tinP , pstMatchP , flagsMatchP , idFirstP , sttQuoteP , psttSmallP , psttBigP , flagsP , pFlagsOverrideP ? ( ++ pFlagsOverrideP ) -- : 0 , pcMinOverrideP ? ( ++ pcMinOverrideP ) -- : 0 , pcMaxOverrideP ? ( ++ pcMaxOverrideP ) -- : 0 , idLastP , idP ) ;
+
+                else if( foth_idsPatch == idsPatch ) tinP.pEther->traceF( tinP , T("++++    ")+TF2(idCall,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb43+TF2(patch_idAdam,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2(patch_cNote,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
+                else if( reth_idsPatch == idsPatch ) tinP.pEther->traceF( tinP , T("++++    ")+TF2(idCall,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb42+TF2(patch_idAdam,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2(patch_cNote,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
+                else if( ooth_idsPatch == idsPatch ) tinP.pEther->traceF( tinP , T("++++    ")+TF2(idCall,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb41+TF2(patch_idAdam,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2(patch_cNote,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
+                     if( woth_idsPatch == idsPatch ) tinP.pEther->traceF( tinP , T("++++    ")+TF2(idCall,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2(patch_idAdam,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2(patch_cNote,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
+                    ++ idCall ;
 
                 countT idfSave = idFirstP ;
             {
             for(;;)
+            TN( tb43 , "                                                    " ) ;
+            TN( tb42 , "                                    " ) ;
+            TN( tb41 , "                    " ) ;
+            TN( tb4  , "    " ) ;
+            static countT idCall ;
             ZE( countT , csttOptimal ) ;
 
             else patch_idAdam = patch_cNote = cMaxMe ;                                  //MAXIMAL CLOSURE BEHAVIOR (WILL DECREASE THE LENGTH FROM THIS MAXIMUM UNTIL FIND A HIT
@@ -73,9 +89,9 @@
         if( !POOP )
 
         ;
-            : psttBigP->idAdam - 2
+            : psttBigP->idAdam - 1
             ? *pcMaxOverrideP & ~BM_HIGH
-        countT cMaxMe = pcMaxOverrideP && *pcMaxOverrideP
+        countT cMaxMe = pcMaxOverrideP && *pcMaxOverrideP && *pcMaxOverrideP & ~BM_HIGH < psttBigP->idAdam - 1          // "- 1" IS BECAUSE THIS IS MAX REPEAT COUNT TO TRY, AND "REPEAT COUNT" IS NET ( REPEATING 3 TIMES MEANS 4 CONSECUTIVE OCCURANCES
 
         ;
             : 0
@@ -99,20 +115,22 @@
         countT& patch_cNote   = *(countT*)&psttSmallP[ CSpREFIX - 1 + idsPatch ].cNote   ;
         countT& patch_idCaste = *(countT*)&psttSmallP[ CSpREFIX - 1 + idsPatch ].idCaste ;
         countT& patch_idAdam  = *(countT*)&psttSmallP[ CSpREFIX - 1 + idsPatch ].idAdam  ;
-
-        countT& patch_cNoteB   = *(countT*)&psttSmallP[ CSpREFIX - 1 + 0xb ].cNote   ;
-        countT& patch_idCasteB = *(countT*)&psttSmallP[ CSpREFIX - 1 + 0xb ].idCaste ;
-        countT& patch_idAdamB  = *(countT*)&psttSmallP[ CSpREFIX - 1 + 0xb ].idAdam  ;
-        //U:: TO FIND A BUG
-
-        countT& patch_cNote2   = *(countT*)&psttSmallP[ CSpREFIX - 1 + 2 ].cNote   ;
-        countT& patch_idCaste2 = *(countT*)&psttSmallP[ CSpREFIX - 1 + 2 ].idCaste ;
-        countT& patch_idAdam2  = *(countT*)&psttSmallP[ CSpREFIX - 1 + 2 ].idAdam  ;
-        //U:: TO FIND A BUG
     {
     else
     if( !idsPatch ) idHit = strIdF( tinP , pstMatchP , flagsMatchP , idFirstP , sttQuoteP , psttSmallP , psttBigP , idLastP , idP ) ;
     ZE( countT , idHit ) ;
+
+    }
+        else if(  woth_idsPatch != idsPatch &&  ooth_idsPatch != idsPatch &&  reth_idsPatch != idsPatch && !foth_idsPatch ) foth_idsPatch = idsPatch ;
+        else if(  woth_idsPatch != idsPatch &&  ooth_idsPatch != idsPatch && !reth_idsPatch                               ) reth_idsPatch = idsPatch ;
+        else if(  woth_idsPatch != idsPatch && !ooth_idsPatch                                                             ) ooth_idsPatch = idsPatch ;
+             if( !woth_idsPatch                                                                                           ) woth_idsPatch = idsPatch ;
+    {
+    if( idsPatch )
+    static countT foth_idsPatch ;
+    static countT reth_idsPatch ;
+    static countT ooth_idsPatch ;
+    static countT woth_idsPatch ;
 
     }
         }

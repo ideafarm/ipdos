@@ -451,10 +451,6 @@ voidT strFileMatchF_4P4P_GF( tinS& tinP , etherC& etherP , soulC& slP , const st
 
 voidT sssTestF_64P4P334P4P_GF( tinS& tinP , etherC& etherP , soulC& slP , const strokeS* const _psttNameP ) ;
 
-voidT sssAndF_4P4P33_GF( tinS& tinP , etherC& etherP , soulC& slP , const strokeS* const _psttNameP ) ;
-
-voidT sssOrF_4P4P33_GF( tinS& tinP , etherC& etherP , soulC& slP , const strokeS* const _psttNameP ) ;
-
 voidT winAppendTitleF_4Pb_GF( tinS& tinP , etherC& etherP , soulC& slP , const strokeS* const _psttNameP ) ;
 
 voidT winPostMessageAfterNapF_3b333_GF( tinS& tinP , etherC& etherP , soulC& slP , const strokeS* const _psttNameP ) ;

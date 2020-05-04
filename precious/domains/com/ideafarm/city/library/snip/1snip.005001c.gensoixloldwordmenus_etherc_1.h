@@ -224,8 +224,6 @@
     "    . strBisectF_4@4@4@4@373       . ?? ")+T(postName)+T("\r\n"
     "    . strFileMatchF_4@4@       . ?? ")+T(postName)+T("\r\n"
     "    . sssTestF_64@4@334@4@       . ?? ")+T(postName)+T("\r\n"
-    "    . sssAndF_4@4@33       . ?? ")+T(postName)+T("\r\n"
-    "    . sssOrF_4@4@33       . ?? ")+T(postName)+T("\r\n"
     "    . winAppendTitleF_4@b       . ?? ")+T(postName)+T("\r\n"
     "    . winPostMessageAfterNapF_3b333       . ?? ")+T(postName)+T("\r\n"
     "    . winSetTitleF_4@b       . ?? ")+T(postName)+T("\r\n"

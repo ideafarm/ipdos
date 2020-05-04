@@ -1807,22 +1807,6 @@
     _pSwSoixlOldApi->ungrabF( tinP ) ;
 }
 {
-    TN( tNameSoixlOld , "sssAndF_4@4@33" ) ;
-    _pSwSoixlOldApi->grabF( tinP , TAG( TAGiDnULL ) ) ;
-    _psttLeverSoixlOldApi = tNameSoixlOld ;
-    if( *_pSwSoixlOldApi ) { BLAMMO ; }
-    *_pSwSoixlOldApi = (countT)sssAndF_4P4P33_GF ;
-    _pSwSoixlOldApi->ungrabF( tinP ) ;
-}
-{
-    TN( tNameSoixlOld , "sssOrF_4@4@33" ) ;
-    _pSwSoixlOldApi->grabF( tinP , TAG( TAGiDnULL ) ) ;
-    _psttLeverSoixlOldApi = tNameSoixlOld ;
-    if( *_pSwSoixlOldApi ) { BLAMMO ; }
-    *_pSwSoixlOldApi = (countT)sssOrF_4P4P33_GF ;
-    _pSwSoixlOldApi->ungrabF( tinP ) ;
-}
-{
     TN( tNameSoixlOld , "winAppendTitleF_4@b" ) ;
     _pSwSoixlOldApi->grabF( tinP , TAG( TAGiDnULL ) ) ;
     _psttLeverSoixlOldApi = tNameSoixlOld ;
