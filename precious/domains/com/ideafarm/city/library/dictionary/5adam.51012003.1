@@ -116,7 +116,8 @@ TN( tPathLike , "" ) ;
 //TN( tLike , "///d/tmp/wildcard.test/1*" ) ;
 
 
-     TN( tLike , "///d/tmp/wildcard.test.2/*b*d*" ) ;
+     TN( tLike , "///d/tmp/wildcard.test.2/*b" ) ;
+//   TN( tLike , "///d/tmp/wildcard.test.2/*b*d*" ) ;
 //G: TN( tLike , "///d/tmp/wildcard.test.2/*z*4*" ) ;
 //G: TN( tLike , "///d/tmp/wildcard.test.2/*z*" ) ;
 //G: TN( tLike , "///d/tmp/wildcard.test.2/*z" ) ;
@@ -179,7 +180,21 @@ TODO
                             break ;
                         if( patch_idAdam == cMaxMe )
                     {
-                    if( F(flagsMe) & flSTRiDoPTIMIZEDcLOSURE_SHORTtOlONG )
+                    else if( F(flagsMe) & flSTRiDoPTIMIZEDcLOSURE_SHORTtOlONG )
+                    }
+                        flagsMe = flagsMeSave ;
+                        restore_cNote  = restore_idAdam = 0 ;
+                        patch_cNote  = restore_cNote   ;
+                        patch_idAdam = restore_idAdam  ;
+                    {
+                    else if( restore_idAdam )
+                    }
+                        patch_cNote = patch_idAdam = cLength - 1 ;   //ASSUME: THIS ASSUMES THAT WHAT IS BEING REPEATED IS OF LENGTH 1
+
+                        stTryLength >> cLength ;
+                        ZE( countT , cLength ) ;
+                    {
+                    if( stTryLength ) //CS:CODEsYNCH:PSEUDODUPLICATE 51012003 51012003
 
                     idFirstP = idfSave ;
 
@@ -210,6 +225,22 @@ TODO
                 static countT idCall ;
                 ZE( countT , csttOptimal ) ;
 
+                }
+                    patch_cNote = patch_idAdam = cLength - 1 ;   //ASSUME: THIS ASSUMES THAT WHAT IS BEING REPEATED IS OF LENGTH 1
+
+                    stTryLength >> cLength ;
+                    ZE( countT , cLength ) ;
+
+                    }
+                        restore_cNote  = patch_cNote  ;
+                        restore_idAdam = patch_idAdam ;
+                    {
+                    if( !restore_idAdam )
+                {
+                if( stTryLength ) //CS:CODEsYNCH:PSEUDODUPLICATE 51012003 51012003
+                ZE( countT , restore_cNote ) ;
+                ZE( countT , restore_idAdam ) ;
+
                 else patch_idAdam = patch_cNote = cMaxMe ;                                  //MAXIMAL CLOSURE BEHAVIOR (WILL DECREASE THE LENGTH FROM THIS MAXIMUM UNTIL FIND A HIT
                 }
                     }
@@ -223,29 +254,99 @@ TODO
             {
             if( !POOP )
 
+            etherP.delF( tinP , psttAfter ) ;
+            etherP.delF( tinP , psttBefore ) ;
+
             }
-                break ; //U::
-
                 }
-                    if( cMaxMe > idFixedLath - 2 ) cMaxMe = idFixedLath - 2 ;
-                    if( cMinMe < idFixedWoth - 2 ) cMinMe = idFixedWoth - 2 ;
-                    if( idFixedWoth > 1 ) flagsMe |= F(flSTRiDoPTIMIZEDcLOSURE_DOnOTiGNORE) ;
+                    stTryLength << idHit - 1 ;
+
+                    __Z( idHit - 1 ) ;
+                    stIdHitAfter >> idHit ;
+                    ZE( countT , idHit ) ;
                 {
-                if( idsPatch < idFixedWoth )
+                while( stIdHitAfter )
 
-                etherP.delF( tinP , psttf ) ;
-                countT idFixedLath = etherP.strIdF( tinP , psttf , psttBigP , - 1 ) ;
-                countT idFixedWoth = etherP.strIdF( tinP , psttf , psttBigP ,   1 ) ;
+                flagsMe |= F(flSTRiDoPTIMIZEDcLOSURE_DOnOTiGNORE) ;
+                flagsMeSave = flagsMe ;
+            {
+            if( !idBefore && idAfter )
+            ZE( flagsT , flagsMeSave ) ;
+            stackC stTryLength( tinP , etherP , TAG( TAGiDnULL ) , flSTACKc_DOnOTsERIALIZE , ifcSTACKtYPE_countT ) ;
 
-                etherP.traceF( tinP , T("topmost fixed length string [idf,idl,string]:    ")+TF2(c2f.c1,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2(c2f.c2,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+T(psttf) ) ;
-                etherP.strSubstringF( tinP , psttf , idf , idl , psttSmallP ) ; ___( psttf ) ;
+            }
+                while( idHit && idf ) ;
+                }
+                    }
+                        stIdHitAfter << idHit ;
+                        etherP.traceF( tinP , T("after: found in big at [idHit]:    ")+TF2(idHit,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
+                    {
+                    if( idHit )
+                    idHit = etherP.strIdF( tinP , 0 , flSTRmATCH_null , idf , sttq , psttAfter , psttBigP , 0 , 1 ) ;
+                {
+                do
+                idf = 1 ;
+                strokeS sttq( 0 , sc_IGNOREqUOTES ) ;
+                ZE( countT , idHit ) ;
+
+                etherP.traceF( tinP , T("this is after the patch [idf,idl,string]:    ")+TF2(c2f.c1,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2(c2f.c2,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+T(psttAfter) ) ;
+                etherP.strSubstringF( tinP , psttAfter , idf , idl , psttSmallP ) ; ___( psttAfter ) ;
                 countT idl = c2f.c2 ;
                 countT idf = c2f.c1 ;
-                ZE( strokeS* , psttf ) ;
 
-                count2S& c2f = *(count2S*)&stFixedSmall[ 1 ] ;
+                count2S& c2f = *(count2S*)&stFixedSmall[ idAfter ] ;
             {
-            while( stFixedSmall )
+            if( idAfter )
+            stackC stIdHitAfter( tinP , etherP , TAG( TAGiDnULL ) , flSTACKc_DOnOTsERIALIZE , ifcSTACKtYPE_countT ) ;
+            ZE( strokeS* , psttAfter  ) ;
+
+            }
+                while( idHit && idf ) ;
+                }
+                    }
+                        stIdHitBefore << idHit ;
+                        etherP.traceF( tinP , T("before: found in big at [idHit,idLath]:    ")+TF2(idHit,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2(idf-1,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
+                    {
+                    if( idHit )
+                    idHit = etherP.strIdF( tinP , 0 , flSTRmATCH_null , idf , sttq , psttBefore , psttBigP , 0 , 1 ) ;
+                {
+                do
+                idf = 1 ;
+                strokeS sttq( 0 , sc_IGNOREqUOTES ) ;
+                ZE( countT , idHit ) ;
+
+                etherP.traceF( tinP , T("this is before the patch [idf,idl,string]:    ")+TF2(c2f.c1,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2(c2f.c2,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+T(psttBefore) ) ;
+                etherP.strSubstringF( tinP , psttBefore , idf , idl , psttSmallP ) ; ___( psttBefore ) ;
+                countT idl = c2f.c2 ;
+                countT idf = c2f.c1 ;
+
+                count2S& c2f = *(count2S*)&stFixedSmall[ idBefore ] ;
+            {
+            if( idBefore )
+            stackC stIdHitBefore( tinP , etherP , TAG( TAGiDnULL ) , flSTACKc_DOnOTsERIALIZE , ifcSTACKtYPE_countT ) ;
+            ZE( strokeS* , psttBefore ) ;
+
+            etherP.traceF( tinP , T("patch [idBefore,idAfter]:")+tb4+TF2(idBefore,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2(idAfter,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
+
+            }
+                while( !stFixedSmall.third && ~hDown && !idAfter ) ;
+                }
+                    else if(            c2f.c2   < idsPatch ) idBefore = idPlate ;
+                         if( idsPatch < c2f.c1              ) idAfter  = idPlate ;
+
+                    count2S& c2f = *(count2S*)&stFixedSmall.downF( tinP , hDown ) ;
+                    ++ idPlate ;
+                {
+                do
+                handleC hDown( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_STACKwALK ) ;
+                ZE( countT , idPlate ) ;
+                TN( tb4 , "    " ) ;
+            {
+            if( stFixedSmall )
+            ZE( countT , idAfter ) ;
+            ZE( countT , idBefore ) ;
+
+            etherP.traceF( tinP , T("patch [idsPatch,flagsMe,cMinMe,cMaxMe]:")+tb4+TF2(idsPatch,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2(flagsMe,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2(cMinMe,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2(cMaxMe,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
             TN( tb4 , "    " ) ;
 
             ;
