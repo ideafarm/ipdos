@@ -31902,6 +31902,7 @@ examples
  countT strIdOptimizedClosureF( tinS& tinP , stackC* const pstMatchP , const flagsT flagsMatchP , countT& idFirstP , strokeS& sttQuoteP , const strokeS* psttSmallP , const strokeS* psttBigP , const flagsT flagsP = flSTRiDoPTIMIZEDcLOSURE_null , const flagsT* pFlagsOverrideP = 0 , const countT* pcMinOverrideP = 0 , const countT* pcMaxOverrideP = 0 , const countT idLastP = 0 , sCountT idP = 1 ) ;
  countT strTallyF( tinS& tinP , const strokeS* const psttSmallP , const strokeS* psttBigP , strokeS& sttQuoteP ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3416d.etherC.strTallyF!||
+ countT strIdLathExpressionF( tinS& tinP , const strokeS* const psttSmallP , countT idsWothP ) ;
  countT strIdAnyF( tinS& tinP , stackC* const pstMatchP , const flagsT flagsMatchP , countT& idFirstP , strokeS& sttQuoteP , const strokeS* psttSmallP , const strokeS* psttBigP , const countT idLastP = 0 , sCountT idP = 1 , const flagsT flagsP = flSTRiDaNY_null ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34054.etherC.strIdAnyF!||
  countT strIdAnyF( tinS& tinP , countT& idFirstP , strokeS& sttQuoteP , const strokeS sttSmallP , const strokeS* psttBigP , sCountT idP = 1 ) ;
