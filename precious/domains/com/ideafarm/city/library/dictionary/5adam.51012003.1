@@ -65,13 +65,26 @@ etThread.traceF( tinP , T(USCORE127 " all filtered (begin)") ) ;
 
 ZE( strokeS* , pstt1m ) ;
 
+}
+    etThread.delF( tinP , psttd ) ;
+    etThread.traceF( tinP , T("IPDOS (tm) regular expression:    ")+T(psttd) ) ;
+    etThread.strDumpStrokesIF( tinP , psttd , psttRegExp ) ; ___( psttd ) ;
+    ZE( strokeS* , psttd ) ;
+{
+
 etThread.strRegExpFromWildcardsF( tinP , psttRegExp , flagsOptimize , pFlagsOverride , pcMinOverride , pcMaxOverride , tShortLike ) ; ___( psttRegExp ) ; ___( pFlagsOverride ) ; ___( pcMinOverride ) ; ___( pcMaxOverride ) ;
 ZE( countT* , pcMaxOverride  ) ;
 ZE( countT* , pcMinOverride  ) ;
 ZE( flagsT* , pFlagsOverride ) ;
 ZE( flagsT  , flagsOptimize  ) ;
 ZE( strokeS* , psttRegExp ) ;
-etThread.traceF( tinP , T("wildcard expression:    ")+tShortLike ) ;
+
+}
+    etThread.delF( tinP , psttd ) ;
+    etThread.traceF( tinP , T("wildcard expression:    \"")+tShortLike+T("\"    ")+T(psttd) ) ;
+    etThread.strDumpStrokesIF( tinP , psttd , tShortLike ) ; ___( psttd ) ;
+    ZE( strokeS* , psttd ) ;
+{
 
 }
     etThread.delF( tinP , psttShortLike ) ;
@@ -102,7 +115,9 @@ TN( tPathLike , "" ) ;
 //TN( tLike , "///d/tmp/wildcard.test/*.batoncthisistoolongthisistoolongthisistoolongthisistoolongthisistoolong.*" ) ;
 //TN( tLike , "///d/tmp/wildcard.test/1*" ) ;
 
-     TN( tLike , "///d/tmp/wildcard.test.2/*z*4*" ) ;
+
+     TN( tLike , "///d/tmp/wildcard.test.2/*b*d*" ) ;
+//G: TN( tLike , "///d/tmp/wildcard.test.2/*z*4*" ) ;
 //G: TN( tLike , "///d/tmp/wildcard.test.2/*z*" ) ;
 //G: TN( tLike , "///d/tmp/wildcard.test.2/*z" ) ;
 
@@ -228,9 +243,9 @@ TODO
                 countT idf = c2f.c1 ;
                 ZE( strokeS* , psttf ) ;
 
-                count2S& c2f = *(count2S*)&stFixedLength[ 1 ] ;
+                count2S& c2f = *(count2S*)&stFixedSmall[ 1 ] ;
             {
-            while( stFixedLength )
+            while( stFixedSmall )
             TN( tb4 , "    " ) ;
 
             ;
@@ -301,29 +316,35 @@ TODO
         countT cPlatesWas = pstMatchP ? *pstMatchP : 0 ;
 
         }
-            while( !stFixedLength.third && ~hDown ) ;
+            while( !stFixedSmall.third && ~hDown ) ;
             }
+                etherP.delF( tinP , psttd ) ;
                 etherP.delF( tinP , psttf ) ;
-                etherP.traceF( tinP , T("fixed length string: ")+T(psttf) ) ;
+                etherP.traceF( tinP , T("fixed small [idf,idl,text,dump]:    ")+TF2(c2f.c1,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2(c2f.c2,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    \"")+T(psttf)+T("\"    ")+T(psttd) ) ;
+
+                etherP.strDumpStrokesIF( tinP , psttd , psttf ) ; ___( psttd ) ;
+                ZE( strokeS* , psttd ) ;
+
                 etherP.strSubstringF( tinP , psttf , idf , idl , psttSmallP ) ; ___( psttf ) ;
                 countT idl = c2f.c2 ;
                 countT idf = c2f.c1 ;
                 ZE( strokeS* , psttf ) ;
 
-                count2S& c2f = *(count2S*)&stFixedLength.downF( tinP , hDown ) ;
+                count2S& c2f = *(count2S*)&stFixedSmall.downF( tinP , hDown ) ;
             {
             do
             handleC hDown( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_STACKwALK ) ;
+            TN( tb4 , "    " ) ;
         {
-        if( stFixedLength )
+        if( stFixedSmall )
     {
     if( csttMin <= psttBigP->idAdam && psttBigP->idAdam <= csttMax )
     ZE( countT , idHit ) ;
 
-    strAndExpressionLengthMinMaxF( tinP , etherP , csttMin , csttMax , stFixedLength , countTC( 1 ) , psttSmallP , flagsP , pFlagsOverrideP , pcMinOverrideP , pcMaxOverrideP ) ;
+    strAndExpressionLengthMinMaxF( tinP , etherP , csttMin , csttMax , stFixedSmall , countTC( 1 ) , psttSmallP , flagsP , pFlagsOverrideP , pcMinOverrideP , pcMaxOverrideP ) ;
     ZE( countT , csttMax ) ;
     ZE( countT , csttMin ) ;
-    stackC stFixedLength( tinP , etherP , TAG( TAGiDnULL ) , flSTACKc_DOnOTsERIALIZE | flSTACKc_BLOB | flSTACKc_FIFO , 2 * sizeof( countT ) ) ;
+    stackC stFixedSmall( tinP , etherP , TAG( TAGiDnULL ) , flSTACKc_DOnOTsERIALIZE | flSTACKc_BLOB | flSTACKc_FIFO , 2 * sizeof( countT ) ) ;
 
     }
         if( POOP ) return 0 ;
@@ -440,7 +461,7 @@ i evaluate to the id of the woth strokeS in psttBigP that matches psttSmallP
 
     }
         idfFixed = 0 ;
-        stFixedLengthP << (byteT*)&c2f ;
+        stFixedSmallP << (byteT*)&c2f ;
         count2S c2f( idfFixed , idsLath - 1 ) ;
     {
     if( idfFixed )
@@ -459,7 +480,7 @@ i evaluate to the id of the woth strokeS in psttBigP that matches psttSmallP
             }
                 idfFixed = 0 ;
                 }
-                    stFixedLengthP << (byteT*)&c2f ;
+                    stFixedSmallP << (byteT*)&c2f ;
                     count2S c2f( idfFixed , idsi - 1 ) ;
                 {
                 if( idfFixed < idsi )
@@ -471,7 +492,7 @@ i evaluate to the id of the woth strokeS in psttBigP that matches psttSmallP
             }
                 idfFixed = 0 ;
                 }
-                    stFixedLengthP << (byteT*)&c2f ;
+                    stFixedSmallP << (byteT*)&c2f ;
                     count2S c2f( idfFixed , idsi - 1 ) ;
                 {
                 if( idfFixed < idsi )
@@ -528,7 +549,7 @@ i evaluate to the id of the woth strokeS in psttBigP that matches psttSmallP
             }
                 idfFixed = 0 ;
                 }
-                    stFixedLengthP << (byteT*)&c2f ;
+                    stFixedSmallP << (byteT*)&c2f ;
                     count2S c2f( idfFixed , idsi - 1 ) ;
                 {
                 if( idfFixed < idsi )
@@ -539,7 +560,7 @@ i evaluate to the id of the woth strokeS in psttBigP that matches psttSmallP
         }
             idfFixed = 0 ;
             }
-                stFixedLengthP << (byteT*)&c2f ;
+                stFixedSmallP << (byteT*)&c2f ;
                 count2S c2f( idfFixed , idsi - 1 ) ;
             {
             if( idfFixed < idsi )
@@ -559,14 +580,14 @@ i evaluate to the id of the woth strokeS in psttBigP that matches psttSmallP
             }
                 idfFixed = 0 ;
                 }
-                    stFixedLengthP << (byteT*)&c2f ;
+                    stFixedSmallP << (byteT*)&c2f ;
                     count2S c2f( idfFixed , idsi - 1 ) ;
                 {
                 if( idfFixed < idsi )
             {
             if( idfFixed && ( bArmPossibleIgnore || csttMin2 != csttMax2 ) )
 
-            strAndExpressionLengthMinMaxF( tinP , etherP , csttMin2 , csttMax2 , stFixedLengthP , idsInspect , psttRegExpP , flagsOptimizeP , pFlagsOverrideP , pcMinOverrideP , pcMaxOverrideP ) ;
+            strAndExpressionLengthMinMaxF( tinP , etherP , csttMin2 , csttMax2 , stFixedSmallP , idsInspect , psttRegExpP , flagsOptimizeP , pFlagsOverrideP , pcMinOverrideP , pcMaxOverrideP ) ;
             countT idsInspect = idsi ;
             ZE( countT , csttMax2 ) ;
             ZE( countT , csttMin2 ) ;
@@ -606,7 +627,7 @@ i evaluate to the id of the woth strokeS in psttBigP that matches psttSmallP
     {
     IFbEcAREFUL
 {
-voidT strAndExpressionLengthMinMaxF( tinS& tinP , etherC& etherP , countT& csttMinP , countT& csttMaxP , stackC& stFixedLengthP , countT& idsP , const strokeS* const psttRegExpP , const flagsT flagsOptimizeP , const flagsT* pFlagsOverrideP , const countT* pcMinOverrideP , const countT* pcMaxOverrideP )
+voidT strAndExpressionLengthMinMaxF( tinS& tinP , etherC& etherP , countT& csttMinP , countT& csttMaxP , stackC& stFixedSmallP , countT& idsP , const strokeS* const psttRegExpP , const flagsT flagsOptimizeP , const flagsT* pFlagsOverrideP , const countT* pcMinOverrideP , const countT* pcMaxOverrideP )
 
 /**/
 */

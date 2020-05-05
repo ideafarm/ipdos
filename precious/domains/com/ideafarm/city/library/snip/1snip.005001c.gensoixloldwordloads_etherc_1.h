@@ -1527,6 +1527,14 @@
     _pSwSoixlOldApi->ungrabF( tinP ) ;
 }
 {
+    TN( tNameSoixlOld , "strIdLathExpressionF_4@3" ) ;
+    _pSwSoixlOldApi->grabF( tinP , TAG( TAGiDnULL ) ) ;
+    _psttLeverSoixlOldApi = tNameSoixlOld ;
+    if( *_pSwSoixlOldApi ) { BLAMMO ; }
+    *_pSwSoixlOldApi = (countT)strIdLathExpressionF_4P3_GF ;
+    _pSwSoixlOldApi->ungrabF( tinP ) ;
+}
+{
     TN( tNameSoixlOld , "strIndentF_4@4@3" ) ;
     _pSwSoixlOldApi->grabF( tinP , TAG( TAGiDnULL ) ) ;
     _psttLeverSoixlOldApi = tNameSoixlOld ;

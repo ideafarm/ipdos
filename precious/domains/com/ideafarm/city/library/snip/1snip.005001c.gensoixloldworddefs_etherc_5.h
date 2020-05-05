@@ -268,6 +268,31 @@ voidT strKTTrimF_4P4P33_GF( tinS& tinP , etherC& etherP , soulC& slP , const str
     slP << noName ;
 }
 
+voidT strIdLathExpressionF_4P3_GF( tinS& tinP , etherC& etherP , soulC& slP , const strokeS* const _psttNameP )
+{
+    countT idArgNext = 1 ;
+    ZE( byteT* , pbFieldNext ) ;
+    ZE( countT , idTypeNext ) ;
+    ZE( flagsT , flagsNext ) ;
+    ZE( countT , cbFieldNext ) ;
+
+    SOIXLoLDtESTeMPTY( 0xdddd8017 , etherC )
+    SOIXLoLDtESTtYPE( 0xdddd8017 , etherC )
+    ZE( strokeS* , psttSmallP ) ;
+    if( !POOP ) { slP >> psttSmallP ; ___( psttSmallP ) ; idArgNext ++ ; }
+
+   SOIXLoLDtESTeMPTY( 0xdddd8003 , etherC )
+   SOIXLoLDtESTtYPE( 0xdddd8003 , etherC )
+    ZE( countT , idsWothP ) ;
+    if( !POOP ) { slP >> idsWothP ; idArgNext ++ ; }
+
+    ZE( countT , noName ) ;
+    if( !POOP ) noName = etherP.strIdLathExpressionF( tinP , psttSmallP , idsWothP ) ;
+    etherP.delF( tinP , psttSmallP ) ;
+
+    slP << noName ;
+}
+
 voidT strIndentF_4P4P3_GF( tinS& tinP , etherC& etherP , soulC& slP , const strokeS* const _psttNameP )
 {
     countT idArgNext = 1 ;

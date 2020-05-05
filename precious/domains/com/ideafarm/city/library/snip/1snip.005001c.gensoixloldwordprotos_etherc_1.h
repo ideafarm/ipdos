@@ -381,6 +381,8 @@ voidT strFuseSeparateF_4P4P33hPgrabCP3_GF( tinS& tinP , etherC& etherP , soulC& 
 
 voidT strKTTrimF_4P4P33_GF( tinS& tinP , etherC& etherP , soulC& slP , const strokeS* const _psttNameP ) ;
 
+voidT strIdLathExpressionF_4P3_GF( tinS& tinP , etherC& etherP , soulC& slP , const strokeS* const _psttNameP ) ;
+
 voidT strIndentF_4P4P3_GF( tinS& tinP , etherC& etherP , soulC& slP , const strokeS* const _psttNameP ) ;
 
 voidT strInsertF_4P34P3_GF( tinS& tinP , etherC& etherP , soulC& slP , const strokeS* const _psttNameP ) ;

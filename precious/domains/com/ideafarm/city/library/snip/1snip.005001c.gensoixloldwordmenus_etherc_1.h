@@ -189,6 +189,7 @@
     "    . strFromIdJotF_4@33       . ?? ")+T(postName)+T("\r\n"
     "    . strFuseSeparateF_4@4@33h@grabC@3       . ?? ")+T(postName)+T("\r\n"
     "    . strKTTrimF_4@4@33       . ?? ")+T(postName)+T("\r\n"
+    "    . strIdLathExpressionF_4@3       . ?? ")+T(postName)+T("\r\n"
     "    . strIndentF_4@4@3       . ?? ")+T(postName)+T("\r\n"
     "    . strInsertF_4@34@3       . ?? ")+T(postName)+T("\r\n"
     "    . strInsertF_4@4@4@73       . ?? ")+T(postName)+T("\r\n"

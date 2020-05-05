@@ -17,24 +17,24 @@
             )+
                     //TF2(sttc.cNote,flFORMAT_NObIGITvALUES)+
                     : TF2(*(measureT*)&sttc.cNote,flFORMAT_NObIGITvALUES)            // NObIGITvALUES MIGHT NOT BE NEEDED WHEN FORMATTING MEASURE
-                    ? TF1(sttc.cNote)
+                    ? TF2(sttc.cNote,flFORMAT_NObIGITvALUES)
                 sttc.idCaste == sc_ccSSSrEPEAT || sttc.idCaste == sc_ccSSS
             (
             tco+
             )+
                             : TF2(*(measureT*)&sttc.idAdam,flFORMAT_NObIGITvALUES)
-                            //: TF1(sttc.idAdam)
+                            //: TF2(sttc.idAdam,flFORMAT_NObIGITvALUES)
                             ? TF2(sttc.idAdam,flFORMAT_NObIGITvALUES)+T(" '")+T(post2)+T("'")
                         : sttc.idCaste == sc_cALPHABET1 || sttc.idCaste == sc_cFROMaSCII || sttc.idCaste == sc_cFROMgRAPHICS || sttc.idCaste == sc_cSSSmARK || sttc.idCaste == sc_cFROMcONTROL
-                        ? TF1(sttc.idAdam)
+                        ? TF2(sttc.idAdam,flFORMAT_NObIGITvALUES)
                     : sttc.idCaste == sc_ccSSSrEPEAT || sttc.idCaste == sc_ccSSS
                     ? T(postIdAdam)
                 postIdAdam
             (
             tpo+
             T(processGlobal3I.mapCaste(sttc.idCaste))+
-            (bIdAdam?TF3(1+offi,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,9):tn)+
-            (offi?td:tn)+
+            (bIdAdam?tb4+TF2(ids,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tColon+tb4:tn)+
+            (ids==1?td:tn)+
 
         ether.strFuseF( tinP , psttP , 
 
@@ -43,23 +43,26 @@
 
         mapCTC& mapAdamUse = ( sttc.idCaste == sc_ccSSS || sttc.idCaste == sc_cSSSmARK ) ? processGlobal3I.mapSSSIdAdam : processGlobal3I.mapAdam ;
 
-        const strokeS& sttc = psttInP[ CSpREFIX + offi ] ;
+        const strokeS& sttc = psttInP[ CSpREFIX - 1 + ids ] ;
     {
-    for( countT offi = 0 ; offi < psttInP->idAdam ; offi ++ )
+    for( countT ids = 1 ; ids <= psttInP->idAdam ; ids ++ )
+    TN( tColon , ":" ) ;
+    TN( tb4 , "    " ) ;
     TN( tb  , " " ) ;
     TN( tn  , ""  ) ;
     TN( tco , " , " ) ;
     TN( tpc , " )" ) ;
     TN( tpo , "( " ) ;
 
-    const boolT bIdAdam = !ether.strCompareF( tinP , td , T("\r\n") ) ;
+    const boolT bIdAdam = 1 ;  //U:: USE A flagsP PARAMETER TO DECIDE
+    //const boolT bIdAdam = !ether.strCompareF( tinP , td , T("\r\n") ) ;
 
     }
         POSTPONEtEST( psttP ) ;
         ether.strMakeF( tinP , psttP , T("") , cstta ) ; //CALLER MUST TAG ___( psttP ) ;
         const countT cstta = psttInP->idAdam * ( td.csF( tinP ) + processGlobal3I.mapCaste.costMaxF() + processGlobal3I.mapAdam.costMaxF() /*+ 3 + 0x10*/ + 0x40/*U::USE EXACT REQUIREMENT; THIS LINE WAS EDITED WHEN EDITED DEF TO DISPLAY measureT VALUES*/ ) ;
     {
-    TN( td , " " ) ; if( psttDelimiterP ) td = T(psttDelimiterP) ;
+    TN( td , "    " ) ; if( psttDelimiterP ) td = T(psttDelimiterP) ;
 
     //FORMAT: "idCaste(idAdam,cNote) idCaste(idAdam,cNote) idCaste(idAdam,cNote) ..."
 
