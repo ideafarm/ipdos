@@ -240,4 +240,5 @@
 0xdddd0425 , "keyValuePairsC" ,
 0xdddd0426 , "inOutFrameC" ,
 0xdddd0427 , "fileWindowC" ,
-0xdddd0428 , "fileWindowsC"
+0xdddd0428 , "fileWindowsC" ,
+0xdddd0429 , "patternC"
