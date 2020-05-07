@@ -64,6 +64,7 @@
 "diskWalkCBFT" , "diskWalkCBFT" ,
 "diskWalkCopyCBFT" , "diskWalkCopyCBFT" ,
 "diskWalkSearchCBFT" , "diskWalkSearchCBFT" ,
+"patternC" , "patternC" ,
 "hoverC" , "hoverC" ,
 "fileWindowsC" , "fileWindowsC" ,
 "fileWindowC" , "fileWindowC" ,
