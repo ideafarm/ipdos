@@ -31900,10 +31900,12 @@ examples
  countT strIdF( tinS& tinP , countT& idFirstP , const countT cSmallP , const countT* pcBigP , const countT ccBigP = 0 , sCountT idP = 1 ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3418f.etherC.strIdF!||
  countT strIdOptimizedClosureF( tinS& tinP , stackC* const pstMatchP , const flagsT flagsMatchP , countT& idFirstP , strokeS& sttQuoteP , const strokeS* psttSmallP , const strokeS* psttBigP , const flagsT flagsP = flSTRiDoPTIMIZEDcLOSURE_null , const flagsT* pFlagsOverrideP = 0 , const countT* pcMinOverrideP = 0 , const countT* pcMaxOverrideP = 0 , const countT idLastP = 0 , sCountT idP = 1 ) ;
+ countT strIdOptimizedClosureF( tinS& tinP , stackC* const pstMatchP , const flagsT flagsMatchP , countT& idFirstP , strokeS& sttQuoteP , const patternC& patP , const strokeS* psttBigP , const countT idLastP = 0 , sCountT idP = 1 ) ;
  countT strTallyF( tinS& tinP , const strokeS* const psttSmallP , const strokeS* psttBigP , strokeS& sttQuoteP ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3416d.etherC.strTallyF!||
  countT strIdLathExpressionF( tinS& tinP , const strokeS* const psttSmallP , countT idsWothP ) ;
  countT strIdAnyF( tinS& tinP , stackC* const pstMatchP , const flagsT flagsMatchP , countT& idFirstP , strokeS& sttQuoteP , const strokeS* psttSmallP , const strokeS* psttBigP , const countT idLastP = 0 , sCountT idP = 1 , const flagsT flagsP = flSTRiDaNY_null ) ;
+ voidT strAndExpressionLengthMinMaxF( tinS& tinP , countT& csttMinP , countT& csttMaxP , stackC& stFixedSmallP , countT& idsP , const strokeS* const psttRegExpP , const flagsT flagsOptimizeP , const flagsT* pFlagsOverrideP , const countT* pcMinOverrideP , const countT* pcMaxOverrideP ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34054.etherC.strIdAnyF!||
  countT strIdAnyF( tinS& tinP , countT& idFirstP , strokeS& sttQuoteP , const strokeS sttSmallP , const strokeS* psttBigP , sCountT idP = 1 ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.340ae.etherC.strIdAnyF!||
@@ -44046,3 +44048,45 @@ i am nonconformant in that all of my member function definitions are in a single
 //
 
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.hoverC : 1snip.15000182.hoverC END
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 25 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+
+/*
+*/
+/**/
+
+/*1*/class _export patternC/*1*/
+{
+    etherC&     ether           ;
+    strokeS*    psttPattern     ;
+    flagsT      flagsOptimize   ;
+    flagsT*     pFlagsOverride  ;
+    countT*     pcMinOverride   ;
+    countT*     pcMaxOverride   ;
+
+    public :
+
+    NEWdELcLASSpROTOS
+    ~patternC( voidT ) ;
+    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.361454002.hoverC.dt_patternC!||
+    patternC( tinS& tinP , etherC& etherP , const strokeS* const psttP , const flagsT flagsP ) ;
+    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.361454003.hoverC.patternC!||
+
+    friend countT etherC::strIdOptimizedClosureF( tinS& tinP , stackC* pstMatchP , const flagsT flagsMatchP , countT& idFirstP , strokeS& sttQuoteP , const patternC& patP , const strokeS* psttBigP , const countT idLastP , sCountT idP ) ;
+}
+;
+
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 25 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+

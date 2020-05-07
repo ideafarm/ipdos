@@ -1,4 +1,32 @@
 
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 25 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+
+/*
+*/
+/**/
+
+/*1*//*flPATTERNc*//*1*/
+
+#define flPATTERNc_null                     0xe00000ff
+#define flPATTERNc_WILDCARDmICROSOFT        0xe00001ff
+#define flPATTERNc_WILDCARDsTRICT           0xe00002ff
+#define flPATTERNc_UNIXrEGULAReXPRESSION    0xe00004ff
+
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 25 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+
+
 #define sa_SSSrEPORTmATCHeND                '}'
 #define sa_SSSrEPORTmATCH                   '{'
 
@@ -108,6 +136,7 @@ it is illegal to refer to this symbol in the definition of an adam
 //DO NOT CHANGE THE MANGLE CODES (E.G. "A1").  CHANGING THESE CODES WILL BREAK ALL SOIL (tm) CODE THAT USES THEM
 
 struct /*ff*/argS/*ff*/                         ; /*ff*//**//*ff*/
+class  /*ff*/patternC/*ff*/                       ; /*ff*//**//*ff*/
 class  /*ff*/arrayC/*ff*/                       ; /*ff*//**//*ff*/
 class  /*ff*/batonBoxC/*ff*/                    ; /*ff*//**//*ff*/
 class  /*ff*/batonC/*ff*/                       ; /*ff*//**//*ff*/
@@ -8148,9 +8177,10 @@ it is illegal to refer to this symbol in the definition of an adam
 #define ifciDtYPEdROPnOTE_inOutFrameC                                   0xdddd0426
 #define ifciDtYPEdROPnOTE_fileWindowC                                   0xdddd0427
 #define ifciDtYPEdROPnOTE_fileWindowsC                                  0xdddd0428
+#define ifciDtYPEdROPnOTE_patternC                                      0xdddd0429
 /*3*/
 #define ifciDtYPEdROPnOTE_min     0xdddd0336
-#define ifciDtYPEdROPnOTE_max     0xdddd0428
+#define ifciDtYPEdROPnOTE_max     0xdddd0429
 
 
 //
