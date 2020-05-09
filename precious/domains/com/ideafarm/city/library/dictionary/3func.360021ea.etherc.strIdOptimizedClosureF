@@ -127,8 +127,9 @@
                 }
                     while( !stIdHitAfter.third && ~hDown ) ;
                     }
-                        stTryLength << 1 + idTryLath - idTryWoth ;
+                        if( cLengthTry ) stTryLength << cLengthTry ;
 
+                        countT cLengthTry = 1 + idTryLath - idTryWoth ;
                         countT idTryLath  = idHitAfter - 1 ;
                         countT idHitAfter = stIdHitAfter.downF( tinP , hDown ) ;
                     {
@@ -147,7 +148,7 @@
             else if( idBefore && idAfter )
             }
                 }
-                    stTryLength << psttBigP->idAdam - idLath ;
+                    if( psttBigP->idAdam > idLath ) stTryLength << psttBigP->idAdam - idLath ;
                     countT idLath = idHit - 1 + psttBefore->idAdam ;
 
                     stIdHitBefore >> idHit ;
