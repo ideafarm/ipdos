@@ -1,29 +1,3 @@
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004a6.openfileread1 BEGIN
-
-
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 25 years.
-// Respecting the rights of other people is an important part of empowering one another.
-//
-
-/*
-*/
-/**/
-/*1*//*OPENfILErEAD1(psttFileP)*//*1*/
-
-#define OPENfILErEAD1(psttFileP) OPENfILErEAD( (psttFileP) , 1 )
-
-
-//
-// Respecting the rights of other people is an important part of empowering one another.
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 25 years.
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004a6.openfileread1 END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004a7.openfileread2 BEGIN
 
 
@@ -25723,7 +25697,7 @@ it is illegal to refer to this symbol in the definition of an adam
 {
     handleC      hFile ;
     countT       idOpenResult ;
-    osTextT      postFileOrZip[ TUCK ] ; // DONE THIS WAY SO THAT I CAN BE USED EARLY AND LATE WHEN NO poolC INSTANCE EXISTS
+    osTextT      postFileOrZip[ TUCK << 2 ] ; // DONE THIS WAY SO THAT I CAN BE USED EARLY AND LATE WHEN NO poolC INSTANCE EXISTS
     flagsT       flagsCt ;
 
     voidT ctF( tinS& tinP , const osTextT* const postP , const countT idAccessP , const countT idShareP , const flagsT flagsDetailsP , const countT idHowP , const flagsT flagsAttributeP , const countT cTriesP ) ;
@@ -44082,6 +44056,44 @@ i am nonconformant in that all of my member function definitions are in a single
 }
 ;
 
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 25 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 25 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+
+/*
+*/
+/**/
+
+/*1*/class _export fileNameC/*1*/
+{
+    etherC&  ether ;
+    strokeS* psttLong ;
+    strokeS* psttPath ;
+    strokeS* psttShort ;
+
+    public :
+
+    NEWdELcLASSpROTOS
+    ~fileNameC( voidT ) ;
+    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.36146002.fileNameC.dt_fileNameC!||
+    fileNameC( tinS& tinP , etherC& etherP , const strokeS* const psttP ) ;
+    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.36146003.fileNameC.fileNameC!||
+    inline operator const strokeS*( voidT ) const { return psttShort ; }
+    inline const strokeS* pathF( voidT ) const { return psttPath ; }
+}
+;
 
 //
 // Respecting the rights of other people is an important part of empowering one another.
