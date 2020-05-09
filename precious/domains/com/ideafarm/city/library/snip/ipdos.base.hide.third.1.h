@@ -2154,7 +2154,7 @@ it is illegal to refer to this symbol in the definition of an adam
                                                                                                                                                                     \
                             if( tinP.pAdamGlobal1->cYieldHighWater )                                                                                                \
                             {                                                                                                                                       \
-                                OStEXT(   ostoSay , TUCK ) ;                                                                                                        \
+                                OStEXT(   ostoSay , TUCK << 2 ) ;                                                                                                        \
                                 OStEXTAK( ostoSay , "DONE0     [idAdam,cYieldHighWater,cSpins1,cSpins2,cSpins3,cSpins4]:    " ) ;                                   \
                                 OStEXTC(  ostoSay , tinP.pAdamGlobal1->idAdam , 0 ) ;                                                                               \
                                 OStEXTAK( ostoSay , "    " ) ;                                                                                                      \
@@ -38198,7 +38198,7 @@ i avoid recursion by zeing out the pNextP member before deleting each instance i
             {                                                                                                                                               \
                 const countT* pcv = pCursor->vspCountString ;                                                                                               \
                                                                                                                                                             \
-                OStEXT(   ostoSay , TUCK ) ;                                                                                                                \
+                OStEXT(   ostoSay , TUCK << 2 ) ;                                                                                                                \
                 ZE( countT , offi ) ;                                                                                                                       \
                 while( pcv[ offi ] )                                                                                                                        \
                 {                                                                                                                                           \
