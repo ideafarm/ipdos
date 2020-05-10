@@ -1,211 +1,3 @@
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004a6.openfileread1 BEGIN
-
-
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 25 years.
-// Respecting the rights of other people is an important part of empowering one another.
-//
-
-/*
-*/
-/**/
-/*1*//*OPENfILErEAD1(psttFileP)*//*1*/
-
-#define OPENfILErEAD1(psttFileP) OPENfILErEAD( (psttFileP) , 1 )
-
-
-//
-// Respecting the rights of other people is an important part of empowering one another.
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 25 years.
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004a6.openfileread1 END
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004a7.openfileread2 BEGIN
-
-
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 25 years.
-// Respecting the rights of other people is an important part of empowering one another.
-//
-
-/*
-*/
-/**/
-/*1*//*OPENfILErEAD2(psttFileP)*//*1*/
-
-#define OPENfILErEAD2(psttFileP) OPENfILErEAD( (psttFileP) , 2 )
-
-
-//
-// Respecting the rights of other people is an important part of empowering one another.
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 25 years.
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004a7.openfileread2 END
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004a8.openfileread3 BEGIN
-
-
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 25 years.
-// Respecting the rights of other people is an important part of empowering one another.
-//
-
-/*
-*/
-/**/
-/*1*//*OPENfILErEAD3(psttFileP)*//*1*/
-
-#define OPENfILErEAD3(psttFileP) OPENfILErEAD( (psttFileP) , 3 )
-
-
-//
-// Respecting the rights of other people is an important part of empowering one another.
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 25 years.
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004a8.openfileread3 END
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004a9.openfileread4 BEGIN
-
-
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 25 years.
-// Respecting the rights of other people is an important part of empowering one another.
-//
-
-/*
-*/
-/**/
-/*1*//*OPENfILErEAD4(psttFileP)*//*1*/
-
-#define OPENfILErEAD4(psttFileP) OPENfILErEAD( (psttFileP) , 4 )
-
-
-//
-// Respecting the rights of other people is an important part of empowering one another.
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 25 years.
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004a9.openfileread4 END
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004aa.openfileread5 BEGIN
-
-
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 25 years.
-// Respecting the rights of other people is an important part of empowering one another.
-//
-
-/*
-*/
-/**/
-/*1*//*OPENfILErEAD5(psttFileP)*//*1*/
-
-#define OPENfILErEAD5(psttFileP) OPENfILErEAD( (psttFileP) , 5 )
-
-
-//
-// Respecting the rights of other people is an important part of empowering one another.
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 25 years.
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004aa.openfileread5 END
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004ab.openfileread6 BEGIN
-
-
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 25 years.
-// Respecting the rights of other people is an important part of empowering one another.
-//
-
-/*
-*/
-/**/
-/*1*//*OPENfILErEAD6(psttFileP)*//*1*/
-
-#define OPENfILErEAD6(psttFileP) OPENfILErEAD( (psttFileP) , 6 )
-
-
-//
-// Respecting the rights of other people is an important part of empowering one another.
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 25 years.
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004ab.openfileread6 END
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004ac.openfileread7 BEGIN
-
-
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 25 years.
-// Respecting the rights of other people is an important part of empowering one another.
-//
-
-/*
-*/
-/**/
-/*1*//*OPENfILErEAD7(psttFileP)*//*1*/
-
-#define OPENfILErEAD7(psttFileP) OPENfILErEAD( (psttFileP) , 7 )
-
-
-//
-// Respecting the rights of other people is an important part of empowering one another.
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 25 years.
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004ac.openfileread7 END
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004ad.openfileread8 BEGIN
-
-
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 25 years.
-// Respecting the rights of other people is an important part of empowering one another.
-//
-
-/*
-*/
-/**/
-/*1*//*OPENfILErEAD8(psttFileP)*//*1*/
-
-#define OPENfILErEAD8(psttFileP) OPENfILErEAD( (psttFileP) , 8 )
-
-
-//
-// Respecting the rights of other people is an important part of empowering one another.
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 25 years.
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004ad.openfileread8 END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004ae.openfilewrite BEGIN
 
 
@@ -1405,6 +1197,11 @@ arguments
 /**/
 /*1*//*flFILEc*//*1*/
 
+//20200428@1809:  flFILEc_ZIP flFILEc_UNZIP ARE NOT FOUND ANYWHERE IN THE CODE (DICTIONARY) EXCEPT HERE ; CONJ: THEY REPRESENT SOME IDEA FOR THE fileC CLASS THAT WAS NEVER IMPLEMENTED
+
+//#define flFILEc_UNZIP
+//#define flFILEc_ZIP
+
 /*3*/
 #define flFILEc_DELETE                   0xe00001ea
 /*3*/
@@ -1585,10 +1382,10 @@ arguments
 /*1*//*ifcIDfORMAT*//*1*/
 
 /*3*/
-#define ifcIDfORMAT_BOOK0hEAD           0xdddd0b4d
+#define ifcIDfORMAT_BOOK0hEAD           0xdddd0b4f
 /*3*/
-#define ifcIDfORMAT_min     0xdddd0b4d
-#define ifcIDfORMAT_max     0xdddd0b4d
+#define ifcIDfORMAT_min     0xdddd0b4f
+#define ifcIDfORMAT_max     0xdddd0b4f
 
 
 //
@@ -1659,6 +1456,8 @@ arguments
 #define sa_SSSaNDeND                        ')'
 #define sa_SSSoR                            '['
 #define sa_SSSoReND                         ']'
+#define sa_SSSrEPORTmATCH                   '{'
+#define sa_SSSrEPORTmATCHeND                '}'
 #define sa_SSSmARKaNY                       '.'
 #define sa_SSSmARKlINEbEGIN                 'S'
 #define sa_SSSmARKlINEeND                   'E'
@@ -2387,73 +2186,73 @@ else the reference to it that is kept within the jotC instance will become a zom
 //SYNC ERRORS CAN CAUSE ARRAY INDEX OUT OF BOUNDS
 
 /*3*/
-#define JrEQUEST_1                           0xdddd0b4e
-#define JrEQUEST_2                           0xdddd0b4f
-#define JrEQUEST_3                           0xdddd0b50
-#define JrEQUEST_4                           0xdddd0b51
-#define JrEQUEST_5                           0xdddd0b52
-#define JrEQUEST_6                           0xdddd0b53
-#define JrEQUEST_7                           0xdddd0b54
-#define JrEQUEST_8                           0xdddd0b55
-#define JrEQUEST_9                           0xdddd0b56
-#define JrEQUEST_a                           0xdddd0b57
-#define JrEQUEST_b                           0xdddd0b58
-#define JrEQUEST_c                           0xdddd0b59
-#define JrEQUEST_d                           0xdddd0b5a
-#define JrEQUEST_e                           0xdddd0b5b
-#define JrEQUEST_f                           0xdddd0b5c
-#define JrEQUEST_01                          0xdddd0b5d
-#define JrEQUEST_11                          0xdddd0b5e
-#define JrEQUEST_21                          0xdddd0b5f
-#define JrEQUEST_31                          0xdddd0b60
-#define JrEQUEST_41                          0xdddd0b61
-#define JrEQUEST_51                          0xdddd0b62
-#define JrEQUEST_61                          0xdddd0b63
-#define JrEQUEST_71                          0xdddd0b64
-#define JrEQUEST_81                          0xdddd0b65
-#define JrEQUEST_91                          0xdddd0b66
-#define JrEQUEST_a1                          0xdddd0b67
-#define JrEQUEST_b1                          0xdddd0b68
-#define JrEQUEST_c1                          0xdddd0b69
-#define JrEQUEST_d1                          0xdddd0b6a
-#define JrEQUEST_e1                          0xdddd0b6b
-#define JrEQUEST_f1                          0xdddd0b6c
-#define JrEQUEST_02                          0xdddd0b6d
-#define JrEQUEST_12                          0xdddd0b6e
-#define JrEQUEST_22                          0xdddd0b6f
-#define JrEQUEST_32                          0xdddd0b70
-#define JrEQUEST_42                          0xdddd0b71
-#define JrEQUEST_52                          0xdddd0b72
-#define JrEQUEST_62                          0xdddd0b73
-#define JrEQUEST_72                          0xdddd0b74
-#define JrEQUEST_82                          0xdddd0b75
-#define JrEQUEST_92                          0xdddd0b76
-#define JrEQUEST_a2                          0xdddd0b77
-#define JrEQUEST_b2                          0xdddd0b78
-#define JrEQUEST_c2                          0xdddd0b79
-#define JrEQUEST_d2                          0xdddd0b7a
-#define JrEQUEST_e2                          0xdddd0b7b
-#define JrEQUEST_f2                          0xdddd0b7c
-#define JrEQUEST_03                          0xdddd0b7d
-#define JrEQUEST_13                          0xdddd0b7e
-#define JrEQUEST_23                          0xdddd0b7f
-#define JrEQUEST_33                          0xdddd0b80
-#define JrEQUEST_43                          0xdddd0b81
-#define JrEQUEST_53                          0xdddd0b82
-#define JrEQUEST_63                          0xdddd0b83
-#define JrEQUEST_73                          0xdddd0b84
-#define JrEQUEST_83                          0xdddd0b85
-#define JrEQUEST_93                          0xdddd0b86
-#define JrEQUEST_a3                          0xdddd0b87
-#define JrEQUEST_b3                          0xdddd0b88
-#define JrEQUEST_c3                          0xdddd0b89
-#define JrEQUEST_d3                          0xdddd0b8a
-#define JrEQUEST_e3                          0xdddd0b8b
-#define JrEQUEST_f3                          0xdddd0b8c
-#define JrEQUEST_04                          0xdddd0b8d
+#define JrEQUEST_1                           0xdddd0b50
+#define JrEQUEST_2                           0xdddd0b51
+#define JrEQUEST_3                           0xdddd0b52
+#define JrEQUEST_4                           0xdddd0b53
+#define JrEQUEST_5                           0xdddd0b54
+#define JrEQUEST_6                           0xdddd0b55
+#define JrEQUEST_7                           0xdddd0b56
+#define JrEQUEST_8                           0xdddd0b57
+#define JrEQUEST_9                           0xdddd0b58
+#define JrEQUEST_a                           0xdddd0b59
+#define JrEQUEST_b                           0xdddd0b5a
+#define JrEQUEST_c                           0xdddd0b5b
+#define JrEQUEST_d                           0xdddd0b5c
+#define JrEQUEST_e                           0xdddd0b5d
+#define JrEQUEST_f                           0xdddd0b5e
+#define JrEQUEST_01                          0xdddd0b5f
+#define JrEQUEST_11                          0xdddd0b60
+#define JrEQUEST_21                          0xdddd0b61
+#define JrEQUEST_31                          0xdddd0b62
+#define JrEQUEST_41                          0xdddd0b63
+#define JrEQUEST_51                          0xdddd0b64
+#define JrEQUEST_61                          0xdddd0b65
+#define JrEQUEST_71                          0xdddd0b66
+#define JrEQUEST_81                          0xdddd0b67
+#define JrEQUEST_91                          0xdddd0b68
+#define JrEQUEST_a1                          0xdddd0b69
+#define JrEQUEST_b1                          0xdddd0b6a
+#define JrEQUEST_c1                          0xdddd0b6b
+#define JrEQUEST_d1                          0xdddd0b6c
+#define JrEQUEST_e1                          0xdddd0b6d
+#define JrEQUEST_f1                          0xdddd0b6e
+#define JrEQUEST_02                          0xdddd0b6f
+#define JrEQUEST_12                          0xdddd0b70
+#define JrEQUEST_22                          0xdddd0b71
+#define JrEQUEST_32                          0xdddd0b72
+#define JrEQUEST_42                          0xdddd0b73
+#define JrEQUEST_52                          0xdddd0b74
+#define JrEQUEST_62                          0xdddd0b75
+#define JrEQUEST_72                          0xdddd0b76
+#define JrEQUEST_82                          0xdddd0b77
+#define JrEQUEST_92                          0xdddd0b78
+#define JrEQUEST_a2                          0xdddd0b79
+#define JrEQUEST_b2                          0xdddd0b7a
+#define JrEQUEST_c2                          0xdddd0b7b
+#define JrEQUEST_d2                          0xdddd0b7c
+#define JrEQUEST_e2                          0xdddd0b7d
+#define JrEQUEST_f2                          0xdddd0b7e
+#define JrEQUEST_03                          0xdddd0b7f
+#define JrEQUEST_13                          0xdddd0b80
+#define JrEQUEST_23                          0xdddd0b81
+#define JrEQUEST_33                          0xdddd0b82
+#define JrEQUEST_43                          0xdddd0b83
+#define JrEQUEST_53                          0xdddd0b84
+#define JrEQUEST_63                          0xdddd0b85
+#define JrEQUEST_73                          0xdddd0b86
+#define JrEQUEST_83                          0xdddd0b87
+#define JrEQUEST_93                          0xdddd0b88
+#define JrEQUEST_a3                          0xdddd0b89
+#define JrEQUEST_b3                          0xdddd0b8a
+#define JrEQUEST_c3                          0xdddd0b8b
+#define JrEQUEST_d3                          0xdddd0b8c
+#define JrEQUEST_e3                          0xdddd0b8d
+#define JrEQUEST_f3                          0xdddd0b8e
+#define JrEQUEST_04                          0xdddd0b8f
 /*3*/
-#define JrEQUEST_min     0xdddd0b4e
-#define JrEQUEST_max     0xdddd0b8d
+#define JrEQUEST_min     0xdddd0b50
+#define JrEQUEST_max     0xdddd0b8f
 
 
 //
@@ -2649,11 +2448,11 @@ a jPointer is also considered null if it contains one of the special values [JrE
 /*1*//*ifcIDsEXclATHnEWdEL*//*1*/
 
 /*3*/
-#define ifcIDsEXclATHnEWdEL_NEW           0xdddd0b8e
-#define ifcIDsEXclATHnEWdEL_DEL           0xdddd0b8f
+#define ifcIDsEXclATHnEWdEL_NEW           0xdddd0b90
+#define ifcIDsEXclATHnEWdEL_DEL           0xdddd0b91
 /*3*/
-#define ifcIDsEXclATHnEWdEL_min     0xdddd0b8e
-#define ifcIDsEXclATHnEWdEL_max     0xdddd0b8f
+#define ifcIDsEXclATHnEWdEL_min     0xdddd0b90
+#define ifcIDsEXclATHnEWdEL_max     0xdddd0b91
 
 
 //
@@ -2799,10 +2598,10 @@ a jPointer is also considered null if it contains one of the special values [JrE
 /*1*//*ifcIDsEXaRRAY*//*1*/
 
 /*3*/
-#define ifcIDsEXaRRAY_BEINGcONSTRUCTED           0xdddd0b90
+#define ifcIDsEXaRRAY_BEINGcONSTRUCTED           0xdddd0b92
 /*3*/
-#define ifcIDsEXaRRAY_min     0xdddd0b90
-#define ifcIDsEXaRRAY_max     0xdddd0b90
+#define ifcIDsEXaRRAY_min     0xdddd0b92
+#define ifcIDsEXaRRAY_max     0xdddd0b92
 
 
 //
@@ -3243,21 +3042,21 @@ i do not verify that the naked idJot value is valid
 /*1*//*ifcIDmODEpUTfILE*//*1*/
 
 /*3*/
-#define ifcIDmODEpUTfILE_ROOT         0xdddd0b91
-#define ifcIDmODEpUTfILE_PAID         0xdddd0b92
-#define ifcIDmODEpUTfILE_TUTORIALS    0xdddd0b93
-#define ifcIDmODEpUTfILE_HOOKS        0xdddd0b94
-#define ifcIDmODEpUTfILE_ESSAYS       0xdddd0b95
-#define ifcIDmODEpUTfILE_ARCHIVE      0xdddd0b96
-#define ifcIDmODEpUTfILE_WO           0xdddd0b97
-#define ifcIDmODEpUTfILE_NEWS         0xdddd0b98
-#define ifcIDmODEpUTfILE_BUNDLE       0xdddd0b99
-#define ifcIDmODEpUTfILE_PAY          0xdddd0b9a
-#define ifcIDmODEpUTfILE_IPDOS        0xdddd0b9b
-#define ifcIDmODEpUTfILE_OTHER        0xdddd0b9c
+#define ifcIDmODEpUTfILE_ROOT         0xdddd0b93
+#define ifcIDmODEpUTfILE_PAID         0xdddd0b94
+#define ifcIDmODEpUTfILE_TUTORIALS    0xdddd0b95
+#define ifcIDmODEpUTfILE_HOOKS        0xdddd0b96
+#define ifcIDmODEpUTfILE_ESSAYS       0xdddd0b97
+#define ifcIDmODEpUTfILE_ARCHIVE      0xdddd0b98
+#define ifcIDmODEpUTfILE_WO           0xdddd0b99
+#define ifcIDmODEpUTfILE_NEWS         0xdddd0b9a
+#define ifcIDmODEpUTfILE_BUNDLE       0xdddd0b9b
+#define ifcIDmODEpUTfILE_PAY          0xdddd0b9c
+#define ifcIDmODEpUTfILE_IPDOS        0xdddd0b9d
+#define ifcIDmODEpUTfILE_OTHER        0xdddd0b9e
 /*3*/
-#define ifcIDmODEpUTfILE_min     0xdddd0b91
-#define ifcIDmODEpUTfILE_max     0xdddd0b9c
+#define ifcIDmODEpUTfILE_min     0xdddd0b93
+#define ifcIDmODEpUTfILE_max     0xdddd0b9e
 
 
 //
@@ -3422,11 +3221,11 @@ parameters
 /*1*//*ifcIDcLOUD*//*1*/
 
 /*3*/
-#define ifcIDcLOUD_RACKSPACE           0xdddd0b9d
-#define ifcIDcLOUD_GOOGLE              0xdddd0b9e
+#define ifcIDcLOUD_RACKSPACE           0xdddd0b9f
+#define ifcIDcLOUD_GOOGLE              0xdddd0ba0
 /*3*/
-#define ifcIDcLOUD_min     0xdddd0b9d
-#define ifcIDcLOUD_max     0xdddd0b9e
+#define ifcIDcLOUD_min     0xdddd0b9f
+#define ifcIDcLOUD_max     0xdddd0ba0
 
 
 //
@@ -3838,12 +3637,12 @@ parameters
 /*1*//*ifcIDdOcLOUDiFdIFFER*//*1*/
 
 /*3*/
-#define ifcIDdOcLOUDiFdIFFER_NOTHING    0xdddd0b9f
-#define ifcIDdOcLOUDiFdIFFER_REPORT     0xdddd0ba0
-#define ifcIDdOcLOUDiFdIFFER_REPLACE    0xdddd0ba1
+#define ifcIDdOcLOUDiFdIFFER_NOTHING    0xdddd0ba1
+#define ifcIDdOcLOUDiFdIFFER_REPORT     0xdddd0ba2
+#define ifcIDdOcLOUDiFdIFFER_REPLACE    0xdddd0ba3
 /*3*/
-#define ifcIDdOcLOUDiFdIFFER_min     0xdddd0b9f
-#define ifcIDdOcLOUDiFdIFFER_max     0xdddd0ba1
+#define ifcIDdOcLOUDiFdIFFER_min     0xdddd0ba1
+#define ifcIDdOcLOUDiFdIFFER_max     0xdddd0ba3
 
 
 //
@@ -3952,11 +3751,11 @@ parameters
 /*1*//*ifcIDmODEsOCKETS*//*1*/
 
 /*3*/
-#define ifcIDmODEsOCKETS_NOTeNCRYPTED  0xdddd0ba2
-#define ifcIDmODEsOCKETS_ENCRYPTED     0xdddd0ba3
+#define ifcIDmODEsOCKETS_NOTeNCRYPTED  0xdddd0ba4
+#define ifcIDmODEsOCKETS_ENCRYPTED     0xdddd0ba5
 /*3*/
-#define ifcIDmODEsOCKETS_min     0xdddd0ba2
-#define ifcIDmODEsOCKETS_max     0xdddd0ba3
+#define ifcIDmODEsOCKETS_min     0xdddd0ba4
+#define ifcIDmODEsOCKETS_max     0xdddd0ba5
 
 
 //
@@ -4571,41 +4370,41 @@ use this rather than _ to avoid the overhead of _
 //CS:CODEsYNC: WO CONSTANT IS NEEDED FOR EACH BIT IN A countT OBJECT (WHICH IS CURRENTLY OF SIZE count02T)
 
 /*3*/
-#define ifcIDgRABITbIT_00     0xdddd0ba4
-#define ifcIDgRABITbIT_10     0xdddd0ba5
-#define ifcIDgRABITbIT_20     0xdddd0ba6
-#define ifcIDgRABITbIT_30     0xdddd0ba7
-#define ifcIDgRABITbIT_40     0xdddd0ba8
-#define ifcIDgRABITbIT_50     0xdddd0ba9
-#define ifcIDgRABITbIT_60     0xdddd0baa
-#define ifcIDgRABITbIT_70     0xdddd0bab
-#define ifcIDgRABITbIT_80     0xdddd0bac
-#define ifcIDgRABITbIT_90     0xdddd0bad
-#define ifcIDgRABITbIT_a0     0xdddd0bae
-#define ifcIDgRABITbIT_b0     0xdddd0baf
-#define ifcIDgRABITbIT_c0     0xdddd0bb0
-#define ifcIDgRABITbIT_d0     0xdddd0bb1
-#define ifcIDgRABITbIT_e0     0xdddd0bb2
-#define ifcIDgRABITbIT_f0     0xdddd0bb3
-#define ifcIDgRABITbIT_01     0xdddd0bb4
-#define ifcIDgRABITbIT_11     0xdddd0bb5
-#define ifcIDgRABITbIT_21     0xdddd0bb6
-#define ifcIDgRABITbIT_31     0xdddd0bb7
-#define ifcIDgRABITbIT_41     0xdddd0bb8
-#define ifcIDgRABITbIT_51     0xdddd0bb9
-#define ifcIDgRABITbIT_61     0xdddd0bba
-#define ifcIDgRABITbIT_71     0xdddd0bbb
-#define ifcIDgRABITbIT_81     0xdddd0bbc
-#define ifcIDgRABITbIT_91     0xdddd0bbd
-#define ifcIDgRABITbIT_a1     0xdddd0bbe
-#define ifcIDgRABITbIT_b1     0xdddd0bbf
-#define ifcIDgRABITbIT_c1     0xdddd0bc0
-#define ifcIDgRABITbIT_d1     0xdddd0bc1
-#define ifcIDgRABITbIT_e1     0xdddd0bc2
-#define ifcIDgRABITbIT_f1     0xdddd0bc3
+#define ifcIDgRABITbIT_00     0xdddd0ba6
+#define ifcIDgRABITbIT_10     0xdddd0ba7
+#define ifcIDgRABITbIT_20     0xdddd0ba8
+#define ifcIDgRABITbIT_30     0xdddd0ba9
+#define ifcIDgRABITbIT_40     0xdddd0baa
+#define ifcIDgRABITbIT_50     0xdddd0bab
+#define ifcIDgRABITbIT_60     0xdddd0bac
+#define ifcIDgRABITbIT_70     0xdddd0bad
+#define ifcIDgRABITbIT_80     0xdddd0bae
+#define ifcIDgRABITbIT_90     0xdddd0baf
+#define ifcIDgRABITbIT_a0     0xdddd0bb0
+#define ifcIDgRABITbIT_b0     0xdddd0bb1
+#define ifcIDgRABITbIT_c0     0xdddd0bb2
+#define ifcIDgRABITbIT_d0     0xdddd0bb3
+#define ifcIDgRABITbIT_e0     0xdddd0bb4
+#define ifcIDgRABITbIT_f0     0xdddd0bb5
+#define ifcIDgRABITbIT_01     0xdddd0bb6
+#define ifcIDgRABITbIT_11     0xdddd0bb7
+#define ifcIDgRABITbIT_21     0xdddd0bb8
+#define ifcIDgRABITbIT_31     0xdddd0bb9
+#define ifcIDgRABITbIT_41     0xdddd0bba
+#define ifcIDgRABITbIT_51     0xdddd0bbb
+#define ifcIDgRABITbIT_61     0xdddd0bbc
+#define ifcIDgRABITbIT_71     0xdddd0bbd
+#define ifcIDgRABITbIT_81     0xdddd0bbe
+#define ifcIDgRABITbIT_91     0xdddd0bbf
+#define ifcIDgRABITbIT_a1     0xdddd0bc0
+#define ifcIDgRABITbIT_b1     0xdddd0bc1
+#define ifcIDgRABITbIT_c1     0xdddd0bc2
+#define ifcIDgRABITbIT_d1     0xdddd0bc3
+#define ifcIDgRABITbIT_e1     0xdddd0bc4
+#define ifcIDgRABITbIT_f1     0xdddd0bc5
 /*3*/
-#define ifcIDgRABITbIT_min     0xdddd0ba4
-#define ifcIDgRABITbIT_max     0xdddd0bc3
+#define ifcIDgRABITbIT_min     0xdddd0ba6
+#define ifcIDgRABITbIT_max     0xdddd0bc5
 
 
 //
@@ -4632,12 +4431,12 @@ use this rather than _ to avoid the overhead of _
 /*1*//*ifcIDeMAILrEGISTRATIONrEQUESTsTATUS*//*1*/
 
 /*3*/
-#define ifcIDeMAILrEGISTRATIONrEQUESTsTATUS_BOTwRONGsCHEME              0xdddd0bc4
-#define ifcIDeMAILrEGISTRATIONrEQUESTsTATUS_BOTwRONGiMAGE               0xdddd0bc5
-#define ifcIDeMAILrEGISTRATIONrEQUESTsTATUS_HUMANnOpRIORpENDING         0xdddd0bc6
+#define ifcIDeMAILrEGISTRATIONrEQUESTsTATUS_BOTwRONGsCHEME              0xdddd0bc6
+#define ifcIDeMAILrEGISTRATIONrEQUESTsTATUS_BOTwRONGiMAGE               0xdddd0bc7
+#define ifcIDeMAILrEGISTRATIONrEQUESTsTATUS_HUMANnOpRIORpENDING         0xdddd0bc8
 /*3*/
-#define ifcIDeMAILrEGISTRATIONrEQUESTsTATUS_min     0xdddd0bc4
-#define ifcIDeMAILrEGISTRATIONrEQUESTsTATUS_max     0xdddd0bc6
+#define ifcIDeMAILrEGISTRATIONrEQUESTsTATUS_min     0xdddd0bc6
+#define ifcIDeMAILrEGISTRATIONrEQUESTsTATUS_max     0xdddd0bc8
 
 
 //
@@ -5092,17 +4891,17 @@ use this rather than _ to avoid the overhead of _
 /*1*//*ifcIDtRACEdIVERT*//*1*/
 
 /*3*/
-#define ifcIDtRACEdIVERT_1              0xdddd0bc7
-#define ifcIDtRACEdIVERT_2              0xdddd0bc8
-#define ifcIDtRACEdIVERT_3              0xdddd0bc9
-#define ifcIDtRACEdIVERT_4              0xdddd0bca
-#define ifcIDtRACEdIVERT_5              0xdddd0bcb
-#define ifcIDtRACEdIVERT_6              0xdddd0bcc
-#define ifcIDtRACEdIVERT_7              0xdddd0bcd
-#define ifcIDtRACEdIVERT_8              0xdddd0bce
+#define ifcIDtRACEdIVERT_1              0xdddd0bc9
+#define ifcIDtRACEdIVERT_2              0xdddd0bca
+#define ifcIDtRACEdIVERT_3              0xdddd0bcb
+#define ifcIDtRACEdIVERT_4              0xdddd0bcc
+#define ifcIDtRACEdIVERT_5              0xdddd0bcd
+#define ifcIDtRACEdIVERT_6              0xdddd0bce
+#define ifcIDtRACEdIVERT_7              0xdddd0bcf
+#define ifcIDtRACEdIVERT_8              0xdddd0bd0
 /*3*/
-#define ifcIDtRACEdIVERT_min     0xdddd0bc7
-#define ifcIDtRACEdIVERT_max     0xdddd0bce
+#define ifcIDtRACEdIVERT_min     0xdddd0bc9
+#define ifcIDtRACEdIVERT_max     0xdddd0bd0
 
 
 //
@@ -5113,6 +4912,45 @@ use this rather than _ to avoid the overhead of _
 //
 
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200542.ifcIDtRACEdIVERT END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200543.flFILEiNFO BEGIN
+
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 25 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+/*
+*/
+/**/
+/*1*//*flFILEiNFO*//*1*/
+
+/*3*/
+#define flFILEiNFO_IDsERIAL                     0xe000010a
+#define flFILEiNFO_TIMEcREATED                  0xe000020a
+#define flFILEiNFO_TIMEaCCESSED                 0xe000040a
+#define flFILEiNFO_TIMEwRITTEN                  0xe000080a
+#define flFILEiNFO_TIMEcHANGED                  0xe000100a
+#define flFILEiNFO_OFFSETeNDoFfILE              0xe000200a
+#define flFILEiNFO_CBaLLOCATED                  0xe000400a
+#define flFILEiNFO_ATTRIBUTES                   0xe000800a
+#define flFILEiNFO_CBeXTENDEDaTTRIBUTES         0xe001000a
+#define flFILEiNFO_CBnAME                       0xe002000a
+#define flFILEiNFO_NAME                         0xe004000a
+/*3*/
+#define flFILEiNFO_null    0xe000000a
+
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 25 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200543.flFILEiNFO END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200543.ifcSTR BEGIN
 
 
@@ -5166,6 +5004,191 @@ use this rather than _ to avoid the overhead of _
 //
 
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200544.pooprquiet END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200545.ifcIDcMDcLOAK BEGIN
+
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 25 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+/*
+*/
+/*1*//*ifcIDcMDcLOAK*//*1*/
+/**/
+
+/*3*/
+#define ifcIDcMDcLOAK_QUERYfOLDERcONTENTS               0xdddd0bd1
+#define ifcIDcMDcLOAK_QUERYaLLlOCKEDfOLDERScONTENTS     0xdddd0bd2
+/*3*/
+#define ifcIDcMDcLOAK_min     0xdddd0bd1
+#define ifcIDcMDcLOAK_max     0xdddd0bd2
+
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 25 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200545.ifcIDcMDcLOAK END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200546.ifcIDrEPLYcLOAK BEGIN
+
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 25 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+/*
+*/
+/*1*//*ifcIDrEPLYcLOAK*//*1*/
+/**/
+
+/*3*/
+#define ifcIDrEPLYcLOAK_FOLDERcONTENTS            0xdddd0bd3
+#define ifcIDrEPLYcLOAK_ALLlOCKEDfOLDERScONTENTS  0xdddd0bd4
+/*3*/
+#define ifcIDrEPLYcLOAK_min     0xdddd0bd3
+#define ifcIDrEPLYcLOAK_max     0xdddd0bd4
+
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 25 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200546.ifcIDrEPLYcLOAK END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200547.flSTRiDoPTIMIZEDcLOSURE BEGIN
+
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 25 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+/*
+*/
+/**/
+/*1*//*flSTRiDoPTIMIZEDcLOSURE*//*1*/
+
+/*3*/
+#define flSTRiDoPTIMIZEDcLOSURE_RIGHTtOlEFT         0xe000010b
+#define flSTRiDoPTIMIZEDcLOSURE_SHORTtOlONG         0xe000020b
+#define flSTRiDoPTIMIZEDcLOSURE_DOnOTiGNORE         0xe000040b
+/*3*/
+#define flSTRiDoPTIMIZEDcLOSURE_null    0xe000000b
+
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 25 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200547.flSTRiDoPTIMIZEDcLOSURE END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200548.flPATTERNc BEGIN
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 25 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+
+/*
+*/
+/**/
+
+/*1*//*flPATTERNc*//*1*/
+
+/*3*/
+#define flPATTERNc_WILDCARDmICROSOFT        0xe000010c
+#define flPATTERNc_WILDCARDsTRICT           0xe000020c
+#define flPATTERNc_UNIXrEGULAReXPRESSION    0xe000040c
+/*3*/
+#define flPATTERNc_null    0xe000000c
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 25 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200548.flPATTERNc END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200548.flSTRmATCH BEGIN
+
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 25 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+/*
+*/
+/**/
+/*1*//*flSTRmATCH*//*1*/
+
+/*3*/
+#define flSTRmATCH_OUTERmOST                            0xe000010d
+#define flSTRmATCH_AND                                  0xe000020d
+#define flSTRmATCH_OR                                   0xe000040d
+#define flSTRmATCH_REPORTmATCH                          0xe000080d
+/*3*/
+#define flSTRmATCH_null    0xe000000d
+
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 25 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200548.flSTRmATCH END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200549.IFmATCHwILD BEGIN
+
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 25 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+/*
+*/
+/**/
+
+/*1*//*IFmATCHwILD(psttPatternP,psttP)*//*1*/
+
+#define IFmATCHwILD(psttPatternP,psttP)                                                                                                                                                         \
+                                                                                                                                                                                                \
+        strokeS sttq( 0 , sc_IGNOREqUOTES ) ;                                                                                                                                                   \
+        if( 1 == etThread.strIdOptimizedClosureF( tinP , 0 , flSTRmATCH_null , countTC( 1 ) , sttq , patternC( tinP , etThread , psttPatternP , flPATTERNc_WILDCARDmICROSOFT ) , psttP ) )
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 25 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200549.IFmATCHwILD END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.thirdParties : 1snip.15000014.thirdparties BEGIN
 
 
@@ -16173,6 +16196,9 @@ instructions for editing a class aC to use upDnC
  the woth statement in the destructor should call upF
 */
 /**/
+
+// 20200425@1156:  THIS MUST PREDATE poopC AND THE USE OF tinP.pPoop TO ACCOMPLISH THE SAME GOAL, WHICH IS TO MAKE IMPOTENCE WITHIN A STATIC GLOBAL FUNCTION OR STATIC MEMBER FUNCTION CAUSE IMPOTENCE FOR THE CLASS INSTANCE
+// CONJ: A SURVEY OF THE CLASSES THAT ACTUALLY USE THIS CLASS WILL SHOW THAT IT IS USED ONLY FOR A FEW CLASSES, AND THOSE WILL BE CLASSES THAT WERE DEFINED VERY EARLY IN DEVELOPMENT
 
 /*1*/class _export upDnC /*1*/
 {
@@ -31548,6 +31574,7 @@ examples
  countT ifcGetNextSerialNumberF( tinS& tinP , const countT* const pczP ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.341b5.etherC.ifcGetNextSerialNumberF!||
  countT ifcIdCopyF( tinS& tinP , countT cNameP = 0 ) ;
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.360021e9.etherc.ifcIdCopyF!||
 
 
 /* commands: operating system */
@@ -31900,17 +31927,19 @@ examples
  countT strIdF( tinS& tinP , countT& idFirstP , const countT cSmallP , const countT* pcBigP , const countT ccBigP = 0 , sCountT idP = 1 ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3418f.etherC.strIdF!||
  countT strIdOptimizedClosureF( tinS& tinP , stackC* const pstMatchP , const flagsT flagsMatchP , countT& idFirstP , strokeS& sttQuoteP , const strokeS* psttSmallP , const strokeS* psttBigP , const flagsT flagsP = flSTRiDoPTIMIZEDcLOSURE_null , const flagsT* pFlagsOverrideP = 0 , const countT* pcMinOverrideP = 0 , const countT* pcMaxOverrideP = 0 , const countT idLastP = 0 , sCountT idP = 1 ) ;
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.360021ea.etherc.strIdOptimizedClosureF!||
  countT strIdOptimizedClosureF( tinS& tinP , stackC* const pstMatchP , const flagsT flagsMatchP , countT& idFirstP , strokeS& sttQuoteP , const patternC& patP , const strokeS* psttBigP , const countT idLastP = 0 , sCountT idP = 1 ) ;
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.360021ee.etherc.strIdOptimizedClosureF!||
  countT strTallyF( tinS& tinP , const strokeS* const psttSmallP , const strokeS* psttBigP , strokeS& sttQuoteP ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3416d.etherC.strTallyF!||
- countT strIdLathExpressionF( tinS& tinP , const strokeS* const psttSmallP , countT idsWothP ) ;
  countT strIdAnyF( tinS& tinP , stackC* const pstMatchP , const flagsT flagsMatchP , countT& idFirstP , strokeS& sttQuoteP , const strokeS* psttSmallP , const strokeS* psttBigP , const countT idLastP = 0 , sCountT idP = 1 , const flagsT flagsP = flSTRiDaNY_null ) ;
- voidT strAndExpressionLengthMinMaxF( tinS& tinP , countT& csttMinP , countT& csttMaxP , stackC& stFixedSmallP , countT& idsP , const strokeS* const psttRegExpP , const flagsT flagsOptimizeP , const flagsT* pFlagsOverrideP , const countT* pcMinOverrideP , const countT* pcMaxOverrideP ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34054.etherC.strIdAnyF!||
  countT strIdAnyF( tinS& tinP , countT& idFirstP , strokeS& sttQuoteP , const strokeS sttSmallP , const strokeS* psttBigP , sCountT idP = 1 ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.340ae.etherC.strIdAnyF!||
  countT strIdMatchingF( tinS& tinP , countT& idFirstP , strokeS& sttQuoteP , const strokeS* const psttBigP , sCountT idP = 1 ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.340b8.etherC.strIdMatchingF!||
+ countT strIdLathExpressionF( tinS& tinP , const strokeS* const psttSmallP , countT idsWothP ) ;
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.360021ec.etherc.strIdLathExpressionF!||
  voidT strIndentOldF( tinS& tinP , strokeS*& psttP , const countT csttP , const strokeS sttP = strokeS() , const strokeS* const psttOldP = 0 , const strokeS* const psttDelimiterP = 0 ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.340a0.etherC.strIndentOldF!||
  voidT strIndentF( tinS& tinP , strokeS*& psttP , const strokeS* psttOldP , const countT csttP = 0 ) ;
@@ -32044,6 +32073,9 @@ examples
  static voidT strSquishIF( tinS& tinP , countT*& pczP , const countT* pczInP ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.350021b5.etherc.strSquishIF!||
  voidT strRegExpFromWildcardsF( tinS& tinP , strokeS*& psttRegExpP , flagsT& flagsOptimizeP , flagsT*& pFlagsOverrideP , countT*& pcMinOverrideP , countT*& pcMaxOverrideP , const strokeS* const psttWildP ) ;
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.360021eb.etherc.strRegExpFromWildcardsF!||
+ voidT strAndExpressionLengthMinMaxF( tinS& tinP , countT& csttMinP , countT& csttMaxP , stackC& stFixedSmallP , countT& idsP , const strokeS* const psttRegExpP , const flagsT flagsOptimizeP , const flagsT* pFlagsOverrideP , const countT* pcMinOverrideP , const countT* pcMaxOverrideP ) ;
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.360021ed.etherc.strAndExpressionLengthMinMaxF!||
 
  boolT strFileMatchF( tinS& tinP , const strokeS* const psttLikeP , const strokeS* const psttP ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.360021df.etherc.strfilematchf!||
@@ -36066,7 +36098,7 @@ it is illegal to refer to this symbol in the definition of an adam
 //
 
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.imageExeDllC : 1snip.15000035.imageexedllc END
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.ag1_masterOldC_C : 1snip.150000cb.ag1_masterc_c BEGIN
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.ag1_masterC_C : 1snip.150000cb.ag1_masterc_c BEGIN
 
 
 //
@@ -36101,8 +36133,8 @@ it is illegal to refer to this symbol in the definition of an adam
 // Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
 
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.ag1_masterOldC_C : 1snip.150000cb.ag1_masterc_c END
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.masterOldC : 1snip.15000036.masterc BEGIN
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.ag1_masterC_C : 1snip.150000cb.ag1_masterc_c END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.masterC : 1snip.15000036.masterc BEGIN
 
 
 //
@@ -36116,6 +36148,13 @@ it is illegal to refer to this symbol in the definition of an adam
 \<A HREF=\"5.15000036.1.0.html\"\>definition\</A\>
 */
 /**/
+
+// 20200425@1632: WARNING: THIS CLASS IS OBSOLETED BY CLOAK ; DO NOT USE FOR NEW CODE
+// THIS CLASS SCANS THE MASTER FOLDER TO BUILD A DATABASE OF EXECUTABLES
+// THIS FUNCTIONALITY WILL NOT SCALE TO THOUSANDS OF EXECUTABLES
+// IT IS ALSO INEFFICIENT, SINCE USUALLY THE APPLICATION JUST NEEDS TO MAP A cName VALUE TO AN idCopy VALUE
+// IT, AND ANY OTHER CODE THAT WALKS A BASE O.S. FOLDER, IS BROKEN BY CLOAK
+//U:: MIGRATE AWAY FROM USING THIS CLASS ; ALL CODE THAT USES IT IS CURRENTLY BROKEN BECAUSE CLOAK PREVENTS SUCH CODE FROM FUNCTIONING
 
 /*1*/class _export masterOldC/*1*/
 {
@@ -36192,7 +36231,7 @@ it is illegal to refer to this symbol in the definition of an adam
 // Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
 
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.masterOldC : 1snip.15000036.masterc END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.masterC : 1snip.15000036.masterc END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.dnsMsgHeaderS : 1snip.15000048.dnsmsgheaders BEGIN
 
 
@@ -44048,6 +44087,8 @@ i am nonconformant in that all of my member function definitions are in a single
 //
 
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.hoverC : 1snip.15000182.hoverC END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.patternC : 1snip.15000183.patternC BEGIN
+
 
 //
 // Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
@@ -44074,9 +44115,9 @@ i am nonconformant in that all of my member function definitions are in a single
 
     NEWdELcLASSpROTOS
     ~patternC( voidT ) ;
-    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.361454002.hoverC.dt_patternC!||
+    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.36145002.patternC.dt_patternC!||
     patternC( tinS& tinP , etherC& etherP , const strokeS* const psttP , const flagsT flagsP ) ;
-    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.361454003.hoverC.patternC!||
+    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.36145003.patternC.patternC!||
 
     friend countT etherC::strIdOptimizedClosureF( tinS& tinP , stackC* pstMatchP , const flagsT flagsMatchP , countT& idFirstP , strokeS& sttQuoteP , const patternC& patP , const strokeS* psttBigP , const countT idLastP , sCountT idP ) ;
 }
@@ -44090,41 +44131,4 @@ i am nonconformant in that all of my member function definitions are in a single
 // Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
 
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 25 years.
-// Respecting the rights of other people is an important part of empowering one another.
-//
-
-
-/*
-*/
-/**/
-
-/*1*/class _export fileNameC/*1*/
-{
-    etherC&  ether ;
-    strokeS* psttLong ;
-    strokeS* psttPath ;
-    strokeS* psttShort ;
-
-    public :
-
-    NEWdELcLASSpROTOS
-    ~fileNameC( voidT ) ;
-    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.36146002.fileNameC.dt_fileNameC!||
-    fileNameC( tinS& tinP , etherC& etherP , const strokeS* const psttP ) ;
-    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.36146003.fileNameC.fileNameC!||
-    inline operator const strokeS*( voidT ) const { return psttShort ; }
-    inline const strokeS* pathF( voidT ) const { return psttPath ; }
-}
-;
-
-//
-// Respecting the rights of other people is an important part of empowering one another.
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 25 years.
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.patternC : 1snip.15000183.patternC END

@@ -372,5 +372,6 @@
     ((countT)0x36142) , "processglobal0s" ,
     ((countT)0x36143) , "fileWindowsC" ,
     ((countT)0x36144) , "hoverC" ,
-    ((countT)0x36145) , "hoverC" ,
+    ((countT)0x36145) , "patternC" ,
+    ((countT)0x36146) , "fileNameC" ,
     ((countT)0x41000) , "citygate" ,
