@@ -10,23 +10,50 @@
 }
     idsP = idsLath ;
 
+#endif
     }
         idfFixed = 0 ;
         stFixedSmallP << (byteT*)&c2f ;
         count2S c2f( idfFixed , idsLath - 1 ) ;
     {
     if( idfFixed )
+#if defined( NEVERdEFINED )
 
     }
         if( bArmPossibleIgnore ) bArmPossibleIgnore -- ;
 
         }
             repeatMin = repeatMax = 0 ;
-            ;
-                : csttMaxP + repeatMax + 1 ;                            // CAN OVERFLOW FOR BAD FORM PARAMETER VALUES (HIGH VALUES OTHER THAN -1)
-                ? - 1
-            if( csttMaxP != - 1     ) csttMaxP = repeatMax == - 1
-            if( !bArmPossibleIgnore ) csttMinP += repeatMin + 1 ;
+
+            }
+                ;
+                    : csttMaxP + csttMax2 * ( repeatMax + 1 ) ;                            // CAN OVERFLOW FOR BAD FORM PARAMETER VALUES (HIGH VALUES OTHER THAN -1)
+                    ? - 1
+                if( csttMaxP != - 1     ) csttMaxP = repeatMax == - 1
+                if( !bArmPossibleIgnore ) csttMinP += csttMin2 * ( repeatMin + 1 ) ;
+            {
+            else
+            }
+                }
+                    if( csttMaxP < csttMaxMe ) csttMaxP = csttMaxMe ;
+
+                    ;
+                        : csttMax2 * ( repeatMax + 1 )
+                        ? - 1
+                    countT csttMaxMe = repeatMax == - 1
+                {
+                if( csttMaxP != - 1 )
+
+                }
+                    if( csttMinP > csttMinMe ) csttMinP = csttMinMe ;
+
+                    countT csttMinMe = csttMin2 * ( repeatMin + 1 ) ;
+                {
+                if( !bArmPossibleIgnore )
+            {
+            if( bOr )
+            countT csttMax2 = 1 ;
+            countT csttMin2 = 1 ;
 
             }
                 idfFixed = 0 ;
@@ -38,7 +65,7 @@
             {
             if( bArmPossibleIgnore || repeatMin != repeatMax )
         {
-        else
+        else                                                                // A:ASSUME: IF GET HERE THEN idsi POINTS TO A SINGLE STROKE THAT IS EITHER REQUIRED OR AN ALLOWED VALUE DEPENDING UPON bOr
         }
             }
                 idfFixed = 0 ;
@@ -90,24 +117,55 @@
         else if( psttRegExpP[ CSpREFIX - 1 + idsi ].idCaste == sc_ccSSSrEPEAT )
         }
             repeatMin = repeatMax = 0 ;
-            ;
-                : csttMaxP + repeatMax + 1 ;                            // CAN OVERFLOW FOR BAD FORM PARAMETER VALUES (HIGH VALUES OTHER THAN -1)
-                ? - 1
-            if( csttMaxP != - 1     ) csttMaxP = repeatMax == - 1
-            if( !bArmPossibleIgnore ) csttMinP += repeatMin + 1 ;                                                               //U:: THIS IS INCORRECT WHEN THE "OR BLOCK" CONTAINS AN "AND BLOCK"
-            idsi = strIdLathExpressionF( tinP , psttRegExpP , idsi ) ;
+
+            }
+                ;
+                    : csttMaxP + csttMax2 * ( repeatMax + 1 ) ;                            // CAN OVERFLOW FOR BAD FORM PARAMETER VALUES (HIGH VALUES OTHER THAN -1)
+                    ? - 1
+                if( csttMaxP != - 1     ) csttMaxP = repeatMax == - 1
+                if( !bArmPossibleIgnore ) csttMinP += csttMin2 * ( repeatMin + 1 ) ;
+            {
+            else
+            }
+                }
+                    if( csttMaxP < csttMaxMe ) csttMaxP = csttMaxMe ;
+
+                    ;
+                        : csttMax2 * ( repeatMax + 1 )
+                        ? - 1
+                    countT csttMaxMe = repeatMax == - 1
+                {
+                if( csttMaxP != - 1 )
+
+                }
+                    if( csttMinP > csttMinMe ) csttMinP = csttMinMe ;
+
+                    countT csttMinMe = csttMin2 * ( repeatMin + 1 ) ;
+                {
+                if( !bArmPossibleIgnore )
+
+                stFixedSmallP.purgeF( tinP , cPlatesSave ) ;                                // ALWAYS DISCARD FIXED STRINGS ACCUMULATED WHILE PROCESSING AN OR EXPRESSION
+            {
+            if( bOr )
 
             }
                 idfFixed = 0 ;
                 }
                     stFixedSmallP << (byteT*)&c2f ;
-                    count2S c2f( idfFixed , idsi - 1 ) ;
+                    count2S c2f( idfFixed , idsiSave - 1 ) ;
                 {
-                if( idfFixed < idsi )
+                if( idfFixed < idsiSave )
             {
-            if( idfFixed && ( bArmPossibleIgnore || repeatMin != repeatMax ) )
+            if( idfFixed && ( bArmPossibleIgnore || csttMin2 != csttMax2 ) )
+
+            strExpressionLengthMinMaxF( tinP , csttMin2 , csttMax2 , stFixedSmallP , idsi , psttRegExpP , flagsOptimizeP , pFlagsOverrideP , pcMinOverrideP , pcMaxOverrideP ) ;
+            const countT idsiSave = idsi ;
+            ZE( countT , csttMax2 ) ;
+            ZE( countT , csttMin2 ) ;
+
+            countT cPlatesSave = bOr ? stFixedSmallP : 0 ;
         {
-        else if( psttRegExpP[ CSpREFIX - 1 + idsi ].idCaste == sc_ccSSS && psttRegExpP[ CSpREFIX - 1 + idsi ].idAdam == sa_SSSoR )
+        else if( psttRegExpP[ CSpREFIX - 1 + idsi ].idCaste == sc_ccSSS && ( psttRegExpP[ CSpREFIX - 1 + idsi ].idAdam == sa_SSSaND || psttRegExpP[ CSpREFIX - 1 + idsi ].idAdam == sa_SSSoR ) )
         }
             idfFixed = 0 ;
             }
@@ -119,31 +177,6 @@
             repeatMin = repeatMax = 0 ;
         {
         else if( psttRegExpP[ CSpREFIX - 1 + idsi ].idCaste == sc_ccSSS && ( psttRegExpP[ CSpREFIX - 1 + idsi ].idAdam == sa_SSSrEPORTmATCH || psttRegExpP[ CSpREFIX - 1 + idsi ].idAdam == sa_SSSrEPORTmATCHeND ) )
-        }
-            repeatMin = repeatMax = 0 ;
-
-            ;
-                : csttMaxP + csttMax2 * ( repeatMax + 1 ) ;                            // CAN OVERFLOW FOR BAD FORM PARAMETER VALUES (HIGH VALUES OTHER THAN -1)
-                ? - 1
-            if( csttMaxP != - 1     ) csttMaxP = repeatMax == - 1
-            if( !bArmPossibleIgnore ) csttMinP += csttMin2 * ( repeatMin + 1 ) ;
-
-            }
-                idfFixed = 0 ;
-                }
-                    stFixedSmallP << (byteT*)&c2f ;
-                    count2S c2f( idfFixed , idsi - 1 ) ;
-                {
-                if( idfFixed < idsi )
-            {
-            if( idfFixed && ( bArmPossibleIgnore || csttMin2 != csttMax2 ) )
-
-            strExpressionLengthMinMaxF( tinP , csttMin2 , csttMax2 , stFixedSmallP , idsInspect , psttRegExpP , flagsOptimizeP , pFlagsOverrideP , pcMinOverrideP , pcMaxOverrideP ) ;
-            countT idsInspect = idsi ;
-            ZE( countT , csttMax2 ) ;
-            ZE( countT , csttMin2 ) ;
-        {
-        else if( psttRegExpP[ CSpREFIX - 1 + idsi ].idCaste == sc_ccSSS && psttRegExpP[ CSpREFIX - 1 + idsi ].idAdam == sa_SSSaND )
         }
             repeatMin = repeatMax = 0 ;
 
@@ -163,11 +196,13 @@
     ZE( boolT  , bArmPossibleIgnore ) ;
     ZE( countT , cIgnore ) ;
     ZE( countT , offPatch ) ;
+    if( bOr ) csttMinP = - 1 ;                                                          //U::BUG: HANDLE WHEN OR GROUP IS EMPTY SO THIS IS NEVER REDUCED
     const countT idsLath = strIdLathExpressionF( tinP , psttRegExpP , idsP ) ;
+    const boolT bOr = psttRegExpP[ CSpREFIX - 1 + idsP ].idAdam == sa_SSSoR ;
 
     }
         if( POOP ) return ;
-        __( psttRegExpP[ CSpREFIX - 1 + idsP ].idAdam  - sa_SSSaND ) ;
+        __( psttRegExpP[ CSpREFIX - 1 + idsP ].idAdam != sa_SSSaND && psttRegExpP[ CSpREFIX - 1 + idsP ].idAdam != sa_SSSoR ) ;
         __( psttRegExpP[ CSpREFIX - 1 + idsP ].idCaste - sc_ccSSS  ) ;
         if( POOP ) return ;
         __Z( psttRegExpP ) ;

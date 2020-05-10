@@ -6,6 +6,11 @@
  Porting contributions for Linux and other platforms are welcome.
  Built using Open Watcom v2.
 
+IPDOS (tm) craftwork began in 1992, during the "operating system wars", beginning life as a 16-bit OS/2 application.
+ 28 years and 1/2 million lines of C++ code later, IPDOS (tm) is nearly ready for alpha trial usage.
+ IPDOS (tm) development has been the best kept secret in software development.
+ Think of IPDOS (tm) as a "weapon of mass CONstruction", designed to make coding fun again while reviving innovation and empowering the independent software craft.
+
 Executive overview:
  IPDOS (tm) introduces a novel vision for server and desktop/laptop software technology that inserts a new software layer between a "base operating system" (such as Windows) and application programs (such as Windows console programs, windowed programs, and services).
  Application programs written for IPDOS (tm) are portable in that they run on any host that IPDOS (tm) has been ported to.
@@ -15,7 +20,7 @@ Executive overview:
  By unbundling the API, base operating system development can focus on security and on supporting new hardware.
  By unbundling the API, operating system vendors lose control over the marketplace, hardware vendors acquire the power to innovate, and application developers are empowered both by the emergence of innovative new API's and new hardware and by no longer being locked into a particular base operating system platform.
  In other words, creating a new software layer between the base operating system and applications empowers everyone except the base operating system vendor.
- IPDOS (tm) is one man's vision for an ideal C++ programming environment, created over 25 years with 1/2 million lines of C++ code.
+ IPDOS (tm) is one man's vision for an ideal C++ programming environment, created over 28 years with 1/2 million lines of C++ code.
 
 Technical overview:
  An "application program" is a small dll that is loaded and called by one of two small generic executables, one for console programs and the other for graphics programs.
@@ -40,7 +45,7 @@ The "stroke string" innovation:
  Every IPDOS (tm) application has the simplicity and structure of a console program, but all of the power of a graphics program.
 
 There are other innovations.
- The IPDOS (tm) vision for C++ programming took over 25 years to implement in 1/2 million lines of C++ code, plus a few Assembler modules and in-line macros.
+ The IPDOS (tm) vision for C++ programming took over 28 years to implement in 1/2 million lines of C++ code, plus a few Assembler modules and in-line macros.
  It presents one man's vision of what an ideal programming and deployment and revenue collection environment would look like.
 
 # This is proprietary open source.  Ownership extends to all forks.  Permission to fork may be withdrawn.

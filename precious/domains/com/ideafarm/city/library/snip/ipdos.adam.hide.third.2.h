@@ -5176,10 +5176,12 @@ use this rather than _ to avoid the overhead of _
 
 /*1*//*IFmATCHwILD(psttPatternP,psttP)*//*1*/
 
-#define IFmATCHwILD(psttPatternP,psttP)                                                                                                                                                         \
+#define IFmATCHwILD(patternP,psttP)                                                                                                                                                             \
                                                                                                                                                                                                 \
         strokeS sttq( 0 , sc_IGNOREqUOTES ) ;                                                                                                                                                   \
-        if( 1 == etThread.strIdOptimizedClosureF( tinP , 0 , flSTRmATCH_null , countTC( 1 ) , sttq , patternC( tinP , etThread , psttPatternP , flPATTERNc_WILDCARDmICROSOFT ) , psttP ) )
+        if( 1 == etThread.strIdOptimizedClosureF( tinP , 0 , flSTRmATCH_null , countTC( 1 ) , sttq , patternP , psttP ) )
+
+
 
 //
 // Respecting the rights of other people is an important part of empowering one another.
