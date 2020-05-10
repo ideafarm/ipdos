@@ -11,7 +11,7 @@ IPDOS (tm) began life as a 16-bit OS/2 application intended to defeat Microsoft'
  28 years and 1/2 million lines of C++ code later, IPDOS (tm) is nearly ready for alpha trial usage.
 
 All 1/2 million lines of code were crafted by the same hands, by a man committed to craftsmanship who saw an awesome potential in the C++ language that no one else appears to have seen.
- IPDOS (tm) development has been the best kept secret in software development.
+ IPDOS (tm) development has been the best kept secret in the software industry.
  Think of IPDOS (tm) as a "weapon of mass CONstruction", designed to make coding fun again while reviving innovation and empowering the independent software craft.
 
 Executive overview:
