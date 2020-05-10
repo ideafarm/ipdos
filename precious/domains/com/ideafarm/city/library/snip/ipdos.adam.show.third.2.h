@@ -1382,10 +1382,10 @@ arguments
 /*1*//*ifcIDfORMAT*//*1*/
 
 /*3*/
-#define ifcIDfORMAT_BOOK0hEAD           0xdddd0b4f
+#define ifcIDfORMAT_BOOK0hEAD           0xdddd0b50
 /*3*/
-#define ifcIDfORMAT_min     0xdddd0b4f
-#define ifcIDfORMAT_max     0xdddd0b4f
+#define ifcIDfORMAT_min     0xdddd0b50
+#define ifcIDfORMAT_max     0xdddd0b50
 
 
 //
@@ -2186,73 +2186,73 @@ else the reference to it that is kept within the jotC instance will become a zom
 //SYNC ERRORS CAN CAUSE ARRAY INDEX OUT OF BOUNDS
 
 /*3*/
-#define JrEQUEST_1                           0xdddd0b50
-#define JrEQUEST_2                           0xdddd0b51
-#define JrEQUEST_3                           0xdddd0b52
-#define JrEQUEST_4                           0xdddd0b53
-#define JrEQUEST_5                           0xdddd0b54
-#define JrEQUEST_6                           0xdddd0b55
-#define JrEQUEST_7                           0xdddd0b56
-#define JrEQUEST_8                           0xdddd0b57
-#define JrEQUEST_9                           0xdddd0b58
-#define JrEQUEST_a                           0xdddd0b59
-#define JrEQUEST_b                           0xdddd0b5a
-#define JrEQUEST_c                           0xdddd0b5b
-#define JrEQUEST_d                           0xdddd0b5c
-#define JrEQUEST_e                           0xdddd0b5d
-#define JrEQUEST_f                           0xdddd0b5e
-#define JrEQUEST_01                          0xdddd0b5f
-#define JrEQUEST_11                          0xdddd0b60
-#define JrEQUEST_21                          0xdddd0b61
-#define JrEQUEST_31                          0xdddd0b62
-#define JrEQUEST_41                          0xdddd0b63
-#define JrEQUEST_51                          0xdddd0b64
-#define JrEQUEST_61                          0xdddd0b65
-#define JrEQUEST_71                          0xdddd0b66
-#define JrEQUEST_81                          0xdddd0b67
-#define JrEQUEST_91                          0xdddd0b68
-#define JrEQUEST_a1                          0xdddd0b69
-#define JrEQUEST_b1                          0xdddd0b6a
-#define JrEQUEST_c1                          0xdddd0b6b
-#define JrEQUEST_d1                          0xdddd0b6c
-#define JrEQUEST_e1                          0xdddd0b6d
-#define JrEQUEST_f1                          0xdddd0b6e
-#define JrEQUEST_02                          0xdddd0b6f
-#define JrEQUEST_12                          0xdddd0b70
-#define JrEQUEST_22                          0xdddd0b71
-#define JrEQUEST_32                          0xdddd0b72
-#define JrEQUEST_42                          0xdddd0b73
-#define JrEQUEST_52                          0xdddd0b74
-#define JrEQUEST_62                          0xdddd0b75
-#define JrEQUEST_72                          0xdddd0b76
-#define JrEQUEST_82                          0xdddd0b77
-#define JrEQUEST_92                          0xdddd0b78
-#define JrEQUEST_a2                          0xdddd0b79
-#define JrEQUEST_b2                          0xdddd0b7a
-#define JrEQUEST_c2                          0xdddd0b7b
-#define JrEQUEST_d2                          0xdddd0b7c
-#define JrEQUEST_e2                          0xdddd0b7d
-#define JrEQUEST_f2                          0xdddd0b7e
-#define JrEQUEST_03                          0xdddd0b7f
-#define JrEQUEST_13                          0xdddd0b80
-#define JrEQUEST_23                          0xdddd0b81
-#define JrEQUEST_33                          0xdddd0b82
-#define JrEQUEST_43                          0xdddd0b83
-#define JrEQUEST_53                          0xdddd0b84
-#define JrEQUEST_63                          0xdddd0b85
-#define JrEQUEST_73                          0xdddd0b86
-#define JrEQUEST_83                          0xdddd0b87
-#define JrEQUEST_93                          0xdddd0b88
-#define JrEQUEST_a3                          0xdddd0b89
-#define JrEQUEST_b3                          0xdddd0b8a
-#define JrEQUEST_c3                          0xdddd0b8b
-#define JrEQUEST_d3                          0xdddd0b8c
-#define JrEQUEST_e3                          0xdddd0b8d
-#define JrEQUEST_f3                          0xdddd0b8e
-#define JrEQUEST_04                          0xdddd0b8f
+#define JrEQUEST_1                           0xdddd0b51
+#define JrEQUEST_2                           0xdddd0b52
+#define JrEQUEST_3                           0xdddd0b53
+#define JrEQUEST_4                           0xdddd0b54
+#define JrEQUEST_5                           0xdddd0b55
+#define JrEQUEST_6                           0xdddd0b56
+#define JrEQUEST_7                           0xdddd0b57
+#define JrEQUEST_8                           0xdddd0b58
+#define JrEQUEST_9                           0xdddd0b59
+#define JrEQUEST_a                           0xdddd0b5a
+#define JrEQUEST_b                           0xdddd0b5b
+#define JrEQUEST_c                           0xdddd0b5c
+#define JrEQUEST_d                           0xdddd0b5d
+#define JrEQUEST_e                           0xdddd0b5e
+#define JrEQUEST_f                           0xdddd0b5f
+#define JrEQUEST_01                          0xdddd0b60
+#define JrEQUEST_11                          0xdddd0b61
+#define JrEQUEST_21                          0xdddd0b62
+#define JrEQUEST_31                          0xdddd0b63
+#define JrEQUEST_41                          0xdddd0b64
+#define JrEQUEST_51                          0xdddd0b65
+#define JrEQUEST_61                          0xdddd0b66
+#define JrEQUEST_71                          0xdddd0b67
+#define JrEQUEST_81                          0xdddd0b68
+#define JrEQUEST_91                          0xdddd0b69
+#define JrEQUEST_a1                          0xdddd0b6a
+#define JrEQUEST_b1                          0xdddd0b6b
+#define JrEQUEST_c1                          0xdddd0b6c
+#define JrEQUEST_d1                          0xdddd0b6d
+#define JrEQUEST_e1                          0xdddd0b6e
+#define JrEQUEST_f1                          0xdddd0b6f
+#define JrEQUEST_02                          0xdddd0b70
+#define JrEQUEST_12                          0xdddd0b71
+#define JrEQUEST_22                          0xdddd0b72
+#define JrEQUEST_32                          0xdddd0b73
+#define JrEQUEST_42                          0xdddd0b74
+#define JrEQUEST_52                          0xdddd0b75
+#define JrEQUEST_62                          0xdddd0b76
+#define JrEQUEST_72                          0xdddd0b77
+#define JrEQUEST_82                          0xdddd0b78
+#define JrEQUEST_92                          0xdddd0b79
+#define JrEQUEST_a2                          0xdddd0b7a
+#define JrEQUEST_b2                          0xdddd0b7b
+#define JrEQUEST_c2                          0xdddd0b7c
+#define JrEQUEST_d2                          0xdddd0b7d
+#define JrEQUEST_e2                          0xdddd0b7e
+#define JrEQUEST_f2                          0xdddd0b7f
+#define JrEQUEST_03                          0xdddd0b80
+#define JrEQUEST_13                          0xdddd0b81
+#define JrEQUEST_23                          0xdddd0b82
+#define JrEQUEST_33                          0xdddd0b83
+#define JrEQUEST_43                          0xdddd0b84
+#define JrEQUEST_53                          0xdddd0b85
+#define JrEQUEST_63                          0xdddd0b86
+#define JrEQUEST_73                          0xdddd0b87
+#define JrEQUEST_83                          0xdddd0b88
+#define JrEQUEST_93                          0xdddd0b89
+#define JrEQUEST_a3                          0xdddd0b8a
+#define JrEQUEST_b3                          0xdddd0b8b
+#define JrEQUEST_c3                          0xdddd0b8c
+#define JrEQUEST_d3                          0xdddd0b8d
+#define JrEQUEST_e3                          0xdddd0b8e
+#define JrEQUEST_f3                          0xdddd0b8f
+#define JrEQUEST_04                          0xdddd0b90
 /*3*/
-#define JrEQUEST_min     0xdddd0b50
-#define JrEQUEST_max     0xdddd0b8f
+#define JrEQUEST_min     0xdddd0b51
+#define JrEQUEST_max     0xdddd0b90
 
 
 //
@@ -2448,11 +2448,11 @@ a jPointer is also considered null if it contains one of the special values [JrE
 /*1*//*ifcIDsEXclATHnEWdEL*//*1*/
 
 /*3*/
-#define ifcIDsEXclATHnEWdEL_NEW           0xdddd0b90
-#define ifcIDsEXclATHnEWdEL_DEL           0xdddd0b91
+#define ifcIDsEXclATHnEWdEL_NEW           0xdddd0b91
+#define ifcIDsEXclATHnEWdEL_DEL           0xdddd0b92
 /*3*/
-#define ifcIDsEXclATHnEWdEL_min     0xdddd0b90
-#define ifcIDsEXclATHnEWdEL_max     0xdddd0b91
+#define ifcIDsEXclATHnEWdEL_min     0xdddd0b91
+#define ifcIDsEXclATHnEWdEL_max     0xdddd0b92
 
 
 //
@@ -2598,10 +2598,10 @@ a jPointer is also considered null if it contains one of the special values [JrE
 /*1*//*ifcIDsEXaRRAY*//*1*/
 
 /*3*/
-#define ifcIDsEXaRRAY_BEINGcONSTRUCTED           0xdddd0b92
+#define ifcIDsEXaRRAY_BEINGcONSTRUCTED           0xdddd0b93
 /*3*/
-#define ifcIDsEXaRRAY_min     0xdddd0b92
-#define ifcIDsEXaRRAY_max     0xdddd0b92
+#define ifcIDsEXaRRAY_min     0xdddd0b93
+#define ifcIDsEXaRRAY_max     0xdddd0b93
 
 
 //
@@ -3042,21 +3042,21 @@ i do not verify that the naked idJot value is valid
 /*1*//*ifcIDmODEpUTfILE*//*1*/
 
 /*3*/
-#define ifcIDmODEpUTfILE_ROOT         0xdddd0b93
-#define ifcIDmODEpUTfILE_PAID         0xdddd0b94
-#define ifcIDmODEpUTfILE_TUTORIALS    0xdddd0b95
-#define ifcIDmODEpUTfILE_HOOKS        0xdddd0b96
-#define ifcIDmODEpUTfILE_ESSAYS       0xdddd0b97
-#define ifcIDmODEpUTfILE_ARCHIVE      0xdddd0b98
-#define ifcIDmODEpUTfILE_WO           0xdddd0b99
-#define ifcIDmODEpUTfILE_NEWS         0xdddd0b9a
-#define ifcIDmODEpUTfILE_BUNDLE       0xdddd0b9b
-#define ifcIDmODEpUTfILE_PAY          0xdddd0b9c
-#define ifcIDmODEpUTfILE_IPDOS        0xdddd0b9d
-#define ifcIDmODEpUTfILE_OTHER        0xdddd0b9e
+#define ifcIDmODEpUTfILE_ROOT         0xdddd0b94
+#define ifcIDmODEpUTfILE_PAID         0xdddd0b95
+#define ifcIDmODEpUTfILE_TUTORIALS    0xdddd0b96
+#define ifcIDmODEpUTfILE_HOOKS        0xdddd0b97
+#define ifcIDmODEpUTfILE_ESSAYS       0xdddd0b98
+#define ifcIDmODEpUTfILE_ARCHIVE      0xdddd0b99
+#define ifcIDmODEpUTfILE_WO           0xdddd0b9a
+#define ifcIDmODEpUTfILE_NEWS         0xdddd0b9b
+#define ifcIDmODEpUTfILE_BUNDLE       0xdddd0b9c
+#define ifcIDmODEpUTfILE_PAY          0xdddd0b9d
+#define ifcIDmODEpUTfILE_IPDOS        0xdddd0b9e
+#define ifcIDmODEpUTfILE_OTHER        0xdddd0b9f
 /*3*/
-#define ifcIDmODEpUTfILE_min     0xdddd0b93
-#define ifcIDmODEpUTfILE_max     0xdddd0b9e
+#define ifcIDmODEpUTfILE_min     0xdddd0b94
+#define ifcIDmODEpUTfILE_max     0xdddd0b9f
 
 
 //
@@ -3221,11 +3221,11 @@ parameters
 /*1*//*ifcIDcLOUD*//*1*/
 
 /*3*/
-#define ifcIDcLOUD_RACKSPACE           0xdddd0b9f
-#define ifcIDcLOUD_GOOGLE              0xdddd0ba0
+#define ifcIDcLOUD_RACKSPACE           0xdddd0ba0
+#define ifcIDcLOUD_GOOGLE              0xdddd0ba1
 /*3*/
-#define ifcIDcLOUD_min     0xdddd0b9f
-#define ifcIDcLOUD_max     0xdddd0ba0
+#define ifcIDcLOUD_min     0xdddd0ba0
+#define ifcIDcLOUD_max     0xdddd0ba1
 
 
 //
@@ -3637,12 +3637,12 @@ parameters
 /*1*//*ifcIDdOcLOUDiFdIFFER*//*1*/
 
 /*3*/
-#define ifcIDdOcLOUDiFdIFFER_NOTHING    0xdddd0ba1
-#define ifcIDdOcLOUDiFdIFFER_REPORT     0xdddd0ba2
-#define ifcIDdOcLOUDiFdIFFER_REPLACE    0xdddd0ba3
+#define ifcIDdOcLOUDiFdIFFER_NOTHING    0xdddd0ba2
+#define ifcIDdOcLOUDiFdIFFER_REPORT     0xdddd0ba3
+#define ifcIDdOcLOUDiFdIFFER_REPLACE    0xdddd0ba4
 /*3*/
-#define ifcIDdOcLOUDiFdIFFER_min     0xdddd0ba1
-#define ifcIDdOcLOUDiFdIFFER_max     0xdddd0ba3
+#define ifcIDdOcLOUDiFdIFFER_min     0xdddd0ba2
+#define ifcIDdOcLOUDiFdIFFER_max     0xdddd0ba4
 
 
 //
@@ -3751,11 +3751,11 @@ parameters
 /*1*//*ifcIDmODEsOCKETS*//*1*/
 
 /*3*/
-#define ifcIDmODEsOCKETS_NOTeNCRYPTED  0xdddd0ba4
-#define ifcIDmODEsOCKETS_ENCRYPTED     0xdddd0ba5
+#define ifcIDmODEsOCKETS_NOTeNCRYPTED  0xdddd0ba5
+#define ifcIDmODEsOCKETS_ENCRYPTED     0xdddd0ba6
 /*3*/
-#define ifcIDmODEsOCKETS_min     0xdddd0ba4
-#define ifcIDmODEsOCKETS_max     0xdddd0ba5
+#define ifcIDmODEsOCKETS_min     0xdddd0ba5
+#define ifcIDmODEsOCKETS_max     0xdddd0ba6
 
 
 //
@@ -4370,41 +4370,41 @@ use this rather than _ to avoid the overhead of _
 //CS:CODEsYNC: WO CONSTANT IS NEEDED FOR EACH BIT IN A countT OBJECT (WHICH IS CURRENTLY OF SIZE count02T)
 
 /*3*/
-#define ifcIDgRABITbIT_00     0xdddd0ba6
-#define ifcIDgRABITbIT_10     0xdddd0ba7
-#define ifcIDgRABITbIT_20     0xdddd0ba8
-#define ifcIDgRABITbIT_30     0xdddd0ba9
-#define ifcIDgRABITbIT_40     0xdddd0baa
-#define ifcIDgRABITbIT_50     0xdddd0bab
-#define ifcIDgRABITbIT_60     0xdddd0bac
-#define ifcIDgRABITbIT_70     0xdddd0bad
-#define ifcIDgRABITbIT_80     0xdddd0bae
-#define ifcIDgRABITbIT_90     0xdddd0baf
-#define ifcIDgRABITbIT_a0     0xdddd0bb0
-#define ifcIDgRABITbIT_b0     0xdddd0bb1
-#define ifcIDgRABITbIT_c0     0xdddd0bb2
-#define ifcIDgRABITbIT_d0     0xdddd0bb3
-#define ifcIDgRABITbIT_e0     0xdddd0bb4
-#define ifcIDgRABITbIT_f0     0xdddd0bb5
-#define ifcIDgRABITbIT_01     0xdddd0bb6
-#define ifcIDgRABITbIT_11     0xdddd0bb7
-#define ifcIDgRABITbIT_21     0xdddd0bb8
-#define ifcIDgRABITbIT_31     0xdddd0bb9
-#define ifcIDgRABITbIT_41     0xdddd0bba
-#define ifcIDgRABITbIT_51     0xdddd0bbb
-#define ifcIDgRABITbIT_61     0xdddd0bbc
-#define ifcIDgRABITbIT_71     0xdddd0bbd
-#define ifcIDgRABITbIT_81     0xdddd0bbe
-#define ifcIDgRABITbIT_91     0xdddd0bbf
-#define ifcIDgRABITbIT_a1     0xdddd0bc0
-#define ifcIDgRABITbIT_b1     0xdddd0bc1
-#define ifcIDgRABITbIT_c1     0xdddd0bc2
-#define ifcIDgRABITbIT_d1     0xdddd0bc3
-#define ifcIDgRABITbIT_e1     0xdddd0bc4
-#define ifcIDgRABITbIT_f1     0xdddd0bc5
+#define ifcIDgRABITbIT_00     0xdddd0ba7
+#define ifcIDgRABITbIT_10     0xdddd0ba8
+#define ifcIDgRABITbIT_20     0xdddd0ba9
+#define ifcIDgRABITbIT_30     0xdddd0baa
+#define ifcIDgRABITbIT_40     0xdddd0bab
+#define ifcIDgRABITbIT_50     0xdddd0bac
+#define ifcIDgRABITbIT_60     0xdddd0bad
+#define ifcIDgRABITbIT_70     0xdddd0bae
+#define ifcIDgRABITbIT_80     0xdddd0baf
+#define ifcIDgRABITbIT_90     0xdddd0bb0
+#define ifcIDgRABITbIT_a0     0xdddd0bb1
+#define ifcIDgRABITbIT_b0     0xdddd0bb2
+#define ifcIDgRABITbIT_c0     0xdddd0bb3
+#define ifcIDgRABITbIT_d0     0xdddd0bb4
+#define ifcIDgRABITbIT_e0     0xdddd0bb5
+#define ifcIDgRABITbIT_f0     0xdddd0bb6
+#define ifcIDgRABITbIT_01     0xdddd0bb7
+#define ifcIDgRABITbIT_11     0xdddd0bb8
+#define ifcIDgRABITbIT_21     0xdddd0bb9
+#define ifcIDgRABITbIT_31     0xdddd0bba
+#define ifcIDgRABITbIT_41     0xdddd0bbb
+#define ifcIDgRABITbIT_51     0xdddd0bbc
+#define ifcIDgRABITbIT_61     0xdddd0bbd
+#define ifcIDgRABITbIT_71     0xdddd0bbe
+#define ifcIDgRABITbIT_81     0xdddd0bbf
+#define ifcIDgRABITbIT_91     0xdddd0bc0
+#define ifcIDgRABITbIT_a1     0xdddd0bc1
+#define ifcIDgRABITbIT_b1     0xdddd0bc2
+#define ifcIDgRABITbIT_c1     0xdddd0bc3
+#define ifcIDgRABITbIT_d1     0xdddd0bc4
+#define ifcIDgRABITbIT_e1     0xdddd0bc5
+#define ifcIDgRABITbIT_f1     0xdddd0bc6
 /*3*/
-#define ifcIDgRABITbIT_min     0xdddd0ba6
-#define ifcIDgRABITbIT_max     0xdddd0bc5
+#define ifcIDgRABITbIT_min     0xdddd0ba7
+#define ifcIDgRABITbIT_max     0xdddd0bc6
 
 
 //
@@ -4431,12 +4431,12 @@ use this rather than _ to avoid the overhead of _
 /*1*//*ifcIDeMAILrEGISTRATIONrEQUESTsTATUS*//*1*/
 
 /*3*/
-#define ifcIDeMAILrEGISTRATIONrEQUESTsTATUS_BOTwRONGsCHEME              0xdddd0bc6
-#define ifcIDeMAILrEGISTRATIONrEQUESTsTATUS_BOTwRONGiMAGE               0xdddd0bc7
-#define ifcIDeMAILrEGISTRATIONrEQUESTsTATUS_HUMANnOpRIORpENDING         0xdddd0bc8
+#define ifcIDeMAILrEGISTRATIONrEQUESTsTATUS_BOTwRONGsCHEME              0xdddd0bc7
+#define ifcIDeMAILrEGISTRATIONrEQUESTsTATUS_BOTwRONGiMAGE               0xdddd0bc8
+#define ifcIDeMAILrEGISTRATIONrEQUESTsTATUS_HUMANnOpRIORpENDING         0xdddd0bc9
 /*3*/
-#define ifcIDeMAILrEGISTRATIONrEQUESTsTATUS_min     0xdddd0bc6
-#define ifcIDeMAILrEGISTRATIONrEQUESTsTATUS_max     0xdddd0bc8
+#define ifcIDeMAILrEGISTRATIONrEQUESTsTATUS_min     0xdddd0bc7
+#define ifcIDeMAILrEGISTRATIONrEQUESTsTATUS_max     0xdddd0bc9
 
 
 //
@@ -4891,17 +4891,17 @@ use this rather than _ to avoid the overhead of _
 /*1*//*ifcIDtRACEdIVERT*//*1*/
 
 /*3*/
-#define ifcIDtRACEdIVERT_1              0xdddd0bc9
-#define ifcIDtRACEdIVERT_2              0xdddd0bca
-#define ifcIDtRACEdIVERT_3              0xdddd0bcb
-#define ifcIDtRACEdIVERT_4              0xdddd0bcc
-#define ifcIDtRACEdIVERT_5              0xdddd0bcd
-#define ifcIDtRACEdIVERT_6              0xdddd0bce
-#define ifcIDtRACEdIVERT_7              0xdddd0bcf
-#define ifcIDtRACEdIVERT_8              0xdddd0bd0
+#define ifcIDtRACEdIVERT_1              0xdddd0bca
+#define ifcIDtRACEdIVERT_2              0xdddd0bcb
+#define ifcIDtRACEdIVERT_3              0xdddd0bcc
+#define ifcIDtRACEdIVERT_4              0xdddd0bcd
+#define ifcIDtRACEdIVERT_5              0xdddd0bce
+#define ifcIDtRACEdIVERT_6              0xdddd0bcf
+#define ifcIDtRACEdIVERT_7              0xdddd0bd0
+#define ifcIDtRACEdIVERT_8              0xdddd0bd1
 /*3*/
-#define ifcIDtRACEdIVERT_min     0xdddd0bc9
-#define ifcIDtRACEdIVERT_max     0xdddd0bd0
+#define ifcIDtRACEdIVERT_min     0xdddd0bca
+#define ifcIDtRACEdIVERT_max     0xdddd0bd1
 
 
 //
@@ -5020,11 +5020,11 @@ use this rather than _ to avoid the overhead of _
 /**/
 
 /*3*/
-#define ifcIDcMDcLOAK_QUERYfOLDERcONTENTS               0xdddd0bd1
-#define ifcIDcMDcLOAK_QUERYaLLlOCKEDfOLDERScONTENTS     0xdddd0bd2
+#define ifcIDcMDcLOAK_QUERYfOLDERcONTENTS               0xdddd0bd2
+#define ifcIDcMDcLOAK_QUERYaLLlOCKEDfOLDERScONTENTS     0xdddd0bd3
 /*3*/
-#define ifcIDcMDcLOAK_min     0xdddd0bd1
-#define ifcIDcMDcLOAK_max     0xdddd0bd2
+#define ifcIDcMDcLOAK_min     0xdddd0bd2
+#define ifcIDcMDcLOAK_max     0xdddd0bd3
 
 
 //
@@ -5051,11 +5051,11 @@ use this rather than _ to avoid the overhead of _
 /**/
 
 /*3*/
-#define ifcIDrEPLYcLOAK_FOLDERcONTENTS            0xdddd0bd3
-#define ifcIDrEPLYcLOAK_ALLlOCKEDfOLDERScONTENTS  0xdddd0bd4
+#define ifcIDrEPLYcLOAK_FOLDERcONTENTS            0xdddd0bd4
+#define ifcIDrEPLYcLOAK_ALLlOCKEDfOLDERScONTENTS  0xdddd0bd5
 /*3*/
-#define ifcIDrEPLYcLOAK_min     0xdddd0bd3
-#define ifcIDrEPLYcLOAK_max     0xdddd0bd4
+#define ifcIDrEPLYcLOAK_min     0xdddd0bd4
+#define ifcIDrEPLYcLOAK_max     0xdddd0bd5
 
 
 //
@@ -44132,3 +44132,44 @@ i am nonconformant in that all of my member function definitions are in a single
 //
 
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.patternC : 1snip.15000183.patternC END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.fileNameC : 1snip.15000184.fileNameC BEGIN
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 25 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+
+/*
+*/
+/**/
+
+/*1*/class _export fileNameC/*1*/
+{
+    etherC&  ether ;
+    strokeS* psttLong ;
+    strokeS* psttPath ;
+    strokeS* psttShort ;
+
+    public :
+
+    NEWdELcLASSpROTOS
+    ~fileNameC( voidT ) ;
+    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.36146002.fileNameC.dt_fileNameC!||
+    fileNameC( tinS& tinP , etherC& etherP , const strokeS* const psttP ) ;
+    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.36146003.fileNameC.fileNameC!||
+    inline operator const strokeS*( voidT ) const { return psttShort ; }
+    inline const strokeS* pathF( voidT ) const { return psttPath ; }
+}
+;
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 25 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.fileNameC : 1snip.15000184.fileNameC END
