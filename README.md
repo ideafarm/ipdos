@@ -6,9 +6,11 @@
  Porting contributions for Linux and other platforms are welcome.
  Built using Open Watcom v2.
 
-IPDOS (tm) craftwork began in 1992, during the "operating system wars", beginning life as a 16-bit OS/2 application intended to defeat Microsoft's monopoly and empower the independent software craft.
+IPDOS (tm) craftwork began in 1992, during the "operating system wars".
+IPDOS (tm) began life as a 16-bit OS/2 application intended to defeat Microsoft's monopoly and empower the independent software craft.
  28 years and 1/2 million lines of C++ code later, IPDOS (tm) is nearly ready for alpha trial usage.
- All 1/2 million lines of code were crafted by the same hands, by a man committed to craftsmanship who saw an awesome potential in the C++ language that no one else appears to have seen.
+
+All 1/2 million lines of code were crafted by the same hands, by a man committed to craftsmanship who saw an awesome potential in the C++ language that no one else appears to have seen.
  IPDOS (tm) development has been the best kept secret in software development.
  Think of IPDOS (tm) as a "weapon of mass CONstruction", designed to make coding fun again while reviving innovation and empowering the independent software craft.
 
