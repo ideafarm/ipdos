@@ -18,6 +18,8 @@ Executive overview:
  IPDOS (tm) introduces a novel vision for server and desktop/laptop software technology that inserts a new software layer between a "base operating system" (such as Windows) and application programs (such as Windows console programs, windowed programs, and services).
  Application programs written for IPDOS (tm) are portable in that they run on any host that IPDOS (tm) has been ported to.
  IPDOS (tm) is a "piggyback operating system" in the sense that it runs on top of a base operating system and presents an alternative, innovative API to application developers.
+
+Discussion:
  Creating this new layer will encourage the development of innovative new programming abstractions (API's) such as the one presented by IPDOS (tm).
  By unbundling the API from the base operating system, development of base operating systems can become more innovative, since a new base operating system can instantly acquire application programs simply by porting IPDOS (tm).
  By unbundling the API, base operating system development can focus on security and on supporting new hardware.
