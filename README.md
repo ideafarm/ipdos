@@ -23,7 +23,6 @@ Executive overview:
  By unbundling the API, base operating system development can focus on security and on supporting new hardware.
  By unbundling the API, operating system vendors lose control over the marketplace, hardware vendors acquire the power to innovate, and application developers are empowered both by the emergence of innovative new API's and new hardware and by no longer being locked into a particular base operating system platform.
  In other words, creating a new software layer between the base operating system and applications empowers everyone except the base operating system vendor.
- IPDOS (tm) is one man's vision for an ideal C++ programming environment, created over 28 years with 1/2 million lines of C++ code.
 
 Technical overview:
  An "application program" is a small dll that is loaded and called by one of two small generic executables, one for console programs and the other for graphics programs.
@@ -48,8 +47,7 @@ The "stroke string" innovation:
  Every IPDOS (tm) application has the simplicity and structure of a console program, but all of the power of a graphics program.
 
 There are other innovations.
- The IPDOS (tm) vision for C++ programming took over 28 years to implement in 1/2 million lines of C++ code, plus a few Assembler modules and in-line macros.
- It presents one man's vision of what an ideal programming and deployment and revenue collection environment would look like.
+ Read the license, clone to your GitHub Desktop, and start browsing code.  There isn't a Programmers' Guide yet, so shoot an email to the owner so that he can personally give you the guided tour!
 
 # This is proprietary open source.  Ownership extends to all forks.  Permission to fork may be withdrawn.
  See LICENSE.pdf before forking, cloning, or using any portion.
