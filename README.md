@@ -83,3 +83,10 @@ Status:  Under construction.  Please contact owner before forking, cloning, or u
 (9) Press these keys: " ma1 ".  This causes an elf to build scratch adam 1.  Wait for the new window to disappear.
 
 (10) Press the keys: " p 1 ".  (Yes, you need to key a space after the 'p'.)  This causes scratch adam 1 to run in a new window.
+
+
+# TROUBLESHOOTING:  If the above steps didn't work for you,...
+
+(A) Verify that "#define DEBUG" is not commented out at the top of X:\ideafarm.home.1\precious\domains\com\ideafarm\city\workshop\elves\elves.cpp .
+
+(B) Verify that "#define PRODUCTION" is not commented out near the bottom of X:\ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\5adam.51000621.1 .
