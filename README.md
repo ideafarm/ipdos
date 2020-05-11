@@ -27,7 +27,7 @@ Discussion:
  In other words, creating a new software layer between the base operating system and applications empowers everyone except the base operating system vendor.
 
 Technical overview:
- An "application program" is a small dll that is loaded and called by one of two small generic executables, one for console programs and the other for graphics programs.
+ An "application program" is a small dll that is loaded and called by one of two small generic executables, one for console and service (daemon) programs and the other for graphics programs.
  All work is done by calling IPDOS (tm) C++ class member functions and global functions exported from a single large "base dll".
  Application code cannot access the API of the "base operating system" (Windows, Linux, etc.)
  All work must be done by calling the IPDOS (tm) API (the class library).
