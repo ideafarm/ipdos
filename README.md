@@ -91,7 +91,7 @@ Status:  Under construction.  Please contact owner before forking, cloning, or u
 
 (B) Verify that "#define PRODUCTION" is not commented out near the bottom of X:\ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\5adam.51000621.1 .
 
-(C) If your antivirus program complains or, worse, decides that it is seeing malware, please report this by opening an issue.  Open Watcom V2 is known to do this with some antivirus programs.  One workaround is to rename the watcom folder (so that it won't be found on the path), install Open Watcom V2 yourself, and then tell your antivirus program to ignore the folder where you installed it.
+(C) If your antivirus program complains or, worse, decides that it is seeing malware, please report this by opening an issue.  Open Watcom V2 is known to do this with some antivirus programs.  One workaround is to install Open Watcom V2 yourself and then tell your antivirus program to ignore the folder where you installed it.
 
 (D) If you get here without joy, please do report an issue so that it can be fixed for the benefit of others.
 
