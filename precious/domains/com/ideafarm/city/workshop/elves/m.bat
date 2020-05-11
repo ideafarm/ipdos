@@ -22,4 +22,4 @@ if not %1z == dz goto :FIN
  wdw ideafarm.elves.ipdos
 
 :FIN
-if not %1z == bz pause
+rem if not %1z == bz pause

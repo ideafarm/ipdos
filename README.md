@@ -58,32 +58,40 @@ There are other innovations.
 Status:  Under construction.  Please contact owner before forking, cloning, or using.
 
 
-# QUICK START INSTRUCTIONS:  IdeaFarm (tm) Bundle (build, "release", install, run as service)
+# QUICK START INSTRUCTIONS:  Building IPDOS (tm) and then creating a "hello world" program.
+ This repository contains binaries of all tools that it needs to build itself.
+ To build, you just need to edit your computer's PATH setting to add one directory, edit one batch file in that directory, and then run that batch file.
+ If the following steps do not bring you to a joyful result, please open an issue on GitHub.
+
+(1) Clone this repository to GitHub Desktop, using a directory named "X:\ideafarm.home.1", where X is the drive letter of a local (not network) nonremovable hard disk drive.
+
+(2) Delete this folder:    X:\ideafarm.home.1\ephemeral\domains\com\ideafarm\city
+
+(3) To the PATH environment variable setting, append:    ;X:\ideafarm.home.1\precious\domains\com\ideafarm\city\workshop\cmd
+
+(4) Using any plain text editor, edit the "idrive=d" line to indicate the correct drive letter X, in X:\ideafarm.home.1\precious\domains\com\ideafarm\city\workshop\cmd\ideafarm.bat
+
+(5) Open a command prompt and execute:    " ideafarm "
+
+(6) Wait until the "IdeaFarm (tm) Elves" window is blank except for a single line: "adamlow ascii ...".  When you see this, IdeaFarm (tm) Bundle has been built and "released".
+
+(7) press the 'e' key ; then press the '1' key .  This opens the source file for "scratch adam 1", using the Rimstar Programmers' Editor.
+
+(8) Edit the hello text to suite your whim.  Then close the editor.
+
+(9) Press these keys: "ma1".  This causes an elf to build scratch adam 1.  Wait for the new window to disappear.
+
+(10) Press the keys: "p 1".  This causes scratch adam 1 to run in a new window.
+
+
+
+ 
+
+
+
+
  IdeaFarm (tm) Bundle is an "automatic delayed start" Windows Service.
  It consists of IPDOS (tm) bundled with several applications, including IdeaFarm (tm) Cloud Files, IdeaFarm (tm) Knowledge Tree Publisher, and IdeaFarm (tm) Cloak.
  It also includes everything that you need to "playcraft" IPDOS (tm) C++ applications, including hundreds of example programs.
  Finally, it includes images of all three tools needed:  Open Watcom V2, WiX Toolset, and Rimstar Programmers' Editor.
  (If you already have these tools installed, those images will be used rather than the ones included.)
-
-Do the following to do a quasi-full build (without refreshing generated headers), "release", install, and run IdeaFarm (tm) Bundle, using the Open Watcom V2 binaries included in this repository.
-
-(1) Clone this repository to GitHub Desktop, using a directory named "X:\ideafarm.home.1", where X is the drive letter of a local (not network) nonremovable hard disk drive.
-
-(2) To the PATH environment variable setting, append:    ;X:\ideafarm.home.1\precious\domains\com\ideafarm\city\workshop\cmd
-
-(3) Open a command prompt and execute:    " ideafarm "
-
-(4) Delete this folder:    X:\ideafarm.home.1\ephemeral\domains\com\ideafarm\city
-
-(5) Execute " g el " ; then " rw *.cpp ".  Edit if needed so that the file begins with "//#define DEBUG" .
-
-(6) Execute " m b "
-
-(7) Execute " e "
-
-
-
-
-
-
- 

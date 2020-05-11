@@ -1,4 +1,4 @@
-//#define DEBUG
+#define DEBUG
 
 #if not defined( DEBUG )
     #define RELEASE
@@ -2529,7 +2529,7 @@ void elf_obey_C::liveF( void )
                     strcat( postCmd ,
             
                         ".map"
-                        " library t:\\watcom\\lib386\\nt\\wsock32.lib"
+                        " library \\ideafarm.home.1\\precious\\domains\\com\\ideafarm\\city\\workshop\\watcom\\lib386\\nt\\wsock32.lib"
                         " op q"
                         " op el"
                         " op mangle"
@@ -2649,7 +2649,7 @@ void elf_obey_C::liveF( void )
                 char postMas[]      = { "\\ideafarm.home.1\\ephemeral\\domains\\com\\ideafarm\\city\\park\\exedll\\1\\master\\ideafarm.81000001.ipdos-wm" } ;
                 char postMasShort[] = {                                                                                      "ideafarm.81000001.ipdos-wm" } ;
     
-                char postCmd[ 0x400 ] = { "wlink" } ;
+                char postCmd[ 0x800 ] = { "wlink" } ;
                 if( flagsAll & flELVES_DEBUGiNFO ) strcat( postCmd , " debug all" ) ;
                 strcat( postCmd , " name " ) ;
                 strcat( postCmd , postMas ) ;
@@ -2657,11 +2657,11 @@ void elf_obey_C::liveF( void )
         
                     " file \\ideafarm.home.1\\ephemeral\\domains\\com\\ideafarm\\city\\workshop\\3object\\2*.obj"
                     " file \\ideafarm.home.1\\ephemeral\\domains\\com\\ideafarm\\city\\workshop\\3object\\3*.obj"
-                    " library t:\\watcom\\lib386\\nt\\shlwapi.lib"                                                                  //A:ASSUME: DRIVE t: POINTS TO THE (NETWORK) DRIVE THAT CONTAINS THE WATCOM TOOLS
-                    " library t:\\watcom\\lib386\\nt\\wsock32.lib"
-                    " library t:\\watcom\\lib386\\nt\\winmm.lib"
-                    " library t:\\watcom\\lib386\\nt\\advapi32.lib"
-                    " library t:\\watcom\\lib386\\nt\\psapi.lib"
+                    " library \\ideafarm.home.1\\precious\\domains\\com\\ideafarm\\city\\workshop\\watcom\\lib386\\nt\\shlwapi.lib"
+                    " library \\ideafarm.home.1\\precious\\domains\\com\\ideafarm\\city\\workshop\\watcom\\lib386\\nt\\wsock32.lib"
+                    " library \\ideafarm.home.1\\precious\\domains\\com\\ideafarm\\city\\workshop\\watcom\\lib386\\nt\\winmm.lib"
+                    " library \\ideafarm.home.1\\precious\\domains\\com\\ideafarm\\city\\workshop\\watcom\\lib386\\nt\\advapi32.lib"
+                    " library \\ideafarm.home.1\\precious\\domains\\com\\ideafarm\\city\\workshop\\watcom\\lib386\\nt\\psapi.lib"
                     " library \\ideafarm.home.1\\precious\\domains\\com\\ideafarm\\city\\workshop\\microsoft\\User32.Lib"
                     " system nt_dll"
                     " op q"
@@ -2682,6 +2682,9 @@ void elf_obey_C::liveF( void )
                 ) ;
                 strcat( postCmd , " >> \\tmp\\link.err" ) ;
     
+                //sayF( "[debug]:  " ) ;
+                //sayF( postCmd ) ;
+
                 batWatcom.grabF() ;
     
                 ether.deleteAllF( "\\ideafarm.home.1\\ephemeral\\domains\\com\\ideafarm\\city\\park\\exedll\\1\\master" , postMasShort ) ;
