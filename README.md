@@ -90,3 +90,21 @@ Status:  Under construction.  Please contact owner before forking, cloning, or u
 (A) Verify that "#define DEBUG" is not commented out at the top of X:\ideafarm.home.1\precious\domains\com\ideafarm\city\workshop\elves\elves.cpp .
 
 (B) Verify that "#define PRODUCTION" is not commented out near the bottom of X:\ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\5adam.51000621.1 .
+
+(C) If your antivirus program complains or, worse, decides that it is seeing malware, please report this by opening an issue.  Open Watcom V2 is known to do this with some antivirus programs.  One workaround is to rename the watcom folder (so that it won't be found on the path), install Open Watcom V2 yourself, and then tell your antivirus program to ignore the folder where you installed it.
+
+(D) If you get here without joy, please do report an issue so that it can be fixed for the benefit of others.
+
+
+# VOLUNTEER HELP WANTED
+ Please "alpha test" the above Quick Start Instructions.
+ Doing so will not install any software or modify any registry entries other than the edit that you make to the PATH setting.
+ You can completely undo all effects simply by reversing that edit and then deleting your clone of this repository.  
+
+# BUSINESS OPPORTUNITIES
+ I've spent 28 years crafting a powerful general purpose software environment for the C++ language.
+ IPDOS (tm) is still in active development, and the graphics subsystem is being rewritten, so IPDOS (tm) cannot currently launch a graphics (windowed) program.
+ But IPDOS (tm) can be used for custom "back end" server applications.
+ It can also be used to teach or tutor C++ programming.
+ In the future, it will support the publication of revenue-producing "proprietary open source" applications for profit.
+ Please consider exploring the capabilities of IPDOS (tm) by building your "hello" program and then exploring the etherC and other API's.
