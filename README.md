@@ -110,4 +110,8 @@ Status:  Under construction.  Please contact owner before forking, cloning, or u
  Please consider exploring the capabilities of IPDOS (tm) by building your "hello" program and then exploring the etherC and other API's.
 
 # PRICING
- 
+ Please review the LICENSE.
+ There is no charge for using IPDOS (tm) in the manner permitted by the LICENSE.
+ The license permits usage only to contribute bug fixes and enhancements as well as all purely educational uses.
+ Installing IPDOS (tm) Bundle, a Windows service, is currently free but will be a paid product in the future.
+
