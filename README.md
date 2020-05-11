@@ -101,6 +101,10 @@ Status:  Under construction.  Please contact owner before forking, cloning, or u
  Doing so will not install any software or modify any registry entries other than the edit that you make to the PATH setting.
  You can completely undo all effects simply by reversing that edit and then deleting your clone of this repository.  
 
+# PAID HELP WANTED
+ Once IdeaFarm (tm) Bundle has become a paid subscription product and is generating revenue, some of that revenue will be used to create paid "work from home" opportunities for bug fixers, enhancement developers, sales professionals, marketers, and administrators.
+ Get involved now as a volunteer, and you will have an inside track as IPDOS (tm) opportunities develop. 
+
 # BUSINESS OPPORTUNITIES
  28 years were spent witing 1/2 million lines of C++ code to craft a powerful general purpose software environment for the C++ language.
  IPDOS (tm) is still in active development, and the graphics subsystem is being rewritten, so IPDOS (tm) cannot currently launch a graphics (windowed) program.
