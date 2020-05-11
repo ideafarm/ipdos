@@ -96,7 +96,9 @@ Status:  Applications development is active.  IPDOS (tm) is stable and mature an
 
 (C) If your antivirus program complains or, worse, decides that it is seeing malware, please report this by opening an issue.  Open Watcom V2 is known to do this with some antivirus programs.  One workaround is to install Open Watcom V2 yourself and then tell your antivirus program to ignore the folder where you installed it.
 
-(D) If you get here without joy, please do report an issue so that it can be fixed for the benefit of others.
+(D) The WiX Toolset might complain that a component of Windows that it requires is not installed.  If this happens, install the component or report the issue.
+
+(E) If you get here without joy, please do report an issue so that it can be fixed for the benefit of others.
 
 
 # VOLUNTEER HELP WANTED
