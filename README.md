@@ -49,13 +49,16 @@ The "stroke string" innovation:
  Every IPDOS (tm) application has the simplicity and structure of a console program, but all of the power of a graphics program.
 
 There are other innovations.
- Read the license, clone to your GitHub Desktop, and start browsing code.  There isn't a Programmers' Guide yet, so shoot an email to the owner so that he can personally give you the guided tour!
+ There are also several surprises; IPDOS (tm) source code is eccentric in that it is written from the bottom up.
+ But the eccentricities are few, and you will find the code consistent in style and very readable due to the care taken in choosing variable and function names.
+ All of this code was crafted by a single pair of hands and a single mind, as a literary as well as technical work.
+ Read the license, clone to your GitHub Desktop, build your first "hello" program, and start browsing code and "playcrafting".
 
 
 # This is proprietary open source.  Ownership extends to all forks.  Permission to fork may be withdrawn.
  See LICENSE.pdf before forking, cloning, or using any portion.
 
-Status:  Under construction.  Please contact owner before forking, cloning, or using.
+Status:  Applications development is active.  IPDOS (tm) is stable and mature and now ready for "alpha testing" by others.  The following "Quick Start" instructions are new and untested.
 
 
 # QUICK START INSTRUCTIONS:  Building IPDOS (tm) and then creating a "hello world" program.
