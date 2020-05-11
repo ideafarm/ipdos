@@ -71,7 +71,7 @@ Do the following to do a quasi-full build (without refreshing generated headers)
 
 (2) To the PATH environment variable setting, append:    ;X:\ideafarm.home.1\precious\domains\com\ideafarm\city\workshop\cmd
 
-(3) Open a command prompt and run this command:    ideafarm
+(3) Open a command prompt and execute:    " ideafarm "
 
 (4) Delete this folder:    X:\ideafarm.home.1\ephemeral\domains\com\ideafarm\city
 
