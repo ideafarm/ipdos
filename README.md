@@ -104,7 +104,7 @@ Status:  Under construction.  Please contact owner before forking, cloning, or u
 # BUSINESS OPPORTUNITIES
  28 years were spent witing 1/2 million lines of C++ code to craft a powerful general purpose software environment for the C++ language.
  IPDOS (tm) is still in active development, and the graphics subsystem is being rewritten, so IPDOS (tm) cannot currently launch a graphics (windowed) program.
- But IPDOS (tm) can be used for custom "back end" server applications.
+ But IPDOS (tm) can be used for custom "back end" server applications, as well as Windows service daemon programs and command line tools.
  It can also be used to teach or tutor C++ programming.
  In the future, it will support the publication of revenue-producing "proprietary open source" applications for profit.
  Please consider exploring the capabilities of IPDOS (tm) by building your "hello" program and then exploring the etherC and other API's.
