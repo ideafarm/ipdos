@@ -1,0 +1,215 @@
+/*
+** Macro module: tlib.rm - TLIB Version Control Support
+**
+** TLIB is a trademark of Burton Systems Software
+**
+** Copyright (C) 1994 Brian L. Smith
+** Copyright (C) 1994 RimStar Technology, Inc.
+** All rights reserved internationally.
+** Unlicensed use is a violation of applicable laws.
+**
+** This source code is provided to licensed users of RimStar's products
+** for the purpose of allowing the user to customize and/or enhance RimStar's
+** products. The source code remains the property of the copyright holders
+** with all rights reserved internationally.
+** Any modifications to the source code are considered derivative works and
+** all rights thereto are reserved to the copyright holders except
+** that the purchaser may use the derivitive work in the same manner
+** as permitted by the license governing the unmodified product.
+** Distribution in any manner of any part of the original source code,
+** whether in source or object form, is expressly prohibited without the
+** express written permission of the copyright holders.
+**
+*/
+
+#define   INCL_IO
+#define   INCL_EVENT
+#include "macro.h"
+
+extern void DismissOpenForEditDlg(BOOL dismiss); // defined in buffer.rm
+
+/*
+** Definitions of TLIB executables & options
+**
+*/
+
+#define CHKOUT_EXE		"TLib.exe"
+#define CHKOUT_OPTIONS	"E"
+
+#define MAX_MSG	400
+
+/* buffer checkout data structure */
+typedef struct _execdata EXECDATA, *PEXECDATA;
+struct _execdata {
+	HBUFFER	hb;
+	LONG		line;
+	LONG		column;
+	ULONG		pid;
+	char		filename[_MAX_PATH];
+};
+
+
+/*
+** _init - Setup version control support
+*/
+void
+_init() {
+	LibAutoload("buffer", "DismissOpenForEditDlg");
+	EventRegisterEvent(EVENT_EDIT_READ_ONLY, EVENT_ONLY, "VcsCheckoutReadOnly");
+	EventRegisterEvent(EVENT_FILE_CREATE,    EVENT_ONLY, "VcsCheckoutCreate");
+} /* end _init() */
+
+
+/*
+** Called when checkout is complete
+** Reloads buffer with newly checked out file
+** Restores original position in buffer
+*/
+void
+VcsCheckoutCompleted( ULONG		pid,
+							 SHORT		rc,
+							 PEXECDATA	pExecData ) {
+	char  msg[MAX_MSG];
+
+	if ( rc ) {
+		sprintf(msg,"Error Checking out file\n%s\nRC= %u\n", pExecData->filename, rc);
+		PopupMsgBox(msg,"VCS Checkout Error", MB_CANCEL | MB_ERROR | MB_MOVEABLE);
+	} else {
+		BufLoadFile(pExecData->hb, pExecData->filename, 0);
+		PosAbs(pExecData->line, pExecData->column);
+		WinUpdateWindow();
+		if ( BufQueryFlags() & BUFFER_READ_ONLY )
+			sprintf(msg,"%s is read only", pExecData->filename);
+		else
+			sprintf(msg,"%s is now writable", pExecData->filename);
+		PopupMsgBox(msg,"VCS Checkout Completed", MB_OK | MB_INFORMATION);
+	}
+	free(pExecData);
+} /* end VcsCheckoutCompleted() */
+
+
+/*
+** VcsCheckoutReadOnly	(Event handler)
+**
+** Called on EVENT_EDIT_READ_ONLY event
+** Prompts whether you want to check the file out
+*/
+SHORT
+VcsCheckoutReadOnly(USHORT event, PVOID nodata) {
+	char  		msg[MAX_MSG];
+	char  		args[300];
+	SHORT 		reply;
+	char			*pszSaveCWD;
+	PEXECDATA	pExecData;
+
+	pExecData = malloc(sizeof(EXECDATA));
+	pExecData->hb = BufQueryCurrentBuffer();
+	strcpy(pExecData->filename, BufQueryFilename());
+
+	sprintf(args, "%s %s", CHKOUT_OPTIONS, pExecData->filename);
+	sprintf(msg,"Do you want to check out the file?\n'%s %s'", CHKOUT_EXE, args );
+	reply = PopupMsgBox(msg,"VCS Check out - File is read only",MB_YESNO | MB_ICONQUESTION | MB_MOVEABLE);
+	if ( reply == MBID_YES ) {
+		BufQueryPosition(&pExecData->line, &pExecData->column);
+		pszSaveCWD = malloc(_MAX_PATH);
+		GetCurrentDir(pszSaveCWD, _MAX_PATH);
+		ChgDirOfFile(pExecData->filename);
+		pExecData->pid = ExecProgram(CHKOUT_EXE, args, "VcsCheckoutCompleted", pExecData);
+		ChgDir(pszSaveCWD);
+		free(pszSaveCWD);
+		if ( !pExecData->pid ) {
+			sprintf(msg, "Could not execute %s", CHKOUT_EXE);
+			PopupMsgBox(msg,"VCS Exec Error", MB_CANCEL | MB_ERROR | MB_MOVEABLE);
+			free(pExecData);
+		}
+	} else
+		free(pExecData);
+	return 0;	/* leaves buffer read only */
+} /* VcsCheckoutReadOnly() */
+
+
+/*
+** Called when checkout is complete
+*/
+void
+VcsCheckoutCreateCompleted( ULONG		pid,
+									 SHORT		rc,
+									 PEXECDATA	pExecData ) {
+	ULONG	hf;
+	char  msg[MAX_MSG];
+	SHORT	reply;
+
+	if ( access(pExecData->filename, 0) ) {
+		sprintf(msg,"Could not check out: %s\nDo you want to create this file?", pExecData->filename);
+		reply = PopupMsgBox(msg,"VCS Check out", MB_YESNO | MB_ICONQUESTION | MB_MOVEABLE);
+		if ( reply != MBID_YES )
+			goto error_exit;
+		hf = creat(pExecData->filename, S_IWRITE | S_IREAD);
+		if ( hf == -1L ) {
+			PopupMsgBox("Could not create this file.", pExecData->filename, MB_ERROR | MB_CANCEL | MB_MOVEABLE);
+			goto error_exit;
+		}
+		close(hf);
+		BufEditFile(pExecData->filename, 0);
+	} else if ( BufEditFile(pExecData->filename, 0) ) {
+		sprintf(msg,"Could not load: %s", pExecData->filename);
+		PopupMsgBox(msg, "Create file", MB_ERROR | MB_CANCEL | MB_MOVEABLE);
+	} else {
+		if ( BufQueryFlags() & BUFFER_READ_ONLY )
+			sprintf(msg,"%s is read only", pExecData->filename);
+		else
+			sprintf(msg,"%s is writable", pExecData->filename);
+		PopupMsgBox(msg,"VCS Checkout Completed", MB_OK | MB_INFORMATION);
+	}
+ error_exit:
+	free(pExecData);
+} /* end VcsCheckoutCreateCompleted() */
+
+
+/*
+** VcsCheckoutCreate	(Event handler)
+**
+** Called on EVENT_FILE_CREATE event
+** Prompts whether you want to check the file out
+** if file is not found.
+*/
+SHORT
+VcsCheckoutCreate(USHORT event, HBUFFER hb) {
+	char  		msg[MAX_MSG];
+	char  		args[300];
+	SHORT 		reply;
+	char			*pszSaveCWD;
+	PEXECDATA	pExecData;
+
+	pExecData = malloc(sizeof(EXECDATA));
+	pExecData->hb = BufQueryCurrentBuffer();
+	strcpy(pExecData->filename, BufQueryFilename(hb));
+
+	sprintf(args, "%s %s", CHKOUT_OPTIONS, pExecData->filename);
+	sprintf(msg,"Do you want to try to check out the file?\n'%s %s'", CHKOUT_EXE, args );
+	reply = PopupMsgBox(msg,"VCS Check out - File not found",MB_YESNO | MB_ICONQUESTION | MB_MOVEABLE);
+	if ( reply != MBID_YES ) {
+		free(pExecData);
+		return 0;
+	}
+	pszSaveCWD = malloc(_MAX_PATH);
+	GetCurrentDir(pszSaveCWD, _MAX_PATH);
+	ChgDirOfFile(pExecData->filename);
+	pExecData->pid = ExecProgram(CHKOUT_EXE, args, "VcsCheckoutCreateCompleted", pExecData);
+	ChgDir(pszSaveCWD);
+	free(pszSaveCWD);
+	if ( !pExecData->pid ) {
+		sprintf(msg, "Could not execute %s", CHKOUT_EXE);
+		PopupMsgBox(msg,"VCS Exec Error", MB_CANCEL | MB_ERROR | MB_MOVEABLE);
+		free(pExecData);
+		return 0;
+	}
+	DismissOpenForEditDlg(1);
+	return 1;	/* Do not create - will be loaded when checkout completed */
+} /* VcsCheckoutReadOnly() */
+
+
+
+/*
+** End module: tlib.rm
+*/

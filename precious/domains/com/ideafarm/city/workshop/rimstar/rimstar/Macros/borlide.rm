@@ -1,0 +1,616 @@
+/*
+** Macro module: borlide.rm - Borland's IDE keyboard map
+**
+** Copyright (C) 1993-1995 Brian L. Smith
+** Copyright (C) 1993-1995 RimStar Technology, Inc.
+** All rights reserved internationally.
+** Unlicensed use is a violation of applicable laws.
+**
+** This source code is provided to licensed users of RimStar's products
+** for the purpose of allowing the user to customize and/or enhance RimStar's
+** products. The source code remains the property of the copyright holders
+** with all rights reserved internationally.
+** Any modifications to the source code are considered derivative works and
+** all rights thereto are reserved to the copyright holders except
+** that the purchaser may use the derivitive work in the same manner
+** as permitted by the license governing the unmodified product.
+** Distribution in any manner of any part of the original source code,
+** whether in source or object form, is expressly prohibited without the
+** express written permission of the copyright holders.
+**
+*/
+
+/*
+** This sets up the editor for Borland's IDE keyboard mapping.
+** To have the editor use this as your default keyboard map
+**  copy borlide.* keyboard.*
+**
+** This file includes many useful functions that may not be supported by
+** Borland's IDE. Some of these have been commented out. To use these
+** functions uncomment them and change the key bindings to whatever key
+** bindings you want to use, recompile this file.
+*/
+
+#include "macro.h"
+
+extern BOOL CUAMode;
+extern BOOL	CUASelActive;
+extern BOOL	MouseNoVirtual;
+extern void	(*pfnSetDefaultKeymap)(void);	/* defined in startup.rm */
+
+void Borland();
+static HKEYBOARD hkBorland;
+
+
+void
+_init(void) {
+	LibAutoload("misc", 		"CharIs", "quote", "next_word", "prev_word",
+					 				"swapcase", "tospace",
+					 				"tolower", "toupper" "toupper_word", "tolower_word",
+									"delete_next_word", "delete_prev_word");
+	LibAutoload("c_smart",	"find_matching_delim", "_c_indent");
+	LibAutoload("Buffer",	"EditFile", "SaveBuffer");
+	LibAutoload("KbdCUA", 	"KbdBindCUAAsciiKeys" );
+	LibAutoload("hexedit",	"HexEditBegin");
+	LibAutoload("bookmark",	"BookmarkSet", "BookmarkGoto");
+} /* end _init() */
+
+
+void
+SetBorland() {
+	if ( !hkBorland ) {
+		KbdPush(NULL);
+		Borland();
+		hkBorland = KbdPop();
+	}
+	KbdPop();	/* Remove current kbd */
+	KbdPush(hkBorland);
+	CUAMode = TRUE;
+	MouseNoVirtual = FALSE;
+	SysSetFlags(SYSTEM_MENUACCEL, 0);
+	MnuSetMenuAccel();
+	MsgPrintf("Borland IDE key map active");
+} /* end SetBorland() */
+
+
+void
+KbdBindDefault() {
+	/* Enable CUA mouse behavior */
+	CUAMode = TRUE;
+	/* Allow mouse to leave cursor in virtual space */
+	MouseNoVirtual = FALSE;
+	/* Disable Alt + mnemonic processing to activate menus (Alt+F, Alt+E, etc.) */
+	SysSetFlags(SYSTEM_MENUACCEL, 0);
+	/* Create the keyboard map */
+	Borland();
+	hkBorland = KbdQueryCurrentKeyboard();
+	pfnSetDefaultKeymap = SetBorland;
+} /* end KbdBindDefault() */
+
+
+void
+Borland() {
+	char  *self_insert = "SelfInsert";
+	char  *p;
+
+	/*
+	** Call function for cua mapping of all typable keys
+	*/
+	KbdBindCUAAsciiKeys();
+
+	/*
+	** Project
+	*/
+	KbdBind("Shift+Alt+E",			"PjtOpen 0");
+	KbdBind("Alt+F3",					"PjtClose");
+	KbdBind("Ctrl+F10",				"PjtBuild");
+	KbdBind("Alt+F10",				"PjtDebugBuild");
+
+	/*
+	** Dialogs
+	*/
+	KbdBind("Alt+B",				"DlgBufferList");
+	KbdBind("Alt+V", 				"DlgVersion");
+	KbdBind("Alt+O", 				"DlgRenameBuffer");
+	KbdBind("Alt+W", 				"SaveBuffer");
+	KbdBind("Alt+E",				"DlgOpenFile");
+	KbdBind("Alt+G",				"DlgGotoLine");
+
+	/*
+	** Keystroke macros
+	*/
+	KbdBind("Shift+Ctrl+P",		"KbdMacroPlay");		/* plays a recorded keystroke macro */
+	KbdBind("Shift+Ctrl+R",		"KbdMacroRecord");  	/* starts/stops keystroke macro recording */
+  	KbdBind("Shift+F7",			"KbdMacroPause");		/* pause keystroke macro playback */
+	KbdBind("Shift+Alt+F7",		"KbdMacroLoad");  	/* load keystroke macro from disk */
+	KbdBind("Shift+Alt+F8",		"KbdMacroSave");	  	/* saves last recorded macro to disk */
+
+	/* 
+	** Toggles
+	*/
+	KbdBind("Ctrl+O+Ctrl+T", 	p="ToggleTabs");
+	KbdBind("Ctrl+O+T", 			p);
+	KbdBind("Ctrl+V",				p="ToggleInsert");
+	KbdBind("KP_INSERT", 		p);
+	KbdBind("INSERT",				p);
+
+	/*
+	** Cursor movement
+	*/
+	KbdBind("KP_LEFT",			p="CUAMov MovLeft");
+	KbdBind("LEFT",				p);
+	KbdBind("Ctrl+S",				p);	// note: rebound to incremetnal search
+	KbdBind("KP_RIGHT",			p="CUAMov MovRight"); 
+	KbdBind("RIGHT",				p); 
+	KbdBind("Ctrl+D",				p); 
+	KbdBind("Ctrl+KP_LEFT",		p="CUAMov prev_word");
+	KbdBind("Ctrl+LEFT", 		p);
+	KbdBind("Ctrl+A",				p);
+	KbdBind("Ctrl+KP_RIGHT",	p="CUAMov next_word");
+  	KbdBind("Ctrl+RIGHT",		p);
+	KbdBind("Ctrl+F",				p);
+
+	KbdBind("KP_UP",				p="CUAMov MovUp");
+	KbdBind("UP",					p);
+	KbdBind("Ctrl+E",				p);
+	KbdBind("KP_DOWN",			p="CUAMov MovDown");
+	KbdBind("DOWN",				p);
+	KbdBind("Ctrl+X",				p);
+	KbdBind("KP_PGUP",			p="CUAMov MovPageUp");
+	KbdBind("PGUP",				p);
+	KbdBind("Ctrl+R",				p);
+	KbdBind("KP_PGDN",			p="CUAMov MovPageDown");
+	KbdBind("PGDN",				p);
+	KbdBind("Ctrl+C",				p);
+
+	KbdBind("Ctrl+KP_UP",	 	p="CUAMov WinScrollDown");
+	KbdBind("Ctrl+UP",	  		p);
+	KbdBind("Ctrl+W", 	  		p);
+	KbdBind("Ctrl+KP_Down",	  	p="CUAMov WinScrollUp");
+	KbdBind("Ctrl+DOWN",			p);
+	KbdBind("Ctrl+Z",				p);
+ 
+	KbdBind("KP_HOME",			p="CUAMov MovSOT");
+	KbdBind("HOME",				p);
+ 	KbdBind("Ctrl+Q+Ctrl+S", 	p);
+ 	KbdBind("Ctrl+Q+S", 			p);
+	KbdBind("KP_END",				p="CUAMov MovEOL");
+	KbdBind("END",					p);
+ 	KbdBind("Ctrl+Q+Ctrl+D",	p);
+ 	KbdBind("Ctrl+Q+D", 			p);
+
+	KbdBind("Ctrl+KP_HOME",		p="CUAMov MovSOF");
+	KbdBind("Ctrl+HOME",			p);
+ 	KbdBind("Ctrl+Q+Ctrl+R",	p);
+ 	KbdBind("Ctrl+Q+R", 			p);
+	KbdBind("Ctrl+KP_END",		p="CUAMov MovEOF");
+	KbdBind("Ctrl+END",			p);
+ 	KbdBind("Ctrl+Q+Ctrl+C",	p);
+ 	KbdBind("Ctrl+Q+C", 			p);
+
+	KbdBind("Ctrl+KP_Enter",	p="CUAMov BufInsertNewline");
+	KbdBind("Ctrl+Enter",		p);
+	KbdBind("Shift+KP_ENTER",	p);
+	KbdBind("Shift+ENTER",		p);
+
+	KbdBind("Ctrl+Kp_PgUp",		p="MovTopWin");
+	KbdBind("Ctrl+PgUp",			p);
+	KbdBind("Ctrl+Q+Ctrl+E",	p);
+	KbdBind("Ctrl+Q+E",			p);
+	KbdBind("Ctrl+Kp_PgDn",		p="MovBottomWin");
+	KbdBind("Ctrl+PgDn",			p);
+	KbdBind("Ctrl+Q+Ctrl+X",	p);
+	KbdBind("Ctrl+Q+X",			p);
+	KbdBind("Ctrl+Q+Ctrl+T",	p="WinScrollTop");
+	KbdBind("Ctrl+Q+T",			p);
+	KbdBind("Ctrl+B",				p="WinScrollBottom");
+	KbdBind("Ctrl+Q+Ctrl+U",	p);
+	KbdBind("Ctrl+Q+U",			p);
+	KbdBind("KP_5", 				p="WinScrollCenter");
+	KbdBind("Ctrl+C",				p);
+
+	/*
+	** Extended Selection operations
+	*/
+	KbdBind("Shift+HOME", 			p="CUASel MovSOL");
+	KbdBind("Shift+KP_HOME", 		p);
+	KbdBind("Shift+END",				p="CUASel MovEOL");
+	KbdBind("Shift+KP_END",			p);
+	KbdBind("Shift+PGUP",			p="CUASel MovPageUp");
+	KbdBind("Shift+KP_PGUP",		p);
+	KbdBind("Shift+PGDN",			p="CUASel MovPageDown");
+	KbdBind("Shift+KP_PGDN",		p);
+	KbdBind("Shift+LEFT",			p="CUASel MovLeft");
+	KbdBind("Shift+KP_LEFT",		p);
+	KbdBind("Shift+RIGHT",			p="CUASel MovRight");
+	KbdBind("Shift+KP_RIGHT",		p);
+	KbdBind("Shift+UP",				p="CUASel MovUp");
+ 	KbdBind("Shift+KP_UP",			p);
+	KbdBind("Shift+DOWN", 			p="CUASel MovDown");
+ 	KbdBind("Shift+KP_DOWN", 		p);
+	KbdBind("Shift+Ctrl+LEFT",	 	p="CUASel prev_word");
+	KbdBind("Shift+Ctrl+KP_LEFT", p);
+	KbdBind("Shift+Ctrl+RIGHT",	p="CUASel next_word");
+  	KbdBind("Shift+Ctrl+KP_RIGHT",p);
+	KbdBind("Shift+Ctrl+HOME",		p="CUASel MovSOF");
+	KbdBind("Shift+Ctrl+KP_HOME", p);
+	KbdBind("Shift+Ctrl+END",		p="CUASel MovEOF");
+	KbdBind("Shift+Ctrl+KP_END",	p);
+	KbdBind("Shift+Ctrl+PGUP",		p="CUASel MovTopWin");
+	KbdBind("Shift+Ctrl+KP_PGUP",	p);
+	KbdBind("Shift+Ctrl+PGDN",		p="CUASel MovBottomWin");
+	KbdBind("Shift+Ctrl+KP_PGDN",	p);
+
+	/*
+	** Selection operations
+	*/
+	KbdBind("Ctrl+K+Ctrl+A", 	p="MarkSetSelType 1");	// inclusive (normal)
+	KbdBind("Ctrl+K+A", 			p);
+	KbdBind("Ctrl+K+Ctrl+G", 	p="MarkSetSelType 2");	// column
+	KbdBind("Ctrl+K+G", 			p);
+	KbdBind("Ctrl+K+Ctrl+M", 	p="MarkSetSelType 4");	// exclusive
+	KbdBind("Ctrl+K+M", 			p);
+	KbdBind("Ctrl+K+Ctrl+X", 	p="MarkSetSelType 3");	// line
+	KbdBind("Ctrl+K+X", 			p);
+
+	KbdBind("Ctrl+K+Ctrl+B",	p="WSMarkBeginSel");
+	KbdBind("Ctrl+K+B",			p);
+	KbdBind("Ctrl+K+Ctrl+K",	p="MarkEndSel");
+	KbdBind("Ctrl+K+K",			p);
+	KbdBind("Ctrl+K+Ctrl+T",	p="SelWord");
+	KbdBind("Ctrl+K+T",			p);
+	KbdBind("Alt+A",				p="MarkExclusive");
+	KbdBind("Alt+C",				p="MarkColumn");
+	KbdBind("Alt+M", 				p="MarkNormal");
+	KbdBind("Alt+L", 				p="MarkLine");
+	KbdBind("Ctrl+K+Ctrl+L",	p);
+	KbdBind("Ctrl+K+L", 			p);
+	KbdBind("Ctrl+Q+Ctrl+B",	p="MovSelBegin");
+	KbdBind("Ctrl+Q+B",			p);
+	KbdBind("Ctrl+Q+Ctrl+K",	p="MovSelEnd");
+	KbdBind("Ctrl+Q+K",			p);
+	KbdBind("Ctrl+K+Ctrl+R",	p="BufInsertFile");
+	KbdBind("Ctrl+K+R",			p);
+	KbdBind("Ctrl+K+Ctrl+W",	p="BufWriteSel");
+	KbdBind("Ctrl+K+W",			p);
+ 	KbdBind("Ctrl+J", 			"tospace");
+ 	KbdBind("Ctrl+K+Ctrl+I",	p="slide_in");
+ 	KbdBind("Ctrl+K+I", 			p);
+ 	KbdBind("Shift+Ctrl+I", 	p);
+ 	KbdBind("Ctrl+K+Ctrl+U",	p="slide_out");
+ 	KbdBind("Ctrl+K+U", 			p);
+ 	KbdBind("Shift+Ctrl+U", 	p);
+ 	KbdBind("Ctrl+K+Ctrl+E", 	p="tolower_word");
+ 	KbdBind("Ctrl+K+E", 			p);
+ 	KbdBind("Ctrl+K+Ctrl+F", 	p="toupper_word");
+ 	KbdBind("Ctrl+K+F", 			p);
+ 	KbdBind("Ctrl+K+Ctrl+N", 	p="toupper");
+ 	KbdBind("Ctrl+K+N", 			p);
+ 	KbdBind("Ctrl+K+Ctrl+O", 	p="tolower");
+ 	KbdBind("Ctrl+K+O", 			p);
+ 	KbdBind("Ctrl+Q+Ctrl+O", 	p="swapcase");
+ 	KbdBind("Ctrl+Q+O", 			p);
+
+	/* 
+	** Cut/Copy/Paste
+	*/
+	KbdBind("KP_MINUS",			"CutToScrap");
+	KbdBind("KP_PLUS",			"CopyToScrap");
+	KbdBind("Ctrl+K+Ctrl+C", 	p="CopyBlock");
+	KbdBind("Ctrl+K+C", 			p);
+	KbdBind("Ctrl+K+Ctrl+V",	p="MoveBlock");
+	KbdBind("Ctrl+K+V",  		p);
+	KbdBind("Ctrl+K+Ctrl+Y",	p="DeleteBlock");
+	KbdBind("Ctrl+K+Y", 			p);
+
+	KbdBind("Shift+KP_DELETE",	p="BufCutToScrap");
+  	KbdBind("Shift+DELETE",		p);
+	KbdBind("Ctrl+KP_INSERT",	p="BufCopyToScrap2");
+	KbdBind("Ctrl+INSERT",		p);
+	KbdBind("Shift+KP_INSERT",	p="BufPasteScrap");
+	KbdBind("Shift+INSERT",		p);
+
+	KbdBind("Shift+Alt+INSERT","ImportClipboard");
+	KbdBind("Ctrl+Alt+INSERT",	"ExportClipboard");
+
+	/* 
+	** Insert & Delete
+	*/
+	KbdBind("Ctrl+N",				p="CUAMov BreakLine");
+	KbdBind("Ctrl+O+Ctrl+O",	p);
+	KbdBind("Ctrl+O+O",			p);
+	KbdBind("Ctrl+Y",				"BufDeleteLine");
+	KbdBind("Ctrl+Q+Ctrl+Y", 	p="BufDeleteToEOL");
+	KbdBind("Ctrl+Q+Y", 			p);
+	KbdBind("Shift+Ctrl+Y", 	p);
+	KbdBind("Ctrl+H",				p="DeletePrevChar");
+	KbdBind("BACKSPACE",			p);
+	KbdBind("Shift+TAB",		  	p/*"MovPrevTabPos"*/);
+  	KbdBind("Ctrl+G",	  			p="BufDeleteChar");
+	KbdBind("KP_DELETE",			p);
+	KbdBind("DELETE",				p);
+	KbdBind("Ctrl+T",				"delete_next_word");	/* in misc.rm */
+	KbdBind("Ctrl+BACKSPACE",	"delete_prev_word");	/* in misc.rm */
+	KbdBind("Alt+|", 				"BufDeleteWhitespace");
+	KbdBind("Ctrl+P", 			"quote");		/* in misc.rm */
+
+	/*
+	** Toolkit help for function under cursor
+	**
+	** NOTE: To use QueryInfHelp you must add the following environment variable
+	**	(OS/2) to your config.sys:
+	**	 SET RSE_INF=GUIREF20.INF+PMFUN.INF+PMGPI.INF+PMHOK.INF+PMMSG.INF+PMREL.INF+PMWIN.INF+PMWKP.INF
+	**  The setting is taken from the combination of the  PROGREF21 and PMREF environment variables
+	**  You may add additional .INF files or remove some.
+	**
+	** (WINDOWS) to your autoexec.bat:
+	**	 SET RSE_INF=fully qualified name of a single windows help file,
+	**  (eg. SET RSE_INF=c:\msvc20\help\api32.hlp)
+	*/
+	KbdBind("Alt+H",				p="HelpQueryInfHelp");
+	KbdBind("Ctrl+F1",			p);
+
+	/* Search & Replace */
+	KbdBind("ALT+S+ALT+F", 		"SearchSel 1");
+	KbdBind("ALT+S+ALT+B", 		"SearchSel 0");
+	KbdBind("Ctrl+Q+Ctrl+A",	p="Replace 0");
+	KbdBind("Ctrl+Q+A",			p);
+	KbdBind("Ctrl+Q+Ctrl+F",	p="Search 0");
+	KbdBind("Ctrl+Q+F",			p);
+	KbdBind("Ctrl+Q+Ctrl+G",	p="SrchFiles");
+	KbdBind("Ctrl+Q+G",			p);
+	KbdBind("Ctrl+L",				p="SearchAgain");
+	KbdBind("F3",					p);
+	KbdBind("Ctrl+S",				"incremental_search");
+
+	/*
+	** Compile and Jump to Error
+	**
+	** ALT+F9 Is for use in error output buffer - place cursor on error line
+	** jumps to file & line in error,  loading the file if needed
+	*/
+	KbdBind("Alt+F9",				"ErrJumpToError");
+	KbdBind("Shift+F4",		 	p="ErrPrevError");
+	KbdBind("Alt+F7",		 		p);
+  	KbdBind("Shift+F3",		 	p="ErrNextError");
+  	KbdBind("Alt+F8",		 		p);
+
+	KbdBind("Ctrl+F3",			p="ExecAssoc");		/* Run compilers, etc. */
+	KbdBind("F9",					p);
+	KbdBind("Shift+Ctrl+F3",	"ExecKillProcess");	/* Stop compile */
+
+	/*
+	** Undo & Redo operations
+	*/
+	KbdBind("Ctrl+Q+L", 					p="Undo");
+	KbdBind("Ctrl+Q+Ctrl+L",			p);
+	KbdBind("Alt+U", 						p);
+	KbdBind("Shift+Ctrl+BACKSPACE", 	p);
+	//KbdBind("KP_STAR",				  	p="UndoModification");
+	//KbdBind("Shift+KP_STAR",	  		p="RedoModification");
+	KbdBind("Alt+BACKSPACE", 			"UndoModification");
+	KbdBind("Alt+Kp_Insert", 			p="Redo");
+	KbdBind("Alt+Insert", 				p);
+	KbdBind("Shift+Alt+Backspace",	"RedoModification");
+	KbdBind("Shift+Ctrl+KP_STAR",		"UndoAll");
+	KbdBind("Shift+Alt +KP_STAR",		"RedoAll");
+
+	/* 
+	** window operations
+	*/
+	KbdBind("F6",			  		p="WinNextWindow");
+	KbdBind("Ctrl+F6",			p);
+	KbdBind("Shift+F6",			"WinPrevWindow");
+	KbdBind("Alt+F6",				"WinNewTiledWindow");
+	/* Change window to Hex mode */
+	KbdBind("Shift+Ctrl+H",		"HexEditBegin");
+
+	/* 
+	** Macro operations
+	*/
+	KbdBind("Shift+F10",			"DlgLoadMacro");
+	KbdBind("F10",					"LibExecFunction");
+
+	/*
+	** Buffer operations
+	*/
+	KbdBind("Shift+Ctrl+-",	  	"WinDeleteWindowAndBuffer");
+	KbdBind("Ctrl+-",			  	"BufDeleteCurrentBuffer");
+	KbdBind("Alt+-", 	 			"BufPrevBuffer");
+	KbdBind("Alt+N", 				"BufNextBuffer");
+	KbdBind("Ctrl+K+Ctrl+P",	p="Print");
+	KbdBind("Ctrl+K+P", 			p);
+  	KbdBind("Shift+F2",			p="SaveBuffer");
+	KbdBind("F2",				  	p);
+	KbdBind("Ctrl+K+Ctrl+S",  	p);
+	KbdBind("Ctrl+K+S",			p);
+	KbdBind("Ctrl+]",  			p="find_matching_delim");	/* in c_smart.rm */
+	KbdBind("Ctrl+[",  			p);
+	KbdBind("Alt+]",  			p);
+	KbdBind("Alt+[",  			p);
+	KbdBind("Ctrl+Q+Ctrl+[",  	p);
+	KbdBind("Ctrl+Q+[",  		p);
+	KbdBind("Ctrl+Q+Ctrl+]",  	p);
+	KbdBind("Ctrl+Q+]",  		p);
+	KbdBind("Ctrl+O+Ctrl+I",	p="_c_indent");
+	KbdBind("Ctrl+O+I", 			p);
+	KbdBind("Alt+?", 				"CharIs");
+	KbdBind("Alt+X", 				p="ExitEditor");
+	KbdBind("Alt+F4",				p);
+
+	/* Source browser bindings */
+	KbdBind("F11",					"SbBrowseSymbolAtCursor");
+	KbdBind("Shift+F11",			"SbBrowseDefs");
+	KbdBind("Ctrl+F11",			"SbBrowseRefs");
+	KbdBind("Alt+F11",			"SbBrowseSymbolsDefinedInModule");
+	KbdBind("F12",					"SbFindNext");
+	KbdBind("Shift+F12",			"SbFindPrev");
+	KbdBind("Alt+F12",			"SbGotoDef");
+	KbdBind("Ctrl+F12",			"SbrFindNextDef");
+	KbdBind("Shift+Ctrl+F12",	"SbrFindPrevDef");
+	KbdBind("Ctrl+Alt+F12",		"SbJumpBack");
+
+	/*
+	** Bookmarks
+	*/
+	KbdBind("Ctrl+K+1", 		p="BookmarkSet 1");
+	KbdBind("Shift+Ctrl+1", p);
+	KbdBind("Ctrl+K+2", 		p="BookmarkSet 2");
+	KbdBind("Shift+Ctrl+2", p);
+	KbdBind("Ctrl+K+3", 		p="BookmarkSet 3");
+	KbdBind("Shift+Ctrl+3", p);
+	KbdBind("Ctrl+K+4", 		p="BookmarkSet 4");
+	KbdBind("Shift+Ctrl+4", p);
+	KbdBind("Ctrl+K+5", 		p="BookmarkSet 5");
+	KbdBind("Shift+Ctrl+5", p);
+	KbdBind("Ctrl+K+6", 		p="BookmarkSet 6");
+	KbdBind("Shift+Ctrl+6", p);
+	KbdBind("Ctrl+K+7", 		p="BookmarkSet 7");
+	KbdBind("Shift+Ctrl+7", p);
+	KbdBind("Ctrl+K+8", 		p="BookmarkSet 8");
+	KbdBind("Shift+Ctrl+8", p);
+	KbdBind("Ctrl+K+9", 		p="BookmarkSet 9");
+	KbdBind("Shift+Ctrl+9", p);
+	KbdBind("Ctrl+K+0", 		p="BookmarkSet 10");
+	KbdBind("Shift+Ctrl+0", p);
+
+	KbdBind("Ctrl+Q+1",		p="BookmarkGoto 1");
+	KbdBind("Ctrl+1",			p);
+	KbdBind("Ctrl+Q+2",		p="BookmarkGoto 2");
+	KbdBind("Ctrl+2",			p);
+	KbdBind("Ctrl+Q+3",		p="BookmarkGoto 3");
+	KbdBind("Ctrl+3",			p);
+	KbdBind("Ctrl+Q+4",		p="BookmarkGoto 4");
+	KbdBind("Ctrl+4",			p);
+	KbdBind("Ctrl+Q+5",		p="BookmarkGoto 5");
+	KbdBind("Ctrl+5",			p);
+	KbdBind("Ctrl+Q+6",		p="BookmarkGoto 6");
+	KbdBind("Ctrl+6",			p);
+	KbdBind("Ctrl+Q+7",		p="BookmarkGoto 7");
+	KbdBind("Ctrl+7",			p);
+	KbdBind("Ctrl+Q+8",		p="BookmarkGoto 8");
+	KbdBind("Ctrl+8",			p);
+	KbdBind("Ctrl+Q+9",		p="BookmarkGoto 9");
+	KbdBind("Ctrl+9",			p);
+	KbdBind("Ctrl+Q+0",		p="BookmarkGoto 10");
+	KbdBind("Ctrl+0",			p);
+
+} /* end Borland() */
+
+
+void
+DeleteLineOrSelection( void ) {
+
+	if ( !MarkQuerySelType() )
+		BufDeleteLine();
+	else 
+		BufDeleteSel();
+} /* end DeleteLineOrSelection() */
+
+
+void
+DeletePrevChar(void) {
+	if ( BufQueryColumn() == 1L )
+		BufDeletePrevChar();
+	else
+		BufBackspace();
+} /* end DeletePrevChar() */
+
+
+void
+WSMarkBeginSel( void ) {
+	if ( MarkQuerySelType() )
+		MarkRemoveSel();
+	else
+		MarkBeginSel(SELECT_EXCLUSIVE);
+} /* end WSMarkBeginSel() */
+
+
+void
+CopyBlock(void) {
+	HBUFFER	scrap;
+
+	if ( !MarkQuerySelType() ||
+		  MarkQueryIsSelOpen()) {
+		MsgWarning("Copy: No block or it is still open");
+		return;
+	}
+	scrap = BufCreateScrapFromSel();
+	if ( !scrap )
+		return;
+	BufPasteScrap(scrap);
+} /* end CopyBlock() */
+
+
+void
+MoveBlock(void) {
+	HBUFFER	scrap;
+
+	if ( !MarkQuerySelType() ||
+		  MarkQueryIsSelOpen() ) {
+		MsgWarning("Move: No block or it is still open");
+		return;
+	}
+	scrap = BufCreateScrapFromSel();
+	if ( !scrap )
+		return;
+	MarkPushPos();
+	BufDeleteSel();
+	MarkPopPos(1,1);
+	BufPasteScrap(scrap);
+} /* end MoveBlock() */
+
+
+void
+DeleteBlock(void) {
+	if ( !MarkQuerySelType() )
+		return;
+	MarkPushPos();
+	BufDeleteSel();
+	MarkPopPos();
+} /* end DeleteBlock() */
+
+
+void
+MovSelBegin(void) {
+	SELECTION	sel;
+
+	if ( !MarkQuerySelExcl(&sel, 1) ||
+		  MarkQueryIsSelOpen() )
+		return;
+	MovAbs(sel.s_line, sel.s_column);
+} /* end MovSelStart() */
+
+
+void
+MovSelEnd(void) {
+	SELECTION	sel;
+
+	if ( !MarkQuerySelExcl(&sel, 1) ||
+		  MarkQueryIsSelOpen() )
+		return;
+	MovAbs(sel.e_line, sel.e_column);
+} /* end MovSelEnd() */
+
+
+void
+BufCopyToScrap2(void) {
+	if ( !MarkQuerySelType() )
+		return;
+	BufCopyToScrap();
+	MarkRemoveSel();
+} /* end BufCopyToScrap2() */
+
+
+void
+BreakLine( void ) {
+	BufInsertNewline();
+	MovUp();
+	MovEOL();
+} /* end BreakLine() */
+
+
+
+/*
+** End module: borlide.rm 
+*/

@@ -1,0 +1,694 @@
+/*
+** Macro module: menu.rm - Menu & toolbar support macros
+**
+** Copyright (C) 1993-1995 Brian L. Smith
+** All rights reserved internationally.
+** Unlicensed use is a violation of applicable laws.
+**
+** This source code is provided to licensed users of RimStar's products
+** for the purpose of allowing the user to customize and/or enhance RimStar's
+** products. The source code remains the property of the copyright holders
+** with all rights reserved internationally.
+** Any modifications to the source code are considered derivative works and
+** all rights thereto are reserved to the copyright holders except
+** that the purchaser may use the derivitive work in the same manner
+** as permitted by the license governing the unmodified product.
+** Distribution in any manner of any part of the original source code,
+** whether in source or object form, is expressly prohibited without the
+** express written permission of the copyright holders.
+**
+*/
+
+#define INCL_EVENT
+#define INCL_MENU
+#include "macro.h"
+
+#undef toupper
+#undef tolower
+
+extern BOOL	CUAMode;
+extern void	CUAReplace(char *);
+extern void	SetDefaultKeymap(void);
+extern void SearchSel(int);
+
+#define IDM_FILE_COMPARE	(IDM_FILE_LAST+1)
+#define IDM_FILE_MERGE		(IDM_FILE_LAST+2)
+
+#define IDM_GOTOSEPARATOR	(IDM_SB_LAST+1)
+#define IDM_GOTOLINE			(IDM_SB_LAST+2)
+
+#define IDM_KBD_WHATIS		(IDM_KEYS_LAST+1)
+#define IDM_KBD_SEPARATOR	(IDM_KEYS_LAST+2)
+#define IDM_KBD_BORLAND		(IDM_KEYS_LAST+3)
+#define IDM_KBD_BRIEF 		(IDM_KEYS_LAST+4)
+#define IDM_KBD_CUABRIEF	(IDM_KEYS_LAST+5)
+#define IDM_KBD_CUA			(IDM_KEYS_LAST+6)
+#define IDM_KBD_EPM			(IDM_KEYS_LAST+7)
+#define IDM_KBD_EPSILON		(IDM_KEYS_LAST+8)
+#define IDM_KBD_MULITED		(IDM_KEYS_LAST+9)
+#define IDM_KBD_PWB			(IDM_KEYS_LAST+10)
+#define IDM_KBD_SLICKED		(IDM_KEYS_LAST+11)
+#define IDM_KBD_DEFAULT		(IDM_KEYS_LAST+12)
+
+// Popup menu ids that are not already defined
+#define IDM_POPUP				1000
+#define IDM_DESELECT			(IDM_POPUP+1)
+#define IDM_FIND				(IDM_POPUP+2)
+#define IDM_SYMBOL_HELP		(IDM_POPUP+3)
+
+
+HWND	hwndPopupMenu;
+HWND	CreatePopupMenu(void);
+
+
+void
+_init(void) {
+	LibAutoload("buffer",	"EditFile", "SaveBuffer", "ReloadBuffer",
+									"CopyToScrap", "CutToScrap",
+									"CutAppendToScrap", "CopyAppendToScrap",
+									"WinNewTiledWindow", "WinZoom", "WinOneWindow"
+									);
+	LibAutoload("search", 	"Search",  "SearchAgain",  "SearchBackward",  "SearchForward", "SearchSel",
+					 				"Replace", "ReplaceAgain", "ReplaceBackward", "ReplaceForward" );
+	LibAutoload("slide", 	"slide_in", "slide_out");
+	LibAutoload("isearch", 	"incremental_search");
+	LibAutoload("misc",		"toupper", "tolower", "WhatIs");
+	LibAutoload("compmerg",	"FileCompare", "FileMerge");
+	LibAutoload("srchfile",	"SrchFiles");
+
+	LibAutoload("borlide",	"SetBorland");
+	LibAutoload("brief",		"SetBrief");
+	LibAutoload("cuabrief",	"SetCUABrief");
+	LibAutoload("cua",		"SetCUA");
+	LibAutoload("epm",		"SetEPM");
+	LibAutoload("epsilon",	"SetEpsilon");
+	LibAutoload("multied",	"SetMultiEdit");
+	LibAutoload("pwb",		"SetPWB");
+	LibAutoload("slick",		"SetSlickEdit");
+	LibAutoload("project",	"RunDialogEditor", "RunImageEditor", "BuildBrowserDatabase");
+  #if WINDOWS
+	LibAutoload("cppgen", 	"CppLaunchClassGen", "CppMakeClass");
+  #endif
+	hwndPopupMenu = CreatePopupMenu();
+} /* end _init() */
+
+
+char *
+GetShortcut(char *function) {
+	PBINDING	pBind;
+
+	pBind = KbdQueryBinding(function, NULL);
+	if ( !pBind )
+		return NULL;
+	return KbdKeysToString(pBind->key, pBind->cKeys);
+} /* end GetShortcut() */
+
+
+void
+CustomizeMenu(void) {
+
+  #if 0
+	/*
+	** This is an example of how you can add your own pulldown menu to the menu bar.
+	** The method is now the same for Windows & OS/2.
+	*/
+	#define IDM_RUN		(IDM_LASTACTION + 100)
+	#define IDM_RUNGREP	(IDM_RUN + 1)
+
+  	/* Add a pulldown menu to the action-bar */
+	MnuInsertSubMenu(NULL, NULL, 7, IDM_RUN, "~Run", "");
+
+	/* Add an item to the pulldown just created */
+	MnuInsertItem(NULL, IDM_RUN, MIT_END, 0, IDM_RUNGREP, "~Grep", NULL);
+  #endif
+
+	/* Add extra items to File pulldown */
+	MnuInsertItem(NULL, IDM_FILE, 10, 0, IDM_FILE_COMPARE, "Compa~re" , NULL);
+	MnuInsertItem(NULL, IDM_FILE, 11, 0, IDM_FILE_MERGE, "Mer~ge" , NULL);
+
+	/* Add extra items to Browse pulldown */
+	MnuInsertItem(NULL, IDM_BROWSE, MIT_END, MIA_SEPARATOR, IDM_GOTOSEPARATOR, NULL, NULL); /* create separator line */
+	MnuInsertItem(NULL, IDM_BROWSE, MIT_END, 0, IDM_GOTOLINE, "G~oto line" , NULL);
+
+	/* Add extra items to Keys pulldown */
+
+	MnuInsertItem(NULL, IDM_KEYS, MIT_END, 0, IDM_KBD_WHATIS,	"~What is"				, NULL);
+	MnuInsertItem(NULL, IDM_KEYS, MIT_END, MIA_SEPARATOR, IDM_KBD_SEPARATOR, NULL, NULL); /* create separator line */
+	MnuInsertItem(NULL, IDM_KEYS, MIT_END, 0, IDM_KBD_BORLAND, 	"Borland IDE" 			, NULL);
+	MnuInsertItem(NULL, IDM_KEYS, MIT_END, 0, IDM_KBD_BRIEF, 	"Brief" 					, NULL);
+	MnuInsertItem(NULL, IDM_KEYS, MIT_END, 0, IDM_KBD_CUABRIEF, "Brief w/CUA ext." 	, NULL);
+	MnuInsertItem(NULL, IDM_KEYS, MIT_END, 0, IDM_KBD_CUA, 		"CUA" 					, NULL);
+	MnuInsertItem(NULL, IDM_KEYS, MIT_END, 0, IDM_KBD_EPM, 		"EPM" 					, NULL);
+	MnuInsertItem(NULL, IDM_KEYS, MIT_END, 0, IDM_KBD_EPSILON, 	"Epsilon/EMACS"		, NULL);
+	MnuInsertItem(NULL, IDM_KEYS, MIT_END, 0, IDM_KBD_MULITED, 	"Multi-Edit" 			, NULL);
+	MnuInsertItem(NULL, IDM_KEYS, MIT_END, 0, IDM_KBD_PWB, 		"PWB" 					, NULL);
+	MnuInsertItem(NULL, IDM_KEYS, MIT_END, 0, IDM_KBD_SLICKED, 	"SlickEdit" 			, NULL);
+	MnuInsertItem(NULL, IDM_KEYS, MIT_END, 0, IDM_KBD_DEFAULT, 	"~Default" 				, NULL);
+
+} /* end CustomizeMenu() */
+
+
+HWND
+QueryPopupMenu() {
+	return hwndPopupMenu;
+}
+
+
+BOOL
+PopupMenu(UINT fBtnsDown, INT x, INT y) {
+	INT	idItem = IDM_COPY;	// select this item in the menu
+
+	if ( !MnuPopupMenu(QueryPopupMenu(), idItem, fBtnsDown, x, y) ) {
+		MsgError("Popup menu failed.");
+		return FALSE;
+	}
+	return TRUE;
+} // end PopupMenu()
+
+
+HWND
+CreatePopupMenu() {
+	HWND	hwndMenu;
+	int	rc;
+
+	/* Create empty menu */
+	hwndMenu = MnuCreatePopupMenu();
+	if ( !hwndMenu ) {
+		PopupMsg("Unable to create popup menu", "CreatePopupMenu");
+		return 0;
+	}
+	/* Add items to the popup menu */
+	rc  = MnuInsertItem(hwndMenu, 0, MIT_END, 0, IDM_UNDO			    , "~Undo"				, NULL);
+	rc += MnuInsertItem(hwndMenu, 0, MIT_END, 0, IDM_REDO			    , "~Redo"				, NULL);
+	rc += MnuInsertItem(hwndMenu, 0, MIT_END, 0, IDM_DESELECT	    , "Deselect"			, NULL);
+	rc += MnuInsertItem(hwndMenu, 0, MIT_END, MIA_SEPARATOR, 0, NULL, NULL);
+	rc += MnuInsertItem(hwndMenu, 0, MIT_END, 0, IDM_CUT			    , "Cu~t"				, NULL);
+	rc += MnuInsertItem(hwndMenu, 0, MIT_END, 0, IDM_COPY			    , "~Copy"				, NULL);
+	rc += MnuInsertItem(hwndMenu, 0, MIT_END, 0, IDM_PASTE		    , "~Paste"				, NULL);
+	rc += MnuInsertItem(hwndMenu, 0, MIT_END, 0, IDM_DELETE		    , "~Delete"			, NULL);
+	rc += MnuInsertItem(hwndMenu, 0, MIT_END, MIA_SEPARATOR, 0, NULL, NULL);
+	rc += MnuInsertItem(hwndMenu, 0, MIT_END, 0, IDM_UPPERCASE	    , "Uppe~rcase"		, NULL);
+	rc += MnuInsertItem(hwndMenu, 0, MIT_END, 0, IDM_LOWERCASE	    , "~Lowercase"		, NULL);
+	rc += MnuInsertItem(hwndMenu, 0, MIT_END, MIA_SEPARATOR, 0, NULL, NULL);
+	rc += MnuInsertItem(hwndMenu, 0, MIT_END, 0, IDM_FIND    	    , "~Find"				, NULL);
+	rc += MnuInsertItem(hwndMenu, 0, MIT_END, 0, IDM_REPLACE_FORWARD, "R~eplace"			, NULL);
+	rc += MnuInsertItem(hwndMenu, 0, MIT_END, MIA_SEPARATOR, 0, NULL, NULL);
+	rc += MnuInsertItem(hwndMenu, 0, MIT_END, 0, IDM_SB_GOTODEF     , "~Goto defintion"	, NULL);
+	rc += MnuInsertItem(hwndMenu, 0, MIT_END, 0, IDM_SB_SYMBOL      , "~Symbol info"		, NULL);
+	rc += MnuInsertItem(hwndMenu, 0, MIT_END, 0, IDM_SYMBOL_HELP    , "Symbol ~help"		, NULL);
+	if ( rc )
+		PopupMsg("Items failed to insert", "CreatePopupMenu");
+	return hwndMenu;
+} /* end CreatePopupMenu() */
+
+
+HWND
+PjtInitMenu(HWND hwndMenu)
+{
+	int	rc;
+	rc  = MnuInsertItem(hwndMenu, 0, MIT_END, 0, IDM_PJT_SETTINGS   , "Settings..."		, NULL);
+	return hwndMenu;
+}
+
+
+/*
+**	MnuSetMenuAccel - Sets hot-keys for all pulldown menu items
+**		according to current keyboard mapping
+*/
+MnuSetMenuAccel(void) {
+	MnuSetItemText(IDM_NEW			  		, NULL, GetShortcut("BufNewFile"));
+	MnuSetItemText(IDM_OPEN			 		, NULL, GetShortcut("DlgOpenFile"));
+	MnuSetItemText(IDM_CLOSE				, NULL, GetShortcut("BufDeleteCurrentBuffer"));
+	MnuSetItemText(IDM_SAVE			 		, NULL, GetShortcut("SaveBuffer"));
+	MnuSetItemText(IDM_SAVEAS		  		, NULL, GetShortcut("DlgRenameBuffer"));
+	MnuSetItemText(IDM_SAVEALL		  		, NULL, GetShortcut("SysSaveAll"));
+	MnuSetItemText(IDM_PRINT				, NULL, GetShortcut("PrintSetup"));
+	MnuSetItemText(IDM_PRINT				, NULL, GetShortcut("Print"));
+	MnuSetItemText(IDM_LOAD_MACROFILE	, NULL, GetShortcut("DlgLoadMacro"));
+	MnuSetItemText(IDM_FILE_COMPARE 		, NULL, GetShortcut("FileCompare"));
+	MnuSetItemText(IDM_FILE_MERGE	 		, NULL, GetShortcut("FileMerge"));
+	MnuSetItemText(IDM_SAVEEXIT	 		, NULL, GetShortcut("SysSaveAndExit"));
+	MnuSetItemText(IDM_EXIT			 		, NULL, GetShortcut("ExitEditor"));
+
+	MnuSetItemText(IDM_UNDO						, NULL, GetShortcut("UndoModification"));
+	MnuSetItemText(IDM_REDO						, NULL, GetShortcut("RedoModification"));
+	MnuSetItemText(IDM_CUT		 				, NULL, GetShortcut("CutToScrap"));
+	MnuSetItemText(IDM_COPY						, NULL, GetShortcut("CopyToScrap"));
+	if ( CUAMode )
+		MnuSetItemText(IDM_PASTE	  			, NULL, GetShortcut("CUAReplace BufPasteScrap"));
+	else
+		MnuSetItemText(IDM_PASTE	  			, NULL, GetShortcut("BufPasteScrap"));
+	MnuSetItemText(IDM_DELETE	 				, NULL, GetShortcut("BufDeleteCharOrSelection"));
+	MnuSetItemText(IDM_CUTAPPEND           , NULL, GetShortcut("CutAppendToScrap"));
+	MnuSetItemText(IDM_COPYAPPEND          , NULL, GetShortcut("CopyAppendToScrap"));
+	MnuSetItemText(IDM_INDENT    				, NULL, GetShortcut("slide_in"));
+	MnuSetItemText(IDM_OUTDENT   				, NULL, GetShortcut("slide_out"));
+	MnuSetItemText(IDM_UPPERCASE 				, NULL, GetShortcut("toupper"));
+	MnuSetItemText(IDM_LOWERCASE				, NULL, GetShortcut("tolower"));
+	MnuSetItemText(IDM_INSERTFILE				, NULL, GetShortcut("BufInsertFile"));
+	MnuSetItemText(IDM_IMPORTCLIP				, NULL, GetShortcut("ImportClipboard"));
+	MnuSetItemText(IDM_EXPORTCLIP				, NULL, GetShortcut("ExportClipboard"));
+
+	MnuSetItemText(IDM_ISEARCH       		, NULL, GetShortcut("incremental_search"));
+	MnuSetItemText(IDM_SEARCH_FILES    		, NULL, GetShortcut("SrchFiles"));
+	MnuSetItemText(IDM_SEARCH_FORWARD  		, NULL, GetShortcut("SearchForward"));
+	MnuSetItemText(IDM_SEARCH_BACKWARD 		, NULL, GetShortcut("SearchBackward"));
+	MnuSetItemText(IDM_SEARCH_AGAIN	 		, NULL, GetShortcut("SearchAgain"));
+	MnuSetItemText(IDM_REPLACE_FORWARD 		, NULL, GetShortcut("ReplaceForward"));
+	MnuSetItemText(IDM_REPLACE_BACKWARD		, NULL, GetShortcut("ReplaceBackward"));
+	MnuSetItemText(IDM_REPLACE_AGAIN			, NULL, GetShortcut("ReplaceAgain"));
+	MnuSetItemText(IDM_SEARCH_NEXTERR  		, NULL, GetShortcut("ErrNextError"));
+	MnuSetItemText(IDM_SEARCH_PREVERR  		, NULL, GetShortcut("ErrPrevError"));
+
+	MnuSetItemText(IDM_SB_GOTODEF				, NULL, GetShortcut("SbGotoDef"));
+	MnuSetItemText(IDM_SB_SYMBOL 				, NULL, GetShortcut("SbBrowseSymbolAtCursor"));
+	MnuSetItemText(IDM_SB_DEF	 				, NULL, GetShortcut("SbBrowseDefs"));
+	MnuSetItemText(IDM_SB_REF	 				, NULL, GetShortcut("SbBrowseRefs"));
+	MnuSetItemText(IDM_SB_MOD	 				, NULL, GetShortcut("SbBrowseSymbolsDefinedInModule"));
+	MnuSetItemText(IDM_SB_CLASSES				, NULL, GetShortcut("SbrClassView"));
+	MnuSetItemText(IDM_SB_NEXTDEF				, NULL, GetShortcut("SbrFindNextDef"));
+	MnuSetItemText(IDM_SB_PREVDEF				, NULL, GetShortcut("SbrFindPrevDef"));
+	MnuSetItemText(IDM_SB_NEXT					, NULL, GetShortcut("SbFindNext"));
+	MnuSetItemText(IDM_SB_PREV					, NULL, GetShortcut("SbFindPrev"));
+	MnuSetItemText(IDM_GOTOLINE				, NULL, GetShortcut("DlgGotoLine"));
+
+	MnuSetItemText(IDM_PJT_SETTINGS			, NULL, GetShortcut("PjtSettings"));
+	MnuSetItemText(IDM_PJT_NEW					, NULL, GetShortcut("PjtNew"));
+	MnuSetItemText(IDM_PJT_OPEN				, NULL, GetShortcut("PjtOpen"));
+	MnuSetItemText(IDM_PJT_CLOSE				, NULL, GetShortcut("PjtClose"));
+	MnuSetItemText(IDM_PJT_DBUPDATE			, NULL, GetShortcut("PjtUpdateBrowserDB"));
+	MnuSetItemText(IDM_PJT_DBREBUILD			, NULL, GetShortcut("PjtBuildBrowserDB"));
+	MnuSetItemText(IDM_PJT_BUILD				, NULL, GetShortcut("PjtBuild"));
+	MnuSetItemText(IDM_PJT_BUILDALL			, NULL, GetShortcut("PjtBuildAll"));
+	MnuSetItemText(IDM_PJT_DBGBUILD			, NULL, GetShortcut("PjtDebugBuild"));
+	MnuSetItemText(IDM_PJT_DBGBUILDALL		, NULL, GetShortcut("PjtDebugBuildAll"));
+	MnuSetItemText(IDM_PJT_RUN					, NULL, GetShortcut("PjtRunExecutable"));
+	MnuSetItemText(IDM_PJT_DEBUG				, NULL, GetShortcut("PjtDebugExecutable"));
+
+	MnuSetItemText(IDM_BUFFER_NEXT			, NULL, GetShortcut("BufNextBuffer"));
+	MnuSetItemText(IDM_BUFFER_PREV			, NULL, GetShortcut("BufPrevBuffer"));
+	MnuSetItemText(IDM_BUFFER_EXECUTE		, NULL, GetShortcut("ExecAssoc"));
+	MnuSetItemText(IDM_BUFFER_CLOSE  		, NULL, GetShortcut("BufDeleteCurrentBuffer"));
+	MnuSetItemText(IDM_BUFFER_LIST			, NULL, GetShortcut("DlgBufferList"));
+
+	MnuSetItemText(IDM_WINDOW_CASCADE		, NULL, GetShortcut("WinCascade"));
+	MnuSetItemText(IDM_WINDOW_TILE_WIDE		, NULL, GetShortcut("WinTileAcross"));
+	MnuSetItemText(IDM_WINDOW_TILE_TALL		, NULL, GetShortcut("WinTileDown"));
+	MnuSetItemText(IDM_WINDOW_KEEP_TILED	, NULL, GetShortcut("ToggleKeepTiled"));
+	MnuSetItemText(IDM_WINDOW_KEEP_CASCADED, NULL, GetShortcut("ToggleKeepCascaded"));
+	MnuSetItemText(IDM_WINDOW_NEXT			, NULL, GetShortcut("WinNextWindow"));
+	MnuSetItemText(IDM_WINDOW_PREV			, NULL, GetShortcut("WinPrevWindow"));
+	MnuSetItemText(IDM_WINDOW_CREATE			, NULL, GetShortcut("WinNewWindow"));
+	MnuSetItemText(IDM_WINDOW_SPLIT_HORIZ	, NULL, GetShortcut("WinSplitV"));
+	MnuSetItemText(IDM_WINDOW_SPLIT_VERT 	, NULL, GetShortcut("WinSplitH"));
+	MnuSetItemText(IDM_WINDOW_ONEWIN		 	, NULL, GetShortcut("WinOneWindow"));
+	MnuSetItemText(IDM_WINDOW_DELETE			, NULL, GetShortcut("WinCloseWindow"));
+
+	MnuSetItemText(IDM_KEYS_PLAY		  	, NULL, GetShortcut("KbdMacroPlay"));
+	MnuSetItemText(IDM_KEYS_RECORD		, NULL, GetShortcut("KbdMacroRecord"));
+	MnuSetItemText(IDM_KEYS_SAVEKBDMACRO, NULL, GetShortcut("KbdMacroSave"));
+	MnuSetItemText(IDM_KEYS_LOADKBDMACRO, NULL, GetShortcut("KbdMacroLoad"));
+	MnuSetItemText(IDM_KBD_WHATIS			, NULL, GetShortcut("WhatIs"));
+
+	MnuSetItemText(IDM_DIALOGEDIT			, NULL, GetShortcut("RunDialogEditor"));
+	MnuSetItemText(IDM_ICONEDIT  			, NULL, GetShortcut("RunImageEditor"));
+  #if WINDOWS
+	MnuSetItemText(IDM_TOOLS_CPPCLASS	, NULL, GetShortcut("CppLaunchClassGen"));
+  #endif
+
+	MnuSetItemText(IDM_CONFIG				, NULL, GetShortcut("DlgConfigGlobals"));
+	MnuSetItemText(IDM_CONFIGTEXTFONT   , NULL, GetShortcut("DlgConfigTextFont()"));
+	MnuSetItemText(IDM_CONFIGSTATUSFONT , NULL, GetShortcut("DlgConfigStatusFont()"));
+	MnuSetItemText(IDM_CONFIGTREEFONT   , NULL, GetShortcut("DlgConfigTreeFont()"));
+	MnuSetItemText(IDM_CONFIGFONT  		, NULL, GetShortcut("DlgConfigFonts"));
+	MnuSetItemText(IDM_CONFIGCOLORS		, NULL, GetShortcut("DlgConfigColors"));
+	MnuSetItemText(IDM_CONFIGCURSOR		, NULL, GetShortcut("DlgConfigCursors"));
+	MnuSetItemText(IDM_CONFIGASSOC 		, NULL, GetShortcut("DlgConfigAssoc"));
+
+	MnuSetItemText(IDM_HELP_FOR_HELP		, NULL, GetShortcut("HelpForHelp"));
+	MnuSetItemText(IDM_ABOUT		  		, NULL, GetShortcut("DlgVersion"));
+} /* end MnuSetMenuAccel() */
+
+
+/*
+** MnuCommandHandler
+**		Handles WM_COMMAND messages generated by menus
+*/
+int
+MnuCommandHandler(USHORT cmd) {
+
+	if ( cmd >= IDM_START_WINDOW_LIST ) {
+		/* Selecting a different window to be currently active window */
+		WinSetWindowFromID(cmd);
+		return 0;
+	}
+	if ( cmd >= IDM_START_BUFFER_LIST ) {
+		/* Selecting a different buffer for currently active window */
+		BufSetBufferFromID(cmd);
+		return 0;
+	}
+
+	/*
+	** Give a registered event handler the opportunity of overriding the default action
+	** If the event handler returns non-zero we assume that it handled the request
+	*/
+	if ( EventTriggerEvent(EVENT_MENU_COMMAND, (PVOID)((ULONG)cmd)) )
+		return 0;
+	switch ( cmd ) {
+		// Popup menu entries that are not on the main menu
+	case IDM_DESELECT:
+		if ( MarkQuerySelType() )
+			MarkRemoveSel();
+		break;
+	case IDM_FIND:
+		SearchSel(1);					break;
+	case IDM_SYMBOL_HELP:
+		HelpQueryInfHelp();			break;
+
+		// Main Menu entries
+	case IDM_NEW:
+		BufNewFile();					break;
+	case IDM_OPEN:
+		DlgOpenFile();					break;
+	case IDM_CLOSE:
+	case IDM_BUFFER_CLOSE:
+		BufDeleteCurrentBuffer();	break;
+	case IDM_SAVE:
+		SaveBuffer();					break;
+	case IDM_SAVEAS:
+		DlgRenameBuffer();			break;
+	case IDM_SAVEALL:
+		SysSaveAll();					break;
+	case IDM_PRINTER_SETUP:
+		PrinterSetup();				break;
+	case IDM_PRINT:
+		Print();							break;
+	case IDM_LOAD_MACROFILE:
+		DlgLoadMacro();				break;
+	case IDM_FILE_COMPARE:
+		FileCompare();					break;
+	case IDM_FILE_MERGE:
+		FileMerge();					break;
+	case IDM_SAVEEXIT:
+		SysSaveAndExit();				break;
+	case IDM_EXIT:
+		ExitEditor();					break;
+
+	case IDM_UNDO:
+		UndoModification();			break;
+	case IDM_REDO:
+		RedoModification();			break;
+	case IDM_CUT:
+		CutToScrap();					break;	/* defined in buffer.rm */
+	case IDM_COPY:
+		CopyToScrap();					break;	/* defined in buffer.rm */
+	case IDM_PASTE:
+		if ( CUAMode ) {
+			if ( KbdQueryBinding("CUAReplace _c_InteliPaste", NULL) )
+				CUAReplace("_c_InteliPaste");
+			else
+				CUAReplace("BufPasteScrap");
+		} else {
+			if ( KbdQueryBinding("_c_InteliPaste", NULL) )
+				ExecFunction("_c_InteliPaste");
+			else
+				BufPasteScrap();
+		}
+		break;
+	case IDM_DELETE:
+		BufDeleteSel();				break;
+	case IDM_CUTAPPEND:
+		CutAppendToScrap();			break;
+	case IDM_COPYAPPEND:
+		CopyAppendToScrap();			break;
+	case IDM_INDENT:
+		slide_in();						break;
+	case IDM_OUTDENT:
+		slide_out();					break;
+	case IDM_UPPERCASE:
+		toupper();						break;
+	case IDM_LOWERCASE:
+		tolower();						break;
+	case IDM_INSERTFILE:
+		BufInsertFile();				break;
+	case IDM_IMPORTCLIP:
+		ImportClipboard();			break;
+	case IDM_EXPORTCLIP:
+		ExportClipboard();			break;
+
+	case IDM_ISEARCH:
+		incremental_search();		break;
+	case IDM_SEARCH_FILES:
+		SrchFiles();					break;
+	case IDM_SEARCH_FORWARD:
+		SearchForward();				break;
+	case IDM_SEARCH_BACKWARD:
+		SearchBackward();				break;
+	case IDM_SEARCH_AGAIN:
+		SearchAgain();					break;
+	case IDM_REPLACE_FORWARD:
+		ReplaceForward();				break;
+	case IDM_REPLACE_BACKWARD:
+		ReplaceBackward();			break;
+	case IDM_REPLACE_AGAIN:
+		ReplaceAgain();				break;
+	case IDM_SEARCH_NEXTERR:
+		ErrNextError();				break;
+	case IDM_SEARCH_PREVERR:
+		ErrPrevError();				break;
+
+	case IDM_SB_GOTODEF:
+		SbGotoDef();					break;
+	case IDM_SB_SYMBOL:
+		SbBrowseSymbolAtCursor();	break;
+	case IDM_SB_DEF:
+		SbBrowseDefs();				break;
+	case IDM_SB_REF:
+		SbBrowseRefs();				break;
+	case IDM_SB_MOD:
+		SbBrowseSymbolsDefinedInModule();	break;
+	case IDM_SB_CLASSES:
+		SbrClassView();				break;
+	case IDM_SB_LOAD:
+		SbLoadDatabase(NULL, 0);	break;
+	case IDM_SB_CLEAR:
+		SbUnloadDatabase();			break;
+	case IDM_SB_NEXTDEF:
+		SbrFindNextDef();				break;
+	case IDM_SB_PREVDEF:
+		SbrFindPrevDef();				break;
+	case IDM_SB_NEXT:
+		SbFindNext();					break;
+	case IDM_SB_PREV:
+		SbFindPrev();					break;
+	case IDM_GOTOLINE:
+		DlgGotoLine();					break;
+
+
+	case IDM_PJT_SETTINGS:		PjtSettings();			break;
+	case IDM_PJT_NEW:				PjtNew();				break;
+	case IDM_PJT_OPEN:			PjtOpen(NULL);			break;
+	case IDM_PJT_CLOSE:			PjtClose();				break;
+	case IDM_PJT_DBREBUILD:		PjtBuildBrowserDB();	break;
+	case IDM_PJT_BUILD:			PjtBuild();				break;
+	case IDM_PJT_BUILDALL:		PjtBuildAll();			break;
+	case IDM_PJT_DBGBUILD:		PjtDebugBuild();		break;
+	case IDM_PJT_DBGBUILDALL:	PjtDebugBuildAll();	break;
+	case IDM_PJT_RUN:				PjtRunExecutable();	break;
+	case IDM_PJT_DEBUG:			PjtDebugExecutable();break;
+
+
+	case IDM_BUFFER_NEXT:
+		BufNextBuffer();				break;
+	case IDM_BUFFER_PREV:
+		BufPrevBuffer();				break;
+	case IDM_BUFFER_EXECUTE:
+		ExecAssoc();					break;
+	case IDM_BUFFER_LIST:
+		DlgBufferList();				break;
+
+	case IDM_WINDOW_CASCADE:
+		WinCascade();					break;
+	case IDM_WINDOW_TILE_WIDE:
+		WinTileAcross();				break;
+	case IDM_WINDOW_TILE_TALL:
+		WinTileDown();					break;
+	case IDM_WINDOW_KEEP_CASCADED:
+		ToggleKeepCascaded();		break;
+	case IDM_WINDOW_KEEP_TILED:
+		ToggleKeepTiled();			break;
+	case IDM_WINDOW_NEXT:
+		WinNextWindow();				break;
+	case IDM_WINDOW_PREV:
+		WinPrevWindow();				break;
+	case IDM_WINDOW_CREATE:
+		WinNewWindow();				break;
+	case IDM_WINDOW_SPLIT_HORIZ:
+		WinSplitH();					break;
+	case IDM_WINDOW_SPLIT_VERT:
+		WinSplitV();					break;
+	case IDM_WINDOW_ONEWIN:
+		WinOneWindow();				break;
+	case IDM_WINDOW_DELETE:
+		WinCloseWindow();				break;
+
+	case IDM_KEYS_PLAY:
+		KbdMacroPlay();				break;
+	case IDM_KEYS_RECORD:
+		KbdMacroRecord();				break;
+	case IDM_KEYS_SAVEKBDMACRO:
+		KbdMacroSave();				break;
+	case IDM_KEYS_LOADKBDMACRO:
+		KbdMacroLoad();				break;
+	case IDM_KBD_WHATIS:
+		WhatIs();						break;
+
+	case IDM_KBD_BORLAND:
+		SetBorland();					break;
+	case IDM_KBD_BRIEF:
+		SetBrief();						break;
+	case IDM_KBD_CUABRIEF:
+		SetCUABrief();					break;
+	case IDM_KBD_CUA:
+		SetCUA();						break;
+	case IDM_KBD_EPM:
+		SetEPM();						break;
+	case IDM_KBD_EPSILON:
+		SetEpsilon();					break;
+	case IDM_KBD_MULITED:
+		SetMultiEdit();				break;
+	case IDM_KBD_PWB:
+		SetPWB();						break;
+	case IDM_KBD_SLICKED:
+		SetSlickEdit();				break;
+	case IDM_KBD_DEFAULT:
+		SetDefaultKeymap();			break;
+
+	case IDM_DIALOGEDIT:
+		RunDialogEditor();			break;
+	case IDM_ICONEDIT:
+		RunImageEditor();				break;
+  #if WINDOWS
+	case IDM_TOOLS_CPPCLASS:
+		CppLaunchClassGen();			break;
+  #endif
+
+	case IDM_CONFIG:
+		DlgConfigGlobals();			break;
+	case IDM_CONFIGCOLORS:
+		DlgConfigColors();			break;
+	case IDM_CONFIGTEXTFONT:
+		DlgConfigTextFont();			break;
+	case IDM_CONFIGSTATUSFONT:
+		DlgConfigStatusFont();		break;
+	case IDM_CONFIGTREEFONT:
+		DlgConfigTreeFont();			break;
+	case IDM_CONFIGCURSOR:
+		DlgConfigCursors();			break;
+	case IDM_CONFIGASSOC:
+		DlgConfigAssoc();				break;
+
+	case IDM_HELP_CONTENTS:
+		HelpContents();				break;
+	case IDM_HELP_SEARCH:
+		HelpSearch();					break;
+	case IDM_HELP_FOR_HELP:
+		HelpForHelp();					break;
+	case IDM_HELP_MANUAL:
+		HelpManual();					break;
+	case IDM_HELP_INDEX:
+		HelpIndex();					break;
+	case IDM_HELP_KEYS:
+		HelpKeys();						break;
+	case IDM_ABOUT:
+		DlgVersion();					break;
+	} /* end switch on cmd */
+	return 0;
+} /* end MnuCommandHandler() */
+
+
+int
+MnuInitHandler(HWND hwnd, USHORT id) {
+
+	switch ( id ) {
+	case IDM_FILE:
+	case IDM_EDIT:
+	case IDM_SEARCH:
+	case IDM_PROJECT:
+	case IDM_BROWSE:
+	case IDM_BUFFER:
+	case IDM_WINDOW:
+	case IDM_TOOLS:
+	case IDM_OPTIONS:
+	case IDM_HELP:
+		break;
+	default:
+		EventTriggerEvent(EVENT_MENU_INIT, (PVOID)((ULONG)id));
+	}  /* end switch */
+	return 0;
+} /* end MnuInitMenu() */
+
+
+int
+ToolbarCommandHandler(USHORT cmd) {
+
+	/*
+	** Give a registered event handler the opportunity of overriding the default action
+	** If the event handler returns non-zero we assume it handled the request
+	*/
+	if ( EventTriggerEvent(EVENT_TOOLBAR_COMMAND, (PVOID)((ULONG)cmd)) )
+		return 0;
+	switch ( cmd ) {
+	case IDM_NEW:
+		BufNewFile();					break;
+	case IDM_OPEN:
+		DlgOpenFile();					break;
+	case IDM_BUFFER_NEXT:
+		BufNextBuffer();				break;
+	case IDM_BUFFER_PREV:
+		BufPrevBuffer();				break;
+	case IDM_SAVE:
+		SaveBuffer();					break;
+	case IDM_BUFFER_EXECUTE:
+		ExecAssoc();					break;
+	case IDM_PRINT:
+		Print();							break;
+	case IDM_UNDO:
+		UndoModification();			break;
+	case IDM_REDO:
+		RedoModification();			break;
+	case IDM_CUT:
+		CutToScrap();					break;
+	case IDM_COPY:
+		CopyToScrap();					break;
+	case IDM_PASTE:
+		if ( CUAMode ) {
+			if ( KbdQueryBinding("CUAReplace _c_InteliPaste", NULL) )
+				CUAReplace("_c_InteliPaste");
+			else
+				CUAReplace("BufPasteScrap");
+		} else {
+			if ( KbdQueryBinding("_c_InteliPaste", NULL) )
+				ExecFunction("_c_InteliPaste");
+			else
+				BufPasteScrap();
+		}
+		break;
+	case IDM_INDENT:
+		slide_in();						break;
+	case IDM_OUTDENT:
+		slide_out();					break;
+	case IDM_SEARCH_FORWARD:
+		SearchForward();				break;
+	case IDM_SEARCH_AGAIN:
+		SearchAgain();					break;
+	case IDM_REPLACE_FORWARD:
+		ReplaceForward();				break;
+	} /* end switch */
+} /* end ToolbarCommandHandler() */
+
+
+
+/*
+** End module: menu.rm
+*/

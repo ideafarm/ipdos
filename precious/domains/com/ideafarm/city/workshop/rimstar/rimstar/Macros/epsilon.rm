@@ -1,0 +1,841 @@
+/*
+** Macro module: epsilon.rm - Epsilon(TM) / EMACS keyboard map
+**
+** Epsilon is a trademark of Lugaru Software Ltd.
+**
+** Copyright (C) 1993-1995 Brian L. Smith
+** Copyright (C) 1993-1995 RimStar Technology, Inc.
+** All rights reserved internationally.
+** Unlicensed use is a violation of applicable laws.
+**
+** This source code is provided to licensed users of RimStar's products
+** for the purpose of allowing the user to customize and/or enhance RimStar's
+** products. The source code remains the property of the copyright holders
+** with all rights reserved internationally.
+** Any modifications to the source code are considered derivative works and
+** all rights thereto are reserved to the copyright holders except
+** that the purchaser may use the derivitive work in the same manner
+** as permitted by the license governing the unmodified product.
+** Distribution in any manner of any part of the original source code,
+** whether in source or object form, is expressly prohibited without the
+** express written permission of the copyright holders.
+**
+*/
+
+/*
+** This macro file sets up the editor for an Epsilon/EMACS keyboard mapping.
+** To have the editor use this as your default keyboard map:
+**  copy epsilon.* keyboard.*
+*/
+
+#define INCL_MENU
+#define INCL_IO
+#include "macro.h"
+#include "lang.h"
+
+
+extern BOOL CUAMode;
+extern BOOL	CUASelActive;
+extern BOOL	MouseNoVirtual;
+extern void	(*pfnSetDefaultKeymap)(void);	// defined in startup.rm
+extern char *GetShortcut(char *function); // defined in menu.rm
+extern int EditFile(char *pathname, ULONG flags); // defined in buffer.rm
+
+void Epsilon();
+static HKEYBOARD hkEpsilon;
+
+
+void
+_init(void) {
+	LibAutoload("kbd",		"KbdBindAsciiKeys");
+	LibAutoload("misc", 		"quote", "Repeat",
+					 				"next_word", "prev_word",
+					 				"next_sentence", "prev_sentence", "delete_sentence",
+									"open_line", "toupper", "tolower" );
+	LibAutoload("c_smart",	"find_matching_delim");
+	LibAutoload("hexedit",	"HexEditBegin");
+	LibAutoload("isearch",	"reverse_incremental_search",
+					 				"forward_incremental_search" );
+	LibAutoload("wp",			"center_line", "reformat", "right_margin", "toggle_wp", "wrap_line");
+} /* end _init() */
+
+
+void
+SetEpsilon() {
+	if ( !hkEpsilon ) {
+		KbdPush(NULL);
+		Epsilon();
+		hkEpsilon = KbdPop();
+	}
+	KbdPop();	/* Remove current kbd */
+	KbdPush(hkEpsilon);
+	CUAMode = FALSE;
+	MouseNoVirtual = FALSE;
+	SysSetFlags(SYSTEM_MENUACCEL, 0L);
+	MnuSetMenuAccel();
+	/* Reset these menu items to match the right function */
+	MnuSetItemText(IDM_CUT		, NULL, "Ctrl+W");
+	MnuSetItemText(IDM_COPY		, NULL, "Alt+W");
+	MnuSetItemText(IDM_ISEARCH	, NULL, "Ctrl+S");
+
+	MsgPrintf("Epsilon key map active");
+} /* end SetEpsilon() */
+
+
+void
+KbdBindDefault() {
+	/* Disable CUA mouse behavior */
+	CUAMode = FALSE;
+	/* Allow mouse to leave cursor in virtual space */
+	MouseNoVirtual = FALSE;
+	/* Disable Alt + mnemonic processing to activate menus (Alt+F, Alt+E, etc.) */
+	SysSetFlags(SYSTEM_MENUACCEL, 0L);
+	/* Create the keyboard map */
+	Epsilon();
+	hkEpsilon = KbdQueryCurrentKeyboard();
+	pfnSetDefaultKeymap = SetEpsilon;
+} /* end KbdBindDefault() */
+
+
+void
+Epsilon() {
+	char  *self_insert = "SelfInsert";
+	char  *p;
+
+	KbdBindAsciiKeys();	/* Binds all the typable keys & system menu bindings */
+
+	KbdBind("Backspace",			  	p="backward_delete_character");
+	KbdBind("Shift+Backspace",		p);
+	KbdBind("Ctrl+Backspace",		"kill_line");
+	KbdBind("Alt+Backspace",	  	"backward_kill_word");	/* in misc.rm */
+	KbdBind("Tab",			  			"slide_in");
+	KbdBind("Shift+Tab",			  	"slide_out");
+	KbdBind("Ctrl+Kp_Enter",		p="open_line");
+	KbdBind("Ctrl+Enter",			p);
+
+	KbdBind("F2",						"LibExecFunction");
+//	KbdBind("Ctrl+F2",				"compare_windows");	/* Not implemented yet */
+	KbdBind("F3",						"DlgLoadMacro");
+	KbdBind("Ctrl+F3",				"KbdMacroSave");
+	KbdBind("F4",						"bind_to_key");
+	KbdBind("Ctrl+F4",		  		"KbdMacroPlay");
+//	KbdBind("F5",						"where_is");			/* Not implemented yet */
+	KbdBind("F6",						"WhatIs");
+	KbdBind("F7",						"cd");
+//	KbdBind("Ctrl+F7",				"copy_to_file");		/* Not implemented yet */
+//	KbdBind("F8",						"set-variable");		/* Not implemented yet */
+//	KbdBind("Ctrl+F8",				"show-variable");		/* Not implemented yet */
+	KbdBind("F9",						"Undo");
+	KbdBind("Ctrl+F9",				"UndoAll");
+	KbdBind("Alt+F9",					"UndoModification");
+	KbdBind("F10",						"Redo");
+	KbdBind("Ctrl+F10",				"RedoAll");
+	KbdBind("Alt+F10",				"RedoModification");
+
+	KbdBind("Esc+]",					p="find_matching_delim");
+	KbdBind("Esc+Esc",				"MarkRemoveSel");
+	KbdBind("Alt+]",					p);
+	KbdBind("Alt+|",					"BufDeleteWhitespace");
+	KbdBind("Alt+,",					"beginning_of_window");
+	KbdBind("Shift+Alt+,",			"MovSOF");
+	KbdBind("Alt+.",					"end_of_window");
+	KbdBind("Shift+Alt+.",			"MovEOF");
+	KbdBind("Shift+Alt+~",			"BufToggleModified");
+	KbdBind("Shift+Alt+%",			p="ReplaceForward");
+	KbdBind("Shift+Alt+*",			p);
+	KbdBind("Shift+Alt+&",			"SearchForward");
+	KbdBind("Shift+Alt+)",			"find_delimiter");
+
+	KbdBind("Alt+A",					"prev_sentence");
+	KbdBind("Alt+B",					"backward_word");
+	KbdBind("Alt+C",					"capitalize_word");
+	KbdBind("Alt+D",					"kill_word");
+	KbdBind("Alt+E",					"next_sentence");
+	KbdBind("Alt+F",					"forward_word");
+	/*
+	** Toolkit help for function under cursor
+	**
+	** NOTE: To use QueryInfHelp you must add the following environment variable
+	**	(OS/2) to your config.sys:
+	**	 SET RSE_INF=GUIREF20.INF+PMFUN.INF+PMGPI.INF+PMHOK.INF+PMMSG.INF+PMREL.INF+PMWIN.INF+PMWKP.INF
+	**  The setting is taken from the combination of the  PROGREF20 and PMREF environment variables
+	**  You may add additional .INF files or remove some.
+	**
+	** (WINDOWS) to your autoexec.bat:
+	**	 SET RSE_INF=fully qualified name of a single windows help file,
+	**  (eg. SET RSE_INF=c:\msvc20\help\api32.hlp)
+	*/
+	KbdBind("Alt+H",					"HelpQueryInfHelp");
+
+	KbdBind("Alt+K", 					"delete_sentence");
+	KbdBind("Alt+L", 					"lowercase_word");
+	KbdBind("Alt+M", 					"MovSOT");
+
+	/*
+	** Project
+	*/
+	KbdBind("Alt+P+F",				"PjtOpen 0");
+	KbdBind("Alt+P+K",				"PjtClose");
+	KbdBind("Alt+P+M",				"PjtBuild");
+	KbdBind("Alt+P+Alt+M",			"PjtDebugBuild");
+
+	KbdBind("Alt+Q", 					"reformat");
+
+	KbdBind("Alt+S",					"center_line");
+	KbdBind("Alt+T", 					"transpose_words");		/* Not implemented yet */
+	KbdBind("Alt+U", 					"uppercase_word");
+	KbdBind("Alt+V", 					"MovPageUp");
+	KbdBind("Alt+W", 					"copy_region");
+	KbdBind("Alt+X", 					"LibExecFunction");
+	KbdBind("Alt+Y", 					"BufPasteScrap");
+	KbdBind("Alt+Z", 					"WinScrollDown");
+
+	KbdBind("Ctrl+@",					p="set_mark");
+	KbdBind("Shift+Ctrl+@",			p);
+	KbdBind("Shift+Alt+@",			p);
+	KbdBind("Ctrl+Alt+|",			"slide_in");
+	KbdBind("Ctrl+A",			  		"MovSOL");
+	KbdBind("Ctrl+B",			  		"MovPrevChar");
+	KbdBind("Ctrl+Alt+B",			"backward_level");
+	KbdBind("Ctrl+C",					"ExecKillProcess");
+	KbdBind("Ctrl+D",			  		"BufDeleteChar");
+	KbdBind("Ctrl+E",					"MovEOL");
+	KbdBind("Ctrl+F",					"MovNextChar");
+	KbdBind("Ctrl+Alt+F",			"forward_level");
+//	KbdBind("Ctrl+G",					""); use Ctrl+Break (Ctrl+Pause)
+	KbdBind("Ctrl+H",			  		"backward_delete_character");
+	KbdBind("Ctrl+Alt+H",			"backward_kill_word");
+
+	KbdBind("Ctrl+K",			  		"kill_line");
+	KbdBind("Ctrl+Alt+K",			"kill_level");
+	KbdBind("Ctrl+L",					"center_window");
+	KbdBind("Ctrl+M",			  		"BufInsertNewline");
+	KbdBind("Ctrl+N",			  		"MovDown");
+	KbdBind("Ctrl+O",					"open_line_below");
+	KbdBind("Ctrl+P",			  		"MovUp");
+	KbdBind("Ctrl+Q",					"quote");
+	KbdBind("Ctrl+R",					"reverse_incremental_search");
+	KbdBind("Ctrl+Alt+R",			"SearchBackward");
+	KbdBind("Ctrl+S",					"forward_incremental_search");
+	KbdBind("Ctrl+Alt+S",			"SearchForward");
+	KbdBind("Ctrl+T",			  		"transpose_chars");
+	KbdBind("Ctrl+U",			  		"Repeat");
+	KbdBind("Ctrl+V",					"MovPageDown");
+	KbdBind("Ctrl+W",			  		"kill_region");
+//	KbdBind("Ctrl+Alt+W",	  		"append_next_kill");		/* not available */
+	KbdBind("Ctrl+Y",					"BufPasteScrap");
+	KbdBind("Ctrl+Z",					"WinScrollUp");
+	KbdBind("Shift+Ctrl+Z",			"WinZoom");
+	KbdBind("Ctrl+X+(",				p="KbdMacroRecord");
+	KbdBind("Ctrl+X+)",				p);
+	KbdBind("Ctrl+X+0",				"WinDeleteCurrentWindow");
+	KbdBind("Ctrl+X+1",				"WinOneWindow");
+	KbdBind("Ctrl+X+2",				"WinSplitH");
+	KbdBind("Ctrl+X+5",				"WinSplitV");
+	KbdBind("Ctrl+X+=",				"show_point");
+	KbdBind("Ctrl+X+A",				"SrchFiles");
+	KbdBind("Ctrl+X+B",				"BufNextBuffer");
+	KbdBind("Ctrl+X+Shift+B",		"BufPrevBuffer");
+	KbdBind("Ctrl+X+Alt+B",			p="DlgBufferList");
+	KbdBind("Ctrl+X+Ctrl+B",		p);
+//	KbdBind("Ctrl+X+C",				"compare-windows");		/* Not implemented yet */
+	KbdBind("Ctrl+X+Ctrl+C",		"ExitEditor");
+//	KbdBind("Ctrl+X+D",				"dired");					/* Not implemented yet */
+	KbdBind("Ctrl+X+Ctrl+D",		"WinDeleteCurrentWindow");
+	KbdBind("Ctrl+X+E",				"KbdMacroPlay");
+	KbdBind("Ctrl+X+Ctrl+E",		"push");
+	KbdBind("Ctrl+X+F",				"right_margin");
+	KbdBind("Ctrl+X+Ctrl+F",		"find_file");
+	KbdBind("Ctrl+X+G",				"DlgGotoLine");
+	KbdBind("Ctrl+X+H",				"HexEditBegin");			/* Change window to Hex mode */
+	KbdBind("Ctrl+X+I",				"BufInsertFile");
+//	KbdBind("Ctrl+X+Ctrl+I",		"indent_rigidly");		/* not available try Ctrl+Alt+\ or Shift+Tab */
+	KbdBind("Ctrl+X+K",				"BufDeleteCurrentBuffer");
+	KbdBind("Ctrl+X+L",				"count_lines");
+	KbdBind("Ctrl+X+M",				"ExecAssoc");
+//	KbdBind("Ctrl+X+Ctrl+M",		"start_process");
+	KbdBind("Ctrl+X+N",				p="WinNextWindow");
+	KbdBind("Ctrl+X+Ctrl+N",		"ErrNextError");
+	KbdBind("Ctrl+X+Alt+N",			"KbdMacroSave");
+	KbdBind("Ctrl+X+O",				p);
+	KbdBind("Ctrl+X+Ctrl+O",		"delete_blank_lines");
+	KbdBind("Ctrl+X+P",				"WinPrevWindow");
+	KbdBind("Ctrl+X+Ctrl+P",		"ErrPrevError");
+	KbdBind("Ctrl+X+R",				"Redo");
+	KbdBind("Ctrl+X+Ctrl+R",		"RedoAll");
+	KbdBind("Ctrl+X+S",				"SysSaveAll");
+	KbdBind("Ctrl+X+Ctrl+S",		"SaveBuffer");
+	KbdBind("Ctrl+X+Ctrl+T",		"transpose_lines");
+	KbdBind("Ctrl+X+U",				"Undo");
+	KbdBind("Ctrl+X+Ctrl+U",		"UndoAll");
+	KbdBind("Ctrl+X+Ctrl+V",		"DlgOpenFile");
+	KbdBind("Ctrl+X+W",				"BufWriteSel");
+	KbdBind("Ctrl+X+Ctrl+W",		"DlgRenameBuffer");
+	KbdBind("Ctrl+X+Ctrl+X",		"exchange_point_and_mark");
+	KbdBind("Ctrl+X+,",				"SbGotoDef");
+	KbdBind("Ctrl+X+Alt+,",			"select_tag_file");
+	KbdBind("Ctrl+X+.",				"goto_tag");
+
+	KbdBind("Kp_Home",				p="beginning_of_window");
+	KbdBind("Home",					p);
+	KbdBind("Ctrl+Kp_Home",			p="MovSOF");
+	KbdBind("Ctrl+Home",				p);
+	KbdBind("Kp_End",					p="end_of_window");
+	KbdBind("End",						p);
+	KbdBind("Ctrl+Kp_End",			p="MovEOF");
+	KbdBind("Ctrl+End",				p);
+	KbdBind("Kp_PgUp",				p="MovPageUp");
+	KbdBind("PgUp",					p);
+	KbdBind("Alt+Kp_PgUp",			p="WinPrevWindow");
+	KbdBind("Alt+PgUp",				p);
+	KbdBind("Kp_PgDn",				p="MovPageDown");
+	KbdBind("PgDn",					p);
+	KbdBind("Alt+Kp_PgDn",			p="WinNextWindow");
+	KbdBind("Alt+PgDn",				p);
+	KbdBind("Kp_Up",					p="MovUp");
+	KbdBind("Up",						p);
+	KbdBind("Kp_Down",				p="MovDown");
+	KbdBind("Down",					p);
+	KbdBind("Kp_Left",				p="MovPrevChar");
+	KbdBind("Left",					p);
+	KbdBind("Shift+Left",			"MovLeft");
+	KbdBind("Ctrl+Kp_Left",			p="backward_word");
+	KbdBind("Ctrl+Left",				p);
+	KbdBind("Alt+KpLeft",			p="backward_level");
+	KbdBind("Alt+Left",				p);
+	KbdBind("Kp_Right",				p="MovNextChar");
+	KbdBind("Right",					p);
+	KbdBind("Shift+Right",			"MovRight");
+	KbdBind("Ctrl+Kp_Right",		p="forward_word");
+	KbdBind("Ctrl+Right",			p);
+	KbdBind("Alt+KpRight",			p="forward_level");
+	KbdBind("Alt+Right",				p);
+	KbdBind("Kp_5",            	"center_window");
+	KbdBind("Kp_Minus",				"CutToScrap");
+	KbdBind("Kp_Plus",				"CopyToScrap");
+	KbdBind("Shift+Kp_Minus",		"CutAppendToScrap");		/* append to current scrap */
+	KbdBind("Shift+Kp_Plus",		"CopyAppendToScrap");	/* append to current scrap */
+	KbdBind("Kp_Insert",				p="ToggleInsert");
+	KbdBind("Insert",					p);
+	KbdBind("Shift+Insert",			"ImportClipboard");
+	KbdBind("Ctrl+Insert",			"ExportClipboard");
+	KbdBind("Kp_Delete",				p="BufDeleteCharOrSelection");
+	KbdBind("Delete",					p);
+	KbdBind("Alt+Kp_Delete",		p="backward_kill_level");
+} /* end Epsilon() */
+
+void
+auto_fill_mode() {
+	toggle_wp();
+} /* end auto_fill_mode() */
+
+void
+backward_delete_character(void) {
+   if ( BufQueryColumn() == 1L )
+      BufDeletePrevChar();
+   else
+      BufBackspace();
+} /* backward_delete_character() */
+
+
+void
+backward_kill_level() {
+	if ( MarkQuerySelType() )
+		MarkRemoveSel();
+	MarkExclusive();
+	if ( SrchBack("[])}]", 1, 1, 0, NULL, RE_SYNTAX_UNIX) > 0 )
+		find_matching_delim();
+	else
+		MovSOF();
+	BufCutToScrap();
+} /* end backward_kill_level() */
+
+void
+backward_level() {
+	if ( SrchBack("[])}]", 1, 1, 0, NULL, RE_SYNTAX_UNIX) > 0 )
+		find_matching_delim();
+	else
+		MovSOF();
+} /* end backward_level() */
+
+void
+backward_word(void) {
+	int c;
+
+	if ( PosPrevChar() )
+		return;
+	SrchBack( "\\c[a-zA-Z0-9_]+", -1, 0, 0, NULL, RE_SYNTAX_UNIX );
+	c = BufQueryChar();
+	while ( ( c >= '0' && c <= '9' ) || ( c >= 'A' && c <= 'Z' ) || ( c >= 'a' && c <= 'z' ) || c == '_' ) {
+		if ( PosPrevChar() )
+			return;
+		c = BufQueryChar();
+	}
+	PosNextChar();
+} /* end backward_word() */
+
+void
+backward_kill_word() {
+	if ( MarkQuerySelType() )
+		MarkRemoveSel();
+	MarkExclusive();
+	backward_word();
+	BufCutToScrap();
+} /* end backward_kill_word() */
+
+void
+beginning_of_window(void) {
+	MovTopWin();
+	PosSOL();
+} /* end beginning_of_window() */
+
+void
+bind_to_key() {
+	char	command[100];
+	char	keys[25];
+
+	command[0] = keys[0] = 0;
+	if ( !PromptGetInput("bind-to-key [command]:", command, 100, NULL) ) {
+		Msg("Command cancelled");
+		return;
+	}
+	if ( !PromptGetInput("bind-to-key [key-seq]:", keys, 25, NULL) ) {
+		Msg("Command cancelled");
+		return;
+	}
+	KbdBind(keys, command);
+} /* end bind_to_key() */
+
+void
+c_mode() {
+	_c_init();
+} /* end c_mode() */
+
+void
+capitalize_word() {
+	int	ch, inalpha = 0, move = 1;
+
+	if ( MarkQuerySelType() )
+		MarkRemoveSel();
+	if ( SrchFwd( "[a-zA-Z0-9_]", 1, 0, 0, NULL, RE_SYNTAX_UNIX ) < 0 ) {
+		PosEOF();
+		return;
+	}
+	ch = BufQueryChar();
+	do {
+		if ( isalpha(ch) ) {
+			if ( !inalpha ) {
+				inalpha = 1;
+				if ( islower(ch) ) {
+					ch = _toupper(ch);
+					BufDeleteChar();
+					BufInsertChar(ch);
+					move = 0;
+				}
+			} else {
+				if ( isupper(ch) ) {
+					ch = _tolower(ch);
+					BufDeleteChar();
+					BufInsertChar(ch);
+					move = 0;
+				}
+			}
+		} else
+			inalpha = 0;
+		if ( move )
+			PosNextChar();
+		else
+			move = 1;
+		ch = BufQueryChar();
+	} while ( isalnum(ch) || ch == '_' );
+} /* end capitalize_word() */
+
+void
+cd(void) {
+	char	cwd[300];
+
+	getcwd(cwd,300);
+	if ( !PromptGetInput("cd (change dir):", cwd, 256, NULL) ) {
+		Msg("Command cancelled");
+		return;
+	}
+	ChgDir(cwd);
+	getcwd(cwd,300);
+	MsgPrintf("Current dir now: %s", cwd);
+} /* end cd() */
+
+
+void
+center_window( void ) {
+	WinScrollCenter();
+	MsgClear();
+} /* end center_window() */
+
+void
+copy_region( void ) {
+  #if 0
+	HMARK hm = MarkQueryLocalFromID( 1 );
+	long	point = BufQueryOffset();
+
+	if ( !hm ) {
+		hm = MarkAllocLocal( 1 );
+		MarkSetMark( hm, 1, 1 );
+	}
+	MarkEndSel();
+	MarkExclusive();
+	MarkGoto( hm );
+	BufCopyToScrap();
+	MarkExclusive();
+	PosToOffset( point );
+  #endif
+	BufCopyToScrap();
+	MarkRemoveSel();
+} /* end copy_region() */
+
+
+void
+count_lines() {
+	long	offset, total;
+
+	offset = BufQueryOffset();
+	total  = BufQueryBufferSize();
+	MsgPrintf( "Buffer has %d lines, %d chars, offset %d (%d%%)",
+				  BufQueryLines(), total, offset, (100L*offset)/total );
+} /* end count_lines() */
+
+void
+delete_blank_lines() {
+	long	start;
+	long	c, leave = 1L;
+
+	if ( LibQueryArgCount() )
+		leave = *(long *)LibGetArgPtr(0);
+	while ( BufQueryChar(FILE_OFFSET-1L) == '\n' )
+		if (PosPrevChar() )
+			break;
+	start = FILE_OFFSET;
+	while ( BufQueryChar(FILE_OFFSET+1L) == '\n' )
+		if ( PosNextChar() )
+			break;
+	c = FILE_OFFSET - start;
+	if ( c < leave )
+		return;
+	else if ( c > leave )
+		c -= leave;
+	else if ( leave != 1L )
+		return;
+	BufDeletePrevChar(c);
+} /* end delete_blank_lines() */
+
+void
+end_of_window(void) {
+	MovBottomWin();
+	PosEOL();
+} /* end end_of_window() */
+
+void
+exchange_point_and_mark( void ) {
+  #if 0
+	HMARK hm = MarkQueryLocalFromID( 1 );
+	long col;
+	long row;
+
+	if ( hm ) {
+		BufQueryPosition( &row, &col );
+		MarkGoto( hm );
+		MarkSetMark( hm, row, col );
+	} else {
+		MarkAllocLocal( 1 );
+		PosSOF();
+	}
+  #endif
+	if ( MarkQuerySelType() )
+		MarkSwapSel();
+	else {
+		MarkExclusive();
+		PosSOF();
+	}
+} /* end exchange_point_and_mark() */
+
+void
+find_delimiter(void) {
+	long		line, col;
+	time_t	now, limit;
+	PRAWKEY	key = NULL;
+
+	BufQueryPosition(&line, &col);
+	backward_level();
+	WinUpdateWindow();
+	time(&now);
+	limit = now + 2L;
+	while ( key == NULL && now < limit) {
+		key = KbdBufferQueryKey();
+		time(&now);
+	}
+	PosAbs(line, col);
+} /* end find_delimiter() */
+
+void
+find_file( void ) {
+	char buf[_MAX_PATH];
+
+	buf[0] = 0;
+	if ( PromptGetInput( "Open file:", buf, _MAX_PATH ) )
+		EditFile( buf, BUFTYPE_NORMAL );
+} /* end find_file() */
+
+
+void
+forward_level() {
+	if ( SrchFwd("[[({]", 1, 1, 0, NULL, RE_SYNTAX_UNIX) > 0 ) {
+		find_matching_delim();
+		MovNextChar();
+	} else
+		MovEOF();
+} /* end forward_level() */
+
+void
+forward_word(void) {
+	int c;
+
+	SrchFwd( "[a-zA-Z0-9_]+\\c", -1, 0, 0, NULL, RE_SYNTAX_UNIX );
+} /* end forward_word() */
+
+void
+goto_tag( void ) {
+	char buf[ 64 ];
+
+	buf[0] = 0;
+	if ( PromptGetInput( "goto tag:", buf, 64 ) )
+		SbGotoThisDef( buf );
+} /* end goto_tag() */
+
+void
+kill_line( void ) {
+	if ( BufQueryChar() == 10 )
+		BufDeleteChar();
+	else
+		BufDeleteToEOL();
+} /* end kill_line() */
+
+void
+kill_level() {
+	if ( MarkQuerySelType() )
+		MarkRemoveSel();
+	MarkExclusive();
+	if ( SrchFwd("[[({]", 1, 1, 0, NULL, RE_SYNTAX_UNIX) > 0 ) {
+		find_matching_delim();
+		MovNextChar();
+	} else
+		MovEOF();
+	BufCutToScrap();
+} /* end kill_level() */
+
+void
+kill_region( void ) {
+  #if 0
+	HMARK hm = MarkQueryLocalFromID( 1 );
+
+	if ( !hm ) {
+		hm = MarkAllocLocal( 1 );
+		MarkSetMark( hm, 1, 1 );
+	}
+	MarkEndSel();
+	MarkExclusive();
+	MarkGoto( hm );
+	BufCutToScrap();
+  #endif
+	BufCutToScrap();
+} /* end kill_region() */
+
+void
+kill_word() {
+	if ( MarkQuerySelType() )
+		MarkRemoveSel();
+	MarkExclusive();
+	forward_word();
+	BufCutToScrap();
+} /* end kill_word() */
+
+void
+lowercase_word(void) {
+	if ( MarkQuerySelType() )
+		MarkRemoveSel();
+	MarkExclusive();
+	forward_word();
+  #undef tolower
+	tolower();
+} /* end lowercase_word() */
+
+void
+maybe_break_line() {
+	PBUFINFO	pbi;
+	int		rc = 0;
+
+	pbi = BufInfoQuery( BufQueryCurrentBuffer() );
+	if ( pbi && (pbi->ulFlags & BI_WORDPROC) )
+		rc = wrap_line();
+	if ( !rc )
+		SelfInsert();
+} /* end maybe_break_line() */
+
+void
+open_line_below(void) {
+	BufInsertNewline();
+	PosPrevChar();
+} /* end open_line_below() */
+
+void
+push( void ) {
+	switch ( OSType ) {
+	case 1:
+		//	OS/2
+		ExecSession("OS/2 Window", "cmd.exe", NULL, NULL, 0);
+		break;
+  #if WINDOWS
+	case 2:
+		// Windows (DOS)
+	case 3:
+		// Win32
+		ExecAppl("command.com", "", SW_SHOWNORMAL);
+		break;
+  #endif
+   }
+} /* end push() */
+
+void
+select_tag_file( void ) {
+	char	file[_MAX_PATH];
+
+	file[0] = 0;
+	if ( !PromptGetInput("Browser database:", file, _MAX_PATH, NULL) ) {
+		Msg("Command cancelled");
+		return;
+	}
+	SbLoadDatabase(file, 0);
+} /* end select_tag_file() */
+
+void
+set_mark( void ) {
+  #if 0
+	HMARK hm = MarkQueryLocalFromID( 1 );
+
+	if ( hm )
+		MarkResetMark( hm );
+	else
+		MarkAllocLocal( 1 );
+	MsgPrintf( "Mark set." );
+  #endif
+	if ( MarkQuerySelType() )
+		MarkRemoveSel();
+	MarkExclusive();
+	MsgPrintf( "Mark set." );
+} /* end set_mark() */
+
+void
+show_point( void ) {
+	int c = BufQueryChar();
+	long p = BufQueryOffset();
+
+	MsgPrintf( "offset %ld of %d ascii %d 0x%x", p, BufQueryBufferSize(), c, c );
+} /* end show_point() */
+
+
+void
+transpose_chars(void) {
+	int	c, d;
+	long	p = BufQueryOffset(), sp;
+
+	sp = p;
+
+	if ( p == BufQueryBufferSize() || BufQueryChar() == '\n' )
+		p--;
+	else if ( p == 0 || BufQueryChar( p - 1 ) == '\n' )
+		p++;
+	c = BufQueryChar( p );
+	d = BufQueryChar( p - 1 );
+	if ( p > 0 && p < BufQueryBufferSize() && c != '\n' && d != '\n' ) {
+		PosToOffset( p - 1 );
+		BufDeleteChar( 2 );
+		BufInsertChar( c );
+		BufInsertChar( d );
+		PosToOffset( sp );
+	}
+} /* end transpose_chars() */
+
+void
+transpose_lines( void ) {
+	if ( BufQueryLine() < 2L )
+		return;
+	if ( MarkQuerySelType() )
+		MarkRemoveSel();
+	CutToScrap();
+	PosSOL();
+	MovUp();
+	BufPasteScrap();
+} /* end transpose_lines() */
+
+void
+transpose_words( void ) {
+	long	start_current_word, end_current_word, len_current;
+	long	start_prev_word, end_prev_word, len_prev;
+	char	*prev, *current;
+
+	forward_word();
+	backward_word();
+	start_current_word = FILE_OFFSET;
+	forward_word();
+	end_current_word = FILE_OFFSET;
+	len_current = end_current_word - start_current_word;
+	backward_word();
+	backward_word();
+	start_prev_word = FILE_OFFSET;
+	forward_word();
+	end_prev_word = FILE_OFFSET;
+	len_prev = end_prev_word - start_prev_word;
+	if ( start_prev_word == start_current_word ) {
+		/* At start of file */
+		forward_word();
+		end_current_word = FILE_OFFSET;
+		backward_word();
+		start_current_word = FILE_OFFSET;
+		len_current = end_current_word - start_current_word;
+		if ( start_prev_word == start_current_word )
+			return;
+	}
+	PosToOffset(start_prev_word);
+	prev = BufRead(len_prev);
+	PosToOffset(start_current_word);
+	current = BufRead(len_current);
+	BufDeleteChar(len_current);
+	BufInsertString(prev);
+	PosToOffset(start_prev_word);
+	BufDeleteChar(len_prev);
+	BufInsertString(current);
+	free(current);
+	free(prev);
+} /* end transpose_words() */
+
+void
+uppercase_word(void) {
+	if ( MarkQuerySelType() )
+		MarkRemoveSel();
+	MarkExclusive();
+	forward_word();
+  #undef toupper
+	toupper();
+} /* end lowercase_word() */
+
+#if 0
+void
+where_is( void ) {
+	MsgPrintf( "where-is:" );
+} /* end where_is() */
+#endif
+
+
+
+
+/*
+** End module: epsilon.rm
+*/

@@ -1,0 +1,373 @@
+/*
+** Macro module: brief.rm - Brief(R) keyboard map
+**
+** Brief is a registered trademark of Borland International
+**
+** Copyright (C) 1993-1995 Brian L. Smith
+** Copyright (C) 1993-1995 RimStar Technology, Inc.
+** All rights reserved internationally.
+** Unlicensed use is a violation of applicable laws.
+**
+** This source code is provided to licensed users of RimStar's products
+** for the purpose of allowing the user to customize and/or enhance RimStar's
+** products. The source code remains the property of the copyright holders
+** with all rights reserved internationally.
+** Any modifications to the source code are considered derivative works and
+** all rights thereto are reserved to the copyright holders except
+** that the purchaser may use the derivitive work in the same manner
+** as permitted by the license governing the unmodified product.
+** Distribution in any manner of any part of the original source code,
+** whether in source or object form, is expressly prohibited without the
+** express written permission of the copyright holders.
+**
+*/
+
+/*
+** This macro file sets up the editor for a Brief keyboard mapping.
+** To have the editor use this as your default keyboard map:
+**  copy brief.* keyboard.*
+*/
+
+#include "macro.h"
+
+extern BOOL CUAMode;
+extern BOOL	CUASelActive;
+extern BOOL	MouseNoVirtual;
+extern void	(*pfnSetDefaultKeymap)(void);	/* defined in startup.rm */
+
+void Brief();
+static HKEYBOARD hkBrief;
+
+
+void
+_init(void) {
+	LibAutoload("kbd",		"KbdBindAsciiKeys");
+	LibAutoload("misc", 		"CharIs", "quote", "Repeat", "next_word", "prev_word",
+									"delete_next_word", "delete_prev_word",
+									"open_line", "toupper", "tolower" );
+	LibAutoload("c_smart",	"find_matching_delim");
+	LibAutoload("hexedit",	"HexEditBegin");
+	LibAutoload("isearch",	"incremental_search");
+	LibAutoload("bookmark",	"BookmarkSet", "BookmarkGoto");
+} /* end _init() */
+
+
+void
+SetBrief() {
+	if ( !hkBrief ) {
+		KbdPush(NULL);
+		Brief();
+		hkBrief = KbdPop();
+	}
+	KbdPop();	/* Remove current kbd */
+	KbdPush(hkBrief);
+	CUAMode = FALSE;
+	MouseNoVirtual = FALSE;
+	SysSetFlags(SYSTEM_MENUACCEL, 0);
+	MnuSetMenuAccel();
+	MsgPrintf("Brief key map active");
+} /* end SetBrief() */
+
+
+void
+KbdBindDefault() {
+	/* Disable CUA mouse behavior */
+	CUAMode = FALSE;
+	/* Allow mouse to leave cursor in virtual space */
+	MouseNoVirtual = FALSE;
+	/* Disable Alt + mnemonic processing to activate menus (Alt+F, Alt+E, etc.) */
+	SysSetFlags(SYSTEM_MENUACCEL, 0);
+	/* Create the keyboard map */
+	Brief();
+	hkBrief = KbdQueryCurrentKeyboard();
+	pfnSetDefaultKeymap = SetBrief;
+} /* end KbdBindDefault() */
+
+
+void
+Brief() {
+	char  *self_insert = "SelfInsert";
+	char  *p;
+
+	KbdBindAsciiKeys();	/* Binds all the typable keys & system menu bindings */
+
+	KbdBind("Shift+Alt+E",			"PjtOpen 0");
+	KbdBind("Alt+F3",					"PjtClose");
+	KbdBind("Shift+F10",				"PjtBuild");
+	KbdBind("Ctrl+F10",				"PjtDebugBuild");
+
+	KbdBind("Alt+-", 					"BufPrevBuffer");
+	KbdBind("Alt+|", 					"BufDeleteWhitespace");
+	KbdBind("Alt+]", 					p="find_matching_delim");	/* in c_smart.rm */
+	KbdBind("Alt+[", 					p);
+	KbdBind("Alt+?", 					"CharIs");
+
+	KbdBind("Alt+A",					"MarkExclusive");
+	KbdBind("Alt+B",					"DlgBufferList");
+	KbdBind("Alt+C",					"MarkColumn");
+	KbdBind("Alt+D",					"BufDeleteLine");
+	KbdBind("Alt+E",					"DlgOpenFile");
+	KbdBind("Alt+F",					"SrchFiles");
+	KbdBind("Alt+G",					"DlgGotoLine");
+	/*
+	** Toolkit help for function under cursor
+	**
+	** NOTE: To use QueryInfHelp you must add the following environment variable
+	**	(OS/2) to your config.sys:
+	**	 SET RSE_INF=GUIREF20.INF+PMFUN.INF+PMGPI.INF+PMHOK.INF+PMMSG.INF+PMREL.INF+PMWIN.INF+PMWKP.INF
+	**  The setting is taken from the combination of the  PROGREF21 and PMREF environment variables
+	**  You may add additional .INF files or remove some.
+	**
+	** (WINDOWS) to your autoexec.bat:
+	**	 SET RSE_INF=fully qualified name of a single windows help file,
+	**  (eg. SET RSE_INF=c:\msvc20\help\api32.hlp)
+	*/
+	KbdBind("Alt+H",					"HelpQueryInfHelp");
+  #if 0
+	KbdBind("Alt+H",					"HelpQueryQuickHelp");	/* invokes Microsoft Quick Help program */
+  #endif
+
+	KbdBind("Alt+I",					"ToggleInsert");
+
+	KbdBind("Alt+J+1",				"BookmarkGoto 1");
+	KbdBind("Alt+J+2",				"BookmarkGoto 2");
+	KbdBind("Alt+J+3",				"BookmarkGoto 3");
+	KbdBind("Alt+J+4",				"BookmarkGoto 4");
+	KbdBind("Alt+J+5",				"BookmarkGoto 5");
+	KbdBind("Alt+J+6",				"BookmarkGoto 6");
+	KbdBind("Alt+J+7",				"BookmarkGoto 7");
+	KbdBind("Alt+J+8",				"BookmarkGoto 8");
+	KbdBind("Alt+J+9",				"BookmarkGoto 9");
+	KbdBind("Alt+J+0",				"BookmarkGoto 10");
+
+	KbdBind("Alt+K", 					"BufDeleteToEOL");
+	KbdBind("Alt+L", 					"MarkLine");
+	KbdBind("Alt+M", 					"MarkNormal");
+	KbdBind("Alt+N", 					"BufNextBuffer");
+	KbdBind("Alt+O", 					"DlgRenameBuffer");
+	KbdBind("Alt+P", 					"Print");
+
+	KbdBind("Alt+Q", 					"quote");		/* in misc.rm */
+
+	KbdBind("Alt+R", 					"BufInsertFile");
+	KbdBind("Alt+S", 					"SearchSel 1");
+	KbdBind("Ctrl+S",					"incremental_search");
+
+	KbdBind("Alt+T", 					"ReplaceForward");
+	KbdBind("Alt+U", 					"Undo");
+	KbdBind("Alt+V", 					"DlgVersion");
+	KbdBind("Alt+W", 					"SaveBuffer");
+	KbdBind("Alt+X", 					"ExitEditor");
+	KbdBind("Alt+Y", 					"Redo");
+  #if 0
+	KbdBind("Alt+Z", 					"");  /* Start windowed command interpreter. Use Alt+ESC to start one. */
+  #endif
+
+	KbdBind("Alt+1", 					"BookmarkSet 1");
+	KbdBind("Alt+2", 					"BookmarkSet 2");
+	KbdBind("Alt+3", 					"BookmarkSet 3");
+	KbdBind("Alt+4", 					"BookmarkSet 4");
+	KbdBind("Alt+5", 					"BookmarkSet 5");
+	KbdBind("Alt+6", 					"BookmarkSet 6");
+	KbdBind("Alt+7", 					"BookmarkSet 7");
+	KbdBind("Alt+8", 					"BookmarkSet 8");
+	KbdBind("Alt+9", 					"BookmarkSet 9");
+	KbdBind("Alt+0", 					"BookmarkSet 10");
+
+	/*
+	**  KP stands for the Key Pad keys.
+	**
+	**  Alt+ESCAPE, Alt+TAB and Ctrl+ESCAPE are reserved for OS/2 PM's use
+	**  do not define these as they will be ignored.
+	*/
+	KbdBind("BACKSPACE",			  	p="BufBackspace");
+	KbdBind("Shift+BACKSPACE",		p);
+	KbdBind("Alt+BACKSPACE",	  	"delete_next_word");	/* in misc.rm */
+	KbdBind("Ctrl+BACKSPACE",	  	"delete_prev_word");	/* in misc.rm */
+	KbdBind("Shift+TAB",			  	"MovPrevTabPos");
+	KbdBind("Ctrl+Enter",			p="open_line");
+	KbdBind("Ctrl+Kp_Enter",		p);
+	KbdBind("KP_STAR",			  	"UndoModification");
+	KbdBind("Shift+KP_STAR",	  	"RedoModification");
+	KbdBind("Shift+Ctrl+KP_STAR",	"UndoAll");
+	KbdBind("Shift+Alt +KP_STAR",	"RedoAll");
+
+	KbdBind("F1",			  			"WinNextWindow");
+	KbdBind("Shift+F1",				"WinPrevWindow");
+	KbdBind("F2",						"WinTileAcross");
+	KbdBind("Ctrl+F2",				"WinTileDown");
+	KbdBind("Shift+F2",				"WinCascade");
+	KbdBind("Alt+F2",					"WinZoom");
+	KbdBind("F3",						"WinNewTiledWindow");
+	KbdBind("F4",						"WinDeleteCurrentWindow");
+	KbdBind("F5",						"SearchForward");
+	KbdBind("Alt+F5",					"SearchBackward");
+	KbdBind("Shift+F5",				"SearchAgain");
+	KbdBind("F6",						"ReplaceForward");
+	KbdBind("Alt+F6",					"ReplaceBackward");
+	KbdBind("Shift+F6",				"ReplaceAgain");
+	KbdBind("F7",						"KbdMacroRecord");  	/* starts/stops keystroke macro recording */
+	KbdBind("Alt+F7",					"KbdMacroLoad");  	/* load keystroke macro from disk */
+	KbdBind("Shift+F7",				"KbdMacroPause");		/* pause keystroke macro playback */
+	KbdBind("F8",						"KbdMacroPlay");		/* plays a recorded keystroke macro */
+	KbdBind("Alt+F8",					"KbdMacroSave");	  	/* saves last recorded macro to disk */
+	KbdBind("F9",						"DlgLoadMacro");  
+	KbdBind("F10",						"LibExecFunction");
+	KbdBind("Alt+F10",				"ExecAssoc");
+	/*
+	** For use in error output buffer - place cursor on error line
+	** ALT+F9 jumps to file & line in error, loading the file if needed
+	*/
+	KbdBind("Alt+F9",					"ErrJumpToError");
+	/*
+	** NOTE:  Consecutive requests of the Home builtin command and the End builtin
+	**		  command support BRIEF's convention. A key assigned to the Home or End
+	**		  builtin command will perform three different actions when invoked
+	**		  consecutively:
+	**
+	**		  For the Home builtin command:
+	**
+	**		  1st time command invoked	  - move to the beginning of the current line
+	**		  2nd (consecutive) invocation - move to the beginning of the top line in window
+	**		  3rd (consecutive) invocation - move to the beginning of the buffer (file)
+	**
+	**		  For the End builtin command:
+	**
+	**		  1st time command invoked - move to end of current line
+	**		  2nd (consecutive) invocation - move to end of last line in window
+	**		  3rd (consecutive) invocation - move to end of the buffer (file)
+	**
+	**
+	**		  So if the Home builtin command is assigned to the HOME key:
+	**
+	**		  HOME				moves to the beginning of the current line
+	**		  HOME+HOME			moves to the beginning of the top line in window
+	**		  HOME+HOME+HOME	moves to the beginning of the file
+	**
+	**		  and if the End builtin command is assigned to the END key:
+	**
+	**		  END				moves to the end of the current line
+	**		  END+END		moves to the end of the last line in window
+	**		  END+END+END	moves to the end of the file
+	**
+	**		  Any other commands invoked in between will reset the counters.
+	**
+	**  If you don't want this behavior you can use MovSOL and MovEOL
+	**  these commands do only the single action.
+	*/
+	KbdBind("HOME",					p="MovStartBrief");
+	KbdBind("KP_HOME",				p);
+	KbdBind("Ctrl+HOME",				p="MovTopWin");
+	KbdBind("Ctrl+KP_HOME",			p);
+	KbdBind("END",						p="MovEndBrief");
+	KbdBind("KP_END",					p);
+	KbdBind("Ctrl+KP_END",			p="MovBottomWin");
+	KbdBind("Ctrl+END",				p);
+	KbdBind("PGUP",					p="MovPageUp");
+	KbdBind("KP_PGUP",				p);
+	KbdBind("Ctrl+PGUP",				p="MovSOF");
+	KbdBind("Ctrl+KP_PGUP",			p);
+	KbdBind("PGDN",					p="MovPageDown");
+	KbdBind("KP_PGDN",				p);
+	KbdBind("Ctrl+PGDN",				p="MovEOF");
+	KbdBind("Ctrl+KP_PGDN",			p);
+	KbdBind("UP",						p="MovUp");
+	KbdBind("KP_UP",					p);
+	KbdBind("DOWN",					p="MovDown");
+	KbdBind("KP_DOWN",				p);
+	KbdBind("KP_LEFT",				p="MovLeft");
+	KbdBind("LEFT",					p);
+	KbdBind("Shift+LEFT",			"MovPrevChar");
+	KbdBind("Ctrl+LEFT",				p="prev_word");	/* in misc.rm */
+	KbdBind("Ctrl+KP_LEFT",			p);
+	KbdBind("RIGHT",					p="MovRight");
+	KbdBind("KP_RIGHT",				p);
+	KbdBind("Shift+RIGHT",			"MovNextChar");
+	KbdBind("Ctrl+RIGHT",			p="next_word");	/* in misc.rm */
+	KbdBind("Ctrl+KP_RIGHT",		p);
+
+	/* Selection operations */
+	KbdBind("KP_MINUS",				"CutToScrap");
+	KbdBind("KP_PLUS",				"CopyToScrap");
+	KbdBind("Shift+KP_MINUS",		"CutAppendToScrap");		/* append to current scrap */
+	KbdBind("Shift+KP_PLUS",		"CopyAppendToScrap");	/* append to current scrap */
+	KbdBind("KP_INSERT",				p="BufPasteScrap");
+	KbdBind("INSERT",					p);
+	KbdBind("Shift+KpInsert",		p="ImportClipboard");
+	KbdBind("Shift+Insert",			p);
+	KbdBind("Ctrl+KpInsert",		p="ExportClipboard");
+	KbdBind("Ctrl+Insert",			p);
+	KbdBind("Kp_DELETE",				p="BufDeleteCharOrSelection");
+	KbdBind("DELETE",					p);
+
+	KbdBind("Ctrl+-",			  		"BufDeleteCurrentBuffer");
+	KbdBind("Shift+Ctrl+-",	  		"WinDeleteWindowAndBuffer");
+	KbdBind("Ctrl+A",			  		"MarkSwapSel");
+	KbdBind("Ctrl+B",			  		"WinScrollBottom");
+	KbdBind("Ctrl+C",			  		p="WinScrollCenter");
+	KbdBind("KP_5",			  		p);
+	KbdBind("Ctrl+D",			  		"WinScrollDown");
+	KbdBind("Ctrl+K",			  		"ExecKillProcess");		/* Kills a program executed on buffer */
+	KbdBind("Ctrl+N",			  		"ErrNextError");
+	KbdBind("Ctrl+P",			  		"ErrPrevError");
+	KbdBind("Ctrl+R",			  		"Repeat");
+	KbdBind("Ctrl+T",			  		"WinScrollTop");
+	KbdBind("Ctrl+U",			  		"WinScrollUp");
+	KbdBind("Ctrl+W",			  		"ToggleBackups");
+	KbdBind("Ctrl+X",			  		"SysSaveAndExit");
+	KbdBind("Ctrl+Z",					"WinZoom");
+
+	/* Source browser bindings 	*/
+	KbdBind("F11",						"SbBrowseSymbolAtCursor");
+	KbdBind("Shift+F11",				"SbBrowseDefs");
+	KbdBind("Ctrl+F11",				"SbBrowseRefs");
+	KbdBind("Alt+F11",				p="SbBrowseSymbolsDefinedInModule");
+	KbdBind("Ctrl+G",					p); /* Brief's `routines' assignment */
+	KbdBind("F12",						"SbFindNext");
+	KbdBind("Shift+F12",				"SbFindPrev");
+	KbdBind("Alt+F12",				"SbGotoDef");
+	KbdBind("Ctrl+F12",				"SbrFindNextDef");
+	KbdBind("Shift+Ctrl+F12",		"SbrFindPrevDef");
+	KbdBind("Ctrl+Alt+F12",			"SbJumpBack");
+
+	/*
+	** ษออออออออออออออออออออออออออออออออออออป
+	** บ Double line box drawing characters บ
+	** ศออออออออออออออออออออออออออออออออออออผ
+	*/
+	KbdBind("Shift+KP_Home",		"BufInsertChar 201"); /* Upper-left corner ฬ */
+	KbdBind("Shift+KP_Up",			"BufInsertChar 203"); /* Top tee ห */
+	KbdBind("Shift+KP_PgUp",		"BufInsertChar 187"); /* Upper-right corner ป */
+	KbdBind("Shift+KP_Left",		"BufInsertChar 204"); /* Left tee ฬ */
+	KbdBind("Shift+KP_5",			"BufInsertChar 205"); /* Horiz double line อ */
+	KbdBind("Shift+KP_Right",		"BufInsertChar 185"); /* Right tee น */
+	KbdBind("Shift+KP_End",			"BufInsertChar 200"); /* Lower-left corner ศ */
+	KbdBind("Shift+KP_Down",		"BufInsertChar 202"); /* Bottom tee ส */
+	KbdBind("Shift+KP_PgDn",		"BufInsertChar 188"); /* Lower-right corner ผ */
+	KbdBind("Shift+KP_Slash",		"BufInsertChar 186"); /* Vertical double line บ */
+
+   KbdBind("Ctrl+Shift+D",       "tolower");
+   KbdBind("Ctrl+Shift+U",       "toupper");
+
+	/* Change window to Hex mode */
+	KbdBind("Shift+Ctrl+H",			"HexEditBegin");
+
+} /* end Brief() */
+
+
+/*
+** This function will delete when you are at the start of a line
+*/
+void
+BackspaceWrap(void) {
+   if ( BufQueryColumn() == 1L )
+      BufDeletePrevChar();
+   else
+      BufBackspace();
+} /* BackspaceWrap() */
+
+
+
+/*
+** End module: brief.rm
+*/

@@ -1,0 +1,52 @@
+/*
+** Macro module: cobol.rm - Cobol support features
+**
+** Copyright (C) 1993,1994 Brian L. Smith
+** Copyright (C) 1993,1994 RimStar Technology, Inc.
+** All rights reserved internationally.
+** Unlicensed use is a violation of applicable laws.
+**
+** This source code is provided to licensed users of RimStar's products
+** for the purpose of allowing the user to customize and/or enhance RimStar's
+** products. The source code remains the property of the copyright holders
+** with all rights reserved internationally.
+** Any modifications to the source code are considered derivative works and
+** all rights thereto are reserved to the copyright holders except
+** that the purchaser may use the derivitive work in the same manner
+** as permitted by the license governing the unmodified product.
+** Distribution in any manner of any part of the original source code,
+** whether in source or object form, is expressly prohibited without the
+** express written permission of the copyright holders.
+**
+*/
+
+#include "macro.h"
+#include "lang.h"
+
+#define INCL_COBOL_TEMPLATES
+#include "template.h"
+
+/* regular indent keyboard - created in lang.rm */
+extern HKEYBOARD	_r_keymap;
+
+/*
+**	_cbl_init
+**
+**	 Sets up the language specific features for Cobol and related language
+**	 files. Called by LangInit() in lang.rm
+*/
+void
+_cbl_init(void) {
+	KbdSetBufferKeyboard(_r_keymap);
+} /* end _cbl_init() */
+
+
+void
+_cob_init(void) {
+	_cbl_init();
+} /* end _cob_init() */
+
+
+/*
+** End module: cobol.rm
+*/

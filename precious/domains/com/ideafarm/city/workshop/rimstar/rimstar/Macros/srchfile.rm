@@ -1,0 +1,561 @@
+/*
+** Macro module: srchfile.rm - Search/Replace files on disk
+**
+** Copyright (C) 1996 Brian L. Smith
+** All rights reserved internationally.
+** Unlicensed use is a violation of applicable laws.
+**
+** This source code is provided to licensed users of RimStar's products
+** for the purpose of allowing the user to customize and/or enhance RimStar's
+** products. The source code remains the property of the copyright holders
+** with all rights reserved internationally.
+** Any modifications to the source code are considered derivative works and
+** all rights thereto are reserved to the copyright holders except
+** that the purchaser may use the derivitive work in the same manner
+** as permitted by the license governing the unmodified product.
+** Distribution in any manner of any part of the original source code,
+** whether in source or object form, is expressly prohibited without the
+** express written permission of the copyright holders.
+**
+*/
+
+#define INCL_IO
+#include "macro.h"
+
+extern int GetDefaultSearchString(char *s, int len);	// defined in search.rm
+
+static char	szBufferName[] = "Search Results";
+static char	szFind[256];
+static char	szReplace[256];
+static char	szDir[_MAX_PATH];
+static char	szFiles[_MAX_PATH];
+static char	szSaveCWD[_MAX_PATH];
+static int	RegExprSyntax;
+static BOOL globalReplace;
+
+static UINT32 SrchFileFlags;
+
+static struct find_buf	fb;
+static HBUFFER	hb, hbSave, hbCurr, hbFindResults;
+static HWINDOW hWin;
+static char		*pLine;
+static char		szCurDir[_MAX_DIR];
+static char		OutputLine[3*256];
+static int		atLine, atCol;
+
+extern int SrchFilesDlg(PSRCHPARMS);
+extern int SrchDlg(PSRCHPARMS);
+extern int ReplaceDlg(PSRCHPARMS);
+extern int _Search(int dir, int again);
+static int do_search(char *filespec, PSRCHPARMS psrch);
+static int do_replace(char *filespec, PSRCHPARMS psrch);
+
+HKEYBOARD	_srchfiles_keymap;
+
+void
+_init(void) {
+	PBINDING		pBind = NULL;
+
+	LibAutoload("search", "GetDefaultSearchString");
+
+	// start with the editor's default search flags
+	SrchFileFlags = _SrchFlags;
+
+	// Create a 'buffer' keymap for "Search Results" buffer
+	_srchfiles_keymap = KbdCreateKeyboard();
+
+	pBind = KbdQueryBinding("ErrNextError", pBind);
+	if ( pBind ) {
+		KbdPush(_srchfiles_keymap);
+		// convert key sequence to a string and bind to buffer kbd
+		KbdBind( KbdKeysToString(pBind->key, 0), "FindNextMatch" );
+		KbdPop();
+	}
+	pBind = KbdQueryBinding("ErrPrevError", pBind);
+	if ( pBind ) {
+		KbdPush(_srchfiles_keymap);
+		// convert key sequence to a string and bind to buffer kbd
+		KbdBind( KbdKeysToString(pBind->key, 0), "FindPrevMatch" );
+		KbdPop();
+	}
+	pBind = KbdQueryBinding("ErrJumpToError", pBind);
+	if ( pBind ) {
+		KbdPush(_srchfiles_keymap);
+		// convert key sequence to a string and bind to buffer kbd
+		KbdBind( KbdKeysToString(pBind->key, 0), "FindJumpMatch" );
+		KbdPop();
+	}
+} // end _init()
+
+
+void
+SrchFiles(void) {
+	SRCHPARMS	s;
+	int			rc, len;
+	char			*p;
+	char			szBuffer[_MAX_PATH];
+	BOOL			wildcard;
+
+	globalReplace = 0;
+	memset(&s, 0, sizeof(s));
+	s.cbSize     = sizeof(s);
+	s.pszPattern = szFind;
+	s.pszReplace = szReplace;
+	s.pszBaseDir = szDir;
+	s.pszFiles   = szFiles;
+	s.cbPattern  = sizeof(szFind);
+	s.cbReplace  = sizeof(szReplace);
+	s.cbBaseDir  = sizeof(szDir);
+	s.cbFiles    = sizeof(szFiles);
+	s.flags      = SrchFileFlags;
+
+	GetDefaultSearchString(szFind, sizeof(szFind));
+	rc = SrchFilesDlg(&s);
+	if ( rc || !*szFind || !*szFiles )
+		return;
+	SrchFileFlags = s.flags;
+	// Save current buffer
+	hbSave = BufQueryCurrentBuffer();
+	// Save current working directory
+	GetCurrentDir(szSaveCWD, sizeof(szSaveCWD));
+	// Brief or Unix regular expression syntax
+	RegExprSyntax = SysQueryRegExprSyntax();
+	// Change to base directory if any
+	if ( szDir[0] )
+		ChgDir(szDir);
+	if ( !(s.flags & SRCH_REPLACE) ) {
+		// Create output buffer to display results
+		hbFindResults = BufCreateBuffer(szBufferName, szBufferName, BUFTYPE_TEMP);
+		BufZapBuffer(hbFindResults);
+		if ( hWin = BufQueryWindow(hbFindResults) ) {
+			WinSetWindow(hWin);
+		} else {
+			// Create a window to display the search results
+			hWin = WinNewWindow();
+			WinAttachBuffer(hbFindResults);
+		}
+		KbdSetBufferKeyboard(_srchfiles_keymap);
+	}
+	// process files
+	p = ltrim(szFiles);
+	len = 0;
+	while ( 1 ) {
+		if ( *p == ' ' || *p == 0 ) {
+			// end of this file spec
+			szBuffer[len] = 0;
+			if ( len ) {
+				if ( s.flags & SRCH_REPLACE ) {
+					if ( do_replace(szBuffer, &s) )
+						break;
+				} else
+					do_search(szBuffer, &s);
+			}
+			len = 0;
+			if ( *p == 0 )
+				break;
+			++p;
+		} else
+			szBuffer[len++] = *p++;
+	}
+	// Restore current working directory
+	ChgDir(szSaveCWD);
+	if ( (s.flags & SRCH_REPLACE) ) {
+		WinAttachBuffer(hbSave);
+		Msg("Replace files completed.");
+	} else {
+		WinSetWindow(hWin);
+		Msg("Search files completed.");
+	}
+} // end SrchFiles()
+
+
+int	saveLine, saveCol;
+
+static int
+do_search(char *filespec, PSRCHPARMS psrch) {
+	HANDLE	hfind;
+	int		rc;
+
+	GetCurrentDir(szCurDir, sizeof(szCurDir));
+	hfind = FindFirstFile(filespec, &fb);
+	if ( hfind != 0xFFFFFFFF ) {
+		do {
+			if ( fb.ulAttr & (FILE_ATTR_SYSTEM | FILE_ATTR_HIDDEN | FILE_ATTR_DIRECTORY) )
+				continue;
+			hb = BufCreateBuffer(fb.fileName, fb.fileName, BUFTYPE_SYSTEM);
+			if ( !hb )
+				continue;
+			// Allow keystrokes to be processed so Ctrl+Break
+			// can be processed if user wants to abort.
+			KbdBufferQueryKey();
+			BufSwitchBuffer(hb);
+			// OK search this buffer for szFind
+			MsgPrintf("Searching: %s\\%s for %s", szCurDir, fb.fileName, szFind);
+			BufQueryPosition(&saveLine, &saveCol);
+			PosSOF();
+			do {
+				rc = SrchFwd( szFind,
+								  (psrch->flags & SRCH_REGEXP) ? -1 : 0,
+								  (psrch->flags & SRCH_IGNORE_CASE) ? 0 : 1,
+								  0, NULL, RegExprSyntax);
+				if ( rc > 0 ) {
+					BufQueryPosition(&atLine, &atCol);
+					PosSOL();
+					pLine = BufRead();
+					BufSwitchBuffer(hbFindResults);
+					sprintf(OutputLine, "%s\\%s(%d:%d) : ", szCurDir, fb.fileName, atLine, atCol);
+					BufInsertString(OutputLine);
+					BufInsertString(pLine);
+					free(pLine);
+					WinUpdateWindow();
+					BufSwitchBuffer(hb);
+					PosEOL();
+				}
+			} while ( rc > 0 );
+			if ( BufQueryFlags(hb) & BUFTYPE_SYSTEM )
+				BufDeleteBuffer(hb);
+			else
+				PosAbs(saveLine, saveCol);
+		} while ( !FindNextFile(hfind, &fb) );
+		FindClose(hfind);
+	}
+	if ( psrch->flags & SRCH_RECURSE ) {
+		hfind = FindFirstFile("*.*", &fb);
+		if ( hfind != 0xFFFFFFFF ) {
+			do {
+				if ( fb.ulAttr & FILE_ATTR_DIRECTORY ) {
+					if ( !strcmp(fb.fileName, "..") || !strcmp(fb.fileName, ".") )
+						continue;
+					if ( !chdir(fb.fileName) ) {
+						do_search(filespec, psrch);
+						chdir("..");
+					}
+				}
+			} while ( !FindNextFile(hfind, &fb) );
+			FindClose(hfind);
+		}
+	}
+	return 0;
+} // end do_search()
+
+
+
+static int
+do_replace(char *filespec, PSRCHPARMS psrch) {
+	static BOOL	matchLen;
+	HANDLE	hfind;
+	int		rc = 0;
+
+	OutputLine[0] = 'Y'; OutputLine[1] = 0;
+	GetCurrentDir(szCurDir, sizeof(szCurDir));
+	hfind = FindFirstFile(filespec, &fb);
+	if ( hfind != 0xFFFFFFFF ) {
+		do {
+			if ( fb.ulAttr & (FILE_ATTR_SYSTEM | FILE_ATTR_HIDDEN | FILE_ATTR_DIRECTORY) )
+				continue;
+			hb = BufCreateBuffer(fb.fileName, fb.fileName, BUFTYPE_SYSTEM);
+			if ( !hb )
+				continue;
+			// Allow keystrokes to be processed so Ctrl+Break
+			// can be processed if user wants to abort.
+			KbdBufferQueryKey();
+			WinAttachBuffer(hb);
+			// OK search this buffer for szFind
+			MsgPrintf("Searching: %s\\%s for %s", szCurDir, fb.fileName, szFind);
+			BufQueryPosition(&saveLine, &saveCol);
+			PosSOF();
+			do {
+				if ( globalReplace ) {
+					Translate( szFind, szReplace, 1,
+								  (psrch->flags & SRCH_REGEXP) ? -1 : 0,
+								  (psrch->flags & SRCH_IGNORE_CASE) ? 0 : 1,
+								  0, 1, RegExprSyntax );
+					break;
+				}
+				matchLen = SrchFwd( szFind,
+										  (psrch->flags & SRCH_REGEXP) ? -1 : 0,
+										  (psrch->flags & SRCH_IGNORE_CASE) ? 0 : 1,
+										  0, NULL, RegExprSyntax );
+				if ( matchLen < 1 )
+					break;
+
+				WinScrollCenter();
+				// Select matching text
+				PosNextChar(matchLen);
+				MarkBeginSel(SELECT_EXCLUSIVE);
+				PosPrevChar(matchLen);
+				WinUpdateWindow();
+				// Query for replace
+				if ( !PromptGetInput("Replace?(Yes,No,File,All,Skip):", OutputLine, 2, NULL) ) {
+					MarkRemoveSel();
+					rc = 1;
+					break;
+				}
+				MarkRemoveSel();
+				switch ( OutputLine[0] ) {
+				case 'y':
+				case 'Y':
+					// 1 replace
+					Translate( szFind, szReplace, 0,
+								  (psrch->flags & SRCH_REGEXP) ? -1 : 0,
+								  (psrch->flags & SRCH_IGNORE_CASE) ? 0 : 1,
+								  0, 1, RegExprSyntax );
+					// fall thru to advance one char
+				case 'n':
+				case 'N':
+					// skip
+					PosNextChar();
+					break;
+				case 'a':
+				case 'A':
+					// Do all files - no more prompting
+					globalReplace = 1;
+					// fall through
+				case 'f':
+				case 'F':
+					// Replace all for this file
+					Translate( szFind, szReplace, 1,
+								  (psrch->flags & SRCH_REGEXP) ? -1 : 0,
+								  (psrch->flags & SRCH_IGNORE_CASE) ? 0 : 1,
+								  0, 1, RegExprSyntax);
+					matchLen = 0;
+					OutputLine[0] = 'Y';
+					break;
+				case 's':
+				case 'S':
+					// Skip remainer of the file
+					matchLen = -1;
+					OutputLine[0] = 'Y';
+				} // end switch
+			} while ( matchLen > 0 );
+			if ( BufQueryFlags(hb) & BUFTYPE_SYSTEM ) {
+				if ( BufQueryModified(hb) )
+					BufWrite(hb, 1);
+				BufDeleteBuffer(hb);
+			} else
+				PosAbs(saveLine, saveCol);
+		} while ( !rc && !FindNextFile(hfind, &fb) );
+		FindClose(hfind);
+	}
+	if ( rc )
+		return rc;
+	if ( psrch->flags & SRCH_RECURSE ) {
+		hfind = FindFirstFile("*.*", &fb);
+		if ( hfind != 0xFFFFFFFF ) {
+			do {
+				if ( fb.ulAttr & FILE_ATTR_DIRECTORY ) {
+					if ( !strcmp(fb.fileName, "..") || !strcmp(fb.fileName, ".") )
+						continue;
+					if ( !chdir(fb.fileName) ) {
+						rc = do_replace(filespec, psrch);
+						chdir("..");
+						if ( rc )
+							break;
+					}
+				}
+			} while ( !FindNextFile(hfind, &fb) );
+			FindClose(hfind);
+		}
+	}
+	return rc;
+} // end do_replace()
+
+
+static PSZ	RegExpAny      = "^.*\\(\\c[0-9]+:[0-9]+\\) : ";	// match any type of message 
+static PSZ	RegExpFilename = "^\\c.*\\(";								// match filename 
+static PSZ	RegExpColumn   = "^.*\\([0-9]+:\\c[0-9]+\\)";		// match column number 
+static PSZ	RegExpText     = "^.*\\([0-9]+:[0-9]+\\) : \\c";	// match text of message 
+
+static char	szFilenameEndChars[] = " \t([<>]):,";
+
+static void
+_Jump(char *pathname, long line, long column, char *text) {
+   HBUFFER  hbSource;
+	HWINDOW	win = NULL;
+	ULONG		sysFlags, bufFlags;
+
+   if ( pathname ) {
+		sysFlags = SysQueryFlags();
+		bufFlags = BufQueryFlags();
+      if ( stricmp(BufQueryFilename(), pathname) ) {
+         //  a different file 
+         if ( (hbSource = BufFindBuffer(pathname, 0)) == NULL ) {
+            // Load it 
+				if ( sysFlags & SYSTEM_SW_BROWSE )
+					win = WinQueryCurrentWindow();
+            if ( !WinLoadFileInWindow(pathname, win) )
+               return;
+         } else {
+            if ( win = BufQueryWindow(hbSource) )
+               WinSetWindow(win);
+            else {
+					if ( !(sysFlags & SYSTEM_SW_BROWSE) )
+	               WinNewWindow();
+               WinAttachBufferToWindow(hbSource, WinQueryCurrentWindow());
+            }
+         }
+      }
+   }
+
+   PosAbs(line, column);
+	if ( column == 0L )
+		PosSOT();
+	WinScrollCenter();
+	WinUpdateWindow();
+} // end _Jump() 
+
+
+static int
+_JumpHandler( ULONG action, HBUFFER hbSrc, UINT flags,
+				  PSZ regExpAny, PSZ regExpFilename, PSZ regExpColumn, PSZ regExpText )
+{
+	HBUFFER	hbSave;
+	LONG		line, column, offset;
+	char		*pszText;
+	int		direction;
+	int		i, rc = 1;
+	char		pathname[_MAX_PATH];
+
+	switch ( action & 0xFFFFL ) {
+	case 0:	// jump to match at current position in buffer (FindJumpMatch)
+		direction = 0;		break;
+	case 1:	// jump to next (FindNextMatch)
+		direction = 1;		break;
+	case 2:	// jump to previous (FindPrevMatch)
+		direction = -1;	break;
+	} // end switch on action
+
+   hbSave = BufSwitchBuffer(hbSrc);
+
+   if ( direction >= 0 && BufQueryOffset() >= BufQueryFilesize() ) {
+		// At EOF - start search at SOF
+      PosSOF();
+      direction = 0;						// don't move
+   } else if ( direction == -1 && BufQueryOffset() == 0L ) {
+		// At SOF - start search at EOF
+		PosEOF();
+		direction = 0;
+	}
+	PosSOL();
+
+   if ( direction > 0 ) {          	// find next
+      MovDown(1L);
+   } else if ( direction < 0 ) {   	// find previous
+      MovUp(1L);
+   } // otherwise check current line
+
+	// Find a line in the output buffer that matches regular expression
+	rc = 1;
+   while ( 1 ) {
+      pszText = BufRead();
+		offset = SrchString(regExpAny, pszText, NULL, -1, 0, 0);
+		if ( offset < 0L ) {
+         free(pszText);
+			if ( !direction )	{		// no direction
+            if ( MovDown(1L) ) {
+					// Can't move down - must be at EOF
+					direction = -1;	// set direction to backwards
+					if ( MovUp(1L) )
+						break;			// at SOF - error buffer empty
+				} else
+					direction = 1;		// set direction to forward
+			} else if ( direction > 0 ) {
+            if ( MovDown(1L) )
+               break;				// at end of file
+         } else {
+            if ( MovUp(1L) )
+               break;				// at start of file
+         }
+      } else {
+			// found match - process it
+			rc = 0;
+			BufSyncWindows(hbSrc);
+         break;
+		}
+   }
+
+   BufSwitchBuffer(hbSave);
+
+	if ( !rc ) {
+	   // process match
+	   line = atol(&pszText[offset]);
+
+	   if ( line > 0L ) {
+			char	*fullPath, *p;
+
+			// Get column number if supported
+			if ( regExpColumn ) {
+				offset = SrchString(regExpColumn, pszText, NULL, -1, 0, RE_SYNTAX_UNIX);
+				column = atol(&pszText[offset]);
+			} else
+				column = 0L;
+
+			// Get filename for source of error
+			offset = SrchString(regExpFilename, pszText, NULL, 1, 0, RE_SYNTAX_UNIX);
+			if ( offset < 0L )	// not found
+				return 1;
+			/*
+			** End of filename marked by one of the chars in szFilenameEndChars
+			** if some other character follows the filename
+			** for your compiler add it to the szFilenameEndChars string.
+			*/
+			if ( pszText[offset+1] == ':' ) {
+				i = strcspn(&pszText[offset+2], szFilenameEndChars);
+				if ( i )
+					i += 2;
+			} else
+				i = strcspn(&pszText[offset], szFilenameEndChars);
+			if ( i < _MAX_PATH )	{
+				strncpy( pathname, &pszText[offset], i );
+				pathname[i] = 0;	// null terminate the string
+				fullPath = complete_path(pathname);
+			} else
+				fullPath = strdup(BufQueryFilename(BufQueryLinkedBuffer(hbSrc)));
+			if ( regExpText ) {
+				offset = SrchString(regExpText, pszText, NULL, 1, 0, RE_SYNTAX_UNIX);
+				if ( offset < 0L )
+					offset = 0L;
+			} else
+				offset = 0L;
+			// make any windows showing the error buffer position to the error we are processing
+	      _Jump(fullPath, line, column, BufQueryFilename(hbSrc), rtrim(&pszText[offset]));
+			free(fullPath);
+			rc = 0;
+		}
+		free(pszText);
+	}
+   return rc;
+} // end _JumpHandler()
+
+
+void
+FindJumpMatch(void) {
+	HBUFFER	hbSrc;
+
+	if ( hbSrc = BufFindBuffer(szBufferName, 0) )
+		_JumpHandler( 0, hbSrc, 0, RegExpAny, RegExpFilename, RegExpColumn, RegExpText );
+} // end FindJumpMatch()
+
+
+void
+FindNextMatch(void) {
+	HBUFFER	hbSrc;
+
+	if ( hbSrc = BufFindBuffer(szBufferName, 0) )
+		_JumpHandler( 1, hbSrc, 0, RegExpAny, RegExpFilename, RegExpColumn, RegExpText );
+} // end FindJumpMatch()
+
+
+void
+FindPrevMatch(void) {
+	HBUFFER	hbSrc;
+
+	if ( hbSrc = BufFindBuffer(szBufferName, 0) )
+		_JumpHandler( 2, hbSrc, 0, RegExpAny, RegExpFilename, RegExpColumn, RegExpText );
+} // end FindJumpMatch()
+
+
+
+/*
+** end macro: srchfile.rm
+*/

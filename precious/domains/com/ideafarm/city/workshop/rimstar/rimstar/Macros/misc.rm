@@ -1,0 +1,648 @@
+/*
+** Macro module: misc.rm - Misc. functions
+**
+** Copyright (C) 1993-1995 Brian L. Smith
+** Copyright (C) 1993-1995 RimStar Technology, Inc.
+** All rights reserved internationally.
+** Unlicensed use is a violation of applicable laws.
+**
+** This source code is provided to licensed users of RimStar's products
+** for the purpose of allowing the user to customize and/or enhance RimStar's
+** products. The source code remains the property of the copyright holders
+** with all rights reserved internationally.
+** Any modifications to the source code are considered derivative works and
+** all rights thereto are reserved to the copyright holders except
+** that the purchaser may use the derivitive work in the same manner
+** as permitted by the license governing the unmodified product.
+** Distribution in any manner of any part of the original source code,
+** whether in source or object form, is expressly prohibited without the
+** express written permission of the copyright holders.
+**
+*/
+
+#include "macro.h"
+
+
+/*
+** Repeat
+**
+** Repeat next keyboard command 'n' times
+** Ctrl+Break can be used to stop repeating the command
+*/
+void
+Repeat( void ) {
+	static char	txt[10];
+	long	n;
+
+	if ( PromptGetInput( "Enter repeat count:", txt, 10 ) ) {
+		n = atol(txt);
+		if ( n )
+			SysSetRepeat(n);
+	}
+} /* end Repeat() */
+
+
+/* SysEnableAccel
+**
+** Enables or disables translation of Alt+
+** keystrokes which activate pull down menus.
+** If SYSTEM_MENUACCEL is enabled then any
+** Alt+ letter that matches a pulldown menu
+** mnumonic will activate the pull down menu
+** Under OS/2 the key will not be processed by
+** the editor, under Windows it is processed in
+** addition to pulling down the menu. In general
+** if you enable menu accelerators you should not
+** bind Alt+key combinations that match pull down
+** menu mnumonics.
+*/
+BOOL
+SysEnableAccel(LONG enable) {
+	BOOL	prevState;
+
+	if ( SysQueryFlags() & SYSTEM_MENUACCEL )
+		prevState = TRUE;
+	else
+		prevState = FALSE;
+	if ( enable )
+		SysSetFlags(SYSTEM_MENUACCEL, SYSTEM_MENUACCEL);
+	else
+		SysSetFlags(SYSTEM_MENUACCEL, 0L);
+	return prevState;
+} /* end SysEanbleAccel() */
+
+
+/*
+** WhatIs
+** Waits for you type a key sequence and it tells you what
+** funtion is bound to that key sequence.
+** Multi-key sequences show "Incomplete" if additional keys
+** are required to complete the sequence.
+*/
+void
+WhatIs(void) {
+	PRAWKEY	key = NULL;
+	USHORT	ausKeys[10];
+	char		*pszFunc, function[65];
+	int		i;
+
+	MsgPrintf("WhatIs: Type key sequence");
+	i = 0;
+	while ( 1 ) {
+		while ( key == NULL )
+			key = KbdBufferGetKey();
+		ausKeys[i++] = key->key;
+		ausKeys[i] = 0;
+		if ( pszFunc = KbdQueryFunction(ausKeys, i) ) {
+			/*
+			** must save the string - KbdKeysToString uses same temporary area
+			** to return string result as KbdQueryFunction()
+			*/
+			strncpy(function, pszFunc, 64);
+			function[64] = 0;
+			MsgPrintf("%s is %s", KbdKeysToString(ausKeys, i), function);
+			if ( strcmp(function, "Incomplete") )
+				break;
+			key = NULL;
+		} else {
+			MsgPrintf("WhatIs: %s not bound", KbdKeysToString(ausKeys, i));
+			break;
+		}
+	}
+} /* end WhatIs() */
+
+
+/* KeyDecode
+**
+** This function is used to display the scan code and ASCII value
+** of the next key pressed. This function can be used to determine
+** how to set up a KbdBind for international keyboards which use
+** non-US scan codes.
+**
+*/
+void
+KeyDecode(void) {
+	PRAWKEY	key = NULL;
+	char		s[64];
+
+	while ( key == NULL )
+		key = KbdBufferGetKey();
+	sprintf( s, "Scan=0x%02X(%d) ASCII='%c' 0x%02X(%d)",
+				key->key, key->key, key->ascii, key->ascii, key->ascii);
+	PopupMsg(s, "KeyDecode");
+} /* end KeyDecode() */
+
+
+void
+CharIs() {
+	USHORT	ch;
+
+	ch = BufQueryChar();
+	MsgPrintf("CharIs: %d(0x%02X)", ch, ch);
+} /* end CharIs() */
+
+
+void
+quote(void) {
+	PRAWKEY	pKey;
+
+	/* Wait for a key */
+	MsgInfo("quote: Waiting for keypress...");
+	while ( !(pKey = KbdBufferQueryKey()) )
+		;
+	if ( pKey->ascii && !(pKey->key & KC_ALT) ) {
+		 pKey = KbdBufferGetKey();	/* remove from keyboard buffer */
+		 BufInsertChar(pKey->ascii);
+	}
+} /* end quote() */
+
+
+long
+__next_word(void) {
+
+	return SrchFwd("(([^ \t\f\n]+)|([ \t\f\n]*))[ \t\f\n]+\\c[^ \t\f\n]", -1, 1);
+
+} /* end __next_word() */
+
+
+long
+__prev_word(void) {
+	PosPrevChar();
+	while ( strchr(" \t\f", BufQueryChar()) )
+		if ( PosPrevChar() )
+			return 0;
+	return SrchBack("(^|[ \t\f])\\c[^ \t\f\n]+", -1, 1);
+} /* end __prev_word() */
+
+
+void
+next_word(void) {
+	char  *pathname;
+	char  ext[_MAX_EXT];
+	char  *func;
+
+	/* Determine file extension of current buffer */
+	pathname = BufQueryFilename();
+	if ( !pathname ) {
+		__next_word();
+		return;
+	}
+	/* Build function name from file extension */
+	splitpath(pathname, NULL, NULL, NULL, ext);
+	func = malloc(_MAX_EXT+16);
+	ext[0] = '_';
+	strcpy(func, ext);
+	strlwr(func);
+	strcat(func, "_next_word");
+	if ( LibQueryFunction(func) )	/* is there an extension specific version */
+		ExecFunction(func);
+	else
+		__next_word();
+	free(func);
+} /* end next_word() */
+
+
+void
+prev_word(void) {
+	char  *pathname;
+	char  ext[_MAX_EXT];
+	char  *func;
+
+	/* Determine file extension of current buffer */
+	pathname = BufQueryFilename();
+	if ( !pathname ) {
+		__prev_word();
+		return;
+	}
+	/* Build function name from file extension */
+	splitpath(pathname, NULL, NULL, NULL, ext);
+	func = malloc(_MAX_EXT+16);
+	ext[0] = '_';
+	strcpy(func, ext);
+	strlwr(func);
+	strcat(func, "_prev_word");
+	if ( LibQueryFunction(func) )	/* is there an extension specific version */
+		ExecFunction(func);
+	else
+		__prev_word();
+	free(func);
+} /* end prev_word() */
+
+
+int
+delete_next_word() {
+	long	startPos;
+	long	endPos;
+	long	startLine;
+	long	endLine;
+
+	startPos  = BufQueryOffset();
+	startLine = BufQueryLine();
+	MarkPushPos();
+
+	next_word();
+
+	endPos  = BufQueryOffset();
+	endLine = BufQueryLine();
+
+	if ( endPos != startPos ) {
+		MarkPopPos();
+		if ( endLine != startLine )
+			BufDeleteToEOL();
+		else
+			BufDeleteChar(endPos - startPos);
+		return 1;
+	}
+	MarkPopPos();
+	return 0;
+} /* end delete_next_word() */
+
+
+int
+delete_prev_word() {
+	long	startPos;
+	long	size;
+
+	startPos = BufQueryOffset();
+	MarkPushPos();
+
+	prev_word();
+
+	if ( size = startPos - BufQueryOffset() ) {
+		BufDeleteChar(size);
+		MarkPopPos(0);	/* discard saved position */
+		return 1;
+	}
+	MarkPopPos();
+	return 0;
+} /* end delete_prev_word() */
+
+
+void
+delete_word( void ) {
+	long	start, len;
+	char	*pat = "[]\\- \t\n.,?!:;/\\\\>]";
+
+	if ( SrchBack(pat, 1, 1) < 0 )
+		PosSOF();
+	else
+		PosNextChar();
+	start = BufQueryOffset();
+	if ( SrchFwd(pat, 1, 1) < 0 )
+		PosEOF();
+	else
+		PosPrevChar();
+	len = BufQueryOffset() - start + 1L;
+	PosToOffset(start);
+	BufDeleteChar(len);
+} /* end delete_word() */
+
+
+void
+next_sentence() {
+	int	ch;
+
+	ch = BufQueryChar();
+	if ( !strchr(".?!", ch) )
+		PosNextChar();
+	if ( SrchFwd("[.?!][\'\")]*[ \t\n]", 1, 1) >= 0 ) {
+		PosNextChar();
+		ch = BufQueryChar();
+		if ( strchr("\"\')", ch) )
+			PosNextChar();
+		while ( (ch = BufQueryChar()) == ' ' || ch == '\t' || ch == '\n' )
+			PosNextChar();
+	} else
+		PosEOF();
+} /* end next_sentence() */
+
+
+void
+prev_sentence() {
+	int	ch;
+
+	PosPrevChar();
+	while ( (ch = BufQueryChar()) == ' ' || ch == '\t' || ch == '\n' )
+		if ( PosPrevChar() )
+			break;
+	if ( strchr("\"\')", ch) ) {
+		PosPrevChar();
+		ch = BufQueryChar();
+	}
+	if ( strchr(".?!", ch) )
+		PosPrevChar();
+	if ( SrchBack("[.?!][\'\")]*[ \t\n]", 1, 1) >= 0 ) {
+		PosNextChar();
+		ch = BufQueryChar();
+		if ( strchr("\"\')", ch) )
+			PosNextChar();
+		while ( (ch = BufQueryChar()) == ' ' || ch == '\t' || ch == '\n' )
+			PosNextChar();
+	} else
+		PosSOF();
+} /* end prev_sentence() */
+
+
+void
+delete_sentence( void ) {
+	long	start, len;
+
+	prev_sentence();
+	if ( BufQueryOffset() )
+		PosNextChar();
+	start = BufQueryOffset();
+	next_sentence();
+	len = BufQueryOffset() - start + 1L;
+	PosToOffset(start);
+	BufDeleteChar(len);
+} /* end delete_sentence() */
+
+
+/*
+** open_line - creates an empty line following the current line
+*/
+void
+open_line(void) {
+	char	*pszFunc;
+
+	PosEOL();
+
+	pszFunc = KbdQueryFunction(KbdStringToKeys("Enter"), 1);
+	if ( !strcmp(pszFunc, "SelfInsert") || !strcmp(pszFunc, "open_line") )
+		BufInsertNewline();
+	else
+		ExecFunction(pszFunc);
+} /* end open_line() */
+
+
+/*
+** open_line_above - creates an empty line above the current line
+** and positions you at the start of the new line
+*/
+void
+open_line_above(void) {
+	char	*pszFunc;
+
+	PosSOL();
+	if ( BufQueryLine() == 1L ) {
+		BufInsertNewline();
+		PosSOF();
+	} else {
+		PosPrevChar();
+		pszFunc = KbdQueryFunction(KbdStringToKeys("Enter"), 1);
+		if ( !strcmp(pszFunc, "SelfInsert") || !strcmp(pszFunc, "open_line_above") )
+			BufInsertNewline();
+		else
+			ExecFunction(pszFunc);
+	}
+} /* end open_line() */
+
+
+/*
+** Count number of times string appears
+*/
+long
+count_string() {
+	char	str[80];
+	int	len;
+	long	found = 0;
+
+	BufCopyWordToString(str, 80);
+	MarkPushPos();
+	while ( 1 ) {
+		len = SrchFwd(str, 0, 1);
+		if ( len == -1 ) {
+			MsgPrintf("%s found %d times", str, found);
+			break;
+		}
+		++found;
+		PosNextChar(len);
+	}
+	MarkPopPos(1);
+} /* end count_string() */
+
+
+/*
+** Count number of times string appears
+*/
+long
+prompt_count_string() {
+	char	str[80];
+	int	len;
+	long	found = 0;
+
+	str[0] = 0;
+	if ( !PromptGetInput("Count string:", str, 80) )
+		return 0L;
+	MarkPushPos();
+	while ( 1 ) {
+		len = SrchFwd(str, 0, 1);
+		if ( len <= 0 ) {
+			MsgPrintf("%s found %d times", str, found);
+			break;
+		}
+		++found;
+		PosNextChar(len);
+	}
+	MarkPopPos(1);
+	return found;
+} /* end prompt_count_string() */
+
+
+/*
+** toggle the case of the current char
+*/
+void
+swapcase_char() {
+	int	ch1;
+	long	flags;
+
+	ch1 = BufQueryChar();
+	if ( isalpha(ch1) ) {
+		if ( isupper(ch1) )
+			ch1 = _tolower(ch1);
+		else
+			ch1 = _toupper(ch1);
+		flags = SysQueryFlags();
+		SysSetFlags(SYSTEM_INSERT, 0);
+		/* replace the character */
+		BufInsertChar(ch1);
+		SysSetFlags(SYSTEM_INSERT, flags);
+	} else
+		PosNextChar();
+} /* end swapcase_char() */
+
+
+/*
+** swap current char with char following it
+*/
+void
+transpose_next_char() {
+	int	ch1, ch2;
+	long	flags;
+
+	ch1 = BufQueryChar();
+	ch2 = BufQueryChar( BufQueryOffset()+1L );
+	if ( ch1 == '\n' || ch2 == '\n' )
+		return;
+	BufDeleteChar();
+	PosNextChar();
+	flags = SysQueryFlags();
+	SysSetFlags(SYSTEM_INSERT, SYSTEM_INSERT);
+	BufInsertChar(ch1);
+	SysSetFlags(SYSTEM_INSERT, flags);
+	PosPrevChar(2L);
+} /* end transpose_next_char() */
+
+
+/*
+** swap current char with char before it
+*/
+void
+transpose_prev_char() {
+	int	ch1, ch2;
+	long	flags;
+	long	offset = BufQueryOffset();
+
+	if ( offset ) {
+		ch1 = BufQueryChar( offset-1L );
+		ch2 = BufQueryChar();
+		if ( ch1 == '\n' || ch2 == '\n' )
+			return;
+		BufDeleteChar();
+		PosPrevChar();
+		flags = SysQueryFlags();
+		SysSetFlags(SYSTEM_INSERT, SYSTEM_INSERT);
+		BufInsertChar(ch2);
+		SysSetFlags(SYSTEM_INSERT, flags);
+	}
+} /* end transpose_prev_char() */
+
+
+void
+process_selection(char *(*func)(char *) ) {
+	SELECTION	sel;
+	int			type;
+	long			atLine;
+	long			offset;
+	long			size;
+	char			*s1, *s2;
+
+
+	if ( !MarkQuerySelType() )
+		MarkLine();
+
+	type = MarkQuerySelExcl(&sel, 1);
+	MarkRemoveSel();
+	if ( !type )
+		return;
+	MarkPushPos();
+	PosAbs(atLine = sel.s_line, sel.s_column);
+
+	while ( atLine <= sel.e_line ) {
+		MarkPushPos();
+		offset = BufQueryOffset();
+		if ( atLine == sel.e_line || type == SELECT_COLUMN )
+			PosAbs(0, sel.e_column);
+		else
+			PosEOL();
+		size = BufQueryOffset() - offset + 1;
+		MarkPopPos(1);
+		s1 = BufRead(size);
+		s2 = strdup(s1);
+		s2 = func(s2);
+		if ( strcmp(s1, s2) ) {
+			if ( BufDeleteChar(size) )
+				break;	/* buffer probably read only */
+			BufInsertString(s2);
+		}
+		free(s2);
+		free(s1);
+		if ( type == SELECT_COLUMN )
+			offset = sel.s_column;
+		else
+			offset = 1L;
+		PosAbs(++atLine, offset);
+	}
+	MarkPopPos(1);
+} /* end process_selection() */
+
+
+#undef toupper
+#undef tolower
+
+
+char *
+_swapcase(char *s) {
+	long	i;
+
+	for ( i = 0; s[i] && s[i] != '\n'; ++i ) {
+		if ( isalpha(s[i]) ) {
+			if ( isupper(s[i]) )
+				s[i] = _tolower(s[i]);
+			else
+				s[i] = _toupper(s[i]);
+		}
+	}
+	return s;
+} /* end _swapcase() */
+
+
+void
+swapcase() {
+	process_selection(_swapcase);
+} /* end swapcase() */
+
+
+void
+toupper() {
+	process_selection(strupr);
+} /* end toupper() */
+
+
+void
+tolower() {
+	process_selection(strlwr);
+} /* end tolower() */
+
+
+void
+toupper_word(void) {
+	SelWord();
+	toupper();
+}
+
+
+void
+tolower_word(void) {
+	SelWord();
+	tolower();
+}
+
+char *
+convert_to_space(char *s) {
+	long	i;
+
+	for ( i = 0; s[i] && s[i] != '\n'; ++i )
+		if ( s[i] != ' ' && s[i] != '\t' )
+			s[i] = ' ';
+	return s;
+} /* end convert_to_space() */
+
+
+void
+tospace() {
+	SELECTION	sel;
+
+	if ( !MarkQuerySel(&sel, 1) )
+		BufInsertChar(' ');
+	else {
+		process_selection(convert_to_space);
+		MovAbs(sel.s_line, sel.s_column);
+	}
+} /* end tospace() */
+
+
+/*
+** End module: misc.rm
+*/

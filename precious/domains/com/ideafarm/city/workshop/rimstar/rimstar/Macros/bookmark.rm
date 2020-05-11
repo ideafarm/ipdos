@@ -1,0 +1,88 @@
+/*
+** Macro module: bookmark.rm - Bookmark functions
+**
+** Copyright (C) 1993, 1994 Brian L. Smith
+** Copyright (C) 1993, 1994 RimStar Technology, Inc.
+** All rights reserved internationally.
+** Unlicensed use is a violation of applicable laws.
+**
+** This source code is provided to licensed users of RimStar's products
+** for the purpose of allowing the user to customize and/or enhance RimStar's
+** products. The source code remains the property of the copyright holders
+** with all rights reserved internationally.
+** Any modifications to the source code are considered derivative works and
+** all rights thereto are reserved to the copyright holders except
+** that the purchaser may use the derivitive work in the same manner
+** as permitted by the license governing the unmodified product.
+** Distribution in any manner of any part of the original source code,
+** whether in source or object form, is expressly prohibited without the
+** express written permission of the copyright holders.
+**
+*/
+
+#include "macro.h"
+
+
+void
+BookmarkSet(USHORT n) {
+	HMARK		hMark;
+	USHORT	reply, number;
+	char		szMsg[40];
+
+	if ( !LibQueryArgCount() ) {
+		number = 0;
+		szMsg[0] = 0;
+		if ( PromptGetInput("Set mark #:", szMsg, 5) )
+			number = atoi(szMsg);
+		if ( !number )
+			return;
+	} else
+		number = n;
+	hMark = MarkQueryGlobalFromID(number);
+	if ( !hMark )
+		hMark = MarkAllocGlobal(number);
+	else {
+		sprintf(szMsg, "Set bookmark %d", number);
+		reply = PopupMsgBox(	"This bookmark is already set. Overwrite?", szMsg,
+									MB_YESNO | MB_ICONQUESTION |
+									MB_MOVEABLE | MB_APPLMODAL);
+		if ( reply == MBID_YES )
+			MarkResetMark(hMark);
+		else
+			return;
+	}
+	MsgPrintf("Mark %d set.", number);
+} /* end BookmarkSet() */
+
+
+void
+BookmarkGoto(USHORT n) {
+	HMARK		hMark;
+	USHORT	number;
+	char		szMsg[40];
+
+	if ( !LibQueryArgCount() ) {
+		number = 0;
+		szMsg[0] = 0;
+		if ( PromptGetInput("Go to mark #:", szMsg, 5) )
+			number = atoi(szMsg);
+		if ( !number )
+			return;
+	} else
+		number = n;
+	hMark = MarkQueryGlobalFromID(number);
+	if ( hMark ) {
+		MarkRemoveSel();
+		MarkGoto(hMark);
+		WinScrollCenter();
+	} else {
+		sprintf(szMsg, "Go to mark - %d", number);
+		PopupMsg("This mark has not been set", szMsg);
+	}
+} /* end BookmarkGoto() */
+
+
+
+/*
+** End module: bookmark.rm
+*/

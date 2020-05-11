@@ -1,0 +1,675 @@
+/*
+** Macro module: epm.rm - EPM keyboard map
+**
+**
+** Copyright (C) 1993-1995 Brian L. Smith
+** Copyright (C) 1993-1995 RimStar Technology, Inc.
+** All rights reserved internationally.
+** Unlicensed use is a violation of applicable laws.
+**
+** This source code is provided to licensed users of RimStar's products
+** for the purpose of allowing the user to customize and/or enhance RimStar's
+** products. The source code remains the property of the copyright holders
+** with all rights reserved internationally.
+** Any modifications to the source code are considered derivative works and
+** all rights thereto are reserved to the copyright holders except
+** that the purchaser may use the derivitive work in the same manner
+** as permitted by the license governing the unmodified product.
+** Distribution in any manner of any part of the original source code,
+** whether in source or object form, is expressly prohibited without the
+** express written permission of the copyright holders.
+**
+*/
+
+/*
+** This macro file sets up the editor for an EPM keyboard mapping.
+** To have the editor use this as your default keyboard map:
+**  copy epm.* keyboard.*
+*/
+
+#include "macro.h"
+
+/*
+** STREAM_EDITING
+**
+** Controls whether the movement keys will move you into virtual space
+** (ie. past the end of a line.) Stream editing means the editor will
+** not move into virtual space as you move around. The editor's default
+** behavior is to allow you to move into virtual space.
+**
+** Set to zero if you want normal editing behavior
+** ie. #define STREAM_EDITING	0
+**
+** Set to non-zero if you want stream editing behavior
+** ie. #define STREAM_EDITING	1
+**
+*/
+#define STREAM_EDITING		0
+
+/*
+** CUA_ACCELERATORS
+**
+** Controls whether Alt+Menu mnumonics will pull down the menu or invoke
+** the command (if any) assigned to the key. For example ALt+U in EPM
+** removes the selection marking, but in RimStar this will pull down the
+** Buffers pulldown menu if CUA_ACCELERATORS are enabled. 
+**
+** Set to zero if you do not want menu to pull down with Alt+mnumonic
+** ie. #define CUA_ACCELERATORS	0
+**
+** Set to non-zero if you want menu to pull down with Alt+mnumonic keys
+** ie. #define CUA_ACCELERATORS	1
+**
+*/
+#define CUA_ACCELERATORS	0
+
+
+extern BOOL CUAMode;
+extern BOOL	CUASelActive;
+extern BOOL	MouseNoVirtual;
+extern void	(*pfnSetDefaultKeymap)(void);	/* defined in startup.rm */
+
+void EPM();
+static HKEYBOARD hkEPM;
+
+
+void
+_init(void) {
+	LibAutoload("KbdCUA",	"KbdBindCUAAsciiKeys");
+	LibAutoload("misc", 		"SysEnableAccel", "quote", "next_word", "prev_word", "tospace",
+									"delete_next_word", "delete_prev_word",
+					 				"toupper", "tolower", "toupper_word", "tolower_word",
+					 				"Repeat", "CharIs");
+	LibAutoload("c_smart",	"find_matching_delim");
+	LibAutoload("slide",		"slide_in", "slide_out");
+	LibAutoload("iSearch",	"incremental_search");
+	LibAutoload("hexedit",	"HexEditBegin");
+	LibAutoload("bookmark",	"BookmarkSet", "BookmarkGoto");
+} /* end _init() */
+
+
+void
+SetEPM() {
+	if ( !hkEPM ) {
+		KbdPush(NULL);
+		EPM();
+		hkEPM = KbdPop();
+	}
+	KbdPop();	/* Remove current kbd */
+	KbdPush(hkEPM);
+	MnuSetMenuAccel();
+	CUAMode = 1;
+  #if STREAM_EDITING
+	MouseNoVirtual = TRUE;
+  #else
+	MouseNoVirtual = FALSE;
+  #endif
+  #if CUA_ACCELERATORS
+	SysSetFlags(SYSTEM_MENUACCEL, SYSTEM_MENUACCEL);
+  #else
+	SysSetFlags(SYSTEM_MENUACCEL, 0L);
+  #endif
+	MsgPrintf("EPM key map active");
+} /* end SetEPM() */
+
+
+void
+KbdBindDefault() {
+	/* Enable CUA mouse behavior */
+	CUAMode = TRUE;
+  #if STREAM_EDITING
+	MouseNoVirtual = TRUE;
+  #else
+	MouseNoVirtual = FALSE;
+  #endif
+  #if CUA_ACCELERATORS
+	SysSetFlags(SYSTEM_MENUACCEL, SYSTEM_MENUACCEL);
+  #else
+	SysSetFlags(SYSTEM_MENUACCEL, 0L);
+  #endif
+	EPM();
+	hkEPM = KbdQueryCurrentKeyboard();
+	pfnSetDefaultKeymap = SetEPM;
+} /* end KbdBindDefault() */
+
+
+void
+EPM() {
+	char  *self_insert = "SelfInsert";
+	char  *p;
+
+	/* Call function for cua mapping of typable keys */
+	KbdBindCUAAsciiKeys();
+
+	/*
+	**  KP stands for the Key Pad keys.
+	**
+	**  Alt+ ESCAPE, Alt+TAB and Ctrl+ESCAPE are reserved for OS's use
+	**  do not define these as they will be ignored.
+	*/
+
+	/*
+	** Project
+	*/
+	KbdBind("Shift+Alt+E",			"PjtOpen 0");
+	KbdBind("Alt+F3",					"PjtClose");
+	KbdBind("Ctrl+F10",				"PjtBuild");
+	KbdBind("Alt+F10",				"PjtDebugBuild");
+
+	/*
+	** Movement
+	*/
+	KbdBind("Shift+ENTER",			p="CUAMov MovNextline");
+	KbdBind("Shift+KP_ENTER",		p);
+	KbdBind("Ctrl+Enter", 	 		"CUAInsertNewline");
+
+	KbdBind("Ctrl+LEFT",				p="CUAMov prev_word");	/* in misc.rm */
+	KbdBind("Ctrl+KP_LEFT",			p);
+	KbdBind("Ctrl+RIGHT", 			p="CUAMov next_word");	/* in misc.rm */
+	KbdBind("Ctrl+KP_RIGHT",		p);
+
+	KbdBind("Ctrl+HOME",				p="CUAMov MovSOF");
+	KbdBind("Ctrl+KP_HOME",			p);
+	KbdBind("Ctrl+END",				p="CUAMov MovEOF");
+	KbdBind("Ctrl+KP_END",			p);
+
+  #if STREAM_EDITING
+	KbdBind("PGUP",					p="CUAMov pgup");
+	KbdBind("KP_PGUP",				p);
+	KbdBind("HOME",					p="CUAMov sol");
+	KbdBind("KP_HOME",				p);
+	KbdBind("PGDN",					p="CUAMov pgdn");
+	KbdBind("KP_PGDN",				p);
+	KbdBind("END",						p="CUAMov eol");
+	KbdBind("KP_END",					p);
+	KbdBind("UP",						p="CUAMov up");
+	KbdBind("KP_UP",					p);
+	KbdBind("DOWN",					p="CUAMov down");
+	KbdBind("KP_DOWN",				p);
+	KbdBind("KP_LEFT",				p="CUAMov left");
+	KbdBind("LEFT",					p);
+	KbdBind("RIGHT",					p="CUAMov right");
+	KbdBind("KP_RIGHT",				p);
+  #else
+	KbdBind("PGUP",					p="CUAMov MovPageUp");
+	KbdBind("KP_PGUP",				p);
+	KbdBind("HOME",					p="CUAMov MovSOL");
+	KbdBind("KP_HOME",				p);
+	KbdBind("PGDN",					p="CUAMov MovPageDown");
+	KbdBind("KP_PGDN",				p);
+	KbdBind("END",						p="CUAMov MovEOL");
+	KbdBind("KP_END",					p);
+	KbdBind("UP",						p="CUAMov MovUp");
+	KbdBind("KP_UP",					p);
+	KbdBind("DOWN",					p="CUAMov MovDown");
+	KbdBind("KP_DOWN",				p);
+	KbdBind("KP_LEFT",				p="CUAMov MovLeft");
+	KbdBind("LEFT",					p);
+	KbdBind("RIGHT",					p="CUAMov MovRight");
+	KbdBind("KP_RIGHT",				p);
+  #endif
+
+	/*
+	** Select while moving
+	*/
+	KbdBind("Shift+Ctrl+LEFT",	 	p="CUASel prev_word");
+	KbdBind("Shift+Ctrl+KP_LEFT", p);
+	KbdBind("Shift+Ctrl+RIGHT",	p="CUASel next_word");
+  	KbdBind("Shift+Ctrl+KP_RIGHT",p);
+	KbdBind("Shift+Ctrl+END",		p="CUASel MovEOF");
+	KbdBind("Shift+Ctrl+KP_END",	p);
+	KbdBind("Shift+Ctrl+HOME",		p="CUASel MovSOF");
+	KbdBind("Shift+Ctrl+KP_HOME", p);
+
+  #if STREAM_EDITING
+	KbdBind("Shift+HOME", 			p="CUASel sol");
+	KbdBind("Shift+KP_HOME", 		p);
+	KbdBind("Shift+END",				p="CUASel eol");
+	KbdBind("Shift+KP_END",			p);
+	KbdBind("Shift+PGUP",			p="CUASel pgup");
+	KbdBind("Shift+KP_PGUP",		p);
+	KbdBind("Shift+PGDN",			p="CUASel pgdn");
+	KbdBind("Shift+KP_PGDN",		p);
+	KbdBind("Shift+LEFT",			p="CUASel left");
+	KbdBind("Shift+KP_LEFT",		p);
+	KbdBind("Shift+RIGHT",			p="CUASel right");
+	KbdBind("Shift+KP_RIGHT",		p);
+	KbdBind("Shift+UP",				p="CUASel up");
+ 	KbdBind("Shift+KP_UP",			p);
+	KbdBind("Shift+DOWN", 			p="CUASel down");
+ 	KbdBind("Shift+KP_DOWN", 		p);
+  #else
+	KbdBind("Shift+HOME", 			p="CUASel MovSOL");
+	KbdBind("Shift+KP_HOME", 		p);
+	KbdBind("Shift+END",				p="CUASel MovEOL");
+	KbdBind("Shift+KP_END",			p);
+	KbdBind("Shift+PGUP",			p="CUASel MovPageUp");
+	KbdBind("Shift+KP_PGUP",		p);
+	KbdBind("Shift+PGDN",			p="CUASel MovPageDown");
+	KbdBind("Shift+KP_PGDN",		p);
+	KbdBind("Shift+LEFT",			p="CUASel MovLeft");
+	KbdBind("Shift+KP_LEFT",		p);
+	KbdBind("Shift+RIGHT",			p="CUASel MovRight");
+	KbdBind("Shift+KP_RIGHT",		p);
+	KbdBind("Shift+UP",				p="CUASel MovUp");
+ 	KbdBind("Shift+KP_UP",			p);
+	KbdBind("Shift+DOWN", 			p="CUASel MovDown");
+ 	KbdBind("Shift+KP_DOWN", 		p);
+  #endif
+
+	KbdBind("Alt+A",					"MarkColumn");	/* Note differs from EPM - this starts a column selection */
+	KbdBind("Alt+L", 					"MarkLine");
+	KbdBind("Alt+U",					p="MarkRemoveSel");
+	KbdBind("Escape",					p);
+	KbdBind("Alt+Y",					"MarkSwapSel");
+	KbdBind("Alt+Z",					"MarkChar");
+	KbdBind("Ctrl+.",					"CUAToggleSel");
+
+	/*
+	** Repeat next keyboard command
+	*/
+	KbdBind("Alt+R",					"Repeat");	/* Note: EPM uses this key for reformat */
+
+
+	/*
+	** Scrolling
+	*/
+	KbdBind("KP_5",				  	p="CUAMov WinScrollCenter");
+	KbdBind("Shift+F5",			  	p);
+	KbdBind("Shift+F1",				"CUAMov WinScrollLeft");
+	KbdBind("Shift+F2",				"CUAMov WinScrollRight");
+	KbdBind("Shift+F3",		  		p="CUAMov WinScrollDown");
+	KbdBind("Ctrl+Down",				p);
+	KbdBind("Shift+F4",  			p="CUAMov WinScrollUp");
+	KbdBind("Ctrl+Up",				p);
+
+
+	KbdBind("Ctrl+F7",				"slide_out");
+	KbdBind("Ctrl+F8",				"slide_in");
+   KbdBind("Ctrl+F1",       		"toupper_word");
+   KbdBind("Ctrl+F2",       		"tolower_word");
+   KbdBind("Ctrl+F3",       		"toupper");
+   KbdBind("Ctrl+F4",       		"tolower");
+
+	/*
+	** Cut/Copy/Paste
+	*/
+	KbdBind("Shift+Kp_Delete",		p="CutToScrap");
+	KbdBind("Shift+Delete",			p);
+	KbdBind("Ctrl+Kp_Insert", 		p="CopyToScrap");
+	KbdBind("Ctrl+Insert",  		p);
+	KbdBind("Shift+Kp_Insert",	  	p="CUAReplace BufPasteScrap");
+	KbdBind("Shift+Insert",			p);
+	KbdBind("Shift+Alt+KP_Insert",p="ImportClipboard");
+	KbdBind("Shift+Alt+Insert",	p);
+	KbdBind("Shift+Ctrl+KP_Insert",p="ExportClipboard");
+	KbdBind("Shift+Ctrl+Insert",	p);
+	KbdBind("Shift+KP_MINUS",		"CutAppendToScrap");			/* append to current scrap */
+	KbdBind("Shift+KP_PLUS",		"CopyAppendToScrap");		/* append to current scrap */
+
+	/* 
+	** Deleting
+	*/
+	KbdBind("Ctrl+Backspace",		"BufDeleteLine");
+	KbdBind("Ctrl+D",					"delete_next_word");	/* in misc.rm */
+	KbdBind("Shift+Ctrl+D",			"delete_prev_word");	/* in misc.rm */
+	KbdBind("Ctrl+E", 				"BufDeleteToEOL");
+	KbdBind("Alt+J",					"JoinLine");
+  #if STREAM_EDITING
+	KbdBind("Backspace",				"DeletePrevChar");
+  #else
+	KbdBind("Backspace",				"BufBackspace");
+  #endif
+	KbdBind("Alt+|", 					"BufDeleteWhitespace");
+	KbdBind("Kp_Delete",	 			p="BufDeleteCharOrSelection");
+	KbdBind("Delete",					p);
+
+	/* Search & Replace */
+	KbdBind("Shift+Ctrl+I",			"incremental_search");
+	KbdBind("Shift+Ctrl+F",			"SrchFiles");
+	KbdBind("Ctrl+S",					"SearchForward");
+	KbdBind("Ctrl+F",					"SearchAgain");
+	KbdBind("Shift+Ctrl+S",			"ReplaceForward");
+	KbdBind("Ctrl+C",					"ReplaceAgain");
+
+
+	/* 
+	** Undo & Redo operations
+	*/
+	KbdBind("Ctrl+U",  				"Undo");
+	KbdBind("F9", 						p="UndoModification");
+	KbdBind("Alt+Backspace",		p);
+	KbdBind("Ctrl+Y",  				p="Redo");
+	KbdBind("Alt+Kp_Insert", 		p="RedoModification");
+	KbdBind("Alt+Insert", 			p);
+	KbdBind("Shift+Ctrl+Kp_Star",	"UndoAll");
+	KbdBind("Shift+Alt +Kp_Star",	"RedoAll");
+
+	/*
+	** Buffer operations
+	*/
+	KbdBind("Ctrl+O",		       	p="DlgOpenFile");
+	KbdBind("F8",     				p);
+	KbdBind("F2", 						"SaveBuffer");
+	KbdBind("F3", 						"BufDeleteCurrentBuffer");
+	KbdBind("F4", 						"SaveAndCloseBuffer");
+	KbdBind("F7", 						"DlgRenameBuffer");
+	KbdBind("Shift+F7",				"ReloadBuffer");
+	KbdBind("Ctrl+P", 				"Print");
+	KbdBind("Shift+Ctrl+O",			"BufInsertFile");
+	KbdBind("F11", 					"BufPrevBuffer");
+	KbdBind("F12", 					"BufNextBuffer");
+	KbdBind("Ctrl+G",					"DlgBufferList");
+	KbdBind("Shift+Ctrl+L",			"DlgGotoLine");
+
+	/* 
+	** Window operations
+	*/
+	KbdBind("Shift+Ctrl+N",			"WinNextWindow");
+	KbdBind("Shift+Ctrl+P",			"WinPrevWindow");
+	KbdBind("F5",						"WinNewWindow");
+
+
+	/*
+	** Toolkit help for function under cursor
+	**
+	** NOTE: To use QueryInfHelp you must add the following environment variable
+	**	(OS/2) to your config.sys:
+	**	 SET RSE_INF=GUIREF20.INF+PMFUN.INF+PMGPI.INF+PMHOK.INF+PMMSG.INF+PMREL.INF+PMWIN.INF+PMWKP.INF
+	**  The setting is taken from the combination of the  PROGREF20 and PMREF environment variables
+	**  You may add additional .INF files or remove some.
+	**
+	** (WINDOWS) to your autoexec.bat:
+	**	 SET RSE_INF=fully qualified name of a single windows help file,
+	**  (eg. SET RSE_INF=c:\msvc20\help\api32.hlp)
+	*/
+	KbdBind("Ctrl+H",					"HelpQueryInfHelp");
+
+
+	/*
+	** Keystroke macros
+	*/
+	KbdBind("Ctrl+R",      			"KbdMacroRecord");  	/* starts/stops keystroke macro recording */
+	KbdBind("Shift+Ctrl+R",			"KbdMacroLoad");  	/* load keystroke macro from disk */
+	KbdBind("Ctrl+Alt+R", 			"KbdMacroPause");		/* pause keystroke macro recording */
+	KbdBind("Ctrl+T",      			"KbdMacroPlay");		/* plays a recorded keystroke macro */
+	KbdBind("Shift+Ctrl+T",			"KbdMacroSave");	  	/* saves last recorded macro to disk */
+
+	/* 
+	** Toggles
+	*/
+	KbdBind("Insert",					p="ToggleInsert");
+	KbdBind("KP_Insert",				p);
+
+	/* Misc. functions */
+	KbdBind("Alt+F4",			  		"ExitEditor");
+	KbdBind("Shift+Ctrl+Q", 		"quote");					/* in misc.rm */
+	KbdBind("Ctrl+[",  	  			p="find_matching_delim");	/* in c_smart.rm */
+	KbdBind("Ctrl+]",  	  			p);
+	KbdBind("Alt+?", 					"CharIs");
+	KbdBind("Shift+Ctrl+V",			"DlgVersion");
+	KbdBind("Alt+N",					"InsertFilename");
+
+	/* 
+	** Execute Macro Command
+	*/
+	KbdBind("Ctrl+I",					"LibExecFunction");
+
+
+	/*
+	** Compile & jump to error
+	*/
+	KbdBind("Alt+=",					"ExecAssoc");				/* Execute a program on buffer */
+	KbdBind("Ctrl+K",			  		"ExecKillProcess");		/* Kills a program executed on buffer */
+  	KbdBind("Shift+Ctrl+KP_Up",	p="ErrPrevError");
+   KbdBind("Shift+Ctrl+Up",   	p);
+  	KbdBind("Shift+Ctrl+KP_Down",	p="ErrNextError");
+   KbdBind("Shift+Ctrl+Down", 	p);
+
+	/*
+	** Bookmarks
+	*/
+	KbdBind("Ctrl+M", 				"BookmarkSet");
+	KbdBind("Ctrl+B",					"BookmarkGoto");
+
+	/* Source browser bindings */
+	KbdBind("Shift+F11",				"SbBrowseSymbolAtCursor");
+	KbdBind("Alt+F11",				"SbBrowseSymbolsDefinedInModule");
+	KbdBind("Ctrl+F12",				"SbFindNext");
+	KbdBind("Shift+F12", 			"SbFindPrev");
+	KbdBind("Alt+F12",				"SbGotoDef");
+	KbdBind("Shift+Ctrl+F12",		"SbrFindNextDef");
+	KbdBind("Ctrl+Alt+F12",			"SbJumpBack");
+
+	/* Change window to Hex mode */
+	KbdBind("Shift+Ctrl+H",			"HexEditBegin");
+
+} /* end EPM() */
+
+
+void
+SaveAndCloseBuffer(void) {
+	BufWrite(NULL, 1);
+	BufDeleteCurrentBuffer();
+} /* end SaveAndCloseBuffer() */
+
+
+void
+CUAInsertNewline( void ) {
+	SELECTION sel;
+
+	if ( MarkQuerySel( &sel, 1) )
+		MovAbs( sel.s_line, sel.s_column );
+	MovEOL();
+	BufInsertNewline();
+} /* end CUAInsertNewline() */
+
+
+void
+MovNextline( void ) {
+	MarkRemoveSel();
+	MovDown();
+	MovSOT();
+} /* end MovNextline() */
+
+
+void
+CUAMarkToggleSel( void ) {
+	if ( MarkQueryIsSelOpen() ) {
+		MarkEndSel();
+		CUASelActive = TRUE;
+	} else {
+		if ( !MarkResumeSel() )
+			CUASelActive = TRUE;
+	}
+} /* end CUAMarkToggleSel() */
+
+
+void
+DeletePrevChar(void) {
+	if ( BufQueryColumn() == 1L )
+		BufDeletePrevChar();
+	else
+		BufBackspace();
+} /* end DeletePrevChar() */
+
+
+void
+JoinLine(void) {
+	long	col = BufQueryColumn();
+
+	PosEOL();
+	BufDeleteChar();
+	BufInsertChar(' ');
+	MovAbs(0L, col);
+} /* end JoinLine() */
+
+
+void
+InsertFilename(void) {
+	BufInsertString(BufQueryFilename());
+}
+
+
+void
+MarkChar() {
+	MarkRemoveAllSel();
+	PosNextChar();
+	MarkBeginSel(SELECT_EXCLUSIVE);
+	PosPrevChar();
+} /* end MarkChar() */
+
+
+/************************ Stream editing functions ************************/
+#if STREAM_EDITING
+
+static long	saveColumn;
+
+void
+up() {
+	long	col;
+	int	ch;
+
+	if ( BufQueryPastEOL() )
+		PosEOL();
+	col = BufQueryColumn();
+	if ( col > saveColumn )
+		saveColumn = col;
+	ch  = BufQueryChar();
+	MovUp();
+	if ( BufQueryPastEOL() )
+		PosEOL();
+	else if ( ch == '\n' && BufQueryColumn() < saveColumn ) {
+		MovAbs(0, saveColumn);
+		if ( BufQueryPastEOL() )
+			PosEOL();
+	} else
+		saveColumn = col;
+} /* end up() */
+
+
+void
+down() {
+	long	col;
+	int	ch;
+
+	if ( BufQueryPastEOL() )
+		PosEOL();
+	col = BufQueryColumn();
+	if ( col > saveColumn )
+		saveColumn = col;
+	ch  = BufQueryChar();
+	MovDown();
+	if ( BufQueryPastEOL() )
+		PosEOL();
+	else if ( ch == '\n' && BufQueryColumn() < saveColumn ) {
+		MovAbs(0, saveColumn);
+		if ( BufQueryPastEOL() )
+			PosEOL();
+	} else
+		saveColumn = col;
+} /* end down() */
+
+
+void
+pgup() {
+	long	col;
+	int	ch;
+
+	if ( BufQueryPastEOL() )
+		PosEOL();
+	col = BufQueryColumn();
+	if ( col > saveColumn )
+		saveColumn = col;
+	ch  = BufQueryChar();
+	MovPageUp();
+	if ( BufQueryPastEOL() )
+		PosEOL();
+	else if ( ch == '\n' && BufQueryColumn() < saveColumn ) {
+		MovAbs(0, saveColumn);
+		if ( BufQueryPastEOL() )
+			PosEOL();
+	} else
+		saveColumn = col;
+} /* end pgup() */
+
+
+void
+pgdn() {
+	long	col;
+	int	ch;
+
+	if ( BufQueryPastEOL() )
+		PosEOL();
+	col = BufQueryColumn();
+	if ( col > saveColumn )
+		saveColumn = col;
+	ch  = BufQueryChar();
+	MovPageDown();
+	if ( BufQueryPastEOL() )
+		PosEOL();
+	else if ( ch == '\n' && BufQueryColumn() < saveColumn ) {
+		MovAbs(0, saveColumn);
+		if ( BufQueryPastEOL() )
+			PosEOL();
+	} else
+		saveColumn = col;
+} /* end pgdn() */
+
+
+void
+left() {
+	MovPrevChar();
+	saveColumn = BufQueryColumn();
+} /* end left() */
+
+
+void
+right() {
+	MovNextChar();
+	saveColumn = BufQueryColumn();
+} /* end right() */
+
+
+void
+sol() {
+	MovSOL();
+	saveColumn = 1L;
+} /* end sol() */
+
+
+void
+eol() {
+	MovEOL();
+	saveColumn = BufQueryColumn();
+} /* end eol() */
+
+void
+delete_line() {
+	saveColumn = BufQueryColumn();
+	BufDeleteLine();
+	if ( BufQueryPastEOL() )
+		PosEOL();
+} /* end delete_line() */
+
+void
+delete_sel() {
+	BufDeleteSel();
+	if ( BufQueryPastEOL() )
+		PosEOL();
+} /* end delete_sel() */
+
+
+void
+DeleteCharOrSelection() {
+	BufDeleteCharOrSelection();
+	if ( BufQueryPastEOL() )
+		PosEOL();
+} /* end DeleteCharOrSelection() */
+
+#endif /* STREAM_EDITING */
+
+
+/*
+** End module: epm.rm 
+*/

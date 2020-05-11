@@ -1,0 +1,131 @@
+/*
+** Macro module: slide.rm - indent/unindent marked text
+**
+** Copyright (C) 1993, 1994 Brian L. Smith
+** Copyright (C) 1993, 1994 RimStar Technology, Inc.
+** All rights reserved internationally.
+** Unlicensed use is a violation of applicable laws.
+**
+** This source code is provided to licensed users of RimStar's products
+** for the purpose of allowing the user to customize and/or enhance RimStar's
+** products. The source code remains the property of the copyright holders
+** with all rights reserved internationally.
+** Any modifications to the source code are considered derivative works and
+** all rights thereto are reserved to the copyright holders except
+** that the purchaser may use the derivitive work in the same manner
+** as permitted by the license governing the unmodified product.
+** Distribution in any manner of any part of the original source code,
+** whether in source or object form, is expressly prohibited without the
+** express written permission of the copyright holders.
+**
+*/
+
+#include "macro.h"
+
+extern long	IndentSize;
+
+
+int
+DistanceToNextIndent(long col) {
+	if ( IndentSize )
+		return IndentSize - ( (col-1L) % IndentSize );
+	else
+		return (int)(BufQueryNextTab(col) - col);
+} /* end DistanceToNextIndent() */
+
+
+int
+DistanceToPrevIndent(long col) {
+	int distance;
+
+	if ( col == 1 )
+		return 0;
+	if ( IndentSize )	{
+		distance = (int)( (col-1L) % IndentSize );
+		if ( !distance )
+			return -IndentSize;
+		else
+			return -distance;
+	} else
+		return (int)(BufQueryPrevTab(col) - col);
+} /* end DistanceToPrevIndent() */
+
+
+void
+slide_in(void) {
+	SELECTION	saveSel, s;
+	ULONG			savedInsert;
+	SHORT			type;
+	LONG			indent_to;
+
+	if ( type = MarkQuerySelExcl(&s) ) {
+		/*
+		** get non adjusted coords of selection
+		** so it can be recreated correctly.
+		*/
+		MarkQuerySel(&saveSel, 0);
+		MarkRemoveSel();
+
+		if ( type != SELECT_COLUMN )
+			s.s_column = 1L;
+		indent_to = s.s_column +(long)DistanceToNextIndent(s.s_column);
+
+		savedInsert = SysQueryFlags();
+		SysSetFlags(SYSTEM_INSERT, SYSTEM_INSERT);
+
+		PosAbs(s.s_line, s.s_column);
+
+		while ( s.s_line <= s.e_line ) {
+			if ( BufIndentColumn(0, indent_to) )
+				break;	/* buffer probably read only */
+			PosAbs(++s.s_line, s.s_column);
+		}
+
+		SysSetFlags(SYSTEM_INSERT, savedInsert);
+
+		MarkCreateSel(&saveSel);	/* restore the selection */
+	} else
+		BufInsertChar('\t');
+} /* end slide_in() */
+
+
+void
+slide_out(void) {
+	SELECTION	s;
+	SHORT			type;
+	LONG			atCol, pos, size;
+
+	if ( type = MarkQuerySelExcl(&s) ) {
+		MarkPushPos();
+		if ( type != SELECT_COLUMN )
+			s.s_column = 1L;
+
+		PosAbs(s.s_line, s.s_column);
+		while ( s.s_line <= s.e_line ) {
+			PosSOT();
+			atCol = BufQueryColumn();
+			if ( atCol < s.s_column && type == SELECT_COLUMN )	{
+				PosAbs(0, s.s_column);
+				SrchFwd("[^ \\t]");
+				atCol = BufQueryColumn();
+			}
+			if ( atCol > s.s_column ) {
+				size = BufQueryOffset();
+				atCol += (LONG)DistanceToPrevIndent(atCol);
+				if ( atCol < s.s_column )
+					atCol = s.s_column;
+				size -= PosAbs(0, atCol);
+				if ( BufDeleteChar(size) )
+					break;
+			}
+			PosAbs(++s.s_line, 0L);
+		}
+		MarkPopPos();
+	} else
+		MovPrevTabPos();
+} /* end slide_out() */
+
+
+/*
+** End module: slide.rm
+*/

@@ -1,0 +1,275 @@
+/*
+** Macro module: rexx.rm - REXX support features
+**
+** Copyright (C) 1993,1994 Brian L. Smith
+** Copyright (C) 1993,1994 RimStar Technology, Inc.
+** All rights reserved internationally.
+** Unlicensed use is a violation of applicable laws.
+**
+** This source code is provided to licensed users of RimStar's products
+** for the purpose of allowing the user to customize and/or enhance RimStar's
+** products. The source code remains the property of the copyright holders
+** with all rights reserved internationally.
+** Any modifications to the source code are considered derivative works and
+** all rights thereto are reserved to the copyright holders except
+** that the purchaser may use the derivitive work in the same manner
+** as permitted by the license governing the unmodified product.
+** Distribution in any manner of any part of the original source code,
+** whether in source or object form, is expressly prohibited without the
+** express written permission of the copyright holders.
+**
+*/
+
+/* NOTE:
+**
+** This version of REXX support uses the C SyntaColor routines.
+** This will incorrectly color some REXX code. REXX specific
+** SyntaColor routines are in the works.
+*/
+
+#include "macro.h"
+#include "lang.h"
+
+#define INCL_REXX_TEMPLATES
+#include "template.h"
+
+
+/* IndentStyle is an internal variable within the editor
+** set it with RSE_FLAGS or on the command line using
+** the -Is flag
+*/
+extern long	IndentStyle;
+
+/* IndentSize is an internal variable within the editor
+** set it with RSE_FLAGS or on the command line using
+** the -Iwnnn where 'nnn' is size of indent. Default: 3
+*/
+extern long	IndentSize;
+
+/* regular indent keyboard - created in lang.rm */
+extern HKEYBOARD	_r_keymap;
+
+/*
+** Special buffer keyboards used for REXX specific
+** indenting and template editing.
+*/
+HKEYBOARD	_rexx_smart, _rexx_template, _rexx_alt_template;
+
+
+/*
+** REXX keyword names - for SyntaColor support
+*/
+PSZ KeywordsRexx[] = {
+	"ADDRESS",
+	"ARG",
+	"BY",
+	"CALL",
+	"DIGITS",
+	"DO",
+	"DROP",
+	"ELSE",
+	"END",
+	"ENGINEERING",
+	"EXIT",
+	"EXPOSE",
+	"FOR",
+	"FOREVER",
+	"FORM",
+	"FUZZ",
+	"IF",
+	"INTERPRET",
+	"ITERATE",
+	"LEAVE",
+	"LINEIN",
+	"NOP",
+	"NUMERIC",
+	"OFF",
+	"ON",
+	"OPTIONS",
+	"OTHERWISE",
+	"PARSE",
+	"PROCEDURE",
+	"PULL",
+	"PUSH",
+	"QUEUE",
+	"RC",
+	"RETURN",
+	"RESULT",
+	"SAY",
+	"SCIENTIFIC",
+	"SELECT",
+	"SIGL",
+	"SIGNAL",
+	"SOURCE",
+	"THEN",
+	"TO",
+	"TRACE",
+	"UNTIL",
+	"UPPER",
+	"VALUE",
+	"VAR",
+	"VERSION",
+	"WHEN",
+	"WHILE",
+	"WITH",
+	0
+};
+
+HHASH	htKeywordsRexx;	/* Handle to hash table created from above keywords */
+
+
+/*
+**	RexxInit
+**
+**	 Sets up the language specific features for REXX
+**	 files. Called by rexx file extension macros.
+*/
+void
+RexxInit(void) {
+	PBUFINFO	pBufInfo;
+
+	/* Set up for SyntaColor */
+	if ( pBufInfo = BufInfoQuery(BufQueryCurrentBuffer()) ) {
+		pBufInfo->htKeywords = htKeywordsRexx;
+		pBufInfo->ulFlags |= BI_SYNTACOLOR;
+		pBufInfo->syntaRefresh = SyntaColorC;
+		pBufInfo->syntaUpdate  = SyntaColorUpdateC;
+		if ( SyntaColorEnabled )
+			SyntaColorC(-1L, htKeywordsRexx);
+
+		/* Set templates to use if template editing style in effect */
+		switch ( IndentStyle ) {
+		case 3:		case 4:		case 6:		case 7:
+			pBufInfo->pTemplates = RexxTemplates;
+		}
+	}
+	/*
+	** Make the C keyboard bindings override the regular keyboard
+	**	for this buffer. Called by LangInit() in lang.rm
+	*/
+	switch ( IndentStyle ) {
+	case 0:	return;
+	case 1:	KbdSetBufferKeyboard(_r_keymap);				break;
+	case 5:
+	case 2:	KbdSetBufferKeyboard(_rexx_smart);			break;
+	case 6:
+	case 3:	KbdSetBufferKeyboard(_rexx_template);		break;
+	case 7:
+	case 4:	KbdSetBufferKeyboard(_rexx_alt_template);	break;
+	}
+} /* end RexxInit() */
+
+
+void
+_cmd_init(void) {
+	RexxInit();
+}
+
+
+void
+_vrx_init(void) {
+	RexxInit();
+}
+
+
+/*
+** REXX extension specific next/previous word functions
+*/
+
+void
+_cmd_next_word(void) {
+	long	len;
+	len = SrchFwd("([a-zA-Z0-9_]+)|([^ \t\f\na-zA-Z0-9_]+)|([ \t\f\n]+)[ \t\f\n]*", -1, 1, 0);
+	if ( len > 0 )
+		PosNextChar(len);
+} /* end _cmd_next_word() */
+
+
+void
+_cmd_prev_word(void) {
+	__prev_word();
+}
+
+
+void
+_vrx_next_word(void) {
+	_cmd_next_word();
+}
+
+
+void
+_vrx_prev_word(void) {
+	_cmd_prev_word();
+}
+
+
+/*
+** RexxBindKeys is used to define keyboard bindings for the
+** various indenting styles supported. A new keyboard has
+** usually been made current to just define these keys
+** and that keyboard is then made a buffer specific keyboard
+** for REXX files.
+*/
+void
+RexxBindKeys(int template) {
+	char	*enter, *kp_enter, *tab, *expand;
+
+	expand = "TemplateExpand";
+	enter = kp_enter = "BufNewlineIndent";
+	if ( template == 2 )
+		tab = expand;	/* alternate template - expand on tab key */
+	else
+		tab = "slide_in";
+
+	if ( template == 1 )	{
+		/* regular template editing - expand on space key */
+		KbdBind("Space",		expand);
+		KbdBind("Ctrl+Space","just_space");
+	}
+	KbdBind("Enter",			enter);
+	KbdBind("Kp_Enter",		kp_enter);
+	KbdBind("Shift+Enter",	"BufNewlineIndent");
+	KbdBind("Tab",				tab);
+	KbdBind("Shift+Tab", 	"slide_out");
+} /* end RexxBindKeys() */
+
+
+void
+_init(void) {
+
+	/*
+	**	Create keyboards for the keys we need to remap
+	**	These keyboards are used as Buffer keyboards which
+	**	over-ride and/or supplement the current keyboard
+	**	when that buffer is current.
+	*/
+
+	/* The regular indenting keyboard ( -Is1 ) is created in lang.rm */
+
+	/* Create smart indenting keyboard ( -Is2 ) */
+	KbdPush();
+	RexxBindKeys(0);
+	_rexx_smart = KbdPop();
+
+	/* Create template editing keyboard ( -Is3 ) */
+	KbdPush();
+	RexxBindKeys(1);
+	_rexx_template = KbdPop();
+
+	/* Create alternate template editing keyboard ( -Is4 ) */
+	KbdPush();
+	RexxBindKeys(2);
+	_rexx_alt_template = KbdPop();
+
+	/* Set up for SyntaColor support */
+
+	/* Create a hash table of the REXX language keywords */
+	htKeywordsRexx = LangLoadKeywords(KeywordsRexx, 1);
+
+} /* end _init() */
+
+
+
+/*
+** End module: rexx.rm
+*/

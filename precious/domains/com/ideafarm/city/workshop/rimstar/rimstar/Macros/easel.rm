@@ -1,0 +1,194 @@
+/*
+** Macro module: easel.rm - Easel language support features
+**
+** Copyright (C) 1993-1995 Brian L. Smith
+** Copyright (C) 1993-1995 RimStar Technology, Inc.
+** All rights reserved internationally.
+** Unlicensed use is a violation of applicable laws.
+**
+** This source code is provided to licensed users of RimStar's products
+** for the purpose of allowing the user to customize and/or enhance RimStar's
+** products. The source code remains the property of the copyright holders
+** with all rights reserved internationally.
+** Any modifications to the source code are considered derivative works and
+** all rights thereto are reserved to the copyright holders except
+** that the purchaser may use the derivitive work in the same manner
+** as permitted by the license governing the unmodified product.
+** Distribution in any manner of any part of the original source code,
+** whether in source or object form, is expressly prohibited without the
+** express written permission of the copyright holders.
+**
+*/
+
+#include "macro.h"
+#include "lang.h"
+
+#define INCL_EASEL_TEMPLATES
+#include "template.h"
+
+
+/* IndentStyle is an internal variable within the editor
+** set it with RSE_FLAGS or on the command line using
+** the -Is flag
+*/
+extern long	IndentStyle;
+
+/* IndentSize is an internal variable within the editor
+** set it with RSE_FLAGS or on the command line using
+** the -Iwnnn where 'nnn' is size of indent. Default: 3
+*/
+extern long	IndentSize;
+
+/* regular indent keyboard - created in lang.rm */
+extern HKEYBOARD	_r_keymap;
+
+/*
+** Special buffer keyboards used for Easel specific
+** indenting and template editing.
+*/
+HKEYBOARD	_eal_smart, _eal_template, _eal_alt_template;
+
+
+/*
+** Easel keyword names - for SyntaColor support - (Not currently used)
+*/
+PSZ KeywordsEasel[] = {
+   0
+};
+
+HHASH	htKeywordsEasel;	/* Handle to hash table created from above keywords */
+
+
+/*
+**	_eal_init
+**
+**	 Sets up the language specific features for Easel and related language
+**	 files. Called by LangInit() in lang.rm
+*/
+void
+_eal_init(void) {
+	PBUFINFO	pBufInfo;
+
+	/* Set up for SyntaColor */
+	if ( pBufInfo = BufInfoQuery(BufQueryCurrentBuffer()) ) {
+		pBufInfo->htKeywords   = htKeywordsEasel;
+		pBufInfo->ulFlags     |= BI_SYNTACOLOR;
+		pBufInfo->syntaRefresh = SyntaColorEasel;
+		pBufInfo->syntaUpdate  = SyntaColorUpdateEasel;
+		if ( SyntaColorEnabled )
+			SyntaColorEasel(-1L, htKeywordsEasel);
+
+		/* Set templates to use if template editing style in effect */
+		switch ( IndentStyle ) {
+		case 3:		case 4:		case 6:		case 7:
+			pBufInfo->pTemplates = ealTemplates;
+		}
+	}
+
+	/*
+	** Make the Easel keyboard bindings override the regular keyboard
+	**	for this buffer. Called by LangInit() in lang.rm
+	*/
+	switch ( IndentStyle ) {
+	case 0:	return;
+	case 1:	KbdSetBufferKeyboard(_r_keymap);				break;
+	case 2:
+	case 5:	KbdSetBufferKeyboard(_eal_smart);			break;
+	case 3:
+	case 6:	KbdSetBufferKeyboard(_eal_template);		break;
+	case 4:
+	case 7:	KbdSetBufferKeyboard(_eal_alt_template);	break;
+	}
+} /* end _eal_init() */
+
+
+/*
+** Easel extension specific next/previous word functions
+*/
+
+void
+_eal_next_word(void) {
+	long	len;
+	len = SrchFwd("([a-zA-Z0-9_]+)|([^ \t\f\na-zA-Z0-9_]+)|([ \t\f\n]+)[ \t\f\n]*", -1, 1, 0);
+	if ( len > 0 )
+		PosNextChar(len);
+} /* end _eal_next_word() */
+
+void
+_eal_prev_word(void) {
+	__prev_word();
+}
+
+
+/*
+** _ealBindKeys is used to define keyboard bindings for the
+** various indenting styles supported. A new keyboard has
+** usually been made current to just define these keys
+** and that keyboard is then made a buffer specific keyboard
+** for Easel files.
+*/
+void
+_ealBindKeys( int templates ) {
+	char	*enter, *kp_enter, *open, *close, *tab, *expand;
+
+	expand   = "TemplateExpand";
+	enter    = "BufNewlineIndent";
+	kp_enter = enter;
+	if ( templates == 2 )
+		tab = expand;	/* alternate template - expand on tab key */
+	else
+		tab = "slide_in";
+
+	if ( templates == 1 )	{
+		/* regular template editing - expand on space key */
+		KbdBind("Space",		expand);
+		KbdBind("Ctrl+Space","just_space");
+	}
+	KbdBind("Enter",			enter);
+	KbdBind("Kp_Enter",		kp_enter);
+	KbdBind("Shift+Enter",	"BufNewlineIndent");
+	KbdBind("Tab",				tab);
+	KbdBind("Shift+Tab", 	"slide_out");
+} /* end _ealBindKeys() */
+
+
+void
+_init(void) {
+
+	/*
+	**	Create keyboards for the keys we need to remap
+	**	These keyboards are used as Buffer keyboards which
+	**	over-ride and/or supplement the current keyboard
+	**	when that buffer is current.
+	*/
+
+	/* The regular indenting keyboard ( -Is1 ) is created in lang.rm */
+
+	/* Create smart indenting keyboard ( -Is2 ) */
+	KbdPush();
+	_ealBindKeys(0);
+	_eal_smart = KbdPop();
+
+	/* Create template editing keyboard ( -Is3 ) */
+	KbdPush();
+	_ealBindKeys(1);
+	_eal_template = KbdPop();
+
+	/* Create alternate template editing keyboard ( -Is4 ) */
+	KbdPush();
+	_ealBindKeys(2);
+	_eal_alt_template = KbdPop();
+
+	/* Set up for SyntaColor support */
+
+	/* Create a hash table of the Easel language keywords */
+	/* keyword recognition is case sensitive */
+	htKeywordsEasel = LangLoadKeywords(KeywordsEasel, 0);
+
+} /* end _init() */
+
+
+
+/*
+** End module: easel.rm
+*/

@@ -1,0 +1,234 @@
+/*
+** Macro module: buffer.rm - Misc. routines
+**
+** Copyright (C) 1993,1994 Brian L. Smith
+** Copyright (C) 1993,1994 RimStar Technology, Inc.
+** All rights reserved internationally.
+** Unlicensed use is a violation of applicable laws.
+**
+** This source code is provided to licensed users of RimStar's products
+** for the purpose of allowing the user to customize and/or enhance RimStar's
+** products. The source code remains the property of the copyright holders
+** with all rights reserved internationally.
+** Any modifications to the source code are considered derivative works and
+** all rights thereto are reserved to the copyright holders except
+** that the purchaser may use the derivitive work in the same manner
+** as permitted by the license governing the unmodified product.
+** Distribution in any manner of any part of the original source code,
+** whether in source or object form, is expressly prohibited without the
+** express written permission of the copyright holders.
+**
+*/
+
+#include "macro.h"
+
+extern BOOL CUASelActive;
+
+BOOL	CloseFileOpenDlg = 0;	/* Used by version control functions */
+
+char *reloadMsg = "This file is already loaded and has been modified. "
+						"Modifications will be lost if you answer YES. Reload file?";
+
+/*
+**	EditFile - this macro is called by the DlgOpenFile primitive for each file
+**		selected to be edited, therefore it is required if you use DlgOpenFile.
+**	You may modify the behavior of this function.
+**
+** If this function returns non-zero and DlgOpenFile used the edit field for
+** 'pathname' (file was not selected from the listbox) the dialog box
+** will not be closed (allowing you to correct file name if an error occurs).
+** If the file was selected from the listbox the return value is ignored and
+** the dialog box will be closed.
+*/
+int
+EditFile(char *pathname, ULONG flags) {
+	int		rc, reply;
+	HBUFFER	hb;
+
+	if ( !(pathname = complete_path(pathname)) )
+		return 1;
+
+	if ( (hb = BufFindBuffer(pathname, 0)) && BufQueryModified(hb) ) {
+		reply = PopupMsgBox( reloadMsg,
+									pathname,
+									MB_YESNO | MB_ICONQUESTION | MB_DEFBUTTON2 | MB_APPLMODAL);
+		if ( reply != MBID_YES )
+			return 1;
+		rc = BufLoadFile(hb, pathname, flags);
+		free(pathname);
+		return rc;
+	}
+	CloseFileOpenDlg = 0;
+	rc = BufEditFile(pathname, flags);
+	free(pathname);
+	if ( rc && CloseFileOpenDlg )
+		return 0;	/* Close dlg even if BufEditFile failed */
+	else
+		return rc;
+} /* end EditFile() */
+
+
+void
+DismissOpenForEditDlg(BOOL dismiss) {
+	CloseFileOpenDlg = dismiss;
+}
+
+
+int
+ReloadBuffer(void) {
+	int		reply;
+	char		*pathname;
+	HBUFFER	hbCurrent;
+
+	hbCurrent = BufQueryCurrentBuffer();
+	pathname = BufQueryFilename();
+	if ( BufQueryModified() ) {
+		reply = PopupMsgBox( reloadMsg,
+									pathname,
+									MB_YESNO | MB_ICONQUESTION | MB_DEFBUTTON2 | MB_APPLMODAL);
+		if ( reply != MBID_YES )
+			return 1;
+	}
+	return BufLoadFile(hbCurrent, pathname);
+} /* end ReloadBuffer() */
+
+
+int
+SaveBuffer(void) {
+	char	*name;
+
+	if ( MarkQuerySelType() )
+		return BufWriteSel();
+	if ( !BufQueryModified() )	{
+		name = BufQueryFilename();
+		if ( name ) {
+			SysBeep(100L,250L);
+			MsgPrintf("%s unchanged, save request ignored.", name);
+			return -1;
+		}
+	}
+	return BufWrite();
+} /* end SaveBuffer() */
+
+
+int
+ReadOnlyBuffer(USHORT event, PVOID pData) {
+	char		*pathname;
+	int		reply;
+
+	pathname = BufQueryFilename();
+	reply = PopupMsgBox( "Buffer is read only. Allow modifications?",
+								pathname,
+								MB_YESNO | MB_ICONQUESTION | MB_DEFBUTTON2 | MB_APPLMODAL);
+	if ( reply == MBID_YES ) {
+		BufSetFlags(BUFFER_READ_ONLY, 0L);
+		return 0;
+	}
+	return 1;
+} /* end ReadOnlyBuffer() */
+
+
+void
+CopyToScrap(void) {
+	if ( !MarkQuerySelType() )		/* If no current selection */
+		MarkBeginSel(SELECT_LINE);	/* Mark current line */
+	BufCopyToScrap(0);
+	MarkRemoveSel();
+	CUASelActive = 0;
+} /* CopyToScrap() */
+
+
+void
+CutToScrap(void) {
+	if ( !MarkQuerySelType() )		/* If no current selection */
+		MarkBeginSel(SELECT_LINE);	/* Mark current line */
+	BufCutToScrap(0);
+	CUASelActive = 0;
+} /* end CutToScrap() */
+
+
+void
+CopyAppendToScrap(void) {
+	if ( !MarkQuerySelType() )		/* If no current selection */
+		MarkBeginSel(SELECT_LINE);	/* Mark current line */
+	BufCopyToScrap(1);
+	MarkRemoveSel();
+	CUASelActive = 0;
+} /* CopyAppendToScrap() */
+
+
+void
+CutAppendToScrap(void) {
+	if ( !MarkQuerySelType() )		/* If no current selection */
+		MarkBeginSel(SELECT_LINE);	/* Mark current line */
+	BufCutToScrap(1);
+	CUASelActive = 0;
+} /* end CutAppendToScrap() */
+
+
+void
+WinNewTiledWindow(void) {
+	PRAWKEY	key;
+	BOOL		done = FALSE;
+
+	while ( !done ) {
+		Msg("Select side for new window (use cursor keys).");
+		key = NULL;
+		while ( key == NULL )
+			key = KbdBufferGetKey();
+		switch ( key->key & 0xff ) {
+		case 0x61: /* Up */
+		case 0x48: /* Kp Up */
+			WinSplitH(0);
+			break;
+		case 0x66: /* Down */
+		case 0x50: /* Kp Down */
+			WinSplitH(1);
+			break;
+		case 0x63: /* Left */
+		case 0x4B: /* Kp Left */
+			WinSplitV(0);
+			break;
+		case 0x64: /* Right */
+		case 0x4D: /* Kp Right */
+			WinSplitV(1);
+			break;
+		case 0x01: /* Escape */
+			Msg("Command cancelled.");
+			return;
+		default:
+			SysBeep(100L,100L);
+			continue;
+		}
+		done = TRUE;
+	} /* end while */
+	MsgClear();
+} /* end WinNewTiledWindow() */
+
+
+void
+WinOneWindow( void ) {
+	HWINDOW currwin, nextwin = NULL;
+
+	currwin = WinQueryCurrentWindow();
+	nextwin = WinQueryNextWindow();
+
+	while ( currwin != nextwin ) {
+		WinDeleteWindow( nextwin );		
+		nextwin = WinQueryNextWindow();
+	}
+} /* end WinOneWindow() */
+
+
+void
+WinZoom(void) {
+	if ( WinIsZoomed() )
+		WinRestore();
+	else
+		WinMaximize();
+} /* end WinZoom() */
+
+
+/*
+** End module: buffer.rm
+*/

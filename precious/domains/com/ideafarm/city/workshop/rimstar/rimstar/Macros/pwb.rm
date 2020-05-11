@@ -1,0 +1,481 @@
+/*
+** Macro module: pwb.rm - Programmer's WorkBench(R) keyboard map
+**
+** Programmmer's WorkBench is a registered trademark of Microsoft Corporation
+**
+** Copyright (C) 1993-1995 Brian L. Smith
+** Copyright (C) 1993-1995 RimStar Technology, Inc.
+** All rights reserved internationally.
+** Unlicensed use is a violation of applicable laws.
+**
+** This source code is provided to licensed users of RimStar's products
+** for the purpose of allowing the user to customize and/or enhance RimStar's
+** products. The source code remains the property of the copyright holders
+** with all rights reserved internationally.
+** Any modifications to the source code are considered derivative works and
+** all rights thereto are reserved to the copyright holders except
+** that the purchaser may use the derivitive work in the same manner
+** as permitted by the license governing the unmodified product.
+** Distribution in any manner of any part of the original source code,
+** whether in source or object form, is expressly prohibited without the
+** express written permission of the copyright holders.
+**
+*/
+
+/*
+** This macro file sets up the editor for a PWB keyboard mapping.
+** To have the editor use this as your default keyboard map:
+**  copy pwb.* keyboard.*
+*/
+
+#include "macro.h"
+
+extern BOOL CUAMode;
+extern BOOL	CUASelActive;
+extern BOOL	MouseNoVirtual;
+extern void	(*pfnSetDefaultKeymap)(void);	// defined in startup.rm
+extern int EditFile(char *pathname, ULONG flags); // defined in buffer.rm
+
+void PWB();
+static HKEYBOARD hkPWB;
+
+
+void
+_init(void) {
+	LibAutoload("misc", 		"quote", "Repeat", "next_word", "prev_word", "tospace", "CharIs",
+									"delete_next_word", "delete_prev_word", "toupper", "tolower");
+	LibAutoload("c_smart",	"find_matching_delim");
+	LibAutoload("KbdCUA",	"KbdBindCUAAsciiKeys");
+	LibAutoload("hexedit",	"HexEditBegin");
+	LibAutoload("bookmark",	"BookmarkSet", "BookmarkGoto");
+} /* end _init() */
+
+
+void
+SetPWB() {
+
+	if ( !hkPWB ) {
+		KbdPush(NULL);
+		PWB();
+		hkPWB = KbdPop();
+	}
+	KbdPop();	/* Remove current kbd */
+	KbdPush(hkPWB);
+	CUAMode = TRUE;
+	MouseNoVirtual = FALSE;
+	SysSetFlags(SYSTEM_MENUACCEL, 0L);
+	MnuSetMenuAccel();
+	MsgPrintf("PWB key map active");
+} /* end SetPWB() */
+
+
+void
+KbdBindDefault() {
+	/* Enable CUA mouse behavior */
+	CUAMode = TRUE;
+	/* Allow mouse to leave cursor in virtual space */
+	MouseNoVirtual = FALSE;
+	/* Disable Alt + mnemonic processing to activate menus (Alt+F, Alt+E, etc.) */
+	SysSetFlags(SYSTEM_MENUACCEL, 0L);
+	/* Create the keyboard map */
+	PWB();
+	hkPWB = KbdQueryCurrentKeyboard();
+	pfnSetDefaultKeymap = SetPWB;
+} /* end KbdBindDefault() */
+
+
+void
+PWB() {
+	char  *self_insert = "SelfInsert";
+	char  *p;
+
+	/* Call function for CUA mapping of typable keys */
+	KbdBindCUAAsciiKeys();
+
+	/*
+	**  KP  stands for the Key Pad keys.
+	**
+	**  Alt+ ESCAPE, Alt+TAB and Ctrl+ESCAPE are reserved for OS's use
+	**  do not define these as they will be ignored.
+	*/
+
+	KbdBind("Shift+Alt+E",			"PjtOpen 0");
+	KbdBind("Alt+F3",					"PjtClose");
+	KbdBind("Shift+F10",				"PjtBuild");
+	KbdBind("Alt+F10",				"PjtDebugBuild");
+
+	/*
+	** Repeat next keyboard command
+	*/
+	KbdBind("Escape",					"Repeat");
+
+	/*
+	** Cursor Movement
+	*/
+	KbdBind("Shift+ENTER",	 		p="CUAMov MovNextline");
+	KbdBind("Shift+KP_ENTER", 		p);
+	KbdBind("PGUP",					p="CUAMov MovPageUp");
+	KbdBind("Ctrl+R",					p);
+	KbdBind("KP_PGUP",				p);
+	KbdBind("Ctrl+HOME",				p="CUAMov MovSOF");
+	KbdBind("Ctrl+KP_HOME",			p);
+	KbdBind("HOME",					p="CUAMov MovSOT");
+	KbdBind("KP_HOME",				p);
+	KbdBind("Ctrl+C",					p="CUAMov MovPageDown");
+	KbdBind("PGDN",					p);
+	KbdBind("KP_PGDN",				p);
+	KbdBind("Ctrl+END",				p="CUAMov MovEOF");
+	KbdBind("Ctrl+KP_END",			p);
+	KbdBind("END",						p="CUAMov MovEOL");
+	KbdBind("KP_END",					p);
+	KbdBind("UP",						p="CUAMov MovUp");
+	KbdBind("KP_UP",					p);
+	KbdBind("Ctrl+E",					p);
+	KbdBind("DOWN",					p="CUAMov MovDown");
+	KbdBind("KP_DOWN",				p);
+	KbdBind("Ctrl+X",					p);
+	KbdBind("KP_LEFT",				p="CUAMov MovLeft");
+	KbdBind("LEFT",					p);
+	KbdBind("Ctrl+S",					p);
+	KbdBind("Ctrl+LEFT",				p="CUAMov prev_word");	/* in misc.rm */
+	KbdBind("Ctrl+KP_LEFT",			p);
+	KbdBind("Ctrl+A",					p);
+	KbdBind("KP_RIGHT",				p="CUAMov MovRight"); 
+	KbdBind("RIGHT",					p); 
+	KbdBind("Ctrl+D",					p); 
+	KbdBind("Ctrl+F",					p="CUAMov next_word");	/* in misc.rm */
+	KbdBind("Ctrl+RIGHT",			p);
+	KbdBind("Ctrl+KP_RIGHT",		p);
+	KbdBind("Shift+TAB",		  		"CUAMov MovPrevTabPos");
+	KbdBind("Ctrl+Enter",	 		"BufInsertNewline");
+	KbdBind("Ctrl+N",			 		"PWBInsertNewline");
+//	KbdBind("TAB",						"PWBTab");
+
+	/*
+	** Scrolling
+	*/
+	KbdBind("Ctrl+B",				  	"WinScrollBottom");
+	KbdBind("KP_5",					p="WinScrollCenter");
+	KbdBind("Ctrl+C",				  	p);
+	KbdBind("Ctrl+W",	 			  	p="CUAMov WinScrollDown");
+	KbdBind("Ctrl+UP",	 	  		p);
+	KbdBind("Ctrl+KP_UP",	 	  	p);
+	KbdBind("Ctrl+Z",				  	p="CUAMov WinScrollUp");
+	KbdBind("Ctrl+DOWN",				p);
+	KbdBind("Ctrl+KP_Down",			p);
+	KbdBind("Ctrl+T",			  		"WinScrollTop");
+
+	/*
+	** Selection operations
+	*/
+	KbdBind("Alt+A",					"MarkExclusive");
+	KbdBind("Alt+C",					"MarkColumn");
+	KbdBind("Alt+L", 					"MarkLine");
+	KbdBind("Alt+M", 					"MarkNormal");
+	KbdBind("Shift+Ctrl+A",			"MarkSwapSel");
+	KbdBind("Shift+HOME", 			p="CUASel MovSOT");
+	KbdBind("Shift+KP_HOME", 		p);
+	KbdBind("Shift+Ctrl+LEFT",	 	p="CUASel MovWordLeft");
+	KbdBind("Shift+Ctrl+KP_LEFT", p);
+	KbdBind("Shift+Ctrl+RIGHT",	p="CUASel MovWordRight");
+  	KbdBind("Shift+Ctrl+KP_RIGHT",p);
+	KbdBind("Shift+END",				p="CUASel MovEOL");
+	KbdBind("Shift+KP_END",			p);
+	KbdBind("Shift+Ctrl+END",		p="CUASel MovEOF");
+	KbdBind("Shift+Ctrl+KP_END",	p);
+	KbdBind("Shift+Ctrl+HOME",		p="CUASel MovSOF");
+	KbdBind("Shift+Ctrl+KP_HOME", p);
+	KbdBind("Shift+PGUP",			p="CUASel MovPageUp");
+	KbdBind("Shift+KP_PGUP",		p);
+	KbdBind("Shift+PGDN",			p="CUASel MovPageDown");
+	KbdBind("Shift+KP_PGDN",		p);
+	KbdBind("Shift+LEFT",			p="CUASel MovLeft");
+	KbdBind("Shift+KP_LEFT",		p);
+	KbdBind("Shift+RIGHT",			p="CUASel MovRight");
+	KbdBind("Shift+KP_RIGHT",		p);
+	KbdBind("Shift+UP",				p="CUASel MovUp");
+ 	KbdBind("Shift+KP_UP",			p);
+	KbdBind("Shift+DOWN", 			p="CUASel MovDown");
+ 	KbdBind("Shift+KP_DOWN", 		p);
+
+	/* 
+	** Cut/copy/paste
+	*/
+	KbdBind("KP_MINUS",					"BufCutToScrap");
+	KbdBind("Ctrl+KP_INSERT", 			p="CUACopy BufCopyToScrap");
+	KbdBind("Ctrl+INSERT",  			p);
+	KbdBind("Shift+KP_MINUS",			"BufCutToScrap 1");		/* append to current scrap */
+//	KbdBind("Shift+KP_PLUS",			"BufCopyToScrap 1");		/* append to current scrap */
+	KbdBind("Shift+KP_INSERT",	  		p="CUAReplace BufPasteScrap");
+	KbdBind("Shift+KP_PLUS",			p);
+	KbdBind("Shift+INSERT",				p);
+	KbdBind("Alt+Shift+KP_INSERT",	p="ImportClipboard");
+	KbdBind("Alt+Shift+INSERT",		p);
+	KbdBind("Ctrl+Shift+KP_INSERT",	p="ExportClipboard");
+	KbdBind("Ctrl+Shift+INSERT",		p);
+
+	/* 
+	** Deletions
+	*/
+	KbdBind("Alt+Y",						"BufDeleteLine");
+	KbdBind("Shift+KP_DELETE",			p="BufDeleteToScrap");
+  	KbdBind("Shift+DELETE",				p);
+	KbdBind("Shift+KP_MINUS",			p);
+	KbdBind("Alt+K", 						"BufDeleteToEOL");
+	KbdBind("BACKSPACE",					p="CUAReplace DeletePrevChar");
+	KbdBind("Shift+BACKSPACE",			p);
+	KbdBind("Ctrl+G",						p);
+  	KbdBind("Ctrl+Y",						"DeleteLineOrSelection");
+	KbdBind("Ctrl+BACKSPACE",			"delete_prev_word");	/* in misc.rm */
+	KbdBind("Shift+Ctrl+BACKSPACE",	"delete_next_word");	/* in misc.rm */
+	KbdBind("Alt+|", 						"BufDeleteWhitespace");
+	KbdBind("KP_DELETE",					p="BufDeleteCharOrSelection");
+	KbdBind("Shift+KP_SLASH",			p);
+	KbdBind("DELETE",						p);
+	KbdBind("Ctrl+-",			  			"BufDeleteCurrentBuffer");
+
+	/* 
+	** Undo & redo operations
+	*/
+	KbdBind("Alt+U", 						p="Undo");
+	KbdBind("Shift+Ctrl+BACKSPACE", 	p);
+	KbdBind("KP_STAR",				  	p="UndoModification");
+	KbdBind("Alt+BACKSPACE", 			p);
+	KbdBind("Alt+Y", 						"Redo");
+	KbdBind("Shift+KP_STAR",	  		p="RedoModification");
+	KbdBind("Alt+Kp_Insert", 			p);
+	KbdBind("Alt+Insert", 				p);
+	KbdBind("Shift+Ctrl+KP_STAR",		"UndoAll");
+	KbdBind("Shift+Alt +KP_STAR",		"RedoAll");
+
+	/*
+	** Search & replace
+	*/
+	KbdBind("F3",					"SearchSel 1");
+	KbdBind("F4",					"SearchSel 0");
+	KbdBind("Ctrl+|",				p="ReplaceForward");
+	KbdBind("Ctrl+L",				p);
+//	KbdBind("Alt+F5",				"SearchBackward");
+//	KbdBind("Shift + F5",		"Search Again");
+//	KbdBind("Alt+F6",				"ReplaceBackward");
+//	KbdBind("Shift+F6",			"ReplaceAgain");
+
+	/*
+	** Toolkit help for function under cursor
+	**
+	** NOTE: To use QueryInfHelp you must add the following environment variable
+	**	(OS/2) to your config.sys:
+	**	 SET RSE_INF=GUIREF20.INF+PMFUN.INF+PMGPI.INF+PMHOK.INF+PMMSG.INF+PMREL.INF+PMWIN.INF+PMWKP.INF
+	**  The setting is taken from the combination of the  PROGREF20 and PMREF environment variables
+	**  You may add additional .INF files or remove some.
+	**
+	** (WINDOWS) to your autoexec.bat:
+	**	 SET RSE_INF=fully qualified name of a single windows help file,
+	**  (eg. SET RSE_INF=c:\msvc20\help\api32.hlp)
+	*/
+	KbdBind("Alt+H",				"HelpQueryInfHelp");
+
+	/*
+	** Exiting the editor
+	*/
+	KbdBind("Alt+X", 				"ExitEditor");
+	KbdBind("F8",				  	p="SysSaveAndExit");
+	KbdBind("Alt+F4",			  	p);
+
+	/*
+	** Buffer operations
+	*/
+	KbdBind("Alt+E",				"DlgOpenFile");
+  	KbdBind("Shift+F2",			p="SaveBuffer");
+	KbdBind("Alt+W", 				p);
+	KbdBind("Alt+O", 				"DlgRenameBuffer");
+	KbdBind("Alt+P", 				"Print");
+	KbdBind("Alt+R", 				"BufInsertFile");
+	KbdBind("Alt+-", 				"BufPrevBuffer");
+	KbdBind("Alt+N", 				"BufNextBuffer");
+	KbdBind("Alt+B",				"DlgBufferList");
+	KbdBind("Alt+G",				"DlgGotoLine");
+
+	/* 
+	** Window operations
+	*/
+	KbdBind("Ctrl+F10", 	  		"WinMaximize");
+	KbdBind("F6",			  		"WinNextWindow");
+	KbdBind("Shift+F6",			"WinPrevWindow");
+	KbdBind("Ctrl+F2",			"WinCascade");
+	KbdBind("F2",					"WinTileAcross");
+	KbdBind("Alt+F2",				"WinTileDown");
+	KbdBind("Ctrl+Alt+F2",		"WinNewWindow");
+	KbdBind("Ctrl+F4", 			"WinDeleteCurrentWindow");
+	KbdBind("Shift+Ctrl+F4",	"WinDeleteWindowAndBuffer");
+
+	/*
+	** Misc. functions
+	*/
+	KbdBind("Alt+V", 				"DlgVersion");
+	KbdBind("Shift+F7",			"PWBRefresh");
+ 	KbdBind("Ctrl+J", 			"tospace");
+	KbdBind("Ctrl+[",  			p="find_matching_delim");	/* in c_smart.rm */
+	KbdBind("Ctrl+]",  			p);
+	KbdBind("Alt+?", 				"CharIs");
+	KbdBind("Ctrl+P", 			"quote");					/* in misc.rm */
+
+	/* 
+	** Toggles
+	*/
+	KbdBind("Ctrl+V",				p="ToggleInsert");
+	KbdBind("KP_INSERT", 		p);
+	KbdBind("INSERT",				p);
+	KbdBind("Alt+T", 				"ToggleTabs");
+
+	/*
+	** Bookmarks
+	*/
+	KbdBind("Alt+1", 				"BookmarkSet 1");
+	KbdBind("Alt+2", 				"BookmarkSet 2");
+	KbdBind("Alt+3", 				"BookmarkSet 3");
+	KbdBind("Alt+4", 				"BookmarkSet 4");
+	KbdBind("Alt+5", 				"BookmarkSet 5");
+	KbdBind("Alt+6", 				"BookmarkSet 6");
+	KbdBind("Alt+7", 				"BookmarkSet 7");
+	KbdBind("Alt+8", 				"BookmarkSet 8");
+	KbdBind("Alt+9", 				"BookmarkSet 9");
+	KbdBind("Alt+0", 				"BookmarkSet 10");
+
+	KbdBind("Alt+J+1",			"BookmarkGoto 1");
+	KbdBind("Alt+J+2",			"BookmarkGoto 2");
+	KbdBind("Alt+J+3",			"BookmarkGoto 3");
+	KbdBind("Alt+J+4",			"BookmarkGoto 4");
+	KbdBind("Alt+J+5",			"BookmarkGoto 5");
+	KbdBind("Alt+J+6",			"BookmarkGoto 6");
+	KbdBind("Alt+J+7",			"BookmarkGoto 7");
+	KbdBind("Alt+J+8",			"BookmarkGoto 8");
+	KbdBind("Alt+J+9",			"BookmarkGoto 9");
+	KbdBind("Alt+J+0",			"BookmarkGoto 10");
+
+	/*
+	** Keystroke macros
+	*/
+	KbdBind("Shift+Ctrl+R",		"KbdMacroRecord");  	/* starts/stops keystroke macro recording */
+	KbdBind("Alt+F7",				"KbdMacroLoad");  	/* load keystroke macro from disk */
+//	KbdBind("Shift+F7",			"KbdMacroPause");		/* pause keystroke macro recording */
+	KbdBind("Shift+Ctrl+P",		"KbdMacroPlay");		/* plays a recorded keystroke macro */
+	KbdBind("Alt+F8",				"KbdMacroSave");	  	/* saves last recorded macro to disk */
+
+	/* 
+	** Macro operations
+	*/
+	KbdBind("F9",					"DlgLoadMacro");  
+	KbdBind("F10",					"LibExecFunction");
+
+	/*
+	** Compile & jump to error
+	** For use in error output buffer - place cursor on error line
+	** ALT+F9 jumps to file & line in error,  loading the file if needed
+	*/
+	KbdBind("Alt+F9",				"ErrJumpToError");
+	KbdBind("Shift+F4",		 	"ErrPrevError");
+  	KbdBind("Shift+F3",		 	"ErrNextError");
+	KbdBind("Ctrl+F3",			"ExecAssoc");			/* Run program using current buffer */
+	KbdBind("Ctrl+K",			  	"ExecKillProcess");	/* Kills a program executed on buffer */
+
+	/*
+	** Source browser bindings
+	*/
+	KbdBind("F11",					"SbBrowseSymbolAtCursor");
+	KbdBind("Shift+F11",			"SbBrowseDefs");
+	KbdBind("Ctrl+F11",			"SbBrowseRefs");
+	KbdBind("Alt+F11",			"SbBrowseSymbolsDefinedInModule");
+	KbdBind("F12",					"SbFindNext");
+	KbdBind("Shift+F12", 		"SbFindPrev");
+	KbdBind("Alt+F12",			"SbGotoDef");
+	KbdBind("Ctrl+F12",			"SbrFindNextDef");
+	KbdBind("Shift+Ctrl+F12",	"SbrFindPrevDef");
+	KbdBind("Ctrl+Alt+F12",		"SbJumpBack");
+
+	/*
+	** Change window to Hex editing mode
+	*/
+	KbdBind("Ctrl+Shift+H",		"HexEditBegin");
+} /* end PWB() */
+
+
+void
+MarkToSOT(void) {
+	SELECTION sel;
+	LONG line, column;
+	LONG sot_line, sot_column;
+
+	BufQueryPosition( &line, &column);
+	PosSOT();
+	BufQueryPosition( &sot_line, &sot_column);
+	sel.type	  = SELECT_NORMAL;
+	sel.s_line	= sel.e_line = line;
+	sel.s_column = sot_column;
+	sel.e_column = column;
+	MarkCreateSel(&sel);
+} /* end MarkToSOT() */
+
+
+void
+PWBInsertNewline() {
+	SELECTION sel;
+
+	if ( MarkQuerySel( &sel, 1) )
+		MovAbs( sel.s_line, sel.s_column );
+	MovSOL();
+	BufInsertNewline();
+} /* end PWBInsertNewline() */
+
+
+void
+MovNextline( void ) {
+	MarkRemoveSel();
+	MovDown();
+	MovSOT();
+} /* end MovNextline() */
+
+
+void
+DeleteLineOrSelection( void ) {
+	if ( !MarkQuerySelType() )
+		BufDeleteLine();
+	else 
+		BufDeleteCharOrSelection();
+} /* end DeleteLineOrSelection() */
+
+
+void
+DeletePrevChar( void ) {
+	if ( BufQueryColumn() == 1L )
+		BufDeletePrevChar();
+	else
+		BufBackspace();
+} /* end DeletePrevChar() */
+
+
+void
+BufDeleteToScrap( void ) {
+
+	if ( MarkQuerySelType() ) 
+		BufCutToScrap();
+	else if ( BufQueryChar() != '\n' )
+		BufDeleteChar();
+} /* end PWBDelToScrap() */
+
+
+void
+PWBRefresh( void ) {
+	EditFile( BufQueryFilename(), 0L );
+} /* end PWBRefresh() */
+
+
+void
+PWBTab( void ) {
+	MovAbs(0L, BufQueryNextTab(BufQueryColumn()));
+} /* end PWBTab() */
+
+
+/*
+** End module: pwb.rm 
+*/

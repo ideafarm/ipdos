@@ -1,0 +1,160 @@
+/*
+** Macro module: kbdcua.rm - ASCII key bindings for CUA
+**
+** Copyright (C) 1993-1996 Brian L. Smith
+** All rights reserved internationally.
+** Unlicensed use is a violation of applicable laws.
+**
+** This source code is provided to licensed users of RimStar's products
+** for the purpose of allowing the user to customize and/or enhance RimStar's
+** products. The source code remains the property of the copyright holders
+** with all rights reserved internationally.
+** Any modifications to the source code are considered derivative works and
+** all rights thereto are reserved to the copyright holders except
+** that the purchaser may use the derivitive work in the same manner
+** as permitted by the license governing the unmodified product.
+** Distribution in any manner of any part of the original source code,
+** whether in source or object form, is expressly prohibited without the
+** express written permission of the copyright holders.
+**
+*/
+
+#include "macro.h"
+
+/* These functions handle CUA style selection behavior */
+
+extern BOOL	CUASelActive;
+
+/*
+** CUAToggleSel
+**
+**	Toggles whether the selection is open or closed.
+** When the selection is closed you can move the cursor
+** off the selection and the selection will remain
+** just where it is. If the selection is open then normal
+** CUA processing is performed.
+*/
+void
+CUAToggleSel( void ) {
+
+	if ( MarkQuerySelType() ) {
+		if ( MarkQueryIsSelOpen() ) {
+			MarkEndSel();
+			CUASelActive = FALSE;
+		} else {
+			MarkResumeSel();
+			CUASelActive = TRUE;
+		}
+	}
+} /* end CUAToggleSel() */
+
+
+void
+CUASel( char *func ) {
+	if ( !MarkQuerySelType() ) {
+		MarkBeginSel(SELECT_EXCLUSIVE);
+		CUASelActive = TRUE;
+	} else if ( !MarkQueryIsSelOpen() )
+		MarkResumeSel();
+	CUASelActive = TRUE;
+	ExecFunction( func );
+} /* end CUASel() */
+
+
+void
+CUAMov( char *func ) {
+	if ( CUASelActive ) {
+		if ( MarkQuerySelType() )
+			MarkRemoveSel();
+		CUASelActive = FALSE;
+	}
+	ExecFunction( func );
+} /* end CUAMov() */
+
+
+void
+CUACopy( char *func ) {
+	ExecFunction( func );
+	if ( MarkQuerySelType() )
+		MarkRemoveSel();
+} /* end CUACopy() */
+
+
+void
+CUAInsert( void ) {
+	if ( CUASelActive ) {
+		if ( MarkQuerySelType() )
+			BufDeleteSel();
+		CUASelActive = FALSE;
+	}
+	SelfInsert();
+} /* end CUAInsert() */
+
+
+void
+CUAEnter( void ) {
+	if ( CUASelActive ) {
+		if ( MarkQuerySelType() )
+			BufDeleteSel();
+		CUASelActive = FALSE;
+	}
+	BufInsertChar(10);
+} /* end CUAEnter() */
+
+
+void
+CUAReplace( char *func ) {
+	if ( CUASelActive ) {
+		if ( MarkQuerySelType() )
+			BufDeleteSel();
+		CUASelActive = FALSE;
+	}
+	ExecFunction( func );
+} /* end CUAReplace() */
+
+
+/*
+** KbdBindCUAAsciiKeys()
+**
+**	KbdBindCUAAsciiKeys() sets the standard typable key bindings
+** for a keyboard using CUA style selection.
+**	Binds (assigns) all the typeable keys to the current keyboard mapping.
+** KbdBindDefault() should call this function first.
+**	If you are defining a keyboard and want the standard typables
+**	just make your new keyboard the current keyboard and call this function.
+*/
+void
+KbdBindCUAAsciiKeys(void) {
+	/* Bind the default CUA system menu accels */
+	KbdBind("Ctrl+F4",		"WinDeleteCurrentWindow");
+	KbdBind("Ctrl+F5",		"WinRestore");
+	KbdBind("Ctrl+F7",		"WinMove");
+	KbdBind("Ctrl+F8",		"WinSize");
+	KbdBind("Ctrl+F9",		"WinMinimize");
+	KbdBind("Ctrl+F10",		"WinMaximize");
+	KbdBind("Ctrl+Space",	"WinSysMenu");
+	KbdBind("Alt+F4",			"ExitEditor");
+	KbdBind("Alt+F5",			"WinMainRestore");
+	KbdBind("Alt+F7",			"WinMainMove");
+	KbdBind("Alt+F8",			"WinMainSize");
+	KbdBind("Alt+F9",			"WinMainMinimize");
+	KbdBind("Alt+F10",		"WinMainMaximize");
+  #if !WINDOWS
+	// if you hide it under windows you can't get it back!
+	// KbdBind("Alt+F11",		"WinMainHide");
+  #endif
+	KbdBind("Alt+Space",		"WinMainSysMenu");
+
+	/*
+	** Bind the standard typable key bindings
+	**
+	** 1st parameter: function to bind to all the normal typable keys like a-z
+	** 2nd parameter: function to bind to the Enter keys
+	*/
+	KbdBindTypables("CUAInsert", "CUAEnter");
+} /* end KbdBindCUAAsciiKeys() */
+
+
+/*
+** End module: kbdcua.rm
+*/

@@ -1,0 +1,732 @@
+/*
+** Macro module: lang.rm - language specific editing functions
+**
+** Copyright (C) 1993-1996 Brian L. Smith
+** All rights reserved internationally.
+** Unlicensed use is a violation of applicable laws.
+** SyntaColor(tm) is a trademark of RimStar Technology, Inc.
+**
+** This source code is provided to licensed users of RimStar's products
+** for the purpose of allowing the user to customize and/or enhance RimStar's
+** products. The source code remains the property of the copyright holders
+** with all rights reserved internationally.
+** Any modifications to the source code are considered derivative works and
+** all rights thereto are reserved to the copyright holders except
+** that the purchaser may use the derivitive work in the same manner
+** as permitted by the license governing the unmodified product.
+** Distribution in any manner of any part of the original source code,
+** whether in source or object form, is expressly prohibited without the
+** express written permission of the copyright holders.
+**
+*/
+
+#define INCL_EVENT
+#include "macro.h"
+#include "lang.h"
+
+#define SCAN_TAB		0x0F	/* scan code for tab key */
+#define SCAN_SPACE	0x39	/* scan code for space key */
+
+extern int c_paren_extra_space;
+extern void RefreshSyntaColor(); /* defined later in this module */
+
+/*
+** IndentStyle is an internal variable within the editor
+** set it by using the menu Options.Global settings...
+** and choosing your indent style on the Language tab.
+**
+** Currently defined settings for this variable are
+** 0 = none
+** 1 = regular
+** 2 = smart
+** 3 = template
+** 4 = alternate template
+** 5 = quick smart
+** 6 = quick template
+** 7 = quick alternate template editing.
+**
+** Default: 1
+**
+** Can be set on the fly by calling SetIndentStyle() see below.
+**
+*/
+extern long	IndentStyle;
+
+
+extern HKEYBOARD	_r_keymap;	/* Regular indenting keyboard */
+
+HEVENT	hevLang[13];
+
+void
+_init(void) {
+
+	LibAutoload( "slide", 	"slide_in", "slide_out" );
+	LibAutoload( "asm",    	"_asm_init");
+	LibAutoload( "c",       "_c_init",  "_cpp_init", "_cxx_init",
+									"_h_init",  "_hpp_init", "_hxx_init", "_inl_init",
+									"_rc_init", "_rch_init", "_rm_init" , "_sqc_init" );
+	LibAutoload( "cobol",   "_cbl_init",  "_cob_init");
+	LibAutoload( "clipper",	"_prg_init");
+	LibAutoload( "easel",	"_eal_init");
+	LibAutoload( "java",    "_java_init", "_h_init");
+	LibAutoload( "pascal",  "_pas_init");
+	LibAutoload( "pl1",		"_pl1_init", "_pli_init");
+	LibAutoload( "rexx",    "_cmd_init", "_vrx_init");
+	// If you add a new error handler to jmperr.rm
+	// add the function to the list
+	LibAutoload( "jmperr", 	"DefaultErrorHandler", "SimpleErrorHandler",
+					 				"BorlandErrorHandler", "TasmErrorHandler",
+					 				"MacroErrorHandler",   "NopathErrorHandler",
+									"FranklinErrorHandler","FranklinAsmErrorHandler",
+									"AvocetErrorHandler",  "LintErrorHandler",
+									"GnuErrorHandler",     "SDSErrorHandler",
+					 				"BrowseErrorHandler",  "DatabaseErrorHandler",
+                           "IBMCErrorHandler",    "VisualAgeErrorHandler",
+									"AztecErrorHandler"
+					          #ifndef WINDOWS
+					           ,"MsgWorkFrame"
+					          #endif
+				  );
+	LibAutoload( "wp",    	"enable_wp", "toggle_wp", "_txt_init");
+
+	SyntaColorDelayedUpdate = TRUE;	/* defer updating color if keyboard input waiting */
+
+	hevLang[0]  = EventRegisterEvent(EVENT_BUFFER_DELETE,     		EVENT_LAST,   "LangEventHandler"		, NULL);
+	hevLang[1]  = EventRegisterEvent(EVENT_EXECASSOC,         		EVENT_NORMAL, "LangEventHandler"		, NULL);
+	hevLang[2]  = EventRegisterEvent(EVENT_SYNTACOLOR_STATUS, 		EVENT_NORMAL, "LangEventHandler"		, NULL);
+	hevLang[3]  = EventRegisterEvent(EVENT_ONE_SECOND,        		EVENT_NORMAL, "LangSyntaHandler"		, NULL);
+	hevLang[4]  = EventRegisterEvent(EVENT_CHAR_INSERTED,     		EVENT_NORMAL, "LangSyntaHandler"		, NULL);
+	hevLang[5]  = EventRegisterEvent(EVENT_CHAR_DELETED,      		EVENT_NORMAL, "LangSyntaHandler"		, NULL);
+	hevLang[6]  = EventRegisterEvent(EVENT_LINE_CHANGED,      		EVENT_NORMAL, "LangSyntaHandler"		, NULL);
+	hevLang[7]  = EventRegisterEvent(EVENT_LINES_DELETED,     		EVENT_NORMAL, "LangSyntaHandler"		, NULL);
+	hevLang[8]  = EventRegisterEvent(EVENT_LINES_INSERTED,    		EVENT_NORMAL, "LangSyntaHandler"		, NULL);
+	hevLang[9]  = EventRegisterEvent(EVENT_BUFFER_RELOADED,   		EVENT_NORMAL, "LangSyntaHandler"		, NULL);
+	hevLang[10] = EventRegisterEvent(EVENT_FILE_READ,         		EVENT_NORMAL, "LangSyntaHandler"		, NULL);
+	hevLang[11] = EventRegisterEvent(EVENT_FILENAME_CHANGED,  		EVENT_NORMAL, "LangInit"				, NULL);
+	hevLang[12] = EventRegisterEvent(EVENT_LANGSETTINGS_CHANGED,  EVENT_NORMAL, "LangSettingsChanged"	, NULL);
+
+	/* Create regular indenting keyboard ( -Is1 ) */
+	if ( !_r_keymap ) {
+		KbdPush();
+		KbdBind("Enter",		"BufNewlineIndent");
+		KbdBind("Tab",			"slide_in");
+		KbdBind("Shift+Tab",	"slide_out");
+		_r_keymap = KbdPop();
+		/* RefreshSyntaColor will reparse the current buffer & update the window */
+		KbdBind("Alt+Ctrl+Space",	"RefreshSyntaColor");
+	}
+} /* end _init() */
+
+_unload()
+{
+	int	i, rc;
+	// Macro file being unloaded so deregister the events
+	for ( i = 0; i < sizeof(hevLang)/sizeof(HEVENT); ++i ) {
+		rc = EventDeregisterEvent( hevLang[i] );
+	}
+} // end _unload()
+
+
+#if 0
+/*
+** DefaultExtensionInit		New: V2.0.55 - changed V2.1.02 ( 17Aug94 )
+** When no special file extension macro has been defined
+** LangInit() will call this function.
+*/
+void
+DefaultExtensionInit() {
+	enable_wp();
+} /* end DefaultExtensionInit() */
+#endif
+
+
+#if 0
+/*
+** UntitledInit		New: V2.1.02 ( 17Aug94 )
+** When an 'untitled' buffer is created LangInit() will call this function.
+*/
+void
+UntitledInit() {
+	enable_wp();
+} /* end UntitledInit() */
+#endif
+
+
+/*
+** The BufInfo... functions maintain a list of buffer specific information
+** structures. Each normal edit buffer has a BUFINFO structure allocated
+** to hold special information needed by various editor macro functions.
+** Currently the structure is used to keep information needed for the
+** support of the SyntaColor feature. You could add items to the structure
+** for your owm macro programming purposes but you should not change the existing
+** structure members. We may add to this structure in future releases.
+** See lang.h for the declaration of BUFINFO.
+*/
+
+PBUFINFO	BufInfoList;	/* Head of buffer information linked list */
+
+
+/* BufInfoQuery()
+**
+** Return the BUFINFO structure for a buffer
+** or NULL if not found.
+*/
+PVOID
+BufInfoQuery(HBUFFER hb) {
+	PBUFINFO	p;
+
+	p = BufInfoList;
+	while ( p )	{
+		if ( p->hb == hb )
+			return (PVOID)p;
+		p = p->next;
+	}
+	return 0L;
+} /* end BufInfoQuery() */
+
+
+/* BufInfoAdd()
+**
+** Allocates a BUFINFO structure for a buffer
+** if one does not already exist.
+*/
+PVOID
+BufInfoAdd(HBUFFER hb) {
+	PBUFINFO	p;
+
+	if ( !hb )
+		return 0L;
+	if ( p = BufInfoQuery(hb) )
+		return (PVOID)p;
+	if ( p = calloc(1, sizeof(BUFINFO)) ) {
+		p->hb = hb;
+		if ( BufInfoList )
+			p->next = BufInfoList;
+		BufInfoList = p;
+		return (PVOID)p;
+	}
+	return 0L;
+} /* end BufInfoAdd() */
+
+
+/* BufInfoDelete()
+**
+** Deletes from the list and frees the memory allocated
+** the BUFINFO structure for a buffer.
+*/
+void
+BufInfoDelete(HBUFFER hb) {
+	PBUFINFO	p, prev;
+
+	if ( !(p = BufInfoList) )
+		return;
+	if ( p->hb == hb ) {
+		/* Head of list */
+		BufInfoList = p->next;
+		free(p);
+	} else while ( p->next ) {
+		if ( p->next->hb == hb ) {
+			prev = p;
+			p = p->next;
+			prev->next = p->next;
+			free(p);
+			return;
+		}
+		p = p->next;
+	}
+} /* end BufInfoDelete() */
+
+
+/* LangEventHandler
+**
+** This is an event handler that is called whenever
+** a buffer is deleted or the status of SyntaColorEnabled is changed
+** by the user in the Global settings dialog box.
+*/
+USHORT
+LangEventHandler(USHORT event, char *pData) {
+	HBUFFER	hb, hbNext;
+	PBUFINFO	p;
+
+	switch ( event ) {
+	case EVENT_BUFFER_DELETE:
+		BufInfoDelete((HBUFFER)pData);
+		break;
+
+	case EVENT_SYNTACOLOR_STATUS:
+		/* User has enabled/disabled SyntaColor */
+		if ( pData ) {
+		  #if 0
+			// this is handled when LangSettingsChanged() is called
+			// for the EVENT_LANGSETTINGS_CHANGED event
+			// the _*_init() function for each buffer will perform
+			// a refresh if the buffer supports SyntaColor
+			// This change eliminates doing the coloring twice
+			/* SyntaColor Enabled */
+			hbNext = hb = BufQueryCurrentBuffer();
+			do {
+				if ( (p = BufInfoQuery(hbNext)) && (p->ulFlags & BI_SYNTACOLOR) )
+					p->syntaRefresh(-1L, p->htKeywords);
+				hbNext = BufQueryNextBuffer();
+				BufSwitchBuffer(hbNext);
+			} while ( hbNext != hb );
+		  #endif
+		} else {
+			/* SyntaColor Disabled */
+			hbNext = hb = BufQueryCurrentBuffer();
+			do {
+				AttrSetColorAt(0, 0x7FFFFFFFL, COLOR_TEXT);
+				hbNext = BufQueryNextBuffer();
+				BufSwitchBuffer(hbNext);
+			} while ( hbNext != hb );
+		}
+		break;
+
+	case EVENT_EXECASSOC:
+		/*
+		** About to run an associated program for this buffer
+		** Redo the SyntaColoring for this buffer
+		*/
+		RefreshSyntaColor();
+	} /* end switch on event type */
+	return 0;
+} /* end LangEventHandler() */
+
+
+USHORT
+LangSyntaHandler(USHORT event, char *pData, PVOID pUser) {
+	LONG		s_line, e_line;
+	LONG		*pInfo;
+	HBUFFER	hbCurrent;
+	PBUFINFO	pBufInfo;
+
+	if ( !SyntaColorEnabled )
+		return 0;
+
+	hbCurrent = BufQueryCurrentBuffer();
+
+	if ( event == EVENT_BUFFER_RELOADED ) {
+		/* Redo the entire buffer */
+		pBufInfo = BufInfoQuery((HBUFFER)pData);
+		if ( !pBufInfo || !(pBufInfo->ulFlags & BI_SYNTACOLOR) )
+			return 0;
+		if ( (HBUFFER)pData == hbCurrent )
+			pBufInfo->syntaRefresh(-1L, pBufInfo->htKeywords);
+		else {
+			BufSwitchBuffer((HBUFFER)pData);
+			pBufInfo->syntaRefresh(-1L, pBufInfo->htKeywords);
+			BufSwitchBuffer(hbCurrent);
+		}
+		return 0;
+	}
+	pBufInfo = BufInfoQuery(hbCurrent);
+	if ( !pBufInfo || !(pBufInfo->ulFlags & BI_SYNTACOLOR) )
+		return 0;
+	switch ( event ) {
+	case EVENT_ONE_SECOND:
+		/* Actually perform the color updating */
+		if ( pBufInfo->ulStartUpdate ) {
+			/*
+			** Update routine returns true if update performed
+			** or zero if skipped due to keyboard input waiting.
+			*/
+			if ( pBufInfo->syntaUpdate( pBufInfo->ulStartUpdate,
+												 pBufInfo->ulEndUpdate,
+												 pBufInfo->htKeywords) ) {
+				pBufInfo->ulStartUpdate = 0L;
+				pBufInfo->ulEndUpdate   = 0L;
+			}
+		}
+		return 0;
+	case EVENT_CHAR_INSERTED:
+		if ( *pData == '\n' )
+			/* don't bother, we'll get a lines inserted event */
+			return 0;
+		s_line = e_line = BufQueryLine();
+		// pBufInfo->syntaUpdate(s_line, s_line, pBufInfo->htKeywords);
+		break;
+	case EVENT_LINE_CHANGED:	/* Multi-character change made to line */
+		s_line = e_line = (LONG) pData;
+		// pBufInfo->syntaUpdate(s_line, s_line, pBufInfo->htKeywords);
+		break;
+	case EVENT_CHAR_DELETED:
+	case EVENT_LINES_DELETED:
+		pInfo = (LONG *)pData;
+		s_line = e_line = pInfo[0];
+		// pBufInfo->syntaUpdate(pInfo[0], pInfo[0], pBufInfo->htKeywords);
+		break;
+	case EVENT_LINES_INSERTED:
+		pInfo = (LONG *)pData;
+		s_line = pInfo[0];
+		e_line = s_line + pInfo[2] - 1L;
+		// pBufInfo->syntaUpdate(pInfo[0], pInfo[0]+ pInfo[2] - 1L, pBufInfo->htKeywords);
+		break;
+	case EVENT_FILE_READ:
+		pBufInfo->ulStartUpdate = BufQueryLine();
+		pBufInfo->ulEndUpdate   = 0x7FFFFFFFL;
+		return 0;
+	} /* end switch on event */
+
+	if ( !pBufInfo->ulStartUpdate ) {
+		pBufInfo->ulStartUpdate = s_line;
+		pBufInfo->ulEndUpdate   = e_line;
+	} else {
+		if ( s_line < pBufInfo->ulStartUpdate )
+			pBufInfo->ulStartUpdate = s_line;
+		if ( e_line > pBufInfo->ulEndUpdate )
+			pBufInfo->ulEndUpdate = e_line;
+	}
+	return 0;
+} /* end LangSyntaHandler() */
+
+
+void
+RefreshSyntaColor( void ) {
+	LONG		line;
+	PBUFINFO	p;
+
+	if ( (p = BufInfoQuery(BufQueryCurrentBuffer())) &&
+		  (p->ulFlags & BI_SYNTACOLOR) ) {
+	  #if 0
+		/* Redo SyntaColor for entire buffer */
+		p->syntaRefresh(-1L, p->htKeywords);
+	  #endif
+		/* Mark entire buffer for update */
+		p->ulStartUpdate = 1L;
+		p->ulEndUpdate   = 0x7FFFFFFFL;
+	} else {
+		/* Reset entire buffer to COLOR_TEXT */
+		AttrSetColorAt(0L, 0x7FFFFFFFL, COLOR_TEXT);
+		/* Force windows showing this buffer to be updated */
+		BufRefreshWindows();
+	}
+} /* end RefreshSyntaColor() */
+
+
+void
+RefreshSyntaColorImmediate( void ) {
+	LONG		line;
+	PBUFINFO	p;
+
+	if ( (p = BufInfoQuery(BufQueryCurrentBuffer())) &&
+		  (p->ulFlags & BI_SYNTACOLOR) ) {
+		/* Redo SyntaColor for entire buffer */
+		p->syntaUpdate(1, 0x7FFFFFFFL, p->htKeywords);
+	} else {
+		/* Reset entire buffer to COLOR_TEXT */
+		AttrSetColorAt(0L, 0x7FFFFFFFL, COLOR_TEXT);
+		/* Force windows showing this buffer to be updated */
+		BufRefreshWindows();
+	}
+} /* end RefreshSyntaColorImmediate() */
+
+
+void
+ToggleSynta(void) {
+	SyntaColorEnabled = !SyntaColorEnabled;
+} /* end SyntaColorEnabled() */
+
+
+/* LangInit
+**
+** This is an event handler that is called whenever
+** a buffer is created or renamed. It calls an initialization
+** function which sets up for language (extension)
+** specific custom editing routines like smart indenting,
+** template editing and SyntaColor(tm) support.
+**
+** The function which is called if it exists is constructed
+** as follows:
+**		_ + extension + _init
+**
+** eg. if you load a file named main.cpp LangInit will 
+** call (if it is defined) _cpp_init()
+**
+** If you place your _???_init functions in a file other than this one
+** you must add a LibAutoload call to the _init function
+** at the top of this file so the editor knows where to find your
+** functions ( see _init() above for an example of how this is done
+** for the C/C++ functions defined in c.rm )
+**
+*/
+SHORT
+LangInit(short event, HBUFFER hb) {
+	char  	*pathname;
+	char  	*func;
+	HBUFFER  origBuffer;
+	PBUFINFO pBufInfo;
+	char  	ext[_MAX_EXT];
+
+	if ( !(BufQueryFlags(hb) & BUFTYPE_NORMAL) )
+		return 0;
+	pBufInfo = BufInfoAdd(hb);
+	if ( event == EVENT_FILENAME_CHANGED && pBufInfo ) {
+		/*
+		** Output filename changed, could be to an extension
+		** that has different support than before.
+		** Let the _???_init() function set the flags if
+		** appropriate. Reset any buffer specific
+		** keyboard.
+		*/
+		pBufInfo->ulFlags = 0L;
+		origBuffer = BufSwitchBuffer(hb);
+		KbdSetBufferKeyboard( NULL );
+		BufSwitchBuffer(origBuffer);
+	}
+	/* Determine file extension of current buffer */
+	pathname = BufQueryFilename(hb);
+	if ( !pathname ) {
+		/* an untitled buffer */
+		if ( LibQueryFunction("UntitledInit") ) {
+			origBuffer = BufSwitchBuffer(hb);
+			UntitledInit();
+			BufSwitchBuffer(origBuffer);
+		}
+		return 0;
+	}
+	/* Build function name from file extension */
+	memset(ext, 0, _MAX_EXT);
+	splitpath(pathname, NULL, NULL, NULL, ext);
+	func = malloc(_MAX_EXT+8);
+	if ( ext[3] == '+' ) {
+		// handle .c++, .h++ etc. file types
+		strcpy(func, "_cpp_init");
+	} else {
+		ext[0] = '_';
+		strcpy(func, ext);
+		strlwr(func);
+		strcat(func, "_init");
+	}
+	origBuffer = BufSwitchBuffer(hb);
+	/* Is there such a function? */
+	if ( LibQueryFunction(func) )
+		ExecFunction(func);
+	else if ( LibQueryFunction("DefaultExtensionInit") )
+		DefaultExtensionInit();
+	BufSwitchBuffer(origBuffer);
+	free(func);
+	return 0;
+} /* end LangInit() */
+
+
+/*
+** LangSettingsChanged()
+**
+** This is an event handler for EVENT_LANGSETTINGS_CHANGED
+** This event is trigged when changes are made to the
+** language settings configuration dialog.
+*/
+int
+LangSettingsChanged(USHORT event, ULONG fChanged)
+{
+  #define LANG_KBDCHG		0x01		// changes affecting keymap
+  #define LANG_METHODCHG	0x02		// changed indenting method
+  #define LANG_STYLECHG		0x04		// changed brace style
+  #define LANG_COLORCHG		0x08		// SyntaColor - enabled/disabled
+
+	if ( fChanged & LANG_KBDCHG ) {
+		if ( LibQueryFunction("_c_keyboards") )
+			_c_keyboards();
+		if ( LibQueryFunction("_java_keyboards") )
+			_java_keyboards();
+	}
+
+	// reset the smart indenter based on brace style
+	if ( (fChanged & LANG_STYLECHG) && LibQueryFunction("c_smart") )
+		ExecFunction("c_smart");
+
+	if ( fChanged & (LANG_METHODCHG | LANG_COLORCHG) ) {
+		PBUFINFO	p;
+		SysSetHourglass(1);
+		// for each buffer - re-call the _???_init function
+		p = BufInfoList;
+		while ( p )	{
+			if ( p->pszFunc ) {
+				HBUFFER currentBuffer = BufSwitchBuffer(p->hb);
+				if ( (fChanged & LANG_COLORCHG) && !SyntaColorEnabled )
+					AttrSetColorAt(0, 0x7FFFFFFFL, COLOR_TEXT);
+				ExecFunction(p->pszFunc);
+				BufSwitchBuffer(currentBuffer);
+			}
+			p = p->next;
+		}
+		SysSetHourglass(0);
+	}
+	return 0;
+} // end LangSettingsChanged()
+
+
+/* SetIndentStyle()
+**
+** Change the indent style - only affects files loaded
+** after invoking this function, except that the current
+** buffer is changed to the requested indent style
+** if appropriate.
+*/
+void
+SetIndentStyle(int  style) {
+	IndentStyle = style;
+	LangInit( 0, BufQueryCurrentBuffer() );
+} /* end SetIndentStyle() */
+
+
+void
+just_space (void) {
+	BufInsertChar(' ');
+}
+
+
+void
+TmplExpand(char *psz)
+{
+	int	c;
+	long	line, col;
+	BOOL	savedPos = FALSE;
+
+	if ( !psz )
+		return;
+	while ( c = *psz++ ) {
+		switch ( c ) {
+		case '\x007':
+			c_indenter();
+			break;
+		case '\n':
+			BufNewlineIndent();
+			break;
+		case '\r':
+			BufBackspace();
+			break;
+		case '\b':		/* back-up a character */
+			PosPrevChar();
+			break;
+		case '\x00c':	/* forward a character */
+			PosNextChar();
+			break;
+		case '~':		/* back up an indent level */
+			MovPrevTabPos();
+			break;
+		case '%':		/* remember cursor position */
+			BufQueryPosition(&line, &col);
+			savedPos = TRUE;
+			break;
+		case '^':		/* move to saved cursor position */
+			if ( savedPos ) {
+				PosAbs(line, col);
+				savedPos = FALSE;
+			}
+			break;
+		case '(':
+			BufInsertChar(c);
+			if ( c_paren_extra_space > 1 )
+				BufInsertChar(' ');
+			break;
+		case ')':
+			if ( c_paren_extra_space > 1 )
+				BufInsertChar(' ');
+			BufInsertChar(c);
+			break;
+		default:
+			BufInsertChar(c);
+		} /* end switch */
+	} /* end while there is more to the expansion */
+	if ( savedPos )
+		MovAbs(line, col);
+} // end TmplExpand()
+
+
+/*
+** _expand
+**
+** _expand does the work of checking if the current line
+** can be expanded using a template and performing the
+** expansion if an abbreviation is matched.
+** Returns TRUE if an expansion was made, FALSE otherwise
+*/
+BOOL
+_expand(PTEMPLATE templates) {
+	int			c, index;
+	long			len, col;
+	char			*psz, *pszTrim;
+	PTEMPLATE	item = NULL;
+	extern LONG FILE_OFFSET;	/* internal editor variable - NEVER ASSIGN TO IT */
+
+	/* If not at the end of the line - do normal key action */
+	if ( (c=BufQueryChar()) != '\n' && c != -1 ) {
+		/* Not at end of line - perform default action */
+		if ( (KbdQueryLastKey() & 0xFF) == SCAN_TAB )	/* expand bound to Tab key */
+			slide_in();
+		else
+			SelfInsert();
+		return FALSE;
+	}
+	col = BufQueryColumn();
+	PosSOT();
+	psz = BufRead();			/* get remainder of line */
+	pszTrim = rtrim(psz);
+	len = strlen(pszTrim);
+	if ( !len )	{
+		free(psz);
+		PosAbs(0L, col);
+		SelfInsert();
+		return FALSE;
+	}
+  #if 0
+	/*
+	** This code will always insert the 'C' close comment
+	** if the line ends with open comment.
+	*/
+	if ( !strcmp(&pszTrim[len-2], "/*") ) {
+		PosEOL();
+		BufInsertString("  */");
+		PosPrevChar(3L);
+		free(psz);
+		return TRUE;
+	}
+  #endif
+	/* try to match one of the templates */
+	for ( index = 0; templates[index].abbrev; ++index ) {
+		if ( len >= templates[index].min ) {
+			if ( (templates[index].flags & TE_IGNORECASE) ) {
+				if ( !strnicmp(templates[index].abbrev, pszTrim, len) ) {
+					item = &templates[index];
+					break;
+				}
+			} else if ( !strncmp(templates[index].abbrev, pszTrim, len) ) {
+				item = &templates[index];
+				break;
+			}
+		}
+	}
+
+	free(psz);
+	if ( !item ) {		/* no match */
+		PosAbs(0L, col);
+		SelfInsert();
+		return FALSE;
+	}
+
+	/* Expand the template */
+	BufDeleteToEOL();
+	TmplExpand(item->expansion);
+	return TRUE;
+} /* end _expand() */
+
+BOOL
+TemplateExpand( void ) {
+	PBUFINFO		pBufInfo;
+	PTEMPLATE	pTemplates;
+
+	/* Get pointer to template array to use for this buffer */
+	pBufInfo = BufInfoQuery(BufQueryCurrentBuffer());
+	if ( pBufInfo && (pTemplates = pBufInfo->pTemplates) )
+		return _expand(pTemplates);
+	else
+		SelfInsert();
+	return FALSE;
+} /* end TemplateExpand() */
+
+
+
+/*
+** End module: lang.rm
+*/

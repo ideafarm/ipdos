@@ -1,0 +1,163 @@
+/*
+** Macro module: startup.rm - startup macros for RimStar Programmer's Editor
+**
+** Copyright (C) 1993-1995 Brian L. Smith
+** Copyright (C) 1993-1995 RimStar Technology, Inc.
+** All rights reserved internationally.
+** Unlicensed use is a violation of applicable laws.
+**
+** This source code is provided to licensed users of RimStar's products
+** for the purpose of allowing the user to customize and/or enhance RimStar's
+** products. The source code remains the property of the copyright holders
+** with all rights reserved internationally.
+** Any modifications to the source code are considered derivative works and
+** all rights thereto are reserved to the copyright holders except
+** that the purchaser may use the derivitive work in the same manner
+** as permitted by the license governing the unmodified product.
+** Distribution in any manner of any part of the original source code,
+** whether in source or object form, is expressly prohibited without the
+** express written permission of the copyright holders.
+**
+*/
+
+#define INCL_EVENT
+#include "macro.h"
+
+
+
+HKEYBOARD	hkDefault;
+HKEYBOARD	_r_keymap;	/* Regular indenting keyboard */
+
+int 	cxChar;	/* width of font in pixels */
+int 	cyChar;	/* height of font (descender + ascender) */
+int 	cyDesc;	/* descender height */
+
+BOOL	CUAMode;
+BOOL	CUASelActive;
+BOOL	MouseNoVirtual;
+
+void	(*pfnSetDefaultKeymap)(void);
+
+
+void
+_init(void) {
+	LibAutoload("keyboard",	"KbdBindDefault");
+	LibAutoload("menu",		"MnuSetMenuAccel", "MnuCommandHandler",
+									"MnuInitHandler", "ToolbarCommandHandler",
+					 				"CustomizeMenu");
+	LibAutoload("mouse",		"MouEvent");
+	LibAutoload("buffer",	"ReadOnlyBuffer");
+	LibAutoload("lang",		"LangInit");
+} /* end _init() */
+
+
+/*
+** Handler for EVENT_FONT_CHANGED
+** Keeps the global variables correctly
+** set for the size of the current font
+*/
+int
+FontEvent(USHORT event, PFONTATTRIB pfAttr) {
+	cxChar = pfAttr->cxChar;
+	cyChar = pfAttr->cyChar;
+	cyDesc = pfAttr->cyDesc;
+	return 0;
+} /* end FontEvent() */
+
+
+/*
+** SetDefaultKeymap
+**
+** This function is called when you select the 'Default' menu item from
+** the Keys pulldown menu. It will set the current keyboard mapping to
+** the map that was loaded by calling KbdBindDefault from the _startup
+** function. This is the mapping contained in your keyboard.rm macro file.
+*/
+void
+SetDefaultKeymap(void) {
+	(*pfnSetDefaultKeymap)();
+} /* end SetDefaultKeymap() */
+
+
+void
+_startup(void) {
+	char			*pathname;
+	PFONTATTRIB pfAttr;
+
+	/* Get current font attributes */
+	pfAttr = SysQueryFontSize();
+	cxChar = pfAttr->cxChar;
+	cyChar = pfAttr->cyChar;
+	cyDesc = pfAttr->cyDesc;
+
+	/* Register font change event handler */
+	EventRegisterEvent(EVENT_FONT_CHANGED, EVENT_NORMAL, "FontEvent");
+
+	/* Register mouse handling function */
+	EventRegisterEvent(EVENT_MOUSE, EVENT_NORMAL, "MouEvent");
+
+	/* Register read-only buffer handling function */
+	EventRegisterEvent(EVENT_EDIT_READ_ONLY, EVENT_NORMAL, "ReadOnlyBuffer");
+
+	/* Register language handling function */
+	EventRegisterEvent(EVENT_BUFFER_CREATED, EVENT_NORMAL, "LangInit");
+
+	/*
+	** Setup the default keyboard mapping.
+	** Your default keyboard mapping function should
+	** be named `KbdBindDefault'. Each supplied keyboard
+	** map uses the same function name so that all you need to do
+	** is copy or rename the desired compiled keyboard file
+	** to "KEYBOARD.OBM" and startup will find and load it.
+	*/
+	KbdBindDefault();
+
+	/* Place on keyboard stack - so other push/pops work correctly */
+	hkDefault = KbdQueryCurrentKeyboard();
+	if ( hkDefault )
+		KbdPush(hkDefault);
+
+	/* Set all short-cut key helps for the main menu */
+	CustomizeMenu();
+	MnuSetMenuAccel();	/* see menu.rm */
+
+	/* load default source browser database */
+	/* See if environment variable set */
+	pathname = getenv("RSE_SBD");
+
+	if ( !pathname )
+		pathname = "sbd.sbd";	/* try current directory */
+	SbLoadDatabase(pathname, 1);
+
+	/*
+	** Call user defined startup function, if it exists.
+	**
+	** If you need to do special initialization on editor startup
+	** you can create a macro function named Startup() to perform them.
+	** This function should be placed in a separate macro file,
+	** for example you could create a macro file that was named
+	** using the initials of your name eg. if your name is
+	** Bill T. Smithers you could create a macro file by the name
+	** bts.rm and place the Startup() function in this file.
+	**
+	** You would need to have the editor load bts by:
+	**    Adding -mbts to the [Environment]Flags=
+	**    in the editor's configuration file
+	**    (rse_cfg.ini is the default config file name)
+	** OR placing -mbts in the RSE_FLAGS environment variable
+	** OR add -mbts to the command line field of the properties dialog
+	**    for the editor's icon in the Program Manager (Windows)
+	**    or the Parameters field of the Settings dialog (OS/2)
+	** OR add a LibAutoload call to the _init() function
+	**    in your keyboard.rm macro file like this:
+	**       LibAutoload( "bts", "Startup");
+	*/
+	if ( LibQueryFunction("Startup") )
+		Startup();
+} /* end _startup() */
+
+
+
+/*
+** End module: startup.rm
+*/

@@ -1,0 +1,228 @@
+/*
+** Macro module: mouse.rm - Mouse handling
+**
+** Copyright (C) 1993-1995 Brian L. Smith
+** Copyright (C) 1993-1995 RimStar Technology, Inc.
+** All rights reserved internationally.
+** Unlicensed use is a violation of applicable laws.
+**
+** This source code is provided to licensed users of RimStar's products
+** for the purpose of allowing the user to customize and/or enhance RimStar's
+** products. The source code remains the property of the copyright holders
+** with all rights reserved internationally.
+** Any modifications to the source code are considered derivative works and
+** all rights thereto are reserved to the copyright holders except
+** that the purchaser may use the derivitive work in the same manner
+** as permitted by the license governing the unmodified product.
+** Distribution in any manner of any part of the original source code,
+** whether in source or object form, is expressly prohibited without the
+** express written permission of the copyright holders.
+**
+*/
+
+#define INCL_EVENT
+#define INCL_MOUSE
+#include "macro.h"
+
+extern int 	cxChar;
+extern int 	cyChar;
+extern BOOL	CUAMode;
+extern BOOL	CUASelActive;
+extern BOOL	MouseNoVirtual;
+extern BOOL	PopupMenu(ULONG flags, INT x, INT y);
+void SelWord();	/* defined below */
+
+
+
+int
+MouEvent(USHORT event, PMOUSEINFO pInfo) {
+	static int	B1LastX, B1LastY;
+	int	deltaX, deltaY;
+	int	type;
+
+	switch ( pInfo->usEvent ) {
+
+	case WM_MOUSEMOVE:	/* this event only gen'd if a button is down */
+		if ( !(pInfo->usButtonState & MOU_BUTTON1) )
+			return 0;	/* Button 1 not down - so ignore */
+
+		deltaX = pInfo->x - B1LastX;
+		if ( deltaX < 0 )
+			deltaX = -deltaX;
+
+		deltaY = pInfo->y - B1LastY;
+		if ( deltaY < 0 )
+			deltaY = -deltaY;
+		/* If distance moved > 1/2 a character start a selection */
+		if ( deltaX > cxChar/2 || deltaY > cyChar/2 ) {
+			B1LastX = pInfo->x;
+			B1LastY = pInfo->y;
+			if ( !MarkQuerySelType() ) {
+				/* Start a selection */
+				if ( CUAMode == 1 ) {
+					if ( !pInfo->usShiftState )
+						MarkBeginSel(SELECT_EXCLUSIVE);
+					else if ( pInfo->usShiftState & CTRL_DOWN )
+						MarkBeginSel(SELECT_COLUMN);
+					else if ( pInfo->usShiftState & SHIFT_DOWN )
+						MarkBeginSel(SELECT_EXCLUSIVE);
+					else if ( pInfo->usShiftState & ALT_DOWN )
+						MarkBeginSel(SELECT_LINE);
+				} else {
+					if ( !pInfo->usShiftState )
+						MarkBeginSel(SELECT_NORMAL);
+					else if ( pInfo->usShiftState & CTRL_DOWN )
+						MarkBeginSel(SELECT_COLUMN);
+					else if ( pInfo->usShiftState & SHIFT_DOWN )
+						MarkBeginSel(SELECT_LINE);
+					else if ( pInfo->usShiftState & ALT_DOWN )
+						MarkBeginSel(SELECT_EXCLUSIVE);
+				}
+				CUASelActive = TRUE;
+				WinUpdateWindow();
+			} else
+				MovToMouse();
+		}
+		break;
+
+	case WM_BUTTON1DOWN:	/* All button down events capture the mouse */
+		if ( CUAMode == 1 ) {
+			if ( !(pInfo->usShiftState & SHIFT_DOWN) &&
+				  MarkQuerySelType() && CUASelActive ) {
+				MarkRemoveSel();
+				CUASelActive = FALSE;
+			}
+			if ( (pInfo->usShiftState & SHIFT_DOWN) &&
+				  MarkQuerySelType() && !MarkQueryIsSelOpen() ) {
+				MarkResumeSel();
+				CUASelActive = TRUE;
+			}
+		}
+		MovToMouse();
+		if ( MouseNoVirtual && BufQueryPastEOL() ) {
+			PosEOL();
+			WinUpdateWindow();
+		}
+		B1LastX = pInfo->x;
+		B1LastY = pInfo->y;
+		break;
+
+	case WM_BUTTON2DOWN:
+		type = MarkQuerySelType();
+		if ( type  && pInfo->usButtonState & MOU_BUTTON1 ) {
+			/* Holding Button 1 down and clicking Button 2 changes type of selection */
+			switch ( type ) {
+			case SELECT_EXCLUSIVE:	/* Convert from Exculsive to Column marking */
+				MarkColumn();
+				break;
+			case SELECT_COLUMN:		/* Change from Column to Line marking */
+				MarkLine();
+				break;
+			case SELECT_LINE:			/* Convert from Line to Normal(stream) marking */
+				MarkNormal();
+				break;
+			case SELECT_NORMAL:		/* Convert from Normal to Exclusive marking */
+				MarkExclusive();
+				break;
+			} /* end switch */
+		}
+	  #if WINDOWS
+		else
+			// popup the menu and have right button active
+			// this allows click-drag-release for the menu.
+			PopupMenu(MOU_BUTTON2, pInfo->x, pInfo->y);
+	  #endif
+	  #if 0
+		// removed 12Mar96 to allow support for popup menus
+		else
+			MarkRemoveSel();
+	  #endif
+		break;
+
+	case WM_BUTTON1DBLCLK:
+		// Msg sequence is WM_BUTTON1DOWN, WM_BUTTON1UP, WM_BUTTON1CLICK, WM_BUTTON1DBLCLK
+		if ( (BufQueryFlags() & BUFFER_TYPE) == BUFTYPE_TEMP ) {
+			if ( BufIsOutputBuffer() )
+				/* If in error output window jump to error */
+				ErrJumpToError();
+			else if ( !stricmp(BufQueryFilename(), "Search Results") )
+				/* If in search results output window jump to match */
+				FindJumpMatch();
+			else
+				SelWord();
+		} else /* Select the word */
+			SelWord();
+		break;
+
+	case WM_BUTTON1UP:
+		if ( MouseNoVirtual && BufQueryPastEOL() ) {
+			PosEOL();
+			WinUpdateWindow();
+		}
+		break;
+
+	case WM_CONTEXTMENU:	/* OS/2 only */
+		// popup menu invoked on right button click
+		PopupMenu(0, pInfo->x, pInfo->y);
+		break;
+	case WM_BUTTON2UP:
+	case WM_BUTTON2DBLCLK:
+	case WM_BUTTON3DOWN:
+	case WM_BUTTON3UP:
+	case WM_BUTTON3DBLCLK:
+	case WM_BUTTON1CLICK:/* OS/2 only */
+	case WM_BUTTON2CLICK:/* OS/2 only */
+	case WM_BUTTON3CLICK:/* OS/2 only */
+	case WM_BEGINDRAG:	/* OS/2 only */
+	case WM_ENDDRAG:		/* OS/2 only */
+	case WM_BEGINSELECT:	/* OS/2 only */
+	case WM_ENDSELECT:	/* OS/2 only */
+	case WM_SINGLESELECT:/* OS/2 only */
+	case WM_OPEN:			/* OS/2 only - Generated after a double-click of button 1 */
+	default:
+		return 0;
+	} /* end switch */
+	return 1;
+} /* end MouEvent */
+
+
+/*
+** This function selects the word at the current position
+*/
+void
+SelWord( void ) {
+	char *punct = ",;:'\"\t {}[]()\n";
+	BOOL	atSOF = FALSE;
+
+	/* Skip back over whitespace and punctuation */
+	while ( strchr(punct, BufQueryChar()) )
+		if ( PosPrevChar() )
+			return;
+
+	/* Find start of 'word' */
+	while ( !strchr(punct, BufQueryChar()) )
+		if ( PosPrevChar() ) {
+			atSOF = TRUE;
+			break;
+		}
+
+	if ( !atSOF )
+		PosNextChar();
+
+	if ( MarkQuerySelType() )
+		MarkRemoveSel();
+
+	MarkBeginSel(SELECT_EXCLUSIVE);
+	CUASelActive = TRUE;
+
+	while ( !strchr(punct, BufQueryChar()) )
+		if ( PosNextChar() )
+			break;
+	MarkEndSel();
+} /* end SelWord() */
+
+
+
+/*
+** End module: mouse.rm
+*/

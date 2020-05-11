@@ -51,8 +51,39 @@ The "stroke string" innovation:
 There are other innovations.
  Read the license, clone to your GitHub Desktop, and start browsing code.  There isn't a Programmers' Guide yet, so shoot an email to the owner so that he can personally give you the guided tour!
 
+
 # This is proprietary open source.  Ownership extends to all forks.  Permission to fork may be withdrawn.
  See LICENSE.pdf before forking, cloning, or using any portion.
 
 Status:  Under construction.  Please contact owner before forking, cloning, or using.
 
+
+# QUICK START INSTRUCTIONS:  IdeaFarm (tm) Bundle (build, "release", install, run as service)
+ IdeaFarm (tm) Bundle is an "automatic delayed start" Windows Service.
+ It consists of IPDOS (tm) bundled with several applications, including IdeaFarm (tm) Cloud Files, IdeaFarm (tm) Knowledge Tree Publisher, and IdeaFarm (tm) Cloak.
+ It also includes everything that you need to "playcraft" IPDOS (tm) C++ applications, including hundreds of example programs.
+ Finally, it includes images of all tools needed:  Open Watcom V2 ; WiX Toolset ; Rimstar Programmers' Editor
+ (If you already have these tools installed, those images will be used rather than the ones included.)
+
+Do the following to do a quasi-full build (without refreshing generated headers), "release", install, and run IdeaFarm (tm) Bundle, using the Open Watcom V2 binaries included in this repository.
+
+(1) Clone this repository to GitHub Desktop, using a directory named "X:\ideafarm.home.1", where X is the drive letter of a local (not network) nonremovable hard disk drive.
+
+(2) To the PATH environment variable setting, append:    ;X:\ideafarm.home.1\precious\domains\com\ideafarm\city\workshop\cmd
+
+(3) Open a command prompt and run this command:    ideafarm
+
+(4) Delete this folder:    X:\ideafarm.home.1\ephemeral\domains\com\ideafarm\city
+
+(5) Execute " g el " ; then " rw *.cpp ".  Edit if needed so that the file begins with "//#define DEBUG" .
+
+(6) Execute " m b "
+
+(7) Execute " e "
+
+
+
+
+
+
+ 

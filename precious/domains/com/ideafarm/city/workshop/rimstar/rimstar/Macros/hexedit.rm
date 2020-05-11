@@ -1,0 +1,108 @@
+/*
+** Macro module: hexedit.rm - hex editing functions
+**
+** Copyright (C) 1993,1994 Brian L. Smith
+** Copyright (C) 1993,1994 RimStar Technology, Inc.
+** All rights reserved internationally.
+** Unlicensed use is a violation of applicable laws.
+** SyntaColor(tm) is a trademark of RimStar Technology, Inc.
+**
+** This source code is provided to licensed users of RimStar's products
+** for the purpose of allowing the user to customize and/or enhance RimStar's
+** products. The source code remains the property of the copyright holders
+** with all rights reserved internationally.
+** Any modifications to the source code are considered derivative works and
+** all rights thereto are reserved to the copyright holders except
+** that the purchaser may use the derivitive work in the same manner
+** as permitted by the license governing the unmodified product.
+** Distribution in any manner of any part of the original source code,
+** whether in source or object form, is expressly prohibited without the
+** express written permission of the copyright holders.
+**
+*/
+
+#include "macro.h"
+
+static HKEYBOARD hKbdHexEdit;
+
+
+void
+KbdBindHex() {
+	char	*p;
+
+	KbdBind("Esc",			"HexEditEnd");				/* Return to normal editing mode */
+	KbdBind("Tab",			"HexEditChangeArea 2");	/* toggle betweeen hex/ascii area */
+	KbdBind("Space",		"SelfInsert");
+	KbdBind("Enter",		"BufInsertChar 10");
+
+	/* Override Movement Keys */
+	KbdBind("Left",		p="HexPrevChar");
+	KbdBind("KpLeft",		p);
+	KbdBind("Right",		p="HexNextChar");
+	KbdBind("KpRight",	p);
+} /* end KbdBindHex() */
+
+
+/*
+** HexEditChangeArea
+**
+** area == 0 Places the cursor in the Ascii area of the window
+** area == 1 Places the cursor in the hex area of the window
+** area == 2 Switches areas if in hex changes to Ascii, etc.
+**
+** Returns 1 if cursor placed in hex area, 0 if in Ascii, -1 if error
+*/
+int
+HexEditChangeArea(int area) {
+	ULONG	flags;
+
+	flags = WinQueryFlags();
+	if ( !(flags & WINDOW_INHEXMODE) )
+		return -1;
+
+	/* hex == 2 then toggle hex/ascii side */
+	if ( area == 2 && (flags & WINDOW_INHEXAREA) )
+		area = 0;
+	else
+		area = 1;
+	/* place in hex side */
+	if ( area == 1 )
+		flags |= WINDOW_INHEXAREA;
+	/* place in ascii side */
+	else if ( area == 0 )
+		flags &= ~WINDOW_INHEXAREA;
+	WinSetFlags(WINDOW_INHEXAREA, flags);
+	return !!(flags & WINDOW_INHEXAREA);
+} /* end HexEditChangeArea() */
+
+
+
+void
+HexEditBegin( void ) {
+	if ( WinQueryFlags() & WINDOW_INHEXMODE )
+		return;
+	if ( !hKbdHexEdit ) {
+		/* Create a special keyboard for hex editing mode */
+		hKbdHexEdit = KbdPush();
+		KbdBindHex();
+		hKbdHexEdit = KbdPop();
+	}
+	KbdBufferFlush();
+	KbdSetWindowKeyboard( hKbdHexEdit );
+	WinSetHexMode();
+} /* end HexEditBegin() */
+
+
+void
+HexEditEnd( void ) {
+	if ( WinQueryFlags() & WINDOW_INHEXMODE ) {
+		KbdBufferFlush();
+		KbdSetWindowKeyboard( 0L );
+		WinSetHexMode();
+	}
+} /* end HexEditEnd() */
+
+
+/*
+** End module: hexedit.rm
+*/

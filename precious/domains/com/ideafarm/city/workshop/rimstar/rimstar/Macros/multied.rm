@@ -1,0 +1,401 @@
+/*
+** Macro module: multied.rm - MultiEdit(R) keyboard map
+**
+** Multi-Edit is a registered trademark of American Cybernetics, Inc.
+**
+** Copyright (C) 1993-1995 Brian L. Smith
+** Copyright (C) 1993-1995 RimStar Technology, Inc.
+** All rights reserved internationally.
+** Unlicensed use is a violation of applicable laws.
+**
+** This source code is provided to licensed users of RimStar's products
+** for the purpose of allowing the user to customize and/or enhance RimStar's
+** products. The source code remains the property of the copyright holders
+** with all rights reserved internationally.
+** Any modifications to the source code are considered derivative works and
+** all rights thereto are reserved to the copyright holders except
+** that the purchaser may use the derivitive work in the same manner
+** as permitted by the license governing the unmodified product.
+** Distribution in any manner of any part of the original source code,
+** whether in source or object form, is expressly prohibited without the
+** express written permission of the copyright holders.
+**
+*/
+
+/*
+** This macro file sets up the editor for a Multi-Edit keyboard mapping.
+**
+** The following keys assignments are not supported in this
+** version of the editor,	alternatives are provided in ():
+**		F8 - Copy Block (Use Ctrl+Ins & Shift+Ins)
+**		Shift+F8 - Move Block (Use Shift+Del & Shift+Ins)
+**		F10 - Menu (press and release Alt key instead)
+**		Shift+F3 - File Manager
+**		Shift+F1 - Previous Help Topic
+**		Ctrl+F1 - Language Extension Help
+**		Shift+F4 - Condensed Display
+**		Ctrl+F5 - Repeat last Search & Replace	(Use SearchAgain & ReplaceAgain) 
+**		Alt+A	- ASCII Table
+**		Alt+J	- Right Justify
+**		Alt+K	- Display Key-Codes (use KbdQueryFunction)
+**		Alt+P	- Phone/Address List
+**		Alt+Ins	- Cut & Paste from Help (use copy from help & 
+**	  				 import clipboard & paste)	
+**		Alt+S	- Spell feature
+**
+**	There are over 300 functions available to you in the editor.
+** Some of them have key strokes assigned to them in this file and 
+** some are commented out leaving the choice of key stroke assignment
+** to you.
+**
+** To have the editor use this as your default keyboard mapping:
+**  copy multied.* keyboard.*
+*/
+
+#include "macro.h"
+
+extern BOOL CUAMode;
+extern BOOL	CUASelActive;
+extern BOOL	MouseNoVirtual;
+extern void	(*pfnSetDefaultKeymap)(void);	/* defined in startup.rm */
+
+void MultiEdit();
+static HKEYBOARD hkMultiEdit;
+
+
+void
+_init(void) {
+	LibAutoload("misc", 		"quote", "next_word", "prev_word", "toupper", "tolower",
+									"delete_next_word", "delete_prev_word", "Repeat", "CharIs");
+	LibAutoload("c_smart",	"find_matching_delim" );
+	LibAutoload("c",        "_c_expand");
+	LibAutoload("kbd", 		"KbdBindAsciiKeys");
+	LibAutoload("hexedit",	"HexEditBegin");
+	LibAutoload("bookmark",	"BookmarkSet", "BookmarkGoto");
+} /* end _init() */
+
+
+void
+SetMultiEdit() {
+
+	if ( !hkMultiEdit ) {
+		KbdPush(NULL);
+		MultiEdit();
+		hkMultiEdit = KbdPop();
+	}
+	KbdPop();	/* Remove current kbd */
+	KbdPush(hkMultiEdit);
+	CUAMode = FALSE;
+	MouseNoVirtual = FALSE;
+	SysSetFlags(SYSTEM_MENUACCEL, 0L);
+	MnuSetMenuAccel();
+	MsgPrintf("Multi-Edit key map active");
+} /* end SetMultiEdit() */
+
+
+void
+KbdBindDefault() {
+	/* Disable CUA mouse behavior */
+	CUAMode = FALSE;
+	/* Allow mouse to leave cursor in virtual space */
+	MouseNoVirtual = FALSE;
+	/* Disable Alt + mnemonic processing to activate menus (Alt+F, Alt+E, etc.) */
+	SysSetFlags(SYSTEM_MENUACCEL, 0L);
+	/* Create the keyboard map */
+	MultiEdit();
+	hkMultiEdit = KbdQueryCurrentKeyboard();
+	pfnSetDefaultKeymap = SetMultiEdit;
+} /* end KbdBindDefault() */
+
+
+void
+MultiEdit() {
+	char  *self_insert = "SelfInsert";
+	char  *p;
+
+	/*
+	**  Define ascii typable keys
+	*/
+	KbdBindAsciiKeys();
+
+	/*
+	** Project
+	*/
+	KbdBind("Shift+Alt+E",			"PjtOpen 0");
+	KbdBind("Shift+Alt+F2",			"PjtClose");
+	KbdBind("Shift+Alt+F9",			"PjtBuild");
+	KbdBind("Shift+Ctrl+F9",		"PjtDebugBuild");
+
+	/*
+	** Toolkit help for function under cursor
+	**
+	** NOTE: To use QueryInfHelp you must add the following environment variable
+	**	(OS/2) to your config.sys:
+	**	 SET RSE_INF=GUIREF20.INF+PMFUN.INF+PMGPI.INF+PMHOK.INF+PMMSG.INF+PMREL.INF+PMWIN.INF+PMWKP.INF
+	**  The setting is taken from the combination of the  PROGREF20 and PMREF environment variables
+	**  You may add additional .INF files or remove some.
+	**
+	** (WINDOWS) to your autoexec.bat:
+	**	 SET RSE_INF=fully qualified name of a single windows help file,
+	**  (eg. SET RSE_INF=c:\msvc20\help\api32.hlp)
+	*/
+	KbdBind("Alt+H",					"HelpQueryInfHelp");
+	KbdBind("Shift+F1",				"HelpIndex");
+	KbdBind("F1",						"HelpForHelp");
+
+	/*
+	**	Bookmarks
+	*/
+	KbdBind("Alt+J+1",			"BookmarkGoto 1");
+	KbdBind("Alt+J+2",			"BookmarkGoto 2");
+	KbdBind("Alt+J+3",			"BookmarkGoto 3");
+	KbdBind("Alt+J+4",			"BookmarkGoto 4");
+	KbdBind("Alt+J+5",			"BookmarkGoto 5");
+	KbdBind("Alt+J+6",			"BookmarkGoto 6");
+	KbdBind("Alt+J+7",			"BookmarkGoto 7");
+	KbdBind("Alt+J+8",			"BookmarkGoto 8");
+	KbdBind("Alt+J+9",			"BookmarkGoto 9");
+	KbdBind("Alt+J+0",			"BookmarkGoto 10");
+
+	KbdBind("Alt+1", 				"BookmarkSet 1");
+	KbdBind("Alt+2", 				"BookmarkSet 2");
+	KbdBind("Alt+3", 				"BookmarkSet 3");
+	KbdBind("Alt+4", 				"BookmarkSet 4");
+	KbdBind("Alt+5", 				"BookmarkSet 5");
+	KbdBind("Alt+6", 				"BookmarkSet 6");
+	KbdBind("Alt+7", 				"BookmarkSet 7");
+	KbdBind("Alt+8", 				"BookmarkSet 8");
+	KbdBind("Alt+9", 				"BookmarkSet 9");
+	KbdBind("Alt+0", 				"BookmarkSet 10");
+
+	/*
+	** Deletions
+	*/
+	KbdBind("Shift+Ctrl+DELETE",		p="BufDeleteToEOL");
+	KbdBind("Shift+Ctrl+KP_DELETE",	p);
+	KbdBind("Shift+Ctrl+BACKSPACE",	"BufDeleteToSOL");
+	KbdBind("Alt+|", 						"BufDeleteWhitespace");
+	KbdBind("BACKSPACE",				  	p="BufBackspace");
+	KbdBind("Shift+BACKSPACE",			p);
+	KbdBind("Ctrl+DELETE",			  	"delete_next_word");	/* in misc.rm */
+	KbdBind("Ctrl+BACKSPACE",		  	"delete_prev_word");	/* in misc.rm */
+	KbdBind("Alt+BACKSPACE", 			"Undo");
+	KbdBind("KP_STAR",				  	"UndoModification");
+	KbdBind("Shift+Ctrl+KP_STAR",		"UndoAll");
+
+	KbdBind("Alt+N", 				"BufNextBuffer");
+	KbdBind("Ctrl+F2", 			"DlgRenameBuffer");
+	KbdBind("Alt+P", 				"Print");
+
+	KbdBind("Alt+Q+T",  			"quote");		/* in misc.rm */
+
+	KbdBind("Alt+R", 				"BufInsertFile");
+
+
+	KbdBind("Alt+I",				"ToggleInsert");
+	KbdBind("Alt+T", 				"ToggleTabs");
+  #if 0
+	KbdBind("Alt+Z", 				"");  /* Start windowed command interpreter. Use Alt+ESC to start one. */
+  #endif
+	KbdBind("Alt+-", 				"BufPrevBuffer");
+
+	/*
+	**	Dialogs
+	*/
+	KbdBind("Ctrl+F6", 			"DlgBufferList");
+	KbdBind("Alt+E",				"DlgOpenFile");
+	KbdBind("Alt+V", 				"DlgVersion");
+	KbdBind("F2", 					"SaveBuffer");
+	KbdBind("F3", 					"BufNewFile");
+	/*
+	**  KP stands for the Key Pad keys.
+	**
+	**  Alt+ESCAPE, Alt+TAB and Ctrl+ESCAPE are reserved for OS/2 PM's use
+	**  do not define these as they will be ignored.
+	*/
+	KbdBind("Shift+TAB",			  	"MovPrevTabPos");
+	KbdBind("Ctrl+Enter",			"BufInsertNewline");
+	KbdBind("F8",						"BufCopyToScrap");
+
+	KbdBind("F6",			  			"WinNextWindow");
+	KbdBind("Shift+F6",				"WinPrevWindow");
+
+	/*
+	**	Search &  Replace Operations
+	*/
+	KbdBind("F5",						"SearchForward");
+	KbdBind("Ctrl+F5", 				"SrchFiles");
+	KbdBind("Shift+F5", 				"ReplaceForward");
+
+	/*
+	**	Keystroke Macros
+	*/
+	KbdBind("Escape",					"Repeat");	/* repeat next cmd 'n' times */
+
+	KbdBind("Alt+F10", 				"KbdMacroRecord");  	/* starts/stops keystroke macro recording */
+	KbdBind("Shift+Alt+F10",		"KbdMacroLoad");  	/* load keystroke macro from disk */
+//	KbdBind("Shift+F7",				"KbdMacroPause");		/* pause keystroke macro playback */
+	KbdBind("F10",						"KbdMacroPlay");		/* plays a recorded keystroke macro */
+	KbdBind("Ctrl+F10", 				"KbdMacroSave");	  	/* saves last recorded macro to disk */
+
+	KbdBind("Shift+Ctrl+F10",		"DlgLoadMacro");
+	KbdBind("Shift+F10",				"LibExecFunction");
+	KbdBind("F9",						"ExecAssoc");
+	KbdBind("Ctrl+K",				  	"ExecKillProcess");		/* Kills a program executed on buffer */
+	/*
+	** For use in error output buffer - place cursor on error line
+	** ALT+F9 jumps to file & line in error, loading the file if needed
+	*/
+//	KbdBind("Alt+F9",				"ErrJumpToError");
+	KbdBind("Shift+F9",		  	"ErrNextError");
+	KbdBind("Ctrl+P",			  	"ErrPrevError");
+
+	/*
+	**	Cursor movement
+	*/
+	KbdBind("KP_LEFT",			p="MovLeft");
+	KbdBind("LEFT",				p);
+	KbdBind("RIGHT",				p="MovRight");
+	KbdBind("KP_RIGHT",			p);
+	KbdBind("UP",					p="MovUp");
+	KbdBind("KP_UP",				p);
+	KbdBind("DOWN",				p="MovDown");
+	KbdBind("KP_DOWN",			p);
+	KbdBind("Ctrl+LEFT",			p="prev_word");	/* in misc.rm */
+	KbdBind("Ctrl+KP_LEFT",		p);
+	KbdBind("Ctrl+RIGHT",		p="next_word");	/* in misc.rm */
+	KbdBind("Ctrl+KP_RIGHT",	p);
+	KbdBind("Ctrl+E", 		  	"StartOfBlock");
+	KbdBind("Ctrl+C", 		  	"EndOfBlock");
+	KbdBind("Alt+F5",	  			"DlgGotoLine");
+	KbdBind("HOME",	 			p="MovSOL");
+	KbdBind("KP_HOME",			p);
+	KbdBind("END",					p="MovEOL");
+	KbdBind("KP_END",				p);
+	KbdBind("Ctrl+HOME",			"MovSOF");
+	KbdBind("Ctrl+END",			"MovEOF");
+	KbdBind("Ctrl+T",				"MovTopWin");
+	KbdBind("Ctrl+B",				"MovBottomWin");
+	KbdBind("PGUP",				p="MovPageUp");
+	KbdBind("KP_PGUP", 			p);
+	KbdBind("PGDN",				p="MovPageDown");
+	KbdBind("KP_PGDN", 			p);
+//	KbdBind("Ctrl+T",			  	"WinScrollTop");
+	KbdBind("Ctrl+UP",		  	p="WinScrollDown");
+	KbdBind("Ctrl+KP_UP",  	  	p);
+//	KbdBind("Ctrl+B",			  	"WinScrollBottom");
+	KbdBind("Ctrl+DOWN",		  	p="WinScrollUp");
+	KbdBind("Ctrl+KP_DOWN",	  	p);
+	KbdBind("Ctrl+I",				"SelfInsert");
+	KbdBind("Ctrl+U",				"MovPrevTabPos");
+	KbdBind("F4",				  	"MarkPushPos");
+	KbdBind("Shift+F4",		  	"MarkPopPos");
+	KbdBind("Shift+LEFT",		"MovPrevChar");
+	KbdBind("Shift+RIGHT",		"MovNextChar");
+  #if 0
+	KbdBind("KP_5", "");
+  #endif
+	/*
+	**	Block Operations
+	*/
+	KbdBind("F7", 					"MarkLineOrEndMark");
+	KbdBind("Shift+F7",			"MarkColumn");
+	KbdBind("Alt+A",				"MarkExclusive");
+	KbdBind("Ctrl+F7", 			"MarkNormal");
+	KbdBind("Alt+B+F",  			"MarkRemoveSel");
+	KbdBind("Alt+F3",				"slide_in");
+	KbdBind("Alt+F2",				"slide_out");
+	KbdBind("Ctrl+F8", 			p="BufDeleteCharOrSelection");
+	KbdBind("KP_DELETE",			p);
+	KbdBind("DELETE",				p);
+	KbdBind("Ctrl+KP_INSERT",	p="BufCopyToScrap");
+	KbdBind("Ctrl+INSERT",		p);
+	KbdBind("Shift+KP_DELETE",	p="BufCutToScrap");
+	KbdBind("Shift+DELETE",		p);
+	KbdBind("Ctrl+KP_PLUS",		"ME_CopyAppendToScrap");	/* append to current scrap */
+	KbdBind("Shift+KP_INSERT",	p="BufPasteScrap");
+	KbdBind("Shift+INSERT",		p);
+	KbdBind("Ctrl+KP_MINUS",	"ME_CutAppendToScrap");		/* append to current scrap */
+	KbdBind("Shift+Alt+BACKSPACE","BufDeleteLine");
+	KbdBind("Shift+F2", 			"SaveBuffer");
+	KbdBind("Ctrl+A",			  	"MarkSwapSel");
+
+//	KbdBind("Shift+INSERT",		"ImportClipboard");
+//	KbdBind("Ctrl+INSERT",		"ExportClipboard");
+
+	KbdBind("Ctrl+-",			  	"BufDeleteCurrentBuffer");
+	KbdBind("Shift+Ctrl+-",	  	"WinDeleteWindowAndBuffer");
+	KbdBind("Ctrl+W",			  	"ToggleBackups");
+
+	/*
+	**	Misc. key assignments
+	*/
+	KbdBind("Alt+Q",			  		"SysSaveAndExit");
+	KbdBind("Alt+X", 					"ExitEditor");
+	KbdBind("Alt+F9",					"_c_expand");
+	KbdBind("Alt+Enter",				"Redo");
+	KbdBind("Shift+KP_STAR",	  	"RedoModification");
+	KbdBind("Shift+Alt +KP_STAR",	"RedoAll");
+	KbdBind("Ctrl+F9", 				"find_matching_delim");	/* in c_smart.rm */
+	KbdBind("Alt+?", 					"CharIs");
+
+	/* Source browser bindings */
+	KbdBind("F11",					"SbBrowseSymbolAtCursor");
+	KbdBind("Shift+F11",			"SbBrowseDefs");
+	KbdBind("Ctrl+F11",			"SbBrowseRefs");
+	KbdBind("Alt+F11",			"SbBrowseSymbolsDefinedInModule");
+	KbdBind("F12",					"SbFindNext");
+	KbdBind("Shift+F12",			"SbFindPrev");
+	KbdBind("Alt+F12",			"SbGotoDef");
+	KbdBind("Ctrl+F12",			"SbrFindNextDef");
+	KbdBind("Shift+Ctrl+F12",	"SbrFindPrevDef");
+	KbdBind("Ctrl+Alt+F12",		"SbJumpBack");
+
+	/* Change window to Hex mode */
+	KbdBind("Shift+Ctrl+H",		"HexEditBegin");
+} /* end MultiEdit() */
+
+
+void
+MarkLineOrEndMark( void ) {
+	if ( MarkQuerySelType() )
+		MarkEndSel();
+	else
+		MarkLine();
+} /* end MarkLineOrEndMark */
+
+
+void
+ME_CopyAppendToScrap(void) { 
+	BufCopyToScrap(1);
+} /* end ME_CopyAppendToScrap */
+
+
+void
+ME_CutAppendToScrap(void) {
+	BufCutToScrap(1);
+} /* end ME_CutAppendToScrap */
+
+
+void
+StartOfBlock(void) {
+	SELECTION p;
+
+	MarkQuerySel( &p );
+	MovAbs( p.s_line, p.s_column );
+} /* end StartOfBlock */
+
+
+void
+EndOfBlock(void) {
+	SELECTION p;
+
+	MarkQuerySel( &p );
+	MovAbs( p.e_line, p.e_column );
+} /* end EndOfBlock */
+
+
+
+/*
+** End module: multied.rm
+*/

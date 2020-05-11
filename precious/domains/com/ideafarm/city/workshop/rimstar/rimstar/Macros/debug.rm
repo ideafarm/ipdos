@@ -1,0 +1,101 @@
+/*
+** Macro module: debug.rm - some useful functions for debugging macros
+**
+** Copyright (C) 1995 Brian L. Smith
+** All rights reserved internationally.
+** Unlicensed use is a violation of applicable laws.
+** SyntaColor(tm) is a trademark of RimStar Technology, Inc.
+**
+** This source code is provided to licensed users of RimStar's products
+** for the purpose of allowing the user to customize and/or enhance RimStar's
+** products. The source code remains the property of the copyright holders
+** with all rights reserved internationally.
+** Any modifications to the source code are considered derivative works and
+** all rights thereto are reserved to the copyright holders except
+** that the purchaser may use the derivitive work in the same manner
+** as permitted by the license governing the unmodified product.
+** Distribution in any manner of any part of the original source code,
+** whether in source or object form, is expressly prohibited without the
+** express written permission of the copyright holders.
+**
+*/
+
+
+#include "macro.h"
+
+
+/*
+** pmsg - display a message on the status line and
+**		wait for a key press.
+** Accepts up to 10 arguments following the format string
+** works like printf()
+*/
+void
+pmsg(char *fmt, ... )
+{
+	int		argc;
+	va_list	v;
+	PRAWKEY	key;
+
+	argc = LibQueryArgCount();
+	va_start(v, fmt);
+	switch ( argc ) {
+	case 11:
+		MsgPrintf(fmt, va_arg(v,int),va_arg(v,int),va_arg(v,int),va_arg(v,int),
+							va_arg(v,int),va_arg(v,int),va_arg(v,int),va_arg(v,int),
+					  		va_arg(v,int),va_arg(v,int));
+		break;
+	case 10:
+		MsgPrintf(fmt, va_arg(v,int),va_arg(v,int),va_arg(v,int),va_arg(v,int),
+							va_arg(v,int),va_arg(v,int),va_arg(v,int),va_arg(v,int),
+					  		va_arg(v,int));
+		break;
+	case 9:
+		MsgPrintf(fmt, va_arg(v,int),va_arg(v,int),va_arg(v,int),va_arg(v,int),
+							va_arg(v,int),va_arg(v,int),va_arg(v,int),va_arg(v,int));
+		break;
+	case 8:
+		MsgPrintf(fmt, va_arg(v,int),va_arg(v,int),va_arg(v,int),va_arg(v,int),
+							va_arg(v,int),va_arg(v,int),va_arg(v,int));
+		break;
+	case 7:
+		MsgPrintf(fmt, va_arg(v,int),va_arg(v,int),va_arg(v,int),va_arg(v,int),
+							va_arg(v,int),va_arg(v,int));
+		break;
+	case 6:
+		MsgPrintf(fmt, va_arg(v,int),va_arg(v,int),va_arg(v,int),va_arg(v,int),
+							va_arg(v,int));
+		break;
+	case 5:
+		MsgPrintf(fmt, va_arg(v,int),va_arg(v,int),va_arg(v,int),va_arg(v,int));
+		break;
+	case 4:
+		MsgPrintf(fmt, va_arg(v,int),va_arg(v,int),va_arg(v,int));
+		break;
+	case 3:
+		MsgPrintf(fmt, va_arg(v,int),va_arg(v,int),va_arg(v,int));
+		break;
+	case 2:
+		MsgPrintf(fmt, va_arg(v,int));
+		break;
+	case 1:
+		MsgPrintf(fmt);
+		break;
+	case 0:
+		// just wait for a key press
+		break;
+	default:
+		// too many arguments
+		return;
+	}
+	// wait for a key to be pressed - key is thrown away
+	do {
+		key = KbdBufferGetKey();
+	} while ( !key );
+} /* end pmsg() */
+
+
+
+/*
+** End macro: debug.rm
+*/
