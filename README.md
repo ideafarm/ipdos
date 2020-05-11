@@ -62,7 +62,7 @@ Status:  Under construction.  Please contact owner before forking, cloning, or u
  IdeaFarm (tm) Bundle is an "automatic delayed start" Windows Service.
  It consists of IPDOS (tm) bundled with several applications, including IdeaFarm (tm) Cloud Files, IdeaFarm (tm) Knowledge Tree Publisher, and IdeaFarm (tm) Cloak.
  It also includes everything that you need to "playcraft" IPDOS (tm) C++ applications, including hundreds of example programs.
- Finally, it includes images of all tools needed:  Open Watcom V2 ; WiX Toolset ; Rimstar Programmers' Editor
+ Finally, it includes images of all three tools needed:  Open Watcom V2, WiX Toolset, and Rimstar Programmers' Editor.
  (If you already have these tools installed, those images will be used rather than the ones included.)
 
 Do the following to do a quasi-full build (without refreshing generated headers), "release", install, and run IdeaFarm (tm) Bundle, using the Open Watcom V2 binaries included in this repository.
