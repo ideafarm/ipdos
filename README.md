@@ -107,7 +107,8 @@ Status:  Under construction.  Please contact owner before forking, cloning, or u
  But IPDOS (tm) can be used for custom "back end" server applications, as well as Windows service daemon programs and command line tools.
  It can also be used to teach or tutor C++ programming.
  In the future, it will support the publication of revenue-producing "proprietary open source" applications for profit.
- Please consider exploring the capabilities of IPDOS (tm) by building your "hello" program and then exploring the etherC and other API's.
+
+Please consider exploring the capabilities of IPDOS (tm) by building your "hello" program and then exploring the etherC and other API's.
  Early mastery of IPDOS (tm) programming could place you in a sweet situation in which you can create custom solutions faster and at a lower price than the competition.
 
 # PRICING
