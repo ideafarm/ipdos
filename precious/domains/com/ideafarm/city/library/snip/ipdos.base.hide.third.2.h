@@ -5162,6 +5162,7 @@ use this rather than _ to avoid the overhead of _
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200548.flSTRmATCH END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200549.IFmATCHwILD BEGIN
 
+
 //
 // Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
@@ -5177,9 +5178,9 @@ use this rather than _ to avoid the overhead of _
 
 #define IFmATCHwILD(patternP,psttP)                                                                                                                                                             \
                                                                                                                                                                                                 \
-        strokeS sttq( 0 , sc_IGNOREqUOTES ) ;                                                                                                                                                   \
-        countT idf = 1 ;                                                                                                                                                                        \
-        if( 1 == etThread.strIdOptimizedClosureF( tinP , 0 , flSTRmATCH_null , idf , sttq , patternP , psttP ) && !idf )
+        strokeS _sttq( 0 , sc_IGNOREqUOTES ) ;                                                                                                                                                  \
+        countT _idf = 1 ;                                                                                                                                                                       \
+        if( 1 == etThread.strIdOptimizedClosureF( tinP , 0 , flSTRmATCH_null , _idf , _sttq , patternP , psttP ) && !_idf )
 
 //
 // Respecting the rights of other people is an important part of empowering one another.
