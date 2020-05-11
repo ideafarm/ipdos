@@ -113,5 +113,5 @@ Status:  Under construction.  Please contact owner before forking, cloning, or u
  Please review the LICENSE.
  There is no charge for using IPDOS (tm) in the manner permitted by the LICENSE.
  The license permits usage only to contribute bug fixes and enhancements as well as all purely educational uses.
- Installing IPDOS (tm) Bundle, a Windows service, is currently free but will be a paid product in the future.
+ Installing IPDOS (tm) Bundle, a Windows service, is currently free but will be a paid subscription product in the future.
 
