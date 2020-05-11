@@ -102,7 +102,7 @@ Status:  Under construction.  Please contact owner before forking, cloning, or u
  You can completely undo all effects simply by reversing that edit and then deleting your clone of this repository.  
 
 # BUSINESS OPPORTUNITIES
- I've spent 28 years crafting a powerful general purpose software environment for the C++ language.
+ 28 years were spent witing 1/2 million lines of C++ code to craft a powerful general purpose software environment for the C++ language.
  IPDOS (tm) is still in active development, and the graphics subsystem is being rewritten, so IPDOS (tm) cannot currently launch a graphics (windowed) program.
  But IPDOS (tm) can be used for custom "back end" server applications.
  It can also be used to teach or tutor C++ programming.
