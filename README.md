@@ -59,7 +59,8 @@ Status:  Under construction.  Please contact owner before forking, cloning, or u
 
 
 # QUICK START INSTRUCTIONS:  Building IPDOS (tm) and then creating a "hello world" program.
- This repository contains binaries of all tools that it needs to build itself.
+ This repository contains binaries of all tools that it needs to build itself:
+ Open Watcom V2, WiX Toolset, and Rimstar Programmers' Editor.
  To build, you just need to edit your computer's PATH setting to add one directory, edit one batch file in that directory, and then run that batch file.
  If the following steps do not bring you to a joyful result, please open an issue on GitHub.
 
@@ -67,7 +68,7 @@ Status:  Under construction.  Please contact owner before forking, cloning, or u
 
 (2) Delete this folder:    X:\ideafarm.home.1\ephemeral\domains\com\ideafarm\city
 
-(3) To the PATH environment variable setting, append:    ;X:\ideafarm.home.1\precious\domains\com\ideafarm\city\workshop\cmd
+(3) To the PATH environment variable setting, append:   " ;X:\ideafarm.home.1\precious\domains\com\ideafarm\city\workshop\cmd "
 
 (4) Using any plain text editor, edit the "idrive=d" line to indicate the correct drive letter X, in X:\ideafarm.home.1\precious\domains\com\ideafarm\city\workshop\cmd\ideafarm.bat
 
@@ -79,19 +80,6 @@ Status:  Under construction.  Please contact owner before forking, cloning, or u
 
 (8) Edit the hello text to suite your whim.  Then close the editor.
 
-(9) Press these keys: "ma1".  This causes an elf to build scratch adam 1.  Wait for the new window to disappear.
+(9) Press these keys: " ma1 ".  This causes an elf to build scratch adam 1.  Wait for the new window to disappear.
 
-(10) Press the keys: "p 1".  This causes scratch adam 1 to run in a new window.
-
-
-
- 
-
-
-
-
- IdeaFarm (tm) Bundle is an "automatic delayed start" Windows Service.
- It consists of IPDOS (tm) bundled with several applications, including IdeaFarm (tm) Cloud Files, IdeaFarm (tm) Knowledge Tree Publisher, and IdeaFarm (tm) Cloak.
- It also includes everything that you need to "playcraft" IPDOS (tm) C++ applications, including hundreds of example programs.
- Finally, it includes images of all three tools needed:  Open Watcom V2, WiX Toolset, and Rimstar Programmers' Editor.
- (If you already have these tools installed, those images will be used rather than the ones included.)
+(10) Press the keys: " p 1 ".  (Yes, you need to key a space after the 'p'.)  This causes scratch adam 1 to run in a new window.
