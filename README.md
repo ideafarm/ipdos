@@ -74,7 +74,7 @@ Status:  Under construction.  Please contact owner before forking, cloning, or u
 
 (5) Open a command prompt and execute:    " ideafarm "
 
-(6) Wait until the "IdeaFarm (tm) Elves" window is blank except for a single line: "adamlow ascii ...".  When you see this, IdeaFarm (tm) Bundle has been built and "released".
+(6) Wait until the "IdeaFarm (tm) Elves" window is blank except for a single line: "adamlow ascii ...".  When you see this, IdeaFarm (tm) Bundle has been built.
 
 (7) press the 'e' key ; then press the '1' key .  This opens the source file for "scratch adam 1", using the Rimstar Programmers' Editor.
 
