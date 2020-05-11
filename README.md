@@ -108,3 +108,6 @@ Status:  Under construction.  Please contact owner before forking, cloning, or u
  It can also be used to teach or tutor C++ programming.
  In the future, it will support the publication of revenue-producing "proprietary open source" applications for profit.
  Please consider exploring the capabilities of IPDOS (tm) by building your "hello" program and then exploring the etherC and other API's.
+
+# PRICING
+ 
