@@ -735,9 +735,9 @@ const char* ppostTokensUser[] =
     //CS:CODEsYNC:A: MUST BE SAME NUMBER OF ELTS AS ppostTokensUser AND ELEMENT VALUES MUST CORRESPOND
     //CS:CODEsYNC:B: EACH AND EVERY USER MUST HAVE A HARDCODED INITIAL idAdam VALUE ASSIGNMENT
 
-    "anonymous"                 ,
-    //"ideafarm_wo"           ,
-    //"turnbull_nicholas"     ,
+    "anonymous"             ,
+    "ideafarm_wo"           ,
+    "turnbull_nicholas"     ,
 }
 ;
 
@@ -746,8 +746,8 @@ const char* ppostUserDisplay[] =
     //CS:CODEsYNC:A: MUST BE SAME NUMBER OF ELTS AS ppostTokensUser AND ELEMENT VALUES MUST CORRESPOND
 
     "Anonymous"               ,
-    //"Wo'O Ideafarm"         ,
-    //"Nicholas Turnbull"     ,
+    "Wo'O Ideafarm"         ,
+    "Nicholas Turnbull"     ,
 }
 ;
 
@@ -5019,7 +5019,7 @@ int boxDispenseIdF( char* postFileP , int idMinP , int idElfP )
                 char* postUser = postFileP + sizeof postMatch - 1 ;
 
                 //CS:CODEsYNC:B: EACH AND EVERY USER MUST HAVE A HARDCODED INITIAL idAdam VALUE ASSIGNMENT
-                     if( !strcmp( postUser , "anonymous"             ) ) idNew = 0x51011000 ;
+                     if( !strcmp( postUser , "anonymous"         ) ) idNew = 0x51011000 ;
                 else if( !strcmp( postUser , "ideafarm_wo"       ) ) idNew = 0x51012000 ;
                 else if( !strcmp( postUser , "turnbull_nicholas" ) ) idNew = 0x51013000 ;
             }
