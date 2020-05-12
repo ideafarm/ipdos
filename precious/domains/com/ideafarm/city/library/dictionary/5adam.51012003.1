@@ -32,7 +32,7 @@ etherC::loafIF( tinP ) ;
     {
     IFmATCHwILD( pat , tTest )
 
-    patternC pat( tinP , etThread , tPattern , flPATTERNc_WILDCARDmICROSOFT ) ;
+    patternC pat( tinP , etThread , tPattern , pExam[ offe ].idTypePattern ) ;
 
     TN( tTest    , pExam[ offe ].postTest    ) ;
     TN( tPattern , pExam[ offe ].postPattern ) ;
@@ -44,36 +44,22 @@ TODO
 ;
 }
     // ADD LINES HERE TO EXHAUSTIVELY TEST PATTERN MATCHING
-
-
-//    ""              , ""                ,          ,   0   ,
-//    ""              , ""                ,          ,   0   ,
-//    ""              , ""                ,          ,   0   ,
-//    ""              , ""                ,          ,   0   ,
-//    ""              , ""                ,          ,   0   ,
-//    ""              , ""                ,          ,   0   ,
-//    ""              , ""                ,          ,   0   ,
-//    ""              , ""                ,          ,   0   ,
-
-
-
-
-    ""              , " "               , 1         ,   0   ,
-    ""              , ""                , 0         ,   0   ,
-    "a@z"           , "apoopz"          , 0         ,   0   ,
-    "a@z"           , "ahelloz"         , 1         ,   0   ,
-    "a@z"           , "ahello"          , 0         ,   0   ,
-    "a@z"           , "helloz"          , 0         ,   0   ,
+    flPATTERNc_WILDCARDmICROSOFT    ,    ""              , " "               , 1         ,   0   ,
+    flPATTERNc_WILDCARDmICROSOFT    ,    ""              , ""                , 0         ,   0   ,
+    flPATTERNc_WILDCARDmICROSOFT    ,    "a@z"           , "apoopz"          , 0         ,   0   ,
+    flPATTERNc_WILDCARDmICROSOFT    ,    "a@z"           , "ahelloz"         , 1         ,   0   ,
+    flPATTERNc_WILDCARDmICROSOFT    ,    "a@z"           , "ahello"          , 0         ,   0   ,
+    flPATTERNc_WILDCARDmICROSOFT    ,    "a@z"           , "helloz"          , 0         ,   0   ,
 {
 examS pExam[] =
 
 ;
 }
-    boolT    bHitAnswer  ;
-    boolT    bHitCorrect ;
-    osTextT* postTest    ;
-    osTextT* postPattern ;
-    countT   idTypePattern
+    boolT    bHitAnswer    ;
+    boolT    bHitCorrect   ;
+    osTextT* postTest      ;
+    osTextT* postPattern   ;
+    countT   idTypePattern ;
 {
 struct examS
 
