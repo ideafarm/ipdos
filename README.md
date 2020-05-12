@@ -75,11 +75,11 @@ Status:  Applications development is active.  IPDOS (tm) is stable and mature an
 
 (4) Open a command prompt and execute:    " ideafarm "
 
-(5) Wait until the "IdeaFarm (tm) Elves" window displays [user] in the title bar and "anonymous" in the top left corner of the black window.
+(5) Wait until the "IdeaFarm (tm) Elves" window displays [user] in the title bar and a line that begins with "anonymous ideafarm_wo" in the top left corner of the black window.
 
 (6) Press the 'a' key to select "anonymous".
 
-(7) The "IdeaFarm (tm) Elves" window will now be blank except for a single line: "adamlow ascii ...".  When you see this, IdeaFarm (tm) Bundle has been built.
+(7) The "IdeaFarm (tm) Elves" window will now be blank except for a single line (which probably wraps unless the window is maximized): "adamlow ascii ...".  When you see this, IdeaFarm (tm) Bundle has been built.
 
 (8) Press the 'e' key ; then press the '1' key .  This opens the source file for "scratch adam 1", using the Rimstar Programmers' Editor.
 
