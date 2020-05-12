@@ -75,15 +75,19 @@ Status:  Applications development is active.  IPDOS (tm) is stable and mature an
 
 (4) Open a command prompt and execute:    " ideafarm "
 
-(5) Wait until the "IdeaFarm (tm) Elves" window is blank except for a single line: "adamlow ascii ...".  When you see this, IdeaFarm (tm) Bundle has been built.
+(5) Wait until the "IdeaFarm (tm) Elves" window displays [user] in the title bar and "anonymous" in the top left corner of the black window.
 
-(6) press the 'e' key ; then press the '1' key .  This opens the source file for "scratch adam 1", using the Rimstar Programmers' Editor.
+(6) Press the 'a' key to select "anonymous".
 
-(7) Edit the hello text to suite your whim.  Then close the editor.
+(7) The "IdeaFarm (tm) Elves" window will now be blank except for a single line: "adamlow ascii ...".  When you see this, IdeaFarm (tm) Bundle has been built.
 
-(8) Press these keys: " ma1 ".  This causes an elf to build scratch adam 1.  Wait for the new window to disappear.
+(8) Press the 'e' key ; then press the '1' key .  This opens the source file for "scratch adam 1", using the Rimstar Programmers' Editor.
 
-(9) Press the keys: " p 1 ".  (Yes, you need to key a space after the 'p'.)  This causes scratch adam 1 to run in a new window.
+(9) Edit the hello text to suite your whim.  Then close the editor.
+
+(10) Press these keys: " ma1 ".  This causes an elf to build scratch adam 1.  Wait for the new window to disappear.
+
+(11) Press the keys: " p 1 ".  (Yes, you need to key a space after the 'p'.)  This causes scratch adam 1 to run in a new window.
 
 
 # TROUBLESHOOTING:  If the above steps didn't work for you,...
