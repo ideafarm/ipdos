@@ -69,23 +69,21 @@ Status:  Applications development is active.  IPDOS (tm) is stable and mature an
 
 (1) Clone this repository to GitHub Desktop, using a directory named "X:\ideafarm.home.1", where X is the drive letter of a local (not network) nonremovable hard disk drive.
 
-(2) Delete this folder:    X:\ideafarm.home.1\ephemeral\domains\com\ideafarm\city
+() To the PATH environment variable setting, append:   " ;X:\ideafarm.home.1\precious\domains\com\ideafarm\city\workshop\cmd "
 
-(3) To the PATH environment variable setting, append:   " ;X:\ideafarm.home.1\precious\domains\com\ideafarm\city\workshop\cmd "
+() Using any plain text editor, edit the "idrive=d" line to indicate the correct drive letter X, in X:\ideafarm.home.1\precious\domains\com\ideafarm\city\workshop\cmd\ideafarm.bat
 
-(4) Using any plain text editor, edit the "idrive=d" line to indicate the correct drive letter X, in X:\ideafarm.home.1\precious\domains\com\ideafarm\city\workshop\cmd\ideafarm.bat
+() Open a command prompt and execute:    " ideafarm "
 
-(5) Open a command prompt and execute:    " ideafarm "
+() Wait until the "IdeaFarm (tm) Elves" window is blank except for a single line: "adamlow ascii ...".  When you see this, IdeaFarm (tm) Bundle has been built.
 
-(6) Wait until the "IdeaFarm (tm) Elves" window is blank except for a single line: "adamlow ascii ...".  When you see this, IdeaFarm (tm) Bundle has been built.
+() press the 'e' key ; then press the '1' key .  This opens the source file for "scratch adam 1", using the Rimstar Programmers' Editor.
 
-(7) press the 'e' key ; then press the '1' key .  This opens the source file for "scratch adam 1", using the Rimstar Programmers' Editor.
+() Edit the hello text to suite your whim.  Then close the editor.
 
-(8) Edit the hello text to suite your whim.  Then close the editor.
+() Press these keys: " ma1 ".  This causes an elf to build scratch adam 1.  Wait for the new window to disappear.
 
-(9) Press these keys: " ma1 ".  This causes an elf to build scratch adam 1.  Wait for the new window to disappear.
-
-(10) Press the keys: " p 1 ".  (Yes, you need to key a space after the 'p'.)  This causes scratch adam 1 to run in a new window.
+() Press the keys: " p 1 ".  (Yes, you need to key a space after the 'p'.)  This causes scratch adam 1 to run in a new window.
 
 
 # TROUBLESHOOTING:  If the above steps didn't work for you,...
