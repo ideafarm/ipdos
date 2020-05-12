@@ -5251,6 +5251,9 @@ void makeFoldersF( void )
     CreateDirectory( "\\ideafarm.home.1\\ephemeral\\domains\\com\\ideafarm\\city\\workshop\\3object" , 0 ) ;
     CreateDirectory( "\\ideafarm.home.1\\ephemeral\\domains\\com\\ideafarm\\city\\workshop\\4report" , 0 ) ;
 
+    CreateDirectory( "\\ideafarm.home.1\\ephemeral\\domains\\com\\ideafarm\\state" , 0 ) ;
+    CreateDirectory( "\\ideafarm.home.1\\ephemeral\\domains\\com\\ideafarm\\state\\rimstar" , 0 ) ;
+
     CreateDirectory( "\\ideafarm.home.1\\ephemeral\\domains\\com\\ideafarm\\release" , 0 ) ;
 
     CreateDirectory( "\\ideafarm.home.1\\precious\\" , 0 ) ;
