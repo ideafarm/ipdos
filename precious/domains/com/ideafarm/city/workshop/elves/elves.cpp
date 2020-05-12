@@ -901,7 +901,7 @@ idDad( idDadP )
 {
     if( idMe == 1 )
     {
-        if( sourceCodeExistsF() ) flagsAll |= flELVES_HIGHpRIEST ;
+        //if( sourceCodeExistsF() ) flagsAll |= flELVES_HIGHpRIEST ;            //20200511@2035: DISABLED HIGHpRIEST TO ELIMINATE PROMPT FOR NAME (NOW THAT IPDOS (TM) IS PROPRIETARY OPEN SOURCE)
     }
 
     inc02AM( cElves ) ;
