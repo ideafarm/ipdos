@@ -735,9 +735,9 @@ const char* ppostTokensUser[] =
     //CS:CODEsYNC:A: MUST BE SAME NUMBER OF ELTS AS ppostTokensUser AND ELEMENT VALUES MUST CORRESPOND
     //CS:CODEsYNC:B: EACH AND EVERY USER MUST HAVE A HARDCODED INITIAL idAdam VALUE ASSIGNMENT
 
-    "local"                 ,
-    "ideafarm_wo"           ,
-    "turnbull_nicholas"     ,
+    "anonymous"                 ,
+    //"ideafarm_wo"           ,
+    //"turnbull_nicholas"     ,
 }
 ;
 
@@ -745,9 +745,9 @@ const char* ppostUserDisplay[] =
 {
     //CS:CODEsYNC:A: MUST BE SAME NUMBER OF ELTS AS ppostTokensUser AND ELEMENT VALUES MUST CORRESPOND
 
-    "Associate"             ,
-    "Wo'O Ideafarm"         ,
-    "Nicholas Turnbull"     ,
+    "Anonymous"               ,
+    //"Wo'O Ideafarm"         ,
+    //"Nicholas Turnbull"     ,
 }
 ;
 
@@ -962,14 +962,14 @@ const int* elf_eat_C::pcIdAdamIF( int flagsP )
                     ? "\\ideafarm.home.1\\precious\\domains\\com\\ideafarm\\city\\library\\dictionary\\5adam.51000???.1"
                     : "\\ideafarm.home.1\\ephemeral\\domains\\com\\ideafarm\\city\\park\\exedll\\1\\master\\ideafarm.51000???.ipdos-wm"
                 : flagsP & flADAMlIST_DEFINED
-                    ? !strcmp( postzUser , "local" )
+                    ? !strcmp( postzUser , "anonymous" )
                         ? "\\ideafarm.home.1\\precious\\domains\\com\\ideafarm\\city\\library\\dictionary\\5adam.51011???.1"
                         : !strcmp( postzUser , "ideafarm_wo" )
                             ? "\\ideafarm.home.1\\precious\\domains\\com\\ideafarm\\city\\library\\dictionary\\5adam.51012???.1"
                             : !strcmp( postzUser , "turnbull_nicholas" )
                                 ? "\\ideafarm.home.1\\precious\\domains\\com\\ideafarm\\city\\library\\dictionary\\5adam.51013???.1"
                                 : ""
-                    : !strcmp( postzUser , "local" )
+                    : !strcmp( postzUser , "anonymous" )
                         ? "\\ideafarm.home.1\\ephemeral\\domains\\com\\ideafarm\\city\\park\\exedll\\1\\master\\ideafarm.51011???.ipdos-wm"
                         : !strcmp( postzUser , "ideafarm_wo" )
                             ? "\\ideafarm.home.1\\ephemeral\\domains\\com\\ideafarm\\city\\park\\exedll\\1\\master\\ideafarm.51012???.ipdos-wm"
@@ -2188,7 +2188,7 @@ void elf_obey_C::liveF( void )
         if( flagsAll & flELVES_HIGHpRIEST ) boxGetShadowF( postUser , postFILEuSER , idMe ) ;
         else
         {
-            char postu[] = "local" ;
+            char postu[] = "anonymous" ;
             postUser = newF( sizeof postu ) ;
             strcpy( postUser , postu ) ;
         }
@@ -3485,7 +3485,7 @@ void elf_obey_C::liveF( void )
 
                  if( !strcmp( postw , "ideafarm_wo"       ) )   sayF( "" , flSAY_MIDDLE ) ;
             else if( !strcmp( postw , "turnbull_nicholas" ) )   sayF( "" , flSAY_MIDDLE ) ;
-            else if( !strcmp( postw , "local"             ) )   sayF( "" , flSAY_MIDDLE ) ;
+            else if( !strcmp( postw , "anonymous"             ) )   sayF( "" , flSAY_MIDDLE ) ;
             else                                                sayF( "Please ask the high priest responsible for IdeaFarm (tm) Elves to add a user name for you to the source code." , flSAY_MIDDLE ) ;
 
             sayF( "" , flSAY_END ) ;
@@ -5019,7 +5019,7 @@ int boxDispenseIdF( char* postFileP , int idMinP , int idElfP )
                 char* postUser = postFileP + sizeof postMatch - 1 ;
 
                 //CS:CODEsYNC:B: EACH AND EVERY USER MUST HAVE A HARDCODED INITIAL idAdam VALUE ASSIGNMENT
-                     if( !strcmp( postUser , "local"             ) ) idNew = 0x51011000 ;
+                     if( !strcmp( postUser , "anonymous"             ) ) idNew = 0x51011000 ;
                 else if( !strcmp( postUser , "ideafarm_wo"       ) ) idNew = 0x51012000 ;
                 else if( !strcmp( postUser , "turnbull_nicholas" ) ) idNew = 0x51013000 ;
             }
@@ -5398,7 +5398,7 @@ int main( int cArgP , char* ppostArgP[] , char* ppostEnvP[] )
     { hoverC hover( "d:\\ideafarm.home.1\\ephemeral\\domains\\com\\ideafarm\\city\\park\\exedll\\1\\hover" , flHOVER_PERSIST ) ; } // WHEN USING PRECOMPILED HEADERS, MUST ALWAYS BE HOVERING IN THE SAME CURRENT DIRECTORY
 
     char postCmdWoth[ 0x10 ] = { "" } ;
-    if( !bHighPriest ) ether.userF( "local" ) ;
+    if( !bHighPriest ) ether.userF( "anonymous" ) ;
     else
     {
         char* postUser = 0 ;
