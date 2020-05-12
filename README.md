@@ -71,7 +71,7 @@ The following instructions have been tested using a "virgin" computer running Wi
 
 (1) Clone this repository to GitHub Desktop, using a directory named "X:\ideafarm.home.1", where X is the drive letter of a local (not network) nonremovable hard disk drive.
 
-(2) To the PATH environment variable setting, append: ";X:\ideafarm.home.1\precious\domains\com\ideafarm\city\workshop\cmd"
+(2) To the PATH environment variable setting, append: "X:\ideafarm.home.1\precious\domains\com\ideafarm\city\workshop\cmd"
 
 (3) Using any plain text editor, edit the "idrive=d" line to indicate the correct drive letter X, in X:\ideafarm.home.1\precious\domains\com\ideafarm\city\workshop\cmd\ideafarm.bat
 
