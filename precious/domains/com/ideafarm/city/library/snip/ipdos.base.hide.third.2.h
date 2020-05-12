@@ -5180,7 +5180,7 @@ use this rather than _ to avoid the overhead of _
                                                                                                                                                                                                 \
         strokeS _sttq( 0 , sc_IGNOREqUOTES ) ;                                                                                                                                                  \
         countT _idf = 1 ;                                                                                                                                                                       \
-        if( 1 == etThread.strIdOptimizedClosureF( tinP , 0 , flSTRmATCH_null , _idf , _sttq , patternP , psttP ) && !_idf )
+        if( (strokeS*)(psttP) && ((strokeS*)(psttP))->idAdam && 1 == etThread.strIdOptimizedClosureF( tinP , 0 , flSTRmATCH_null , _idf , _sttq , patternP , psttP ) && !_idf )
 
 //
 // Respecting the rights of other people is an important part of empowering one another.

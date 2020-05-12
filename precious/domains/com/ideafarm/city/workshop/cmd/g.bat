@@ -16,7 +16,7 @@ rem ARG 3: MODE (TO SPECIFY MODE, DRIVE MUST BE SPECIFIED)
 
 rem SET DEVICE
 if %2z == z %papers%:
-if %1z == z rw %papers%:\ideafarm.work\cmd\g.bat
+if %1z == z rw %papers%:\ideafarm.home.1\precious\domains\com\ideafarm\city\workshop\cmd\g.bat
 if %1z == z goto :FIN
 if %1z == ci3z %ifc%:
 if %1z == cz %source%:

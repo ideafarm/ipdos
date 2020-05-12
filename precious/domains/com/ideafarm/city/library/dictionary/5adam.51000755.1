@@ -28,7 +28,7 @@ etThread.traceF( tinP , T("ok") ) ;
    C: EHLO client.example.com
    S: 250-smtp.example.com Hello client.example.com
    S: 250 AUTH GSSAPI DIGEST-MD5 PLAIN
-   C: AUTH PLAIN dGVzdAB0ZXN0ADEyMzQ=
+   C: AUTH PLAIN [redacted]
    S: 235 2.7.0 Authentication successful
 
 
@@ -41,20 +41,20 @@ etThread.traceF( tinP , T("ok") ) ;
 
     ss.verifyReplyF( tinP , 235 ) ;
     ss.writeF( tinP , (osTextT*)tSay , (countT)tSay.csF( tinP ) ) ;
-    tSay = T("NmFkNTJhMjE5MGVmNGEwNjEzNjMzYWI3ZDAwNDA0MWQtMmFlMmM2ZjMtYTBjZjU1ZTU=\r\n") ;
+    tSay = T("[redacted]\r\n") ;
 
     CONoUTrAW( "\r\nwriting password\r\n" ) ;
 
     ss.verifyReplyF( tinP , 334 ) ;
     ss.writeF( tinP , (osTextT*)tSay , (countT)tSay.csF( tinP ) ) ;
-    tSay = T("cG9zdG1hc3RlckBhZG1pbi5pZGVhZmFybS5jb20=\r\n") ;
+    tSay = T("[redacted]\r\n") ;
 
     CONoUTrAW( "\r\nwriting username\r\n" ) ;
 
     ss.verifyReplyF( tinP , 334 ) ;
     ss.writeF( tinP , (osTextT*)tSay , (countT)tSay.csF( tinP ) ) ;
     tSay = T("auth login\r\n") ;
-    //B: tSay = T("auth plain postmaster@unconfirmed.ideafarm.com c2fb2bf19f20228e9ec5b8f65e2df6d3-2ae2c6f3-413ef496\r\n") ;
+    //B: tSay = T("auth plain postmaster@unconfirmed.ideafarm.com [redacted]\r\n") ;
 
     ss.verifyReplyF( tinP , 250 ) ;
 

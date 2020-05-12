@@ -380,8 +380,8 @@
         {
         if( stFixedSmall )
         boolT bAllFixedFound = 1 ;
-    {
-    if( csttMin <= psttBigP->idAdam && psttBigP->idAdam <= csttMax )
+    {                                                                               //U:: REMOVE THE OOTH TEST ; IT IS INCORRECT
+    if( csttMin <= psttBigP->idAdam /*&& psttBigP->idAdam <= csttMax*/ )            // THE OOTH TEST IS DISABLED BECAUSE, LIKE OTHER strId FUNCTIONS, I LOOK FOR A MATCH *WITHIN* psttBigP
     ZE( countT , idHit ) ;
 
     strExpressionLengthMinMaxF( tinP , csttMin , csttMax , stFixedSmall , countTC( 1 ) , psttSmallP , flagsP , pFlagsOverrideP , pcMinOverrideP , pcMaxOverrideP ) ;
