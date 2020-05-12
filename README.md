@@ -85,11 +85,13 @@ The following instructions are currently being tested and debugged, using a "vir
 
 (8) Press the 'e' key ; then press the '1' key .  This opens the source file for "scratch adam 1", using the Rimstar Programmers' Editor.
 
-(9) Edit the hello text to suite your whim.  Then close the editor.
+(9) In the Rimstar Editor's menu, select Options / Global Settings... / Editor / Path file name, and verify that the box contains " X:\ideafarm.home.1\ephemeral\domains\com\ideafarm\state\rimstar\rs_state.ini ", where X is the drive letter to which you cloned this repository.
 
-(10) Press these keys: " ma1 ".  This causes an elf to build scratch adam 1.  Wait for the new window to disappear.
+(10) Edit the hello text to suite your whim.  Then close the editor.
 
-(11) Press the keys: " p 1 ".  (Yes, you need to key a space after the 'p'.)  This causes scratch adam 1 to run in a new window.
+(11) Press these keys: " ma1 ".  This causes an elf to build scratch adam 1.  Wait for the new window to disappear.
+
+(12) Press the keys: " p 1 ".  (Yes, you need to key a space after the 'p'.)  This causes scratch adam 1 to run in a new window.
 
 
 # TROUBLESHOOTING:  If the above steps didn't work for you,...
