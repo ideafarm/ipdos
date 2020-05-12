@@ -67,7 +67,7 @@ Status:  Applications development is active.  IPDOS (tm) is stable and mature an
  To build, you just need to edit your computer's PATH setting to add one directory, edit one batch file in that directory, and then run that batch file.
  If the following steps do not bring you to a joyful result, please open an issue on GitHub.
 
-The following instructions have been tested using a "virgin" computer running Windows 10 Professional on which only Avast (antivirus) and Firefox had been installed.
+The following instructions have been tested using a "virgin" computer running Windows 10 Professional on which only Avast Free Antivirus and Firefox had been installed.
 
 (1) Clone this repository to GitHub Desktop, using a directory named "X:\ideafarm.home.1", where X is the drive letter of a local (not network) nonremovable hard disk drive.
 
