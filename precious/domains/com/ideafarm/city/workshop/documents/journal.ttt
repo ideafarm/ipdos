@@ -6543,8 +6543,10 @@ I have other business to attend to today and tomorrow, but plan to continue to w
 
 
 
-
-  next: incremental migration
+   just use fresh as the dut
+  think
+   set up dut: nawwh
+  incremental migration
   !subjob C: IPDOS (tm) Regular Expressions
   !subjob C: test adam for pattern matching
   !subjob C: strIdOptimizedClosureF: correct handling when OR group is length not 1 or is varying
@@ -6571,68 +6573,6 @@ I have other business to attend to today and tomorrow, but plan to continue to w
 !subjob C: migrate all diskFindFileOrDirF calls away from specifying *? wildcards
 
 
-
-
-     "a[(hello)([bd]ye)]b"  would match "ahellob" and "abyeb" and "adyeb"
-     "a{[(hello)(bye)]}b" would make the same matches and in addition would report the match text (either "hello" or "bye")
-     "a[(hello)(bye)]b"  would match "ahellob" and "abyeb"
-    examples
-   markup and escape sequences so that IPDOS (tm) patterns can be specified using a plain text string
-  wish
- playcraft
- objective: elegance
-!subjob C: IPDOS (tm) Regular Expressions
-
-
-
-
-
-
-
-   this is a way to quickly investigate whether the code works correctly
-  think
-   each failure would be traced
-   the adam would for loop to execute the test for each element of the array
-    correct result (e.g. 0 for no match or 1 for match)
-    psttBig        (e.g. "1snip.batonc.fooeyF")
-    idType of pattern (e.g. "microsoft wildcard")
-    pattern text (e.g. "*.signc.*")
-   array of struct
-  recipe
-   a small adam that contains a table of tests, and executes each step and verifies that the expected result is obtained
-  wish
- playcraft
- objective: confidence
-!subjob C: test adam for pattern matching
-
-
-
-
-
-
-
-
-
-
-
-
-  browse code, and then just do this
- playcraft
- objective: simple KISS code
-!job C: //U:: MIGRATE flPATTERNc FROM FLAGS TO AN IDtYPE
-
-
-
-
-
-
-
-
-
-
-
-
-
 !job A: periodically verify that the bottom of this file still has: // 20200503@2128: THIS NOTE IS TO DETECT WHETHER RIMSTAR TRUNCATES THIS FILE AS IT GROWS
 
 
@@ -6650,6 +6590,35 @@ I have other business to attend to today and tomorrow, but plan to continue to w
 
 
 
+     "a[(hello)([bd]ye)]b"  would match "ahellob" and "abyeb" and "adyeb"
+     "a{[(hello)(bye)]}b" would make the same matches and in addition would report the match text (either "hello" or "bye")
+     "a[(hello)(bye)]b"  would match "ahellob" and "abyeb"
+    examples
+   markup and escape sequences so that IPDOS (tm) patterns can be specified using a plain text string
+  wish
+ playcraft
+ objective: elegance
+!subjob C: IPDOS (tm) Regular Expressions
+  cool ; it works
+   this is a way to quickly investigate whether the code works correctly
+  think
+   each failure would be traced
+   the adam would for loop to execute the test for each element of the array
+    correct result (e.g. 0 for no match or 1 for match)
+    psttBig        (e.g. "1snip.batonc.fooeyF")
+    idType of pattern (e.g. "microsoft wildcard")
+    pattern text (e.g. "*.signc.*")
+   array of struct
+  recipe
+   a small adam that contains a table of tests, and executes each step and verifies that the expected result is obtained
+  wish
+ playcraft
+ objective: confidence
+!subjob C: test adam for pattern matching
+  browse code, and then just do this
+ playcraft
+ objective: simple KISS code
+!job C: //U:: MIGRATE flPATTERNc FROM FLAGS TO AN IDtYPE
   cool ; it works!
    factory6 looks virgin enough
    if it isn't tested, it doesn't work

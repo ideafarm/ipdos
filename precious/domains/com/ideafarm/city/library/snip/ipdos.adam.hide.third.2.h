@@ -1,32 +1,3 @@
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004ae.openfilewrite BEGIN
-
-
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 25 years.
-// Respecting the rights of other people is an important part of empowering one another.
-//
-
-/*
-*/
-/**/
-/*1*//*OPENfILEwRITE(psttFileP,idP)*//*1*/
-
-#define OPENfILEwRITE(psttFileP,idP)                                                                                                                                \
-                                                                                                                                                                    \
-    handleC hFile##idP( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_FILE ) ;                                                                                          \
-    etThread.fileOpenF( tinP , hFile##idP , countTC() , (psttFileP) , ifcOPENaCCESS_W , 0 , flOPENdETAILS_LOCsEQ , ifcOPENhOW_nCeR ) ;
-
-
-//
-// Respecting the rights of other people is an important part of empowering one another.
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 25 years.
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004ae.openfilewrite END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004af.openfilewrite1 BEGIN
 
 
@@ -1490,6 +1461,8 @@ arguments
 //
 
 /*
+"sp": "stroke parameter" (these flags are specified for cNote)
+ example: S3(sa_SSSoR,sc_ccSSS,sp_SSSfLAGnOT)
 */
 /**/
 /*1*//*sp_SSSfLAG*//*1*/
@@ -5097,37 +5070,6 @@ use this rather than _ to avoid the overhead of _
 //
 
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200547.flSTRiDoPTIMIZEDcLOSURE END
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200548.flPATTERNc BEGIN
-
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 25 years.
-// Respecting the rights of other people is an important part of empowering one another.
-//
-
-
-/*
-*/
-/**/
-
-/*1*//*flPATTERNc*//*1*/
-
-/*3*/
-#define flPATTERNc_WILDCARDmICROSOFT        0xe000010c
-#define flPATTERNc_WILDCARDsTRICT           0xe000020c
-#define flPATTERNc_UNIXrEGULAReXPRESSION    0xe000040c
-/*3*/
-#define flPATTERNc_null    0xe000000c
-
-//
-// Respecting the rights of other people is an important part of empowering one another.
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 25 years.
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200548.flPATTERNc END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200548.flSTRmATCH BEGIN
 
 
@@ -5144,12 +5086,12 @@ use this rather than _ to avoid the overhead of _
 /*1*//*flSTRmATCH*//*1*/
 
 /*3*/
-#define flSTRmATCH_OUTERmOST                            0xe000010d
-#define flSTRmATCH_AND                                  0xe000020d
-#define flSTRmATCH_OR                                   0xe000040d
-#define flSTRmATCH_REPORTmATCH                          0xe000080d
+#define flSTRmATCH_OUTERmOST                            0xe000010c
+#define flSTRmATCH_AND                                  0xe000020c
+#define flSTRmATCH_OR                                   0xe000040c
+#define flSTRmATCH_REPORTmATCH                          0xe000080c
 /*3*/
-#define flSTRmATCH_null    0xe000000d
+#define flSTRmATCH_null    0xe000000c
 
 
 //
@@ -5160,6 +5102,39 @@ use this rather than _ to avoid the overhead of _
 //
 
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200548.flSTRmATCH END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200548.ifcIDtYPEpATTERN BEGIN
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 25 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+
+/*
+*/
+/**/
+
+/*1*//*ifcIDtYPEpATTERN*//*1*/
+
+/*3*/
+#define ifcIDtYPEpATTERN_NATIVE                          0xdddd0bd6
+#define ifcIDtYPEpATTERN_FOREIGNwILDCARDmICROSOFT        0xdddd0bd7
+#define ifcIDtYPEpATTERN_FOREIGNwILDCARDsTRICT           0xdddd0bd8
+#define ifcIDtYPEpATTERN_FOREIGNuNIXrEGULAReXPRESSION    0xdddd0bd9
+/*3*/
+#define ifcIDtYPEpATTERN_min     0xdddd0bd6
+#define ifcIDtYPEpATTERN_max     0xdddd0bd9
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 25 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200548.ifcIDtYPEpATTERN END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200549.IFmATCHwILD BEGIN
 
 
@@ -44117,7 +44092,7 @@ i am nonconformant in that all of my member function definitions are in a single
     NEWdELcLASSpROTOS
     ~patternC( voidT ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.36145002.patternC.dt_patternC!||
-    patternC( tinS& tinP , etherC& etherP , const strokeS* const psttP , const flagsT flagsP ) ;
+    patternC( tinS& tinP , etherC& etherP , const strokeS* const psttP , const countT idTypeP = ifcIDtYPEpATTERN_NATIVE ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.36145003.patternC.patternC!||
 
     friend countT etherC::strIdOptimizedClosureF( tinS& tinP , stackC* pstMatchP , const flagsT flagsMatchP , countT& idFirstP , strokeS& sttQuoteP , const patternC& patP , const strokeS* psttBigP , const countT idLastP , sCountT idP ) ;
