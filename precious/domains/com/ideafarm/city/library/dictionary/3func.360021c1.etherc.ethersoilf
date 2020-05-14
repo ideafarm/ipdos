@@ -4185,30 +4185,36 @@
 /*N1D*/                                                                     DEL( pInfo ) ;
 /*N1D*/                                                                     }
 /*N1D*/                                                                         }
-/*N1D*/                                                                             if( !value && !idDeathType ) diskFileOrDirDeleteF( tinP , pInfo->psttIfoName ) ;
+/*N1D*/                                                                             }
+/*N1D*/                                                                                 if( !value && !idDeathType ) diskFileOrDirDeleteF( tinP , pInfo->psttIfoName ) ;
 /*N1D*/
-/*N1D*/                                                                             //__( idDeathType ) ;
-/*N1D*/                                                                             //__( value ) ;             // NOT CHECKED, BECAUSE CAN BE CAUSED BY USER ERROR (TARGET ZIP FILE IS CORRUPT)
-/*N1D*/                                                                             osProcessF( tinP , countTC() , countTC() , value , idDeathType , tExeUnzip , tArg ) ; //THIS CAN FAIL (E.G. IF TARGET ZIP FILE IS CORRUPT
-/*N1D*/                                                                             ZE( countT , idDeathType ) ;
-/*N1D*/                                                                             ZE( countT , value ) ;
-/*N1D*/                                                                             //traceF( tinP , tArg ) ;
-/*N1D*/                                                                             //traceF( tinP , tExeUnzip ) ;
+/*N1D*/                                                                                 //__( idDeathType ) ;
+/*N1D*/                                                                                 //__( value ) ;             // NOT CHECKED, BECAUSE CAN BE CAUSED BY USER ERROR (TARGET ZIP FILE IS CORRUPT)
+/*N1D*/                                                                                 osProcessF( tinP , countTC() , countTC() , value , idDeathType , tExeUnzip , tArg ) ; //THIS CAN FAIL (E.G. IF TARGET ZIP FILE IS CORRUPT
+/*N1D*/                                                                                 ZE( countT , idDeathType ) ;
+/*N1D*/                                                                                 ZE( countT , value ) ;
+/*N1D*/                                                                                 //traceF( tinP , tArg ) ;
+/*N1D*/                                                                                 //traceF( tinP , tExeUnzip ) ;
 /*N1D*/
-/*N1D*/                                                                             hoverC hover( tinP , *this , tDirTemporary ) ; //U::NOT THREAD SAFE: ADD SERIALIZATION
+/*N1D*/                                                                                 hoverC hover( tinP , *this , tDirTemporary ) ; //U::NOT THREAD SAFE: ADD SERIALIZATION
 /*N1D*/
-/*N1D*/                                                                             TN( tArg , "" ) ; tArg = T(" \"")+T(osfnZipFile)+tQuote ;
+/*N1D*/                                                                                 TN( tArg , "" ) ; tArg = T(" \"")+T(osfnZipFile)+tQuote ;
 /*N1D*/
-/*N1D*/                                                                             osFileNameC osfnZipFile( tinP , third , T(pInfo->psttIfoName) ) ;
+/*N1D*/                                                                                 osFileNameC osfnZipFile( tinP , third , T(pInfo->psttIfoName) ) ;
+/*N1D*/                                                                             {
+/*N1D*/                                                                             //traceF( tinP , T("unziping to temp: ")+T(pInfo->psttIfoName) ) ;
 /*N1D*/                                                                         {
-/*N1D*/                                                                         //traceF( tinP , T("unziping to temp: ")+T(pInfo->psttIfoName) ) ;
+/*N1D*/                                                                         IFmATCHwILD( *this , pat , fn2 )
+/*N1D*/                                                                         fileNameC fn2( tinP , *this , pInfo->psttIfoName ) ;
 /*N1D*/                                                                     {
-/*N1D*/                                                                     if( pInfo )
-/*N1D*/                                                                     diskFindFileOrDirF( tinP , pInfo , hFind , tFileDayZipLike ) ;
+/*N1D*/                                                                     if( pInfo && pInfo->psttIfoName )
+/*N1D*/                                                                     diskFindFileOrDirF( tinP , pInfo , hFind , fn.pathF() ) ;
 /*N1D*/                                                                 {
 /*N1D*/                                                                 do
 /*N1D*/                                                                 handleC hFind( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_FILEfIND ) ;
 /*N1D*/                                                                 ZE( infoFileS* , pInfo ) ;
+/*N1D*/                                                                 patternC pat( tinP , *this , fn , ifcIDtYPEpATTERN_FOREIGNwILDCARDmICROSOFT ) ;
+/*N1D*/                                                                 fileNameC fn( tinP , *this , tFileDayZipLike ) ;
 /*N1D*/
 /*N1D*/                                                                 }
 /*N1D*/                                                                     delF( tinP , psttPrefix ) ;

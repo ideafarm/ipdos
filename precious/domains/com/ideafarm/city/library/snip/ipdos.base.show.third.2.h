@@ -5137,7 +5137,6 @@ use this rather than _ to avoid the overhead of _
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200548.ifcIDtYPEpATTERN END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200549.IFmATCHwILD BEGIN
 
-
 //
 // Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
@@ -5149,13 +5148,13 @@ use this rather than _ to avoid the overhead of _
 */
 /**/
 
-/*1*//*IFmATCHwILD(patternP,psttP)*//*1*/
+/*1*//*IFmATCHwILD(etherP,patternP,psttP)*//*1*/
 
-#define IFmATCHwILD(patternP,psttP)                                                                                                                                                             \
+#define IFmATCHwILD(etherP,patternP,psttP)                                                                                                                                                      \
                                                                                                                                                                                                 \
         strokeS _sttq( 0 , sc_IGNOREqUOTES ) ;                                                                                                                                                  \
         countT _idf = 1 ;                                                                                                                                                                       \
-        if( (strokeS*)(psttP) && ((strokeS*)(psttP))->idAdam && 1 == etThread.strIdOptimizedClosureF( tinP , 0 , flSTRmATCH_null , _idf , _sttq , patternP , psttP ) && !_idf )
+        if( (const strokeS*)(psttP) && ((const strokeS*)(psttP))->idAdam && 1 == (etherP).strIdOptimizedClosureF( tinP , 0 , flSTRmATCH_null , _idf , _sttq , patternP , psttP ) && !_idf )
 
 //
 // Respecting the rights of other people is an important part of empowering one another.
