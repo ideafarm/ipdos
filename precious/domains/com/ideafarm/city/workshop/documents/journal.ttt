@@ -6413,6 +6413,7 @@ I have other business to attend to today and tomorrow, but plan to continue to w
 
 
   !subjob C: diskFindFileOrDirF: take a folder rather than tLikeP
+  !subjob C: deprecate (by renameing) all diskFindFileOrDirF calls that specify *? wildcards
   !subjob C: migrate all diskFindFileOrDirF calls away from specifying *? wildcards
   !subjob C: Cloak: enhance the api to support cMaxFilesP
    so before designing the code enhancement for diskFindFileOrDirF, i should craft that enhancement to Cloak api
@@ -6474,7 +6475,7 @@ I have other business to attend to today and tomorrow, but plan to continue to w
 
 
 
-
+   20200513@1700: power cycle the thermometer so cycle will end at 1700 each day
 
    20200511@1155: 75 79 ; 35 40 (from memory)
 
@@ -6541,8 +6542,32 @@ I have other business to attend to today and tomorrow, but plan to continue to w
 
 
 
+  snap
+ playcraft
+ objective: incremental migration
+!subjob C: deprecate (by renameing) all diskFindFileOrDirF calls that specify *? wildcards
 
 
+
+
+!job A: periodically verify that the bottom of this file still has: // 20200503@2128: THIS NOTE IS TO DETECT WHETHER RIMSTAR TRUNCATES THIS FILE AS IT GROWS
+
+
+!thrust: polish existing functionality
+
+=========================================================================================================================================================
+=========================================================================================================================================================
+=========================================================================================================================================================
+=========================================================================================================================================================
+====- DONE: BELOW -======================================================================================================================================
+=========================================================================================================================================================
+=========================================================================================================================================================
+=========================================================================================================================================================
+=========================================================================================================================================================
+
+
+
+  nawwh
    just use fresh as the dut
   think
    set up dut: nawwh
@@ -6571,25 +6596,6 @@ I have other business to attend to today and tomorrow, but plan to continue to w
  playcraft
  objective: elegance
 !subjob C: migrate all diskFindFileOrDirF calls away from specifying *? wildcards
-
-
-!job A: periodically verify that the bottom of this file still has: // 20200503@2128: THIS NOTE IS TO DETECT WHETHER RIMSTAR TRUNCATES THIS FILE AS IT GROWS
-
-
-!thrust: polish existing functionality
-
-=========================================================================================================================================================
-=========================================================================================================================================================
-=========================================================================================================================================================
-=========================================================================================================================================================
-====- DONE: BELOW -======================================================================================================================================
-=========================================================================================================================================================
-=========================================================================================================================================================
-=========================================================================================================================================================
-=========================================================================================================================================================
-
-
-
      "a[(hello)([bd]ye)]b"  would match "ahellob" and "abyeb" and "adyeb"
      "a{[(hello)(bye)]}b" would make the same matches and in addition would report the match text (either "hello" or "bye")
      "a[(hello)(bye)]b"  would match "ahellob" and "abyeb"
@@ -8089,11 +8095,11 @@ I have other business to attend to today and tomorrow, but plan to continue to w
    | 
    |         {kv: smtp.relay..smtp-relay.gmail.com                   "format 1 ehlo       admin.ideafarm.com starttls" }
    | 
-   |         {kv: smtp.relay..smtp.mailgun.org..internal             "format 1 ehlo    internal.ideafarm.com starttls auth login cG9zdG1hc3RlckBpbnRlcm5hbC5pZGVhZmFybS5jb20=     OGZmMWJmMTEzMWJmMWFiODVhZjc2M2Y4NmJhMzA4OTktMmFlMmM2ZjMtMDk3NDQxMjA=" }
+   |         {kv: smtp.relay..smtp.mailgun.org..internal             "format 1 ehlo    internal.ideafarm.com starttls auth login [redacted]     [redacted]" }
    | 
-   |         {kv: smtp.relay..smtp.mailgun.org..unconfirmed          "format 1 ehlo unconfirmed.ideafarm.com starttls auth login cG9zdG1hc3RlckB1bmNvbmZpcm1lZC5pZGVhZmFybS5jb20= NjdkZTFjMGUwZDFkNzg0MzA0ZmQxMDdmMDI5Y2MxNGYtMmFlMmM2ZjMtMDgxZTY2MDc=" }
+   |         {kv: smtp.relay..smtp.mailgun.org..unconfirmed          "format 1 ehlo unconfirmed.ideafarm.com starttls auth login [redacted] [redacted]" }
    | 
-   |         {kv: smtp.relay..smtp.mailgun.org..admin                "format 1 ehlo       admin.ideafarm.com starttls auth login cG9zdG1hc3RlckBhZG1pbi5pZGVhZmFybS5jb20=         NmFkNTJhMjE5MGVmNGEwNjEzNjMzYWI3ZDAwNDA0MWQtMmFlMmM2ZjMtYTBjZjU1ZTU=" }
+   |         {kv: smtp.relay..smtp.mailgun.org..admin                "format 1 ehlo       admin.ideafarm.com starttls auth login [redacted]         [redacted]" }
    |     }
    | 
    | }
@@ -8134,11 +8140,11 @@ I have other business to attend to today and tomorrow, but plan to continue to w
    | 
    |         {kv: smtp.relay..smtp-relay.gmail.com                   "format 1 ehlo       admin.ideafarm.com starttls" }
    | 
-   |         {kv: smtp.relay..smtp.mailgun.org..internal             "format 1 ehlo    internal.ideafarm.com starttls auth login cG9zdG1hc3RlckBpbnRlcm5hbC5pZGVhZmFybS5jb20=     OGZmMWJmMTEzMWJmMWFiODVhZjc2M2Y4NmJhMzA4OTktMmFlMmM2ZjMtMDk3NDQxMjA=" }
+   |         {kv: smtp.relay..smtp.mailgun.org..internal             "format 1 ehlo    internal.ideafarm.com starttls auth login [redacted]     [redacted]" }
    | 
-   |         {kv: smtp.relay..smtp.mailgun.org..unconfirmed          "format 1 ehlo unconfirmed.ideafarm.com starttls auth login cG9zdG1hc3RlckB1bmNvbmZpcm1lZC5pZGVhZmFybS5jb20= NjdkZTFjMGUwZDFkNzg0MzA0ZmQxMDdmMDI5Y2MxNGYtMmFlMmM2ZjMtMDgxZTY2MDc=" }
+   |         {kv: smtp.relay..smtp.mailgun.org..unconfirmed          "format 1 ehlo unconfirmed.ideafarm.com starttls auth login [redacted] [redacted]" }
    | 
-   |         {kv: smtp.relay..smtp.mailgun.org..admin                "format 1 ehlo       admin.ideafarm.com starttls auth login cG9zdG1hc3RlckBhZG1pbi5pZGVhZmFybS5jb20=         NmFkNTJhMjE5MGVmNGEwNjEzNjMzYWI3ZDAwNDA0MWQtMmFlMmM2ZjMtYTBjZjU1ZTU=" }
+   |         {kv: smtp.relay..smtp.mailgun.org..admin                "format 1 ehlo       admin.ideafarm.com starttls auth login [redacted]         [redacted]" }
    |     }
    | 
    | }
@@ -9985,14 +9991,14 @@ I have other business to attend to today and tomorrow, but plan to continue to w
  changed: ?
 !job A: factory6 is offline
   cool ; it works!
-   {kv: smtp.relay..smtp.mailgun.org..admin                "format 1 587 ehlo       admin.ideafarm.com starttls auth login cG9zdG1hc3RlckBhZG1pbi5pZGVhZmFybS5jb20= NmFkNTJhMjE5MGVmNGEwNjEzNjMzYWI3ZDAwNDA0MWQtMmFlMmM2ZjMtYTBjZjU1ZTU=" }
-   {kv: smtp.relay..smtp.mailgun.org..unconfirmed          "format 1 587 ehlo unconfirmed.ideafarm.com starttls auth login cG9zdG1hc3RlckBhZG1pbi5pZGVhZmFybS5jb20= NmFkNTJhMjE5MGVmNGEwNjEzNjMzYWI3ZDAwNDA0MWQtMmFlMmM2ZjMtYTBjZjU1ZTU=" }
+   {kv: smtp.relay..smtp.mailgun.org..admin                "format 1 587 ehlo       admin.ideafarm.com starttls auth login [redacted] [redacted]" }
+   {kv: smtp.relay..smtp.mailgun.org..unconfirmed          "format 1 587 ehlo unconfirmed.ideafarm.com starttls auth login [redacted] [redacted]" }
    {kv: smtp.relay..smtp-relay.gmail.com                   "format 1 587 ehlo unconfirmed.ideafarm.com starttls" }
    {kv: smtp.relays                                        "smtp-relay.gmail.com/smtp.mailgun.org"         }
    etThread.boxPutF( tinP , T("smtp.mailgun.org[admin]//smtp/fooey@ideafarm.com/ideafarm.factory.reports@gmail.com") , T("this is via mailgun") ) ;
    etThread.boxPutF( tinP , T("smtp.mailgun.org[unconfirmed]//smtp/fooey@ideafarm.com/ideafarm.factory.reports@gmail.com") , T("this is via mailgun") ) ;
   desired semantics
-   {kv: smtp.relay..smtp.mailgun.org                       "format 1 587 ehlo unconfirmed.ideafarm.com starttls auth login cG9zdG1hc3RlckBhZG1pbi5pZGVhZmFybS5jb20= NmFkNTJhMjE5MGVmNGEwNjEzNjMzYWI3ZDAwNDA0MWQtMmFlMmM2ZjMtYTBjZjU1ZTU=" }
+   {kv: smtp.relay..smtp.mailgun.org                       "format 1 587 ehlo unconfirmed.ideafarm.com starttls auth login [redacted] [redacted]" }
    {kv: smtp.relay..smtp-relay.gmail.com                   "format 1 587 ehlo unconfirmed.ideafarm.com starttls" }
    {kv: smtp.relays                                        "smtp-relay.gmail.com/smtp.mailgun.org"         }
    etThread.boxPutF( tinP , T("smtp.mailgun.org//smtp/fooey@ideafarm.com/ideafarm.factory.reports@gmail.com") , T("this is via mailgun") ) ;
