@@ -6547,11 +6547,49 @@ I have other business to attend to today and tomorrow, but plan to continue to w
 
 
 
-
-
-
-
- 
+    conj: yes
+   issue: is the trailing / to be specified in the pattern?
+  do the root overload
+    if i do this, to find a folder i will need to bisect for the dad path and pass the folder short name as pattern
+   think
+   rename to old
+    if no patternC parameter then return everything, querying cloak
+    create replacement api's that require folder (not like) and take an optional patternC parameter
+    rename all to old
+   decision: do it
+     these can take a patternC parameter
+     there is no way to effectuate a wildcard like pattern
+    what to do with the pstt1P list overload and the psttP overload?
+   think
+   decision: do it
+    i just need to be more careful to preserve the exact function
+    God!  my instincts are very strong to get this done accoring to original plan
+   think
+     but do it internally using IFmATCHwILD
+     continue to support ms wildcards in the api
+    alt: don't edit calling code at all
+   think
+      else         does this file exist?
+      ends with /: does this folder exist?
+     no wildcard at all
+     * wildcard requesting unlimited contents
+     wildcards limiting contents
+    cases
+   think
+    alt: take a flagsP parameter that can be used to say "search for this exact name"
+     i don't like it because it makes foreign wildcards part of the api
+     this is the most direct way to achieve what i want
+    alt: do not do it.  require that the likeP end with either "/" or "/*"
+    if i do that, there will be no way to search for a dir
+    my plan is to change the semantics so that only a dir can be specified, and all contents are found
+    the api searches a long like and finds both files and dirs
+   this is a problem
+    for example, diskChooseSiteF calls it to look for ///e/ideafarm.home.1/
+    if a folder is specified, am i looking for its contents or the folder itself?
+   but if I do that, the semantics are ambiguous
+   my vision was to eliminate support for file names as parameters
+   issue: this api is used to search for both files and dirs
+  think
   nawwh nawwh: do this
   nawwh
    just use fresh as the dut

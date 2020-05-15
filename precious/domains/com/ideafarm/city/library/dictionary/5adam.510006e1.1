@@ -31,7 +31,7 @@ etThread.traceF( tinP , T("cFilesOnA: ")+TF3(cFilesOnA,flFORMAT_NObIGITvALUES|fl
             if( !( ( ++ cFilesOnA ) % ( TUCK << 4 ) ) ) etThread.traceF( tinP , TF3(cFilesOnA,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,8)+T("    ")+T(pInfo->psttIfoName) ) ;
         {
         if( pInfo && pInfo->psttIfoName && pInfo->psttIfoName[ CSpREFIX - 1 + pInfo->psttIfoName->idAdam ].idAdam != '/' )
-        etThread.diskFindFileOrDirF( tinP , pInfo , hFind , tLike ) ;
+        etThread.diskFindFileOrDirOldF( tinP , pInfo , hFind , tLike ) ;
         ZE( infoFileS* , pInfo ) ;
     {
     do
@@ -57,7 +57,7 @@ etThread.traceF( tinP , T("cFilesOnI: ")+TF3(cFilesOnI,flFORMAT_NObIGITvALUES|fl
             if( !( ( ++ cFilesOnI ) % ( TUCK << 4 ) ) ) etThread.traceF( tinP , TF3(cFilesOnI,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,8)+T("    ")+T(pInfo->psttIfoName) ) ;
         {
         if( pInfo && pInfo->psttIfoName && pInfo->psttIfoName[ CSpREFIX - 1 + pInfo->psttIfoName->idAdam ].idAdam != '/' )
-        etThread.diskFindFileOrDirF( tinP , pInfo , hFind , tLike ) ;
+        etThread.diskFindFileOrDirOldF( tinP , pInfo , hFind , tLike ) ;
         ZE( infoFileS* , pInfo ) ;
     {
     do

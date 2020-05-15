@@ -4208,7 +4208,7 @@
 /*N1D*/                                                                         fileNameC fn2( tinP , *this , pInfo->psttIfoName ) ;
 /*N1D*/                                                                     {
 /*N1D*/                                                                     if( pInfo && pInfo->psttIfoName )
-/*N1D*/                                                                     diskFindFileOrDirF( tinP , pInfo , hFind , fn.pathF() ) ;
+/*N1D*/                                                                     diskFindFileOrDirOldF( tinP , pInfo , hFind , fn.pathF() ) ;
 /*N1D*/                                                                 {
 /*N1D*/                                                                 do
 /*N1D*/                                                                 handleC hFind( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_FILEfIND ) ;
@@ -4897,7 +4897,7 @@
 /*N1D*/                                                             traceF( tinP , T("reading part: ")+T(psttc3) ) ;
 /*N1D*/                                                         {
 /*N1D*/                                                         FORsTRINGSiN3( pstt1fp )
-/*N1D*/                                                         diskFindFileOrDirF( tinP , pstt1fp , tFolderFrom+tShortNoSuffix+T("meta.part.*") ) ; ___( pstt1fp ) ;
+/*N1D*/                                                         diskFindFileOrDirOldF( tinP , pstt1fp , tFolderFrom+tShortNoSuffix+T("meta.part.*") ) ; ___( pstt1fp ) ;
 /*N1D*/                                                         ZE( strokeS* , pstt1fp ) ;
 /*N1D*/
 /*N1D*/                                                         fileC foData( tinP , (strokeS*)tLongData , ifcOPENaCCESS_W , 0 , flOPENdETAILS_LOCsEQ , ifcOPENhOW_nCeR ) ;
@@ -4931,7 +4931,7 @@
 /*N1D*/                                                             traceF( tinP , T("part: ")+T(psttc2) ) ;
 /*N1D*/                                                         {
 /*N1D*/                                                         FORsTRINGSiN2( pstt1fp )
-/*N1D*/                                                         diskFindFileOrDirF( tinP , pstt1fp , tFolderFrom+tShortNoSuffix+T("meta.part.*") ) ; ___( pstt1fp ) ;
+/*N1D*/                                                         diskFindFileOrDirOldF( tinP , pstt1fp , tFolderFrom+tShortNoSuffix+T("meta.part.*") ) ; ___( pstt1fp ) ;
 /*N1D*/                                                         ZE( strokeS* , pstt1fp ) ;
 /*N1D*/                                                     {
 /*N1D*/                                                     ZE( countT , idPartLath ) ;
@@ -4980,7 +4980,7 @@
 /*N1D*/                                                     traceF( tinP , T("join / *.meta.numparts.*: ")+T(psttc1) ) ;
 /*N1D*/                                                 {
 /*N1D*/                                                 FORsTRINGSiN1( pstt1f )
-/*N1D*/                                                 diskFindFileOrDirF( tinP , pstt1f , tFolderFrom+T("*.meta.numparts.*") ) ; ___( pstt1f ) ;
+/*N1D*/                                                 diskFindFileOrDirOldF( tinP , pstt1f , tFolderFrom+T("*.meta.numparts.*") ) ; ___( pstt1f ) ;
 /*N1D*/                                                 ZE( strokeS* , pstt1f ) ;
 /*N1D*/                                                 TN( tData , "data" ) ;
 /*N1D*/                                             {
@@ -5091,7 +5091,7 @@
 /*N1D*/                                                         TN( tShort , "" ) ;
 /*N1D*/                                                     {
 /*N1D*/                                                     if( pInfo && strIdF( tinP , sttSlash , pInfo->psttIfoName , - 1 ) != pInfo->psttIfoName->idAdam && ( pInfo->cbUsedHigh || sizeBytes < pInfo->cbUsed ) )
-/*N1D*/                                                     diskFindFileOrDirF( tinP , pInfo , hFind , tLike ) ;
+/*N1D*/                                                     diskFindFileOrDirOldF( tinP , pInfo , hFind , tLike ) ;
 /*N1D*/                                                 {
 /*N1D*/                                                 do
 /*N1D*/                                                 handleC hFind( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_FILEfIND ) ;
@@ -5106,7 +5106,7 @@
 /*N1D*/                                                     diskFileOrDirDeleteF( tinP , psttc1 ) ;
 /*N1D*/                                                 {
 /*N1D*/                                                 FORsTRINGSiN1( pstt1f )
-/*N1D*/                                                 diskFindFileOrDirF( tinP , pstt1f , tFolderTo+T("*.meta.numparts.*") ) ; ___( pstt1f ) ;
+/*N1D*/                                                 diskFindFileOrDirOldF( tinP , pstt1f , tFolderTo+T("*.meta.numparts.*") ) ; ___( pstt1f ) ;
 /*N1D*/                                                 ZE( strokeS* , pstt1f ) ;
 /*N1D*/                                             {
 /*N1D*/
@@ -5115,7 +5115,7 @@
 /*N1D*/                                                     diskFileOrDirDeleteF( tinP , psttc1 ) ;
 /*N1D*/                                                 {
 /*N1D*/                                                 FORsTRINGSiN1( pstt1f )
-/*N1D*/                                                 diskFindFileOrDirF( tinP , pstt1f , tFolderFrom+T("*.meta.numparts.*") ) ; ___( pstt1f ) ;
+/*N1D*/                                                 diskFindFileOrDirOldF( tinP , pstt1f , tFolderFrom+T("*.meta.numparts.*") ) ; ___( pstt1f ) ;
 /*N1D*/                                                 ZE( strokeS* , pstt1f ) ;
 /*N1D*/                                             {
 /*N1D*/
@@ -5124,7 +5124,7 @@
 /*N1D*/                                                     diskFileOrDirDeleteF( tinP , psttc1 ) ;
 /*N1D*/                                                 {
 /*N1D*/                                                 FORsTRINGSiN1( pstt1f )
-/*N1D*/                                                 diskFindFileOrDirF( tinP , pstt1f , tFolderTo+T("*.meta.part.*") ) ; ___( pstt1f ) ;
+/*N1D*/                                                 diskFindFileOrDirOldF( tinP , pstt1f , tFolderTo+T("*.meta.part.*") ) ; ___( pstt1f ) ;
 /*N1D*/                                                 ZE( strokeS* , pstt1f ) ;
 /*N1D*/                                             {
 /*N1D*/
@@ -5133,7 +5133,7 @@
 /*N1D*/                                                     diskFileOrDirDeleteF( tinP , psttc1 ) ;
 /*N1D*/                                                 {
 /*N1D*/                                                 FORsTRINGSiN1( pstt1f )
-/*N1D*/                                                 diskFindFileOrDirF( tinP , pstt1f , tFolderFrom+T("*.meta.part.*") ) ; ___( pstt1f ) ;
+/*N1D*/                                                 diskFindFileOrDirOldF( tinP , pstt1f , tFolderFrom+T("*.meta.part.*") ) ; ___( pstt1f ) ;
 /*N1D*/                                                 ZE( strokeS* , pstt1f ) ;
 /*N1D*/                                             {
 /*N1D*/
@@ -5216,7 +5216,7 @@
 /*N1D*/                                                         //traceF( tinP , T("deleting: ")+T(psttc1) ) ;
 /*N1D*/                                                     {
 /*N1D*/                                                     FORsTRINGSiN1( pstt1f )
-/*N1D*/                                                     countT cFound = diskFindFileOrDirF( tinP , pstt1f , T(iffn)+T(postTiny)+T(".*") , 0 , 0 , 0 , 8 ) ; ___( pstt1f ) ;
+/*N1D*/                                                     countT cFound = diskFindFileOrDirOldF( tinP , pstt1f , T(iffn)+T(postTiny)+T(".*") , 0 , 0 , 0 , 8 ) ; ___( pstt1f ) ;
 /*N1D*/                                                     ZE( strokeS* , pstt1f ) ;
 /*N1D*/
 /*N1D*/                                                     traceF( tinP , T("state space path: ")+T(iffn) ) ;
@@ -5806,7 +5806,7 @@
 /*N1D*/                                                 ZE( osTextT* , postWo ) ;
 /*N1D*/                                             {
 /*N1D*/                                             if( pInfo && strIdF( tinP , sttSlash , pInfo->psttIfoName , - 1 ) != pInfo->psttIfoName->idAdam )
-/*N1D*/                                             diskFindFileOrDirF( tinP , pInfo , hFind , tLike ) ;
+/*N1D*/                                             diskFindFileOrDirOldF( tinP , pInfo , hFind , tLike ) ;
 /*N1D*/                                         {
 /*N1D*/                                         do
 /*N1D*/                                         handleC hFind( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_FILEfIND ) ;
@@ -8215,7 +8215,7 @@ voidT obeyReplacementsF( tinS& tinP , etherC& etherP , strokeS*& psttP , switchC
                 TN( tFileZip , pInfo->psttIfoName ) ;
             {
             if( pInfo )
-            etherP.diskFindFileOrDirF( tinP , pInfo , hFind , tFileDayZipLike ) ;
+            etherP.diskFindFileOrDirOldF( tinP , pInfo , hFind , tFileDayZipLike ) ;
         {
         do
         handleC hFind( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_FILEfIND ) ;
@@ -8308,7 +8308,7 @@ voidT emitTranscriptIfChangedF( tinS& tinP , etherC& etherP , const strokeS* pst
             TN( tShort , "" ) ;
         {
         if( pInfo && etherP.strIdF( tinP , sttSlash , pInfo->psttIfoName , - 1 ) != pInfo->psttIfoName->idAdam )
-        etherP.diskFindFileOrDirF( tinP , pInfo , hFind , tLike ) ;
+        etherP.diskFindFileOrDirOldF( tinP , pInfo , hFind , tLike ) ;
     {
     do
     handleC hFind( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_FILEfIND ) ;

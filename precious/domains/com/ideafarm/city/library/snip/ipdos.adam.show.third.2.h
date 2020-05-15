@@ -31320,12 +31320,13 @@ examples
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34013.etherC.diskFileRefreshF!||
  voidT diskFileSetAttrF( tinS& tinP , const strokeS* const psttP , const flagsT flagsP ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34151.etherC.diskFileSetAttrF!||
- voidT diskFindFileOrDirF( tinS& tinP , infoFileS*& pInfoFileP , handleC& handleP , const strokeS* const psttLikeP ) ;
- //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34019.etherC.diskFindFileOrDirF!||
- voidT diskFindFileOrDirF( tinS& tinP , strokeS*& psttNameP , handleC& handleP , const strokeS* const psttLikeP ) ;
- //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34018.etherC.diskFindFileOrDirF!||
- countT diskFindFileOrDirF( tinS& tinP , strokeS*& pstt1FoundP , const strokeS* const psttLikeP , soulC* pSoulP = 0 , grabC* pGrabP = 0 , const countT csttExtraP = 0 , const countT cMaxP = 0 ) ;
- //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34017.etherC.diskFindFileOrDirF!||
+ voidT diskFindFileOrDirOldF( tinS& tinP , infoFileS*& pInfoFileP , handleC& handleP , const strokeS* const psttLikeP ) ;
+ voidT diskFindFileOrDirF( tinS& tinP , infoFileS*& pInfoFileP , handleC& handleP , const strokeS* const psttPathP , const patternC* pPatternP = 0 ) ;
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34019.etherC.diskFindFileOrDirOldF!||
+ voidT diskFindFileOrDirOldF( tinS& tinP , strokeS*& psttNameP , handleC& handleP , const strokeS* const psttLikeP ) ;
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34018.etherC.diskFindFileOrDirOldF!||
+ countT diskFindFileOrDirOldF( tinS& tinP , strokeS*& pstt1FoundP , const strokeS* const psttLikeP , soulC* pSoulP = 0 , grabC* pGrabP = 0 , const countT csttExtraP = 0 , const countT cMaxP = 0 ) ;
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34017.etherC.diskFindFileOrDirOldF!||
  countT diskChooseSiteF( tinS& tinP , strokeS*& psttP , const strokeS* const psttKeyP , const strokeS* const psttLikeP = 0 ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3401a.etherC.diskChooseSiteF!||
  voidT diskFindMostFreeSpaceF( tinS& tinP , strokeS*& psttDiskP ) ;
@@ -44137,6 +44138,7 @@ i am nonconformant in that all of my member function definitions are in a single
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.36146003.fileNameC.fileNameC!||
     inline operator const strokeS*( voidT ) const { return psttShort ; }
     inline const strokeS* pathF( voidT ) const { return psttPath ; }
+    inline boolT isDirF( voidT ) const { return !psttShort ? 0 : psttShort[ CSpREFIX - 1 + psttShort->idAdam ].idAdam == '/' ; }
 }
 ;
 

@@ -94,7 +94,7 @@
                                                             patternC pat( tinP , etThread , T("txt.*") , ifcIDtYPEpATTERN_FOREIGNwILDCARDmICROSOFT ) ;
                                                         {
                                                         if( pInfo2 && !( F(pInfo2->flags) & flFILEaTTR_DIRECTORY ) )
-                                                        tinP.pEtScratch->diskFindFileOrDirF( tinP , pInfo2 , hFind2 , tDirSubaccount+T("*") ) ; ___( pInfo2 ) ;
+                                                        tinP.pEtScratch->diskFindFileOrDirOldF( tinP , pInfo2 , hFind2 , tDirSubaccount+T("*") ) ; ___( pInfo2 ) ;
                                                         ZE( infoFileS* , pInfo2 ) ;
                                                     {
                                                     do
@@ -102,7 +102,7 @@
                                                     TN( tDirSubaccount , "" ) ; tDirSubaccount = T(pInfo1->psttIfoName) ;
                                                 {
                                                 if( pInfo1 && F(pInfo1->flags) & flFILEaTTR_DIRECTORY && !( F(pInfo1->flags) & flFILEaTTR_DOTdIRECTORY ) )
-                                                tinP.pEtScratch->diskFindFileOrDirF( tinP , pInfo1 , hFind1 , tDirSubaccounts+T("*") ) ; ___( pInfo1 ) ;
+                                                tinP.pEtScratch->diskFindFileOrDirOldF( tinP , pInfo1 , hFind1 , tDirSubaccounts+T("*") ) ; ___( pInfo1 ) ;
                                                 ZE( infoFileS* , pInfo1 ) ;
                                             {
                                             do
@@ -124,7 +124,7 @@
 
                                 }
                                     }
-                                        if( !bAlreadyExists ) { etThread.diskFindFileOrDirF( tinP , psttDirAccount , hFind , tLike ) ; ___( psttDirAccount ) ; }
+                                        if( !bAlreadyExists ) { etThread.diskFindFileOrDirOldF( tinP , psttDirAccount , hFind , tLike ) ; ___( psttDirAccount ) ; }
                                         etThread.delF( tinP , psttDirAccount ) ;
                         
                                         }
@@ -156,7 +156,7 @@
                                     {
                                     while( !etThread && psttDirAccount && !bAlreadyExists )
                         
-                                    etThread.diskFindFileOrDirF( tinP , psttDirAccount , hFind , tLike ) ; ___( psttDirAccount ) ;
+                                    etThread.diskFindFileOrDirOldF( tinP , psttDirAccount , hFind , tLike ) ; ___( psttDirAccount ) ;
                                     ZE( strokeS* , psttDirAccount ) ;
                                     handleC hFind( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_FILEfIND ) ;
                                     TN( tLike , "" ) ; tLike = tIpdosAccounts+T("*") ;

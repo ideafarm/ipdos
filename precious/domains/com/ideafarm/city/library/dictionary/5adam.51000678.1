@@ -325,7 +325,7 @@ etThread.delF( tinP , psttOk1 ) ;
                         if( !( cDo % 0x10 ) ) { CONoUTrAW3( "\r               \rcDo: " , cDo , "\r" ) ; }
                     {
                     if( pInfo && !( F(pInfo->flags) & flFILEaTTR_DIRECTORY ) && !etThread.strIdF( tinP , tAsm , pInfo->psttIfoName ) )
-                    tinP.pEtScratch->diskFindFileOrDirF( tinP , pInfo , hFind , *pptLike[ offl ] ) ; ___( pInfo ) ;
+                    tinP.pEtScratch->diskFindFileOrDirOldF( tinP , pInfo , hFind , *pptLike[ offl ] ) ; ___( pInfo ) ;
                     ZE( infoFileS* , pInfo ) ;
                     cDo -- ;
                 {
@@ -524,7 +524,7 @@ etThread.delF( tinP , psttOk1 ) ;
                         if( !( cDo % 0x10 ) ) { CONoUTrAW3( "\r               \rcDo: " , cDo , "\r" ) ; }
                     {
                     if( pInfo && !( F(pInfo->flags) & flFILEaTTR_DIRECTORY ) && !etThread.strIdF( tinP , tAsm , pInfo->psttIfoName ) )
-                    tinP.pEtScratch->diskFindFileOrDirF( tinP , pInfo , hFind , *pptLike[ offl ] ) ; ___( pInfo ) ;
+                    tinP.pEtScratch->diskFindFileOrDirOldF( tinP , pInfo , hFind , *pptLike[ offl ] ) ; ___( pInfo ) ;
                     ZE( infoFileS* , pInfo ) ;
                     cDo -- ;
                 {
@@ -654,7 +654,7 @@ etThread.delF( tinP , psttOk1 ) ;
                         if( !( cDo % 0x10 ) ) { CONoUTrAW3( "\r               \rcDo: " , cDo , "\r" ) ; }
                     {
                     if( pInfo && !( F(pInfo->flags) & flFILEaTTR_DIRECTORY ) && !etThread.strIdF( tinP , tAsm , pInfo->psttIfoName ) )
-                    tinP.pEtScratch->diskFindFileOrDirF( tinP , pInfo , hFind , *pptLike[ offl ] ) ; ___( pInfo ) ;
+                    tinP.pEtScratch->diskFindFileOrDirOldF( tinP , pInfo , hFind , *pptLike[ offl ] ) ; ___( pInfo ) ;
                     ZE( infoFileS* , pInfo ) ;
                     cDo -- ;
                 {
@@ -890,7 +890,7 @@ ZE( strokeS* , psttOk2 ) ;
 ZE( strokeS* , psttOk1 ) ;
 
 }
-    while( ~hFind && !ether ) ; //U:: BUG: NEED TO CALL WITHIN LOOP: diskFindFileOrDirF
+    while( ~hFind && !ether ) ; //U:: BUG: NEED TO CALL WITHIN LOOP: diskFindFileOrDirOldF
     }
         DEL( pInfo ) ;
         }
@@ -898,7 +898,7 @@ ZE( strokeS* , psttOk1 ) ;
             cDo ++ ;
         {
         if( pInfo && !( F(pInfo->flags) & flFILEaTTR_DIRECTORY ) )
-        tinP.pEtScratch->diskFindFileOrDirF( tinP , pInfo , hFind , *pptLike[ offl ] ) ; ___( pInfo ) ;
+        tinP.pEtScratch->diskFindFileOrDirOldF( tinP , pInfo , hFind , *pptLike[ offl ] ) ; ___( pInfo ) ;
         ZE( infoFileS* , pInfo ) ;
     {
     do

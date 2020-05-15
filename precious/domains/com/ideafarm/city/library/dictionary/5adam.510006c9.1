@@ -35,7 +35,7 @@ etThread.traceF( tinP , T("ok") ) ;
             if( !( ++ idLook % ( TUCK << 4 ) ) ) etThread.traceF( tinP , TF2(idLook,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tInspecting+T(pInfo->psttIfoName) ) ;
         {
         if( pInfo && pInfo->psttIfoName )
-        etThread.diskFindFileOrDirF( tinP , pInfo , hFind , tPathArchive+T("!*") ) ;
+        etThread.diskFindFileOrDirOldF( tinP , pInfo , hFind , tPathArchive+T("!*") ) ;
         ZE( infoFileS* , pInfo ) ;
     {
     do
@@ -109,7 +109,7 @@ etThread.traceF( tinP , T("2: getting authorization key") ) ;
     {
     FORsTRINGSiN1( pstt1Files )
     ZE( countT , idLine ) ;
-    countT cFound = etThread.diskFindFileOrDirF( tinP , pstt1Files , T("///d/tmp/x/files.archive.*.ttt") ) ; ___( pstt1Files ) ;
+    countT cFound = etThread.diskFindFileOrDirOldF( tinP , pstt1Files , T("///d/tmp/x/files.archive.*.ttt") ) ; ___( pstt1Files ) ;
     ZE( strokeS* , pstt1Files ) ;
 {
 stackC stNix( tinP , etThread , TAG( TAGiDnULL ) , flSTACKc_DOnOTsERIALIZE , ifcSTACKtYPE_PTR_byteT ) ;
