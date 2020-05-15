@@ -33,6 +33,7 @@
                 OStEXTA( ostot , pInfoFileP->postOsName ) ;
                 OStEXT(  ostot , 0x200 )
             {
+            if( !( F(pInfoFileP->flags) & flFILEaTTR_DIRECTORY ) )      //20200515@1204: ADDED THIS LINE BECAUSE (1) ".writing" TAG SHOULD NEVER BE USED WHEN OPENING A DIRECTORY, AND (2) LOOKING FOR A TAG FILE FOR A SYSTEM DIRECTORY CAN FAIL ACCES DENIED
             ZE( boolT , bWriting ) ;
 
             if( !pInfoFileP ) break ;
