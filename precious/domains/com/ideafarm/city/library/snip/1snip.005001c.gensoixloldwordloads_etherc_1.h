@@ -351,19 +351,19 @@
     _pSwSoixlOldApi->ungrabF( tinP ) ;
 }
 {
-    TN( tNameSoixlOld , "diskFindFileOrDirF_4@b4@" ) ;
+    TN( tNameSoixlOld , "diskFindFileOrDirOldF_4@b4@" ) ;
     _pSwSoixlOldApi->grabF( tinP , TAG( TAGiDnULL ) ) ;
     _psttLeverSoixlOldApi = tNameSoixlOld ;
     if( *_pSwSoixlOldApi ) { BLAMMO ; }
-    *_pSwSoixlOldApi = (countT)diskFindFileOrDirF_4Pb4P_GF ;
+    *_pSwSoixlOldApi = (countT)diskFindFileOrDirOldF_4Pb4P_GF ;
     _pSwSoixlOldApi->ungrabF( tinP ) ;
 }
 {
-    TN( tNameSoixlOld , "diskFindFileOrDirF_4@4@h@grabC@33" ) ;
+    TN( tNameSoixlOld , "diskFindFileOrDirOldF_4@4@h@grabC@33" ) ;
     _pSwSoixlOldApi->grabF( tinP , TAG( TAGiDnULL ) ) ;
     _psttLeverSoixlOldApi = tNameSoixlOld ;
     if( *_pSwSoixlOldApi ) { BLAMMO ; }
-    *_pSwSoixlOldApi = (countT)diskFindFileOrDirF_4P4PhPgrabCP33_GF ;
+    *_pSwSoixlOldApi = (countT)diskFindFileOrDirOldF_4P4PhPgrabCP33_GF ;
     _pSwSoixlOldApi->ungrabF( tinP ) ;
 }
 {
