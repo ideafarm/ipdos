@@ -5136,7 +5136,7 @@ use this rather than _ to avoid the overhead of _
 //
 
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200548.ifcIDtYPEpATTERN END
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200549.IFmATCHwILD BEGIN
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200549.IFpATTERN BEGIN
 
 
 //
@@ -5152,10 +5152,10 @@ use this rather than _ to avoid the overhead of _
 
 /*1*//*IFpATTERN(etherP,patternP,psttP)*//*1*/
 
-#define IFpATTERN(etherP,patternP,psttP)                                                                                                                                                      \
-                                                                                                                                                                                                \
-        strokeS _sttq( 0 , sc_IGNOREqUOTES ) ;                                                                                                                                                  \
-        countT _idf = 1 ;                                                                                                                                                                       \
+#define IFpATTERN(etherP,patternP,psttP)                                                                                                                                                                            \
+                                                                                                                                                                                                                    \
+        strokeS _sttq( 0 , sc_IGNOREqUOTES ) ;                                                                                                                                                                      \
+        countT _idf = 1 ;                                                                                                                                                                                           \
         if( (const strokeS*)(psttP) && ((const strokeS*)(psttP))->idAdam && 1 == (etherP).strIdOptimizedClosureF( tinP , 0 , flSTRmATCH_null , _idf , _sttq , patternP , psttP ) )
 
 //
@@ -5165,7 +5165,7 @@ use this rather than _ to avoid the overhead of _
 // Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
 
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200549.IFmATCHwILD END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200549.IFpATTERN END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.thirdParties : 1snip.15000014.thirdparties BEGIN
 
 
