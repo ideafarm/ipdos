@@ -3759,7 +3759,6 @@ void elf_obey_C::translateF( const char* postGroupP , int bPauseP )
 
 void elf_obey_C::compileF( char* postPrefixP , char* postIdiForeignP , char* postSuffixP )
 {
-    sayF( "+" ) ;
     int bExe = !!strcmp( postPrefixP , "5adam" ) ;
 
     char postDefShort[ 0x100 ] ;
@@ -3869,7 +3868,6 @@ void elf_obey_C::compileF( char* postPrefixP , char* postIdiForeignP , char* pos
             ether.deleteAllF( "\\ideafarm.home.1\\ephemeral\\domains\\com\\ideafarm\\city\\workshop\\1raw" , postRaw ) ;
         }
     }
-    sayF( "-" ) ;
 }
 
 void elf_obey_C::linkF( char* postIdiForeignP )

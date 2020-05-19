@@ -33,6 +33,7 @@
                 OStEXTA( ostot , pInfoFileP->postOsName ) ;
                 OStEXT(  ostot , 0x200 )
             {
+            if( pInfoFileP->postOsName && pInfoFileP->postOsName[ c_strlenIF( pInfoFileP->postOsName ) - 1 ] != '\\' )  // IF NOT A DIRECTORY
             ZE( boolT , bWriting ) ;
 
             if( !pInfoFileP ) break ;
