@@ -44,6 +44,8 @@
     "    . diskFileSetAttrF_4@7       . ?? ")+T(postName)+T("\r\n"
     "    . diskFindFileOrDirOldF_4@b4@       . ?? ")+T(postName)+T("\r\n"
     "    . diskFindFileOrDirOldF_4@4@h@grabC@33       . ?? ")+T(postName)+T("\r\n"
+    "    . diskFindFileOrDirF_4@b4@patternC@       . ?? ")+T(postName)+T("\r\n"
+    "    . diskFindFileOrDirF_4@4@patternC@h@grabC@33       . ?? ")+T(postName)+T("\r\n"
     "    . diskChooseSiteF_4@4@4@       . ?? ")+T(postName)+T("\r\n"
     "    . diskFindMostFreeSpaceF_4@       . ?? ")+T(postName)+T("\r\n"
     "    . diskGetHoverF_4@       . ?? ")+T(postName)+T("\r\n"

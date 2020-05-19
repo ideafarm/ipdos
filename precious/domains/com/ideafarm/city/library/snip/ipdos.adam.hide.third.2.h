@@ -5058,6 +5058,7 @@ use this rather than _ to avoid the overhead of _
 #define flSTRiDoPTIMIZEDcLOSURE_RIGHTtOlEFT         0xe000010b
 #define flSTRiDoPTIMIZEDcLOSURE_SHORTtOlONG         0xe000020b
 #define flSTRiDoPTIMIZEDcLOSURE_DOnOTiGNORE         0xe000040b
+#define flSTRiDoPTIMIZEDcLOSURE_NOlEFTOVERS         0xe000080b
 /*3*/
 #define flSTRiDoPTIMIZEDcLOSURE_null    0xe000000b
 
@@ -5155,7 +5156,7 @@ use this rather than _ to avoid the overhead of _
                                                                                                                                                                                                 \
         strokeS _sttq( 0 , sc_IGNOREqUOTES ) ;                                                                                                                                                  \
         countT _idf = 1 ;                                                                                                                                                                       \
-        if( (const strokeS*)(psttP) && ((const strokeS*)(psttP))->idAdam && 1 == (etherP).strIdOptimizedClosureF( tinP , 0 , flSTRmATCH_null , _idf , _sttq , patternP , psttP ) && !_idf )
+        if( (const strokeS*)(psttP) && ((const strokeS*)(psttP))->idAdam && 1 == (etherP).strIdOptimizedClosureF( tinP , 0 , flSTRmATCH_null , _idf , _sttq , patternP , psttP ) )
 
 //
 // Respecting the rights of other people is an important part of empowering one another.
@@ -31327,10 +31328,12 @@ examples
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34018.etherC.diskFindFileOrDirOldF!||
  countT diskFindFileOrDirOldF( tinS& tinP , strokeS*& pstt1FoundP , const strokeS* const psttLikeP , soulC* pSoulP = 0 , grabC* pGrabP = 0 , const countT csttExtraP = 0 , const countT cMaxP = 0 ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34017.etherC.diskFindFileOrDirOldF!||
- countT diskFindFileOrDirF( tinS& tinP , strokeS*& pstt1FoundP , const strokeS* const psttPathP , const patternC* pPatternP = 0 , soulC* pSoulP = 0 , grabC* pGrabP = 0 , const countT csttExtraP = 0 , const countT cMaxP = 0 ) ;
  voidT diskFindFileOrDirF( tinS& tinP , infoFileS*& pInfoFileP , handleC& handleP , const strokeS* const psttPathP , const patternC* pPatternP = 0 ) ;
- voidT diskFindFileOrDirF( tinS& tinP , strokeS*& psttNameP , handleC& handleP , const strokeS* const psttPathP , const patternC* pPatternP = 0 ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.360021ef.etherc.diskfindfileordirf!||
+ voidT diskFindFileOrDirF( tinS& tinP , strokeS*& psttNameP , handleC& handleP , const strokeS* const psttPathP , const patternC* pPatternP = 0 ) ;
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.360021f0.etherc.diskfindfileordirf!||
+ countT diskFindFileOrDirF( tinS& tinP , strokeS*& pstt1FoundP , const strokeS* const psttPathP , const patternC* pPatternP = 0 , soulC* pSoulP = 0 , grabC* pGrabP = 0 , const countT csttExtraP = 0 , const countT cMaxP = 0 ) ;
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.360021f1.etherc.diskfindfileordirf!||
  countT diskChooseSiteF( tinS& tinP , strokeS*& psttP , const strokeS* const psttKeyP , const strokeS* const psttLikeP = 0 ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3401a.etherC.diskChooseSiteF!||
  voidT diskFindMostFreeSpaceF( tinS& tinP , strokeS*& psttDiskP ) ;

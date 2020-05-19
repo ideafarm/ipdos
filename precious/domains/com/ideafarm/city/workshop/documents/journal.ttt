@@ -6469,9 +6469,11 @@ I have other business to attend to today and tomorrow, but plan to continue to w
 
 
 
+   20200518@1643: 68 79 ; 39 51
 
+   20200515@1348: 68 77 ; 40 55
 
-
+   20200515@1300: cooling unit apparently being serviced or inspected: became noticeably cooler immediately after
 
    20200514@0911: 63 77 ; 39 67
 
@@ -6544,9 +6546,13 @@ I have other business to attend to today and tomorrow, but plan to continue to w
 
 
 
-
-
-
+  !subjob A: time management decisions
+  !subjob B: debug this code, which won't build: dictionary.20200515@1928.bad.new.code.wont.build/
+  !subjob C: study speed issues by doing the search that osMakeF does for 5adam.51000621.1 in dictionary, using where reporting
+  !subjob B: osMakeF( EVE ) is broken because ".*" fails to try [0,0]'.'
+  !subjob C: optimize for when pattern is a literal
+  edit core old overload to be a thin wrapper for new core overload
+  all overloads are coded and unit tested
     conj: yes
    issue: is the trailing / to be specified in the pattern?
   do the root overload
@@ -6621,6 +6627,79 @@ I have other business to attend to today and tomorrow, but plan to continue to w
  objective: elegance
 !subjob C: migrate all diskFindFileOrDirF calls away from specifying *? wildcards
 
+
+
+  next: sameo the failure, which is that ADAM won't build EVE and/or EVE won't run
+
+  !subjob A: test reversion to baseline
+  revert to a good baseline: pending
+ playcraft
+ changed: i was working on migrating from diskFindFileOrDirOldF by editing the core overload to call its replacement
+!subjob B: debug this code, which won't build: dictionary.20200515@1928.bad.new.code.wont.build/
+
+
+
+
+
+
+
+    for example, ".*" corresponding to a 01 stroke suffix on psttBig will incorrectly apply a minimum length of 01 to the woth varying, '.': 
+   conj: oo varyings next to each other result in min for the woth being miscalculated
+   this workaround will enable me to set up a dut to debug ".*" patterns
+   osMakeF workaround: '*' rather than ".*"
+  think
+   | 
+   | //TN( tLike , "" ) ; tLike = T(psttHome)+T("precious/domains/com/ideafarm/city/library/dictionary/5adam.")+tIdiForeign+T(".*") ; //PRODUCTION
+   | TN( tLike , "" ) ; tLike = T(psttHome)+T("precious/domains/com/ideafarm/city/library/dictionary/5adam.")+tIdiForeign+T("*") ;  //U:: BUG: ".*" DOES NOT WORK CORRECTLY (REPEAT[1,1]+ IS TRIED, NEVER REPEAT[0,0] FOR THE '.')
+   | 
+  listing
+ playcraft
+ changed: diskFindFileOrDirOldF now uses diskFindFileOrDirF (which uses IPDOS patterns)
+!subjob B: osMakeF( EVE ) is broken because ".*" fails to try [0,0]'.'
+
+
+
+  build all: pending
+  gen bundle: aok ; pending overnight stability
+  build and fresh appeared to work
+ playcraft
+ objective: confidence
+!subjob A: test reversion to baseline
+
+
+
+
+
+
+   then switch to legal process and thrust forward with that
+   then spend a day resolving archive issues
+   take a day off ; maybe oo: nope: take exactly wo day off (tomorrow)
+   suspend software work after verifying good clean baseline and retention of the new code
+  decision
+    cloak is not urgently needed; the workaround is to keep the archive offline and resume resolving corruption mismatches
+    very productive over past strongs and quarter ; now it is time to rest, recreate, and switch to law
+    the new pattern matching code is way cool but needs debugging and speed optimization (not yet ready for prime time)
+    legal process requires my attention
+    archive integrity remains at risk and unverified
+    i am exhausted by this code push after archive drama
+   stylized facts
+  think
+ playcraft
+ objective: correct priorities, stress reduction, production
+!subjob A: time management decisions
+
+
+
+
+
+
+  next: set up dut
+ playcraft
+ objective: speed
+!subjob C: study speed issues by doing the search that osMakeF does for 5adam.51000621.1 in dictionary, using where reporting
+
+
+
 !job A: periodically verify that the bottom of this file still has: // 20200503@2128: THIS NOTE IS TO DETECT WHETHER RIMSTAR TRUNCATES THIS FILE AS IT GROWS
 
 
@@ -6637,6 +6716,19 @@ I have other business to attend to today and tomorrow, but plan to continue to w
 =========================================================================================================================================================
 
 
+  cool ; it works!
+  do this
+    this must only be done when the patternC (1) is a literal and (2) ends with '/'
+    for such patterns, diskFindFileOrDirF just concatenates the path with the pattern and searches for that
+   alt: define a "literal" mapping type and a "literal" flag within patternC
+    every file and dir within the path folder will be inspected
+    when the leaf directory name contains '.', that sets up an optimized closure search
+   this is inefficient for oo reasons
+   semantically, the new api forces application code to specify a leaf directory as a pattern
+  think
+ playcraft
+ objective: speed
+!subjob C: optimize for when pattern is a literal
   cool ; found wo
     __( idMemorySpaceP && !( F(tinP.flagsThreadMode3) & flTHREADmODE3_ALLOWeXPLICITmEMORYsPACE ) && thirdC::third_idPhaseAdam_IF( tinP ) >= ifcIDpHASEaDAM_PROLOGaDAMmAIN1 && thirdC::third_idPhaseAdam_IF( tinP ) < ifcIDpHASEaDAM_EPILOGaDAMmAINa1 ) ;
    71_          113_9

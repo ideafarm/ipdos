@@ -10,6 +10,8 @@
 }
     return idHit ;
 
+    if( bChatter ) traceF( tinP , T("returning [idHit,idFirstP:    ")+TF2(idHit,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+TF2(idFirstP,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
+
     }
         }
             if( !idHit && pstMatchP ) pstMatchP->purgeF( tinP , cPlatesWas ) ;
@@ -52,11 +54,11 @@
                         else if( F(flagsMe) & flSTRiDoPTIMIZEDcLOSURE_SHORTtOlONG )
                         }
                             flagsMe = flagsMeSave ;
-                            restore_cNote  = restore_idAdam = 0 ;
+                            restore_cNote  = restore_idAdam = - 1 ;
                             patch_cNote  = restore_cNote   ;
                             patch_idAdam = restore_idAdam  ;
                         {
-                        else if( restore_idAdam )
+                        else if( restore_idAdam != - 1 || restore_cNote != - 1 )
                         }
                             patch_cNote = patch_idAdam = cLength - 1 ;   //ASSUME: THIS ASSUMES THAT WHAT IS BEING REPEATED IS OF LENGTH 1
 
@@ -68,21 +70,27 @@
                         idFirstP = idfSave ;
 
                             break ;
-                        if( idHit )                                                         //U:: TO FIND A BUG:  COMBINE THESE OO TESTS AND USE A SINGLE LINE
+                        if( idHit && ( !idFirstP || !( F(flagsP) & flSTRiDoPTIMIZEDcLOSURE_NOlEFTOVERS ) ) )
 
-                        else if( foth_idsPatch == idsPatch ) tinP.pEther->traceF( tinP , T("----    ")+TF2(idCall,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb43+TF2(patch_idAdam,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2(patch_cNote,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2(idHit,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
-                        else if( reth_idsPatch == idsPatch ) tinP.pEther->traceF( tinP , T("----    ")+TF2(idCall,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb42+TF2(patch_idAdam,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2(patch_cNote,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2(idHit,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
-                        else if( ooth_idsPatch == idsPatch ) tinP.pEther->traceF( tinP , T("----    ")+TF2(idCall,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb41+TF2(patch_idAdam,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2(patch_cNote,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2(idHit,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
-                             if( woth_idsPatch == idsPatch ) tinP.pEther->traceF( tinP , T("----    ")+TF2(idCall,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2(patch_idAdam,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2(patch_cNote,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2(idHit,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
+                        }
+                            else if( foth_idsPatch == idsPatch ) tinP.pEther->traceF( tinP , T("----    ")+TF2(idCall,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb43+TF2(patch_idAdam,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2(patch_cNote,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2(idHit,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
+                            else if( reth_idsPatch == idsPatch ) tinP.pEther->traceF( tinP , T("----    ")+TF2(idCall,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb42+TF2(patch_idAdam,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2(patch_cNote,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2(idHit,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
+                            else if( ooth_idsPatch == idsPatch ) tinP.pEther->traceF( tinP , T("----    ")+TF2(idCall,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb41+TF2(patch_idAdam,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2(patch_cNote,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2(idHit,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
+                                 if( woth_idsPatch == idsPatch ) tinP.pEther->traceF( tinP , T("----    ")+TF2(idCall,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2(patch_idAdam,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2(patch_cNote,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2(idHit,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
+                        {
+                        if( bChatter )
          
                         //U:: idHit = strIdOptimizedClosureF( tinP , pstMatchP , flagsMatchP , idFirstP , sttQuoteP , psttSmallP , psttBigP , flagsP , pFlagsOverrideP ? ( ++ pFlagsOverrideP ) -- : 0 , pcMinOverrideP ? ( ++ pcMinOverrideP ) -- : 0 , pcMaxOverrideP ? ( ++ pcMaxOverrideP ) -- : 0 , idLastP , idP ) ;
                         idHit = strIdOptimizedClosureF( tinP , pstMatchP , flagsMatchP , idFirstP , sttQuoteP , psttSmallP , psttBigP , flagsP , pFlagsOverrideP ? ( ++ pFlagsOverrideP ) -- : 0 , pcMinOverrideP ? ( ++ pcMinOverrideP ) -- : 0 , pcMaxOverrideP ? ( ++ pcMaxOverrideP ) -- : 0 , idLastP , idP ) ;
 
-                        else if( foth_idsPatch == idsPatch ) tinP.pEther->traceF( tinP , T("++++    ")+TF2(idCall,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb43+TF2(patch_idAdam,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2(patch_cNote,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
-                        else if( reth_idsPatch == idsPatch ) tinP.pEther->traceF( tinP , T("++++    ")+TF2(idCall,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb42+TF2(patch_idAdam,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2(patch_cNote,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
-                        else if( ooth_idsPatch == idsPatch ) tinP.pEther->traceF( tinP , T("++++    ")+TF2(idCall,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb41+TF2(patch_idAdam,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2(patch_cNote,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
-                             if( woth_idsPatch == idsPatch ) tinP.pEther->traceF( tinP , T("++++    ")+TF2(idCall,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2(patch_idAdam,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2(patch_cNote,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
-                            ++ idCall ;
+                        }
+                            else if( foth_idsPatch == idsPatch ) tinP.pEther->traceF( tinP , T("++++    ")+TF2(idCall,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb43+TF2(patch_idAdam,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2(patch_cNote,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
+                            else if( reth_idsPatch == idsPatch ) tinP.pEther->traceF( tinP , T("++++    ")+TF2(idCall,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb42+TF2(patch_idAdam,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2(patch_cNote,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
+                            else if( ooth_idsPatch == idsPatch ) tinP.pEther->traceF( tinP , T("++++    ")+TF2(idCall,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb41+TF2(patch_idAdam,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2(patch_cNote,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
+                                 if( woth_idsPatch == idsPatch ) tinP.pEther->traceF( tinP , T("++++    ")+TF2(idCall,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2(patch_idAdam,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2(patch_cNote,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
+                        {
+                        if( bChatter )
+                        ++ idCall ;
 
                         countT idfSave = idFirstP ;
                     {
@@ -104,11 +112,11 @@
                             restore_cNote  = patch_cNote  ;
                             restore_idAdam = patch_idAdam ;
                         {
-                        if( !restore_idAdam )
+                        if( restore_idAdam == - 1 && restore_cNote == - 1 )
                     {
                     if( stTryLength ) //CS:CODEsYNCH:PSEUDODUPLICATE 51012003 51012003
-                    ZE( countT , restore_cNote ) ;
-                    ZE( countT , restore_idAdam ) ;
+                    countT restore_cNote  = - 1 ;  // "
+                    countT restore_idAdam = - 1 ;  //THIS IS THE PATCH REQUEST VALUE SO WILL NEVER OCCUR DURING PATCH OPTIMIZATION
 
                     else patch_idAdam = patch_cNote = cMaxMe ;                                  //MAXIMAL CLOSURE BEHAVIOR (WILL DECREASE THE LENGTH FROM THIS MAXIMUM UNTIL FIND A HIT
                     }
@@ -203,7 +211,7 @@
                     }
                         }
                             stIdHitAfter << idHit ;
-                            traceF( tinP , T("after: found in big at [idHit]:    ")+TF2(idHit,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
+                            if( bChatter ) traceF( tinP , T("after: found in big at [idHit]:    ")+TF2(idHit,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
                         {
                         if( idHit )
                         idHit = strIdF( tinP , 0 , flSTRmATCH_null , idf , sttq , psttAfter , psttBigP , 0 , 1 ) ;
@@ -213,7 +221,7 @@
                     strokeS sttq( 0 , sc_IGNOREqUOTES ) ;
                     ZE( countT , idHit ) ;
 
-                    traceF( tinP , T("this is after the patch [idf,idl,string]:    ")+TF2(c2f.c1,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2(c2f.c2,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+T(psttAfter) ) ;
+                    if( bChatter ) traceF( tinP , T("this is after the patch [idf,idl,string]:    ")+TF2(c2f.c1,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2(c2f.c2,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+T(psttAfter) ) ;
                     strSubstringF( tinP , psttAfter , idf , idl , psttSmallP ) ; ___( psttAfter ) ;
                     countT idl = c2f.c2 ;
                     countT idf = c2f.c1 ;
@@ -229,7 +237,7 @@
                     }
                         }
                             stIdHitBefore << idHit ;
-                            traceF( tinP , T("before: found in big at [idHit,idLath]:    ")+TF2(idHit,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2(idLath,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
+                            if( bChatter ) traceF( tinP , T("before: found in big at [idHit,idLath]:    ")+TF2(idHit,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2(idLath,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
                             countT idLath = idf ? idf - 1 : psttBigP->idAdam ;
                         {
                         if( idHit )
@@ -240,7 +248,7 @@
                     strokeS sttq( 0 , sc_IGNOREqUOTES ) ;
                     ZE( countT , idHit ) ;
 
-                    traceF( tinP , T("this is before the patch [idf,idl,string]:    ")+TF2(c2f.c1,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2(c2f.c2,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+T(psttBefore) ) ;
+                    if( bChatter ) traceF( tinP , T("this is before the patch [idf,idl,string]:    ")+TF2(c2f.c1,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2(c2f.c2,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+T(psttBefore) ) ;
                     strSubstringF( tinP , psttBefore , idf , idl , psttSmallP ) ; ___( psttBefore ) ;
                     countT idl = c2f.c2 ;
                     countT idf = c2f.c1 ;
@@ -251,7 +259,7 @@
                 stackC stIdHitBefore( tinP , third , TAG( TAGiDnULL ) , flSTACKc_DOnOTsERIALIZE , ifcSTACKtYPE_countT ) ;
                 ZE( strokeS* , psttBefore ) ;
 
-                traceF( tinP , T("patch [idBefore,idAfter]:")+tb4+TF2(idBefore,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2(idAfter,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
+                if( bChatter ) traceF( tinP , T("patch [idBefore,idAfter]:")+tb4+TF2(idBefore,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2(idAfter,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
 
                 }
                     while( !stFixedSmall.third && ~hDown && !idAfter ) ;
@@ -271,13 +279,13 @@
                 ZE( countT , idAfter ) ;
                 ZE( countT , idBefore ) ;
 
-                traceF( tinP , T("patch [idsPatch,flagsMe,cMinMe,cMaxMe]:")+tb4+TF2(idsPatch,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2(flagsMe,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2(cMinMe,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2(cMaxMe,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
+                if( bChatter ) traceF( tinP , T("patch [idsPatch,flagsMe,cMinMe,cMaxMe]:")+tb4+TF2(idsPatch,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2(flagsMe,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2(cMinMe,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2(cMaxMe,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
                 TN( tb4 , "    " ) ;
 
                 ;
                     : psttBigP->idAdam - 1
                     ? *pcMaxOverrideP & ~BM_HIGH
-                countT cMaxMe = pcMaxOverrideP && *pcMaxOverrideP && *pcMaxOverrideP & ~BM_HIGH < psttBigP->idAdam - 1          // "- 1" IS BECAUSE THIS IS MAX REPEAT COUNT TO TRY, AND "REPEAT COUNT" IS NET ( REPEATING 3 TIMES MEANS 4 CONSECUTIVE OCCURANCES
+                countT cMaxMe = pcMaxOverrideP && *pcMaxOverrideP && ( *pcMaxOverrideP & ~BM_HIGH ) < ( psttBigP->idAdam - 1 )          // "- 1" IS BECAUSE THIS IS MAX REPEAT COUNT TO TRY, AND "REPEAT COUNT" IS NET ( REPEATING 3 TIMES MEANS 4 CONSECUTIVE OCCURANCES
 
                 ;
                     : 0
@@ -303,7 +311,16 @@
                 countT& patch_idAdam  = *(countT*)&psttSmallP[ CSpREFIX - 1 + idsPatch ].idAdam  ;
             {
             else
-            if( !idsPatch ) idHit = strIdF( tinP , pstMatchP , flagsMatchP , idFirstP , sttQuoteP , psttSmallP , psttBigP , idLastP , idP ) ;
+            }
+                }
+                    idFirstP = idfSave ;
+                    idHit = 0 ;
+                {
+                if( idHit && idFirstP && F(flagsP) & flSTRiDoPTIMIZEDcLOSURE_NOlEFTOVERS )
+                idHit = strIdF( tinP , pstMatchP , flagsMatchP , idFirstP , sttQuoteP , psttSmallP , psttBigP , idLastP , idP ) ;
+                countT idfSave = idFirstP ;
+            {
+            if( !idsPatch )
 
             }
                 else if(  woth_idsPatch != idsPatch &&  ooth_idsPatch != idsPatch &&  reth_idsPatch != idsPatch && !foth_idsPatch ) foth_idsPatch = idsPatch ;
@@ -352,7 +369,7 @@
                 }
                     break ;
                     bAllFixedFound = 0 ;
-                    traceF( tinP , T("a fixed small was not found, inspecting left to right, in big [text,dump]:    \"")+T(psttf)+T("\"    ")+T(psttd) ) ;
+                    if( bChatter ) traceF( tinP , T("a fixed small was not found, inspecting left to right, in big [text,dump]:    \"")+T(psttf)+T("\"    ")+T(psttd) ) ;
                 {
                 if( !idHit )
                 countT idHit = strIdF( tinP , 0 , flSTRmATCH_null , idfBig , sttq , tWrapped , psttBigP , 0 , 1 ) ;
@@ -360,9 +377,12 @@
                 TN( tWrapped , "" ) ; tWrapped = tn+S2(sa_SSSaND,sc_ccSSS)+T(psttf)+S2(sa_SSSaNDeND,sc_ccSSS) ;
                 TN( tn , "" ) ;
 
-                traceF( tinP , T("fixed small [idf,idl,text,dump]:    ")+TF2(c2f.c1,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2(c2f.c2,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    \"")+T(psttf)+T("\"    ")+T(psttd) ) ;
+                }
+                    traceF( tinP , T("fixed small [idf,idl,text,dump]:    ")+TF2(c2f.c1,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2(c2f.c2,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    \"")+T(psttf)+T("\"    ")+T(psttd) ) ;
+                    strDumpStrokesIF( tinP , psttd , psttf ) ; ___( psttd ) ;
+                {
+                if( bChatter )
 
-                strDumpStrokesIF( tinP , psttd , psttf ) ; ___( psttd ) ;
                 ZE( strokeS* , psttd ) ;
 
                 strSubstringF( tinP , psttf , idf , idl , psttSmallP ) ; ___( psttf ) ;
@@ -395,6 +415,9 @@
         strDumpStrokesIF( tinP , psttd , psttSmallP ) ; ___( psttd ) ;
         ZE( strokeS* , psttd ) ;
     {
+    if( bChatter )
+
+    boolT bChatter = 1 ; //0 IN PRODUCTION
 
     }
         if( POOP ) return 0 ;

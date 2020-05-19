@@ -20,7 +20,7 @@
         {
         if( pstMatchP && F(flagsMatchP) & flSTRmATCH_AND )
 
-        if( bLastActWasToIgnore ) idbDoP -- ;
+        if( bLathActWasToIgnore || !bLathTested ) idbDoP -- ;
     {
     else
     }
@@ -37,7 +37,11 @@
         }
             }
                 }
-                    if( !bDoNotAdvanceBig ) idbDoP ++ ;
+                    }
+                        idbDoP ++ ;
+                        bLathTested = 0 ;
+                    {
+                    if( !bDoNotAdvanceBig && bLathTested )
                     idsDoP ++ ;
                 {
                 else
@@ -49,7 +53,11 @@
                     else
                     if( cRepeat ) cRepeat -- ;
 
-                    if( !bDoNotAdvanceBig ) idbDoP ++ ;
+                    }
+                        idbDoP ++ ;
+                        bLathTested = 0 ;
+                    {
+                    if( !bDoNotAdvanceBig && bLathTested )
                     idsDoP = idsDoSaveInLoop ;
                 {
                 if( cRepeat || cRepeatIf )
@@ -147,6 +155,8 @@
                     : sssTestF( tinP , bDoNotAdvanceBig , psttSmallP , psttBigP , idsDoP , idbDoP , tBlack , tPunctuation )
                     ? psttSmallP[ CSpREFIX - 1 + idsDoP ] == psttBigP[ CSpREFIX - 1 + idbDoP ]
                 boolT bOk = cArmLiterals
+                bLathTested = 1 ;
+                bLathActWasToIgnore = 0 ;
             {
             else
             }
@@ -176,6 +186,8 @@
                     if( !bUndoIfNotMatch )
                 {
                 if( !sssOrF( tinP , pstMatchP , flagsMatchP , psttSmallP , psttBigP ,  idsDoP ,  idbDoP ) )
+                bLathTested = 1 ;
+                bLathActWasToIgnore = 0 ;
             {
             else if( !cArmLiterals && psttSmallP[ CSpREFIX - 1 + idsDoP ].idCaste == sc_ccSSS && psttSmallP[ CSpREFIX - 1 + idsDoP ].idAdam  == sa_SSSoR )
             }
@@ -205,6 +217,8 @@
                     if( !bUndoIfNotMatch )
                 {
                 if( !sssAndF( tinP , pstMatchP , flagsMatchP , psttSmallP , psttBigP ,  idsDoP ,  idbDoP ) )
+                bLathTested = 1 ;
+                bLathActWasToIgnore = 0 ;
             {
             else if( !cArmLiterals && psttSmallP[ CSpREFIX - 1 + idsDoP ].idCaste == sc_ccSSS && psttSmallP[ CSpREFIX - 1 + idsDoP ].idAdam == sa_SSSaND )
             }
@@ -240,7 +254,7 @@
                     idsDoP ++ ;
                     countT cIgnore = psttSmallP[ CSpREFIX - 1 + idsDoP ].cNote ;
 
-                    bLastActWasToIgnore = 1 ;
+                    bLathActWasToIgnore = 1 ;
                 {
                 else if( psttSmallP[ CSpREFIX - 1 + idsDoP ].idAdam == -1 && psttSmallP[ CSpREFIX - 1 + idsDoP ].cNote )            // SPECIAL VALUES THAT MEAN: "IGNORE THE NEXT cNote SUBEXPRESSIONS"
                 }
@@ -248,6 +262,7 @@
                     cRepeat   = psttSmallP[ CSpREFIX - 1 + idsDoP ].idAdam           ;
                 {
                 if( psttSmallP[ CSpREFIX - 1 + idsDoP ].idAdam <= psttSmallP[ CSpREFIX - 1 + idsDoP ].cNote )
+                bLathActWasToIgnore = 0 ;
             {
             else if( !cArmLiterals && psttSmallP[ CSpREFIX - 1 + idsDoP ].idCaste == sc_ccSSSrEPEAT )
             }
@@ -291,6 +306,7 @@
                 {
                 else
                 if( idsDoP == idsMax ) break ; // SHOULD BE IMPOSSIBLE SINCE THE CODE THAT SETS idsMax OBEYS sa_SSSlITERAL
+                bLathActWasToIgnore = 0 ;
             {
             else if( psttSmallP[ CSpREFIX - 1 + idsDoP ].idCaste == sc_ccSSS && psttSmallP[ CSpREFIX - 1 + idsDoP ].idAdam == sa_SSSlITERALeND )
             }
@@ -301,6 +317,7 @@
                 {
                 else
                 if( idsDoP == idsMax ) break ; // SHOULD BE IMPOSSIBLE SINCE THE CODE THAT SETS idsMax OBEYS sa_SSSlITERAL
+                bLathActWasToIgnore = 0 ;
             {
             else if( !cArmLiterals && psttSmallP[ CSpREFIX - 1 + idsDoP ].idCaste == sc_ccSSS && psttSmallP[ CSpREFIX - 1 + idsDoP ].idAdam == sa_SSSlITERALbEGIN )
             }
@@ -311,14 +328,13 @@
                 {
                 else
                 if( idsDoP == idsMax ) break ; // SHOULD BE IMPOSSIBLE SINCE THE CODE THAT SETS idsMax OBEYS sa_SSSlITERAL
+                bLathActWasToIgnore = 0 ;
             {
             if( !cArmLiterals && psttSmallP[ CSpREFIX - 1 + idsDoP ].idCaste == sc_ccSSS && psttSmallP[ CSpREFIX - 1 + idsDoP ].idAdam == sa_SSSlITERAL )
 
             ZE( boolT , bDoNotAdvanceBig ) ;
             const countT idbDoSaveInLoop = idbDoP ;
             const countT idsDoSaveInLoop = idsDoP ;
-
-            bLastActWasToIgnore = 0 ;
         {
         if( idsDoP <= idsMax && idbDoP <= psttBigP->idAdam ) for(;;)
         ZE( countT , idbDoLathMatch ) ;
@@ -340,7 +356,8 @@
         idsDoP ++ ;                           // WOTH AFTER '('
     {
     if( !POOP )
-    ZE( boolT  , bLastActWasToIgnore ) ;
+    ZE( boolT  , bLathTested ) ;
+    ZE( boolT  , bLathActWasToIgnore ) ;
 
     __Z( idsMax ) ;
     countT idsMax = strIdLathExpressionF( tinP , psttSmallP , idsDoP ) ;              // SINCE idsDoP MUST POINT TO AN [sc_ccSSS,sa_SSSaND], idsMax IS HERE SET TO THE CORRESPONDING [sc_ccSSS,sa_SSSaNDeND]
