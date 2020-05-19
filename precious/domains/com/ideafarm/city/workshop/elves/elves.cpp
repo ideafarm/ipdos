@@ -511,7 +511,7 @@ class elf_obey_C : public elfC
     char*           postCmd ;
 
     void            assembleF( const char* postGroupP ) ;
-    void            compileF( const char* postGroupP ) ;
+    void            compileF( const char* postGroupP , int bPauseP ) ;
     void            compileF( char* postPrefixP , char* postIdiForeignP , char* postSuffixP ) ;
     void            filepileF( const char* postToP , const char* postLikeP ) ;
     int             isStaleF( const char* postToLikeP , const char* postFromLikeP ) ;
@@ -523,7 +523,7 @@ class elf_obey_C : public elfC
     char*           pbAtF( int& costDoneP , char* pbBigP , int cbBigP , char* postSmallP ) ;
     int             pushGroupIfF( const char* postGroupP , FILETIME ftSourceP , FILETIME ftSnipP ) ;
     void            reorderF( char* postToP , char* postFromP , int costP ) ;
-    void            translateF( const char* postGroupP ) ;
+    void            translateF( const char* postGroupP , int bPauseP ) ;
 
                     public :
 
@@ -2629,8 +2629,10 @@ void elf_obey_C::liveF( void )
                 sayF( cToDo , flSAY_MIDDLE ) ;
                 sayF( cToDo == 1 ? " elf will get to work right away!" : " elves will get to work right away!" , flSAY_MIDDLE ) ;
                 sayF( "!paragraph" , flSAY_END ) ;
+
+                int bPause = cGroupsPushed > 0x100 ;    // IF FEW PUSHED THEN I WILL PRESUME THAT THE PRECOMPILED HEADERS HAVE ALREADY BEEN BUILT
         
-                while( cToDo -- ) new elf_obey_C( "!worker_3compile" , idMe ) ;
+                while( cToDo -- ) new elf_obey_C( bPause ? "!worker_3compile_pause" : "!worker_3compile_nopause" , idMe ) ;
             }
         }
         else if( !strcmp( postCmd , "4link" ) )
@@ -3448,7 +3450,7 @@ void elf_obey_C::liveF( void )
                 }
             }
         }
-        else if( !strcmp( postCmd , "!worker_3compile" ) )
+        else if( !strcmp( postCmd , "!worker_3compile_pause" ) || !strcmp( postCmd , "!worker_3compile_nopause" ) )
         {
             while( !etherC::smellF() && lifoPostC::countIF( pRootPostGroup ) )
             {
@@ -3471,7 +3473,7 @@ void elf_obey_C::liveF( void )
                     batLifoPostGroup.ungrabF() ;
                 }
         
-                /*if( !strcmp( postGroup , "31000" ) )*/ translateF( postGroup ) ;
+                /*if( !strcmp( postGroup , "31000" ) )*/ translateF( postGroup , !strcmp( postCmd , "!worker_3compile_pause" ) ) ;
                 delete postGroup ;
             }
         }
@@ -3591,15 +3593,15 @@ void elf_obey_C::assembleF( const char* postGroupP )
     }
 }
 
-void elf_obey_C::compileF( const char* postGroupP )
+void elf_obey_C::compileF( const char* postGroupP , int bPauseP )
 {
     if( strlen( postGroupP ) == 5 )
     {
         int bPrecompile = 0 ;
         if( !setIfZeroAM( bPrecompiling , 1 ) ) bPrecompile = 1 ;
-        else if( cElvesIF() > 0x20 )                              // IF LOTS OF ELVES THEN PRESUME THAT PRECOMPILED HEADERS HAVE NOT YET BEEN BUILT, SO NAP
+        else if( bPauseP )
         {
-            int cDo = 0x10 ;
+            int cDo = 0x40 ;
             while( cDo -- && ( !bHeaderMadeHideThird || !bHeaderMadeShowThird ) ) { Sleep( 0x100 ) ; }
         }
 
@@ -3742,7 +3744,7 @@ void elf_obey_C::compileF( const char* postGroupP )
     }
 }
 
-void elf_obey_C::translateF( const char* postGroupP )
+void elf_obey_C::translateF( const char* postGroupP , int bPauseP )
 {
     char postSay[ 0x10 ] ;
     strcat( postSay , "\t" ) ;
@@ -3752,7 +3754,7 @@ void elf_obey_C::translateF( const char* postGroupP )
     sayF( postSay , flSAY_DADiSgROUP | flSAY_END ) ;
 
     if( !strcmp( postGroupP , "31000" ) ) assembleF( postGroupP ) ;
-    else                                  compileF( postGroupP ) ;
+    else                                  compileF( postGroupP , bPauseP ) ;
 }
 
 void elf_obey_C::compileF( char* postPrefixP , char* postIdiForeignP , char* postSuffixP )
