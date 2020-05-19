@@ -3454,7 +3454,9 @@ void elf_obey_C::liveF( void )
             {
                 char* postGroup = 0 ;
                 {
+                    //sayF( "+" ) ;
                     batLifoPostGroup.grabF() ;
+                    //sayF( "!" ) ;
         
                     if( pRootPostGroup )
                     {
@@ -3465,6 +3467,7 @@ void elf_obey_C::liveF( void )
                         delete pPeek ;
                     }
         
+                    //sayF( "-" ) ;
                     batLifoPostGroup.ungrabF() ;
                 }
         
@@ -3594,7 +3597,11 @@ void elf_obey_C::compileF( const char* postGroupP )
     {
         int bPrecompile = 0 ;
         if( !setIfZeroAM( bPrecompiling , 1 ) ) bPrecompile = 1 ;
-        else while( !bHeaderMadeHideThird || !bHeaderMadeShowThird ) Sleep( 0x100 ) ;
+        else if( cElvesIF() > 0x20 )                              // IF LOTS OF ELVES THEN PRESUME THAT PRECOMPILED HEADERS HAVE NOT YET BEEN BUILT, SO NAP
+        {
+            int cDo = 0x10 ;
+            while( cDo -- && ( !bHeaderMadeHideThird || !bHeaderMadeShowThird ) ) { Sleep( 0x100 ) ; }
+        }
 
         // 123456789abcdef
         // 3func.34*
@@ -3735,8 +3742,6 @@ void elf_obey_C::compileF( const char* postGroupP )
     }
 }
 
-
-
 void elf_obey_C::translateF( const char* postGroupP )
 {
     char postSay[ 0x10 ] ;
@@ -3752,6 +3757,7 @@ void elf_obey_C::translateF( const char* postGroupP )
 
 void elf_obey_C::compileF( char* postPrefixP , char* postIdiForeignP , char* postSuffixP )
 {
+    sayF( "+" ) ;
     int bExe = !!strcmp( postPrefixP , "5adam" ) ;
 
     char postDefShort[ 0x100 ] ;
@@ -3861,6 +3867,7 @@ void elf_obey_C::compileF( char* postPrefixP , char* postIdiForeignP , char* pos
             ether.deleteAllF( "\\ideafarm.home.1\\ephemeral\\domains\\com\\ideafarm\\city\\workshop\\1raw" , postRaw ) ;
         }
     }
+    sayF( "-" ) ;
 }
 
 void elf_obey_C::linkF( char* postIdiForeignP )
