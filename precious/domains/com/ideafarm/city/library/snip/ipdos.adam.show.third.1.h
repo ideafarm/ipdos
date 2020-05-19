@@ -443,7 +443,7 @@ class   /*ff*/fileNameC/*ff*/                   ; /*ff*//**//*ff*/
 /**/
 /*1*//*ENABLEdROPnOTES*//*1*/
 
-#define ENABLEdROPnOTES
+//#define ENABLEdROPnOTES
 
 
 //
