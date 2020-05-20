@@ -44,7 +44,6 @@
                                     postc += costLit ;
                                 {
                                 while( postHit && postHit + costLit < poste )
-                                countT costLit = thirdC::c_strlenIF( tinP , pPatternP->ppostLiteral[ offLit ] ) ;
                                 osTextT* poste = postc + thirdC::c_strlenIF( tinP , postc ) ;
                             {
                             if( !pPatternP->ppostLiteral[ offLit + 1 ] && F(pPatternP->flagsLiterals) & flPATTERNlITERALS_LITERALeNDING )
@@ -66,6 +65,9 @@
                             (
                             if
                             osTextT* postHit = thirdC::c_strstrIF( tinP , postc , pPatternP->ppostLiteral[ offLit ] ) ;
+
+                            if( pPatternP->ppostLiteral[ offLit ][ costLit - 1 ] == '/' ) pPatternP->ppostLiteral[ offLit ][ costLit - 1 ] = '\\' ; // PATCH THE LITERAL SO THAT IT WILL MATCH ITS BASE OS MAPPING (SLASH TO BACKSLASH) ; NOTE: THIS HAS IMPLICATIONS IF THE patternC INSTANCE IS USED MULTIPLE TIMES (IT WILL BE PATCHED ONLY WO TIME) ; THIS IS DONE HERE RATHER THAN IN patternC BECAUSE patternC CAN BE USED FOR SEARCHES OTHER THAN FOR FILES SO FUTURE CODE MIGHT USE THE LITERALS IN WAYS THAT WOULD NOT WANT THE PATCH
+                            countT costLit = thirdC::c_strlenIF( tinP , pPatternP->ppostLiteral[ offLit ] ) ;
                         {
                         for( countT offLit = 0 ; offLit < sizeof pPatternP->ppostLiteral / sizeof pPatternP->ppostLiteral[ 0 ] && pPatternP->ppostLiteral[ offLit ] ; offLit ++ )
 
@@ -79,7 +81,6 @@
                         for( countT offn = costOsName - 1 ; offn ; offn -- )
                         ZE( osTextT* , postc ) ;    // WILL POINT TO LEAF
 
-                        boolT bDir = pInfoP->postOsName[ costOsName - 1 ] == '\\' ;
                         countT costOsName = thirdC::c_strlenIF( tinP , pInfoP->postOsName ) ;
 
                         boolT bOk = 1 ;
