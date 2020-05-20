@@ -1,4 +1,11 @@
 
+
+
+#define flPATTERNlITERALS_LITERALeNDING                               0xe00002ff
+#define flPATTERNlITERALS_LITERALbEGINNING                            0xe00001ff
+#define flPATTERNlITERALS_null                                        0xe00000ff
+
+
 // IPDOS (tm) <> IdeaFarm (tm) Piggyback Distributed Operating System
 
 // For build environment info, see file "\ideafarm.work\backed.up.never\txt\readme.first.ipdos.build.environment.txt"

@@ -8,6 +8,95 @@
 
 }
     }
+        ether.traceF( tinP , T("literal:    \"")+T(ppostLiteral[offLit])+T("\"") ) ;
+    {
+    for( offLit = 0 ; offLit < sizeof ppostLiteral / sizeof ppostLiteral[ 0 ] && ppostLiteral[ offLit ] ; offLit ++ )
+    offLit = 0 ;
+
+    }
+        }
+            if( offLit >= sizeof ppostLiteral / sizeof ppostLiteral[ 0 ] ) break ;
+            offo = 0 ;
+            offLit ++ ; 
+        {
+        if( bFlush && offo )
+
+        }
+            }
+                break ;
+                if( bSuppress ) bSuppress = 0 ;
+            {
+            default :
+            }
+                break ;
+                bSuppress = 1 ;
+            {
+            case sc_ccSSSrEPEAT :
+            }
+                break ;
+                }
+                    }
+                        break ;
+                        idLevel -- ;
+                    {
+                    case sa_SSSoReND  :
+                    case sa_SSSaNDeND :
+                    }
+                        break ;
+                        idLevel ++ ;
+                    {
+                    case sa_SSSoR  :
+                    case sa_SSSaND :
+                {
+                switch( psttPattern[ CSpREFIX - 1 + ids ].idAdam )
+                if( bSuppress ) bSuppress = 0 ;
+            {
+            case sc_ccSSS :
+            }
+                break ;
+
+                }
+                    }
+                        ppostLiteral[ offLit ][ offo ++ ] = (osTextT)psttPattern[ CSpREFIX - 1 + ids ].idAdam ;
+
+                        }
+                            offo = 0 ;
+                            thirdC::c_memsetIF( tinP      , ppostLiteral[ offLit ] , psttPattern->idAdam + 1 ) ;
+                            etherP.newF(        tinP , LF , ppostLiteral[ offLit ] , psttPattern->idAdam + 1 ) ; ___( ppostLiteral[ offLit ] ) ;
+                        {
+                        if( !ppostLiteral[ offLit ] )
+                        bFlush = 0 ;
+
+                        else if( ids == psttPattern->idAdam - 1 ) flagsLiterals |= flPATTERNlITERALS_LITERALeNDING    ;
+                             if( ids == 2                       ) flagsLiterals |= flPATTERNlITERALS_LITERALbEGINNING ;
+                    {
+                    else
+                    if( bSuppress ) bSuppress = 0 ;
+                {
+                if( idLevel == 1 )
+            {
+            case sc_cALPHABET1 :
+        {
+        switch( psttPattern[ CSpREFIX - 1 + ids ].idCaste )
+        boolT bFlush = 1 ;
+    {
+    for( countT ids = 1 ; ids <= psttPattern->idAdam ; ids ++ )
+    ZE( boolT  , bSuppress ) ;
+    ZE( countT , idLevel   ) ;
+    ZE( countT , offo      ) ;
+    ZE( countT , offLit    ) ;
+
+    __NZ( psttPattern[ CSpREFIX ].idAdam  - sa_SSSaND ) ;   // (LITERAL STROKES ARE ACCUMULATED ONLY WHEN idLevel == 1)
+    __NZ( psttPattern[ CSpREFIX ].idCaste - sc_ccSSS  ) ;   // THE FOLLOWING CODE ASSUMES THAT psttPattern IS A CONFORMANT IPDOS (TM) PATTERN, WHICH MUST BEGIN WITH sa_SSSaND
+
+    thirdC::c_memsetIF( tinP , (byteT*)ppostLiteral , sizeof ppostLiteral ) ;
+
+    ether.delF( tinP , psttd ) ;
+    ether.traceF( tinP , T("[pattern]:    ")+T(psttd) ) ;
+    ether.strDumpStrokesIF( tinP , psttd , psttPattern , 0 ) ; ___( psttd ) ;
+    ZE( strokeS* , psttd ) ;
+
+    }
         case ifcIDtYPEpATTERN_FOREIGNuNIXrEGULAReXPRESSION    : {  ; break ; }  //U:: MARKUP THAT EXACTLY SIMULATES UNIX REGULAR EXPRESSION SEMANTICS AND SYNTAX
         case ifcIDtYPEpATTERN_FOREIGNwILDCARDsTRICT           : {  ; break ; }  //U:: MARKUP THAT MAPS '.', '?' AND '*' STRICTLY (EXACTLY WO DOT, EXACTLY WO, AT LEAST WO)
         case ifcIDtYPEpATTERN_FOREIGNwILDCARDmICROSOFT        : { ether.strRegExpFromWildcardsF( tinP , psttPattern , flagsOptimize , pFlagsOverride , pcMinOverride , pcMaxOverride , psttP ) ; ___( psttPattern ) ; ___( pFlagsOverride ) ; ___( pcMinOverride ) ; ___( pcMaxOverride ) ; ; break ; } // MARKUP THAT EXACTLY SIMULATES MICROSOFT WINDOWS FILE NAME WILDCARD SEMANTICS
@@ -28,7 +117,8 @@
     {
     IFbEcAREFUL
 {
-pcMaxOverride( 0 )
+flagsLiterals( flPATTERNlITERALS_null )
+pcMaxOverride( 0 ) ,
 pcMinOverride( 0 ) ,
 pFlagsOverride( 0 ) ,
 flagsOptimize( 0 ) ,

@@ -44093,6 +44093,8 @@ i am nonconformant in that all of my member function definitions are in a single
     flagsT*     pFlagsOverride  ;
     countT*     pcMinOverride   ;
     countT*     pcMaxOverride   ;
+    osTextT*    ppostLiteral[ 0x10 ]    ;
+    flagsT      flagsLiterals           ;
 
     public :
 
@@ -44103,6 +44105,7 @@ i am nonconformant in that all of my member function definitions are in a single
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.36145003.patternC.patternC!||
 
     friend countT etherC::strIdOptimizedClosureF( tinS& tinP , stackC* pstMatchP , const flagsT flagsMatchP , countT& idFirstP , strokeS& sttQuoteP , const patternC& patP , const strokeS* psttBigP , const countT idLastP , sCountT idP ) ;
+    friend voidT etherC::diskFindFileOrDirF( tinS& tinP , infoFileS*& pInfoP , handleC& handleP , const strokeS* const psttPathP , const patternC* pPatternP ) ;
 }
 ;
 
