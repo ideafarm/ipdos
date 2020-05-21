@@ -31,7 +31,8 @@ DONE( tmTimeNowF )
         TELL( "working" )
     {
     while( !ether && !etThread )
-    __( tinP.monitor.idThread - ifcIDtHREADlOW_tmTimeNowF ) ;
+    //CONJ: idThread MUST BE ENFORCED BECAUSE THE LOW THREADS ARE MONITORED AND THE idThread VALUES ARE USED TO INDEX INTO AN ARRAY
+    __( tinP.monitor.idThread - ifcIDtHREADlOW_tmTimeNowF ) ; //COMMENT THIS OUT WHEN USING etherWhereF EARLY IN adamMainF
 {
 if( !( cInstancesI ++ ) )
 static countT cInstancesI ;

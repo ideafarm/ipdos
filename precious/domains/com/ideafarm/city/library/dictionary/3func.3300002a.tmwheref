@@ -159,6 +159,7 @@ DONE( tmWhereF )
 
         }
             grabWhere.ungrabF( tinP ) ;
+            //etThread.traceF( tinP , tSay0 ) ; //U:: COMMENT OUT IN PRODUCTION
             }
                 }
                     }
@@ -220,11 +221,16 @@ DONE( tmWhereF )
                 if( ppTinWhereI[ off ] ) //U:: USE A grabC TO SERIALIZE SO DON'T GET BIT BY A DANGLING POINTER TO A DOOMED tinS, OBJECT
             {
             for( countT off = 0 ; off < cThreadsMaxWhereI ; off ++ )
+            //etThread.traceF( tinP , tSay1 ) ; //U:: COMMENT OUT IN PRODUCTION
             grabWhere.grabF( tinP , TAG( TAGiDnULL ) ) ;
+            //etThread.traceF( tinP , tSay2 ) ; //U:: COMMENT OUT IN PRODUCTION
         {
         if( cEnabledWhereI )
     {
     while( !etThread && !bQuitWhereI && !ether ) //COMMENT OUT !ether IF WANT TO LOOK AT QUIT BEHAVIOR
+    //TN( tSay0 , "where is looking 0 napping " ) ; //U:: COMMENT OUT IN PRODUCTION
+    //TN( tSay1 , "where is looking 1 got" ) ; //U:: COMMENT OUT IN PRODUCTION
+    //TN( tSay2 , "where is looking 2 grabbing" ) ; //U:: COMMENT OUT IN PRODUCTION
     sgnReady.giveF( tinP ) ;
     switchC swTally( tinP , etThread , TAG( TAGiDnULL ) , flSTACKc_DOnOTsERIALIZE , pbLever , sizeof c2Lever ) ;
     const byteT* pbLever = (const byteT*)&c2Lever ;
