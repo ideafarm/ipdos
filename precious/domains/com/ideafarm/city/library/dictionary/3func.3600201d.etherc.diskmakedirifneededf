@@ -32,8 +32,11 @@
                 FORsTRINGSiN1( pstt1b )
                 ZE( boolT , bFound ) ;
     
-                diskFindFileOrDirOldF( tinP , pstt1b , psttDir ) ; ___( pstt1b ) ;
+                diskFindFileOrDirF( tinP , pstt1b , fnLike.pathF() , &pat ) ; ___( pstt1b ) ;
                 ZE( strokeS* , pstt1b ) ;
+
+                patternC pat( tinP , *this , fnLike , ifcIDtYPEpATTERN_FOREIGNwILDCARDmICROSOFT ) ;
+                fileNameC fnLike( tinP , *this , psttDir ) ;
             {
             if( idSlash > ( bLan ? 8 : 5 ) )
 

@@ -74,35 +74,31 @@
                                                     }
                                                         DEL( pInfo2 ) ;
                                                         }
+                                                            etThread.delF( tinP , posti ) ;
                                                             }
-                                                                etThread.delF( tinP , posti ) ;
-                                                                }
-                                                                    tinP.pEtScratch->boxPutF( tinP , pInfo2->psttIfoName , tNew , tNew.csF( tinP ) ) ;
-                                                                    etThread.delF( tinP , psttw ) ;
-                                                                    TN( tNew , "" ) ; tNew = T(psttw) ;
-                                                                    etThread.strReplaceF( tinP , psttw , T(posti) , tEmailLoggedIn , tEmailTicket , 0 , flSTRrEPLACE_IGNOREqUOTES ) ; ___( psttw ) ;
-                                                                    ZE( strokeS* , psttw ) ;
-                                                                {
-                                                                else if( posti && *posti )
-                                                                if( POOP ) { POOPR ; }
-                                                                tinP.pEtScratch->boxGetShadowF( tinP , posti , costi , pInfo2->psttIfoName , 1 ) ; ___( posti ) ;
-                                                                ZE( countT , costi ) ;
-                                                                ZE( osTextT* , posti ) ;
+                                                                tinP.pEtScratch->boxPutF( tinP , pInfo2->psttIfoName , tNew , tNew.csF( tinP ) ) ;
+                                                                etThread.delF( tinP , psttw ) ;
+                                                                TN( tNew , "" ) ; tNew = T(psttw) ;
+                                                                etThread.strReplaceF( tinP , psttw , T(posti) , tEmailLoggedIn , tEmailTicket , 0 , flSTRrEPLACE_IGNOREqUOTES ) ; ___( psttw ) ;
+                                                                ZE( strokeS* , psttw ) ;
                                                             {
-                                                            IFpATTERN( etThread , pat , fn )
-                                                            fileNameC fn( tinP , etThread , pInfo2->psttIfoName ) ;
-                                                            patternC pat( tinP , etThread , T("txt.*") , ifcIDtYPEpATTERN_FOREIGNwILDCARDmICROSOFT ) ;
+                                                            else if( posti && *posti )
+                                                            if( POOP ) { POOPR ; }
+                                                            tinP.pEtScratch->boxGetShadowF( tinP , posti , costi , pInfo2->psttIfoName , 1 ) ; ___( posti ) ;
+                                                            ZE( countT , costi ) ;
+                                                            ZE( osTextT* , posti ) ;
                                                         {
                                                         if( pInfo2 && !( F(pInfo2->flags) & flFILEaTTR_DIRECTORY ) )
-                                                        tinP.pEtScratch->diskFindFileOrDirOldF( tinP , pInfo2 , hFind2 , tDirSubaccount+T("*") ) ; ___( pInfo2 ) ;
+                                                        tinP.pEtScratch->diskFindFileOrDirF( tinP , pInfo2 , hFind2 , tDirSubaccount , &pat ) ; ___( pInfo2 ) ;
                                                         ZE( infoFileS* , pInfo2 ) ;
                                                     {
                                                     do
                                                     handleC hFind2( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_FILEfIND ) ;
+                                                    patternC pat( tinP , etThread , T("txt.*") , ifcIDtYPEpATTERN_FOREIGNwILDCARDmICROSOFT ) ;
                                                     TN( tDirSubaccount , "" ) ; tDirSubaccount = T(pInfo1->psttIfoName) ;
                                                 {
                                                 if( pInfo1 && F(pInfo1->flags) & flFILEaTTR_DIRECTORY && !( F(pInfo1->flags) & flFILEaTTR_DOTdIRECTORY ) )
-                                                tinP.pEtScratch->diskFindFileOrDirOldF( tinP , pInfo1 , hFind1 , tDirSubaccounts+T("*") ) ; ___( pInfo1 ) ;
+                                                tinP.pEtScratch->diskFindFileOrDirF( tinP , pInfo1 , hFind1 , tDirSubaccounts ) ; ___( pInfo1 ) ;
                                                 ZE( infoFileS* , pInfo1 ) ;
                                             {
                                             do
@@ -124,7 +120,7 @@
 
                                 }
                                     }
-                                        if( !bAlreadyExists ) { etThread.diskFindFileOrDirOldF( tinP , psttDirAccount , hFind , tLike ) ; ___( psttDirAccount ) ; }
+                                        if( !bAlreadyExists ) { etThread.diskFindFileOrDirF( tinP , psttDirAccount , hFind , tIpdosAccounts ) ; ___( psttDirAccount ) ; }
                                         etThread.delF( tinP , psttDirAccount ) ;
                         
                                         }
@@ -156,10 +152,9 @@
                                     {
                                     while( !etThread && psttDirAccount && !bAlreadyExists )
                         
-                                    etThread.diskFindFileOrDirOldF( tinP , psttDirAccount , hFind , tLike ) ; ___( psttDirAccount ) ;
+                                    etThread.diskFindFileOrDirF( tinP , psttDirAccount , hFind , tIpdosAccounts ) ; ___( psttDirAccount ) ;
                                     ZE( strokeS* , psttDirAccount ) ;
                                     handleC hFind( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_FILEfIND ) ;
-                                    TN( tLike , "" ) ; tLike = tIpdosAccounts+T("*") ;
                                 {
                                 TN( tShortFileOwner , "txt.email.owner.txt" ) ;
                                 TN( tIpdosAccounts , "///ideafarm/ephemeral/backed.up.daily/domains/com/ideafarm/ipdos/accounts/" ) ;

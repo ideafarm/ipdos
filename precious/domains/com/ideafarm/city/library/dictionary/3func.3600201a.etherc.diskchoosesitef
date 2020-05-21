@@ -22,13 +22,13 @@
         delF( tinP , psttEnv ) ;
         delF( tinP , psttSetting ) ;
         }
-            delF( tinP , psttLike ) ;
+            delF( tinP , psttPath ) ;
 
             }
-                strMakeF( tinP , psttP , psttLike ) ; ___( psttP ) ;
-                diskMakeDirF( tinP , psttLike ) ;
+                strMakeF( tinP , psttP , psttPath ) ; ___( psttP ) ;
+                diskMakeDirF( tinP , psttPath ) ;
                 delF( tinP , psttDiskBest ) ;
-                if( !POOP ) psttLike[ CSpREFIX + 3 ] = psttDiskBest[ CSpREFIX + 3 ] ;
+                if( !POOP ) psttPath[ CSpREFIX + 3 ] = psttDiskBest[ CSpREFIX + 3 ] ;
                 diskFindMostFreeSpaceF( tinP , psttDiskBest ) ; ___( psttDiskBest ) ;
                 ZE( strokeS* , psttDiskBest ) ;
             {
@@ -44,19 +44,22 @@
                     FORsTRINGSiN1( pstt1List )
                 {
                 if( pstt1List && pstt1List->idAdam )
-                QUITOZ diskFindFileOrDirOldF( tinP , pstt1List , psttLike ) ; ___( pstt1List ) ; QUITR
+                QUITOZ diskFindFileOrDirF( tinP , pstt1List , fnLike.pathF() , &pat ) ; ___( pstt1List ) ; QUITR
                 ZE( strokeS* , pstt1List ) ;
+                
+                patternC pat( tinP , *this , fnLike , ifcIDtYPEpATTERN_FOREIGNwILDCARDmICROSOFT ) ;
+                fileNameC fnLike( tinP , *this , psttPath ) ;
             {
 
             }
-                strFuseF( tinP , psttLike , tLike ) ; ___( psttLike ) ;
-                    traceF( tinP , T("diskChooseSiteF / warning: probable configuration error (missing drive letter?): unexpected key [pattern]: ")+tLike ) ;
+                strFuseF( tinP , psttPath , tPath ) ; ___( psttPath ) ;
+                    traceF( tinP , T("diskChooseSiteF / warning: probable configuration error (missing drive letter?): unexpected key [pattern]: ")+tPath ) ;
                 if( strCompareF( tinP , psttKeyP , T("ideafarm") ) )
-                TN( tLike , "" ) ; tLike = T("///?/")+T(psttKeyP)+T(".home.")+TF2(idHomeDisk,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("/") ;
+                TN( tPath , "" ) ; tPath = T("///?/")+T(psttKeyP)+T(".home.")+TF2(idHomeDisk,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("/") ;
             {
             else
-            if( psttLikeP ) { strFuseF( tinP , psttLike , psttLikeP                                                 ) ; ___( psttLike ) ; }
-            ZE( strokeS* , psttLike ) ;
+            if( psttPathP ) { strFuseF( tinP , psttPath , psttPathP                                                 ) ; ___( psttPath ) ; }
+            ZE( strokeS* , psttPath ) ;
             const countT idHomeDisk = ifc_idHomeIdisk_IF() ;
         {
         else
@@ -64,7 +67,7 @@
         //    strMakeF( tinP , psttP , psttEnv ) ; ___( psttP ) ;
         //    delF( tinP , psttb ) ;
         //    if( psttb && !psttb->idAdam ) diskMakeDirF( tinP , psttEnv ) ;
-        //    diskFindFileOrDirOldF( tinP , psttb , psttEnv ) ; ___( psttb ) ;
+        //    diskFindFileOrDirF( tinP , psttb , psttEnv ) ; ___( psttb ) ;
         //    ZE( strokeS* , psttb ) ;
         //    __( psttEnv[ CSpREFIX - 1 + psttEnv->idAdam ].idAdam - '/' ) ;
         //{
@@ -74,8 +77,12 @@
             strMakeF( tinP , psttP , psttSetting ) ; ___( psttP ) ;
             delF( tinP , psttb ) ;
             if( psttb && !psttb->idAdam ) diskMakeDirF( tinP , psttSetting ) ;
-            diskFindFileOrDirOldF( tinP , psttb , psttSetting ) ; ___( psttb ) ;
+            diskFindFileOrDirF( tinP , psttb , fnLike.pathF() , &pat ) ; ___( psttb ) ;
             ZE( strokeS* , psttb ) ;
+
+            patternC pat( tinP , *this , fnLike , ifcIDtYPEpATTERN_FOREIGNwILDCARDmICROSOFT ) ;
+            fileNameC fnLike( tinP , *this , psttSetting ) ;
+
             __( psttSetting[ CSpREFIX - 1 + psttSetting->idAdam ].idAdam - '/' ) ;
         {
         if( psttSetting )
@@ -106,18 +113,18 @@
         if( POOP ) return 0 ;
         __( !!psttKeyP && !psttKeyP->idAdam ) ;
         if( POOP ) return 0 ;
-        __( psttLikeP && psttLikeP[ CSpREFIX - 1 + psttLikeP->idAdam ].idAdam - '/' ) ;
-        __( !psttLikeP && !psttKeyP ) ;
+        __( psttPathP && psttPathP[ CSpREFIX - 1 + psttPathP->idAdam ].idAdam - '/' ) ;
+        __( !psttPathP && !psttKeyP ) ;
         if( POOP ) return 0 ;
     {
     IFbEcAREFUL
     SCOOP
 {
-/*1*/countT etherC::diskChooseSiteF( tinS& tinP , strokeS*& psttP , const strokeS* const psttKeyP , const strokeS* const psttLikeP )/*1*/
+/*1*/countT etherC::diskChooseSiteF( tinS& tinP , strokeS*& psttP , const strokeS* const psttKeyP , const strokeS* const psttPathP )/*1*/
 
 /**/
 */
- psttLikeP
+ psttPathP
    must not contain '/' or '.'
   must be alphanumeric or '_'
   example: T("103001f")

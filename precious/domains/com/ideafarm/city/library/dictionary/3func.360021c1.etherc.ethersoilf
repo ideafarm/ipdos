@@ -4185,30 +4185,26 @@
 /*N1D*/                                                                     DEL( pInfo ) ;
 /*N1D*/                                                                     }
 /*N1D*/                                                                         }
-/*N1D*/                                                                             }
-/*N1D*/                                                                                 if( !value && !idDeathType ) diskFileOrDirDeleteF( tinP , pInfo->psttIfoName ) ;
+/*N1D*/                                                                             if( !value && !idDeathType ) diskFileOrDirDeleteF( tinP , pInfo->psttIfoName ) ;
 /*N1D*/
-/*N1D*/                                                                                 //__( idDeathType ) ;
-/*N1D*/                                                                                 //__( value ) ;             // NOT CHECKED, BECAUSE CAN BE CAUSED BY USER ERROR (TARGET ZIP FILE IS CORRUPT)
-/*N1D*/                                                                                 osProcessF( tinP , countTC() , countTC() , value , idDeathType , tExeUnzip , tArg ) ; //THIS CAN FAIL (E.G. IF TARGET ZIP FILE IS CORRUPT
-/*N1D*/                                                                                 ZE( countT , idDeathType ) ;
-/*N1D*/                                                                                 ZE( countT , value ) ;
-/*N1D*/                                                                                 //traceF( tinP , tArg ) ;
-/*N1D*/                                                                                 //traceF( tinP , tExeUnzip ) ;
+/*N1D*/                                                                             //__( idDeathType ) ;
+/*N1D*/                                                                             //__( value ) ;             // NOT CHECKED, BECAUSE CAN BE CAUSED BY USER ERROR (TARGET ZIP FILE IS CORRUPT)
+/*N1D*/                                                                             osProcessF( tinP , countTC() , countTC() , value , idDeathType , tExeUnzip , tArg ) ; //THIS CAN FAIL (E.G. IF TARGET ZIP FILE IS CORRUPT
+/*N1D*/                                                                             ZE( countT , idDeathType ) ;
+/*N1D*/                                                                             ZE( countT , value ) ;
+/*N1D*/                                                                             //traceF( tinP , tArg ) ;
+/*N1D*/                                                                             //traceF( tinP , tExeUnzip ) ;
 /*N1D*/
-/*N1D*/                                                                                 hoverC hover( tinP , *this , tDirTemporary ) ; //U::NOT THREAD SAFE: ADD SERIALIZATION
+/*N1D*/                                                                             hoverC hover( tinP , *this , tDirTemporary ) ; //U::NOT THREAD SAFE: ADD SERIALIZATION
 /*N1D*/
-/*N1D*/                                                                                 TN( tArg , "" ) ; tArg = T(" \"")+T(osfnZipFile)+tQuote ;
+/*N1D*/                                                                             TN( tArg , "" ) ; tArg = T(" \"")+T(osfnZipFile)+tQuote ;
 /*N1D*/
-/*N1D*/                                                                                 osFileNameC osfnZipFile( tinP , third , T(pInfo->psttIfoName) ) ;
-/*N1D*/                                                                             {
-/*N1D*/                                                                             //traceF( tinP , T("unziping to temp: ")+T(pInfo->psttIfoName) ) ;
+/*N1D*/                                                                             osFileNameC osfnZipFile( tinP , third , T(pInfo->psttIfoName) ) ;
 /*N1D*/                                                                         {
-/*N1D*/                                                                         IFpATTERN( *this , pat , fn2 )
-/*N1D*/                                                                         fileNameC fn2( tinP , *this , pInfo->psttIfoName ) ;
+/*N1D*/                                                                         //traceF( tinP , T("unziping to temp: ")+T(pInfo->psttIfoName) ) ;
 /*N1D*/                                                                     {
 /*N1D*/                                                                     if( pInfo && pInfo->psttIfoName )
-/*N1D*/                                                                     diskFindFileOrDirOldF( tinP , pInfo , hFind , fn.pathF() ) ;
+/*N1D*/                                                                     diskFindFileOrDirF( tinP , pInfo , hFind , fn.pathF() , &pat ) ;
 /*N1D*/                                                                 {
 /*N1D*/                                                                 do
 /*N1D*/                                                                 handleC hFind( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_FILEfIND ) ;
@@ -4897,8 +4893,11 @@
 /*N1D*/                                                             traceF( tinP , T("reading part: ")+T(psttc3) ) ;
 /*N1D*/                                                         {
 /*N1D*/                                                         FORsTRINGSiN3( pstt1fp )
-/*N1D*/                                                         diskFindFileOrDirOldF( tinP , pstt1fp , tFolderFrom+tShortNoSuffix+T("meta.part.*") ) ; ___( pstt1fp ) ;
+/*N1D*/                                                         diskFindFileOrDirF( tinP , pstt1fp , fnLike.pathF() , &pat ) ; ___( pstt1fp ) ;
 /*N1D*/                                                         ZE( strokeS* , pstt1fp ) ;
+/*N1D*/                                                                
+/*N1D*/                                                         patternC pat( tinP , *this , fnLike , ifcIDtYPEpATTERN_FOREIGNwILDCARDmICROSOFT ) ;
+/*N1D*/                                                         fileNameC fnLike( tinP , *this , tFolderFrom+tShortNoSuffix+T("meta.part.*") ) ;
 /*N1D*/
 /*N1D*/                                                         fileC foData( tinP , (strokeS*)tLongData , ifcOPENaCCESS_W , 0 , flOPENdETAILS_LOCsEQ , ifcOPENhOW_nCeR ) ;
 /*N1D*/                                                         traceF( tinP , T("i have all parts needed to reassemble ")+tLongData ) ;
@@ -4931,8 +4930,11 @@
 /*N1D*/                                                             traceF( tinP , T("part: ")+T(psttc2) ) ;
 /*N1D*/                                                         {
 /*N1D*/                                                         FORsTRINGSiN2( pstt1fp )
-/*N1D*/                                                         diskFindFileOrDirOldF( tinP , pstt1fp , tFolderFrom+tShortNoSuffix+T("meta.part.*") ) ; ___( pstt1fp ) ;
+/*N1D*/                                                         diskFindFileOrDirF( tinP , pstt1fp , fnLike.pathF() , &pat ) ; ___( pstt1fp ) ;
 /*N1D*/                                                         ZE( strokeS* , pstt1fp ) ;
+/*N1D*/                                                                
+/*N1D*/                                                         patternC pat( tinP , *this , fnLike , ifcIDtYPEpATTERN_FOREIGNwILDCARDmICROSOFT ) ;
+/*N1D*/                                                         fileNameC fnLike( tinP , *this , tFolderFrom+tShortNoSuffix+T("meta.part.*") ) ;
 /*N1D*/                                                     {
 /*N1D*/                                                     ZE( countT , idPartLath ) ;
 /*N1D*/                                                     boolT bOk = 1 ;
@@ -4980,9 +4982,12 @@
 /*N1D*/                                                     traceF( tinP , T("join / *.meta.numparts.*: ")+T(psttc1) ) ;
 /*N1D*/                                                 {
 /*N1D*/                                                 FORsTRINGSiN1( pstt1f )
-/*N1D*/                                                 diskFindFileOrDirOldF( tinP , pstt1f , tFolderFrom+T("*.meta.numparts.*") ) ; ___( pstt1f ) ;
+/*N1D*/                                                 diskFindFileOrDirF( tinP , pstt1f , fnLike.pathF() , &pat ) ; ___( pstt1f ) ;
 /*N1D*/                                                 ZE( strokeS* , pstt1f ) ;
 /*N1D*/                                                 TN( tData , "data" ) ;
+/*N1D*/                                                        
+/*N1D*/                                                 patternC pat( tinP , *this , fnLike , ifcIDtYPEpATTERN_FOREIGNwILDCARDmICROSOFT ) ;
+/*N1D*/                                                 fileNameC fnLike( tinP , *this , tFolderFrom+T("*.meta.numparts.*") ) ;
 /*N1D*/                                             {
 /*N1D*/
 /*N1D*/                                             diskMakeDirF( tinP , tFolderTo ) ;
@@ -5091,12 +5096,15 @@
 /*N1D*/                                                         TN( tShort , "" ) ;
 /*N1D*/                                                     {
 /*N1D*/                                                     if( pInfo && strIdF( tinP , sttSlash , pInfo->psttIfoName , - 1 ) != pInfo->psttIfoName->idAdam && ( pInfo->cbUsedHigh || sizeBytes < pInfo->cbUsed ) )
-/*N1D*/                                                     diskFindFileOrDirOldF( tinP , pInfo , hFind , tLike ) ;
+/*N1D*/                                                     diskFindFileOrDirF( tinP , pInfo , hFind , fnLike.pathF() , &pat ) ;
 /*N1D*/                                                 {
 /*N1D*/                                                 do
 /*N1D*/                                                 handleC hFind( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_FILEfIND ) ;
 /*N1D*/                                                 ZE( infoFileS* , pInfo ) ;
 /*N1D*/                                                 strokeS sttSlash( '/' ) ;
+/*N1D*/                                                        
+/*N1D*/                                                 patternC pat( tinP , *this , fnLike , ifcIDtYPEpATTERN_FOREIGNwILDCARDmICROSOFT ) ;
+/*N1D*/                                                 fileNameC fnLike( tinP , *this , tLike ) ;
 /*N1D*/                                             {
 /*N1D*/                                             if( diskFileExistsF( tinP , tLike ) )
 /*N1D*/                                             TN( tLike , "" ) ; tLike = tFolderFrom+tStarDotData ;
@@ -5106,8 +5114,11 @@
 /*N1D*/                                                     diskFileOrDirDeleteF( tinP , psttc1 ) ;
 /*N1D*/                                                 {
 /*N1D*/                                                 FORsTRINGSiN1( pstt1f )
-/*N1D*/                                                 diskFindFileOrDirOldF( tinP , pstt1f , tFolderTo+T("*.meta.numparts.*") ) ; ___( pstt1f ) ;
+/*N1D*/                                                 diskFindFileOrDirF( tinP , pstt1f , fnLike.pathF() , &pat ) ; ___( pstt1f ) ;
 /*N1D*/                                                 ZE( strokeS* , pstt1f ) ;
+/*N1D*/                                                        
+/*N1D*/                                                 patternC pat( tinP , *this , fnLike , ifcIDtYPEpATTERN_FOREIGNwILDCARDmICROSOFT ) ;
+/*N1D*/                                                 fileNameC fnLike( tinP , *this , tFolderTo+T("*.meta.numparts.*") ) ;
 /*N1D*/                                             {
 /*N1D*/
 /*N1D*/                                             }
@@ -5115,8 +5126,11 @@
 /*N1D*/                                                     diskFileOrDirDeleteF( tinP , psttc1 ) ;
 /*N1D*/                                                 {
 /*N1D*/                                                 FORsTRINGSiN1( pstt1f )
-/*N1D*/                                                 diskFindFileOrDirOldF( tinP , pstt1f , tFolderFrom+T("*.meta.numparts.*") ) ; ___( pstt1f ) ;
+/*N1D*/                                                 diskFindFileOrDirF( tinP , pstt1f , fnLike.pathF() , &pat ) ; ___( pstt1f ) ;
 /*N1D*/                                                 ZE( strokeS* , pstt1f ) ;
+/*N1D*/                                                        
+/*N1D*/                                                 patternC pat( tinP , *this , fnLike , ifcIDtYPEpATTERN_FOREIGNwILDCARDmICROSOFT ) ;
+/*N1D*/                                                 fileNameC fnLike( tinP , *this , tFolderFrom+T("*.meta.numparts.*") ) ;
 /*N1D*/                                             {
 /*N1D*/
 /*N1D*/                                             }
@@ -5124,8 +5138,11 @@
 /*N1D*/                                                     diskFileOrDirDeleteF( tinP , psttc1 ) ;
 /*N1D*/                                                 {
 /*N1D*/                                                 FORsTRINGSiN1( pstt1f )
-/*N1D*/                                                 diskFindFileOrDirOldF( tinP , pstt1f , tFolderTo+T("*.meta.part.*") ) ; ___( pstt1f ) ;
+/*N1D*/                                                 diskFindFileOrDirF( tinP , pstt1f , fnLike.pathF() , &pat ) ; ___( pstt1f ) ;
 /*N1D*/                                                 ZE( strokeS* , pstt1f ) ;
+/*N1D*/                                                        
+/*N1D*/                                                 patternC pat( tinP , *this , fnLike , ifcIDtYPEpATTERN_FOREIGNwILDCARDmICROSOFT ) ;
+/*N1D*/                                                 fileNameC fnLike( tinP , *this , tFolderTo+T("*.meta.part.*") ) ;
 /*N1D*/                                             {
 /*N1D*/
 /*N1D*/                                             }
@@ -5133,8 +5150,11 @@
 /*N1D*/                                                     diskFileOrDirDeleteF( tinP , psttc1 ) ;
 /*N1D*/                                                 {
 /*N1D*/                                                 FORsTRINGSiN1( pstt1f )
-/*N1D*/                                                 diskFindFileOrDirOldF( tinP , pstt1f , tFolderFrom+T("*.meta.part.*") ) ; ___( pstt1f ) ;
+/*N1D*/                                                 diskFindFileOrDirF( tinP , pstt1f , fnLike.pathF() , &pat ) ; ___( pstt1f ) ;
 /*N1D*/                                                 ZE( strokeS* , pstt1f ) ;
+/*N1D*/                                                        
+/*N1D*/                                                 patternC pat( tinP , *this , fnLike , ifcIDtYPEpATTERN_FOREIGNwILDCARDmICROSOFT ) ;
+/*N1D*/                                                 fileNameC fnLike( tinP , *this , tFolderFrom+T("*.meta.part.*") ) ;
 /*N1D*/                                             {
 /*N1D*/
 /*N1D*/                                             diskMakeDirF( tinP , tFolderTo ) ;
@@ -5216,8 +5236,11 @@
 /*N1D*/                                                         //traceF( tinP , T("deleting: ")+T(psttc1) ) ;
 /*N1D*/                                                     {
 /*N1D*/                                                     FORsTRINGSiN1( pstt1f )
-/*N1D*/                                                     countT cFound = diskFindFileOrDirOldF( tinP , pstt1f , T(iffn)+T(postTiny)+T(".*") , 0 , 0 , 0 , 8 ) ; ___( pstt1f ) ;
+/*N1D*/                                                     countT cFound = diskFindFileOrDirF( tinP , pstt1f , fnLike.pathF() , &pat , 0 , 0 , 0 , 8 ) ; ___( pstt1f ) ;
 /*N1D*/                                                     ZE( strokeS* , pstt1f ) ;
+/*N1D*/
+/*N1D*/                                                     patternC pat( tinP , *this , fnLike , ifcIDtYPEpATTERN_FOREIGNwILDCARDmICROSOFT ) ;
+/*N1D*/                                                     fileNameC fnLike( tinP , *this , tFolderTo+T("*.meta.numparts.*") ) ;
 /*N1D*/
 /*N1D*/                                                     traceF( tinP , T("state space path: ")+T(iffn) ) ;
 /*N1D*/
@@ -5806,13 +5829,15 @@
 /*N1D*/                                                 ZE( osTextT* , postWo ) ;
 /*N1D*/                                             {
 /*N1D*/                                             if( pInfo && strIdF( tinP , sttSlash , pInfo->psttIfoName , - 1 ) != pInfo->psttIfoName->idAdam )
-/*N1D*/                                             diskFindFileOrDirOldF( tinP , pInfo , hFind , tLike ) ;
+/*N1D*/                                             diskFindFileOrDirF( tinP , pInfo , hFind , fnLike.pathF() , &pat ) ;
 /*N1D*/                                         {
 /*N1D*/                                         do
 /*N1D*/                                         handleC hFind( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_FILEfIND ) ;
 /*N1D*/                                         strokeS sttSlash( '/' ) ;
 /*N1D*/                                         ZE( infoFileS* , pInfo ) ;
-/*N1D*/                                         TN( tLike , "" ) ; tLike = tJobQueueFolder+T("*.soil") ;
+/*N1D*/                                                
+/*N1D*/                                         patternC pat( tinP , *this , fnLike , ifcIDtYPEpATTERN_FOREIGNwILDCARDmICROSOFT ) ;
+/*N1D*/                                         fileNameC fnLike( tinP , *this , tJobQueueFolder+T("*.soil") ) ;
 /*N1D*/
 /*N1D*/                                         }
 /*N1D*/                                             }
@@ -8215,13 +8240,16 @@ voidT obeyReplacementsF( tinS& tinP , etherC& etherP , strokeS*& psttP , switchC
                 TN( tFileZip , pInfo->psttIfoName ) ;
             {
             if( pInfo )
-            etherP.diskFindFileOrDirOldF( tinP , pInfo , hFind , tFileDayZipLike ) ;
+            etherP.diskFindFileOrDirF( tinP , pInfo , hFind , fnLike.pathF() , &pat ) ;
         {
         do
         handleC hFind( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_FILEfIND ) ;
         ZE( infoFileS* , pInfo ) ;
         ZE( boolT , bFound ) ;
     
+        patternC pat( tinP , etherP , fnLike , ifcIDtYPEpATTERN_FOREIGNwILDCARDmICROSOFT ) ;
+        fileNameC fnLike( tinP , etherP , tFileDayZipLike ) ;
+
         }
             etherP.delF( tinP , psttm ) ;
             tExeUnzip = T(psttm) ;
@@ -8308,13 +8336,12 @@ voidT emitTranscriptIfChangedF( tinS& tinP , etherC& etherP , const strokeS* pst
             TN( tShort , "" ) ;
         {
         if( pInfo && etherP.strIdF( tinP , sttSlash , pInfo->psttIfoName , - 1 ) != pInfo->psttIfoName->idAdam )
-        etherP.diskFindFileOrDirOldF( tinP , pInfo , hFind , tLike ) ;
+        etherP.diskFindFileOrDirF( tinP , pInfo , hFind , psttFromP ) ;
     {
     do
     handleC hFind( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_FILEfIND ) ;
     ZE( infoFileS* , pInfo ) ;
     TN( tTo , psttToP ) ;
-    TN( tLike , "" ) ; tLike = T(psttFromP)+T("*") ;
     strokeS sttSlash( '/' ) ;
 {
 voidT pour360021c1F( tinS& tinP , etherC& etherP , const strokeS* const psttToP , const strokeS* const psttFromP )
