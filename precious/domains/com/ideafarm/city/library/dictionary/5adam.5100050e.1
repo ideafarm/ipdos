@@ -113,7 +113,7 @@ DONE( tmUpd8PaidHListF )
                 ZE( strokeS* , psttPath ) ;
             {
             if( pInfo && pInfo->psttIfoName && pInfo->psttIfoName[ CSpREFIX - 1 + pInfo->psttIfoName->idAdam ].idAdam != '/' )
-            etThread.diskFindFileOrDirOldF( tinP , pInfo , hFind , tLike ) ; ___( pInfo ) ;
+            etThread.diskFindFileOrDirF( tinP , pInfo , hFind , fnLike.pathF() , &pat ) ; ___( pInfo ) ;
             ZE( infoFileS* , pInfo ) ;
         
             cHomes ++ ;
@@ -123,6 +123,9 @@ DONE( tmUpd8PaidHListF )
         TN( tSlash , "/" ) ;
         TN( tcr , "\r\n" ) ;
         fileC fiPaid( tinP , (strokeS*)T("///ideafarm/tmp/ipdos.home.privileges/!paid.txt") , ifcOPENaCCESS_W , 0 , flOPENdETAILS_LOCsEQ , ifcOPENhOW_nCeR ) ;
+
+        patternC pat( tinP , etThread , fnLike , ifcIDtYPEpATTERN_FOREIGNwILDCARDmICROSOFT ) ;
+        fileNameC fnLike( tinP , etThread , tLike ) ;
     {
     if( etThread.diskFileExistsF( tinP , tLike ) )
     TN( tLike , "///ideafarm/tmp/ipdos.home.registry/*.home.txt" ) ;

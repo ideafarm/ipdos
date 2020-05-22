@@ -933,7 +933,7 @@ TASK( tmFreshenFileF )
                     {
                     if( !etScratch.diskIdF( tinP , tDisk ) || POOP )
 
-                    etScratch.diskFindFileOrDirOldF( tinP , pInfo , hFind , tLike ) ; //20160814@1946: SILENTLY FAILED.  HOW: DISCONNECT USB CABLE FROM EXTERNAL DRIVE. NO IMPOTENCE; CONJ: JUST RETURNS NULL pInfo OR pInfo->psttIfoName
+                    etScratch.diskFindFileOrDirF( tinP , pInfo , hFind , fnLike.pathF() , &pat ) ; //20160814@1946: SILENTLY FAILED.  HOW: DISCONNECT USB CABLE FROM EXTERNAL DRIVE. NO IMPOTENCE; CONJ: JUST RETURNS NULL pInfo OR pInfo->psttIfoName
                     ZE( infoFileS* , pInfo ) ;
 
                     }
@@ -948,6 +948,9 @@ TASK( tmFreshenFileF )
                 {
                 do
                 handleC hFind( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_FILEfIND ) ;
+
+                patternC pat( tinP , etherP , fnLike , ifcIDtYPEpATTERN_FOREIGNwILDCARDmICROSOFT ) ;
+                fileNameC fnLike( tinP , etherP , tLike ) ;
 
                 jotC& jotFile = !offPass ? jotFile1 : jotFile2 ;
                 jotC& jotDir  = !offPass ? jotDir1  : jotDir2  ;

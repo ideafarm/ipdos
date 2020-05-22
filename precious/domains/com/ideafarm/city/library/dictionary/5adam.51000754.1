@@ -148,7 +148,7 @@ etThread.traceF( tinP , T("ok") ) ;
         {
         if( !pInfo || !pInfo->psttIfoName )
 
-        etThread.diskFindFileOrDirOldF( tinP , pInfo , hFind , tLike ) ;
+        etThread.diskFindFileOrDirF( tinP , pInfo , hFind , fnLike.pathF() , &pat ) ;
         ZE( infoFileS* , pInfo ) ;
     {
     do
@@ -160,6 +160,9 @@ etThread.traceF( tinP , T("ok") ) ;
 {
 while( !bQuit && !POOP )
 const boolT& bQuit = *(const boolT*)&(const countT&)ether ;
+
+patternC pat( tinP , etThread , fnLike , ifcIDtYPEpATTERN_FOREIGNwILDCARDmICROSOFT ) ;
+fileNameC fnLike( tinP , etThread , tLike ) ;
 
 TN( tb4 , "    " ) ;
 TN( tLike , "///ideafarm/ephemeral/backed.up.daily/domains/com/ideafarm/gorilla/*.ideafarm.com.root.to.form.response.soul" ) ;

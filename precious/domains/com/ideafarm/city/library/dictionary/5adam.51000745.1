@@ -186,7 +186,7 @@ REST
             {
             if( !pInfo || !pInfo->psttIfoName )
 
-            etThread.diskFindFileOrDirOldF( tinP , pInfo , hFind , tLike ) ;
+            etThread.diskFindFileOrDirF( tinP , pInfo , hFind , fnLike.pathF() , &pat ) ;
             ZE( infoFileS* , pInfo ) ;
         {
         do
@@ -194,6 +194,9 @@ REST
     {
     while( !bQuit && !POOP )
     const boolT& bQuit = *(const boolT*)&(const countT&)ether ;
+
+    patternC pat( tinP , etThread , fnLike , ifcIDtYPEpATTERN_FOREIGNwILDCARDmICROSOFT ) ;
+    fileNameC fnLike( tinP , etThread , tLike ) ;
 
     ZE( countT , idIn ) ;
     TN( tDot , "." ) ;

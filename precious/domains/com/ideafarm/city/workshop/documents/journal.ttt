@@ -6405,63 +6405,10 @@ I have other business to attend to today and tomorrow, but plan to continue to w
 
 
 
-  set up dut: an adam that walks ///d/tmp/locked.test/
- playcraft
- objective: elegance
-!subjob C: enhance diskFindFileOrDirF to query cloakF for information before trying base os api   
 
 
 
-  !subjob C: diskFindFileOrDirF: take a folder rather than tLikeP
-  !subjob C: deprecate (by renameing) all diskFindFileOrDirF calls that specify *? wildcards
-  !subjob C: migrate all diskFindFileOrDirF calls away from specifying *? wildcards
-  !subjob C: Cloak: enhance the api to support cMaxFilesP
-   so before designing the code enhancement for diskFindFileOrDirF, i should craft that enhancement to Cloak api
-   this would cause Cloak to send a soulC image and then begin to accumulate into an ooth soulC
-   to eliminate capacity limits, the Cloak api can be enhanced to accept a cFilesMax parameter
-   this is the natural implementation given the Cloak api
-  think
-     when the information for the lath file has been extracted, the handle can be closed, which will have the effect of deleting the soulC instance
-     each call will extract the information for wo file
-     the handleP parameter can be used to store a pointer to this soulC instance
-     the first call will result in a soulC instance being received that contains the information for all files
-    if yes, then it gets its information from Cloak and handleP contains the socket connection that is being used for this search
-    if no, then it uses its existing code and handleP contains the base os file find handle
-    query Cloak to find out whether tFolderP is cloaked
-   when diskFindFileOrDirF is called, it can do the following recipe
-   after existing code is migrated to take tFolderP rather than tLikeP, its function will map directly to the Cloak api
-  think
-    each call returns information for wo file
-   application calls diskFindFileOrDirF repeatedly for a specific folder until the handle is null
-  existing pseudocode for application of:     voidT etherC::diskFindFileOrDirF( tinS& tinP , infoFileS*& pInfoFileP , handleC& handleP , const strokeS* const psttLikeP )
-  !subjob C: etherC strIdF: support for revealing the string matches to caller
-  !subjob C: etherC support for emulating * and ? wildcards
-  !subjob C: diskFindFileOrDirF: study its current wildcard functionality
-  !subjob C: diskFindFileOrDirF: take a folder name rather than tLikeP
-    getting a clean compile and run will detect any application code that does not conform
-   decision: make the change tentatively and regression test build
-       but that is not supported by the base os; it is supported within diskFindFileOrDirF
-      there is a call that uses ? for the drive letter: ///?/blablabla
-     list the calling code that does not just request all files
-    conj: all calling code just requests all files (*): 
-    i like this idea because it would eliminate the * ? filter wildcards and force application code to use IPDOS regular expressions instead
-    this would put the burden on application code to filter for the file names that it wants
-   alt: change the functionality to eliminate tLikeP and use tFolderP instead
-  think    
-   application calls diskFindFileOrDirF repeatedly for a specific folder until the handle is null
-  existing pseudocode for application of:     voidT etherC::diskFindFileOrDirF( tinS& tinP , infoFileS*& pInfoFileP , handleC& handleP , const strokeS* const psttLikeP )
-   for this job, i need to have a rested, clear mind
-   my mind is a mush, due to too much work
-  think
- playcraft
- objective: enhance existing api to detect cloaked folder and to divert the request to Cloak for that folder
-!subjob C: specify the pseudocode for diverting file walking to Cloak
-
-
-
-
-
-
+   20200521@1647: 70 81 ; 36 49
 
    20200520@1701: 79 79 ; 37 37
 
@@ -6535,14 +6482,175 @@ I have other business to attend to today and tomorrow, but plan to continue to w
 
 
 
+
+
+
+  set up dut: an adam that walks ///d/tmp/locked.test/
+ playcraft
+ objective: elegance
+!subjob C: enhance diskFindFileOrDirF to query cloakF for information before trying base os api   
+
+
+
+  next: set up dut
+  !subjob C: diskFindFileOrDirF: take a folder rather than tLikeP
+  !subjob C: deprecate (by renameing) all diskFindFileOrDirF calls that specify *? wildcards
+  !subjob C: migrate all diskFindFileOrDirF calls away from specifying *? wildcards
+  !subjob C: Cloak: enhance the api to support cMaxFilesP
+   so before designing the code enhancement for diskFindFileOrDirF, i should craft that enhancement to Cloak api
+   this would cause Cloak to send a soulC image and then begin to accumulate into an ooth soulC
+   to eliminate capacity limits, the Cloak api can be enhanced to accept a cFilesMax parameter
+   this is the natural implementation given the Cloak api
+  think
+     when the information for the lath file has been extracted, the handle can be closed, which will have the effect of deleting the soulC instance
+     each call will extract the information for wo file
+     the handleP parameter can be used to store a pointer to this soulC instance
+     the first call will result in a soulC instance being received that contains the information for all files
+    if yes, then it gets its information from Cloak and handleP contains the socket connection that is being used for this search
+    if no, then it uses its existing code and handleP contains the base os file find handle
+    query Cloak to find out whether tFolderP is cloaked
+   when diskFindFileOrDirF is called, it can do the following recipe
+   after existing code is migrated to take tFolderP rather than tLikeP, its function will map directly to the Cloak api
+  think
+    each call returns information for wo file
+   application calls diskFindFileOrDirF repeatedly for a specific folder until the handle is null
+  existing pseudocode for application of:     voidT etherC::diskFindFileOrDirF( tinS& tinP , infoFileS*& pInfoFileP , handleC& handleP , const strokeS* const psttLikeP )
+  !subjob C: etherC strIdF: support for revealing the string matches to caller
+  !subjob C: etherC support for emulating * and ? wildcards
+  !subjob C: diskFindFileOrDirF: study its current wildcard functionality
+  !subjob C: diskFindFileOrDirF: take a folder name rather than tLikeP
+    getting a clean compile and run will detect any application code that does not conform
+   decision: make the change tentatively and regression test build
+       but that is not supported by the base os; it is supported within diskFindFileOrDirF
+      there is a call that uses ? for the drive letter: ///?/blablabla
+     list the calling code that does not just request all files
+    conj: all calling code just requests all files (*): 
+    i like this idea because it would eliminate the * ? filter wildcards and force application code to use IPDOS regular expressions instead
+    this would put the burden on application code to filter for the file names that it wants
+   alt: change the functionality to eliminate tLikeP and use tFolderP instead
+  think    
+   application calls diskFindFileOrDirF repeatedly for a specific folder until the handle is null
+  existing pseudocode for application of:     voidT etherC::diskFindFileOrDirF( tinS& tinP , infoFileS*& pInfoFileP , handleC& handleP , const strokeS* const psttLikeP )
+   for this job, i need to have a rested, clear mind
+   my mind is a mush, due to too much work
+  think
+ playcraft
+ objective: enhance existing api to detect cloaked folder and to divert the request to Cloak for that folder
+!subjob C: specify the pseudocode for diverting file walking to Cloak
+
+
+
+
+
+
+
+
+   then switch to legal process and thrust forward with that
+   then spend a day resolving archive issues
+   take a day off ; maybe oo: nope: take exactly wo day off (tomorrow)
+   suspend software work after verifying good clean baseline and retention of the new code
+  decision
+    cloak is not urgently needed; the workaround is to keep the archive offline and resume resolving corruption mismatches
+    very productive over past strongs and quarter ; now it is time to rest, recreate, and switch to law
+    the new pattern matching code is way cool but needs debugging and speed optimization (not yet ready for prime time)
+    legal process requires my attention
+    archive integrity remains at risk and unverified
+    i am exhausted by this code push after archive drama
+   stylized facts
+  think
+ playcraft
+ objective: correct priorities, stress reduction, production
+!subjob A: time management decisions
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   had to restart chkdsk y: /f /v /r
+   data connector was loose on drive 0; apparently this was why bios could not find boot drive
+  see
+   i just purchased a 4 TB replacement that will be delivered in 4 days
+   decision: let chkdsk repair it and then heal it (copy only if dest is y:)
+   i can still use it as wo of re disks to store the archive
+  think
+   drive y: is failing
+  see
+   | 
+   | A disk read error occurredc0000010
+   | The disk does not have enough space to replace bad clusters
+   | detected in file 95134 of name \archive\2016\!ideafarm.9.2.00000000.00000001.20161016@1736.20161016@1736.29d2e7e4a7e3ff3ec2045adc6a805958.001.data.zip.
+   | Progress: 612104 of 2382064 done; Stage: 25%; Total: 11%; ETA:  43:53:17 ...
+   | 
+   | A disk read error occurredc0000010
+   | The disk does not have enough space to replace bad clusters
+   | detected in file 950CE of name \archive\2016\!ideafarm.9.2.00000000.00000001.20161015@1120.20170306@1836.03411fb5b2b964678d15fa349a53c896.001.data.mp3.
+   | A disk read error occurredc0000010
+   | The disk does not have enough space to replace bad clusters
+   | detected in file 95127 of name \archive\2016\!ideafarm.9.2.00000000.00000001.20161016@1705.20170306@2144.23579920f44f98c59e2b690c81a90eac.001.data.mp3.
+   | A disk read error occurredc0000010
+   | The disk does not have enough space to replace bad clusters
+   | detected in file 9512A of name \archive\2016\!ideafarm.9.2.00000000.00000001.20161016@1705.20170612@0000.a6a04bb244284396cad8b7dca419d800.001.data.mp3.
+   | A disk read error occurredc0000010
+   | The disk does not have enough space to replace bad clusters
+   | detected in file 9512F of name \archive\2016\!ideafarm.9.2.00000000.00000001.20161016@1736.20161016@1736.04bd83e887d602843b7277d5ade62d48.001.data.avi.
+   | A disk read error occurredc0000010
+   | The disk does not have enough space to replace bad clusters
+   | detected in file 95134 of name \archive\2016\!ideafarm.9.2.00000000.00000001.20161016@1736.20161016@1736.29d2e7e4a7e3ff3ec2045adc6a805958.001.data.zip.
+   | Progress: 611230 of 2382064 done; Stage: 25%; Total: 10%; ETA:  45:11:38 ..
+   | 
+   | A disk read error occurredc0000010
+   | The disk does not have enough space to replace bad clusters
+   | detected in file 9512F of name \archive\2016\!ideafarm.9.2.00000000.00000001.20161016@1736.20161016@1736.04bd83e887d602843b7277d5ade62d48.001.data.avi.
+   | A disk read error occurredc0000010
+   | The disk does not have enough space to replace bad clusters
+   | detected in file 95134 of name \archive\2016\!ideafarm.9.2.00000000.00000001.20161016@1736.20161016@1736.29d2e7e4a7e3ff3ec2045adc6a805958.001.data.zip.
+   | Progress: 611227 of 2382064 done; Stage: 25%; Total: 10%; ETA:  45:12:44 .
+   |    
+  listing
+  pending: chkdsk /f of drive y: in response to observed read failures
+  resp: ckdsk /f drive y: ; if that does not fix it, then (1) move all files from y: to somewhere else, (2) format y:, (3) pour all files back to y:, (4) heal with real copying iff and only if dest is drive y
+   all heal errors involve read problems with archive files on drive y:
+  see
+ playcraft
+ objective: confidence
+!job A: heal all archive copies
+
+
+
+
+
+
+
+
+!job A: periodically verify that the bottom of this file still has: // 20200503@2128: THIS NOTE IS TO DETECT WHETHER RIMSTAR TRUNCATES THIS FILE AS IT GROWS
+
+
+!thrust: debug until all factories run without failure
+
+=========================================================================================================================================================
+=========================================================================================================================================================
+=========================================================================================================================================================
+=========================================================================================================================================================
+====- DONE: BELOW -======================================================================================================================================
+=========================================================================================================================================================
+=========================================================================================================================================================
+=========================================================================================================================================================
+=========================================================================================================================================================
+
+
+ cool ; it works
 !subjob C: diskFindFileOrDirF: take a folder rather than tLikeP
-
-
-
-
-
-
-
+  cool ; it works!
   !subjob C: eliminate the diskFindFileOrDirOldF overloads
   !subjob C: incrementally test and migrate to triggering diversion code in diskFindFileOrDirOldF
   !subjob A: time management decisions
@@ -6625,45 +6733,10 @@ I have other business to attend to today and tomorrow, but plan to continue to w
  playcraft
  objective: elegance
 !subjob C: migrate all diskFindFileOrDirF calls away from specifying *? wildcards
-
-
-
-
-   then switch to legal process and thrust forward with that
-   then spend a day resolving archive issues
-   take a day off ; maybe oo: nope: take exactly wo day off (tomorrow)
-   suspend software work after verifying good clean baseline and retention of the new code
-  decision
-    cloak is not urgently needed; the workaround is to keep the archive offline and resume resolving corruption mismatches
-    very productive over past strongs and quarter ; now it is time to rest, recreate, and switch to law
-    the new pattern matching code is way cool but needs debugging and speed optimization (not yet ready for prime time)
-    legal process requires my attention
-    archive integrity remains at risk and unverified
-    i am exhausted by this code push after archive drama
-   stylized facts
-  think
- playcraft
- objective: correct priorities, stress reduction, production
-!subjob A: time management decisions
-
-
-  pending: chkdsk /f of drive y: in response to observed read failures
-  resp: ckdsk /f drive y: ; if that does not fix it, then (1) move all files from y: to somewhere else, (2) format y:, (3) pour all files back to y:, (4) heal with real copying iff and only if dest is drive y
-   all heal errors involve read problems with archive files on drive y:
-  see
- playcraft
- objective: confidence
-!job A: heal all archive copies
-
-
-
-
-
-                                                                fnLike.pathF() , &pat
-                                                                patternC pat( tinP , *this , fnLike , ifcIDtYPEpATTERN_FOREIGNwILDCARDmICROSOFT ) ;
-                                                                fileNameC fnLike( tinP , *this , psttLike ) ;
-
-
+  cool ; it works
+   fnLike.pathF() , &pat
+   patternC pat( tinP , etThread , fnLike , ifcIDtYPEpATTERN_FOREIGNwILDCARDmICROSOFT ) ;
+   fileNameC fnLike( tinP , etThread , psttLike ) ;
   ok lets do this
    for all 3 overloads, psttLikeP is replaced with psttPathP , &patternC
     | 
@@ -6680,24 +6753,6 @@ I have other business to attend to today and tomorrow, but plan to continue to w
  playcraft
  objective: elegance
 !subjob C: eliminate the diskFindFileOrDirOldF overloads
-
-
-!job A: periodically verify that the bottom of this file still has: // 20200503@2128: THIS NOTE IS TO DETECT WHETHER RIMSTAR TRUNCATES THIS FILE AS IT GROWS
-
-
-!thrust: debug until all factories run without failure
-
-=========================================================================================================================================================
-=========================================================================================================================================================
-=========================================================================================================================================================
-=========================================================================================================================================================
-====- DONE: BELOW -======================================================================================================================================
-=========================================================================================================================================================
-=========================================================================================================================================================
-=========================================================================================================================================================
-=========================================================================================================================================================
-
-
   close this job ; i would like to study this further at some future time
    when 3 homes are running, runs much more slowly with almost all time spend waiting for disk drive information dosQueryFSInfoF
    null process runs fairly quickly

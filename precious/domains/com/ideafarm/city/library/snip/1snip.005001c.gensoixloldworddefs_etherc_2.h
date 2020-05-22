@@ -98,7 +98,6 @@ voidT diskFindFileOrDirOldF_4Pb4P_GF( tinS& tinP , etherC& etherP , soulC& slP ,
     SOIXLoLDtESTtYPE( 0xdddd8017 , etherC )
     ZE( strokeS* , psttLikeP ) ;
     if( !POOP ) { slP >> psttLikeP ; ___( psttLikeP ) ; idArgNext ++ ; }
-    if( !POOP ) etherP.diskFindFileOrDirOldF( tinP , psttNameP , handleP , psttLikeP ) ;
     etherP.delF( tinP , psttLikeP ) ;
 
     if( !POOP ) slP << psttNameP ;
@@ -220,7 +219,6 @@ voidT diskFindFileOrDirOldF_4P4PhPgrabCP33_GF( tinS& tinP , etherC& etherP , sou
     }
 
     ZE( countT , noName ) ;
-    if( !POOP ) noName = etherP.diskFindFileOrDirOldF( tinP , pstt1FoundP , psttLikeP , pSoulP , pGrabP , csttExtraP , cMaxP ) ;
     DEL( pGrabP ) ;
     DEL( pSoulP ) ;
     etherP.delF( tinP , psttLikeP ) ;

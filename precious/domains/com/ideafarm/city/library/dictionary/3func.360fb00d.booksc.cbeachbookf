@@ -83,11 +83,14 @@
                 ZE( strokeS* , psttw ) ;
             {
             if( pInfo && !( F(pInfo->flags) & flFILEaTTR_DIRECTORY ) )
-            tinP.pEtScratch->diskFindFileOrDirOldF( tinP , pInfo , hFind , psttFindLike ) ; ___( pInfo ) ;
+            tinP.pEtScratch->diskFindFileOrDirF( tinP , pInfo , hFind , fnLike.pathF() , &pat ) ; ___( pInfo ) ;
             ZE( infoFileS* , pInfo ) ;
         {
         do
         handleC hFind( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_FILEfIND ) ;
+
+        patternC pat( tinP , *tinP.pEther , fnLike , ifcIDtYPEpATTERN_FOREIGNwILDCARDmICROSOFT ) ;
+        fileNameC fnLike( tinP , *tinP.pEther , psttFindLike ) ;
         TN( tDot , "." ) ;
         strokeS sttq( 0 , sc_IGNOREqUOTES ) ;
         TN( tAfter  , ".bookC" ) ;

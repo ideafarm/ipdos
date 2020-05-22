@@ -19,7 +19,11 @@ etThread.delF( tinP , pstt1List ) ;
     FORsTRINGSiN1( pstt1List )
 {
 if( pstt1List && pstt1List->idAdam )
-etThread.diskFindFileOrDirOldF( tinP , pstt1List , tLike ) ; ___( pstt1List ) ;
+etThread.diskFindFileOrDirF( tinP , pstt1List , fnLike.pathF() , &pat ) ; ___( pstt1List ) ;
+
+patternC pat( tinP , etThread , fnLike , ifcIDtYPEpATTERN_FOREIGNwILDCARDmICROSOFT ) ;
+fileNameC fnLike( tinP , etThread , tLike ) ;
+
 TN( tLike , "///?/archive/" ) ;
 ZE( strokeS* , pstt1List ) ;
 

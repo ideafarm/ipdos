@@ -80,12 +80,16 @@ REST
         {
         if( !pInfo || !pInfo->psttIfoName )
 
-        etThread.diskFindFileOrDirOldF( tinP , pInfo , hFind , tNew+tStarDotGz ) ;
+        etThread.diskFindFileOrDirF( tinP , pInfo , hFind , fnLike.pathF() , &pat ) ;
         ZE( infoFileS* , pInfo ) ;
     {
     do
     handleC hFind( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_FILEfIND ) ;
     //etThread.traceF( tinP , T("calling zlib to unpack all gz files in ")+tNew ) ;
+
+    patternC pat( tinP , etThread , fnLike , ifcIDtYPEpATTERN_FOREIGNwILDCARDmICROSOFT ) ;
+    fileNameC fnLike( tinP , etThread , tNew+tStarDotGz ) ;
+
 
     etThread.newF( tinP , LF , postBuffer , costBuffer ) ; ___( postBuffer ) ;
     const countT   costBuffer = TOCK ;

@@ -24,12 +24,15 @@
              }
                  DEL( pInfo ) ;
                  if( pInfo && !( F(pInfo->flags) & flFILEaTTR_DIRECTORY ) ) tinP.pEtScratch->diskFileOrDirDeleteF( tinP , pInfo->psttIfoName ) ;
-                 tinP.pEtScratch->diskFindFileOrDirOldF( tinP , pInfo , hFind , psttFindLike ) ; ___( pInfo ) ;
+                 tinP.pEtScratch->diskFindFileOrDirF( tinP , pInfo , hFind , fnLike.pathF() , &pat ) ; ___( pInfo ) ;
                  ZE( infoFileS* , pInfo ) ;
              {
              do
              handleC hFind( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_FILEfIND ) ;
             //if( tinP.pc Utility[ 0 ] ) CONoUTrAW3( "[heap.cNew-cDel]:    " , processGlobal3S::_processGlobal3I_IF().heap.cNewF()-processGlobal3S::_processGlobal3I_IF().heap.cDelF() , "    \r\n" ) ;
+
+            patternC pat( tinP , *tinP.pEther , fnLike , ifcIDtYPEpATTERN_FOREIGNwILDCARDmICROSOFT ) ;
+            fileNameC fnLike( tinP , *tinP.pEther , psttFindLike ) ;
         {
         if( F(flagsCt) & flBOOKSc_PURGEoNdT )
 

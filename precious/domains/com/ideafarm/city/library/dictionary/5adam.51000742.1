@@ -433,7 +433,7 @@ REST
         {
         if( !pInfo || !pInfo->psttIfoName )
     
-        etThread.diskFindFileOrDirOldF( tinP , pInfo , hFind , tNew+tStarDotLog ) ;
+        etThread.diskFindFileOrDirF( tinP , pInfo , hFind , fnLike.pathF() , &pat ) ;
         ZE( infoFileS* , pInfo ) ;
     {
     do
@@ -442,6 +442,10 @@ REST
     ZE( countT , cIn ) ;
 {
 while( !ether && !POOP )
+
+patternC pat( tinP , etThread , fnLike , ifcIDtYPEpATTERN_FOREIGNwILDCARDmICROSOFT ) ;
+fileNameC fnLike( tinP , etThread , tNew+tStarDotLog ) ;
+
 
 TN( tDec , "Dec" ) ;
 TN( tNov , "Nov" ) ;
