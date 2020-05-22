@@ -83,6 +83,8 @@ TN( tb4    , "    " ) ;
 etThread.traceF( tinP , T("unlocking") ) ;
 ether.loafIF( tinP ) ;
 
+ether.ifcHireF( tinP , T("ifcIDaDAM_CLOAK") , ifcIDaDAM_SCRATCH03 , T("!ignoreFireByOperator") , flHIRE_DISPLAYaUTO , nicNameC() ) ;
+
 //U::etThread.osThreadF( TaRG1( tmWatchHandlesF ) ) ;
 
 etThread.osThreadF( TaRG1( tmServerF ) , (countT)&psttzLeverFolder , (countT)&swFlock ) ;
@@ -182,11 +184,11 @@ ZE( strokeS* , psttzLeverFolder ) ;
         //ids = 0 ;
         //etThread.strMakeF( tinP , psttf , tHome+T("tmp/") ) ; ___( psttf ) ;
 
-        else       psttf = 0 ;
-        if( !ids ) etThread.delF( tinP , psttf ) ;
-        stFoldersExclude.sinkF( tinP , ids , psttf , flSTACKsINK_UNIQUE ) ;
-        ids = 0 ;
-        etThread.strMakeF( tinP , psttf , tHome+T("controls/") ) ; ___( psttf ) ;
+//        else       psttf = 0 ;
+//        if( !ids ) etThread.delF( tinP , psttf ) ;
+//        stFoldersExclude.sinkF( tinP , ids , psttf , flSTACKsINK_UNIQUE ) ;
+//        ids = 0 ;
+//        etThread.strMakeF( tinP , psttf , tHome+T("controls/") ) ; ___( psttf ) ;
 
         //else       psttf = 0 ;
         //if( !ids ) etThread.delF( tinP , psttf ) ;
@@ -206,11 +208,11 @@ ZE( strokeS* , psttzLeverFolder ) ;
         //ids = 0 ;
         //etThread.strMakeF( tinP , psttf , tHome+T("ephemeral/domains/com/ideafarm/city/park/exedll/1/master/") ) ; ___( psttf ) ;
 
-        else       psttf = 0 ;
-        if( !ids ) etThread.delF( tinP , psttf ) ;
-        stFoldersExclude.sinkF( tinP , ids , psttf , flSTACKsINK_UNIQUE ) ;
-        ids = 0 ;
-        etThread.strMakeF( tinP , psttf , tHome+T("IdeaFarm (tm)/") ) ; ___( psttf ) ;
+//        else       psttf = 0 ;
+//        if( !ids ) etThread.delF( tinP , psttf ) ;
+//        stFoldersExclude.sinkF( tinP , ids , psttf , flSTACKsINK_UNIQUE ) ;
+//        ids = 0 ;
+//        etThread.strMakeF( tinP , psttf , tHome+T("IdeaFarm (tm)/") ) ; ___( psttf ) ;
 
         // SINK EXCLUSIONS
 
@@ -383,12 +385,12 @@ DONE( tmcCloakServerF )
                             }
                                 reportFilesF( tinP , etThread , psOut , psoP , pFlock , psttFolder , flagsWant ) ;
 
-                                fileC*& pFlock   = *(fileC**)&(countT&)swFlockP ;
-                                psttzLeverFolderP = psttFolder ;
-
                                 *psOut << (countT)ifcIDrEPLYcLOAK_FOLDERcONTENTS ;
                                 *psOut << (countT)1 ;
                                 *psOut << (countT)FINGERnEG_CLOAKrEPLY ;
+
+                                fileC*& pFlock   = *(fileC**)&(countT&)swFlockP ;
+                                psttzLeverFolderP = psttFolder ;
                             {
                             if( swFlockP.idSlotOfLeverF( tinP , (countT)psttFolder ) )
                             swFlockP.grabF( tinP , TAG( TAGiDnULL ) ) ;

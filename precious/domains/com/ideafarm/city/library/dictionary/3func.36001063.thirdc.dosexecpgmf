@@ -81,8 +81,8 @@
                     DeleteProcThreadAttributeList( (_PROC_THREAD_ATTRIBUTE_LIST*)pcInfo2 ) ;
 
                     }
-                        }
-                            BOS( WHATsfr , BOSoK , CreateProcess( 0 , postAll , &sa , &sa , 1 , flags1 , 0 , 0 , (STARTUPINFO*)&sinfo , &pinfo ) )      //U::20200423@1807: WITHOUT ANALYSIS, CHANGED "0" TO "1" FOR bInherit
+                        }                                                                                                                               //20200522@1422: AGAIN WITHOUT ANALYSIS, CHANGED "1" BACK TO "0" FOR bInherit BECAUSE WHEN CLOAK CALLS ifcHireF, ALL OF ITS HANDLE APPEAR TO BE DUPLICATED INTO THE CHILD PROCESS, WHICH DEFEATS CLOAK'S ATTEMPT TO CLOSE AND THEN REOPEN ITS HANDLE TO A CLOAKED DIRECTORY
+                            BOS( WHATsfr , BOSoK , CreateProcess( 0 , postAll , &sa , &sa , 0 , flags1 , 0 , 0 , (STARTUPINFO*)&sinfo , &pinfo ) )      //20200423@1807: WITHOUT ANALYSIS, CHANGED "0" TO "1" FOR bInherit
 
                             //CONoUTrAW( "\r\n" ) ;
                             //CONoUTrAW( postAll ) ;

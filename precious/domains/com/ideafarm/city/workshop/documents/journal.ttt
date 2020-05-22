@@ -6485,58 +6485,6 @@ I have other business to attend to today and tomorrow, but plan to continue to w
 
 
 
-  set up dut: an adam that walks ///d/tmp/locked.test/
- playcraft
- objective: elegance
-!subjob C: enhance diskFindFileOrDirF to query cloakF for information before trying base os api   
-
-
-
-  next: set up dut
-  !subjob C: diskFindFileOrDirF: take a folder rather than tLikeP
-  !subjob C: deprecate (by renameing) all diskFindFileOrDirF calls that specify *? wildcards
-  !subjob C: migrate all diskFindFileOrDirF calls away from specifying *? wildcards
-  !subjob C: Cloak: enhance the api to support cMaxFilesP
-   so before designing the code enhancement for diskFindFileOrDirF, i should craft that enhancement to Cloak api
-   this would cause Cloak to send a soulC image and then begin to accumulate into an ooth soulC
-   to eliminate capacity limits, the Cloak api can be enhanced to accept a cFilesMax parameter
-   this is the natural implementation given the Cloak api
-  think
-     when the information for the lath file has been extracted, the handle can be closed, which will have the effect of deleting the soulC instance
-     each call will extract the information for wo file
-     the handleP parameter can be used to store a pointer to this soulC instance
-     the first call will result in a soulC instance being received that contains the information for all files
-    if yes, then it gets its information from Cloak and handleP contains the socket connection that is being used for this search
-    if no, then it uses its existing code and handleP contains the base os file find handle
-    query Cloak to find out whether tFolderP is cloaked
-   when diskFindFileOrDirF is called, it can do the following recipe
-   after existing code is migrated to take tFolderP rather than tLikeP, its function will map directly to the Cloak api
-  think
-    each call returns information for wo file
-   application calls diskFindFileOrDirF repeatedly for a specific folder until the handle is null
-  existing pseudocode for application of:     voidT etherC::diskFindFileOrDirF( tinS& tinP , infoFileS*& pInfoFileP , handleC& handleP , const strokeS* const psttLikeP )
-  !subjob C: etherC strIdF: support for revealing the string matches to caller
-  !subjob C: etherC support for emulating * and ? wildcards
-  !subjob C: diskFindFileOrDirF: study its current wildcard functionality
-  !subjob C: diskFindFileOrDirF: take a folder name rather than tLikeP
-    getting a clean compile and run will detect any application code that does not conform
-   decision: make the change tentatively and regression test build
-       but that is not supported by the base os; it is supported within diskFindFileOrDirF
-      there is a call that uses ? for the drive letter: ///?/blablabla
-     list the calling code that does not just request all files
-    conj: all calling code just requests all files (*): 
-    i like this idea because it would eliminate the * ? filter wildcards and force application code to use IPDOS regular expressions instead
-    this would put the burden on application code to filter for the file names that it wants
-   alt: change the functionality to eliminate tLikeP and use tFolderP instead
-  think    
-   application calls diskFindFileOrDirF repeatedly for a specific folder until the handle is null
-  existing pseudocode for application of:     voidT etherC::diskFindFileOrDirF( tinS& tinP , infoFileS*& pInfoFileP , handleC& handleP , const strokeS* const psttLikeP )
-   for this job, i need to have a rested, clear mind
-   my mind is a mush, due to too much work
-  think
- playcraft
- objective: enhance existing api to detect cloaked folder and to divert the request to Cloak for that folder
-!subjob C: specify the pseudocode for diverting file walking to Cloak
 
 
 
@@ -6630,6 +6578,64 @@ I have other business to attend to today and tomorrow, but plan to continue to w
 
 
 
+  set up dut: an adam that walks ///d/tmp/locked.test/
+ playcraft
+ objective: elegance
+!subjob C: enhance diskFindFileOrDirF to query cloakF for information before trying base os api   
+
+
+
+
+
+
+
+
+   cloak launches dut adam
+  set up dut
+  !subjob C: diskFindFileOrDirF: take a folder rather than tLikeP
+  !subjob C: deprecate (by renameing) all diskFindFileOrDirF calls that specify *? wildcards
+  !subjob C: migrate all diskFindFileOrDirF calls away from specifying *? wildcards
+  !subjob C: Cloak: enhance the api to support cMaxFilesP
+   so before designing the code enhancement for diskFindFileOrDirF, i should craft that enhancement to Cloak api
+   this would cause Cloak to send a soulC image and then begin to accumulate into an ooth soulC
+   to eliminate capacity limits, the Cloak api can be enhanced to accept a cFilesMax parameter
+   this is the natural implementation given the Cloak api
+  think
+     when the information for the lath file has been extracted, the handle can be closed, which will have the effect of deleting the soulC instance
+     each call will extract the information for wo file
+     the handleP parameter can be used to store a pointer to this soulC instance
+     the first call will result in a soulC instance being received that contains the information for all files
+    if yes, then it gets its information from Cloak and handleP contains the socket connection that is being used for this search
+    if no, then it uses its existing code and handleP contains the base os file find handle
+    query Cloak to find out whether tFolderP is cloaked
+   when diskFindFileOrDirF is called, it can do the following recipe
+   after existing code is migrated to take tFolderP rather than tLikeP, its function will map directly to the Cloak api
+  think
+    each call returns information for wo file
+   application calls diskFindFileOrDirF repeatedly for a specific folder until the handle is null
+  existing pseudocode for application of:     voidT etherC::diskFindFileOrDirF( tinS& tinP , infoFileS*& pInfoFileP , handleC& handleP , const strokeS* const psttLikeP )
+  !subjob C: etherC strIdF: support for revealing the string matches to caller
+  !subjob C: etherC support for emulating * and ? wildcards
+  !subjob C: diskFindFileOrDirF: study its current wildcard functionality
+  !subjob C: diskFindFileOrDirF: take a folder name rather than tLikeP
+    getting a clean compile and run will detect any application code that does not conform
+   decision: make the change tentatively and regression test build
+       but that is not supported by the base os; it is supported within diskFindFileOrDirF
+      there is a call that uses ? for the drive letter: ///?/blablabla
+     list the calling code that does not just request all files
+    conj: all calling code just requests all files (*): 
+    i like this idea because it would eliminate the * ? filter wildcards and force application code to use IPDOS regular expressions instead
+    this would put the burden on application code to filter for the file names that it wants
+   alt: change the functionality to eliminate tLikeP and use tFolderP instead
+  think    
+   application calls diskFindFileOrDirF repeatedly for a specific folder until the handle is null
+  existing pseudocode for application of:     voidT etherC::diskFindFileOrDirF( tinS& tinP , infoFileS*& pInfoFileP , handleC& handleP , const strokeS* const psttLikeP )
+   for this job, i need to have a rested, clear mind
+   my mind is a mush, due to too much work
+  think
+ playcraft
+ objective: enhance existing api to detect cloaked folder and to divert the request to Cloak for that folder
+!subjob C: specify the pseudocode for diverting file walking to Cloak
 
 
 !job A: periodically verify that the bottom of this file still has: // 20200503@2128: THIS NOTE IS TO DETECT WHETHER RIMSTAR TRUNCATES THIS FILE AS IT GROWS
