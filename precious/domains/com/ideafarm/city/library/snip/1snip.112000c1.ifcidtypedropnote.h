@@ -242,4 +242,5 @@
 0xdddd0428 , "fileWindowC" ,
 0xdddd0429 , "fileWindowsC" ,
 0xdddd042a , "patternC" ,
-0xdddd042b , "fileNameC"
+0xdddd042b , "fileNameC" ,
+0xdddd042c , "diskFindHandleS"

@@ -116,12 +116,15 @@ etThread.delF( tinP , postOldCode ) ;
                 if( !( cToDo % 0x10 ) ) { CONoUTrAW3( "\r               \rcToDo: " , cToDo , "\r" ) ; }
             {
             if( pInfo && !( F(pInfo->flags) & flFILEaTTR_DIRECTORY ) )
-            tinP.pEtScratch->diskFindFileOrDirOldF( tinP , pInfo , hFind , *pptLike[ offl ] ) ; ___( pInfo ) ;
+            tinP.pEtScratch->diskFindFileOrDirF( tinP , pInfo , hFind , fnLike.pathF() , &pat ) ; ___( pInfo ) ;
             ZE( infoFileS* , pInfo ) ;
             cToDo -- ;
         {
         do
         handleC hFind( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_FILEfIND ) ;
+
+        patternC pat( tinP , etThread , fnLike , ifcIDtYPEpATTERN_FOREIGNwILDCARDmICROSOFT ) ;
+        fileNameC fnLike( tinP , etThread , *pptLike[ offl ] ) ;
     {
     for( countT offl = 0 ; !ether && offl < sizeof pptLike / sizeof pptLike[ 0 ] ; offl ++ )
     ZE( countT   , idCompressed ) ;
@@ -144,11 +147,14 @@ CONoUTrAW3( "\rcToDo: " , cToDo , "\r\n" ) ;
             cToDo ++ ;
         {
         if( pInfo && !( F(pInfo->flags) & flFILEaTTR_DIRECTORY ) )
-        tinP.pEtScratch->diskFindFileOrDirOldF( tinP , pInfo , hFind , *pptLike[ offl ] ) ; ___( pInfo ) ;
+        tinP.pEtScratch->diskFindFileOrDirF( tinP , pInfo , hFind , fnLike.pathF() , &pat ) ; ___( pInfo ) ;
         ZE( infoFileS* , pInfo ) ;
     {
     do
     handleC hFind( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_FILEfIND ) ;
+
+    patternC pat( tinP , etThread , fnLike , ifcIDtYPEpATTERN_FOREIGNwILDCARDmICROSOFT ) ;
+    fileNameC fnLike( tinP , etThread , *pptLike[ offl ] ) ;
 {
 for( countT offl = 0 ; !ether && offl < sizeof pptLike / sizeof pptLike[ 0 ] ; offl ++ )
 CONoUTrAW3( "\r\n               \rcToDo: " , cToDo , "\r" ) ;

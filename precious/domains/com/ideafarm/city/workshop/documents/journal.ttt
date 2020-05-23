@@ -6589,7 +6589,7 @@ I have other business to attend to today and tomorrow, but plan to continue to w
 
 
 
-
+  !subjob C: migrate s_setupF to image function so that it can be called early
   !subjob C: dosFindFileOrDirPrivateF: allocate a structure to hold the find osh
    cloak launches dut adam
   set up dut
@@ -6642,14 +6642,11 @@ I have other business to attend to today and tomorrow, but plan to continue to w
 !job A: periodically verify that the bottom of this file still has: // 20200503@2128: THIS NOTE IS TO DETECT WHETHER RIMSTAR TRUNCATES THIS FILE AS IT GROWS
 
 
-
-   
-  define a structue that initially only has the find osh
-   the idea here is to have handleC store the address of a structure that will either contain a find handle or will contain, initially, an array containing all file names that are to be returned wo by wo
-  think
+  regression test baseline: build then fresh then gen
  playcraft
- objective: prepare to divert requests to Cloak
-!subjob C: dosFindFileOrDirPrivateF: allocate a structure to hold the find osh
+ objective: elegance
+!subjob C: migrate s_setupF to image function so that it can be called early
+   
 
 !thrust: debug until all factories run without failure
 
@@ -6664,6 +6661,12 @@ I have other business to attend to today and tomorrow, but plan to continue to w
 =========================================================================================================================================================
 
 
+  define a structue that initially only has the find osh
+   the idea here is to have handleC store the address of a structure that will either contain a find handle or will contain, initially, an array containing all file names that are to be returned wo by wo
+  think
+ playcraft
+ objective: prepare to divert requests to Cloak
+!subjob C: dosFindFileOrDirPrivateF: allocate a structure to hold the find osh
    36001 1fe_
    360010bd thirdC::s_readF( tinS& tinP , soulC& soulP , handleC& handleP , const countT time1P , const sCountT time2P , const countT idModeP )/*1*/
   look

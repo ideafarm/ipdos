@@ -76,7 +76,7 @@ voidT diskFileSetAttrF_4P7_GF( tinS& tinP , etherC& etherP , soulC& slP , const 
     etherP.delF( tinP , psttP ) ;
 }
 
-voidT diskFindFileOrDirOldF_4Pb4P_GF( tinS& tinP , etherC& etherP , soulC& slP , const strokeS* const _psttNameP )
+voidT diskFindFileOrDirF_4Pb4PpatternCP_GF( tinS& tinP , etherC& etherP , soulC& slP , const strokeS* const _psttNameP )
 {
     countT idArgNext = 1 ;
     ZE( byteT* , pbFieldNext ) ;
@@ -96,15 +96,39 @@ voidT diskFindFileOrDirOldF_4Pb4P_GF( tinS& tinP , etherC& etherP , soulC& slP ,
 
     SOIXLoLDtESTeMPTY( 0xdddd8017 , etherC )
     SOIXLoLDtESTtYPE( 0xdddd8017 , etherC )
-    ZE( strokeS* , psttLikeP ) ;
-    if( !POOP ) { slP >> psttLikeP ; ___( psttLikeP ) ; idArgNext ++ ; }
-    etherP.delF( tinP , psttLikeP ) ;
+    ZE( strokeS* , psttPathP ) ;
+    if( !POOP ) { slP >> psttPathP ; ___( psttPathP ) ; idArgNext ++ ; }
+
+    ZE( patternC* , pPatternP ) ;
+    {
+        strokeS sttColon( ':' ) ;
+        SOIXLoLDtESTeMPTY( 0x0 , etherC )
+        if( !POOP )
+        {
+           idTypeNext = flagsNext = cbFieldNext = 0 ;
+            pbFieldNext = slP.pbFieldF( tinP , idTypeNext , flagsNext , cbFieldNext , 1 ) ;
+            strokeS* psttNext = *pbFieldNext & flSOULiTEM_NULLpTR ? 0 : (strokeS*)pbFieldNext ;
+            if( idTypeNext == ifcIDtYPEsOULiTEM_strokeSptr && psttNext && psttNext->idAdam == 1 && psttNext[ CSpREFIX ] == sttColon )
+            {
+                pPatternP = 0 ;
+                psttNext = 0 ;
+                if( !POOP ) { slP >> psttNext ; ___( psttNext ) ; idArgNext ++ ; }
+                etherP.delF( tinP , psttNext ) ;
+            }
+            else
+            {
+                SOIXLoLDtESTtYPE( 0x0 , etherC )
+            }
+        }
+    }
+    if( !POOP ) etherP.diskFindFileOrDirF( tinP , psttNameP , handleP , psttPathP , pPatternP ) ;
+    etherP.delF( tinP , psttPathP ) ;
 
     if( !POOP ) slP << psttNameP ;
     etherP.delF( tinP , psttNameP ) ;
 }
 
-voidT diskFindFileOrDirOldF_4P4PhPgrabCP33_GF( tinS& tinP , etherC& etherP , soulC& slP , const strokeS* const _psttNameP )
+voidT diskFindFileOrDirF_4P4PpatternCPhPgrabCP33_GF( tinS& tinP , etherC& etherP , soulC& slP , const strokeS* const _psttNameP )
 {
     countT idArgNext = 1 ;
     ZE( byteT* , pbFieldNext ) ;
@@ -119,8 +143,31 @@ voidT diskFindFileOrDirOldF_4P4PhPgrabCP33_GF( tinS& tinP , etherC& etherP , sou
 
     SOIXLoLDtESTeMPTY( 0xdddd8017 , etherC )
     SOIXLoLDtESTtYPE( 0xdddd8017 , etherC )
-    ZE( strokeS* , psttLikeP ) ;
-    if( !POOP ) { slP >> psttLikeP ; ___( psttLikeP ) ; idArgNext ++ ; }
+    ZE( strokeS* , psttPathP ) ;
+    if( !POOP ) { slP >> psttPathP ; ___( psttPathP ) ; idArgNext ++ ; }
+
+    ZE( patternC* , pPatternP ) ;
+    {
+        strokeS sttColon( ':' ) ;
+        SOIXLoLDtESTeMPTY( 0x0 , etherC )
+        if( !POOP )
+        {
+           idTypeNext = flagsNext = cbFieldNext = 0 ;
+            pbFieldNext = slP.pbFieldF( tinP , idTypeNext , flagsNext , cbFieldNext , 1 ) ;
+            strokeS* psttNext = *pbFieldNext & flSOULiTEM_NULLpTR ? 0 : (strokeS*)pbFieldNext ;
+            if( idTypeNext == ifcIDtYPEsOULiTEM_strokeSptr && psttNext && psttNext->idAdam == 1 && psttNext[ CSpREFIX ] == sttColon )
+            {
+                pPatternP = 0 ;
+                psttNext = 0 ;
+                if( !POOP ) { slP >> psttNext ; ___( psttNext ) ; idArgNext ++ ; }
+                etherP.delF( tinP , psttNext ) ;
+            }
+            else
+            {
+                SOIXLoLDtESTtYPE( 0x0 , etherC )
+            }
+        }
+    }
 
     ZE( soulC* , pSoulP ) ;
     {
@@ -219,9 +266,10 @@ voidT diskFindFileOrDirOldF_4P4PhPgrabCP33_GF( tinS& tinP , etherC& etherP , sou
     }
 
     ZE( countT , noName ) ;
+    if( !POOP ) noName = etherP.diskFindFileOrDirF( tinP , pstt1FoundP , psttPathP , pPatternP , pSoulP , pGrabP , csttExtraP , cMaxP ) ;
     DEL( pGrabP ) ;
     DEL( pSoulP ) ;
-    etherP.delF( tinP , psttLikeP ) ;
+    etherP.delF( tinP , psttPathP ) ;
 
     if( !POOP ) slP << pstt1FoundP ;
     etherP.delF( tinP , pstt1FoundP ) ;
@@ -229,16 +277,57 @@ voidT diskFindFileOrDirOldF_4P4PhPgrabCP33_GF( tinS& tinP , etherC& etherP , sou
     slP << noName ;
 }
 
-voidT diskFindFileOrDirF_4Pb4PpatternCP_GF( tinS& tinP , etherC& etherP , soulC& slP , const strokeS* const _psttNameP )
-{
-}
-
-voidT diskFindFileOrDirF_4P4PpatternCPhPgrabCP33_GF( tinS& tinP , etherC& etherP , soulC& slP , const strokeS* const _psttNameP )
-{
-}
-
 voidT diskChooseSiteF_4P4P4P_GF( tinS& tinP , etherC& etherP , soulC& slP , const strokeS* const _psttNameP )
 {
+    countT idArgNext = 1 ;
+    ZE( byteT* , pbFieldNext ) ;
+    ZE( countT , idTypeNext ) ;
+    ZE( flagsT , flagsNext ) ;
+    ZE( countT , cbFieldNext ) ;
+
+    SOIXLoLDtESTeMPTY( 0xdddd8017 , etherC )
+    SOIXLoLDtESTtYPE( 0xdddd8017 , etherC )
+    ZE( strokeS* , psttP ) ;
+    if( !POOP ) { slP >> psttP ; ___( psttP ) ; idArgNext ++ ; }
+
+    SOIXLoLDtESTeMPTY( 0xdddd8017 , etherC )
+    SOIXLoLDtESTtYPE( 0xdddd8017 , etherC )
+    ZE( strokeS* , psttKeyP ) ;
+    if( !POOP ) { slP >> psttKeyP ; ___( psttKeyP ) ; idArgNext ++ ; }
+
+    ZE( strokeS* , psttLikeP ) ;
+    {
+        strokeS sttColon( ':' ) ;
+        SOIXLoLDtESTeMPTY( 0xdddd8017 , etherC )
+        if( !POOP )
+        {
+           idTypeNext = flagsNext = cbFieldNext = 0 ;
+            pbFieldNext = slP.pbFieldF( tinP , idTypeNext , flagsNext , cbFieldNext , 1 ) ;
+            strokeS* psttNext = *pbFieldNext & flSOULiTEM_NULLpTR ? 0 : (strokeS*)pbFieldNext ;
+            if( idTypeNext == ifcIDtYPEsOULiTEM_strokeSptr && psttNext && psttNext->idAdam == 1 && psttNext[ CSpREFIX ] == sttColon )
+            {
+                psttLikeP = 0 ;
+                psttNext = 0 ;
+                if( !POOP ) { slP >> psttNext ; ___( psttNext ) ; idArgNext ++ ; }
+                etherP.delF( tinP , psttNext ) ;
+            }
+            else
+            {
+                SOIXLoLDtESTtYPE( 0xdddd8017 , etherC )
+                if( !POOP ) { slP >> psttLikeP ; idArgNext ++ ; }
+            }
+        }
+    }
+
+    ZE( countT , noName ) ;
+    if( !POOP ) noName = etherP.diskChooseSiteF( tinP , psttP , psttKeyP , psttLikeP ) ;
+    etherP.delF( tinP , psttLikeP ) ;
+    etherP.delF( tinP , psttKeyP ) ;
+
+    if( !POOP ) slP << psttP ;
+    etherP.delF( tinP , psttP ) ;
+
+    slP << noName ;
 }
 
 voidT diskFindMostFreeSpaceF_4P_GF( tinS& tinP , etherC& etherP , soulC& slP , const strokeS* const _psttNameP )
@@ -2043,4 +2132,73 @@ voidT osClipboardWriteF_4P_GF( tinS& tinP , etherC& etherP , soulC& slP , const 
     if( !POOP ) { slP >> psttP ; ___( psttP ) ; idArgNext ++ ; }
     if( !POOP ) etherP.osClipboardWriteF( tinP , psttP ) ;
     etherP.delF( tinP , psttP ) ;
+}
+
+voidT osDoNothingF__GF( tinS& tinP , etherC& etherP , soulC& slP , const strokeS* const _psttNameP )
+{
+    countT idArgNext = 1 ;
+    ZE( byteT* , pbFieldNext ) ;
+    ZE( countT , idTypeNext ) ;
+    ZE( flagsT , flagsNext ) ;
+    ZE( countT , cbFieldNext ) ;
+    if( !POOP ) etherP.osDoNothingF( tinP ) ;
+    if( tinP.fingerprint && _psttNameP && slP ) ;
+}
+
+voidT osDoNothingLoopF_33_GF( tinS& tinP , etherC& etherP , soulC& slP , const strokeS* const _psttNameP )
+{
+    countT idArgNext = 1 ;
+    ZE( byteT* , pbFieldNext ) ;
+    ZE( countT , idTypeNext ) ;
+    ZE( flagsT , flagsNext ) ;
+    ZE( countT , cbFieldNext ) ;
+
+    ZE( countT , cToDoP ) ;
+    {
+        strokeS sttColon( ':' ) ;
+        SOIXLoLDtESTeMPTY( 0xdddd8003 , etherC )
+        if( !POOP )
+        {
+           idTypeNext = flagsNext = cbFieldNext = 0 ;
+            pbFieldNext = slP.pbFieldF( tinP , idTypeNext , flagsNext , cbFieldNext , 1 ) ;
+            strokeS* psttNext = *pbFieldNext & flSOULiTEM_NULLpTR ? 0 : (strokeS*)pbFieldNext ;
+            if( idTypeNext == ifcIDtYPEsOULiTEM_strokeSptr && psttNext && psttNext->idAdam == 1 && psttNext[ CSpREFIX ] == sttColon )
+            {
+                cToDoP = 0 ;
+                psttNext = 0 ;
+                if( !POOP ) { slP >> psttNext ; ___( psttNext ) ; idArgNext ++ ; }
+                etherP.delF( tinP , psttNext ) ;
+            }
+            else
+            {
+                SOIXLoLDtESTtYPE( 0xdddd8003 , etherC )
+                if( !POOP ) { slP >> cToDoP ; idArgNext ++ ; }
+            }
+        }
+    }
+
+    ZE( countT , msSleepP ) ;
+    {
+        strokeS sttColon( ':' ) ;
+        SOIXLoLDtESTeMPTY( 0xdddd8003 , etherC )
+        if( !POOP )
+        {
+           idTypeNext = flagsNext = cbFieldNext = 0 ;
+            pbFieldNext = slP.pbFieldF( tinP , idTypeNext , flagsNext , cbFieldNext , 1 ) ;
+            strokeS* psttNext = *pbFieldNext & flSOULiTEM_NULLpTR ? 0 : (strokeS*)pbFieldNext ;
+            if( idTypeNext == ifcIDtYPEsOULiTEM_strokeSptr && psttNext && psttNext->idAdam == 1 && psttNext[ CSpREFIX ] == sttColon )
+            {
+                msSleepP = 0 ;
+                psttNext = 0 ;
+                if( !POOP ) { slP >> psttNext ; ___( psttNext ) ; idArgNext ++ ; }
+                etherP.delF( tinP , psttNext ) ;
+            }
+            else
+            {
+                SOIXLoLDtESTtYPE( 0xdddd8003 , etherC )
+                if( !POOP ) { slP >> msSleepP ; idArgNext ++ ; }
+            }
+        }
+    }
+    if( !POOP ) etherP.osDoNothingLoopF( tinP , cToDoP , msSleepP ) ;
 }
