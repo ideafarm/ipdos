@@ -6590,6 +6590,7 @@ I have other business to attend to today and tomorrow, but plan to continue to w
 
 
 
+  !subjob C: dosFindFileOrDirPrivateF: allocate a structure to hold the find osh
    cloak launches dut adam
   set up dut
   !subjob C: diskFindFileOrDirF: take a folder rather than tLikeP
@@ -6641,6 +6642,15 @@ I have other business to attend to today and tomorrow, but plan to continue to w
 !job A: periodically verify that the bottom of this file still has: // 20200503@2128: THIS NOTE IS TO DETECT WHETHER RIMSTAR TRUNCATES THIS FILE AS IT GROWS
 
 
+
+   
+  define a structue that initially only has the find osh
+   the idea here is to have handleC store the address of a structure that will either contain a find handle or will contain, initially, an array containing all file names that are to be returned wo by wo
+  think
+ playcraft
+ objective: prepare to divert requests to Cloak
+!subjob C: dosFindFileOrDirPrivateF: allocate a structure to hold the find osh
+
 !thrust: debug until all factories run without failure
 
 =========================================================================================================================================================
@@ -6654,6 +6664,22 @@ I have other business to attend to today and tomorrow, but plan to continue to w
 =========================================================================================================================================================
 
 
+   36001 1fe_
+   360010bd thirdC::s_readF( tinS& tinP , soulC& soulP , handleC& handleP , const countT time1P , const sCountT time2P , const countT idModeP )/*1*/
+  look
+   | 
+   | 000b411e.ecc81bc9 ! 00000000.000f34bd @ 00000000.00000000 # 2        $ 1        % tm1F             | _______________________________________________________________________________________________________________________________ wo folder (begin)
+   | 000b411e.ecfee038 ! 00000000.0045f92c @ 00000000.0036c46f # 2        $ 1        % tm1F             | ///d/tmp/locked.test/foo/
+   | 000b411e.ed0b7359 ! 00000000.00528c4d @ 00000000.0002cbf2 # 2        $ 1        % tm1F             | poopC sniff sniff [idLine,idiFile,idSubType]:    d6          30021015    db010063
+   | 000b411e.ed23b638 ! 00000000.006acf2c @ 00000000.001842df # 2        $ 1        % tm1F             | poopC sniff sniff [idLine,idiFile,idSubType]:    ef1         40010063    0
+   | 000b411e.ed23b638 ! 00000000.006acf2c @ 00000000.00000000 # 2        $ 1        % tm1F             | poopC sniff sniff [idLine,idiFile,idSubType]:    ef1         40010063    0
+   | 000b411e.ed23b638 ! 00000000.006acf2c @ 00000000.00000000 # 2        $ 1        % tm1F             | poopC sniff sniff [idLine,idiFile,idSubType]:    ef1         40010063    0
+   | 000b411e.ed2efe76 ! 00000000.0076176a @ 00000000.000b483e # 2        $ 1        % tm1F             | _______________________________________________________________________________________________________________________________ wo folder (end)
+   | 
+  listing
+ playcraft
+ objective: elegance
+!job C: study quiet impotence when querying cloak
  cool ; it works
 !subjob C: diskFindFileOrDirF: take a folder rather than tLikeP
   cool ; it works!

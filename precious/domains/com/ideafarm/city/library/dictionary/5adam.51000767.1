@@ -114,9 +114,9 @@ etThread.osThreadF( TaRG1( tmServerF ) , (countT)&psttzLeverFolder , (countT)&sw
                     if( swFlock ) DEL( pFlock )                                   //SHOULD BE IMPOSSIBLE
                     psttzLeverFolder = psttf ;
                     swFlock.grabF( tinP , TAG( TAGiDnULL ) ) ;
+                    etThread.traceF( tinP , T("folder locked:    ")+T(psttf) ) ;
                 {
                 if( !cDo )
-                etThread.traceF( tinP , T("folder locked:    ")+T(psttf) ) ;
             {
             else
             }
@@ -512,7 +512,7 @@ TASK( tmcCloakServerF )
                         case ERROR_MORE_DATA :
                     {
                     switch( rc )
-                    etherP.traceF( tinP , T("[rc]:    ")+TF2(rc,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
+                    etherP.traceF( tinP , T("GetFileInformationByHandleEx [rc]:    ")+TF2(rc,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
                     countT rc = GetLastError() ;
                 {
                 if( !bOk )

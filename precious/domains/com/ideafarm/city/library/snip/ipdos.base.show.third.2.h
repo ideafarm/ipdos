@@ -31328,7 +31328,7 @@ examples
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34018.etherC.diskFindFileOrDirOldF!||
  //countT diskFindFileOrDirOldF( tinS& tinP , strokeS*& pstt1FoundP , const strokeS* const psttLikeP , soulC* pSoulP = 0 , grabC* pGrabP = 0 , const countT csttExtraP = 0 , const countT cMaxP = 0 ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34017.etherC.diskFindFileOrDirOldF!||
- voidT diskFindFileOrDirF( tinS& tinP , infoFileS*& pInfoFileP , handleC& handleP , const strokeS* const psttPathP , const patternC* pPatternP = 0 ) ;
+ voidT diskFindFileOrDirF( tinS& tinP , infoFileS*& pInfoFileP , handleC& handleP , const strokeS* const psttPathP , const patternC* pPatternP = 0 , const flagsT flagsP = flDISKfIND_null ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.360021ef.etherc.diskfindfileordirf!||
  voidT diskFindFileOrDirF( tinS& tinP , strokeS*& psttNameP , handleC& handleP , const strokeS* const psttPathP , const patternC* pPatternP = 0 ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.360021f0.etherc.diskfindfileordirf!||
@@ -44105,7 +44105,7 @@ i am nonconformant in that all of my member function definitions are in a single
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.36145003.patternC.patternC!||
 
     friend countT etherC::strIdOptimizedClosureF( tinS& tinP , stackC* pstMatchP , const flagsT flagsMatchP , countT& idFirstP , strokeS& sttQuoteP , const patternC& patP , const strokeS* psttBigP , const countT idLastP , sCountT idP ) ;
-    friend voidT etherC::diskFindFileOrDirF( tinS& tinP , infoFileS*& pInfoP , handleC& handleP , const strokeS* const psttPathP , const patternC* pPatternP ) ;
+    friend voidT etherC::diskFindFileOrDirF( tinS& tinP , infoFileS*& pInfoP , handleC& handleP , const strokeS* const psttPathP , const patternC* pPatternP , const flagsT flagsP ) ;
 }
 ;
 
@@ -44160,3 +44160,32 @@ i am nonconformant in that all of my member function definitions are in a single
 //
 
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.fileNameC : 1snip.15000184.fileNameC END
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+/*
+*/
+/**/
+
+/*1*/struct diskFindHandleS/*1*/
+{
+    countT  oshFind ;
+
+    NEWdELcLASSpROTOS
+    inline diskFindHandleS( voidT ) : oshFind( 0 ) {}
+}
+;
+
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+

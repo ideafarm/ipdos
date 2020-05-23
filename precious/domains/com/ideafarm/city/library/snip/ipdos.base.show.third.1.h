@@ -1,4 +1,7 @@
 
+#define flDISKfIND_null                                    0xe00000ff
+#define flDISKfIND_DOnOTtESTwATER                          0xe00001ff
+
 
 
 #define flPATTERNlITERALS_LITERALeNDING                               0xe00002ff
@@ -55,6 +58,7 @@ it is illegal to refer to this symbol in the definition of an adam
 //THE SHORT CODES AT THE END OF EACH LINE ARE USED TO CREATE MANGLED WORDS FOR SOIL (tm)
 //DO NOT CHANGE THE MANGLE CODES (E.G. "A1").  CHANGING THESE CODES WILL BREAK ALL SOIL (tm) CODE THAT USES THEM
 
+struct /*ff*/diskFindHandleS/*ff*/              ; /*ff*//**//*ff*/
 struct /*ff*/argS/*ff*/                         ; /*ff*//**//*ff*/
 class  /*ff*/arrayC/*ff*/                       ; /*ff*//**//*ff*/
 class  /*ff*/batonBoxC/*ff*/                    ; /*ff*//**//*ff*/
@@ -8100,9 +8104,10 @@ it is illegal to refer to this symbol in the definition of an adam
 #define ifciDtYPEdROPnOTE_fileWindowsC                                  0xdddd0429
 #define ifciDtYPEdROPnOTE_patternC                                      0xdddd042a
 #define ifciDtYPEdROPnOTE_fileNameC                                     0xdddd042b
+#define ifciDtYPEdROPnOTE_diskFindHandleS                               0xdddd043b
 /*3*/
 #define ifciDtYPEdROPnOTE_min     0xdddd0337
-#define ifciDtYPEdROPnOTE_max     0xdddd042b
+#define ifciDtYPEdROPnOTE_max     0xdddd043b
 
 
 //
