@@ -16,7 +16,7 @@
                 delF( tinP , pbs ) ;
                 }
                     soulP.shiftLeftF( tinP , ifcIDtYPEsOULiTEM_soulC , pbs , 0 , 0 , flSOULsHIFTlEFT_UNPACKsOULiMAGE ) ;
-                    s_readF( tinP , pbs + 3 * sizeof( countT ) , cbs , handleP , flSOCKETcrEAD_null , time1P , time2P , idModeP ) ;
+                    if( cbs ) s_readF( tinP , pbs + 3 * sizeof( countT ) , cbs , handleP , flSOCKETcrEAD_null , time1P , time2P , idModeP ) ;
                     ((countT*)pbs)[ 2 ] = cbs ;
                     ((countT*)pbs)[ 1 ] = 1 ; //CS:CODEsYNC: 10200e4 10200e4
                     putNegAM( ((countT*)pbs)[ 0 ] , FINGERnEG_SOULc ) ;
@@ -27,7 +27,6 @@
             {
             if( !POOP )
 
-            __Z( cbs ) ;
             s_readF( tinP , (byteT*)&cbs , sizeof cbs , handleP , flSOCKETcrEAD_null , time1P , time2P , idModeP ) ;
             ZE( countT , cbs ) ;
         {

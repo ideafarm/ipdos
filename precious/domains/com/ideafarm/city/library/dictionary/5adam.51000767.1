@@ -392,7 +392,8 @@ DONE( tmcCloakServerF )
                                 fileC*& pFlock   = *(fileC**)&(countT&)swFlockP ;
                                 psttzLeverFolderP = psttFolder ;
                             {
-                            if( swFlockP.idSlotOfLeverF( tinP , (countT)psttFolder ) )
+                            else
+                            if( !swFlockP.idSlotOfLeverF( tinP , (countT)psttFolder ) ) etThread.traceF( tinP , T("flavor not found [psttFolder]:    ")+T(psttFolder) ) ;
                             swFlockP.grabF( tinP , TAG( TAGiDnULL ) ) ;
                         {
                         else

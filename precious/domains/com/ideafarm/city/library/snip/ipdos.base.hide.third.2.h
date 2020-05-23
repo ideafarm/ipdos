@@ -28445,10 +28445,11 @@ applications should avoid using thirdC objects
   //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.340ad.thirdC.s_optionReuseAddressF!||
   voidT s_optionSendNowF( tinS& tinP , const handleC& handleP , const boolT bEnableP = 1 ) ;
   //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.340ae.thirdC.s_optionSendNowF!||
-  voidT s_setupF( tinS& tinP ) ;
-  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3403d.thirdC.s_setupF!||
-  static voidT s_shutdownIF( tinS& tinP ) ;
-  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3403e.thirdC.s_shutdownIF!||
+  static voidT s_setupIF( tinS& tinP ) ;
+  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3403d.thirdC.s_setupIF!||
+  static voidT s_shutdown1IF( tinS& tinP ) ;
+  static voidT s_shutdown2IF( tinS& tinP ) ;
+  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3403e.thirdC.s_shutdown2IF!||
   voidT s_socketF( tinS& tinP , handleC& handleP , const boolT idTypeP = 0 , const handleC* const phContextP = 0 ) ;
   //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3403f.thirdC.s_socketF!||
 
@@ -39669,6 +39670,7 @@ base class to make a derived class of objects easily contained by a stackC objec
     cryC                                     cry5112 ;
     cryC                                     cry511 ;
     doC                                      do1 ;
+    doC                                      do2 ;
     cryC                                     cry510 ;
     booksC                                   bksTelemetry ;
     booksC                                   bksTrace ;

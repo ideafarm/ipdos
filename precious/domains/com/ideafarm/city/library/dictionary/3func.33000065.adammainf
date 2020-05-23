@@ -114,13 +114,7 @@
                                     }
                                         if( tinP.monitor.idThread == 1 && !( ++ processGlobal1I.pcPhaseLow[ tinP.monitor.idThread ] ) ) { BLAMMO ; }
                                         ADAMpHASE( ifcIDpHASEaDAM_EPILOGaDAMmAIN5 ) ;
-                                        }
-                                            THREADmODE1rESTORE
-                                            etThread.socksShutdownF( tinP ) ;
-                                            THREADmODE1oN( flTHREADmODE1_ALLOWsTOPwHILEgRABBING )
-                                        {
-                                        if( tinP.monitor.idThread == 1 && !( ++ processGlobal1I.pcPhaseLow[ tinP.monitor.idThread ] ) ) { BLAMMO ; }
-
+                                        thirdC::s_shutdown1IF( tinP ) ;
                                         _OUT_
                                         ADAMpHASE( ifcIDpHASEaDAM_EPILOGaDAMmAIN4 ) ;
                                         }
@@ -398,8 +392,11 @@
                                         _INoLD_
 
                                         etThread.ifcDatumF( tinP , flDATUM1_CLASStRACEaLWAYShIRE , flDATUM2_null , 0 , 0 , 0 , (voidT*)DDNAME ) ;
-                                        if( !( F(thirdC::third_flagsModeProcess2I_IF(tinP)) & flMODEpROCESS2_NOsYSTEMtHREADS ) ) etThread.osThreadF( tinP , countTC() , tmTimeNowF ) ;
-                                        etThread.socksSetupF( tinP ) ; /*U:NEEDED FOR ifcDatumF.  THIS FORCES FULL TIME CONNECT ON Windows USERS*/
+                                        }
+                                            etThread.osThreadF( tinP , countTC() , tmTimeNowF ) ;
+                                            etThread.osThreadF( TaRG1( tmKillSocketF ) ) ; //A:ASSUME: thirdC::s_setupIF HAS ALREADY BEEN CALLED (LOOK FOR IT VERY EARLY DURING CT OF processGlobal3I)
+                                        {
+                                        if( !( F(thirdC::third_flagsModeProcess2I_IF(tinP)) & flMODEpROCESS2_NOsYSTEMtHREADS ) )
                                         ADAMpHASE( ifcIDpHASEaDAM_PROLOGaDAMmAIN91 ) ;
 
                                         TELL( "main: parameters scanned" ) ;
