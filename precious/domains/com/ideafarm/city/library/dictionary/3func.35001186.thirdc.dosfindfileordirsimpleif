@@ -34,17 +34,37 @@
             if( tinP.bosFail && ( tinP.brcLath == ERROR_FILE_NOT_FOUND || tinP.brcLath == ERROR_PATH_NOT_FOUND || tinP.brcLath == ERROR_NO_MORE_FILES ) )
 
             }
-                fFound = !tinP.bosFail ;
-                BOS( WHATsfr , BOSoK , FindNextFile( (HANDLE)handleP.osF( ifcIDtYPEhANDLE_FILEfIND ) , &info ) )
+                }
+                    fFound = !tinP.bosFail ;
+                    BOS( WHATsfr , BOSoK , FindNextFile( (HANDLE)pOsh->oshFind , &info ) )
+                {
+                if( pOsh )
+                diskFindHandleS* pOsh = (diskFindHandleS*)handleP.osF( ifcIDtYPEhANDLE_FILEfIND ) ;
             {
             else
             }
-                fFound = !!handleP ;
-                handleP.osF( ifcIDtYPEhANDLE_FILEfIND , tinP.brcRaw ) ;
-                BOS( WHATsfr , BOShANDLE , FindFirstFile( postLikeP , &info ) )
+                }
+                    }
+                        fFound = 1 ;
+                        handleP.osF( ifcIDtYPEhANDLE_FILEfIND , (countT)pOsh ) ;
+                        pOsh->oshFind = tinP.brcRaw ;
+                    {
+                    else
+                    }
+                        processGlobal3I.heap.delF( tinP , pba ) ;
+                        DELzOMBIE( pOsh ) ;
+                    {
+                    if( tinP.brcRaw == (countT)INVALID_HANDLE_VALUE )
+                    BOS( WHATsfr , BOShANDLE , FindFirstFile( postLikeP , &info ) )
+
+                    diskFindHandleS* pOsh = new( 0 , tinP , pba , cba ) diskFindHandleS ;
+                {
+                if( pba )
+                byteT* pba = processGlobal3I.heap.newF( tinP , LF , cba ) ;
+                countT cba = sizeof( diskFindHandleS ) ;
             {
             if( !handleP )
-            ULONG cc = 1 ;
+            //CS:CODEsYNCH: DUPLICATE CODE 3600101d 35001186
 
         #elif defined( __NT__ )
         #ifdef __OS2__

@@ -103,20 +103,38 @@
                 if( tinP.bosFail )
 
                 }
-                    fFound = !tinP.bosFail ;
-                    BOS( WHATsfr , BOSoK , FindNextFile( (HANDLE)handleP.osF( ifcIDtYPEhANDLE_FILEfIND ) , &info ) )
+                    }
+                        fFound = !tinP.bosFail ;
+                        BOS( WHATsfr , BOSoK , FindNextFile( (HANDLE)pOsh->oshFind , &info ) )
+                    {
+                    if( pOsh )
+                    diskFindHandleS* pOsh = (diskFindHandleS*)handleP.osF( ifcIDtYPEhANDLE_FILEfIND ) ;
                 {
                 else
                 }
-                    fFound = !!handleP ;
-                    handleP.osF( ifcIDtYPEhANDLE_FILEfIND , tinP.brcRaw ) ;
-                    BOS( WHATsfr , BOShANDLE , FindFirstFile( postLike , &info ) )
+                    }
+                        }
+                            fFound = 1 ;
+                            handleP.osF( ifcIDtYPEhANDLE_FILEfIND , (countT)pOsh ) ;
+                            pOsh->oshFind = tinP.brcRaw ;
+                        {
+                        else
+                        }
+                            processGlobal3I.heap.delF( tinP , pba ) ;
+                            DELzOMBIE( pOsh ) ;
+                        {
+                        if( tinP.brcRaw == (countT)INVALID_HANDLE_VALUE )
+                        BOS( WHATsfr , BOShANDLE , FindFirstFile( postLikeP , &info ) )
 
-
-                    DEL( pOsh ) ;
-                    diskFindHandleS* pOsh = new( 0 , tinP , LF ) diskFindHandleS ; ___( pOsh ) ; //U::
+                        diskFindHandleS* pOsh = new( 0 , tinP , pba , cba ) diskFindHandleS ;
+                    {
+                    if( pba )
+                    byteT* pba = processGlobal3I.heap.newF( tinP , LF , cba ) ;
+                    countT cba = sizeof( diskFindHandleS ) ;
                 {
                 if( !handleP )
+                //CS:CODEsYNCH: DUPLICATE CODE 3600101d 35001186
+
                 BOSnOvALUE( WHATgbo , SetLastError( 0 ) )
                 ULONG cc = 1 ;
 
@@ -133,7 +151,7 @@
                     tinP.brcLath != ERROR_PATH_NOT_FOUND          && /*CONJECTURE: THIS WILL NEVER OCCUR*/
                     tinP.brcLath != ERROR_FILE_NOT_FOUND          && /*CONJECTURE: THIS WILL NEVER OCCUR*/
                     tinP.brcLath != ERROR_NOT_DOS_DISK            && /*DON''T KNOW IF THIS OCCURS*/
-                    tinP.brcLath != ERROR_FILENAME_EXCED_RANGE    && /*LONG NAME THAT IS NOT SUPPORTED ON THIS DISK*/
+                    tinP.brcLath != ERROR_FILENAME_E~CED_RANGE    && /*LONG NAME THAT IS NOT SUPPORTED ON THIS DISK*/
                     tinP.brcLath != ERROR_NO_MORE_FILES           && /*NO MORE MATCHES*/
                     tinP.bosFail                                 && /*CAUSE:*/
                 if( 
@@ -152,7 +170,7 @@
                 {
                 if( !handleP )
                 ULONG cc = 1 ;
-
+                                                                                                     =
             #ifdef __OS2__
         {
         if( !POOP )
