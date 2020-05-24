@@ -34,7 +34,7 @@ countT cTries = 4 ;
 
 third.s_listenF( tinP , handleServer ) ;
 countT idPort = third.s_bindF( tinP , handleServer ) ;
-third.s_socketF( tinP , handleServer ) ;
+third.s_socketIF( tinP , handleServer ) ;
 handleC handleServer( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_SOCKET ) ;
 third.s_setupIF( tinP ) ;
 
@@ -57,7 +57,7 @@ ZE( countT , cTries ) ;
 
 etThread.strokeF( tinP , T("secondary thread is connected to port ")+TF1(idPort)+T("\r\n") ) ;
 third.s_connectF( tinP , handleClient , idPort ) ;
-third.s_socketF( tinP , handleClient ) ;
+third.s_socketIF( tinP , handleClient ) ;
 handleC handleClient( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_SOCKET ) ;
 
 thirdC& third = ether ;

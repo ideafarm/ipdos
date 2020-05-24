@@ -23,7 +23,7 @@ etThread.osThreadF( tinP , countTC() , tmF ) ;
 
 third.s_listenF( tinP , handleServer ) ;
 idPort = third.s_bindF( tinP , handleServer ) ;
-third.s_socketF( tinP , handleServer ) ;
+third.s_socketIF( tinP , handleServer ) ;
 handleC handleServer( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_SOCKET ) ;
 
 thirdC& third = ether ;
@@ -35,7 +35,7 @@ etThread.strokeF( tinP , T("value: ")+TF1(value)+T("\r\n") ) ;
 thThread.s_readF( tinP , (byteT*)&value , sizeof value , handleClient ) ;
 ZE( countT , value ) ;
 thThread.s_connectF( tinP , handleClient , idPort ) ;
-thThread.s_socketF( tinP , handleClient ) ;
+thThread.s_socketIF( tinP , handleClient ) ;
 handleC handleClient( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_SOCKET ) ;
 
 thirdC& thThread = etThread ;

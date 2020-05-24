@@ -28450,8 +28450,8 @@ applications should avoid using thirdC objects
   static voidT s_shutdown1IF( tinS& tinP ) ;
   static voidT s_shutdown2IF( tinS& tinP ) ;
   //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3403e.thirdC.s_shutdown2IF!||
-  voidT s_socketF( tinS& tinP , handleC& handleP , const boolT idTypeP = 0 , const handleC* const phContextP = 0 ) ;
-  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3403f.thirdC.s_socketF!||
+  static voidT s_socketIF( tinS& tinP , handleC& handleP , const boolT idTypeP = 0 , const handleC* const phContextP = 0 ) ;
+  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3403f.thirdC.s_socketIF!||
 
  /* connection */
   voidT s_acceptF( tinS& tinP , handleC& hClientP , countT& idPortP , nicNameC& nicNameP , const handleC& handleP , boolT& bRefuseP ) ;

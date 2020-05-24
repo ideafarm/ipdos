@@ -32,7 +32,7 @@ countT cTries = 4 ;
 
 third.s_listenF( tinP , handleServer ) ;
 countT idPort = third.s_bindF( tinP , handleServer ) ;
-third.s_socketF( tinP , handleServer ) ;
+third.s_socketIF( tinP , handleServer ) ;
 handleC handleServer( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_SOCKET ) ;
 third.s_setupIF( tinP ) ;
 
@@ -45,14 +45,14 @@ etThread.strokeF( tinP , T("secondary thread received the value ")+TF1(cTries)+T
 __( sizeof cTries != third.s_readF( tinP , (byteT*)&cTries , sizeof cTries , handleClient ) ) ;
 ZE( countT , cTries ) ;
 third.s_connectF( tinP , handleClient , idPort ) ;
-third.s_socketF( tinP , handleClient ) ;
+third.s_socketIF( tinP , handleClient ) ;
 handleC handleClient( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_SOCKET ) ;
 
 thirdC& third = ether ;
 const countT idPort = pTaskP ? pTaskP->c1 : 0 ;
 TASK( tmF )
 
-/*1*/WAKEhIDE( "example.simplest.func.1020044.thirdC.s_socketF" )/*1*/
+/*1*/WAKEhIDE( "example.simplest.func.1020044.thirdC.s_socketIF" )/*1*/
 /**/
 */
 \<A HREF=\"5.ee00104.1.0.html\"\>definition\</A\>
