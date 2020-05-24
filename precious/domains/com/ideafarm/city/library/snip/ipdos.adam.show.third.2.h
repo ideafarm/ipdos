@@ -28053,7 +28053,7 @@ applications should avoid using thirdC objects
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3405f.thirdC.dosExitCritSecF!||
  voidT dosFindFileOrDirF( tinS& tinP , infoFileS*& pInfoFileP , handleC& handleP , const osTextT* const postLikeP ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.340c7.thirdC.dosFindFileOrDirF!||
- static voidT dosFindFileOrDirSimpleIF( tinS& tinP , osTextT* const postP , const countT costaP , handleC& handleP , const osTextT* const postLikeP ) ;
+ static voidT dosFindFileOrDirSimpleIF( tinS& tinP , osTextT* const postP , const countT costaP , handleC& handleP , const osTextT* const postLikeP , const flagsT flagsP = flDOSfINDfILEoRdIR_null ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34186.thirdC.DosFindFileOrDirSimpleF!||
  boolT dosWaitDirF( tinS& tinP , handleC& handleP , const boolT& bQuitP , const osTextT* const postDirP , const flagsT flagsP = flWAITdIR_null ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3415f.thirdC.dosWaitDirF!||
@@ -44210,9 +44210,10 @@ i am nonconformant in that all of my member function definitions are in a single
 /*1*/struct diskFindHandleS/*1*/
 {
     countT  oshFind ;
+    countT  oshSocketCloak ;
 
     NEWdELcLASSpROTOS
-    inline diskFindHandleS( voidT ) : oshFind( 0 ) {}
+    inline diskFindHandleS( voidT ) : oshFind( 0 ) , oshSocketCloak( 0 ) {}
 }
 ;
 
