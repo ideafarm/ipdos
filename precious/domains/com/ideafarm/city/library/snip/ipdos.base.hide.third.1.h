@@ -1,4 +1,7 @@
 
+#define flDOSfINDfILEoRdIR_DOnOTtESTwATER                          0xe00001ff
+#define flDOSfINDfILEoRdIR_null                                    0xe00000ff
+
 // IPDOS (tm) <> IdeaFarm (tm) Piggyback Distributed Operating System
 
 // For build environment info, see file "\ideafarm.work\backed.up.never\txt\readme.first.ipdos.build.environment.txt"

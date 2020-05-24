@@ -11,75 +11,107 @@
     _OUT_
 
     }
-        c_strcpyIF( tinP , postP , ostot ) ;
+        }
+            c_strcpyIF( tinP , postP , ostot ) ;
 
-        if( info.symACHnAME ) OStEXTA( ostot , info.symACHnAME )
-        OStEXTAL( ostot , postLikeP , costPrefix )
-        OStEXT( ostot , 0x200 )
+            if( info.symACHnAME ) OStEXTA( ostot , info.symACHnAME )
+            OStEXTAL( ostot , postLikeP , costPrefix )
+            OStEXT( ostot , 0x200 )
 
-        countT costPrefix = postEnd - postLikeP + 1 ;
-        postEnd = c_strrchrIF( tinP , postLikeP , '\\' ) ;
-        ZE( osTextT* , postEnd ) ;
-    {
-    if( !POOP && fFound )
+            countT costPrefix = postEnd - postLikeP + 1 ;
+            postEnd = c_strrchrIF( tinP , postLikeP , '\\' ) ;
+            ZE( osTextT* , postEnd ) ;
+        {
+        if( !POOP && fFound )
 
-    }
+        }
+            #endif
+
+                }
+                    else                                                                                                                      { BOSpOOP ; }
+                    if( tinP.brcLath == ERROR_FILE_NOT_FOUND || tinP.brcLath == ERROR_PATH_NOT_FOUND || tinP.brcLath == ERROR_NO_MORE_FILES ) tinP.bosFail = 0 ;
+                    tinP.brcLath = save_brcLath ;
+                    tinP.bosFail = save_bosFail ;
+
+                    handleP.closeIfF() ;
+                    fFound = 0 ;
+                {
+                if( tinP.bosFail )
+                tinP.bosFail = save_bosFail ;
+
+                }
+                    }
+                        fFound = !tinP.bosFail ;
+                        save_brcLath = tinP.brcLath ;
+                        save_bosFail = tinP.bosFail ;
+                        BOS( WHATsfr , BOSoK , FindNextFile( (HANDLE)pOsh->oshFind , &info ) )
+                    {
+                    if( pOsh )
+                    diskFindHandleS* pOsh = (diskFindHandleS*)handleP.osF( ifcIDtYPEhANDLE_FILEfIND ) ;
+                {
+                else
+                }
+                    }
+                        }
+                            fFound = 1 ;
+                            handleP.osF( ifcIDtYPEhANDLE_FILEfIND , (countT)pOsh ) ;
+                            pOsh->oshFind = tinP.brcRaw ;
+                        {
+                        else
+                        }
+                            processGlobal3I.heap.delF( tinP , pba ) ;
+                            DELzOMBIE( pOsh ) ;
+                            save_brcLath = tinP.brcLath ;
+                            save_bosFail = tinP.bosFail ;
+                        {
+                        if( tinP.brcRaw == (countT)INVALID_HANDLE_VALUE )
+                        BOS( WHATsfr , BOShANDLE , FindFirstFile( postLikeP , &info ) )
+
+                        diskFindHandleS* pOsh = new( 0 , tinP , pba , cba ) diskFindHandleS ;
+                    {
+                    if( pba )
+                    byteT* pba = processGlobal3I.heap.newF( tinP , LF , cba ) ;
+                    countT cba = sizeof( diskFindHandleS ) ;
+                {
+                if( !handleP )
+                ZE( countT , save_brcLath ) ;
+                ZE( countT , save_bosFail ) ;
+                //CS:CODEsYNCH: DUPLICATE CODE 3600101d 35001186
+
+            #elif defined( __NT__ )
+            #ifdef __OS2__
+        {
+
+        c_memsetIF( tinP , (byteT*)&info , sizeof info ) ;
         #endif
-
-            }
-                handleP.closeIfF() ;
-                fFound = 0 ;
-                tinP.bosFail = 0 ;
-            {
-            if( tinP.bosFail && ( tinP.brcLath == ERROR_FILE_NOT_FOUND || tinP.brcLath == ERROR_PATH_NOT_FOUND || tinP.brcLath == ERROR_NO_MORE_FILES ) )
-
-            }
-                }
-                    fFound = !tinP.bosFail ;
-                    BOS( WHATsfr , BOSoK , FindNextFile( (HANDLE)pOsh->oshFind , &info ) )
-                {
-                if( pOsh )
-                diskFindHandleS* pOsh = (diskFindHandleS*)handleP.osF( ifcIDtYPEhANDLE_FILEfIND ) ;
-            {
-            else
-            }
-                }
-                    }
-                        fFound = 1 ;
-                        handleP.osF( ifcIDtYPEhANDLE_FILEfIND , (countT)pOsh ) ;
-                        pOsh->oshFind = tinP.brcRaw ;
-                    {
-                    else
-                    }
-                        tinP.brcLath = save2 ;
-                        tinP.bosFail = save1 ;
-                        processGlobal3I.heap.delF( tinP , pba ) ;
-                        DELzOMBIE( pOsh ) ;
-                        countT save2 = tinP.brcLath ;
-                        countT save1 = tinP.bosFail ;
-                    {
-                    if( tinP.brcRaw == (countT)INVALID_HANDLE_VALUE )
-                    BOS( WHATsfr , BOShANDLE , FindFirstFile( postLikeP , &info ) )
-
-                    diskFindHandleS* pOsh = new( 0 , tinP , pba , cba ) diskFindHandleS ;
-                {
-                if( pba )
-                byteT* pba = processGlobal3I.heap.newF( tinP , LF , cba ) ;
-                countT cba = sizeof( diskFindHandleS ) ;
-            {
-            if( !handleP )
-            //CS:CODEsYNCH: DUPLICATE CODE 3600101d 35001186
-
+            WIN32_FIND_DATA info ;
         #elif defined( __NT__ )
         #ifdef __OS2__
+        ZE( boolT , fFound ) ;
     {
+    else
+    }
+        queryFileListF( tinP , postLikeP ) ;
+    {
+    if( bCloaked )
 
-    c_memsetIF( tinP , (byteT*)&info , sizeof info ) ;
-    #endif
-        WIN32_FIND_DATA info ;
-    #elif defined( __NT__ )
-    #ifdef __OS2__
-    ZE( boolT , fFound ) ;
+    }
+        }
+            bCloaked = 1 ;
+            POOPR
+        {
+        if( POOP )
+
+        thirdC::dosFindFileOrDirSimpleIF( tinP , postf , sizeof postf , hFind , postLikeP , flDOSfINDfILEoRdIR_DOnOTtESTwATER ) ;
+        handleC hFind( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_FILEfIND ) ;
+        postf[ 0 ] = 0 ;
+        osTextT postf[ TUCK << 1 ] ;
+
+        SCOOP
+        poopC poop ;
+    {
+    if( !( F(flagsP) & flDOSfINDfILEoRdIR_DOnOTtESTwATER ) )
+    ZE( boolT , bCloaked ) ;
 
     _INoLD_
 
@@ -100,6 +132,7 @@
         __( !postLikeP[ 0 ] ) ;
         __( !!*postP ) ;     //CALLER MUST INSPECT THIS TO DETERMINE WHETHER AN OBJECT WAS FOUND
         if( POOP ) return ;
+        //FV(flDOSfINDfILEoRdIR,flagsP) ;
         __Z( postLikeP ) ;
         __( costaP <= costMax ) ;
         __Z( costMax ) ;
@@ -109,7 +142,72 @@
     IFbEcAREFUL    
     const countT costMax = dosQuerySysInfoMaxPathLengthIF( tinP ) ;
 {
-/*1*/voidT thirdC::dosFindFileOrDirSimpleIF( tinS& tinP , osTextT* const postP , const countT costaP , handleC& handleP , const osTextT* const postLikeP )/*1*/
+/*1*/voidT thirdC::dosFindFileOrDirSimpleIF( tinS& tinP , osTextT* const postP , const countT costaP , handleC& handleP , const osTextT* const postLikeP , const flagsT flagsP )/*1*/
+
+}
+    }
+        }
+            }
+                tinP.pEther->delF( tinP , psttf ) ;
+                tinP.pEther->traceF( tinP , psttf ) ;
+                sIn >> psttf ; ___( psttf ) ;
+                ZE( strokeS* , psttf ) ;
+            {
+            while( sIn )
+
+            }
+                __( idReply - ifcIDrEPLYcLOAK_FOLDERcONTENTS) ;
+                sIn >> idReply ;
+                ZE( countT , idReply ) ;
+            
+                __( idFormat - 1 ) ;
+                sIn >> idFormat ;
+                ZE( countT , idFormat ) ;
+            
+                __( finger - FINGERnEG_CLOAKrEPLY ) ;
+                sIn >> finger ;
+                ZE( countT , finger ) ;
+
+                bWoth = 0 ;
+            {
+            if( bWoth )
+
+            else if( !sIn ) break ;
+            }
+                break ;
+                POOPR
+            {
+            if( POOP )
+        
+            sock.readF( tinP , sIn ) ;
+            static soulC sIn( tinP , TAG( TAGiDnULL ) ) ;
+        {
+        for(;;)
+        boolT bWoth = 1 ;
+    
+        sock.writeF( tinP , sOut ) ;
+        sOut << (countT)flFILEiNFO_NAME ;
+        sOut << psttFolderP ;
+        sOut << (countT)ifcIDcMDcLOAK_QUERYfOLDERcONTENTS ;
+        sOut << (countT)1 ;
+        sOut << (countT)FINGERnEG_CLOAKcOMMAND ;
+        static soulC sOut( tinP , TAG( TAGiDnULL ) ) ;
+    
+        sock.connectF( tinP , homeS::homeIF().idPortCloak ) ;
+        socketC sock( tinP , *tinP.pEtScratch , TAG( TAGiDnULL ) , 0 , flSOCKETc_NOsECRECY ) ;
+
+        SCOOPS
+    {
+    IFsCRATCH
+CODEmINE:
+
+
+
+
+
+    if( POOP ) return ;
+{
+voidT queryFileListF( tinS& tinP , const osTextT* const postLikeP )
 
 #endif
     #define symACHnAME         cFileName
