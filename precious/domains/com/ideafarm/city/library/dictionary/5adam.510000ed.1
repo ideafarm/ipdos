@@ -44,7 +44,7 @@ DONE( tmF )
 etThread.strokeF( tinP , T("secondary thread received the value ")+TF1(cTries)+T(" by connecting to port ")+TF1(idPort)+T("\r\n") ) ;
 __( sizeof cTries != third.s_readF( tinP , (byteT*)&cTries , sizeof cTries , handleClient ) ) ;
 ZE( countT , cTries ) ;
-third.s_connectF( tinP , handleClient , idPort ) ;
+third.s_connectIF( tinP , handleClient , idPort ) ;
 third.s_socketIF( tinP , handleClient ) ;
 handleC handleClient( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_SOCKET ) ;
 

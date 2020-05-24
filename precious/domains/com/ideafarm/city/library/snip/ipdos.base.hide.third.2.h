@@ -28456,8 +28456,8 @@ applications should avoid using thirdC objects
  /* connection */
   voidT s_acceptF( tinS& tinP , handleC& hClientP , countT& idPortP , nicNameC& nicNameP , const handleC& handleP , boolT& bRefuseP ) ;
   //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.340b1.thirdC.s_acceptF!||
-  voidT s_connectF( tinS& tinP , handleC& handleP , const countT idPortP , const nicNameC nicNameP = nicNameC() , countT cTriesP = 0 , countT time1P = 0 , const sCountT time2P = 0 ) ;
-  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34036.thirdC.s_connectF!||
+  static voidT s_connectIF( tinS& tinP , handleC& handleP , const countT idPortP , const nicNameC nicNameP = nicNameC() , countT cTriesP = 0 , countT time1P = 0 , const sCountT time2P = 0 ) ;
+  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34036.thirdC.s_connectIF!||
   voidT s_listenF( tinS& tinP , const handleC& handleP ) ;
   //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34038.thirdC.s_listenF!||
   voidT s_myNameF( tinS& tinP , countT& idPortP , nicNameC& nicNameP , const handleC& handleP ) ;
