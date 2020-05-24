@@ -6588,10 +6588,8 @@ I have other business to attend to today and tomorrow, but plan to continue to w
 
 
 
-  !subjob C: dosFindFileOrDirSimpleIF: edit so that it works even if target is cloaked
-  !subjob C: optimize for speed so that settings file processing is acceptably fast
+
   !subjob C: migrate s_setupF to image function so that it can be called early
-  !subjob B: home 102 wont complete settings refresh
   !subjob C: dosFindFileOrDirPrivateF: allocate a structure to hold the find osh
    cloak launches dut adam
   set up dut
@@ -6640,19 +6638,21 @@ I have other business to attend to today and tomorrow, but plan to continue to w
  objective: enhance existing api to detect cloaked folder and to divert the request to Cloak for that folder
 !subjob C: specify the pseudocode for diverting file walking to Cloak
 
-!subjob C: optimize for speed so that settings file processing is acceptably fast
 
 !job A: periodically verify that the bottom of this file still has: // 20200503@2128: THIS NOTE IS TO DETECT WHETHER RIMSTAR TRUNCATES THIS FILE AS IT GROWS
 
 
 
-
-
-
-  set up dut
+   dosFindFileOrDirF: add flag to test itself
+  move intelligence from etherC::diskFindFileOrDirF to thirdC::dosFindFileOrDirF
+  push
+  regression test: pending
+  move sockets setup / shutdown to processGlobal3I ct/dt
+  move thread launch to adamMainF
+  regression test baseline: build then fresh then gen: genning now
  playcraft
  objective: elegance
-!subjob C: dosFindFileOrDirSimpleIF: edit so that it works even if target is cloaked
+!subjob C: migrate s_setupF to image function so that it can be called early
    
 
 !thrust: debug until all factories run without failure
@@ -6668,24 +6668,6 @@ I have other business to attend to today and tomorrow, but plan to continue to w
 =========================================================================================================================================================
 
 
-  nawwh
-   is veery slow, apparently due to slow disk search
-  see
-  set up dut
- playcraft
- changed: diskFindFileOrDirF
-!subjob B: home 102 wont complete settings refresh
-  cool ; it works
-   dosFindFileOrDirF: add flag to test itself
-  move intelligence from etherC::diskFindFileOrDirF to thirdC::dosFindFileOrDirF
-  push
-  regression test: pending
-  move sockets setup / shutdown to processGlobal3I ct/dt
-  move thread launch to adamMainF
-  regression test baseline: build then fresh then gen: genning now
- playcraft
- objective: elegance
-!subjob C: migrate s_setupF to image function so that it can be called early
   define a structue that initially only has the find osh
    the idea here is to have handleC store the address of a structure that will either contain a find handle or will contain, initially, an array containing all file names that are to be returned wo by wo
   think
