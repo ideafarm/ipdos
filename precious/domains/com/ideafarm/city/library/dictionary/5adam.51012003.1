@@ -63,7 +63,6 @@ etThread.traceF( tinP , T("ok") ) ;
     IFsCRATCH
     ZE( boolT , bCloaked ) ;
 
-    TN( tFolder , "///d/tmp/locked.test/2/" ) ;
 
 #if defined( NEVERdEFINED )
 
@@ -72,6 +71,9 @@ thirdC::dosFindFileOrDirSimpleIF( tinP , postf , sizeof postf , hFind , "d:\\tmp
 handleC hFind( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_FILEfIND ) ;
 postf[ 0 ] = 0 ;
 osTextT postf[ TUCK << 1 ] ;
+
+queryFileListF( tinP , tFolder ) ;
+TN( tFolder , "///d/tmp/locked.test/2/" ) ;
 
 TODO
 
@@ -123,6 +125,9 @@ TODO
         sOut << (countT)1 ;
         sOut << (countT)FINGERnEG_CLOAKcOMMAND ;
         static soulC sOut( tinP , TAG( TAGiDnULL ) ) ;
+
+        sock.writeF( tinP , (byteT*)&idType , sizeof idType ) ;
+        countT idType = ifcIDtYPEcLOAKcONNECTION_SOULFUL ;
     
         sock.connectF( tinP , homeS::homeIF().idPortCloak ) ;
         socketC sock( tinP , *tinP.pEtScratch , TAG( TAGiDnULL ) , 0 , flSOCKETc_NOsECRECY ) ;

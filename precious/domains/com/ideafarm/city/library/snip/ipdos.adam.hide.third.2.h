@@ -28457,6 +28457,7 @@ applications should avoid using thirdC objects
   voidT s_acceptF( tinS& tinP , handleC& hClientP , countT& idPortP , nicNameC& nicNameP , const handleC& handleP , boolT& bRefuseP ) ;
   //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.340b1.thirdC.s_acceptF!||
   voidT s_connectF( tinS& tinP , handleC& handleP , const countT idPortP , const nicNameC nicNameP = nicNameC() , countT cTriesP = 0 , countT time1P = 0 , const sCountT time2P = 0 ) ;
+  static voidT s_connectIF( tinS& tinP , const boolT& bQuitP , handleC& handleP , const countT idPortP , const nicNameC nicNameP = nicNameC() , countT cTriesP = 0 ) ;
   //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34036.thirdC.s_connectF!||
   voidT s_listenF( tinS& tinP , const handleC& handleP ) ;
   //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34038.thirdC.s_listenF!||
@@ -28480,6 +28481,7 @@ applications should avoid using thirdC objects
   //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.340be.thirdC.s_readF!||
   countT s_readPrivateF( tinS& tinP , byteT* const pbP , const countT cbP , handleC& handleP , const flagsT flagsTcpP = 0 , const flagsT flagsP = flSOCKETcrEAD_null , const countT time1P = 0 , const sCountT time2P = 0 , const countT idModeP = ifcIDmODEsOCKETS_NOTeNCRYPTED ) ;
   //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3403c.thirdC.s_readPrivateF!||
+  static voidT s_writeIF( tinS& tinP , handleC& handleP , const byteT* const pbP , const countT cbP = 0 ) ;
   voidT s_writeF( tinS& tinP , handleC& handleP , const byteT* const pbP , const countT cbP = 0 , const countT idModeP = ifcIDmODEsOCKETS_NOTeNCRYPTED ) ;
   //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34040.thirdC.s_writeF!||
   voidT s_writeF( tinS& tinP , handleC& handleP , const countT idPortP , const nicNameC nicNameP , const byteT* const pbP , const countT cbP = 0 , const countT idModeP = ifcIDmODEsOCKETS_NOTeNCRYPTED ) ;

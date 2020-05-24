@@ -341,94 +341,109 @@ DONE( tmcCloakServerF )
 }
     }
         DEL( psoP ) ;
+
         }
-            DEL( psOut ) ;
             }
-                psoP->writeF( tinP , *psOut ) ;
-                psOut = new( 0 , tinP , LF ) soulC( tinP , TAG( TAGiDnULL ) ) ; ___( psOut ) ;
-                DEL( psOut ) ;
-                psoP->writeF( tinP , *psOut ) ;
-    
+                break ;
+
                 }
+                    DEL( psOut ) ;
                     }
-                        break ;
-
+                        psoP->writeF( tinP , *psOut ) ;
+                        psOut = new( 0 , tinP , LF ) soulC( tinP , TAG( TAGiDnULL ) ) ; ___( psOut ) ;
+                        DEL( psOut ) ;
+                        psoP->writeF( tinP , *psOut ) ;
+            
                         }
-                            swFlockP.ungrabF( tinP ) ;
                             }
-                                reportFilesF( tinP , etThread , psOut , psoP , pFlock , psttzLeverFolderP , flagsWant ) ;
+                                break ;
 
-                                fileC*& pFlock   = *(fileC**)&(countT&)swFlockP ;
-                                psttzLeverFolderP = (strokeS*)swFlockP.leverF( tinP , idf ) ;
+                                }
+                                    swFlockP.ungrabF( tinP ) ;
+                                    }
+                                        reportFilesF( tinP , etThread , psOut , psoP , pFlock , psttzLeverFolderP , flagsWant ) ;
+
+                                        fileC*& pFlock   = *(fileC**)&(countT&)swFlockP ;
+                                        psttzLeverFolderP = (strokeS*)swFlockP.leverF( tinP , idf ) ;
+                                    {
+                                    for( countT idf = 1 ; idf <= cFlavors ; idf ++ )
+                                    countT cFlavors = swFlockP.cFlavorsF( tinP ) ;
+                                    swFlockP.grabF( tinP , TAG( TAGiDnULL ) ) ;
+
+                                    *psOut << (countT)ifcIDrEPLYcLOAK_ALLlOCKEDfOLDERScONTENTS ;
+                                    *psOut << (countT)1 ;
+                                    *psOut << (countT)FINGERnEG_CLOAKrEPLY ;
+                                {
+                                else
+                                if( POOP ) etThread.traceF( tinP , T("error: invalid value received [flagsWant]:    ")+TF2(flagsWant,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
+
+                                //FV(flFILEiNFO,flagsWant) ;
+                                sIn >> flagsWant ;
+                                ZE( flagsT , flagsWant ) ;
                             {
-                            for( countT idf = 1 ; idf <= cFlavors ; idf ++ )
-                            countT cFlavors = swFlockP.cFlavorsF( tinP ) ;
-                            swFlockP.grabF( tinP , TAG( TAGiDnULL ) ) ;
-
-                            *psOut << (countT)ifcIDrEPLYcLOAK_ALLlOCKEDfOLDERScONTENTS ;
-                            *psOut << (countT)1 ;
-                            *psOut << (countT)FINGERnEG_CLOAKrEPLY ;
-                        {
-                        else
-                        if( POOP ) etThread.traceF( tinP , T("error: invalid value received [flagsWant]:    ")+TF2(flagsWant,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
-
-                        //FV(flFILEiNFO,flagsWant) ;
-                        sIn >> flagsWant ;
-                        ZE( flagsT , flagsWant ) ;
-                    {
-                    case ifcIDcMDcLOAK_QUERYaLLlOCKEDfOLDERScONTENTS :
-                    }
-                        break ;
-
-                        }
-                            swFlockP.ungrabF( tinP ) ;
+                            case ifcIDcMDcLOAK_QUERYaLLlOCKEDfOLDERScONTENTS :
                             }
-                                reportFilesF( tinP , etThread , psOut , psoP , pFlock , psttFolder , flagsWant ) ;
+                                break ;
 
-                                *psOut << (countT)ifcIDrEPLYcLOAK_FOLDERcONTENTS ;
-                                *psOut << (countT)1 ;
-                                *psOut << (countT)FINGERnEG_CLOAKrEPLY ;
+                                }
+                                    swFlockP.ungrabF( tinP ) ;
+                                    }
+                                        reportFilesF( tinP , etThread , psOut , psoP , pFlock , psttFolder , flagsWant ) ;
 
-                                fileC*& pFlock   = *(fileC**)&(countT&)swFlockP ;
-                                psttzLeverFolderP = psttFolder ;
+                                        *psOut << (countT)ifcIDrEPLYcLOAK_FOLDERcONTENTS ;
+                                        *psOut << (countT)1 ;
+                                        *psOut << (countT)FINGERnEG_CLOAKrEPLY ;
+
+                                        fileC*& pFlock   = *(fileC**)&(countT&)swFlockP ;
+                                        psttzLeverFolderP = psttFolder ;
+                                    {
+                                    else
+                                    if( !swFlockP.idSlotOfLeverF( tinP , (countT)psttFolder ) ) etThread.traceF( tinP , T("flavor not found [psttFolder]:    ")+T(psttFolder) ) ;
+                                    swFlockP.grabF( tinP , TAG( TAGiDnULL ) ) ;
+                                {
+                                else
+                                if( POOP ) etThread.traceF( tinP , T("error: invalid value received [flagsWant]:    ")+TF2(flagsWant,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
+
+                                //FV(flFILEiNFO,flagsWant) ;
+                                sIn >> flagsWant ;
+                                ZE( flagsT , flagsWant ) ;
+
+                                sIn >> psttFolder ;
+                                ZE( strokeS* , psttFolder ) ;
                             {
-                            else
-                            if( !swFlockP.idSlotOfLeverF( tinP , (countT)psttFolder ) ) etThread.traceF( tinP , T("flavor not found [psttFolder]:    ")+T(psttFolder) ) ;
-                            swFlockP.grabF( tinP , TAG( TAGiDnULL ) ) ;
+                            case ifcIDcMDcLOAK_QUERYfOLDERcONTENTS :
                         {
-                        else
-                        if( POOP ) etThread.traceF( tinP , T("error: invalid value received [flagsWant]:    ")+TF2(flagsWant,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
+                        switch( idCmd )
+                        sIn >> idCmd ;
+                        ZE( countT , idCmd ) ;
 
-                        //FV(flFILEiNFO,flagsWant) ;
-                        sIn >> flagsWant ;
-                        ZE( flagsT , flagsWant ) ;
+                        __( idFormat - 1 ) ;
+                        sIn >> idFormat ;
+                        ZE( countT , idFormat ) ;
 
-                        sIn >> psttFolder ;
-                        ZE( strokeS* , psttFolder ) ;
+                        __( finger - FINGERnEG_CLOAKcOMMAND ) ;
+                        sIn >> finger ;
+                        ZE( countT , finger ) ;
                     {
-                    case ifcIDcMDcLOAK_QUERYfOLDERcONTENTS :
+                    else
+                    if( POOP ) { POOPR DEL( psoP ) ; }
+            
+                    psoP->readF( tinP , sIn ) ;
+
+                    soulC* psOut = new( 0 , tinP , LF ) soulC( tinP , TAG( TAGiDnULL ) ) ; ___( psOut ) ;
+                    soulC sIn(  tinP , TAG( TAGiDnULL ) ) ;
                 {
-                switch( idCmd )
-                sIn >> idCmd ;
-                ZE( countT , idCmd ) ;
-
-                __( idFormat - 1 ) ;
-                sIn >> idFormat ;
-                ZE( countT , idFormat ) ;
-
-                __( finger - FINGERnEG_CLOAKcOMMAND ) ;
-                sIn >> finger ;
-                ZE( countT , finger ) ;
+                while( !POOP && !etThread && !ether && psoP )
             {
-            else
-            if( POOP ) { POOPR DEL( psoP ) ; }
-    
-            psoP->readF( tinP , sIn ) ;
-
-            soulC* psOut = new( 0 , tinP , LF ) soulC( tinP , TAG( TAGiDnULL ) ) ; ___( psOut ) ;
-            soulC sIn(  tinP , TAG( TAGiDnULL ) ) ;
+            case ifcIDtYPEcLOAKcONNECTION_SOULFUL :
+            }
+                break ;
+            {
+            case ifcIDtYPEcLOAKcONNECTION_SIMPLE :
         {
-        while( !POOP && !etThread && !ether && psoP )
+        switch( idTypeConnection )
+        psoP->readF( tinP , (byteT*)&idTypeConnection , sizeof idTypeConnection ) ;
+        ZE( countT , idTypeConnection ) ;
     
         psoP->etherF( tinP , *tinP.pEtScratch ) ;
         SCOOPS

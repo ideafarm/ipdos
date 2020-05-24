@@ -1,4 +1,9 @@
 
+
+#define ifcIDtYPEcLOAKcONNECTION_SOULFUL                         2
+#define ifcIDtYPEcLOAKcONNECTION_SIMPLE                          1
+
+
 #define flDOSfINDfILEoRdIR_DOnOTtESTwATER                          0xe00001ff
 #define flDOSfINDfILEoRdIR_null                                    0xe00000ff
 
