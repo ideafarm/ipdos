@@ -364,7 +364,7 @@ DONE( tmcCloakServerF )
                                 }
                                     swFlockP.ungrabF( tinP ) ;
                                     }
-                                        reportFilesF( tinP , etThread , psOut , psoP , pFlock , psttzLeverFolderP , flagsWant ) ;
+                                        //U::reportFilesF( tinP , etThread , psOut , psoP , pFlock , psttzLeverFolderP , flagsWant ) ;
 
                                         fileC*& pFlock   = *(fileC**)&(countT&)swFlockP ;
                                         psttzLeverFolderP = (strokeS*)swFlockP.leverF( tinP , idf ) ;
@@ -391,7 +391,7 @@ DONE( tmcCloakServerF )
                                 }
                                     swFlockP.ungrabF( tinP ) ;
                                     }
-                                        reportFilesF( tinP , etThread , psOut , psoP , pFlock , psttFolder , flagsWant ) ;
+                                        //U::reportFilesF( tinP , etThread , psOut , psoP , pFlock , psttFolder , flagsWant ) ;
 
                                         *psOut << (countT)ifcIDrEPLYcLOAK_FOLDERcONTENTS ;
                                         *psOut << (countT)1 ;
@@ -595,6 +595,9 @@ TASK( tmcCloakServerF )
 
     //*psOutP << psttFolderP ;
 
+    __1
+    //U:: THIS NEEDS TO BE EDITED TO DO WHAT SIMPLE DOES: QUEUE ALL FILE INFORMATION AND RECLOAK BEFORE BEGINNING TO SEND INFO TO CLIENT
+
     }
         if( POOP ) return ;
         //FV(flFILEiNFO,flagsP) ;
@@ -605,6 +608,54 @@ TASK( tmcCloakServerF )
 voidT reportFilesF( tinS& tinP , etherC& etherP , soulC*& psOutP , socketC*& psoP , fileC*& pFlockP , const strokeS* const psttFolderP , const flagsT flagsP )
 
 }
+    psoP->writeF( tinP , (byteT*)&costo , sizeof costo ) ;
+    ZE( countT , costo ) ;
+
+    DEL( pPat ) ;
+    }
+        etherP.delF( tinP , pbIn ) ;
+
+        }
+            else                        break ;
+            if( info3.NextEntryOffset ) pbCursor += info3.NextEntryOffset ;
+
+            }
+                }
+                    //etherP.traceF( tinP , T("sending [posto]:    ")+T(posto) ) ;
+                    psoP->writeF( tinP , posto , costo ) ;
+                    psoP->writeF( tinP , (byteT*)&costo , sizeof costo ) ;
+                    countT   costo = tShort.csF( tinP ) ;
+                    osTextT* posto = tShort ;
+                {
+                if( bOk )
+
+                }
+                    else                                 bOk = 0 ;
+                    IFpATTERN( etherP , *pPat , tShort ) {}
+                {
+                if( pPat )
+                boolT bOk = 1 ;
+                TN( tShort , postName ) ; //U:: THIS BREAKS THE CLIENT, BUT I NEED TO DO SOMETHING TO INFORM CLIENT ABOUT bDir:     if( bDir ) tShort += T("\\") ;
+
+                boolT bDir = info3.FileAttributes & FILE_ATTRIBUTE_DIRECTORY ;
+            {
+            if( thirdC::c_strcmpIF( tinP , postName , "." ) && thirdC::c_strcmpIF( tinP , postName , ".." ) )
+
+            unicodeToAnsiF( postName , sizeof postName , (byteT*)info3.FileName , info3.FileNameLength >> 1 ) ;
+            thirdC::c_memsetIF( tinP , postName , sizeof postName ) ;
+            osTextT postName[ TUCK << 1 ] ;
+
+            FILE_FULL_DIR_INFO& info3 = *(FILE_FULL_DIR_INFO*)pbCursor ;
+        {
+        for(;;)
+        byteT* pbCursor = pbIn ;
+
+        stBlobIn >> pbIn ;
+        ZE( byteT* , pbIn ) ;
+    {
+    while( stBlobIn )
+    patternC* pPat = !psttPatternP || !psttPatternP->idAdam ? 0 : new( 0 , tinP , LF ) patternC( tinP , etherP , psttPatternP , ifcIDtYPEpATTERN_FOREIGNwILDCARDmICROSOFT ) ; ___( pPat ) ;
+
     replaceCloakF( tinP , etherP , pFlockP , psttFolderP ) ;
 
     }
@@ -612,51 +663,35 @@ voidT reportFilesF( tinS& tinP , etherC& etherP , soulC*& psOutP , socketC*& pso
         while( !POOP && !bDone ) ;
         }
             }
-                DEL( pPat ) ;
+                stBlobIn << pbUsed ;
+
+                thirdC::c_memcpyIF( tinP , pbUsed , pbBuffer , cbUsed ) ;
+                etherP.newF( tinP , LF , pbUsed , cbUsed ) ; ___( pbUsed ) ;
+                ZE( byteT* , pbUsed ) ;
 
                 }
-                    else                        break ;
-                    if( info3.NextEntryOffset ) pbInfo3 += info3.NextEntryOffset ;
-
                     }
-                        }
-                            //etherP.traceF( tinP , T("sending [posto]:    ")+T(posto) ) ;
-                            psoP->writeF( tinP , posto , costo ) ;
-                            psoP->writeF( tinP , (byteT*)&costo , sizeof costo ) ;
-                            countT   costo = tShort.csF( tinP ) ;
-                            osTextT* posto = tShort ;
-                        {
-                        if( bOk )
-
-                        }
-                            else                                 bOk = 0 ;
-                            IFpATTERN( etherP , *pPat , tShort ) {}
-                        {
-                        if( pPat )
-                        boolT bOk = 1 ;
-                        TN( tShort , postName ) ; //U:: THIS BREAKS THE CLIENT, BUT I NEED TO DO SOMETHING TO INFORM CLIENT ABOUT bDir:     if( bDir ) tShort += T("\\") ;
-
-                        boolT bDir = info3.FileAttributes & FILE_ATTRIBUTE_DIRECTORY ;
+                        break ;
+                        cbUsed += 2 * unicodeLengthF( (unTextT*)info3.FileName ) ;                  // WE DONT SUBTRACT 2 BECAUSE WE CODE DEFENSIVELY (NULL LENGTH NAME) AND THE EXTRA BYTE WONT HURT ANYTHING
+                        cbUsed += sizeof( FILE_FULL_DIR_INFO ) ;                                    // 2 EXTRA BYTES BECAUSE CONTAINS WOTH CHAR OF NAME
                     {
-                    if( thirdC::c_strcmpIF( tinP , postName , "." ) && thirdC::c_strcmpIF( tinP , postName , ".." ) )
+                    else
+                    }
+                        pbCursor += info3.NextEntryOffset ;
+                        cbUsed += info3.NextEntryOffset ;
+                    {
+                    if( info3.NextEntryOffset )
 
-                    unicodeToAnsiF( postName , sizeof postName , (byteT*)info3.FileName , info3.FileNameLength >> 1 ) ;
-                    thirdC::c_memsetIF( tinP , postName , sizeof postName ) ;
-                    osTextT postName[ TUCK << 1 ] ;
-
-                    FILE_FULL_DIR_INFO& info3 = *(FILE_FULL_DIR_INFO*)pbInfo3 ;
+                    FILE_FULL_DIR_INFO& info3 = *(FILE_FULL_DIR_INFO*)pbCursor ;
                 {
                 for(;;)
-
-                patternC* pPat = !psttPatternP || !psttPatternP->idAdam ? 0 : new( 0 , tinP , LF ) patternC( tinP , etherP , psttPatternP , ifcIDtYPEpATTERN_FOREIGNwILDCARDmICROSOFT ) ; ___( pPat ) ;
+                ZE( countT , cbUsed ) ;
             {
             else
             }
                 }
                     }
                         break ;
-                        psoP->writeF( tinP , (byteT*)&costo , sizeof costo ) ;
-                        ZE( countT , costo ) ;
                         bDone = 1 ;
                     {
                     case ERROR_NO_MORE_FILES :
@@ -671,26 +706,25 @@ voidT reportFilesF( tinS& tinP , etherC& etherP , soulC*& psOutP , socketC*& pso
                     case ERROR_MORE_DATA :
                 {
                 switch( rc )
-                //etherP.traceF( tinP , T("GetFileInformationByHandleEx [rc]:    ")+TF2(rc,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
                 countT rc = GetLastError() ;
             {
             if( !bOk )
             boolT bOk = GetFileInformationByHandleEx( (HANDLE)hFile.osF( ifcIDtYPEhANDLE_FILE ) , (FILE_INFO_BY_HANDLE_CLASS)FileFullDirectoryInfo_updated , pbBuffer , cbBuffer ) ;
-            byteT* pbInfo3 = pbBuffer ;
+            byteT* pbCursor = pbBuffer ;
         {
         do
         ZE( boolT , bDone ) ;
 
-        //etherP.traceF( tinP , T("[sizeof FILE_FULL_DIR_INFO]:    ")+TF2( sizeof FILE_FULL_DIR_INFO , flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED ) ) ;
-
         thirdC::c_memsetIF( tinP , pbBuffer , cbBuffer ) ;
         etherP.newF( tinP , LF , pbBuffer , cbBuffer ) ; ___( pbBuffer ) ;
-        //countT cbBuffer = TUCK << 1 ; //U:: ENABLE THIS AND VERIFY THAT I CONTINUE TO LOOP UNTIL GET "NO MORE FILES"
         countT cbBuffer = TOCK ; // PRODUCTION
         ZE( byteT* , pbBuffer ) ;
 
         handleC& hFile = *pFlockP ;
     {
+    stackC stBlobIn( tinP , etherP , TAG( TAGiDnULL ) , flSTACKc_FIFO | flSTACKc_DOnOTsERIALIZE , ifcSTACKtYPE_PTR_byteT ) ;
+
+    // QUEUE FILE INFORMATION FOR DISPENSING LATER, AFTER RELOCK psttFolderP: THIS IS NECESSARY BECAUSE CLIENT MIGHT USE FILE INFORMATION RECEIVED TO OPEN FILES, WHICH WOULD PREVENT ME FROM RELOCKING
 
     }
         if( POOP ) return ;
@@ -809,6 +843,14 @@ boolT sinkFolderToCloakCBF( tinS& tinP , countT& cDirsP , countT& cFilesP , cons
     if( cbOutP <= cInP ) return 1 ;
 {
 boolT unicodeToAnsiF( byteT* pbOutP , const countT cbOutP , const byteT* pbInP , countT cInP )
+//U::MOVE TO BASE
+
+}
+    return cunt ;
+    for( countT offi = 0 ; puntP[ offi ] ; offi ++ ) cunt ++ ;
+    ZE( countT , cunt ) ;
+{
+countT unicodeLengthF( const unTextT* puntP )
 //U::MOVE TO BASE
 
 
