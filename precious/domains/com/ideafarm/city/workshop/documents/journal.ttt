@@ -6587,7 +6587,7 @@ I have other business to attend to today and tomorrow, but plan to continue to w
 
 
 
-
+  !subjob C: dosFindFileOrDirPrivateIF: edit so that it works even if target is cloaked
   !subjob C: dosFindFileOrDirSimpleIF: edit so that it works even if target is cloaked
   !subjob C: optimize for speed so that settings file processing is acceptably fast
   !subjob C: migrate s_setupF to image function so that it can be called early
@@ -6645,14 +6645,54 @@ I have other business to attend to today and tomorrow, but plan to continue to w
 !job A: periodically verify that the bottom of this file still has: // 20200503@2128: THIS NOTE IS TO DETECT WHETHER RIMSTAR TRUNCATES THIS FILE AS IT GROWS
 
 
+!job B: //U:: BUG: (DESIGN PROBLEM) CLOAK CAN ONLY SERVICE WO CLIENT AT A TIME FOR A GIVEN FOLDER, SO MY ATTEMPT TO FIND A WRITING TAG FILE WOULD CAUSE A DEADLOCK
 
 
+
+
+
+   | 
+   | [idAdam]: 12600015
+   | ! error: nonmonotonic grabbing (grab layer decrease attempted [bOnlyWo,lifi,idGrabLayer,lifiHe,idGrabLayerHe]: 0
+   |  ME: 300e3063(492) 23b0dddd ;
+   |  HE: 60014163(821) c3b0dddd
+   | nonmonotonic grab call nest:: call nest:
+   |   8a    400fe063  voidT baseGrabC::registerBegunF( tinS& tinP , const countT idLineP , const countT idiFileP , const flagsT flagsP )
+   |   251    500c5063  boolT grabC::grabF( tinS& tinP , const countT idLineP , const countT idiFileP , const byteT* const pbBitsP , const flagsT flagsP )
+   |   123    500bf063  countT booksC::writeF( tinS& tinP , const byteT* pb1P , countT cb1P , const byteT* pb2P , countT cb2P , const flagsT flagsP , handleC* const phWroteP /*U::, countT** ppcpIdAptP*/ )
+   |   013    500bf063  countT booksC::writeF( tinS& tinP , const byteT* pb1P , countT cb1P , const byteT* pb2P , countT cb2P , const flagsT flagsP , handleC* const phWroteP /*U::, countT** ppcpIdAptP*/ )
+   |   20a1    3e010053  voidT thirdC::dosTellMonitorIF( tinS& tinP , const tellC& tellP )
+   |   c863    55110053  boolT thirdC::osExceptionHandlerWorkIF( const countT cArgP )
+   |   e072    c2110053  voidT thirdC::dosRaiseExceptionIF( tinS& tinP , const countT idExceptionP , const countT* const pcArgsP , const countT ccArgsP )
+   |   e11    60014163  byteT* heapC::newF( tinS& tinP , const countT idLineP , const countT idiFileP , const countT cbP )
+   |   ad14    68110053  voidT thirdC::dosFindFileOrDirSimpleIF( tinS& tinP , osTextT* const postP , const countT costaP , handleC& handleP , const osTextT* const postLikeP , const flagsT flagsP )
+   |   1e3    d1010063  voidT thirdC::dosFindFileOrDirPrivateF( tinS& tinP , infoFileS*& pInfoFileP , handleC& handleP , const osTextT* const postLikeP )
+   |   13a2    7c010063  voidT thirdC::dosFindFileOrDirF( tinS& tinP , infoFileS*& pInfoFileP , handleC& handleP , const osTextT* const postLikeP )
+   |   573c    fe120063  voidT etherC::diskFindFileOrDirF( tinS& tinP , infoFileS*& pInfoP , handleC& handleP , const strokeS* const psttPathP , const patternC* pPatternP , const flagsT flagsP )
+   |   424c    0f120063  voidT etherC::diskFindFileOrDirF( tinS& tinP , strokeS*& psttNameP , handleC& handleP , const strokeS* const psttPathP , const patternC* pPatternP )
+   |   174c    1f120063  countT etherC::diskFindFileOrDirF( tinS& tinP , strokeS*& pstt1FoundP , const strokeS* const psttPathP , const patternC* pPatternP , soulC* pSoulP , grabC* pGrabP , const countT csttExtraP , const countT cMaxP )
+   |   174c    1f120063  countT etherC::diskFindFileOrDirF( tinS& tinP , strokeS*& pstt1FoundP , const strokeS* const psttPathP , const patternC* pPatternP , soulC* pSoulP , grabC* pGrabP , const countT csttExtraP , const countT cMaxP )
+   |   638    a1020063  countT etherC::diskChooseSiteF( tinS& tinP , strokeS*& psttP , const strokeS* const psttKeyP , const strokeS* const psttPathP )
+   |   b6a    f1020063  voidT etherC::diskMapFileNameF( tinS& tinP , strokeS*& psttP , const strokeS* const psttRawP )
+   |   0d    5003e063  fileC::fileC( tinS& tinP , const strokeS* const psttP , const countT idAccessP , const countT idShareP , const flagsT flagsDetailsP , const countT idHowP , const flagsT flagsAttributeP , const flagsT flagsP , const countT cTriesP , const osTextT* const postZipP ) :
+   |   9c73    2b020063  countT etherC::diskFileExistsF( tinS& tinP , const strokeS* const psttLikeP )
+   |   273    80000033  TASK( tmWatchF )
+   |   273    80000033  TASK( tmWatchF )
+   |   286    d0000033  countT __export threadLocalStorageF( const countT idTypeP , kidFT pThreadWorkF , countT cArgP , countT cHowP , const osTextT** ppostHowP , countT hWindowingClientIP , countT hPreviousWindowingClientP , osTextT* postP , countT idCmdShowP )
+   | BLAMMO at 401(400fe063) ct at 0(0) on thread tmWatchF**************************** BLAMMO ******************************
+   | 
+  listing
+ playcraft
+ changed: rare occurance: gotcha!
+!job B: nonmonotonic grabbing
 
 
   set up dut
+   just use simpleIF as code mine to do this
+  think
  playcraft
  objective: elegance
-!subjob C: dosFindFileOrDirSimpleIF: edit so that it works even if target is cloaked
+!subjob C: dosFindFileOrDirPrivateIF: edit so that it works even if target is cloaked
    
 
 !thrust: debug until all factories run without failure
@@ -6668,6 +6708,11 @@ I have other business to attend to today and tomorrow, but plan to continue to w
 =========================================================================================================================================================
 
 
+  cool ; it works!
+  set up dut
+ playcraft
+ objective: elegance
+!subjob C: dosFindFileOrDirSimpleIF: edit so that it works even if target is cloaked
   nawwh
    is veery slow, apparently due to slow disk search
   see

@@ -18,122 +18,94 @@
                     }
                         }
                             }
-                                }
-                                    else                                 { DEL( pInfoP ) ; }
-                                    IFpATTERN( *this , *pPatternP , fn ) { break ; }
-                                {
-                                else
-                                if( !fn ) { DEL( pInfoP ) ; }
-
-                                fileNameC fn( tinP , *this , pInfoP->psttIfoName ) ;
-
-                                strMakeF( tinP , pInfoP->psttIfoName , T(iffn) ) ; ___( pInfoP->psttIfoName ) ;
-                                ifFileNameC iffn( tinP , third , pInfoP->postOsName ) ;
+                                else                                 { DEL( pInfoP ) ; }
+                                IFpATTERN( *this , *pPatternP , fn ) { break ; }
                             {
                             else
-                            if( !bOk ) { DEL( pInfoP ) ; }
+                            if( !fn ) { DEL( pInfoP ) ; }
 
+                            fileNameC fn( tinP , *this , pInfoP->psttIfoName ) ;
+
+                            strMakeF( tinP , pInfoP->psttIfoName , T(iffn) ) ; ___( pInfoP->psttIfoName ) ;
+                            ifFileNameC iffn( tinP , third , pInfoP->postOsName ) ;
+                        {
+                        else
+                        if( !bOk ) { DEL( pInfoP ) ; }
+
+                        }
                             }
-                                }
-                                    }
-                                        break ;
-                                        bOk = 0 ;
-                                    {
-                                    if( !postHit )
-                                    }
-                                        postHit = thirdC::c_strstrIF( tinP , postc , pPatternP->ppostLiteral[ offLit ] ) ;
-                                        postc += costLit ;
-                                    {
-                                    while( postHit && postHit + costLit < poste )
-                                    osTextT* poste = postc + thirdC::c_strlenIF( tinP , postc ) ;
-                                {
-                                if( !pPatternP->ppostLiteral[ offLit + 1 ] && F(pPatternP->flagsLiterals) & flPATTERNlITERALS_LITERALeNDING )
-
                                 }
                                     break ;
                                     bOk = 0 ;
                                 {
-                                )
-                                    )
-                                        postHit - postc
-                                        &&
-                                        F(pPatternP->flagsLiterals) & flPATTERNlITERALS_LITERALbEGINNING
-                                        &&
-                                        !offLit
-                                    (
-                                    ||
-                                    !postHit
-                                (
-                                if
-                                osTextT* postHit = thirdC::c_strstrIF( tinP , postc , pPatternP->ppostLiteral[ offLit ] ) ;
-
-                                if( pPatternP->ppostLiteral[ offLit ][ costLit - 1 ] == '/' ) pPatternP->ppostLiteral[ offLit ][ costLit - 1 ] = '\\' ; // PATCH THE LITERAL SO THAT IT WILL MATCH ITS BASE OS MAPPING (SLASH TO BACKSLASH) ; NOTE: THIS HAS IMPLICATIONS IF THE patternC INSTANCE IS USED MULTIPLE TIMES (IT WILL BE PATCHED ONLY WO TIME) ; THIS IS DONE HERE RATHER THAN IN patternC BECAUSE patternC CAN BE USED FOR SEARCHES OTHER THAN FOR FILES SO FUTURE CODE MIGHT USE THE LITERALS IN WAYS THAT WOULD NOT WANT THE PATCH
-                                countT costLit = thirdC::c_strlenIF( tinP , pPatternP->ppostLiteral[ offLit ] ) ;
+                                if( !postHit )
+                                }
+                                    postHit = thirdC::c_strstrIF( tinP , postc , pPatternP->ppostLiteral[ offLit ] ) ;
+                                    postc += costLit ;
+                                {
+                                while( postHit && postHit + costLit < poste )
+                                osTextT* poste = postc + thirdC::c_strlenIF( tinP , postc ) ;
                             {
-                            for( countT offLit = 0 ; offLit < sizeof pPatternP->ppostLiteral / sizeof pPatternP->ppostLiteral[ 0 ] && pPatternP->ppostLiteral[ offLit ] ; offLit ++ )
+                            if( !pPatternP->ppostLiteral[ offLit + 1 ] && F(pPatternP->flagsLiterals) & flPATTERNlITERALS_LITERALeNDING )
 
                             }
-                                }
-                                    break ;
-                                    postc = pInfoP->postOsName + offn + 1 ;
-                                {
-                                if( pInfoP->postOsName[ offn ] == '\\' && offn < costOsName - 1 )
+                                break ;
+                                bOk = 0 ;
                             {
-                            for( countT offn = costOsName - 1 ; offn ; offn -- )
-                            ZE( osTextT* , postc ) ;    // WILL POINT TO LEAF
+                            )
+                                )
+                                    postHit - postc
+                                    &&
+                                    F(pPatternP->flagsLiterals) & flPATTERNlITERALS_LITERALbEGINNING
+                                    &&
+                                    !offLit
+                                (
+                                ||
+                                !postHit
+                            (
+                            if
+                            osTextT* postHit = thirdC::c_strstrIF( tinP , postc , pPatternP->ppostLiteral[ offLit ] ) ;
 
-                            countT costOsName = thirdC::c_strlenIF( tinP , pInfoP->postOsName ) ;
-
-                            boolT bOk = 1 ;
-                            //THIS BLOCK IS A SPEED OPTIMIZATION THAT REJECTS CANDIDATES THAT DO NOT CONTAIN REQUIRED LITERALS
+                            if( pPatternP->ppostLiteral[ offLit ][ costLit - 1 ] == '/' ) pPatternP->ppostLiteral[ offLit ][ costLit - 1 ] = '\\' ; // PATCH THE LITERAL SO THAT IT WILL MATCH ITS BASE OS MAPPING (SLASH TO BACKSLASH) ; NOTE: THIS HAS IMPLICATIONS IF THE patternC INSTANCE IS USED MULTIPLE TIMES (IT WILL BE PATCHED ONLY WO TIME) ; THIS IS DONE HERE RATHER THAN IN patternC BECAUSE patternC CAN BE USED FOR SEARCHES OTHER THAN FOR FILES SO FUTURE CODE MIGHT USE THE LITERALS IN WAYS THAT WOULD NOT WANT THE PATCH
+                            countT costLit = thirdC::c_strlenIF( tinP , pPatternP->ppostLiteral[ offLit ] ) ;
                         {
-                        else
+                        for( countT offLit = 0 ; offLit < sizeof pPatternP->ppostLiteral / sizeof pPatternP->ppostLiteral[ 0 ] && pPatternP->ppostLiteral[ offLit ] ; offLit ++ )
+
                         }
-                            break ;
-                            strMakeF( tinP , pInfoP->psttIfoName , T(iffn) ) ; ___( pInfoP->psttIfoName ) ;
-                            ifFileNameC iffn( tinP , third , pInfoP->postOsName ) ;
+                            }
+                                break ;
+                                postc = pInfoP->postOsName + offn + 1 ;
+                            {
+                            if( pInfoP->postOsName[ offn ] == '\\' && offn < costOsName - 1 )
                         {
-                        if( !pPatternP )
+                        for( countT offn = costOsName - 1 ; offn ; offn -- )
+                        ZE( osTextT* , postc ) ;    // WILL POINT TO LEAF
+
+                        countT costOsName = thirdC::c_strlenIF( tinP , pInfoP->postOsName ) ;
+
+                        boolT bOk = 1 ;
+                        //THIS BLOCK IS A SPEED OPTIMIZATION THAT REJECTS CANDIDATES THAT DO NOT CONTAIN REQUIRED LITERALS
                     {
                     else
-                    else if( F(pInfoP->flags) & flFILEaTTR_DOTdIRECTORY ) { DEL( pInfoP ) ; }
-                         if( !pInfoP                                    ) { break ; }
-
-                    third.dosFindFileOrDirF( tinP , pInfoP , handleP , osfnLike ) ; ___( pInfoP ) ;
-                {
-                while( !POOP )
-
-                third.delF( tinP , postLike ) ;
-                osFileNameC osfnLike( tinP , third , postLike ) ;
-                strMakeF( tinP , postLike , T(psttPath)+T("*") ) ; ___( postLike ) ;
-                ZE( osTextT* , postLike ) ;
-            {
-            else
-            }
-                queryFileListF( tinP , psttPath ) ;
-                traceF( tinP , T("//U:: STORE THIS INFORMATION WITHIN HANDLE SO THAT IT CAN BE DISPENSED") ) ;
-            {
-            if( bCloaked )
-
-            }
-                }
                     }
-                        bCloaked = 1 ;
-                        POOPR
+                        break ;
+                        strMakeF( tinP , pInfoP->psttIfoName , T(iffn) ) ; ___( pInfoP->psttIfoName ) ;
+                        ifFileNameC iffn( tinP , third , pInfoP->postOsName ) ;
                     {
-                    if( POOP )
-
-                    DEL( pInfo ) ;
-                    tinP.pEtScratch->diskFindFileOrDirF( tinP , pInfo , hFind , psttPath , 0 , flDISKfIND_DOnOTtESTwATER ) ;
-                    ZE( infoFileS* , pInfo ) ;
-                    handleC hFind( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_FILEfIND ) ;
-
-                    SCOOPS
+                    if( !pPatternP )
                 {
-                IFsCRATCH
+                else
+                else if( F(pInfoP->flags) & flFILEaTTR_DOTdIRECTORY ) { DEL( pInfoP ) ; }
+                     if( !pInfoP                                    ) { break ; }
+
+                third.dosFindFileOrDirF( tinP , pInfoP , handleP , osfnLike ) ; ___( pInfoP ) ;
             {
-            if( !( F(flagsP) & flDISKfIND_DOnOTtESTwATER ) )
-            ZE( boolT , bCloaked ) ;
+            while( !POOP )
+
+            third.delF( tinP , postLike ) ;
+            osFileNameC osfnLike( tinP , third , postLike ) ;
+            strMakeF( tinP , postLike , T(psttPath)+T("*") ) ; ___( postLike ) ;
+            ZE( osTextT* , postLike ) ;
         {
         if( !POOP )
 
@@ -169,66 +141,6 @@
     SCOOP
 {
 /*1*/voidT etherC::diskFindFileOrDirF( tinS& tinP , infoFileS*& pInfoP , handleC& handleP , const strokeS* const psttPathP , const patternC* pPatternP , const flagsT flagsP )/*1*/
-
-}
-    }
-        }
-            }
-                tinP.pEther->delF( tinP , psttf ) ;
-                tinP.pEther->traceF( tinP , psttf ) ;
-                sIn >> psttf ; ___( psttf ) ;
-                ZE( strokeS* , psttf ) ;
-            {
-            while( sIn )
-
-            }
-                __( idReply - ifcIDrEPLYcLOAK_FOLDERcONTENTS) ;
-                sIn >> idReply ;
-                ZE( countT , idReply ) ;
-            
-                __( idFormat - 1 ) ;
-                sIn >> idFormat ;
-                ZE( countT , idFormat ) ;
-            
-                __( finger - FINGERnEG_CLOAKrEPLY ) ;
-                sIn >> finger ;
-                ZE( countT , finger ) ;
-
-                bWoth = 0 ;
-            {
-            if( bWoth )
-
-            else if( !sIn ) break ;
-            }
-                break ;
-                POOPR
-            {
-            if( POOP )
-        
-            sock.readF( tinP , sIn ) ;
-            static soulC sIn( tinP , TAG( TAGiDnULL ) ) ;
-        {
-        for(;;)
-        boolT bWoth = 1 ;
-    
-        sock.writeF( tinP , sOut ) ;
-        sOut << (countT)flFILEiNFO_NAME ;
-        sOut << psttFolderP ;
-        sOut << (countT)ifcIDcMDcLOAK_QUERYfOLDERcONTENTS ;
-        sOut << (countT)1 ;
-        sOut << (countT)FINGERnEG_CLOAKcOMMAND ;
-        static soulC sOut( tinP , TAG( TAGiDnULL ) ) ;
-    
-        sock.connectF( tinP , homeS::homeIF().idPortCloak ) ;
-        socketC sock( tinP , *tinP.pEtScratch , TAG( TAGiDnULL ) , 0 , flSOCKETc_NOsECRECY ) ;
-
-        SCOOPS
-    {
-    IFsCRATCH
-
-    if( POOP ) return ;
-{
-voidT queryFileListF( tinS& tinP , const strokeS* const psttFolderP )
 
 /**/
 */

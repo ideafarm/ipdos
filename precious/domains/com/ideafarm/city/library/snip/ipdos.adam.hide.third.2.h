@@ -27800,7 +27800,7 @@ applications should avoid using thirdC objects
     SPACER(j)
     SPACER(k)
 
-    voidT                   dosFindFileOrDirPrivateF( tinS& tinP , infoFileS*& pInfoFileP , handleC& handleP , const osTextT* const postLikeP ) ;
+    boolT                   dosFindFileOrDirPrivateF( tinS& tinP , infoFileS*& pInfoFileP , handleC& handleP , const osTextT* const postLikeP , const flagsT flagsP = flDOSfINDfILEoRdIR_null ) ;
                             //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3401d.thirdC.dosFindFileOrDirPrivateF!||
     static voidT            dosAllocSharedMemIF( tinS& tinP , handleC& handleP , const osTextT* const postP , const handleC* phFileP = 0 , const countT cbP = 0 , const countT idMemorySpaceP = 0 , const flagsT flagsP = flOPENsHAREDmEMORY_null ) ;
                             //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3405b.thirdC.dosAllocSharedMemIF!||
