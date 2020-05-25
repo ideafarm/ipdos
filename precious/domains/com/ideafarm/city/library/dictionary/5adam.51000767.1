@@ -21,7 +21,7 @@ swFlock.freeAllF( tinP ) ;
                 else                        break ;
                 if( info3.NextEntryOffset ) pbInfo3 += info3.NextEntryOffset ;
 
-                etThread.traceF( tinP , T("    [name]:    ")+T(postName) ) ;
+                //etThread.traceF( tinP , T("    [name]:    ")+T(postName) ) ;
                 if( bOk ) ;
 
                 unicodeToAnsiF( postName , sizeof postName , (byteT*)info3.FileName , info3.FileNameLength >> 1 ) ;
@@ -46,7 +46,7 @@ swFlock.freeAllF( tinP ) ;
     byteT* pbInfo3 = pbBuffer ;
 
     }
-        etThread.traceF( tinP , T("[name]:    ")+T(postName) ) ;
+        //etThread.traceF( tinP , T("[name]:    ")+T(postName) ) ;
         if( bOk ) ;
 
         unicodeToAnsiF( postName , sizeof postName , (byteT*)info2.FileName , info2.FileNameLength >> 1 ) ;
@@ -80,7 +80,7 @@ countT cFlavors = swFlock.cFlavorsF( tinP ) ;
 swFlock.grabF( tinP , TAG( TAGiDnULL ) ) ;
 TN( tb4    , "    " ) ;
 
-etThread.traceF( tinP , T("unlocking") ) ;
+//etThread.traceF( tinP , T("unlocking") ) ;
 ether.loafIF( tinP ) ;
 
 tinP.pcUtility[ 0 ] -- ; //U::
@@ -116,7 +116,7 @@ etThread.osThreadF( TaRG1( tmServerF ) , (countT)&psttzLeverFolder , (countT)&sw
                     if( swFlock ) DEL( pFlock )                                   //SHOULD BE IMPOSSIBLE
                     psttzLeverFolder = psttf ;
                     swFlock.grabF( tinP , TAG( TAGiDnULL ) ) ;
-                    etThread.traceF( tinP , T("folder locked:    ")+T(psttf) ) ;
+                    //etThread.traceF( tinP , T("folder locked:    ")+T(psttf) ) ;
                 {
                 if( !cDo )
             {
@@ -124,7 +124,7 @@ etThread.osThreadF( TaRG1( tmServerF ) , (countT)&psttzLeverFolder , (countT)&sw
             }
                 DEL( pFlock ) ;
                 etThread.traceF( tinP , T("error: could not lock folder:    ")+T(psttf) ) ;
-                POOPR
+                POOPRqUIET
             {
             if( POOP )
 
@@ -229,7 +229,7 @@ ZE( strokeS* , psttzLeverFolder ) ;
 
         ZE( strokeS* , psttf ) ;
         
-        etThread.traceF( tinP , T("home:  ")+tHome ) ;
+        //etThread.traceF( tinP , T("home:  ")+tHome ) ;
         }
             etThread.delF( tinP , psttNU ) ;
             etThread.delF( tinP , psttHome ) ;
@@ -272,9 +272,9 @@ DONE( tmServerF )
                     else                { DEL( pso ) ; }
                     if( !ether && pso ) etThread.osThreadF( TaRG1( tmcCloakServerF ) , (countT)pso , (countT)&psttzLeverFolderP , (countT)&swFlockP ) ;
 
-                    etRock.traceF( tinP , T("cloak: called  acceptF for sListen") ) ;
+                    //etRock.traceF( tinP , T("cloak: called  acceptF for sListen") ) ;
                     sListen.acceptF( tinP , pso , idPortPeer , nnPeer , countTC() ) ;
-                    etRock.traceF( tinP , T("cloak: calling acceptF for sListen") ) ;
+                    //etRock.traceF( tinP , T("cloak: calling acceptF for sListen") ) ;
                     ZE( countT , idPortPeer ) ;
                     nicNameC nnPeer ;
                     ZE( socketC* , pso ) ;
@@ -290,14 +290,14 @@ DONE( tmServerF )
             if( POOP )
 
             //LOGrAW3( "home.idPortKernelMonitor: " , home.idPortKernelMonitor , "\r\n" ) ;
-            etRock.traceF( tinP , T("cloak: sListen bound to port ")+TF2(home.idPortCloak,flFORMAT_UNSIGNED|flFORMAT_NObIGITvALUES) ) ;
+            //etRock.traceF( tinP , T("cloak: sListen bound to port ")+TF2(home.idPortCloak,flFORMAT_UNSIGNED|flFORMAT_NObIGITvALUES) ) ;
             home.idPortCloak = sListen.bindF( tinP ) ;
             homeS& home = homeS::homeIF() ;
             socketC sListen( tinP , *tinP.pEtScratch , TAG( TAGiDnULL ) , 0 , flSOCKETc_NOsECRECY ) ;
             SCOOPSnEW
         {
         IFsCRATCH
-        etThread.traceF( tinP , T("listening for clients") ) ;
+        //etThread.traceF( tinP , T("listening for clients") ) ;
     {
     while( !ether )
 
@@ -313,10 +313,10 @@ DONE( tmWatchHandlesF )
         ether.osSleepF( tinP , TOCK >> 1 ) ;
 
         }
-            etThread.traceF( tinP , T("hired handle.exe [value,idDeathType]:    ")+TF2(value,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2(idDeathType,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
+            //etThread.traceF( tinP , T("hired handle.exe [value,idDeathType]:    ")+TF2(value,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2(idDeathType,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
             etThread.osProcessF( tinP , osTid , osPid , value , idDeathType , T("///ideafarm/precious/domains/com/ideafarm/city/workshop/handle/handle64.exe") , 0 , flPROCESShIRE_null , &hfOut , &hfError , 0 ) ;
             //G:etThread.osProcessF( tinP , osTid , osPid , value , idDeathType , T("///ideafarm/precious/domains/com/ideafarm/city/workshop/bench.baseless/bench.exe") , 0 , flPROCESShIRE_null , &hfOut , &hfError , 0 ) ;
-            etThread.traceF( tinP , T("hiring handle.exe") ) ;
+            //etThread.traceF( tinP , T("hiring handle.exe") ) ;
             ZE( countT , idDeathType ) ;
             ZE( countT , value ) ;
             ZE( countT , osPid ) ;
@@ -571,7 +571,7 @@ TASK( tmcCloakServerF )
                         case ERROR_MORE_DATA :
                     {
                     switch( rc )
-                    etherP.traceF( tinP , T("GetFileInformationByHandleEx [rc]:    ")+TF2(rc,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
+                    //etherP.traceF( tinP , T("GetFileInformationByHandleEx [rc]:    ")+TF2(rc,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
                     countT rc = GetLastError() ;
                 {
                 if( !bOk )
@@ -581,7 +581,7 @@ TASK( tmcCloakServerF )
             do
             ZE( boolT , bDone ) ;
 
-            etherP.traceF( tinP , T("[sizeof FILE_FULL_DIR_INFO]:    ")+TF2( sizeof FILE_FULL_DIR_INFO , flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED ) ) ;
+            //etherP.traceF( tinP , T("[sizeof FILE_FULL_DIR_INFO]:    ")+TF2( sizeof FILE_FULL_DIR_INFO , flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED ) ) ;
 
             thirdC::c_memsetIF( tinP , pbBuffer , cbBuffer ) ;
             etherP.newF( tinP , LF , pbBuffer , cbBuffer ) ; ___( pbBuffer ) ;
@@ -620,7 +620,7 @@ voidT reportFilesF( tinS& tinP , etherC& etherP , soulC*& psOutP , socketC*& pso
 
                     }
                         }
-                            etherP.traceF( tinP , T("sending [posto]:    ")+T(posto) ) ;
+                            //etherP.traceF( tinP , T("sending [posto]:    ")+T(posto) ) ;
                             psoP->writeF( tinP , posto , costo ) ;
                             psoP->writeF( tinP , (byteT*)&costo , sizeof costo ) ;
                             countT   costo = tShort.csF( tinP ) ;
@@ -671,7 +671,7 @@ voidT reportFilesF( tinS& tinP , etherC& etherP , soulC*& psOutP , socketC*& pso
                     case ERROR_MORE_DATA :
                 {
                 switch( rc )
-                etherP.traceF( tinP , T("GetFileInformationByHandleEx [rc]:    ")+TF2(rc,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
+                //etherP.traceF( tinP , T("GetFileInformationByHandleEx [rc]:    ")+TF2(rc,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
                 countT rc = GetLastError() ;
             {
             if( !bOk )
@@ -703,7 +703,7 @@ voidT reportFilesSimpleF( tinS& tinP , etherC& etherP , socketC*& psoP , fileC*&
     THREADmODE1rESTORE
     }
         }
-            etherP.traceF( tinP , T("folder relocked:    ")+T(psttFolderP) ) ;
+            //etherP.traceF( tinP , T("folder relocked:    ")+T(psttFolderP) ) ;
         {
         else
         }
@@ -711,7 +711,7 @@ voidT reportFilesSimpleF( tinS& tinP , etherC& etherP , socketC*& psoP , fileC*&
 
             DEL( pFlockP ) ;
             etherP.traceF( tinP , T("error: could not relock folder so am shutting this computer down (U::not really):    ")+T(psttFolderP) ) ;
-            POOPR
+            POOPRqUIET
         {
         if( POOP )
 
