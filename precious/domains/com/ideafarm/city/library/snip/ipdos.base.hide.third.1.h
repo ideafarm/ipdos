@@ -1,12 +1,4 @@
 
-
-#define ifcIDtYPEcLOAKcONNECTION_SOULFUL                         2
-#define ifcIDtYPEcLOAKcONNECTION_SIMPLE                          1
-
-
-#define flDOSfINDfILEoRdIR_DOnOTtESTwATER                          0xe00001ff
-#define flDOSfINDfILEoRdIR_null                                    0xe00000ff
-
 // IPDOS (tm) <> IdeaFarm (tm) Piggyback Distributed Operating System
 
 // For build environment info, see file "\ideafarm.work\backed.up.never\txt\readme.first.ipdos.build.environment.txt"
@@ -9991,9 +9983,10 @@ flHIRE_SHOW
 #define FINGERnEG_DATUMgORILLAiDEAFARMcOM               ((countT)-(sCountT)0xcccc005a)
 #define FINGERnEG_CLOAKcOMMAND                          ((countT)-(sCountT)0xcccc005b)
 #define FINGERnEG_CLOAKrEPLY                            ((countT)-(sCountT)0xcccc005c)
+#define FINGERnEG_CLOAKsIMPLEcONNECTION                 ((countT)-(sCountT)0xcccc005d)
 /*3*/
 #define FINGERnEG_min     0xcccc0001
-#define FINGERnEG_max     0xcccc005c
+#define FINGERnEG_max     0xcccc005d
 
 
 //
@@ -16412,9 +16405,10 @@ these flag values are used by oo flagsT objects
 #define ifcIDtYPEhANDLE_CLOUD               0xdddd0565
 #define ifcIDtYPEhANDLE_FILEmAPPING         0xdddd0566
 #define ifcIDtYPEhANDLE_BOOKSrEADcURSOR     0xdddd0567
+#define ifcIDtYPEhANDLE_FILEfINDbASE        0xdddd0568
 /*3*/
 #define ifcIDtYPEhANDLE_min     0xdddd0539
-#define ifcIDtYPEhANDLE_max     0xdddd0567
+#define ifcIDtYPEhANDLE_max     0xdddd0568
 
 
 //
@@ -39463,35 +39457,35 @@ obsolete: ordering begins with "outer" (low) and ends with "inner" (high)
 /*1*//*ifcIDgRABlAYER*//*1*/
 
 /*3*/
-#define ifcIDgRABlAYER_1SKIN                        0xdddd0b22
-#define ifcIDgRABlAYER_2OUTER                       0xdddd0b23
-#define ifcIDgRABlAYER_3MIDDLE                      0xdddd0b24
-#define ifcIDgRABlAYER_4INNER                       0xdddd0b25
-#define ifcIDgRABlAYER_5BONE                        0xdddd0b26
-#define ifcIDgRABlAYER_6BONE                        0xdddd0b27
-#define ifcIDgRABlAYER_7BASEmISC1                   0xdddd0b28
-#define ifcIDgRABlAYER_7BASEmISC2                   0xdddd0b29
-#define ifcIDgRABlAYER_7BASEmISC3                   0xdddd0b2a
-#define ifcIDgRABlAYER_7BASEmISC4                   0xdddd0b2b
-#define ifcIDgRABlAYER_8POOL1cT                     0xdddd0b2c
-#define ifcIDgRABlAYER_8POOL2cT                     0xdddd0b2d
-#define ifcIDgRABlAYER_8POOL3dT                     0xdddd0b2e
-#define ifcIDgRABlAYER_8POOL4dT                     0xdddd0b2f
-#define ifcIDgRABlAYER_8POOL5nEW                    0xdddd0b30
-#define ifcIDgRABlAYER_9BOOKSc                      0xdddd0b31
-#define ifcIDgRABlAYER_aGRABuNIVERSEc               0xdddd0b32
-#define ifcIDgRABlAYER_bPOOLlAYER1                  0xdddd0b33
-#define ifcIDgRABlAYER_bPOOLlAYER2                  0xdddd0b34
-#define ifcIDgRABlAYER_bPOOLlAYER3                  0xdddd0b35
-#define ifcIDgRABlAYER_cBASEmISC1                   0xdddd0b36
-#define ifcIDgRABlAYER_cBASEmISC2                   0xdddd0b37
-#define ifcIDgRABlAYER_cBASEmISC3                   0xdddd0b38
-#define ifcIDgRABlAYER_cBASEmISC4                   0xdddd0b39
-#define ifcIDgRABlAYER_dLINKEDc                     0xdddd0b3a
-#define ifcIDgRABlAYER_LEAF                         0xdddd0b3b
+#define ifcIDgRABlAYER_1SKIN                        0xdddd0b23
+#define ifcIDgRABlAYER_2OUTER                       0xdddd0b24
+#define ifcIDgRABlAYER_3MIDDLE                      0xdddd0b25
+#define ifcIDgRABlAYER_4INNER                       0xdddd0b26
+#define ifcIDgRABlAYER_5BONE                        0xdddd0b27
+#define ifcIDgRABlAYER_6BONE                        0xdddd0b28
+#define ifcIDgRABlAYER_7BASEmISC1                   0xdddd0b29
+#define ifcIDgRABlAYER_7BASEmISC2                   0xdddd0b2a
+#define ifcIDgRABlAYER_7BASEmISC3                   0xdddd0b2b
+#define ifcIDgRABlAYER_7BASEmISC4                   0xdddd0b2c
+#define ifcIDgRABlAYER_8POOL1cT                     0xdddd0b2d
+#define ifcIDgRABlAYER_8POOL2cT                     0xdddd0b2e
+#define ifcIDgRABlAYER_8POOL3dT                     0xdddd0b2f
+#define ifcIDgRABlAYER_8POOL4dT                     0xdddd0b30
+#define ifcIDgRABlAYER_8POOL5nEW                    0xdddd0b31
+#define ifcIDgRABlAYER_9BOOKSc                      0xdddd0b32
+#define ifcIDgRABlAYER_aGRABuNIVERSEc               0xdddd0b33
+#define ifcIDgRABlAYER_bPOOLlAYER1                  0xdddd0b34
+#define ifcIDgRABlAYER_bPOOLlAYER2                  0xdddd0b35
+#define ifcIDgRABlAYER_bPOOLlAYER3                  0xdddd0b36
+#define ifcIDgRABlAYER_cBASEmISC1                   0xdddd0b37
+#define ifcIDgRABlAYER_cBASEmISC2                   0xdddd0b38
+#define ifcIDgRABlAYER_cBASEmISC3                   0xdddd0b39
+#define ifcIDgRABlAYER_cBASEmISC4                   0xdddd0b3a
+#define ifcIDgRABlAYER_dLINKEDc                     0xdddd0b3b
+#define ifcIDgRABlAYER_LEAF                         0xdddd0b3c
 /*3*/
-#define ifcIDgRABlAYER_min     0xdddd0b22
-#define ifcIDgRABlAYER_max     0xdddd0b3b
+#define ifcIDgRABlAYER_min     0xdddd0b23
+#define ifcIDgRABlAYER_max     0xdddd0b3c
 
 
 //
@@ -40655,12 +40649,12 @@ optimized for speed
 //CS:CODEsYNC: 00104c9 1050104.2
 
 /*3*/
-#define ifcIDeVENTdEVICEc_TICK                              0xdddd0b3c
-#define ifcIDeVENTdEVICEc_RESIZED                           0xdddd0b3d
-#define ifcIDeVENTdEVICEc_RECONFIGURED                      0xdddd0b3e
+#define ifcIDeVENTdEVICEc_TICK                              0xdddd0b3d
+#define ifcIDeVENTdEVICEc_RESIZED                           0xdddd0b3e
+#define ifcIDeVENTdEVICEc_RECONFIGURED                      0xdddd0b3f
 /*3*/
-#define ifcIDeVENTdEVICEc_min     0xdddd0b3c
-#define ifcIDeVENTdEVICEc_max     0xdddd0b3e
+#define ifcIDeVENTdEVICEc_min     0xdddd0b3d
+#define ifcIDeVENTdEVICEc_max     0xdddd0b3f
 
 
 //
@@ -40958,11 +40952,11 @@ optimized for speed
 /*1*//*ifcIDtYPEgOSSIP*//*1*/
 
 /*3*/
-#define ifcIDtYPEgOSSIP_SYSTEM                      0xdddd0b3f
-#define ifcIDtYPEgOSSIP_APPLICATION                 0xdddd0b40
+#define ifcIDtYPEgOSSIP_SYSTEM                      0xdddd0b40
+#define ifcIDtYPEgOSSIP_APPLICATION                 0xdddd0b41
 /*3*/
-#define ifcIDtYPEgOSSIP_min     0xdddd0b3f
-#define ifcIDtYPEgOSSIP_max     0xdddd0b40
+#define ifcIDtYPEgOSSIP_min     0xdddd0b40
+#define ifcIDtYPEgOSSIP_max     0xdddd0b41
 
 
 //
@@ -40989,10 +40983,10 @@ optimized for speed
 /*1*//*ifcIDmSGgOSSIP*//*1*/
 
 /*3*/
-#define ifcIDmSGgOSSIP_BITMAPiSvIRGIN                          0xdddd0b41
+#define ifcIDmSGgOSSIP_BITMAPiSvIRGIN                          0xdddd0b42
 /*3*/
-#define ifcIDmSGgOSSIP_min     0xdddd0b41
-#define ifcIDmSGgOSSIP_max     0xdddd0b41
+#define ifcIDmSGgOSSIP_min     0xdddd0b42
+#define ifcIDmSGgOSSIP_max     0xdddd0b42
 
 
 //
@@ -41344,18 +41338,18 @@ optimized for speed
 /*1*//*ifcIDmODEeTHERsOIL*//*1*/
 
 /*3*/
-#define ifcIDmODEeTHERsOIL_PREPAREsOURCE                    0xdddd0b42
-#define ifcIDmODEeTHERsOIL_NATIVEfROMaSCII                  0xdddd0b43
-#define ifcIDmODEeTHERsOIL_ASCIIfROMnATIVE                  0xdddd0b44
-#define ifcIDmODEeTHERsOIL_LINT                             0xdddd0b45
-#define ifcIDmODEeTHERsOIL_TRIM                             0xdddd0b46
-#define ifcIDmODEeTHERsOIL_REPORT                           0xdddd0b47
-#define ifcIDmODEeTHERsOIL_QUERYvALUES                      0xdddd0b48
-#define ifcIDmODEeTHERsOIL_DO                               0xdddd0b49
-#define ifcIDmODEeTHERsOIL_DOdEBUG                          0xdddd0b4a
+#define ifcIDmODEeTHERsOIL_PREPAREsOURCE                    0xdddd0b43
+#define ifcIDmODEeTHERsOIL_NATIVEfROMaSCII                  0xdddd0b44
+#define ifcIDmODEeTHERsOIL_ASCIIfROMnATIVE                  0xdddd0b45
+#define ifcIDmODEeTHERsOIL_LINT                             0xdddd0b46
+#define ifcIDmODEeTHERsOIL_TRIM                             0xdddd0b47
+#define ifcIDmODEeTHERsOIL_REPORT                           0xdddd0b48
+#define ifcIDmODEeTHERsOIL_QUERYvALUES                      0xdddd0b49
+#define ifcIDmODEeTHERsOIL_DO                               0xdddd0b4a
+#define ifcIDmODEeTHERsOIL_DOdEBUG                          0xdddd0b4b
 /*3*/
-#define ifcIDmODEeTHERsOIL_min     0xdddd0b42
-#define ifcIDmODEeTHERsOIL_max     0xdddd0b4a
+#define ifcIDmODEeTHERsOIL_min     0xdddd0b43
+#define ifcIDmODEeTHERsOIL_max     0xdddd0b4b
 
 
 //
@@ -41568,13 +41562,13 @@ parameters
 /*1*//*ifcIDeVENTvsp*//*1*/
 
 /*3*/
-#define ifcIDeVENTvsp_CT                    0xdddd0b4b
-#define ifcIDeVENTvsp_WrEFcT                0xdddd0b4c
-#define ifcIDeVENTvsp_WrEFdT                0xdddd0b4d
-#define ifcIDeVENTvsp_DT                    0xdddd0b4e
+#define ifcIDeVENTvsp_CT                    0xdddd0b4c
+#define ifcIDeVENTvsp_WrEFcT                0xdddd0b4d
+#define ifcIDeVENTvsp_WrEFdT                0xdddd0b4e
+#define ifcIDeVENTvsp_DT                    0xdddd0b4f
 /*3*/
-#define ifcIDeVENTvsp_min     0xdddd0b4b
-#define ifcIDeVENTvsp_max     0xdddd0b4e
+#define ifcIDeVENTvsp_min     0xdddd0b4c
+#define ifcIDeVENTvsp_max     0xdddd0b4f
 
 
 //
@@ -42277,11 +42271,11 @@ use me only for pointers
 /*1*//*ifcIDtYPEbRANCHs*//*1*/
 
 /*3*/
-#define ifcIDtYPEbRANCHs_branchSptr          0xdddd0b4f
-#define ifcIDtYPEbRANCHs_strokeSstr          0xdddd0b50
+#define ifcIDtYPEbRANCHs_branchSptr          0xdddd0b50
+#define ifcIDtYPEbRANCHs_strokeSstr          0xdddd0b51
 /*3*/
-#define ifcIDtYPEbRANCHs_min     0xdddd0b4f
-#define ifcIDtYPEbRANCHs_max     0xdddd0b50
+#define ifcIDtYPEbRANCHs_min     0xdddd0b50
+#define ifcIDtYPEbRANCHs_max     0xdddd0b51
 
 
 //
@@ -43566,3 +43560,55 @@ it is illegal to refer to this symbol anywhere but in the definition of a BlATHs
 //
 
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004af.openfilewrite1 END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004b0.openfilewrite2 BEGIN
+
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+/*
+*/
+/**/
+/*1*//*OPENfILEwRITE2(psttFileP)*//*1*/
+
+#define OPENfILEwRITE2(psttFileP) OPENfILEwRITE( (psttFileP) , 2 )
+
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004b0.openfilewrite2 END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004b1.openfilewrite3 BEGIN
+
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+/*
+*/
+/**/
+/*1*//*OPENfILEwRITE3(psttFileP)*//*1*/
+
+#define OPENfILEwRITE3(psttFileP) OPENfILEwRITE( (psttFileP) , 3 )
+
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004b1.openfilewrite3 END

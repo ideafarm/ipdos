@@ -66,14 +66,18 @@ etThread.traceF( tinP , T("ok") ) ;
 
 #if defined( NEVERdEFINED )
 
-etThread.traceF( tinP , T("found [postf]:    ")+T(postf) ) ;
-thirdC::dosFindFileOrDirSimpleIF( tinP , postf , sizeof postf , hFind , "d:\\tmp\\locked.test\\2\\*.ttt" ) ;
+while( ~hFind ) ;
+}
+    if( postf[ 0 ] ) etThread.traceF( tinP , T("found [postf]:    ")+T(postf) ) ;
+    thirdC::dosFindFileOrDirSimpleIF( tinP , postf , sizeof postf , hFind , "d:\\tmp\\locked.test\\2\\*.ttt" ) ;
+    postf[ 0 ] = 0 ;
+{
+do
 handleC hFind( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_FILEfIND ) ;
-postf[ 0 ] = 0 ;
 osTextT postf[ TUCK << 1 ] ;
 
-queryFileListF( tinP , tFolder ) ;
-TN( tFolder , "///d/tmp/locked.test/2/" ) ;
+//queryFileListF( tinP , tFolder ) ;
+//TN( tFolder , "///d/tmp/locked.test/2/" ) ;
 
 TODO
 

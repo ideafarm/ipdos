@@ -105,7 +105,7 @@
                 }
                     }
                         fFound = !tinP.bosFail ;
-                        BOS( WHATsfr , BOSoK , FindNextFile( (HANDLE)pOsh->oshFind , &info ) )
+                        BOS( WHATsfr , BOSoK , FindNextFile( (HANDLE)pOsh->hFind.osF( ifcIDtYPEhANDLE_FILEfINDbASE ) , &info ) )
                     {
                     if( pOsh )
                     diskFindHandleS* pOsh = (diskFindHandleS*)handleP.osF( ifcIDtYPEhANDLE_FILEfIND ) ;
@@ -116,7 +116,7 @@
                         }
                             fFound = 1 ;
                             handleP.osF( ifcIDtYPEhANDLE_FILEfIND , (countT)pOsh ) ;
-                            pOsh->oshFind = tinP.brcRaw ;
+                            pOsh->hFind.osF( ifcIDtYPEhANDLE_FILEfINDbASE , (countT)tinP.brcRaw ) ;
                         {
                         else
                         }
@@ -130,7 +130,7 @@
                         if( tinP.brcRaw == (countT)INVALID_HANDLE_VALUE )
                         BOS( WHATsfr , BOShANDLE , FindFirstFile( postLikeP , &info ) )
 
-                        diskFindHandleS* pOsh = new( 0 , tinP , pba , cba ) diskFindHandleS ;
+                        diskFindHandleS* pOsh = new( 0 , tinP , pba , cba ) diskFindHandleS( tinP ) ;
                     {
                     if( pba )
                     byteT* pba = processGlobal3I.heap.newF( tinP , LF , cba ) ;
