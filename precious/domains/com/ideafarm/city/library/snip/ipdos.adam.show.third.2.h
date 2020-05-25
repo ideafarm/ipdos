@@ -16718,7 +16718,7 @@ examples
 
 /*1*/class _export heapC/*1*/
 {
-    byteT   pbHeap[ TICK ] ;    // FORMAT OF EACH ITEM'S HEADER: cbNet,idLine,idiFile ;
+    byteT   pbHeap[ TICK >> 1 ] ;   //20200525@1250: HALVED TO "TICK >> 1" WITHOUT ANALYSIS (OCCASIONALLY HALVE THIS UNTIL SEE A FAILURE)
     grabitC grabMe ;
     countT  cNew ;
     countT  cDel ;
