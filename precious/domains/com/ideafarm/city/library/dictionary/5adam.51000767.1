@@ -220,7 +220,8 @@ ZE( strokeS* , psttzLeverFolder ) ;
         if( !ids ) etThread.delF( tinP , psttf ) ;
         stFoldersToWalk.sinkF( tinP , ids , psttf , flSTACKsINK_UNIQUE ) ;
         ZE( countT , ids ) ;
-        etThread.strMakeF( tinP , psttf , /*U:: tHome */ T("///d/tmp/locked.test/") ) ; ___( psttf ) ;
+        etThread.strMakeF( tinP , psttf , tHome ) ; ___( psttf ) ;
+        //etThread.strMakeF( tinP , psttf , /*U:: tHome */ T("///d/tmp/locked.test/") ) ; ___( psttf ) ;
 
         // SINK FOLDERS TO WALK
 
@@ -631,7 +632,9 @@ voidT reportFilesF( tinS& tinP , etherC& etherP , soulC*& psOutP , socketC*& pso
                         {
                         if( pPat )
                         boolT bOk = 1 ;
-                        TN( tShort , postName ) ;
+                        TN( tShort , postName ) ; //U:: THIS BREAKS THE CLIENT, BUT I NEED TO DO SOMETHING TO INFORM CLIENT ABOUT bDir:     if( bDir ) tShort += T("\\") ;
+
+                        boolT bDir = info3.FileAttributes & FILE_ATTRIBUTE_DIRECTORY ;
                     {
                     if( thirdC::c_strcmpIF( tinP , postName , "." ) && thirdC::c_strcmpIF( tinP , postName , ".." ) )
 
@@ -676,12 +679,12 @@ voidT reportFilesF( tinS& tinP , etherC& etherP , soulC*& psOutP , socketC*& pso
         do
         ZE( boolT , bDone ) ;
 
-        etherP.traceF( tinP , T("[sizeof FILE_FULL_DIR_INFO]:    ")+TF2( sizeof FILE_FULL_DIR_INFO , flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED ) ) ;
+        //etherP.traceF( tinP , T("[sizeof FILE_FULL_DIR_INFO]:    ")+TF2( sizeof FILE_FULL_DIR_INFO , flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED ) ) ;
 
         thirdC::c_memsetIF( tinP , pbBuffer , cbBuffer ) ;
         etherP.newF( tinP , LF , pbBuffer , cbBuffer ) ; ___( pbBuffer ) ;
-        countT cbBuffer = TUCK << 1 ; //U:: ENABLE THIS AND VERIFY THAT I CONTINUE TO LOOP UNTIL GET "NO MORE FILES"
-        //countT cbBuffer = TOCK ;
+        //countT cbBuffer = TUCK << 1 ; //U:: ENABLE THIS AND VERIFY THAT I CONTINUE TO LOOP UNTIL GET "NO MORE FILES"
+        countT cbBuffer = TOCK ; // PRODUCTION
         ZE( byteT* , pbBuffer ) ;
 
         handleC& hFile = *pFlockP ;
