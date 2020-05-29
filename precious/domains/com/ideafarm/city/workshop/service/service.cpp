@@ -345,7 +345,8 @@ void hireF( homeDiskS& infoP , int bServiceP = 0 )
     strcpy( poste , posth ) ;
     strcat( poste , "\\ideafarm." ) ; int offPatch = strlen( poste ) ;
     strcat( poste , "????????.ipdos-we " ) ;
-    strcat( poste , bServiceP ? "510004fb" : "51000619" ) ;
+    //strcat( poste , bServiceP ? "510004fb" : "51000619" ) ;
+    strcat( poste , bServiceP ? "51000767" : "51000619" ) ;
     strcat( poste , " !idHome " ) ;
     strcat( poste , postIdHomeless ) ;
     strcat( poste , postNumaParam ) ;

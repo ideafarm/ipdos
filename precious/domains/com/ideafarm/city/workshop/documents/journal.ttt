@@ -6404,7 +6404,7 @@ I have other business to attend to today and tomorrow, but plan to continue to w
 
 
 
-
+   20200527@1552: 66 79
 
    20200525@1551: 64 68
 
@@ -6578,67 +6578,11 @@ I have other business to attend to today and tomorrow, but plan to continue to w
 
 
 
-  set up dut: an adam that walks ///d/tmp/locked.test/
- playcraft
- objective: elegance
-!subjob C: enhance diskFindFileOrDirF to query cloakF for information before trying base os api   
 
 
 
 
-  !subjob A: test it!  cloak the home folder
-  !subjob C: dosFindFileOrDirPrivateIF: edit so that it works even if target is cloaked
-  !subjob C: dosFindFileOrDirSimpleIF: edit so that it works even if target is cloaked
-  !subjob C: optimize for speed so that settings file processing is acceptably fast
-  !subjob C: migrate s_setupF to image function so that it can be called early
-  !subjob B: home 102 wont complete settings refresh
-  !subjob C: dosFindFileOrDirPrivateF: allocate a structure to hold the find osh
-   cloak launches dut adam
-  set up dut
-  !subjob C: diskFindFileOrDirF: take a folder rather than tLikeP
-  !subjob C: deprecate (by renameing) all diskFindFileOrDirF calls that specify *? wildcards
-  !subjob C: migrate all diskFindFileOrDirF calls away from specifying *? wildcards
-  !subjob C: Cloak: enhance the api to support cMaxFilesP
-   so before designing the code enhancement for diskFindFileOrDirF, i should craft that enhancement to Cloak api
-   this would cause Cloak to send a soulC image and then begin to accumulate into an ooth soulC
-   to eliminate capacity limits, the Cloak api can be enhanced to accept a cFilesMax parameter
-   this is the natural implementation given the Cloak api
-  think
-     when the information for the lath file has been extracted, the handle can be closed, which will have the effect of deleting the soulC instance
-     each call will extract the information for wo file
-     the handleP parameter can be used to store a pointer to this soulC instance
-     the first call will result in a soulC instance being received that contains the information for all files
-    if yes, then it gets its information from Cloak and handleP contains the socket connection that is being used for this search
-    if no, then it uses its existing code and handleP contains the base os file find handle
-    query Cloak to find out whether tFolderP is cloaked
-   when diskFindFileOrDirF is called, it can do the following recipe
-   after existing code is migrated to take tFolderP rather than tLikeP, its function will map directly to the Cloak api
-  think
-    each call returns information for wo file
-   application calls diskFindFileOrDirF repeatedly for a specific folder until the handle is null
-  existing pseudocode for application of:     voidT etherC::diskFindFileOrDirF( tinS& tinP , infoFileS*& pInfoFileP , handleC& handleP , const strokeS* const psttLikeP )
-  !subjob C: etherC strIdF: support for revealing the string matches to caller
-  !subjob C: etherC support for emulating * and ? wildcards
-  !subjob C: diskFindFileOrDirF: study its current wildcard functionality
-  !subjob C: diskFindFileOrDirF: take a folder name rather than tLikeP
-    getting a clean compile and run will detect any application code that does not conform
-   decision: make the change tentatively and regression test build
-       but that is not supported by the base os; it is supported within diskFindFileOrDirF
-      there is a call that uses ? for the drive letter: ///?/blablabla
-     list the calling code that does not just request all files
-    conj: all calling code just requests all files (*): 
-    i like this idea because it would eliminate the * ? filter wildcards and force application code to use IPDOS regular expressions instead
-    this would put the burden on application code to filter for the file names that it wants
-   alt: change the functionality to eliminate tLikeP and use tFolderP instead
-  think    
-   application calls diskFindFileOrDirF repeatedly for a specific folder until the handle is null
-  existing pseudocode for application of:     voidT etherC::diskFindFileOrDirF( tinS& tinP , infoFileS*& pInfoFileP , handleC& handleP , const strokeS* const psttLikeP )
-   for this job, i need to have a rested, clear mind
-   my mind is a mush, due to too much work
-  think
- playcraft
- objective: enhance existing api to detect cloaked folder and to divert the request to Cloak for that folder
-!subjob C: specify the pseudocode for diverting file walking to Cloak
+
 
 !subjob C: optimize for speed so that settings file processing is acceptably fast
 
@@ -6692,6 +6636,174 @@ I have other business to attend to today and tomorrow, but plan to continue to w
 
 
 
+
+
+
+ playcraft
+ changed: Cloak now cloaks the ipdos home
+!job A: test full gen of bundle   
+
+
+
+
+
+  !subjob C: idBookMinMaxF: patternC pat( tinP , *tinP.pEther , fnLike , ifcIDtYPEpATTERN_FOREIGNwILDCARDmICROSOFT ) ; //U:: O:  TO SPEED THIS (BY ELIMINATING RECURSION), USE STRICT INTERPRETATION OF WILDCARDS
+  !subjob C: strIdOptimizeClosureF: optimize for speed by eliminating recursion overhead, eliminating textC ct/dt, and other polishing
+  set up dut
+   need to switch to law projects ("classes")
+   conj: bundle works, or can be made to work, as is
+   this can wait
+  think
+ playcraft
+ changed: cloak
+!job B: eating of settings file by etherSoilF is slooooooowwwwwwwww
+
+
+
+  appr: develop strict wildcard interpretation ('.' is literal, '?' requires exactly wo of any, '*' requires ze or mo of any, '?' repeated or adjacent to '*' is optimized to emit a single pattern expression
+  optimizing this will speed up processing of settings files
+ playcraft
+ objective: elegance
+!subjob C: idBookMinMaxF: patternC pat( tinP , *tinP.pEther , fnLike , ifcIDtYPEpATTERN_FOREIGNwILDCARDmICROSOFT ) ; //U:: O:  TO SPEED THIS (BY ELIMINATING RECURSION), USE STRICT INTERPRETATION OF WILDCARDS
+
+
+
+
+
+
+
+
+
+
+
+
+
+   alt: define unions within ta and add an idUnionType member that is used to detect collision between uses
+  think
+   tinS::ta is used for the database subsystem
+  see
+    listWalkChatterCBF
+    listWalkDeleteListCBF
+    listWalkSelectCBF
+    listWalkSelectAndCBF
+    listWalkSelectWalkCBF
+    listWalkSelectIsListedCBF
+    listWalkUnIndexCBF
+    listWalkIndexCBF
+    listWalkDeleteAllCBF
+    listWalkAttachListIfCBF including pNewF
+    listWalkQueryFromTextCBF
+    listWalkQueryFromIdCBF
+    listWalkForgetTextCBF
+    listWalkForgetIdCBF
+    listWalkFieldEditCBF
+    listWalkLintCBF
+    listWalkEnumerateCBF
+    listWalkResetIndexBitsCBF
+    listingC
+    listC
+    datumC
+    datum_listingVSP_C
+    recordC
+    selectC
+   tinS::tinArgS ta
+  look: who uses that union?
+   alt: use the tinS union to pass parameters after verifying no collision with other code that uses the same union
+  think
+ playcraft
+ objective: elegance
+!subjob C: strIdOptimizeClosureF: optimize for speed by eliminating recursion overhead, eliminating textC ct/dt, and other polishing
+
+
+!thrust: debug until all factories run without failure
+
+=========================================================================================================================================================
+=========================================================================================================================================================
+=========================================================================================================================================================
+=========================================================================================================================================================
+====- DONE: BELOW -======================================================================================================================================
+=========================================================================================================================================================
+=========================================================================================================================================================
+=========================================================================================================================================================
+=========================================================================================================================================================
+
+
+
+  nawwh
+   conj: piss cannot establish wait state on folder because it is cloaked
+  think
+ playcraft
+ changed: cloak
+!job B: dropped settings file not detected
+  nawwh
+  set up dut: an adam that walks ///d/tmp/locked.test/
+ playcraft
+ objective: elegance
+!subjob C: enhance diskFindFileOrDirF to query cloakF for information before trying base os api   
+  !subjob B: 2 folders cannot be cloaked
+  !subjob A: test it!  cloak the home folder
+  !subjob C: dosFindFileOrDirPrivateIF: edit so that it works even if target is cloaked
+  !subjob C: dosFindFileOrDirSimpleIF: edit so that it works even if target is cloaked
+  !subjob C: optimize for speed so that settings file processing is acceptably fast
+  !subjob C: migrate s_setupF to image function so that it can be called early
+  !subjob B: home 102 wont complete settings refresh
+  !subjob C: dosFindFileOrDirPrivateF: allocate a structure to hold the find osh
+   cloak launches dut adam
+  set up dut
+  !subjob C: diskFindFileOrDirF: take a folder rather than tLikeP
+  !subjob C: deprecate (by renameing) all diskFindFileOrDirF calls that specify *? wildcards
+  !subjob C: migrate all diskFindFileOrDirF calls away from specifying *? wildcards
+  !subjob C: Cloak: enhance the api to support cMaxFilesP
+   so before designing the code enhancement for diskFindFileOrDirF, i should craft that enhancement to Cloak api
+   this would cause Cloak to send a soulC image and then begin to accumulate into an ooth soulC
+   to eliminate capacity limits, the Cloak api can be enhanced to accept a cFilesMax parameter
+   this is the natural implementation given the Cloak api
+  think
+     when the information for the lath file has been extracted, the handle can be closed, which will have the effect of deleting the soulC instance
+     each call will extract the information for wo file
+     the handleP parameter can be used to store a pointer to this soulC instance
+     the first call will result in a soulC instance being received that contains the information for all files
+    if yes, then it gets its information from Cloak and handleP contains the socket connection that is being used for this search
+    if no, then it uses its existing code and handleP contains the base os file find handle
+    query Cloak to find out whether tFolderP is cloaked
+   when diskFindFileOrDirF is called, it can do the following recipe
+   after existing code is migrated to take tFolderP rather than tLikeP, its function will map directly to the Cloak api
+  think
+    each call returns information for wo file
+   application calls diskFindFileOrDirF repeatedly for a specific folder until the handle is null
+  existing pseudocode for application of:     voidT etherC::diskFindFileOrDirF( tinS& tinP , infoFileS*& pInfoFileP , handleC& handleP , const strokeS* const psttLikeP )
+  !subjob C: etherC strIdF: support for revealing the string matches to caller
+  !subjob C: etherC support for emulating * and ? wildcards
+  !subjob C: diskFindFileOrDirF: study its current wildcard functionality
+  !subjob C: diskFindFileOrDirF: take a folder name rather than tLikeP
+    getting a clean compile and run will detect any application code that does not conform
+   decision: make the change tentatively and regression test build
+       but that is not supported by the base os; it is supported within diskFindFileOrDirF
+      there is a call that uses ? for the drive letter: ///?/blablabla
+     list the calling code that does not just request all files
+    conj: all calling code just requests all files (*): 
+    i like this idea because it would eliminate the * ? filter wildcards and force application code to use IPDOS regular expressions instead
+    this would put the burden on application code to filter for the file names that it wants
+   alt: change the functionality to eliminate tLikeP and use tFolderP instead
+  think    
+   application calls diskFindFileOrDirF repeatedly for a specific folder until the handle is null
+  existing pseudocode for application of:     voidT etherC::diskFindFileOrDirF( tinS& tinP , infoFileS*& pInfoFileP , handleC& handleP , const strokeS* const psttLikeP )
+   for this job, i need to have a rested, clear mind
+   my mind is a mush, due to too much work
+  think
+ playcraft
+ objective: enhance existing api to detect cloaked folder and to divert the request to Cloak for that folder
+!subjob C: specify the pseudocode for diverting file walking to Cloak
+  cool ; found wo: Windows Explorer
+  look
+   | 
+   | error: could not lock folder:    ///d/ideafarm.home.1/ephemeral/domains/com/
+   | error: could not lock folder:    ///d/ideafarm.home.1/ephemeral/domains/com/ideafarm/
+   | 
+  listing
+ playcraft
+ changed: new code
+!subjob B: 2 folders cannot be cloaked
       processGlobal4S::processGlobal4S( tinS& tinP )
      _etherC_bLog( tinVeryEarlyLateMain , TAGnOtIN( TAGiDnULL ) , "thirdC.log" , ifcIDgRABlAYER_7BASEmISC1 , flBATONc_null , processGlobal1I.pb_bLog , sizeof processGlobal1I.pb_bLog ) ,
     3c_         
@@ -6712,22 +6824,6 @@ I have other business to attend to today and tomorrow, but plan to continue to w
  playcraft
  changed: dut
 !job B: nonmonotonic grabbing
-   
-
-!thrust: debug until all factories run without failure
-
-=========================================================================================================================================================
-=========================================================================================================================================================
-=========================================================================================================================================================
-=========================================================================================================================================================
-====- DONE: BELOW -======================================================================================================================================
-=========================================================================================================================================================
-=========================================================================================================================================================
-=========================================================================================================================================================
-=========================================================================================================================================================
-
-
-
   cool ; found wo
      dosFind...SimpleIF
     byteT* pba = processGlobal3I.heap.newF( tinP , LF , cba ) ;

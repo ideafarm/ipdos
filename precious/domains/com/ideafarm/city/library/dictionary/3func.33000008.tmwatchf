@@ -321,14 +321,14 @@ DONE( tmWatchF )
 
         }
             etThread.etherFireImpersonateMonitorIF( tinP ) ;
-            if( !( processGlobal1I.idHome & 0xff000000 ) && !thirdC::osTestWaterIF( tinP , ifcIDtYPEtESTwATER_LOOKfORdRIVER ) ) { LOGrAW3( "adam " , tinP.pAdamGlobal1->idAdam ,  "'s tmWatchF cannot see the driver\r\n" ) ; }
+            if( !( processGlobal1I.idHome & 0xff000000 ) && !thirdC::osTestWaterIF( tinP , ifcIDtYPEtESTwATER_LOOKfORdRIVER ) ) { LOGrAW3( "adam " , tinP.pAdamGlobal1->idAdam ,  "'s tmWatchF cannot see the driver\r\n" ) ; } // ifcIDaDAM_CLOAK IS EXEMPT BECAUSE CLOAK LAUNCHES WOTH AND LAUNCHES THE DRIVER/MONITOR AS OF 20200525@1817
             if( F(home.flags) & flHOMEs_VERSIONrEFUSED ) { LOGrAW3( "adam " , tinP.pAdamGlobal1->idAdam ,  "'s tmWatchF sees that this version has been refused\r\n" ) ; }
         {
         )
             )
-                //U::!( processGlobal1I.idHome & 0xff000000 ) && !thirdC::osTestWaterIF( tinP , ifcIDtYPEtESTwATER_LOOKfORdRIVER )
-                !thirdC::osTestWaterIF( tinP , ifcIDtYPEtESTwATER_LOOKfORdRIVER ) && !( processGlobal1I.idHome & 0xff000000 )
-                //U::REVERSED ORDERING TO FIND A BUG
+                && !thirdC::osTestWaterIF( tinP , ifcIDtYPEtESTwATER_LOOKfORdRIVER )
+                && !( processGlobal1I.idHome & 0xff000000 )
+                   tinP.pAdamGlobal1->idAdam != ifcIDaDAM_CLOAK
             (
             ||
             F(home.flags) & flHOMEs_VERSIONrEFUSED

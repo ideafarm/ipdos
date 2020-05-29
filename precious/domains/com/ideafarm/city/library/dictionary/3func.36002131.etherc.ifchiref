@@ -14,114 +14,117 @@
     _OUT_
 
     }
-        #endif
-    
+        }
+            #endif
+        
+                }
+                    ifcJobF( tinP , stCourses , ifcIDaDAM_KERNEL2MONITOR , sOrder , stOrders , psttOldCommentP , cTriesP , nicNameP ) ;
+                    //ifcSayIF( T("hiring a ")+TF1(idAdamP)+T(" cell on ")+T(nicNameP) , flSAY_APPEND | flSAY_LOG ) ;
+                    if( !nicNameP ) nicNameP = socketC::nicNameIF( tinP , *this ) ;
+                
+                    stOrders << new( 0 , tinP , LF ) soulC( tinP , TAG( TAGiDnULL ) ) ;
+                    stackC stOrders( tinP , third , TAG( TAGiDnULL ) , flSTACKc_FIFO | flSTACKc_GIVEsIGNnEWpLATE , ifcSTACKtYPE_PTR_soulC ) ;
+                    sOrder << (countT)time2LimitP ;
+                    sOrder << time1LimitP ;
+                    sOrder << flagsP ;
+                    sOrder << psttArgsP ;
+                    sOrder << idAdamP ;
+                    soulC sOrder( tinP , TAG( TAGiDnULL ) , flSOUL_null , ifcIDcMDjOBoRDER_CONSTRUCTlOCALcELL ) ;
+                    stackC stCourses( tinP , third , TAG( TAGiDnULL ) , flSTACKc_FIFO | flSTACKc_GIVEsIGNnEWpLATE , ifcSTACKtYPE_PTR_soulC ) ;
+                {
+                else
+                if( !third.ifc CellIsWorkingIF( tinP , ifcIDaDAM_KERNEL2MONITOR , ".monitored" ) )
+                //THIS CODE IS OBSOLETE NOW THAT 6a4 IS NOT USED
+        
+            #if defined( NEVERdEFINED )
+
             }
-                ifcJobF( tinP , stCourses , ifcIDaDAM_KERNEL2MONITOR , sOrder , stOrders , psttOldCommentP , cTriesP , nicNameP ) ;
-                //ifcSayIF( T("hiring a ")+TF1(idAdamP)+T(" cell on ")+T(nicNameP) , flSAY_APPEND | flSAY_LOG ) ;
-                if( !nicNameP ) nicNameP = socketC::nicNameIF( tinP , *this ) ;
-            
-                stOrders << new( 0 , tinP , LF ) soulC( tinP , TAG( TAGiDnULL ) ) ;
-                stackC stOrders( tinP , third , TAG( TAGiDnULL ) , flSTACKc_FIFO | flSTACKc_GIVEsIGNnEWpLATE , ifcSTACKtYPE_PTR_soulC ) ;
-                sOrder << (countT)time2LimitP ;
-                sOrder << time1LimitP ;
-                sOrder << flagsP ;
-                sOrder << psttArgsP ;
-                sOrder << idAdamP ;
-                soulC sOrder( tinP , TAG( TAGiDnULL ) , flSOUL_null , ifcIDcMDjOBoRDER_CONSTRUCTlOCALcELL ) ;
-                stackC stCourses( tinP , third , TAG( TAGiDnULL ) , flSTACKc_FIFO | flSTACKc_GIVEsIGNnEWpLATE , ifcSTACKtYPE_PTR_soulC ) ;
+                else                                     osProcessF( tinP , countTC() , countTC() , idAdamP , (F(flProcessHire)&flPROCESShIRE_VISIBLE?T(psttArgsP):T("!quietConsole ")+T(psttArgsP))+T(" !idHome ")+TF1(processGlobal1I.idHome)+tPostscript , flProcessHire ) ;
+                if( F(flagsP) & flHIRE_DISPLAYgRAPHICS ) osSessionF( tinP , countTC() , countTC() , idAdamP , T(psttArgsP)+T(" !idHome ")+TF1(processGlobal1I.idHome) , 0 , 0 , 0 , 0 , /*flSESSION_MAXIMIZE*/flSESSION_MINIMIZE ) ;
             {
             else
-            if( !third.ifc CellIsWorkingIF( tinP , ifcIDaDAM_KERNEL2MONITOR , ".monitored" ) )
-            //THIS CODE IS OBSOLETE NOW THAT 6a4 IS NOT USED
-    
-        #if defined( NEVERdEFINED )
-
-        }
-            else                                     osProcessF( tinP , countTC() , countTC() , idAdamP , (F(flProcessHire)&flPROCESShIRE_VISIBLE?T(psttArgsP):T("!quietConsole ")+T(psttArgsP))+T(" !idHome ")+TF1(processGlobal1I.idHome)+tPostscript , flProcessHire ) ;
-            if( F(flagsP) & flHIRE_DISPLAYgRAPHICS ) osSessionF( tinP , countTC() , countTC() , idAdamP , T(psttArgsP)+T(" !idHome ")+TF1(processGlobal1I.idHome) , 0 , 0 , 0 , 0 , /*flSESSION_MAXIMIZE*/flSESSION_MINIMIZE ) ;
-        {
-        else
-        }
-            else                                     osProcessF( tinP , countTC() , countTC() , countTC() , idDeathType , idAdamP , (F(flProcessHire)&flPROCESShIRE_VISIBLE?T(psttArgsP):T("!quietConsole ")+T(psttArgsP))+T(" !idHome ")+TF1(processGlobal1I.idHome)+tPostscript , flProcessHire ) ;
-            if( F(flagsP) & flHIRE_DISPLAYgRAPHICS ) osSessionF( tinP , countTC() , countTC() , countTC() , idDeathType , idAdamP , T(psttArgsP)+T(" !idHome ")+TF1(processGlobal1I.idHome) , 0 , 0 , 0 , 0 , /*flSESSION_MAXIMIZE*/flSESSION_MINIMIZE ) ;
-        {
-        else if( F(flagsP) & flHIRE_WAIT )
-        }
-            delF( tinP , psttMapped ) ;
-            osProcessF( tinP , countTC() , countTC() , T("wdw") , T(osfn)+T(" ")+TF3(idAdamP,flFORMAT_UNSIGNED|flFORMAT_FILLzE|flFORMAT_FOREIGN,8)+(psttArgsP?T(" ")+T(psttArgsP):T(""))+T(" !debug !idHome ")+TF1(processGlobal1I.idHome)+tPostscript , flProcessHire ) ;
-            osFileNameC osfn( tinP , *this , T(psttMapped) ) ;
             }
-                delF( tinP , psttm ) ;
-                diskMapFileNameHoverF( tinP , psttMapped , psttm ) ; ___( psttMapped ) ;
-                else                                     { diskMapFileNameF( tinP , psttm , T("///ideafarm/ephemeral/domains/com/ideafarm/city/park/exedll/1/hover/ideafarm.41000002.ipdos-we") ) ; ___( psttm ) ; }
-                if( F(flagsP) & flHIRE_DISPLAYgRAPHICS ) { diskMapFileNameF( tinP , psttm , T("///ideafarm/ephemeral/domains/com/ideafarm/city/park/exedll/1/hover/ideafarm.41000003.ipdos-we") ) ; ___( psttm ) ; }
-                ZE( strokeS* , psttm ) ;
+                else                                     osProcessF( tinP , countTC() , countTC() , countTC() , idDeathType , idAdamP , (F(flProcessHire)&flPROCESShIRE_VISIBLE?T(psttArgsP):T("!quietConsole ")+T(psttArgsP))+T(" !idHome ")+TF1(processGlobal1I.idHome)+tPostscript , flProcessHire ) ;
+                if( F(flagsP) & flHIRE_DISPLAYgRAPHICS ) osSessionF( tinP , countTC() , countTC() , countTC() , idDeathType , idAdamP , T(psttArgsP)+T(" !idHome ")+TF1(processGlobal1I.idHome) , 0 , 0 , 0 , 0 , /*flSESSION_MAXIMIZE*/flSESSION_MINIMIZE ) ;
             {
-            ZE( strokeS* , psttMapped ) ;
-        {
-        if( F(flagsP) & flHIRE_DEBUG )
-        TN( tPostscript , "" ) ; //NORMALLY NULL STRING; CONVENIENT FOR DEBUGGING
-    
-        //if( idAdamP == ifcIDaDAM_SECRETsERVICE                 && processGlobal1I.idHome != 3 ) flProcessHire &= ~( F(flPROCESShIRE_VISIBLE) ) ;
-        //if( idAdamP == ifcIDaDAM_KERNEL3BANG   && processGlobal1I.idHome != 2 && processGlobal1I.idHome != 3 ) flProcessHire &= ~( F(flPROCESShIRE_VISIBLE) ) ;
-    
-        flagsT flProcessHire = F(flagsP) & flHIRE_DISPLAYnONE ? flPROCESShIRE_null : flPROCESShIRE_VISIBLE ;
-    
-        }
+            else if( F(flagsP) & flHIRE_WAIT )
             }
-                flagsP &= ~( F(flHIRE_DEBUG) ) ;
-                )
+                delF( tinP , psttMapped ) ;
+                osProcessF( tinP , countTC() , countTC() , T("wdw") , T(osfn)+T(" ")+TF3(idAdamP,flFORMAT_UNSIGNED|flFORMAT_FILLzE|flFORMAT_FOREIGN,8)+(psttArgsP?T(" ")+T(psttArgsP):T(""))+T(" !debug !idHome ")+TF1(processGlobal1I.idHome)+tPostscript , flProcessHire ) ;
+                osFileNameC osfn( tinP , *this , T(psttMapped) ) ;
+                }
+                    delF( tinP , psttm ) ;
+                    diskMapFileNameHoverF( tinP , psttMapped , psttm ) ; ___( psttMapped ) ;
+                    else                                     { diskMapFileNameF( tinP , psttm , T("///ideafarm/ephemeral/domains/com/ideafarm/city/park/exedll/1/hover/ideafarm.41000002.ipdos-we") ) ; ___( psttm ) ; }
+                    if( F(flagsP) & flHIRE_DISPLAYgRAPHICS ) { diskMapFileNameF( tinP , psttm , T("///ideafarm/ephemeral/domains/com/ideafarm/city/park/exedll/1/hover/ideafarm.41000003.ipdos-we") ) ; ___( psttm ) ; }
+                    ZE( strokeS* , psttm ) ;
+                {
+                ZE( strokeS* , psttMapped ) ;
+            {
+            if( F(flagsP) & flHIRE_DEBUG )
+            TN( tPostscript , "" ) ; //NORMALLY NULL STRING; CONVENIENT FOR DEBUGGING
+        
+            //if( idAdamP == ifcIDaDAM_SECRETsERVICE                 && processGlobal1I.idHome != 3 ) flProcessHire &= ~( F(flPROCESShIRE_VISIBLE) ) ;
+            //if( idAdamP == ifcIDaDAM_KERNEL3BANG   && processGlobal1I.idHome != 2 && processGlobal1I.idHome != 3 ) flProcessHire &= ~( F(flPROCESShIRE_VISIBLE) ) ;
+        
+            flagsT flProcessHire = F(flagsP) & flHIRE_DISPLAYnONE ? flPROCESShIRE_null : flPROCESShIRE_VISIBLE ;
+        
+            }
+                }
+                    flagsP &= ~( F(flHIRE_DEBUG) ) ;
                     )
-                        // )
-                        //     ( processGlobal1I.idHome & 0x00ffffff ) != 2
-                        //     &&
-                        //     idAdamP == ifcIDaDAM_SUPERrANDOMnUMBERS
-                        // (
-                        // ||
-                        !( processGlobal1I.idHome & 0xff000000 )
+                        )
+                            // )
+                            //     ( processGlobal1I.idHome & 0x00ffffff ) != 2
+                            //     &&
+                            //     idAdamP == ifcIDaDAM_SUPERrANDOMnUMBERS
+                            // (
+                            // ||
+                            !( processGlobal1I.idHome & 0xff000000 )
+                        (
+                        &&
+                        ( F(flagsP) & flHIRE_DEBUG )
                     (
-                    &&
-                    ( F(flagsP) & flHIRE_DEBUG )
-                (
-                if
-    
-                //flagsP |= flHIRE_DEBUG ;            // DISABLE IN PRODUCTION.  ENABLE TO ALWAYS HIRE USING wdw
-    
-                else if( !strCompareF( tinP , tDisplay , T("none"   ) ) ) flagsP |= flHIRE_DISPLAYnONE     ;
-                else if( !strCompareF( tinP , tDisplay , T("text"   ) ) ) flagsP |= flHIRE_DISPLAYtEXT     ;
-                     if( !strCompareF( tinP , tDisplay , T("strokes") ) ) flagsP |= flHIRE_DISPLAYgRAPHICS ;
-                     if( !strCompareF( tinP , tDebug   , T("yes"    ) ) ) flagsP |= flHIRE_DEBUG           ;
-    
-                tDisplay = T(info2.psttDirectivesReplied) ;
-                tDebug   = T(info1.psttDirectivesReplied) ;
-                (*pPeekF)( &info2 ) ;
-                (*pPeekF)( &info1 ) ;
-    
-                peekS info2( tinP , *this , T("!display") ) ;
-                peekS info1( tinP , *this , T("!debug") ) ;
+                    if
+        
+                    //flagsP |= flHIRE_DEBUG ;            // DISABLE IN PRODUCTION.  ENABLE TO ALWAYS HIRE USING wdw
+        
+                    else if( !strCompareF( tinP , tDisplay , T("none"   ) ) ) flagsP |= flHIRE_DISPLAYnONE     ;
+                    else if( !strCompareF( tinP , tDisplay , T("text"   ) ) ) flagsP |= flHIRE_DISPLAYtEXT     ;
+                         if( !strCompareF( tinP , tDisplay , T("strokes") ) ) flagsP |= flHIRE_DISPLAYgRAPHICS ;
+                         if( !strCompareF( tinP , tDebug   , T("yes"    ) ) ) flagsP |= flHIRE_DEBUG           ;
+        
+                    tDisplay = T(info2.psttDirectivesReplied) ;
+                    tDebug   = T(info1.psttDirectivesReplied) ;
+                    (*pPeekF)( &info2 ) ;
+                    (*pPeekF)( &info1 ) ;
+        
+                    peekS info2( tinP , *this , T("!display") ) ;
+                    peekS info1( tinP , *this , T("!debug") ) ;
+                {
+                if( pPeekF )
+                __Z( pPeekF ) ;
+                dllEntryF( tinP , pPeekF , hDll , T("peekF") ) ;
+                ZE( peekFT , pPeekF ) ;
+                dllOpenF( tinP , hDll , T("///ideafarm/ephemeral/domains/com/ideafarm/city/park/exedll/1/hover/ideafarm.")+TF3(idAdamP,flFORMAT_UNSIGNED|flFORMAT_FILLzE|flFORMAT_FOREIGN,8)+T(".ipdos-wd") ) ;
+                TN( tDisplay , "" ) ;
+                TN( tDebug , "" ) ;
+                flagsP &= flHIRE_WAIT ;
             {
-            if( pPeekF )
-            __Z( pPeekF ) ;
-            dllEntryF( tinP , pPeekF , hDll , T("peekF") ) ;
-            ZE( peekFT , pPeekF ) ;
-            dllOpenF( tinP , hDll , T("///ideafarm/ephemeral/domains/com/ideafarm/city/park/exedll/1/hover/ideafarm.")+TF3(idAdamP,flFORMAT_UNSIGNED|flFORMAT_FILLzE|flFORMAT_FOREIGN,8)+T(".ipdos-wd") ) ;
-            TN( tDisplay , "" ) ;
-            TN( tDebug , "" ) ;
-            flagsP &= flHIRE_WAIT ;
+            if( F(flagsP) & flHIRE_DISPLAYaUTO )
+        
+            handleC hDll( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_DLL ) ; //LEAVE THIS OPEN UNTIL AFTER osSessionF/osProcessF RETURNS, SO BASE OS DOES NOT LOAD IT 2 TIMES
         {
-        if( F(flagsP) & flHIRE_DISPLAYaUTO )
-    
-        handleC hDll( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_DLL ) ; //LEAVE THIS OPEN UNTIL AFTER osSessionF/osProcessF RETURNS, SO BASE OS DOES NOT LOAD IT 2 TIMES
-    {
-    if( /*tinP.pAdamGlobal1->idSerialAdam == 1 &&*/ !( F(thirdC::third_flagsModeProcess2I_IF(tinP)) & flMODEpROCESS2_DOnOThIREaDAMS ) ) // SUPPRESSED FOR IN PROCESS KID ADAMS IN ORDER TO MAKE IT EASY TO SWITCH A SYSTEM'S RECONFIGURATON FROM SINGLEPROCESS TO MULTIPROCESS
-    ZE( countT , idDeathType ) ;
+        if( /*tinP.pAdamGlobal1->idSerialAdam == 1 &&*/ !( F(thirdC::third_flagsModeProcess2I_IF(tinP)) & flMODEpROCESS2_DOnOThIREaDAMS ) ) // SUPPRESSED FOR IN PROCESS KID ADAMS IN ORDER TO MAKE IT EASY TO SWITCH A SYSTEM'S RECONFIGURATON FROM SINGLEPROCESS TO MULTIPROCESS
 
-    }
-        POPUP( "I am trying to hire ifcIDaDAM_SMUDGEsOIXLoLDdEFS!" ) ;
-        CONoUTrAW( "I am trying to hire ifcIDaDAM_SMUDGEsOIXLoLDdEFS!" ) ;
+        }
+            POPUP( "I am trying to hire ifcIDaDAM_SMUDGEsOIXLoLDdEFS!" ) ;
+            CONoUTrAW( "I am trying to hire ifcIDaDAM_SMUDGEsOIXLoLDdEFS!" ) ;
+        {
+        if( idAdamP == ifcIDaDAM_SMUDGEsOIXLoLDdEFS ) //U:: REMOVE AFTER TESTING FULL BUILD
     {
-    if( idAdamP == ifcIDaDAM_SMUDGEsOIXLoLDdEFS ) //U:: REMOVE AFTER TESTING FULL BUILD
+    if( !( F(thirdC::third_flagsModeProcess2I_IF( tinP )) & flMODEpROCESS2_DEBUG ) )
+    ZE( countT , idDeathType ) ;
 
     _INoLD_
 
