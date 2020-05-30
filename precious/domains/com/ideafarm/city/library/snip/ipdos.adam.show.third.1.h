@@ -25443,7 +25443,7 @@ it is illegal to refer to this symbol anywhere but in the definition of a BwOTHs
 
 #define _OUTbATON_                              \
                                                 \
-    if( pBaton ) pBaton->ungrabF( tinP ) ;      \
+    if( pBaton ) pBaton->ungrabF( tinP ) ;
 
 
 //
@@ -33415,9 +33415,6 @@ it is illegal to refer to this symbol in the definition of an adam
 //
 
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.1120037b.flipmaphomes END
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.1120037d._out_ BEGIN
-
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.1120037d._out_ END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.1120037e.ifcidtypethread BEGIN
 
 
@@ -38894,7 +38891,7 @@ args
 
 #define _OUTsTACKc_                                                                                      \
                                                                                                          \
-    /*checkChainF( tinP ) ;*/                                                                            \
+    /*checkChainF( tinP ) ;*/
 
 
 //
@@ -38959,7 +38956,7 @@ args
 #define _OUTbATONsTACKc_                        \
                                                 \
     /*checkChainF( tinP ) ;*/                   \
-    if( pBaton ) pBaton->ungrabF( tinP ) ;      \
+    if( pBaton ) pBaton->ungrabF( tinP ) ;
 
 
 //
