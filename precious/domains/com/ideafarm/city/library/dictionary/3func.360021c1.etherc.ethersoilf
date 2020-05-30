@@ -14,8 +14,6 @@
 }
     return rc ;
 
-    _OUT_
-
     //}
     //    default                                                  : { LOGrAW( "etherSoilF / ?               /-\r\n" ) ; strokeF( tinP , T("etherSoilF / ?               /-\r\n") ) ; break ; }
     //    case ifcIDmODEeTHERsOIL_DOdEBUG                          : { LOGrAW( "etherSoilF / DOdEBUG         /-\r\n" ) ; strokeF( tinP , T("etherSoilF / DOdEBUG         /-\r\n") ) ; break ; }
@@ -5602,9 +5600,8 @@
 /*N1D*/                                                         if( !POOP )
 /*N1D*/
 /*N1D*/                                                         }
-/*N1D*/                                                             _OUT_
 /*N1D*/ /*---------------- LOAD BRANCHES ----------------*/         branchS::loadIF( tinP , *this , etPrimeIF( tinP ) , jotBranches , csttTrimmed , soulBody , flagsLoad , &soulLinkInner ) ;
-/*N1D*/                                                             _INoLD_
+/*N1D*/                                                             _IO_
 /*N1D*/                                                         {
 /*N1D*/                                                         soulC soulLinkInner( tinP , TAG( TAGiDnULL ) ) ;
 /*N1D*/                                                     {
@@ -6925,7 +6922,7 @@
     //{
     //switch( idModeP )
 
-    _INoLD_
+    _IO_
 
     }
         if( POOP ) return 0 ;
@@ -7951,20 +7948,15 @@ voidT strFuseErrorFlag_330021c0_F( tinS& tinP , etherC& etherP , soulC& soulOutP
 }
     return 1 ;
 
-    _OUT_
-
     }
         }
-            _OUT_
             etherP.delF( tinP , psttTime ) ;
 
             }
-                _OUT_
                 etherP.delF( tinP , psttShortThumbnail ) ;
                 etherP.delF( tinP , psttCurrentName ) ;
                 etherP.delF( tinP , psttShort ) ;
                 }
-                    _OUT_
                     etherP.delF( tinP , pstt1NameTriple ) ;
                     soulFileNamesP << pstt1NameTriple ;
 
@@ -7975,7 +7967,7 @@ voidT strFuseErrorFlag_330021c0_F( tinS& tinP , etherC& etherP , soulC& soulOutP
 
                     if( bTrace ) etherP.traceF( tinP , T("etherSoilWalkCBF / accepted ")+TF2(idIn,flFORMAT_UNSIGNED|flFORMAT_NObIGITvALUES)+T(" file \"")+T(postNameP)+T("\"") ) ;
 
-                    _INoLD_
+                    _IO_
                 {
                 else
                 }
@@ -7985,9 +7977,7 @@ voidT strFuseErrorFlag_330021c0_F( tinS& tinP , etherC& etherP , soulC& soulOutP
 
                 etherP.delF( tinP , psttPath ) ;
                 }
-                    _OUT_
                     }
-                        _OUT_
                         etherP.delF( tinP , psttShorter ) ;
 
                         bOk = 0 ;
@@ -8037,22 +8027,21 @@ voidT strFuseErrorFlag_330021c0_F( tinS& tinP , etherC& etherP , soulC& soulOutP
                         TN( tFileCurrentName  , "" ) ; tFileCurrentName  = T(psttPath)+T(psttShorter)+T(".meta.currentname") ;        //U::OPTIMIZE: PASS T(".meta.currentname.") IN AS PARAM
                         ZE( countT   , costCurrentName ) ;
                         ZE( osTextT* , postCurrentName ) ;
-                        _INoLD_
+                        _IO_
                     {
                     else
                     if( !psttShorter ) { bOk = 0 ; }
 
                     }
-                        _OUT_
                         etherP.delF( tinP , psttShorterNU ) ;
                         ___( psttShorter ) ;
                         ___( psttShorterNU ) ;
                         etherP.strBisectF( tinP , psttShorter , psttShorterNU , psttShort , T(".data.") , -1 , flSTRbISECT_null ) ; //U::OPTIMIZE: PASS T(".data.") IN AS PARAM
                         ZE( strokeS* , psttShorterNU ) ;
-                        _INoLD_
+                        _IO_
                     {
                     ZE( strokeS* , psttShorter ) ;
-                    _INoLD_
+                    _IO_
                 {
                 if( !bControl )
 
@@ -8062,16 +8051,15 @@ voidT strFuseErrorFlag_330021c0_F( tinS& tinP , etherC& etherP , soulC& soulOutP
                 boolT bOk = 1 ;
 
                 }
-                    _OUT_
                     ___( psttShort ) ;
                     ___( psttPath ) ;
                     etherP.strBisectF( tinP , psttPath , psttShort , tFile , T("/") , -1 , flSTRbISECT_APPENDdELIMITER ) ;
-                    _INoLD_
+                    _IO_
                 {
                 ZE( strokeS* , psttShort ) ;
                 ZE( strokeS* , psttPath ) ;
                 if( bTrace ) etherP.traceF( tinP , T("etherSoilWalkCBF / including file: ")+TF2(idIn,flFORMAT_UNSIGNED|flFORMAT_NObIGITvALUES)+T(" file \"")+T(postNameP)+T("\"") ) ;
-                _INoLD_
+                _IO_
             {
             else
             }
@@ -8080,7 +8068,6 @@ voidT strFuseErrorFlag_330021c0_F( tinS& tinP , etherC& etherP , soulC& soulOutP
             if( !bHit )
 
             }
-                _OUT_
                 while( ~hWalk ) ;
                 }
                     }
@@ -8097,7 +8084,7 @@ voidT strFuseErrorFlag_330021c0_F( tinS& tinP , etherC& etherP , soulC& soulOutP
 
                 bHit = 0 ;
                 if( bTrace ) etherP.traceF( tinP , T("etherSoilWalkCBF / rsetting bHit since have specs to inspect: ")+TF2(idIn,flFORMAT_UNSIGNED|flFORMAT_NObIGITvALUES)+T(" file \"")+T(postNameP)+T("\"") ) ;
-                _INoLD_
+                _IO_
             {
             if( stTimeMinMaxP )
             boolT bHit = 1 ;
@@ -8107,11 +8094,10 @@ voidT strFuseErrorFlag_330021c0_F( tinS& tinP , etherC& etherP , soulC& soulOutP
 
             countT idl = idf + 0xc ;
             if( bTrace ) etherP.traceF( tinP , T("etherSoilWalkCBF / perhaps setting bHit for file: ")+TF2(idIn,flFORMAT_UNSIGNED|flFORMAT_NObIGITvALUES)+T(" file \"")+T(postNameP)+T("\"") ) ;
-            _INoLD_
+            _IO_
         {
         else if( etherP.strIdF( tinP , 0 , flSTRmATCH_null , idf , sttq , psttPrefixP , tFile ) && idf )
         }
-            _OUT_
             etherP.traceF( tinP , T("etherSoilWalkCBF / file name is too long: ")+TF2(idIn,flFORMAT_UNSIGNED|flFORMAT_NObIGITvALUES)+T(" file \"")+T(postNameP)+T("\"") ) ;
             //LOGrAW( "\"\r\n" ) ;
             //LOGrAW( postNameP ) ;
@@ -8119,18 +8105,17 @@ voidT strFuseErrorFlag_330021c0_F( tinS& tinP , etherC& etherP , soulC& soulOutP
             //LOGrAW( postNameP ) ;
             //LOGrAW3( "\r\n\r\nrem TOO LONG (REMOVE " , tFile.csF( tinP ) - costFileNameMax , " CHARS):\r\nren \"" ) ;
             //U:: TRACE A MESSAGE (DO THIS AFTER HAVE CONVERTED ARCHIVE TO FORMAT 7; KEEP SILENT TILL THEN TO REDUCE DISK ACTIVITY TO AVOIDPISSING OFF GODADDY TECHNICIANS WHO KILL PROCESSES
-            _INoLD_
+            _IO_
         {
         if( tFile.csF( tinP ) > costFileNameMax )
         const countT costFileNameMax = COSToSfILEnAMEmAX + 1 - sizeof( countT ) * 2 ; // "+ 1 - sizeof( countT ) * 2": THIS IS TO ENSURE THAT CHANGING idHome WILL NOT CAUSE THE FILE NAMES TO BECOME TOO LONG
 
         }
-            _OUT_
             if( bTrace ) /*if( !( idIn % ( TUCK << 4 ) ) )*/ etherP.traceF( tinP , T("etherSoilWalkCBF / inspecting ")+TF2(idIn,flFORMAT_UNSIGNED|flFORMAT_NObIGITvALUES)+T(" file \"")+T(postNameP)+T("\"") ) ;
 
             idIn = 1 + incv02AM( idInLath ) ;
             static countT idInLath ;
-            _INoLD_
+            _IO_
         {
         ZE( countT , idIn ) ;
         //bTrace = 1 ;
@@ -8155,7 +8140,7 @@ voidT strFuseErrorFlag_330021c0_F( tinS& tinP , etherC& etherP , soulC& soulOutP
     {
     if( postNameP )
 
-    _INoLD_
+    _IO_
 {
 boolT etherSoilWalkCBF( tinS& tinP , countT& cDirsP , countT& cFilesP , const boolT& bQuitP , const osTextT* const postNameP , countT* const pcArgP , const countT* const pModuloDirsP , const countT* const pModuloFilesP )
 

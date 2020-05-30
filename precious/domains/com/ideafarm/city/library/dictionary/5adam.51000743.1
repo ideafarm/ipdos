@@ -144,21 +144,14 @@ DONE( tmWorkerF )
     //etThread.etherWhereF( tinP , ifcIDaCTIONwHERE_DISABLE ) ;
 
     dec02AM( wsP.cWorkers ) ;
-    _OUT_
-
     }
-        _OUT_
         }
-            _OUT_
             THREADmODE1rESTORE
             }
-                _OUT_
                 wsP.st_pPageEvent.ungrabF( tinP ) ;
                 }
-                    _OUT_
                     wsP.st_pPageEvent.grabF( tinP , TAG( TAGiDnULL ) ) ;
                     }
-                        _OUT_
                         THREADmODE3rESTORE
                         DEL( pPageEvent ) ;
                         THREADmODE3oN( flTHREADmODE3_DOnOTrEGISTERpAGEc )
@@ -174,8 +167,6 @@ DONE( tmWorkerF )
                             etThread.delF( tinP , psttMethod ) ;
 
                             }
-                                _OUT_
-
                                 //tinP.monitor.idWhat2 = 0x02000000 ;           //WHERE INTERVAL
                                 wsP.swBooksByByte.ungrabF( tinP ) ;
 
@@ -246,13 +237,10 @@ DONE( tmWorkerF )
                                 // *****************************************************************************************************************************************************************************************************************************************************
 
                                 }
-                                    _OUT_
                                     if( !pidj[ offi ] ) { BLAMMO ; }
 
                                     ppjhs[ offi ]->ungrabF( tinP ) ;
                                     }
-                                        _OUT_
-
                                         //tinP.monitor.idWhat2 = 0x06000000 + offi ;           //WHERE INTERVAL
                                         }
                                             }
@@ -295,12 +283,11 @@ DONE( tmWorkerF )
 
                                         //tinP.monitor.idWhat2 = 0x07000000 + offi ;           //WHERE INTERVAL
 
-                                        _INoLD_
+                                        _IO_
                                     {
                                     if( !pidj[ offi ] )
 
                                     //}
-                                    //    _OUT_
                                     //    //tinP.monitor.idWhat2 = 0x08000000 + offi ;           //WHERE INTERVAL
                                     //    if( offi == 3 ) etThread.traceF( tinP , T("sequential search ended") ) ;
                                     //    }
@@ -328,14 +315,12 @@ DONE( tmWorkerF )
                                     //    ppjhs[ offi ]->resetLathReadF() ;
                                     //    if( offi == 3 ) etThread.traceF( tinP , T("sequential search begun") ) ;
                                     //    //tinP.monitor.idWhat2 = 0x09000000 + offi ;           //WHERE INTERVAL
-                                    //    _INoLD_
+                                    //    _IO_
                                     //{                                                   // SEARCH SEQUENTIALLY
                                     //if( !pidj[ offi ] )
                                     // FOR SPEED, I DO NOT DO A SEQUENTIAL SEARCH.  IF I DO NOT FIND A HIT IN THE HASH LOOKUP, I ASSUME THAT THERE IS NO HIT.  THIS IS REASONABLE SINCE I MAINTAIN THE HASH LOOKUP TABLE IN REAL TIME
 
                                     }
-                                        _OUT_
-
                                         //tinP.monitor.idWhat2 = 0x0a000000 + offi ;           //WHERE INTERVAL
                                         }
                                             }
@@ -398,7 +383,7 @@ DONE( tmWorkerF )
                                         hash01BucketS& bucket = ( ppBucket[ offi ] )[ ph[ offi ] & 0xffff ] ;
                                         //tinP.monitor.idWhat2 = 0x0c000000 + offi ;           //WHERE INTERVAL
 
-                                        _INoLD_
+                                        _IO_
                                     {                                                   // USE HASH TO LOOK UP CANDIDATE idJot VALUES
  
                                     ppjhs[ offi ]->grabF( tinP , TAG( TAGiDnULL ) ) ;
@@ -407,7 +392,7 @@ DONE( tmWorkerF )
 
                                     strokeS* psttzv = ppsttzValue[ offi ] ;
 
-                                    _INoLD_
+                                    _IO_
                                 {
                                 for( countT offi = 0 ; offi < sizeof ppsttzValue / sizeof ppsttzValue[ 0 ] ; offi ++ )
                                 //tinP.monitor.idWhat2 = 0x0d000000 ;           //WHERE INTERVAL
@@ -470,7 +455,7 @@ DONE( tmWorkerF )
                                 // ********                         ********************************************************************************************************************************************************************************************************************
                                 // *****************************************************************************************************************************************************************************************************************************************************
                                 // *****************************************************************************************************************************************************************************************************************************************************
-                                _INoLD_
+                                _IO_
                             {
                             else
                             if( getNegAM( finger ) != FINGERnEG_ACCESSeVENTrAW || idFormat != 1 ) etThread.traceF( tinP , T("unexpected format [finger,idFormat]:    ")+TF2(finger,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2(idFormat,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
@@ -531,22 +516,22 @@ DONE( tmWorkerF )
                             //tinP.monitor.idWhat2 = 0x10000000 ;           //WHERE INTERVAL
                         {
 
-                        _INoLD_
+                        _IO_
                     {
                     if( pPageEvent )
 
                     wsP.st_pPageEvent.ungrabF( tinP ) ;
                     wsP.st_pPageEvent >> *(countT*)&pPageEvent ;
                     ZE( pageC* , pPageEvent ) ;
-                    _INoLD_
+                    _IO_
                 {
                 while( wsP.st_pPageEvent )
                 wsP.st_pPageEvent.grabF( tinP , TAG( TAGiDnULL ) ) ;
 
-                _INoLD_
+                _IO_
             {
             THREADmODE1oN( flTHREADmODE1_ALLOWsTOPwHILEgRABBING )
-            _INoLD_
+            _IO_
         {
         else
         }
@@ -558,7 +543,7 @@ DONE( tmWorkerF )
             if( wsP.bFireWorkers ) break ;
         {
         if( !wsP.st_pPageEvent )
-        _INoLD_
+        _IO_
     {
     while( !etThread && !POOP )
 
@@ -572,7 +557,7 @@ DONE( tmWorkerF )
 
     booksC& bksAccessEventsP = *(booksC*)pTaskP->c2 ;
     workS&  wsP              =  *(workS*)pTaskP->c1 ;
-    _INoLD_
+    _IO_
 {
 if( pTaskP && pTaskP->c1 && pTaskP->c2 )
 TASK( tmWorkerF )

@@ -10,8 +10,6 @@
 }
     return flagsRC ;
 
-    _OUT_
-
     { puseC puseat( tinP , ifcIDpOOL_ADAMtEMP ) ; PUSE( tinP , *(byteT**)&pczWalk ) ; }
 
     POPtINaRGS
@@ -19,19 +17,19 @@
     }
         listDad.walkF( tinP , idGrabLayerP ) ;
         listC& listDad = *(listC*)hListDadP.osF( ifcIDtYPEhANDLE_LISTING ) ;
-        tinP.ta.pushed.listWalk.walk.flagsWalkP = flLISTwALK_CALLERgRABBEDrOOT ;
+        tinP.ta.pushed.u.listWalk.walk.flagsWalkP = flLISTwALK_CALLERgRABBEDrOOT ;
     {
     else
     }
         flagsRC |= walkIF( tinP , hListDadP , pczWalk , flLISToPEN_IFeXISTS , idGrabLayerP ) ;
-        tinP.ta.pushed.listWalk.walk.flagsWalkP = flLISTwALK_null ;
+        tinP.ta.pushed.u.listWalk.walk.flagsWalkP = flLISTwALK_null ;
     {
     if( *pczWalk )
 
-    tinP.ta.pushed.listWalk.util.pcP[ 2 ] = (countT)&flagsRC ;
-    tinP.ta.pushed.listWalk.util.pcP[ 1 ] = flagsP ;
-    tinP.ta.pushed.listWalk.util.pcP[ 0 ] = cDoomed ;
-    tinP.ta.pushed.listWalk.walk.pListWalkCBFP = listWalkDeleteListCBF ;
+    tinP.ta.pushed.u.listWalk.util.pcP[ 2 ] = (countT)&flagsRC ;
+    tinP.ta.pushed.u.listWalk.util.pcP[ 1 ] = flagsP ;
+    tinP.ta.pushed.u.listWalk.util.pcP[ 0 ] = cDoomed ;
+    tinP.ta.pushed.u.listWalk.walk.pListWalkCBFP = listWalkDeleteListCBF ;
     PUSHtINaRGS
 
     grabitC grabitx( tinP , TAG( TAGiDnULL ) ) ;
@@ -49,7 +47,7 @@
     ZE( countT  , cDoomed ) ; // LEAF
     ZE( countT* , pczWalk ) ; // LIST THAT CONTAINS LEAF
 
-    _INoLD_
+    _IO_
 
     }
         if( POOP ) return flagsRC ;

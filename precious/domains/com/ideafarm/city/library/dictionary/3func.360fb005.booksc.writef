@@ -10,38 +10,31 @@
 }
     return idBook ;
 
-    _OUT_
-
     //DELzOMBIE( pInOutFrame ) ;
 
     THREADmODE3rESTORE
 
     }
-        _OUT_
         //if( bDeleteOutParam ) { PUSE( tinP , *(byteT**)ppcpIdAptP ) ; }
 
         if( processGlobal1I._grabC_pgw ) grabBookNow.ungrabF( tinP ) ;
 
         }
-            _OUT_
             }
-                _OUT_
                 tinP.tlsDelF( pbtScratchBuffer ) ;
-                _INoLD_
+                _IO_
             {
             }
-                _OUT_
                 tinP.tlsDelF( *(byteT**)&pBk0Doomed ) ;
-                _INoLD_
+                _IO_
             {
             DELzOMBIE( pBk0Doomed ) ;
 
             }
-                _OUT_
                 THREADmODE1rESTORE ;
                 writeF( tinP , pbi , cbi ) ; //THIS LINE MIGHT USE CONSTRUCT AND USE A NEW SCRATCH BOOK
                 THREADmODE1oN( flTHREADmODE1_ALLOWsTOPwHILEgRABBING ) ;
-                _INoLD_
+                _IO_
             {
             if( cbi )
 
@@ -53,16 +46,14 @@
             ZE( const byteT* , pbi ) ;
 
             if( !ppBk0Scratch ) { BLAMMO ; }
-            _INoLD_
+            _IO_
         {
         if( pbtScratchBuffer )
 
         }
-            _OUT_
             if( F(flagsP) & flBOOKScwRITE_SETrEMAINING ) break ;
 
             }
-                _OUT_
                 }
                     }
                         }
@@ -84,14 +75,13 @@
                 //CONoUTrAW( "\r\n+++++++++++ NEWED  BOOK ------------" ) ;
 
                 }
-                    _OUT_
                     pBookUse = &BOOKnOW ;
 
                     NEWbOOK2sETfLAG
 
                     new( 0 , tinP , PBbOOKbACKnOW , SIZEOF_bookC ) bookC( tinP , TAG( TAGiDnULL ) , postBookName , idStateSpace , flagsCtBook , F(flagsCt) & flBOOKSc_WRITER ? cbBodyNew : 0 , bFill , idMemorySpace ) ;
                     NEWbOOK1bLAMMOiFcT
-                    _INoLD_
+                    _IO_
                 {
                 if( bBookNowIsDestroyed )
 
@@ -138,13 +128,12 @@
                 {
 
                 }
-                    _OUT_
                     //CONoUTrAW( "\r\n----------- DELETED  BOOK ------------" ) ;
                     bBookNowIsDestroyed = 1 ;
                     DELzOMBIEbOOKbACKnOWiF
                     pBookUse = 0 ;
                     //CONoUTrAW( "\r\n----------- DELETING BOOK ++++++++++++" ) ;
-                    _INoLD_
+                    _IO_
                 {
                 else
                 }
@@ -157,14 +146,12 @@
                 offBookBackNow ++ ;
 
                 }
-                    _OUT_
                     }
                         //if( !(    (bookHeadS&)**ppBk0Scratch    ).cbBody ) { BLAMMO ; } //U::TO FIND A BUG  20140401
                         ((bookHeadS&)**ppBk0Scratch).flags |= flBOOKhEADs_PRIORbOOKnOTcONTINUEDhERE ;
                         }
-                            _OUT_
                             *ppBk0Scratch = new( 0 , tinP , pbtBook0 , cbtBook0 ) book0C( tinP , pbtScratchBuffer , cbtBuffer ) ;
-                            _INoLD_
+                            _IO_
                         {
 
                         ;
@@ -176,20 +163,18 @@
                     if( !pbtScratchBuffer || !pbtBook0 ) { BLAMMO ; }
 
                     }
-                        _OUT_
                         TELL( "booksC::writeF / called tlsNewF 2" )
                         pbtBook0  = tinP.tlsNewF( cbtBook0 ) ;
                         TELL( "booksC::writeF / calling tlsNewF 2" )
-                        _INoLD_
+                        _IO_
                     {
                     ZE( byteT* , pbtBook0 ) ;
 
                     }
-                        _OUT_
                         TELL( "booksC::writeF / called tlsNewF 1" )
                         pbtScratchBuffer = tinP.tlsNewF( cbtBuffer ) ;
                         TELL( "booksC::writeF / calling tlsNewF 1" )
-                        _INoLD_
+                        _IO_
                     {
                     const countT cbtBook0  = sizeof( book0C ) ;
 
@@ -200,7 +185,7 @@
                     //    ? sizeof( bookHeadS ) + 2 * ( sizeof( tellS ) + CBtELEMETRYeNVELOPE + sizeof( tellInfoNapkinS ) ) + 1       // ADD 1 TO ENSURE THAT THE LATH BYTE OF THE SCRATCH BUFFER IS NOT WRITTEN BY THE TELEMETRY EMITTED WHEN I DELETE AND NEW p BookOld
                     //const countT cbtBuffer = bTelemetry
                     //ALLOCATED ROOM FOR 4 NAPKIN TELLS: DEL( p BookOld ) + NEW( p BookOld )
-                    _INoLD_
+                    _IO_
                 {
                 )
                     ( bTrace     && !tinP.pBk0TraceScratch )
@@ -240,7 +225,7 @@
                 ZE( countT   , offEltMyHeap ) ;
                 ZE( osTextT* , postBookName ) ;   //U:: BUG: THIS IS NOT REENTRANT.  I NEED TO USE POOL OR SOME OTHER MEMORY ALLOCATION SCHEME FOR THIS NAME SO THAT I AM REENTRANT
                 //ALLOCATE postBookNameNoPuse2 (PUSE IS NOT USED TO AVOID NONMONOTONIC GRABBING.  SO I NEED TO HAVE MY OWN LITTLE HEAP)
-                _INoLD_
+                _IO_
             {
             else
             else if( F(flagsP) & flBOOKScwRITE_NOsCRATCHING ) { BLAMMO ; }
@@ -272,7 +257,6 @@
             // idBook IS INTENDED TO BE THE ID OF THE WOTH BOOK TO RECEIVE ANY PART OF THE FULL ITEM WRITTEN; FOR CHECKPOINT / RESTART FUNCTIONALITY, TRANSACTION PROCESSING SHOULD USE flBOOKScwRITE_ALLoRnONE
 
             }
-                _OUT_
                 }
                     c2AppNote.c2 = PCPiDbOOKnOW[ 1 ] ;
                     c2AppNote.c1 = offWrote ;
@@ -283,16 +267,15 @@
 
                 __( cb2P - cbDone2 ) ;
                 if( !( F(flagsP) & flBOOKScwRITE_SETrEMAINING ) ) { __( cb1P - cbDone1 ) ; }
-                _INoLD_
+                _IO_
             {
             if( phWroteP && cbDone1 )
 
             }
-                _OUT_
                 THREADmODE1rESTORE ;
                 offAt = pBookUse->writeF( tinP , flagsResult , pb1P , cbDone1 , pb2P , cbDone2 , flagsWrite , phWroteP ? &offWrote : 0 ) ;
                 THREADmODE1oN( flTHREADmODE1_ALLOWsTOPwHILEgRABBING ) ;
-                _INoLD_
+                _IO_
             {
             ZE( countT , offAt ) ;
             ZE( countT , offWrote ) ;
@@ -305,7 +288,7 @@
                 __( *PCPiDbOOKnOW != 1 ) ; // IDbOOK VALUES ARE UNLIMITED.  BUT ONLY LENGTH 1 IDbOOK VALUES CAN BE STORED WITHIN A handleC.  FOR MORE CAPACITY, INCREASE THE SIZE OF handleC::c2AppNote
             {
             if( phWroteP ) // MUST BE CHECKED AGAIN HERE BECAUSE PCPiDbOOKnOW MIGHT HAVE CHANGED SINCE ENTERING ME
-            _INoLD_
+            _IO_
         {
         while( cb1P || F(flagsP) & flBOOKScwRITE_SETrEMAINING )
         //ZE( boolT , bDeleteOutParam ) ;
@@ -365,7 +348,7 @@
         //const boolT bTraceDivert1 = this == &processGlobal3I.bksTraceDivert01 ;
         const boolT bTrace        = this == &processGlobal3I.bksTrace        ;
         const boolT bTelemetry    = this == &processGlobal3I.bksTelemetry    ;
-        _INoLD_
+        _IO_
     {
     if( cb1P || F(flagsP) & flBOOKScwRITE_SETrEMAINING )
     ZE( countT , idBook ) ;
@@ -375,14 +358,14 @@
     //    ? 0 
     //inOutFrameC* pInOutFrame = this == &processGlobal3I.bksTrace || this == &processGlobal3I.bksTraceDivert01 || this == &processGlobal3I.bksTraceDivert02 || this == &processGlobal3I.bksTraceDivert03 || this == &processGlobal3I.bksTraceDivert04 || this == &processGlobal3I.bksTraceDivert05 || this == &processGlobal3I.bksTraceDivert06 || this == &processGlobal3I.bksTraceDivert07 || this == &processGlobal3I.bksTraceDivert08
     //byteT _pbInOutFrame[ sizeof( inOutFrameC ) ] ;
-    //20191008@0844: DON'T KNOW WHY DONE THIS WAY RATHER THAN JUST USE _INoLD_
+    //20191008@0844: DON'T KNOW WHY DONE THIS WAY RATHER THAN JUST USE _IO_
 
     //if( this == &processGlobal3I.bksTelemetry /*|| this == &processGlobal3I.bksTrace || this == &processGlobal3I.bksTraceDivert01*/ || this == &processGlobal3I.bksWord || this == &processGlobal3I.bksWords ) return 0 ;  //U:: TO WORKAROUND A BUG (NONMONOTONIC GRABBING)
     //U::DELETE THE NEXT LINE ONCE I AM TESTED TO VERIFY THAT I DO NOT TRIGGER NONMONOTONIC GRABBING BLAMMO
 
     THREADmODE3oN( flTHREADmODE3_POOLaLLOCATEfROMhEAP )
 
-    _INoLD_
+    _IO_
 
     //    ungrab grabBookNow
     //       dt scratch and free tls

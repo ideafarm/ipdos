@@ -10,27 +10,25 @@
 }
     return vsp ;
 
-    _OUT_
-
     POPtINaRGS
     DELzOMBIE( pvsp ) ;
-    blobVSP* pvsp = (blobVSP*)&tinP.ta.pushed.listWalk.util.pcP[ 2 ] ;
-    blobVSP   vsp( *(blobVSP*)&tinP.ta.pushed.listWalk.util.pcP[ 2 ] ) ;
+    blobVSP* pvsp = (blobVSP*)&tinP.ta.pushed.u.listWalk.util.pcP[ 2 ] ;
+    blobVSP   vsp( *(blobVSP*)&tinP.ta.pushed.u.listWalk.util.pcP[ 2 ] ) ;
 
     walkIF( tinP , pczName , flLISToPEN_null , idGrabLayerP ) ;
     countT pczName[] = { LISTnAME_ROOT , LISTnAME_ROOTsYSTEM2 , LISTnAME_DICTIONARY , 0 } ;
-    tinP.ta.pushed.listWalk.util.pcP[ 1 ] = cbNeeded ;
-    tinP.ta.pushed.listWalk.util.pcP[ 0 ] = idP ;
-    tinP.ta.pushed.listWalk.walk.flagsWalkP = flLISTwALK_null ;
-    tinP.ta.pushed.listWalk.walk.pListWalkCBFP = listWalkQueryFromIdCBF ;
+    tinP.ta.pushed.u.listWalk.util.pcP[ 1 ] = cbNeeded ;
+    tinP.ta.pushed.u.listWalk.util.pcP[ 0 ] = idP ;
+    tinP.ta.pushed.u.listWalk.walk.flagsWalkP = flLISTwALK_null ;
+    tinP.ta.pushed.u.listWalk.walk.pListWalkCBFP = listWalkQueryFromIdCBF ;
     PUSHtINaRGS
 
-    __( cbNeeded > sizeof tinP.ta.pushed.listWalk.util.pcP - 2 * sizeof( countT ) ) ;
+    __( cbNeeded > sizeof tinP.ta.pushed.u.listWalk.util.pcP - 2 * sizeof( countT ) ) ;
     countT cbNeeded = sizeof( blobVSP ) ;
 
     grabitC grabitx( tinP , TAG( TAGiDnULL ) ) ;
 
-    _INoLD_
+    _IO_
 
     }
         if( POOP ) return 0 ;

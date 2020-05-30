@@ -10,17 +10,13 @@
 }
     return flagsRC ;
 
-    _OUT_
-
     }
-        _OUT_
         DELzOMBIE( ppHand[  !offWoth ] ) ;
-        _INoLD_
+        _IO_
     {
     }
-        _OUT_
         ppHand[ offWoth ]->resetF() ;
-        _INoLD_
+        _IO_
     {
 
     }
@@ -48,24 +44,24 @@
         if( pList && !( pList->flagsi & fliLISTINGc_MIXINlIST ) ) { BLAMMO ; }
 
         POPtINaRGS
-        pList = (listC*)tinP.ta.pushed.listWalk.util.pcP[ 2 ] ;
+        pList = (listC*)tinP.ta.pushed.u.listWalk.util.pcP[ 2 ] ;
         if( F(flagsWalk) & flLISTwALKrETURNcODE_NEWlISTING ) flagsRC &= ~( F(flLISToPENrETURNcODE_LISTeXISTED) ) ;
         flagsT flagsWalk = pList->walkF( tinP , idGrabLayerP ) ;
-        tinP.ta.pushed.listWalk.util.pcP[ 2 ]               = 0 ;
-        tinP.ta.pushed.listWalk.util.pcP[ 1 ]               = flagsP & flagsMask ;
-        tinP.ta.pushed.listWalk.util.pcP[ 0 ]               = pczKidP[ offn ] ;
-        tinP.ta.pushed.listWalk.cbf.ppPreallocatedListsP    = ppPreallocatedListsP ;
-        tinP.ta.pushed.listWalk.walk.pHandleHiP             = ppHand[ 1 ] ;
-        tinP.ta.pushed.listWalk.walk.pHandleLoP             = ppHand[ 0 ] ;
-        tinP.ta.pushed.listWalk.walk.pOffWothP              = &offWoth ;
-        tinP.ta.pushed.listWalk.walk.pHandleRootP           = &hListDadP ;
+        tinP.ta.pushed.u.listWalk.util.pcP[ 2 ]               = 0 ;
+        tinP.ta.pushed.u.listWalk.util.pcP[ 1 ]               = flagsP & flagsMask ;
+        tinP.ta.pushed.u.listWalk.util.pcP[ 0 ]               = pczKidP[ offn ] ;
+        tinP.ta.pushed.u.listWalk.cbf.ppPreallocatedListsP    = ppPreallocatedListsP ;
+        tinP.ta.pushed.u.listWalk.walk.pHandleHiP             = ppHand[ 1 ] ;
+        tinP.ta.pushed.u.listWalk.walk.pHandleLoP             = ppHand[ 0 ] ;
+        tinP.ta.pushed.u.listWalk.walk.pOffWothP              = &offWoth ;
+        tinP.ta.pushed.u.listWalk.walk.pHandleRootP           = &hListDadP ;
 
         ;
             : flLISTwALK_CALLERgRABBEDrOOT | flLISTwALK_DOnOTuNGRABoOTHaTeNDoFwALK
             ? flLISTwALK_CALLERgRABBEDrOOT | flLISTwALK_DOnOTuNGRABoOTHaTeNDoFwALK | flLISTwALK_RETAINrOOT
-        tinP.ta.pushed.listWalk.walk.flagsWalkP = !offn && F(flagsP) & flLISToPEN_RETAINrOOT
+        tinP.ta.pushed.u.listWalk.walk.flagsWalkP = !offn && F(flagsP) & flLISToPEN_RETAINrOOT
 
-        tinP.ta.pushed.listWalk.walk.pListWalkCBFP = listWalkAttachListIfCBF ;
+        tinP.ta.pushed.u.listWalk.walk.pListWalkCBFP = listWalkAttachListIfCBF ;
         PUSHtINaRGS
 
         if( !pczKidP[ offn + 1 ] ) flagsMask = - 1 ;
@@ -107,7 +103,7 @@
 
     LNV( pczKidP )
 
-    _INoLD_
+    _IO_
 
     }
         if( POOP ) return flagsRC ;

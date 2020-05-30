@@ -786,27 +786,22 @@ TASK( tmTestQueryF )
 
 DONE( tmListServeF )
 }
-    _OUT_
     }
         DEL( psoP ) ;
         if( POOP ) POOPR
 
         }
-            _OUT_
             psoP->writeF( tinP , sOut ) ;
             }
                 }
                     break ;
-                    _OUT_
                     __1 ;
                     __( idCmd ) ;
-                    _INoLD_
+                    _IO_
                 {
                 default :
                 }
                     break ;
-                    _OUT_
-
                     }
                         PUSE( tinP , *(byteT**)&pczListSubaccounts ) ;
                         }
@@ -816,9 +811,8 @@ DONE( tmListServeF )
                             }
                         
                                 TELL( "CONFIRMoWNERaLLsUBACCOUNTS/called listOld2012F" )
-                                _OUT_
                                 PUSE.listOld2012F( tinP , pczListSubaccounts , ifcIDhOWlIST_FIFO , &arg , 0 , listingInspectConfirmCBF ) ;
-                                _INoLD_
+                                _IO_
                                 TELL( "CONFIRMoWNERaLLsUBACCOUNTS/calling listOld2012F" )
                                 puseC puseAccount( puseMasterP ) ; //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
                             {
@@ -843,13 +837,11 @@ DONE( tmListServeF )
                     __Z( idAccount ) ;
                     sIn >> idAccount ;
                     ZE( countT , idAccount ) ;
-                    _INoLD_
+                    _IO_
                 {
                 case ifcIDcMDlISTsERVERiDaCCOUNTdESCRIPTION_CONFIRMoWNERaLLsUBACCOUNTS :
                 }
                     break ;
-                    _OUT_
-
                     //CONoUTrAW5( "QUERY [bDone,idSub]: " , bDone , " " , idSub , "\r\n" ) ; //U::
 
                     sOut << idSub ;
@@ -941,9 +933,8 @@ DONE( tmListServeF )
                     //}
                     //    THREADmODE2rESTORE
                     //    }
-                    //        _OUT_
                     //        PUSE.listOld2012F( tinP , count2S( LISTnAME_ROOTaPPLICATION ) , ifcIDhOWlIST_FIFO , arg ) ;
-                    //        _INoLD_
+                    //        _IO_
                     //        arg.flagsInspect = flAPTiNSPECT_CHATTERtOcONSOLE | flAPTiNSPECT_RECURSE ; 
                     //        listWalkArgOldS arg( tinP ) ;
                     //        puseC puseAccount( puseMasterP ) ; //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -956,13 +947,11 @@ DONE( tmListServeF )
                     sIn >> idAccount ;
                     ZE( countT , idAccount ) ;
                     ZE( countT , idSub ) ;
-                    _INoLD_
+                    _IO_
                 {
                 case ifcIDcMDlISTsERVERiDaCCOUNTdESCRIPTION_QUERYsUBACCOUNTdESCRIPTION :
                 }
                     break ;
-                    _OUT_
-
                     }
                         PUSE( tinP , *(byteT**)&pczListSubaccounts ) ;
                         }
@@ -1070,9 +1059,8 @@ DONE( tmListServeF )
                                     THREADmODE2rESTORE
                                     }
                                         TELL( "ENUMERATEiDsUB/called listOld2012F" )
-                                        _OUT_
                                         PUSE.listOld2012F( tinP , hListSubs , ifcIDhOWlIST_FIFO , &arg , 0 ) ;
-                                        _INoLD_
+                                        _IO_
                                         TELL( "ENUMERATEiDsUB/calling listOld2012F" )
                                         if( !hListSubs ) { BLAMMO ; } //U::TO FIND A BUG
                                         TELL( "ENUMERATEiDsUB/checking handle" )
@@ -1117,13 +1105,11 @@ DONE( tmListServeF )
                     __Z( idAccount ) ;
                     sIn >> idAccount ;
                     ZE( countT , idAccount ) ;
-                    _INoLD_
+                    _IO_
                 {
                 case ifcIDcMDlISTsERVERiDaCCOUNTdESCRIPTION_ENUMERATEiDsUB :
                 }
                     break ;
-                    _OUT_
-
                     sOut << bDone ;
 
                     }
@@ -1133,9 +1119,8 @@ DONE( tmListServeF )
                             }
                                 if( F(arg.cValueAttached) & fliSUBACCOUNTmODE_DELETED ) bDone = 1 ;
                                 TELL( "DELETEsUBACCOUNTdESCRIPTION/called listOld2012F" )
-                                _OUT_
                                 PUSE.listOld2012F( tinP , pczField , ifcIDhOWlIST_FIFO , &arg , 0 ) ;
-                                _INoLD_
+                                _IO_
                                 TELL( "DELETEsUBACCOUNTdESCRIPTION/calling listOld2012F" )
 
                                 arg.cValueAttachSpec    = fliSUBACCOUNTmODE_DELETED ;
@@ -1173,13 +1158,11 @@ DONE( tmListServeF )
                     ZE( countT , idAccount ) ;
 
                     ZE( boolT , bDone ) ;
-                    _INoLD_
+                    _IO_
                 {
                 case ifcIDcMDlISTsERVERiDaCCOUNTdESCRIPTION_DELETEsUBACCOUNTdESCRIPTION :
                 }
                     break ;
-                    _OUT_
-
                     sOut << bExisted ;
 
                     }
@@ -1196,9 +1179,8 @@ DONE( tmListServeF )
                                     if
                         
                                     TELL( "TESTiDsUB/called listOld2012F" )
-                                    _OUT_
                                     PUSE.listOld2012F( tinP , hListSub , pc2 , ifcIDhOWlIST_FIFO , &arg , 0 , listingInspectOldCBF ) ;
-                                    _INoLD_
+                                    _IO_
                                     TELL( "TESTiDsUB/calling listOld2012F" )
                                     if( !hListSub ) { BLAMMO ; } //U::TO FIND A BUG
                                     TELL( "TESTiDsUB/checking handle" )
@@ -1251,13 +1233,11 @@ DONE( tmListServeF )
                     __Z( idAccount ) ;
                     sIn >> idAccount ;
                     ZE( countT , idAccount ) ;
-                    _INoLD_
+                    _IO_
                 {
                 case ifcIDcMDlISTsERVERiDaCCOUNTdESCRIPTION_TESTiDsUB :
                 }
                     break ;
-                    _OUT_
-
                     //CONoUTrAW5( "SET [bDone,idSub]: " , bDone , " " , idSub , "\r\n" ) ; //U::
 
                     sOut << idSub ;
@@ -1496,12 +1476,11 @@ DONE( tmListServeF )
                     sIn >> idAccount ;
                     ZE( countT , idAccount ) ;
                     ZE( countT , idSub ) ;
-                    _INoLD_
+                    _IO_
                 {
                 case ifcIDcMDlISTsERVERiDaCCOUNTdESCRIPTION_SETsUBACCOUNTdESCRIPTION :
                 }
                     break ;
-                    _OUT_
                     CONoUTrAW3( "ifcIDcMDlISTsERVERiDaCCOUNTdESCRIPTION_ENUMERATEiDaCCOUNT/0 [poop]: " , POOP , "\r\n" ) ; //U::TO FIND A BUG
 
                     }
@@ -1618,9 +1597,8 @@ DONE( tmListServeF )
                                 THREADmODE2rESTORE
                                 }
                                     TELL( "ENUMERATEiDaCCOUNT/called listOld2012F" )
-                                    _OUT_
                                     PUSE.listOld2012F( tinP , hListAccs , ifcIDhOWlIST_FIFO , &arg , 0 ) ; //U::baseGrabC NOT REGISTERED IN TIN SEEN 2009.07.20 2009.12.31
-                                    _INoLD_
+                                    _IO_
                                     TELL( "ENUMERATEiDaCCOUNT/calling listOld2012F" )
                                     if( !hListAccs ) { BLAMMO ; } //U::TO FIND A BUG
                                     TELL( "ENUMERATEiDaCCOUNT/checking handle" )
@@ -1656,14 +1634,12 @@ DONE( tmListServeF )
                     {
                     if( !POOP )
                     //CONoUTrAW( "ifcIDcMDlISTsERVERiDaCCOUNTdESCRIPTION_ENUMERATEiDaCCOUNT\r\n" ) ;
-                    _INoLD_
+                    _IO_
                     CONoUTrAW3( "ifcIDcMDlISTsERVERiDaCCOUNTdESCRIPTION_ENUMERATEiDaCCOUNT/f [poop]: " , POOP , "\r\n" ) ; //U::TO FIND A BUG
                 {
                 case ifcIDcMDlISTsERVERiDaCCOUNTdESCRIPTION_ENUMERATEiDaCCOUNT :
                 }
                     break ;
-                    _OUT_
-
                     sOut << bExisted ;
 
                     }
@@ -1696,13 +1672,11 @@ DONE( tmListServeF )
                     __Z( idAccount ) ;
                     sIn >> idAccount ;
                     ZE( countT , idAccount ) ;
-                    _INoLD_
+                    _IO_
                 {
                 case ifcIDcMDlISTsERVERiDaCCOUNTdESCRIPTION_TESTiDaCCOUNT :
                 }
                     break ;
-                    _OUT_
-
                     }
                         sOut << bExisted ;
 
@@ -1733,13 +1707,11 @@ DONE( tmListServeF )
                     __Z( idAccount ) ;
                     sIn >> idAccount ;
                     ZE( countT , idAccount ) ;
-                    _INoLD_
+                    _IO_
                 {
                 case ifcIDcMDlISTsERVERiDaCCOUNTdESCRIPTION_DELETEaCCOUNTdESCRIPTION :
                 }
                     break ;
-                    _OUT_
-
                     }
                         PUSE( tinP , *(byteT**)&pczDesc ) ;
                         }
@@ -1808,13 +1780,11 @@ DONE( tmListServeF )
                     __Z( idAccount ) ;
                     sIn >> idAccount ;
                     ZE( countT , idAccount ) ;
-                    _INoLD_
+                    _IO_
                 {
                 case ifcIDcMDlISTsERVERiDaCCOUNTdESCRIPTION_QUERYaCCOUNTdESCRIPTION :
                 }
                     break ;
-
-                    _OUT_
 
                     sOut << bDone ;
                     }
@@ -1900,7 +1870,7 @@ DONE( tmListServeF )
 
                     sIn >> idAccount ;
                     ZE( countT , idAccount ) ;
-                    _INoLD_
+                    _IO_
                 {
                 case ifcIDcMDlISTsERVERiDaCCOUNTdESCRIPTION_SETaCCOUNTdESCRIPTION :
             {
@@ -1923,7 +1893,7 @@ DONE( tmListServeF )
 
             psoP->readF( tinP , sIn ) ;
             soulC sIn( tinP , TAG( TAGiDnULL ) ) ;
-            _INoLD_
+            _IO_
         {
         while( !ether && !POOP )
 
@@ -1931,7 +1901,7 @@ DONE( tmListServeF )
         SCOOPS
     {
     IFsCRATCH
-    _INoLD_
+    _IO_
 
     puseC&    puseMasterP =  *(puseC*)pTaskP->c2 ;
     socketC*  psoP      = (socketC*)pTaskP->c1 ;
@@ -1942,8 +1912,6 @@ TASK( tmListServeF )
 
 }
     return heavy ;
-
-    _OUT_
 
     }
         }
@@ -2016,7 +1984,7 @@ TASK( tmListServeF )
     if( aptP )
     ZE( sCountT , heavy ) ;
 
-    _INoLD_
+    _IO_
 
     if( POOP ) return 0 ;
 {
@@ -2036,9 +2004,8 @@ sCountT listingInspectConfirmCBF( tinS& tinP , aptC& aptP , listWalkArgOldS& arg
                                                                                                                                                                 \
             THREADmODE2rESTORE                                                                                                                                  \
             }                                                                                                                                                   \
-                _OUT_                                                                                                                                           \
                 PUSE.listOld2012F( tinP , handleP , pc2 , ifcIDhOWlIST_FIFO , &arg , 0 , listingInspectOldCBF ) ;                                                         \
-                _INoLD_                                                                                                                                            \
+                _IO_                                                                                                                                            \
                 countT pc2[] = { (cNameP) , 0 } ;                                                                                                               \
                                                                                                                                                                 \
                 arg.flagsWalk = flLISTwALKoLD_DOnOTuNGRABlIST ;                                                                                                    \
@@ -2063,9 +2030,8 @@ sCountT listingInspectConfirmCBF( tinS& tinP , aptC& aptP , listWalkArgOldS& arg
         }                                                                                                                                                       \
             postv = (osTextT*)arg.cValueFound ;                                                                                                                 \
                                                                                                                                                                 \
-            _OUT_                                                                                                                                               \
             PUSE.listOld2012F( tinP , handleP , pc2 , ifcIDhOWlIST_FIFO , &arg , 0 , listingInspectOldCBF ) ;                                                             \
-            _INoLD_                                                                                                                                                \
+            _IO_                                                                                                                                                \
             countT pc2[] = { (cNameP) , 0 } ;                                                                                                                   \
                                                                                                                                                                 \
             arg.flagsWalk = flLISTwALKoLD_DOnOTuNGRABlIST ;                                                                                                        \
@@ -2084,9 +2050,8 @@ sCountT listingInspectConfirmCBF( tinS& tinP , aptC& aptP , listWalkArgOldS& arg
         THREADmODE2rESTORE                                                                                                                                      \
         }                                                                                                                                                       \
             cValue = arg.cValueFound ;                                                                                                                          \
-            _OUT_                                                                                                                                               \
             PUSE.listOld2012F( tinP , handleP , pc2 , ifcIDhOWlIST_FIFO , &arg , 0 , listingInspectOldCBF ) ;                                                             \
-            _INoLD_                                                                                                                                                \
+            _IO_                                                                                                                                                \
             arg.flagsWalk = flLISTwALKoLD_DOnOTuNGRABlIST ;                                                                                                        \
             listWalkArgOldS arg( tinP ) ;                                                                                                                          \
             countT pc2[] = { (cNameP) , 0 } ;                                                                                                                   \
@@ -2106,9 +2071,8 @@ sCountT listingInspectConfirmCBF( tinS& tinP , aptC& aptP , listWalkArgOldS& arg
         }                                                                                                                                                       \
             postv = (osTextT*)arg.cValueFound ;                                                                                                                 \
                                                                                                                                                                 \
-            _OUT_                                                                                                                                               \
             PUSE.listOld2012F( tinP , handleP , pc2 , ifcIDhOWlIST_FIFO , &arg , 0 , listingInspectOldCBF ) ;                                                             \
-            _INoLD_                                                                                                                                                \
+            _IO_                                                                                                                                                \
             countT pc2[] = { (cNameP) , 0 } ;                                                                                                                   \
                                                                                                                                                                 \
             arg.flagsWalk = flLISTwALKoLD_DOnOTuNGRABlIST ;                                                                                                        \
@@ -2128,9 +2092,8 @@ sCountT listingInspectConfirmCBF( tinS& tinP , aptC& aptP , listWalkArgOldS& arg
         }                                                                                                                                                       \
             cValue = arg.cValueFound ;                                                                                                                          \
                                                                                                                                                                 \
-            _OUT_                                                                                                                                               \
             PUSE.listOld2012F( tinP , handleP , pc2 , ifcIDhOWlIST_FIFO , &arg , 0 , listingInspectOldCBF ) ;                                                             \
-            _INoLD_                                                                                                                                                \
+            _IO_                                                                                                                                                \
             arg.flagsWalk = flLISTwALKoLD_DOnOTuNGRABlIST ;                                                                                                        \
             listWalkArgOldS arg( tinP ) ;                                                                                                                          \
             countT pc2[] = { (cNameP) , 0 } ;                                                                                                                   \
@@ -2145,9 +2108,8 @@ sCountT listingInspectConfirmCBF( tinS& tinP , aptC& aptP , listWalkArgOldS& arg
     }
         THREADmODE2rESTORE                                                                                                                                      \
         }                                                                                                                                                       \
-            _OUT_                                                                                                                                               \
             PUSE.listOld2012F( tinP , handleP , pc2 , ifcIDhOWlIST_FIFO , &arg , li stingAttachOldCBF , listingInspectOldCBF ) ;                                              \
-            _INoLD_                                                                                                                                                \
+            _IO_                                                                                                                                                \
             countT pc2[] = { (cNameP) , 0 } ;                                                                                                                   \
             arg.flagsWalk = flLISTwALKoLD_DOnOTuNGRABlIST ;                                                                                                        \
             arg.cValueAttachSpec = (countT)postzValue ;                                                                                                         \
@@ -2164,9 +2126,8 @@ sCountT listingInspectConfirmCBF( tinS& tinP , aptC& aptP , listWalkArgOldS& arg
     }
         THREADmODE2rESTORE                                                                                                                                      \
         }                                                                                                                                                       \
-            _OUT_                                                                                                                                               \
             PUSE.listOld2012F( tinP , handleP , pc2 , ifcIDhOWlIST_FIFO , &arg , li stingAttachOldCBF , listingInspectOldCBF ) ;                                              \
-            _INoLD_                                                                                                                                                \
+            _IO_                                                                                                                                                \
             countT pc2[] = { (cNameP) , 0 } ;                                                                                                                   \
             arg.flagsWalk = flLISTwALKoLD_DOnOTuNGRABlIST ;                                                                                                        \
             arg.cValueAttachSpec = (countT)postzValue ;                                                                                                         \
@@ -2187,9 +2148,8 @@ sCountT listingInspectConfirmCBF( tinS& tinP , aptC& aptP , listWalkArgOldS& arg
     }
         THREADmODE2rESTORE                                                                                                                                      \
         }                                                                                                                                                       \
-            _OUT_                                                                                                                                               \
             PUSE.listOld2012F( tinP , handleP , pc2 , ifcIDhOWlIST_FIFO , &arg , li stingAttachOldCBF , listingInspectOldCBF ) ;                                              \
-            _INoLD_                                                                                                                                                \
+            _IO_                                                                                                                                                \
             countT pc2[] = { (cNameP) , 0 } ;                                                                                                                   \
             arg.flagsWalk = flLISTwALKoLD_DOnOTuNGRABlIST ;                                                                                                        \
             arg.cValueAttachSpec = (countT)postzValue ;                                                                                                         \
@@ -2209,9 +2169,8 @@ sCountT listingInspectConfirmCBF( tinS& tinP , aptC& aptP , listWalkArgOldS& arg
     }
         THREADmODE2rESTORE                                                                                                                                      \
         }                                                                                                                                                       \
-            _OUT_                                                                                                                                               \
             PUSE.listOld2012F( tinP , handleP , pc2 , ifcIDhOWlIST_FIFO , &arg , li stingAttachOldCBF , listingInspectOldCBF ) ;                                              \
-            _INoLD_                                                                                                                                                \
+            _IO_                                                                                                                                                \
             countT pc2[] = { (cNameP) , 0 } ;                                                                                                                   \
             arg.flagsWalk = flLISTwALKoLD_DOnOTuNGRABlIST ;                                                                                                        \
             arg.cValueAttachSpec = (countT)cValueP ;                                                                                                            \
@@ -2227,9 +2186,8 @@ sCountT listingInspectConfirmCBF( tinS& tinP , aptC& aptP , listWalkArgOldS& arg
     }
         THREADmODE2rESTORE                                                                                                                                      \
         }                                                                                                                                                       \
-            _OUT_                                                                                                                                               \
             PUSE.listOld2012F( tinP , handleP , pc2 , ifcIDhOWlIST_FIFO , &arg , li stingAttachOldCBF , listingInspectOldCBF ) ;                                              \
-            _INoLD_                                                                                                                                                \
+            _IO_                                                                                                                                                \
             countT pc2[] = { (cNameP) , 0 } ;                                                                                                                   \
             arg.flagsWalk = flLISTwALKoLD_DOnOTuNGRABlIST ;                                                                                                        \
             arg.cValueAttachSpec = (countT)cValueP ;                                                                                                            \

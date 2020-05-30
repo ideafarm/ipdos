@@ -190,7 +190,7 @@
                     tinP.pEtScratch->strFuseF( tinP , pstto , T(" | a: ") ) ;
                     tinP.pEtScratch->strFuseF( tinP , pstto , TF2((countT)pListing,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
                     tinP.pEtScratch->strFuseF( tinP , pstto , T(" | p: ") ) ;
-                    tinP.pEtScratch->strFuseF( tinP , pstto , TF2(tinP.ta.pushed.listWalk.walk.cRecurseP,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
+                    tinP.pEtScratch->strFuseF( tinP , pstto , TF2(tinP.ta.pushed.u.listWalk.walk.cRecurseP,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
                     tinP.pEtScratch->strFuseF( tinP , pstto , T(" | ") ) ;
                     tinP.pEtScratch->strFuseF( tinP , pstto , T(tinP.pPoolUse->postNameF(tinP)) ) ;
 
@@ -318,7 +318,7 @@
                 { puseC puseat( tinP , ifcIDpOOL_ADAMtEMP ) ; etherC::strSquishIF( tinP , pczSquished , pczName ) ; ___( pczSquished ) ; }
                 ZE( countT* , pczSquished ) ;
 
-                tinP.ta.pushed.listWalk.cbf.pDadP->nameF( tinP , pczName ) ; // ___( pczName ) ;
+                tinP.ta.pushed.u.listWalk.cbf.pDadP->nameF( tinP , pczName ) ; // ___( pczName ) ;
                 ZE( countT* , pczName ) ;
 
                 tinP.pEtScratch->strFuseF( tinP , pstto , T(bUseDictionary?" | ------------------------------------------------------------------------------- ":" | ------------------------------------------------------------------------------- (NO DICTIONARY LOOKUP) ") ) ;
@@ -332,7 +332,7 @@
         {
         IFsCRATCH
     {
-    if( tinP.ta.pushed.listWalk.cbf.idCallP == 1 )
+    if( tinP.ta.pushed.u.listWalk.cbf.idCallP == 1 )
 
     THREADmODE3oN( flTHREADmODE3_POOLaLLOCATEfROMhEAP )                         // MY CALLER MIGHT HAVE GRABBED LISTnAME_ROOT, WHICH COULD DEADLOCK sexC::sexC
     THREADmODE2oN( flTHREADmODE2_ALLOWdICTIONARYwHILEgRABBING )
@@ -345,16 +345,16 @@
     const countT levelReNameUse = levelReNameMe ? levelReNameMe : levelReNameDad ;
     const countT levelOoNameUse = levelOoNameMe ? levelOoNameMe : levelOoNameDad ;
 
-    const countT levelReNameDad = !tinP.ta.pushed.listWalk.cbf.pDadP ? 0 : tinP.ta.pushed.listWalk.cbf.pDadP->nameF( 3 ) ;
+    const countT levelReNameDad = !tinP.ta.pushed.u.listWalk.cbf.pDadP ? 0 : tinP.ta.pushed.u.listWalk.cbf.pDadP->nameF( 3 ) ;
     const countT levelReNameMe  = !pListing                          ? 0 : pListing->nameF( 3 )                          ;
 
-    const countT levelOoNameDad = !tinP.ta.pushed.listWalk.cbf.pDadP ? 0 : tinP.ta.pushed.listWalk.cbf.pDadP->nameF( 2 ) ;
+    const countT levelOoNameDad = !tinP.ta.pushed.u.listWalk.cbf.pDadP ? 0 : tinP.ta.pushed.u.listWalk.cbf.pDadP->nameF( 2 ) ;
     const countT levelOoNameMe  = !pListing                          ? 0 : pListing->nameF( 2 )                          ;
 
     FV( flLISTwALKcHATTER , flagsP ) ;
-    countT    cbJotStringDecodePrefixP = tinP.ta.pushed.listWalk.util.pcP[ 2 ] ;
-    flagsT    flagsP                   = tinP.ta.pushed.listWalk.util.pcP[ 1 ] ;
-    listingC* pListing                 = tinP.ta.pushed.listWalk.cbf.pListingP ;
+    countT    cbJotStringDecodePrefixP = tinP.ta.pushed.u.listWalk.util.pcP[ 2 ] ;
+    flagsT    flagsP                   = tinP.ta.pushed.u.listWalk.util.pcP[ 1 ] ;
+    listingC* pListing                 = tinP.ta.pushed.u.listWalk.cbf.pListingP ;
 {
 /*1*/flagsT listWalkChatterCBF( tinS& tinP )/*1*/
 

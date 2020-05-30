@@ -171,21 +171,14 @@ TODO
 DONE( tmWorkerF )
 }
     dec02AM( wsP.cWorkers ) ;
-    _OUT_
-
     }
-        _OUT_
         }
-            _OUT_
             THREADmODE1rESTORE
             }
-                _OUT_
                 wsP.st_pPageEvent.ungrabF( tinP ) ;
                 }
-                    _OUT_
                     wsP.st_pPageEvent.grabF( tinP , TAG( TAGiDnULL ) ) ;
                     }
-                        _OUT_
                         THREADmODE3rESTORE
                         DEL( pPageEvent ) ;
                         THREADmODE3oN( flTHREADmODE3_DOnOTrEGISTERpAGEc )
@@ -200,8 +193,6 @@ DONE( tmWorkerF )
                             etThread.delF( tinP , psttMethod ) ;
 
                             }
-                                _OUT_
-
                                 wsP.swBooksByIdJots.ungrabF( tinP ) ;
 
                                 booksOut.writeF( tinP , (byteT*)&cbo , sizeof cbo , WS( sBookEntryOut ) , flBOOKScwRITE_ALLOWoDDlENGTH | flBOOKScwRITE_ALLoRnONE | flBOOKScwRITE_ELSEfILLtOeND , 0 ) ;
@@ -262,13 +253,11 @@ DONE( tmWorkerF )
                                 // *****************************************************************************************************************************************************************************************************************************************************
 
                                 }
-                                    _OUT_
                                     if( !pidj[ offi ] ) { BLAMMO ; }
 
                                     ppjhs[ offi ]->ungrabF( tinP ) ;
                                     //if( offi == 3 ) etThread.traceF( tinP , T("serialized processing ---- for offi==3 [hash]:    ")+TF2(ph[offi],flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
                                     }
-                                        _OUT_
                                         etThread.traceF( tinP , T("stored  [offi,idJot]:    ")+TF2(offi,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2(pidj[ offi ],flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+T(psttzv) ) ;
                                         }
                                             wsP.sws_idJotUriByHash.ungrabF( tinP ) ;
@@ -288,14 +277,13 @@ DONE( tmWorkerF )
                                         etThread.strEncodeF( tinP , pbEncoded , psttzv , 0 , sizeof( countT ) , (const byteT*)&ph[ offi ] ) ; ___( pbEncoded ) ;
                                         ZEJ( byteT* , pbEncoded , *ppjhs[ offi ] ) ;
                                         //etThread.traceF( tinP , T("storing [offi,idJot]:    ")+TF2(offi,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2(pidj[ offi ],flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+T(psttzv) ) ;
-                                        _INoLD_
+                                        _IO_
                                     {
                                     if( !pidj[ offi ] )
 
                                     }
                                         }
                                             break ;
-                                            _OUT_
                                             }
                                                 }
                                                     etThread.delF( tinP , psttHe ) ;
@@ -319,7 +307,7 @@ DONE( tmWorkerF )
                                             {
                                             while( !pidj[ offi ] )
                                             ppjhs[ offi ]->resetLathReadF() ;
-                                            _INoLD_
+                                            _IO_
                                         {
                                         default :   // SEARCH JOT SEQUENTIALLY
                                         }
@@ -437,7 +425,7 @@ DONE( tmWorkerF )
                                     if( offi != 2 && offi != 3 ) ph[ offi ] = hashF( (byteT*)psttzv , sizeof( strokeS ) * ( CSpREFIX + psttzv->idAdam ) , 0 ) ;          // I ALREADY HAVE HASH FOR OFFSETS 2 3
 
                                     strokeS* psttzv = ppsttzValue[ offi ] ;
-                                    _INoLD_
+                                    _IO_
                                 {
                                 for( countT offi = 0 ; offi < sizeof ppsttzValue / sizeof ppsttzValue[ 0 ] ; offi ++ )
                         
@@ -497,7 +485,7 @@ DONE( tmWorkerF )
                                 // ********                         ********************************************************************************************************************************************************************************************************************
                                 // *****************************************************************************************************************************************************************************************************************************************************
                                 // *****************************************************************************************************************************************************************************************************************************************************
-                                _INoLD_
+                                _IO_
                             {
                             else
                             if( getNegAM( finger ) != FINGERnEG_ACCESSeVENTrAW || idFormat != 1 ) etThread.traceF( tinP , T("unexpected format [finger,idFormat]:    ")+TF2(finger,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2(idFormat,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
@@ -554,14 +542,14 @@ DONE( tmWorkerF )
                         {
                         if( !ether )
 
-                        _INoLD_
+                        _IO_
                     {
                     if( pPageEvent )
 
                     wsP.st_pPageEvent.ungrabF( tinP ) ;
                     wsP.st_pPageEvent >> *(countT*)&pPageEvent ;
                     ZE( pageC* , pPageEvent ) ;
-                    _INoLD_
+                    _IO_
                 {
                 while( wsP.st_pPageEvent )
                 wsP.st_pPageEvent.grabF( tinP , TAG( TAGiDnULL ) ) ;
@@ -569,10 +557,10 @@ DONE( tmWorkerF )
                 stackC stOldIdJotUri(       tinP , etThread , TAG( TAGiDnULL ) , flSTACKc_DOnOTsERIALIZE , ifcSTACKtYPE_countT ) ;
                 stackC stOldIdJotContainer( tinP , etThread , TAG( TAGiDnULL ) , flSTACKc_DOnOTsERIALIZE , ifcSTACKtYPE_countT ) ;
 
-                _INoLD_
+                _IO_
             {
             THREADmODE1oN( flTHREADmODE1_ALLOWsTOPwHILEgRABBING )
-            _INoLD_
+            _IO_
         {
         else
         }
@@ -584,7 +572,7 @@ DONE( tmWorkerF )
             if( ether ) break ;
         {
         if( !wsP.st_pPageEvent )
-        _INoLD_
+        _IO_
     {
     while( !etThread && !POOP )
 
@@ -593,7 +581,7 @@ DONE( tmWorkerF )
 
     booksC& bksAccessEventsP = *(booksC*)pTaskP->c2 ;
     workS&  wsP              =  *(workS*)pTaskP->c1 ;
-    _INoLD_
+    _IO_
 {
 if( pTaskP && pTaskP->c1 && pTaskP->c2 )
 TASK( tmWorkerF )

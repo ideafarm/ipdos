@@ -8,12 +8,11 @@
 
 
 }
-    _OUT_
     }
         third.dosSetCurrentDirIF( tinP , postP ) ;
         third.dosCreateDirF( tinP , postP ) ;
     {
-    _INoLD_
+    _IO_
 
     }
         if( third ) return ;

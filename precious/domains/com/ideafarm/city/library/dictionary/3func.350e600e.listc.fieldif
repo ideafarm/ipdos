@@ -10,29 +10,27 @@
 }
     return flagsRC ;
 
-    _OUT_
-
     listC::deleteIF( tinP , hRecordP , pczFieldP , flLISTdELETE_IFeMPTY , idGrabLayerP ) ;
 
     }
         }
-            tinP.ta.retained.listWalk.walk.flagsWalkP = saveRetained  ;
+            tinP.ta.retained.u.listWalk.walk.flagsWalkP = saveRetained  ;
 
             POPtINaRGS
     
             flagsRC |= field.walkF( tinP , idGrabLayerP ) ;
 
 
-                                                          tinP.ta.pushed.listWalk.util.pcP[ 7 ]      = idiFileNewP ;
-                                                          tinP.ta.pushed.listWalk.util.pcP[ 6 ]      = idLineNewP ;
-          //                                              tinP.ta.pushed.listWalk.util.pcP[ 5 ]                                          WILL CONTAIN THE NUMBER OF LISTINGS DELETED
-          //                                              tinP.ta.pushed.listWalk.util.pcP[ 4 ]                                          WILL CONTAIN THE NUMBER OF LISTINGS NOT DELETED
-                                                          tinP.ta.pushed.listWalk.util.pcP[ 3 ]      = inP.cKeep ;
-          //                                              tinP.ta.pushed.listWalk.util.pcP[ 2 ]                                          IS USED AS A CURSOR
-                                                          tinP.ta.pushed.listWalk.util.pcP[ 1 ]      = (countT)&inP ;
-                                                          tinP.ta.pushed.listWalk.util.pcP[ 0 ]      = (countT)&pOutP ;
-                                                          tinP.ta.pushed.listWalk.walk.flagsWalkP    = flLISTwALK_CALLERgRABBEDrOOT ;
-                                                          tinP.ta.pushed.listWalk.walk.pListWalkCBFP = listWalkFieldEditCBF ;
+                                                          tinP.ta.pushed.u.listWalk.util.pcP[ 7 ]      = idiFileNewP ;
+                                                          tinP.ta.pushed.u.listWalk.util.pcP[ 6 ]      = idLineNewP ;
+          //                                              tinP.ta.pushed.u.listWalk.util.pcP[ 5 ]                                          WILL CONTAIN THE NUMBER OF LISTINGS DELETED
+          //                                              tinP.ta.pushed.u.listWalk.util.pcP[ 4 ]                                          WILL CONTAIN THE NUMBER OF LISTINGS NOT DELETED
+                                                          tinP.ta.pushed.u.listWalk.util.pcP[ 3 ]      = inP.cKeep ;
+          //                                              tinP.ta.pushed.u.listWalk.util.pcP[ 2 ]                                          IS USED AS A CURSOR
+                                                          tinP.ta.pushed.u.listWalk.util.pcP[ 1 ]      = (countT)&inP ;
+                                                          tinP.ta.pushed.u.listWalk.util.pcP[ 0 ]      = (countT)&pOutP ;
+                                                          tinP.ta.pushed.u.listWalk.walk.flagsWalkP    = flLISTwALK_CALLERgRABBEDrOOT ;
+                                                          tinP.ta.pushed.u.listWalk.walk.pListWalkCBFP = listWalkFieldEditCBF ;
 
             //}
             //    __Z( aptTest ) ;
@@ -47,8 +45,8 @@
         
             PUSHtINaRGS
 
-                                  tinP.ta.retained.listWalk.walk.flagsWalkP  = F(inP.flags) & flFIELDeDIT_DOnOTiNDEXdATA ? flLISTwALK_DOnOTiNDEXdATA : flLISTwALK_null ;
-            flagsT saveRetained = tinP.ta.retained.listWalk.walk.flagsWalkP ;
+                                  tinP.ta.retained.u.listWalk.walk.flagsWalkP  = F(inP.flags) & flFIELDeDIT_DOnOTiNDEXdATA ? flLISTwALK_DOnOTiNDEXdATA : flLISTwALK_null ;
+            flagsT saveRetained = tinP.ta.retained.u.listWalk.walk.flagsWalkP ;
 
             if( !( field.flagsi & fliLISTINGc_FIELD ) ) field.flagsi |= fliLISTINGc_FIELD ; 
 
@@ -81,7 +79,7 @@
         listC& record = *(listC*)hRecordP.osF( ifcIDtYPEhANDLE_LISTING ) ;
     {
 
-    _INoLD_
+    _IO_
 
     }
         if( POOP ) return flagsRC ;

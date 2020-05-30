@@ -8,7 +8,6 @@
 
 
 }
-    _OUT_
     if( pBaton ) pBaton->ungrabF( tinP ) ;
     }
         while( !third && ~hDown ) ;
@@ -17,21 +16,20 @@
                 stackk.extractF( 0 , tinP ) ;
 
                 }
-                    default                            : { _INoLD_ __( idLeverType ) ; __1                                              ; _OUT_ break ; }
-                    case ifcIDtYPElEVER_PTR_soulC      : { _INoLD_ soulC*    pcl =    (soulC*)*(countT*)pbLB ; DEL( pcl )               ; _OUT_ break ; }
-                    case ifcIDtYPElEVER_BLOBdOOMED           : { _INoLD_ byteT*    pbl =    (byteT*)*(countT*)pbLB ; third.delF( tinP , pbl ) ; _OUT_ break ; }
-                    case ifcIDtYPElEVER_PTR_nicNameC   : { _INoLD_ nicNameC* pcl = (nicNameC*)*(countT*)pbLB ; third.delF( tinP , pcl ) ; _OUT_ break ; }
-                    case ifcIDtYPElEVER_PTR_osTextT    : { _INoLD_ osTextT*  pcl =  (osTextT*)*(countT*)pbLB ; third.delF( tinP , pcl ) ; _OUT_ break ; }
-                    case ifcIDtYPElEVER_PTR_plateC     : { _INoLD_ plateC*   pcl =   (plateC*)*(countT*)pbLB ; DEL( pcl )               ; _OUT_ break ; }
-                    case ifcIDtYPElEVER_PTR_strokeS    : { _INoLD_ strokeS*  pcl =  (strokeS*)*(countT*)pbLB ; third.delF( tinP , pcl ) ; _OUT_ break ; }
-                    case ifcIDtYPElEVER_PTR_countT     : { _INoLD_ countT*   pcl =   (countT*)*(countT*)pbLB ; third.delF( tinP , pcl ) ; _OUT_ break ; }
-                    case ifcIDtYPElEVER_PTR_BLOB       : { _INoLD_ byteT*    pbl =    (byteT*)*(countT*)pbLB ; third.delF( tinP , pbl ) ; _OUT_ break ; }
+                    default                            : { _IO_ __( idLeverType ) ; __1                                              ; break ; }
+                    case ifcIDtYPElEVER_PTR_soulC      : { _IO_ soulC*    pcl =    (soulC*)*(countT*)pbLB ; DEL( pcl )               ; break ; }
+                    case ifcIDtYPElEVER_BLOBdOOMED           : { _IO_ byteT*    pbl =    (byteT*)*(countT*)pbLB ; third.delF( tinP , pbl ) ; break ; }
+                    case ifcIDtYPElEVER_PTR_nicNameC   : { _IO_ nicNameC* pcl = (nicNameC*)*(countT*)pbLB ; third.delF( tinP , pcl ) ; break ; }
+                    case ifcIDtYPElEVER_PTR_osTextT    : { _IO_ osTextT*  pcl =  (osTextT*)*(countT*)pbLB ; third.delF( tinP , pcl ) ; break ; }
+                    case ifcIDtYPElEVER_PTR_plateC     : { _IO_ plateC*   pcl =   (plateC*)*(countT*)pbLB ; DEL( pcl )               ; break ; }
+                    case ifcIDtYPElEVER_PTR_strokeS    : { _IO_ strokeS*  pcl =  (strokeS*)*(countT*)pbLB ; third.delF( tinP , pcl ) ; break ; }
+                    case ifcIDtYPElEVER_PTR_countT     : { _IO_ countT*   pcl =   (countT*)*(countT*)pbLB ; third.delF( tinP , pcl ) ; break ; }
+                    case ifcIDtYPElEVER_PTR_BLOB       : { _IO_ byteT*    pbl =    (byteT*)*(countT*)pbLB ; third.delF( tinP , pbl ) ; break ; }
                     case ifcIDtYPElEVER_PTR_lenPrefixedCountT :
-                    case ifcIDtYPElEVER_countT         : { _INoLD_                                                                        _OUT_ break ; }
+                    case ifcIDtYPElEVER_countT         : { _IO_                                                                        break ; }
                     case ifcIDtYPElEVER_tid            :
                     }
                         break ;
-                        _OUT_
                         third.delF( tinP , *(countT**)&ppsttl ) ;
                         }
                             while( ppsttl[ off ] ) third.delF( tinP , ppsttl[ off ++ ] ) ;
@@ -39,7 +37,7 @@
                         {
                         if( ppsttl )
                         strokeS** ppsttl = *(strokeS***)pbLB ;
-                        _INoLD_
+                        _IO_
                     {
                     case ifcIDtYPElEVER_PTR_ptrStrokeS :
                 {
@@ -55,7 +53,7 @@
     else if( osTidOwner != tinP.osTid && !bDying && !( F(stackk.flagsF(tinP)) & flSTACKc_ALLOWmULTIPLEuNSERIALIZED ) ) BLAMMO ;
     else if( !osTidOwner ) osTidOwner = tinP.osTid ;
     if( pBaton ) pBaton->grabF( tinP , TAG( TAGiDnULL ) ) ;
-    _INoLD_
+    _IO_
     
     }
         if( third ) return ;

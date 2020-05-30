@@ -87,30 +87,26 @@ DONEdRIVENsERVER( tmcSmtpF )
     }
         }
             }
-                _OUT_
                 }
                     POOPR
                 {
                 if( POOP )
     
                 }
-                    _OUT_
                     tinP.pEtScratch->delF( tinP , psttPeer ) ;
                     TELL( "cleaning up this session" ) ;
                     }
                         TELL( "end of handler loop" ) ;
-                        _OUT_
                         *tinP.pEtScratch = etScratchSave ;
                         //tinP.pEtScratch->ifcSayIF( stPhrases , flSAY_APPEND | flSAY_LOG ) ;
                         *tinP.pEtScratch = 0 ;
                         countT etScratchSave = *tinP.pEtScratch ;
                         etThread.delF( tinP , psttSource ) ;
                         }
-                            _OUT_
                             pso->writeF( tinP , (osTextT*)tErrWrite , tErrWrite.csF( tinP ) ) ;
                             TN( tErrWrite , "" ) ; tErrWrite = T("554 ")+tErrAll ;
                             POOPR
-                            _INoLD_
+                            _IO_
                         {
                         else
                         if( !POOP && !etThread ) pso->writeF( tinP , "250 ok\r\n" ) ;
@@ -121,11 +117,8 @@ DONEdRIVENsERVER( tmcSmtpF )
                         tinP.pEtScratch->delF( tinP , psttSoixlOld ) ;
                         tinP.pEtScratch->delF( tinP , psttHeader ) ;
                         }
-                            _OUT_
                             }
-                                _OUT_
                                 }
-                                    _OUT_
                                     etThread( tinP , pStkSetting ) ;
                                     while( ~hWalk ) ;
                                     }
@@ -133,7 +126,6 @@ DONEdRIVENsERVER( tmcSmtpF )
                                         if( POOP ) { POOPR } ;
 
                                         }
-                                            _OUT_
                                             tErrAll += tErr ;
                                             logSmtpF( tinP , etThread , tErr , c3r.c3 , c3r.c2 ) ;
                 
@@ -163,10 +155,7 @@ DONEdRIVENsERVER( tmcSmtpF )
                                             etThread.delF( tinP , psttSubject ) ;
                                             etThread.delF( tinP , psttFrom ) ;
                                             }
-                                                _OUT_
                                                 }
-                                                    _OUT_
-
                                                     if( bEditArchive ) tinP.pEtScratch->osEditF( tinP , tFileArchive , 1 ) ;
 
                                                     }
@@ -213,11 +202,11 @@ DONEdRIVENsERVER( tmcSmtpF )
                                                         else
                                                         if( POOP ) flError |= flERROR_COULDnOToPENfILES ;
             
-                                                        { _INoLD_ tinP.pEtScratch->fileOpenF( tinP , hFileArchive , countTC() , tFileArchive , ifcOPENaCCESS_W , 0 , flOPENdETAILS_LOCsEQ | flOPENdETAILS_DOnOTvALIDATE , ifcOPENhOW_nCeF ) ; _OUT_ }
+                                                        { _IO_ tinP.pEtScratch->fileOpenF( tinP , hFileArchive , countTC() , tFileArchive , ifcOPENaCCESS_W , 0 , flOPENdETAILS_LOCsEQ | flOPENdETAILS_DOnOTvALIDATE , ifcOPENhOW_nCeF ) ; }
                                                         handleC hFileArchive( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_FILE ) ;
                                                     {
         
-                                                    { _INoLD_ tinP.pEtScratch->fileOpenF( tinP , hFileBody , countTC() , tFileBody , ifcOPENaCCESS_R , 0 , flOPENdETAILS_LOCsEQ | flOPENdETAILS_DOnOTvALIDATE , ifcOPENhOW_nFeO ) ; _OUT_ }
+                                                    { _IO_ tinP.pEtScratch->fileOpenF( tinP , hFileBody , countTC() , tFileBody , ifcOPENaCCESS_R , 0 , flOPENdETAILS_LOCsEQ | flOPENdETAILS_DOnOTvALIDATE , ifcOPENhOW_nFeO ) ; }
                                                     handleC hFileBody( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_FILE ) ;
         
                                                     }
@@ -227,14 +216,13 @@ DONEdRIVENsERVER( tmcSmtpF )
                                                         ZE( strokeS* , psttu ) ;
                                                     {
                                                     TN( tFileArchive , "" ) ;
-                                                    _INoLD_
+                                                    _IO_
                                                 {
                                                 if( bArchive )
                                                 TELL( "archiving" ) ;
         
     // END ********************************************************************************************************************************************
                                                 }
-                                                    _OUT_
                                                     }
                                                         //LOGrAW( tName+tcr ) ;
                                                         etThread.delF( tinP , pstt1f ) ;
@@ -386,13 +374,12 @@ DONEdRIVENsERVER( tmcSmtpF )
                                                     //COMMENTED OUT TO ELIMINATE ANY DIFFERENCE IN BEHAVIOR W.R.T. ACCT OWNER; ACCT OWNER CONCEPT IS NOW MERELY THE IDENTITY OF THE PERSON WHO IS ALLOWED TO EDIT THE ACCOUNT SETTINGS; OWNER'S EMAIL IS NOT TREATED ANY DIFFERENTLY IN HANDLING AN EMAIL ITEM
                                                     ZE( boolT , bNewConversation ) ;
                                                     TN( tRelayTo , "" ) ;
-                                                    _INoLD_
+                                                    _IO_
                                                     TELL( "obeying relay specs" ) ;
                                                 {
                                                 else
     // INCOMING INTO RELAY ********************************************************************************************************************************************
                                                 }
-                                                    _OUT_
                                                     //LOGrAW( tName+tcr ) ;
                                                     etThread.delF( tinP , pstt1f ) ;
                                                     etThread.boxPutF( tinP , tName , (byteT*)pstt1f , 0 , 0 , flOPENdETAILS_null , flBOXcpUTf_FILEnAME ) ;
@@ -404,13 +391,12 @@ DONEdRIVENsERVER( tmcSmtpF )
                                                     etThread.strFuseSeparateF( tinP , pstt1f , T("!literal:")+tHeadRetain+T("\r\n") , 0 , 0 , 0 , 0 , /*U::SOUL?*/ 2 * CSpREFIX + tFileBody.csF( tinP ) + tFoot.csF( tinP ) ) ; ___( pstt1f ) ;
                                                     ZE( strokeS* , pstt1f ) ;
                                                     TN( tFoot , "!literal:\r\nhttp://ideafarm.com/double.blind.relay.password.email\r\n" ) ;
-                                                    _INoLD_
+                                                    _IO_
                                                     TELL( "from relay, so sending to penpal" ) ;
                                                 {
                                                 else if( psttOutToPenpal ) //ITEM IS OUTGOING FROM RELAY AND THERE IS A PENPAL ON THE SUBACCOUNT, SO SEND TO THE PENPAL
     // ORIGINAL OUT THROUGH RELAY TO PENPAL ********************************************************************************************************************************************
                                                 }
-                                                    _OUT_
                                                     //LOGrAW( tName+tcr ) ;
                                                     etThread.delF( tinP , pstt1f ) ;
                                                     etThread.boxPutF( tinP , tName , (byteT*)pstt1f , 0 , 0 , flOPENdETAILS_null , flBOXcpUTf_FILEnAME ) ;
@@ -430,13 +416,12 @@ DONEdRIVENsERVER( tmcSmtpF )
                                                     etThread.strFuseSeparateF( tinP , pstt1f , T("!literal:")+tHeadRetain+T("\r\n") , 0 , 0 , 0 , 0 , /*U::SOUL?*/ 2 * CSpREFIX + tFileBody.csF( tinP ) + tFoot.csF( tinP ) ) ; ___( pstt1f ) ;
                                                     ZE( strokeS* , pstt1f ) ;
                                                     TN( tFoot , "!literal:\r\nhttp://ideafarm.com/double.blind.relay.password.email\r\n" ) ;
-                                                    _INoLD_
+                                                    _IO_
                                                     TELL( "sending error notification to owner" ) ;
                                                 {
                                                 else if( !etThread.strCompareF( tinP , psttFrom , T(ifcEMAIL_MAILoUT) ) )
     // ERROR NOTIFICATION OUT TO OWNER ********************************************************************************************************************************************
                                                 }
-                                                    _OUT_
                                                     tinP.pEtScratch->delF( tinP , psttOrigin ) ;
                                                     }
                                                         //LOGrAW( tName+tcr ) ;
@@ -470,7 +455,7 @@ DONEdRIVENsERVER( tmcSmtpF )
                                                     queryEmailFromIdAccountF( tinP , psttOrigin , c3r.c1 ) ;
                                                     ZE( strokeS* , psttOrigin ) ;
     
-                                                    _INoLD_
+                                                    _IO_
                                                     TELL( "replying to idAccount identified in address" ) ;
                                                 {
                                                 if( c3r.c1 )
@@ -480,7 +465,6 @@ DONEdRIVENsERVER( tmcSmtpF )
             
                                                 //LOGrAW( T("[tHeadRetain]: \"")+tHeadRetain+T("\"\r\n") ) ; //U::
                                                 }
-                                                    _OUT_
                                                     }
                                                         }
                                                             while( ~hWalk ) ;
@@ -507,7 +491,7 @@ DONEdRIVENsERVER( tmcSmtpF )
                                                     TN( t3 , "content-type" ) ;
                                                     TN( t2 , "mime-version" ) ;
                                                     TN( t1 , "subject" ) ;
-                                                    _INoLD_
+                                                    _IO_
                                                 {
                                                 TN( tHeadRetain , "" ) ;
                                                 TELL( "preparing to relay" ) ;
@@ -1242,7 +1226,7 @@ DONEdRIVENsERVER( tmcSmtpF )
                                                 ZE( boolT , bEditArchive ) ;
                                                 subaccountS info( tinP , etThread , c3r.c3 , c3r.c2 , flSUBACCOUNT_QUERYrECIPE ) ;
                                                 TELL( "obeying recipes" ) ;
-                                                _INoLD_
+                                                _IO_
     // RECIPES ********************************************************************************************************************************************
                                             {
                                             else
@@ -1250,13 +1234,12 @@ DONEdRIVENsERVER( tmcSmtpF )
                                                 break ;
                                                 if( POOP ) { POOPR } ;
         
-                                                _OUT_
                                                 etThread.delF( tinP , psttSubject ) ;
                                                 etThread.delF( tinP , psttFrom ) ;
         
                                                 flError |= flERROR_FALSEsENDER ;
                                                 __1
-                                                _INoLD_
+                                                _IO_
                                                 TELL( "false sender" ) ;
                                             {
                                             else if( bCheckFromInBody && tinP.pEtScratch->strCompareF( tinP , psttFrom , psttSource ) )
@@ -1264,13 +1247,12 @@ DONEdRIVENsERVER( tmcSmtpF )
                                                 break ;
                                                 if( POOP ) { POOPR } ;
         
-                                                _OUT_
                                                 etThread.delF( tinP , psttSubject ) ;
                                                 etThread.delF( tinP , psttFrom ) ;
         
                                                 flError |= flERROR_HIDDENsENDER ;
                                                 __1
-                                                _INoLD_
+                                                _IO_
                                                 TELL( "from is null" ) ;
                                             {
                                             if( !psttFrom )
@@ -1278,13 +1260,12 @@ DONEdRIVENsERVER( tmcSmtpF )
                                         {
                                         else
                                         }
-                                            _OUT_
                                             etThread.delF( tinP , psttSubject ) ;
                                             etThread.delF( tinP , psttFrom ) ;
     
                                             flError |= flERROR_COULDnOThANDLErECIPIENT ;
                                             __1
-                                            _INoLD_
+                                            _IO_
                                             POOPR
                                             TELL( "resetting poop" ) ;
                                         {
@@ -1292,7 +1273,6 @@ DONEdRIVENsERVER( tmcSmtpF )
                                         TELL( "inspecting poop after kv" ) ;
     
                                         }
-                                            _OUT_
                                             }
                                                 //}
                                                 //    while( ~hWalk ) ;
@@ -1333,7 +1313,7 @@ DONEdRIVENsERVER( tmcSmtpF )
                                             for( countT idf = 1 ; idf <= cFlavors ; idf ++ )
                                             countT cFlavors = swsKeyValues.cFlavorsF( tinP ) ;
                                             TELL( "inspecting kv" ) ;
-                                            _INoLD_
+                                            _IO_
                                         {
                                         //U::SET psttFrom psttSubject HERE
                                         ZE( boolT , bContentIsPlain ) ;
@@ -1350,7 +1330,7 @@ DONEdRIVENsERVER( tmcSmtpF )
     
                                         count3S& c3r = *(count3S*)&stRecipient.downF( tinP , hWalk ) ;
                                         TELL( "loop beginning for a recipient" ) ;
-                                        _INoLD_
+                                        _IO_
                                     {
                                     do
                                     handleC hWalk( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_STACKwALK ) ;
@@ -1360,16 +1340,16 @@ DONEdRIVENsERVER( tmcSmtpF )
                                     ZE( stackC* , pStkSetting ) ;
                                     TELL( "allocating pStkSetting" ) ;
 
-                                    _INoLD_
+                                    _IO_
                                 {
                                 if( !etThread && stRecipient )
                                 TELL( "inspecting stRecipient" ) ;
                                 //LOGrAW3( "stRecipient is " , stRecipient , "\r\n" ) ;
-                                _INoLD_
+                                _IO_
                             {
                             TELL( "writing the received item to disk" ) ;
                             //LOGrAW( "writing received item to disk\r\n" ) ;
-                            _INoLD_
+                            _IO_
                         {
                         if( !POOP && !etThread )
                         TN( tErrAll , "" ) ;
@@ -1386,7 +1366,6 @@ DONEdRIVENsERVER( tmcSmtpF )
                         TELL( "after reading data" ) ;
     
                         }
-                            _OUT_
                             tinP.pEtScratch->delF( tinP , posti ) ;
     
                             }
@@ -1488,7 +1467,7 @@ DONEdRIVENsERVER( tmcSmtpF )
                                 ZE( boolT , bInspectNewParagraph ) ;
                                 countT idPhase = 1 ; // 1:HEADER ; 2:SOIXLoLD ; 3:BODY
                                 ZE( boolT , bData ) ;
-                                { _INoLD_ etThread.fileOpenF( tinP , hFileBody , countTC() , tFileBody , ifcOPENaCCESS_W , 0 , flOPENdETAILS_LOCsEQ | flOPENdETAILS_DOnOTvALIDATE , ifcOPENhOW_nCeF ) ; _OUT_ }
+                                { _IO_ etThread.fileOpenF( tinP , hFileBody , countTC() , tFileBody , ifcOPENaCCESS_W , 0 , flOPENdETAILS_LOCsEQ | flOPENdETAILS_DOnOTvALIDATE , ifcOPENhOW_nCeF ) ; }
                                 handleC hFileBody( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_FILE ) ;
     
                                 //A:ASSUME: INCOMING DATA BEGINS WITH A HEADER LINE
@@ -1504,7 +1483,7 @@ DONEdRIVENsERVER( tmcSmtpF )
     
                             // CAPACITY CONSTRAINT: LINE MUST BE LESS THAN 01 TOCK; NO LIMIT ON NUMBER OF LINES
                             // APPROACH
-                            _INoLD_
+                            _IO_
                         {
                         if( !POOP )
                         ZE( strokeS* , psttBodyWothTock ) ;
@@ -1540,7 +1519,6 @@ DONEdRIVENsERVER( tmcSmtpF )
                         if( bQuit )
 
                         }
-                            _OUT_
                             tinP.pEtScratch->delF( tinP , psttTo ) ;
                             }
                                 pso->writeF( tinP , (osTextT*)tErr , tErr.csF( tinP ) ) ;
@@ -1748,14 +1726,13 @@ DONEdRIVENsERVER( tmcSmtpF )
                             pso->readWoLineF( tinP , psttl , TOCK ) ; ___( psttl ) ;
                             TELL( "reading a rcpt to line" ) ;
                             ZE( strokeS* , psttl ) ;
-                            _INoLD_
+                            _IO_
                         {
                         while( !POOP && !etThread )
                         ZE( boolT , bQuit ) ;
                         stackC stRecipient( tinP , etThread , TAG( TAGiDnULL ) , flSTACKc_FIFO|flSTACKc_BLOB , 3 * sizeof( countT ) ) ;
                 
                         }
-                            _OUT_
                             }
                                 continue ;
                                 logSmtpF( tinP , etThread , tError ) ;
@@ -1859,33 +1836,31 @@ DONEdRIVENsERVER( tmcSmtpF )
                                 TELL( "reading the mail from line" ) ;
                             {
                             ZE( strokeS* , psttl ) ;                                                                      // " MAIL FROM : <FOO@bar.com> "
-                            _INoLD_
+                            _IO_
                         {
                         boolT bCheckFromInBody = 1 ;
                         ZE( strokeS* , psttOutToPenpal ) ;
                         ZE( strokeS* , psttSource ) ;
                         ZE( flagsT , flError ) ;
-                        _INoLD_
+                        _IO_
                     {
                     while( !POOP && !ether && !etThread )
                 
                     }
-                        _OUT_
                         etThread.delF( tinP , psttl ) ;
                         }
-                            _OUT_
                             pso->writeF( tinP , "250 ideafarm.com\r\n" ) ;
                             /*__( etThread.strCompareF( tinP , psttw2 , tHelo ) ) ;*/ etThread.delF( tinP , psttw2 ) ; //THIS IS NOT DONE CAUSE NETSCAPE SENDS "EHLO" RATHER THAN "HELO"
                             etThread.strConvertToLowerCaseF( tinP , psttw2 , psttw1 ) ; ___( psttw2 ) ; etThread.delF( tinP , psttw1 ) ;
                             etThread.strWordF( tinP , psttw1 , psttl , sttq , sttSpace , 1 ) ; ___( psttw1 ) ;
-                            _INoLD_
+                            _IO_
                         {
                         if( !POOP )
                         //etThread.ifcSayIF( T(nicNamePeer)+T(" ")+T(psttPeer)+T(": |")+T(psttl)+tcr , flSAY_APPEND | flSAY_LOG ) ;
                         pso->readWoLineF( tinP , psttl , TOCK ) ; ___( psttl ) ;
                         TELL( "reading hello line" ) ;
                         ZE( strokeS* , psttl ) ;
-                        _INoLD_
+                        _IO_
                     {
                     if( !POOP )
                     // "helo" OR "ehlo" ETC: NOT PARSED
@@ -1911,7 +1886,7 @@ DONEdRIVENsERVER( tmcSmtpF )
                 
                     pso->writeF( tinP , "220 mail.ideafarm.com IdeaFarm " "(tm) City smtp mail receiver ready\r\n" ) ;
                     TELL( "writing that i am ready" ) ;
-                    _INoLD_
+                    _IO_
                 {
                 else
                 }
@@ -1930,7 +1905,7 @@ DONEdRIVENsERVER( tmcSmtpF )
             
                 boolT bSpammer = 0 ; //U:: BLAMMO'D HERE. COMMENTED OUT AS WORKAROUND TO STABILIZE SERVER: etThread.ifcIsSpammerF( tinP , psttSpammer , nicNamePeer ) ; ___( psttSpammer ) ;
                 ZE( strokeS* , psttSpammer ) ;
-                _INoLD_
+                _IO_
             {
             if( !POOP )
 
@@ -1982,7 +1957,7 @@ TASKdRIVENsERVER( tmcSmtpF )
         etThread.fileWriteF( tinP , hFile , tEntry , tEntry.csF( tinP ) ) ;
         etThread.fileSetPtrF( tinP , hFile , flSETfILEpTR_END , c2p ) ;
         count2S c2p ;
-        { _INoLD_ etThread.fileOpenF( tinP , hFile , countTC() , tFileLog , ifcOPENaCCESS_W , 0 , flOPENdETAILS_LOCsEQ , ifcOPENhOW_nCeO ) ; _OUT_ }
+        { _IO_ etThread.fileOpenF( tinP , hFile , countTC() , tFileLog , ifcOPENaCCESS_W , 0 , flOPENdETAILS_LOCsEQ , ifcOPENhOW_nCeO ) ; }
         handleC hFile( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_FILE ) ;
             
         TN( tFileLog , "" ) ; tFileLog = T("///ideafarm/ephemeral/backed.up.daily/domains/com/ideafarm/ipdos/accounts/")+TF4(idAccountSP,flFORMAT_NObIGITvALUES|flFORMAT_NObASE,0,36)+T("/subaccounts/")+TF4(idSubAccountSP,flFORMAT_NObIGITvALUES|flFORMAT_NObASE,0,36)+T("/txt.log.smtp.txt") ;
@@ -1993,7 +1968,7 @@ TASKdRIVENsERVER( tmcSmtpF )
         etThread.fileWriteF( tinP , hFile , tEntry , tEntry.csF( tinP ) ) ;
         etThread.fileSetPtrF( tinP , hFile , flSETfILEpTR_END , c2p ) ;
         count2S c2p ;
-        { _INoLD_ etThread.fileOpenF( tinP , hFile , countTC() , tFileLog , ifcOPENaCCESS_W , 0 , flOPENdETAILS_LOCsEQ , ifcOPENhOW_nCeO ) ; _OUT_ }
+        { _IO_ etThread.fileOpenF( tinP , hFile , countTC() , tFileLog , ifcOPENaCCESS_W , 0 , flOPENdETAILS_LOCsEQ , ifcOPENhOW_nCeO ) ; }
         handleC hFile( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_FILE ) ;
             
         TN( tFileLog , "" ) ; tFileLog = T("///ideafarm/ephemeral/backed.up.daily/domains/com/ideafarm/ipdos/txt.log.smtp.txt") ;

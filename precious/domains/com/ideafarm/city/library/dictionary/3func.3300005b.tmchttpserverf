@@ -14,7 +14,6 @@
 #undef PEEP
 
 DONEdRIVENsERVER( tmcHttpServerF )
-_OUT_
 }
     //etThread.traceF( tinP , T("tmcHttpServerF / ---- ") ) ;
     //tinP.pAdamGlobal1->pEtThreadMain->etherTestF( tinP ) ; //U:: TO FIND A BUG
@@ -34,7 +33,7 @@ _OUT_
         {
         if( !bDeadman ) //VISITORS CAN CONCEAL THEIR VISIT BY ASKING FOR DEADMAN URL
 
-        { _INoLD_ etThread( tinP , pswTally ) ; _OUT_ }
+        { _IO_ etThread( tinP , pswTally ) ; }
         }
             }
                 //else tLog += t2+TF2(*pswTally,flFORMAT_NObIGITvALUES)+t1+T(psttLeverUrlTally)+tcr ;
@@ -62,7 +61,7 @@ _OUT_
         etThread.osTimeNowF( tinP , timeA1 , timeA2 ) ;
         ZE( sCountT , timeA2 ) ;
         ZE( countT , timeA1 ) ;
-        { _INoLD_ etThread( tinP , pswKV ) ; _OUT_ }
+        { _IO_ etThread( tinP , pswKV ) ; }
         POOPR
         TELL( "tmcHttpServerF: cleaning up (part 1)" ) ;
 
@@ -585,10 +584,9 @@ _OUT_
                                             ZE( boolT , bAllowBigHead ) ;
             
                                             }
-                                                _OUT_
                                                 (*REPLY.pCBF)( tinP , etThread , bQuitP , meP , cArgAppP , REPLY , *pStkBodyDynamic , psttKVReport , *pswKV , psttLeverKV , sessionsP , nnPeerP , psttName , psttAgent , postBody ) ;
                                                 TELL( T(psttName) ) ;
-                                                _INoLD_
+                                                _IO_
                                             {
                                             if( REPLY.pCBF )
                                             //DONE EARLY TO GIVE CBF AN EARLY CHANCE TO CHANGE STATE IN WAYS THAT WILL AFFECT BUILDING OF HEADER
@@ -644,9 +642,8 @@ _OUT_
                                             //20190801@1816: REMOVED FOOTER: PUSHsNIP( meP , !sessionP.getIdAccountCommissionF( tinP ) ? ifcIDsNIPpREDEFINED_FOOT1 : ifcIDsNIPpREDEFINED_FOOT2 ) ;
                             
                                             }
-                                                _OUT_
                                                 (*REPLY.pCBF)( tinP , etThread , bQuitP , meP , cArgAppP , REPLY , *pStkBody , psttKVReport , *pswKV , psttLeverKV , sessionsP , nnPeerP , psttName , psttAgent , postBody ) ;
-                                                _INoLD_
+                                                _IO_
                                             {
                                             if( REPLY.pCBF )
 
@@ -759,9 +756,8 @@ _OUT_
                                             break ;
 
                                             }
-                                                _OUT_
                                                 (*REPLY.pCBF)( tinP , etThread , bQuitP , meP , cArgAppP , REPLY , *pStkBody , psttKVReport , *pswKV , psttLeverKV , sessionsP , nnPeerP , psttName , psttAgent , postBody ) ;
-                                                _INoLD_
+                                                _IO_
                                             {
                                             if( REPLY.pCBF )
 
@@ -1065,7 +1061,7 @@ _OUT_
     //etThread.traceF( tinP , T("tmcHttpServerF / ++++ ") ) ;
 {
 if( cArg )
-_INoLD_
+_IO_
 TELL( "preparing for work" ) ;
 /*1*/TASKdRIVENsERVER( tmcHttpServerF )/*1*/
 

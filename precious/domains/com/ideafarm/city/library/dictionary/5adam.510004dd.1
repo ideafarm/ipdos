@@ -250,8 +250,6 @@ thirdC::third_flagsModeAdam1I_IF( tinP ) |= flADAMmODE1_DEBUG1 ; //U::CAUSES THE
 TODO
 
 }
-    _OUT_
-
     etThread.delF( tinP , pstt1f ) ;
     FORsTRINGSiN1( pstt1f ) if( etThread.diskFileExistsF( tinP , psttc1 ) ) etThread.diskMoveFileOrDirF( tinP , T(psttc1)+tSuffix , psttc1 ) ;
     TN( tSuffix , "." ) ; tSuffix += TT(timeN1,timeN2) ;
@@ -265,7 +263,7 @@ TODO
     etThread.osTimeNowF( tinP , timeN1 , timeN2 ) ;
     ZE( sCountT , timeN2 ) ;
     ZE(  countT , timeN1 ) ;
-    _INoLD_    TLNA( "renameOldReportFilesF" )
+    _IO_    TLNA( "renameOldReportFilesF" )
 {
 voidT renameOldReportFilesF( tinS& tinP , etherC& etThread )
 
@@ -1075,48 +1073,39 @@ tinP.idPhase2 = 0 ;
 
 #endif
 //U::
-        _OUT_
         }
-            _OUT_
             }
                 }
-                    _OUT_
                     }
-                        _OUT_
                         TALLY( Fine  , Phase , c5lever  , c5lvf , (countT)&c5lvf )
-                        _INoLD_
+                        _IO_
                     {
                     }
-                        _OUT_
                         TALLY( Gross , Phase , c4lever  , c4lvg , (countT)&c4lvg )
-                        _INoLD_
+                        _IO_
                     {
                     count5S c5lvf( copy1.idLineTinCt & 0xfff , copy1.idiFileTinCt , copy1.idWhat , copy1.idPhase , copy1.idPhase3 ) ;
                     count4S c4lvg( copy1.idLineTinCt & 0xfff , copy1.idiFileTinCt , copy1.idPhase , copy1.idPhase3 ) ;
-                    _INoLD_
+                    _IO_
                 {
                 if( copy1.idPhase )
     
                 }
-                    _OUT_
                     }
-                        _OUT_
                         TALLY( Fine  , Adam  , c4lever , c4lva       , (countT)&c4lva )
-                        _INoLD_
+                        _IO_
                     {
                     }
-                        _OUT_
                         TALLY( Fine  , Class , c4lever , c4lvc       , (countT)&c4lvc )
-                        _INoLD_
+                        _IO_
                     {
                     }
-                        _OUT_
                         TALLY( Gross , Class , cLever  , idAdamClass , idAdamClass    )
-                        _INoLD_
+                        _IO_
                     {
                     count4S c4lva( copy1.idAdamRoot , copy1.idWhat , copy1.idPhase , copy1.idPhase3 ) ;
                     count4S c4lvc( idAdamClass              , copy1.idWhat , copy1.idPhase , copy1.idPhase3 ) ;
-                    _INoLD_
+                    _IO_
                 {
                 if( copy1.idAdamRoot )
     
@@ -1129,12 +1118,11 @@ tinP.idPhase2 = 0 ;
                 ZE( countT , idAdamClass ) ;
     
                 }
-                    _OUT_
                     swWhereTallyActiveThread.ungrabF( tinP ) ;
                     ++ swWhereTallyActiveThread ;
                     c5leverTallyActiveThread = count5S( copy1.idLineTinCt , copy1.idiFileTinCt , copy1.idAdamRoot , copy1.idPhase , copy1.idPhase3 ) ;
                     swWhereTallyActiveThread.grabF( tinP , TAG( TAGiDnULL ) ) ;
-                    _INoLD_
+                    _IO_
                 {
                 if( copy1.idWhat > ifcIDwHAT_STOPnOWAITbOUNDARY )
     
@@ -1148,14 +1136,13 @@ tinP.idPhase2 = 0 ;
             stWhereP >> pbCopy1 ;
             byteT* pbCopy1 = (byteT*)&copy1 ;
             whereOldS copy1 ;
-            _INoLD_
+            _IO_
         {
         while( stWhereP )
         TELL( "tallying" )
 
         stTinWhereP.ungrabF( tinP ) ;
         }
-            _OUT_
             while( !sgnDone_tmRptPoolF && !stTinWhereP.third && ~hDown ) ;
             }
                 }
@@ -1209,7 +1196,7 @@ tinP.idPhase2 = 0 ;
             {
             do
             handleC hDown( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_STACKwALK ) ;
-            _INoLD_
+            _IO_
         {
         if( !sgnDone_tmRptPoolF && stTinWhereP )
         TELL( "making whereOldS copies" )
@@ -1224,7 +1211,7 @@ tinP.idPhase2 = 0 ;
             sleepC s( tinP , TAG( TAGiDnULL ) ) ;
         {
         if( ++ idCycle == 1 )
-        _INoLD_
+        _IO_
     {
     while( !etThread && !sgnDone_tmRptPoolF )
     TN( t8 , "8\r\n" ) ;
@@ -2774,7 +2761,6 @@ voidT unregisterInactiveDriversF( tinS& tinP , etherC& etThread )
 
 }
     return - sgn ; // HIGHEST TALLY IS "LIGHTEST"
-    _OUT_
     }
         if( tinP.fingerprint && c3P ) ;
     
@@ -2795,7 +2781,7 @@ voidT unregisterInactiveDriversF( tinS& tinP , etherC& etThread )
         if( pEther )
     {
     ZE( sCountT , sgn ) ;
-    _INoLD_    //TLNA( "subtractTallyF" )
+    _IO_    //TLNA( "subtractTallyF" )
 
     }
     {
@@ -2805,13 +2791,12 @@ countT subtractTallyF( tinS& tinP , countT& pEther , countT& c1P , countT& c2P ,
 
 }
     return 0 ;
-    _OUT_
     }
         TELL( "cirLogF/-" )
         if( tinP.fingerprint && etherP && cParmP && pbP && cbP ) ;
         TELL( "cirLogF/+" )
     {
-    _INoLD_    TLNA( "cirLogF" )
+    _IO_    TLNA( "cirLogF" )
 {
 countT cirLogF( tinS& tinP , etherC& etherP , countT& cParmP , const byteT* const pbP , const countT cbP )
 
@@ -2819,7 +2804,6 @@ countT cirLogF( tinS& tinP , etherC& etherP , countT& cParmP , const byteT* cons
     return bLoop ;
     TELL( "wantersF: ----" )
 
-    _OUT_
     }
         cIndentP -- ;
         }
@@ -2867,14 +2851,13 @@ countT cirLogF( tinS& tinP , etherC& etherP , countT& cParmP , const byteT* cons
         if( !entryP.pbCopy ) { BLAMMO ; }
     {
     if( !stCheckedP( entryP.idSerial ) )
-    _INoLD_    //TLNA( "wantersF" )
+    _IO_    //TLNA( "wantersF" )
     ZE( boolT , bLoop ) ;
     TELL( "wantersF: ++++" )
 {
 boolT wantersF( tinS& tinP , etherC& etThread , stackC& stWantersP , stackC* pSt_psttrP , grabEntryS& entryP , const grabWantS* const pGrabWantP , const countT& cGrabWantP , stackC& stGrabbedP , stackC& stIdSerialGrabExcludeP , stackC& stCheckedP , stackC& stBadGrabsTmpP , stackC& stOsTidLoopedTmpP , countT& cIndentP )
 
 }
-    _OUT_
     }
         }
             }
@@ -2933,14 +2916,13 @@ boolT wantersF( tinS& tinP , etherC& etThread , stackC& stWantersP , stackC* pSt
         ZE( countT , ids ) ;
         stOsTidLoopedTmpP << osTidWantP ;
     {
-    _INoLD_    //TLNA( "wanters0F" )
+    _IO_    //TLNA( "wanters0F" )
 {
 voidT wanters0F( tinS& tinP , etherC& etThread , boolT& bLoopP , stackC& stWantersP , stackC* pSt_psttrP , const grabWantS* const pGrabWantP , const countT& cGrabWantP , stackC& stGrabbedP , stackC& stIdSerialGrabExcludeP , stackC& stCheckedP , stackC& stBadGrabsTmpP , stackC& stOsTidLoopedTmpP , countT& cIndentP , const countT osTidWantP )
 
 boolT wantersF( tinS& tinP , etherC& etThread , stackC& stWantersP , stackC* pSt_psttrP , grabEntryS& entryP , const grabWantS* const pGrabWantP , const countT& cGrabWantP , stackC& stGrabbedP , stackC& stIdSerialGrabExcludeP , stackC& stCheckedP , stackC& stBadGrabsTmpP , stackC& stOsTidLoopedTmpP , countT& cIndentP ) ;
 
 }
-    _OUT_
     TELL( "stampF: ----" )
     }
         mP.mStepsPerTuck = timeDelta2 ? 0.0 : (measureT)mP.cNewSteps * TUCK / timeDelta1 ;
@@ -2960,13 +2942,12 @@ boolT wantersF( tinS& tinP , etherC& etThread , stackC& stWantersP , stackC* pSt
 
     mP.idMonitorTock ++ ;
     mP.idMonitor = 1 ;
-    _INoLD_    //TLNA( "stampF" )
+    _IO_    //TLNA( "stampF" )
     TELL( "stampF: ++++" )
 {
 voidT stampF( tinS& tinP , etherC& etThread , monitorOldS& mP , countT idStepP )
 
 }
-    _OUT_
     TELL( "writeLog: ----" )
     etThread.delF( tinP , postl ) ;
     }
@@ -3034,7 +3015,7 @@ voidT stampF( tinS& tinP , etherC& etThread , monitorOldS& mP , countT idStepP )
 
     const byteT* const pbe = pbCircleP + cbCyrcleOldP ;
     const byteT*       pbc = pbCircleP ;
-    _INoLD_    TLNA( "writeLogF" )
+    _IO_    TLNA( "writeLogF" )
     TELL( "writeLog: ++++" )
 {
 voidT writeLogF( tinS& tinP , etherC& etThread , const byteT* const pbCircleP , const countT cbCyrcleOldP , const countT idReportP , const countT timeN1P , const sCountT timeN2P )
@@ -3042,7 +3023,6 @@ voidT writeLogF( tinS& tinP , etherC& etThread , const byteT* const pbCircleP , 
 }
     return 0 ;
     IDpHASErESTORE
-    _OUT_
     TELL( "cirMonitor: returning" )
     }
         //if( !setIfEqualsAM( conditionalGrabP , 0 , 1 ) ) { BLAMMO ; } // THE flSTACKc_ALLOWmULTIPLEuNSERIALIZED stackC objects MUST NOT BE REFERENCED AFTER THIS
@@ -3053,7 +3033,6 @@ voidT writeLogF( tinS& tinP , etherC& etThread , const byteT* const pbCircleP , 
             TELL( "cirMonitor: deleting pbData" )
             }
                 IDpHASErESTORE
-                _OUT_
                 }    
                     }
                         thirdC::dosWriteProcessMemoryIF( tinP , countTC() , (voidT*)( (byteT*)head.ipMe + ( (byteT*)&head.ipMe - (byteT*)&head ) ) , head.osPid , (byteT*)&ze , sizeof ze ) ;
@@ -3063,7 +3042,7 @@ voidT writeLogF( tinS& tinP , etherC& etThread , const byteT* const pbCircleP , 
                     if( head.bIda ) ( (tellS*)(byteT*)ap_artmentOldC( tinP , head.ipMe ) )->ipMe = 0 ;
                     TELL( "cirMonitor: synch reply" )
                 {
-                _INoLD_    TLNA( "ifcIDtYPEtELL bSynchronous" )
+                _IO_    TLNA( "ifcIDtYPEtELL bSynchronous" )
                 IDpHASE( 0xc )
             {
             if( head.ipMe ) // bSynchronous
@@ -3095,11 +3074,9 @@ voidT writeLogF( tinS& tinP , etherC& etThread , const byteT* const pbCircleP , 
                     }
                         break ;
                         IDpHASErESTORE
-                        _OUT_
                         }    
                             }    
                                 }
-                                    _OUT_
                                     }    
                                         //}
                                         //    }
@@ -3122,11 +3099,10 @@ voidT writeLogF( tinS& tinP , etherC& etThread , const byteT* const pbCircleP , 
                                         stNapkinP.grabF( tinP , TAG( TAGiDnULL ) ) ;
                                         ZE( countT , ids ) ;
                                     {
-                                    _INoLD_    TLNA( "ifcIDtYPEtELL_NAPKINdETACH" )
+                                    _IO_    TLNA( "ifcIDtYPEtELL_NAPKINdETACH" )
                                 {
                                 else
                                 }
-                                    _OUT_
                                     }    
                                         //}
                                         //    }
@@ -3156,7 +3132,7 @@ voidT writeLogF( tinS& tinP , etherC& etThread , const byteT* const pbCircleP , 
                                         stNapkinP.sinkF( tinP , ids , (byteT*)&entry , flSTACKsINK_UNIQUE , subtract_napkinEntryS_F ) ;
                                         ZE( countT , ids ) ;
                                     {
-                                    _INoLD_    TLNA( "ifcIDtYPEtELL_NAPKINfORMAT NAPKINaTTACH" )
+                                    _IO_    TLNA( "ifcIDtYPEtELL_NAPKINfORMAT NAPKINaTTACH" )
                                 {
                                 if( head.idType != ifcIDtYPEtELL_NAPKINdETACH )
                                 napkinEntryS entry( tinP , head.osPid , info.pvMe , info.idLineCt , info.idiFileCt , info.pvd , info.cbd , info.postName , info.costName ) ;
@@ -3172,7 +3148,7 @@ voidT writeLogF( tinS& tinP , etherC& etThread , const byteT* const pbCircleP , 
                             if( head.cbData != sizeof( tellInfoNapkinS ) )
                             TELL( "cirMonitor: NAPKINfORMAT NAPKINaTTACH NAPKINdETACH" )
                         {
-                        _INoLD_    TLNA( "ifcIDtYPEtELL_NAPKINfORMAT NAPKINaTTACH NAPKINdETACH" )
+                        _IO_    TLNA( "ifcIDtYPEtELL_NAPKINfORMAT NAPKINaTTACH NAPKINdETACH" )
                         IDpHASE( 0xa )
                     {
                     case ifcIDtYPEtELL_NAPKINdETACH :
@@ -3181,11 +3157,9 @@ voidT writeLogF( tinS& tinP , etherC& etThread , const byteT* const pbCircleP , 
                     }
                         break ;
                         IDpHASErESTORE
-                        _OUT_
                         }    
                             }    
                                 }
-                                    _OUT_
                                     }    
                                         }
                                             }
@@ -3208,11 +3182,10 @@ voidT writeLogF( tinS& tinP , etherC& etThread , const byteT* const pbCircleP , 
                                         stPoolP.grabF( tinP , TAG( TAGiDnULL ) ) ;
                                         ZE( countT , ids ) ;
                                     {
-                                    _INoLD_    TLNA( "ifcIDtYPEtELL_POOLoLDdETACH" )
+                                    _IO_    TLNA( "ifcIDtYPEtELL_POOLoLDdETACH" )
                                 {
                                 else
                                 }
-                                    _OUT_
                                     }    
                                         }
                                             }
@@ -3242,7 +3215,7 @@ voidT writeLogF( tinS& tinP , etherC& etThread , const byteT* const pbCircleP , 
                                         stPoolP.sinkF( tinP , ids , (byteT*)&entry , flSTACKsINK_UNIQUE , subtract_poolOldEntryS_F ) ;
                                         ZE( countT , ids ) ;
                                     {
-                                    _INoLD_    TLNA( "ifcIDtYPEtELL_POOLoLDfORMAT POOLoLDaTTACH" )
+                                    _IO_    TLNA( "ifcIDtYPEtELL_POOLoLDfORMAT POOLoLDaTTACH" )
                                 {
                                 if( head.idType != ifcIDtYPEtELL_POOLoLDdETACH )
                                 poolOldEntryS entry( tinP , head.osPid , info.pvMe , info.cbPool , info.idClient , info.postName , info.costName ) ;
@@ -3258,7 +3231,7 @@ voidT writeLogF( tinS& tinP , etherC& etThread , const byteT* const pbCircleP , 
                             if( head.cbData != sizeof( tellInfoPoolOldS ) )
                             TELL( "cirMonitor: POOLoLDfORMAT POOLoLDaTTACH POOLoLDdETACH" )
                         {
-                        _INoLD_    TLNA( "ifcIDtYPEtELL_POOLoLDfORMAT POOLoLDaTTACH POOLoLDdETACH" )
+                        _IO_    TLNA( "ifcIDtYPEtELL_POOLoLDfORMAT POOLoLDaTTACH POOLoLDdETACH" )
                         IDpHASE( 9 )
                     {
                     case ifcIDtYPEtELL_POOLoLDdETACH :
@@ -3267,7 +3240,6 @@ voidT writeLogF( tinS& tinP , etherC& etThread , const byteT* const pbCircleP , 
                     }
                         break ;
                         IDpHASErESTORE
-                        _OUT_
                         }    
                             }    
                                 stTinWhereP.ungrabF( tinP ) ;
@@ -3308,7 +3280,7 @@ voidT writeLogF( tinS& tinP , etherC& etThread , const byteT* const pbCircleP , 
                             if( head.cbData != sizeof( tellInfoTinS ) )
                             TELL( "cirMonitor: TINdTI TINdTP" )
                         {
-                        _INoLD_    TLNA( "ifcIDtYPEtELL_TINdTI" )
+                        _IO_    TLNA( "ifcIDtYPEtELL_TINdTI" )
                         IDpHASE( 8 )
                     {
                     case ifcIDtYPEtELL_TINdTP :
@@ -3316,7 +3288,6 @@ voidT writeLogF( tinS& tinP , etherC& etThread , const byteT* const pbCircleP , 
                     }
                         break ;
                         IDpHASErESTORE
-                        _OUT_
                         }    
                             }    
                                 }
@@ -3354,7 +3325,7 @@ voidT writeLogF( tinS& tinP , etherC& etThread , const byteT* const pbCircleP , 
                             if( head.cbData != sizeof( tellInfoTinS ) )
                             TELL( "cirMonitor: TINcTI TINcTP" )
                         {
-                        _INoLD_    TLNA( "ifcIDtYPEtELL_TINcTI" )
+                        _IO_    TLNA( "ifcIDtYPEtELL_TINcTI" )
                         IDpHASE( 7 )
                     {
                     case ifcIDtYPEtELL_TINcTP :
@@ -3362,7 +3333,6 @@ voidT writeLogF( tinS& tinP , etherC& etThread , const byteT* const pbCircleP , 
                     }
                         break ;
                         IDpHASErESTORE
-                        _OUT_
                         }    
                             }    
                                 stGrabP.ungrabF( tinP ) ;
@@ -3389,7 +3359,7 @@ voidT writeLogF( tinS& tinP , etherC& etThread , const byteT* const pbCircleP , 
                             if( head.cbData != sizeof( tellInfoGrabS ) )
                             TELL( "cirMonitor: GRABdTI GRABdTP GRABdEI GRABdEP" )
                         {
-                        _INoLD_    TLNA( "ifcIDtYPEtELL_GRABdTI" )
+                        _IO_    TLNA( "ifcIDtYPEtELL_GRABdTI" )
                         //CONoUTrAW( "-" ) ;
                         IDpHASE( 6 )
                     {
@@ -3400,7 +3370,6 @@ voidT writeLogF( tinS& tinP , etherC& etThread , const byteT* const pbCircleP , 
                     }
                         break ;
                         IDpHASErESTORE
-                        _OUT_
                         }
                             }    
                                 stGrabP.ungrabF( tinP ) ;
@@ -3426,7 +3395,7 @@ voidT writeLogF( tinS& tinP , etherC& etThread , const byteT* const pbCircleP , 
                             if( head.cbData != sizeof( tellInfoGrabS ) )
                             TELL( "cirMonitor: GRABcTI GRABcTP GRABaTI GRABaTP" )
                         {
-                        _INoLD_    TLNA( "ifcIDtYPEtELL_GRABcTI" )
+                        _IO_    TLNA( "ifcIDtYPEtELL_GRABcTI" )
                         //CONoUTrAW( "+" ) ;
                         IDpHASE( 5 )
                     {
@@ -3437,7 +3406,6 @@ voidT writeLogF( tinS& tinP , etherC& etThread , const byteT* const pbCircleP , 
                     }
                         break ;
                         IDpHASErESTORE
-                        _OUT_
                         }    
                             }    
                                 etherP.delF( tinP , psttl ) ;
@@ -3482,7 +3450,7 @@ voidT writeLogF( tinS& tinP , etherC& etThread , const byteT* const pbCircleP , 
                             if( head.cbData != sizeof( tellInfoExceptionS ) )
                             TELL( "cirMonitor: ERROReXCEPTION" )
                         {
-                        _INoLD_    TLNA( "ifcIDtYPEtELL_ERROReXCEPTION" )
+                        _IO_    TLNA( "ifcIDtYPEtELL_ERROReXCEPTION" )
                         CONoUTrAW( "cirMonitorF/ifcIDtYPEtELL_ERROReXCEPTION\r\n" ) ; //U::
                         IDpHASE( 4 )
                     {
@@ -3490,7 +3458,6 @@ voidT writeLogF( tinS& tinP , etherC& etThread , const byteT* const pbCircleP , 
                     }
                         break ;
                         IDpHASErESTORE
-                        _OUT_
                         }
                             }    
                                 }
@@ -3526,7 +3493,7 @@ voidT writeLogF( tinS& tinP , etherC& etThread , const byteT* const pbCircleP , 
                             if( head.cbData != sizeof( tellInfoLifiS ) )
                             TELL( "cirMonitor: TAG( TAGiDnULL )nAME" )
                         {
-                        _INoLD_    TLNA( "ifcIDtYPEtELL_LIFInAME" )
+                        _IO_    TLNA( "ifcIDtYPEtELL_LIFInAME" )
                         //CONoUTrAW( "cirMonitorF/ifcIDtYPEtELL_LIFInAME\r\n" ) ; //U::
                         IDpHASE( 3 )
                     {
@@ -3583,7 +3550,7 @@ voidT writeLogF( tinS& tinP , etherC& etThread , const byteT* const pbCircleP , 
         count8S&  c8m1                  =   *(count8S*)c2mp.c1 ;
         count2S&  c2mp                  =   *(count2S*)cParmP ;
     {
-    _INoLD_    TLNA( "cirMonitorF" )
+    _IO_    TLNA( "cirMonitorF" )
     IDpHASE( 2 )
 {
 countT cirMonitorF( tinS& tinP , etherC& etherP , countT& cParmP , const byteT* const pbP , const countT cbP )
@@ -3598,8 +3565,6 @@ boolT bAcceptEventF( tinS* pTinP , tellInfoExceptionS& infoP , countT* pcArgP )
 }
     return sgn ;
     if( tinP.fingerprint && c3P ) ;
-    _OUT_
-
     }                       
         else if( pe1->ip       < pe2->ip       ) sgn = - 1 ;
         else if( pe1->ip       > pe2->ip       ) sgn =   1 ;
@@ -3624,7 +3589,7 @@ boolT bAcceptEventF( tinS* pTinP , tellInfoExceptionS& infoP , countT* pcArgP )
         etherC& ether = *(etherC*)pEther ;
     {
     if( pEther )
-    _INoLD_
+    _IO_
 
     }
     {
@@ -3635,8 +3600,6 @@ countT subtract_tinEntryS_F( tinS& tinP , countT& pEther , countT& c1P , countT&
 }
     return sgn ;
     if( tinP.fingerprint && c3P ) ;
-    _OUT_
-
     }                       
         else if( pe1->cbd       < pe2->cbd       ) sgn = - 1 ;
         else if( pe1->cbd       > pe2->cbd       ) sgn =   1 ;
@@ -3661,7 +3624,7 @@ countT subtract_tinEntryS_F( tinS& tinP , countT& pEther , countT& c1P , countT&
         etherC& ether = *(etherC*)pEther ;
     {
     if( pEther )
-    _INoLD_
+    _IO_
 
     }
     {
@@ -3672,8 +3635,6 @@ countT subtract_napkinEntryS_F( tinS& tinP , countT& pEther , countT& c1P , coun
 }
     return sgn ;
     if( tinP.fingerprint && c3P ) ;
-    _OUT_
-
     }                       
         }                       
             else if( pe1->pvMe     < pe2->pvMe     ) sgn = - 1 ;
@@ -3696,7 +3657,7 @@ countT subtract_napkinEntryS_F( tinS& tinP , countT& pEther , countT& c1P , coun
         etherC& ether = *(etherC*)pEther ;
     {
     if( pEther )
-    _INoLD_
+    _IO_
 
     }
     {
@@ -3708,7 +3669,6 @@ countT subtract_poolOldEntryS_F( tinS& tinP , countT& pEther , countT& c1P , cou
     return sgn ;
     if( tinP.fingerprint && c3P ) ;
 
-    _OUT_
     }                       
         else if( pe1->idLine  < pe2->idLine  ) sgn = - 1 ;
         else if( pe1->idLine  > pe2->idLine  ) sgn =   1 ;
@@ -3725,7 +3685,7 @@ countT subtract_poolOldEntryS_F( tinS& tinP , countT& pEther , countT& c1P , cou
         etherC& ether = *(etherC*)pEther ;
     {
     if( pEther )
-    _INoLD_
+    _IO_
 
     }
     {
@@ -3737,7 +3697,6 @@ countT subtract_lifiEntryS_F( tinS& tinP , countT& pEther , countT& c1P , countT
     return sgn ;
     if( tinP.fingerprint && c3P ) ;
 
-    _OUT_
     }                       
         else if( pe1->ip       < pe2->ip       ) sgn = - 1 ;
         else if( pe1->ip       > pe2->ip       ) sgn =   1 ;
@@ -3758,7 +3717,7 @@ countT subtract_lifiEntryS_F( tinS& tinP , countT& pEther , countT& c1P , countT
         etherC& ether = *(etherC*)pEther ;
     {
     if( pEther )
-    _INoLD_
+    _IO_
 
     }
     {

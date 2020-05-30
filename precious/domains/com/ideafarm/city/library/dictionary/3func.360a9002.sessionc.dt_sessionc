@@ -8,26 +8,24 @@
 
 
 }
-    _OUT_
-
-    { _INoLD_ ether.delF( tinP , psttKeyDefPending ) ; _OUT_ }
+    { _IO_ ether.delF( tinP , psttKeyDefPending ) ; }
 
     }
-        { _INoLD_ ether.delF( tinP , *(strokeS**)&(countT&)swStringVariable ) ; _OUT_ }
+        { _IO_ ether.delF( tinP , *(strokeS**)&(countT&)swStringVariable ) ; }
         psttzKey = (strokeS*)swStringVariable.leverF( tinP , idf ) ;
     {
     for( countT idf = 1 ; idf <= cFlavors ; idf ++ )
     countT cFlavors = swStringVariable.cFlavorsF( tinP ) ;
 
-    { _INoLD_ ether.delF( tinP , pbAppMemory ) ; _OUT_ }
-    { _INoLD_ ether.delF( tinP , psttFolder ) ; _OUT_ }
-    { _INoLD_ ether.delF( tinP , psttu ) ; _OUT_ }
+    { _IO_ ether.delF( tinP , pbAppMemory ) ; }
+    { _IO_ ether.delF( tinP , psttFolder ) ; }
+    { _IO_ ether.delF( tinP , psttu ) ; }
     ether.boxPutUniqueF( tinP , psttu , T("///ideafarm/ephemeral/domains/com/ideafarm/ipdos/sessions/")+TF2(etherC::ifc_idAdamI_IF(tinP),flFORMAT_UNSIGNED|flFORMAT_NObIGITvALUES)+T("/")+T(psttFolder)+T("/")+T(nnPeer)+T("/session") , WS( soul ) ) ; ___( psttu ) ;
     ZE( strokeS* , psttu ) ;
 
-    { _INoLD_ ether.delF( tinP , psttEmailLoggedIn     ) ; _OUT_ }
-    { _INoLD_ ether.delF( tinP , *(strokeS**)&psttUser ) ; _OUT_ }
-    { _INoLD_ ether.delF( tinP , *(strokeS**)&psttPeer ) ; _OUT_ }
+    { _IO_ ether.delF( tinP , psttEmailLoggedIn     ) ; }
+    { _IO_ ether.delF( tinP , *(strokeS**)&psttUser ) ; }
+    { _IO_ ether.delF( tinP , *(strokeS**)&psttPeer ) ; }
     //U::THE FINE INOUT IS TO FIND A BUG: I AM DELETING A strokeS* DROP THAT IS NOT OWNED
 
     else                                     { ether.strMakeF( tinP , psttFolder , T("!anonymous") ) ; ___( psttFolder ) ; }
@@ -37,7 +35,7 @@
     (*this) >> soul ;
     soulC soul( tinP , TAG( TAGiDnULL ) ) ;
 
-    _INoLD_
+    _IO_
 
     CONoUTrAW3( "" , this , " -\r\n" ) ; //U::TO FIND A BUG
 

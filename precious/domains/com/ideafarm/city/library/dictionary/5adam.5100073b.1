@@ -17,15 +17,15 @@ THREADmODE2rESTORE
         POPtINaRGS
         listC::walkIF( tinP , pczEvents , flLISToPEN_IFeXISTS ) ;
 
-        tinP.ta.retained.listWalk.util.pcP[ 3 ] = (countT)&hFileReport ;
-        tinP.ta.retained.listWalk.util.pcP[ 2 ] = 0 ;                                         // WILL HOLD idJotUri       FOR THE URI CURRENTLY BEING PROCESSED
-        tinP.ta.retained.listWalk.util.pcP[ 1 ] = 0 ;                                         // WILL HOLD idJotContainer FOR THE URI CURRENTLY BEING PROCESSED
-        tinP.ta.retained.listWalk.util.pcP[ 0 ] = sizeof( countT ) ;
+        tinP.ta.retained.u.listWalk.util.pcP[ 3 ] = (countT)&hFileReport ;
+        tinP.ta.retained.u.listWalk.util.pcP[ 2 ] = 0 ;                                         // WILL HOLD idJotUri       FOR THE URI CURRENTLY BEING PROCESSED
+        tinP.ta.retained.u.listWalk.util.pcP[ 1 ] = 0 ;                                         // WILL HOLD idJotContainer FOR THE URI CURRENTLY BEING PROCESSED
+        tinP.ta.retained.u.listWalk.util.pcP[ 0 ] = sizeof( countT ) ;
 
-        tinP.ta.pushed.listWalk.util.pcP[ 1 ] = flLISTwALKcHATTER_MAPiDjOTvALUES ;
-        tinP.ta.pushed.listWalk.util.pcP[ 0 ] = pczEvents[ 1 ] ;
-        tinP.ta.pushed.listWalk.walk.flagsWalkP = flLISTwALK_IGNOREdELETErEQUESTEDbIT ;
-        tinP.ta.pushed.listWalk.walk.pListWalkCBFP = listWalkReportAccessEventsCBF ;
+        tinP.ta.pushed.u.listWalk.util.pcP[ 1 ] = flLISTwALKcHATTER_MAPiDjOTvALUES ;
+        tinP.ta.pushed.u.listWalk.util.pcP[ 0 ] = pczEvents[ 1 ] ;
+        tinP.ta.pushed.u.listWalk.walk.flagsWalkP = flLISTwALK_IGNOREdELETErEQUESTEDbIT ;
+        tinP.ta.pushed.u.listWalk.walk.pListWalkCBFP = listWalkReportAccessEventsCBF ;
         PUSHtINaRGS
 
         grabitC grabitx( tinP , TAG( TAGiDnULL ) ) ;
@@ -242,7 +242,7 @@ TODO
                     tinP.pEtScratch->strFuseF( tinP , pstto , T(" | a: ") ) ;
                     tinP.pEtScratch->strFuseF( tinP , pstto , TF2((countT)pListing,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
                     tinP.pEtScratch->strFuseF( tinP , pstto , T(" | p: ") ) ;
-                    tinP.pEtScratch->strFuseF( tinP , pstto , TF2(tinP.ta.pushed.listWalk.walk.cRecurseP,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
+                    tinP.pEtScratch->strFuseF( tinP , pstto , TF2(tinP.ta.pushed.u.listWalk.walk.cRecurseP,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
                     tinP.pEtScratch->strFuseF( tinP , pstto , T(" | ") ) ;
                     tinP.pEtScratch->strFuseF( tinP , pstto , T(tinP.pPoolUse->postNameF(tinP)) ) ;
 
@@ -427,7 +427,7 @@ TODO
                 { puseC puseat( tinP , ifcIDpOOL_ADAMtEMP ) ; etherC::strSquishIF( tinP , pczSquished , pczName ) ; ___( pczSquished ) ; }
                 ZE( countT* , pczSquished ) ;
 
-                tinP.ta.pushed.listWalk.cbf.pDadP->nameF( tinP , pczName ) ; // ___( pczName ) ;
+                tinP.ta.pushed.u.listWalk.cbf.pDadP->nameF( tinP , pczName ) ; // ___( pczName ) ;
                 ZE( countT* , pczName ) ;
 
                 tinP.pEtScratch->strFuseF( tinP , pstto , T(bUseDictionary?" | ------------------------------------------------------------------------------- ":" | ------------------------------------------------------------------------------- (NO DICTIONARY LOOKUP) ") ) ;
@@ -441,7 +441,7 @@ TODO
         {
         IFsCRATCH
     {
-    if( tinP.ta.pushed.listWalk.cbf.idCallP == 1 )
+    if( tinP.ta.pushed.u.listWalk.cbf.idCallP == 1 )
     processGlobal3S& pg3 = processGlobal3S::_processGlobal3I_IF() ;
 
     TN( tSlash , "/" ) ;
@@ -458,21 +458,21 @@ TODO
     const countT levelReNameUse = levelReNameMe ? levelReNameMe : levelReNameDad ;
     const countT levelOoNameUse = levelOoNameMe ? levelOoNameMe : levelOoNameDad ;
 
-    const countT levelReNameDad = !tinP.ta.pushed.listWalk.cbf.pDadP ? 0 : tinP.ta.pushed.listWalk.cbf.pDadP->nameF( 3 ) ;
+    const countT levelReNameDad = !tinP.ta.pushed.u.listWalk.cbf.pDadP ? 0 : tinP.ta.pushed.u.listWalk.cbf.pDadP->nameF( 3 ) ;
     const countT levelReNameMe  = !pListing                          ? 0 : pListing->nameF( 3 )                          ;
 
-    const countT levelOoNameDad = !tinP.ta.pushed.listWalk.cbf.pDadP ? 0 : tinP.ta.pushed.listWalk.cbf.pDadP->nameF( 2 ) ;
+    const countT levelOoNameDad = !tinP.ta.pushed.u.listWalk.cbf.pDadP ? 0 : tinP.ta.pushed.u.listWalk.cbf.pDadP->nameF( 2 ) ;
     const countT levelOoNameMe  = !pListing                          ? 0 : pListing->nameF( 2 )                          ;
 
     //U::FV( flLISTwALKcHATTER , flagsP ) ;
 
-    handleC&  hFileReportP             = *(handleC*)tinP.ta.retained.listWalk.util.pcP[ 3 ] ;
-    countT&   idJotUriP                =            tinP.ta.retained.listWalk.util.pcP[ 2 ] ;
-    countT&   idJotContainerP          =            tinP.ta.retained.listWalk.util.pcP[ 1 ] ;
-    countT    cbJotStringDecodePrefixP =            tinP.ta.retained.listWalk.util.pcP[ 0 ] ;
+    handleC&  hFileReportP             = *(handleC*)tinP.ta.retained.u.listWalk.util.pcP[ 3 ] ;
+    countT&   idJotUriP                =            tinP.ta.retained.u.listWalk.util.pcP[ 2 ] ;
+    countT&   idJotContainerP          =            tinP.ta.retained.u.listWalk.util.pcP[ 1 ] ;
+    countT    cbJotStringDecodePrefixP =            tinP.ta.retained.u.listWalk.util.pcP[ 0 ] ;
 
-    flagsT    flagsP                   =            tinP.ta.pushed.listWalk.util.pcP[ 1 ] ;
-    listingC* pListing                 =            tinP.ta.pushed.listWalk.cbf.pListingP ;
+    flagsT    flagsP                   =            tinP.ta.pushed.u.listWalk.util.pcP[ 1 ] ;
+    listingC* pListing                 =            tinP.ta.pushed.u.listWalk.cbf.pListingP ;
 {
 flagsT listWalkReportAccessEventsCBF( tinS& tinP )
 

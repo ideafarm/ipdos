@@ -6402,7 +6402,7 @@ I have other business to attend to today and tomorrow, but plan to continue to w
 
 
 
-
+   20200529@1554: 72 79
 
    20200527@1552: 66 79
 
@@ -6678,6 +6678,7 @@ I have other business to attend to today and tomorrow, but plan to continue to w
 
 
 
+  !subjob C: strIdOptimizeClosureF: create a wrapped PrivateF overload that contains minimal overhead
   !subjob C: rename _INoUToLD_ and eliminate _OUT_
    alt: define unions within ta and add an idUnionType member that is used to detect collision between uses
   think
@@ -6716,13 +6717,13 @@ I have other business to attend to today and tomorrow, but plan to continue to w
 !subjob C: strIdOptimizeClosureF: optimize for speed by eliminating recursion overhead, eliminating textC ct/dt, and other polishing
 
 
-
-   _INoUToLD_: i cannot remamber why this was renamed to "old"
-   _OUT_ does nothing; it emits no code and was made obsolete by inOutC
-  think
+  next: rebuild with fresh headers
+  fresh headers: pending
+  set up dut
+  i just edited tinArgS so that it contains empty structures within the oo unions that can be used to eliminate parameter passing overhead
  playcraft
- objective: glass walls
-!subjob C: rename _INoUToLD_ and eliminate _OUT_
+ objective: speed
+!subjob C: strIdOptimizeClosureF: create a wrapped PrivateF overload that contains minimal overhead
 
 
 !thrust: debug until all factories run without failure
@@ -6739,6 +6740,19 @@ I have other business to attend to today and tomorrow, but plan to continue to w
 
 
 
+  decision: rename _INoUToLD_ to _IO_
+   decision: eliminate _OUT_
+    but that can also be done in ~inOutC
+    but retaining it would make it easy to temporarily add code to "do something" at every exit
+    style suggests "no"
+   should i retain _OUT_ ?
+  think
+   _INoUToLD_: i cannot remamber why this was renamed to "old"; the code still uses it
+   _OUT_ does nothing; it emits no code and was made obsolete by inOutC
+  think
+ playcraft
+ objective: glass walls
+!subjob C: rename _INoUToLD_ and eliminate _OUT_
   nawwh
    conj: piss cannot establish wait state on folder because it is cloaked
   think

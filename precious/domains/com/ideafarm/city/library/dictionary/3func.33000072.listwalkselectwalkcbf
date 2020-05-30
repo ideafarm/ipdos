@@ -15,19 +15,19 @@
             CONoUTrAW( "================== CHATTERING SELECTED RECORD (END) ==============================\r\n" ) ;
             POPtINaRGS
             flagsT flagsRC = listC::walkIF( tinP , hRecord ) ; //U::BUG: NEED pcP[ 0 ] AND pcP[ 1 ]
-            tinP.ta.pushed.listWalk.util.pcP[ 1 ] = flLISTwALKcHATTER_null ;
-            tinP.ta.pushed.listWalk.util.pcP[ 0 ] = record.nameF() ;
-            tinP.ta.pushed.listWalk.walk.flagsWalkP = flLISTwALK_null ;
-            tinP.ta.pushed.listWalk.walk.pListWalkCBFP = listWalkChatterCBF ;
+            tinP.ta.pushed.u.listWalk.util.pcP[ 1 ] = flLISTwALKcHATTER_null ;
+            tinP.ta.pushed.u.listWalk.util.pcP[ 0 ] = record.nameF() ;
+            tinP.ta.pushed.u.listWalk.walk.flagsWalkP = flLISTwALK_null ;
+            tinP.ta.pushed.u.listWalk.walk.pListWalkCBFP = listWalkChatterCBF ;
             PUSHtINaRGS
             CONoUTrAW( "================== CHATTERING SELECTED RECORD (BEGIN) ==============================\r\n" ) ;
         {
         else
         if( pSelectWalkCBFP ) (*pSelectWalkCBFP)( tinP , *tinP.pEther , hRecord ) ;
 
-        puseC puseRecord( tinP , *tinP.ta.retained.listWalk.walk.pPoolRecord ) ;
+        puseC puseRecord( tinP , *tinP.ta.retained.u.listWalk.walk.pPoolRecord ) ;
         
-        record.openF( tinP , hRecord , 0 , tinP.ta.retained.listWalk.walk.idGrabLayer ) ;
+        record.openF( tinP , hRecord , 0 , tinP.ta.retained.u.listWalk.walk.idGrabLayer ) ;
         handleC hRecord( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_LISTING ) ;
         
         grabitC grabitx( tinP , TAG( TAGiDnULL ) ) ;
@@ -40,8 +40,8 @@
     {
     if( pListing && !( pListing->flagsF() & fliLISTINGc_MIXINlIST ) && pListing->idTypeDatumF() == ifcIDtYPEmIXINdATUM_listingVSP )
 
-    selectWalkCBFT pSelectWalkCBFP = (selectWalkCBFT)tinP.ta.pushed.listWalk.util.pcP[ 0 ] ;
-    listingC*      pListing        =                 tinP.ta.pushed.listWalk.cbf.pListingP ;
+    selectWalkCBFT pSelectWalkCBFP = (selectWalkCBFT)tinP.ta.pushed.u.listWalk.util.pcP[ 0 ] ;
+    listingC*      pListing        =                 tinP.ta.pushed.u.listWalk.cbf.pListingP ;
 {
 /*1*/flagsT _export listWalkSelectWalkCBF( tinS& tinP )/*1*/
 

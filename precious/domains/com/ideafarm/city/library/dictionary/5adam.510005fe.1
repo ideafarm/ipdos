@@ -15,8 +15,8 @@ etherC::loafIF( tinP ) ;
     }
         POPtINaRGS
         listC::walkIF( tinP , pczName ) ;
-        tinP.ta.pushed.listWalk.walk.flagsWalkP |= flLISTwALK_null ;
-        tinP.ta.pushed.listWalk.walk.pListWalkCBFP = listWalkDeleteCBF ;
+        tinP.ta.pushed.u.listWalk.walk.flagsWalkP |= flLISTwALK_null ;
+        tinP.ta.pushed.u.listWalk.walk.pListWalkCBFP = listWalkDeleteCBF ;
         PUSHtINaRGS
     {
 
@@ -26,16 +26,16 @@ etherC::loafIF( tinP ) ;
     }
         POPtINaRGS
         listC::walkIF( tinP , pczName ) ;
-        tinP.ta.pushed.listWalk.walk.flagsWalkP |= flLISTwALK_null ;
-        tinP.ta.pushed.listWalk.walk.pListWalkCBFP = listWalkDeleteCBF ;
+        tinP.ta.pushed.u.listWalk.walk.flagsWalkP |= flLISTwALK_null ;
+        tinP.ta.pushed.u.listWalk.walk.pListWalkCBFP = listWalkDeleteCBF ;
         PUSHtINaRGS
     {
 
     }
         POPtINaRGS
         listC::walkIF( tinP , pczName ) ;
-        tinP.ta.pushed.listWalk.walk.flagsWalkP |= flLISTwALK_null ;
-        tinP.ta.pushed.listWalk.walk.pListWalkCBFP = listWalkReportCBF ;
+        tinP.ta.pushed.u.listWalk.walk.flagsWalkP |= flLISTwALK_null ;
+        tinP.ta.pushed.u.listWalk.walk.pListWalkCBFP = listWalkReportCBF ;
         PUSHtINaRGS
     {
 
@@ -45,8 +45,8 @@ etherC::loafIF( tinP ) ;
     }
         POPtINaRGS
         listC::walkIF( tinP , pczName ) ;
-        tinP.ta.pushed.listWalk.walk.flagsWalkP |= flLISTwALK_null ;
-        tinP.ta.pushed.listWalk.walk.pListWalkCBFP = listWalkAttachCBF ;
+        tinP.ta.pushed.u.listWalk.walk.flagsWalkP |= flLISTwALK_null ;
+        tinP.ta.pushed.u.listWalk.walk.pListWalkCBFP = listWalkAttachCBF ;
         PUSHtINaRGS
     
             pczName = c8name2 ;
@@ -81,7 +81,7 @@ flagsT listWalkDeleteCBF( tinS& tinP , const countT* const pczListP )
         ___( new( 0 , tinP , LF ) listing_countT_C( tinP , pczListP , 1 + incv02AM( idInLath ) ) ) ; 
         static countT idInLath ;
     {
-    if( !tinP.ta.pushed.listWalk.cbf.pListingP )
+    if( !tinP.ta.pushed.u.listWalk.cbf.pListingP )
 {
 flagsT listWalkAttachCBF( tinS& tinP , const countT* const pczListP )
 
@@ -143,7 +143,7 @@ flagsT listWalkAttachCBF( tinS& tinP , const countT* const pczListP )
         switch( pListing->flagsF() & fliLISTINGc_maskTypeBits )
     {
     if( pListing )
-    listingC* pListing = tinP.ta.pushed.listWalk.cbf.pListingP ;
+    listingC* pListing = tinP.ta.pushed.u.listWalk.cbf.pListingP ;
 {
 flagsT listWalkReportCBF( tinS& tinP , const countT* const pczListP )
 
