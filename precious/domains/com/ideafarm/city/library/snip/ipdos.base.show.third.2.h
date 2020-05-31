@@ -1,3 +1,29 @@
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004b6.openfilewrite8 BEGIN
+
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+/*
+*/
+/**/
+/*1*//*OPENfILEwRITE8(psttFileP)*//*1*/
+
+#define OPENfILEwRITE8(psttFileP) OPENfILEwRITE( (psttFileP) , 8 )
+
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004b6.openfilewrite8 END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004b7.openfileappend BEGIN
 
 
@@ -26556,6 +26582,9 @@ it is used by classes such as batonC and signC to store functionality added by t
 
 /*1*/struct _export tinArgS/*1*/
 {
+    countT grab_inUseType ;
+    countT grab_cRecurse  ;
+
     struct
     {
         union

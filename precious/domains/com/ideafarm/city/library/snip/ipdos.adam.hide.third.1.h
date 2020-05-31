@@ -1,4 +1,67 @@
 
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+/*
+*/
+/**/
+/*1*//*UNGRABtINaRGS(idTypeP)*//*1*/
+
+#define UNGRABtINaRGS(idTypeP)                                                                          \
+                                                                                                        \
+    if( !tinP.ta.grab_inUseType || tinP.ta.grab_inUseType != idTypeP ) { BLAMMO ; }                     \
+    else if( tinP.ta.grab_cRecurse ) tinP.ta.grab_cRecurse -- ;                                         \
+    else tinP.ta.grab_inUseType = 0 ;
+
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+/*
+*/
+/**/
+/*1*//*GRABtINaRGS(idTypeP)*//*1*/
+
+#define GRABtINaRGS(idTypeP)                                                                            \
+                                                                                                        \
+    if( !tinP.ta.grab_inUseType )                                                                       \
+    {                                                                                                   \
+        if( tinP.ta.grab_cRecurse ) { BLAMMO ; }                                                        \
+        tinP.ta.grab_inUseType = idTypeP ;                                                              \
+    }                                                                                                   \
+    else if( tinP.ta.grab_inUseType == idTypeP ) tinP.ta.grab_cRecurse ++ ;                             \
+    else { BLAMMO ; }
+
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+
+
+
+#define ifcIDtYPEtINaRGiNuSE_LIST                          1
+#define ifcIDtYPEtINaRGiNuSE_PATTERN                       2
+
 // IPDOS (tm) <> IdeaFarm (tm) Piggyback Distributed Operating System
 
 // For build environment info, see file "\ideafarm.work\backed.up.never\txt\readme.first.ipdos.build.environment.txt"
@@ -43627,29 +43690,3 @@ it is illegal to refer to this symbol anywhere but in the definition of a BlATHs
 //
 
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004b5.openfilewrite7 END
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004b6.openfilewrite8 BEGIN
-
-
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-// Respecting the rights of other people is an important part of empowering one another.
-//
-
-/*
-*/
-/**/
-/*1*//*OPENfILEwRITE8(psttFileP)*//*1*/
-
-#define OPENfILEwRITE8(psttFileP) OPENfILEwRITE( (psttFileP) , 8 )
-
-
-//
-// Respecting the rights of other people is an important part of empowering one another.
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004b6.openfilewrite8 END
