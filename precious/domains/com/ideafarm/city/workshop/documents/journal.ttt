@@ -6675,10 +6675,11 @@ I have other business to attend to today and tomorrow, but plan to continue to w
 
 
 
-
-
-
+  !subjob C: something similar to TRACEcALLnEST but that puts the data in a form that can be used as a switchC lever so that tallies can be accumuated
+  !subjob C: use TRACEcALLnEST to see who is calling strIdO 4 million times
+  !subjob C: TRACEcALLnEST: like LOGcALLnEST(postP) same info but all on single trace line
   !subjob C: strIdOptimizeClosureF: create a wrapped PrivateF overload that contains minimal overhead
+  !subjob C: workaround: comment out report generation in tmObeySoilF
   !subjob C: rename _INoUToLD_ and eliminate _OUT_
    alt: define unions within ta and add an idUnionType member that is used to detect collision between uses
   think
@@ -6716,6 +6717,15 @@ I have other business to attend to today and tomorrow, but plan to continue to w
  objective: elegance
 !subjob C: strIdOptimizeClosureF: optimize for speed by eliminating recursion overhead, eliminating textC ct/dt, and other polishing
 
+!subjob C: something similar to TRACEcALLnEST but that puts the data in a form that can be used as a switchC lever so that tallies can be accumuated
+
+!subjob C: TRACEcALLnEST: like LOGcALLnEST(postP) same info but all on single trace line
+
+
+    tinArgS can include an offset that is to be applied to the 3 varying parameters, which are all pointers to countT which are incremented for each call and then decremented
+   completely eliminate parameter passing other than tinS
+   move all stackC textC instances that can be reused to a struct that is pointed to within tinArgS
+  wish
   !subjob C: tinArgS: type checking for "in use"
   next: rebuild with fresh headers
   fresh headers: pending
@@ -6724,6 +6734,31 @@ I have other business to attend to today and tomorrow, but plan to continue to w
  playcraft
  objective: speed
 !subjob C: strIdOptimizeClosureF: create a wrapped PrivateF overload that contains minimal overhead
+
+
+
+
+
+
+
+
+
+
+!subjob C: workaround: comment out report generation in tmObeySoilF
+
+
+!thrust: debug until all factories run without failure
+
+=========================================================================================================================================================
+=========================================================================================================================================================
+=========================================================================================================================================================
+=========================================================================================================================================================
+====- DONE: BELOW -======================================================================================================================================
+=========================================================================================================================================================
+=========================================================================================================================================================
+=========================================================================================================================================================
+=========================================================================================================================================================
+
 
 
    4037313_9 (4 million) calls to strIdO
@@ -7147,22 +7182,6 @@ I have other business to attend to today and tomorrow, but plan to continue to w
  playcraft
  objective: speed
 !subjob C: study where for strIdOptimizeClosureF
-
-
-!thrust: debug until all factories run without failure
-
-=========================================================================================================================================================
-=========================================================================================================================================================
-=========================================================================================================================================================
-=========================================================================================================================================================
-====- DONE: BELOW -======================================================================================================================================
-=========================================================================================================================================================
-=========================================================================================================================================================
-=========================================================================================================================================================
-=========================================================================================================================================================
-
-
-
    | 
    | UNGRABtINaRGS( ifcIDtYPEtINaRGiNuSE_LIST )
    | GRABtINaRGS( ifcIDtYPEtINaRGiNuSE_LIST )
