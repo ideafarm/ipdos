@@ -6744,8 +6744,150 @@ I have other business to attend to today and tomorrow, but plan to continue to w
 
 
 
-!subjob C: workaround: comment out report generation in tmObeySoilF
+    wan is less important because cannot shut down over wan
+    on wan, can use bang relay to detect death
+    this does not scale on wan
+    iow, all ipdos processes watch each other's backs and know when wo of there number have been killed
+    namely, they all watch each other, both locally and over a lan and over the wan Internet
+    instead, build this functionality into all ipdos processes
+   appr: do not use dedicated processes for this
+   assume that a hacker is logged in as administrator and can use Process Explorer to see and cancel any process
+   assume that these processes cannot be kept secret
+  think
+   the secret program connects to each Cloak and, if the connection dies unexpectedly, emits a shutdown command directed at that netbios name
+   the secret programs can inspect each netbios name, searching for single letter shares named a-z, to discover Cloak instances that need monitoring
+   or, it can use a configurable default idPort (that can be changed if Cloak cannot bind to it)
+   Cloak can publish its idPort to a file visible over netbios
+  think
+   approach: secret process uses an invisible ipc method (sockets?) to maintain a deadman connection to Cloak   
+   objective: ensure that system shuts down immediately if Cloak dies abnormally
+  think
+     port of target
+     ipv4 of target
+     netbios name of target, or special value that indicates local
+     name
+    configuration of secret process
+   the secret processes can be local or on another host on the lan
+   the name of each secret process is specified in a setting
+   secret processes detect failure of cloak
+   cloak detects failure of kernel monitor
+   kernel monitor detects failure of other ipdos processes
+  wish
+ playcraft
+ objective: opaque walls
+!job C: Cloak: secret processes that shutdown if cloak dies
 
+
+
+
+
+  !subjob B: blammo 9d6
+  !subjob B: grunt: 750
+  !subjob B: grunt
+     Rackspace publication is useful to defeat DDOS attack and to reduce bandwidth load on servers
+     i want to "temporarily" comment them out so that they can be easily enabled
+     several adams involved with reporting Rackspace traffic data are not needed
+     the objective is to speed up builds
+    eliminate the unneeded adams from production build and from bundle
+   think
+  set up dut
+   appr: use Elves to run home on factory1 with various settings, beginning with settings for the homes on factory1
+  think
+ playcraft
+ changed: Cloak
+!job A: regression test
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+767
+4fb
+5a9
+5ea
+757
+50e
+651 PISS
+706
+707
+750
+6d9 CLOUD
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   
 
 !thrust: debug until all factories run without failure
 
@@ -6761,6 +6903,714 @@ I have other business to attend to today and tomorrow, but plan to continue to w
 
 
 
+  resp: glass walls
+      3func.36138003.cloudc.cloudc
+     voidT walkLocalToLoadKvF( tinS& tinP , etherC& etherP , const boolT& bQuitP , keyValuePairsC& kvP , const strokeS* const psttLocalContainerP , const strokeS* const psttLocalContainerRootP , const strokeS* const psttLikeP , const countT cbMinP , const countT cbMaxP , const flagsT flagsCtP )
+    if( etherP.strCompareF( tinP , psttnu , psttLocalContainerP ) ) { BLAMMO ; } //SHOULD BE IMPOSSIBLE
+   26e_     622_9
+   | idLine: e620
+   | idiFile: 30083163
+  look
+   | 
+   | //
+   | // Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+   | //
+   | // This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+   | // Respecting the rights of other people is an important part of empowering one another.
+   | //
+   | 
+   | Subject: IPDOS (tm) Exception Event
+   | 
+   | IdeaFarm (tm) Piggyback Distributed Operating System
+   | http://ideafarm.com
+   | Wo'O Ideafarm
+   |  
+   | An BLAMMO (3740dddd) exception occured while executing thread
+   | tm1F at 20440677 (offset from in: 3a893b47)
+   | codes [-8,7]: 4205ff514049b677 b8c4424533cc8e3c
+   | POOP: 0
+   | bCleanFailed: 0
+   | tinP.pAdamGlobal1->flagsAdamState: aa10000e
+   | tinP.pAdamGlobal1->idLineBlammo: e62
+   | tinP.pAdamGlobal1->idiFileBlammo: 30083163
+   | tinP.pAdamGlobal1->idLineBlammoCt: 0
+   | tinP.pAdamGlobal1->idiFileBlammoCt: 0
+   | processGlobal1I.idLineBlammo: e62
+   | processGlobal1I.idiFileBlammo: 30083163
+   | processGlobal1I.idLineBlammoCt: 0
+   | processGlobal1I.idiFileBlammoCt: 0
+   | cGrabbed: 0
+   | tinP.cGrabitC_set: b6c5a
+   | tinP.cGrabitC_reset: b6c5a
+   | tinP.cGrabitC_registered: b6c5a
+   | tinP.cGrabitC_unregistered: b6c5a
+   | brcLath: 0
+   | idLine_brcLath: e814
+   | idiFile_brcLath: 68110053
+   | U::debug [tinSnap.monitor.idWhat1]: 7340dddd
+   | idWhat1: GObOSoTHER
+   | idWhat2: 10053
+   | postTell: "gruntF ( ) at 2a14(68110053) idTypeP:4370dddd idSubTypeP:02"
+   | postTellWait: ""
+   | postTellIf: ""
+   | etherC::pcPhaseLowI[1]: 5
+   | etherC::pcPhaseLowI[2]: 2
+   | etherC::pcPhaseLowI[3]: 0
+   | etherC::pcPhaseLowI[4]: 2
+   | etherC::pcPhaseLowI[5]: 2
+   | etherC::pcPhaseLowI[6]: 2
+   | etherC::pcPhaseLowI[7]: 0
+   | etherC::pcPhaseLowI[8]: 0
+   | etherC::pcPhaseLowI[9]: 0
+   | etherC::pcPhaseLowI[a]: 0
+   | etherC::pcPhaseLowI[b]: 0
+   | etherC::pcPhaseLowI[c]: 0
+   | etherC::pcPhaseLowI[d]: 0
+   | etherC::pcPhaseLowI[e]: 0
+   | etherC::pcPhaseLowI[f]: 0
+   | etherC::pcPhaseLowI[01]: 0
+   | processGlobal1I.pcUtility[0]: 1fefffff
+   | processGlobal1I.pcUtility[1]: 289fffff
+   | processGlobal1I.pcUtility[2]: 0e0acf1
+   | processGlobal1I.pcUtility[3]: f97acf1
+   | processGlobal1I.pcUtility[4]: 12b8cf1
+   | processGlobal1I.pcUtility[5]: 942acf1
+   | processGlobal1I.pcUtility[6]: 0
+   | processGlobal1I.pcUtility[7]: 0
+   | processGlobal1I.pcUtility[8]: 0
+   | processGlobal1I.pcUtility[9]: 0
+   | processGlobal1I.pcUtility[a]: 0
+   | processGlobal1I.pcUtility[b]: 0
+   | processGlobal1I.pcUtility[c]: 0
+   | processGlobal1I.pcUtility[d]: 0
+   | processGlobal1I.pcUtility[e]: 0
+   | processGlobal1I.pcUtility[f]: 0
+   | etherC::pcUtilityI[0]: 0
+   | etherC::pcUtilityI[1]: 0
+   | etherC::pcUtilityI[2]: 0
+   | etherC::pcUtilityI[3]: 0
+   | etherC::pcUtilityI[4]: 0
+   | etherC::pcUtilityI[5]: 0
+   | etherC::pcUtilityI[6]: 0
+   | etherC::pcUtilityI[7]: 0
+   | etherC::pcUtilityI[8]: 0
+   | etherC::pcUtilityI[9]: 0
+   | etherC::pcUtilityI[a]: 0
+   | etherC::pcUtilityI[b]: 0
+   | etherC::pcUtilityI[c]: 0
+   | etherC::pcUtilityI[d]: 0
+   | etherC::pcUtilityI[e]: 0
+   | etherC::pcUtilityI[f]: 0
+   | tinP.pcUtility[0]: 0
+   | tinP.pcUtility[1]: 0
+   | tinP.pcUtility[2]: 0
+   | tinP.pcUtility[3]: 0
+   | tinP.pcUtility[4]: 0
+   | tinP.pcUtility[5]: 0
+   | tinP.pcUtility[6]: 0
+   | tinP.pcUtility[7]: 0
+   | tinP.pcUtility[8]: 0
+   | tinP.pcUtility[9]: 0
+   | tinP.pcUtility[a]: 0
+   | tinP.pcUtility[b]: 0
+   | tinP.pcUtility[c]: 0
+   | tinP.pcUtility[d]: 0
+   | tinP.pcUtility[e]: 0
+   | tinP.pcUtility[f]: 0
+   | tinP.pPanLifiRecurseGrabbedLevel[0](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[5](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[a](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[f](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[41](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[91](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[e1](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[32](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[82](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[d2](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[23](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[73](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[c3](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[14](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[64](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[b4](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[05](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[55](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[a5](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[f5](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[46](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[96](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[e6](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[37](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[87](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[d7](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[28](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[78](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[c8](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[19](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[69](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[b9](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[0a](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[5a](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[aa](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[fa](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[4b](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[9b](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[eb](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[3c](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[8c](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[dc](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[2d](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[7d](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[cd](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[1e](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[6e](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[be](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[0f](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[5f](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[af](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[ff](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[401](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[901](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[e01](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[311](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[811](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[d11](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[221](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[721](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[c21](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[131](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[631](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[b31](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[041](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pAdamGlobal1->_thirdC_.cAllKidThreads: 3
+   | tinP.cKidThreads: 3
+   | cAllOrphanThreadsI: 0
+   | cDllLoaded: 1
+   | dll load history: d:\ideafarm.home.101\ephemeral\domains\com\ideafarm\city\park\exedll\1\hover\ideafarm.0000090f.ipdos-wd
+   | idThread: 1
+   | base os user name: "WoIdeafarm"
+   | processGlobal1I.idHome: 101
+   | processGlobal1I.idAdamRoot: 9d600015
+   | pAdamGlobal1->idAdam: 9d600015
+   | idPhaseProcess: PROLOGaLLgLOBALScONSTRUCTED
+   | idPhaseAdamI: WORKING
+   | idPhase1: WORKING
+   | idPhase2: 0
+   | idPhase3: 0
+   | idLineMile: b510
+   | idiFileMile: 0
+   | bFixed: 0
+   | cFixed: 0
+   | cNest: f
+   |  
+   | Call Nest:
+   |  
+   | f5baca2  | 3a'th: 9862.c2110053    voidT thirdC::dosRaiseExceptionIF( tinS& tinP , const countT idExceptionP , const countT* const pcArgsP , const countT ccArgsP )
+   | f5baca2  | 0'th: 5930.30083163    cloudC::cloudC( tinS& tinP , const strokeS* const psttNameP , const countT idDoIfDifferP , const flagsT flagsP , const countT idCloudP , const strokeS* const psttBuildingP , const strokeS* const psttUserP , const strokeS* const psttPasswordP , const strokeS* const psttCloudContainerP , const strokeS* const psttLocalContainerP , const strokeS* const psttLikeP , const countT cbMinP , const countT cbMaxP , const countT cTriesWhenDeletingLocalP , cloudUpdateCBFT pCloudUpdateCBFP , countT* const pcArgUpdateP , cloudNixCBFT pCloudNixCBFP , countT* const pcArgNixP , const strokeS* const psttPourLocalAfterContainerP , const strokeS* const psttAdamHireAfterP ) :
+   | f5baca2  | 0'th: 2f20.9d600015    
+   | f5baca2  | 0'th: 9810.9d600015    
+   | f5baca2  | 0'th: cfc2.56000033    countT adamMainF( tinS& tinP , const countT idTypeP , countT cHowP , const osTextT** ppostHowP , countT hWindowingClientIP , countT hPreviousWindowingClientP , const osTextT* postP , countT idCmdShowP )
+   | f5baca2  | 0'th: dec2.56000033    countT adamMainF( tinS& tinP , const countT idTypeP , countT cHowP , const osTextT** ppostHowP , countT hWindowingClientIP , countT hPreviousWindowingClientP , const osTextT* postP , countT idCmdShowP )
+   | f5baca2  | 0'th: 5ec2.56000033    countT adamMainF( tinS& tinP , const countT idTypeP , countT cHowP , const osTextT** ppostHowP , countT hWindowingClientIP , countT hPreviousWindowingClientP , const osTextT* postP , countT idCmdShowP )
+   | f5baca2  | 0'th: 91c2.56000033    countT adamMainF( tinS& tinP , const countT idTypeP , countT cHowP , const osTextT** ppostHowP , countT hWindowingClientIP , countT hPreviousWindowingClientP , const osTextT* postP , countT idCmdShowP )
+   | f5baca2  | 0'th: 11c2.56000033    countT adamMainF( tinS& tinP , const countT idTypeP , countT cHowP , const osTextT** ppostHowP , countT hWindowingClientIP , countT hPreviousWindowingClientP , const osTextT* postP , countT idCmdShowP )
+   | f5baca2  | 0'th: 24b2.56000033    countT adamMainF( tinS& tinP , const countT idTypeP , countT cHowP , const osTextT** ppostHowP , countT hWindowingClientIP , countT hPreviousWindowingClientP , const osTextT* postP , countT idCmdShowP )
+   | f5baca2  | 0'th: 7ca2.56000033    countT adamMainF( tinS& tinP , const countT idTypeP , countT cHowP , const osTextT** ppostHowP , countT hWindowingClientIP , countT hPreviousWindowingClientP , const osTextT* postP , countT idCmdShowP )
+   | f5baca2  | 0'th: d4a2.56000033    countT adamMainF( tinS& tinP , const countT idTypeP , countT cHowP , const osTextT** ppostHowP , countT hWindowingClientIP , countT hPreviousWindowingClientP , const osTextT* postP , countT idCmdShowP )
+   | f5baca2  | 0'th: 6070.e0000033    countT mainThreadWorkF( const countT idTypeP , countT cHowP , const osTextT** ppostHowP , countT hWindowingClientIP , countT hPreviousWindowingClientP , osTextT* postP , countT idCmdShowP )
+   | f5baca2  | 0'th: ff60.e0000033    countT mainThreadWorkF( const countT idTypeP , countT cHowP , const osTextT** ppostHowP , countT hWindowingClientIP , countT hPreviousWindowingClientP , osTextT* postP , countT idCmdShowP )
+   | f5baca2  | 0'th: 5301.d2000033    countT __export threadLocalStorageNoTlsF( const countT idTypeP , kidFT pThreadWorkF , countT cArgP , countT cHowP , const osTextT** ppostHowP , countT hWindowingClientIP , countT hPreviousWindowingClientP , osTextT* postP , countT idCmdShowP )
+   | 
+   |  
+   | Execution Steps:
+   |  
+   | idLine: e620
+   | idiFile: 30083163
+   | idLineCt: 0000
+   | idiFileCt: 0
+   |  
+   | Probable defect location: IdeaFarm (tm) Cell 9d600015/9d600015.
+   |  
+   | Try this woth:
+   | Use the Services icon to stop the IdeaFarm driver.
+   | Reboot if necessary.  Start the driver.
+   |  
+   | Please always report to www.ideafarm.com that this information appeared,
+   | so that the quality of this software can be improved for you and also for others.
+   | 
+  listing
+ playcraft
+ changed: Cloak
+!subjob B: blammo 9d6
+  resp: glass walls
+     /*1*/countT handleC::osF( const countT idTypeVerifyP ) const/*1*/
+    if( !idType || idType != idTypeVerifyP || osh == oshInvalid ) { __1 ; }
+   | idLine: 1410           321_9
+   | idiFile: 70035063
+  look
+   | 
+   | //
+   | // Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+   | //
+   | // This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+   | // Respecting the rights of other people is an important part of empowering one another.
+   | //
+   | 
+   | Subject: IPDOS (tm) Exception Event
+   | 
+   | IdeaFarm (tm) Piggyback Distributed Operating System
+   | http://ideafarm.com
+   | Wo'O Ideafarm
+   |  
+   | An GRUNT (2740dddd) exception occured while executing thread
+   | tm1F
+   | POOP: 70035063
+   | bCleanFailed: 0
+   | tinP.pAdamGlobal1->flagsAdamState: aa10000e
+   | tinP.pAdamGlobal1->idLineBlammo: 0
+   | tinP.pAdamGlobal1->idiFileBlammo: 0
+   | tinP.pAdamGlobal1->idLineBlammoCt: 0
+   | tinP.pAdamGlobal1->idiFileBlammoCt: 0
+   | processGlobal1I.idLineBlammo: 0
+   | processGlobal1I.idiFileBlammo: 0
+   | processGlobal1I.idLineBlammoCt: 0
+   | processGlobal1I.idiFileBlammoCt: 0
+   | cGrabbed: 0
+   | tinP.cGrabitC_set: d31511
+   | tinP.cGrabitC_reset: d31511
+   | tinP.cGrabitC_registered: d31511
+   | tinP.cGrabitC_unregistered: d31511
+   | brcLath: 0
+   | idLine_brcLath: e814
+   | idiFile_brcLath: 68110053
+   | U::debug [tinSnap.monitor.idWhat1]: 2340dddd
+   | idWhat1: GOiNoUTfRAMED
+   | idWhat2: 10063
+   | postTell: "gruntF ( ) at 2a14(68110053) idTypeP:4370dddd idSubTypeP:02"
+   | postTellWait: ""
+   | postTellIf: ""
+   | etherC::pcPhaseLowI[1]: 5
+   | etherC::pcPhaseLowI[2]: 2
+   | etherC::pcPhaseLowI[3]: 0
+   | etherC::pcPhaseLowI[4]: 2
+   | etherC::pcPhaseLowI[5]: 2
+   | etherC::pcPhaseLowI[6]: 2
+   | etherC::pcPhaseLowI[7]: 0
+   | etherC::pcPhaseLowI[8]: 0
+   | etherC::pcPhaseLowI[9]: 0
+   | etherC::pcPhaseLowI[a]: 0
+   | etherC::pcPhaseLowI[b]: 0
+   | etherC::pcPhaseLowI[c]: 0
+   | etherC::pcPhaseLowI[d]: 0
+   | etherC::pcPhaseLowI[e]: 0
+   | etherC::pcPhaseLowI[f]: 0
+   | etherC::pcPhaseLowI[01]: 0
+   | processGlobal1I.pcUtility[0]: facfffff
+   | processGlobal1I.pcUtility[1]: a44fffff
+   | processGlobal1I.pcUtility[2]: 16dd333
+   | processGlobal1I.pcUtility[3]: a19e333
+   | processGlobal1I.pcUtility[4]: 8ceb333
+   | processGlobal1I.pcUtility[5]: 9a4e333
+   | processGlobal1I.pcUtility[6]: 0
+   | processGlobal1I.pcUtility[7]: 0
+   | processGlobal1I.pcUtility[8]: 0
+   | processGlobal1I.pcUtility[9]: 0
+   | processGlobal1I.pcUtility[a]: 0
+   | processGlobal1I.pcUtility[b]: 0
+   | processGlobal1I.pcUtility[c]: 0
+   | processGlobal1I.pcUtility[d]: 0
+   | processGlobal1I.pcUtility[e]: 0
+   | processGlobal1I.pcUtility[f]: 0
+   | etherC::pcUtilityI[0]: 0
+   | etherC::pcUtilityI[1]: 0
+   | etherC::pcUtilityI[2]: 0
+   | etherC::pcUtilityI[3]: 0
+   | etherC::pcUtilityI[4]: 0
+   | etherC::pcUtilityI[5]: 0
+   | etherC::pcUtilityI[6]: 0
+   | etherC::pcUtilityI[7]: 0
+   | etherC::pcUtilityI[8]: 0
+   | etherC::pcUtilityI[9]: 0
+   | etherC::pcUtilityI[a]: 0
+   | etherC::pcUtilityI[b]: 0
+   | etherC::pcUtilityI[c]: 0
+   | etherC::pcUtilityI[d]: 0
+   | etherC::pcUtilityI[e]: 0
+   | etherC::pcUtilityI[f]: 0
+   | tinP.pcUtility[0]: 0
+   | tinP.pcUtility[1]: 0
+   | tinP.pcUtility[2]: 0
+   | tinP.pcUtility[3]: 0
+   | tinP.pcUtility[4]: 0
+   | tinP.pcUtility[5]: 0
+   | tinP.pcUtility[6]: 0
+   | tinP.pcUtility[7]: 0
+   | tinP.pcUtility[8]: 0
+   | tinP.pcUtility[9]: 0
+   | tinP.pcUtility[a]: 0
+   | tinP.pcUtility[b]: 0
+   | tinP.pcUtility[c]: 0
+   | tinP.pcUtility[d]: 0
+   | tinP.pcUtility[e]: 0
+   | tinP.pcUtility[f]: 0
+   | tinP.pPanLifiRecurseGrabbedLevel[0](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[5](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[a](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[f](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[41](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[91](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[e1](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[32](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[82](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[d2](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[23](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[73](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[c3](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[14](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[64](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[b4](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[05](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[55](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[a5](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[f5](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[46](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[96](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[e6](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[37](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[87](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[d7](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[28](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[78](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[c8](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[19](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[69](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[b9](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[0a](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[5a](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[aa](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[fa](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[4b](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[9b](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[eb](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[3c](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[8c](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[dc](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[2d](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[7d](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[cd](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[1e](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[6e](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[be](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[0f](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[5f](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[af](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[ff](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[401](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[901](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[e01](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[311](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[811](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[d11](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[221](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[721](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[c21](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[131](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[631](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[b31](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[041](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pAdamGlobal1->_thirdC_.cAllKidThreads: 3
+   | tinP.cKidThreads: 3
+   | cAllOrphanThreadsI: 0
+   | cDllLoaded: 1
+   | dll load history: d:\ideafarm.home.101\ephemeral\domains\com\ideafarm\city\park\exedll\1\hover\ideafarm.000008cf.ipdos-wd d:\ideafarm.home.101\ephemeral\domains\com\ideafarm\city\park\exedll\1\hover\ideafarm.000008cb.ipdos-wd
+   | idThread: 1
+   | base os user name: "WoIdeafarm"
+   | processGlobal1I.idHome: 101
+   | processGlobal1I.idAdamRoot: 05700015
+   | pAdamGlobal1->idAdam: 05700015
+   | idPhaseProcess: PROLOGaLLgLOBALScONSTRUCTED
+   | idPhaseAdamI: WORKING
+   | idPhase1: WORKING
+   | idPhase2: 0
+   | idPhase3: 0
+   | idLineMile: b510
+   | idiFileMile: 0
+   | bFixed: 0
+   | cFixed: 0
+   | cNest: 11
+   |  
+   | Call Nest:
+   |  
+   | f5aa9a2  | 1'th: 4e30.d1010063    boolT thirdC::dosFindFileOrDirPrivateF( tinS& tinP , infoFileS*& pInfoFileP , handleC& handleP , const osTextT* const postLikeP )
+   | f5aa9a2  | 52'th: 4a92.7c010063    voidT thirdC::dosFindFileOrDirF( tinS& tinP , infoFileS*& pInfoFileP , handleC& handleP , const osTextT* const postLikeP )
+   | f5aa9a2  | 1'th: e81c.fe120063    voidT etherC::diskFindFileOrDirF( tinS& tinP , infoFileS*& pInfoP , handleC& handleP , const strokeS* const psttPathP , const patternC* pPatternP , const flagsT flagsP )
+   | f5aa9a2  | 8'th: c32c.0f120063    voidT etherC::diskFindFileOrDirF( tinS& tinP , strokeS*& psttNameP , handleC& handleP , const strokeS* const psttPathP , const patternC* pPatternP )
+   | f5aa9a2  | ea1'th: 882c.1f120063    countT etherC::diskFindFileOrDirF( tinS& tinP , strokeS*& pstt1FoundP , const strokeS* const psttPathP , const patternC* pPatternP , soulC* pSoulP , grabC* pGrabP , const countT csttExtraP , const countT cMaxP )
+   | f5aa9a2  | 0'th: f910.05700015    
+   | f5aa9a2  | 0'th: cfc2.56000033    countT adamMainF( tinS& tinP , const countT idTypeP , countT cHowP , const osTextT** ppostHowP , countT hWindowingClientIP , countT hPreviousWindowingClientP , const osTextT* postP , countT idCmdShowP )
+   | f5aa9a2  | 0'th: dec2.56000033    countT adamMainF( tinS& tinP , const countT idTypeP , countT cHowP , const osTextT** ppostHowP , countT hWindowingClientIP , countT hPreviousWindowingClientP , const osTextT* postP , countT idCmdShowP )
+   | f5aa9a2  | 0'th: 5ec2.56000033    countT adamMainF( tinS& tinP , const countT idTypeP , countT cHowP , const osTextT** ppostHowP , countT hWindowingClientIP , countT hPreviousWindowingClientP , const osTextT* postP , countT idCmdShowP )
+   | f5aa9a2  | 0'th: 91c2.56000033    countT adamMainF( tinS& tinP , const countT idTypeP , countT cHowP , const osTextT** ppostHowP , countT hWindowingClientIP , countT hPreviousWindowingClientP , const osTextT* postP , countT idCmdShowP )
+   | f5aa9a2  | 0'th: 11c2.56000033    countT adamMainF( tinS& tinP , const countT idTypeP , countT cHowP , const osTextT** ppostHowP , countT hWindowingClientIP , countT hPreviousWindowingClientP , const osTextT* postP , countT idCmdShowP )
+   | f5aa9a2  | 0'th: 24b2.56000033    countT adamMainF( tinS& tinP , const countT idTypeP , countT cHowP , const osTextT** ppostHowP , countT hWindowingClientIP , countT hPreviousWindowingClientP , const osTextT* postP , countT idCmdShowP )
+   | f5aa9a2  | 0'th: 7ca2.56000033    countT adamMainF( tinS& tinP , const countT idTypeP , countT cHowP , const osTextT** ppostHowP , countT hWindowingClientIP , countT hPreviousWindowingClientP , const osTextT* postP , countT idCmdShowP )
+   | f5aa9a2  | 0'th: d4a2.56000033    countT adamMainF( tinS& tinP , const countT idTypeP , countT cHowP , const osTextT** ppostHowP , countT hWindowingClientIP , countT hPreviousWindowingClientP , const osTextT* postP , countT idCmdShowP )
+   | f5aa9a2  | 0'th: 6070.e0000033    countT mainThreadWorkF( const countT idTypeP , countT cHowP , const osTextT** ppostHowP , countT hWindowingClientIP , countT hPreviousWindowingClientP , osTextT* postP , countT idCmdShowP )
+   | f5aa9a2  | 0'th: ff60.e0000033    countT mainThreadWorkF( const countT idTypeP , countT cHowP , const osTextT** ppostHowP , countT hWindowingClientIP , countT hPreviousWindowingClientP , osTextT* postP , countT idCmdShowP )
+   | f5aa9a2  | 0'th: 5301.d2000033    countT __export threadLocalStorageNoTlsF( const countT idTypeP , kidFT pThreadWorkF , countT cArgP , countT cHowP , const osTextT** ppostHowP , countT hWindowingClientIP , countT hPreviousWindowingClientP , osTextT* postP , countT idCmdShowP )
+   | 
+   |  
+   | Execution Steps:
+   |  
+   |  
+   | idLine: 1410
+   | idiFile: 70035063
+   | idSubType: 70035063
+   | idType: 4370dddd
+   | idLineNote: 0000
+   | idiFileNote: 0000000
+   |  
+   | Probable defect location: IdeaFarm (tm) Cell 05700015/05700015.
+   |  
+   | Try this woth:
+   | Use the Services icon to stop the IdeaFarm driver.
+   | Reboot if necessary.  Start the driver.
+   |  
+   | Please always report to www.ideafarm.com that this information appeared,
+   | so that the quality of this software can be improved for you and also for others.
+   | 
+  listing
+ playcraft
+ changed: Cloak
+!subjob B: grunt: 750
+   | idLine: 1410
+   | idiFile: 70035063
+  look
+   | 
+   | //
+   | // Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+   | //
+   | // This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+   | // Respecting the rights of other people is an important part of empowering one another.
+   | //
+   | 
+   | Subject: IPDOS (tm) Exception Event
+   | 
+   | IdeaFarm (tm) Piggyback Distributed Operating System
+   | http://ideafarm.com
+   | Wo'O Ideafarm
+   |  
+   | An GRUNT (2740dddd) exception occured while executing thread
+   | tmUpd8PaidHListF
+   | POOP: 70035063
+   | bCleanFailed: 0
+   | tinP.pAdamGlobal1->flagsAdamState: aa10000e
+   | tinP.pAdamGlobal1->idLineBlammo: 0
+   | tinP.pAdamGlobal1->idiFileBlammo: 0
+   | tinP.pAdamGlobal1->idLineBlammoCt: 0
+   | tinP.pAdamGlobal1->idiFileBlammoCt: 0
+   | processGlobal1I.idLineBlammo: 0
+   | processGlobal1I.idiFileBlammo: 0
+   | processGlobal1I.idLineBlammoCt: 0
+   | processGlobal1I.idiFileBlammoCt: 0
+   | cGrabbed: 0
+   | tinP.cGrabitC_set: 3b673
+   | tinP.cGrabitC_reset: 3b673
+   | tinP.cGrabitC_registered: 3b673
+   | tinP.cGrabitC_unregistered: 3b673
+   | brcLath: 0
+   | idLine_brcLath: b07
+   | idiFile_brcLath: 42010063
+   | U::debug [tinSnap.monitor.idWhat1]: 2340dddd
+   | idWhat1: GOiNoUTfRAMED
+   | idWhat2: 10063
+   | postTell: "gruntF ( ) at 2a14(68110053) idTypeP:4370dddd idSubTypeP:02"
+   | postTellWait: ""
+   | postTellIf: ""
+   | etherC::pcPhaseLowI[1]: 5
+   | etherC::pcPhaseLowI[2]: 2
+   | etherC::pcPhaseLowI[3]: 0
+   | etherC::pcPhaseLowI[4]: 2
+   | etherC::pcPhaseLowI[5]: 2
+   | etherC::pcPhaseLowI[6]: 2
+   | etherC::pcPhaseLowI[7]: 2
+   | etherC::pcPhaseLowI[8]: 2
+   | etherC::pcPhaseLowI[9]: 2
+   | etherC::pcPhaseLowI[a]: 0
+   | etherC::pcPhaseLowI[b]: 0
+   | etherC::pcPhaseLowI[c]: 0
+   | etherC::pcPhaseLowI[d]: 0
+   | etherC::pcPhaseLowI[e]: 0
+   | etherC::pcPhaseLowI[f]: 0
+   | etherC::pcPhaseLowI[01]: 0
+   | processGlobal1I.pcUtility[0]: 455bffff
+   | processGlobal1I.pcUtility[1]: 398
+   | processGlobal1I.pcUtility[2]: c327cae
+   | processGlobal1I.pcUtility[3]: e088dae
+   | processGlobal1I.pcUtility[4]: cbe69ae
+   | processGlobal1I.pcUtility[5]: cbdacae
+   | processGlobal1I.pcUtility[6]: 0
+   | processGlobal1I.pcUtility[7]: 0
+   | processGlobal1I.pcUtility[8]: 0
+   | processGlobal1I.pcUtility[9]: 0
+   | processGlobal1I.pcUtility[a]: 0
+   | processGlobal1I.pcUtility[b]: 0
+   | processGlobal1I.pcUtility[c]: 0
+   | processGlobal1I.pcUtility[d]: 0
+   | processGlobal1I.pcUtility[e]: 0
+   | processGlobal1I.pcUtility[f]: 0
+   | etherC::pcUtilityI[0]: 0
+   | etherC::pcUtilityI[1]: 0
+   | etherC::pcUtilityI[2]: 0
+   | etherC::pcUtilityI[3]: 0
+   | etherC::pcUtilityI[4]: 0
+   | etherC::pcUtilityI[5]: 0
+   | etherC::pcUtilityI[6]: 0
+   | etherC::pcUtilityI[7]: 0
+   | etherC::pcUtilityI[8]: 0
+   | etherC::pcUtilityI[9]: 0
+   | etherC::pcUtilityI[a]: 0
+   | etherC::pcUtilityI[b]: 0
+   | etherC::pcUtilityI[c]: 0
+   | etherC::pcUtilityI[d]: 0
+   | etherC::pcUtilityI[e]: 0
+   | etherC::pcUtilityI[f]: 0
+   | tinP.pcUtility[0]: 0
+   | tinP.pcUtility[1]: 0
+   | tinP.pcUtility[2]: 0
+   | tinP.pcUtility[3]: 0
+   | tinP.pcUtility[4]: 0
+   | tinP.pcUtility[5]: 0
+   | tinP.pcUtility[6]: 0
+   | tinP.pcUtility[7]: 0
+   | tinP.pcUtility[8]: 0
+   | tinP.pcUtility[9]: 0
+   | tinP.pcUtility[a]: 0
+   | tinP.pcUtility[b]: 0
+   | tinP.pcUtility[c]: 0
+   | tinP.pcUtility[d]: 0
+   | tinP.pcUtility[e]: 0
+   | tinP.pcUtility[f]: 0
+   | tinP.pPanLifiRecurseGrabbedLevel[0](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[5](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[a](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[f](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[41](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[91](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[e1](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[32](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[82](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[d2](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[23](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[73](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[c3](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[14](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[64](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[b4](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[05](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[55](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[a5](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[f5](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[46](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[96](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[e6](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[37](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[87](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[d7](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[28](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[78](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[c8](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[19](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[69](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[b9](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[0a](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[5a](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[aa](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[fa](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[4b](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[9b](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[eb](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[3c](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[8c](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[dc](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[2d](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[7d](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[cd](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[1e](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[6e](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[be](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[0f](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[5f](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[af](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[ff](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[401](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[901](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[e01](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[311](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[811](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[d11](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[221](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[721](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[c21](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[131](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[631](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[b31](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[041](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pAdamGlobal1->_thirdC_.cAllKidThreads: 6
+   | tinP.cKidThreads: 0
+   | cAllOrphanThreadsI: 0
+   | cDllLoaded: 1
+   | dll load history: d:\ideafarm.home.1\ephemeral\domains\com\ideafarm\city\park\exedll\1\hover\ideafarm.000008a2.ipdos-wd d:\ideafarm.home.1\ephemeral\domains\com\ideafarm\city\park\exedll\1\hover\ideafarm.000008a8.ipdos-wd
+   | idThread: 8
+   | base os user name: "WoIdeafarm"
+   | processGlobal1I.idHome: 10000008
+   | processGlobal1I.idAdamRoot: e0500015
+   | pAdamGlobal1->idAdam: e0500015
+   | idPhaseProcess: PROLOGaLLgLOBALScONSTRUCTED
+   | idPhaseAdamI: WORKING
+   | idPhase1: WORKING
+   | idPhase2: 0
+   | idPhase3: 0
+   | idLineMile: b510
+   | idiFileMile: 0
+   | bFixed: 0
+   | cFixed: 0
+   | cNest: 6
+   |  
+   | Call Nest:
+   |  
+   | f5aafa2  | 1'th: 4e30.d1010063    boolT thirdC::dosFindFileOrDirPrivateF( tinS& tinP , infoFileS*& pInfoFileP , handleC& handleP , const osTextT* const postLikeP )
+   | f5aafa2  | e1'th: 4a92.7c010063    voidT thirdC::dosFindFileOrDirF( tinS& tinP , infoFileS*& pInfoFileP , handleC& handleP , const osTextT* const postLikeP )
+   | f5aafa2  | 0'th: e81c.fe120063    voidT etherC::diskFindFileOrDirF( tinS& tinP , infoFileS*& pInfoP , handleC& handleP , const strokeS* const psttPathP , const patternC* pPatternP , const flagsT flagsP )
+   | f5aafa2  | 0'th: 7420.e0500015    
+   | f5aafa2  | 0'th: 7420.e0500015    
+   | f5aafa2  | 0'th: d760.d0000033    countT __export threadLocalStorageF( const countT idTypeP , kidFT pThreadWorkF , countT cArgP , countT cHowP , const osTextT** ppostHowP , countT hWindowingClientIP , countT hPreviousWindowingClientP , osTextT* postP , countT idCmdShowP )
+   | 
+   |  
+   | Execution Steps:
+   |  
+   |  
+   | idLine: 1410
+   | idiFile: 70035063
+   | idSubType: 70035063
+   | idType: 4370dddd
+   | idLineNote: 0000
+   | idiFileNote: 0000000
+   |  
+   | Probable defect location: IdeaFarm (tm) Cell e0500015/e0500015.
+   |  
+   | Try this woth:
+   | Use the Services icon to stop the IdeaFarm driver.
+   | Reboot if necessary.  Start the driver.
+   |  
+   | Please always report to www.ideafarm.com that this information appeared,
+   | so that the quality of this software can be improved for you and also for others.
+   | 
+  listing
+ playcraft
+ changed: Cloak
+!subjob B: grunt
+!subjob C: workaround: comment out report generation in tmObeySoilF
    4037313_9 (4 million) calls to strIdO
   see
     | 

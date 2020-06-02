@@ -619,7 +619,7 @@ voidT reportFilesF( tinS& tinP , etherC& etherP , soulC*& psOutP , socketC*& pso
 
             }
                 }
-                    //etherP.traceF( tinP , T("sending [posto]:    ")+T(posto) ) ;
+                    etherP.traceF( tinP , T("reportFilesSimpleF / sending [posto]:    ")+T(posto) ) ;
                     psoP->writeF( tinP , posto , costo ) ;
                     psoP->writeF( tinP , (byteT*)&costo , sizeof costo ) ;
                     countT   costo = tShort.csF( tinP ) ;
@@ -633,7 +633,9 @@ voidT reportFilesF( tinS& tinP , etherC& etherP , soulC*& psOutP , socketC*& pso
                 {
                 if( pPat )
                 boolT bOk = 1 ;
-                TN( tShort , postName ) ; //U:: THIS BREAKS THE CLIENT, BUT I NEED TO DO SOMETHING TO INFORM CLIENT ABOUT bDir:     if( bDir ) tShort += T("\\") ;
+                TN( tShort , postName ) ;
+
+                if( pPat ) etherP.traceF( tinP , T("reportFilesSimpleF [postName]:    \"")+T(postName)+T("\"") ) ;
 
                 boolT bDir = info3.FileAttributes & FILE_ATTRIBUTE_DIRECTORY ;
             {
@@ -654,7 +656,11 @@ voidT reportFilesF( tinS& tinP , etherC& etherP , soulC*& psOutP , socketC*& pso
     while( stBlobIn )
     patternC* pPat = !psttPatternP || !psttPatternP->idAdam ? 0 : new( 0 , tinP , LF ) patternC( tinP , etherP , psttPatternP , ifcIDtYPEpATTERN_FOREIGNwILDCARDmICROSOFT ) ; ___( pPat ) ;
 
+    etherP.traceF( tinP , T("reportFilesSimpleF / replaced  cloak [psttFolderP]:    \"")+T(psttFolderP)+T("\"") ) ;
+
     replaceCloakF( tinP , etherP , pFlockP , psttFolderP ) ;
+
+    etherP.traceF( tinP , T("reportFilesSimpleF / replacing cloak [psttFolderP]:    \"")+T(psttFolderP)+T("\"") ) ;
 
     }
         etherP.delF( tinP , pbBuffer ) ;
@@ -721,6 +727,8 @@ voidT reportFilesF( tinS& tinP , etherC& etherP , soulC*& psOutP , socketC*& pso
         handleC& hFile = *pFlockP ;
     {
     stackC stBlobIn( tinP , etherP , TAG( TAGiDnULL ) , flSTACKc_FIFO | flSTACKc_DOnOTsERIALIZE , ifcSTACKtYPE_PTR_byteT ) ;
+
+    etherP.traceF( tinP , T("reportFilesSimpleF [psttFolderP]:    \"")+T(psttFolderP)+T("\"") ) ;
 
     // QUEUE FILE INFORMATION FOR DISPENSING LATER, AFTER RELOCK psttFolderP: THIS IS NECESSARY BECAUSE CLIENT MIGHT USE FILE INFORMATION RECEIVED TO OPEN FILES, WHICH WOULD PREVENT ME FROM RELOCKING
 

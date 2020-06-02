@@ -901,7 +901,13 @@ TASK( tmFreshenFileF )
                             etherP.delF( tinP , psttShort ) ;
                             tShort = T(psttShort) ;
                             etherP.delF( tinP , psttnu ) ;
-                            if( etherP.strCompareF( tinP , psttnu , psttLocalContainerP ) ) { BLAMMO ; } //SHOULD BE IMPOSSIBLE
+                            }
+                                BLAMMO ;
+                                LOGrAW( T("cloudC::cloudC [psttLocalContainerP]:    \"")+T(psttLocalContainerP)+T("\"\r\n") ) ;
+                                LOGrAW( T("cloudC::cloudC [psttnu]:                 \"")+T(psttnu)+T("\"\r\n") ) ;
+                                LOGrAW( T("cloudC::cloudC [pInfo->psttIfoName]:     \"")+T(pInfo->psttIfoName)+T("\"\r\n") ) ;
+                            {
+                            if( etherP.strCompareF( tinP , psttnu , psttLocalContainerP ) ) //SHOULD BE IMPOSSIBLE
                             etherP.strBisectF( tinP , psttnu , psttShort , pInfo->psttIfoName , tSlash , - 1 - bDir , flSTRbISECT_APPENDdELIMITER ) ; ___( psttnu ) ; ___( psttShort ) ;
                             ZE( strokeS* , psttShort ) ;
                             ZE( strokeS* , psttnu ) ;
