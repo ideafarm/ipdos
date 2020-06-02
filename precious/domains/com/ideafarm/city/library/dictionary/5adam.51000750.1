@@ -1039,6 +1039,8 @@ const countT idHomeDisk = etherC::ifc_idHomeIdisk_IF() ;
 
 //#endif
 
+#endif
+
 }
     ether.ifcHireF( tinP , T("ifcIDaDAM_ROOTmAILoUT") , bProcessAccessLogs ? ifcIDaDAM_ACCESSeVENTS2bOOKtOGETHER : ifcIDaDAM_CLOUD , T("!ignoreFireByOperator") , flHIRE_DISPLAYaUTO , nicNameC() ) ; // flHIRE_DISPLAYaUTO CAN BE COMMENTED OUT TO AVOID WDW FOR ROOT CLOUD INSTANCE WHICH IS USUALLY NOT INTERESTING
 
@@ -1051,8 +1053,6 @@ const countT idHomeDisk = etherC::ifc_idHomeIdisk_IF() ;
     {
     ZE( boolT , bProcessAccessLogs ) ;
 {
-
-//#endif
 
 }
     }
@@ -1070,7 +1070,7 @@ const countT idHomeDisk = etherC::ifc_idHomeIdisk_IF() ;
     ZE( boolT , bHeal ) ;
 {
 
-//#if defined( NEVERdEFINED )
+#if defined( NEVERdEFINED )
 
 }
     if( bServeSmtp ) ether.ifcHireF( tinP , T("ifcIDaDAM_ROOTmAILoUT") , ifcIDaDAM_ROOTsMTPsERVER , T("!ignoreFireByOperator") , flHIRE_DISPLAYaUTO , nicNameC() ) ;
@@ -1101,6 +1101,8 @@ const countT idHomeDisk = etherC::ifc_idHomeIdisk_IF() ;
     ZE( boolT , bServeHttp ) ;
 {
 
+#endif
+
 }
     if( bGorillaHttpReporter ) ether.ifcHireF( tinP , T("ifcIDaDAM_ROOTmAILoUT") , ifcIDaDAM_GORILLAhTTPiDEAFARMcOMrEPORTER , T("!ignoreFireByOperator") , flHIRE_DISPLAYaUTO , nicNameC() ) ;
     etThread.traceF( tinP , T("ROOTmAILoUT: [bGorillaHttpReporter]:    ")+TF2(bGorillaHttpReporter,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
@@ -1124,6 +1126,8 @@ const countT idHomeDisk = etherC::ifc_idHomeIdisk_IF() ;
     {
     ZE( boolT , bGorillaHttp ) ;
 {
+
+#if defined( NEVERdEFINED )
 
 //ether.ifcHireF( tinP , T("ifcIDaDAM_ROOTmAILoUT") , ifcIDaDAM_KERNEL3BANG , T("!ignoreFireByOperator") , flHIRE_DISPLAYaUTO , nicNameC() ) ;
 //U::MOVE THIS TO EARLY ADAM IN BUNDLE

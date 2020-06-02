@@ -9,6 +9,793 @@
 
 /*
 */
+/*1*//*LOGrAWaDAM51(post1P,c1P,post2P,c2P,post3P,c3P,post4P,c4P,post5P,c5P,post6P,c6P,post7P,c7P,post8P,c8P,post9P,c9P,postaP,caP,postbP)*//*1*/
+/**/
+
+#define LOGrAWaDAM51(post1P,c1P,post2P,c2P,post3P,c3P,post4P,c4P,post5P,c5P,post6P,c6P,post7P,c7P,post8P,c8P,post9P,c9P,postaP,caP,postbP)                      \
+                                                                                                                                                                \
+    {                                                                                                                                                           \
+        OStEXT( ostoBuf , TUCK << 1 )                                                                                                                           \
+        OStEXTA( ostoBuf , (const osTextT*)(post1P) ) ;                                                                                                         \
+        OStEXTC( ostoBuf , (countT)(c1P) , 0 ) ;                                                                                                                \
+        OStEXTA( ostoBuf , (const osTextT*)(post2P) ) ;                                                                                                         \
+        OStEXTC( ostoBuf , (countT)(c2P) , 0 ) ;                                                                                                                \
+        OStEXTA( ostoBuf , (const osTextT*)(post3P) ) ;                                                                                                         \
+        OStEXTC( ostoBuf , (countT)(c3P) , 0 ) ;                                                                                                                \
+        OStEXTA( ostoBuf , (const osTextT*)(post4P) ) ;                                                                                                         \
+        OStEXTC( ostoBuf , (countT)(c4P) , 0 ) ;                                                                                                                \
+        OStEXTA( ostoBuf , (const osTextT*)(post5P) ) ;                                                                                                         \
+        OStEXTC( ostoBuf , (countT)(c5P) , 0 ) ;                                                                                                                \
+        OStEXTA( ostoBuf , (const osTextT*)(post6P) ) ;                                                                                                         \
+        OStEXTC( ostoBuf , (countT)(c6P) , 0 ) ;                                                                                                                \
+        OStEXTA( ostoBuf , (const osTextT*)(post7P) ) ;                                                                                                         \
+        OStEXTC( ostoBuf , (countT)(c7P) , 0 ) ;                                                                                                                \
+        OStEXTA( ostoBuf , (const osTextT*)(post8P) ) ;                                                                                                         \
+        OStEXTC( ostoBuf , (countT)(c8P) , 0 ) ;                                                                                                                \
+        OStEXTA( ostoBuf , (const osTextT*)(post9P) ) ;                                                                                                         \
+        OStEXTC( ostoBuf , (countT)(c9P) , 0 ) ;                                                                                                                \
+        OStEXTA( ostoBuf , (const osTextT*)(postaP) ) ;                                                                                                         \
+        OStEXTC( ostoBuf , (countT)(caP) , 0 ) ;                                                                                                                \
+        OStEXTA( ostoBuf , (const osTextT*)(postbP) ) ;                                                                                                         \
+        LOGrAWaDAM( ostoBuf ) ;                                                                                                                                 \
+    }
+
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+/*
+*/
+/*1*//*LOGrAWaDAM31(post1P,c1P,post2P,c2P,post3P,c3P,post4P,c4P,post5P,c5P,post6P,c6P,post7P,c7P,post8P,c8P,post9P,c9P,postaP)*//*1*/
+/**/
+
+#define LOGrAWaDAM31(post1P,c1P,post2P,c2P,post3P,c3P,post4P,c4P,post5P,c5P,post6P,c6P,post7P,c7P,post8P,c8P,post9P,c9P,postaP)                                     \
+                                                                                                                                                                \
+    {                                                                                                                                                           \
+        OStEXT( ostoBuf , 0x140 )                                                                                                                               \
+        OStEXTA( ostoBuf , (const osTextT*)(post1P) ) ;                                                                                                         \
+        OStEXTC( ostoBuf , (countT)(c1P) , 0 ) ;                                                                                                                \
+        OStEXTA( ostoBuf , (const osTextT*)(post2P) ) ;                                                                                                         \
+        OStEXTC( ostoBuf , (countT)(c2P) , 0 ) ;                                                                                                                \
+        OStEXTA( ostoBuf , (const osTextT*)(post3P) ) ;                                                                                                         \
+        OStEXTC( ostoBuf , (countT)(c3P) , 0 ) ;                                                                                                                \
+        OStEXTA( ostoBuf , (const osTextT*)(post4P) ) ;                                                                                                         \
+        OStEXTC( ostoBuf , (countT)(c4P) , 0 ) ;                                                                                                                \
+        OStEXTA( ostoBuf , (const osTextT*)(post5P) ) ;                                                                                                         \
+        OStEXTC( ostoBuf , (countT)(c5P) , 0 ) ;                                                                                                                \
+        OStEXTA( ostoBuf , (const osTextT*)(post6P) ) ;                                                                                                         \
+        OStEXTC( ostoBuf , (countT)(c6P) , 0 ) ;                                                                                                                \
+        OStEXTA( ostoBuf , (const osTextT*)(post7P) ) ;                                                                                                         \
+        OStEXTC( ostoBuf , (countT)(c7P) , 0 ) ;                                                                                                                \
+        OStEXTA( ostoBuf , (const osTextT*)(post8P) ) ;                                                                                                         \
+        OStEXTC( ostoBuf , (countT)(c8P) , 0 ) ;                                                                                                                \
+        OStEXTA( ostoBuf , (const osTextT*)(post9P) ) ;                                                                                                         \
+        OStEXTC( ostoBuf , (countT)(c9P) , 0 ) ;                                                                                                                \
+        OStEXTA( ostoBuf , (const osTextT*)(postaP) ) ;                                                                                                         \
+        LOGrAWaDAM( ostoBuf ) ;                                                                                                                                     \
+    }
+
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+/*
+*/
+/*1*//*LOGrAWaDAM5F(post1P,c1P,post2P,c2P,post3P)*//*1*/
+/**/
+
+#define LOGrAWaDAM5F(post1P,c1P,post2P,c2P,post3P)                                                                                \
+                                                                                                                              \
+    {                                                                                                                         \
+        OStEXT(   ostoBuf , 0x140 )                                                                                           \
+        OStEXTA(  ostoBuf , (const osTextT*)(post1P) ) ;                                                                      \
+        OStEXTCF( ostoBuf , (countT)(c1P) , 0 ) ;                                                                             \
+        OStEXTA(  ostoBuf , (const osTextT*)(post2P) ) ;                                                                      \
+        OStEXTCF( ostoBuf , (countT)(c2P) , 0 ) ;                                                                             \
+        OStEXTA(  ostoBuf , (const osTextT*)(post3P) ) ;                                                                      \
+        LOGrAWaDAM(   ostoBuf ) ;                                                                                                 \
+    }
+
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+/*
+*/
+/*1*//*LOGrAWaDAM11(post1P,c1P,post2P,c2P,post3P,c3P,post4P,c4P,post5P,c5P,post6P,c6P,post7P,c7P,post8P,c8P,post9P)*//*1*/
+/**/
+
+#define LOGrAWaDAM11(post1P,c1P,post2P,c2P,post3P,c3P,post4P,c4P,post5P,c5P,post6P,c6P,post7P,c7P,post8P,c8P,post9P)           \
+                                                                                                                           \
+    {                                                                                                                      \
+        OStEXT( ostoBuf , 0x140 )                                                                                          \
+        OStEXTA( ostoBuf , (const osTextT*)(post1P) ) ;                                                                    \
+        OStEXTC( ostoBuf , (countT)(c1P) , 0 ) ;                                                                           \
+        OStEXTA( ostoBuf , (const osTextT*)(post2P) ) ;                                                                    \
+        OStEXTC( ostoBuf , (countT)(c2P) , 0 ) ;                                                                           \
+        OStEXTA( ostoBuf , (const osTextT*)(post3P) ) ;                                                                    \
+        OStEXTC( ostoBuf , (countT)(c3P) , 0 ) ;                                                                           \
+        OStEXTA( ostoBuf , (const osTextT*)(post4P) ) ;                                                                    \
+        OStEXTC( ostoBuf , (countT)(c4P) , 0 ) ;                                                                           \
+        OStEXTA( ostoBuf , (const osTextT*)(post5P) ) ;                                                                    \
+        OStEXTC( ostoBuf , (countT)(c5P) , 0 ) ;                                                                           \
+        OStEXTA( ostoBuf , (const osTextT*)(post6P) ) ;                                                                    \
+        OStEXTC( ostoBuf , (countT)(c6P) , 0 ) ;                                                                           \
+        OStEXTA( ostoBuf , (const osTextT*)(post7P) ) ;                                                                    \
+        OStEXTC( ostoBuf , (countT)(c7P) , 0 ) ;                                                                           \
+        OStEXTA( ostoBuf , (const osTextT*)(post8P) ) ;                                                                    \
+        OStEXTC( ostoBuf , (countT)(c8P) , 0 ) ;                                                                           \
+        OStEXTA( ostoBuf , (const osTextT*)(post9P) ) ;                                                                    \
+        LOGrAWaDAM( ostoBuf ) ;                                                                                                \
+    }
+
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+/*
+*/
+/*1*//*LOGrAWaDAMf(post1P,c1P,post2P,c2P,post3P,c3P,post4P,c4P,post5P,c5P,post6P,c6P,post7P,c7P,post8P)*//*1*/
+/**/
+
+#define LOGrAWaDAMf(post1P,c1P,post2P,c2P,post3P,c3P,post4P,c4P,post5P,c5P,post6P,c6P,post7P,c7P,post8P)                       \
+                                                                                                                           \
+    {                                                                                                                      \
+        OStEXT( ostoBuf , 0x140 )                                                                                          \
+        OStEXTA( ostoBuf , (const osTextT*)(post1P) ) ;                                                                    \
+        OStEXTC( ostoBuf , (countT)(c1P) , 0 ) ;                                                                           \
+        OStEXTA( ostoBuf , (const osTextT*)(post2P) ) ;                                                                    \
+        OStEXTC( ostoBuf , (countT)(c2P) , 0 ) ;                                                                           \
+        OStEXTA( ostoBuf , (const osTextT*)(post3P) ) ;                                                                    \
+        OStEXTC( ostoBuf , (countT)(c3P) , 0 ) ;                                                                           \
+        OStEXTA( ostoBuf , (const osTextT*)(post4P) ) ;                                                                    \
+        OStEXTC( ostoBuf , (countT)(c4P) , 0 ) ;                                                                           \
+        OStEXTA( ostoBuf , (const osTextT*)(post5P) ) ;                                                                    \
+        OStEXTC( ostoBuf , (countT)(c5P) , 0 ) ;                                                                           \
+        OStEXTA( ostoBuf , (const osTextT*)(post6P) ) ;                                                                    \
+        OStEXTC( ostoBuf , (countT)(c6P) , 0 ) ;                                                                           \
+        OStEXTA( ostoBuf , (const osTextT*)(post7P) ) ;                                                                    \
+        OStEXTC( ostoBuf , (countT)(c7P) , 0 ) ;                                                                           \
+        OStEXTA( ostoBuf , (const osTextT*)(post8P) ) ;                                                                    \
+        LOGrAWaDAM( ostoBuf ) ;                                                                                                \
+    }
+
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+/*
+*/
+/*1*//*LOGrAWaDAMtIDe(post1P,c1P,post2P,c2P,post3P,c3P,post4P,c4P,post5P,c5P,post6P,c6P,post7P,c7P)*//*1*/
+/**/
+
+#define LOGrAWaDAMtIDe(post1P,c1P,post2P,c2P,post3P,c3P,post4P,c4P,post5P,c5P,post6P,c6P,post7P,c7P)    \
+                                                                                                    \
+    {                                                                                               \
+        OStEXT( ostoBuf , 0x140 )                                                                   \
+        OStEXTC( ostoBuf , tinP.monitor.idThread , 0 ) ;                                            \
+        OStEXTAK( ostoBuf , " " ) ;                                                                 \
+        OStEXTA( ostoBuf , tinP.postThreadName ) ;                                                  \
+        OStEXTAK( ostoBuf , " | " ) ;                                                               \
+        OStEXTA( ostoBuf , (const osTextT*)(post1P) ) ;                                             \
+        OStEXTC( ostoBuf , (countT)(c1P) , 0 ) ;                                                    \
+        OStEXTA( ostoBuf , (const osTextT*)(post2P) ) ;                                             \
+        OStEXTC( ostoBuf , (countT)(c2P) , 0 ) ;                                                    \
+        OStEXTA( ostoBuf , (const osTextT*)(post3P) ) ;                                             \
+        OStEXTC( ostoBuf , (countT)(c3P) , 0 ) ;                                                    \
+        OStEXTA( ostoBuf , (const osTextT*)(post4P) ) ;                                             \
+        OStEXTC( ostoBuf , (countT)(c4P) , 0 ) ;                                                    \
+        OStEXTA( ostoBuf , (const osTextT*)(post5P) ) ;                                             \
+        OStEXTC( ostoBuf , (countT)(c5P) , 0 ) ;                                                    \
+        OStEXTA( ostoBuf , (const osTextT*)(post6P) ) ;                                             \
+        OStEXTC( ostoBuf , (countT)(c6P) , 0 ) ;                                                    \
+        OStEXTA( ostoBuf , (const osTextT*)(post7P) ) ;                                             \
+        OStEXTC( ostoBuf , (countT)(c7P) , 0 ) ;                                                    \
+        OStEXTAK( ostoBuf , "\r\n" ) ;                                                              \
+        LOGrAWaDAM( ostoBuf ) ;                                                                         \
+    }
+
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+/*
+*/
+/*1*//*LOGrAWaDAMd(post1P,c1P,post2P,c2P,post3P,c3P,post4P,c4P,post5P,c5P,post6P,c6P,post7P)*//*1*/
+/**/
+
+#define LOGrAWaDAMd(post1P,c1P,post2P,c2P,post3P,c3P,post4P,c4P,post5P,c5P,post6P,c6P,post7P)                                    \
+                                                                                                                             \
+    {                                                                                                                        \
+        OStEXT( ostoBuf , 0x140 )                                                                                            \
+        OStEXTA( ostoBuf , (const osTextT*)(post1P) ) ;                                                                      \
+        OStEXTC( ostoBuf , (countT)(c1P) , 0 ) ;                                                                             \
+        OStEXTA( ostoBuf , (const osTextT*)(post2P) ) ;                                                                      \
+        OStEXTC( ostoBuf , (countT)(c2P) , 0 ) ;                                                                             \
+        OStEXTA( ostoBuf , (const osTextT*)(post3P) ) ;                                                                      \
+        OStEXTC( ostoBuf , (countT)(c3P) , 0 ) ;                                                                             \
+        OStEXTA( ostoBuf , (const osTextT*)(post4P) ) ;                                                                      \
+        OStEXTC( ostoBuf , (countT)(c4P) , 0 ) ;                                                                             \
+        OStEXTA( ostoBuf , (const osTextT*)(post5P) ) ;                                                                      \
+        OStEXTC( ostoBuf , (countT)(c5P) , 0 ) ;                                                                             \
+        OStEXTA( ostoBuf , (const osTextT*)(post6P) ) ;                                                                      \
+        OStEXTC( ostoBuf , (countT)(c6P) , 0 ) ;                                                                             \
+        OStEXTA( ostoBuf , (const osTextT*)(post7P) ) ;                                                                      \
+        LOGrAWaDAM( ostoBuf ) ;                                                                                                  \
+    }
+
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+/*
+*/
+/*1*//*LOGrAWaDAMb(post1P,c1P,post2P,c2P,post3P,c3P,post4P,c4P,post5P,c5P,post6P)*//*1*/
+/**/
+
+#define LOGrAWaDAMb(post1P,c1P,post2P,c2P,post3P,c3P,post4P,c4P,post5P,c5P,post6P)                                               \
+                                                                                                                             \
+    {                                                                                                                        \
+        OStEXT( ostoBuf , 0x140 )                                                                                            \
+        OStEXTA( ostoBuf , (const osTextT*)(post1P) ) ;                                                                      \
+        OStEXTC( ostoBuf , (countT)(c1P) , 0 ) ;                                                                             \
+        OStEXTA( ostoBuf , (const osTextT*)(post2P) ) ;                                                                      \
+        OStEXTC( ostoBuf , (countT)(c2P) , 0 ) ;                                                                             \
+        OStEXTA( ostoBuf , (const osTextT*)(post3P) ) ;                                                                      \
+        OStEXTC( ostoBuf , (countT)(c3P) , 0 ) ;                                                                             \
+        OStEXTA( ostoBuf , (const osTextT*)(post4P) ) ;                                                                      \
+        OStEXTC( ostoBuf , (countT)(c4P) , 0 ) ;                                                                             \
+        OStEXTA( ostoBuf , (const osTextT*)(post5P) ) ;                                                                      \
+        OStEXTC( ostoBuf , (countT)(c5P) , 0 ) ;                                                                             \
+        OStEXTA( ostoBuf , (const osTextT*)(post6P) ) ;                                                                      \
+        LOGrAWaDAM( ostoBuf ) ;                                                                                                  \
+    }
+
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+/*
+*/
+/*1*//*LOGrAWaDAMtIDc(post1P,c1P,post2P,c2P,post3P,c3P,post4P,c4P,post5P,c5P,post6P,c6P)*//*1*/
+/**/
+
+#define LOGrAWaDAMtIDc(post1P,c1P,post2P,c2P,post3P,c3P,post4P,c4P,post5P,c5P,post6P,c6P)    \
+                                                                                         \
+    {                                                                                    \
+        OStEXT( ostoBuf , 0x140 )                                                        \
+        OStEXTC( ostoBuf , tinP.monitor.idThread , 0 ) ;                                 \
+        OStEXTAK( ostoBuf , " " ) ;                                                      \
+        OStEXTA( ostoBuf , tinP.postThreadName ) ;                                       \
+        OStEXTAK( ostoBuf , " | " ) ;                                                    \
+        OStEXTA( ostoBuf , (const osTextT*)(post1P) ) ;                                  \
+        OStEXTC( ostoBuf , (countT)(c1P) , 0 ) ;                                         \
+        OStEXTA( ostoBuf , (const osTextT*)(post2P) ) ;                                  \
+        OStEXTC( ostoBuf , (countT)(c2P) , 0 ) ;                                         \
+        OStEXTA( ostoBuf , (const osTextT*)(post3P) ) ;                                  \
+        OStEXTC( ostoBuf , (countT)(c3P) , 0 ) ;                                         \
+        OStEXTA( ostoBuf , (const osTextT*)(post4P) ) ;                                  \
+        OStEXTC( ostoBuf , (countT)(c4P) , 0 ) ;                                         \
+        OStEXTA( ostoBuf , (const osTextT*)(post5P) ) ;                                  \
+        OStEXTC( ostoBuf , (countT)(c5P) , 0 ) ;                                         \
+        OStEXTA( ostoBuf , (const osTextT*)(post6P) ) ;                                  \
+        OStEXTC( ostoBuf , (countT)(c6P) , 0 ) ;                                         \
+        OStEXTAK( ostoBuf , "\r\n" ) ;                                                   \
+        LOGrAWaDAM( ostoBuf ) ;                                                              \
+    }
+
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+/*
+*/
+/*1*//*LOGrAWaDAMtIDa(post1P,c1P,post2P,c2P,post3P,c3P,post4P,c4P,post5P,c5P)*//*1*/
+/**/
+
+#define LOGrAWaDAMtIDa(post1P,c1P,post2P,c2P,post3P,c3P,post4P,c4P,post5P,c5P)               \
+                                                                                         \
+    {                                                                                    \
+        OStEXT( ostoBuf , 0x140 )                                                        \
+        OStEXTC( ostoBuf , tinP.monitor.idThread , 0 ) ;                                 \
+        OStEXTAK( ostoBuf , " " ) ;                                                      \
+        OStEXTA( ostoBuf , tinP.postThreadName ) ;                                       \
+        OStEXTAK( ostoBuf , " | " ) ;                                                    \
+        OStEXTA( ostoBuf , (const osTextT*)(post1P) ) ;                                  \
+        OStEXTC( ostoBuf , (countT)(c1P) , 0 ) ;                                         \
+        OStEXTA( ostoBuf , (const osTextT*)(post2P) ) ;                                  \
+        OStEXTC( ostoBuf , (countT)(c2P) , 0 ) ;                                         \
+        OStEXTA( ostoBuf , (const osTextT*)(post3P) ) ;                                  \
+        OStEXTC( ostoBuf , (countT)(c3P) , 0 ) ;                                         \
+        OStEXTA( ostoBuf , (const osTextT*)(post4P) ) ;                                  \
+        OStEXTC( ostoBuf , (countT)(c4P) , 0 ) ;                                         \
+        OStEXTA( ostoBuf , (const osTextT*)(post5P) ) ;                                  \
+        OStEXTC( ostoBuf , (countT)(c5P) , 0 ) ;                                         \
+        OStEXTAK( ostoBuf , "\r\n" ) ;                                                   \
+        LOGrAWaDAM( ostoBuf ) ;                                                              \
+    }
+
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+/*
+*/
+/*1*//*LOGrAWaDAMtID8(post1P,c1P,post2P,c2P,post3P,c3P,post4P,c4P)*//*1*/
+/**/
+
+#define LOGrAWaDAMtID8(post1P,c1P,post2P,c2P,post3P,c3P,post4P,c4P)                          \
+                                                                                         \
+    {                                                                                    \
+        OStEXT( ostoBuf , 0x140 )                                                        \
+        OStEXTC( ostoBuf , tinP.monitor.idThread , 0 ) ;                                 \
+        OStEXTAK( ostoBuf , " " ) ;                                                      \
+        OStEXTA( ostoBuf , tinP.postThreadName ) ;                                       \
+        OStEXTAK( ostoBuf , " | " ) ;                                                    \
+        OStEXTA( ostoBuf , (const osTextT*)(post1P) ) ;                                  \
+        OStEXTC( ostoBuf , (countT)(c1P) , 0 ) ;                                         \
+        OStEXTA( ostoBuf , (const osTextT*)(post2P) ) ;                                  \
+        OStEXTC( ostoBuf , (countT)(c2P) , 0 ) ;                                         \
+        OStEXTA( ostoBuf , (const osTextT*)(post3P) ) ;                                  \
+        OStEXTC( ostoBuf , (countT)(c3P) , 0 ) ;                                         \
+        OStEXTA( ostoBuf , (const osTextT*)(post4P) ) ;                                  \
+        OStEXTC( ostoBuf , (countT)(c4P) , 0 ) ;                                         \
+        OStEXTAK( ostoBuf , "\r\n" ) ;                                                   \
+        LOGrAWaDAM( ostoBuf ) ;                                                              \
+    }
+
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+/*
+*/
+/*1*//*LOGrAWaDAMtID6(post1P,c1P,post2P,c2P,post3P,c3P)*//*1*/
+/**/
+
+#define LOGrAWaDAMtID6(post1P,c1P,post2P,c2P,post3P,c3P)                                     \
+                                                                                         \
+    {                                                                                    \
+        OStEXT( ostoBuf , 0x140 )                                                        \
+        OStEXTC( ostoBuf , tinP.monitor.idThread , 0 ) ;                                 \
+        OStEXTAK( ostoBuf , " " ) ;                                                      \
+        OStEXTA( ostoBuf , tinP.postThreadName ) ;                                       \
+        OStEXTAK( ostoBuf , " | " ) ;                                                    \
+        OStEXTA( ostoBuf , (const osTextT*)(post1P) ) ;                                  \
+        OStEXTC( ostoBuf , (countT)(c1P) , 0 ) ;                                         \
+        OStEXTA( ostoBuf , (const osTextT*)(post2P) ) ;                                  \
+        OStEXTC( ostoBuf , (countT)(c2P) , 0 ) ;                                         \
+        OStEXTA( ostoBuf , (const osTextT*)(post3P) ) ;                                  \
+        OStEXTC( ostoBuf , (countT)(c3P) , 0 ) ;                                         \
+        OStEXTAK( ostoBuf , "\r\n" ) ;                                                   \
+        LOGrAWaDAM( ostoBuf ) ;                                                              \
+    }
+
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+/*
+*/
+/*1*//*LOGrAWaDAMtID4(post1P,c1P,post2P,c2P)*//*1*/
+/**/
+
+#define LOGrAWaDAMtID4(post1P,c1P,post2P,c2P)                                                \
+                                                                                         \
+    {                                                                                    \
+        OStEXT( ostoBuf , 0x140 )                                                        \
+        OStEXTC( ostoBuf , tinP.monitor.idThread , 0 ) ;                                 \
+        OStEXTAK( ostoBuf , " " ) ;                                                      \
+        OStEXTA( ostoBuf , tinP.postThreadName ) ;                                       \
+        OStEXTAK( ostoBuf , " | " ) ;                                                    \
+        OStEXTA( ostoBuf , (const osTextT*)(post1P) ) ;                                  \
+        OStEXTC( ostoBuf , (countT)(c1P) , 0 ) ;                                         \
+        OStEXTA( ostoBuf , (const osTextT*)(post2P) ) ;                                  \
+        OStEXTC( ostoBuf , (countT)(c2P) , 0 ) ;                                         \
+        OStEXTAK( ostoBuf , "\r\n" ) ;                                                   \
+        LOGrAWaDAM( ostoBuf ) ;                                                              \
+    }
+
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+/*
+*/
+/*1*//*LOGrAWaDAMtID2(post1P,c1P)*//*1*/
+/**/
+
+#define LOGrAWaDAMtID2(post1P,c1P)                                                           \
+                                                                                         \
+    {                                                                                    \
+        OStEXT( ostoBuf , 0x140 )                                                        \
+        OStEXTC( ostoBuf , tinP.monitor.idThread , 0 ) ;                                 \
+        OStEXTAK( ostoBuf , " " ) ;                                                      \
+        OStEXTA( ostoBuf , tinP.postThreadName ) ;                                       \
+        OStEXTAK( ostoBuf , " | " ) ;                                                    \
+        OStEXTA( ostoBuf , (const osTextT*)(post1P) ) ;                                  \
+        OStEXTC( ostoBuf , (countT)(c1P) , 0 ) ;                                         \
+        OStEXTAK( ostoBuf , "\r\n" ) ;                                                   \
+        LOGrAWaDAM( ostoBuf ) ;                                                              \
+    }
+
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+/*
+*/
+/*1*//*LOGrAWaDAMtID(post1P)*//*1*/
+/**/
+
+#define LOGrAWaDAMtID(post1P)                                                                               \
+                                                                                                        \
+    /*if( !thirdC::c_strcmpIF( tinP , tinP.postThreadName , "tmAnimateSadamsOnPaperF" ) )*/             \
+    {                                                                                                   \
+        OStEXT( ostoBuf , 0x2000 )                                                                      \
+        OStEXTC( ostoBuf , tinP.monitor.idThread , 0 ) ;                                                \
+        OStEXTAK( ostoBuf , " " ) ;                                                                     \
+        OStEXTA( ostoBuf , tinP.postThreadName ) ;                                                      \
+        OStEXTAK( ostoBuf , " | " ) ;                                                                   \
+        OStEXTA( ostoBuf , (const osTextT*)(post1P) ) ;                                                 \
+        OStEXTAK( ostoBuf , "\r\n" ) ;                                                                  \
+        LOGrAWaDAM( ostoBuf ) ;                                                                             \
+    }
+
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+/*
+*/
+/*1*//*LOGrAWaDAM9(post1P,c1P,post2P,c2P,post3P,c3P,post4P,c4P,post5P)*//*1*/
+/**/
+
+#define LOGrAWaDAM9(post1P,c1P,post2P,c2P,post3P,c3P,post4P,c4P,post5P)                                                          \
+                                                                                                                             \
+    {                                                                                                                        \
+        OStEXT( ostoBuf , 0x140 )                                                                                            \
+        OStEXTA( ostoBuf , (const osTextT*)(post1P) ) ;                                                                      \
+        OStEXTC( ostoBuf , (countT)(c1P) , 0 ) ;                                                                             \
+        OStEXTA( ostoBuf , (const osTextT*)(post2P) ) ;                                                                      \
+        OStEXTC( ostoBuf , (countT)(c2P) , 0 ) ;                                                                             \
+        OStEXTA( ostoBuf , (const osTextT*)(post3P) ) ;                                                                      \
+        OStEXTC( ostoBuf , (countT)(c3P) , 0 ) ;                                                                             \
+        OStEXTA( ostoBuf , (const osTextT*)(post4P) ) ;                                                                      \
+        OStEXTC( ostoBuf , (countT)(c4P) , 0 ) ;                                                                             \
+        OStEXTA( ostoBuf , (const osTextT*)(post5P) ) ;                                                                      \
+        LOGrAWaDAM( ostoBuf ) ;                                                                                                  \
+    }
+
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+/*
+*/
+/*1*//*LOGrAWaDAM7(post1P,c1P,post2P,c2P,post3P,c3P,post4P)*//*1*/
+/**/
+
+#define LOGrAWaDAM7(post1P,c1P,post2P,c2P,post3P,c3P,post4P)                                                                     \
+                                                                                                                             \
+    {                                                                                                                        \
+        OStEXT( ostoBuf , 0x140 )                                                                                            \
+        OStEXTA( ostoBuf , (const osTextT*)(post1P) ) ;                                                                      \
+        OStEXTC( ostoBuf , (countT)(c1P) , 0 ) ;                                                                             \
+        OStEXTA( ostoBuf , (const osTextT*)(post2P) ) ;                                                                      \
+        OStEXTC( ostoBuf , (countT)(c2P) , 0 ) ;                                                                             \
+        OStEXTA( ostoBuf , (const osTextT*)(post3P) ) ;                                                                      \
+        OStEXTC( ostoBuf , (countT)(c3P) , 0 ) ;                                                                             \
+        OStEXTA( ostoBuf , (const osTextT*)(post4P) ) ;                                                                      \
+        LOGrAWaDAM( ostoBuf ) ;                                                                                                  \
+    }
+
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+/*
+*/
+/*1*//*LOGrAWaDAM3(post1P,c1P,post2P)*//*1*/
+/**/
+
+#define LOGrAWaDAM3(post1P,c1P,post2P)                                                                                        \
+                                                                                                                          \
+    {                                                                                                                     \
+        OStEXT( ostoBuf , 0x140 )                                                                                         \
+        OStEXTA( ostoBuf , (const osTextT*)(post1P) ) ;                                                                   \
+        OStEXTC( ostoBuf , (countT)(c1P) , 0 ) ;                                                                          \
+        OStEXTA( ostoBuf , (const osTextT*)(post2P) ) ;                                                                   \
+        LOGrAWaDAM( ostoBuf ) ;                                                                                               \
+    }
+
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+/*
+*/
+/*1*//*LOGrAWaDAM5(post1P,c1P,post2P,c2P,post3P)*//*1*/
+/**/
+
+#define LOGrAWaDAM5(post1P,c1P,post2P,c2P,post3P)                                                                                 \
+                                                                                                                              \
+    {                                                                                                                         \
+        OStEXT(   ostoBuf , 0x140 )                                                                                           \
+        OStEXTA(  ostoBuf , (const osTextT*)(post1P) ) ;                                                                      \
+        OStEXTC(  ostoBuf , (countT)(c1P) , 0 ) ;                                                                             \
+        OStEXTA(  ostoBuf , (const osTextT*)(post2P) ) ;                                                                      \
+        OStEXTC(  ostoBuf , (countT)(c2P) , 0 ) ;                                                                             \
+        OStEXTA(  ostoBuf , (const osTextT*)(post3P) ) ;                                                                      \
+        LOGrAWaDAM(   ostoBuf ) ;                                                                                                 \
+    }
+
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+/*
+*/
+/*1*//*LOGrAWaDAM(postP)*//*1*/
+/**/
+
+    #define LOGrAWaDAM(postP)                                                                               \
+                                                                                                            \
+       {                                                                                                    \
+            etherC::ifcSayIF( (const osTextT*)(postP) , flSAY_LOG | flSAY_ADAM | flSAY_APPEND ) ;           \
+                                                                                                            \
+            const osTextT* postx = (const osTextT*)(postP) ;                                                \
+            const countT   costx = thirdC::c_strlenIF( postx ) ;                                            \
+            thirdC::ostLathLogIF() = postx[ costx - 1 ] ;                                                   \
+        }
+
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+
+
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+/*
+*/
 /**/
 /*1*//*UNGRABtINaRGS(idTypeP)*//*1*/
 
@@ -22474,7 +23261,6 @@ use only for debugging
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200258.ccutility END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200259.ifcidthreadlow BEGIN
 
-
 //
 // Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
@@ -22487,18 +23273,21 @@ use only for debugging
 /**/
 /*1*//*ifcIDtHREADlOW*//*1*/
 
+//20200602@1326: EDITED adamMainF TO ALWAYS SET UP etherWhereF IMMEDIATELY AFTER CT etThread FOR MAIN THREAD, SO ADDED HERE
+
 /*3*/
-#define ifcIDtHREADlOW_main                          0x1
-#define ifcIDtHREADlOW_tmHeartF                      0x2
-#define ifcIDtHREADlOW_break                         0x3
-#define ifcIDtHREADlOW_tmKillSocketF                 0x4
-#define ifcIDtHREADlOW_tmTimeNowF                    0x5
-#define ifcIDtHREADlOW_tmWatchF                      0x6
-#define ifcIDtHREADlOW_tmWindowsOrServiceMainF       0x7
-#define ifcIDtHREADlOW_tmCyrcleOldMonitorKernelF        0x8
-#define ifcIDtHREADlOW_tmCyrcleOldMonitorApplicationsF  0x9
-#define ifcIDtHREADlOW_tmFireAllF                    0xa
-#define ifcIDtHREADlOW_tmHireF                       0xb
+#define ifcIDtHREADlOW_main                             0x1
+#define ifcIDtHREADlOW_tmHeartF                         0x2
+#define ifcIDtHREADlOW_break                            0x3
+#define ifcIDtHREADlOW_tmKillSocketF                    0x4
+#define ifcIDtHREADlOW_tmWhereF                         0x5
+#define ifcIDtHREADlOW_tmTimeNowF                       0x6
+#define ifcIDtHREADlOW_tmWatchF                         0x7
+#define ifcIDtHREADlOW_tmWindowsOrServiceMainF          0x8
+#define ifcIDtHREADlOW_tmCyrcleOldMonitorKernelF        0x9
+#define ifcIDtHREADlOW_tmCyrcleOldMonitorApplicationsF  0xa
+#define ifcIDtHREADlOW_tmFireAllF                       0xb
+#define ifcIDtHREADlOW_tmHireF                          0xc
 /*3*/
 
 
@@ -29240,6 +30029,7 @@ can be used for sCountC as well as measureT and sCountT and countT
 /*3*/
 #define flSAY_APPEND                       0xe000018c
 #define flSAY_LOG                          0xe000028c
+#define flSAY_ADAM                         0xe000048c
 /*3*/
 #define flSAY_null    0xe000008c
 
@@ -43058,635 +43848,3 @@ see FORsTRINGSiNsPANNEDhEAD
 //
 
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.1120049d.forstringsinspannedcombinedhead2 END
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.1120049e.forstringsinspannedcombinedhead3 BEGIN
-
-
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-// Respecting the rights of other people is an important part of empowering one another.
-//
-
-/*
-*/
-/**/
-/*1*//*FORsTRINGSiNsPANNEDcOMBINEDhEAD3(soulP)*//*1*/
-
-#define FORsTRINGSiNsPANNEDcOMBINEDhEAD3(soulP) FORsTRINGSiNsPANNEDcOMBINEDhEAD( (soulP) , 3 )
-
-
-//
-// Respecting the rights of other people is an important part of empowering one another.
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.1120049e.forstringsinspannedcombinedhead3 END
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.1120049f.forstringsinspannedcombinedhead4 BEGIN
-
-
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-// Respecting the rights of other people is an important part of empowering one another.
-//
-
-/*
-*/
-/**/
-/*1*//*FORsTRINGSiNsPANNEDcOMBINEDhEAD4(soulP)*//*1*/
-
-#define FORsTRINGSiNsPANNEDcOMBINEDhEAD4(soulP) FORsTRINGSiNsPANNEDcOMBINEDhEAD( (soulP) , 4 )
-
-
-//
-// Respecting the rights of other people is an important part of empowering one another.
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.1120049f.forstringsinspannedcombinedhead4 END
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004a0.forstringsinspannedcombinedhead5 BEGIN
-
-
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-// Respecting the rights of other people is an important part of empowering one another.
-//
-
-/*
-*/
-/**/
-/*1*//*FORsTRINGSiNsPANNEDcOMBINEDhEAD5(soulP)*//*1*/
-
-#define FORsTRINGSiNsPANNEDcOMBINEDhEAD5(soulP) FORsTRINGSiNsPANNEDcOMBINEDhEAD( (soulP) , 5 )
-
-
-//
-// Respecting the rights of other people is an important part of empowering one another.
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004a0.forstringsinspannedcombinedhead5 END
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004a1.forstringsinspannedcombinedhead6 BEGIN
-
-
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-// Respecting the rights of other people is an important part of empowering one another.
-//
-
-/*
-*/
-/**/
-/*1*//*FORsTRINGSiNsPANNEDcOMBINEDhEAD6(soulP)*//*1*/
-
-#define FORsTRINGSiNsPANNEDcOMBINEDhEAD6(soulP) FORsTRINGSiNsPANNEDcOMBINEDhEAD( (soulP) , 6 )
-
-
-//
-// Respecting the rights of other people is an important part of empowering one another.
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004a1.forstringsinspannedcombinedhead6 END
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004a2.forstringsinspannedcombinedhead7 BEGIN
-
-
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-// Respecting the rights of other people is an important part of empowering one another.
-//
-
-/*
-*/
-/**/
-/*1*//*FORsTRINGSiNsPANNEDcOMBINEDhEAD7(soulP)*//*1*/
-
-#define FORsTRINGSiNsPANNEDcOMBINEDhEAD7(soulP) FORsTRINGSiNsPANNEDcOMBINEDhEAD( (soulP) , 7 )
-
-
-//
-// Respecting the rights of other people is an important part of empowering one another.
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004a2.forstringsinspannedcombinedhead7 END
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004a3.forstringsinspannedcombinedhead8 BEGIN
-
-
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-// Respecting the rights of other people is an important part of empowering one another.
-//
-
-/*
-*/
-/**/
-/*1*//*FORsTRINGSiNsPANNEDcOMBINEDhEAD8(soulP)*//*1*/
-
-#define FORsTRINGSiNsPANNEDcOMBINEDhEAD8(soulP) FORsTRINGSiNsPANNEDcOMBINEDhEAD( (soulP) , 8 )
-
-
-//
-// Respecting the rights of other people is an important part of empowering one another.
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004a3.forstringsinspannedcombinedhead8 END
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004a4.blathstringspannedcombined BEGIN
-
-
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-// Respecting the rights of other people is an important part of empowering one another.
-//
-
-/*
-use only within a FORsTRINGSiN loop snippet
-it is illegal to refer to this symbol anywhere but in the definition of a BlATHsTRING? constant
-*/
-/**/
-/*1*//*BlATHsTRING*//*1*/
-
-#define BlATHsTRING(idP) ( psttc##idP + CSpREFIX + psttc##idP->idAdam == pstte##idP )
-
-
-//
-// Respecting the rights of other people is an important part of empowering one another.
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004a4.blathstringspannedcombined END
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004a5.openfileread BEGIN
-
-
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-// Respecting the rights of other people is an important part of empowering one another.
-//
-
-/*
-*/
-/**/
-/*1*//*OPENfILErEAD(psttFileP,idP)*//*1*/
-
-#define OPENfILErEAD(psttFileP,idP)                                                                                                                                 \
-                                                                                                                                                                    \
-    handleC hFile##idP( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_FILE ) ;                                                                                          \
-    etThread.fileOpenF( tinP , hFile##idP , countTC() , (psttFileP) , ifcOPENaCCESS_R , ifcOPENsHARE_R , flOPENdETAILS_LOCsEQ , ifcOPENhOW_nFeO ) ;
-
-
-//
-// Respecting the rights of other people is an important part of empowering one another.
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004a5.openfileread END
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004a6.openfileread1 BEGIN
-
-
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-// Respecting the rights of other people is an important part of empowering one another.
-//
-
-/*
-*/
-/**/
-/*1*//*OPENfILErEAD1(psttFileP)*//*1*/
-
-#define OPENfILErEAD1(psttFileP) OPENfILErEAD( (psttFileP) , 1 )
-
-
-//
-// Respecting the rights of other people is an important part of empowering one another.
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004a6.openfileread1 END
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004a7.openfileread2 BEGIN
-
-
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-// Respecting the rights of other people is an important part of empowering one another.
-//
-
-/*
-*/
-/**/
-/*1*//*OPENfILErEAD2(psttFileP)*//*1*/
-
-#define OPENfILErEAD2(psttFileP) OPENfILErEAD( (psttFileP) , 2 )
-
-
-//
-// Respecting the rights of other people is an important part of empowering one another.
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004a7.openfileread2 END
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004a8.openfileread3 BEGIN
-
-
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-// Respecting the rights of other people is an important part of empowering one another.
-//
-
-/*
-*/
-/**/
-/*1*//*OPENfILErEAD3(psttFileP)*//*1*/
-
-#define OPENfILErEAD3(psttFileP) OPENfILErEAD( (psttFileP) , 3 )
-
-
-//
-// Respecting the rights of other people is an important part of empowering one another.
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004a8.openfileread3 END
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004a9.openfileread4 BEGIN
-
-
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-// Respecting the rights of other people is an important part of empowering one another.
-//
-
-/*
-*/
-/**/
-/*1*//*OPENfILErEAD4(psttFileP)*//*1*/
-
-#define OPENfILErEAD4(psttFileP) OPENfILErEAD( (psttFileP) , 4 )
-
-
-//
-// Respecting the rights of other people is an important part of empowering one another.
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004a9.openfileread4 END
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004aa.openfileread5 BEGIN
-
-
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-// Respecting the rights of other people is an important part of empowering one another.
-//
-
-/*
-*/
-/**/
-/*1*//*OPENfILErEAD5(psttFileP)*//*1*/
-
-#define OPENfILErEAD5(psttFileP) OPENfILErEAD( (psttFileP) , 5 )
-
-
-//
-// Respecting the rights of other people is an important part of empowering one another.
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004aa.openfileread5 END
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004ab.openfileread6 BEGIN
-
-
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-// Respecting the rights of other people is an important part of empowering one another.
-//
-
-/*
-*/
-/**/
-/*1*//*OPENfILErEAD6(psttFileP)*//*1*/
-
-#define OPENfILErEAD6(psttFileP) OPENfILErEAD( (psttFileP) , 6 )
-
-
-//
-// Respecting the rights of other people is an important part of empowering one another.
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004ab.openfileread6 END
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004ac.openfileread7 BEGIN
-
-
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-// Respecting the rights of other people is an important part of empowering one another.
-//
-
-/*
-*/
-/**/
-/*1*//*OPENfILErEAD7(psttFileP)*//*1*/
-
-#define OPENfILErEAD7(psttFileP) OPENfILErEAD( (psttFileP) , 7 )
-
-
-//
-// Respecting the rights of other people is an important part of empowering one another.
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004ac.openfileread7 END
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004ad.openfileread8 BEGIN
-
-
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-// Respecting the rights of other people is an important part of empowering one another.
-//
-
-/*
-*/
-/**/
-/*1*//*OPENfILErEAD8(psttFileP)*//*1*/
-
-#define OPENfILErEAD8(psttFileP) OPENfILErEAD( (psttFileP) , 8 )
-
-
-//
-// Respecting the rights of other people is an important part of empowering one another.
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004ad.openfileread8 END
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004ae.openfilewrite BEGIN
-
-
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-// Respecting the rights of other people is an important part of empowering one another.
-//
-
-/*
-*/
-/**/
-/*1*//*OPENfILEwRITE(psttFileP,idP)*//*1*/
-
-#define OPENfILEwRITE(psttFileP,idP)                                                                                                                                \
-                                                                                                                                                                    \
-    handleC hFile##idP( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_FILE ) ;                                                                                          \
-    etThread.fileOpenF( tinP , hFile##idP , countTC() , (psttFileP) , ifcOPENaCCESS_W , 0 , flOPENdETAILS_LOCsEQ , ifcOPENhOW_nCeR ) ;
-
-
-//
-// Respecting the rights of other people is an important part of empowering one another.
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004ae.openfilewrite END
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004af.openfilewrite1 BEGIN
-
-
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-// Respecting the rights of other people is an important part of empowering one another.
-//
-
-/*
-*/
-/**/
-/*1*//*OPENfILEwRITE1(psttFileP)*//*1*/
-
-#define OPENfILEwRITE1(psttFileP) OPENfILEwRITE( (psttFileP) , 1 )
-
-
-//
-// Respecting the rights of other people is an important part of empowering one another.
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004af.openfilewrite1 END
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004b0.openfilewrite2 BEGIN
-
-
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-// Respecting the rights of other people is an important part of empowering one another.
-//
-
-/*
-*/
-/**/
-/*1*//*OPENfILEwRITE2(psttFileP)*//*1*/
-
-#define OPENfILEwRITE2(psttFileP) OPENfILEwRITE( (psttFileP) , 2 )
-
-
-//
-// Respecting the rights of other people is an important part of empowering one another.
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004b0.openfilewrite2 END
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004b1.openfilewrite3 BEGIN
-
-
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-// Respecting the rights of other people is an important part of empowering one another.
-//
-
-/*
-*/
-/**/
-/*1*//*OPENfILEwRITE3(psttFileP)*//*1*/
-
-#define OPENfILEwRITE3(psttFileP) OPENfILEwRITE( (psttFileP) , 3 )
-
-
-//
-// Respecting the rights of other people is an important part of empowering one another.
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004b1.openfilewrite3 END
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004b2.openfilewrite4 BEGIN
-
-
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-// Respecting the rights of other people is an important part of empowering one another.
-//
-
-/*
-*/
-/**/
-/*1*//*OPENfILEwRITE4(psttFileP)*//*1*/
-
-#define OPENfILEwRITE4(psttFileP) OPENfILEwRITE( (psttFileP) , 4 )
-
-
-//
-// Respecting the rights of other people is an important part of empowering one another.
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004b2.openfilewrite4 END
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004b3.openfilewrite5 BEGIN
-
-
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-// Respecting the rights of other people is an important part of empowering one another.
-//
-
-/*
-*/
-/**/
-/*1*//*OPENfILEwRITE5(psttFileP)*//*1*/
-
-#define OPENfILEwRITE5(psttFileP) OPENfILEwRITE( (psttFileP) , 5 )
-
-
-//
-// Respecting the rights of other people is an important part of empowering one another.
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004b3.openfilewrite5 END
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004b4.openfilewrite6 BEGIN
-
-
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-// Respecting the rights of other people is an important part of empowering one another.
-//
-
-/*
-*/
-/**/
-/*1*//*OPENfILEwRITE6(psttFileP)*//*1*/
-
-#define OPENfILEwRITE6(psttFileP) OPENfILEwRITE( (psttFileP) , 6 )
-
-
-//
-// Respecting the rights of other people is an important part of empowering one another.
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004b4.openfilewrite6 END
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004b5.openfilewrite7 BEGIN
-
-
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-// Respecting the rights of other people is an important part of empowering one another.
-//
-
-/*
-*/
-/**/
-/*1*//*OPENfILEwRITE7(psttFileP)*//*1*/
-
-#define OPENfILEwRITE7(psttFileP) OPENfILEwRITE( (psttFileP) , 7 )
-
-
-//
-// Respecting the rights of other people is an important part of empowering one another.
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004b5.openfilewrite7 END

@@ -240,6 +240,7 @@
                             bModified = 1 ;
                             thirdC::c_itoaIF( postPatch , idCopyLath , '0' ) ; //U::VERIFY THAT WILL DO UNSIGNED I.E. WILL WORK WHEN HIGH ORDER BIT IS USED
 
+                            bCopyLath.ungrabF( tinP ) ;
                             THREADmODE1rESTORE
                             boxPutF( tinP , tLath , (byteT*)&idCopyLath , sizeof idCopyLath ) ;
                             THREADmODE1oN( flTHREADmODE1_ALLOWsTOPwHILEgRABBING )
@@ -266,7 +267,10 @@
                             ZE( countT , idCopyLath ) ;
                             TN( tLath , "///ideafarm/ephemeral/backed.up.daily/domains/com/ideafarm/ipdos/idCopyLath" ) ;
                             //CS:CODEsYNC: DUPLICATE 33002111 33002134
-                            traceF( tinP , T("q") ) ;
+                            traceF( tinP , T("q0") ) ;
+                            bCopyLath.grabF( tinP , TAG( TAGiDnULL ) ) ;
+                            batonC bCopyLath( tinP , TAG( TAGiDnULL ) , "bCopyLath" ) ;
+                            traceF( tinP , T("q1") ) ;
                         {
                         if( !thirdC::c_memcmpIF( tinP , postPatch , "00000000000000000000000000000000" , sizeof( countT ) * 2 ) ) //A:ASSUME: sizeof( countT ) IS NOT GREATER THAN 01 BYTES
                         traceF( tinP , T("r") ) ;

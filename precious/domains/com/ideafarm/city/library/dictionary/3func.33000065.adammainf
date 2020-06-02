@@ -62,12 +62,6 @@
                             if( tinP.monitor.idThread == 1 && !( ++ processGlobal1I.pcPhaseLow[ tinP.monitor.idThread ] ) ) { BLAMMO ; }
                             ADAMpHASE( ifcIDpHASEaDAM_EPILOGaDAMmAINe ) ;
                             }
-//tinP.monitor.idWhat2 = 0 ;
-//ether.etherWhereF( tinP , ifcIDaCTIONwHERE_SHUTDOWN ) ;
-//ether.etherWhereF( tinP , ifcIDaCTIONwHERE_UNREGISTERtHREAD ) ;
-//ether.etherWhereF( tinP , ifcIDaCTIONwHERE_DISABLE ) ;
-//ether.traceF( tinP , T("disabling where ; then dt'ing ether") ) ;
-
                                 ADAMpHASE( ifcIDpHASEaDAM_EPILOGaDAMmAINd ) ;
                                 }
                                     TELL( "main: destroying ether" ) ;
@@ -79,6 +73,12 @@
                                     ADAMpHASE( ifcIDpHASEaDAM_EPILOGaDAMmAINb ) ;
 
                                     TELL( "main: destroying etThread and tinP reference" ) ;
+
+                                    tinP.monitor.idWhat2 = 0 ;
+                                    ether.etherWhereF( tinP , ifcIDaCTIONwHERE_SHUTDOWN ) ;
+                                    ether.etherWhereF( tinP , ifcIDaCTIONwHERE_UNREGISTERtHREAD ) ;
+                                    ether.etherWhereF( tinP , ifcIDaCTIONwHERE_DISABLE ) ;
+                                    ether.traceF( tinP , T("disabling where") ) ;
 
                                     //U::POOLS 2 3 4 WERE DESTROYED HERE
 
@@ -560,6 +560,12 @@
 
                                     if( processGlobal1I.idNumaNode ) etThread.traceF( tinP , T("NUMA:  this process will default to limiting itself to using a single NUMA node on NUMA computers [idNumaNode]: ")+TF2(processGlobal1I.idNumaNode,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
 
+                                    etThread.etherWhereF( tinP , ifcIDaCTIONwHERE_ENABLE ) ;
+                                    etThread.etherWhereF( tinP , ifcIDaCTIONwHERE_REGISTERtHREAD ) ;
+                                    etThread.etherWhereF( tinP , ifcIDaCTIONwHERE_SETUP , flETHERwHERE_null , 1 ) ;
+                                    tinP.monitor.idWhat2 = - 1 ;
+                                    etThread.traceF( tinP , T("enabling where") ) ;
+
                                     }
                                         if( pPoop ) ;
                                         poopC* pPoop = (poopC*)&(const poopC&)etThread ;
@@ -579,18 +585,6 @@
     
                                 ADAMpHASE( ifcIDpHASEaDAM_PROLOGaDAMmAINd ) ;
                                 cryC cry07( TOCK + 0x07 ) ;
-
-
-
-
-
-//ether.etherWhereF( tinP , ifcIDaCTIONwHERE_ENABLE ) ;
-//ether.etherWhereF( tinP , ifcIDaCTIONwHERE_REGISTERtHREAD ) ;
-//ether.etherWhereF( tinP , ifcIDaCTIONwHERE_SETUP , flETHERwHERE_null , 1 ) ;
-//tinP.monitor.idWhat2 = - 1 ;
-//ether.traceF( tinP , T("ether ct'd ; enabling where") ) ;
-
-
 
                                 TELL( "constructed ether" ) ;
                                 etherC ether( tinP , TAG( TAGiDnULL ) , flTHIRDmODE_TINoWNER | flTHIRDmODE_QUITTER /* | flTHIRDmODE_CHECKpOOLoLD */ ) ; //DEBUGGING: TURN ON flTHIRDmODE_CHECKpOOLoLD HERE
