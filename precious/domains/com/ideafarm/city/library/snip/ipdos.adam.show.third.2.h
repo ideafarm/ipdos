@@ -32651,8 +32651,9 @@ examples
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.341b4.etherC.strSquishIF!||
  static voidT strSquishIF( tinS& tinP , countT*& pczP , const countT* pczInP ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.350021b5.etherc.strSquishIF!||
- voidT strRegExpFromWildcardsF( tinS& tinP , strokeS*& psttRegExpP , flagsT& flagsOptimizeP , flagsT*& pFlagsOverrideP , countT*& pcMinOverrideP , countT*& pcMaxOverrideP , const strokeS* const psttWildP ) ;
- //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.360021eb.etherc.strRegExpFromWildcardsF!||
+ voidT strPatternFromWildcardsMicrosoftF( tinS& tinP , strokeS*& psttRegExpP , flagsT& flagsOptimizeP , flagsT*& pFlagsOverrideP , countT*& pcMinOverrideP , countT*& pcMaxOverrideP , const strokeS* const psttWildP ) ;
+ voidT strPatternFromWildcardsStrictF( tinS& tinP , strokeS*& psttRegExpP , flagsT& flagsOptimizeP , flagsT*& pFlagsOverrideP , countT*& pcMinOverrideP , countT*& pcMaxOverrideP , const strokeS* const psttWildP ) ;
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.360021eb.etherc.strPatternFromWildcardsMicrosoftF!||
  voidT strExpressionLengthMinMaxF( tinS& tinP , countT& csttMinP , countT& csttMaxP , stackC& stFixedSmallP , countT& idsP , const strokeS* const psttRegExpP , const flagsT flagsOptimizeP , const flagsT* pFlagsOverrideP , const countT* pcMinOverrideP , const countT* pcMaxOverrideP ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.360021ed.etherc.strExpressionLengthMinMaxF!||
 

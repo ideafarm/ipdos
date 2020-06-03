@@ -208,10 +208,6 @@ TASK( tmHireF )
 DONE( tmObeySoilF )
 etThread.traceF( tinP , T("thread exit") ) ;
 }
-
-tinP.monitor.idWhat2 = 0 ;
-etThread.etherWhereF( tinP , ifcIDaCTIONwHERE_SHUTDOWN ) ;
-
     etThread.delF( tinP , postiP ) ;
     etThread.delF( tinP , psttFileNameP ) ;
     etThread.delF( tinP , psttShort ) ;
@@ -268,7 +264,6 @@ etThread.etherWhereF( tinP , ifcIDaCTIONwHERE_SHUTDOWN ) ;
                 // TAKES A LOT OF TIME AND I DO NOT NEED IT, EXCEPT WHEN DEBUGGING SOIL REPLACEMENTS
 
                 etThread.traceF( tinP , T("where: unregistered thread") ) ;
-etThread.etherWhereF( tinP , ifcIDaCTIONwHERE_UNREGISTERtHREAD ) ;
                 }
                     }
                         etThread.delF( tinP , postr ) ;
@@ -301,8 +296,6 @@ etThread.etherWhereF( tinP , ifcIDaCTIONwHERE_UNREGISTERtHREAD ) ;
                 TN( tSuffix , ".soil" ) ;
                 TN( tPrefix , "report." ) ;
                 TN( tn , "" ) ;
-etThread.etherWhereF( tinP , ifcIDaCTIONwHERE_REGISTERtHREAD ) ;
-                etThread.traceF( tinP , T("where: registering thread") ) ;
 
                 DEL( tinP.pBarryUtility ) ;
                 while( !ether && !POOP && etThread.etherSoilF( tinP , ether , soulReports , soulNativeLint , ifcIDmODEeTHERsOIL_REPORT , 0 , flETHERsOILf_null/*flETHERsOILf_CONSUMEiNPUT*/ , postiP , costiP ) ) ; // WHILE IS TO OBEY bRepeat ; WILL REPEAT FOREVER UNTIL I AM FIRED
@@ -491,12 +484,6 @@ etThread.etherWhereF( tinP , ifcIDaCTIONwHERE_REGISTERtHREAD ) ;
     //THIS NEEDS TO BE REDESIGNED SO WILL USE ONLY A SINGLE INSTANCE OF barryC EVEN IF QUEUEING JOBS AND EVEN IF USING REPEAT
     //THIS IS JUST A PREALLOCATOR SO WILL FIND OUT EARLIER IF CANNOT GET THIS MEMORY
     //CANNOT DO THIS WHEN QUEUEING WORK FOR A JOB, BECAUSE HAVE MULTIPLE tmObeySoilF THREADS AND THIS USES TOO MUCH MEMORY
-
-
-etThread.etherWhereF( tinP , ifcIDaCTIONwHERE_SETUP , flETHERwHERE_null , 1 ) ;
-tinP.monitor.idWhat2 = - 1 ;
-
-
 
     countT   costiP                     =           pTaskP->c6 ;
     osTextT* postiP                     = (osTextT*)pTaskP->c5 ;

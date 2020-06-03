@@ -96,21 +96,19 @@
     //ZE( strokeS* , psttd ) ;
 
     }
-        case ifcIDtYPEpATTERN_FOREIGNuNIXrEGULAReXPRESSION    : {  ; break ; }  //U:: MARKUP THAT EXACTLY SIMULATES UNIX REGULAR EXPRESSION SEMANTICS AND SYNTAX
-        case ifcIDtYPEpATTERN_FOREIGNwILDCARDsTRICT           : {  ; break ; }  //U:: MARKUP THAT MAPS '.', '?' AND '*' STRICTLY (EXACTLY WO DOT, EXACTLY WO, AT LEAST WO)
-        case ifcIDtYPEpATTERN_FOREIGNwILDCARDmICROSOFT        : { ether.strRegExpFromWildcardsF( tinP , psttPattern , flagsOptimize , pFlagsOverride , pcMinOverride , pcMaxOverride , psttP ) ; ___( psttPattern ) ; ___( pFlagsOverride ) ; ___( pcMinOverride ) ; ___( pcMaxOverride ) ; ; break ; } // MARKUP THAT EXACTLY SIMULATES MICROSOFT WINDOWS FILE NAME WILDCARD SEMANTICS
-        case ifcIDtYPEpATTERN_NATIVE                          : {  ; break ; }  //U:: MARKUP FOR PLAIN TEXT STRING THAT IS A THIN WRAP OF THE UNDERLYING sa_SSS CONSTANTS: sp_SSSfLAG sa_SSS
+        default                                               : { BLAMMO ; break ; }
+        case ifcIDtYPEpATTERN_FOREIGNuNIXrEGULAReXPRESSION    : { BLAMMO ; break ; }  //U:: MARKUP THAT EXACTLY SIMULATES UNIX REGULAR EXPRESSION SEMANTICS AND SYNTAX
+        case ifcIDtYPEpATTERN_FOREIGNwILDCARDsTRICT           : { ether.strPatternFromWildcardsStrictF(    tinP , psttPattern , flagsOptimize , pFlagsOverride , pcMinOverride , pcMaxOverride , psttP ) ; ___( psttPattern ) ; ___( pFlagsOverride ) ; ___( pcMinOverride ) ; ___( pcMaxOverride ) ; ; break ; }
+        case ifcIDtYPEpATTERN_FOREIGNwILDCARDmICROSOFT        : { ether.strPatternFromWildcardsMicrosoftF( tinP , psttPattern , flagsOptimize , pFlagsOverride , pcMinOverride , pcMaxOverride , psttP ) ; ___( psttPattern ) ; ___( pFlagsOverride ) ; ___( pcMinOverride ) ; ___( pcMaxOverride ) ; ; break ; }
+        case ifcIDtYPEpATTERN_NATIVE                          : { BLAMMO ; break ; }  //U:: MARKUP FOR PLAIN TEXT STRING THAT IS A THIN WRAP OF THE UNDERLYING sa_SSS CONSTANTS: sp_SSSfLAG sa_SSS
     {
     switch( idTypeP )
-
-    //U:: DO THIS IFF F(flagsP) & ifcIDtYPEpATTERN_FOREIGNwILDCARDmICROSOFT
 
     //U:: MIGRATE flPATTERNc FROM FLAGS TO AN IDtYPE
     //U:: CONSIDER WHETHER SHOULD USE flagsP OR idTypeP : IS THERE ANY BENEFIT FROM SUPPORTING MULTIPLE MAPPINGS (I.E. SUPPORTING THE SETTING OF MORE THAN ONE FLAG).  WOULD I EVER WANT TO USE BOTH UNIX REGULAR EXPRESSIONS AND MICROSOFT WILDCARDS?  PROBABLY NOT
 
     }
         if( POOP ) return ;
-        __NZ( idTypeP - ifcIDtYPEpATTERN_FOREIGNwILDCARDmICROSOFT ) ;       //U:: SUPPORT OTHER TYPES
         __Z( psttP ) ;
         if( POOP ) return ;
     {
