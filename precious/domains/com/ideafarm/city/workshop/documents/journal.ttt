@@ -6898,12 +6898,32 @@ I have other business to attend to today and tomorrow, but plan to continue to w
 
 
 
-
+  !subjob B: etherWhereF report is empty
+   alt: cloud processing
+   choice: alt: settings processing
+  set up dut
+   i should be able to use etherWhereF as well as traceF to see where the time is being spent
+  think
+    #3: ipdos processing of wildcards is much slower than that of base o.s.
+    #2: passing wildcards to o.s. results in much fewer ipdos execution cycles
+    #1: passing wildcards to o.s. results in much faster o.s. response
+   conj: 3 speed problems
+   the problem must be related to doing my own wildcard processing
+   but no, it doesn't
+   i thought that uncloaking would speed things up
+  think
+ playcraft
+ changed: wildcards are no longer passed to base o.s.
+!job B: problem: everything is very sloooooooowwwwwwww
 
   
 
 
-   
+
+
+
+
+
 
 !thrust: debug until all factories run without failure
 
@@ -6919,6 +6939,13 @@ I have other business to attend to today and tomorrow, but plan to continue to w
 
 
 
+   #define IFwHEREiSwATCHING if( F(tinP.flagsThreadMode2) & flTHREADmODE2_WHEREiSwATCHINGiF && etherC::os_cEnabledWhereI_IF( tinP ) )
+  listing
+   repro the problem within a tick
+  set up dut
+ playcraft
+ changed: enabled/disabled during diskFindFileOrDirF   
+!subjob B: etherWhereF report is empty
      strMakeF
     __NZ( psttOutP ) ;_WQ
    1d32_        7474_9

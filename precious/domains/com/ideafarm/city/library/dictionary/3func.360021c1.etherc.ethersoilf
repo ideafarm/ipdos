@@ -47,7 +47,6 @@
             /**/if( bTrace ) traceF( tinP , T("etherSoilF / cleaning up") ) ;
 
             }
-//#endif
                 }
                     soulOut.removeAllF( tinP ) ;
                     /**/if( bTrace ) traceF( tinP , T("etherSoilF / purging soulOut") ) ;
@@ -126,9 +125,10 @@
                 {
                 else
                 }
-                    //LOGrAW( "GENERATING REPORT-\r\n" ) ;
+                    traceF( tinP , T("etherSoilF / generating report / 0") ) ;
                     __NZ( soulOut ) ;
 
+#endif
                     }
                         soulOutP << soulReport6 ;
                         soulOutP << (strokeS*)T("Journal") ;
@@ -176,7 +176,7 @@
 
                         TN( tHead ,
                     {
-                    //LOGrAW( "GENERATING REPORT / \r\n" ) ;
+                    traceF( tinP , T("etherSoilF / generating report / 1") ) ;
 
                     }
                         soulOutP << soulReport5 ;
@@ -225,7 +225,7 @@
 
                         TN( tHead ,
                     {
-                    //LOGrAW( "GENERATING REPORT / 2\r\n" ) ;
+                    traceF( tinP , T("etherSoilF / generating report / 2") ) ;
 
                     }
                         soulOutP << soulReport4 ;
@@ -380,7 +380,7 @@
 
                         TN( tHeadFull ,
                     {
-                    //LOGrAW( "GENERATING REPORT / 3\r\n" ) ;
+                    traceF( tinP , T("etherSoilF / generating report / 3") ) ;
 
                     }
                         soulOutP << soulReport2 ;
@@ -478,7 +478,8 @@
 
                         TN( tHead ,
                     {
-                    //LOGrAW( "GENERATING REPORT / 4\r\n" ) ;
+                    traceF( tinP , T("etherSoilF / generating report / 4") ) ;
+#if defined( NEVERdEFINED )
 
                     }
                         soulOutP << soulReport1 ;
@@ -767,7 +768,7 @@
 
                         TN( tHead ,
                     {
-                    //LOGrAW( "GENERATING REPORT / 5\r\n" ) ;
+                    traceF( tinP , T("etherSoilF / generating report / 5") ) ;
 
                     }
                         }
@@ -797,7 +798,7 @@
                         cStrongCard = pSwSwTimeCard->cFlavorsF( tinP ) ;
                     {
                     if( pSwSwTimeCard )
-                    //LOGrAW( "GENERATING REPORT / 6\r\n" ) ;
+                    traceF( tinP , T("etherSoilF / generating report / 6") ) ;
 
                     }
                         }
@@ -827,7 +828,7 @@
                         cStrongBuy = pSwSwBuy->cFlavorsF( tinP ) ;
                     {
                     if( pSwSwBuy )
-                    //LOGrAW( "GENERATING REPORT / 7\r\n" ) ;
+                    traceF( tinP , T("etherSoilF / generating report / 7") ) ;
 
                     ZE( countT , cStrongCard ) ;
                     ZE( countT , cStrongBuy ) ;
@@ -862,14 +863,11 @@
                     if( pSwTimeMax )
                     ZE( sCountT , grandMax2 ) ;
                     ZE( countT  , grandMax1 ) ;
-                    //LOGrAW( "GENERATING REPORT+\r\n" ) ;
+                    traceF( tinP , T("etherSoilF / generating report / 8") ) ;
                 {
                 if( !bQuitP && idModeP == ifcIDmODEeTHERsOIL_REPORT )
 
                 /**/if( bTrace ) traceF( tinP , T("etherSoilF / generating reports") ) ;
-//#if defined( NEVERdEFINED )
-//I HAVEN'T USED THESE REPORTS IN MANY YEARS, SINCE I STOPPED USING THE VOICE RECORDER TO KEEP A TIMECARD AND USING DRAGON NATURALLY SPEAKING SOFTWARE TO TRANSCRIBE THOSE RECORDINGS INTO A TEXT FILE THAT THIS PROGRAM WOULD "EAT"
-//20200531@1904: COMMENTED OUT BECAUSE TAKES 2 IFC HOURS NOW THAT strIdOptimizeClosureF IS USED FOR FILE NAME PATTERN SEARCHES
 
                 }
                     //LOGrAW3( "default soil processing [soulWords]: " , soulWords , " /-\r\n" ) ;

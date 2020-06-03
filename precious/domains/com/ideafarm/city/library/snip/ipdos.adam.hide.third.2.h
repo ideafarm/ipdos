@@ -31755,7 +31755,7 @@ examples
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34169.etherC.etherSnapCyrcleOldF!||
  voidT etherWaitCyrcleOldF( tinS& tinP , napkinC& napkinP ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3416a.etherC.etherWaitCyrcleOldF!||
- static countT& os_cEnabledWhereI_IF( tinS& tinP ) ;
+ static countT& ether_cEnabledWhereI_IF( tinS& tinP ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34192.etherC.ether_cEnabledWhereI_IF!||
  countT etherSoilF( tinS& tinP , const boolT& bQuitP , soulC& soulOutP , soulC& soulInP , const countT idModeP , const strokeS* const psttKeyP = 0 , const flagsT flagsP = flETHERsOILf_null , const osTextT* const postSourceP = 0 , const countT costSourceP = 0 ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.341c0.etherC.etherSoilF!||

@@ -1,4 +1,6 @@
 
+#define IFwHEREkNOWStHREAD if( F(tinP.flagsThreadMode3) & flTHREADmODE3_REGISTEREDwITHwHERE )
+
 
 //
 // Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
@@ -2858,7 +2860,7 @@ it is illegal to refer to this symbol in the definition of an adam
                         etThread.strMakeF( tinP , psttThreadFile , T("///ideafarm/ephemeral/tmp/threads/")+TF1(tinP.osPid)+tDot+TF1(DDNUMB)+tDot+T(#taskFP)+tDot+TF1(tinP.monitor.idThread) ) ; ___( psttThreadFile ) ; \
                         etThread.boxPutF( tinP , psttThreadFile , "T" ) ;                                                   \
                     }                                                                                                       \
-                    if( F(thirdC::third_flagsModeAdam1I_IF(tinP)) & flADAMmODE1_WHEREaLL && !( F(tinP.flagsThreadMode1) & flTHREADmODE1_NOwHERE ) ) etThread.etherWhereF( tinP , ifcIDaCTIONwHERE_ENABLE ) ; \
+                    if( F(thirdC::third_flagsModeAdam1I_IF(tinP)) & flADAMmODE1_WHEREaLL && !( F(tinP.flagsThreadMode1) & flTHREADmODE1_NOwHERE ) ) etThread.etherWhereF( tinP , ifcIDaCTIONwHERE_WATCH ) ; \
                     TELL( "TASK0: entering application code" )                                                              \
                     staticC _stackTop( tinP , "appStackTop" , "tin" ) ;                                                     \
                     (countT&)_stackTop = espAM() ;                                                                          \
@@ -2931,7 +2933,7 @@ it is illegal to refer to this symbol in the definition of an adam
                             else                                                                                                                                    \
                             {                                                                                                                                       \
                                 TELL( "DONE0: conditionally calling etherWhereF" ) ;                                                                                \
-                                if( F(thirdC::third_flagsModeAdam1I_IF(tinP)) & flADAMmODE1_WHEREaLL && !( F(tinP.flagsThreadMode1) & flTHREADmODE1_NOwHERE ) ) etThread.etherWhereF( tinP , ifcIDaCTIONwHERE_DISABLE ) ; \
+                                if( F(thirdC::third_flagsModeAdam1I_IF(tinP)) & flADAMmODE1_WHEREaLL && !( F(tinP.flagsThreadMode1) & flTHREADmODE1_NOwHERE ) ) etThread.etherWhereF( tinP , ifcIDaCTIONwHERE_UNWATCH ) ; \
                                                                                                                                                                     \
                                 TELL( "DONE0: waiting for my kid threads to end" ) ;                                                                                \
                                 {                                                                                                                                   \
@@ -17031,8 +17033,8 @@ these flag values are used by oo flagsT objects
 #define ifcIDaCTIONwHERE_SHUTDOWN                  0xdddd052e
 #define ifcIDaCTIONwHERE_REGISTERtHREAD            0xdddd052f
 #define ifcIDaCTIONwHERE_UNREGISTERtHREAD          0xdddd0530
-#define ifcIDaCTIONwHERE_ENABLE                    0xdddd0531
-#define ifcIDaCTIONwHERE_DISABLE                   0xdddd0532
+#define ifcIDaCTIONwHERE_WATCH                    0xdddd0531
+#define ifcIDaCTIONwHERE_UNWATCH                   0xdddd0532
 /*3*/
 #define ifcIDaCTIONwHERE_min     0xdddd052d
 #define ifcIDaCTIONwHERE_max     0xdddd0532
@@ -20098,7 +20100,7 @@ after i return, that countT object will contain 1
 #define flTHREADmODE2_INoUTcHATTER                              0xe000044a
 #define flTHREADmODE2_SECREThANDsHAKER                          0xe000084a
 #define flTHREADmODE2_CHATTERgRABwANTfREEZES                    0xe000104a
-#define flTHREADmODE2_WHEREiSwATCHINGiF                         0xe000204a
+#define flTHREADmODE2_WHEREiSwATCHING                           0xe000204a
 #define flTHREADmODE2_POOLoLDtURBO                              0xe000404a
 #define flTHREADmODE2_MYoWNrECYCLER                             0xe000804a
 #define flTHREADmODE2_ADAMmAINtHREAD                            0xe001004a
@@ -26546,7 +26548,7 @@ it is illegal to refer to this symbol anywhere but in the definition of a BwOTHs
 
 /*1*//*IFwHEREiSwATCHING*//*1*/
 
-#define IFwHEREiSwATCHING if( F(tinP.flagsThreadMode2) & flTHREADmODE2_WHEREiSwATCHINGiF && etherC::os_cEnabledWhereI_IF( tinP ) )
+#define IFwHEREiSwATCHING if( F(tinP.flagsThreadMode2) & flTHREADmODE2_WHEREiSwATCHING )
 
 
 //
@@ -39987,6 +39989,7 @@ args
 #define flTHREADmODE3_LOGsPINcALLnEST                           0xe10000c8
 #define flTHREADmODE3_POOLaLLOCATEfROMhEAP                      0xe20000c8
 #define flTHREADmODE3_ALLOWeXPLICITmEMORYsPACE                  0xe40000c8
+#define flTHREADmODE3_REGISTEREDwITHwHERE                       0xe80000c8
 /*3*/
 #define flTHREADmODE3_null    0xe00000c8
 
