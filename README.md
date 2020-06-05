@@ -64,7 +64,7 @@ Status:
  (I am a civic activist, a "lawful revolutionary".
  This rewrite effort was interrupted by overwhelming police and court oppression that began in 2010 and continues to the present time, so I have not been able to resume work on the rewrite.
  Also, my focus from 2010 to the present has been to debug the code.)
- IPDOS (tm) is currently suitable for (1) learning C++, (2) learning coding style, and (3) developing console applications and Windows Services, including server code (http, smtp, dns, etc.).
+ IPDOS (tm) is currently suitable for (1) learning C++, (2) learning coding style, and (3) purely educational use developing console applications and Windows Services, including server code (http, smtp, dns, etc.).
  For those purposes, IPDOS (tm) is stable and mature and ready for "playcrafting" by others.
  There is no Programmers' Guide or Programmers' Reference, but there are many sample programs as well as all of the application code for IdeaFarm (tm) Bundle and for many other applications.
 
