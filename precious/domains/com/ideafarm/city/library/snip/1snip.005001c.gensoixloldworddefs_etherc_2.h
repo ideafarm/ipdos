@@ -118,12 +118,12 @@ voidT diskFindFileOrDirF_4Pb4PpatternCP_GF( tinS& tinP , etherC& etherP , soulC&
             else
             {
                 SOIXLoLDtESTtYPE( 0x0 , etherC )
-                if( !POOP ) { slP >> pPatternP ; idArgNext ++ ; }
+//                if( !POOP ) { slP >> pPatternP ; idArgNext ++ ; }
             }
         }
     }
     if( !POOP ) etherP.diskFindFileOrDirF( tinP , psttNameP , handleP , psttPathP , pPatternP ) ;
-    etherP.delF( tinP , pPatternP ) ;
+//    etherP.delF( tinP , pPatternP ) ;
     etherP.delF( tinP , psttPathP ) ;
 
     if( !POOP ) slP << psttNameP ;
@@ -167,7 +167,7 @@ voidT diskFindFileOrDirF_4P4PpatternCPhPgrabCP33_GF( tinS& tinP , etherC& etherP
             else
             {
                 SOIXLoLDtESTtYPE( 0x0 , etherC )
-                if( !POOP ) { slP >> pPatternP ; idArgNext ++ ; }
+//                if( !POOP ) { slP >> pPatternP ; idArgNext ++ ; }
             }
         }
     }
@@ -272,7 +272,7 @@ voidT diskFindFileOrDirF_4P4PpatternCPhPgrabCP33_GF( tinS& tinP , etherC& etherP
     if( !POOP ) noName = etherP.diskFindFileOrDirF( tinP , pstt1FoundP , psttPathP , pPatternP , pSoulP , pGrabP , csttExtraP , cMaxP ) ;
     DEL( pGrabP ) ;
     DEL( pSoulP ) ;
-    etherP.delF( tinP , pPatternP ) ;
+//    etherP.delF( tinP , pPatternP ) ;
     etherP.delF( tinP , psttPathP ) ;
 
     if( !POOP ) slP << pstt1FoundP ;

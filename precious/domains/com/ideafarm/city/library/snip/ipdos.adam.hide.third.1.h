@@ -39399,10 +39399,11 @@ obsolete: ordering begins with "outer" (low) and ends with "inner" (high)
 #define ifcIDgRABlAYER_cBASEmISC3                   0xdddd0b3a
 #define ifcIDgRABlAYER_cBASEmISC4                   0xdddd0b3b
 #define ifcIDgRABlAYER_dLINKEDc                     0xdddd0b3c
-#define ifcIDgRABlAYER_LEAF                         0xdddd0b3d
+#define ifcIDgRABlAYER_eHEAP                        0xdddd0b3d
+#define ifcIDgRABlAYER_fLEAF                        0xdddd0b3e
 /*3*/
 #define ifcIDgRABlAYER_min     0xdddd0b24
-#define ifcIDgRABlAYER_max     0xdddd0b3d
+#define ifcIDgRABlAYER_max     0xdddd0b3e
 
 
 //
