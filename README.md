@@ -33,7 +33,7 @@ Technical overview:
  All work must be done by calling the IPDOS (tm) API (the class library).
  There are four code layers.
  (1) The thirdC class is a thin wrapper that contains all functionality provided by the "base o.s." and by third party API's such as OpenSSL.
- (2) The etherC class presents the IPDOS (tm) procedural programming API, which implements a novel programming abstraction.
+ (2) The etherC class presents the IPDOS (tm) procedural programming API, which implements a novel procedural programming abstraction.
  (3) The many other classes, such as socketC, present the IPDOS (tm) object oriented API.
  (4) Application code assigns work to object instances and uses etherC instances to execute procedural code.
 
