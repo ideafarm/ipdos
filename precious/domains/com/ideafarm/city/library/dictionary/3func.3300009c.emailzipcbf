@@ -11,7 +11,9 @@
     //etThread.traceF( tinP , T("postBodyP:  ")+T(postBodyP) ) ;
     //etThread.traceF( tinP , T("psttPeerAgentP:  ")+T(psttPeerAgentP) ) ;
     //etThread.traceF( tinP , T("psttUrlP:  ")+T(psttUrlP) ) ;
-    //etThread.traceF( tinP , T("nnPeerP: ")+T(nnPeerP) ) ;
+    etThread.traceF( tinP , T("nnPeerP: ")+T(nnPeerP) ) ;
+
+#endif
 
     }
         }
@@ -191,11 +193,16 @@
         idRequestStatus = ifcIDeMAILrEGISTRATIONrEQUESTsTATUS_BOTwRONGiMAGE ;
     {
     else if( etThread.strCompareF( tinP , psttUrlP , tUrlCorrect ) )
+
+#if defined( NEVERdEFINED )
+//BAD ACTORS WILL CONTINUE TO EXERCISE ME
+//THIS ENTIRE FUNCTION IS OBSOLETED BY THE USE OF PAYPAL
+
     }
         meP.pushSnipF(   tinP , stBodyP , T("I think that you are a bot, not a human.\r\nTo request assistance, email support@ideafarm.com.") ) ;
         idRequestStatus = ifcIDeMAILrEGISTRATIONrEQUESTsTATUS_BOTwRONGsCHEME ;
     {
-    if( etThread.strCompareF( tinP , tScheme , tSchemeCorrect ) )
+    //if( etThread.strCompareF( tinP , tScheme , tSchemeCorrect ) )
     ZE( countT , idRequestStatus )
     boolT bWriteIpFile = 1 ;
     TN( tUrlCorrect    , "/header/action/emailzip.captcha.4.html" ) ; //U:: REMOVE "header"

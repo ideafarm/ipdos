@@ -27,202 +27,283 @@
     //    TN( tKey   , "" ) ;
     //{
 
-    LOGrAW( "\r\n---- psttKVReportP (END) -----------------------------------------------------------------\r\n" ) ;
-    LOGrAW( T(psttKVReportP) ) ;
-    LOGrAW( "\r\n---- psttKVReportP (BEGIN) -----------------------------------------------------------------\r\n" ) ;
+    //LOGrAW( "\r\n---- psttKVReportP (END) -----------------------------------------------------------------\r\n" ) ;
+    //LOGrAW( T(psttKVReportP) ) ;
+    //LOGrAW( "\r\n---- psttKVReportP (BEGIN) -----------------------------------------------------------------\r\n" ) ;
+    //LOGrAW3( "noteFromPaypalCBF [bValid]:    " , bValid , "\r\n" ) ;
 
     }
-        #endif
         }
-            }
-                }
-                    }
-                        }
-                            sessionsP.baton.ungrabF( tinP ) ;
-                            }
-                                if( idAcc == session.getIdAccountF( tinP ) ) session.privilegesF( tinP , session.privilegesF( tinP ) | flSESSIONpRIVILEGE_FULLhEADER ) ;
-                                sessionC& session = *(sessionC*)(countT)sessionsP.swSession ;
-                                sessionsP.nnLever_peer = *(nicNameC*)sessionsP.swSession.leverF( tinP , idf ) ;
-                            {
-                            for( countT idf = 1 ; idf <= cFlavors ; idf ++ )
-                            countT cFlavors = sessionsP.swSession.cFlavorsF( tinP ) ;
-                            sessionsP.baton.grabF( tinP , TAG( TAGiDnULL ) ) ;
-                        {
+            THREADmODE1rESTORE
 
-                        }
-                            etThread.delF( tinP , psttEmail ) ;
-                            etThread.boxPutF( tinP , T("//smtp/" ifcEMAIL_AUTOrESPONDERbANKtELLER "/")+T(psttEmail) , tSay , tSay.csF( tinP ) ) ;
+            //U::etThread.boxPutF( tinP , T("smtp.mailgun.org[admin]/b42/smtp/")+tHost+T("@ideafarm.com/")+tValuePaypalPayerEmail+T("//wo@ideafarm.com/ideafarm.factory.reports@gmail.com") , tBody ) ;
+            etThread.boxPutF( tinP , T("smtp.mailgun.org[admin]/b42/smtp/")+tHost+T("@ideafarm.com/")+T("ideafarmcity@gmail.com")+T("//wo@ideafarm.com/ideafarm.factory.reports@gmail.com") , tBody ) ; //U::
 
-                            ) ;
-
-                                "  The organizer will respond to payout requests as quickly as he can."
-                                "  Please allow several days for the organizer to make the payout."
-                                "  Contact the organizer to request a payout."
-                                "  Your commission on this sale will be paid to you on demand, via PayPal (tm)."
-                                "A sale of ")+TF2(moneyT1,flFORMAT_NObIGITvALUES)+T(" mEx (tm), worth $")+TF4(dollars,flFORMAT_NObIGITvALUES|flFORMAT_FOREIGN|flFORMAT_NObASE,0,0xa)+T(".")+TF4(cents,flFORMAT_NObIGITvALUES|flFORMAT_FOREIGN|flFORMAT_NObASE,0,0xa)+T(", has just been booked, and you are the sales worker of record for that sale!"
-                                "\r\n"
-                                "Subject: You've just been paid a commission!\r\n"
-
-                            TN( tSay , "" ) ; tSay = T(
-
-                            countT dollars = moneyT1 / 100 ;
-                            countT cents   = moneyT1 % 100 ;
-
-                            queryEmailFromIdAccountF( tinP , psttEmail , idAccCommission ) ; ___( psttEmail ) ;
-                            ZE( strokeS* , psttEmail ) ;
-                        {
-                        if( idAccCommission )
-
-                        }
-                            etThread.delF( tinP , psttEmail ) ;
-                            etThread.boxPutF( tinP , T("//smtp/" ifcEMAIL_AUTOrESPONDERbANKtELLER "/")+T(psttEmail) , tSay , tSay.csF( tinP ) ) ;
-
-                            ) ;
-
-                                "  Sales workers are not asked to return their commission."
-                                "  This is because 7/8 of your purchase price is paid as a commission to sales workers."
-                                "IdeaFarm " "(tm) Operations must make 8 sales of the same size to recover from each refund."
-                                "\r\n"
-                                "  Please do not request a refund unless you really feel entitled to one.\r\n"
-                                "  It is an honor system."
-                                "  Instead of asking you to trust us, we do business in a way that requires that we trust you!"
-                                "  This is an example of the trust reversal policy of IdeaFarm " "(tm) Operations."
-                                "  However, if you feel that you are entitled to a refund, you will be given one, no questions asked."
-                                "This is a nonrefundable purchase."
-                                "\r\n"
-                                "  You can view the details of this payment by logging into your PayPal (tm) account.\r\n"
-                                "This is a notification that your PayPal (tm) account has been used to make a purchase at IDEAFARM.COM."
-                                "\r\n"
-                                "Subject: Thank you for your deposit!\r\n"
-
-                            TN( tSay , "" ) ; tSay = T(
-
-                            queryEmailFromIdAccountF( tinP , psttEmail , idAcc ) ; ___( psttEmail ) ;
-                            ZE( strokeS* , psttEmail ) ;
-                        {
-
-                        { depositS info( tinP , 1/*idAccBucketOwner*/ , 1/*idBucket*/ , 1/*idProduct*/ , idAcc/*Depositor*/ , 0/*pczNote*/ , timeN1 , timeN2 , 1/*idDeposit*/ , idAccCommission , moneyT1 , moneyT2 ) ; }
-                        count8S c8n( 6 , 7 , 8 , 9 ) ;
-
-                        //U::CONoUTrAW7( "deposit: [moneyT1,idAcc,idAccCommission]: " , moneyT1 , " " , idAcc , " " , idAccCommission , "\r\n" ) ;
-                    
-                        etThread.osTimeNowUniqueF( tinP , timeN1 , timeN2 ) ;
-                        ZE( sCountT , timeN2 ) ;
-                        ZE( countT  , timeN1 ) ;
-        
-                        else                        etThread.osTimeSubtractF( tinP , moneyT1 , moneyT2 , - cMoneyIn , 0 ) ;
-                        if( (sCountT)cMoneyIn > 0 ) moneyT1 = cMoneyIn ;
-                        ZE( sCountT , moneyT2 ) ;
-                        ZE( countT  , moneyT1 ) ;
-                    {
-                    if( bValid || idTest == ifcIDtESTpASSCODE ) //ARBITRARY SECRET PASSWORD; DISABLE THE TEST ACCEPTANCE EXCEPT WHEN TESTING
-                    //ifcIDtESTpASSCODE IS USED BY THE TOOL THAT ALLOWS ME TO MANUALLY SIMULATE PAYMENTS
-
-                    }
-                        etThread.delF( tinP , pstt1w ) ;
-                        }
-                            etThread.delF( tinP , pstt2w ) ;
-                            }
-
-
-
-                                }
-                                    }
-                                        break ;
-                                        if( !etThread.strCompareF( tinP , psttc2 , tCustomKeyIdAccCommission ) ) idArm = 1 ;
-                                    {
-                                    default :
-                                    }
-                                        break ;
-                                        idAccCommission = etThread.strDigitsToSCountF( tinP , psttc2 , 36 ) ;
-                                    {
-                                    case 1 :
-                                {
-                                switch( idArm )
-                            {
-                            FORsTRINGSiN2( pstt2w )
-                            ZE( countT , idArm ) ;
-                            etThread.strWordsOldF( tinP , pstt2w , psttc1 , sttq , T(TbLACK)+T(":") ) ; ___( pstt2w ) ;
-                            strokeS sttq( 0 , sc_IGNOREqUOTES ) ;
-                            ZE( strokeS* , pstt2w ) ;
-                        {
-                        FORsTRINGSiN1( pstt1w )
-                        etThread.strWordsOldF( tinP , pstt1w , tValuePaypalCustom , sttq , T(TbLACK)+T(";") ) ; ___( pstt1w ) ;
-                        strokeS sttq( 0 , sc_IGNOREqUOTES ) ;
-                        ZE( strokeS* , pstt1w ) ;
-
-                        TN( tCustomKeyIdAccCommission , "idAccCommission" ) ;
-                    {
-                    if( tValuePaypalCustom.csF( tinP ) )
-                    ZE( countT , idAccCommission ) ;
-
-                {
-                if( cMoneyIn )
-    
-                countT cMoneyIn = cMoneyGross - cMoneyFee ;
-
-                countT cMoneyFee   = cMoneyF( tinP , etThread , tValuePaypalPaymentFee   ) ;
-                countT cMoneyGross = cMoneyF( tinP , etThread , tValuePaypalPaymentGross ) ;
-            {
-            )
-                )
-                    !etThread.strCompareF( tinP , tValuePaypalPaymentStatus , T("Refunded" ) )
-                    !etThread.strCompareF( tinP , tValuePaypalPaymentStatus , T("Completed") ) ||
-                (
-                !POOP &&
-            (
-            if
+            tBody += T("time:  ")+tTime+T("\r\n") ;
+            tBody += T("\r\nreference:  ")+tShort+T("\r\n") ;
 
             }
-                }
-                    }
-                        //U::CONoUTrAW( T("updating account description NEW [")+*pptKey[offo]+T("]: \"")+T(pstto)+T("\"\r\n") ) ;
-                        if( pptValue[ offo ]->csF( tinP ) ) { etThread.strMakeF( tinP , pstto , *pptValue[ offo ] ) ; ___( pstto ) ; }
-                        if( pstto ) { PUSE( tinP , *(byteT**)&pstto ) ; }
-                        //U::CONoUTrAW( T("updating account description OLD [")+*pptKey[offo]+T("]: \"")+T(pstto)+T("\"\r\n") ) ;
-                        strokeS*& pstto = *pppstto[ offo ] ;
-                    {
-                    for( countT offo = 0 ; offo < cField ; offo ++ )
-                {
-                if( !POOP )
-
-                }
-                    __( cField - cKey + 5 ) ; //CS:B
-                    __( cValue - cKey ) ;
-                    countT cValue = sizeof pptValue / sizeof pptValue[ 0 ] ;
-                {
-                countT cField = sizeof pppstto  / sizeof pppstto[  0 ] ;
-                countT cKey   = sizeof pptKey   / sizeof pptKey[   0 ] ;
-
-                } ;
-                    &info.psttResidenceCountry              ,
-                    &info.psttPaypalProtectionEligibility   ,
-                    &info.psttPaypalPayerStatus             ,
-                    &info.psttPaypalPayerId                 ,
-                    &info.psttPaypalPayerEmail              ,
-                    &info.psttLastName                      ,
-                    &info.psttFirstName                     ,
-                    &info.psttCharset                       ,
-                    &info.psttAddressZip                    ,
-                    &info.psttAddressStreet                 ,
-                    &info.psttAddressStatus                 ,
-                    &info.psttAddressState                  ,
-                    &info.psttAddressName                   ,
-                    &info.psttAddressCountryCode            ,
-                    &info.psttAddressCountry                ,
-                    &info.psttAddressCity                   ,
-                    //CS:CODEsYNC: 1d20005 1d20005 1d20005
-                {
-                strokeS** pppstto[] =
-
-                if( F(info.flagsThis1) & flACCOUNT1_FYIdOESnOTeXIST ) info.flagsMode = fliACCOUNTmODE_LISTmEdIRECTORY | fliACCOUNTmODE_OWNERcONFIRMED ;
-
-                accountS info( tinP , etThread , idAcc , flACCOUNT1_SET , flACCOUNT2_QUERYfLAGSmODE | flACCOUNT2_QUERYzIPaT ) ; //MUST QUERY FOR ALL FIELDS THAT ARE CAPTURED FROM ACCOUNT OWNER OR FROM ANOTHER SOURCE OTHER THAN PAYPAL
+                tBody += T("country:  ")+tValueAddressCountry+T("\r\n") ;
+                tBody += T("postal code:  ")+tValueAddressZip+T("\r\n") ;
             {
+            if( !bDelete )
+
+            tBody += T("email:  ")+tValuePaypalPayerEmail+T("\r\n") ;
+
+            ) ;
+
+                    "\r\n"
+                    "The following information has been registered:\r\n"
+                    "Thank you for deciding to participate in Wo'O's Table.\r\n"
+                    "\r\n"
+                    "Subject: Wo'O's Table:  Your email is now registered.\r\n"
+                :    
+                    "\r\n"
+                    "Sorry to see you go!  If you change your mind, just register again.\r\n"
+                    "\r\n"
+                    "Subject: Wo'O's Table:  Your email has been unregistered, effective immediately.\r\n"
+                ?
+                bDelete
+
+            TN( tBody ,
+
+            ZE( boolT , bDelete ) ; //U:: GET THIS FROM PAYPAL NOTIFICATION OF SUBSCRIPTION CANCELLATION
+
+            textC tTime( ifcIDtEXTgEN_TIMEnOWfOREIGN , tinP , TAG( TAGiDnULL ) ) ;
+
+            }
+                etThread.delF( tinP , psttFile ) ;
+                etThread.delF( tinP , psttShort ) ;
+                etThread.delF( tinP , psttnu ) ;
+                tShort = T(psttShort) ;
+                etThread.strBisectF( tinP , psttnu , psttShort , psttFile , T("/") , - 1 , flSTRbISECT_APPENDdELIMITER ) ; ___( psttnu ) ; ___( psttShort ) ;
+                ZE( strokeS* , psttShort ) ;
+                ZE( strokeS* , psttnu ) ;
+
+                etThread.boxPutUniqueF( tinP , psttFile , T("///ideafarm/ephemeral/backed.up.daily/domains/com/ideafarm/wo.o.s.table/confirmed.email/email.")+tHost , WS( rec ) ) ; ___( psttFile ) ;
+                ZE( strokeS* , psttFile ) ;
+            {
+            TN( tShort , "" ) ;
+
+            }
+                if( !tHost.csF( tinP ) ) tHost = T("factories") ;
+                etThread.delF( tinP , psttHost ) ;
+                else       tHost = T(psttHost) ;
+                if( POOP ) { POOPR ; }
+                tinP.pEtScratch->sockPsttHostF( tinP , psttHost ) ; ___( psttHost ) ;
+                ZE( strokeS* , psttHost ) ;
+
+                SCOOPS
+            {
+            IFsCRATCH
+            TN( tHost , "" ) ;
+
+            THREADmODE1oN( flTHREADmODE1_ALLOWsTOPwHILEgRABBING )
+
+            rec << (strokeS*)tValueAddressCountry   ;
+            rec << (strokeS*)tValueAddressZip       ;
+            rec << (strokeS*)tValuePaypalPayerEmail ;
+            rec << (strokeS*)T("no")                ; // DELETE
+            rec << (strokeS*)T(nnPeerP)             ;
+            rec << (countT)1                        ; // IDfORMAT
+            rec << finger                           ;
+            soulC rec( tinP , TAG( TAGiDnULL ) ) ;
+
+            putNegAM( *(countT*)&finger , FINGERnEG_WOtABLEcONFIRMEDeMAIL ) ;
+            ZE( countT , finger ) ;
         {
-        if( idAcc )
+        // 20200604@1905:  REGISTER THE PURCHASER FOR WO'O'S TABLE
 
-        const countT idAcc = queryIdAccountFromEmailF( tinP , tValuePaypalPayerEmail ) ;
+        #endif
+
+            }
+                }
+                    }
+                        }
+                            }
+                                sessionsP.baton.ungrabF( tinP ) ;
+                                }
+                                    if( idAcc == session.getIdAccountF( tinP ) ) session.privilegesF( tinP , session.privilegesF( tinP ) | flSESSIONpRIVILEGE_FULLhEADER ) ;
+                                    sessionC& session = *(sessionC*)(countT)sessionsP.swSession ;
+                                    sessionsP.nnLever_peer = *(nicNameC*)sessionsP.swSession.leverF( tinP , idf ) ;
+                                {
+                                for( countT idf = 1 ; idf <= cFlavors ; idf ++ )
+                                countT cFlavors = sessionsP.swSession.cFlavorsF( tinP ) ;
+                                sessionsP.baton.grabF( tinP , TAG( TAGiDnULL ) ) ;
+                            {
+
+                            }
+                                etThread.delF( tinP , psttEmail ) ;
+                                etThread.boxPutF( tinP , T("//smtp/" ifcEMAIL_AUTOrESPONDERbANKtELLER "/")+T(psttEmail) , tSay , tSay.csF( tinP ) ) ;
+
+                                ) ;
+
+                                    "  The organizer will respond to payout requests as quickly as he can."
+                                    "  Please allow several days for the organizer to make the payout."
+                                    "  Contact the organizer to request a payout."
+                                    "  Your commission on this sale will be paid to you on demand, via PayPal (tm)."
+                                    "A sale of ")+TF2(moneyT1,flFORMAT_NObIGITvALUES)+T(" mEx (tm), worth $")+TF4(dollars,flFORMAT_NObIGITvALUES|flFORMAT_FOREIGN|flFORMAT_NObASE,0,0xa)+T(".")+TF4(cents,flFORMAT_NObIGITvALUES|flFORMAT_FOREIGN|flFORMAT_NObASE,0,0xa)+T(", has just been booked, and you are the sales worker of record for that sale!"
+                                    "\r\n"
+                                    "Subject: You've just been paid a commission!\r\n"
+
+                                TN( tSay , "" ) ; tSay = T(
+
+                                countT dollars = moneyT1 / 100 ;
+                                countT cents   = moneyT1 % 100 ;
+
+                                queryEmailFromIdAccountF( tinP , psttEmail , idAccCommission ) ; ___( psttEmail ) ;
+                                ZE( strokeS* , psttEmail ) ;
+                            {
+                            if( idAccCommission )
+
+                            }
+                                etThread.delF( tinP , psttEmail ) ;
+                                etThread.boxPutF( tinP , T("//smtp/" ifcEMAIL_AUTOrESPONDERbANKtELLER "/")+T(psttEmail) , tSay , tSay.csF( tinP ) ) ;
+
+                                ) ;
+
+                                    "  Sales workers are not asked to return their commission."
+                                    "  This is because 7/8 of your purchase price is paid as a commission to sales workers."
+                                    "IdeaFarm " "(tm) Operations must make 8 sales of the same size to recover from each refund."
+                                    "\r\n"
+                                    "  Please do not request a refund unless you really feel entitled to one.\r\n"
+                                    "  It is an honor system."
+                                    "  Instead of asking you to trust us, we do business in a way that requires that we trust you!"
+                                    "  This is an example of the trust reversal policy of IdeaFarm " "(tm) Operations."
+                                    "  However, if you feel that you are entitled to a refund, you will be given one, no questions asked."
+                                    "This is a nonrefundable purchase."
+                                    "\r\n"
+                                    "  You can view the details of this payment by logging into your PayPal (tm) account.\r\n"
+                                    "This is a notification that your PayPal (tm) account has been used to make a purchase at IDEAFARM.COM."
+                                    "\r\n"
+                                    "Subject: Thank you for your deposit!\r\n"
+
+                                TN( tSay , "" ) ; tSay = T(
+
+                                queryEmailFromIdAccountF( tinP , psttEmail , idAcc ) ; ___( psttEmail ) ;
+                                ZE( strokeS* , psttEmail ) ;
+                            {
+
+                            { depositS info( tinP , 1/*idAccBucketOwner*/ , 1/*idBucket*/ , 1/*idProduct*/ , idAcc/*Depositor*/ , 0/*pczNote*/ , timeN1 , timeN2 , 1/*idDeposit*/ , idAccCommission , moneyT1 , moneyT2 ) ; }
+                            count8S c8n( 6 , 7 , 8 , 9 ) ;
+
+                            //U::CONoUTrAW7( "deposit: [moneyT1,idAcc,idAccCommission]: " , moneyT1 , " " , idAcc , " " , idAccCommission , "\r\n" ) ;
+                        
+                            etThread.osTimeNowUniqueF( tinP , timeN1 , timeN2 ) ;
+                            ZE( sCountT , timeN2 ) ;
+                            ZE( countT  , timeN1 ) ;
+            
+                            else                        etThread.osTimeSubtractF( tinP , moneyT1 , moneyT2 , - cMoneyIn , 0 ) ;
+                            if( (sCountT)cMoneyIn > 0 ) moneyT1 = cMoneyIn ;
+                            ZE( sCountT , moneyT2 ) ;
+                            ZE( countT  , moneyT1 ) ;
+                        {
+
+                        }
+                            etThread.delF( tinP , pstt1w ) ;
+                            }
+                                etThread.delF( tinP , pstt2w ) ;
+                                }
+
+
+
+                                    }
+                                        }
+                                            break ;
+                                            if( !etThread.strCompareF( tinP , psttc2 , tCustomKeyIdAccCommission ) ) idArm = 1 ;
+                                        {
+                                        default :
+                                        }
+                                            break ;
+                                            idAccCommission = etThread.strDigitsToSCountF( tinP , psttc2 , 36 ) ;
+                                        {
+                                        case 1 :
+                                    {
+                                    switch( idArm )
+                                {
+                                FORsTRINGSiN2( pstt2w )
+                                ZE( countT , idArm ) ;
+                                etThread.strWordsOldF( tinP , pstt2w , psttc1 , sttq , T(TbLACK)+T(":") ) ; ___( pstt2w ) ;
+                                strokeS sttq( 0 , sc_IGNOREqUOTES ) ;
+                                ZE( strokeS* , pstt2w ) ;
+                            {
+                            FORsTRINGSiN1( pstt1w )
+                            etThread.strWordsOldF( tinP , pstt1w , tValuePaypalCustom , sttq , T(TbLACK)+T(";") ) ; ___( pstt1w ) ;
+                            strokeS sttq( 0 , sc_IGNOREqUOTES ) ;
+                            ZE( strokeS* , pstt1w ) ;
+
+                            TN( tCustomKeyIdAccCommission , "idAccCommission" ) ;
+                        {
+                        if( tValuePaypalCustom.csF( tinP ) )
+                        ZE( countT , idAccCommission ) ;
+
+                    {
+                    if( cMoneyIn )
+        
+                    countT cMoneyIn = cMoneyGross - cMoneyFee ;
+
+                    countT cMoneyFee   = cMoneyF( tinP , etThread , tValuePaypalPaymentFee   ) ;
+                    countT cMoneyGross = cMoneyF( tinP , etThread , tValuePaypalPaymentGross ) ;
+                {
+                )
+                    )
+                        !etThread.strCompareF( tinP , tValuePaypalPaymentStatus , T("Refunded" ) )
+                        !etThread.strCompareF( tinP , tValuePaypalPaymentStatus , T("Completed") ) ||
+                    (
+                    !POOP &&
+                (
+                if
+
+                }
+                    }
+                        }
+                            //U::CONoUTrAW( T("updating account description NEW [")+*pptKey[offo]+T("]: \"")+T(pstto)+T("\"\r\n") ) ;
+                            if( pptValue[ offo ]->csF( tinP ) ) { etThread.strMakeF( tinP , pstto , *pptValue[ offo ] ) ; ___( pstto ) ; }
+                            if( pstto ) { PUSE( tinP , *(byteT**)&pstto ) ; }
+                            //U::CONoUTrAW( T("updating account description OLD [")+*pptKey[offo]+T("]: \"")+T(pstto)+T("\"\r\n") ) ;
+                            strokeS*& pstto = *pppstto[ offo ] ;
+                        {
+                        for( countT offo = 0 ; offo < cField ; offo ++ )
+                    {
+                    if( !POOP )
+
+                    }
+                        __( cField - cKey + 5 ) ; //CS:B
+                        __( cValue - cKey ) ;
+                        countT cValue = sizeof pptValue / sizeof pptValue[ 0 ] ;
+                    {
+                    countT cField = sizeof pppstto  / sizeof pppstto[  0 ] ;
+                    countT cKey   = sizeof pptKey   / sizeof pptKey[   0 ] ;
+
+                    } ;
+                        &info.psttResidenceCountry              ,
+                        &info.psttPaypalProtectionEligibility   ,
+                        &info.psttPaypalPayerStatus             ,
+                        &info.psttPaypalPayerId                 ,
+                        &info.psttPaypalPayerEmail              ,
+                        &info.psttLastName                      ,
+                        &info.psttFirstName                     ,
+                        &info.psttCharset                       ,
+                        &info.psttAddressZip                    ,
+                        &info.psttAddressStreet                 ,
+                        &info.psttAddressStatus                 ,
+                        &info.psttAddressState                  ,
+                        &info.psttAddressName                   ,
+                        &info.psttAddressCountryCode            ,
+                        &info.psttAddressCountry                ,
+                        &info.psttAddressCity                   ,
+                        //CS:CODEsYNC: 1d20005 1d20005 1d20005
+                    {
+                    strokeS** pppstto[] =
+
+                    if( F(info.flagsThis1) & flACCOUNT1_FYIdOESnOTeXIST ) info.flagsMode = fliACCOUNTmODE_LISTmEdIRECTORY | fliACCOUNTmODE_OWNERcONFIRMED ;
+
+                    accountS info( tinP , etThread , idAcc , flACCOUNT1_SET , flACCOUNT2_QUERYfLAGSmODE | flACCOUNT2_QUERYzIPaT ) ; //MUST QUERY FOR ALL FIELDS THAT ARE CAPTURED FROM ACCOUNT OWNER OR FROM ANOTHER SOURCE OTHER THAN PAYPAL
+                {
+            {
+            if( idAcc )
+
+            const countT idAcc = queryIdAccountFromEmailF( tinP , tValuePaypalPayerEmail ) ;
 
         #if defined( NEVERdEFINED )
         //U:: 20120905: COMMENTED OUT TO BRING UP HTTP SERVER WITH NO DATABASE FUNCTIONALITY; ALL DATABASE FUNCTIONALITY CODE NEEDS TO BE MIGRATED TO THE NEW LIST SUPPORT IN poolC
@@ -343,6 +424,8 @@
         TN( tKeyAddressCountry              , "address_country"        ) ;
         TN( tKeyAddressCity                 , "address_city"           ) ;
     {
+    if( bValid /*|| idTest == ifcIDtESTpASSCODE*/ )
+    //ifcIDtESTpASSCODE IS USED BY THE TOOL THAT ALLOWS ME TO MANUALLY SIMULATE PAYMENTS  //ARBITRARY SECRET PASSWORD; DISABLE THE TEST ACCEPTANCE EXCEPT WHEN TESTING
 
     }
         }
@@ -361,7 +444,7 @@
                 osTextT postVerdict[ 2 ] = { ostVerdict , 0 } ;
 
                 }
-                    LOGrAW( "\r\n---- validation response debug (END) -----------------------------------------------------------------\r\n" ) ;
+                    //LOGrAW( "\r\n---- validation response debug (END) -----------------------------------------------------------------\r\n" ) ;
                     }
                         }
                             bArmed = 1 ;
@@ -383,10 +466,10 @@
                         {
                         if( bArmed )
 
-                        }
-                            LOGrAW( post2 ) ;
-                            osTextT post2[] = { ostNow , 0 } ;
-                        {
+                        //}
+                        //    LOGrAW( post2 ) ;
+                        //    osTextT post2[] = { ostNow , 0 } ;
+                        //{
 
                         osTextT ostNow = post5[ ( cIn - 1 ) % sizeof post5 ] ;
 
@@ -396,7 +479,7 @@
                     ZE( countT , cIn ) ;
                     osTextT post5[ 5 ] = { 0 , 0 , 0 , 0 , 0 } ;
                     ZE( boolT , bArmed ) ;
-                    LOGrAW( "\r\n---- validation response debug (BEGIN) -----------------------------------------------------------------\r\n" ) ;
+                    //LOGrAW( "\r\n---- validation response debug (BEGIN) -----------------------------------------------------------------\r\n" ) ;
                 {
                 ZE( osTextT , ostVerdict ) ;
 
@@ -415,9 +498,9 @@
         {
         IFsCRATCH
 
-        LOGrAW( "\r\n---- tSay (END) yippee -----------------------------------------------------------------\r\n" ) ;
-        LOGrAW( tSay ) ;
-        LOGrAW( "\r\n---- tSay (BEGIN) yippee -----------------------------------------------------------------\r\n" ) ;
+        //LOGrAW( "\r\n---- tSay (END) yippee -----------------------------------------------------------------\r\n" ) ;
+        //LOGrAW( tSay ) ;
+        //LOGrAW( "\r\n---- tSay (BEGIN) yippee -----------------------------------------------------------------\r\n" ) ;
 
         }
             tSay = tSay1+TF4(costBodyAll,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FOREIGN|flFORMAT_NObASE,0,0xa)+tSay2+tSayCmd+tSayBody ;
@@ -438,9 +521,9 @@
         {                        
         TN( tSay , "" ) ;
 
-        LOGrAW( "\r\n---- postBodyP (END) -----------------------------------------------------------------\r\n" ) ;
-        LOGrAW( postBodyP ) ;
-        LOGrAW( "\r\n---- postBodyP (BEGIN) -----------------------------------------------------------------\r\n" ) ;
+        //LOGrAW( "\r\n---- postBodyP (END) -----------------------------------------------------------------\r\n" ) ;
+        //LOGrAW( postBodyP ) ;
+        //LOGrAW( "\r\n---- postBodyP (BEGIN) -----------------------------------------------------------------\r\n" ) ;
 
         //THIS WORKS IN FIREFOX BROWSER: https://www.sandbox.paypal.com:443/cgi-bin/webscr?cmd=_notify-validate&mc_gross=1.00&protection_eligibility=Eligible&address_status=confirmed&payer_id=4QLHUR4EYW37J&address_street=1+Main+St&payment_date=15%3A55%3A04+Jun+04%2C+2020+PDT&payment_status=Completed&charset=windows-1252&address_zip=95131&first_name=John&mc_fee=0.33&address_country_code=US&address_name=John+Doe&notify_version=3.9&subscr_id=I-DEKU4NNTHS0H&payer_status=verified&business=sb-znjve1276155%40business.example.com&address_country=United+States&address_city=San+Jose&verify_sign=AS.sXmO3SZlbZsuBgmx57wrfjxyDAk855hu6vdRmhFRd0mqr2l3hMU7l&payer_email=sb-prtxq883780%40personal.example.com&txn_id=5W609239EF681420H&payment_type=instant&btn_id=4125335&last_name=Doe&address_state=CA&receiver_email=sb-znjve1276155%40business.example.com&payment_fee=0.33&receiver_id=755UKLGFJ8XU2&txn_type=subscr_payment&item_name=Wo'O's+Table+Registration+and+Subscription&mc_currency=USD&item_number=20200604&residence_country=US&test_ipn=1&transaction_subject=Wo'O's+Table+Registration+and+Subscription&payment_gross=1.00&ipn_track_id=5075e5b427054 HTTP/1.0
         //OLD FORMAT: GET /cgi-bin/webscr?cmd=_notify-validate&mc_gross=1.00&protection_eligibility=Eligible&address_status=confirmed&payer_id=4QLHUR4EYW37J&address_street=1+Main+St&payment_date=17%3A04%3A06+Jun+04%2C+2020+PDT&payment_status=Completed&charset=windows-1252&address_zip=95131&first_name=John&mc_fee=0.33&address_country_code=US&address_name=John+Doe&notify_version=3.9&subscr_id=I-1CXF383WH8P0&payer_status=verified&business=sb-znjve1276155%40business.example.com&address_country=United+States&address_city=San+Jose&verify_sign=AEHpL6M1JS9Z4r02TsvVIey5ocFqAgLcANkEe9kVFcJG4kqTWCtTJprq&payer_email=sb-prtxq883780%40personal.example.com&txn_id=1XX85736SF014420R&payment_type=instant&btn_id=4125335&last_name=Doe&address_state=CA&receiver_email=sb-znjve1276155%40business.example.com&payment_fee=0.33&receiver_id=755UKLGFJ8XU2&txn_type=subscr_payment&item_name=Wo%27O%27s+Table+Registration+and+Subscription&mc_currency=USD&item_number=20200604&residence_country=US&test_ipn=1&transaction_subject=Wo%27O%27s+Table+Registration+and+Subscription&payment_gross=1.00&ipn_track_id=92fb2ec1f693b HTTP/1.0
