@@ -8,7 +8,7 @@
 
 
 }
-    //LOGrAW5( "noteFromPaypalCBF [bGot,bValid]: " , bGot , " " , bValid , "\r\n" ) ;
+    etThread.traceF( tinP , T("noteFromPaypalCBF [bGot,bValid]:    ")+TF2(bGot,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+TF2(bValid,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
 
     //}
     //    }
@@ -26,7 +26,10 @@
     //    TN( tValue , "" ) ;
     //    TN( tKey   , "" ) ;
     //{
+
+    LOGrAW( "\r\n---- psttKVReportP (END) -----------------------------------------------------------------\r\n" ) ;
     LOGrAW( T(psttKVReportP) ) ;
+    LOGrAW( "\r\n---- psttKVReportP (BEGIN) -----------------------------------------------------------------\r\n" ) ;
 
     }
         #endif
@@ -346,64 +349,101 @@
             }
                 }
                     ++ s ; etThread.osSleepF( tinP , TOCK ) ;
-                    //LOGrAW3( "" , cTries , ": napping because did not receive a valid reply from www.paypal.com to confirm that the ipn is valid\r\n" ) ;
+                    etThread.traceF( tinP , TF2(cTries,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T(": napping because did not receive a valid reply from www.paypal.com to confirm that the ipn is valid") ) ;
                 {
                 if( !bGot && cTries )
 
                 if( POOP ) POOPR
-            
+
+                bGot = 1 ;
+                bValid = ostVerdict == 'V' ;
+                etThread.traceF( tinP , T("verdict:    ")+T(postVerdict) ) ;
+                osTextT postVerdict[ 2 ] = { ostVerdict , 0 } ;
+
                 }
-                    default : { __1 ; break ; }
+                    LOGrAW( "\r\n---- validation response debug (END) -----------------------------------------------------------------\r\n" ) ;
                     }
-                        break ;
-                        if( !POOP ) { bGot = 1 ; bValid = 0 ; }
-                        __NZ( !!tinP.pEtScratch->strCompareF( tinP , T(postReply) , T("INVALID") ) ) ;
-                        sock.readF( tinP , posti , 6 ) ; posti += 6 ; *posti = 0 ;
+                        }
+                            bArmed = 1 ;
+                        {
+                        )
+                            && post5[ ( cIn - 4 ) % sizeof post5 ] == '\r'
+                            && post5[ ( cIn - 3 ) % sizeof post5 ] == '\n'
+                            && post5[ ( cIn - 2 ) % sizeof post5 ] == '\r'
+                            && post5[ ( cIn - 1 ) % sizeof post5 ] == '\n'
+                            cIn >= 4
+                        (
+                        else if
+                        }
+                            break ;
+                            ;
+                                : 'I'
+                                ? 'V'
+                            ostVerdict = ostNow == 'V'
+                        {
+                        if( bArmed )
+
+                        }
+                            LOGrAW( post2 ) ;
+                            osTextT post2[] = { ostNow , 0 } ;
+                        {
+
+                        osTextT ostNow = post5[ ( cIn - 1 ) % sizeof post5 ] ;
+
+                        sock.readF( tinP , post5 + ( cIn ++ ) % sizeof post5 , 1 ) ;
                     {
-                    case 'I' :
-                    }
-                        break ;
-                        if( !POOP ) { bGot = 1 ; bValid = 1 ; }
-                        __NZ( !!tinP.pEtScratch->strCompareF( tinP , T(postReply) , T("VERIFIED") ) ) ;
-                        sock.readF( tinP , posti , 7 ) ; posti += 7 ; *posti = 0 ;
-                    {
-                    case 'V' :
+                    while( !POOP )
+                    ZE( countT , cIn ) ;
+                    osTextT post5[ 5 ] = { 0 , 0 , 0 , 0 , 0 } ;
+                    ZE( boolT , bArmed ) ;
+                    LOGrAW( "\r\n---- validation response debug (BEGIN) -----------------------------------------------------------------\r\n" ) ;
                 {
-                switch( postReply[ 0 ] )
-                sock.readF( tinP , posti ++ , 1 ) ;
-                osTextT* posti = postReply ;
-                osTextT postReply[ 9 ] = "12345678" ;
-                
-                }
-                    if( bNull ) break ;
-                    etThread.delF( tinP , psttl ) ;
-                    boolT bNull = !psttl || !psttl->idAdam ;
-                    sock.readWoLineF( tinP , psttl , TOCK ) ; ___( psttl ) ;
-                    ZE( strokeS* , psttl ) ;
-                {
-                while( !POOP )
+                ZE( osTextT , ostVerdict ) ;
 
                 sock.writeF( tinP , (osTextT*)tSay , tSay.csF( tinP ) ) ;
-                sock.connectF( tinP , 0x50 , nnPayPal ) ;
-                socketC sock( tinP , *tinP.pEtScratch , TAG( TAGiDnULL ) ) ;
+                sock.connectF( tinP , 443 , nnPayPal ) ;
+                socketC sock( tinP , *tinP.pEtScratch , TAG( TAGiDnULL ) , ifcSOCKETtYPE_STREAM , flSOCKETc_CRYPTfOREIGNsSL ) ;
             {
             if( nnPayPal ) while( !bGot && cTries -- )
             sleepC s( tinP , TAG( TAGiDnULL ) ) ;
             countT cTries = TUCK >> 4 ;
 
-            nicNameC nnPayPal = socketC::nicNameIF( tinP , *tinP.pEtScratch , T("www.paypal.com") ) ;
+            //U::nicNameC nnPayPal = socketC::nicNameIF( tinP , *tinP.pEtScratch , T("www.paypal.com") ) ;
+            nicNameC nnPayPal = socketC::nicNameIF( tinP , *tinP.pEtScratch , T("www.sandbox.paypal.com") ) ; //U::
         
             SCOOPS
         {
         IFsCRATCH
 
+        LOGrAW( "\r\n---- tSay (END) yippee -----------------------------------------------------------------\r\n" ) ;
+        LOGrAW( tSay ) ;
+        LOGrAW( "\r\n---- tSay (BEGIN) yippee -----------------------------------------------------------------\r\n" ) ;
+
         }
-            tSay = tSay1+tSayBody+tSay2 ;
-            TN( tSay2 , " HTTP/1.0\r\n\r\n" ) ;
+            tSay = tSay1+TF4(costBodyAll,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FOREIGN|flFORMAT_NObASE,0,0xa)+tSay2+tSayCmd+tSayBody ;
+
+            countT costBodyAll = tSayCmd.csF( tinP ) + tSayBody.csF( tinP ) ;
+
             TN( tSayBody , postBodyP ) ;
-            TN( tSay1 , "GET /cgi-bin/webscr?cmd=_notify-validate&" ) ;
+            TN( tSayCmd , "cmd=_notify-validate&" ) ;
+            TN( tSay2 , "\r\nConnection: close\r\n\r\n" ) ;
+            ) ;
+
+                "Content-Length: "
+                "Host: www.sandbox.paypal.com\r\n"
+                "Content-Type: application/x-www-form-urlencoded\r\n"
+                "POST /cgi-bin/webscr HTTP/1.1\r\n"
+
+            TN( tSay1 ,
         {                        
         TN( tSay , "" ) ;
+
+        LOGrAW( "\r\n---- postBodyP (END) -----------------------------------------------------------------\r\n" ) ;
+        LOGrAW( postBodyP ) ;
+        LOGrAW( "\r\n---- postBodyP (BEGIN) -----------------------------------------------------------------\r\n" ) ;
+
+        //THIS WORKS IN FIREFOX BROWSER: https://www.sandbox.paypal.com:443/cgi-bin/webscr?cmd=_notify-validate&mc_gross=1.00&protection_eligibility=Eligible&address_status=confirmed&payer_id=4QLHUR4EYW37J&address_street=1+Main+St&payment_date=15%3A55%3A04+Jun+04%2C+2020+PDT&payment_status=Completed&charset=windows-1252&address_zip=95131&first_name=John&mc_fee=0.33&address_country_code=US&address_name=John+Doe&notify_version=3.9&subscr_id=I-DEKU4NNTHS0H&payer_status=verified&business=sb-znjve1276155%40business.example.com&address_country=United+States&address_city=San+Jose&verify_sign=AS.sXmO3SZlbZsuBgmx57wrfjxyDAk855hu6vdRmhFRd0mqr2l3hMU7l&payer_email=sb-prtxq883780%40personal.example.com&txn_id=5W609239EF681420H&payment_type=instant&btn_id=4125335&last_name=Doe&address_state=CA&receiver_email=sb-znjve1276155%40business.example.com&payment_fee=0.33&receiver_id=755UKLGFJ8XU2&txn_type=subscr_payment&item_name=Wo'O's+Table+Registration+and+Subscription&mc_currency=USD&item_number=20200604&residence_country=US&test_ipn=1&transaction_subject=Wo'O's+Table+Registration+and+Subscription&payment_gross=1.00&ipn_track_id=5075e5b427054 HTTP/1.0
+        //OLD FORMAT: GET /cgi-bin/webscr?cmd=_notify-validate&mc_gross=1.00&protection_eligibility=Eligible&address_status=confirmed&payer_id=4QLHUR4EYW37J&address_street=1+Main+St&payment_date=17%3A04%3A06+Jun+04%2C+2020+PDT&payment_status=Completed&charset=windows-1252&address_zip=95131&first_name=John&mc_fee=0.33&address_country_code=US&address_name=John+Doe&notify_version=3.9&subscr_id=I-1CXF383WH8P0&payer_status=verified&business=sb-znjve1276155%40business.example.com&address_country=United+States&address_city=San+Jose&verify_sign=AEHpL6M1JS9Z4r02TsvVIey5ocFqAgLcANkEe9kVFcJG4kqTWCtTJprq&payer_email=sb-prtxq883780%40personal.example.com&txn_id=1XX85736SF014420R&payment_type=instant&btn_id=4125335&last_name=Doe&address_state=CA&receiver_email=sb-znjve1276155%40business.example.com&payment_fee=0.33&receiver_id=755UKLGFJ8XU2&txn_type=subscr_payment&item_name=Wo%27O%27s+Table+Registration+and+Subscription&mc_currency=USD&item_number=20200604&residence_country=US&test_ipn=1&transaction_subject=Wo%27O%27s+Table+Registration+and+Subscription&payment_gross=1.00&ipn_track_id=92fb2ec1f693b HTTP/1.0
     {
     ZE( boolT , bGot ) ;
     ZE( boolT , bValid ) ;

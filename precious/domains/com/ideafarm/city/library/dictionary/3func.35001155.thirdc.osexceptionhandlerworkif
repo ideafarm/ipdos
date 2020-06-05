@@ -28,29 +28,30 @@
                         //flagsResultP |= flEXCEPTIONrESULT_EXITpROCESScALLED ;
                         //OBSOLETE: NOW THIS IS DONE BY rootExceptionFilterF, WHO CALLED MY CALLER
 
-                        }
-                            }
-                                }
-                                    BLAMMO ;
-                                    homeS::homeIF().flags |= flHOMEs_KILLsELFiMMEDIATELY ; //20191014@1759: ADDED WITHOUT ANALYSIS TO MAKE REBOOT MORE RELIABLE AND QUICKER
-
-                                    thirdC::osFireIF( tinP ) ;
-                                    if( tinP.pEtText ) tinP.pEtText->emailFactoryReportF( tinP , T("an exception occured.  rebooting") ) ;
-                                    LOGrAW3( "on unhandled exception, firing the os at age (ms) since boot: " , msSinceBoot , "\r\n" ) ;
-                                {
-                                else
-                                if( msSinceBoot < msMinimum ) { LOGrAW3( "on unhandled exception, did not fire the os because ms since boot is only " , msSinceBoot , "\r\n" ) ; }
-                                countT msSinceBoot = thirdC::osTimeTicksSinceBootIF() >= home.osTicksAtCt ? thirdC::osTimeTicksSinceBootIF() - home.osTicksAtCt : 0 ;
-                                countT msMinimum = 10 * 60 * 1000 ; //20190819@1106: CHANGED TO 10 FROM 5 MINUTES
-                            {
-                            else
-                            else if( etherC::ifc_idHomeIdisk_IF() < TUCK ) { LOGrAW3( "on unhandled exception, ignored flHOMEs_FIREoSoNuNHANDLEDeXCEPTION because idHome < TUCK for home " , etherC::ifc_idHomeIdisk_IF() , "\r\n" ) ; } //A:ASSUME: PRODUCTION HOME DISK VALUES ARE 001 OR HIGHER
-                            if( !( F(home.flags) & flHOMEs_FIREoSoNuNHANDLEDeXCEPTION ) ) { LOGrAW3( "on unhandled exception, did not fire the os because flHOMEs_FIREoSoNuNHANDLEDeXCEPTION is not set for home " , etherC::ifc_idHomeIdisk_IF() , "\r\n" ) ; }
-                            //20191204@1440: ENABLED THE NEXT 3 LINES
-                            //U::BUG: 20191015@2147: FLAG IS NOT SET WHEN I NEED IT TO BE SET DURING PRODUCTION FAILURE FACTORY6 HOME 102
-
-                            homeS& home = homeS::homeIF() ;
-                        {
+                        //}
+                        //    }
+                        //        }
+                        //            BLAMMO ;
+                        //            homeS::homeIF().flags |= flHOMEs_KILLsELFiMMEDIATELY ; //20191014@1759: ADDED WITHOUT ANALYSIS TO MAKE REBOOT MORE RELIABLE AND QUICKER
+                        //
+                        //            thirdC::osFireIF( tinP ) ;
+                        //            if( tinP.pEtText ) tinP.pEtText->emailFactoryReportF( tinP , T("an exception occured.  rebooting") ) ;
+                        //            LOGrAW3( "on unhandled exception, firing the os at age (ms) since boot: " , msSinceBoot , "\r\n" ) ;
+                        //        {
+                        //        else
+                        //        if( msSinceBoot < msMinimum ) { LOGrAW3( "on unhandled exception, did not fire the os because ms since boot is only " , msSinceBoot , "\r\n" ) ; }
+                        //        countT msSinceBoot = thirdC::osTimeTicksSinceBootIF() >= home.osTicksAtCt ? thirdC::osTimeTicksSinceBootIF() - home.osTicksAtCt : 0 ;
+                        //        countT msMinimum = 10 * 60 * 1000 ; //20190819@1106: CHANGED TO 10 FROM 5 MINUTES
+                        //    {
+                        //    else
+                        //    else if( etherC::ifc_idHomeIdisk_IF() < TUCK ) { LOGrAW3( "on unhandled exception, ignored flHOMEs_FIREoSoNuNHANDLEDeXCEPTION because idHome < TUCK for home " , etherC::ifc_idHomeIdisk_IF() , "\r\n" ) ; } //A:ASSUME: PRODUCTION HOME DISK VALUES ARE 001 OR HIGHER
+                        //    if( !( F(home.flags) & flHOMEs_FIREoSoNuNHANDLEDeXCEPTION ) ) { LOGrAW3( "on unhandled exception, did not fire the os because flHOMEs_FIREoSoNuNHANDLEDeXCEPTION is not set for home " , etherC::ifc_idHomeIdisk_IF() , "\r\n" ) ; }
+                        //    //20191204@1440: ENABLED THE NEXT 3 LINES
+                        //    //U::BUG: 20191015@2147: FLAG IS NOT SET WHEN I NEED IT TO BE SET DURING PRODUCTION FAILURE FACTORY6 HOME 102
+                        //
+                        //    homeS& home = homeS::homeIF() ;
+                        //{
+                        //U::20200604@1356: DISABLED THIS TO BURN-IN TEST PRODUCTION SERVERS
                         //ALWAYS ENABLE REBOOT ON EXCEPTION BEFORE UPLOADING (THIS COMMENT IS OBSOLETE, ASSUMING THAT THE SYSTEM IS RUNNING A SERVER)
                         //20190812@1944: ENABLED THIS CODE
 
