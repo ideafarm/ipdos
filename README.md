@@ -24,7 +24,7 @@ Discussion:
  By unbundling the API from the base operating system, development of base operating systems can become more innovative, since a new base operating system can instantly acquire application programs simply by porting IPDOS (tm).
  By unbundling the API, base operating system development can focus on security and on supporting new hardware.
  By unbundling the API, operating system vendors lose control over the marketplace, hardware vendors acquire the power to innovate, and application developers are empowered both by the emergence of innovative new API's and new hardware and by no longer being locked into a particular base operating system platform.
- In other words, creating a new software layer between the base operating system and applications empowers everyone except the base operating system vendor.
+ In other words, creating a new software layer between the base operating system and applications empowers everyone except a base operating system vendor that dominates the market due to the "network effect".
 
 Technical overview:
  An "application program" is a small dll that is loaded and called by one of two small generic executables, one for console and service (daemon) programs and the other for graphics programs.
