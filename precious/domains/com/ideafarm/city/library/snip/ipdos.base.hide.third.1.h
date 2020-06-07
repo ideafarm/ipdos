@@ -1118,6 +1118,8 @@ ifcPORToLD2_CHAT and ifcPORToLD2_CATCH have been assigned wkp system values by t
 #define ifcPORToLD2_IFC11CATCHmETRICS               0x00000100
 #define ifcPORToLD2_ENABLEpRIVATEhTTP1              0x00010102
 #define ifcPORToLD2_ENABLEpRIVATEhTTP2              0x00010103
+#define ifcIDpORT_HTTP                              0x00000050
+#define ifcIDpORT_HTTPS                             0x000001bb
 #define ifcIDpORT_DOOR                              0x00000386
 #define ifcIDpORT_PANICdOOR                         0x00000387
 #define ifcIDpORT_RELAY                             0x00001cc0

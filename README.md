@@ -8,7 +8,7 @@
 
 IPDOS (tm) craftwork began in 1992, during the "operating system wars".
 IPDOS (tm) began life as a 16-bit OS/2 application intended to defeat Microsoft's monopoly and empower the independent software craft.
- 28 years and 1/2 million lines of C++ code later, IPDOS (tm) is ready for alpha trial usage.
+ 28 years and 1/2 million lines of C++ code later, IPDOS (tm) is now (June 2020) being unveiled.
 
 All 1/2 million lines of code were crafted by the same hands, by a man committed to craftsmanship who saw an awesome potential in the C++ language that no one else appears to have seen.
  IPDOS (tm) development has been the best kept secret in the software industry.

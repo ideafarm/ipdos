@@ -36713,8 +36713,9 @@ the only function of this object is to edit tinS::grabPseudo so that the monitor
 /*1*/struct _export serverInfo2S /*1*/
 {
 /**/
- 
+
     const countT         idPortHint ;
+    const flagsT         flagsSocket ;
     strokeS*             psttName ;
     countT               cSessionMax ;
     const countT         cArg ;
@@ -36729,7 +36730,7 @@ the only function of this object is to edit tinS::grabPseudo so that the monitor
 
     ~serverInfo2S( voidT ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34001.serverInfo2S.dt_serverInfo2S!||
-    serverInfo2S( const countT idPortHintP = 0 , const strokeS* const psttNameP = 0 , countT cSessionMaxP = 0 , const countT cArgP = 0 , countT time1graceP = 0 , const boolT bStateP = 1 , const countT cbdVaryingP = 0 , translateStateFT translateStateFP = 0 , const strokeS* const psttSuffixP = 0 , stateFT stateBeginFP = 0 , stateFT stateEndFP = 0 , sessionsC* const pSessionsP = 0 ) ;
+    serverInfo2S( const countT idPortHintP = 0 , const countT flagsSocketP = flSOCKETc_null , const strokeS* const psttNameP = 0 , countT cSessionMaxP = 0 , const countT cArgP = 0 , countT time1graceP = 0 , const boolT bStateP = 1 , const countT cbdVaryingP = 0 , translateStateFT translateStateFP = 0 , const strokeS* const psttSuffixP = 0 , stateFT stateBeginFP = 0 , stateFT stateEndFP = 0 , sessionsC* const pSessionsP = 0 ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34002.serverInfo2S.serverInfo2S!||
 
 /**/
@@ -38682,13 +38683,14 @@ the only function of this object is to edit tinS::grabPseudo so that the monitor
     const countT                idiFileCt ;
     const byteT* const          pbBitsCt ;
     etherC&                     ether ;
+    const flagsT                flagsSocket ;
     const countT                idPort ;
     countT&                     cArgApp ;
     strokeS*                    psttName ;
 
     ~httpServerC_arg1S( voidT ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34001.httpServerC_arg1S.dt_httpServerC_arg1S!||
-    httpServerC_arg1S( const countT idLineCtP , const countT idiFileCtP , const byteT* const pbBitsCtP , etherC& etherP , const countT idPortP , countT& cArgAppP , const strokeS* const psttNameP = 0 ) ;
+    httpServerC_arg1S( const countT idLineCtP , const countT idiFileCtP , const byteT* const pbBitsCtP , etherC& etherP , countT& cArgAppP , const countT idPortP = ifcIDpORT_HTTP , const flagsT flagsSocketP = flSOCKETc_null , const strokeS* const psttNameP = 0 ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34002.httpServerC_arg1S.httpServerC_arg1S!||
 }
 ;
