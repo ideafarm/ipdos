@@ -1060,7 +1060,7 @@ examples
 //
 
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200010.ifcopenshare END
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200011.ifcport BEGIN
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200011.ifcIDpORT BEGIN
 
 
 //
@@ -1136,7 +1136,7 @@ ifcPORToLD2_CHAT and ifcPORToLD2_CATCH have been assigned wkp system values by t
 // Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
 
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200011.ifcport END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200011.ifcIDpORT END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200012.ifcprocessdeath BEGIN
 
 
@@ -40569,12 +40569,12 @@ optimized for speed
 //CS:CODEsYNC: 00104c9 1050104.2
 
 /*3*/
-#define ifcIDeVENTdEVICEc_TICK                              0xdddd0b3e
-#define ifcIDeVENTdEVICEc_RESIZED                           0xdddd0b3f
-#define ifcIDeVENTdEVICEc_RECONFIGURED                      0xdddd0b40
+#define ifcIDeVENTdEVICEc_TICK                              0xdddd0b3f
+#define ifcIDeVENTdEVICEc_RESIZED                           0xdddd0b40
+#define ifcIDeVENTdEVICEc_RECONFIGURED                      0xdddd0b41
 /*3*/
-#define ifcIDeVENTdEVICEc_min     0xdddd0b3e
-#define ifcIDeVENTdEVICEc_max     0xdddd0b40
+#define ifcIDeVENTdEVICEc_min     0xdddd0b3f
+#define ifcIDeVENTdEVICEc_max     0xdddd0b41
 
 
 //
@@ -40872,11 +40872,11 @@ optimized for speed
 /*1*//*ifcIDtYPEgOSSIP*//*1*/
 
 /*3*/
-#define ifcIDtYPEgOSSIP_SYSTEM                      0xdddd0b41
-#define ifcIDtYPEgOSSIP_APPLICATION                 0xdddd0b42
+#define ifcIDtYPEgOSSIP_SYSTEM                      0xdddd0b42
+#define ifcIDtYPEgOSSIP_APPLICATION                 0xdddd0b43
 /*3*/
-#define ifcIDtYPEgOSSIP_min     0xdddd0b41
-#define ifcIDtYPEgOSSIP_max     0xdddd0b42
+#define ifcIDtYPEgOSSIP_min     0xdddd0b42
+#define ifcIDtYPEgOSSIP_max     0xdddd0b43
 
 
 //
@@ -40903,10 +40903,10 @@ optimized for speed
 /*1*//*ifcIDmSGgOSSIP*//*1*/
 
 /*3*/
-#define ifcIDmSGgOSSIP_BITMAPiSvIRGIN                          0xdddd0b43
+#define ifcIDmSGgOSSIP_BITMAPiSvIRGIN                          0xdddd0b44
 /*3*/
-#define ifcIDmSGgOSSIP_min     0xdddd0b43
-#define ifcIDmSGgOSSIP_max     0xdddd0b43
+#define ifcIDmSGgOSSIP_min     0xdddd0b44
+#define ifcIDmSGgOSSIP_max     0xdddd0b44
 
 
 //
@@ -41258,18 +41258,18 @@ optimized for speed
 /*1*//*ifcIDmODEeTHERsOIL*//*1*/
 
 /*3*/
-#define ifcIDmODEeTHERsOIL_PREPAREsOURCE                    0xdddd0b44
-#define ifcIDmODEeTHERsOIL_NATIVEfROMaSCII                  0xdddd0b45
-#define ifcIDmODEeTHERsOIL_ASCIIfROMnATIVE                  0xdddd0b46
-#define ifcIDmODEeTHERsOIL_LINT                             0xdddd0b47
-#define ifcIDmODEeTHERsOIL_TRIM                             0xdddd0b48
-#define ifcIDmODEeTHERsOIL_REPORT                           0xdddd0b49
-#define ifcIDmODEeTHERsOIL_QUERYvALUES                      0xdddd0b4a
-#define ifcIDmODEeTHERsOIL_DO                               0xdddd0b4b
-#define ifcIDmODEeTHERsOIL_DOdEBUG                          0xdddd0b4c
+#define ifcIDmODEeTHERsOIL_PREPAREsOURCE                    0xdddd0b45
+#define ifcIDmODEeTHERsOIL_NATIVEfROMaSCII                  0xdddd0b46
+#define ifcIDmODEeTHERsOIL_ASCIIfROMnATIVE                  0xdddd0b47
+#define ifcIDmODEeTHERsOIL_LINT                             0xdddd0b48
+#define ifcIDmODEeTHERsOIL_TRIM                             0xdddd0b49
+#define ifcIDmODEeTHERsOIL_REPORT                           0xdddd0b4a
+#define ifcIDmODEeTHERsOIL_QUERYvALUES                      0xdddd0b4b
+#define ifcIDmODEeTHERsOIL_DO                               0xdddd0b4c
+#define ifcIDmODEeTHERsOIL_DOdEBUG                          0xdddd0b4d
 /*3*/
-#define ifcIDmODEeTHERsOIL_min     0xdddd0b44
-#define ifcIDmODEeTHERsOIL_max     0xdddd0b4c
+#define ifcIDmODEeTHERsOIL_min     0xdddd0b45
+#define ifcIDmODEeTHERsOIL_max     0xdddd0b4d
 
 
 //
@@ -41482,13 +41482,13 @@ parameters
 /*1*//*ifcIDeVENTvsp*//*1*/
 
 /*3*/
-#define ifcIDeVENTvsp_CT                    0xdddd0b4d
-#define ifcIDeVENTvsp_WrEFcT                0xdddd0b4e
-#define ifcIDeVENTvsp_WrEFdT                0xdddd0b4f
-#define ifcIDeVENTvsp_DT                    0xdddd0b50
+#define ifcIDeVENTvsp_CT                    0xdddd0b4e
+#define ifcIDeVENTvsp_WrEFcT                0xdddd0b4f
+#define ifcIDeVENTvsp_WrEFdT                0xdddd0b50
+#define ifcIDeVENTvsp_DT                    0xdddd0b51
 /*3*/
-#define ifcIDeVENTvsp_min     0xdddd0b4d
-#define ifcIDeVENTvsp_max     0xdddd0b50
+#define ifcIDeVENTvsp_min     0xdddd0b4e
+#define ifcIDeVENTvsp_max     0xdddd0b51
 
 
 //
@@ -42191,11 +42191,11 @@ use me only for pointers
 /*1*//*ifcIDtYPEbRANCHs*//*1*/
 
 /*3*/
-#define ifcIDtYPEbRANCHs_branchSptr          0xdddd0b51
-#define ifcIDtYPEbRANCHs_strokeSstr          0xdddd0b52
+#define ifcIDtYPEbRANCHs_branchSptr          0xdddd0b52
+#define ifcIDtYPEbRANCHs_strokeSstr          0xdddd0b53
 /*3*/
-#define ifcIDtYPEbRANCHs_min     0xdddd0b51
-#define ifcIDtYPEbRANCHs_max     0xdddd0b52
+#define ifcIDtYPEbRANCHs_min     0xdddd0b52
+#define ifcIDtYPEbRANCHs_max     0xdddd0b53
 
 
 //
