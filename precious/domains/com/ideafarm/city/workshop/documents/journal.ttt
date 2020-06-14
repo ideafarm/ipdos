@@ -7132,11 +7132,57 @@ I have other business to attend to today and tomorrow, but plan to continue to w
 
 
 
+   the bug is indicated by zapidea failing to do its job
+   conj: somewo other than factory1 is pushing to cloud, overwriting correct contents pushed by factory1
+  think
+ playcraft
+ changed: ?
+!job B: ///d/ideafarm.work/ is reverting on factory5 4 3
 
 
 
 
 
+
+
+  !subjob A: play with VC and with OpenSSL
+  set up dut
+ playcraft
+ objective: understan ssl api
+!job C: play: example simplest of https server
+
+
+
+
+
+  !subjob C: base: copy installed version of OpenSSL into build tree    
+  !subjob B: private key is too weak
+   study the code by stepping through it, initially to see whether it is reading the server certificate
+  D:\git\openssl\apps>devenv /DebugExe openssl.exe s_server
+ playcraft
+ objective: mastery
+!subjob A: play with VC and with OpenSSL
+
+
+
+
+
+
+  !subjob B: link errors building base
+  copy
+  look
+ playcraft
+ objective: minimal change so Bundle uses OpenSSL binaries that i build
+!subjob C: base: copy installed version of OpenSSL into build tree    
+
+
+
+
+
+ 
+ playcraft
+ changed: replaced workshop/opensll
+!subjob B: link errors building base
 
 !thrust: debug until all factories run without failure
 
@@ -7151,6 +7197,169 @@ I have other business to attend to today and tomorrow, but plan to continue to w
 =========================================================================================================================================================
 
 
+   openssl genpkey -algorithm EC -out eckey.pem -pkeyopt ec_paramgen_curve:P-384 -pkeyopt ec_param_enc:named_curve       (example from man page)
+  use openssl to gen new pkey
+ playcraft
+ changed: study
+!subjob B: private key is too weak
+    this serves a deleteme.html page that i put into the current dir
+   this works: D:\git\openssl\apps>                      openssl.exe s_server -cert C:\Certbot\live\ideafarm.com\fullchain.pem -key C:\Certbot\live\ideafarm.com\privkey.pem -WWW
+  see
+  use this for OpenSSL cert:  C:\Certbot\live\ideafarm.com>fullchain.pem
+   | 
+   | C:\WINDOWS\system32>    certbot certonly --standalone
+   | Saving debug log to C:\Certbot\log\letsencrypt.log
+   | Plugins selected: Authenticator standalone, Installer None
+   | Please enter in your domain name(s) (comma and/or space separated)  (Enter 'c'
+   | to cancel): ideafarm.com archive.ideafarm.com craftwork.ideafarm.com factory1.ideafarm.com factory2.ideafarm.com factory3.ideafarm.com factory4.ideafarm.com factory5.ideafarm.com factory6.ideafarm.com factory7.ideafarm.com factory8.ideafarm.com factory9.ideafarm.com factory10.ideafarm.com test.ideafarm.com www.ideafarm.com
+   | Obtaining a new certificate
+   | Performing the following challenges:
+   | http-01 challenge for archive.ideafarm.com
+   | http-01 challenge for craftwork.ideafarm.com
+   | http-01 challenge for factory10.ideafarm.com
+   | http-01 challenge for factory2.ideafarm.com
+   | http-01 challenge for factory3.ideafarm.com
+   | http-01 challenge for factory4.ideafarm.com
+   | http-01 challenge for factory5.ideafarm.com
+   | http-01 challenge for factory6.ideafarm.com
+   | http-01 challenge for factory7.ideafarm.com
+   | http-01 challenge for factory8.ideafarm.com
+   | http-01 challenge for factory9.ideafarm.com
+   | http-01 challenge for ideafarm.com
+   | http-01 challenge for test.ideafarm.com
+   | http-01 challenge for www.ideafarm.com
+   | Waiting for verification...
+   | Cleaning up challenges
+   | [1m
+   | IMPORTANT NOTES:
+   | [0m - Congratulations! Your certificate and chain have been saved at:
+   |    C:\Certbot\live\ideafarm.com\fullchain.pem
+   |    Your key file has been saved at:
+   |    C:\Certbot\live\ideafarm.com\privkey.pem
+   |    Your cert will expire on 2020-09-12. To obtain a new or tweaked
+   |    version of this certificate in the future, simply run certbot
+   |    again. To non-interactively renew *all* of your certificates, run
+   |    "certbot renew"
+   |  - If you like Certbot, please consider supporting our work by:
+   | 
+   |    Donating to ISRG / Let's Encrypt:   https://letsencrypt.org/donate
+   |    Donating to EFF:                    https://eff.org/donate-le
+   | 
+   | 
+   | C:\WINDOWS\system32>
+   | 
+  listing
+   | 
+   | ideafarm.com archive.ideafarm.com craftwork.ideafarm.com factory1.ideafarm.com factory2.ideafarm.com factory3.ideafarm.com factory4.ideafarm.com factory5.ideafarm.com factory6.ideafarm.com factory7.ideafarm.com factory8.ideafarm.com factory9.ideafarm.com factory10.ideafarm.com test.ideafarm.com www.ideafarm.com
+   | 
+  list of names
+   | 
+   x| a 	@ 	38.111.147.103 	1/2 Hour 	Edit
+   x| a 	archive 	38.111.147.103 	1/2 Hour 	Edit
+   x| a 	craftwork 	38.111.147.101 	1/2 Hour 	Edit
+   x| a 	factory1 	38.111.147.101 	1/2 Hour 	Edit
+   x| a 	factory2 	38.111.147.102 	1/2 Hour 	Edit
+   x| a 	factory3 	38.111.147.103 	1/2 Hour 	Edit
+   x| a 	factory4 	38.111.147.104 	1/2 Hour 	Edit
+   x| a 	factory5 	38.111.147.105 	1/2 Hour 	Edit
+   x| a 	factory6 	38.111.147.106 	1/2 Hour 	Edit
+   x| a 	factory7 	38.111.147.107 	1/2 Hour 	Edit 
+   x| a 	factory8 	38.111.147.108 	1/2 Hour 	Edit
+   x| a 	factory9 	38.111.147.109 	1/2 Hour 	Edit
+   x| a 	factory10 	38.111.147.109 	1/2 Hour 	Edit
+   x| a 	test 	38.111.147.105 	1/2 Hour 	Edit
+   x| a 	version 	1.2.3.4 	1 Hour 	Edit
+   x| cname 	www 	@ 	1 Hour 	Edit
+   | 
+  abridged list of dns records (for dv certificate)
+   | 
+   | Type 	Name 	Value 	TTL 	Actions
+   | a 	@ 	38.111.147.103 	1/2 Hour 	Edit
+   | a 	@ 	38.111.147.104 	1/2 Hour 	Edit
+   | a 	@ 	38.111.147.105 	1/2 Hour 	Edit
+   | a 	1.version.ipdos 	255.0.255.0 	1 Hour 	Edit
+   | a 	2.version.ipdos 	255.0.255.0 	1 Hour 	Edit
+   | a 	20141115.1852.version.ipdos 	255.0.255.0 	1 Hour 	Edit
+   | a 	20141209.1044.version.ipdos 	0.255.0.255 	1 Hour 	Edit
+   | a 	apple 	1.2.3.4 	1 Hour 	Edit
+   | a 	archive 	38.111.147.103 	1/2 Hour 	Edit
+   | a 	archive 	38.111.147.104 	1/2 Hour 	Edit
+   | a 	archive 	38.111.147.105 	1/2 Hour 	Edit
+   | a 	craftwork 	38.111.147.101 	1/2 Hour 	Edit
+   | a 	factory1 	38.111.147.101 	1/2 Hour 	Edit
+   | a 	factory10 	38.111.147.110 	1/2 Hour 	Edit
+   | a 	factory2 	38.111.147.102 	1/2 Hour 	Edit
+   | a 	factory3 	38.111.147.103 	1/2 Hour 	Edit
+   | a 	factory4 	38.111.147.104 	1/2 Hour 	Edit
+   | a 	factory5 	38.111.147.105 	1/2 Hour 	Edit
+   | a 	factory6 	38.111.147.106 	1/2 Hour 	Edit
+   | a 	factory7 	38.111.147.107 	1/2 Hour 	Edit 
+   | a 	factory8 	38.111.147.108 	1/2 Hour 	Edit
+   | a 	factory9 	38.111.147.109 	1/2 Hour 	Edit
+   | a 	switch 	38.111.147.2 	1/2 Hour 	Edit
+   | a 	test 	38.111.147.105 	1/2 Hour 	Edit
+   | a 	test 	38.111.147.106 	1/2 Hour 	Edit
+   | a 	test 	38.111.147.107 	1/2 Hour 	Edit
+   | a 	test 	38.111.147.108 	1/2 Hour 	Edit
+   | a 	test 	38.111.147.109 	1/2 Hour 	Edit
+   | a 	test 	38.111.147.110 	1/2 Hour 	Edit
+   | a 	version 	1.2.3.4 	1 Hour 	Edit
+   | a 	version.ipdos.db 	1.2.3.4 	1 Hour 	Edit
+   | a 	websitetonight 	208.109.181.198 	600 seconds 	Edit
+   | cname 	20150428 	9e2e5829c7c025062611-203abbc0669e212fcc12242db0d55e00.r0.cf5.rackcdn.com 	1 Hour 	Edit
+   | cname 	20150501 	bc6c25459bf84c7f167c-ef199e0c187a648b6a7ef7298c843561.r1.cf5.rackcdn.com 	1 Hour 	Edit
+   | cname 	20150511 	79a37c768bc977f3495b-b8f4b94958d105a7b3f15bda56282e2e.r82.cf5.rackcdn.com 	1 Hour 	Edit
+   | cname 	20150517 	b636bd0063e878237431-e4b60c10a3baabf5c989f925e0fb653a.r86.cf5.rackcdn.com 	1 Hour 	Edit
+   | cname 	20151104 	db620ec25f9b05cebf9e-845f99d0070714602a2f1968263f3c4f.r11.cf5.rackcdn.com 	1 Hour 	Edit
+   | cname 	archiveview 	838a98a1c3503d5080fc-0120a6193262fb464e305f722f61adc1.r53.cf5.rackcdn.com 	1 Hour 	Edit
+   | cname 	arrest 	a9177ce6d36cf7dae64e-9c6a3c8c42fd8aa3194a984fdf4cf486.r94.cf5.rackcdn.com 	1 Hour 	Edit
+   | cname 	arrestview 	4ca460c1de1c464c3664-bc8d24de7a99416f9af62e912189fd4f.r11.cf5.rackcdn.com 	1 Hour 	Edit 
+   | cname 	bobbylau 	1da66a1d0694d0e3b507-257dbd6edd07b0314637e0715f9040f9.r93.cf5.rackcdn.com 	1 Hour 	Edit
+   | cname 	bundle 	63b3b5b9e00c0e6f745c-d6de583581aa7615431e96e21045a40d.r25.cf5.rackcdn.com 	1 Hour 	Edit
+   | cname 	email.admin 	mailgun.org 	1/2 Hour 	Edit
+   | cname 	email.internal 	mailgun.org 	1/2 Hour 	Edit
+   | cname 	email.unconfirmed 	mailgun.org 	1/2 Hour 	Edit
+   | cname 	essays 	3da528b3d6b9049befc0-9d8c2e985e96015a49b1537bd86e3f75.r97.cf5.rackcdn.com 	1 Hour 	Edit
+   | cname 	fingerlift 	2439148d58da70b49fe2-d9b9f6e9c7505ae332cd2a114695b2e2.r54.cf5.rackcdn.com 	1 Hour 	Edit
+   | cname 	hooks 	fa6819c2a9d2f1f50599-aef6a2f3c4c95adbac29f1fff31eca18.r64.cf5.rackcdn.com 	1 Hour 	Edit
+   | cname 	ipdos 	ideafarm.github.io 	1/2 Hour 	Edit
+   | cname 	news 	600189764eedc7610c7d-84147daafb5ed1e7074aa9989d108828.r8.cf5.rackcdn.com 	1 Hour 	Edit
+   | cname 	paid 	55fa76c9fd30ac78a7dc-39f348db4efe7d1d7458e674d8e027f9.r5.cf5.rackcdn.com 	1 Hour 	Edit
+   | cname 	pay 	32304f069d2d13e60375-c86f1916d088a26d712aab0014f4d7f8.r36.cf5.rackcdn.com 	1 Hour 	Edit
+   | cname 	release 	ff7901ac25e10de895aa-c7064ed4acddd8237ca05cf56f7020ac.r12.cf5.rackcdn.com 	1 Hour 	Edit
+   | cname 	reports 	7d6e7a0b5dd0f301fdd5-83a03438b5012f913274cbd28c2ddd28.r68.cf5.rackcdn.com 	1/2 Hour 	Edit
+   | cname 	steemit 	50d86a4e276db189be64-01f5c3f145e712c1ed03fd0a0dff4514.r88.cf5.rackcdn.com 	1 Hour 	Edit
+   | cname 	tutorials 	69e5af49e0c0f538ec2d-bd503cf2d9e6b086594557b5693fe73b.r87.cf5.rackcdn.com 	1 Hour 	Edit
+   | cname 	wo 	4e39b6468aeaa79a23d5-1252569462859d1220e63a54b0dcaa83.r91.cf5.rackcdn.com 	1 Hour 	Edit
+   | cname 	www 	@ 	1 Hour 	Edit
+   | cname 	_domainconnect 	_domainconnect.gd.domaincontrol.com 	1 Hour 	Edit
+   | mx 	@ 	aspmx.l.google.com (Priority: 1) 	1 Hour
+   | mx 	@ 	aspmx2.googlemail.com (Priority: 10) 	1 Hour 	Edit
+   | mx 	@ 	aspmx3.googlemail.com (Priority: 10) 	1 Hour 	Edit
+   | mx 	@ 	alt1.aspmx.l.google.com (Priority: 5) 	1 Hour 	Edit
+   | mx 	@ 	alt2.aspmx.l.google.com (Priority: 5) 	1 Hour 	Edit
+   | mx 	admin 	mxb.mailgun.org (Priority: 10) 	1/2 Hour 	Edit
+   | mx 	admin 	mxa.mailgun.org (Priority: 10) 	1/2 Hour 	Edit
+   | mx 	internal 	mxa.mailgun.org (Priority: 10) 	1/2 Hour 	Edit
+   | mx 	internal 	mxb.mailgun.org (Priority: 10) 	1/2 Hour 	Edit
+   | mx 	unconfirmed 	mxb.mailgun.org (Priority: 10) 	1/2 Hour 	Edit
+   | mx 	unconfirmed 	mxa.mailgun.org (Priority: 10) 	1/2 Hour 	Edit
+   | ns 	@ 	ns19.domaincontrol.com 	1 Hour 	
+   | ns 	@ 	ns20.domaincontrol.com 	1 Hour 	
+   | soa 	@ 	Primary nameserver: ns19.domaincontrol.com. 	1 Hour 	
+   | txt 	@ 	google-site-verification=0HAPVPvzpM1zzaMQUdj4ZgxGTCK4sVvxWBoueexdUH8 	1 Hour 	Edit
+   | txt 	@ 	google-site-verification=1KllLvFBijIWIz9pn6mwJAVDbO_QDUn4wJK-XzQ4RxI 	1 Hour 	Edit
+   | txt 	@ 	v=spf1 include:_spf.google.com ~all 	1 Hour 	Edit
+   | txt 	admin 	v=spf1 include:mailgun.org ~all 	1/2 Hour 	Edit
+   | txt 	internal 	v=spf1 include:mailgun.org ~all 	1/2 Hour 	Edit
+   | txt 	krs._domainkey.unconfirmed 	k=rsa; p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAzmeYMAc6T2Ey3dsEpSGCg/mQFR1Xc+VHvmCUG23qJg8cGEuP9Ez2Kx87q272C9kW4zhqM1BjJ8y9bYuZYfkv964WC1iOsU5u0RI7//U++LxcffjsYSg0+1Esu2Yl5wPQ5Jl7VfJmplBjNtnYR7bhKQsjiJ69PcoLoPpet6xXhOvjE89GENOYV/iuoRjgmx3Yjreddq7Pj4B9F+eVApB4OcWhNUxlFzsBilCO2DnTkqY8q2Z887cinAiUDVwhrOwCJL+J7be/T45pQt9UdkPLxawBWjHYdqa2kfltHXwrZ2FcT7QysHKO5y2cXrYuSGh/2MqPJikH+0oxjWIJ/g9FLwIDAQAB 	1/2 Hour 	Edit
+   | txt 	mailo._domainkey.internal 	k=rsa; p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAr73MaroZnpQyZPgF8tJxIqfFuNGFIo2eshjJpXXfEfEJ9TMeFZ5s2NfjYEb32XwK3cEwNoHOH6WAPcKlmtqyMj1cGkETutzHGvri/mazeB+px8j0rpIZ4siY6Y/cWDgsvCAaBLlUMTDGDtEkVFvnA7R4C32tKk4O+M5d9X4sSqr7XkLOnIstNFH8lLWP9CYHTpNheGVtAKhbJ0k1ZOAxsxM+tHpQ9gWrDccvkpRuJhktH8BMqT6bK28/uM5d1Hj8F35QXEI9p78hgk/ctn29qnQuwSoNPSO0jXV1KVBS8cOh7VMTw7B47rW3L9+7tznIJY8nefByDY8FnqHN2G9TXwIDAQAB 	1/2 Hour
+   | txt 	mx._domainkey.admin 	k=rsa; p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEArdmk/QuDwlKm0Ctqef9XRvkUeVu5ctuyeuzck540ZI8TBj6D5QRZEEesBWGAoQPA/l7ie8KEAODmn/eVoPYtJQIy0DNECF/EIJbJGL6ZXBxgzvepQ2ORzbcrrpPleYOXPVGF6ZtosUAVLOxhs/+3XNAOsPmHd/lUCdfuIDHEHlHgLEip5KUVTgY/7Ax+xKPJUpuRQS11dk1UOQTKC2zsqZuAmcI5L61WC+KBkYVs6LSh7AzZT2s10aQxrrqsm1eNrz/b9eMYfkWS5D8dS4kmdDTooDLRAWas8uCwAGq6ELvKyQcesjbG5Jeudimjgl6fNhYsY5FQ5q/AnAoy67spYQIDAQAB 	1/2 Hour 	Edit
+   | txt 	unconfirmed 	v=spf1 include:mailgun.org ~all 	1/2 Hour
+   | 
+  list of dns records
+ playcraft
+!job A: dns records
   !subjob C: make heapC::grabMe a sneaky lover
    60014163(288_9)
    30014163(90_9) heapC::grabMe

@@ -65,14 +65,26 @@
                     _brcRaw = 0 ; BOSnOtIN( GetProcAddress( openSsl_hModule , "SSL_new"          ) ) ; if( !_brcRaw ) { BLAMMO ; } ; openSsl_pWrapperF     =         (openSsl_pWrapperFT)_brcRaw ; 
                     _brcRaw = 0 ; BOSnOtIN( GetProcAddress( openSsl_hModule , "SSL_CTX_free"     ) ) ; if( !_brcRaw ) { BLAMMO ; } ; openSsl_pContextFreeF =     (openSsl_pContextFreeFT)_brcRaw ; 
                     _brcRaw = 0 ; BOSnOtIN( GetProcAddress( openSsl_hModule , "SSL_CTX_new"      ) ) ; if( !_brcRaw ) { BLAMMO ; } ; openSsl_pContextF     =         (openSsl_pContextFT)_brcRaw ; 
-                    _brcRaw = 0 ; BOSnOtIN( GetProcAddress( openSsl_hModule , "SSL_library_init" ) ) ; if( !_brcRaw ) { BLAMMO ; } ; openSsl_pInitF        =            (openSsl_pInitFT)_brcRaw ; 
-                    _brcRaw = 0 ; BOSnOtIN( GetProcAddress( openSsl_hModule , "SSLv23_method"    ) ) ; if( !_brcRaw ) { BLAMMO ; } ; openSsl_pMethodF      =          (openSsl_pMethodFT)_brcRaw ; 
+
+                    _brcRaw = 0 ; BOSnOtIN( GetProcAddress( openSsl_hModule , "OPENSSL_init_ssl" ) ) ; if( !_brcRaw ) { BLAMMO ; } ; openSsl_pInitF        =            (openSsl_pInitFT)_brcRaw ; 
+                    //20200613@2004: DEPRECATED AND NOT FOUND:  _brcRaw = 0 ; BOSnOtIN( GetProcAddress( openSsl_hModule , "SSL_library_init" ) ) ; if( !_brcRaw ) { BLAMMO ; } ; openSsl_pInitF        =            (openSsl_pInitFT)_brcRaw ; 
+
+                    _brcRaw = 0 ; BOSnOtIN( GetProcAddress( openSsl_hModule , "TLS_method"       ) ) ; if( !_brcRaw ) { BLAMMO ; } ; openSsl_pMethodF      =          (openSsl_pMethodFT)_brcRaw ; 
+                    //20200613@2004: DEPRECATED AND NOT FOUND:  _brcRaw = 0 ; BOSnOtIN( GetProcAddress( openSsl_hModule , "SSLv23_method"    ) ) ; if( !_brcRaw ) { BLAMMO ; } ; openSsl_pMethodF      =          (openSsl_pMethodFT)_brcRaw ; 
                 {                                                                
                 else
-                if( !openSsl_hModule ) { BLAMMO ; }
+                }
+                    BLAMMO ;
+
+                    LOGrAW3( "\r\nLoadLibraryEx [rc]:    " , rc , "\r\n" ) ;
+                    LOGrAW( postDllOpenSsl ) ;
+                    LOGrAW( "\r\n [postDllOpenSsl]:    " ) ;
+                    countT rc = GetLastError() ;
+                {
+                if( !openSsl_hModule )
 
                 openSsl_hModule = (HMODULE)_brcRaw ;
-                BOSnOtIN( LoadLibraryEx( postDllOpenSsl , 0 , /*LOAD_LIBRARY_SEARCH_DLL_LOAD_DIR*/0x100 ) ) ;
+                BOSnOtIN( LoadLibraryEx( postDllOpenSsl , 0 , /*LOAD_LIBRARY_SEARCH_DLL_LOAD_DIR*/0x100 | /*LOAD_LIBRARY_SEARCH_DEFAULT_DIRS*/0x1000 ) ) ;
                 _brcRaw = 0 ;
 
                 //LOGrAW( "\r\n\r\n" ) ;
@@ -81,7 +93,8 @@
                 //CONoUTrAW( "\r\n" ) ;
                 //CONoUTrAW( postDllOpenSsl ) ;
 
-                thirdC::c_strcatIF( postDllOpenSsl , "precious\\domains\\com\\ideafarm\\city\\workshop\\openssl\\dll\\ssleay32.dll" ) ;
+                thirdC::c_strcatIF( postDllOpenSsl , "precious\\domains\\com\\ideafarm\\city\\workshop\\openssl\\bin\\libssl-3.dll" ) ; // 20200613@1930
+                //20200613@1930: RETIRED WHEN MIGRATED workshop/openssl TO CONTAIN RELEASE OF OPENSSL BUILT USING CURRENT SOURCE:  thirdC::c_strcatIF( postDllOpenSsl , "precious\\domains\\com\\ideafarm\\city\\workshop\\openssl\\dll\\ssleay32.dll" ) ;
 
             {                     // A POLICY OF NEVER LOADING THIRD PARTY LIBRARIES STATICALLY MIGHT BE A GOOD IDEA TO CONSERVE MEMORY AND SPEED UP PROCESS INITIALIZATION ; IF HUNDREDS OR THOUSANDS OF 3RD PARTY MODULES ARE SUPPORTED THEN DYNAMIC, ON DEMAND LOADING BECOMES NECESSARY, SO MIGHT AS WELL DO THEM ALL THAT WAY, JUST IN CASE SUCH A SCENARIO MATERIALIZES
             if( *postDllOpenSsl ) // OPENSSL IS LOADED VERY EARLY SO THAT IT CAN BE USED VERY EARLY ; IT IS LOADED DYNAMICALLY MAINLY BECAUSE OPENSSL HEADERS ARE NOT COMPATIBLE WITH WATCOM COMPILER
