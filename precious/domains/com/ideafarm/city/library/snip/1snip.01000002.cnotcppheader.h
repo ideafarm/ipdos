@@ -23,7 +23,7 @@
 
     //CS:CODEsYNC:DUPLICATED: 15000014 01000002
 
-    typedef const SSL_METHOD* (__syscall *openSsl_pMethodFT      )( void )                                      ; //const SSL_METHOD *SSLv23_method(void);  /* SSLv3 but can rollback to v2 */
+    typedef const SSL_METHOD* (__syscall *openSsl_pMethodFT      )( void )                                      ; //const SSL_METHOD *TLS_method(void);  /* SSLv3 but can rollback to v2 */
 
     typedef int               (__syscall *openSsl_pInitFT        )( void )                                      ; //int __syscall SSL_library_init( void ) ;
 

@@ -6400,6 +6400,10 @@ I have other business to attend to today and tomorrow, but plan to continue to w
 
 
 
+
+
+   20200614@1550: 64 77
+
    20200607@1600: 73 81
    20200606@1600: 73 81
 
@@ -7155,6 +7159,7 @@ I have other business to attend to today and tomorrow, but plan to continue to w
 
 
 
+  !subjob C: configure OpenSSL installation image (c:\Program...) to eliminate need for -cert and -key options for openssl.exe
   !subjob C: base: copy installed version of OpenSSL into build tree    
   !subjob B: private key is too weak
    study the code by stepping through it, initially to see whether it is reading the server certificate
@@ -7168,21 +7173,20 @@ I have other business to attend to today and tomorrow, but plan to continue to w
 
 
 
-  !subjob B: link errors building base
-  copy
-  look
+
+   www         = 2
+   s_key_file  = 0x0068385e "C:\\Certbot\\live\\ideafarm.com\\privkey.pem"
+   s_cert_file = 0x0068382e "C:\\Certbot\\live\\ideafarm.com\\fullchain.pem"
+  look: what variables are set when -cert and -key is specified
+    !subjob A: search for "server.pem" to figure out where (is it hardcoded or in a configuration file?)
+   set up dut
+  pf/ get openssl.exe to work without -cert -key
+   this works: D:\git\openssl\apps>                      openssl.exe s_server -cert C:\Certbot\live\ideafarm.com\fullchain.pem -key C:\Certbot\live\ideafarm.com\privkey.pem -WWW
+  listing
  playcraft
- objective: minimal change so Bundle uses OpenSSL binaries that i build
-!subjob C: base: copy installed version of OpenSSL into build tree    
+ objective: learn OpenSSL
+!subjob C: configure OpenSSL installation image (c:\Program...) to eliminate need for -cert and -key options for openssl.exe
 
-
-
-
-
- 
- playcraft
- changed: replaced workshop/opensll
-!subjob B: link errors building base
 
 !thrust: debug until all factories run without failure
 
@@ -7197,6 +7201,15 @@ I have other business to attend to today and tomorrow, but plan to continue to w
 =========================================================================================================================================================
 
 
+  !subjob B: link errors building base
+  copy
+  look
+ playcraft
+ objective: minimal change so Bundle uses OpenSSL binaries that i build
+!subjob C: base: copy installed version of OpenSSL into build tree    
+ playcraft
+ changed: replaced workshop/opensll
+!subjob B: link errors building base
    openssl genpkey -algorithm EC -out eckey.pem -pkeyopt ec_paramgen_curve:P-384 -pkeyopt ec_param_enc:named_curve       (example from man page)
   use openssl to gen new pkey
  playcraft
