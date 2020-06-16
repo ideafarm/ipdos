@@ -7149,16 +7149,51 @@ I have other business to attend to today and tomorrow, but plan to continue to w
 
 
 
+
+
+
+
+
+
+
+
+
+
+   initially, just try a single api, and release to factory1 to verify that cloud push works
+  migrate code from using gotten proc addresses
+   d:\ideafarm.home.1\precious\domains\com\ideafarm\city\workshop\openssl\lib\libssl.lib
+   d:\ideafarm.home.1\precious\domains\com\ideafarm\city\workshop\openssl\lib\libcrypto.lib
+  link base with these lib files:
+  set up dut
+   i need to eliminate such code so that it is much easier to call OpenSSL functions
+   the current code uses GetProcAddress because the old binary distro did not include lib files
+  think
+ playcraft
+ objective: elegance
+!job C: base: link dynamically using lib files for openssl
+
+
+
+
+
+!thrust: debug until all factories run without failure
+
+=========================================================================================================================================================
+=========================================================================================================================================================
+=========================================================================================================================================================
+=========================================================================================================================================================
+====- DONE: BELOW -======================================================================================================================================
+=========================================================================================================================================================
+=========================================================================================================================================================
+=========================================================================================================================================================
+=========================================================================================================================================================
+
+
   !subjob A: play with VC and with OpenSSL
   set up dut
  playcraft
  objective: understan ssl api
 !job C: play: example simplest of https server
-
-
-
-
-
   !subjob C: configure OpenSSL installation image (c:\Program...) to eliminate need for -cert and -key options for openssl.exe
   !subjob C: base: copy installed version of OpenSSL into build tree    
   !subjob B: private key is too weak
@@ -7167,13 +7202,7 @@ I have other business to attend to today and tomorrow, but plan to continue to w
  playcraft
  objective: mastery
 !subjob A: play with VC and with OpenSSL
-
-
-
-
-
-
-
+  nawwh
   !subjob A: step through code to understand how configuration info is loaded
   !subjob A: edit openssl build tree so that -debug results in NOT OPTIMIZED code (fucking monkeys)
    i gotta stop being so negative and start seeing this shit as an opportunity
@@ -7198,9 +7227,7 @@ I have other business to attend to today and tomorrow, but plan to continue to w
  playcraft
  objective: learn OpenSSL
 !subjob C: configure OpenSSL installation image (c:\Program...) to eliminate need for -cert and -key options for openssl.exe
-
-
-
+  nawwh
   next: play: does it look for a config file?
    i can now step through the code that loads the cert and key
    cool ; it works
@@ -7215,21 +7242,6 @@ I have other business to attend to today and tomorrow, but plan to continue to w
  playcraft
  changed: with the new switches, i should be able to step through code now
 !subjob A: step through code to understand how configuration info is loaded
-
-
-!thrust: debug until all factories run without failure
-
-=========================================================================================================================================================
-=========================================================================================================================================================
-=========================================================================================================================================================
-=========================================================================================================================================================
-====- DONE: BELOW -======================================================================================================================================
-=========================================================================================================================================================
-=========================================================================================================================================================
-=========================================================================================================================================================
-=========================================================================================================================================================
-
-
   cool ; it works
    (this will disable string pooling)
   edit the perl configuration code to eliminate the /GF switch when debug
