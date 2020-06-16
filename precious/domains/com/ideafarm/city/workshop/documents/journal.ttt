@@ -7174,6 +7174,18 @@ I have other business to attend to today and tomorrow, but plan to continue to w
 
 
 
+  !subjob A: step through code to understand how configuration info is loaded
+  !subjob A: edit openssl build tree so that -debug results in NOT OPTIMIZED code (fucking monkeys)
+   i gotta stop being so negative and start seeing this shit as an opportunity
+   fucking idiots!
+   all i want to do is understand how to write the fucking config file so that my cert+key file is found
+   what a fucking piece of shit OpenSSL code is
+   conj: this is due to optimization
+   no can do now because the damn variable is 0 in the caller but is not 0 within the called routine
+   the goal is to be able to step the code that sets this
+   the function that loads the private key is using a file name "server.pem"
+   the code is optimized so impossible to step through usefully
+  see
    www         = 2
    s_key_file  = 0x0068385e "C:\\Certbot\\live\\ideafarm.com\\privkey.pem"
    s_cert_file = 0x0068382e "C:\\Certbot\\live\\ideafarm.com\\fullchain.pem"
@@ -7186,6 +7198,23 @@ I have other business to attend to today and tomorrow, but plan to continue to w
  playcraft
  objective: learn OpenSSL
 !subjob C: configure OpenSSL installation image (c:\Program...) to eliminate need for -cert and -key options for openssl.exe
+
+
+
+  next: play: does it look for a config file?
+   i can now step through the code that loads the cert and key
+   cool ; it works
+  see
+    | 
+    | #pragma optimize( "", off )
+    | /* unoptimized code section */
+    | #pragma optimize( "", on )
+    | 
+   listing
+  if i still see optimized code when stepping, try the pragma
+ playcraft
+ changed: with the new switches, i should be able to step through code now
+!subjob A: step through code to understand how configuration info is loaded
 
 
 !thrust: debug until all factories run without failure
@@ -7201,6 +7230,12 @@ I have other business to attend to today and tomorrow, but plan to continue to w
 =========================================================================================================================================================
 
 
+  cool ; it works
+   (this will disable string pooling)
+  edit the perl configuration code to eliminate the /GF switch when debug
+ playcraft
+ objective: glass walls
+!subjob A: edit openssl build tree so that -debug results in NOT OPTIMIZED code (fucking monkeys)
   !subjob B: link errors building base
   copy
   look
