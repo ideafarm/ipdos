@@ -2886,8 +2886,7 @@ parameters
 /*1*//*IPDOScOMPILEoPTIONScnOTcPP*//*1*/
 
 /*3*/
-#define IPDOScOMPILEoPTIONScnOTcPP "-6r -bm -bt=NT     -fp5 -fpi87 -od -sg -wx -zp1 -zq -wcd=202"
-//U::#define IPDOScOMPILEoPTIONScnOTcPP "-6r -bm -bt=NT     -fp5 -fpi87 -od -sg -wx -zp1 -zq -wcd=202 -ecc"
+#define IPDOScOMPILEoPTIONScnOTcPP "-6r -bm -bt=NT     -fp5 -fpi87 -od -sg -wx -zp1 -zq -wcd=202 -ecc"
 /*3*/
 
 

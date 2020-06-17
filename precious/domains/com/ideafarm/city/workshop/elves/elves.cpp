@@ -2666,8 +2666,8 @@ void elf_obey_C::liveF( void )
                     " library \\ideafarm.home.1\\precious\\domains\\com\\ideafarm\\city\\workshop\\watcom\\lib386\\nt\\advapi32.lib"
                     " library \\ideafarm.home.1\\precious\\domains\\com\\ideafarm\\city\\workshop\\watcom\\lib386\\nt\\psapi.lib"
                     " library \\ideafarm.home.1\\precious\\domains\\com\\ideafarm\\city\\workshop\\microsoft\\User32.Lib"
-                    /*" library \\ideafarm.home.1\\precious\\domains\\com\\ideafarm\\city\\workshop\\openssl\\lib\\libssl.lib"*/
-                    /*" library \\ideafarm.home.1\\precious\\domains\\com\\ideafarm\\city\\workshop\\openssl\\lib\\libcrypto.lib"*/
+                    " library \\ideafarm.home.1\\precious\\domains\\com\\ideafarm\\city\\workshop\\openssl\\lib\\libssl.lib"
+                    " library \\ideafarm.home.1\\precious\\domains\\com\\ideafarm\\city\\workshop\\openssl\\lib\\libcrypto.lib"
                     " system nt_dll"
                     " op q"
                     " op map=\\tmp\\base.map"
