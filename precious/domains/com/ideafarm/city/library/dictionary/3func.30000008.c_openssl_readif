@@ -16,7 +16,8 @@
     {
     _except( EXCEPTION_EXECUTE_HANDLER )
     }
-        cbRead = (*pReadFP)( pSslP , pbP , cbP ) ;
+          cbRead =   SSL_read( pSslP , pbP , cbP ) ;
+        //cbRead = (*pReadFP)( pSslP , pbP , cbP ) ;
 
         if( *pEcP ) { unsigned* pcBlammo = 0 ; *pcBlammo = 123 ; } //U:: TO FIND A BUG
     {
@@ -25,7 +26,7 @@
     *pEcP = 0 ;
     unsigned cbRead = 0 ;
 {
-/**//*1*/unsigned c_openSsl_readIF( unsigned* pEcP , openSsl_pReadFT pReadFP , char* pbP , unsigned cbP , SSL* pSslP )/*1*/
+/**//*1*/unsigned __watcall c_openSsl_readIF( unsigned* pEcP , openSsl_pReadFT pReadFP , char* pbP , unsigned cbP , SSL* pSslP )/*1*/
 
 */
 /*

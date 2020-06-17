@@ -13,13 +13,14 @@
     {
     _except( EXCEPTION_EXECUTE_HANDLER )
     }
-        (*pShutdownFP)( pSslP ) ;
+            SSL_shutdown( pSslP ) ;
+        //(*pShutdownFP)( pSslP ) ;
     {
     _try
 
     *pEcP = 0 ;
 {
-/**//*1*/void c_openSsl_shutdownIF( unsigned* pEcP , openSsl_pShutdownFT pShutdownFP , SSL* pSslP )/*1*/
+/**//*1*/void __watcall c_openSsl_shutdownIF( unsigned* pEcP , openSsl_pShutdownFT pShutdownFP , SSL* pSslP )/*1*/
 
 */
 /*

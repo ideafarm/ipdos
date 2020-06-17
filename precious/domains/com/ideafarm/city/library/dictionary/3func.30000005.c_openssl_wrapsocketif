@@ -13,13 +13,14 @@
     {
     _except( EXCEPTION_EXECUTE_HANDLER )
     }
-        (*pWrapFP)( pSslP , oshSocketP ) ;
+          SSL_set_fd( pSslP , oshSocketP ) ;
+        //(*pWrapFP)( pSslP , oshSocketP ) ;
     {
     _try
 
     *pEcP = 0 ;
 {
-/**//*1*/void c_openSsl_wrapSocketIF( unsigned* pEcP , openSsl_pWrapFT pWrapFP , unsigned oshSocketP , SSL* pSslP )/*1*/
+/**//*1*/void __watcall c_openSsl_wrapSocketIF( unsigned* pEcP , openSsl_pWrapFT pWrapFP , unsigned oshSocketP , SSL* pSslP )/*1*/
 
 */
 /*

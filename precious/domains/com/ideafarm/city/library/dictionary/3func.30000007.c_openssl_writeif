@@ -15,14 +15,15 @@
     {
     _except( EXCEPTION_EXECUTE_HANDLER )
     }
-        cbWritten = (*pWriteFP)( pSslP , pbP , cbP ) ;
+          cbWritten =   SSL_write( pSslP , pbP , cbP ) ;
+        //cbWritten = (*pWriteFP)( pSslP , pbP , cbP ) ;
     {
     _try
 
     *pEcP = 0 ;
     unsigned cbWritten = 0 ;
 {
-/**//*1*/unsigned c_openSsl_writeIF( unsigned* pEcP , openSsl_pWriteFT pWriteFP , SSL* pSslP , const char* const pbP , const unsigned cbP )/*1*/
+/**//*1*/unsigned __watcall c_openSsl_writeIF( unsigned* pEcP , openSsl_pWriteFT pWriteFP , SSL* pSslP , const char* const pbP , const unsigned cbP )/*1*/
 
 */
 /*

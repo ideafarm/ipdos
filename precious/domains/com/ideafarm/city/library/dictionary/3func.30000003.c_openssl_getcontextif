@@ -15,14 +15,15 @@
     {
     _except( EXCEPTION_EXECUTE_HANDLER )
     }
-        pContext = (*pContextFP)( (*pMethodFP)() ) ;
+          pContext =   SSL_CTX_new( (*pMethodFP)() ) ;
+        //pContext = (*pContextFP)( (*pMethodFP)() ) ;
     {
     _try
 
     *pEcP = 0 ;
     SSL_CTX* pContext = 0 ;
 {
-/**//*1*/SSL_CTX* c_openSsl_getContextIF( unsigned* pEcP , openSsl_pContextFT pContextFP , openSsl_pMethodFT pMethodFP )/*1*/
+/**//*1*/SSL_CTX* __watcall c_openSsl_getContextIF( unsigned* pEcP , openSsl_pContextFT pContextFP , openSsl_pMethodFT pMethodFP )/*1*/
 
 */
 /*

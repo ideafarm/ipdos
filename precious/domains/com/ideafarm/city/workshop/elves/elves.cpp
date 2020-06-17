@@ -2694,7 +2694,7 @@ void elf_obey_C::liveF( void )
     
                 ether.deleteAllF( "\\ideafarm.home.1\\ephemeral\\domains\\com\\ideafarm\\city\\park\\exedll\\1\\master" , postMasShort ) ;
 
-                //boxPutF( "\\tmp\\elves.debug.ttt" , postCmd , 0 ) ; //U:: TO FIND A BUG (20180908@1649)
+                boxPutF( "\\tmp\\elves.debug.ttt" , postCmd , 0 ) ; //U:: TO FIND A BUG (20180908@1649)
 
                 system( postCmd ) ; //MUST BE SERIALIZED SINCE wlink USES A TEMPORARY FILE THAT IT CREATES, AND WILL COLLIDE WITH ITSELF IN CREATING THIS FILE
 
