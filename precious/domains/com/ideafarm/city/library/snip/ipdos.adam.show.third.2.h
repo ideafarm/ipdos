@@ -1811,7 +1811,7 @@ a jPointer is also considered null if it contains one of the special values [JrE
 /*1*//*IPDOScOMPILEoPTIONS*//*1*/
 
 /*3*/
-#define IPDOScOMPILEoPTIONS        "-6r -bm -bt=NT -ew -fp5 -fpi87 -od -sg -wx -zp1 -zq -wcd=202"
+#define IPDOScOMPILEoPTIONS        "-6r -bm -bt=NT -ew -fp5 -fpi87 -od -sg -wx -zp1 -zq -wcd=202     "
 /*3*/
 
 
@@ -2886,7 +2886,8 @@ parameters
 /*1*//*IPDOScOMPILEoPTIONScnOTcPP*//*1*/
 
 /*3*/
-#define IPDOScOMPILEoPTIONScnOTcPP "-6r -bm -bt=NT     -fp5 -fpi87 -od -sg -wx -zp1 -zq -wcd=202 -ecc"
+#define IPDOScOMPILEoPTIONScnOTcPP "-6r -bm -bt=NT     -fp5 -fpi87 -od -sg -wx -zp1 -zq -wcd=202"
+//U::#define IPDOScOMPILEoPTIONScnOTcPP "-6r -bm -bt=NT     -fp5 -fpi87 -od -sg -wx -zp1 -zq -wcd=202 -ecc"
 /*3*/
 
 
@@ -5413,7 +5414,7 @@ it is illegal to refer to this symbol in the definition of an adam
 
         //CS:CODEsYNC:DUPLICATED: 15000014 01000002
 
-        typedef const SSL_METHOD* (__syscall *openSsl_pMethodFT      )( void )                                      ; //const SSL_METHOD *TLS_method(void);  /* SSLv3 but can rollback to v2 */
+        typedef const SSL_METHOD* (__syscall *openSsl_pMethodFT      )( void )                                      ; //const SSL_METHOD *SSLv23_method(void);  /* SSLv3 but can rollback to v2 */
 
         typedef int               (__syscall *openSsl_pInitFT        )( void )                                      ; //int __syscall SSL_library_init( void ) ;
 
