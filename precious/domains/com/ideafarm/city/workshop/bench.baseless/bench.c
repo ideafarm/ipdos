@@ -1,10 +1,15 @@
 
-#include <windows.h>
-#include <stdio.h>
+#include <openssl\ssl.h>
 
-int main( void )
+int main()
 {
-    puts( "hello, Jesus!\r\n" ) ;
-    Sleep( 4000 ) ;
-    return 1234 ;
+	SSL_CTX* pContext1 = SSL_CTX_new( TLS_method() ) ;
+	SSL_CTX* pContext2 = SSL_CTX_new( TLS_method() ) ;
+
+    if( pContext1 )
+	{
+		pContext1 = pContext1 ;
+	}
+
+    return 0 ;
 }

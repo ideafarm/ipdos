@@ -7159,7 +7159,8 @@ I have other business to attend to today and tomorrow, but plan to continue to w
 
 
 
-
+  next: remove the GetProcAddress code
+  !subjob A: regression test
    initially, just try a single api, and release to factory1 to verify that cloud push works
   migrate code from using gotten proc addresses
    d:\ideafarm.home.1\precious\domains\com\ideafarm\city\workshop\openssl\lib\libssl.lib
@@ -7177,6 +7178,12 @@ I have other business to attend to today and tomorrow, but plan to continue to w
 
 
 
+
+ playcraft
+ changed: new openssl , static linking with lib files
+!subjob A: regression test
+
+
 !thrust: debug until all factories run without failure
 
 =========================================================================================================================================================
@@ -7190,6 +7197,39 @@ I have other business to attend to today and tomorrow, but plan to continue to w
 =========================================================================================================================================================
 
 
+  cool ; found wo
+  conj: cnr if comment out init and term for openssl: yup
+  !subjob A: study doc for SSL_CTX_new and OPENSSL_init_ssl
+   conj: context should be obtained once per process ; this problem will cnr when i redesign the base libarary to do this
+  think
+    SSL_CTX_new() works before but not after this line
+    called in processGlobal1S ct
+   the culprit is                 thirdC::openSsl_setupIF() ;
+  see
+   in base, fails apparently due to already being done
+   in watcom bench.baseless, aok
+   in vs, aok
+  see
+   OPENSSL_init_ssl sets eax to 0 (fail) in wdw but to 1 (ok) in VS
+  see
+   | 
+   | 	SSL_CTX* pContext = SSL_CTX_new( TLS_method() ) ;
+   | 004017E8  call        _TLS_method (0401366h)  
+   | 004017ED  push        eax  
+   | 004017EE  call        _SSL_CTX_new (040126Ch)  
+   | 004017F3  add         esp,4  
+   | 004017F6  mov         dword ptr [pContext],eax  
+   | 	if (pContext)
+   | 
+  listing: this disassembly works (VS)
+  try this call in Visual Studio
+ playcraft
+ changed: TLS v3
+!job B: SSL_CTX_new( [method] ) is failing returning 0
+  see: initialization and termination is no longer required for openssl
+ playcraft
+ objective: knowledge
+!subjob A: study doc for SSL_CTX_new and OPENSSL_init_ssl
   !subjob A: play with VC and with OpenSSL
   set up dut
  playcraft
