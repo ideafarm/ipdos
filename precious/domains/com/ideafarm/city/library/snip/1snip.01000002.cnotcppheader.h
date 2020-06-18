@@ -43,7 +43,7 @@
 
     typedef int               (__syscall *openSsl_pReadFT        )( SSL* pWrapP , void* pbP , int cbP )         ; // int SSL_read(SSL *ssl, void *buf, int num);
 
-    typedef int               (__syscall *openSsl_pShutdownFT    )( SSL* pWrapP )                               ; // int SSL_shutdown(SSL *ssl);
+    typedef int               (__syscall *openSsl_pWaveByeFT     )( SSL* pWrapP )                               ; // int SSL_shutdown(SSL *ssl);
 
     //----------------------------------------------------- END
 
@@ -58,14 +58,15 @@ MYpREFIX void _export c_debugF( void ) ;
 
 MYpREFIX void _export c_traceHelperIF( unsigned pP ) ;
 
-MYpREFIX void     __watcall c_openSsl_setupIF(      unsigned* pEcP , openSsl_pInitFT       pInitFP                                                                 ) ;
-MYpREFIX void     __watcall c_openSsl_shutdownIF(   unsigned* pEcP , openSsl_pShutdownFT   pShutdownFP   , SSL* pSslP                                              ) ;
-MYpREFIX SSL_CTX* __watcall c_openSsl_getContextIF( unsigned* pEcP , openSsl_pContextFT    pContextFP    , openSsl_pMethodFT pMethodFP                             ) ;
-MYpREFIX SSL*     __watcall c_openSsl_getWrapperIF( unsigned* pEcP , openSsl_pWrapperFT    pWrapperFP    , SSL_CTX* pContextP                                      ) ;
-MYpREFIX void     __watcall c_openSsl_wrapSocketIF( unsigned* pEcP , openSsl_pWrapFT       pWrapFP       , unsigned oshSocketP , SSL* pSslP                        ) ;
-MYpREFIX void     __watcall c_openSsl_shakeHandsIF( unsigned* pEcP , openSsl_pShakeFT      pShakeFP      , SSL* pSslP                                              ) ;
-MYpREFIX unsigned __watcall c_openSsl_writeIF(      unsigned* pEcP , openSsl_pWriteFT      pWriteFP      , SSL* pSslP , const char* const pbP , const unsigned cbP ) ;
-MYpREFIX unsigned __watcall c_openSsl_readIF(       unsigned* pEcP , openSsl_pReadFT       pReadFP       , char* pbP , unsigned cbP , SSL* pSslP                   ) ;
+MYpREFIX void     __watcall c_openSsl_setupIF(              unsigned* pEcP , openSsl_pInitFT       pInitFP                                                                 ) ;
+MYpREFIX void     __watcall c_openSsl_waveByeIF(            unsigned* pEcP , openSsl_pWaveByeFT    pWaveByeFP    , SSL* pSslP                                              ) ;
+MYpREFIX SSL_CTX* __watcall c_openSsl_getContextIF(         unsigned* pEcP , openSsl_pContextFT    pContextFP    , openSsl_pMethodFT pMethodFP                             ) ;
+MYpREFIX SSL*     __watcall c_openSsl_getWrapperIF(         unsigned* pEcP , openSsl_pWrapperFT    pWrapperFP    , SSL_CTX* pContextP                                      ) ;
+MYpREFIX void     __watcall c_openSsl_wrapSocketIF(         unsigned* pEcP , openSsl_pWrapFT       pWrapFP       , unsigned oshSocketP , SSL* pSslP                        ) ;
+MYpREFIX void     __watcall c_openSsl_shakeHandsAsClientIF( unsigned* pEcP , openSsl_pShakeFT      pShakeFP      , SSL* pSslP                                              ) ;
+MYpREFIX void     __watcall c_openSsl_shakeHandsAsServerIF( unsigned* pEcP , openSsl_pShakeFT      pShakeFP      , SSL* pSslP                                              ) ;
+MYpREFIX unsigned __watcall c_openSsl_writeIF(              unsigned* pEcP , openSsl_pWriteFT      pWriteFP      , SSL* pSslP , const char* const pbP , const unsigned cbP ) ;
+MYpREFIX unsigned __watcall c_openSsl_readIF(               unsigned* pEcP , openSsl_pReadFT       pReadFP       , char* pbP , unsigned cbP , SSL* pSslP                   ) ;
 
 
 //

@@ -5433,7 +5433,7 @@ it is illegal to refer to this symbol in the definition of an adam
 
         typedef int               (__syscall *openSsl_pReadFT        )( SSL* pWrapP , void* pbP , int cbP )         ; // int SSL_read(SSL *ssl, void *buf, int num);
 
-        typedef int               (__syscall *openSsl_pShutdownFT    )( SSL* pWrapP )                               ; // int SSL_shutdown(SSL *ssl);
+        typedef int               (__syscall *openSsl_pWaveByeFT    )( SSL* pWrapP )                               ; // int SSL_shutdown(SSL *ssl);
 
         //----------------------------------------------------- END
 
@@ -28550,13 +28550,14 @@ applications should avoid using thirdC objects
   //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.350011a2.thirdC.openSsl_getWrapperIF!||
   static voidT openSsl_wrapSocketIF( tinS& tinP , const handleC& hWrapperP , const handleC& hSocketP ) ;
   //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.350011a3.thirdC.openSsl_wrapSocketIF!||
-  static voidT openSsl_shakeHandsIF( tinS& tinP , const handleC& hWrapperP ) ;
-  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.350011a4.thirdC.openSsl_shakeHandsIF!||
+  static voidT openSsl_shakeHandsAsClientIF( tinS& tinP , const handleC& hWrapperP ) ;
+  static voidT openSsl_shakeHandsAsServerIF( tinS& tinP , const handleC& hWrapperP ) ;
+  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.350011a4.thirdC.openSsl_shakeHandsAsClientIF!||
   static countT openSsl_writeIF( tinS& tinP , const handleC& hWrapperP , const byteT* const pbP , const countT cbP = 0 ) ;
   //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.350011a5.thirdC.openSsl_writeIF!||
   static countT openSsl_readIF( tinS& tinP , byteT* const pbP , const countT cbP , const handleC& hWrapperP ) ;
   //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.350011a6.thirdC.openSsl_readIF!||
-  static voidT openSsl_shutdownIF( tinS& tinP , const handleC& hWrapperP ) ;
+  static voidT openSsl_waveByeIF( tinS& tinP , const handleC& hWrapperP ) ;
   //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.350011a8.thirdc.openssl_shutdownif!||
 
 /* commands: sockets */
@@ -28584,7 +28585,7 @@ applications should avoid using thirdC objects
   //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3403f.thirdC.s_socketIF!||
 
  /* connection */
-  voidT s_acceptF( tinS& tinP , handleC& hClientP , countT& idPortP , nicNameC& nicNameP , const handleC& handleP , boolT& bRefuseP ) ;
+  voidT s_acceptF( tinS& tinP , handleC& hClientP , countT& idPortP , nicNameC& nicNameP , const handleC& handleP , boolT& bRefuseP , const handleC* const phContextP = 0 ) ;
   //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.340b1.thirdC.s_acceptF!||
   voidT s_connectF( tinS& tinP , handleC& handleP , const countT idPortP , const nicNameC nicNameP = nicNameC() , countT cTriesP = 0 , countT time1P = 0 , const sCountT time2P = 0 ) ;
   //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34036.thirdC.s_connectF!||
@@ -31858,13 +31859,14 @@ examples
   //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.360021d4.etherC.openSsl_getWrapperF!||
   voidT openSsl_wrapSocketF( tinS& tinP , const handleC& hWrapperP , const handleC& hSocketP ) ;
   //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.360021d5.etherC.openSsl_wrapSocketF!||
-  voidT openSsl_shakeHandsF( tinS& tinP , const handleC& hWrapperP ) ;
-  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.360021d6.etherC.openSsl_shakeHandsF!||
+  voidT openSsl_shakeHandsAsClientF( tinS& tinP , const handleC& hWrapperP ) ;
+  voidT openSsl_shakeHandsAsServerF( tinS& tinP , const handleC& hWrapperP ) ;
+  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.360021d6.etherC.openSsl_shakeHandsAsClientF!||
   countT openSsl_writeF( tinS& tinP , const handleC& hWrapperP , const byteT* const pbP , const countT cbP = 0 ) ;
   //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.360021d7.etherC.openSsl_writeF!||
   countT openSsl_readF( tinS& tinP , byteT* const pbP , const countT cbP , const handleC& hWrapperP ) ;
   //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.360021d8.etherC.openSsl_readF!||
-  voidT openSsl_shutdownF( tinS& tinP , const handleC& hWrapperP ) ;
+  voidT openSsl_waveByeF( tinS& tinP , const handleC& hWrapperP ) ;
   //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.360021de.etherc.openssl_shutdownf!||
 
 /* commands: sockets */
@@ -31892,7 +31894,7 @@ examples
   //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.341a8.etherC.chokeAttackerF!||
 
  /* connection */
-  voidT sockAcceptF( tinS& tinP , handleC& hClientP , countT& idPortP , nicNameC& nicNameP , const handleC& handleP , boolT& bRefuseP ) ;
+  voidT sockAcceptF( tinS& tinP , handleC& hClientP , countT& idPortP , nicNameC& nicNameP , const handleC& handleP , boolT& bRefuseP , const handleC* const phContextP = 0 ) ;
   //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34119.etherC.sockAcceptF!||
   voidT sockConnectF( tinS& tinP , handleC& handleP , const countT idPortP , const nicNameC nicNameP = nicNameC() , countT cTriesP = 0 , const countT time1P = 0 , const sCountT time2P = 0 ) ;
   //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3403f.etherC.sockConnectF!||
@@ -32856,8 +32858,9 @@ examples
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34004.socketC.bindF!||
  voidT connectF( tinS& tinP , countT idPortP = 0 , const nicNameC nicNameP = nicNameC() , countT cTriesP = 0 , const countT time1P = 0 , const sCountT time2P = 0 ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34006.socketC.connectF!||
- voidT shakeHandsF( tinS& tinP ) ;
- //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3600502e.socketc.shakeHandsF!||
+ voidT shakeHandsAsClientF( tinS& tinP ) ;
+ voidT shakeHandsAsServerF( tinS& tinP ) ;
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3600502e.socketc.shakeHandsAsClientF!||
  static nicNameC nicNameIF( tinS& tinP , etherC& etherP , const strokeS* const psttP = 0 ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34007.socketC.nicNameIF!||
  static voidT nicNameIF( tinS& tinP , etherC& ether , nicNameC*& pNicNameP , countT& cNicNameP , const strokeS* const psttP = 0 ) ;
@@ -39373,7 +39376,7 @@ base class to make a derived class of objects easily contained by a stackC objec
             openSsl_pShakeFT            openSsl_pShakeF       ;
             openSsl_pWriteFT            openSsl_pWriteF       ;
             openSsl_pReadFT             openSsl_pReadF        ;
-            openSsl_pShutdownFT         openSsl_pShutdownF    ;
+            openSsl_pWaveByeFT          openSsl_pWaveByeF     ;
 
             HMODULE                     zlib_hModule          ;
             zlib_deflateInitFT          zlib_pDeflateInitF    ;

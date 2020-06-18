@@ -10,6 +10,10 @@
 }
     return pContext ;
 
+    rcDebug = SSL_CTX_use_PrivateKey_file(        pContext , "d:\\ideafarm.home.1\\precious\\domains\\com\\ideafarm\\city\\workshop\\openssl\\bin\\privkey.pem" , SSL_FILETYPE_PEM ) ;
+    rcDebug = SSL_CTX_use_certificate_chain_file( pContext , "d:\\ideafarm.home.1\\precious\\domains\\com\\ideafarm\\city\\workshop\\openssl\\bin\\server.pem"                     ) ;
+    rcDebug = SSL_CTX_set_ecdh_auto(              pContext , 1 ) ;
+
     }
         *pEcP = 1 ;
     {
@@ -21,6 +25,7 @@
     _try
 
     *pEcP = 0 ;
+    unsigned rcDebug = 0 ;
     SSL_CTX* pContext = 0 ;
 {
 /**//*1*/SSL_CTX* __watcall c_openSsl_getContextIF( unsigned* pEcP , openSsl_pContextFT pContextFP , openSsl_pMethodFT pMethodFP )/*1*/

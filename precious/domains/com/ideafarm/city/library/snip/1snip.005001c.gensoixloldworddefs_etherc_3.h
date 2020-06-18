@@ -2116,7 +2116,7 @@ voidT openSsl_wrapSocketF_bb_GF( tinS& tinP , etherC& etherP , soulC& slP , cons
     if( !POOP ) etherP.openSsl_wrapSocketF( tinP , hWrapperP , hSocketP ) ;
 }
 
-voidT openSsl_shakeHandsF_b_GF( tinS& tinP , etherC& etherP , soulC& slP , const strokeS* const _psttNameP )
+voidT openSsl_shakeHandsAsClientF_b_GF( tinS& tinP , etherC& etherP , soulC& slP , const strokeS* const _psttNameP )
 {
     countT idArgNext = 1 ;
     ZE( byteT* , pbFieldNext ) ;
@@ -2128,7 +2128,7 @@ voidT openSsl_shakeHandsF_b_GF( tinS& tinP , etherC& etherP , soulC& slP , const
    SOIXLoLDtESTtYPE( 0xdddd8014 , etherC )
     handleC hWrapperP( /*GOOEY*/tinP , TAG( TAGiDnULL ) ) ;
     if( !POOP ) { hWrapperP << slP ; idArgNext ++ ; }
-    if( !POOP ) etherP.openSsl_shakeHandsF( tinP , hWrapperP ) ;
+    if( !POOP ) etherP.openSsl_shakeHandsAsClientF( tinP , hWrapperP ) ;
 }
 
 voidT openSsl_writeF_b1P3_GF( tinS& tinP , etherC& etherP , soulC& slP , const strokeS* const _psttNameP )
@@ -2222,7 +2222,6 @@ voidT openSsl_shutdownF_b_GF( tinS& tinP , etherC& etherP , soulC& slP , const s
    SOIXLoLDtESTtYPE( 0xdddd8014 , etherC )
     handleC hWrapperP( /*GOOEY*/tinP , TAG( TAGiDnULL ) ) ;
     if( !POOP ) { hWrapperP << slP ; idArgNext ++ ; }
-    if( !POOP ) etherP.openSsl_shutdownF( tinP , hWrapperP ) ;
 }
 
 voidT sockBindF_b3d3_GF( tinS& tinP , etherC& etherP , soulC& slP , const strokeS* const _psttNameP )

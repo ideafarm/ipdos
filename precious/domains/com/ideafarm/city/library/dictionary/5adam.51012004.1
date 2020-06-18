@@ -11,6 +11,9 @@ REST
 
 }
     DEL( pso ) ;
+
+    pso->writeF( tinP , (osTextT*)tSayAll , tSayAll.csF( tinP ) ) ;
+
     etThread.traceF( tinP , T("client accepted") ) ;
     sol.acceptF( tinP , pso , idpPeer , nnPeer , bRefuse ) ; ___( pso ) ;
     etThread.traceF( tinP , T("waiting for a client to connect") ) ;
@@ -24,6 +27,19 @@ while( !ether )
 sol.listenF( tinP ) ;
 countT idPort = sol.bindF( tinP , 443 ) ;
 socketC sol( tinP , etThread , TAG( TAGiDnULL ) , ifcSOCKETtYPE_STREAM , flSOCKETc_CRYPTfOREIGNsSL ) ;
+
+TN( tSayAll , "" ) ; tSayAll = tSay1+TF4(tSay2.csF(tinP),flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FOREIGN|flFORMAT_NObASE,0,0xa)+T("\r\n\r\n")+tSay2 ;
+
+TN( tSay2 , "Thank you, Jesus!  This is the day that the Lord has made.  Let us rejoice and be glad in Him!" ) ;
+
+) ;
+
+    "Content-Length: "
+    "Content-Type: text/html\r\n"
+    "Server: IPDOS (tm) IdeaFarm " "(tm) Piggyback Distributed Operating System (tm)\r\n"
+    "HTTP/1.1 200 OK\r\n"
+
+TN( tSay1 ,
 
 TODO
 

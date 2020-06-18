@@ -1151,11 +1151,11 @@
     _pSwSoixlOldApi->ungrabF( tinP ) ;
 }
 {
-    TN( tNameSoixlOld , "openSsl_shakeHandsF_b" ) ;
+    TN( tNameSoixlOld , "openSsl_shakeHandsAsClientF_b" ) ;
     _pSwSoixlOldApi->grabF( tinP , TAG( TAGiDnULL ) ) ;
     _psttLeverSoixlOldApi = tNameSoixlOld ;
     if( *_pSwSoixlOldApi ) { BLAMMO ; }
-    *_pSwSoixlOldApi = (countT)openSsl_shakeHandsF_b_GF ;
+    *_pSwSoixlOldApi = (countT)openSsl_shakeHandsAsClientF_b_GF ;
     _pSwSoixlOldApi->ungrabF( tinP ) ;
 }
 {

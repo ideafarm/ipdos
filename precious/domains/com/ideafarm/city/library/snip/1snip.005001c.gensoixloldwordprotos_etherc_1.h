@@ -287,7 +287,7 @@ voidT openSsl_getWrapperF_bb_GF( tinS& tinP , etherC& etherP , soulC& slP , cons
 
 voidT openSsl_wrapSocketF_bb_GF( tinS& tinP , etherC& etherP , soulC& slP , const strokeS* const _psttNameP ) ;
 
-voidT openSsl_shakeHandsF_b_GF( tinS& tinP , etherC& etherP , soulC& slP , const strokeS* const _psttNameP ) ;
+voidT openSsl_shakeHandsAsClientF_b_GF( tinS& tinP , etherC& etherP , soulC& slP , const strokeS* const _psttNameP ) ;
 
 voidT openSsl_writeF_b1P3_GF( tinS& tinP , etherC& etherP , soulC& slP , const strokeS* const _psttNameP ) ;
 
