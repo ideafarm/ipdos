@@ -7179,9 +7179,15 @@ I have other business to attend to today and tomorrow, but plan to continue to w
 
 
 
+
+
+  set up dut
  playcraft
- changed: new openssl , static linking with lib files
-!subjob A: regression test
+ objective: elegance
+!job C: scratch adam 4: serve https
+
+
+
 
 
 !thrust: debug until all factories run without failure
@@ -7197,6 +7203,42 @@ I have other business to attend to today and tomorrow, but plan to continue to w
 =========================================================================================================================================================
 
 
+  cool ; it works!
+ playcraft
+ changed: new openssl , static linking with lib files
+!subjob A: regression test
+  cool ; found wo!
+  !subjob C: during all build operations, (621), copy the 2 openssl dll's into hover
+   the fix is to place the dll's into the hover folder where the exe's are
+   ok; i see this now
+  think
+  how does the os search?
+   it works on factory1 because OpenSSL has been installed on factory1
+  think
+   | 
+   | The code execution cannot proceed because libssl-3.dll was notfound. Reinstalling the program may fix this problem.
+   | 
+   | The code execution cannot proceed because libssl-3.dll was
+   | notfound. Reinstalling the program may fix this problem.
+   | 
+  listing
+   sameo on factory2 factory3
+   aok on factory1
+  see
+ playcraft
+ change: ?
+!job B: bundle does not launch
+  cool ; it works
+  look
+ playcraft
+ objective: elegance, security
+!subjob C: during all build operations, (621), copy the 2 openssl dll's into hover
+  code is now safer (deletes commented out)
+  cnr
+  look
+ playcraft
+ changed: windows userId
+!job B: ifcreset / unreset: all job files are deleted rather than moved!
   cool ; found wo
   conj: cnr if comment out init and term for openssl: yup
   !subjob A: study doc for SSL_CTX_new and OPENSSL_init_ssl

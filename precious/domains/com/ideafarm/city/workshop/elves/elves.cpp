@@ -309,7 +309,7 @@ void           delF( const char**& ppbP ) ;
 void           delF( const int*& pcP ) ;
 void           hireF( int idElfP , char* postCmdP , char* postDirectoryP = 0 ) ;
 void           itoaF( char* post9P , int costa9P , int cP ) ;
-void           makeFoldersF( void ) ;
+void           makeFoldersCopyThirdPartyDllsF( void ) ;
 char*          newF( int cbP ) ;
 int            sourceCodeExistsF( void ) ;
 void           tmAbortF( void* pnuP ) ;
@@ -1824,7 +1824,7 @@ int elf_obey_C::isStaleF( const char* postToLikeP , const char* postFromLike1P ,
 
 void elf_obey_C::liveF( void )
 {
-    makeFoldersF() ; // THIS IS REDUNDANT BUT IS LOW COST AND ADDS IDIOT PROOFING (USER DELETING FOLDERS AFTER LAUNCHING THIS PROGRAM)
+    makeFoldersCopyThirdPartyDllsF() ; // THIS IS REDUNDANT BUT IS LOW COST AND ADDS IDIOT PROOFING (USER DELETING FOLDERS AFTER LAUNCHING THIS PROGRAM)
     
     //1 TOKEN COMMANDS, ALPHABETICAL
     if( !strcmp( postCmd , "adamhigh" ) )
@@ -2781,7 +2781,7 @@ void elf_obey_C::liveF( void )
                 {
                     sayF( "[8bundle]:  Copying the Z file, which Service assumes to always be the lath file to be unzipped when the user is installing the bundle." ) ;
 
-                    makeFoldersF() ;
+                    makeFoldersCopyThirdPartyDllsF() ;
     
                     char postCmd[ 0x400 ] = { "copy " } ;
                     strcat( postCmd , postFrom1 ) ;
@@ -2799,7 +2799,7 @@ void elf_obey_C::liveF( void )
                 {
                     sayF( "[8bundle]:  Copying the IdeaFarm (tm) Bundle installation settings file." ) ;
 
-                    makeFoldersF() ;
+                    makeFoldersCopyThirdPartyDllsF() ;
     
                     char postCmd[ 0x400 ] = { "copy " } ;
                     strcat( postCmd , postFrom1 ) ;
@@ -2813,7 +2813,7 @@ void elf_obey_C::liveF( void )
 
                 //if( !( flagsAll & flELVES_DEBUGiNFO ) )
                 {
-                    makeFoldersF() ;
+                    makeFoldersCopyThirdPartyDllsF() ;
                     system( "if exist \\ideafarm.home.1\\ephemeral\\domains\\com\\ideafarm\\release\\ideafarm.bundle.zip del \\ideafarm.home.1\\ephemeral\\domains\\com\\ideafarm\\release\\ideafarm.bundle.zip" ) ;
 
                     //REMOVE bench.baseless IN PRODUCTION
@@ -5232,7 +5232,7 @@ void itoaF( char* post9P , int costa9P , int cP )
     }
 }
 
-void makeFoldersF( void )
+void makeFoldersCopyThirdPartyDllsF( void )
 {
     if( !SetCurrentDirectory( "d:\\" ) ) { BLAMMO ; }       //DONE TO ENSURE THAT CURRENT DRIVE IS d:
     CreateDirectory( "\\ideafarm.home.1" , 0 ) ;
@@ -5280,6 +5280,9 @@ void makeFoldersF( void )
     CreateDirectory( "\\ideafarm.work\\txt" , 0 ) ;
     CreateDirectory( "\\ideafarm.work\\txt\\ideafarm.com" , 0 ) ;
     CreateDirectory( "\\tmp" , 0 ) ;
+
+    CopyFile( "\\ideafarm.home.1\\precious\\domains\\com\\ideafarm\\city\\workshop\\openssl\\bin\\libssl-3.dll"    , "\\ideafarm.home.1\\ephemeral\\domains\\com\\ideafarm\\city\\park\\exedll\\1\\hover\\libssl-3.dll"    , 1 ) ;
+    CopyFile( "\\ideafarm.home.1\\precious\\domains\\com\\ideafarm\\city\\workshop\\openssl\\bin\\libcrypto-3.dll" , "\\ideafarm.home.1\\ephemeral\\domains\\com\\ideafarm\\city\\park\\exedll\\1\\hover\\libcrypto-3.dll" , 1 ) ;
 }
 
 void delF(       int*&   pcP  ) { delF( *(char**)&pcP  ) ; }
@@ -5407,7 +5410,7 @@ int main( int cArgP , char* ppostArgP[] , char* ppostEnvP[] )
 
     int bHighPriest = sourceCodeExistsF() ;
 
-    makeFoldersF() ;
+    makeFoldersCopyThirdPartyDllsF() ;
     { hoverC hover( "d:\\ideafarm.home.1\\ephemeral\\domains\\com\\ideafarm\\city\\park\\exedll\\1\\hover" , flHOVER_PERSIST ) ; } // WHEN USING PRECOMPILED HEADERS, MUST ALWAYS BE HOVERING IN THE SAME CURRENT DIRECTORY
 
     char postCmdWoth[ 0x10 ] = { "" } ;
