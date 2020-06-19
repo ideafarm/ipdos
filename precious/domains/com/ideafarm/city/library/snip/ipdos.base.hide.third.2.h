@@ -28544,7 +28544,7 @@ applications should avoid using thirdC objects
   //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3500119f.thirdC.openSsl_setupIF!||
   static voidT openSsl_shutdownIF( voidT ) ;
   //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.350011a0.thirdC.openSsl_shutdownIF!||
-  static voidT openSsl_getContextIF( tinS& tinP , handleC& handleP ) ;
+  static voidT openSsl_getContextIF( tinS& tinP , handleC& handleP , const osTextT* const postPemCertificatesP = 0 , const osTextT* const postPemPrivateKeyP = 0 ) ;
   //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.350011a1.thirdC.openSsl_getContextIF!||
   static voidT openSsl_getWrapperIF( tinS& tinP , handleC& handleP , const handleC& hContextP ) ;
   //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.350011a2.thirdC.openSsl_getWrapperIF!||
@@ -31853,7 +31853,7 @@ examples
   //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.360021d1.etherC.openSsl_setupF!||
   voidT openSsl_shutdownF( tinS& tinP ) ;
   //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.360021d2.etherC.openSsl_shutdownF!||
-  voidT openSsl_getContextF( tinS& tinP , handleC& handleP ) ;
+  voidT openSsl_getContextF( tinS& tinP , handleC& handleP , const strokeS* const psttPemCertificatesP = 0 , const strokeS* const psttPemPrivateKeyP = 0 ) ;
   //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.360021d3.etherC.openSsl_getContextF!||
   voidT openSsl_getWrapperF( tinS& tinP , handleC& handleP , const handleC& hContextP ) ;
   //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.360021d4.etherC.openSsl_getWrapperF!||

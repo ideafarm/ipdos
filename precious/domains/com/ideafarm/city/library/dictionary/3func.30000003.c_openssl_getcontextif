@@ -10,8 +10,15 @@
 }
     return pContext ;
 
-    *pEcP |= - 1 + SSL_CTX_use_PrivateKey_file(        pContext , "c:\\Certbot\\live\\ideafarm.com\\privkey.pem"   , SSL_FILETYPE_PEM ) ;
-    *pEcP |= - 1 + SSL_CTX_use_certificate_chain_file( pContext , "c:\\Certbot\\live\\ideafarm.com\\fullchain.pem"                    ) ;
+    }
+        *pEcP |= - 1 + SSL_CTX_use_PrivateKey_file(        pContext , postPemPrivateKeyP   , SSL_FILETYPE_PEM ) ;
+        *pEcP |= - 1 + SSL_CTX_use_certificate_chain_file( pContext , postPemCertificatesP ) ;
+
+        //*pEcP |= - 1 + SSL_CTX_use_PrivateKey_file(        pContext , "c:\\Certbot\\live\\ideafarm.com\\privkey.pem"   , SSL_FILETYPE_PEM ) ;
+        //*pEcP |= - 1 + SSL_CTX_use_certificate_chain_file( pContext , "c:\\Certbot\\live\\ideafarm.com\\fullchain.pem"                    ) ;
+    {
+    if( postPemCertificatesP && postPemPrivateKeyP && *postPemCertificatesP && *postPemPrivateKeyP )
+
     *pEcP |= - 1 + SSL_CTX_set_ecdh_auto(              pContext , 1 ) ;
 
     }
@@ -20,7 +27,6 @@
     _except( EXCEPTION_EXECUTE_HANDLER )
     }
         pContext =   SSL_CTX_new( TLS_method() ) ;
-        //pContext = (*pContextFP)( (*pMethodFP)() ) ;
     {
     _try
 
@@ -28,7 +34,7 @@
     unsigned rcDebug = 0 ;
     SSL_CTX* pContext = 0 ;
 {
-/**//*1*/SSL_CTX* __watcall c_openSsl_getContextIF( unsigned* pEcP , openSsl_pContextFT pContextFP , openSsl_pMethodFT pMethodFP )/*1*/
+/**//*1*/SSL_CTX* __watcall c_openSsl_getContextIF( unsigned* pEcP , const char* const postPemCertificatesP , const char* const postPemPrivateKeyP )/*1*/
 
 */
 /*

@@ -7187,6 +7187,7 @@ I have other business to attend to today and tomorrow, but plan to continue to w
 
 
   !subjob C: settings file to specify file name of cert and privkey
+  !subjob C: parameterize file name of cert and privkey
   !subjob C: default: look for pem files where LetsEncrypt puts them
  playcraft 
  objective: elegance, glass walls , correct function
@@ -7205,13 +7206,19 @@ I have other business to attend to today and tomorrow, but plan to continue to w
 
 
 
-  set up dut
-   later, look for other locations and/or for a settings file
-   initially, just require them to be where LetsEncrypt puts them
+
+
+
+   //*pEcP |= - 1 + SSL_CTX_use_PrivateKey_file(        pContext , "c:\\Certbot\\live\\ideafarm.com\\privkey.pem"   , SSL_FILETYPE_PEM ) ;
+   //*pEcP |= - 1 + SSL_CTX_use_certificate_chain_file( pContext , "c:\\Certbot\\live\\ideafarm.com\\fullchain.pem"                    ) ;
+   , const char* const postPemCertificatesP , const char* const postPemPrivateKeyP
+   before doing that, parameterize so settings file can be queried at a higher layer
+   so just require a settings file
+   can't use default hardcode because LetsEncrypt uses common name as part of path
   think
  playcraft
  objective: elegance
-!subjob C: default: look for pem files where LetsEncrypt puts them
+!subjob C: parameterize file name of cert and privkey
 
 
 !thrust: debug until all factories run without failure
@@ -7227,6 +7234,14 @@ I have other business to attend to today and tomorrow, but plan to continue to w
 =========================================================================================================================================================
 
 
+  cool ; it works!
+  set up dut
+   later, look for other locations and/or for a settings file
+   initially, just require them to be where LetsEncrypt puts them
+  think
+ playcraft
+ objective: elegance
+!subjob C: default: look for pem files where LetsEncrypt puts them
   cool ; it works!
    | 
    | #include <stdio.h>

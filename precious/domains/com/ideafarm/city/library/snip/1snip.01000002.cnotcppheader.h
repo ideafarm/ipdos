@@ -60,7 +60,7 @@ MYpREFIX void _export c_traceHelperIF( unsigned pP ) ;
 
 MYpREFIX void     __watcall c_openSsl_setupIF(              unsigned* pEcP , openSsl_pInitFT       pInitFP                                                                 ) ;
 MYpREFIX void     __watcall c_openSsl_waveByeIF(            unsigned* pEcP , openSsl_pWaveByeFT    pWaveByeFP    , SSL* pSslP                                              ) ;
-MYpREFIX SSL_CTX* __watcall c_openSsl_getContextIF(         unsigned* pEcP , openSsl_pContextFT    pContextFP    , openSsl_pMethodFT pMethodFP                             ) ;
+MYpREFIX SSL_CTX* __watcall c_openSsl_getContextIF(         unsigned* pEcP , const char* const postPemCertificatesP , const char* const postPemPrivateKeyP                 ) ;
 MYpREFIX SSL*     __watcall c_openSsl_getWrapperIF(         unsigned* pEcP , openSsl_pWrapperFT    pWrapperFP    , SSL_CTX* pContextP                                      ) ;
 MYpREFIX void     __watcall c_openSsl_wrapSocketIF(         unsigned* pEcP , openSsl_pWrapFT       pWrapFP       , unsigned oshSocketP , SSL* pSslP                        ) ;
 MYpREFIX void     __watcall c_openSsl_shakeHandsAsClientIF( unsigned* pEcP , openSsl_pShakeFT      pShakeFP      , SSL* pSslP                                              ) ;

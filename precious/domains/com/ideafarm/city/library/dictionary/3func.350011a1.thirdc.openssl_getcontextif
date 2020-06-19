@@ -17,7 +17,7 @@
 
         __( ec ) ;
         if( ec ) etherC::etTextIF( tinP ).traceF( tinP , T("openSsl_getContextIF / exception caught") ) ;
-        SSL_CTX* pContext = c_openSsl_getContextIF( &ec , processGlobal1I.openSsl_pContextF , processGlobal1I.openSsl_pMethodF ) ;
+        SSL_CTX* pContext = c_openSsl_getContextIF( &ec , postPemCertificatesP , postPemPrivateKeyP ) ;
         ZE( countT , ec ) ;
 
     #elif defined( __NT__ )
@@ -35,7 +35,7 @@
     {
     IFbEcAREFUL
 {
-/**//*1*/voidT thirdC::openSsl_getContextIF( tinS& tinP , handleC& handleP )/*1*/
+/**//*1*/voidT thirdC::openSsl_getContextIF( tinS& tinP , handleC& handleP , const osTextT* const postPemCertificatesP , const osTextT* const postPemPrivateKeyP )/*1*/
 */
 /*
 
