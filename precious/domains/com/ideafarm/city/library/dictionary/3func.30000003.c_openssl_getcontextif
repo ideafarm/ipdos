@@ -10,8 +10,12 @@
 }
     return pContext ;
 
-    rcDebug = SSL_CTX_use_PrivateKey_file(        pContext , "d:\\ideafarm.home.1\\precious\\domains\\com\\ideafarm\\city\\workshop\\openssl\\bin\\privkey.pem" , SSL_FILETYPE_PEM ) ;
-    rcDebug = SSL_CTX_use_certificate_chain_file( pContext , "d:\\ideafarm.home.1\\precious\\domains\\com\\ideafarm\\city\\workshop\\openssl\\bin\\server.pem"                     ) ;
+    rcDebug = SSL_CTX_use_PrivateKey_file(        pContext , "c:\\Certbot\\live\\ideafarm.com\\privkey.pem"   , SSL_FILETYPE_PEM ) ;
+    rcDebug = SSL_CTX_use_certificate_chain_file( pContext , "c:\\Certbot\\live\\ideafarm.com\\fullchain.pem"                    ) ;
+
+    //rcDebug = SSL_CTX_use_PrivateKey_file(        pContext , "d:\\ideafarm.home.1\\precious\\domains\\com\\ideafarm\\city\\workshop\\openssl\\bin\\privkey.pem" , SSL_FILETYPE_PEM ) ;
+    //rcDebug = SSL_CTX_use_certificate_chain_file( pContext , "d:\\ideafarm.home.1\\precious\\domains\\com\\ideafarm\\city\\workshop\\openssl\\bin\\server.pem"                     ) ;
+
     rcDebug = SSL_CTX_set_ecdh_auto(              pContext , 1 ) ;
 
     }
