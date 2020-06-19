@@ -52,13 +52,16 @@
         else            thirdC::c_memsetIF( tinP , (byteT*)pbBitsCt , sizeof pbBitsCt ) ;
         if( pbBitsCtP ) thirdC::c_memcpyIF( tinP , (byteT*)pbBitsCt , (byteT*)pbBitsCtP , sizeof pbBitsCt ) ;
 
-        if( F(flags) & flSOCKETc_CRYPTfOREIGNsSL ) etherP.openSsl_getContextF( tinP , hSslContext , T("///c/Certbot/live/ideafarm.com/fullchain.pem") , T("///c/Certbot/live/ideafarm.com/privkey.pem") ) ;
+        if( F(flags) & flSOCKETc_CRYPTfOREIGNsSL ) etherP.openSsl_getContextF( tinP , hSslContext , psttPemCertificatesP , psttPemPrivateKeyP ) ;
 
         if( idleTimeAllowedWrite && idleTimeAllowedWrite != SOCKETtIMEOUTdEFAULTwAN && idleTimeAllowedRead  != SOCKETtIMEOUTdEFAULTlAN ) pEther->traceF( tinP , T("socketC / unusual parameter value [this,idleTimeAllowedWrite]: ")+TF2((countT)this,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+TF2(idleTimeAllowedWrite,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
         if( idleTimeAllowedRead  && idleTimeAllowedRead  != SOCKETtIMEOUTdEFAULTwAN && idleTimeAllowedRead  != SOCKETtIMEOUTdEFAULTlAN ) pEther->traceF( tinP , T("socketC / unusual parameter value [this,idleTimeAllowedRead ]: ")+TF2((countT)this,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+TF2(idleTimeAllowedRead ,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
     
         //if( idleTimeAllowedWrite && idleTimeAllowedWrite != SOCKETtIMEOUTdEFAULTwAN && idleTimeAllowedRead  != SOCKETtIMEOUTdEFAULTlAN ) { BLAMMO ; } 
         //if( idleTimeAllowedRead  && idleTimeAllowedRead  != SOCKETtIMEOUTdEFAULTwAN && idleTimeAllowedRead  != SOCKETtIMEOUTdEFAULTlAN ) { BLAMMO ; }
+    
+        if( psttPemPrivateKey   ) { etherP.strMakeF( tinP , psttPemPrivateKey   , psttPemPrivateKeyP   ) ; ___( psttPemPrivateKey   ) ; }
+        if( psttPemCertificates ) { etherP.strMakeF( tinP , psttPemCertificates , psttPemCertificatesP ) ; ___( psttPemCertificates ) ; }
     
         _IO_
     
@@ -107,7 +110,9 @@
     {
     inc02AM( cFunctionsPending ) ;
 {
-hSslContext( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_openSslContext )
+psttPemPrivateKey( 0 )
+psttPemCertificates( 0 ) ,
+hSslContext( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_openSslContext ) ,
 pMapPortBind( 0 ) ,
 idleTimeAllowedWrite( pIdleTimeAllowedWriteP ? *pIdleTimeAllowedWriteP : tinP.pAdamGlobal3->_socketC_.alwaysZe ) ,
 idleTimeAllowedRead(  pIdleTimeAllowedReadP  ? *pIdleTimeAllowedReadP  : tinP.pAdamGlobal3->_socketC_.alwaysZe ) ,
@@ -148,7 +153,7 @@ nnPeer( nnPeerP ) ,
 cFunctionsPending( 0 ) ,
 idiFileCt( idiFileCtP ) ,
 idLineCt( idLineCtP ) ,
-/*1*/socketC::socketC( etherC& etherP , tinS& tinP , const countT idLineCtP , const countT idiFileCtP , const byteT* const pbBitsCtP , handleC& handleP , const boolT idTypeP , const flagsT flagsP , const countT* const pIdleTimeAllowedReadP , const countT* const pIdleTimeAllowedWriteP , const countT* const pTimeAllowedConnectedP , nicNameC& nnPeerP )/*1*/ :
+/*1*/socketC::socketC( etherC& etherP , tinS& tinP , const countT idLineCtP , const countT idiFileCtP , const byteT* const pbBitsCtP , handleC& handleP , const boolT idTypeP , const flagsT flagsP , const countT* const pIdleTimeAllowedReadP , const countT* const pIdleTimeAllowedWriteP , const countT* const pTimeAllowedConnectedP , nicNameC& nnPeerP , const strokeS* const psttPemCertificatesP , const strokeS* const psttPemPrivateKeyP )/*1*/ :
 
 /**/
 */

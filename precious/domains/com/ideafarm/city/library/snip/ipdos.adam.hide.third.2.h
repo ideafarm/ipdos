@@ -32814,6 +32814,8 @@ examples
     momC                    mom ;
     dadC                    dad ;
     strokeS*                psttName ;
+    strokeS*                psttPemCertificates ;
+    strokeS*                psttPemPrivateKey ;
 
     countT                  idPhaseTopSecret ;
     countT*                 pczKeyTopSecret ;
@@ -32840,9 +32842,9 @@ examples
 /* birth , death */
  NEWdELcLASSpROTOS
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400e.socketC.NEWdELcLASSpeTHER!||
- socketC( tinS& tinP , etherC& etherP , const countT idLineCtP , const countT idiFileCtP , const byteT* const pbBitsCtP , const boolT idTypeP = 0 , const flagsT flagsP = flSOCKETc_null , const countT* const pIdleTimeAllowedReadP = 0 , const countT* const pIdleTimeAllowedWriteP = 0 , const countT* const pTimeAllowedConnectedP = 0 ) ;
+ socketC( etherC& etherP , tinS& tinP , const countT idLineCtP , const countT idiFileCtP , const byteT* const pbBitsCtP , handleC& handleP , const boolT idTypeP , const flagsT flagsP , const countT* const pIdleTimeAllowedReadP , const countT* const pIdleTimeAllowedWriteP , const countT* const pTimeAllowedConnectedP , nicNameC& nnPeerP , const strokeS* const psttPemCertificatesP , const strokeS* const psttPemPrivateKeyP ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34001.socketC.socketC!||
- socketC( etherC& etherP , tinS& tinP , const countT idLineCtP , const countT idiFileCtP , const byteT* const pbBitsCtP , handleC& handleP , const boolT idTypeP , const flagsT flagsP , const countT* const pIdleTimeAllowedReadP , const countT* const pIdleTimeAllowedWriteP , const countT* const pTimeAllowedConnectedP , nicNameC& nnPeerP ) ;
+ socketC( tinS& tinP , etherC& etherP , const countT idLineCtP , const countT idiFileCtP , const byteT* const pbBitsCtP , const boolT idTypeP = 0 , const flagsT flagsP = flSOCKETc_null , const countT* const pIdleTimeAllowedReadP = 0 , const countT* const pIdleTimeAllowedWriteP = 0 , const countT* const pTimeAllowedConnectedP = 0 , const strokeS* const psttPemCertificatesP = 0 , const strokeS* const psttPemPrivateKeyP = 0 ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34002.socketC.socketC!||
  ~socketC( voidT ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34003.socketC.dt_socketC!||
