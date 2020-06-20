@@ -72,27 +72,37 @@
 
         //----------------------------------------------------- END
 
-        typedef int               (__syscall *openSsl_pWaveByeFT    )( SSL* pWrapP )                               ; // int SSL_shutdown(SSL *ssl);
+        typedef int               (__syscall *openSsl_pCurvesFT      )( SSL_CTX* pContextP , int onOffP )                         ; // int SSL_CTX_set_ecdh_auto(SSL_CTX *ctx, int onoff);
 
-        typedef int               (__syscall *openSsl_pReadFT        )( SSL* pWrapP , void* pbP , int cbP )         ; // int SSL_read(SSL *ssl, void *buf, int num);
+        typedef int               (__syscall *openSsl_pPemFileKeyFT  )( SSL_CTX* pContextP , const char* postPemP , int idTypeP ) ; // int SSL_CTX_use_PrivateKey_file(SSL_CTX *ctx, const char *file, int type);
 
-        typedef int               (__syscall *openSsl_pWriteFT       )( SSL* pWrapP , const void* pbP , int cbP )   ; // int SSL_write(SSL *ssl, const void *buf, int num);
+        typedef int               (__syscall *openSsl_pPemFileCertFT )( SSL_CTX* pContextP , const char* postPemP )               ; // int SSL_CTX_use_certificate_chain_file(SSL_CTX *ctx, const char *file);
 
-        typedef int               (__syscall *openSsl_pShakeFT       )( SSL* pWrapP )                               ; //  int SSL_connect(SSL *ssl);
+        typedef int               (__syscall *openSsl_pWaveByeFT     )( SSL* pWrapP )                                             ; // int SSL_shutdown(SSL *ssl);
 
-        typedef int               (__syscall *openSsl_pWrapFT        )( SSL* pWrapP , int hSockP )                  ; // int SSL_set_fd(SSL *ssl, int fd);
+        typedef int               (__syscall *openSsl_pPeekFT        )( SSL* pWrapP , void* pbP , int cbP )                       ; // int SSL_peek(SSL *ssl, void *buf, int num);
 
-        typedef void              (__syscall *openSsl_pWrapperFreeFT )( SSL* pWrapP )                               ; // void SSL_free(SSL *ssl);
+        typedef int               (__syscall *openSsl_pReadFT        )( SSL* pWrapP , void* pbP , int cbP )                       ; // int SSL_read(SSL *ssl, void *buf, int num);
 
-        typedef SSL*              (__syscall *openSsl_pWrapperFT     )( SSL_CTX* pContextP )                        ; // SSL *SSL_new(SSL_CTX *ctx) ;
+        typedef int               (__syscall *openSsl_pWriteFT       )( SSL* pWrapP , const void* pbP , int cbP )                 ; // int SSL_write(SSL *ssl, const void *buf, int num);
 
-        typedef void              (__syscall *openSsl_pContextFreeFT )( SSL_CTX* pContextP )                        ; // void SSL_CTX_free(SSL_CTX *ctx) ;
+        typedef int               (__syscall *openSsl_pShakeAsClientFT       )( SSL* pWrapP )                                             ; //  int SSL_connect(SSL *ssl);
 
-        typedef SSL_CTX*          (__syscall *openSsl_pContextFT     )( const SSL_METHOD* pMethodP )                ; //SSL_CTX* __syscall SSL_CTX_new( const SSL_METHOD* method ) ;
+        typedef int               (__syscall *openSsl_pShakeAsServerFT       )( SSL* pWrapP )                                             ; //  int SSL_accept(SSL *ssl);
 
-        typedef int               (__syscall *openSsl_pInitFT        )( void )                                      ; //int __syscall SSL_library_init( void ) ;
+        typedef int               (__syscall *openSsl_pWrapFT        )( SSL* pWrapP , int hSockP )                                ; // int SSL_set_fd(SSL *ssl, int fd);
 
-        typedef const SSL_METHOD* (__syscall *openSsl_pMethodFT      )( void )                                      ; //const SSL_METHOD *SSLv23_method(void);  /* SSLv3 but can rollback to v2 */
+        typedef void              (__syscall *openSsl_pWrapperFreeFT )( SSL* pWrapP )                                             ; // void SSL_free(SSL *ssl);
+
+        typedef SSL*              (__syscall *openSsl_pWrapperFT     )( SSL_CTX* pContextP )                                      ; // SSL *SSL_new(SSL_CTX *ctx) ;
+
+        typedef void              (__syscall *openSsl_pContextFreeFT )( SSL_CTX* pContextP )                                      ; // void SSL_CTX_free(SSL_CTX *ctx) ;
+
+        typedef SSL_CTX*          (__syscall *openSsl_pContextFT     )( const SSL_METHOD* pMethodP )                              ; //SSL_CTX* __syscall SSL_CTX_new( const SSL_METHOD* method ) ;
+
+        typedef int               (__syscall *openSsl_pInitFT        )( void )                                                    ; //int __syscall SSL_library_init( void ) ;
+
+        typedef const SSL_METHOD* (__syscall *openSsl_pMethodFT      )( void )                                                    ; //const SSL_METHOD *TLS_method(void);  /* SSLv3 but can rollback to v2 */
 
         //CS:CODEsYNC:DUPLICATED: 15000014 01000002
 

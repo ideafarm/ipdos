@@ -1,48 +1,3 @@
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004cf.login BEGIN
-
-
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-// Respecting the rights of other people is an important part of empowering one another.
-//
-
-/*
-*/
-
-/**/
-
-/*1*//*LOGiN(postP)*//*1*/
-
-#define LOGiN(postP)                                                                                                                            \
-                                                                                                                                                \
-    {                                                                                                                                           \
-        LOGrAW( "\r\n" ) ;                                                                                                                      \
-                                                                                                                                                \
-        FEG                                                                                                                                     \
-                                                                                                                                                \
-            FEP                                                                                                                                 \
-                                                                                                                                                \
-                LOGrAW( T(postP)+T(" [offgi,offp,offpi,ppin[offpi]]: ")+TF1(offgi)+T(" ")+T(offp)+T(" ")+T(offpi)+T(" ")+TFF(ppin[offpi].x)+T(" ")+TFF(ppin[offpi].y)+T(" ")+TFF(ppin[offpi].z)+T("\r\n") ) ; \
-                offpi ++ ;                                                                                                                      \
-                                                                                                                                                \
-            FEPeND                                                                                                                              \
-                                                                                                                                                \
-            if( offgi < cgin - 1 ) { LOGrAW( T(postP)+T("\r\n") ) ; }                                                                           \
-                                                                                                                                                \
-        FEGeND                                                                                                                                  \
-    }
-
-
-//
-// Respecting the rights of other people is an important part of empowering one another.
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004cf.login END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004d1.setinoutframe BEGIN
 
 
@@ -5311,7 +5266,6 @@ use this rather than _ to avoid the overhead of _
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200565.ifwhereknowsthread END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.thirdParties : 1snip.15000014.thirdparties BEGIN
 
-
 //
 // Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
@@ -5413,27 +5367,37 @@ it is illegal to refer to this symbol in the definition of an adam
 
         //CS:CODEsYNC:DUPLICATED: 15000014 01000002
 
-        typedef const SSL_METHOD* (__syscall *openSsl_pMethodFT      )( void )                                      ; //const SSL_METHOD *SSLv23_method(void);  /* SSLv3 but can rollback to v2 */
+        typedef const SSL_METHOD* (__syscall *openSsl_pMethodFT      )( void )                                             ; //const SSL_METHOD *TLS_method(void);  /* SSLv3 but can rollback to v2 */
 
-        typedef int               (__syscall *openSsl_pInitFT        )( void )                                      ; //int __syscall SSL_library_init( void ) ;
+        typedef int               (__syscall *openSsl_pInitFT        )( void )                                             ; //int __syscall SSL_library_init( void ) ;
 
-        typedef SSL_CTX*          (__syscall *openSsl_pContextFT     )( const SSL_METHOD* pMethodP )                ; //SSL_CTX* __syscall SSL_CTX_new( const SSL_METHOD* method ) ;
+        typedef SSL_CTX*          (__syscall *openSsl_pContextFT     )( const SSL_METHOD* pMethodP )                       ; //SSL_CTX* __syscall SSL_CTX_new( const SSL_METHOD* method ) ;
 
-        typedef void              (__syscall *openSsl_pContextFreeFT )( SSL_CTX* pContextP )                        ; // void SSL_CTX_free(SSL_CTX *ctx) ;
+        typedef void              (__syscall *openSsl_pContextFreeFT )( SSL_CTX* pContextP )                               ; // void SSL_CTX_free(SSL_CTX *ctx) ;
 
-        typedef SSL*              (__syscall *openSsl_pWrapperFT     )( SSL_CTX* pContextP )                        ; // SSL *SSL_new(SSL_CTX *ctx) ;
+        typedef SSL*              (__syscall *openSsl_pWrapperFT     )( SSL_CTX* pContextP )                               ; // SSL *SSL_new(SSL_CTX *ctx) ;
 
-        typedef void              (__syscall *openSsl_pWrapperFreeFT )( SSL* pWrapP )                               ; // void SSL_free(SSL *ssl);
+        typedef void              (__syscall *openSsl_pWrapperFreeFT )( SSL* pWrapP )                                      ; // void SSL_free(SSL *ssl);
 
-        typedef int               (__syscall *openSsl_pWrapFT        )( SSL* pWrapP , int hSockP )                  ; // int SSL_set_fd(SSL *ssl, int fd);
+        typedef int               (__syscall *openSsl_pWrapFT        )( SSL* pWrapP , int hSockP )                         ; // int SSL_set_fd(SSL *ssl, int fd);
 
-        typedef int               (__syscall *openSsl_pShakeFT       )( SSL* pWrapP )                               ; //  int SSL_connect(SSL *ssl);
+        typedef int               (__syscall *openSsl_pShakeAsServerFT )( SSL* pWrapP )                                      ; //  int SSL_connect(SSL *ssl);
 
-        typedef int               (__syscall *openSsl_pWriteFT       )( SSL* pWrapP , const void* pbP , int cbP )   ; // int SSL_write(SSL *ssl, const void *buf, int num);
+        typedef int               (__syscall *openSsl_pShakeAsClientFT )( SSL* pWrapP )                                      ; //  int SSL_connect(SSL *ssl);
 
-        typedef int               (__syscall *openSsl_pReadFT        )( SSL* pWrapP , void* pbP , int cbP )         ; // int SSL_read(SSL *ssl, void *buf, int num);
+        typedef int               (__syscall *openSsl_pWriteFT       )( SSL* pWrapP , const void* pbP , int cbP )          ; // int SSL_write(SSL *ssl, const void *buf, int num);
 
-        typedef int               (__syscall *openSsl_pWaveByeFT    )( SSL* pWrapP )                               ; // int SSL_shutdown(SSL *ssl);
+        typedef int               (__syscall *openSsl_pReadFT        )( SSL* pWrapP , void* pbP , int cbP )                ; // int SSL_read(SSL *ssl, void *buf, int num);
+
+        typedef int               (__syscall *openSsl_pPeekFT        )( SSL* pWrapP , void* pbP , int cbP )                ; // int SSL_peek(SSL *ssl, void *buf, int num);
+
+        typedef int               (__syscall *openSsl_pWaveByeFT     )( SSL* pWrapP )                                      ; // int SSL_shutdown(SSL *ssl);
+
+        typedef int               (__syscall *openSsl_pPemFileKeyFT  )( SSL_CTX* pContextP , const char* postPemP , int idTypeP ) ; // int SSL_CTX_use_PrivateKey_file(SSL_CTX *ctx, const char *file, int type);
+
+        typedef int               (__syscall *openSsl_pPemFileCertFT )( SSL_CTX* pContextP , const char* postPemP )               ; // int SSL_CTX_use_certificate_chain_file(SSL_CTX *ctx, const char *file);
+
+        typedef int               (__syscall *openSsl_pCurvesFT      )( SSL_CTX* pContextP , int onOffP )                  ; // int SSL_CTX_set_ecdh_auto(SSL_CTX *ctx, int onoff);
 
         //----------------------------------------------------- END
 
@@ -39377,10 +39341,15 @@ base class to make a derived class of objects easily contained by a stackC objec
             openSsl_pWrapperFT          openSsl_pWrapperF     ;
             openSsl_pWrapperFreeFT      openSsl_pWrapperFreeF ;
             openSsl_pWrapFT             openSsl_pWrapF        ;
-            openSsl_pShakeFT            openSsl_pShakeF       ;
+            openSsl_pShakeAsServerFT    openSsl_pShakeAsServerF ;
+            openSsl_pShakeAsClientFT    openSsl_pShakeAsClientF ;
             openSsl_pWriteFT            openSsl_pWriteF       ;
             openSsl_pReadFT             openSsl_pReadF        ;
+            openSsl_pPeekFT             openSsl_pPeekF        ;
             openSsl_pWaveByeFT          openSsl_pWaveByeF     ;
+            openSsl_pPemFileCertFT      openSsl_pPemFileCertF ;
+            openSsl_pPemFileKeyFT       openSsl_pPemFileKeyF  ;
+            openSsl_pCurvesFT           openSsl_pCurvesF      ;
 
             HMODULE                     zlib_hModule          ;
             zlib_deflateInitFT          zlib_pDeflateInitF    ;

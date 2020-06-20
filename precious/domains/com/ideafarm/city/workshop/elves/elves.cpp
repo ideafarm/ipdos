@@ -1,4 +1,4 @@
-//#define DEBUG
+#define DEBUG
 
 #if not defined( DEBUG )
     #define RELEASE
@@ -2666,8 +2666,8 @@ void elf_obey_C::liveF( void )
                     " library \\ideafarm.home.1\\precious\\domains\\com\\ideafarm\\city\\workshop\\watcom\\lib386\\nt\\advapi32.lib"
                     " library \\ideafarm.home.1\\precious\\domains\\com\\ideafarm\\city\\workshop\\watcom\\lib386\\nt\\psapi.lib"
                     " library \\ideafarm.home.1\\precious\\domains\\com\\ideafarm\\city\\workshop\\microsoft\\User32.Lib"
-                    " library \\ideafarm.home.1\\precious\\domains\\com\\ideafarm\\city\\workshop\\openssl\\lib\\libssl.lib"
-                    " library \\ideafarm.home.1\\precious\\domains\\com\\ideafarm\\city\\workshop\\openssl\\lib\\libcrypto.lib"
+                    /*" library \\ideafarm.home.1\\precious\\domains\\com\\ideafarm\\city\\workshop\\openssl\\lib\\libssl.lib"   */
+                    /*" library \\ideafarm.home.1\\precious\\domains\\com\\ideafarm\\city\\workshop\\openssl\\lib\\libcrypto.lib"*/
                     " system nt_dll"
                     " op q"
                     " op map=\\tmp\\base.map"
@@ -5283,11 +5283,11 @@ void makeFoldersCopyThirdPartyDllsF( void )
 
     int bOk = CopyFile( "\\ideafarm.home.1\\precious\\domains\\com\\ideafarm\\city\\workshop\\openssl\\bin\\libssl-3.dll"     , "\\ideafarm.home.1\\ephemeral\\domains\\com\\ideafarm\\city\\park\\exedll\\1\\hover\\libssl-3.dll"     , 1 ) ;
     bOk     = CopyFile( "\\ideafarm.home.1\\precious\\domains\\com\\ideafarm\\city\\workshop\\openssl\\bin\\libcrypto-3.dll"  , "\\ideafarm.home.1\\ephemeral\\domains\\com\\ideafarm\\city\\park\\exedll\\1\\hover\\libcrypto-3.dll"  , 1 ) ;
-    bOk     = CopyFile( "\\ideafarm.home.1\\precious\\domains\\com\\ideafarm\\city\\workshop\\visualstudio\\vcruntime140.dll" , "\\ideafarm.home.1\\ephemeral\\domains\\com\\ideafarm\\city\\park\\exedll\\1\\hover\\vcruntime140.dll" , 1 ) ;
+    //bOk     = CopyFile( "\\ideafarm.home.1\\precious\\domains\\com\\ideafarm\\city\\workshop\\visualstudio\\vcruntime140.dll" , "\\ideafarm.home.1\\ephemeral\\domains\\com\\ideafarm\\city\\park\\exedll\\1\\hover\\vcruntime140.dll" , 1 ) ;
 
     bOk     = CopyFile( "\\ideafarm.home.1\\precious\\domains\\com\\ideafarm\\city\\workshop\\openssl\\bin\\libssl-3.dll"     , "\\ideafarm.home.1\\ephemeral\\domains\\com\\ideafarm\\city\\park\\exedll\\1\\master\\libssl-3.dll"     , 1 ) ;
     bOk     = CopyFile( "\\ideafarm.home.1\\precious\\domains\\com\\ideafarm\\city\\workshop\\openssl\\bin\\libcrypto-3.dll"  , "\\ideafarm.home.1\\ephemeral\\domains\\com\\ideafarm\\city\\park\\exedll\\1\\master\\libcrypto-3.dll"  , 1 ) ;
-    bOk     = CopyFile( "\\ideafarm.home.1\\precious\\domains\\com\\ideafarm\\city\\workshop\\visualstudio\\vcruntime140.dll" , "\\ideafarm.home.1\\ephemeral\\domains\\com\\ideafarm\\city\\park\\exedll\\1\\master\\vcruntime140.dll" , 1 ) ;
+    //bOk     = CopyFile( "\\ideafarm.home.1\\precious\\domains\\com\\ideafarm\\city\\workshop\\visualstudio\\vcruntime140.dll" , "\\ideafarm.home.1\\ephemeral\\domains\\com\\ideafarm\\city\\park\\exedll\\1\\master\\vcruntime140.dll" , 1 ) ;
 
     if( !bOk ) ;
 }

@@ -2200,7 +2200,7 @@
 0x00000898 , "\0\0\0\0SSL_CTX* __watcall c_openSsl_getContextIF( unsigned* pEcP , openSsl_pContextFT pContextFP , openSsl_pMethodFT pMethodFP )" ,
 0x00000899 , "\0\0\0\0SSL* __watcall c_openSsl_getWrapperIF( unsigned* pEcP , openSsl_pWrapperFT pWrapperFP , SSL_CTX* pContextP )" ,
 0x0000089a , "\0\0\0\0void __watcall c_openSsl_wrapSocketIF( unsigned* pEcP , openSsl_pWrapFT pWrapFP , unsigned oshSocketP , SSL* pSslP )" ,
-0x0000089b , "\0\0\0\0void __watcall c_openSsl_shakeHandsAsClientIF( unsigned* pEcP , openSsl_pShakeFT pShakeFP , SSL* pSslP )" ,
+0x0000089b , "\0\0\0\0void __watcall c_openSsl_shakeHandsAsClientIF( unsigned* pEcP , openSsl_pShakeAsClientFT pShakeAsClientFP , SSL* pSslP )" ,
 0x0000089c , "\0\0\0\0unsigned __watcall c_openSsl_writeIF( unsigned* pEcP , openSsl_pWriteFT pWriteFP , SSL* pSslP , const char* const pbP , const unsigned cbP )" ,
 0x0000089d , "\0\0\0\0unsigned __watcall c_openSsl_readIF( unsigned* pEcP , openSsl_pReadFT pReadFP , char* pbP , unsigned cbP , SSL* pSslP )" ,
 0x0000089e , "\0\0\0\0void _export c_traceHelperIF( unsigned pP )" ,
