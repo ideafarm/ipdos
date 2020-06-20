@@ -195,28 +195,35 @@ extern "C" {
 #define OSSL_PKEY_PARAM_MGF1_DIGEST         "mgf1-digest"
 #define OSSL_PKEY_PARAM_MGF1_PROPERTIES     "mgf1-properties"
 #define OSSL_PKEY_PARAM_TLS_ENCODED_PT      "tls-encoded-pt"
+#define OSSL_PKEY_PARAM_GROUP_NAME          "group"
 
 /* Diffie-Hellman/DSA public/private key */
 #define OSSL_PKEY_PARAM_PUB_KEY             "pub"
 #define OSSL_PKEY_PARAM_PRIV_KEY            "priv"
 
 /* Diffie-Hellman/DSA Parameters */
-#define OSSL_PKEY_PARAM_FFC_P        "p"
-#define OSSL_PKEY_PARAM_FFC_G        "g"
-#define OSSL_PKEY_PARAM_FFC_Q        "q"
-#define OSSL_PKEY_PARAM_FFC_GINDEX   "gindex"
-#define OSSL_PKEY_PARAM_FFC_PCOUNTER "pcounter"
-#define OSSL_PKEY_PARAM_FFC_SEED     "seed"
-#define OSSL_PKEY_PARAM_FFC_COFACTOR "j"
-#define OSSL_PKEY_PARAM_FFC_H        "hindex"
+#define OSSL_PKEY_PARAM_FFC_P               "p"
+#define OSSL_PKEY_PARAM_FFC_G               "g"
+#define OSSL_PKEY_PARAM_FFC_Q               "q"
+#define OSSL_PKEY_PARAM_FFC_GINDEX          "gindex"
+#define OSSL_PKEY_PARAM_FFC_PCOUNTER        "pcounter"
+#define OSSL_PKEY_PARAM_FFC_SEED            "seed"
+#define OSSL_PKEY_PARAM_FFC_COFACTOR        "j"
+#define OSSL_PKEY_PARAM_FFC_H               "hindex"
+#define OSSL_PKEY_PARAM_FFC_VALIDATE_TYPE   "valid-type"
+
+/* Diffie-Hellman/DSA Parameters parameter validation types */
+#define OSSL_FFC_PARAM_VALIDATE_PQ          "validate-pq"
+#define OSSL_FFC_PARAM_VALIDATE_G           "validate-g"
+#define OSSL_FFC_PARAM_VALIDATE_PQG         "validate-pqg"
 
 /* Diffie-Hellman params */
-#define OSSL_PKEY_PARAM_DH_GROUP     "group"
-#define OSSL_PKEY_PARAM_DH_GENERATOR "safeprime-generator"
-#define OSSL_PKEY_PARAM_DH_PRIV_LEN   "priv_len"
+#define OSSL_PKEY_PARAM_DH_GENERATOR        "safeprime-generator"
+#define OSSL_PKEY_PARAM_DH_PRIV_LEN         "priv_len"
 
 /* Elliptic Curve Domain Parameters */
-#define OSSL_PKEY_PARAM_EC_NAME      "curve-name"
+#define OSSL_PKEY_PARAM_EC_PUB_X     "qx"
+#define OSSL_PKEY_PARAM_EC_PUB_Y     "qy"
 
 /* Elliptic Curve Key Parameters */
 #define OSSL_PKEY_PARAM_USE_COFACTOR_FLAG "use-cofactor-flag"
@@ -334,7 +341,6 @@ extern "C" {
 #define OSSL_SIGNATURE_PARAM_MGF1_PROPERTIES    \
     OSSL_PKEY_PARAM_MGF1_PROPERTIES
 #define OSSL_SIGNATURE_PARAM_DIGEST_SIZE        OSSL_PKEY_PARAM_DIGEST_SIZE
-#define OSSL_SIGNATURE_PARAM_KAT                "kat"
 
 /* Asym cipher parameters */
 #define OSSL_ASYM_CIPHER_PARAM_PAD_MODE                 OSSL_PKEY_PARAM_PAD_MODE
@@ -363,6 +369,32 @@ extern "C" {
 /* Keygen callback parameters, from provider to libcrypto */
 #define OSSL_GEN_PARAM_POTENTIAL            "potential" /* integer */
 #define OSSL_GEN_PARAM_ITERATION            "iteration" /* integer */
+
+/* ACVP Test parameters : These should not be used normally */
+#define OSSL_PKEY_PARAM_RSA_TEST_XP1 "xp1"
+#define OSSL_PKEY_PARAM_RSA_TEST_XP2 "xp2"
+#define OSSL_PKEY_PARAM_RSA_TEST_XP  "xp"
+#define OSSL_PKEY_PARAM_RSA_TEST_XQ1 "xq1"
+#define OSSL_PKEY_PARAM_RSA_TEST_XQ2 "xq2"
+#define OSSL_PKEY_PARAM_RSA_TEST_XQ  "xq"
+#define OSSL_PKEY_PARAM_RSA_TEST_P1  "p1"
+#define OSSL_PKEY_PARAM_RSA_TEST_P2  "p2"
+#define OSSL_PKEY_PARAM_RSA_TEST_Q1  "q1"
+#define OSSL_PKEY_PARAM_RSA_TEST_Q2  "q2"
+#define OSSL_SIGNATURE_PARAM_KAT "kat"
+
+/* Capabilities */
+
+/* TLS-GROUP Capbility */
+#define OSSL_CAPABILITY_TLS_GROUP_NAME              "tls-group-name"
+#define OSSL_CAPABILITY_TLS_GROUP_NAME_INTERNAL     "tls-group-name-internal"
+#define OSSL_CAPABILITY_TLS_GROUP_ID                "tls-group-id"
+#define OSSL_CAPABILITY_TLS_GROUP_ALG               "tls-group-alg"
+#define OSSL_CAPABILITY_TLS_GROUP_SECURITY_BITS     "tls-group-sec-bits"
+#define OSSL_CAPABILITY_TLS_GROUP_MIN_TLS           "tls-min-tls"
+#define OSSL_CAPABILITY_TLS_GROUP_MAX_TLS           "tls-max-tls"
+#define OSSL_CAPABILITY_TLS_GROUP_MIN_DTLS          "tls-min-dtls"
+#define OSSL_CAPABILITY_TLS_GROUP_MAX_DTLS          "tls-max-dtls"
 
 # ifdef __cplusplus
 }

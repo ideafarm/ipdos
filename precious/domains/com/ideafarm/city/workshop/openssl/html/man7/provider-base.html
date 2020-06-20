@@ -22,6 +22,15 @@
       <li><a href="#Core-parameters">Core parameters</a></li>
     </ul>
   </li>
+  <li><a href="#CAPABILITIES">CAPABILITIES</a>
+    <ul>
+      <li>
+        <ul>
+          <li><a href="#TLS-GROUP-Capability">&quot;TLS-GROUP&quot; Capability</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
   <li><a href="#EXAMPLES">EXAMPLES</a></li>
   <li><a href="#SEE-ALSO">SEE ALSO</a></li>
   <li><a href="#HISTORY">HISTORY</a></li>
@@ -100,7 +109,9 @@
  const OSSL_ALGORITHM *provider_query_operation(void *provctx,
                                                 int operation_id,
                                                 const int *no_store);
- const OSSL_ITEM *provider_get_reason_strings(void *provctx);</code></pre>
+ const OSSL_ITEM *provider_get_reason_strings(void *provctx);
+ int provider_get_capabilities(void *provctx, const char *capability,
+                               OSSL_CALLBACK *cb, void *arg);</code></pre>
 
 <h1 id="DESCRIPTION">DESCRIPTION</h1>
 
@@ -152,7 +163,8 @@
  provider_gettable_params       OSSL_FUNC_PROVIDER_GETTABLE_PARAMS
  provider_get_params            OSSL_FUNC_PROVIDER_GET_PARAMS
  provider_query_operation       OSSL_FUNC_PROVIDER_QUERY_OPERATION
- provider_get_reason_strings    OSSL_FUNC_PROVIDER_GET_REASON_STRINGS</code></pre>
+ provider_get_reason_strings    OSSL_FUNC_PROVIDER_GET_REASON_STRINGS
+ provider_get_capabilities      OSSL_FUNC_PROVIDER_GET_CAPABILITIES</code></pre>
 
 <h2 id="Core-functions">Core functions</h2>
 
@@ -205,6 +217,8 @@
 <p>provider_query_operation() should return a constant <b>OSSL_ALGORITHM</b> that corresponds to the given <i>operation_id</i>. It should indicate if the core may store a reference to this array by setting <i>*no_store</i> to 0 (core may store a reference) or 1 (core may not store a reference).</p>
 
 <p>provider_get_reason_strings() should return a constant <b>OSSL_ITEM</b> array that provides reason strings for reason codes the provider may use when reporting errors using core_put_error().</p>
+
+<p>The provider_get_capabilities() function should call the callback <i>cb</i> passing it a set of <b>OSSL_PARAM</b>s and the caller supplied argument <i>arg</i>. The <b>OSSL_PARAM</b>s should provide details about the capability with the name given in the <i>capability</i> argument relevant for the provider context <i>provctx</i>. If a provider supports multiple capabilities with the given name then it may call the callback multipe times (one for each capability). Capabilities can be useful for describing the services that a provider can offer. For further details see the <a href="#CAPABILITIES">&quot;CAPABILITIES&quot;</a> section below. It should return 1 on success or 0 on error.</p>
 
 <p>None of these functions are mandatory, but a provider is fairly useless without at least provider_query_operation(), and provider_gettable_params() is fairly useless if not accompanied by provider_get_params().</p>
 
@@ -314,6 +328,68 @@
 </dl>
 
 <p>For more information on handling parameters, see <a href="../man3/OSSL_PARAM.html">OSSL_PARAM(3)</a> as <a href="../man3/OSSL_PARAM_int.html">OSSL_PARAM_int(3)</a>.</p>
+
+<h1 id="CAPABILITIES">CAPABILITIES</h1>
+
+<p>Capabilties describe some of the services that a provider can offer. Applications can query the capabilities to discover those services.</p>
+
+<h3 id="TLS-GROUP-Capability">&quot;TLS-GROUP&quot; Capability</h3>
+
+<p>The &quot;TLS-GROUP&quot; capability can be queried by libssl to discover the list of TLS groups that a provider can support. Each group supported can be used for key exchange during a TLS handshake. TLS clients can advertise the list of TLS groups they support in the supported_groups extension, and TLS servers can select a group from the offered list that they also support. In this way a provider can add to the list of groups that libssl already supports with additional ones.</p>
+
+<p>Each TLS group that a provider supports should be described via the callback passed in through the provider_get_capabilities function. Each group should have the following details supplied (all are mandatory):</p>
+
+<dl>
+
+<dt id="tls-group-name-OSSL_CAPABILITY_TLS_GROUP_NAME-utf8-string">&quot;tls-group-name&quot; (<b>OSSL_CAPABILITY_TLS_GROUP_NAME</b>) &lt;utf8 string&gt;</dt>
+<dd>
+
+<p>The name of the group as given in the IANA TLS Supported Groups registry <a href="https://www.iana.org/assignments/tls-parameters/tls-parameters.xhtml#tls-parameters-8">https://www.iana.org/assignments/tls-parameters/tls-parameters.xhtml#tls-parameters-8</a>.</p>
+
+</dd>
+<dt id="tls-group-name-internal-OSSL_CAPABILITY_TLS_GROUP_NAME_INTERNAL-utf8-string">&quot;tls-group-name-internal&quot; (<b>OSSL_CAPABILITY_TLS_GROUP_NAME_INTERNAL</b>) &lt;utf8 string&gt;</dt>
+<dd>
+
+<p>The name of the group as known by the provider. This could be the same as the &quot;tls-group-name&quot;, but does not have to be.</p>
+
+</dd>
+<dt id="tls-group-id-OSSL_CAPABILITY_TLS_GROUP_ID-unsigned-integer">&quot;tls-group-id&quot; (<b>OSSL_CAPABILITY_TLS_GROUP_ID</b>) &lt;unsigned integer&gt;</dt>
+<dd>
+
+<p>The TLS group id value as given in the IANA TLS Supported Groups registry.</p>
+
+</dd>
+<dt id="tls-group-alg-OSSL_CAPABILITY_TLS_GROUP_ALG-utf8-string">&quot;tls-group-alg&quot; (<b>OSSL_CAPABILITY_TLS_GROUP_ALG</b>) &lt;utf8 string&gt;</dt>
+<dd>
+
+<p>The name of a Key Management algorithm that the provider offers and that should be used with this group. Keys created should be able to support key exchange. The algorithm must support key and parameter generation as well as the key/parameter generation parameter, <b>OSSL_PKEY_PARAM_GROUP_NAME</b>. The group name given via &quot;tls-group-name-internal&quot; above will be passed via <b>OSSL_PKEY_PARAM_GROUP_NAME</b> when libssl wishes to generate keys/parameters.</p>
+
+</dd>
+<dt id="tls-group-sec-bits-OSSL_CAPABILITY_TLS_GROUP_SECURITY_BITS-unsigned-integer">&quot;tls-group-sec-bits&quot; (<b>OSSL_CAPABILITY_TLS_GROUP_SECURITY_BITS</b>) &lt;unsigned integer&gt;</dt>
+<dd>
+
+<p>The number of bits of security offered by keys in this group. The number of bits should be comparable with the ones given in table 2 and 3 of the NIST SP800-57 document.</p>
+
+</dd>
+<dt id="tls-min-tls-OSSL_CAPABILITY_TLS_GROUP_MIN_TLS-integer">&quot;tls-min-tls&quot; (<b>OSSL_CAPABILITY_TLS_GROUP_MIN_TLS</b>) &lt;integer&gt;</dt>
+<dd>
+
+</dd>
+<dt id="tls-max-tls-OSSL_CAPABILITY_TLS_GROUP_MAX_TLS-integer">&quot;tls-max-tls&quot; (<b>OSSL_CAPABILITY_TLS_GROUP_MAX_TLS</b>) &lt;integer&gt;</dt>
+<dd>
+
+</dd>
+<dt id="tls-min-dtls-OSSL_CAPABILITY_TLS_GROUP_MIN_DTLS-integer">&quot;tls-min-dtls&quot; (<b>OSSL_CAPABILITY_TLS_GROUP_MIN_DTLS</b>) &lt;integer&gt;</dt>
+<dd>
+
+</dd>
+<dt id="tls-max-dtls-OSSL_CAPABILITY_TLS_GROUP_MAX_DTLS-integer">&quot;tls-max-dtls&quot; (<b>OSSL_CAPABILITY_TLS_GROUP_MAX_DTLS</b>) &lt;integer&gt;</dt>
+<dd>
+
+<p>These parameters can be used to describe the minimum and maximum TLS and DTLS versions supported by the group. The values equate to the on-the-wire encoding of the various TLS versions. For example TLSv1.3 is 0x0304 (772 decimal), and TLSv1.2 is 0x0303 (771 decimal). A 0 indicates that there is no defined minimum or maximum. A -1 indicates that the group should not be used in that protocol.</p>
+
+</dd>
+</dl>
 
 <h1 id="EXAMPLES">EXAMPLES</h1>
 

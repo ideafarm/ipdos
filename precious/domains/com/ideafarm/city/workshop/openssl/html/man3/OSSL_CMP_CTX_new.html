@@ -40,7 +40,7 @@
  /* logging and error reporting: */
  int OSSL_CMP_CTX_set_log_cb(OSSL_CMP_CTX *ctx, OSSL_CMP_log_cb_t cb);
  #define OSSL_CMP_CTX_set_log_verbosity(ctx, level)
- void OSSL_CMP_CTX_print_errors(OSSL_CMP_CTX *ctx);
+ void OSSL_CMP_CTX_print_errors(const OSSL_CMP_CTX *ctx);
 
  /* message transfer: */
  int OSSL_CMP_CTX_set1_serverPath(OSSL_CMP_CTX *ctx, const char *path);
@@ -285,13 +285,13 @@ RFC 4210.</code></pre>
 
 <p>OSSL_CMP_CTX_print_errors() outputs any entries in the OpenSSL error queue. It is similar to <b>ERR_print_errors_cb()</b> but uses the CMP log callback function if set in the <code>ctx</code> for uniformity with CMP logging if given. Otherwise it uses <b>ERR_print_errors(3)</b> to print to STDERR (unless OPENSSL_NO_STDIO is defined).</p>
 
-<p>OSSL_CMP_CTX_set1_serverPath() sets the HTTP path of the CMP server on the host, also known as &quot;CMP alias&quot;. The default is &quot;/&quot;.</p>
+<p>OSSL_CMP_CTX_set1_serverPath() sets the HTTP path of the CMP server on the host, also known as &quot;CMP alias&quot;. The default is <i>/</i>.</p>
 
 <p>OSSL_CMP_CTX_set1_server() sets the given server <b>address</b> (which may be a hostname or IP address or NULL) in the given <b>ctx</b>.</p>
 
 <p>OSSL_CMP_CTX_set_serverPort() sets the port of the CMP server to connect to. If not used or the <b>port</b> argument is 0 the default port applies, which is 80 for HTTP and 443 for HTTPS.</p>
 
-<p>OSSL_CMP_CTX_set1_proxy() sets the HTTP proxy to be used for connecting to the given CMP server unless overruled by any &quot;no_proxy&quot; settings (see below). If TLS is not used this defaults to the value of the environment variable <b>http_proxy</b> if set, else <b>HTTP_PROXY</b>. Otherwise defaults to the value of <b>https_proxy</b> if set, else <b>HTTPS_PROXY</b>. An empty proxy string specifies not to use a proxy. Else the format is <i>[http[s]://]address[:port][/path]</i>, where any path given is ignored. The default port number is 80, or 443 in case &quot;https:&quot; is given.</p>
+<p>OSSL_CMP_CTX_set1_proxy() sets the HTTP proxy to be used for connecting to the given CMP server unless overruled by any &quot;no_proxy&quot; settings (see below). If TLS is not used this defaults to the value of the environment variable <b>http_proxy</b> if set, else <b>HTTP_PROXY</b>. Otherwise defaults to the value of <b>https_proxy</b> if set, else <b>HTTPS_PROXY</b>. An empty proxy string specifies not to use a proxy. Else the format is <i>[http[s]://]address[:port][/path]</i>, where any path given is ignored. The default port number is 80, or 443 in case <i>https:</i> is given.</p>
 
 <p>OSSL_CMP_CTX_set1_no_proxy() sets the list of server hostnames not to use an HTTP proxy for. The names may be separated by commas and/or whitespace. Defaults to the environment variable <b>no_proxy</b> if set, else <b>NO_PROXY</b>.</p>
 
@@ -299,7 +299,7 @@ RFC 4210.</code></pre>
 
 <pre><code> typedef BIO *(*HTTP_bio_cb_t) (BIO *bio, void *ctx, int connect, int detail);</code></pre>
 
-<p>The callback may modify the BIO <b>bio</b> provided by OSSL_CMP_MSG_http_perform(), whereby it may make use of a custom defined argument <b>ctx</b> stored in the OSSL_CMP_CTX by means of OSSL_CMP_CTX_set_http_cb_arg(). During connection establishment, just after calling BIO_connect_retry(), the function is invoked with the <b>connect</b> argument being 1 and the <b>detail</b> argument being 1 if HTTPS is requested, i.e., SSL/TLS should be enabled. On disconnect <b>connect</b> is 0 and <b>detail</b> is 1 in case no error occurred, else 0. For instance, on connect the function may prepend a TLS BIO to implement HTTPS; after disconnect it may do some diagnostic output and/or specific cleanup. The function should return NULL to indicate failure. After disconnect the modified BIO will be deallocated using BIO_free_all().</p>
+<p>The callback may modify the BIO <b>bio</b> provided by OSSL_CMP_MSG_http_perform(), whereby it may make use of a custom defined argument <b>ctx</b> stored in the OSSL_CMP_CTX by means of OSSL_CMP_CTX_set_http_cb_arg(). During connection establishment, just after calling BIO_do_connect_retry(), the function is invoked with the <b>connect</b> argument being 1 and the <b>detail</b> argument being 1 if HTTPS is requested, i.e., SSL/TLS should be enabled. On disconnect <b>connect</b> is 0 and <b>detail</b> is 1 in case no error occurred, else 0. For instance, on connect the function may prepend a TLS BIO to implement HTTPS; after disconnect it may do some diagnostic output and/or specific cleanup. The function should return NULL to indicate failure. After disconnect the modified BIO will be deallocated using BIO_free_all().</p>
 
 <p>OSSL_CMP_CTX_set_http_cb_arg() sets an argument, respectively a pointer to a structure containing arguments, optionally to be used by the http connect/disconnect callback function. <b>arg</b> is not consumed, and it must therefore explicitly be freed when not needed any more. <b>arg</b> may be NULL to clear the entry.</p>
 
@@ -318,27 +318,29 @@ RFC 4210.</code></pre>
 
 <p>OSSL_CMP_CTX_get_transfer_cb_arg() gets the argument, respectively the pointer to a structure containing arguments, previously set by OSSL_CMP_CTX_set_transfer_cb_arg() or NULL if unset.</p>
 
-<p>OSSL_CMP_CTX_set1_srvCert() pins the given server certificate <b>srvCert</b> directly trusts it (even if it is expired) for verifying response messages. The <b>cert</b> argument may be NULL to clear the entry.</p>
+<p>OSSL_CMP_CTX_set1_srvCert() sets the expected server cert <b>srvCert</b> and trusts it directly (even if it is expired) when verifying signed response messages. May be used alternatively to OSSL_CMP_CTX_set0_trustedStore() to pin the accepted server. Any previously set value is freed. The <b>cert</b> argument may be NULL to clear the entry. If set, the subject of the certificate is also used as default value for the recipient of CMP requests and as default value for the expected sender of CMP responses.</p>
 
-<p>OSSL_CMP_CTX_set1_expected_sender() sets the Distinguished Name (DN) expected to be given in the sender response for messages protected with MSG_SIG_ALG. This may be used to enforce that during validation of received messages the given DN matches the sender field of the PKIMessage header, which in turn is used to identify the server certificate. This can be used to ensure that only a particular entity is accepted to act as CMP server, and attackers are not able to use arbitrary certificates of a trusted PKI hierarchy to fraudulently pose as server. This defaults to the subject of the <b>srvCert</b>, if any.</p>
+<p>OSSL_CMP_CTX_set1_expected_sender() sets the Distinguished Name (DN) expected in the sender field of CMP response messages. Defaults to the subject of the pinned server certificate <b>-srvcert</b>, if any. This can be used to make sure that only a particular entity is accepted as CMP message signer, and attackers are not able to use arbitrary certificates of a trusted PKI hierarchy to fraudulently pose as CMP server. Note that this gives slightly more freedom than OSSL_CMP_CTX_set1_srvCert(), which pins the server to the holder of a particular certificate, while the expected sender name will continue to match after updates of the server cert.</p>
 
-<p>OSSL_CMP_CTX_set0_trustedStore() sets the X509_STORE type certificate store containing trusted (root) CA certificates. The certificate store may also hold CRLs and a certificate verification callback function used for CMP server authentication. Any already existing store entry is freed. When given a NULL parameter the entry is cleared.</p>
+<p>OSSL_CMP_CTX_set0_trustedStore() sets the certificate store of type X509_STORE containing trusted (root) CA certificates. The store may also hold CRLs and a certificate verification callback function used for CMP server authentication. Any store entry already set before is freed. When given a NULL parameter the entry is cleared.</p>
 
-<p>OSSL_CMP_CTX_get0_trustedStore() returns a pointer to the certificate store containing trusted root CA certificates, which may be empty if unset.</p>
+<p>OSSL_CMP_CTX_get0_trustedStore() returns a pointer to the currently set certificate store containing trusted cert etc., or an empty store if unset.</p>
 
-<p>OSSL_CMP_CTX_set1_untrusted_certs() sets up a list of non-trusted certificates of intermediate CAs that may be useful for path construction when authenticating the CMP server and when verifying newly enrolled certificates. The reference counts of those certificates handled successfully are increased.</p>
+<p>OSSL_CMP_CTX_set1_untrusted_certs() sets up a list of non-trusted certificates of intermediate CAs that may be useful for path construction for the CMP client certificate, for the TLS client certificate (if any), when verifying the CMP server certificate, and when verifying newly enrolled certificates. The reference counts of those certificates handled successfully are increased.</p>
 
 <p>OSSL_CMP_CTX_get0_untrusted_certs(OSSL_CMP_CTX *ctx) returns a pointer to the list of untrusted certs, which may be empty if unset.</p>
 
-<p>OSSL_CMP_CTX_set1_cert() sets the certificate used for CMP message protection. The public key of this <b>cert</b> must correspond to the private key set via <b>OSSL_CMP_CTX_set1_pkey()</b>. When using signature-based protection of CMP request messages this &quot;protection certificate&quot; will be included first in the extraCerts field. The subject of this <b>cert</b> will be used as the &quot;sender&quot; field of outgoing CMP messages, with the fallback being the <b>subjectName</b> set via <b>OSSL_CMP_CTX_set1_subjectName()</b>. The <b>cert</b> argument may be NULL to clear the entry.</p>
+<p>OSSL_CMP_CTX_set1_cert() sets the certificate used for CMP message protection. The public key of this <b>cert</b> must correspond to the private key set via <b>OSSL_CMP_CTX_set1_pkey()</b>. When using signature-based protection of CMP request messages this &quot;protection certificate&quot; will be included first in the extraCerts field. The subject of this <b>cert</b> will be used as the sender field of outgoing messages, while the subject of any cert set via <b>OSSL_CMP_CTX_set1_oldCert()</b> and any value set via <b>OSSL_CMP_CTX_set1_subjectName()</b> are used as fallback. The <b>cert</b> argument may be NULL to clear the entry.</p>
 
-<p>OSSL_CMP_CTX_set1_pkey() sets the private key corresponding to the protecting certificate <b>cert</b> set via <b>OSSL_CMP_CTX_set1_cert()</b>. This key is used create signature-based protection (protectionAlg = MSG_SIG_ALG) of outgoing messages unless a PBM secret has been set via <b>OSSL_CMP_CTX_set1_secretValue()</b>. The <b>pkey</b> argument may be NULL to clear the entry.</p>
+<p>OSSL_CMP_CTX_set1_pkey() sets the private key corresponding to the protection certificate <b>cert</b> set via <b>OSSL_CMP_CTX_set1_cert()</b>. This key is used create signature-based protection (protectionAlg = MSG_SIG_ALG) of outgoing messages unless a PBM secret has been set via <b>OSSL_CMP_CTX_set1_secretValue()</b>. The <b>pkey</b> argument may be NULL to clear the entry.</p>
 
 <p>OSSL_CMP_CTX_set1_secretValue() sets the byte string <b>sec</b> with length <b>len</b> as PBM secret in the given <b>ctx</b> or clears it if the <b>sec</b> argument is NULL. If present, this secret is used to create PBM-based protection of outgoing messages and to verify any PBM-based protection of incoming messages (protectionAlg = MSG_MAC_ALG). PBM stands for Password-Based MAC. PBM-based protection takes precedence over signature-based protection.</p>
 
-<p>OSSL_CMP_CTX_set1_referenceValue() sets the given referenceValue <b>ref</b> with length <b>len</b> in the given <b>ctx</b> or clears it if the <b>ref</b> argument is NULL. According to RFC 4210 section 5.1.1, if no value for the &quot;sender&quot; field in CMP message headers can be determined (i.e., no protecting certificate <b>cert</b> and no <b>subjectName</b> is given) then the &quot;sender&quot; field will contain the NULL-DN and the senderKID field of the CMP message header must be set. When signature-based protection is used the senderKID will be set to the subjectKeyIdentifier of the protecting <b>cert</b> as far as present. If not present or when PBM-based protection is used the <b>ref</b> value is taken as the fallback value for the senderKID.</p>
+<p>OSSL_CMP_CTX_set1_referenceValue() sets the given referenceValue <b>ref</b> with length <b>len</b> in the given <b>ctx</b> or clears it if the <b>ref</b> argument is NULL. According to RFC 4210 section 5.1.1, if no value for the sender field in CMP message headers can be determined (i.e., no protection certificate <b>cert</b> and no <b>subjectName</b> is given) then the sender field will contain the NULL-DN and the senderKID field of the CMP message header must be set. When signature-based protection is used the senderKID will be set to the subjectKeyIdentifier of the protection <b>cert</b> as far as present. If not present or when PBM-based protection is used the <b>ref</b> value is taken as the fallback value for the senderKID.</p>
 
-<p>OSSL_CMP_CTX_set1_recipient() sets the recipient name that will be used in the PKIHeader of a request message, i.e. the X509 name of the (CA) server. Setting is overruled by subject of <b>srvCert</b> if set. If neither <b>srvCert</b> nor recipient are set, the recipient of the PKI message is determined in the following order: issuer, issuer of old cert (oldCert), issuer of protecting certificate (<b>cert</b>), else NULL-DN. When a response is received, its sender must match the recipient of the request.</p>
+<p>OSSL_CMP_CTX_set1_recipient() sets the recipient name that will be used in the PKIHeader of CMP request messages, i.e. the X509 name of the (CA) server.</p>
+
+<p>The recipient field in the header of a CMP message is mandatory. If not given explicitly the recipient is determined in the following order: the subject of the CMP server certificate set using OSSL_CMP_CTX_set1_srvCert(), the value set using OSSL_CMP_CTX_set1_issuer(), the issuer of the certificate set using OSSL_CMP_CTX_set1_oldCert(), the issuer of the protection certificate (<b>cert</b>), as far as any of those is present, else the NULL-DN as last resort.</p>
 
 <p>OSSL_CMP_CTX_push0_geninfo_ITAV() adds <b>itav</b> to the stack in the <b>ctx</b> to be added to the GeneralInfo field of the CMP PKIMessage header of a request message sent with this context.</p>
 
@@ -350,7 +352,7 @@ RFC 4210.</code></pre>
 
 <p>OSSL_CMP_CTX_set1_issuer() sets the name of the intended issuer that will be set in the CertTemplate, i.e., the X509 name of the CA server.</p>
 
-<p>OSSL_CMP_CTX_set1_subjectName() sets the subject DN that will be used in the CertTemplate structure when requesting a new cert. For Key Update Requests (KUR), it defaults to the subject DN of the <b>reference certificate</b>, see <b>OSSL_CMP_CTX_set1_oldCert()</b>. This default is used for Initialization Requests (IR) and Certification Requests (CR) only if no SANs are set. The <b>subjectName</b> is also used as the &quot;sender&quot; field for outgoing CMP messages if no <b>cert</b> has been set (e.g., in case requests are protected using PBM).</p>
+<p>OSSL_CMP_CTX_set1_subjectName() sets the subject DN that will be used in the CertTemplate structure when requesting a new cert. For Key Update Requests (KUR), it defaults to the subject DN of the <b>reference certificate</b>, see <b>OSSL_CMP_CTX_set1_oldCert()</b>. This default is used for Initialization Requests (IR) and Certification Requests (CR) only if no SANs are set. The <b>subjectName</b> is also used as fallback for the sender field of outgoing CMP messages if no <b>cert</b> and no <b>oldcert</b> are available.</p>
 
 <p>OSSL_CMP_CTX_push1_subjectAltName() adds the given X509 name to the list of alternate names on the certificate template request. This cannot be used if any Subject Alternative Name extension is set via OSSL_CMP_CTX_set0_reqExtensions(). By default, unless OSSL_CMP_OPT_SUBJECTALTNAME_NODEFAULT has been set, the Subject Alternative Names are copied from the <b>reference certificate</b>, see <b>OSSL_CMP_CTX_set1_oldCert()</b>. If set and the subject DN is not set with OSSL_CMP_CTX_set1_subjectName(), then the certificate template of an IR and CR will not be filled with the default subject DN from the <b>reference certificate</b>. If a subject DN is desired it needs to be set explicitly with OSSL_CMP_CTX_set1_subjectName().</p>
 
@@ -360,7 +362,7 @@ RFC 4210.</code></pre>
 
 <p>OSSL_CMP_CTX_push0_policy() adds the certificate policy info object to the X509_EXTENSIONS of the requested certificate template.</p>
 
-<p>OSSL_CMP_CTX_set1_oldCert() sets the old certificate to be updated in Key Update Requests (KUR) or to be revoked in Revocation Requests (RR). It must be given for RR, else it defaults to the protecting <b>cert</b>. The <b>reference certificate</b> determined in this way, if any, is also used for deriving default subject DN and Subject Alternative Names for IR, CR, and KUR. Its issuer, if any, is used as default recipient in the CMP message header.</p>
+<p>OSSL_CMP_CTX_set1_oldCert() sets the old certificate to be updated in Key Update Requests (KUR) or to be revoked in Revocation Requests (RR). It must be given for RR, else it defaults to the protection <b>cert</b>. The <b>reference certificate</b> determined in this way, if any, is also used for deriving default subject DN and Subject Alternative Names for IR, CR, and KUR. Its subject is used as sender in CMP message headers if no protection cert is given. Its issuer is used as default recipient in CMP message headers.</p>
 
 <p>OSSL_CMP_CTX_set1_p10CSR() sets the PKCS#10 CSR to be used in P10CR.</p>
 

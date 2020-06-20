@@ -17,6 +17,8 @@
     <ul>
       <li><a href="#Common-RSA-parameters">Common RSA parameters</a></li>
       <li><a href="#RSA-key-generation-parameters">RSA key generation parameters</a></li>
+      <li><a href="#RSA-key-generation-parameters-for-FIPS-module-testing">RSA key generation parameters for FIPS module testing</a></li>
+      <li><a href="#RSA-key-parameters-for-FIPS-module-testing">RSA key parameters for FIPS module testing</a></li>
     </ul>
   </li>
   <li><a href="#CONFORMING-TO">CONFORMING TO</a></li>
@@ -207,10 +209,78 @@
 </dd>
 </dl>
 
+<h2 id="RSA-key-generation-parameters-for-FIPS-module-testing">RSA key generation parameters for FIPS module testing</h2>
+
+<p>When generating RSA keys, the following additional key generation parameters may be used for algorithm testing purposes only. Do not use these to generate RSA keys for a production environment.</p>
+
+<dl>
+
+<dt id="xp-OSSL_PKEY_PARAM_RSA_TEST_XP-unsigned-integer">&quot;xp&quot; (<b>OSSL_PKEY_PARAM_RSA_TEST_XP</b>) &lt;unsigned integer&gt;</dt>
+<dd>
+
+</dd>
+<dt id="xq-OSSL_PKEY_PARAM_RSA_TEST_XQ-unsigned-integer">&quot;xq&quot; (<b>OSSL_PKEY_PARAM_RSA_TEST_XQ</b>) &lt;unsigned integer&gt;</dt>
+<dd>
+
+<p>These 2 fields are normally randomly generated and are used to generate &quot;p&quot; and &quot;q&quot;.</p>
+
+</dd>
+<dt id="xp1-OSSL_PKEY_PARAM_RSA_TEST_XP1-unsigned-integer">&quot;xp1&quot; (<b>OSSL_PKEY_PARAM_RSA_TEST_XP1</b>) &lt;unsigned integer&gt;</dt>
+<dd>
+
+</dd>
+<dt id="xp2-OSSL_PKEY_PARAM_RSA_TEST_XP2-unsigned-integer">&quot;xp2&quot; (<b>OSSL_PKEY_PARAM_RSA_TEST_XP2</b>) &lt;unsigned integer&gt;</dt>
+<dd>
+
+</dd>
+<dt id="xq1-OSSL_PKEY_PARAM_RSA_TEST_XQ1-unsigned-integer">&quot;xq1&quot; (<b>OSSL_PKEY_PARAM_RSA_TEST_XQ1</b>) &lt;unsigned integer&gt;</dt>
+<dd>
+
+</dd>
+<dt id="xq2-OSSL_PKEY_PARAM_RSA_TEST_XQ2-unsigned-integer">&quot;xq2&quot; (<b>OSSL_PKEY_PARAM_RSA_TEST_XQ2</b>) &lt;unsigned integer&gt;</dt>
+<dd>
+
+<p>These 4 fields are normally randomly generated. The prime factors &quot;p1&quot;, &quot;p2&quot;, &quot;q1&quot; and &quot;q2&quot; are determined from these values.</p>
+
+</dd>
+</dl>
+
+<h2 id="RSA-key-parameters-for-FIPS-module-testing">RSA key parameters for FIPS module testing</h2>
+
+<p>The following intermediate values can be retrieved only if the values specified in <a href="#RSA-key-generation-parameters-for-FIPS-module-testing">&quot;RSA key generation parameters for FIPS module testing&quot;</a> are set. These should not be accessed in a production environment.</p>
+
+<dl>
+
+<dt id="p1-OSSL_PKEY_PARAM_RSA_TEST_P1-unsigned-integer">&quot;p1&quot; (<b>OSSL_PKEY_PARAM_RSA_TEST_P1</b>) &lt;unsigned integer&gt;</dt>
+<dd>
+
+</dd>
+<dt id="p2-OSSL_PKEY_PARAM_RSA_TEST_P2-unsigned-integer">&quot;p2&quot; (<b>OSSL_PKEY_PARAM_RSA_TEST_P2</b>) &lt;unsigned integer&gt;</dt>
+<dd>
+
+</dd>
+<dt id="q1-OSSL_PKEY_PARAM_RSA_TEST_Q1-unsigned-integer">&quot;q1&quot; (<b>OSSL_PKEY_PARAM_RSA_TEST_Q1</b>) &lt;unsigned integer&gt;</dt>
+<dd>
+
+</dd>
+<dt id="q2-OSSL_PKEY_PARAM_RSA_TEST_Q2-unsigned-integer">&quot;q2&quot; (<b>OSSL_PKEY_PARAM_RSA_TEST_Q2</b>) &lt;unsigned integer&gt;</dt>
+<dd>
+
+<p>The auxiliary probable primes.</p>
+
+</dd>
+</dl>
+
 <h1 id="CONFORMING-TO">CONFORMING TO</h1>
 
 <dl>
 
+<dt id="FIPS186-4">FIPS186-4</dt>
+<dd>
+
+<p>Section B.3.6 Generation of Probable Primes with Conditions Based on Auxiliary Probable Primes</p>
+
+</dd>
 <dt id="RFC-8017-excluding-RSA-PSS-and-RSA-OAEP">RFC 8017, excluding RSA-PSS and RSA-OAEP</dt>
 <dd>
 

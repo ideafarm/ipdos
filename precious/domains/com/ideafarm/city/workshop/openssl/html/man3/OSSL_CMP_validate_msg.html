@@ -45,8 +45,6 @@
 
 <p>Any cert that has been found as described above is cached and tried first when validating the signatures of subsequent messages in the same transaction.</p>
 
-<p>After successful validation of PBM-based protection of a certificate response the certificates in the caPubs field (if any) are added to the trusted certificates provided via <a href="../man3/OSSL_CMP_CTX_set0_trustedStore.html">OSSL_CMP_CTX_set0_trustedStore(3)</a>, such that they are available for validating subsequent messages in the same context. Those could apply to any Polling Response (pollRep), error, or PKI Confirmation (PKIConf) messages following in the same or future transactions.</p>
-
 <p>OSSL_CMP_validate_cert_path() attempts to validate the given certificate and its path using the given store of trusted certs (possibly including CRLs and a cert verification callback) and non-trusted intermediate certs from the <b>ctx</b>.</p>
 
 <h1 id="NOTES">NOTES</h1>

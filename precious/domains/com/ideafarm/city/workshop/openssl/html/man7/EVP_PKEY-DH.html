@@ -43,7 +43,7 @@
 
 <dl>
 
-<dt id="group-OSSL_PKEY_PARAM_DH_GROUP-UTF8-string">&quot;group&quot; (<b>OSSL_PKEY_PARAM_DH_GROUP</b>) &lt;UTF8 string&gt;</dt>
+<dt id="group-OSSL_PKEY_PARAM_GROUP_NAME-UTF8-string">&quot;group&quot; (<b>OSSL_PKEY_PARAM_GROUP_NAME</b>) &lt;UTF8 string&gt;</dt>
 <dd>
 
 <p>Set or gets a string that associates a <b>DH</b> named safe prime group with known values for <i>p</i>, <i>q</i> and <i>g</i>.</p>
@@ -158,7 +158,7 @@
 
 <pre><code>    pctx = EVP_PKEY_CTX_new_from_name(NULL, &quot;DH&quot;, NULL);
     EVP_PKEY_paramgen_init(pctx);
-    
+
     params[0] = OSSL_PARAM_construct_uint(&quot;pbits&quot;, &amp;pbits);
     params[1] = OSSL_PARAM_construct_uint(&quot;qbits&quot;, &amp;qbits);
     params[2] = OSSL_PARAM_construct_int(&quot;gindex&quot;, &amp;gindex);

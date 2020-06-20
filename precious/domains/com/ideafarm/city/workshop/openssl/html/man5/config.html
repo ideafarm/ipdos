@@ -107,12 +107,12 @@
 
 <p>The <b>name</b> can contain any alphanumeric characters as well as a few punctuation symbols such as <b>.</b> <b>,</b> <b>;</b> and <b>_</b>. Whitespace after the name and before the equal sign is ignored.</p>
 
-<p>If a name is repeated in the same section, then all but the last value are ignored. In certain circumstances, such as with Certificate DNs, the same field may occur multiple times. In order to support this, commands like <a href="../man1/openssl-req.html">openssl-req(1)</a> ignore any leading text that is preceeded with a period. For example:</p>
+<p>If a name is repeated in the same section, then all but the last value are ignored. In certain circumstances, such as with Certificate DNs, the same field may occur multiple times. In order to support this, commands like <a href="../man1/openssl-req.html">openssl-req(1)</a> ignore any leading text that is preceded with a period. For example:</p>
 
 <pre><code> 1.OU = First OU
  2.OU = Second OU</code></pre>
 
-<p>The <b>value</b> consists of the string following the <b>=</b> character until end of line with any leading and trailing white space removed.</p>
+<p>The <b>value</b> consists of the string following the <b>=</b> character until end of line with any leading and trailing whitespace removed.</p>
 
 <p>The value string undergoes variable expansion. The text <code>$var</code> or <code>${var}</code> inserts the value of the named variable from the current section. To use a value from another section use <code>$section::name</code> or <code>${section::name}</code>. By using <code>$ENV::name</code>, the value of the specified environment variable will be substituted.</p>
 
@@ -161,7 +161,7 @@
 
 <h2 id="ASN.1-Object-Identifier-Configuration">ASN.1 Object Identifier Configuration</h2>
 
-<p>The name <b>oid_section</b> in the initialization section names the section containing name/value pairs of OID&#39;s. The name is the short name; the value is an optional long name followed by a comma, and the numeric value. While some OpenSSL commands have their own section for specifying OID&#39;s, this section makes them avilable to all commands and applications.</p>
+<p>The name <b>oid_section</b> in the initialization section names the section containing name/value pairs of OID&#39;s. The name is the short name; the value is an optional long name followed by a comma, and the numeric value. While some OpenSSL commands have their own section for specifying OID&#39;s, this section makes them available to all commands and applications.</p>
 
 <pre><code> [oids]
  shortName = a very long OID name, 1.2.3.4

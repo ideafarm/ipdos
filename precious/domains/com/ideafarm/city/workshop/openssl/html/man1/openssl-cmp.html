@@ -76,7 +76,7 @@
 
 <h1 id="DESCRIPTION">DESCRIPTION</h1>
 
-<p>The <b>cmp</b> command is a client implementation for the Certificate Management Protocol (CMP) as defined in RFC4210. It can be used to request certificates from a CA server, update their certificates, request certificates to be revoked, and perform other CMP requests.</p>
+<p>The <b>cmp</b> command is a client implementation for the Certificate Management Protocol (CMP) as defined in RFC4210. It can be used to request certificates from a CA server, update their certificates, request certificates to be revoked, and perform other types of CMP requests.</p>
 
 <h1 id="OPTIONS">OPTIONS</h1>
 
@@ -139,13 +139,13 @@
 </dd>
 </dl>
 
-<p><b>ir</b> requests initialization of an End Entity into a PKI hierarchy by means of issuance of a first certificate.</p>
+<p><b>ir</b> requests initialization of an End Entity into a PKI hierarchy by issuing a first certificate.</p>
 
-<p><b>cr</b> requests issuance of an additional certificate for an End Entity already initialized to the PKI hierarchy.</p>
+<p><b>cr</b> requests issuing an additional certificate for an End Entity already initialized to the PKI hierarchy.</p>
 
-<p><b>p10cr</b> requests issuance of an additional certificate similarly to <b>cr</b> but uses PKCS#10 CSR format.</p>
+<p><b>p10cr</b> requests issuing an additional certificate similarly to <b>cr</b> but uses PKCS#10 CSR format.</p>
 
-<p><b>kur</b> requests (key) update for an existing, given certificate.</p>
+<p><b>kur</b> requests a (key) update for an existing, given certificate.</p>
 
 <p><b>rr</b> requests revocation of an existing, given certificate.</p>
 
@@ -191,7 +191,7 @@
 
 <p>The argument must be formatted as <i>/type0=value0/type1=value1/type2=...</i>, characters may be escaped by <code>\</code>&nbsp;(backslash), no spaces are skipped.</p>
 
-<p>In case <b>-cert</b> is not set, for instance when using MSG_MAC_ALG, the subject DN is also used as sender of the PKI message.</p>
+<p>The subject DN is also used as fallback sender of outgoing CMP messages if no <b>-cert</b> and no <b>-oldcert</b> are given.</p>
 
 </dd>
 <dt id="issuer-name"><b>-issuer</b> <i>name</i></dt>
@@ -315,7 +315,7 @@
 
 <p>The certificate to be updated (i.e., renewed or re-keyed) in Key Update Request (KUR) messages or to be revoked in Revocation Request (RR) messages. It must be given for RR, while for KUR it defaults to <b>-cert</b>.</p>
 
-<p>The reference certificate determined in this way, if any, is also used for deriving default subject DN and Subject Alternative Names for IR, CR, and KUR. Its issuer, if any, is used as default recipient in the CMP message header if neither <b>-srvcert</b>, <b>-recipient</b>, nor <b>-issuer</b> is available.</p>
+<p>The reference certificate determined in this way, if any, is also used for deriving default subject DN and Subject Alternative Names for IR, CR, and KUR. Its subject is used as sender of outgoing messages if <b>-cert</b> is not given. Its issuer is used as default recipient in CMP message headers if neither <b>-recipient</b>, <b>-srvcert</b>, nor <b>-issuer</b> is given.</p>
 
 </dd>
 <dt id="revreason-number"><b>-revreason</b> <i>number</i></dt>
@@ -349,13 +349,13 @@
 <dt id="server-http-s-:-address-:port"><b>-server</b> <i>[http[s]://]address[:port]</i></dt>
 <dd>
 
-<p>The IP address or DNS hostname and optionally port (defaulting to 80 or 443) of the CMP server to connect to using HTTP(S) transport. The optional &quot;http://&quot; or &quot;https://&quot; prefix is ignored.</p>
+<p>The IP address or DNS hostname and optionally port (defaulting to 80 or 443) of the CMP server to connect to using HTTP(S) transport. The optional <i>http://</i> or <i>https://</i> prefix is ignored.</p>
 
 </dd>
 <dt id="proxy-http-s-:-address-:port-path"><b>-proxy</b> <i>[http[s]://]address[:port][/path]</i></dt>
 <dd>
 
-<p>The HTTP(S) proxy server to use for reaching the CMP server unless <b>no_proxy</b> applies, see below. The optional &quot;http://&quot; or &quot;https://&quot; prefix and any trailing path are ignored. Defaults to the environment variable <code>http_proxy</code> if set, else <code>HTTP_PROXY</code> in case no TLS is used, otherwise <code>https_proxy</code> if set, else <code>HTTPS_PROXY</code>.</p>
+<p>The HTTP(S) proxy server to use for reaching the CMP server unless <b>no_proxy</b> applies, see below. The optional <i>http://</i> or <i>https://</i> prefix and any trailing path are ignored. Defaults to the environment variable <code>http_proxy</code> if set, else <code>HTTP_PROXY</code> in case no TLS is used, otherwise <code>https_proxy</code> if set, else <code>HTTPS_PROXY</code>.</p>
 
 </dd>
 <dt id="no_proxy-addresses-List-of-IP-addresses-and-or-DNS-names-of-servers-not-to-use-an-HTTP-S-proxy-for-separated-by-commas-and-or-whitespace-where-in-the-latter-case-the-whole-argument-must-be-enclosed-in-...-.-Default-is-from-the-environment-variable-no_proxy-if-set-else-NO_PROXY"><b>-no_proxy</b> <i>addresses</i> List of IP addresses and/or DNS names of servers not to use an HTTP(S) proxy for, separated by commas and/or whitespace (where in the latter case the whole argument must be enclosed in &quot;...&quot;). Default is from the environment variable <code>no_proxy</code> if set, else <code>NO_PROXY</code>.</dt>
@@ -365,7 +365,7 @@
 <dt id="path-remote_path"><b>-path</b> <i>remote_path</i></dt>
 <dd>
 
-<p>HTTP path at the CMP server (aka CMP alias) to use for POST requests. Defaults to &quot;/&quot;.</p>
+<p>HTTP path at the CMP server (aka CMP alias) to use for POST requests. Defaults to <i>/</i>.</p>
 
 </dd>
 <dt id="msg_timeout-seconds"><b>-msg_timeout</b> <i>seconds</i></dt>
@@ -389,7 +389,7 @@
 <dt id="trusted-filenames"><b>-trusted</b> <i>filenames</i></dt>
 <dd>
 
-<p>When verifying signature-based protection of CMP response messages, these are the CA certificate(s) to trust while checking certificate chains during CMP server authentication. This option gives more flexibility than the <b>-srvcert</b> option because it does not pin down the expected CMP server by allowing only one certificate.</p>
+<p>When verifying signature-based protection of CMP response messages, these are the CA certificate(s) to trust while checking certificate chains during CMP server authentication. This option gives more flexibility than the <b>-srvcert</b> option because the protection certificate is not pinned but may be any certificate for which a chain to one of the given trusted certificates can be constructed.</p>
 
 <p>Multiple filenames may be given, separated by commas and/or whitespace (where in the latter case the whole argument must be enclosed in &quot;...&quot;). Each source may contain multiple certificates.</p>
 
@@ -397,7 +397,7 @@
 <dt id="untrusted-sources"><b>-untrusted</b> <i>sources</i></dt>
 <dd>
 
-<p>Non-trusted intermediate certificate(s) that may be useful for constructing the TLS client certificate chain (if TLS is enabled) and for building certificate chains while verifying the CMP server certificate (when checking signature-based CMP message protection) and while verifying the newly enrolled certificate. These may get added to the extraCerts field sent in requests as far as needed.</p>
+<p>Non-trusted intermediate CA certificate(s) that may be useful for cert path construction for the CMP client certificate (to include in the extraCerts field of outgoing messages), for the TLS client certificate (if TLS is enabled), when verifying the CMP server certificate (checking signature-based CMP message protection), and when verifying newly enrolled certificates.</p>
 
 <p>Multiple filenames may be given, separated by commas and/or whitespace. Each file may contain multiple certificates.</p>
 
@@ -405,33 +405,29 @@
 <dt id="srvcert-filename"><b>-srvcert</b> <i>filename</i></dt>
 <dd>
 
-<p>The specific CMP server certificate to use and directly trust (even if it is expired) when verifying signature-based protection of CMP response messages. May be set alternatively to the <b>-trusted</b> option if the certificate is available and only this one shall be accepted.</p>
+<p>The specific CMP server certificate to expect and directly trust (even if it is expired) when verifying signature-based protection of CMP response messages. May be set alternatively to the <b>-trusted</b> option to pin the accepted server.</p>
 
-<p>If set, the issuer of the certificate is also used as the recipient of the CMP request and as the expected sender of the CMP response, overriding any potential <b>-recipient</b> option.</p>
+<p>If set, the subject of the certificate is also used as default value for the recipient of CMP requests and as default value for the expected sender of incoming CMP messages.</p>
 
 </dd>
 <dt id="recipient-name"><b>-recipient</b> <i>name</i></dt>
 <dd>
 
-<p>This option may be used to explicitly set the Distinguished Name (DN) of the CMP message recipient, i.e., the CMP server (usually a CA or RA entity).</p>
+<p>Distinguished Name (DN) to use in the recipient field of CMP request messages, i.e., the CMP server (usually a CA or RA entity).</p>
 
 <p>The argument must be formatted as <i>/type0=value0/type1=value1/type2=...</i>, characters may be escaped by <code>\</code>&nbsp;(backslash), no spaces are skipped.</p>
 
-<p>If a CMP server certificate is given with the <b>-srvcert</b> option, its subject name is taken as the recipient name and the <b>-recipient</b> option is ignored. If neither of the two are given, the recipient of the PKI message is determined in the following order: from the <b>-issuer</b> option if present, the issuer of old cert given with the <b>-oldcert</b> option if present, the issuer of the client certificate (<b>-cert</b> option) if present.</p>
-
-<p>The recipient field in the header of CMP messagese is mandatory. If none of the options that enable the derivation of the recipient name are given, no suitable value for the recipient in the PKIHeader is available. As a last resort it is set to NULL-DN.</p>
-
-<p>When a response is received, its sender must match the recipient of the request.</p>
+<p>The recipient field in the header of a CMP message is mandatory. If not given explicitly the recipient is determined in the following order: the subject of the CMP server certificate given with the <b>-srvcert</b> option, the <b>-issuer</b> option, the issuer of the certificate given with the <b>-oldcert</b> option, the issuer of the CMP client certificate (<b>-cert</b> option), as far as any of those is present, else the NULL-DN as last resort.</p>
 
 </dd>
 <dt id="expect_sender-name"><b>-expect_sender</b> <i>name</i></dt>
 <dd>
 
-<p>Distinguished Name (DN) of the expected sender of CMP response messages when MSG_SIG_ALG is used for protection. This can be used to ensure that only a particular entity is accepted as the CMP server, and attackers are not able to use arbitrary certificates of a trusted PKI hierarchy to fraudulently pose as a CMP server. Note that this option gives slightly more freedom than <b>-srvcert</b>, which pins down the server to a particular certificate, while <b>-expect_sender</b> <i>name</i> will continue to match after updates of the server cert.</p>
+<p>Distinguished Name (DN) expected in the sender field of incoming CMP messages. Defaults to the subject DN of the pinned <b>-srvcert</b>, if any.</p>
 
 <p>The argument must be formatted as <i>/type0=value0/type1=value1/type2=...</i>, characters may be escaped by <code>\</code>&nbsp;(backslash), no spaces are skipped.</p>
 
-<p>If not given, the subject DN of <b>-srvcert</b>, if provided, will be used.</p>
+<p>This can be used to make sure that only a particular entity is accepted as CMP message signer, and attackers are not able to use arbitrary certificates of a trusted PKI hierarchy to fraudulently pose as a CMP server. Note that this option gives slightly more freedom than setting the <b>-srvcert</b>, which pins the server to the holder of a particular certificate, while the expected sender name will continue to match after updates of the server cert.</p>
 
 </dd>
 <dt id="ignore_keyusage"><b>-ignore_keyusage</b></dt>
@@ -486,7 +482,7 @@
 <dt id="cacertsout-filename"><b>-cacertsout</b> <i>filename</i></dt>
 <dd>
 
-<p>The file where to save any CA certificates received in the caPubs field of Initializiation Response (IP) messages.</p>
+<p>The file where to save any CA certificates received in the caPubs field of Initialization Response (IP) messages.</p>
 
 </dd>
 </dl>
@@ -512,7 +508,7 @@
 <dt id="cert-filename"><b>-cert</b> <i>filename</i></dt>
 <dd>
 
-<p>The client&#39;s current certificate. Requires the corresponding key to be given with <b>-key</b>. The subject of this certificate will be used as the &quot;sender&quot; field of outgoing CMP messages, while <b>-subjectName</b> may provide a fallback value. When using signature-based message protection, this &quot;protection certificate&quot; will be included first in the extraCerts field of outgoing messages. In Initialization Request (IR) messages this can be used for authenticating using an external entity certificate as defined in appendix E.7 of RFC 4210. For Key Update Request (KUR) messages this is also used as the certificate to be updated if the <b>-oldcert</b> option is not given. If the file includes further certs, they are appended to the untrusted certs. These may get added to the extraCerts field sent in requests as far as needed.</p>
+<p>The client&#39;s current certificate. Requires the corresponding key to be given with <b>-key</b>. The subject of this certificate will be used as sender of outgoing CMP messages, while the subject of <b>-oldcert</b> or <b>-subjectName</b> may provide fallback values. When using signature-based message protection, this &quot;protection certificate&quot; will be included first in the extraCerts field of outgoing messages. In Initialization Request (IR) messages this can be used for authenticating using an external entity certificate as defined in appendix E.7 of RFC 4210. For Key Update Request (KUR) messages this is also used as the certificate to be updated if the <b>-oldcert</b> option is not given. If the file includes further certs, they are appended to the untrusted certs.</p>
 
 </dd>
 <dt id="key-filename"><b>-key</b> <i>filename</i></dt>
@@ -620,7 +616,7 @@
 <dt id="tls_cert-filename"><b>-tls_cert</b> <i>filename</i></dt>
 <dd>
 
-<p>Client&#39;s TLS certificate. If the file includes further certificates, they are used for constructing the client cert chain provided to the TLS server.</p>
+<p>Client&#39;s TLS certificate. If the file includes further certs they are used (along with <b>-untrusted</b> certs) for constructing the client cert chain provided to the TLS server.</p>
 
 </dd>
 <dt id="tls_key-filename"><b>-tls_key</b> <i>filename</i></dt>
@@ -906,7 +902,7 @@
 
 <pre><code>  -proxy http://192.168.1.1:8080</code></pre>
 
-<p>In the Insta Demo CA scenario both clients and the server may use the pre-shared secret &quot;insta&quot; and the reference value &quot;3078&quot; to authenticate to each other.</p>
+<p>In the Insta Demo CA scenario both clients and the server may use the pre-shared secret <i>insta</i> and the reference value <i>3078</i> to authenticate to each other.</p>
 
 <p>Alternatively, CMP messages may be protected in signature-based manner, where the trust anchor in this case is <i>insta.ca.crt</i> and the client may use any certificate already obtained from that CA, as specified in the <b>[signature]</b> section of the example configuration. This can be used in combination with the <b>[insta]</b> section simply by</p>
 
@@ -942,7 +938,7 @@
 
 <h2 id="Certificate-enrollment">Certificate enrollment</h2>
 
-<p>The following examples at first do not make use of a configuration file. They assume that a CMP server can be contacted on the local TCP port 80 and accepts requests under the alias &quot;/pkix/&quot;.</p>
+<p>The following examples at first do not make use of a configuration file. They assume that a CMP server can be contacted on the local TCP port 80 and accepts requests under the alias <i>/pkix/</i>.</p>
 
 <p>For enrolling its very first certificate the client generates a first client key and sends an initial request message to the local CMP server using a pre-shared secret key for mutual authentication. In this example the client does not have the CA certificate yet, so we specify the name of the CA with the <b>-recipient</b> option and save any CA certificates that we may receive in the <code>capubs.pem</code> file.</p>
 

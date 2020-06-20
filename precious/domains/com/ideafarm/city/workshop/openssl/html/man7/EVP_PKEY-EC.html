@@ -37,10 +37,10 @@
 
 <dl>
 
-<dt id="curve-name-OSSL_PKEY_PARAM_EC_NAME-utf8-string">&quot;curve-name&quot; (<b>OSSL_PKEY_PARAM_EC_NAME</b>) &lt;utf8 string&gt;</dt>
+<dt id="group-OSSL_PKEY_PARAM_GROUP_NAME-utf8-string">&quot;group&quot; (<b>OSSL_PKEY_PARAM_GROUP_NAME</b>) &lt;utf8 string&gt;</dt>
 <dd>
 
-<p>The EC curve name.</p>
+<p>The curve name.</p>
 
 </dd>
 <dt id="use-cofactor-flag-OSSL_PKEY_PARAM_USE_COFACTOR_ECDH-integer">&quot;use-cofactor-flag&quot; (<b>OSSL_PKEY_PARAM_USE_COFACTOR_ECDH</b>) &lt;integer&gt;</dt>
@@ -87,7 +87,7 @@
 
     EVP_PKEY_keygen_init(gctx);
 
-    params[0] = OSSL_PARAM_construct_utf8_string(OSSL_PKEY_PARAM_EC_NAME,
+    params[0] = OSSL_PARAM_construct_utf8_string(OSSL_PKEY_PARAM_GROUP_NAME,
                                                  &quot;P-256&quot;, 0);
     params[1] = OSSL_PARAM_construct_end();
     EVP_PKEY_CTX_set_params(gctx, params);
@@ -113,7 +113,7 @@
 
     EVP_PKEY_keygen_init(gctx);
 
-    params[0] = OSSL_PARAM_construct_utf8_string(OSSL_PKEY_PARAM_EC_NAME,
+    params[0] = OSSL_PARAM_construct_utf8_string(OSSL_PKEY_PARAM_GROUP_NAME,
                                                  &quot;K-571&quot;, 0);
     /*
      * This curve has a cofactor that is not 1 - so setting CDH mode changes

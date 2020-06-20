@@ -1,0 +1,51 @@
+<?xml version="1.0" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>X509v3_cache_extensions</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rev="made" href="mailto:" />
+</head>
+
+<body>
+
+
+
+<ul id="index">
+  <li><a href="#NAME">NAME</a></li>
+  <li><a href="#SYNOPSIS">SYNOPSIS</a></li>
+  <li><a href="#DESCRIPTION">DESCRIPTION</a></li>
+  <li><a href="#RETURN-VALUES">RETURN VALUES</a></li>
+  <li><a href="#COPYRIGHT">COPYRIGHT</a></li>
+</ul>
+
+<h1 id="NAME">NAME</h1>
+
+<p>X509v3_cache_extensions - process any extensions in an X509 object</p>
+
+<h1 id="SYNOPSIS">SYNOPSIS</h1>
+
+<pre><code> #include &lt;openssl/x509v3.h&gt;
+
+ int X509v3_cache_extensions(X509 *x, OPENSSL_CTX *libctx, const char *propq);</code></pre>
+
+<h1 id="DESCRIPTION">DESCRIPTION</h1>
+
+<p>This function processes any X509v3 extensions that might be present in an X509 object and caches the result of that processing. Many OpenSSL functions that use an X509 object will cause extensions to be processed and cached implicitly. If this is done implicitly then the default library context and property query string will be used. In some cases it may be desirable to use some other library context and property query string. If so then an application can call X509v3_cache_extensions() explicitly. This should be done before any function that needs to use those extensions is called - otherwise calling X509v3_cache_extensions() will have no effect. Typically this means calling this soon after creation of the X509 object. The X509 object to be processed is given in <i>x</i> and the library context and property query string to use are given in <i>libctx</i> and <i>propq</i>.</p>
+
+<h1 id="RETURN-VALUES">RETURN VALUES</h1>
+
+<p>This function returns 0 if the extensions are invalid or an error occurred. Otherwise it returns 1.</p>
+
+<h1 id="COPYRIGHT">COPYRIGHT</h1>
+
+<p>Copyright 2020 The OpenSSL Project Authors. All Rights Reserved.</p>
+
+<p>Licensed under the Apache License 2.0 (the &quot;License&quot;). You may not use this file except in compliance with the License. You can obtain a copy in the file LICENSE in the source distribution or at <a href="https://www.openssl.org/source/license.html">https://www.openssl.org/source/license.html</a>.</p>
+
+
+</body>
+
+</html>
+
+

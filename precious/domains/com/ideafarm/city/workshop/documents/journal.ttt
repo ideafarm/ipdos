@@ -7186,6 +7186,8 @@ I have other business to attend to today and tomorrow, but plan to continue to w
 
 
 
+
+  !subjob C: go back to using GetProcAddress for OpenSSL
   !subjob C: settings file to specify file name of cert and privkey
   !subjob C: httpServerC: support cert and key file specification
   !subjob C: parameterize file name of cert and privkey
@@ -7196,24 +7198,19 @@ I have other business to attend to today and tomorrow, but plan to continue to w
 
 
 
-    store the cert on each server so no spf
-    nawwh: this would be an spf (single point of failure)
-   specify as \\factory1\d\... so all factories can use the same setting
-  next: set up dut (adam 4)
+
+
+
+
+
+
+   next: go back to using GetProcAddress
+   shit
+   conj: OpenSSL built using Visual Studio will not run except on Windows computers that have all DLL's
+  think
  playcraft
- objective: elegance , security
-!subjob C: settings file to specify file name of cert and privkey
-
-
-
-
-
-  set up dut
-   socketC sol( tinP , *tinP.pEtScratch , TAG( TAGiDnULL ) , ifcSOCKETtYPE_STREAM , flSOCKETc_CRYPTfOREIGNsSL , 0 , 0 , 0 , T("///c/Certbot/live/ideafarm.com/fullchain.pem") , T("///c/Certbot/live/ideafarm.com/privkey.pem") ) ;
-  listing
- playcraft
- objective: elegance
-!subjob C: httpServerC: support cert and key file specification
+ objective: correct function
+!subjob C: go back to using GetProcAddress for OpenSSL
 
 
 !thrust: debug until all factories run without failure
@@ -7229,6 +7226,21 @@ I have other business to attend to today and tomorrow, but plan to continue to w
 =========================================================================================================================================================
 
 
+  nawwh
+    store the cert on each server so no spf
+    nawwh: this would be an spf (single point of failure)
+   specify as \\factory1\d\... so all factories can use the same setting
+  next: set up dut (adam 4)
+ playcraft
+ objective: elegance , security
+!subjob C: settings file to specify file name of cert and privkey
+  cool ; it works!
+  set up dut
+   socketC sol( tinP , *tinP.pEtScratch , TAG( TAGiDnULL ) , ifcSOCKETtYPE_STREAM , flSOCKETc_CRYPTfOREIGNsSL , 0 , 0 , 0 , T("///c/Certbot/live/ideafarm.com/fullchain.pem") , T("///c/Certbot/live/ideafarm.com/privkey.pem") ) ;
+  listing
+ playcraft
+ objective: elegance
+!subjob C: httpServerC: support cert and key file specification
   cool ; it works!
    //*pEcP |= - 1 + SSL_CTX_use_PrivateKey_file(        pContext , "c:\\Certbot\\live\\ideafarm.com\\privkey.pem"   , SSL_FILETYPE_PEM ) ;
    //*pEcP |= - 1 + SSL_CTX_use_certificate_chain_file( pContext , "c:\\Certbot\\live\\ideafarm.com\\fullchain.pem"                    ) ;
