@@ -67,7 +67,7 @@ MYpREFIX void     __watcall c_openSsl_shakeHandsAsClientIF( unsigned* pEcP , ope
 MYpREFIX void     __watcall c_openSsl_shakeHandsAsServerIF( unsigned* pEcP , openSsl_pShakeFT      pShakeFP      , SSL* pSslP                                              ) ;
 MYpREFIX unsigned __watcall c_openSsl_writeIF(              unsigned* pEcP , openSsl_pWriteFT      pWriteFP      , SSL* pSslP , const char* const pbP , const unsigned cbP ) ;
 MYpREFIX unsigned __watcall c_openSsl_readIF(               unsigned* pEcP , openSsl_pReadFT       pReadFP       , char* pbP , unsigned cbP , SSL* pSslP                   ) ;
-
+MYpREFIX unsigned __watcall c_openSsl_peekIF(               unsigned* pEcP , char* pbP , unsigned cbP , SSL* pSslP                                                         ) ;
 
 //
 // Respecting the rights of other people is an important part of empowering one another.

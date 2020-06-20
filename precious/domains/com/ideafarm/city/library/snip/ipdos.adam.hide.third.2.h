@@ -28557,6 +28557,7 @@ applications should avoid using thirdC objects
   //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.350011a5.thirdC.openSsl_writeIF!||
   static countT openSsl_readIF( tinS& tinP , byteT* const pbP , const countT cbP , const handleC& hWrapperP ) ;
   //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.350011a6.thirdC.openSsl_readIF!||
+  static countT openSsl_peekIF( tinS& tinP , byteT* const pbP , const countT cbP , const handleC& hWrapperP ) ;
   static voidT openSsl_waveByeIF( tinS& tinP , const handleC& hWrapperP ) ;
   //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.350011a8.thirdc.openssl_shutdownif!||
 
@@ -28599,22 +28600,22 @@ applications should avoid using thirdC objects
   //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3405d.thirdC.s_peerNameF!||
 
  /* talking , hearing */
-  countT s_peekF( tinS& tinP , handleC& handleP , byteT* const pbP , const countT cbP , const flagsT flagsP = flSOCKETcrEAD_null , const countT time1P = 0 , const sCountT time2P = 0 ) ;
+  countT s_peekF( tinS& tinP , byteT* const pbP , const countT cbP , handleC& handleP , const flagsT flagsP = flSOCKETcrEAD_null , const countT time1P = 0 , const sCountT time2P = 0 , const countT idModeP = ifcIDmODEsOCKETS_NOTeNCRYPTED ) ;
   //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3403a.thirdC.s_peekF!||
   voidT s_putHostLogEntryF( tinS& tinP , const osTextT* const postP ) ;
   //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34084.thirdC.s_putHostLogEntryF!||
   countT s_readF( tinS& tinP , byteT* const pbP , const countT cbP , handleC& handleP , const flagsT flagsP = flSOCKETcrEAD_null , const countT time1P = 0 , const sCountT time2P = 0 , const countT idModeP = ifcIDmODEsOCKETS_NOTeNCRYPTED ) ;
   //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3403b.thirdC.s_readF!||
-  voidT s_readF( tinS& tinP , byteT*& pbP , countT& cbP , countT& idPortP , nicNameC& nicNameP , handleC& handleP , const countT time1P = 0 , const sCountT time2P = 0 , const countT idModeP = ifcIDmODEsOCKETS_NOTeNCRYPTED ) ;
+  voidT s_readF( tinS& tinP , byteT*& pbP , countT& cbP , countT& idPortP , nicNameC& nicNameP , handleC& handleP , const countT time1P = 0 , const sCountT time2P = 0 ) ;
   //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.340b0.thirdC.s_readF!||
   voidT s_readF( tinS& tinP , soulC& soulP , handleC& handleP , const countT time1P = 0 , const sCountT time2P = 0 , const countT idModeP = ifcIDmODEsOCKETS_NOTeNCRYPTED ) ;
   //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.340bd.thirdC.s_readF!||
-  voidT s_readF( tinS& tinP , soulC& soulP , countT& idPortP , nicNameC& nicNameP , handleC& handleP , const countT time1P = 0 , const sCountT time2P = 0 , const countT idModeP = ifcIDmODEsOCKETS_NOTeNCRYPTED ) ;
+  voidT s_readF( tinS& tinP , soulC& soulP , countT& idPortP , nicNameC& nicNameP , handleC& handleP , const countT time1P = 0 , const sCountT time2P = 0 ) ;
   //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.340be.thirdC.s_readF!||
   static countT s_readIF( tinS& tinP , byteT* const pbP , const countT cbP , handleC& handleP , const flagsT flagsTcpP = 0 , const flagsT flagsP = flSOCKETcrEAD_null ) ;
   //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.350011ac.thirdc.s_readif!||
-  countT s_readPrivateF( tinS& tinP , byteT* const pbP , const countT cbP , handleC& handleP , const flagsT flagsTcpP = 0 , const flagsT flagsP = flSOCKETcrEAD_null , const countT time1P = 0 , const sCountT time2P = 0 , const countT idModeP = ifcIDmODEsOCKETS_NOTeNCRYPTED ) ;
-  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3403c.thirdC.s_readPrivateF!||
+  countT s_readOrPeekPrivateF( tinS& tinP , byteT* const pbP , const countT cbP , handleC& handleP , const flagsT flagsTcpP , const flagsT flagsP , const countT time1P , const sCountT time2P , const countT idModeP ) ;
+  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3403c.thirdC.s_readOrPeekPrivateF!||
   voidT s_writeF( tinS& tinP , handleC& handleP , const byteT* const pbP , const countT cbP = 0 , const countT idModeP = ifcIDmODEsOCKETS_NOTeNCRYPTED ) ;
   //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34040.thirdC.s_writeF!||
   voidT s_writeF( tinS& tinP , handleC& handleP , const countT idPortP , const nicNameC nicNameP , const byteT* const pbP , const countT cbP = 0 , const countT idModeP = ifcIDmODEsOCKETS_NOTeNCRYPTED ) ;
@@ -31865,6 +31866,7 @@ examples
   countT openSsl_writeF( tinS& tinP , const handleC& hWrapperP , const byteT* const pbP , const countT cbP = 0 ) ;
   //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.360021d7.etherC.openSsl_writeF!||
   countT openSsl_readF( tinS& tinP , byteT* const pbP , const countT cbP , const handleC& hWrapperP ) ;
+  countT openSsl_peekF( tinS& tinP , byteT* const pbP , const countT cbP , const handleC& hWrapperP ) ;
   //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.360021d8.etherC.openSsl_readF!||
   voidT openSsl_waveByeF( tinS& tinP , const handleC& hWrapperP ) ;
   //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.360021de.etherc.openssl_shutdownf!||
@@ -31908,15 +31910,15 @@ examples
   //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.340e6.etherC.sockRelayF!||
 
  /* talking , hearing */
-  countT sockPeekF( tinS& tinP , handleC& handleP , byteT* pbP , const countT cbP , const flagsT flagsP = flSOCKETcrEAD_null , const countT time1P = 0 , const sCountT time2P = 0 ) ;
+  countT sockPeekF( tinS& tinP , handleC& handleP , byteT* pbP , const countT cbP , const flagsT flagsP = flSOCKETcrEAD_null , const countT time1P = 0 , const sCountT time2P = 0 , const countT idModeP = ifcIDmODEsOCKETS_NOTeNCRYPTED ) ;
   //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34043.etherC.sockPeekF!||
   countT sockReadF( tinS& tinP , handleC& handleP , byteT* const pbP , const countT cbP , const flagsT flagsP = flSOCKETcrEAD_null , const countT time1P = 0 , const sCountT time2P = 0 , const countT idModeP = ifcIDmODEsOCKETS_NOTeNCRYPTED ) ;
   //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34044.etherC.sockReadF!||
-  voidT sockReadF( tinS& tinP , byteT*& pbP , countT& cbP , countT& idPortP , nicNameC& nicNameP , handleC& handleP , const countT time1P = 0 , const sCountT time2P = 0 , const countT idModeP = ifcIDmODEsOCKETS_NOTeNCRYPTED ) ;
+  voidT sockReadF( tinS& tinP , byteT*& pbP , countT& cbP , countT& idPortP , nicNameC& nicNameP , handleC& handleP , const countT time1P = 0 , const sCountT time2P = 0 ) ;
   //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34117.etherC.sockReadF!||
   voidT sockReadF( tinS& tinP , soulC& soulP , handleC& handleP , const countT time1P = 0 , const sCountT time2P = 0 , const countT idModeP = ifcIDmODEsOCKETS_NOTeNCRYPTED ) ;
   //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3411d.etherC.sockReadF!||
-  voidT sockReadF( tinS& tinP , soulC& soulP , countT& idPortP , nicNameC& nicNameP , handleC& handleP , const countT time1P = 0 , const sCountT time2P = 0 , const countT idModeP = ifcIDmODEsOCKETS_NOTeNCRYPTED ) ;
+  voidT sockReadF( tinS& tinP , soulC& soulP , countT& idPortP , nicNameC& nicNameP , handleC& handleP , const countT time1P = 0 , const sCountT time2P = 0 ) ;
   //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3411f.etherC.sockReadF!||
   voidT sockWriteF( tinS& tinP , handleC& handleP , const byteT* pbP , const countT cbP = 0 , const countT idModeP = ifcIDmODEsOCKETS_NOTeNCRYPTED ) ;
   //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34047.etherC.sockWriteF!||

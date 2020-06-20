@@ -207,7 +207,19 @@
                 if( !info1P.bQuit )
 
                 if( info2P.psttName ) sol.nameF( tinP , info2P.psttName ) ;
-                socketC sol( tinP , *tinP.pEtScratch , TAG( TAGiDnULL ) , ifcSOCKETtYPE_STREAM , flSOCKETc_null , &info1P.time1idleTimeoutRead , &info1P.time1idleTimeoutWrite ) ;
+
+                delF( tinP , psttPemPrivateKey   ) ;
+                delF( tinP , psttPemCertificates ) ;
+                socketC sol( tinP , *tinP.pEtScratch , TAG( TAGiDnULL ) , ifcSOCKETtYPE_STREAM , info2P.flagsSocket , &info1P.time1idleTimeoutRead , &info1P.time1idleTimeoutWrite , 0 , psttPemCertificates , psttPemPrivateKey ) ;
+
+                }
+                    strMakeF( tinP , psttPemPrivateKey   , T("///c/Certbot/live/ideafarm.com/privkey.pem")   ) ; ___( psttPemPrivateKey   ) ;
+                    strMakeF( tinP , psttPemCertificates , T("///c/Certbot/live/ideafarm.com/fullchain.pem") ) ; ___( psttPemCertificates ) ;
+                {
+                if( F(info2P.flagsSocket) & flSOCKETc_CRYPTfOREIGNsSL )
+                ZE( strokeS* , psttPemPrivateKey   ) ;
+                ZE( strokeS* , psttPemCertificates ) ;
+
                 TELL( "server: constructing listener socket" )
                 SCOOPS
             {

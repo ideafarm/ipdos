@@ -2891,7 +2891,7 @@
 0x00000b4b , "\0\0\0\0voidT thirdC::s_optionLingerF( tinS& tinP , const handleC& handleP , const countT cSecondsP )" ,
 0x00000b4c , "\0\0\0\0countT thirdC::s_peekF( tinS& tinP , handleC& handleP , byteT* const pbP , const countT cbP , const flagsT flagsP , const countT time1P , const sCountT time2P )" ,
 0x00000b4d , "\0\0\0\0countT thirdC::s_readF( tinS& tinP , byteT* const pbP , const countT cbP , handleC& handleP , const flagsT flagsP , const countT time1P , const sCountT time2P , const countT idModeP )" ,
-0x00000b4e , "\0\0\0\0countT thirdC::s_readPrivateF( tinS& tinP , byteT* const pbP , const countT cbP , handleC& handleP , const flagsT flagsTcpP , const flagsT flagsP , const countT time1P , const sCountT time2P , const countT idModeP )" ,
+0x00000b4e , "\0\0\0\0countT thirdC::s_readOrPeekPrivateF( tinS& tinP , byteT* const pbP , const countT cbP , handleC& handleP , const flagsT flagsTcpP , const flagsT flagsP , const countT time1P , const sCountT time2P , const countT idModeP )" ,
 0x00000b4f , "\0\0\0\0voidT thirdC::s_socketIF( tinS& tinP , handleC& handleP , const boolT idTypeP , const handleC* const phContextP )" ,
 0x00000b50 , "\0\0\0\0voidT thirdC::s_writeF( tinS& tinP , handleC& handleP , const byteT* const pbP , const countT cbP , const countT idModeP )" ,
 0x00000b51 , "\0\0\0\0voidT thirdC::c_zReplaceF( tinS& tinP , osTextT*& postP , const osTextT* const postOldP , const osTextT* const postNewP )" ,

@@ -30,7 +30,10 @@
             }
                 }
                     break ;
-                    cbNew = thirdC::openSsl_readIF( tinP , pbP + offo , cbBite , handleP ) ;
+                    ;
+                        : thirdC::openSsl_readIF( tinP , pbP + offo , cbBite , handleP )
+                        ? thirdC::openSsl_peekIF( tinP , pbP + offo , cbBite , handleP )
+                    cbNew = flagsTcpP & MSG_PEEK
                 {
                 case ifcIDmODEsOCKETS_ENCRYPTED :
                 }
@@ -86,7 +89,7 @@
     IFbEcAREFUL    
     SCOOP
 {
-/*1*/countT thirdC::s_readPrivateF( tinS& tinP , byteT* const pbP , const countT cbP , handleC& handleP , const flagsT flagsTcpP , const flagsT flagsP , const countT time1P , const sCountT time2P , const countT idModeP )/*1*/
+/*1*/countT thirdC::s_readOrPeekPrivateF( tinS& tinP , byteT* const pbP , const countT cbP , handleC& handleP , const flagsT flagsTcpP , const flagsT flagsP , const countT time1P , const sCountT time2P , const countT idModeP )/*1*/
 
 /**/
 */
@@ -105,7 +108,7 @@ flagsTcpP is passed unmodified to the tcpip recv call
 see the flSOCKETc symbolic constants before specifying flagsP
 it is illegal to refer to this symbol in the definition of an adam
 \<A HREF=\"5.1020041.1.0.html\"\>definition\</A\>
-\<A HREF=\"6.$s_readPrivateF.0.html\"\>instances\</A\>
+\<A HREF=\"6.$s_readOrPeekPrivateF.0.html\"\>instances\</A\>
 /*
 
 //

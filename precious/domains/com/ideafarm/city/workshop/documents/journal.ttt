@@ -7187,6 +7187,7 @@ I have other business to attend to today and tomorrow, but plan to continue to w
 
 
   !subjob C: settings file to specify file name of cert and privkey
+  !subjob C: httpServerC: support cert and key file specification
   !subjob C: parameterize file name of cert and privkey
   !subjob C: default: look for pem files where LetsEncrypt puts them
  playcraft 
@@ -7207,18 +7208,12 @@ I have other business to attend to today and tomorrow, but plan to continue to w
 
 
 
-
-
-   //*pEcP |= - 1 + SSL_CTX_use_PrivateKey_file(        pContext , "c:\\Certbot\\live\\ideafarm.com\\privkey.pem"   , SSL_FILETYPE_PEM ) ;
-   //*pEcP |= - 1 + SSL_CTX_use_certificate_chain_file( pContext , "c:\\Certbot\\live\\ideafarm.com\\fullchain.pem"                    ) ;
-   , const char* const postPemCertificatesP , const char* const postPemPrivateKeyP
-   before doing that, parameterize so settings file can be queried at a higher layer
-   so just require a settings file
-   can't use default hardcode because LetsEncrypt uses common name as part of path
-  think
+  set up dut
+   socketC sol( tinP , *tinP.pEtScratch , TAG( TAGiDnULL ) , ifcSOCKETtYPE_STREAM , flSOCKETc_CRYPTfOREIGNsSL , 0 , 0 , 0 , T("///c/Certbot/live/ideafarm.com/fullchain.pem") , T("///c/Certbot/live/ideafarm.com/privkey.pem") ) ;
+  listing
  playcraft
  objective: elegance
-!subjob C: parameterize file name of cert and privkey
+!subjob C: httpServerC: support cert and key file specification
 
 
 !thrust: debug until all factories run without failure
@@ -7234,6 +7229,17 @@ I have other business to attend to today and tomorrow, but plan to continue to w
 =========================================================================================================================================================
 
 
+  cool ; it works!
+   //*pEcP |= - 1 + SSL_CTX_use_PrivateKey_file(        pContext , "c:\\Certbot\\live\\ideafarm.com\\privkey.pem"   , SSL_FILETYPE_PEM ) ;
+   //*pEcP |= - 1 + SSL_CTX_use_certificate_chain_file( pContext , "c:\\Certbot\\live\\ideafarm.com\\fullchain.pem"                    ) ;
+   , const char* const postPemCertificatesP , const char* const postPemPrivateKeyP
+   before doing that, parameterize so settings file can be queried at a higher layer
+   so just require a settings file
+   can't use default hardcode because LetsEncrypt uses common name as part of path
+  think
+ playcraft
+ objective: elegance
+!subjob C: parameterize file name of cert and privkey
   cool ; it works!
   set up dut
    later, look for other locations and/or for a settings file
