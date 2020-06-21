@@ -78,6 +78,8 @@ DONEdRIVENsERVER( tmcHttpServerF )
                 etThread.delF( tinP , psttAgent ) ;
                 etThread.delF( tinP , psttName ) ;
                 }
+                    etThread.traceF( tinP , TF3(meP.idPortF(tinP),flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,9)+T(nnPeerP)+T("    nonfile response has been written") , flTRACE_null , ifcIDtRACEdIVERT_7 ) ;
+
                     etThread.delF( tinP , psttKVReport ) ;
                     pswKV->freeNullsF( tinP ) ;
                     TELL( "cleaning up 5" ) ;
@@ -929,15 +931,30 @@ DONEdRIVENsERVER( tmcHttpServerF )
                     //if( bDebug )
                     //const boolT bDebug = 1 ;
                     //const boolT bDebug = psttName && !etThread.strCompareF( tinP , psttName , T("/nobot/action/myaccount.html") ) ;
+
+                    etThread.traceF( tinP , TF3(meP.idPortF(tinP),flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,9)+T(nnPeerP)+T("    preparing nonfile response") , flTRACE_null , ifcIDtRACEdIVERT_7 ) ;
                 {
                 else
                 }
-                    if( bClose ) { DEL( pso ) ; }
+                    }
+                        DEL( pso ) ;
+                        etThread.traceF( tinP , TF3(meP.idPortF(tinP),flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,9)+T(nnPeerP)+T("    closing connection") , flTRACE_null , ifcIDtRACEdIVERT_7 ) ;
+                    {
+                    if( bClose )
 
                     }
                         }
-                            else               pso->writeF( tinP , pbw , cbw ) ;
-                            if( !pbw || !cbw ) break ;
+                            }
+                                etThread.traceF( tinP , TF3(meP.idPortF(tinP),flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,9)+T(nnPeerP)+T("    wrote   file window [cbw]:    ")+TF2(cbw,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) , flTRACE_null , ifcIDtRACEdIVERT_7 ) ;
+                                pso->writeF( tinP , pbw , cbw ) ;
+                                etThread.traceF( tinP , TF3(meP.idPortF(tinP),flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,9)+T(nnPeerP)+T("    writing file window [cbw]:    ")+TF2(cbw,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) , flTRACE_null , ifcIDtRACEdIVERT_7 ) ;
+                            {
+                            else
+                            }
+                                break ;
+                                etThread.traceF( tinP , TF3(meP.idPortF(tinP),flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,9)+T(nnPeerP)+T("    all file windows have been written") , flTRACE_null , ifcIDtRACEdIVERT_7 ) ;
+                            {
+                            if( !pbw || !cbw )
 
                             fws.getF( tinP , pbw , cbw ) ;
                             ZE( countT , cbw ) ;
@@ -965,6 +982,7 @@ DONEdRIVENsERVER( tmcHttpServerF )
 
                         sCountC cbBody( tinP , etThread , pcLoHi , SC << 1 ) ;
                         countT pcLoHi[] = { fws.cbFileLoF() , fws.cbFileHiF() } ;
+                        etThread.traceF( tinP , TF3(meP.idPortF(tinP),flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,9)+T(nnPeerP)+T("    serving file [cbFileLo,cbFileHi]:    ")+TF3(fws.cbFileLoF(),flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,9)+TF3(fws.cbFileHiF(),flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,9) , flTRACE_null , ifcIDtRACEdIVERT_7 ) ;
                     {
                     else
                     }
@@ -973,14 +991,15 @@ DONEdRIVENsERVER( tmcHttpServerF )
 
                         TN( tBody , "The page (or other resource) that you requested does not exist here.\r\n\r\nIf you think that this is our error, please let us know.\r\n" ) ;
 
+                        etThread.traceF( tinP , TF3(meP.idPortF(tinP),flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,9)+T(nnPeerP)+T("    error: could not open file:    ")+tFileIn , flTRACE_null , ifcIDtRACEdIVERT_7 ) ;
                         POOPR ;
                     {
                     if( POOP )
 
                     fileWindowsC fws( tinP , *tinP.pEtScratch , tFileIn , flFILEwINDOW_null , 1 ) ;
+                    etThread.traceF( tinP , TF3(meP.idPortF(tinP),flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,9)+T(nnPeerP)+T("    attempting to open file:    ")+tFileIn , flTRACE_null , ifcIDtRACEdIVERT_7 ) ;
                     //TN( tFileIn , "" ) ; tFileIn = T("////factory3/e/archive")+T(psttName) ;
                     TN( tFileIn , "" ) ; tFileIn = T("////factory9/x/archive")+T(psttName) ;
-                    etThread.traceF( tinP , T("file [psttName]:    ")+T(psttName) ) ;
                 {
                 if( bFile )
 
@@ -1007,7 +1026,7 @@ DONEdRIVENsERVER( tmcHttpServerF )
                 if( psttName && psttName->idAdam )
                 ZE( boolT , bFile ) ;
 
-                etThread.traceF( tinP , T("request [psttName]:    ")+T(psttName) ) ;
+                etThread.traceF( tinP , TF3(meP.idPortF(tinP),flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,9)+T(nnPeerP)+T("    request:    ")+T(psttName) , flTRACE_null , ifcIDtRACEdIVERT_7 ) ;
 
                 ___( postBody ) ;
                 ___( psttAgent ) ;

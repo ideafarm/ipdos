@@ -7187,30 +7187,15 @@ I have other business to attend to today and tomorrow, but plan to continue to w
 
 
 
-  !subjob C: go back to using GetProcAddress for OpenSSL
-  !subjob C: settings file to specify file name of cert and privkey
-  !subjob C: httpServerC: support cert and key file specification
-  !subjob C: parameterize file name of cert and privkey
-  !subjob C: default: look for pem files where LetsEncrypt puts them
- playcraft 
- objective: elegance, glass walls , correct function
-!job C: https: polish
 
 
-
-
-
-
-
-
-
-   next: go back to using GetProcAddress
-   shit
-   conj: OpenSSL built using Visual Studio will not run except on Windows computers that have all DLL's
-  think
+  set up dut
  playcraft
- objective: correct function
-!subjob C: go back to using GetProcAddress for OpenSSL
+ changed: https now supported
+!job A: test PayPal ipn
+
+
+
 
 
 !thrust: debug until all factories run without failure
@@ -7225,7 +7210,34 @@ I have other business to attend to today and tomorrow, but plan to continue to w
 =========================================================================================================================================================
 =========================================================================================================================================================
 
-
+!job A: milestone: https is now fully supported for hardcoded certificat path
+  !subjob B: https aok from factory1 but not from factory3 - 5
+  !subjob C: go back to using GetProcAddress for OpenSSL
+  !subjob C: settings file to specify file name of cert and privkey
+  !subjob C: httpServerC: support cert and key file specification
+  !subjob C: parameterize file name of cert and privkey
+  !subjob C: default: look for pem files where LetsEncrypt puts them
+ playcraft 
+ objective: elegance, glass walls , correct function
+!job C: https: polish
+  cool ; found wo
+   next: nmake test
+   nmake: pending
+  reclone and rebuild
+   also, I need to reclone and rebuild openssl (current clone uses patched compiler option for static linking)
+   obvious diff is that VS is installed.
+   there is something different factory1 vs others
+  think
+ playcraft
+ changed: ?
+!subjob B: https aok from factory1 but not from factory3 - 5
+   next: go back to using GetProcAddress
+   shit
+   conj: OpenSSL built using Visual Studio will not run except on Windows computers that have all DLL's
+  think
+ playcraft
+ objective: correct function
+!subjob C: go back to using GetProcAddress for OpenSSL
   nawwh
     store the cert on each server so no spf
     nawwh: this would be an spf (single point of failure)
