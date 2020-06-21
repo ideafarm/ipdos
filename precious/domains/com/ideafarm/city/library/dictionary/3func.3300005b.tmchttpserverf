@@ -160,11 +160,14 @@ DONEdRIVENsERVER( tmcHttpServerF )
                                     if( bClose ) { etThread.memCopyF( tinP , postc , postOldConnectionClose , sizeof postOldConnectionClose - 1              ) ; postc += sizeof postOldConnectionClose - 1    ; }
 
                                     }
-                                        etThread.memCopyF( tinP , postc , tKV                           , tKV.csF( tinP )               ) ; postc += tKV.csF( tinP )               ;
+                                        }
+                                            etThread.memCopyF( tinP , postc , tKV , tKV.csF( tinP ) ) ; postc += tKV.csF( tinP ) ;
+                                            TN( tKV , "?" ) ; tKV += T(psttQueryKV) ;
+                                        {
+                                        if( bQuery )
+
                                         etThread.memCopyF( tinP , postc , POSTS( *prPostsHttpLocation ) , COSTS( *prPostsHttpLocation ) ) ; postc += COSTS( *prPostsHttpLocation ) ;
                                         etThread.memCopyF( tinP , postc , postLocationKey               , sizeof postLocationKey - 1    ) ; postc += sizeof postLocationKey - 1    ;
-
-                                        TN( tKV , "?" ) ; tKV += T(psttQueryKV) ;
                                     {
                                     if( prPostsHttpLocation )
 
@@ -177,7 +180,9 @@ DONEdRIVENsERVER( tmcHttpServerF )
                                 etThread.newF( tinP , LF , postsReply , sizeof( countT ) + costReply + 1 ) ; ___( postsReply ) ;
 
                                 if( bClose ) costReply += sizeof postOldConnectionClose - 1 ;
-                                if( prPostsHttpLocation ) costReply += sizeof postLocationKey - 1 + COSTS( *prPostsHttpLocation ) + 1 + ( psttQueryKV ? psttQueryKV->idAdam : 0 ) ;
+                                if( prPostsHttpLocation ) costReply += sizeof postLocationKey - 1 + COSTS( *prPostsHttpLocation ) + ( bQuery ? 1 + psttQueryKV->idAdam : 0 ) ;
+                                boolT bQuery = psttQueryKV && psttQueryKV->idAdam ;
+
                                 ;
                                     + costBody
                                     + 4
