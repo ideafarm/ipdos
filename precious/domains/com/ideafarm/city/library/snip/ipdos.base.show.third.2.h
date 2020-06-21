@@ -38601,7 +38601,7 @@ the only function of this object is to edit tinS::grabPseudo so that the monitor
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400e.httpServerC.sayFieldEditF!||
 
     /* serve a client */
-    osTextT readRequestF( tinS& tinP , strokeS*& psttNameP , switchC& swKVP , strokeS*& psttLeverKVP , strokeS*& psttAgentP , osTextT*& postBodyP , boolT& bCloseP , socketC* psoP , const osTextT* const postEscapeP = 0 ) ;
+    osTextT readRequestF( tinS& tinP , strokeS*& psttNameP , strokeS*& psttQueryKVP , switchC& swKVP , strokeS*& psttLeverKVP , strokeS*& psttAgentP , osTextT*& postBodyP , boolT& bCloseP , socketC* psoP , const osTextT* const postEscapeP = 0 ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34007.httpServerC.readRequestF!||
     voidT getReplyF( tinS& tinP , httpReplySrefC*& prP , const strokeS* const psttUrlP ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400a.httpServerC.getReplyF!||

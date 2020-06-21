@@ -11,7 +11,6 @@
     return ostEscaped ;
 
     ether.delF( tinP , psttAction ) ;
-    ether.delF( tinP , psttKV ) ;
     }
         tinP.pEtScratch->delF( tinP , pstt1e ) ;
         }
@@ -73,17 +72,17 @@
         {
         FORsTRINGSiN1( pstt1e )
         strokeS sttEq( '=' ) ;
-        tinP.pEtScratch->strWordsOldF( tinP , pstt1e , psttKV , sttq , T("&") ) ; ___( pstt1e ) ;
+        tinP.pEtScratch->strWordsOldF( tinP , pstt1e , psttQueryKVP , sttq , T("&") ) ; ___( pstt1e ) ;
         strokeS sttq( (countT)0 , sc_IGNOREqUOTES ) ;
         ZE( strokeS* , pstt1e ) ;
     {
-    if( !POOP && psttKV ) // STORE THE KEY/VALUE PAIRS
+    if( !POOP && psttQueryKVP ) // STORE THE KEY/VALUE PAIRS
 
     }
         ether.delF( tinP , psttd ) ;
-        ether.strMakeF( tinP , psttKV , ( psttd ? T(psttd)+T("&") : T("") )+tBody ) ; ___( psttKV ) ; //ASSUME: psttKV IS OF FORM T("aaaa=1111&bbbb=2222&cccc=3333&dddd=4444")
-        psttKV = 0 ;
-        strokeS* psttd = psttKV ;
+        ether.strMakeF( tinP , psttQueryKVP , ( psttd ? T(psttd)+T("&") : T("") )+tBody ) ; ___( psttQueryKVP ) ; //ASSUME: psttQueryKVP IS OF FORM T("aaaa=1111&bbbb=2222&cccc=3333&dddd=4444")
+        psttQueryKVP = 0 ;
+        strokeS* psttd = psttQueryKVP ;
         TN( tBody , "" ) ; tBody = T(postBodyP) ;
                     
         //CONoUTrAW( T("--------\r\n")+T(postBodyP)+T("\r\n--------\r\n") ) ; //U::
@@ -124,10 +123,10 @@
             }
                 tinP.pEtScratch->delF( tinP , psttw ) ;
 
-                //LOGrAW( T("from url[psttKV]: \"")+T(psttKV)+T("\"\r\n") ) ;
+                //LOGrAW( T("from url[psttQueryKVP]: \"")+T(psttQueryKVP)+T("\"\r\n") ) ;
 
-                tinP.pEtScratch->strWordF( tinP , psttKV    , psttw , sttq , sttQuest , 2 ) ; ___( psttKV   ) ;
-                tinP.pEtScratch->strWordF( tinP , psttNameP , psttw , sttq , sttQuest , 1 ) ; ___( psttNameP ) ;
+                tinP.pEtScratch->strWordF( tinP , psttQueryKVP , psttw , sttq , sttQuest , 2 ) ; ___( psttQueryKVP   ) ;
+                tinP.pEtScratch->strWordF( tinP , psttNameP    , psttw , sttq , sttQuest , 1 ) ; ___( psttNameP      ) ;
                 psttNameP = 0 ;
                 strokeS* psttw = psttNameP ;
             {
@@ -180,13 +179,12 @@
     TN( tColonWhite , ": " ) ;
     ZE( osTextT  , ostEscaped ) ;
     ZE( strokeS* , psttAction ) ;
-    ZE( strokeS* , psttKV ) ;
     ZE( countT , costBody ) ;
     _IO_
 
     __( bCloseP ) ;
 {
-/*1*/osTextT httpServerC::readRequestF( tinS& tinP , strokeS*& psttNameP , switchC& swKVP , strokeS*& psttLeverKVP , strokeS*& psttAgentP , osTextT*& postBodyP , boolT& bCloseP , socketC* psoP , const osTextT* const postEscapeP )/*1*/
+/*1*/osTextT httpServerC::readRequestF( tinS& tinP , strokeS*& psttNameP , strokeS*& psttQueryKVP , switchC& swKVP , strokeS*& psttLeverKVP , strokeS*& psttAgentP , osTextT*& postBodyP , boolT& bCloseP , socketC* psoP , const osTextT* const postEscapeP )/*1*/
 /**/
 */
 /*

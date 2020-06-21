@@ -74,9 +74,10 @@ DONEdRIVENsERVER( tmcHttpServerF )
             }
                 if( bClose ) break ;
 
-                etThread.delF( tinP , postBody ) ;
-                etThread.delF( tinP , psttAgent ) ;
-                etThread.delF( tinP , psttName ) ;
+                etThread.delF( tinP , postBody    ) ;
+                etThread.delF( tinP , psttAgent   ) ;
+                etThread.delF( tinP , psttName    ) ;
+                etThread.delF( tinP , psttQueryKV ) ;
                 }
                     etThread.traceF( tinP , TF3(meP.idPortF(tinP),flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,9)+T(nnPeerP)+T("    nonfile response has been written") , flTRACE_null , ifcIDtRACEdIVERT_7 ) ;
 
@@ -159,8 +160,11 @@ DONEdRIVENsERVER( tmcHttpServerF )
                                     if( bClose ) { etThread.memCopyF( tinP , postc , postOldConnectionClose , sizeof postOldConnectionClose - 1              ) ; postc += sizeof postOldConnectionClose - 1    ; }
 
                                     }
+                                        etThread.memCopyF( tinP , postc , tKV                           , tKV.csF( tinP )               ) ; postc += tKV.csF( tinP )               ;
                                         etThread.memCopyF( tinP , postc , POSTS( *prPostsHttpLocation ) , COSTS( *prPostsHttpLocation ) ) ; postc += COSTS( *prPostsHttpLocation ) ;
                                         etThread.memCopyF( tinP , postc , postLocationKey               , sizeof postLocationKey - 1    ) ; postc += sizeof postLocationKey - 1    ;
+
+                                        TN( tKV , "?" ) ; tKV += T(psttQueryKV) ;
                                     {
                                     if( prPostsHttpLocation )
 
@@ -173,7 +177,7 @@ DONEdRIVENsERVER( tmcHttpServerF )
                                 etThread.newF( tinP , LF , postsReply , sizeof( countT ) + costReply + 1 ) ; ___( postsReply ) ;
 
                                 if( bClose ) costReply += sizeof postOldConnectionClose - 1 ;
-                                if( prPostsHttpLocation ) costReply += sizeof postLocationKey - 1 + COSTS( *prPostsHttpLocation ) ;
+                                if( prPostsHttpLocation ) costReply += sizeof postLocationKey - 1 + COSTS( *prPostsHttpLocation ) + 1 + ( psttQueryKV ? psttQueryKV->idAdam : 0 ) ;
                                 ;
                                     + costBody
                                     + 4
@@ -1032,10 +1036,11 @@ DONEdRIVENsERVER( tmcHttpServerF )
                 ___( psttAgent ) ;
                 ___( psttLeverKV ) ;
                 ___( psttName ) ;
-                idEscaped = meP.readRequestF( tinP , psttName , *pswKV , psttLeverKV , psttAgent , postBody , bClose , pso , pHttpRawCommandServerCBFP ? "!@" : 0 ) ;
+                idEscaped = meP.readRequestF( tinP , psttName , psttQueryKV , *pswKV , psttLeverKV , psttAgent , postBody , bClose , pso , pHttpRawCommandServerCBFP ? "!@" : 0 ) ;
                 ZE( boolT , bClose ) ;
                 ZE( osTextT* , postBody ) ;
                 ZE( strokeS* , psttAgent ) ;
+                ZE( strokeS* , psttQueryKV ) ;
                 ZE( strokeS* , psttName ) ;
                 TELL( "reading a request" ) ;
             {
