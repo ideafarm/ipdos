@@ -96,7 +96,7 @@
                     }
                         }
                             ZE( countT , tid ) ; tinP.pEtScratch->osThreadF( tinP , tid , info1P.tmF , 0 , flTHREADlAUNCH_SHOWpONY , 0 , (countT)pc8tp_tm ) ;
-                            traceF( tinP , T(nnPeer)+T("    ifcDrivenServerF / launching server thread for this client") , flTRACE_null , ifcIDtRACEdIVERT_7 ) ;
+                            //traceF( tinP , T(nnPeer)+T("    ifcDrivenServerF / launching server thread for this client") , flTRACE_null , ifcIDtRACEdIVERT_7 ) ;
                             TELL( "server: launching server thread for this client" )
 
                             memCopyF( tinP , (byteT*)&pc8tp_tm2->c2 , (byteT*)&nnPeer , sizeof nnPeer ) ;
@@ -135,7 +135,7 @@
                         lever_idSession = ++ idSessionLath ;
                         b_lever_idSession.grabF( tinP , TAG( TAGiDnULL ) ) ;
                         TELL( "server: preparing to serve the accepted socket" )
-                        traceF( tinP , T(nnPeer)+T("    ifcDrivenServerF / preparing to serve this client") , flTRACE_null , ifcIDtRACEdIVERT_7 ) ;
+                        //traceF( tinP , T(nnPeer)+T("    ifcDrivenServerF / preparing to serve this client") , flTRACE_null , ifcIDtRACEdIVERT_7 ) ;
                     {
                     else if( pso )
                     }
@@ -182,9 +182,9 @@
                     //if( 0x401043a == processGlobal1I.idAdamRoot ) ifcSayIF( T("acceptF returned (1); nnPeer: ")+T(nnPeer)+T("; bRefuse: ")+TF1(bRefuse) , flSAY_APPEND | flSAY_LOG ) ;
                     ___( pso ) ;
                     TELL( "server: a client has connected" )
-                    traceF( tinP , T(nnPeer)+T("    ifcDrivenServerF / a client has connected") , flTRACE_null , ifcIDtRACEdIVERT_7 ) ;
+                    //traceF( tinP , T(nnPeer)+T("    ifcDrivenServerF / a client has connected") , flTRACE_null , ifcIDtRACEdIVERT_7 ) ;
                     sol.acceptF( tinP , pso , countTC() , nnPeer , bRefuse ) ; //IF ALL SESSIONS END WHILE BLOCKED HERE, WILL STILL REFUSE WO SESSION; THIS CAN BE FIXED BY FRESHING bRefuse AT END OF EACH SESSION THREAD IN DONEtMsERVER
-                    traceF( tinP , T("ifcDrivenServerF / waiting for a client to connect") , flTRACE_null , ifcIDtRACEdIVERT_7 ) ;
+                    //traceF( tinP , T("ifcDrivenServerF / waiting for a client to connect") , flTRACE_null , ifcIDtRACEdIVERT_7 ) ;
                     TELL( "server: waiting for a client to connect" )
                     nicNameC nnPeer ;
 

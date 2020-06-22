@@ -10,7 +10,7 @@
             {
                                                                                                                             \
             TELL( "TASKdRIVENsERVER: entering application code" )                                                           \
-            pso->etherF( tinP , *tinP.pEtScratch ) ;                                                                        \
+            psoP->etherF( tinP , *tinP.pEtScratch ) ;                                                                       \
         {                                                                                                                   \
         if( !etThread )                                                                                                     \
         sessionC& sessionP = sessionsP.registerConnectionF( tinP , nnPeerP , /*psttPeerP*/T("notQueried") ) ;               \
@@ -27,9 +27,13 @@
         /* ZE( strokeS* , psttPeerP ) ;                                           */                                        \
         /* THIS IS TOO SLOW (2 TOCKS)                                             */                                        \
                                                                                                                             \
-        __Z( pso ) ;                                                                                                        \
+        psoP->myNameF( tinP , idPortMeP , nnMeP ) ;                                                                         \
+        nicNameC nnMeP ;                                                                                                    \
+        ZE( countT , idPortMeP ) ;                                                                                          \
+                                                                                                                            \
+        __Z( psoP ) ;                                                                                                       \
         b_lever.ungrabF( tinP ) ;                                                                                           \
-        socketC*& pso = (socketC*&)(countT&)sw_pso ;                                                                        \
+        socketC*& psoP = (socketC*&)(countT&)sw_pso ;                                                                       \
         lever = ids ;                                                                                                       \
         b_lever.grabF( tinP , TAG( TAGiDnULL ) ) ;                                                                          \
                                                                                                                             \

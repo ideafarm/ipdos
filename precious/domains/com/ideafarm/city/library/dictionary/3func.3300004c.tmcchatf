@@ -12,13 +12,13 @@ DONEdRIVENsERVER( tmcChatF )
     TELL( "tmcChatF: cleaning up" )
     }
         POOPR
-        pso->readF( tinP , (byteT*)&cFoo , sizeof cFoo , flSOCKETcrEAD_STILLhUNGRYiSoK ) ; // pso WILL BE NULL IF, FOR EXAMPLE, THE CLIENT DID NOT START THE SESSION BY CORRECTLY SWITCHING PORTS; THAT WOULD CAUSE AN EARLY IMPOTENCE, WHICH WOULD PREVENT THE acceptF FROM RETURNING A NONZE pso
+        psoP->readF( tinP , (byteT*)&cFoo , sizeof cFoo , flSOCKETcrEAD_STILLhUNGRYiSoK ) ; // psoP WILL BE NULL IF, FOR EXAMPLE, THE CLIENT DID NOT START THE SESSION BY CORRECTLY SWITCHING PORTS; THAT WOULD CAUSE AN EARLY IMPOTENCE, WHICH WOULD PREVENT THE acceptF FROM RETURNING A NONZE psoP
         SCOOPS
         ZE( countT , cFoo ) ;
         TELL( "reading a countT that will never arrive, so that client can disconnect" )
 
         //etherC::ifcSayIF( TF1(idAdamHandling)+T(" ")+TF1(tinP.osPid)+T(" --cSessions:")+TF1(--cSessions) , flSAY_APPEND | flSAY_LOG ) ;
-        (*chatHandlerF)( tinP , ether , etThread , pso , idChatSession , cArg , idAdamHandling ) ;
+        (*chatHandlerF)( tinP , ether , etThread , psoP , idChatSession , cArg , idAdamHandling ) ;
         //etherC::ifcSayIF( TF1(idAdamHandling)+T(" ")+TF1(tinP.osPid)+T(" ++cSessions:")+TF1(++cSessions) , flSAY_APPEND | flSAY_LOG ) ;
         TELL( "calling chat handler" )
 

@@ -66,7 +66,7 @@ DONEdRIVENsERVER( tmcHttpServerF )
         TELL( "tmcHttpServerF: cleaning up (part 1)" ) ;
 
         }
-            if( idEscaped ) (*pHttpRawCommandServerCBFP)( tinP , etThread , bQuitP , cArgAppP , *pso , time1idleTimeoutReadP , time1idleTimeoutWriteP , sessionsP , nnPeerP , idEscaped ) ;
+            if( idEscaped ) (*pHttpRawCommandServerCBFP)( tinP , etThread , bQuitP , cArgAppP , *psoP , time1idleTimeoutReadP , time1idleTimeoutWriteP , sessionsP , nnPeerP , idEscaped ) ;
             TELL( "maybe calling raw command server" ) ;
 
             //LOGrAW( T("------------------------- E N D   O F   S E S S I O N -------------------------------------------------------\r\n") ) ;
@@ -104,8 +104,8 @@ DONEdRIVENsERVER( tmcHttpServerF )
        
                         etThread.delF( tinP , postsReply ) ;
 
-                        if( bClose ) { DEL( pso ) ; }
-                        pso->writeF( tinP , POSTS( postsReply ) , COSTS( postsReply ) ) ;
+                        if( bClose ) { DEL( psoP ) ; }
+                        psoP->writeF( tinP , POSTS( postsReply ) , COSTS( postsReply ) ) ;
                         TELL( "writing reply" ) ;
 
                         }
@@ -569,7 +569,7 @@ DONEdRIVENsERVER( tmcHttpServerF )
                                             {
 
                                             }
-                                                etThread.strMakeF( tinP , prPostsPort            , T((const strokeS*)*pso)     , 0 , flSTRmAKE_PREFIXlENGTH ) ; ___( prPostsPort            ) ;
+                                                etThread.strMakeF( tinP , prPostsPort            , T((const strokeS*)*psoP)    , 0 , flSTRmAKE_PREFIXlENGTH ) ; ___( prPostsPort            ) ;
                                                 etThread.strMakeF( tinP , prPostsIdPort2         , TF1(idPortMe)               , 0 , flSTRmAKE_PREFIXlENGTH ) ; ___( prPostsIdPort2         ) ;
                                                 etThread.strMakeF( tinP , prPostsIdPort1         , TF1(idPortMe)               , 0 , flSTRmAKE_PREFIXlENGTH ) ; ___( prPostsIdPort1         ) ;
                                                 etThread.strMakeF( tinP , prPostsIdSession       , TF1((countT)sessionP)       , 0 , flSTRmAKE_PREFIXlENGTH ) ; ___( prPostsIdSession       ) ;
@@ -602,7 +602,7 @@ DONEdRIVENsERVER( tmcHttpServerF )
                                             if( REPLY.pCBF )
                                             //DONE EARLY TO GIVE CBF AN EARLY CHANCE TO CHANGE STATE IN WAYS THAT WILL AFFECT BUILDING OF HEADER
 
-                                            pso->myNameF( tinP , idPortMe , nnMe ) ;
+                                            psoP->myNameF( tinP , idPortMe , nnMe ) ;
                                             nicNameC nnMe ;
                                             ZE( countT , idPortMe ) ;
                                             TELL( "ifcIDfORMhTTPrEPLY_BIGhEAD/getting nnMe" ) ;
@@ -709,7 +709,7 @@ DONEdRIVENsERVER( tmcHttpServerF )
                                                     "<tr onMouseOut=\"swatF() ;\" onMouseOver=\"flyGrayF() ;\">\r\n"
             
                                             etThread.strMakeF( tinP , prPostsBarGray , T(
-                                            etThread.strMakeF( tinP , prPostsPort            , T((const strokeS*)*pso)     , 0 , flSTRmAKE_PREFIXlENGTH ) ; ___( prPostsPort            ) ;
+                                            etThread.strMakeF( tinP , prPostsPort            , T((const strokeS*)*psoP)    , 0 , flSTRmAKE_PREFIXlENGTH ) ; ___( prPostsPort            ) ;
                                             etThread.strMakeF( tinP , prPostsIdPort2         , TF1(idPortMe)               , 0 , flSTRmAKE_PREFIXlENGTH ) ; ___( prPostsIdPort2         ) ;
                                             etThread.strMakeF( tinP , prPostsIdPort1         , TF1(idPortMe)               , 0 , flSTRmAKE_PREFIXlENGTH ) ; ___( prPostsIdPort1         ) ;
                                             etThread.strMakeF( tinP , prPostsIdSession       , TF1((countT)sessionP)       , 0 , flSTRmAKE_PREFIXlENGTH ) ; ___( prPostsIdSession       ) ;
@@ -725,7 +725,7 @@ DONEdRIVENsERVER( tmcHttpServerF )
                                             //if( !( F(session.privilegesF(tinP)) & flSESSIONpRIVILEGE_HIDEaDlINKS ) ) bShowAdLinks = 1 ;
                                             //ZE( boolT , bShowAdLinks ) ;
 
-                                            pso->myNameF( tinP , idPortMe , nnMe ) ;
+                                            psoP->myNameF( tinP , idPortMe , nnMe ) ;
                                             nicNameC nnMe ;
                                             ZE( countT , idPortMe ) ;
                                             TELL( "ifcIDfORMhTTPrEPLY_FULLcUSTOM/getting nnMe" ) ;
@@ -776,7 +776,7 @@ DONEdRIVENsERVER( tmcHttpServerF )
 
                                             httpReplyS& info = *(httpReplyS*)&(baseRefC&)*pRefReply ;
             
-                                            pso->myNameF( tinP , idPortMe , nnMe ) ;
+                                            psoP->myNameF( tinP , idPortMe , nnMe ) ;
                                             nicNameC nnMe ;
                                             ZE( countT , idPortMe ) ;
                                             TELL( "ifcIDfORMhTTPrEPLY_RAW" ) ;
@@ -946,7 +946,7 @@ DONEdRIVENsERVER( tmcHttpServerF )
                 else
                 }
                     }
-                        DEL( pso ) ;
+                        DEL( psoP ) ;
                         //etThread.traceF( tinP , TF3(meP.idPortF(tinP),flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,9)+T(nnPeerP)+T("    closing connection") , flTRACE_null , ifcIDtRACEdIVERT_7 ) ;
                     {
                     if( bClose )
@@ -955,7 +955,7 @@ DONEdRIVENsERVER( tmcHttpServerF )
                         }
                             }
                                 //etThread.traceF( tinP , TF3(meP.idPortF(tinP),flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,9)+T(nnPeerP)+T("    wrote   file window [cbw]:    ")+TF2(cbw,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) , flTRACE_null , ifcIDtRACEdIVERT_7 ) ;
-                                pso->writeF( tinP , pbw , cbw ) ;
+                                psoP->writeF( tinP , pbw , cbw ) ;
                                 //etThread.traceF( tinP , TF3(meP.idPortF(tinP),flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,9)+T(nnPeerP)+T("    writing file window [cbw]:    ")+TF2(cbw,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) , flTRACE_null , ifcIDtRACEdIVERT_7 ) ;
                             {
                             else
@@ -971,7 +971,7 @@ DONEdRIVENsERVER( tmcHttpServerF )
                         {
                         while( !POOP )
 
-                        pso->writeF( tinP , (osTextT*)tReply , tReply.csF( tinP ) ) ;
+                        psoP->writeF( tinP , (osTextT*)tReply , tReply.csF( tinP ) ) ;
                         TN( tReply , "" ) ; tReply = T("HTTP/1.1 200 OK\r\nServer: IPDOS (tm) IdeaFarm (tm) Piggyback Distributed Operating System (tm)\r\nContent-Type: ")+tContentType+T("\r\nContent-Length: ")+TF4(cbBody,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FOREIGN|flFORMAT_NObASE,0,0xa)+T("\r\n\r\n") ;
 
                         }
@@ -995,7 +995,7 @@ DONEdRIVENsERVER( tmcHttpServerF )
                     {
                     else
                     }
-                        pso->writeF( tinP , (osTextT*)tReply , tReply.csF( tinP ) ) ;
+                        psoP->writeF( tinP , (osTextT*)tReply , tReply.csF( tinP ) ) ;
                         TN( tReply , "" ) ; tReply = T("HTTP/1.1 404 Not Found\r\nServer: IPDOS (tm) IdeaFarm (tm) Piggyback Distributed Operating System (tm)\r\nContent-Type: text")+T("\r\nContent-Length: ")+TF4(tBody.csF(tinP),flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FOREIGN|flFORMAT_NObASE,0,0xa)+T("\r\n\r\n")+tBody ;
 
                         TN( tBody , "The page (or other resource) that you requested does not exist here.\r\n\r\nIf you think that this is our error, please let us know.\r\n" ) ;
@@ -1035,13 +1035,13 @@ DONEdRIVENsERVER( tmcHttpServerF )
                 if( psttName && psttName->idAdam )
                 ZE( boolT , bFile ) ;
 
-                etThread.traceF( tinP , TF3(meP.idPortF(tinP),flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,9)+T(nnPeerP)+T("    request:    ")+T(psttName) , flTRACE_null , ifcIDtRACEdIVERT_7 ) ;
+                if( nnPeerP != nnMeP && ( !psttName || etThread.strCompareF( tinP , psttName , tSlashDeadman ) ) ) etThread.traceF( tinP , TF3(meP.idPortF(tinP),flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,9)+T(nnPeerP)+T("    request:    \"")+T(psttName)+T("\"")+(psttQueryKV?T("    ")+T(psttQueryKV):T("")) , flTRACE_null , ifcIDtRACEdIVERT_7 ) ;
 
                 ___( postBody ) ;
                 ___( psttAgent ) ;
                 ___( psttLeverKV ) ;
                 ___( psttName ) ;
-                idEscaped = meP.readRequestF( tinP , psttName , psttQueryKV , *pswKV , psttLeverKV , psttAgent , postBody , bClose , pso , pHttpRawCommandServerCBFP ? "!@" : 0 ) ;
+                idEscaped = meP.readRequestF( tinP , psttName , psttQueryKV , *pswKV , psttLeverKV , psttAgent , postBody , bClose , psoP , pHttpRawCommandServerCBFP ? "!@" : 0 ) ;
                 ZE( boolT , bClose ) ;
                 ZE( osTextT* , postBody ) ;
                 ZE( strokeS* , psttAgent ) ;
@@ -1050,13 +1050,14 @@ DONEdRIVENsERVER( tmcHttpServerF )
                 TELL( "reading a request" ) ;
             {
             while( !etThread && !POOP )
+            TN( tSlashDeadman , "/deadman" ) ;
             ZE( countT , idEscaped ) ;
             //LOGrAW( T("------------------------- B E G I N   S E S S I O N -------------------------------------------------------\r\n") ) ;
             //CONoUTrAW( T("------------------------- B E G I N   S E S S I O N -------------------------------------------------------\r\n") ) ;
 
             }
                 DEL( prPosts ) ;
-                if( prPosts && COSTS( *prPosts ) ) pso->writeF( tinP , POSTS( *prPosts ) , COSTS( *prPosts ) ) ;
+                if( prPosts && COSTS( *prPosts ) ) psoP->writeF( tinP , POSTS( *prPosts ) , COSTS( *prPosts ) ) ;
                 meP.getSnipF( tinP , prPosts , ifcIDsNIPpREDEFINED_HTTPcONTINUEwELCOME ) ; ___( prPosts ) ;
                 ZE( pbRefC* , prPosts ) ;
             {
@@ -1099,31 +1100,31 @@ TELL( "preparing for work" ) ;
 #define PUSHrEPLY(prPostP) PUSHK( REPLY.##prPostP ) ;
 
     }
-        PUSHD( prPosts ) ;                                                                                                                                                                          \
-        (meP).getSnipF( tinP , prPosts , (idSnipP) ) ; ___( prPosts ) ;                                                                                                                             \
-        ZE( pbRefC* , prPosts ) ;                                                                                                                                                                \
-    {                                                                                                                                                                                               \
-                                                                                                                                                                                                    \
-#define PUSHsNIP(meP,idSnipP)                                                                                                                                                                       \
+        PUSHD( prPosts ) ;                                                                          \
+        (meP).getSnipF( tinP , prPosts , (idSnipP) ) ; ___( prPosts ) ;                             \
+        ZE( pbRefC* , prPosts ) ;                                                                   \
+    {                                                                                               \
+                                                                                                    \
+#define PUSHsNIP(meP,idSnipP)                                                                       \
 
     }
-        DEL( prDoomed )                                                                                                                                                                          \
-        pbRefC* prDoomed = (prPostsP) ;                                                                                                                                                         \
-        new( 0 , tinP , (byteT*)&(*pStkBody)[ - 1 ] , sizeof( pbRefC ) ) pbRefC( *prPostsP ) ;                                                                                                 \
-        *pStkBody << (byteT*)0 ;                                                                                                                                                                 \
-    {                                                                                                                                                                                            \
-    if( prPostsP )                                                                                                        \
-                                                                                                                                                                                                 \
-#define PUSHD(prPostsP)                                                                                                                                                                          \
+        DEL( prDoomed )                                                                             \
+        pbRefC* prDoomed = (prPostsP) ;                                                             \
+        new( 0 , tinP , (byteT*)&(*pStkBody)[ - 1 ] , sizeof( pbRefC ) ) pbRefC( *prPostsP ) ;      \
+        *pStkBody << (byteT*)0 ;                                                                    \
+    {                                                                                               \
+    if( prPostsP )                                                                                  \
+                                                                                                    \
+#define PUSHD(prPostsP)                                                                             \
 //'D': "DELETE"
 
     }
-        new( 0 , tinP , (byteT*)&(*pStkBody)[ - 1 ] , sizeof( pbRefC ) ) pbRefC( *prPostsP ) ;                                                                                                 \
-        *pStkBody << (byteT*)0 ;                                                                                                                                                                 \
-    {                                                                                                                                                                                            \
-    if( prPostsP )                                                                                                        \
-                                                                                                                                                                                                 \
-#define PUSHK(prPostsP)                                                                                                                                                                          \
+        new( 0 , tinP , (byteT*)&(*pStkBody)[ - 1 ] , sizeof( pbRefC ) ) pbRefC( *prPostsP ) ;      \
+        *pStkBody << (byteT*)0 ;                                                                    \
+    {                                                                                               \
+    if( prPostsP )                                                                                  \
+                                                                                                    \
+#define PUSHK(prPostsP)                                                                             \
 //'K': "KEEP"
 
 /**/

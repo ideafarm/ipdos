@@ -8895,7 +8895,6 @@ it is illegal to refer to this symbol in the definition of an adam
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112000d1.fldrivenyouarefired END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112000d2.taskdrivenserver BEGIN
 
-
 //
 // Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
@@ -8940,9 +8939,13 @@ pso not 0 is guaranteed for code between me and DONEdRIVENsERVER
                                                                                                                             \
         b_lever.grabF( tinP , TAG( TAGiDnULL ) ) ;                                                                          \
         lever = ids ;                                                                                                       \
-        socketC*& pso = (socketC*&)(countT&)sw_pso ;                                                                        \
+        socketC*& psoP = (socketC*&)(countT&)sw_pso ;                                                                       \
         b_lever.ungrabF( tinP ) ;                                                                                           \
-        __Z( pso ) ;                                                                                                        \
+        __Z( psoP ) ;                                                                                                       \
+                                                                                                                            \
+        ZE( countT , idPortMeP ) ;                                                                                          \
+        nicNameC nnMeP ;                                                                                                    \
+        psoP->myNameF( tinP , idPortMeP , nnMeP ) ;                                                                         \
                                                                                                                             \
         /* THIS IS TOO SLOW (2 TOCKS)                                             */                                        \
         /* ZE( strokeS* , psttPeerP ) ;                                           */                                        \
@@ -8959,7 +8962,7 @@ pso not 0 is guaranteed for code between me and DONEdRIVENsERVER
         sessionC& sessionP = sessionsP.registerConnectionF( tinP , nnPeerP , /*psttPeerP*/T("notQueried") ) ;               \
         if( !etThread )                                                                                                     \
         {                                                                                                                   \
-            pso->etherF( tinP , *tinP.pEtScratch ) ;                                                                        \
+            psoP->etherF( tinP , *tinP.pEtScratch ) ;                                                                       \
             TELL( "TASKdRIVENsERVER: entering application code" )                                                           \
                                                                                                                             \
             {
@@ -8974,7 +8977,6 @@ pso not 0 is guaranteed for code between me and DONEdRIVENsERVER
 
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112000d2.taskdrivenserver END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112000d3.donedrivenserver BEGIN
-
 
 //
 // Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
@@ -9000,9 +9002,9 @@ see adam.0140104 for an example
             }                                                                                                               \
                                                                                                                             \
             b_lever.grabF( tinP , TAG( TAGiDnULL ) ) ;                                                                      \
-            DEL( pso ) ;                                                                                                    \
+            DEL( psoP ) ;                                                                                                   \
             lever = ids ;                                                                                                   \
-            if( (countT)&pso == (countT)&(countT&)sw_pso ) sw_pso.freeF( tinP ) ;                                           \
+            if( (countT)&psoP == (countT)&(countT&)sw_pso ) sw_pso.freeF( tinP ) ;                                          \
             else                                           __1                                                              \
             b_lever.ungrabF( tinP ) ;                                                                                       \
         }                                                                                                                   \
@@ -9033,7 +9035,6 @@ see adam.0140104 for an example
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112000d3.donedrivenserver END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112000d4.taskdrivenservernewsocket BEGIN
 
-
 //
 // Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
@@ -9060,19 +9061,19 @@ if pso is 0 after i have executed, the code between me and DONEdRIVENsERVER will
                                                                                                                             \
     IFsCRATCH                                                                                                               \
     {                                                                                                                       \
-        ZE( boolT , bFail ) ;                                                                                             \
+        ZE( boolT , bFail ) ;                                                                                               \
         {                                                                                                                   \
             SCOOPS                                                                                                          \
             soulC _sIn( tinP , *tinP.pEtScratch , TAG( TAGiDnULL ) ) ;                                                      \
             TELL( "TASKdRIVENsERVER: reading a soulC" )                                                                     \
-            pso->readF( tinP , _sIn ) ;                                                                                     \
+            psoP->readF( tinP , _sIn ) ;                                                                                    \
             bFail = POOP || _sIn.cFieldF( tinP ) != ifcIDcMDsESSION_NEWsOCKET ;                                             \
             if( bFail )                                                                                                     \
             {                                                                                                               \
                 POOPR                                                                                                       \
                 soulC _sErr( tinP , *tinP.pEtScratch , TAG( TAGiDnULL ) , flSOUL_null , ifcIDcMDsESSION_ERROR ) ;           \
                 TELL( "TASKdRIVENsERVER: writing a ifcIDcMDsESSION_ERROR soulC" )                                           \
-                pso->writeF( tinP , _sErr ) ;                                                                               \
+                psoP->writeF( tinP , _sErr ) ;                                                                              \
             }                                                                                                               \
             else                                                                                                            \
             {                                                                                                               \
@@ -9086,8 +9087,8 @@ if pso is 0 after i have executed, the code between me and DONEdRIVENsERVER will
                 psoDoomed->writeF( tinP , _sOut ) ;                                                                         \
                 TELL( "TASKdRIVENsERVER: waiting for the client to connect to the referral port" )                          \
                 nicNameC nnPeer ;                                                                                           \
-                ZE( countT , idPortPeer ) ;                                                                               \
-                ZE( boolT , bRefuse ) ;                                                                                   \
+                ZE( countT , idPortPeer ) ;                                                                                 \
+                ZE( boolT , bRefuse ) ;                                                                                     \
                 sol2.acceptF( tinP , pso , idPortPeer , nnPeer , bRefuse ) ; ___( pso ) ;                                   \
                 __( bRefuse ) ;                                                                                             \
                 TELL( "TASKdRIVENsERVER: cleaning up after referring client to the newly created socket" )                  \
