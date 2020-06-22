@@ -27,10 +27,10 @@
     //    TN( tKey   , "" ) ;
     //{
 
-    //LOGrAW( "\r\n---- psttKVReportP (END) -----------------------------------------------------------------\r\n" ) ;
-    //LOGrAW( T(psttKVReportP) ) ;
-    //LOGrAW( "\r\n---- psttKVReportP (BEGIN) -----------------------------------------------------------------\r\n" ) ;
-    //LOGrAW3( "noteFromPaypalCBF [bValid]:    " , bValid , "\r\n" ) ;
+    LOGrAW( "\r\n---- psttKVReportP (END) -----------------------------------------------------------------\r\n" ) ;
+    LOGrAW( T(psttKVReportP) ) ;
+    LOGrAW( "\r\n---- psttKVReportP (BEGIN) -----------------------------------------------------------------\r\n" ) ;
+    LOGrAW3( "noteFromPaypalCBF [bValid]:    " , bValid , "\r\n" ) ;
 
     }
         }
@@ -100,12 +100,14 @@
 
             THREADmODE1oN( flTHREADmODE1_ALLOWsTOPwHILEgRABBING )
 
+            rec << (strokeS*)tValueRewardBox        ;
+            rec << (strokeS*)tValueRewardBoxHidden  ;
             rec << (strokeS*)tValueAddressCountry   ;
             rec << (strokeS*)tValueAddressZip       ;
             rec << (strokeS*)tValuePaypalPayerEmail ;
             rec << (strokeS*)T("no")                ; // DELETE
             rec << (strokeS*)T(nnPeerP)             ;
-            rec << (countT)1                        ; // IDfORMAT
+            rec << (countT)2                        ; // IDfORMAT
             rec << finger                           ;
             soulC rec( tinP , TAG( TAGiDnULL ) ) ;
 
@@ -293,6 +295,8 @@
                         &info.psttAddressCountry                ,
                         &info.psttAddressCity                   ,
                         //CS:CODEsYNC: 1d20005 1d20005 1d20005
+
+                        //20200622@1031: NO LONGER KEPT IN SYNC BECAUSE AM NOT USING THIS ACCOUNTING SYSTEM
                     {
                     strokeS** pppstto[] =
 
@@ -322,6 +326,8 @@
         countT cFlavors = swKVP.cFlavorsF( tinP ) ;
 
         } ;
+            &tValueRewardBox                     ,
+            &tValueRewardBoxHidden               ,
 
             &tValueIdTest                        ,
             &tValuePaypalCustom                  ,
@@ -351,6 +357,9 @@
         textC* pptValue[] =
 
         } ;
+            &tKeyRewardBox                      ,
+            &tKeyRewardBoxHidden                ,
+
             &tKeyIdTest                         ,
             &tKeyPaypalCustom                   ,
             &tKeyPaypalPaymentStatus            ,
@@ -378,6 +387,9 @@
         {
         textC* pptKey[] =
 
+        TN( tValueRewardBox                     , "" ) ;
+        TN( tValueRewardBoxHidden               , "" ) ;
+
         TN( tValueIdTest                        , "" ) ;
         TN( tValuePaypalCustom                  , "" ) ;
         TN( tValuePaypalPaymentStatus           , "" ) ;
@@ -401,28 +413,31 @@
         TN( tValueAddressCountry                , "" ) ;
         TN( tValueAddressCity                   , "" ) ;
 
-        TN( tKeyIdTest                      , "ifcidtest"      ) ;
-        TN( tKeyPaypalCustom                , "custom"         ) ;
-        TN( tKeyPaypalPaymentStatus         , "payment_status" ) ;
-        TN( tKeyPaypalPaymentGross          , "payment_gross"  ) ;
-        TN( tKeyPaypalPaymentFee            , "payment_fee"    ) ;
+        TN( tKeyRewardBox                       , "rewardbox"              ) ;
+        TN( tKeyRewardBoxHidden                 , "rewardboxhidden"        ) ;
 
-        TN( tKeyResidenceCountry            , "residence_country"      ) ;
-        TN( tKeyPaypalProtectionEligibility , "protection_eligibility" ) ;
-        TN( tKeyPaypalPayerStatus           , "payer_status"           ) ;
-        TN( tKeyPaypalPayerId               , "payer_id"               ) ;
-        TN( tKeyPaypalPayerEmail            , "payer_email"            ) ;
-        TN( tKeyLastName                    , "last_name"              ) ;
-        TN( tKeyFirstName                   , "first_name"             ) ;
-        TN( tKeyCharset                     , "charset"                ) ;
-        TN( tKeyAddressZip                  , "address_zip"            ) ;
-        TN( tKeyAddressStreet               , "address_street"         ) ;
-        TN( tKeyAddressStatus               , "address_status"         ) ;
-        TN( tKeyAddressState                , "address_state"          ) ;
-        TN( tKeyAddressName                 , "address_name"           ) ;
-        TN( tKeyAddressCountryCode          , "address_country_code"   ) ;
-        TN( tKeyAddressCountry              , "address_country"        ) ;
-        TN( tKeyAddressCity                 , "address_city"           ) ;
+        TN( tKeyIdTest                          , "ifcidtest"              ) ;
+        TN( tKeyPaypalCustom                    , "custom"                 ) ;
+        TN( tKeyPaypalPaymentStatus             , "payment_status"         ) ;
+        TN( tKeyPaypalPaymentGross              , "payment_gross"          ) ;
+        TN( tKeyPaypalPaymentFee                , "payment_fee"            ) ;
+
+        TN( tKeyResidenceCountry                , "residence_country"      ) ;
+        TN( tKeyPaypalProtectionEligibility     , "protection_eligibility" ) ;
+        TN( tKeyPaypalPayerStatus               , "payer_status"           ) ;
+        TN( tKeyPaypalPayerId                   , "payer_id"               ) ;
+        TN( tKeyPaypalPayerEmail                , "payer_email"            ) ;
+        TN( tKeyLastName                        , "last_name"              ) ;
+        TN( tKeyFirstName                       , "first_name"             ) ;
+        TN( tKeyCharset                         , "charset"                ) ;
+        TN( tKeyAddressZip                      , "address_zip"            ) ;
+        TN( tKeyAddressStreet                   , "address_street"         ) ;
+        TN( tKeyAddressStatus                   , "address_status"         ) ;
+        TN( tKeyAddressState                    , "address_state"          ) ;
+        TN( tKeyAddressName                     , "address_name"           ) ;
+        TN( tKeyAddressCountryCode              , "address_country_code"   ) ;
+        TN( tKeyAddressCountry                  , "address_country"        ) ;
+        TN( tKeyAddressCity                     , "address_city"           ) ;
     {
     if( bValid /*|| idTest == ifcIDtESTpASSCODE*/ )
     //ifcIDtESTpASSCODE IS USED BY THE TOOL THAT ALLOWS ME TO MANUALLY SIMULATE PAYMENTS  //ARBITRARY SECRET PASSWORD; DISABLE THE TEST ACCEPTANCE EXCEPT WHEN TESTING
