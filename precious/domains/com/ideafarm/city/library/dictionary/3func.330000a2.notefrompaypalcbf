@@ -108,9 +108,12 @@
             rec << (strokeS*)tValueAddressZip       ;
             rec << (strokeS*)tValuePaypalPayerEmail ;
             rec << (strokeS*)T(nnPeerP)             ;
-            rec << (countT)3                        ; // IDfORMAT
+            rec << (strokeS*)tAction                ;
+            rec << (countT)4                        ; // IDfORMAT
             rec << finger                           ;
             soulC rec( tinP , TAG( TAGiDnULL ) ) ;
+
+            TN( tAction , !etThread.strCompareF( tinP , tValuePaypalPaymentStatus , T("Refunded") ) ? "unregister" : "register" ) ;
 
             putNegAM( *(countT*)&finger , FINGERnEG_WOtABLEcONFIRMEDeMAIL ) ;
             ZE( countT , finger ) ;
