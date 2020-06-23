@@ -100,14 +100,15 @@
 
             THREADmODE1oN( flTHREADmODE1_ALLOWsTOPwHILEgRABBING )
 
+            rec << (strokeS*)tValueTransId          ;
+            rec << (strokeS*)tValueTransType        ;
             rec << (strokeS*)tValueRewardBox        ;
             rec << (strokeS*)tValueRewardBoxHidden  ;
             rec << (strokeS*)tValueAddressCountry   ;
             rec << (strokeS*)tValueAddressZip       ;
             rec << (strokeS*)tValuePaypalPayerEmail ;
-            rec << (strokeS*)T("no")                ; // DELETE
             rec << (strokeS*)T(nnPeerP)             ;
-            rec << (countT)2                        ; // IDfORMAT
+            rec << (countT)3                        ; // IDfORMAT
             rec << finger                           ;
             soulC rec( tinP , TAG( TAGiDnULL ) ) ;
 
@@ -326,6 +327,9 @@
         countT cFlavors = swKVP.cFlavorsF( tinP ) ;
 
         } ;
+            &tValueTransId                       ,
+            &tValueTransType                     ,
+
             &tValueRewardBox                     ,
             &tValueRewardBoxHidden               ,
 
@@ -357,6 +361,9 @@
         textC* pptValue[] =
 
         } ;
+            &tKeyTransId                        ,
+            &tKeyTransType                      ,
+
             &tKeyRewardBox                      ,
             &tKeyRewardBoxHidden                ,
 
@@ -387,6 +394,9 @@
         {
         textC* pptKey[] =
 
+        TN( tValueTransId                       , "" ) ;
+        TN( tValueTransType                     , "" ) ;
+
         TN( tValueRewardBox                     , "" ) ;
         TN( tValueRewardBoxHidden               , "" ) ;
 
@@ -412,6 +422,9 @@
         TN( tValueAddressCountryCode            , "" ) ;
         TN( tValueAddressCountry                , "" ) ;
         TN( tValueAddressCity                   , "" ) ;
+
+        TN( tKeyTransId                         , "txn_id"                 ) ;
+        TN( tKeyTransType                       , "txn_type"               ) ;
 
         TN( tKeyRewardBox                       , "option_selection1"      ) ;
         TN( tKeyRewardBoxHidden                 , "option_selection2"      ) ;
