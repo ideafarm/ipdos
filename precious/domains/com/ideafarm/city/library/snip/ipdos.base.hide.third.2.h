@@ -1766,7 +1766,7 @@ a jPointer is also considered null if it contains one of the special values [JrE
 /*1*//*IPDOScOMPILEoPTIONS*//*1*/
 
 /*3*/
-#define IPDOScOMPILEoPTIONS        "-6r -bm -bt=NT -ew -fp5 -fpi87 -od -sg -wx -zp1 -zq -wcd=202     "
+#define IPDOScOMPILEoPTIONS        "-6r -bm -bt=NT -ew -fp5 -fpi87 -od -sg -wx -zp1 -zq -wcd=202 -wcd=433     "
 /*3*/
 
 
