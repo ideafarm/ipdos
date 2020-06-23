@@ -5266,6 +5266,7 @@ use this rather than _ to avoid the overhead of _
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200565.ifwhereknowsthread END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.thirdParties : 1snip.15000014.thirdparties BEGIN
 
+
 //
 // Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
@@ -5367,37 +5368,37 @@ it is illegal to refer to this symbol in the definition of an adam
 
         //CS:CODEsYNC:DUPLICATED: 15000014 01000002
 
-        typedef const SSL_METHOD* (__syscall *openSsl_pMethodFT      )( void )                                             ; //const SSL_METHOD *TLS_method(void);  /* SSLv3 but can rollback to v2 */
+        typedef const SSL_METHOD* (__syscall *openSsl_pMethodFT      )( void )                                                    ; //const SSL_METHOD *TLS_method(void);  /* SSLv3 but can rollback to v2 */
 
-        typedef int               (__syscall *openSsl_pInitFT        )( void )                                             ; //int __syscall SSL_library_init( void ) ;
+        typedef int               (__syscall *openSsl_pInitFT        )( void )                                                    ; //int __syscall SSL_library_init( void ) ;
 
-        typedef SSL_CTX*          (__syscall *openSsl_pContextFT     )( const SSL_METHOD* pMethodP )                       ; //SSL_CTX* __syscall SSL_CTX_new( const SSL_METHOD* method ) ;
+        typedef SSL_CTX*          (__syscall *openSsl_pContextFT     )( const SSL_METHOD* pMethodP )                              ; //SSL_CTX* __syscall SSL_CTX_new( const SSL_METHOD* method ) ;
 
-        typedef void              (__syscall *openSsl_pContextFreeFT )( SSL_CTX* pContextP )                               ; // void SSL_CTX_free(SSL_CTX *ctx) ;
+        typedef void              (__syscall *openSsl_pContextFreeFT )( SSL_CTX* pContextP )                                      ; // void SSL_CTX_free(SSL_CTX *ctx) ;
 
-        typedef SSL*              (__syscall *openSsl_pWrapperFT     )( SSL_CTX* pContextP )                               ; // SSL *SSL_new(SSL_CTX *ctx) ;
+        typedef SSL*              (__syscall *openSsl_pWrapperFT     )( SSL_CTX* pContextP )                                      ; // SSL *SSL_new(SSL_CTX *ctx) ;
 
-        typedef void              (__syscall *openSsl_pWrapperFreeFT )( SSL* pWrapP )                                      ; // void SSL_free(SSL *ssl);
+        typedef void              (__syscall *openSsl_pWrapperFreeFT )( SSL* pWrapP )                                             ; // void SSL_free(SSL *ssl);
 
-        typedef int               (__syscall *openSsl_pWrapFT        )( SSL* pWrapP , int hSockP )                         ; // int SSL_set_fd(SSL *ssl, int fd);
+        typedef int               (__syscall *openSsl_pWrapFT        )( SSL* pWrapP , int hSockP )                                ; // int SSL_set_fd(SSL *ssl, int fd);
 
-        typedef int               (__syscall *openSsl_pShakeAsServerFT )( SSL* pWrapP )                                      ; //  int SSL_connect(SSL *ssl);
+        typedef int               (__syscall *openSsl_pShakeAsServerFT       )( SSL* pWrapP )                                             ; //  int SSL_accept(SSL *ssl);
 
-        typedef int               (__syscall *openSsl_pShakeAsClientFT )( SSL* pWrapP )                                      ; //  int SSL_connect(SSL *ssl);
+        typedef int               (__syscall *openSsl_pShakeAsClientFT       )( SSL* pWrapP )                                             ; //  int SSL_connect(SSL *ssl);
 
-        typedef int               (__syscall *openSsl_pWriteFT       )( SSL* pWrapP , const void* pbP , int cbP )          ; // int SSL_write(SSL *ssl, const void *buf, int num);
+        typedef int               (__syscall *openSsl_pWriteFT       )( SSL* pWrapP , const void* pbP , int cbP )                 ; // int SSL_write(SSL *ssl, const void *buf, int num);
 
-        typedef int               (__syscall *openSsl_pReadFT        )( SSL* pWrapP , void* pbP , int cbP )                ; // int SSL_read(SSL *ssl, void *buf, int num);
+        typedef int               (__syscall *openSsl_pReadFT        )( SSL* pWrapP , void* pbP , int cbP )                       ; // int SSL_read(SSL *ssl, void *buf, int num);
 
-        typedef int               (__syscall *openSsl_pPeekFT        )( SSL* pWrapP , void* pbP , int cbP )                ; // int SSL_peek(SSL *ssl, void *buf, int num);
+        typedef int               (__syscall *openSsl_pPeekFT        )( SSL* pWrapP , void* pbP , int cbP )                       ; // int SSL_peek(SSL *ssl, void *buf, int num);
 
-        typedef int               (__syscall *openSsl_pWaveByeFT     )( SSL* pWrapP )                                      ; // int SSL_shutdown(SSL *ssl);
-
-        typedef int               (__syscall *openSsl_pPemFileKeyFT  )( SSL_CTX* pContextP , const char* postPemP , int idTypeP ) ; // int SSL_CTX_use_PrivateKey_file(SSL_CTX *ctx, const char *file, int type);
+        typedef int               (__syscall *openSsl_pWaveByeFT     )( SSL* pWrapP )                                             ; // int SSL_shutdown(SSL *ssl);
 
         typedef int               (__syscall *openSsl_pPemFileCertFT )( SSL_CTX* pContextP , const char* postPemP )               ; // int SSL_CTX_use_certificate_chain_file(SSL_CTX *ctx, const char *file);
 
-        typedef int               (__syscall *openSsl_pCurvesFT      )( SSL_CTX* pContextP , int onOffP )                  ; // int SSL_CTX_set_ecdh_auto(SSL_CTX *ctx, int onoff);
+        typedef int               (__syscall *openSsl_pPemFileKeyFT  )( SSL_CTX* pContextP , const char* postPemP , int idTypeP ) ; // int SSL_CTX_use_PrivateKey_file(SSL_CTX *ctx, const char *file, int type);
+
+        typedef int               (__syscall *openSsl_pCurvesFT      )( SSL_CTX* pContextP , int onOffP )                         ; // int SSL_CTX_set_ecdh_auto(SSL_CTX *ctx, int onoff);
 
         //----------------------------------------------------- END
 
@@ -28515,13 +28516,15 @@ applications should avoid using thirdC objects
   static voidT openSsl_wrapSocketIF( tinS& tinP , const handleC& hWrapperP , const handleC& hSocketP ) ;
   //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.350011a3.thirdC.openSsl_wrapSocketIF!||
   static voidT openSsl_shakeHandsAsClientIF( tinS& tinP , const handleC& hWrapperP ) ;
-  static voidT openSsl_shakeHandsAsServerIF( tinS& tinP , const handleC& hWrapperP ) ;
   //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.350011a4.thirdC.openSsl_shakeHandsAsClientIF!||
+  static voidT openSsl_shakeHandsAsServerIF( tinS& tinP , const handleC& hWrapperP ) ;
+  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.350011ad.thirdc.openssl_shakehandsasserverif!||
   static countT openSsl_writeIF( tinS& tinP , const handleC& hWrapperP , const byteT* const pbP , const countT cbP = 0 ) ;
   //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.350011a5.thirdC.openSsl_writeIF!||
   static countT openSsl_readIF( tinS& tinP , byteT* const pbP , const countT cbP , const handleC& hWrapperP ) ;
   //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.350011a6.thirdC.openSsl_readIF!||
   static countT openSsl_peekIF( tinS& tinP , byteT* const pbP , const countT cbP , const handleC& hWrapperP ) ;
+  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.350011ae.thirdc.openssl_peekif!||
   static voidT openSsl_waveByeIF( tinS& tinP , const handleC& hWrapperP ) ;
   //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.350011a8.thirdc.openssl_shutdownif!||
 
@@ -31825,13 +31828,15 @@ examples
   voidT openSsl_wrapSocketF( tinS& tinP , const handleC& hWrapperP , const handleC& hSocketP ) ;
   //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.360021d5.etherC.openSsl_wrapSocketF!||
   voidT openSsl_shakeHandsAsClientF( tinS& tinP , const handleC& hWrapperP ) ;
-  voidT openSsl_shakeHandsAsServerF( tinS& tinP , const handleC& hWrapperP ) ;
   //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.360021d6.etherC.openSsl_shakeHandsAsClientF!||
+  voidT openSsl_shakeHandsAsServerF( tinS& tinP , const handleC& hWrapperP ) ;
+  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.360021f3.etherc.openssl_shakehandsasserverf!||
   countT openSsl_writeF( tinS& tinP , const handleC& hWrapperP , const byteT* const pbP , const countT cbP = 0 ) ;
   //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.360021d7.etherC.openSsl_writeF!||
   countT openSsl_readF( tinS& tinP , byteT* const pbP , const countT cbP , const handleC& hWrapperP ) ;
-  countT openSsl_peekF( tinS& tinP , byteT* const pbP , const countT cbP , const handleC& hWrapperP ) ;
   //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.360021d8.etherC.openSsl_readF!||
+  countT openSsl_peekF( tinS& tinP , byteT* const pbP , const countT cbP , const handleC& hWrapperP ) ;
+  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.360021f4.etherc.openssl_peekf!||
   voidT openSsl_waveByeF( tinS& tinP , const handleC& hWrapperP ) ;
   //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.360021de.etherc.openssl_shutdownf!||
 
@@ -32808,9 +32813,9 @@ examples
 /* birth , death */
  NEWdELcLASSpROTOS
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400e.socketC.NEWdELcLASSpeTHER!||
- socketC( etherC& etherP , tinS& tinP , const countT idLineCtP , const countT idiFileCtP , const byteT* const pbBitsCtP , handleC& handleP , const boolT idTypeP , const flagsT flagsP , const countT* const pIdleTimeAllowedReadP , const countT* const pIdleTimeAllowedWriteP , const countT* const pTimeAllowedConnectedP , nicNameC& nnPeerP , const strokeS* const psttPemCertificatesP , const strokeS* const psttPemPrivateKeyP ) ;
- //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34001.socketC.socketC!||
  socketC( tinS& tinP , etherC& etherP , const countT idLineCtP , const countT idiFileCtP , const byteT* const pbBitsCtP , const boolT idTypeP = 0 , const flagsT flagsP = flSOCKETc_null , const countT* const pIdleTimeAllowedReadP = 0 , const countT* const pIdleTimeAllowedWriteP = 0 , const countT* const pTimeAllowedConnectedP = 0 , const strokeS* const psttPemCertificatesP = 0 , const strokeS* const psttPemPrivateKeyP = 0 ) ;
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34001.socketC.socketC!||
+ socketC( etherC& etherP , tinS& tinP , const countT idLineCtP , const countT idiFileCtP , const byteT* const pbBitsCtP , handleC& handleP , const boolT idTypeP , const flagsT flagsP , const countT* const pIdleTimeAllowedReadP , const countT* const pIdleTimeAllowedWriteP , const countT* const pTimeAllowedConnectedP , nicNameC& nnPeerP , const strokeS* const psttPemCertificatesP , const strokeS* const psttPemPrivateKeyP ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34002.socketC.socketC!||
  ~socketC( voidT ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34003.socketC.dt_socketC!||
@@ -32827,8 +32832,9 @@ examples
  voidT connectF( tinS& tinP , countT idPortP = 0 , const nicNameC nicNameP = nicNameC() , countT cTriesP = 0 , const countT time1P = 0 , const sCountT time2P = 0 ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34006.socketC.connectF!||
  voidT shakeHandsAsClientF( tinS& tinP ) ;
- voidT shakeHandsAsServerF( tinS& tinP ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3600502e.socketc.shakeHandsAsClientF!||
+ voidT shakeHandsAsServerF( tinS& tinP ) ;
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3600502f.socketc.shakeHandsasserverF!||
  static nicNameC nicNameIF( tinS& tinP , etherC& etherP , const strokeS* const psttP = 0 ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34007.socketC.nicNameIF!||
  static voidT nicNameIF( tinS& tinP , etherC& ether , nicNameC*& pNicNameP , countT& cNicNameP , const strokeS* const psttP = 0 ) ;
@@ -39333,32 +39339,32 @@ base class to make a derived class of objects easily contained by a stackC objec
             CONTEXT                     cInfo ;
             EXCEPTION_POINTERS          ecInfo ;
     
-            HMODULE                     openSsl_hModule       ;
-            openSsl_pMethodFT           openSsl_pMethodF      ;
-            openSsl_pInitFT             openSsl_pInitF        ;
-            openSsl_pContextFT          openSsl_pContextF     ;
-            openSsl_pContextFreeFT      openSsl_pContextFreeF ;
-            openSsl_pWrapperFT          openSsl_pWrapperF     ;
-            openSsl_pWrapperFreeFT      openSsl_pWrapperFreeF ;
-            openSsl_pWrapFT             openSsl_pWrapF        ;
+            HMODULE                     openSsl_hModule         ;
+            openSsl_pMethodFT           openSsl_pMethodF        ;
+            openSsl_pInitFT             openSsl_pInitF          ;
+            openSsl_pContextFT          openSsl_pContextF       ;
+            openSsl_pContextFreeFT      openSsl_pContextFreeF   ;
+            openSsl_pWrapperFT          openSsl_pWrapperF       ;
+            openSsl_pWrapperFreeFT      openSsl_pWrapperFreeF   ;
+            openSsl_pWrapFT             openSsl_pWrapF          ;
             openSsl_pShakeAsServerFT    openSsl_pShakeAsServerF ;
             openSsl_pShakeAsClientFT    openSsl_pShakeAsClientF ;
-            openSsl_pWriteFT            openSsl_pWriteF       ;
-            openSsl_pReadFT             openSsl_pReadF        ;
-            openSsl_pPeekFT             openSsl_pPeekF        ;
-            openSsl_pWaveByeFT          openSsl_pWaveByeF     ;
-            openSsl_pPemFileCertFT      openSsl_pPemFileCertF ;
-            openSsl_pPemFileKeyFT       openSsl_pPemFileKeyF  ;
-            openSsl_pCurvesFT           openSsl_pCurvesF      ;
+            openSsl_pWriteFT            openSsl_pWriteF         ;
+            openSsl_pReadFT             openSsl_pReadF          ;
+            openSsl_pPeekFT             openSsl_pPeekF          ;
+            openSsl_pWaveByeFT          openSsl_pWaveByeF       ;
+            openSsl_pPemFileCertFT      openSsl_pPemFileCertF   ;
+            openSsl_pPemFileKeyFT       openSsl_pPemFileKeyF    ;
+            openSsl_pCurvesFT           openSsl_pCurvesF        ;
 
-            HMODULE                     zlib_hModule          ;
-            zlib_deflateInitFT          zlib_pDeflateInitF    ;
-            zlib_deflateFT              zlib_pDeflateF        ;
-            zlib_deflateEndFT           zlib_pDeflateEndF     ;
-            zlib_inflateInitFT          zlib_pInflateInitF    ;
-            zlib_inflateInit2FT         zlib_pInflateInit2F   ;
-            zlib_inflateFT              zlib_pInflateF        ;
-            zlib_inflateEndFT           zlib_pInflateEndF     ;
+            HMODULE                     zlib_hModule            ;
+            zlib_deflateInitFT          zlib_pDeflateInitF      ;
+            zlib_deflateFT              zlib_pDeflateF          ;
+            zlib_deflateEndFT           zlib_pDeflateEndF       ;
+            zlib_inflateInitFT          zlib_pInflateInitF      ;
+            zlib_inflateInit2FT         zlib_pInflateInit2F     ;
+            zlib_inflateFT              zlib_pInflateF          ;
+            zlib_inflateEndFT           zlib_pInflateEndF       ;
 
         #endif
 

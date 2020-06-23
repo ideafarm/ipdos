@@ -2061,7 +2061,7 @@ voidT openSsl_shutdownF__GF( tinS& tinP , etherC& etherP , soulC& slP , const st
     if( tinP.fingerprint && _psttNameP && slP ) ;
 }
 
-voidT openSsl_getContextF_b_GF( tinS& tinP , etherC& etherP , soulC& slP , const strokeS* const _psttNameP )
+voidT openSsl_getContextF_b4P4P_GF( tinS& tinP , etherC& etherP , soulC& slP , const strokeS* const _psttNameP )
 {
     countT idArgNext = 1 ;
     ZE( byteT* , pbFieldNext ) ;
@@ -2073,7 +2073,57 @@ voidT openSsl_getContextF_b_GF( tinS& tinP , etherC& etherP , soulC& slP , const
    SOIXLoLDtESTtYPE( 0xdddd8014 , etherC )
     handleC handleP( /*GOOEY*/tinP , TAG( TAGiDnULL ) ) ;
     if( !POOP ) { handleP << slP ; idArgNext ++ ; }
-    if( !POOP ) etherP.openSsl_getContextF( tinP , handleP ) ;
+
+    ZE( strokeS* , psttPemCertificatesP ) ;
+    {
+        strokeS sttColon( ':' ) ;
+        SOIXLoLDtESTeMPTY( 0xdddd8017 , etherC )
+        if( !POOP )
+        {
+           idTypeNext = flagsNext = cbFieldNext = 0 ;
+            pbFieldNext = slP.pbFieldF( tinP , idTypeNext , flagsNext , cbFieldNext , 1 ) ;
+            strokeS* psttNext = *pbFieldNext & flSOULiTEM_NULLpTR ? 0 : (strokeS*)pbFieldNext ;
+            if( idTypeNext == ifcIDtYPEsOULiTEM_strokeSptr && psttNext && psttNext->idAdam == 1 && psttNext[ CSpREFIX ] == sttColon )
+            {
+                psttPemCertificatesP = 0 ;
+                psttNext = 0 ;
+                if( !POOP ) { slP >> psttNext ; ___( psttNext ) ; idArgNext ++ ; }
+                etherP.delF( tinP , psttNext ) ;
+            }
+            else
+            {
+                SOIXLoLDtESTtYPE( 0xdddd8017 , etherC )
+                if( !POOP ) { slP >> psttPemCertificatesP ; idArgNext ++ ; }
+            }
+        }
+    }
+
+    ZE( strokeS* , psttPemPrivateKeyP ) ;
+    {
+        strokeS sttColon( ':' ) ;
+        SOIXLoLDtESTeMPTY( 0xdddd8017 , etherC )
+        if( !POOP )
+        {
+           idTypeNext = flagsNext = cbFieldNext = 0 ;
+            pbFieldNext = slP.pbFieldF( tinP , idTypeNext , flagsNext , cbFieldNext , 1 ) ;
+            strokeS* psttNext = *pbFieldNext & flSOULiTEM_NULLpTR ? 0 : (strokeS*)pbFieldNext ;
+            if( idTypeNext == ifcIDtYPEsOULiTEM_strokeSptr && psttNext && psttNext->idAdam == 1 && psttNext[ CSpREFIX ] == sttColon )
+            {
+                psttPemPrivateKeyP = 0 ;
+                psttNext = 0 ;
+                if( !POOP ) { slP >> psttNext ; ___( psttNext ) ; idArgNext ++ ; }
+                etherP.delF( tinP , psttNext ) ;
+            }
+            else
+            {
+                SOIXLoLDtESTtYPE( 0xdddd8017 , etherC )
+                if( !POOP ) { slP >> psttPemPrivateKeyP ; idArgNext ++ ; }
+            }
+        }
+    }
+    if( !POOP ) etherP.openSsl_getContextF( tinP , handleP , psttPemCertificatesP , psttPemPrivateKeyP ) ;
+    etherP.delF( tinP , psttPemPrivateKeyP ) ;
+    etherP.delF( tinP , psttPemCertificatesP ) ;
 }
 
 voidT openSsl_getWrapperF_bb_GF( tinS& tinP , etherC& etherP , soulC& slP , const strokeS* const _psttNameP )
@@ -2129,6 +2179,21 @@ voidT openSsl_shakeHandsAsClientF_b_GF( tinS& tinP , etherC& etherP , soulC& slP
     handleC hWrapperP( /*GOOEY*/tinP , TAG( TAGiDnULL ) ) ;
     if( !POOP ) { hWrapperP << slP ; idArgNext ++ ; }
     if( !POOP ) etherP.openSsl_shakeHandsAsClientF( tinP , hWrapperP ) ;
+}
+
+voidT openSsl_shakeHandsAsServerF_b_GF( tinS& tinP , etherC& etherP , soulC& slP , const strokeS* const _psttNameP )
+{
+    countT idArgNext = 1 ;
+    ZE( byteT* , pbFieldNext ) ;
+    ZE( countT , idTypeNext ) ;
+    ZE( flagsT , flagsNext ) ;
+    ZE( countT , cbFieldNext ) ;
+
+   SOIXLoLDtESTeMPTY( 0xdddd8014 , etherC )
+   SOIXLoLDtESTtYPE( 0xdddd8014 , etherC )
+    handleC hWrapperP( /*GOOEY*/tinP , TAG( TAGiDnULL ) ) ;
+    if( !POOP ) { hWrapperP << slP ; idArgNext ++ ; }
+    if( !POOP ) etherP.openSsl_shakeHandsAsServerF( tinP , hWrapperP ) ;
 }
 
 voidT openSsl_writeF_b1P3_GF( tinS& tinP , etherC& etherP , soulC& slP , const strokeS* const _psttNameP )
@@ -2210,7 +2275,37 @@ voidT openSsl_readF_1P3b_GF( tinS& tinP , etherC& etherP , soulC& slP , const st
     slP << noName ;
 }
 
-voidT openSsl_shutdownF_b_GF( tinS& tinP , etherC& etherP , soulC& slP , const strokeS* const _psttNameP )
+voidT openSsl_peekF_1P3b_GF( tinS& tinP , etherC& etherP , soulC& slP , const strokeS* const _psttNameP )
+{
+    countT idArgNext = 1 ;
+    ZE( byteT* , pbFieldNext ) ;
+    ZE( countT , idTypeNext ) ;
+    ZE( flagsT , flagsNext ) ;
+    ZE( countT , cbFieldNext ) ;
+
+    SOIXLoLDtESTeMPTY( 0xdddd8015 , etherC )
+    SOIXLoLDtESTtYPE( 0xdddd8015 , etherC )
+    ZE( byteT* , pbP ) ;
+    if( !POOP ) { slP >> pbP ; ___( pbP ) ; idArgNext ++ ; }
+
+   SOIXLoLDtESTeMPTY( 0xdddd8003 , etherC )
+   SOIXLoLDtESTtYPE( 0xdddd8003 , etherC )
+    ZE( countT , cbP ) ;
+    if( !POOP ) { slP >> cbP ; idArgNext ++ ; }
+
+   SOIXLoLDtESTeMPTY( 0xdddd8014 , etherC )
+   SOIXLoLDtESTtYPE( 0xdddd8014 , etherC )
+    handleC hWrapperP( /*GOOEY*/tinP , TAG( TAGiDnULL ) ) ;
+    if( !POOP ) { hWrapperP << slP ; idArgNext ++ ; }
+
+    ZE( countT , noName ) ;
+    if( !POOP ) noName = etherP.openSsl_peekF( tinP , pbP , cbP , hWrapperP ) ;
+    etherP.delF( tinP , pbP ) ;
+
+    slP << noName ;
+}
+
+voidT openSsl_waveByeF_b_GF( tinS& tinP , etherC& etherP , soulC& slP , const strokeS* const _psttNameP )
 {
     countT idArgNext = 1 ;
     ZE( byteT* , pbFieldNext ) ;
@@ -2222,6 +2317,7 @@ voidT openSsl_shutdownF_b_GF( tinS& tinP , etherC& etherP , soulC& slP , const s
    SOIXLoLDtESTtYPE( 0xdddd8014 , etherC )
     handleC hWrapperP( /*GOOEY*/tinP , TAG( TAGiDnULL ) ) ;
     if( !POOP ) { hWrapperP << slP ; idArgNext ++ ; }
+    if( !POOP ) etherP.openSsl_waveByeF( tinP , hWrapperP ) ;
 }
 
 voidT sockBindF_b3d3_GF( tinS& tinP , etherC& etherP , soulC& slP , const strokeS* const _psttNameP )
@@ -2446,54 +2542,4 @@ voidT sockOptionReuseAddressF_b6_GF( tinS& tinP , etherC& etherP , soulC& slP , 
         }
     }
     if( !POOP ) etherP.sockOptionReuseAddressF( tinP , handleP , bAllowP ) ;
-}
-
-voidT sockOptionSendNowF_b6_GF( tinS& tinP , etherC& etherP , soulC& slP , const strokeS* const _psttNameP )
-{
-    countT idArgNext = 1 ;
-    ZE( byteT* , pbFieldNext ) ;
-    ZE( countT , idTypeNext ) ;
-    ZE( flagsT , flagsNext ) ;
-    ZE( countT , cbFieldNext ) ;
-
-   SOIXLoLDtESTeMPTY( 0xdddd8014 , etherC )
-   SOIXLoLDtESTtYPE( 0xdddd8014 , etherC )
-    handleC handleP( /*GOOEY*/tinP , TAG( TAGiDnULL ) ) ;
-    if( !POOP ) { handleP << slP ; idArgNext ++ ; }
-
-    ZE( boolT , bEnableP ) ;
-    {
-        strokeS sttColon( ':' ) ;
-        SOIXLoLDtESTeMPTY( 0x0 , etherC )
-        if( !POOP )
-        {
-           idTypeNext = flagsNext = cbFieldNext = 0 ;
-            pbFieldNext = slP.pbFieldF( tinP , idTypeNext , flagsNext , cbFieldNext , 1 ) ;
-            strokeS* psttNext = *pbFieldNext & flSOULiTEM_NULLpTR ? 0 : (strokeS*)pbFieldNext ;
-            if( idTypeNext == ifcIDtYPEsOULiTEM_strokeSptr && psttNext && psttNext->idAdam == 1 && psttNext[ CSpREFIX ] == sttColon )
-            {
-                bEnableP = 1 ;
-                psttNext = 0 ;
-                if( !POOP ) { slP >> psttNext ; ___( psttNext ) ; idArgNext ++ ; }
-                etherP.delF( tinP , psttNext ) ;
-            }
-            else
-            {
-                SOIXLoLDtESTtYPE( 0x0 , etherC )
-                if( !POOP ) { slP >> bEnableP ; idArgNext ++ ; }
-            }
-        }
-    }
-    if( !POOP ) etherP.sockOptionSendNowF( tinP , handleP , bEnableP ) ;
-}
-
-voidT socksSetupF__GF( tinS& tinP , etherC& etherP , soulC& slP , const strokeS* const _psttNameP )
-{
-    countT idArgNext = 1 ;
-    ZE( byteT* , pbFieldNext ) ;
-    ZE( countT , idTypeNext ) ;
-    ZE( flagsT , flagsNext ) ;
-    ZE( countT , cbFieldNext ) ;
-    if( !POOP ) etherP.socksSetupF( tinP ) ;
-    if( tinP.fingerprint && _psttNameP && slP ) ;
 }

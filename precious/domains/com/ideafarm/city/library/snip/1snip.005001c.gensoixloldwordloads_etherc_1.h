@@ -1127,11 +1127,11 @@
     _pSwSoixlOldApi->ungrabF( tinP ) ;
 }
 {
-    TN( tNameSoixlOld , "openSsl_getContextF_b" ) ;
+    TN( tNameSoixlOld , "openSsl_getContextF_b4@4@" ) ;
     _pSwSoixlOldApi->grabF( tinP , TAG( TAGiDnULL ) ) ;
     _psttLeverSoixlOldApi = tNameSoixlOld ;
     if( *_pSwSoixlOldApi ) { BLAMMO ; }
-    *_pSwSoixlOldApi = (countT)openSsl_getContextF_b_GF ;
+    *_pSwSoixlOldApi = (countT)openSsl_getContextF_b4P4P_GF ;
     _pSwSoixlOldApi->ungrabF( tinP ) ;
 }
 {
@@ -1159,6 +1159,14 @@
     _pSwSoixlOldApi->ungrabF( tinP ) ;
 }
 {
+    TN( tNameSoixlOld , "openSsl_shakeHandsAsServerF_b" ) ;
+    _pSwSoixlOldApi->grabF( tinP , TAG( TAGiDnULL ) ) ;
+    _psttLeverSoixlOldApi = tNameSoixlOld ;
+    if( *_pSwSoixlOldApi ) { BLAMMO ; }
+    *_pSwSoixlOldApi = (countT)openSsl_shakeHandsAsServerF_b_GF ;
+    _pSwSoixlOldApi->ungrabF( tinP ) ;
+}
+{
     TN( tNameSoixlOld , "openSsl_writeF_b1@3" ) ;
     _pSwSoixlOldApi->grabF( tinP , TAG( TAGiDnULL ) ) ;
     _psttLeverSoixlOldApi = tNameSoixlOld ;
@@ -1175,11 +1183,19 @@
     _pSwSoixlOldApi->ungrabF( tinP ) ;
 }
 {
-    TN( tNameSoixlOld , "openSsl_shutdownF_b" ) ;
+    TN( tNameSoixlOld , "openSsl_peekF_1@3b" ) ;
     _pSwSoixlOldApi->grabF( tinP , TAG( TAGiDnULL ) ) ;
     _psttLeverSoixlOldApi = tNameSoixlOld ;
     if( *_pSwSoixlOldApi ) { BLAMMO ; }
-    *_pSwSoixlOldApi = (countT)openSsl_shutdownF_b_GF ;
+    *_pSwSoixlOldApi = (countT)openSsl_peekF_1P3b_GF ;
+    _pSwSoixlOldApi->ungrabF( tinP ) ;
+}
+{
+    TN( tNameSoixlOld , "openSsl_waveByeF_b" ) ;
+    _pSwSoixlOldApi->grabF( tinP , TAG( TAGiDnULL ) ) ;
+    _psttLeverSoixlOldApi = tNameSoixlOld ;
+    if( *_pSwSoixlOldApi ) { BLAMMO ; }
+    *_pSwSoixlOldApi = (countT)openSsl_waveByeF_b_GF ;
     _pSwSoixlOldApi->ungrabF( tinP ) ;
 }
 {
@@ -1263,11 +1279,11 @@
     _pSwSoixlOldApi->ungrabF( tinP ) ;
 }
 {
-    TN( tNameSoixlOld , "sockAcceptF_b3db6" ) ;
+    TN( tNameSoixlOld , "sockAcceptF_b3db6b@" ) ;
     _pSwSoixlOldApi->grabF( tinP , TAG( TAGiDnULL ) ) ;
     _psttLeverSoixlOldApi = tNameSoixlOld ;
     if( *_pSwSoixlOldApi ) { BLAMMO ; }
-    *_pSwSoixlOldApi = (countT)sockAcceptF_b3db6_GF ;
+    *_pSwSoixlOldApi = (countT)sockAcceptF_b3db6bP_GF ;
     _pSwSoixlOldApi->ungrabF( tinP ) ;
 }
 {
