@@ -461,11 +461,27 @@
         TN( tKeyAddressCountry                  , "address_country"        ) ;
         TN( tKeyAddressCity                     , "address_city"           ) ;
     {
-    if( bValid /*|| idTest == ifcIDtESTpASSCODE*/ )
+    else
+    }
+        LOGrAW( "\r\n---- tValidationReply (END) yippee -----------------------------------------------------------------\r\n" ) ;
+        LOGrAW( tValidationReply ) ;
+        LOGrAW( "\r\n---- tValidationReply (BEGIN) yippee -----------------------------------------------------------------\r\n" ) ;
+        LOGrAW( "\r\n---- tValidationRequest (END) yippee -----------------------------------------------------------------\r\n" ) ;
+        LOGrAW( tValidationRequest ) ;
+        LOGrAW( "\r\n---- tValidationRequest (BEGIN) yippee -----------------------------------------------------------------\r\n" ) ;
+    {
+    if( !( bValid /*|| idTest == ifcIDtESTpASSCODE*/ ) )
     //ifcIDtESTpASSCODE IS USED BY THE TOOL THAT ALLOWS ME TO MANUALLY SIMULATE PAYMENTS  //ARBITRARY SECRET PASSWORD; DISABLE THE TEST ACCEPTANCE EXCEPT WHEN TESTING
 
     }
         }
+            }
+                etThread.delF( tinP , psttBuffer ) ;
+                tValidationReply += T(psttBuffer) ;
+            {
+            if( psttBuffer && !psttBuffer[ 2 ].idAdam )
+            //CS: CODEsYNC: DUPLICATE 330000a2 330000a2
+
             }
                 }
                     ++ s ; etThread.osSleepF( tinP , TOCK ) ;
@@ -508,6 +524,15 @@
                         //    osTextT post2[] = { ostNow , 0 } ;
                         //{
 
+                        if( !psttBuffer ) { etThread.strMakeF( tinP , psttBuffer , 0 , TUCK << 2 ) ; ___( psttBuffer ) ; }
+
+                        }
+                            etThread.delF( tinP , psttBuffer ) ;
+                            tValidationReply += T(psttBuffer) ;
+                        {
+                        if( psttBuffer && !psttBuffer[ 2 ].idAdam )
+                        //CS: CODEsYNC: DUPLICATE 330000a2 330000a2
+
                         osTextT ostNow = post5[ ( cIn - 1 ) % sizeof post5 ] ;
 
                         sock.readF( tinP , post5 + ( cIn ++ ) % sizeof post5 , 1 ) ;
@@ -520,11 +545,12 @@
                 {
                 ZE( osTextT , ostVerdict ) ;
 
-                sock.writeF( tinP , (osTextT*)tSay , tSay.csF( tinP ) ) ;
+                sock.writeF( tinP , (osTextT*)tValidationRequest , tValidationRequest.csF( tinP ) ) ;
                 sock.connectF( tinP , 443 , nnPayPal ) ;
                 socketC sock( tinP , *tinP.pEtScratch , TAG( TAGiDnULL ) , ifcSOCKETtYPE_STREAM , flSOCKETc_CRYPTfOREIGNsSL ) ;
             {
             if( nnPayPal ) while( !bGot && cTries -- )
+            ZE( strokeS* , psttBuffer ) ;
             sleepC s( tinP , TAG( TAGiDnULL ) ) ;
             countT cTries = TUCK >> 4 ;
 
@@ -534,12 +560,8 @@
         {
         IFsCRATCH
 
-        //LOGrAW( "\r\n---- tSay (END) yippee -----------------------------------------------------------------\r\n" ) ;
-        //LOGrAW( tSay ) ;
-        //LOGrAW( "\r\n---- tSay (BEGIN) yippee -----------------------------------------------------------------\r\n" ) ;
-
         }
-            tSay = tSay1+TF4(costBodyAll,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FOREIGN|flFORMAT_NObASE,0,0xa)+tSay2+tSayCmd+tSayBody ;
+            tValidationRequest = tSay1+TF4(costBodyAll,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FOREIGN|flFORMAT_NObASE,0,0xa)+tSay2+tSayCmd+tSayBody ;
 
             countT costBodyAll = tSayCmd.csF( tinP ) + tSayBody.csF( tinP ) ;
 
@@ -555,7 +577,6 @@
 
             TN( tSay1 ,
         {                        
-        TN( tSay , "" ) ;
 
         //LOGrAW( "\r\n---- postBodyP (END) -----------------------------------------------------------------\r\n" ) ;
         //LOGrAW( postBodyP ) ;
@@ -564,6 +585,8 @@
         //THIS WORKS IN FIREFOX BROWSER: https://www.sandbox.paypal.com:443/cgi-bin/webscr?cmd=_notify-validate&mc_gross=1.00&protection_eligibility=Eligible&address_status=confirmed&payer_id=4QLHUR4EYW37J&address_street=1+Main+St&payment_date=15%3A55%3A04+Jun+04%2C+2020+PDT&payment_status=Completed&charset=windows-1252&address_zip=95131&first_name=John&mc_fee=0.33&address_country_code=US&address_name=John+Doe&notify_version=3.9&subscr_id=I-DEKU4NNTHS0H&payer_status=verified&business=sb-znjve1276155%40business.example.com&address_country=United+States&address_city=San+Jose&verify_sign=AS.sXmO3SZlbZsuBgmx57wrfjxyDAk855hu6vdRmhFRd0mqr2l3hMU7l&payer_email=sb-prtxq883780%40personal.example.com&txn_id=5W609239EF681420H&payment_type=instant&btn_id=4125335&last_name=Doe&address_state=CA&receiver_email=sb-znjve1276155%40business.example.com&payment_fee=0.33&receiver_id=755UKLGFJ8XU2&txn_type=subscr_payment&item_name=Wo'O's+Table+Registration+and+Subscription&mc_currency=USD&item_number=20200604&residence_country=US&test_ipn=1&transaction_subject=Wo'O's+Table+Registration+and+Subscription&payment_gross=1.00&ipn_track_id=5075e5b427054 HTTP/1.0
         //OLD FORMAT: GET /cgi-bin/webscr?cmd=_notify-validate&mc_gross=1.00&protection_eligibility=Eligible&address_status=confirmed&payer_id=4QLHUR4EYW37J&address_street=1+Main+St&payment_date=17%3A04%3A06+Jun+04%2C+2020+PDT&payment_status=Completed&charset=windows-1252&address_zip=95131&first_name=John&mc_fee=0.33&address_country_code=US&address_name=John+Doe&notify_version=3.9&subscr_id=I-1CXF383WH8P0&payer_status=verified&business=sb-znjve1276155%40business.example.com&address_country=United+States&address_city=San+Jose&verify_sign=AEHpL6M1JS9Z4r02TsvVIey5ocFqAgLcANkEe9kVFcJG4kqTWCtTJprq&payer_email=sb-prtxq883780%40personal.example.com&txn_id=1XX85736SF014420R&payment_type=instant&btn_id=4125335&last_name=Doe&address_state=CA&receiver_email=sb-znjve1276155%40business.example.com&payment_fee=0.33&receiver_id=755UKLGFJ8XU2&txn_type=subscr_payment&item_name=Wo%27O%27s+Table+Registration+and+Subscription&mc_currency=USD&item_number=20200604&residence_country=US&test_ipn=1&transaction_subject=Wo%27O%27s+Table+Registration+and+Subscription&payment_gross=1.00&ipn_track_id=92fb2ec1f693b HTTP/1.0
     {
+    TN( tValidationReply   , "" ) ;
+    TN( tValidationRequest , "" ) ;
     ZE( boolT , bGot ) ;
     ZE( boolT , bValid ) ;
 {
