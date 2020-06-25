@@ -105,13 +105,16 @@
             rec << (strokeS*)tValueRewardBox        ;
             rec << (strokeS*)tValueRewardBoxHidden  ;
             rec << (strokeS*)tValueAddressCountry   ;
-            rec << (strokeS*)tValueAddressZip       ;
+            rec << (strokeS*)tValueAddressZipUse    ;
             rec << (strokeS*)tValuePaypalPayerEmail ;
             rec << (strokeS*)T(nnPeerP)             ;
             rec << (strokeS*)tAction                ;
             rec << (countT)4                        ; // IDfORMAT
             rec << finger                           ;
             soulC rec( tinP , TAG( TAGiDnULL ) ) ;
+
+            if( !tZipUse.csF( tinP ) ) tZipUse = tValueAddressCity ;
+            TN( tZipUse , (strokeS*)tValueAddressZip ) ;
 
             TN( tAction , !etThread.strCompareF( tinP , tValuePaypalPaymentStatus , T("Refunded") ) ? "unregister" : "register" ) ;
 
