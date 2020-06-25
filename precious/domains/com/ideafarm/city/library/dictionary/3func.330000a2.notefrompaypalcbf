@@ -36,8 +36,7 @@
         }
             THREADmODE1rESTORE
 
-            //U::etThread.boxPutF( tinP , T("smtp.mailgun.org[admin]/b42/smtp/")+tHost+T("@ideafarm.com/")+tValuePaypalPayerEmail+T("//wo@ideafarm.com/ideafarm.factory.reports@gmail.com") , tBody ) ;
-            etThread.boxPutF( tinP , T("smtp.mailgun.org[admin]/b42/smtp/")+tHost+T("@ideafarm.com/")+T("ideafarmcity@gmail.com")+T("//wo@ideafarm.com/ideafarm.factory.reports@gmail.com") , tBody ) ; //U::
+            etThread.boxPutF( tinP , T("smtp.mailgun.org[admin]/b42/smtp/")+tHost+T("@ideafarm.com/")+tValuePaypalPayerEmail+T("//wo@ideafarm.com/ideafarm.factory.reports@gmail.com") , tBody ) ;
 
             tBody += T("time:  ")+tTime+T("\r\n") ;
             tBody += T("\r\nreference:  ")+tShort+T("\r\n") ;
@@ -80,8 +79,12 @@
                 ZE( strokeS* , psttShort ) ;
                 ZE( strokeS* , psttnu ) ;
 
-                etThread.boxPutUniqueF( tinP , psttFile , T("///ideafarm/ephemeral/backed.up.daily/domains/com/ideafarm/wo.o.s.table/paid.live.email/paid.live.email.")+tHost , WS( rec ) ) ; ___( psttFile ) ;
+                etThread.traceF( tinP , T("wrote   ")+tFile ) ;
+                etThread.boxPutUniqueF( tinP , psttFile , tFile , WS( rec ) ) ; ___( psttFile ) ;
                 ZE( strokeS* , psttFile ) ;
+
+                etThread.traceF( tinP , T("writing ")+tFile ) ;
+                TN( tFile , "" ) ; tFile = T("///ideafarm/ephemeral/backed.up.daily/domains/com/ideafarm/wo.o.s.table/paid.live.email/paid.live.email.")+tHost ;
             {
             TN( tShort , "" ) ;
 
@@ -105,7 +108,7 @@
             rec << (strokeS*)tValueRewardBox        ;
             rec << (strokeS*)tValueRewardBoxHidden  ;
             rec << (strokeS*)tValueAddressCountry   ;
-            rec << (strokeS*)tValueAddressZipUse    ;
+            rec << (strokeS*)tZipUse                ;
             rec << (strokeS*)tValuePaypalPayerEmail ;
             rec << (strokeS*)T(nnPeerP)             ;
             rec << (strokeS*)tAction                ;
