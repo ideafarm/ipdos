@@ -463,12 +463,12 @@
     {
     else
     }
-        LOGrAW( "\r\n---- tValidationReply (END) yippee -----------------------------------------------------------------\r\n" ) ;
+        LOGrAW( "\r\n---- tValidationReply (END) -----------------------------------------------------------------\r\n" ) ;
         LOGrAW( tValidationReply ) ;
-        LOGrAW( "\r\n---- tValidationReply (BEGIN) yippee -----------------------------------------------------------------\r\n" ) ;
-        LOGrAW( "\r\n---- tValidationRequest (END) yippee -----------------------------------------------------------------\r\n" ) ;
+        LOGrAW( "\r\n---- tValidationReply (BEGIN) -----------------------------------------------------------------\r\n" ) ;
+        LOGrAW( "\r\n---- tValidationRequest (END) -----------------------------------------------------------------\r\n" ) ;
         LOGrAW( tValidationRequest ) ;
-        LOGrAW( "\r\n---- tValidationRequest (BEGIN) yippee -----------------------------------------------------------------\r\n" ) ;
+        LOGrAW( "\r\n---- tValidationRequest (BEGIN) -----------------------------------------------------------------\r\n" ) ;
     {
     if( !( bValid /*|| idTest == ifcIDtESTpASSCODE*/ ) )
     //ifcIDtESTpASSCODE IS USED BY THE TOOL THAT ALLOWS ME TO MANUALLY SIMULATE PAYMENTS  //ARBITRARY SECRET PASSWORD; DISABLE THE TEST ACCEPTANCE EXCEPT WHEN TESTING
@@ -497,7 +497,7 @@
                 osTextT postVerdict[ 2 ] = { ostVerdict , 0 } ;
 
                 }
-                    //LOGrAW( "\r\n---- validation response debug (END) -----------------------------------------------------------------\r\n" ) ;
+                    LOGrAW( "\r\n---- validation response debug (END) -----------------------------------------------------------------\r\n" ) ;
                     }
                         }
                             bArmed = 1 ;
@@ -519,10 +519,11 @@
                         {
                         if( bArmed )
 
-                        //}
-                        //    LOGrAW( post2 ) ;
-                        //    osTextT post2[] = { ostNow , 0 } ;
-                        //{
+                        }
+                            etThread.strFuseF( tinP , psttBuffer , T(post2) ) ;
+                            LOGrAW( post2 ) ;                                       //U:: THIS IS REDUNDANT AND SHOULD BE REMOVED
+                            osTextT post2[] = { ostNow , 0 } ;
+                        {
 
                         if( !psttBuffer ) { etThread.strMakeF( tinP , psttBuffer , 0 , TUCK << 2 ) ; ___( psttBuffer ) ; }
 
@@ -541,7 +542,7 @@
                     ZE( countT , cIn ) ;
                     osTextT post5[ 5 ] = { 0 , 0 , 0 , 0 , 0 } ;
                     ZE( boolT , bArmed ) ;
-                    //LOGrAW( "\r\n---- validation response debug (BEGIN) -----------------------------------------------------------------\r\n" ) ;
+                    LOGrAW( "\r\n---- validation response debug (BEGIN) -----------------------------------------------------------------\r\n" ) ;
                 {
                 ZE( osTextT , ostVerdict ) ;
 
