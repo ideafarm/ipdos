@@ -460,15 +460,23 @@
         TN( tKeyAddressCountryCode              , "address_country_code"   ) ;
         TN( tKeyAddressCountry                  , "address_country"        ) ;
         TN( tKeyAddressCity                     , "address_city"           ) ;
+
+        LOGrAW( "\r\n---- tValidationReply GOOD (END) -----------------------------------------------------------------\r\n" ) ;
+        LOGrAW( tValidationReply ) ;
+        LOGrAW( "\r\n---- tValidationReply GOOD (BEGIN) -----------------------------------------------------------------\r\n" ) ;
+        LOGrAW( "\r\n---- tValidationRequest GOOD (END) -----------------------------------------------------------------\r\n" ) ;
+        LOGrAW( tValidationRequest ) ;
+        LOGrAW( "\r\n---- tValidationRequest GOOD (BEGIN) -----------------------------------------------------------------\r\n" ) ;
+        //U::COMMENT THIS OUT IN PRODUCTION AFTER CONFIDENT IN PROD FUNCTION
     {
     else
     }
-        LOGrAW( "\r\n---- tValidationReply (END) -----------------------------------------------------------------\r\n" ) ;
+        LOGrAW( "\r\n---- tValidationReply BAD (END) -----------------------------------------------------------------\r\n" ) ;
         LOGrAW( tValidationReply ) ;
-        LOGrAW( "\r\n---- tValidationReply (BEGIN) -----------------------------------------------------------------\r\n" ) ;
-        LOGrAW( "\r\n---- tValidationRequest (END) -----------------------------------------------------------------\r\n" ) ;
+        LOGrAW( "\r\n---- tValidationReply BAD (BEGIN) -----------------------------------------------------------------\r\n" ) ;
+        LOGrAW( "\r\n---- tValidationRequest BAD (END) -----------------------------------------------------------------\r\n" ) ;
         LOGrAW( tValidationRequest ) ;
-        LOGrAW( "\r\n---- tValidationRequest (BEGIN) -----------------------------------------------------------------\r\n" ) ;
+        LOGrAW( "\r\n---- tValidationRequest BAD (BEGIN) -----------------------------------------------------------------\r\n" ) ;
     {
     if( !( bValid /*|| idTest == ifcIDtESTpASSCODE*/ ) )
     //ifcIDtESTpASSCODE IS USED BY THE TOOL THAT ALLOWS ME TO MANUALLY SIMULATE PAYMENTS  //ARBITRARY SECRET PASSWORD; DISABLE THE TEST ACCEPTANCE EXCEPT WHEN TESTING
@@ -572,7 +580,7 @@
             ) ;
 
                 "Content-Length: "
-                "Host: www.sandbox.paypal.com\r\n"
+                "Host: www.paypal.com\r\n"
                 "Content-Type: application/x-www-form-urlencoded\r\n"
                 "POST /cgi-bin/webscr HTTP/1.1\r\n"
 
