@@ -66,8 +66,6 @@
 
             TN( tBody ,
 
-            ZE( boolT , bDelete ) ; //U:: GET THIS FROM PAYPAL NOTIFICATION OF SUBSCRIPTION CANCELLATION
-
             textC tTime( ifcIDtEXTgEN_TIMEnOWfOREIGN , tinP , TAG( TAGiDnULL ) ) ;
 
             }
@@ -79,11 +77,10 @@
                 ZE( strokeS* , psttShort ) ;
                 ZE( strokeS* , psttnu ) ;
 
-                etThread.traceF( tinP , T("wrote   ")+tFile ) ;
+                etThread.traceF( tinP , T("wrote   ")+T(psttFile) ) ;
                 etThread.boxPutUniqueF( tinP , psttFile , tFile , WS( rec ) ) ; ___( psttFile ) ;
                 ZE( strokeS* , psttFile ) ;
 
-                etThread.traceF( tinP , T("writing ")+tFile ) ;
                 TN( tFile , "" ) ; tFile = T("///ideafarm/ephemeral/backed.up.daily/domains/com/ideafarm/wo.o.s.table/paid.live.email/paid.live.email.")+tHost ;
             {
             TN( tShort , "" ) ;
@@ -119,11 +116,77 @@
             if( !tZipUse.csF( tinP ) ) tZipUse = tValueAddressCity ;
             TN( tZipUse , (strokeS*)tValueAddressZip ) ;
 
-            TN( tAction , !etThread.strCompareF( tinP , tValuePaypalPaymentStatus , T("Refunded") ) ? "unregister" : "register" ) ;
+            etThread.traceF( tinP , T("paypal subscription [tAction]: ")+tAction ) ;
+
+            TN( tAction , bDelete ? "unregister" : "register" ) ;
+            boolT bDelete = !etThread.strCompareF( tinP , tValueTransType , T("subscr_cancel") ) ;
 
             putNegAM( *(countT*)&finger , FINGERnEG_WOtABLEcONFIRMEDeMAIL ) ;
             ZE( countT , finger ) ;
         {
+        )
+            )
+               || !etThread.strCompareF( tinP , tValueTransType  , T("subscr_cancel") )
+                  !etThread.strCompareF( tinP , tValueTransType  , T("subscr_signup") )
+            (
+            &&
+            !etThread.strCompareF( tinP , tValueItemNumber , T("20200604") )
+        (
+        if
+
+        // item_name: "Wo'O's Table Registration and Subscription"<BR>
+        // item_number: "20200604"<BR>
+        // payment_status: "Completed"<BR>
+        // txn_type: "subscr_payment"<BR>
+        //
+        // PROCESS IF:
+
+        // ---- psttKVReportP (BEGIN) -----------------------------------------------------------------
+        // address_city: "Hayward"<BR>
+        // address_country: "United States"<BR>
+        // address_country_code: "US"<BR>
+        // address_name: "Haroon Marzi"<BR>
+        // address_state: "CA"<BR>
+        // address_status: "confirmed"<BR>
+        // address_street: "24562 Sybil Ave"<BR>
+        // address_zip: "94542"<BR>
+        // btn_id: "210962543"<BR>
+        // business: "ideafarm.published.after.4.yrs@gmail.com"<BR>
+        // charset: "windows-1252"<BR>
+        // first_name: "Haroon"<BR>
+        // ipn_track_id: "470cbfc7c23d1"<BR>
+        // item_name: "Wo'O's Table Registration and Subscription"<BR>
+        // item_number: "20200604"<BR>
+        // last_name: "Marzi"<BR>
+        // mc_currency: "USD"<BR>
+        // mc_fee: "0.33"<BR>
+        // mc_gross: "1.00"<BR>
+        // notify_version: "3.9"<BR>
+        // option_name1: "Pay reward to"<BR>
+        // option_name2: "Referrer"<BR>
+        // option_selection1: "put.your@email.here"<BR>
+        // option_selection2: "put.your@email.here"<BR>
+        // payer_email: "transmissiongear@yahoo.com"<BR>
+        // payer_id: "EX3MKPQMH7WA2"<BR>
+        // payer_status: "unverified"<BR>
+        // payment_date: "21:19:49 Jun 24, 2020 PDT"<BR>
+        // payment_fee: "0.33"<BR>
+        // payment_gross: "1.00"<BR>
+        // payment_status: "Completed"<BR>
+        // payment_type: "instant"<BR>
+        // protection_eligibility: "Eligible"<BR>
+        // receiver_email: "ideafarm.published.after.4.yrs@gmail.com"<BR>
+        // receiver_id: "XF9NPKQY6G9Y2"<BR>
+        // resend: "true"<BR>
+        // residence_country: "US"<BR>
+        // subscr_id: "I-MLN53EVBD5NU"<BR>
+        // transaction_subject: "Wo'O's Table Registration and Subscription"<BR>
+        // txn_id: "0JL69629B4605311W"<BR>
+        // txn_type: "subscr_payment"<BR>
+        // verify_sign: "AnlkDhBYwCRZ4fplPqXSdkLuOQdmAeOOC1-RhCTFPYPf39M6gR-wcnFU"<BR>
+        // ---- psttKVReportP (END) -----------------------------------------------------------------
+
+
         // 20200604@1905:  REGISTER THE PURCHASER FOR WO'O'S TABLE
 
         #endif
@@ -336,6 +399,7 @@
         countT cFlavors = swKVP.cFlavorsF( tinP ) ;
 
         } ;
+            &tValueItemNumber                    ,
             &tValueTransId                       ,
             &tValueTransType                     ,
 
@@ -370,6 +434,7 @@
         textC* pptValue[] =
 
         } ;
+            &tKeyItemNumber                     ,
             &tKeyTransId                        ,
             &tKeyTransType                      ,
 
@@ -403,6 +468,7 @@
         {
         textC* pptKey[] =
 
+        TN( tValueItemNumber                    , "" ) ;
         TN( tValueTransId                       , "" ) ;
         TN( tValueTransType                     , "" ) ;
 
@@ -432,6 +498,7 @@
         TN( tValueAddressCountry                , "" ) ;
         TN( tValueAddressCity                   , "" ) ;
 
+        TN( tKeyItemNumber                      , "item_number"            ) ;
         TN( tKeyTransId                         , "txn_id"                 ) ;
         TN( tKeyTransType                       , "txn_type"               ) ;
 
@@ -485,12 +552,8 @@
         }
             }
                 etThread.delF( tinP , psttBuffer ) ;
-                tValidationReply += T(psttBuffer) ;
-            {
-            if( psttBuffer && !psttBuffer[ 2 ].idAdam )
-            //CS: CODEsYNC: DUPLICATE 330000a2 330000a2
+                if( psttBuffer && psttBuffer->idAdam ) tValidationReply += T(psttBuffer) ;
 
-            }
                 }
                     ++ s ; etThread.osSleepF( tinP , TOCK ) ;
                     etThread.traceF( tinP , TF2(cTries,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T(": napping because did not receive a valid reply from www.paypal.com to confirm that the ipn is valid") ) ;
@@ -540,7 +603,6 @@
                             tValidationReply += T(psttBuffer) ;
                         {
                         if( psttBuffer && !psttBuffer[ 2 ].idAdam )
-                        //CS: CODEsYNC: DUPLICATE 330000a2 330000a2
 
                         osTextT ostNow = post5[ ( cIn - 1 ) % sizeof post5 ] ;
 
@@ -553,17 +615,18 @@
                     LOGrAW( "\r\n---- validation response debug (BEGIN) -----------------------------------------------------------------\r\n" ) ;
                 {
                 ZE( osTextT , ostVerdict ) ;
+                ZE( strokeS* , psttBuffer ) ;
+                tValidationReply = T("") ;
 
                 sock.writeF( tinP , (osTextT*)tValidationRequest , tValidationRequest.csF( tinP ) ) ;
                 sock.connectF( tinP , 443 , nnPayPal ) ;
                 socketC sock( tinP , *tinP.pEtScratch , TAG( TAGiDnULL ) , ifcSOCKETtYPE_STREAM , flSOCKETc_CRYPTfOREIGNsSL ) ;
             {
             if( nnPayPal ) while( !bGot && cTries -- )
-            ZE( strokeS* , psttBuffer ) ;
             sleepC s( tinP , TAG( TAGiDnULL ) ) ;
             countT cTries = TUCK >> 4 ;
 
-            nicNameC nnPayPal = socketC::nicNameIF( tinP , *tinP.pEtScratch , T("www.paypal.com") ) ;
+            nicNameC nnPayPal = socketC::nicNameIF( tinP , *tinP.pEtScratch , T(bSandbox?"www.sandbox.paypal.com":"www.paypal.com") ) ;
         
             SCOOPS
         {
@@ -577,15 +640,26 @@
             TN( tSayBody , postBodyP ) ;
             TN( tSayCmd , "cmd=_notify-validate&" ) ;
             TN( tSay2 , "\r\nConnection: close\r\n\r\n" ) ;
+
             ) ;
 
                 "Content-Length: "
-                "Host: www.paypal.com\r\n"
+                ".paypal.com\r\n"
+
+            tSay1 += T(
+
+            if( bSandbox ) tSay1 += T(".sandbox") ;
+
+            ) ;
+
+                "Host: www"
                 "Content-Type: application/x-www-form-urlencoded\r\n"
                 "POST /cgi-bin/webscr HTTP/1.1\r\n"
 
             TN( tSay1 ,
-        {                        
+        {
+
+        boolT bSandbox = etherC::ifc_idHomeI_IF() & fliIDhOME_HOMELESS ;
 
         //LOGrAW( "\r\n---- postBodyP (END) -----------------------------------------------------------------\r\n" ) ;
         //LOGrAW( postBodyP ) ;
