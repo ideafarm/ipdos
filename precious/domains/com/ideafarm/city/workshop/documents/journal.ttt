@@ -6399,6 +6399,13 @@ I have other business to attend to today and tomorrow, but plan to continue to w
 
 
 
+
+
+
+
+   20200630@1601: 63 68
+   20200629@1602: 68 75
+
    20200626@1550: 73 81
    20200625@1602: 72 81
    20200624@1600: 72 79
@@ -7231,6 +7238,50 @@ I have other business to attend to today and tomorrow, but plan to continue to w
 
 
 
+  !subjob C: serve globally unique serial number
+  set up dut
+   label the form fields id and password so that browsers will handle them that way and remember them
+    an email is sent containing the new password with instructions to copy and paste it into the form so that the browser will remember it
+   use long (e.g. md5 length) passwords that are automatically changed by the system every quarter
+  think
+  !subjob A: research payment processors and other options
+    alt: other processors similar to payPal, plus last resort of accepting user initiated bank transfers or snailmail checks or cash
+   issue: graceful failure if paypal suspends or closes my account
+  think
+    sponsorship allows a paid member to post under up to 255 sub identities
+   alt: sponsorship
+   issue: how to give a voice to illegal aliens and to people in China and North Korea
+  think
+    the key to all of this is the security model, which is based on email confirmation, which in turn is based on monthly subscription payment
+   security
+  think
+   once created, a global discussion topic page is retained and accessible forever
+   a poster can create a global discussion page with a specified topic
+   there is a page for each postal code and also a global announcements page
+   posts can be directed to a web page and/or to the email list for a postal code or to a global announcement list
+   plain text only
+  think
+    unless a court orders otherwise, such posts are not taken down completely; they are moved to another page where they can be viewed by the public for a price
+   posts may be taken down on request of a California or federal prosecutor if either (1) a court order is obtained, or (2) the prosecutor waives immunity.
+   posts may be taken down by the poster
+   all members agree to "hold harmless" IDEAFARM.COM and all other entities other than the poster
+   all members worldwide agree that posting is governed by the laws of the State of California and of the U.S.A.
+   the identity of the poster is not disclosed except on court order
+   no moderation is done
+  think
+   to enable the account, the user must make a purchase
+   if the link expires, the passcode is invalidated and the account remains disabled and an email is sent containing instructions for enabling the account
+   as soon as the link is clicked, the account is enabled and the post becomes published
+   the link must be clicked within 2 ticks
+   at the same time, that id is disabled and remains so until the link is clicked
+   if so, then the post is emailed to the owner with a wo time passcode link to click
+   posts are ignored unless the correct passcode is provided
+   to post a message, they enter the id and the passcode into a web form
+   all Wo'O's Table subscribers get an id and a secret passcode
+  think
+ playcraft
+ objective: elegance
+!job C: online chat system
 
 
 
@@ -7239,11 +7290,29 @@ I have other business to attend to today and tomorrow, but plan to continue to w
 
 
 
+  !subjob C: test file open serialization over lan
+   conj: this mechanism will work just fine:
+   ipdos by default retries file opens
+   i had thought that serialization would be a problem, but now do not think so   
+  think
+   access to the file is serialized by opening it for exclusive read
+   for reliability, the lath value dispensed is stored in a file
+   all servers that might respond are on the same LAN
+   [secret] identifies the serial number sequence to dispense from (it would be the lever if a switch was used)
+   [secret] is stored in a settings file
+   uri: https://ideafarm.com/dispense.serial.number.[secret]
+  think
+ playcraft
+ objective: reliable serial number server
+!subjob C: serve globally unique serial number
 
 
 
 
-
+  set up dut
+ playcraft
+ objective: confidence
+!subjob C: test file open serialization over lan
 
 
 !thrust: debug until all factories run without failure
@@ -7258,6 +7327,18 @@ I have other business to attend to today and tomorrow, but plan to continue to w
 =========================================================================================================================================================
 =========================================================================================================================================================
 
+    it is also fairly likely that PayPal learned its lesson in that it took a huge hit in brand loyalty
+    there are enough competitors that i can gracefully fail if payPal shits on me again
+   decision
+  think
+   i can accept paper checks
+   i can use Zelle with my WF account for users within USA
+  see
+   patreon: nawwh
+  look
+ playcraft
+ objective: be able to verify name and address associated with email
+!subjob A: research payment processors and other options
 !job A: decision: take a vacation!
   done!
   list procedure and whether electronic filing is possible
