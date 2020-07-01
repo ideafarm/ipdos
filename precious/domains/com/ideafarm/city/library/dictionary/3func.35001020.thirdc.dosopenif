@@ -134,21 +134,13 @@
                         if( rc ) handleP.closeIfF() ;
         
                         }
-                            idResultP = ifcOPENrESULT_EXISTED ;
-                            rc = 0 ;
+                            case ifcOPENhOW_nCeR : { if( !rc ) idResultP = ifcOPENrESULT_CREATED   ; else if( rc == ERROR_ALREADY_EXISTS ) { rc = 0 ; idResultP = ifcOPENrESULT_TRUNCATED ; } break ; }
+                            case ifcOPENhOW_nCeO : { if( !rc ) idResultP = ifcOPENrESULT_CREATED   ; else if( rc == ERROR_ALREADY_EXISTS ) { rc = 0 ; idResultP = ifcOPENrESULT_EXISTED   ; } break ; }
+                            case ifcOPENhOW_nCeF : { if( !rc ) idResultP = ifcOPENrESULT_CREATED   ;                                                                                          break ; }
+                            case ifcOPENhOW_nFeR : { if( !rc ) idResultP = ifcOPENrESULT_TRUNCATED ;                                                                                          break ; }
+                            case ifcOPENhOW_nFeO : { if( !rc ) idResultP = ifcOPENrESULT_EXISTED   ;                                                                                          break ; }
                         {
-                        )
-                            )
-                                ( how == OPEN_ALWAYS   ) 
-                                ||
-                                ( how == CREATE_ALWAYS )
-                            (
-                            &&
-                            rc == ERROR_ALREADY_EXISTS
-                        (
-                        if
-
-                        if( !rc && idHowP == ifcOPENhOW_nFeO || idHowP == ifcOPENhOW_nFeR ) idResultP = ifcOPENrESULT_EXISTED ;
+                        switch( idHowP )
 
                         }
                             handleP.osF( ifcIDtYPEhANDLE_FILE , osh ) ;
