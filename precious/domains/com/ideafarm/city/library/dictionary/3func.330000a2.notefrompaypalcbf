@@ -48,11 +48,13 @@
             tBody += T("\r\nreference:  ")+tShort+T("\r\n") ;
 
             }
-                tBody += T("Give this link to others:  https://ideafarm.com?")+tIdSubscriber+T("\r\n") ;
+                tBody += T("Keep this secret and use it to prove your identity:  ")+tSecret+T("\r\n") ;
+                tBody += T("Give this link to others:  https://ideafarm.com?")+tIdSubscriber+T("\r\n\r\n") ;
                 tBody += T("subscriber id:  ")+tIdSubscriber+T("\r\n\r\n") ;
                 tBody += T("country:  ")+tValueAddressCountry+T("\r\n") ;
                 tBody += T("postal code:  ")+tValueAddressZip+T("\r\n") ;
 
+                TN( tSecret     , "" ) ; tSecret     = TF4((countT)secret          ,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_NObASE,0,0x40) ;
                 TN( tIdSubscriber , "" ) ; tIdSubscriber = TF4((countT)idSubscriber,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_NObASE,0,0x40) ;
             {
             if( !bDelete )
@@ -120,6 +122,7 @@
             rec << (strokeS*)tValueAddressName        ; //ADDED IN FORMAT 6
             rec << (strokeS*)tValueLastName           ; //ADDED IN FORMAT 6
             rec << (strokeS*)tValueFirstName          ; //ADDED IN FORMAT 5
+            rec << (countT)secret                     ; //ADDED IN FORMAT 7
             rec << ((countT*)&idSubscriber)[ 1 ]      ; //ADDED IN FORMAT 5
             rec << ((countT*)&idSubscriber)[ 0 ]      ; //ADDED IN FORMAT 5
             rec << (strokeS*)tValueTransId            ;
@@ -132,7 +135,7 @@
             rec << (strokeS*)tAction                  ;
             rec << (countT)timeN2                     ; //ADDED IN FORMAT 5
             rec << (countT)timeN1                     ; //ADDED IN FORMAT 5
-            rec << (countT)6                          ; // IDfORMAT
+            rec << (countT)7                          ; // IDfORMAT
             rec << finger                             ;
             soulC rec( tinP , TAG( TAGiDnULL ) ) ;
 
@@ -142,6 +145,13 @@
             etThread.osTimeNowF( tinP , timeN1 , timeN2 ) ;
             ZE( sCountT , timeN2 ) ;
             ZE( countT , timeN1 ) ;
+
+            }
+                secret = ru ;
+                ranUniC ru( tinP , (measure04T)MAXcOUNTT + 1 ) ;
+            {
+            if( !bDelete )
+            ZE( countT , secret ) ;
 
             count04T idSubscriber = bDelete ? 0 : etThread.etherDispenseSerialNumberF( tinP , T(bSandbox?"////factory1/d/tmp/idSubscriberLath":"////factory3/d/ideafarm.home.102/ephemeral/backed.up.daily/domains/com/ideafarm/wo.o.s.table/idSubscriberLath") ) ;
 
