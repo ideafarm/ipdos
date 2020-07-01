@@ -12943,6 +12943,7 @@ TASK0PROTO( tmDrawF ) ;
 /**/
 
 /*1*/voidT noteFromPaypalCBF( tinS& tinP , etherC& etThread , const boolT& bQuitP , httpServerC& meP , countT& cArgP , httpReplyS& replyP , stackC& stBodyP , const strokeS* const psttKVReportP , switchC& swKVP , strokeS*& psttLeverKVP , sessionsC& sessionsP , nicNameC& nnPeerP , const strokeS* const psttUrlP , const strokeS* const psttPeerAgentP , const osTextT* const postBodyP ) ;/*1*/
+/*1*/voidT talkCBF( tinS& tinP , etherC& etThread , const boolT& bQuitP , httpServerC& meP , countT& cArgP , httpReplyS& replyP , stackC& stBodyP , const strokeS* const psttKVReportP , switchC& swKVP , strokeS*& psttLeverKVP , sessionsC& sessionsP , nicNameC& nnPeerP , const strokeS* const psttUrlP , const strokeS* const psttPeerAgentP , const osTextT* const postBodyP ) ;/*1*/
 
 
 //
