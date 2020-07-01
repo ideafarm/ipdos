@@ -1032,108 +1032,114 @@ TN( tToSend           , "" ) ; tToSend           = T("///ideafarm/ephemeral/back
 
 const countT idHomeDisk = etherC::ifc_idHomeIdisk_IF() ;
 
-//}
-//    ++ s ; ether.osSleepF( tinP , TOCK * 0x10 ) ; //TO AVOID LOADING SERVER DURING SYSTEM GEN
-//    sleepC s( tinP , TAG( TAGiDnULL ) ) ;
-//{
-
-//#endif
-
 }
-    ether.ifcHireF( tinP , T("ifcIDaDAM_ROOTmAILoUT") , bProcessAccessLogs ? ifcIDaDAM_ACCESSeVENTS2bOOKtOGETHER : ifcIDaDAM_CLOUD , T("!ignoreFireByOperator") , flHIRE_DISPLAYaUTO , nicNameC() ) ; // flHIRE_DISPLAYaUTO CAN BE COMMENTED OUT TO AVOID WDW FOR ROOT CLOUD INSTANCE WHICH IS USUALLY NOT INTERESTING
+    //}
+    //    ++ s ; ether.osSleepF( tinP , TOCK * 0x10 ) ; //TO AVOID LOADING SERVER DURING SYSTEM GEN
+    //    sleepC s( tinP , TAG( TAGiDnULL ) ) ;
+    //{
 
-    etThread.traceF( tinP , T("ROOTmAILoUT: [bProcessAccessLogs]:    ")+TF2(bProcessAccessLogs,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
+    //#endif
 
     }
-        etThread.delF( tinP , psttProcessAccessLogs ) ;
-//        bProcessAccessLogs = psttProcessAccessLogs && !etThread.strCompareF( tinP , psttProcessAccessLogs , T("yes") ) ;
-        ZE( strokeS* , psttProcessAccessLogs ) ; etThread.querySettingF( tinP , psttProcessAccessLogs , T("!ipdos.process.access.logs")  ) ; ___( psttProcessAccessLogs ) ;
+        ether.ifcHireF( tinP , T("ifcIDaDAM_ROOTmAILoUT") , bProcessAccessLogs ? ifcIDaDAM_ACCESSeVENTS2bOOKtOGETHER : ifcIDaDAM_CLOUD , T("!ignoreFireByOperator") , flHIRE_DISPLAYaUTO , nicNameC() ) ; // flHIRE_DISPLAYaUTO CAN BE COMMENTED OUT TO AVOID WDW FOR ROOT CLOUD INSTANCE WHICH IS USUALLY NOT INTERESTING
+
+        etThread.traceF( tinP , T("ROOTmAILoUT: [bProcessAccessLogs]:    ")+TF2(bProcessAccessLogs,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
+
+        }
+            etThread.delF( tinP , psttProcessAccessLogs ) ;
+    //        bProcessAccessLogs = psttProcessAccessLogs && !etThread.strCompareF( tinP , psttProcessAccessLogs , T("yes") ) ;
+            ZE( strokeS* , psttProcessAccessLogs ) ; etThread.querySettingF( tinP , psttProcessAccessLogs , T("!ipdos.process.access.logs")  ) ; ___( psttProcessAccessLogs ) ;
+        {
+        ZE( boolT , bProcessAccessLogs ) ;
     {
-    ZE( boolT , bProcessAccessLogs ) ;
+
+    #endif
+
+    }
+        }
+            homeS::homeIF().flagsAdams |= flHOMEsaDAMS_ROOThEAL ;
+            ether.ifcHireF( tinP , T("ifcIDaDAM_ROOTmAILoUT") , ifcIDaDAM_ROOThEAL , T("!ignoreFireByOperator") , flHIRE_DISPLAYaUTO , nicNameC() ) ;
+        {
+        if( bHeal )
+        etThread.traceF( tinP , T("ROOTmAILoUT: [bHeal]:    ")+TF2(bHeal,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
+
+        }
+            etThread.delF( tinP , psttHeal ) ;
+            bHeal = psttHeal && !etThread.strCompareF( tinP , psttHeal , T("yes") ) ;
+            ZE( strokeS* , psttHeal ) ; etThread.querySettingF( tinP , psttHeal , T("!ipdos.heal")  ) ; ___( psttHeal ) ;
+        {
+        ZE( boolT , bHeal ) ;
+    {
+
+    #if defined( NEVERdEFINED )
+
+    }
+        if( bServeSmtp ) ether.ifcHireF( tinP , T("ifcIDaDAM_ROOTmAILoUT") , ifcIDaDAM_ROOTsMTPsERVER , T("!ignoreFireByOperator") , flHIRE_DISPLAYaUTO , nicNameC() ) ;
+        etThread.traceF( tinP , T("ROOTmAILoUT: [bServeSmtp]:    ")+TF2(bServeSmtp,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
+        //20190730@0808: MOVED TO HERE BUT NOT TESTED.  IDEAFARM.COM CURRENTLY USES GOOGLE.COM'S SMTP SERVER TO RELAY OUTGOING EMAIL
+
+        }
+            etThread.delF( tinP , psttServeSmtp ) ;
+            bServeSmtp = psttServeSmtp && !etThread.strCompareF( tinP , psttServeSmtp , T("yes") ) ;
+            ZE( strokeS* , psttServeSmtp ) ; etThread.querySettingF( tinP , psttServeSmtp , T("!ipdos.serve.smtp")  ) ; ___( psttServeSmtp ) ;
+        {
+        ZE( boolT , bServeSmtp ) ;
+    {
+
+    }
+        }
+            homeS::homeIF().flagsAdams |= flHOMEsaDAMS_ROOThTTPsERVER ;
+            ether.ifcHireF( tinP , T("ifcIDaDAM_ROOTmAILoUT") , ifcIDaDAM_ROOThTTPsERVER , T("!ignoreFireByOperator") , flHIRE_DISPLAYaUTO , nicNameC() ) ;
+        {
+        if( bServeHttp )
+        etThread.traceF( tinP , T("ROOTmAILoUT: [bServeHttp]:    ")+TF2(bServeHttp,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
+
+        }
+            etThread.delF( tinP , psttServeHttp ) ;
+            bServeHttp = psttServeHttp && !etThread.strCompareF( tinP , psttServeHttp , T("yes") ) ;
+            ZE( strokeS* , psttServeHttp ) ; etThread.querySettingF( tinP , psttServeHttp , T("!ipdos.serve.http")  ) ; ___( psttServeHttp ) ;
+        {
+        ZE( boolT , bServeHttp ) ;
+    {
+
+    #endif
+
+    }
+        if( bGorillaHttpReporter ) ether.ifcHireF( tinP , T("ifcIDaDAM_ROOTmAILoUT") , ifcIDaDAM_GORILLAhTTPiDEAFARMcOMrEPORTER , T("!ignoreFireByOperator") , flHIRE_DISPLAYaUTO , nicNameC() ) ;
+        etThread.traceF( tinP , T("ROOTmAILoUT: [bGorillaHttpReporter]:    ")+TF2(bGorillaHttpReporter,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
+
+        }
+            etThread.delF( tinP , psttGorillaHttpReporter ) ;
+            bGorillaHttpReporter = psttGorillaHttpReporter && !etThread.strCompareF( tinP , psttGorillaHttpReporter , T("yes") ) ;
+            ZE( strokeS* , psttGorillaHttpReporter ) ; etThread.querySettingF( tinP , psttGorillaHttpReporter , T("!ipdos.gorilla.http.reporter")  ) ; ___( psttGorillaHttpReporter ) ;
+        {
+        ZE( boolT , bGorillaHttpReporter ) ;
+    {
+
+    }
+        if( bGorillaHttp ) ether.ifcHireF( tinP , T("ifcIDaDAM_ROOTmAILoUT") , ifcIDaDAM_GORILLAhTTPiDEAFARMcOM , T("!ignoreFireByOperator") , flHIRE_DISPLAYaUTO , nicNameC() ) ;
+        etThread.traceF( tinP , T("ROOTmAILoUT: [bGorillaHttp]:    ")+TF2(bGorillaHttp,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
+
+        }
+            etThread.delF( tinP , psttGorillaHttp ) ;
+            bGorillaHttp = psttGorillaHttp && !etThread.strCompareF( tinP , psttGorillaHttp , T("yes") ) ;
+            ZE( strokeS* , psttGorillaHttp ) ; etThread.querySettingF( tinP , psttGorillaHttp , T("!ipdos.gorilla.http")  ) ; ___( psttGorillaHttp ) ;
+        {
+        ZE( boolT , bGorillaHttp ) ;
+    {
+
+    #if defined( NEVERdEFINED )
+
+    //ether.ifcHireF( tinP , T("ifcIDaDAM_ROOTmAILoUT") , ifcIDaDAM_KERNEL3BANG , T("!ignoreFireByOperator") , flHIRE_DISPLAYaUTO , nicNameC() ) ;
+    //U::MOVE THIS TO EARLY ADAM IN BUNDLE
+
+
+
+    //#if defined( NEVERdEFINED )
 {
+if( !bSandbox )
 
-#endif
-
-}
-    }
-        homeS::homeIF().flagsAdams |= flHOMEsaDAMS_ROOThEAL ;
-        ether.ifcHireF( tinP , T("ifcIDaDAM_ROOTmAILoUT") , ifcIDaDAM_ROOThEAL , T("!ignoreFireByOperator") , flHIRE_DISPLAYaUTO , nicNameC() ) ;
-    {
-    if( bHeal )
-    etThread.traceF( tinP , T("ROOTmAILoUT: [bHeal]:    ")+TF2(bHeal,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
-
-    }
-        etThread.delF( tinP , psttHeal ) ;
-        bHeal = psttHeal && !etThread.strCompareF( tinP , psttHeal , T("yes") ) ;
-        ZE( strokeS* , psttHeal ) ; etThread.querySettingF( tinP , psttHeal , T("!ipdos.heal")  ) ; ___( psttHeal ) ;
-    {
-    ZE( boolT , bHeal ) ;
-{
-
-#if defined( NEVERdEFINED )
-
-}
-    if( bServeSmtp ) ether.ifcHireF( tinP , T("ifcIDaDAM_ROOTmAILoUT") , ifcIDaDAM_ROOTsMTPsERVER , T("!ignoreFireByOperator") , flHIRE_DISPLAYaUTO , nicNameC() ) ;
-    etThread.traceF( tinP , T("ROOTmAILoUT: [bServeSmtp]:    ")+TF2(bServeSmtp,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
-    //20190730@0808: MOVED TO HERE BUT NOT TESTED.  IDEAFARM.COM CURRENTLY USES GOOGLE.COM'S SMTP SERVER TO RELAY OUTGOING EMAIL
-
-    }
-        etThread.delF( tinP , psttServeSmtp ) ;
-        bServeSmtp = psttServeSmtp && !etThread.strCompareF( tinP , psttServeSmtp , T("yes") ) ;
-        ZE( strokeS* , psttServeSmtp ) ; etThread.querySettingF( tinP , psttServeSmtp , T("!ipdos.serve.smtp")  ) ; ___( psttServeSmtp ) ;
-    {
-    ZE( boolT , bServeSmtp ) ;
-{
-
-}
-    }
-        homeS::homeIF().flagsAdams |= flHOMEsaDAMS_ROOThTTPsERVER ;
-        ether.ifcHireF( tinP , T("ifcIDaDAM_ROOTmAILoUT") , ifcIDaDAM_ROOThTTPsERVER , T("!ignoreFireByOperator") , flHIRE_DISPLAYaUTO , nicNameC() ) ;
-    {
-    if( bServeHttp )
-    etThread.traceF( tinP , T("ROOTmAILoUT: [bServeHttp]:    ")+TF2(bServeHttp,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
-
-    }
-        etThread.delF( tinP , psttServeHttp ) ;
-        bServeHttp = psttServeHttp && !etThread.strCompareF( tinP , psttServeHttp , T("yes") ) ;
-        ZE( strokeS* , psttServeHttp ) ; etThread.querySettingF( tinP , psttServeHttp , T("!ipdos.serve.http")  ) ; ___( psttServeHttp ) ;
-    {
-    ZE( boolT , bServeHttp ) ;
-{
-
-#endif
-
-}
-    if( bGorillaHttpReporter ) ether.ifcHireF( tinP , T("ifcIDaDAM_ROOTmAILoUT") , ifcIDaDAM_GORILLAhTTPiDEAFARMcOMrEPORTER , T("!ignoreFireByOperator") , flHIRE_DISPLAYaUTO , nicNameC() ) ;
-    etThread.traceF( tinP , T("ROOTmAILoUT: [bGorillaHttpReporter]:    ")+TF2(bGorillaHttpReporter,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
-
-    }
-        etThread.delF( tinP , psttGorillaHttpReporter ) ;
-        bGorillaHttpReporter = psttGorillaHttpReporter && !etThread.strCompareF( tinP , psttGorillaHttpReporter , T("yes") ) ;
-        ZE( strokeS* , psttGorillaHttpReporter ) ; etThread.querySettingF( tinP , psttGorillaHttpReporter , T("!ipdos.gorilla.http.reporter")  ) ; ___( psttGorillaHttpReporter ) ;
-    {
-    ZE( boolT , bGorillaHttpReporter ) ;
-{
-
-}
-    if( bGorillaHttp ) ether.ifcHireF( tinP , T("ifcIDaDAM_ROOTmAILoUT") , ifcIDaDAM_GORILLAhTTPiDEAFARMcOM , T("!ignoreFireByOperator") , flHIRE_DISPLAYaUTO , nicNameC() ) ;
-    etThread.traceF( tinP , T("ROOTmAILoUT: [bGorillaHttp]:    ")+TF2(bGorillaHttp,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
-
-    }
-        etThread.delF( tinP , psttGorillaHttp ) ;
-        bGorillaHttp = psttGorillaHttp && !etThread.strCompareF( tinP , psttGorillaHttp , T("yes") ) ;
-        ZE( strokeS* , psttGorillaHttp ) ; etThread.querySettingF( tinP , psttGorillaHttp , T("!ipdos.gorilla.http")  ) ; ___( psttGorillaHttp ) ;
-    {
-    ZE( boolT , bGorillaHttp ) ;
-{
-
-#if defined( NEVERdEFINED )
-
-//ether.ifcHireF( tinP , T("ifcIDaDAM_ROOTmAILoUT") , ifcIDaDAM_KERNEL3BANG , T("!ignoreFireByOperator") , flHIRE_DISPLAYaUTO , nicNameC() ) ;
-//U::MOVE THIS TO EARLY ADAM IN BUNDLE
-
-
-//#if defined( NEVERdEFINED )
+boolT bSandbox = etherC::ifc_idHomeI_IF() & fliIDhOME_HOMELESS ;
 
 TODO
 

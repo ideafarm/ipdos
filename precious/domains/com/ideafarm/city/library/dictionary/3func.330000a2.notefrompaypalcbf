@@ -36,14 +36,24 @@
         }
             THREADmODE1rESTORE
 
-            etThread.boxPutF( tinP , T("smtp.mailgun.org[admin]/b42/smtp/")+tHost+T("@ideafarm.com/")+tValuePaypalPayerEmail+T("//wo@ideafarm.com/ideafarm.factory.reports@gmail.com") , tBody ) ;
+            etThread.boxPutF( tinP , T("smtp.mailgun.org[admin]/b42/smtp/")+tHost+T("@ideafarm.com/")+tToUse+T("//wo@ideafarm.com/ideafarm.factory.reports@gmail.com") , tBody ) ;
+
+            ;
+                : tValuePaypalPayerEmail
+                ? tEmailSandboxMe
+            textC& tToUse = bSandbox
+            TN( tEmailSandboxMe , "ideafarmcity@gmail.com" ) ;
 
             tBody += T("time:  ")+tTime+T("\r\n") ;
             tBody += T("\r\nreference:  ")+tShort+T("\r\n") ;
 
             }
+                tBody += T("Give this link to others:  https://ideafarm.com?")+tIdSubscriber+T("\r\n") ;
+                tBody += T("subscriber id:  ")+tIdSubscriber+T("\r\n\r\n") ;
                 tBody += T("country:  ")+tValueAddressCountry+T("\r\n") ;
                 tBody += T("postal code:  ")+tValueAddressZip+T("\r\n") ;
+
+                TN( tIdSubscriber , "" ) ; tIdSubscriber = TF4((countT)idSubscriber,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_NObASE,0,0x40) ;
             {
             if( !bDelete )
 
@@ -100,21 +110,42 @@
 
             THREADmODE1oN( flTHREADmODE1_ALLOWsTOPwHILEgRABBING )
 
-            rec << (strokeS*)tValueTransId          ;
-            rec << (strokeS*)tValueTransType        ;
-            rec << (strokeS*)tValueRewardBox        ;
-            rec << (strokeS*)tValueRewardBoxHidden  ;
-            rec << (strokeS*)tValueAddressCountry   ;
-            rec << (strokeS*)tZipUse                ;
-            rec << (strokeS*)tValuePaypalPayerEmail ;
-            rec << (strokeS*)T(nnPeerP)             ;
-            rec << (strokeS*)tAction                ;
-            rec << (countT)4                        ; // IDfORMAT
-            rec << finger                           ;
+            rec << (strokeS*)tValueAddressStatus      ; //ADDED IN FORMAT 6
+            rec << (strokeS*)tValueAddressZip         ; //ADDED IN FORMAT 6
+            rec << (strokeS*)tValueAddressCountry     ; //ADDED IN FORMAT 6
+            rec << (strokeS*)tValueAddressCountryCode ; //ADDED IN FORMAT 6
+            rec << (strokeS*)tValueAddressState       ; //ADDED IN FORMAT 6
+            rec << (strokeS*)tValueAddressCity        ; //ADDED IN FORMAT 6
+            rec << (strokeS*)tValueAddressStreet      ; //ADDED IN FORMAT 6
+            rec << (strokeS*)tValueAddressName        ; //ADDED IN FORMAT 6
+            rec << (strokeS*)tValueLastName           ; //ADDED IN FORMAT 6
+            rec << (strokeS*)tValueFirstName          ; //ADDED IN FORMAT 5
+            rec << ((countT*)&idSubscriber)[ 1 ]      ; //ADDED IN FORMAT 5
+            rec << ((countT*)&idSubscriber)[ 0 ]      ; //ADDED IN FORMAT 5
+            rec << (strokeS*)tValueTransId            ;
+            rec << (strokeS*)tValueTransType          ;
+            rec << (strokeS*)tValueRewardBox          ;
+            rec << (strokeS*)tValueRewardBoxHidden    ;
+            rec << (strokeS*)tZipUse                  ;
+            rec << (strokeS*)tValuePaypalPayerEmail   ;
+            rec << (strokeS*)T(nnPeerP)               ;
+            rec << (strokeS*)tAction                  ;
+            rec << (countT)timeN2                     ; //ADDED IN FORMAT 5
+            rec << (countT)timeN1                     ; //ADDED IN FORMAT 5
+            rec << (countT)6                          ; // IDfORMAT
+            rec << finger                             ;
             soulC rec( tinP , TAG( TAGiDnULL ) ) ;
 
             if( !tZipUse.csF( tinP ) ) tZipUse = tValueAddressCity ;
             TN( tZipUse , (strokeS*)tValueAddressZip ) ;
+
+            etThread.osTimeNowF( tinP , timeN1 , timeN2 ) ;
+            ZE( sCountT , timeN2 ) ;
+            ZE( countT , timeN1 ) ;
+
+            count04T idSubscriber = bDelete ? 0 : etThread.etherDispenseSerialNumberF( tinP , T(bSandbox?"////factory1/d/tmp/idSubscriberLath":"////factory3/d/ideafarm.home.102/ephemeral/backed.up.daily/domains/com/ideafarm/wo.o.s.table/idSubscriberLath") ) ;
+
+            boolT bSandbox = etherC::ifc_idHomeI_IF() & fliIDhOME_HOMELESS ;
 
             etThread.traceF( tinP , T("paypal subscription [tAction]: ")+tAction ) ;
 
@@ -142,48 +173,39 @@
         // PROCESS IF:
 
         // ---- psttKVReportP (BEGIN) -----------------------------------------------------------------
-        // address_city: "Hayward"<BR>
-        // address_country: "United States"<BR>
-        // address_country_code: "US"<BR>
-        // address_name: "Haroon Marzi"<BR>
-        // address_state: "CA"<BR>
-        // address_status: "confirmed"<BR>
-        // address_street: "24562 Sybil Ave"<BR>
-        // address_zip: "94542"<BR>
-        // btn_id: "210962543"<BR>
-        // business: "ideafarm.published.after.4.yrs@gmail.com"<BR>
-        // charset: "windows-1252"<BR>
-        // first_name: "Haroon"<BR>
-        // ipn_track_id: "470cbfc7c23d1"<BR>
-        // item_name: "Wo'O's Table Registration and Subscription"<BR>
-        // item_number: "20200604"<BR>
-        // last_name: "Marzi"<BR>
-        // mc_currency: "USD"<BR>
-        // mc_fee: "0.33"<BR>
-        // mc_gross: "1.00"<BR>
-        // notify_version: "3.9"<BR>
-        // option_name1: "Pay reward to"<BR>
-        // option_name2: "Referrer"<BR>
-        // option_selection1: "put.your@email.here"<BR>
-        // option_selection2: "put.your@email.here"<BR>
-        // payer_email: "transmissiongear@yahoo.com"<BR>
-        // payer_id: "EX3MKPQMH7WA2"<BR>
-        // payer_status: "unverified"<BR>
-        // payment_date: "21:19:49 Jun 24, 2020 PDT"<BR>
-        // payment_fee: "0.33"<BR>
-        // payment_gross: "1.00"<BR>
-        // payment_status: "Completed"<BR>
-        // payment_type: "instant"<BR>
-        // protection_eligibility: "Eligible"<BR>
-        // receiver_email: "ideafarm.published.after.4.yrs@gmail.com"<BR>
-        // receiver_id: "XF9NPKQY6G9Y2"<BR>
-        // resend: "true"<BR>
+        // verify_sign: "A6Wl-dV.Rl9HlgUaUiaylqrnaEu-A-m.2EaCOFABnQmIlQVYHSVWnUsE"<BR>
+        // txn_type: "subscr_signup"<BR>
+        // test_ipn: "1"<BR>
+        // subscr_id: "I-40KPDG5ERKE8"<BR>
+        // subscr_date: "13:30:53 Jun 30, 2020 PDT"<BR>
         // residence_country: "US"<BR>
-        // subscr_id: "I-MLN53EVBD5NU"<BR>
-        // transaction_subject: "Wo'O's Table Registration and Subscription"<BR>
-        // txn_id: "0JL69629B4605311W"<BR>
-        // txn_type: "subscr_payment"<BR>
-        // verify_sign: "AnlkDhBYwCRZ4fplPqXSdkLuOQdmAeOOC1-RhCTFPYPf39M6gR-wcnFU"<BR>
+        // recurring: "1"<BR>
+        // receiver_email: "sb-znjve1276155@business.example.com"<BR>
+        // reattempt: "1"<BR>
+        // period3: "1 D"<BR>
+        // payer_status: "verified"<BR>
+        // payer_id: "4QLHUR4EYW37J"<BR>
+        // payer_email: "sb-prtxq883780@personal.example.com"<BR>
+        // notify_version: "3.9"<BR>
+        // mc_currency: "USD"<BR>
+        // mc_amount3: "20.91"<BR>
+        // last_name: "Doe"<BR>
+        // item_number: "20200604"<BR>
+        // item_name: "Wo'O's Table Registration and Subscription"<BR>
+        // ipn_track_id: "b74bafb2990bf"<BR>
+        // first_name: "John"<BR>
+        // charset: "windows-1252"<BR>
+        // business: "sb-znjve1276155@business.example.com"<BR>
+        // btn_id: "4125553"<BR>
+        // amount3: "20.91"<BR>
+        // address_zip: "95131"<BR>
+        // address_street: "1 Main St"<BR>
+        // address_status: "confirmed"<BR>
+        // address_state: "CA"<BR>
+        // address_name: "John Doe"<BR>
+        // address_country_code: "US"<BR>
+        // address_country: "United States"<BR>
+        // address_city: "San Jose"<BR>
         // ---- psttKVReportP (END) -----------------------------------------------------------------
 
 
@@ -659,8 +681,6 @@
             TN( tSay1 ,
         {
 
-        boolT bSandbox = etherC::ifc_idHomeI_IF() & fliIDhOME_HOMELESS ;
-
         //LOGrAW( "\r\n---- postBodyP (END) -----------------------------------------------------------------\r\n" ) ;
         //LOGrAW( postBodyP ) ;
         //LOGrAW( "\r\n---- postBodyP (BEGIN) -----------------------------------------------------------------\r\n" ) ;
@@ -668,6 +688,7 @@
         //THIS WORKS IN FIREFOX BROWSER: https://www.sandbox.paypal.com:443/cgi-bin/webscr?cmd=_notify-validate&mc_gross=1.00&protection_eligibility=Eligible&address_status=confirmed&payer_id=4QLHUR4EYW37J&address_street=1+Main+St&payment_date=15%3A55%3A04+Jun+04%2C+2020+PDT&payment_status=Completed&charset=windows-1252&address_zip=95131&first_name=John&mc_fee=0.33&address_country_code=US&address_name=John+Doe&notify_version=3.9&subscr_id=I-DEKU4NNTHS0H&payer_status=verified&business=sb-znjve1276155%40business.example.com&address_country=United+States&address_city=San+Jose&verify_sign=AS.sXmO3SZlbZsuBgmx57wrfjxyDAk855hu6vdRmhFRd0mqr2l3hMU7l&payer_email=sb-prtxq883780%40personal.example.com&txn_id=5W609239EF681420H&payment_type=instant&btn_id=4125335&last_name=Doe&address_state=CA&receiver_email=sb-znjve1276155%40business.example.com&payment_fee=0.33&receiver_id=755UKLGFJ8XU2&txn_type=subscr_payment&item_name=Wo'O's+Table+Registration+and+Subscription&mc_currency=USD&item_number=20200604&residence_country=US&test_ipn=1&transaction_subject=Wo'O's+Table+Registration+and+Subscription&payment_gross=1.00&ipn_track_id=5075e5b427054 HTTP/1.0
         //OLD FORMAT: GET /cgi-bin/webscr?cmd=_notify-validate&mc_gross=1.00&protection_eligibility=Eligible&address_status=confirmed&payer_id=4QLHUR4EYW37J&address_street=1+Main+St&payment_date=17%3A04%3A06+Jun+04%2C+2020+PDT&payment_status=Completed&charset=windows-1252&address_zip=95131&first_name=John&mc_fee=0.33&address_country_code=US&address_name=John+Doe&notify_version=3.9&subscr_id=I-1CXF383WH8P0&payer_status=verified&business=sb-znjve1276155%40business.example.com&address_country=United+States&address_city=San+Jose&verify_sign=AEHpL6M1JS9Z4r02TsvVIey5ocFqAgLcANkEe9kVFcJG4kqTWCtTJprq&payer_email=sb-prtxq883780%40personal.example.com&txn_id=1XX85736SF014420R&payment_type=instant&btn_id=4125335&last_name=Doe&address_state=CA&receiver_email=sb-znjve1276155%40business.example.com&payment_fee=0.33&receiver_id=755UKLGFJ8XU2&txn_type=subscr_payment&item_name=Wo%27O%27s+Table+Registration+and+Subscription&mc_currency=USD&item_number=20200604&residence_country=US&test_ipn=1&transaction_subject=Wo%27O%27s+Table+Registration+and+Subscription&payment_gross=1.00&ipn_track_id=92fb2ec1f693b HTTP/1.0
     {
+    boolT bSandbox = etherC::ifc_idHomeI_IF() & fliIDhOME_HOMELESS ;
     TN( tValidationReply   , "" ) ;
     TN( tValidationRequest , "" ) ;
     ZE( boolT , bGot ) ;
