@@ -7381,6 +7381,10 @@ I have other business to attend to today and tomorrow, but plan to continue to w
 
 
 
+
+
+  !subjob C: talkCBF: write validated submission to a record
+  !subjob C: talkCBF: validate the ID and secret
   !subjob C: adam to create a registration record for me
   !subjob A: archive all Wo'O's Table subscription files
   set up dut
@@ -7393,10 +7397,10 @@ I have other business to attend to today and tomorrow, but plan to continue to w
 
 
 
-  set up dut
- playcraft
- objective: kiss
-!subjob C: adam to create a registration record for me
+
+
+
+
 
 
 !thrust: debug until all factories run without failure
@@ -7411,6 +7415,14 @@ I have other business to attend to today and tomorrow, but plan to continue to w
 =========================================================================================================================================================
 =========================================================================================================================================================
 
+  set up dut
+ playcraft
+ objective: quick and dirty to bring up
+!subjob C: talkCBF: validate the ID and secret
+  set up dut
+ playcraft
+ objective: kiss
+!subjob C: adam to create a registration record for me
    edit code so that sandbox accounts produce files with a different name
    move all such files into a zip file
   wish

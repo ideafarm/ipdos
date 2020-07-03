@@ -20,7 +20,7 @@
                     case 8 : { strFuseF( tinP , psttP , TF3(dick,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE,2) ) ; }
                     case 7 : { strFuseF( tinP , psttP , TF3(dock,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE,2) ) ; if( idLath == 7 ) break ; if( psttDelimiterP ) strFuseF( tinP , psttP , psttDelimiterP ) ; }
                     case 6 : { strFuseF( tinP , psttP , TF3(duck,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE,2) ) ; if( idLath == 6 ) break ; if( psttDelimiterP ) strFuseF( tinP , psttP , psttDelimiterP ) ; }
-                    case 5 : { strFuseF( tinP , psttP , TF3(day ,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE,2) ) ; if( idLath == 5 ) break ; if( psttDelimiterP ) strFuseF( tinP , psttP , psttDelimiterP ) ; }
+                    case 5 : { strFuseF( tinP , psttP , TF3(dime,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE,2) ) ; if( idLath == 5 ) break ; if( psttDelimiterP ) strFuseF( tinP , psttP , psttDelimiterP ) ; }
                     case 4 : { strFuseF( tinP , psttP , TF3(tick,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE,2) ) ; if( idLath == 4 ) break ; if( (countT)sttRadixP      ) strFuseF( tinP , psttP , sttRadixP     ) ; }
                     case 3 : { strFuseF( tinP , psttP , TF3(tock,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE,2) ) ; if( idLath == 3 ) break ; if( psttDelimiterP ) strFuseF( tinP , psttP , psttDelimiterP ) ; }
                     case 2 : { strFuseF( tinP , psttP , TF3(tuck,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE,2) ) ; if( idLath == 2 ) break ; if( psttDelimiterP ) strFuseF( tinP , psttP , psttDelimiterP ) ; }
@@ -37,7 +37,7 @@
                     case 2 : { strFuseF( tinP , psttP , TF3(tuck,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE,2) ) ; if( idWoth == 2 ) break ; if( psttDelimiterP ) strFuseF( tinP , psttP , psttDelimiterP ) ; }
                     case 3 : { strFuseF( tinP , psttP , TF3(tock,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE,2) ) ; if( idWoth == 3 ) break ; if( psttDelimiterP ) strFuseF( tinP , psttP , psttDelimiterP ) ; }
                     case 4 : { strFuseF( tinP , psttP , TF3(tick,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE,2) ) ; if( idWoth == 4 ) break ; if( psttDelimiterP ) strFuseF( tinP , psttP , psttDelimiterP ) ; }
-                    case 5 : { strFuseF( tinP , psttP , TF3(day ,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE,2) ) ; if( idWoth == 5 ) break ; if( (countT)sttRadixP      ) strFuseF( tinP , psttP , sttRadixP     ) ; }
+                    case 5 : { strFuseF( tinP , psttP , TF3(dime,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE,2) ) ; if( idWoth == 5 ) break ; if( (countT)sttRadixP      ) strFuseF( tinP , psttP , sttRadixP     ) ; }
                     case 6 : { strFuseF( tinP , psttP , TF3(duck,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE,2) ) ; if( idWoth == 6 ) break ; if( psttDelimiterP ) strFuseF( tinP , psttP , psttDelimiterP ) ; }
                     case 7 : { strFuseF( tinP , psttP , TF3(dock,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE,2) ) ; if( idWoth == 7 ) break ; if( psttDelimiterP ) strFuseF( tinP , psttP , psttDelimiterP ) ; }
                     case 8 : { strFuseF( tinP , psttP , TF3(dick,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE,2) ) ; if( idWoth == 8 ) break ; if( psttDelimiterP ) strFuseF( tinP , psttP , psttDelimiterP ) ; }
@@ -51,12 +51,12 @@
             const countT idLath  = idLathP  ? idLathP  : 8 ;
             const countT idWoth = idWothP ? idWothP : 1 ;
         
-            day %= 0x100 ;
-            countT duck = day / 0x100 ;
-            day %= 0x100 * 0x100 ;
-            countT dock = day / ( 0x100 * 0x100 ) ;
-            day %= 0x100 * 0x100 * 0x100 ;
-            countT dick = day / ( 0x100 * 0x100 * 0x100 ) ;
+            dime %= 0x100 ;
+            countT duck = dime / 0x100 ;
+            dime %= 0x100 * 0x100 ;
+            countT dock = dime / ( 0x100 * 0x100 ) ;
+            dime %= 0x100 * 0x100 * 0x100 ;
+            countT dick = dime / ( 0x100 * 0x100 * 0x100 ) ;
         
             tock %= 0x100 ;
             countT tick = tock / 0x100 ;
@@ -69,14 +69,14 @@
             ZE( strokeS* , psttw ) ;
         
             }
-                day = - time2 ;
+                dime = - time2 ;
                 bNeg = 1 ;
             {
             else
-            if( time2 >= 0 ) day = time2 ;
+            if( time2 >= 0 ) dime = time2 ;
             ZE( boolT , bNeg ) ;
         
-            ZE( countT , day ) ;
+            ZE( countT , dime ) ;
             sCountT time2 = time2P ;
             countT  time1 = time1P ;
         
