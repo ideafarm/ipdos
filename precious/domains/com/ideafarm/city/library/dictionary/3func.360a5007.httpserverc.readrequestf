@@ -34,15 +34,17 @@
                 {
                 if( psttv->idAdam > csMax ) 
 
-                ;
-                                : TUCK
-                                ? TUCK << 2
-                            !ether.strCompareF( tinP , psttk , T("comment") )
-                            !ether.strCompareF( tinP , psttk , T("peanut" ) ) ||
-                            !ether.strCompareF( tinP , psttk , T("note"   ) ) ||
-                        :
-                        ? TOCK
-                const countT csMax = 1 == ether.strIdF( tinP , T("autoresponse.") , psttk )
+                countT csMax = TOCK ; //20200703@1637: ELIMINATE THIS CHOKE IN ORDER TO ACCOMMODATE Wo'O's Table Talk POSTS ; (note comment peanut ARE NOT CURRENTLY USED)
+
+                //;
+                //                : TUCK
+                //                ? TUCK << 2
+                //            !ether.strCompareF( tinP , psttk , T("comment") )
+                //            !ether.strCompareF( tinP , psttk , T("peanut" ) ) ||
+                //            !ether.strCompareF( tinP , psttk , T("note"   ) ) ||
+                //        :
+                //        ? TOCK
+                //const countT csMax = 1 == ether.strIdF( tinP , T("autoresponse.") , psttk )
 
                 }
                     ether.delF( tinP , psttd ) ;
@@ -168,7 +170,7 @@
 
         //ether.traceF( tinP , T("[line]: \"")+T(psttl)+T("\"") ) ;
         //LOGrAW( T("\"")+T(psttl)+T("\"\r\n") ) ; //U::        
-        ostEscaped = psoP->readWoLineF( tinP , psttl , TUCK * 8 , postEscapeP ) ; ___( psttl ) ; //TUCK*2 NOT ENOUGH FOR Accepts: HEADER LINE
+        ostEscaped = psoP->readWoLineF( tinP , psttl , TOCK /*TUCK * 8*/ , postEscapeP ) ; ___( psttl ) ; //TUCK*2 NOT ENOUGH FOR Accepts: HEADER LINE ; 20200703@1617: "TUCK * 8" -> "TOCK" TO SUPPORT FORM QUERIES CONTINING textarea SUBMISSIONS
         ZE( strokeS* , psttl ) ;
     {
     while( !ether && !POOP ) //READ THE HEADER LINES

@@ -257,9 +257,11 @@
             "<label for=\"secret\">Secret:</label>\r\n"
             "<input id=\"subscriberid\" name=\"subscriberid\" type=\"text\" value=\"\"/>\r\n"
             "<label for=\"subscriberid\">Subscriber ID:</label>\r\n"
-            "<form action=\"https://ideafarm.com/talk\" id=\"newpost\" method=\"post\" name=\"mypost\">\r\n"
-
-        TN( tSay , 
+            "ideafarm.com/talk\" id=\"newpost\" method=\"post\" name=\"mypost\">\r\n"
+            
+        tSay += T(
+        if( bSandbox ) tSay += T("factory1." ) ;
+        TN( tSay , "<form action=\"https://" ) ;
         ZE( pbRefC* , prPosts ) ;
     {
 
