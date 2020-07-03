@@ -16,7 +16,7 @@
         etThread.strMakeF( tinP , prPosts , T("<p>\r\n")+tOut+T("\r\n") , 0 , flSTRmAKE_PREFIXlENGTH ) ; ___( prPosts ) ;
         ZE( pbRefC* , prPosts ) ;
 
-        TN( tOut , "" ) ; tOut = tSaidTimeForeign+tb4+tSaidNnPeer+tb4+tSaidCountryCode+tb4+tSaidZipUse+tb4+tSaidIdSubscriber0+tb4+tSaidFirstName+tb4+tSaidLastName+tb4+tSaidSpeech ;
+        TN( tOut , "" ) ; tOut = tSaidTimeForeign+tb4+tSaidCountryCode+tb4+tSaidZipUse+tb4+tSaidIdSubscriber0+tb4+tSaidFirstName+tb4+tSaidLastName+T(":\r\n<br>\r\n")+tSaidSpeech ;
 
         }
             etThread.delF( tinP , psttSaidCountryCode ) ;
@@ -36,8 +36,10 @@
             said >> psttSaidAddressStreet ; ___( psttSaidAddressStreet ) ;
             ZE( strokeS* , psttSaidAddressStreet ) ;
 
+            said >> nnPeer ;
+            nicNameC nnPeer ;
+
             etThread.delF( tinP , psttSaidNnPeer ) ;
-            tSaidNnPeer = T(psttSaidNnPeer) ;
             said >> psttSaidNnPeer ; ___( psttSaidNnPeer ) ;
             ZE( strokeS* , psttSaidNnPeer ) ;
 
@@ -95,7 +97,6 @@
             soulC said( tinP , TAG( TAGiDnULL ) ) ;
         {
         TN( tSaidCountryCode , "" ) ;
-        TN( tSaidNnPeer , "" ) ;
         TN( tSaidZipUse , "" ) ;
         TN( tSaidLastName , "" ) ;
         TN( tSaidFirstName , "" ) ;
@@ -115,7 +116,7 @@
             DEL( pInfo ) ;
             }
                 if( !ids ) etThread.delF( tinP , psttFile ) ; //SHOULD BE IMPOSSIBLE
-                stFile.sinkF( tinP , ids , psttFile , flSTACKsINK_UNIQUE ) ;
+                stFile.sinkF( tinP , ids , psttFile , flSTACKsINK_UNIQUE|flSTACKsINK_REVERSE ) ;
                 ZE( countT , ids ) ;
 
                 etThread.strMakeF( tinP , psttFile , pInfo->psttIfoName ) ; ___( psttFile ) ;
@@ -203,6 +204,7 @@
             said << (strokeS*)tSaidAddressState ;
             said << (strokeS*)tSaidAddressCity ;
             said << (strokeS*)tSaidAddressStreet ;
+            said << nnPeerP ;                                   // FORMAT 2
             said << (strokeS*)tSaidNnPeer ;
             said << (strokeS*)tSaidZipUse ;
             said << (strokeS*)tSaidAddressName ;
@@ -214,7 +216,7 @@
             said << (strokeS*)tTimeForeign ;
             said << (countT)timeN2 ;
             said << timeN1 ;
-            said << (countT)1 ;             // IDfORMAT
+            said << (countT)2 ;             // IDfORMAT
             said << finger ;
             soulC said( tinP , TAG( TAGiDnULL ) ) ;
 

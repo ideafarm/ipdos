@@ -3643,8 +3643,9 @@ examples
 /**/
 /*1*//*flSTACKsINK_*//*1*/
 /*3*/
-#define flSTACKsINK_UNIQUE 0xe0000108
-#define flSTACKsINK_QUERY  0xe0000208
+#define flSTACKsINK_UNIQUE      0xe0000108
+#define flSTACKsINK_QUERY       0xe0000208
+#define flSTACKsINK_REVERSE     0xe0000408
 /*3*/
 #define flSTACKsINK_null    0xe0000008
 
