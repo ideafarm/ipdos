@@ -16,7 +16,7 @@
         etThread.strMakeF( tinP , prPosts , T("<p>\r\n")+tOut+T("\r\n") , 0 , flSTRmAKE_PREFIXlENGTH ) ; ___( prPosts ) ;
         ZE( pbRefC* , prPosts ) ;
 
-        TN( tOut , "" ) ; tOut = tSaidTimeForeign+tb4+tSaidCountryCode+tb4+tSaidZipUse+tb4+tSaidIdSubscriber0+tb4+tSaidFirstName+tb4+tSaidLastName+T(": ")+tSaidSpeech ;
+        TN( tOut , "" ) ; tOut = T("<span style=\"color:Cyan\">")+tSaidTimeForeign+tb4+tSaidCountryCode+tb4+tSaidZipUse+tb4+tSaidIdSubscriber0+tb4+tSaidFirstName+tb4+tSaidLastName+T(": </span>")+tSaidSpeech ;
 
         }
             etThread.delF( tinP , psttSaidCountryCode ) ;
@@ -234,7 +234,7 @@
             DEL( prPosts ) ;
             if( prPosts ) meP.pushSnipF( tinP , stBodyP , *prPosts ) ;
 
-            etThread.strMakeF( tinP , prPosts , T("The secret is wrong.") , 0 , flSTRmAKE_PREFIXlENGTH ) ; ___( prPosts ) ;
+            etThread.strMakeF( tinP , prPosts , T("<span style=\"color:red\">The secret is wrong.</span>") , 0 , flSTRmAKE_PREFIXlENGTH ) ; ___( prPosts ) ;
             ZE( pbRefC* , prPosts ) ;
         {
         if( !bSecretIsOK )
@@ -513,14 +513,12 @@
         ) ;
 
             "<p>\r\n"
-            "At the moment, this is an honor system, so please be honorable.<p>\r\n"
-            "Other modes of behavior will be welcome once the software is developed to accommodate multiple \"tables\" and prevent disruptive behavior.\r\n"
-            "</center>\r\n"
-            "<br>\r\n"
+            "At the moment, this is an honor system, so please be honorable.\r\n"
+            "Other modes of behavior will be welcome once the software is developed to accommodate multiple \"tables\" and to prevent disruptive behavior.\r\n"
             "Please join in as if this is a \"dinner table conversation\", and you are my friend and guest.\r\n"
-            "<br>\r\n"
             "Wo'O's Table Talk is being developed, and currently has only this single page.\r\n"
             "<p>\r\n"
+            "</center>\r\n"
             "This forum is a meeting or assembly.\r\n"
             "<br>\r\n"
             "Penal Code 403: Every person who... willfully disturbs or breaks up any assembly or meeting... is guilty of a misdemeanor.\r\n"
