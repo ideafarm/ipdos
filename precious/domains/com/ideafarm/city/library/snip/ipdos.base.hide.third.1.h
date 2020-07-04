@@ -3643,9 +3643,9 @@ examples
 /**/
 /*1*//*flSTACKsINK_*//*1*/
 /*3*/
-#define flSTACKsINK_UNIQUE      0xe0000108
-#define flSTACKsINK_QUERY       0xe0000208
-#define flSTACKsINK_REVERSE     0xe0000408
+#define flSTACKsINK_UNIQUE   0xe0000108
+#define flSTACKsINK_QUERY    0xe0000208
+#define flSTACKsINK_REVERSE  0xe0000408
 /*3*/
 #define flSTACKsINK_null    0xe0000008
 
@@ -5101,7 +5101,7 @@ in the "IN_NORMAL" macros, it is redefined so that the _ macro sets the high ord
 //
 
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200082.ifcflagin END
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200083._in_ BEGIN
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200083._io_ BEGIN
 
 
 //
@@ -5143,7 +5143,7 @@ it is illegal to refer to this symbol in the definition of an adam
 // Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
 
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200083._in_ END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200083._io_ END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200084.posthtmlbodypart1 BEGIN
 
 
@@ -9986,7 +9986,7 @@ flHIRE_SHOW
 #define FINGERnEG_WOtABLEsAID                           ((countT)-(sCountT)0xcccc005e)
 /*3*/
 #define FINGERnEG_min     0xcccc0001
-#define FINGERnEG_max     0xcccc005d
+#define FINGERnEG_max     0xcccc005e
 
 
 //
@@ -32320,10 +32320,10 @@ plateC& fooC::operator +=( plateC& plateP )                                     
 /*1*//*ifcIDsUBtYPEpOOP_*//*1*/
 
 /*3*/
-#define ifcIDsUBtYPEpOOP_FIREDbYmONITOR      0xdddd0ae1
+#define ifcIDsUBtYPEpOOP_FIREDbYmONITOR      0xdddd0ae2
 /*3*/
-#define ifcIDsUBtYPEpOOP_min     0xdddd0ae1
-#define ifcIDsUBtYPEpOOP_max     0xdddd0ae1
+#define ifcIDsUBtYPEpOOP_min     0xdddd0ae2
+#define ifcIDsUBtYPEpOOP_max     0xdddd0ae2
 
 
 //
@@ -32443,14 +32443,14 @@ plateC& fooC::operator +=( plateC& plateP )                                     
 //THESE MUST BE IN THREAD PHASE ORDER, I.E. LATER PHASES MUST HAVE HIGHER id VALUES
 
 /*3*/
-#define ifcIDpHASEpROCESS_PROLOGcONSTRUCTINGgLOBALS     0xdddd0ae2
-#define ifcIDpHASEpROCESS_PROLOGaLLgLOBALScONSTRUCTED   0xdddd0ae3
-#define ifcIDpHASEpROCESS_WORKINGwINDOWtINgONE          0xdddd0ae4
-#define ifcIDpHASEpROCESS_EPILOGdESTROYINGgLOBALS       0xdddd0ae5
-#define ifcIDpHASEpROCESS_EPILOGaLLgLOBALSdESTROYED     0xdddd0ae6
+#define ifcIDpHASEpROCESS_PROLOGcONSTRUCTINGgLOBALS     0xdddd0ae3
+#define ifcIDpHASEpROCESS_PROLOGaLLgLOBALScONSTRUCTED   0xdddd0ae4
+#define ifcIDpHASEpROCESS_WORKINGwINDOWtINgONE          0xdddd0ae5
+#define ifcIDpHASEpROCESS_EPILOGdESTROYINGgLOBALS       0xdddd0ae6
+#define ifcIDpHASEpROCESS_EPILOGaLLgLOBALSdESTROYED     0xdddd0ae7
 /*3*/
-#define ifcIDpHASEpROCESS_min     0xdddd0ae2
-#define ifcIDpHASEpROCESS_max     0xdddd0ae6
+#define ifcIDpHASEpROCESS_min     0xdddd0ae3
+#define ifcIDpHASEpROCESS_max     0xdddd0ae7
 
 
 //
@@ -33037,14 +33037,14 @@ plateC& fooC::operator +=( plateC& plateP )                                     
 /*1*//*ifcIDfORMhTTPrEPLY*//*1*/
 
 /*3*/
-#define ifcIDfORMhTTPrEPLY_DEBUG               0xdddd0ae7
-#define ifcIDfORMhTTPrEPLY_RAW                 0xdddd0ae8
-#define ifcIDfORMhTTPrEPLY_FULLcUSTOM          0xdddd0ae9
-#define ifcIDfORMhTTPrEPLY_BIGhEAD             0xdddd0aea
-#define ifcIDfORMhTTPrEPLY_PINhEAD             0xdddd0aeb
+#define ifcIDfORMhTTPrEPLY_DEBUG               0xdddd0ae8
+#define ifcIDfORMhTTPrEPLY_RAW                 0xdddd0ae9
+#define ifcIDfORMhTTPrEPLY_FULLcUSTOM          0xdddd0aea
+#define ifcIDfORMhTTPrEPLY_BIGhEAD             0xdddd0aeb
+#define ifcIDfORMhTTPrEPLY_PINhEAD             0xdddd0aec
 /*3*/
-#define ifcIDfORMhTTPrEPLY_min     0xdddd0ae7
-#define ifcIDfORMhTTPrEPLY_max     0xdddd0aeb
+#define ifcIDfORMhTTPrEPLY_min     0xdddd0ae8
+#define ifcIDfORMhTTPrEPLY_max     0xdddd0aec
 
 
 //
@@ -33445,12 +33445,12 @@ it is illegal to refer to this symbol in the definition of an adam
 /*1*//*ifcIDtYPEtHREAD*//*1*/
 
 /*3*/
-#define ifcIDtYPEtHREAD_KERNEL            0xdddd0aec
-#define ifcIDtYPEtHREAD_SHOWpONY          0xdddd0aed
-#define ifcIDtYPEtHREAD_WORKhORSE         0xdddd0aee
+#define ifcIDtYPEtHREAD_KERNEL            0xdddd0aed
+#define ifcIDtYPEtHREAD_SHOWpONY          0xdddd0aee
+#define ifcIDtYPEtHREAD_WORKhORSE         0xdddd0aef
 /*3*/
-#define ifcIDtYPEtHREAD_min     0xdddd0aec
-#define ifcIDtYPEtHREAD_max     0xdddd0aee
+#define ifcIDtYPEtHREAD_min     0xdddd0aed
+#define ifcIDtYPEtHREAD_max     0xdddd0aef
 
 
 //
@@ -34144,14 +34144,14 @@ it is illegal to refer to this symbol in the definition of an adam
 /*1*//*ifcIDtYPEsTROKEcLEAN*//*1*/
 
 /*3*/
-#define ifcIDtYPEsTROKEcLEAN_PRINTABLES                     0xdddd0aef
-#define ifcIDtYPEsTROKEcLEAN_CnAMES                         0xdddd0af0
-#define ifcIDtYPEsTROKEcLEAN_CnAMESoRaT                     0xdddd0af1
-#define ifcIDtYPEsTROKEcLEAN_CnAMESoRbLANK                  0xdddd0af2
-#define ifcIDtYPEsTROKEcLEAN_CnAMESoRbLANKoRpUNCTUATION     0xdddd0af3
+#define ifcIDtYPEsTROKEcLEAN_PRINTABLES                     0xdddd0af0
+#define ifcIDtYPEsTROKEcLEAN_CnAMES                         0xdddd0af1
+#define ifcIDtYPEsTROKEcLEAN_CnAMESoRaT                     0xdddd0af2
+#define ifcIDtYPEsTROKEcLEAN_CnAMESoRbLANK                  0xdddd0af3
+#define ifcIDtYPEsTROKEcLEAN_CnAMESoRbLANKoRpUNCTUATION     0xdddd0af4
 /*3*/
-#define ifcIDtYPEsTROKEcLEAN_min     0xdddd0aef
-#define ifcIDtYPEsTROKEcLEAN_max     0xdddd0af3
+#define ifcIDtYPEsTROKEcLEAN_min     0xdddd0af0
+#define ifcIDtYPEsTROKEcLEAN_max     0xdddd0af4
 
 
 //
@@ -34239,15 +34239,15 @@ it is illegal to refer to this symbol in the definition of an adam
 /*1*//*ifcIDpOOL*//*1*/
 
 /*3*/
-#define ifcIDpOOL_NONE                 0xdddd0af4
-#define ifcIDpOOL_ADAMtEMP             0xdddd0af5
-#define ifcIDpOOL_HOMEtEMP             0xdddd0af6
-#define ifcIDpOOL_SCRATCH              0xdddd0af7
-#define ifcIDpOOL_ADAMpERM             0xdddd0af8
-#define ifcIDpOOL_HOMEpERM             0xdddd0af9
+#define ifcIDpOOL_NONE                 0xdddd0af5
+#define ifcIDpOOL_ADAMtEMP             0xdddd0af6
+#define ifcIDpOOL_HOMEtEMP             0xdddd0af7
+#define ifcIDpOOL_SCRATCH              0xdddd0af8
+#define ifcIDpOOL_ADAMpERM             0xdddd0af9
+#define ifcIDpOOL_HOMEpERM             0xdddd0afa
 /*3*/
-#define ifcIDpOOL_min     0xdddd0af4
-#define ifcIDpOOL_max     0xdddd0af9
+#define ifcIDpOOL_min     0xdddd0af5
+#define ifcIDpOOL_max     0xdddd0afa
 
 
 //
@@ -34625,12 +34625,12 @@ coding standard
 /*1*//*ifcIDhOWlIST*//*1*/
 
 /*3*/
-#define ifcIDhOWlIST_SINK             0xdddd0afa
-#define ifcIDhOWlIST_LIFO             0xdddd0afb
-#define ifcIDhOWlIST_FIFO             0xdddd0afc
+#define ifcIDhOWlIST_SINK             0xdddd0afb
+#define ifcIDhOWlIST_LIFO             0xdddd0afc
+#define ifcIDhOWlIST_FIFO             0xdddd0afd
 /*3*/
-#define ifcIDhOWlIST_min     0xdddd0afa
-#define ifcIDhOWlIST_max     0xdddd0afc
+#define ifcIDhOWlIST_min     0xdddd0afb
+#define ifcIDhOWlIST_max     0xdddd0afd
 
 
 //
@@ -34934,14 +34934,14 @@ bit masks
 /*1*//*ifcIDtYPEaPTaTTACH*//*1*/
 
 /*3*/
-#define ifcIDtYPElISTING_LIST                             0xdddd0afd
-#define ifcIDtYPElISTING_COUNTt                           0xdddd0afe
-#define ifcIDtYPElISTING_OStEXTsTRz                       0xdddd0aff
-#define ifcIDtYPElISTING_LISTcOUNTt                       0xdddd0b00
-#define ifcIDtYPElISTING_LISToStEXTsTRz                   0xdddd0b01
+#define ifcIDtYPElISTING_LIST                             0xdddd0afe
+#define ifcIDtYPElISTING_COUNTt                           0xdddd0aff
+#define ifcIDtYPElISTING_OStEXTsTRz                       0xdddd0b00
+#define ifcIDtYPElISTING_LISTcOUNTt                       0xdddd0b01
+#define ifcIDtYPElISTING_LISToStEXTsTRz                   0xdddd0b02
 /*3*/
-#define ifcIDtYPElISTING_min     0xdddd0afd
-#define ifcIDtYPElISTING_max     0xdddd0b01
+#define ifcIDtYPElISTING_min     0xdddd0afe
+#define ifcIDtYPElISTING_max     0xdddd0b02
 
 
 //
@@ -34968,11 +34968,11 @@ bit masks
 /*1*//*ifcIDcMDsERIALnUMBERdISPENSER*//*1*/
 
 /*3*/
-#define ifcIDcMDsERIALnUMBERdISPENSER_DISPENSEnAMEsTROKEsTRING   0xdddd0b02
-#define ifcIDcMDsERIALnUMBERdISPENSER_DISPENSEnAMEcOUNTsTRING    0xdddd0b03
+#define ifcIDcMDsERIALnUMBERdISPENSER_DISPENSEnAMEsTROKEsTRING   0xdddd0b03
+#define ifcIDcMDsERIALnUMBERdISPENSER_DISPENSEnAMEcOUNTsTRING    0xdddd0b04
 /*3*/
-#define ifcIDcMDsERIALnUMBERdISPENSER_min     0xdddd0b02
-#define ifcIDcMDsERIALnUMBERdISPENSER_max     0xdddd0b03
+#define ifcIDcMDsERIALnUMBERdISPENSER_min     0xdddd0b03
+#define ifcIDcMDsERIALnUMBERdISPENSER_max     0xdddd0b04
 
 
 //
@@ -34999,11 +34999,11 @@ bit masks
 /*1*//*ifcIDcMDlISTsERVEReMAILiDaCCOUNT*//*1*/
 
 /*3*/
-#define ifcIDcMDlISTsERVEReMAILiDaCCOUNT_ASKiDaCCOUNTfROMeMAIL    0xdddd0b04
-#define ifcIDcMDlISTsERVEReMAILiDaCCOUNT_ASKeMAILfROMiDaCCOUNT    0xdddd0b05
+#define ifcIDcMDlISTsERVEReMAILiDaCCOUNT_ASKiDaCCOUNTfROMeMAIL    0xdddd0b05
+#define ifcIDcMDlISTsERVEReMAILiDaCCOUNT_ASKeMAILfROMiDaCCOUNT    0xdddd0b06
 /*3*/
-#define ifcIDcMDlISTsERVEReMAILiDaCCOUNT_min     0xdddd0b04
-#define ifcIDcMDlISTsERVEReMAILiDaCCOUNT_max     0xdddd0b05
+#define ifcIDcMDlISTsERVEReMAILiDaCCOUNT_min     0xdddd0b05
+#define ifcIDcMDlISTsERVEReMAILiDaCCOUNT_max     0xdddd0b06
 
 
 //
@@ -35128,12 +35128,12 @@ bit masks
 //CS:CODEsYNC: 00104c9 1050104.2
 
 /*3*/
-#define ifcIDtYPEdERIVEDbASEgRABc_grabC                             0xdddd0b06
-#define ifcIDtYPEdERIVEDbASEgRABc_grabitC                           0xdddd0b07
-#define ifcIDtYPEdERIVEDbASEgRABc_grabotC                           0xdddd0b08
+#define ifcIDtYPEdERIVEDbASEgRABc_grabC                             0xdddd0b07
+#define ifcIDtYPEdERIVEDbASEgRABc_grabitC                           0xdddd0b08
+#define ifcIDtYPEdERIVEDbASEgRABc_grabotC                           0xdddd0b09
 /*3*/
-#define ifcIDtYPEdERIVEDbASEgRABc_min     0xdddd0b06
-#define ifcIDtYPEdERIVEDbASEgRABc_max     0xdddd0b08
+#define ifcIDtYPEdERIVEDbASEgRABc_min     0xdddd0b07
+#define ifcIDtYPEdERIVEDbASEgRABc_max     0xdddd0b09
 
 
 //
@@ -35308,20 +35308,20 @@ bit masks
 /*1*//*ifcIDcMDlISTsERVERiDaCCOUNTdESCRIPTION*//*1*/
 
 /*3*/
-#define ifcIDcMDlISTsERVERiDaCCOUNTdESCRIPTION_SETaCCOUNTdESCRIPTION                0xdddd0b09
-#define ifcIDcMDlISTsERVERiDaCCOUNTdESCRIPTION_QUERYaCCOUNTdESCRIPTION              0xdddd0b0a
-#define ifcIDcMDlISTsERVERiDaCCOUNTdESCRIPTION_DELETEaCCOUNTdESCRIPTION             0xdddd0b0b
-#define ifcIDcMDlISTsERVERiDaCCOUNTdESCRIPTION_TESTiDaCCOUNT                        0xdddd0b0c
-#define ifcIDcMDlISTsERVERiDaCCOUNTdESCRIPTION_ENUMERATEiDaCCOUNT                   0xdddd0b0d
-#define ifcIDcMDlISTsERVERiDaCCOUNTdESCRIPTION_SETsUBACCOUNTdESCRIPTION             0xdddd0b0e
-#define ifcIDcMDlISTsERVERiDaCCOUNTdESCRIPTION_QUERYsUBACCOUNTdESCRIPTION           0xdddd0b0f
-#define ifcIDcMDlISTsERVERiDaCCOUNTdESCRIPTION_DELETEsUBACCOUNTdESCRIPTION          0xdddd0b10
-#define ifcIDcMDlISTsERVERiDaCCOUNTdESCRIPTION_TESTiDsUB                            0xdddd0b11
-#define ifcIDcMDlISTsERVERiDaCCOUNTdESCRIPTION_ENUMERATEiDsUB                       0xdddd0b12
-#define ifcIDcMDlISTsERVERiDaCCOUNTdESCRIPTION_CONFIRMoWNERaLLsUBACCOUNTS           0xdddd0b13
+#define ifcIDcMDlISTsERVERiDaCCOUNTdESCRIPTION_SETaCCOUNTdESCRIPTION                0xdddd0b0a
+#define ifcIDcMDlISTsERVERiDaCCOUNTdESCRIPTION_QUERYaCCOUNTdESCRIPTION              0xdddd0b0b
+#define ifcIDcMDlISTsERVERiDaCCOUNTdESCRIPTION_DELETEaCCOUNTdESCRIPTION             0xdddd0b0c
+#define ifcIDcMDlISTsERVERiDaCCOUNTdESCRIPTION_TESTiDaCCOUNT                        0xdddd0b0d
+#define ifcIDcMDlISTsERVERiDaCCOUNTdESCRIPTION_ENUMERATEiDaCCOUNT                   0xdddd0b0e
+#define ifcIDcMDlISTsERVERiDaCCOUNTdESCRIPTION_SETsUBACCOUNTdESCRIPTION             0xdddd0b0f
+#define ifcIDcMDlISTsERVERiDaCCOUNTdESCRIPTION_QUERYsUBACCOUNTdESCRIPTION           0xdddd0b10
+#define ifcIDcMDlISTsERVERiDaCCOUNTdESCRIPTION_DELETEsUBACCOUNTdESCRIPTION          0xdddd0b11
+#define ifcIDcMDlISTsERVERiDaCCOUNTdESCRIPTION_TESTiDsUB                            0xdddd0b12
+#define ifcIDcMDlISTsERVERiDaCCOUNTdESCRIPTION_ENUMERATEiDsUB                       0xdddd0b13
+#define ifcIDcMDlISTsERVERiDaCCOUNTdESCRIPTION_CONFIRMoWNERaLLsUBACCOUNTS           0xdddd0b14
 /*3*/
-#define ifcIDcMDlISTsERVERiDaCCOUNTdESCRIPTION_min     0xdddd0b09
-#define ifcIDcMDlISTsERVERiDaCCOUNTdESCRIPTION_max     0xdddd0b13
+#define ifcIDcMDlISTsERVERiDaCCOUNTdESCRIPTION_min     0xdddd0b0a
+#define ifcIDcMDlISTsERVERiDaCCOUNTdESCRIPTION_max     0xdddd0b14
 
 
 //
@@ -36058,11 +36058,11 @@ obsoleted by coding style standard: use osTextT strings for name elements so tha
 /*1*//*ifcIDhEADfLAVOR*//*1*/
 
 /*3*/
-#define ifcIDhEADfLAVOR_VERBOSE                            0xdddd0b14
-#define ifcIDhEADfLAVOR_TERSE                              0xdddd0b15
+#define ifcIDhEADfLAVOR_VERBOSE                            0xdddd0b15
+#define ifcIDhEADfLAVOR_TERSE                              0xdddd0b16
 /*3*/
-#define ifcIDhEADfLAVOR_min     0xdddd0b14
-#define ifcIDhEADfLAVOR_max     0xdddd0b15
+#define ifcIDhEADfLAVOR_min     0xdddd0b15
+#define ifcIDhEADfLAVOR_max     0xdddd0b16
 
 
 //
@@ -36169,15 +36169,15 @@ obsoleted by coding style standard: use osTextT strings for name elements so tha
 /*1*//*ifcIDmODEtEST*//*1*/
 
 /*3*/
-#define ifcIDmODEtEST_EQ                            0xdddd0b16
-#define ifcIDmODEtEST_NE                            0xdddd0b17
-#define ifcIDmODEtEST_LT                            0xdddd0b18
-#define ifcIDmODEtEST_LE                            0xdddd0b19
-#define ifcIDmODEtEST_GE                            0xdddd0b1a
-#define ifcIDmODEtEST_GT                            0xdddd0b1b
+#define ifcIDmODEtEST_EQ                            0xdddd0b17
+#define ifcIDmODEtEST_NE                            0xdddd0b18
+#define ifcIDmODEtEST_LT                            0xdddd0b19
+#define ifcIDmODEtEST_LE                            0xdddd0b1a
+#define ifcIDmODEtEST_GE                            0xdddd0b1b
+#define ifcIDmODEtEST_GT                            0xdddd0b1c
 /*3*/
-#define ifcIDmODEtEST_min     0xdddd0b16
-#define ifcIDmODEtEST_max     0xdddd0b1b
+#define ifcIDmODEtEST_min     0xdddd0b17
+#define ifcIDmODEtEST_max     0xdddd0b1c
 
 
 //
@@ -36450,12 +36450,12 @@ obsoleted by coding style standard: use osTextT strings for name elements so tha
 /*1*//*ifcIDcMDlISTsERVERmONEYbUCKETS*//*1*/
 
 /*3*/
-#define ifcIDcMDlISTsERVERmONEYbUCKETS_PUT                0xdddd0b1c
-#define ifcIDcMDlISTsERVERmONEYbUCKETS_GETtOTAL           0xdddd0b1d
-#define ifcIDcMDlISTsERVERmONEYbUCKETS_GETdETAIL          0xdddd0b1e
+#define ifcIDcMDlISTsERVERmONEYbUCKETS_PUT                0xdddd0b1d
+#define ifcIDcMDlISTsERVERmONEYbUCKETS_GETtOTAL           0xdddd0b1e
+#define ifcIDcMDlISTsERVERmONEYbUCKETS_GETdETAIL          0xdddd0b1f
 /*3*/
-#define ifcIDcMDlISTsERVERmONEYbUCKETS_min     0xdddd0b1c
-#define ifcIDcMDlISTsERVERmONEYbUCKETS_max     0xdddd0b1e
+#define ifcIDcMDlISTsERVERmONEYbUCKETS_min     0xdddd0b1d
+#define ifcIDcMDlISTsERVERmONEYbUCKETS_max     0xdddd0b1f
 
 
 //
@@ -36733,12 +36733,12 @@ obsoleted by coding style standard: use osTextT strings for name elements so tha
 /*1*//*ifcIDmODEaPTsINK*//*1*/
 
 /*3*/
-#define ifcIDmODEaPTsINK_NORMAL                  0xdddd0b1f
-#define ifcIDmODEaPTsINK_LEADsHOES               0xdddd0b20
-#define ifcIDmODEaPTsINK_AIRvEST                 0xdddd0b21
+#define ifcIDmODEaPTsINK_NORMAL                  0xdddd0b20
+#define ifcIDmODEaPTsINK_LEADsHOES               0xdddd0b21
+#define ifcIDmODEaPTsINK_AIRvEST                 0xdddd0b22
 /*3*/
-#define ifcIDmODEaPTsINK_min     0xdddd0b1f
-#define ifcIDmODEaPTsINK_max     0xdddd0b21
+#define ifcIDmODEaPTsINK_min     0xdddd0b20
+#define ifcIDmODEaPTsINK_max     0xdddd0b22
 
 
 //
@@ -37271,11 +37271,11 @@ obsoleted by coding style standard: use osTextT strings for name elements so tha
 /*1*//*ifcIDdO*//*1*/
 
 /*3*/
-#define ifcIDdO_REGISTERrOOTaDAMhEART                  0xdddd0b22
-#define ifcIDdO_SETUPsOCKETS                           0xdddd0b23
+#define ifcIDdO_REGISTERrOOTaDAMhEART                  0xdddd0b23
+#define ifcIDdO_SETUPsOCKETS                           0xdddd0b24
 /*3*/
-#define ifcIDdO_min     0xdddd0b22
-#define ifcIDdO_max     0xdddd0b23
+#define ifcIDdO_min     0xdddd0b23
+#define ifcIDdO_max     0xdddd0b24
 
 
 //
@@ -39383,36 +39383,36 @@ obsolete: ordering begins with "outer" (low) and ends with "inner" (high)
 /*1*//*ifcIDgRABlAYER*//*1*/
 
 /*3*/
-#define ifcIDgRABlAYER_1SKIN                        0xdddd0b24
-#define ifcIDgRABlAYER_2OUTER                       0xdddd0b25
-#define ifcIDgRABlAYER_3MIDDLE                      0xdddd0b26
-#define ifcIDgRABlAYER_4INNER                       0xdddd0b27
-#define ifcIDgRABlAYER_5BONE                        0xdddd0b28
-#define ifcIDgRABlAYER_6BONE                        0xdddd0b29
-#define ifcIDgRABlAYER_7BASEmISC1                   0xdddd0b2a
-#define ifcIDgRABlAYER_7BASEmISC2                   0xdddd0b2b
-#define ifcIDgRABlAYER_7BASEmISC3                   0xdddd0b2c
-#define ifcIDgRABlAYER_7BASEmISC4                   0xdddd0b2d
-#define ifcIDgRABlAYER_8POOL1cT                     0xdddd0b2e
-#define ifcIDgRABlAYER_8POOL2cT                     0xdddd0b2f
-#define ifcIDgRABlAYER_8POOL3dT                     0xdddd0b30
-#define ifcIDgRABlAYER_8POOL4dT                     0xdddd0b31
-#define ifcIDgRABlAYER_8POOL5nEW                    0xdddd0b32
-#define ifcIDgRABlAYER_9BOOKSc                      0xdddd0b33
-#define ifcIDgRABlAYER_aGRABuNIVERSEc               0xdddd0b34
-#define ifcIDgRABlAYER_bPOOLlAYER1                  0xdddd0b35
-#define ifcIDgRABlAYER_bPOOLlAYER2                  0xdddd0b36
-#define ifcIDgRABlAYER_bPOOLlAYER3                  0xdddd0b37
-#define ifcIDgRABlAYER_cBASEmISC1                   0xdddd0b38
-#define ifcIDgRABlAYER_cBASEmISC2                   0xdddd0b39
-#define ifcIDgRABlAYER_cBASEmISC3                   0xdddd0b3a
-#define ifcIDgRABlAYER_cBASEmISC4                   0xdddd0b3b
-#define ifcIDgRABlAYER_dLINKEDc                     0xdddd0b3c
-#define ifcIDgRABlAYER_eHEAP                        0xdddd0b3d
-#define ifcIDgRABlAYER_fLEAF                        0xdddd0b3e
+#define ifcIDgRABlAYER_1SKIN                        0xdddd0b25
+#define ifcIDgRABlAYER_2OUTER                       0xdddd0b26
+#define ifcIDgRABlAYER_3MIDDLE                      0xdddd0b27
+#define ifcIDgRABlAYER_4INNER                       0xdddd0b28
+#define ifcIDgRABlAYER_5BONE                        0xdddd0b29
+#define ifcIDgRABlAYER_6BONE                        0xdddd0b2a
+#define ifcIDgRABlAYER_7BASEmISC1                   0xdddd0b2b
+#define ifcIDgRABlAYER_7BASEmISC2                   0xdddd0b2c
+#define ifcIDgRABlAYER_7BASEmISC3                   0xdddd0b2d
+#define ifcIDgRABlAYER_7BASEmISC4                   0xdddd0b2e
+#define ifcIDgRABlAYER_8POOL1cT                     0xdddd0b2f
+#define ifcIDgRABlAYER_8POOL2cT                     0xdddd0b30
+#define ifcIDgRABlAYER_8POOL3dT                     0xdddd0b31
+#define ifcIDgRABlAYER_8POOL4dT                     0xdddd0b32
+#define ifcIDgRABlAYER_8POOL5nEW                    0xdddd0b33
+#define ifcIDgRABlAYER_9BOOKSc                      0xdddd0b34
+#define ifcIDgRABlAYER_aGRABuNIVERSEc               0xdddd0b35
+#define ifcIDgRABlAYER_bPOOLlAYER1                  0xdddd0b36
+#define ifcIDgRABlAYER_bPOOLlAYER2                  0xdddd0b37
+#define ifcIDgRABlAYER_bPOOLlAYER3                  0xdddd0b38
+#define ifcIDgRABlAYER_cBASEmISC1                   0xdddd0b39
+#define ifcIDgRABlAYER_cBASEmISC2                   0xdddd0b3a
+#define ifcIDgRABlAYER_cBASEmISC3                   0xdddd0b3b
+#define ifcIDgRABlAYER_cBASEmISC4                   0xdddd0b3c
+#define ifcIDgRABlAYER_dLINKEDc                     0xdddd0b3d
+#define ifcIDgRABlAYER_eHEAP                        0xdddd0b3e
+#define ifcIDgRABlAYER_fLEAF                        0xdddd0b3f
 /*3*/
-#define ifcIDgRABlAYER_min     0xdddd0b24
-#define ifcIDgRABlAYER_max     0xdddd0b3e
+#define ifcIDgRABlAYER_min     0xdddd0b25
+#define ifcIDgRABlAYER_max     0xdddd0b3f
 
 
 //
@@ -40576,12 +40576,12 @@ optimized for speed
 //CS:CODEsYNC: 00104c9 1050104.2
 
 /*3*/
-#define ifcIDeVENTdEVICEc_TICK                              0xdddd0b3f
-#define ifcIDeVENTdEVICEc_RESIZED                           0xdddd0b40
-#define ifcIDeVENTdEVICEc_RECONFIGURED                      0xdddd0b41
+#define ifcIDeVENTdEVICEc_TICK                              0xdddd0b40
+#define ifcIDeVENTdEVICEc_RESIZED                           0xdddd0b41
+#define ifcIDeVENTdEVICEc_RECONFIGURED                      0xdddd0b42
 /*3*/
-#define ifcIDeVENTdEVICEc_min     0xdddd0b3f
-#define ifcIDeVENTdEVICEc_max     0xdddd0b41
+#define ifcIDeVENTdEVICEc_min     0xdddd0b40
+#define ifcIDeVENTdEVICEc_max     0xdddd0b42
 
 
 //
@@ -40879,11 +40879,11 @@ optimized for speed
 /*1*//*ifcIDtYPEgOSSIP*//*1*/
 
 /*3*/
-#define ifcIDtYPEgOSSIP_SYSTEM                      0xdddd0b42
-#define ifcIDtYPEgOSSIP_APPLICATION                 0xdddd0b43
+#define ifcIDtYPEgOSSIP_SYSTEM                      0xdddd0b43
+#define ifcIDtYPEgOSSIP_APPLICATION                 0xdddd0b44
 /*3*/
-#define ifcIDtYPEgOSSIP_min     0xdddd0b42
-#define ifcIDtYPEgOSSIP_max     0xdddd0b43
+#define ifcIDtYPEgOSSIP_min     0xdddd0b43
+#define ifcIDtYPEgOSSIP_max     0xdddd0b44
 
 
 //
@@ -40910,10 +40910,10 @@ optimized for speed
 /*1*//*ifcIDmSGgOSSIP*//*1*/
 
 /*3*/
-#define ifcIDmSGgOSSIP_BITMAPiSvIRGIN                          0xdddd0b44
+#define ifcIDmSGgOSSIP_BITMAPiSvIRGIN                          0xdddd0b45
 /*3*/
-#define ifcIDmSGgOSSIP_min     0xdddd0b44
-#define ifcIDmSGgOSSIP_max     0xdddd0b44
+#define ifcIDmSGgOSSIP_min     0xdddd0b45
+#define ifcIDmSGgOSSIP_max     0xdddd0b45
 
 
 //
@@ -41265,18 +41265,18 @@ optimized for speed
 /*1*//*ifcIDmODEeTHERsOIL*//*1*/
 
 /*3*/
-#define ifcIDmODEeTHERsOIL_PREPAREsOURCE                    0xdddd0b45
-#define ifcIDmODEeTHERsOIL_NATIVEfROMaSCII                  0xdddd0b46
-#define ifcIDmODEeTHERsOIL_ASCIIfROMnATIVE                  0xdddd0b47
-#define ifcIDmODEeTHERsOIL_LINT                             0xdddd0b48
-#define ifcIDmODEeTHERsOIL_TRIM                             0xdddd0b49
-#define ifcIDmODEeTHERsOIL_REPORT                           0xdddd0b4a
-#define ifcIDmODEeTHERsOIL_QUERYvALUES                      0xdddd0b4b
-#define ifcIDmODEeTHERsOIL_DO                               0xdddd0b4c
-#define ifcIDmODEeTHERsOIL_DOdEBUG                          0xdddd0b4d
+#define ifcIDmODEeTHERsOIL_PREPAREsOURCE                    0xdddd0b46
+#define ifcIDmODEeTHERsOIL_NATIVEfROMaSCII                  0xdddd0b47
+#define ifcIDmODEeTHERsOIL_ASCIIfROMnATIVE                  0xdddd0b48
+#define ifcIDmODEeTHERsOIL_LINT                             0xdddd0b49
+#define ifcIDmODEeTHERsOIL_TRIM                             0xdddd0b4a
+#define ifcIDmODEeTHERsOIL_REPORT                           0xdddd0b4b
+#define ifcIDmODEeTHERsOIL_QUERYvALUES                      0xdddd0b4c
+#define ifcIDmODEeTHERsOIL_DO                               0xdddd0b4d
+#define ifcIDmODEeTHERsOIL_DOdEBUG                          0xdddd0b4e
 /*3*/
-#define ifcIDmODEeTHERsOIL_min     0xdddd0b45
-#define ifcIDmODEeTHERsOIL_max     0xdddd0b4d
+#define ifcIDmODEeTHERsOIL_min     0xdddd0b46
+#define ifcIDmODEeTHERsOIL_max     0xdddd0b4e
 
 
 //
@@ -41489,13 +41489,13 @@ parameters
 /*1*//*ifcIDeVENTvsp*//*1*/
 
 /*3*/
-#define ifcIDeVENTvsp_CT                    0xdddd0b4e
-#define ifcIDeVENTvsp_WrEFcT                0xdddd0b4f
-#define ifcIDeVENTvsp_WrEFdT                0xdddd0b50
-#define ifcIDeVENTvsp_DT                    0xdddd0b51
+#define ifcIDeVENTvsp_CT                    0xdddd0b4f
+#define ifcIDeVENTvsp_WrEFcT                0xdddd0b50
+#define ifcIDeVENTvsp_WrEFdT                0xdddd0b51
+#define ifcIDeVENTvsp_DT                    0xdddd0b52
 /*3*/
-#define ifcIDeVENTvsp_min     0xdddd0b4e
-#define ifcIDeVENTvsp_max     0xdddd0b51
+#define ifcIDeVENTvsp_min     0xdddd0b4f
+#define ifcIDeVENTvsp_max     0xdddd0b52
 
 
 //
@@ -42198,11 +42198,11 @@ use me only for pointers
 /*1*//*ifcIDtYPEbRANCHs*//*1*/
 
 /*3*/
-#define ifcIDtYPEbRANCHs_branchSptr          0xdddd0b52
-#define ifcIDtYPEbRANCHs_strokeSstr          0xdddd0b53
+#define ifcIDtYPEbRANCHs_branchSptr          0xdddd0b53
+#define ifcIDtYPEbRANCHs_strokeSstr          0xdddd0b54
 /*3*/
-#define ifcIDtYPEbRANCHs_min     0xdddd0b52
-#define ifcIDtYPEbRANCHs_max     0xdddd0b53
+#define ifcIDtYPEbRANCHs_min     0xdddd0b53
+#define ifcIDtYPEbRANCHs_max     0xdddd0b54
 
 
 //

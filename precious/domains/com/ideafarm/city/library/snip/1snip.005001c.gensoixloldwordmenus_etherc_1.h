@@ -10,6 +10,7 @@
     "    . ether_psttEarlyFolder_F_       . ?? ")+T(postName)+T("\r\n"
     "    . ether_idCitizenHirerI_F_       . ?? ")+T(postName)+T("\r\n"
     "    . etherWhereF_373       . ?? ")+T(postName)+T("\r\n"
+    "    . etherDispenseSerialNumberF_4@       . ?? ")+T(postName)+T("\r\n"
     "    . poolNewF_331@3       . ?? ")+T(postName)+T("\r\n"
     "    . delF_1@       . ?? ")+T(postName)+T("\r\n"
     "    . delF_4@       . ?? ")+T(postName)+T("\r\n"

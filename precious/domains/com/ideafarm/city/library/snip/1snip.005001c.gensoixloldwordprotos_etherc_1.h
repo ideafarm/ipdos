@@ -23,6 +23,8 @@ voidT ether_idCitizenHirerI_F__GF( tinS& tinP , etherC& etherP , soulC& slP , co
 
 voidT etherWhereF_373_GF( tinS& tinP , etherC& etherP , soulC& slP , const strokeS* const _psttNameP ) ;
 
+voidT etherDispenseSerialNumberF_4P_GF( tinS& tinP , etherC& etherP , soulC& slP , const strokeS* const _psttNameP ) ;
+
 voidT poolNewF_331P3_GF( tinS& tinP , etherC& etherP , soulC& slP , const strokeS* const _psttNameP ) ;
 
 voidT delF_1P_GF( tinS& tinP , etherC& etherP , soulC& slP , const strokeS* const _psttNameP ) ;

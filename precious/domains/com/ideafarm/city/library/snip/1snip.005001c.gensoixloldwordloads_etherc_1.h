@@ -95,6 +95,14 @@
     _pSwSoixlOldApi->ungrabF( tinP ) ;
 }
 {
+    TN( tNameSoixlOld , "etherDispenseSerialNumberF_4@" ) ;
+    _pSwSoixlOldApi->grabF( tinP , TAG( TAGiDnULL ) ) ;
+    _psttLeverSoixlOldApi = tNameSoixlOld ;
+    if( *_pSwSoixlOldApi ) { BLAMMO ; }
+    *_pSwSoixlOldApi = (countT)etherDispenseSerialNumberF_4P_GF ;
+    _pSwSoixlOldApi->ungrabF( tinP ) ;
+}
+{
     TN( tNameSoixlOld , "poolNewF_331@3" ) ;
     _pSwSoixlOldApi->grabF( tinP , TAG( TAGiDnULL ) ) ;
     _psttLeverSoixlOldApi = tNameSoixlOld ;

@@ -501,6 +501,49 @@
         "IdeaFarm (tm) SOIL (tm) - Sentient Object Interface Language\r\n"
         "\r\n"
         "Class: etherC\r\n"
+        "Author: \"etherDispenseSerialNumberF_4@\"\r\n"
+        "\r\n"
+        "Subject: Command word \"etherDispenseSerialNumberF_4@\"\r\n"
+        "\r\n"
+        "\r\n"
+        "Instructions:  Read this file.  It contains simple example code.  To\r\n"
+        "manifest that code, drop this file into the Depository.  IOW, this file\r\n"
+        "is also an executable SOIL (tm) program.\r\n"
+        "\r\n"
+        "Each manifestation of \"etherDispenseSerialNumberF_4@\" uses the current stack in this way:\r\n"
+        "\r\n"
+        "    Pop  1:    strokeS*         psttFileP\r\n"
+        "\r\n"
+        "    Push 1:    count04T         noName\r\n"
+        "\r\n"
+        "To manifest the following example code, drop this document into\r\n"
+        "the Depository:\r\n"
+        "\r\n"
+        "    . on space\r\n"
+        "    . \"Simple example code for \\\"etherDispenseSerialNumberF_4@\\\" is not yet available.  Example code will eventually be presented for every word; this is a universal feature of all IdeaFarm (tm) software products and is enforced by the internal IdeaFarm (tm) development environment.\" POPUP\r\n"
+        "    . off space\r\n"
+
+    ;
+
+    TN( tDoc , postDoc ) ;
+    TN( tNameSoixlOld , "etherDispenseSerialNumberF_4@" ) ;
+   _pSwSoixlOldApi->grabF( tinP , TAG( TAGiDnULL ) ) ;
+   _psttLeverSoixlOldApi = tNameSoixlOld ;
+   if( *_pSwSoixlOldApiDoc ) { BLAMMO ; }
+   *_pSwSoixlOldApiDoc = (countT)(strokeS*)psttOldC( tinP , *this , tDoc ) ;
+   _pSwSoixlOldApi->ungrabF( tinP ) ;
+}
+
+{
+    osTextT* postDoc =
+
+        ". soixlOld space . IdeaFarm . tm space . c space 1 . version space\r\n"
+        ". off space\r\n"
+        "\r\n"
+        "_______________________________________________________________________________\r\n"
+        "IdeaFarm (tm) SOIL (tm) - Sentient Object Interface Language\r\n"
+        "\r\n"
+        "Class: etherC\r\n"
         "Author: \"poolNewF_331@3\"\r\n"
         "\r\n"
         "Subject: Command word \"poolNewF_331@3\"\r\n"
