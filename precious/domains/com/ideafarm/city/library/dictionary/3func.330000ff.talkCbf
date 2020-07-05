@@ -72,8 +72,12 @@
                 said >> psttSaidIdSubscriber0 ; ___( psttSaidIdSubscriber0 ) ;
                 ZE( strokeS* , psttSaidIdSubscriber0 ) ;
 
+                etThread.delF( tinP , psttSpeechClean ) ;
+                tSaidSpeech = T(psttSpeechClean) ;
+                said >> psttSpeechClean ; ___( psttSpeechClean ) ;
+                ZE( strokeS* , psttSpeechClean ) ;
+
                 etThread.delF( tinP , psttValueSpeech ) ;
-                tSaidSpeech = T(psttValueSpeech) ;
                 said >> psttValueSpeech ; ___( psttValueSpeech ) ;
                 ZE( strokeS* , psttValueSpeech ) ;
 
@@ -213,11 +217,12 @@
                 said << (strokeS*)tSaidFirstName ;
                 said << (strokeS*)tSaidPaypalPayerEmail ;
                 said << (strokeS*)tSaidIdSubscriber0 ;
+                said << (strokeS*)tSpeechClean ;
                 said << (strokeS*)tValueSpeech ;
                 said << (strokeS*)tTimeForeign ;
                 said << (countT)timeN2 ;
                 said << timeN1 ;
-                said << (countT)2 ;             // IDfORMAT
+                said << (countT)3 ;             // IDfORMAT
                 said << finger ;
                 soulC said( tinP , TAG( TAGiDnULL ) ) ;
 
@@ -229,6 +234,19 @@
                 etThread.osTimeNowF( tinP , timeN1 , timeN2 ) ;
                 ZE( sCountT , timeN2 ) ;
                 ZE( countT , timeN1 ) ;
+
+                }
+                    etThread.delF( tinP , psttClean ) ;
+                    tSpeechClean = T(psttClean) ;
+
+                    etThread.delF( tinP , psttRaw ) ;
+                    etThread.strReplaceAnyF( tinP , psttClean , psttRaw , T("<>") , T(".") ) ; ___( psttClean ) ;
+                    ZE( strokeS* , psttClean ) ;
+
+                    etThread.strMakeF( tinP , psttRaw , tValueSpeech ) ; ___( psttRaw ) ;
+                    ZE( strokeS* , psttRaw ) ;
+                {
+                TN( tSpeechClean , "" ) ;                //SANITIZE THE SPEECH TO SUPPRESS ALL HTML
             {
             else if( tValueSpeech.csF( tinP ) )
             }
