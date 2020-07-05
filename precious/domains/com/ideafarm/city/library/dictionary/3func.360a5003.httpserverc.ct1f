@@ -9289,21 +9289,21 @@
 //FORM OBSOLETED BY PAYPAL (THIS CODE WAS USED TO ALLOW VISITORS TO REGISTER FOR WO'O'S TABLE FOR FREE BY ENTERING EMAIL COUNTRY ZIP, WHICH FORMERLY RESULTED IN CONFIRMATION EMAIL
 
 
-    postWOtABLEhANDOUTfORMpART3
+    postWOtABLEhANDOUTfORMpART3( "" )
     "TREQ5PHLAQ6HU"                             \
     postWOtABLEhANDOUTfORMpART2                 \
-    postWOtABLEhANDOUTfORMpART1( "" )           \
+    postWOtABLEhANDOUTfORMpART1                 \
     postHEADrAW                                 \
                                                 \
 #define postWOtABLEhANDOUTfORM                  \
 
 
-    postWOtABLEhANDOUTfORMpART3
+    postWOtABLEhANDOUTfORMpART3( "factory1." )
     "7GCNFH92EYE3U"                             \
     /*"DBW6T38JS6UDS"*/                         \
     postWOtABLEhANDOUTfORMpART2                 \
     ".sandbox"                                  \
-    postWOtABLEhANDOUTfORMpART1( "factory1." )  \
+    postWOtABLEhANDOUTfORMpART1                 \
     postHEADrAW                                 \
                                                 \
 #define postWOtABLEhANDOUTfORMsANDBOX           \
@@ -9330,7 +9330,7 @@
     "No purchase is necessary; you can also earn \"rewards\" by replacing the \"0\" with your email address.\r\n"                                                                                   \
     "(Replace the \"0\" with your ID.)\r\n"                                                                                                                                                         \
     "into emails, social media posts, and web pages.\r\n"                                                                                                                                           \
-    "<a href=\"https://ideafarm.com?0\" target=\"_blank\" rel=\"noopener\">https://ideafarm.com?0</a>\r\n"                                                                                          \
+    "<a href=\"https://" ##postDnsPrefixP "ideafarm.com?0\" target=\"_blank\" rel=\"noopener\">https://" ##postDnsPrefixP "ideafarm.com?0</a>\r\n"                                                  \
     "When you receive yours, you can immediately start earning \"rewards\" (referral commissions) by pasting links of the form\r\n"                                                                 \
     "Within minutes, each subscriber receives a welcome email that contains a unique ID.\r\n"                                                                                                       \
     "</h1>\r\n"                                                                                                                                                                                     \
@@ -9342,19 +9342,16 @@
     "</table>\r\n"                                                                                                                                                                                  \
     "</tr>\r\n"                                                                                                                                                                                     \
     "</td>\r\n"                                                                                                                                                                                     \
+    "After subscribing, join us here: <a href=\"https://" ##postDnsPrefixP "ideafarm.com/talk\" target=\"_blank\" rel=\"noopener\">https://" ##postDnsPrefixP "ideafarm.com/talk</a> .\r\n"         \
+    "<p>\r\n"                                                                                                                                                                                       \
     "<iframe width=\"280\" height=\"158\" src=\"https://www.youtube.com/embed/eiiR_fk59Xo\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope;\"></iframe>\r\n"         \
     /*"<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/eiiR_fk59Xo\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope;\"></iframe>\r\n"*/     \
     "<td align=\"right\" valign=\"center\">\r\n"                                                                                                                                                    \
     "</td>\r\n"                                                                                                                                                                                     \
-    "You can say whatever you want, and you are responsible for what you say.\r\n"                                                                                                                  \
-    "Nothing is censored.\r\n"                                                                                                                                                                      \
-    "Editing policy:\r\n"                                                                                                                                                                           \
-    "<p>\r\n"                                                                                                                                                                                       \
-    "your full name and a portion (but not all) of your address will be visible to others.\r\n"                                                                                                     \
-    "Participants in Wo'O's Table are not anonymous;\r\n"                                                                                                                                           \
-    "Privacy:\r\n"                                                                                                                                                                                  \
-    "<p>\r\n"                                                                                                                                                                                       \
     "</center>\r\n"                                                                                                                                                                                 \
+    "Your full name and a portion (but not all) of your address.\r\n"                                                                                                                               \
+    "Public Subscriber Roster:\r\n"                                                                                                                                                                 \
+    "<p>\r\n"                                                                                                                                                                                       \
     "</form>\r\n"                                                                                                                                                                                   \
     "<input type=\"hidden\" name=\"on1\" value=\"Referrer\"><input type=\"hidden\" id=\"rewardboxhidden\" name=\"os1\" maxlength=\"200\">\r\n"                                                      \
     "<input type=\"hidden\" name=\"on0\" value=\"Pay reward to\"><input type=\"text\" id=\"rewardbox\" name=\"os0\" maxlength=\"200\">\r\n"                                                         \
@@ -9364,13 +9361,13 @@
     "<input type=\"image\" src=\"https://www.paypalobjects.com/en_US/i/btn/btn_subscribeCC_LG.gif\" border=\"0\" name=\"submit\" alt=\"PayPal - The safer, easier way to pay online!\">\r\n"        \
     "\">\r\n"                                                                                                                                                                                       \
                                                                                                                                                                                                     \
-#define postWOtABLEhANDOUTfORMpART3                                                                                                                                                     \
+#define postWOtABLEhANDOUTfORMpART3(postDnsPrefixP)                                                                                                                                                 \
 
     "<input type=\"hidden\" name=\"hosted_button_id\" value=\""
     "<input type=\"hidden\" name=\"cmd\" value=\"_s-xclick\">\r\n"                                                                                                                                  \
     ".paypal.com/cgi-bin/webscr\" method=\"post\" target=\"_top\">\r\n"                                                                                                                             \
                                                                                                                                                                                                     \
-#define postWOtABLEhANDOUTfORMpART2                                                                                                                                                     \
+#define postWOtABLEhANDOUTfORMpART2                                                                                                                                                                 \
 
     "<form target=\"_blank\" rel=\"noopener\" action=\"https://www"
     "<center>\r\n"                                                                                                                                                                                  \
@@ -9412,10 +9409,15 @@
     "(ID's are dispensed serially, beginning with 1.)\r\n"                                                                                                                                          \
     "Subscribe now to lock in your One Penny monthly dues and to obtain a very low subscriber ID.\r\n"                                                                                              \
     "<p>\r\n"                                                                                                                                                                                       \
-    "(The $22 is used to pay out a \"reward\" (referral commission).  The One Penny monthly dues is a special introductory price.)\r\n"                                                             \
-    "Cost: One penny USD per month, plus a $22 registration fee in the second month.\r\n"                                                                                                           \
-    "But for now, think of IDEAFARM.COM as a for-profit sole proprietorship.\r\n"                                                                                                                   \
-    "My role will eventually be transfered to a nonprofit corporation that is now being organized.\r\n"                                                                                             \
+    "</ol>\r\n"                                                                                                                                                                                     \
+    "<li>Phase 3 (coming later):  Like Phase 2, but monthly fee becomes $4 USD.\r\n"                                                                                                                \
+    "<li>Phase 2 (coming soon):  Like Phase 1, but adding $22 second month registration fee and $20 \"reward\" (referral commission) payouts.\r\n"                                                  \
+    "<li>Phase 1 (today):  One penny USD per month; no registration fee.\r\n"                                                                                                                       \
+    "<ol>\r\n"                                                                                                                                                                                      \
+    "<p>\r\n"                                                                                                                                                                                       \
+    "Launch pricing phases:\r\n"                                                                                                                                                                    \
+    "<p>\r\n"                                                                                                                                                                                       \
+    "(Wo'O's Table, a sole proprietorship, is being used to organize IdeaFarm (tm) Operations, a nonprofit corporation.)\r\n"                                                                       \
     "For this, I am paid; this web site is my business.\r\n"                                                                                                                                        \
     "My role is to enable you to find each other and to awaken you to a new possibility for you personally, for your community, and for the world.\r\n"                                             \
     "<p>\r\n"                                                                                                                                                                                       \
@@ -9423,7 +9425,6 @@
     "We welcome EVERYONE.\r\n"                                                                                                                                                                      \
     "<em>(\"Many are called, but few are chosen.\")</em>\r\n"                                                                                                                                       \
     "We use the handout at left to find the most unselfish, friendly, intelligent people.\r\n"                                                                                                      \
-    "(Click <a href=\"https://ideafarm.com/talk\" target=\"_blank\" rel=\"noopener\">https://" ##postDnsPrefixP "ideafarm.com/talk</a> after subscribing.)\r\n"                                     \
     "Wo'O's Table (tm) subscribers are placed into email and chat contact, postal code by postal code, worldwide.\r\n"                                                                              \
     "</h1>\r\n"                                                                                                                                                                                     \
     "EMPOWER by SELECTING people to build REAL COMMUNITY.\r\n"                                                                                                                                      \
@@ -9437,7 +9438,7 @@
     "<table>\r\n"                                                                                                                                                                                   \
     "<center>\r\n"                                                                                                                                                                                  \
                                                                                                                                                                                                     \
-#define postWOtABLEhANDOUTfORMpART1(postDnsPrefixP)                                                                                                                                                 \
+#define postWOtABLEhANDOUTfORMpART1                                                                                                                                                                 \
 
     "</style>\r\n"
     "}\r\n"                                                                                                                                                                                         \
@@ -9482,7 +9483,7 @@
     "A:link\r\n"                                                                                                                                                                                    \
     "<style type=\"text/css\">\r\n"                                                                                                                                                                 \
                                                                                                                                                                                                     \
-    "<body style=\"font-family:arial ; background-color:#000 ; color:#ff6\" onload=\"sayMessageDefaultF( 16000 )\">\r\n"                                                                            \
+    "<body onload=\"onLoadDoF()\" style=\"font-family:arial ; background-color:#000 ; color:#ff6\" onload=\"sayMessageDefaultF( 16000 )\">\r\n"                                                     \
                                                                                                                                                                                                     \
     "</head>\r\n"                                                                                                                                                                                   \
                                                                                                                                                                                                     \
@@ -9541,7 +9542,7 @@
     "Wo'O's Table (tm)\r\n"                                                                                                                                                                         \
     "<title>\r\n"                                                                                                                                                                                   \
                                                                                                                                                                                                     \
-    "<head onload=\"onLoadDoF()\">\r\n"                                                                                                                                                             \
+    "<head>\r\n"                                                                                                                                                                                    \
     "<html>\r\n"                                                                                                                                                                                    \
     "<!DOCTYPE HTML>\r\n"                                                                                                                                                                           \
     /*"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01//EN\" \"http://www.w3.org/TR/html4/strict.dtd\">\r\n"*/                                                                                        \

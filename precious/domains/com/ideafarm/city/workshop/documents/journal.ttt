@@ -7380,7 +7380,8 @@ I have other business to attend to today and tomorrow, but plan to continue to w
 
 
 
-
+  !subjob C: block the use of the subscriber id after 8 failed secrets
+  !subjob C: dont use special chars in id or secret
   !subjob C: notify user that post was ignored due to secret error
   !subjob B: post is still truncated at length 256
   !subjob B: post is truncated
@@ -7396,11 +7397,27 @@ I have other business to attend to today and tomorrow, but plan to continue to w
 
 
 
-  next: set up dut
+
+
+
+  get age of blocking file
+  !subjob a: rcover my secret
+   alt: disable nnPeer for a tick (choice)
+   alt: charge a fee for resetting the secret (nawwh: attackable)
+   alt: increase size of secret space
+  think
+   attacker cannot cause an email to be sent to subscriber
+   attacker cannot disable an id
+   attacker cannot brute force a secret
+   attacker cannot consume process memory or disk memory
+  wish
+   attack2 : intentionally submit many ids to exhaust memory
+   attack1 : brute force to crack secret for an id
+   kiss
+  think
  playcraft
  objective: elegance
-!subjob C: notify user that post was ignored due to secret error
-
+!subjob C: block the use of the subscriber id after 8 failed secrets
 
 
 
@@ -7416,6 +7433,14 @@ I have other business to attend to today and tomorrow, but plan to continue to w
 =========================================================================================================================================================
 =========================================================================================================================================================
 
+  set up dut
+ playcraft
+ objective: file name friendly
+!subjob C: dont use special chars in id or secret
+  set up dut
+ playcraft
+ objective: elegance
+!subjob C: notify user that post was ignored due to secret error
   cool ; found wo
   set up dut
  playcraft
