@@ -17,7 +17,10 @@
             etThread.strMakeF( tinP , prPosts , T("<p>\r\n")+tOut+T("\r\n") , 0 , flSTRmAKE_PREFIXlENGTH ) ; ___( prPosts ) ;
             ZE( pbRefC* , prPosts ) ;
 
-            TN( tOut , "" ) ; tOut = T("<span style=\"color:Cyan\">")+tSaidTimeForeign+tb4+tSaidCountryCode+tb4+tSaidZipUse+tb4+tSaidIdSubscriber0+tb4+tSaidFirstName+tb4+tSaidLastName+T(": </span>")+tSaidSpeech ;
+            TN( tOut , "" ) ; tOut = T("<span style=\"color:Cyan\">")+tSaidTimeForeign+tb4+tSaidCountryCode+tb4+tSaidZipUse+tb4+tSaidIdSubscriber0+tb4+tSaidFirstName+tb4+tSaidLastName+tOutFlags+T(": </span>")+tSaidSpeech ;
+
+            if( !etThread.strCompareF( tinP , tSaidFlags , T("anonymous") ) ) tOutFlags = T(" (anonymous) ") ;
+            TN( tOutFlags , "" ) ;
 
             }
                 etThread.delF( tinP , psttSaidCountryCode ) ;
@@ -81,6 +84,14 @@
                 said >> psttValueSpeech ; ___( psttValueSpeech ) ;
                 ZE( strokeS* , psttValueSpeech ) ;
 
+                }
+                    etThread.delF( tinP , psttFlags ) ;
+                    tSaidFlags = T(psttFlags) ;
+                    said >> psttFlags ; ___( psttFlags ) ;
+                    ZE( strokeS* , psttFlags ) ;
+                {
+                if( idFormat >= 4 )
+
                 etThread.delF( tinP , psttTimeForeign ) ;
                 tSaidTimeForeign = T(psttTimeForeign) ;
                 said >> psttTimeForeign ; ___( psttTimeForeign ) ;
@@ -101,6 +112,7 @@
                 etThread.boxGetShadowF( tinP , said , psttFile ) ;
                 soulC said( tinP , TAG( TAGiDnULL ) ) ;
             {
+            TN( tSaidFlags , "" ) ;
             TN( tSaidCountryCode , "" ) ;
             TN( tSaidZipUse , "" ) ;
             TN( tSaidLastName , "" ) ;
@@ -219,12 +231,14 @@
                 said << (strokeS*)tSaidIdSubscriber0 ;
                 said << (strokeS*)tSpeechClean ;
                 said << (strokeS*)tValueSpeech ;
+                said << (strokeS*)tFlags ;                          // FORMAT 4
                 said << (strokeS*)tTimeForeign ;
                 said << (countT)timeN2 ;
                 said << timeN1 ;
-                said << (countT)3 ;             // IDfORMAT
+                said << (countT)4 ;             // IDfORMAT
                 said << finger ;
                 soulC said( tinP , TAG( TAGiDnULL ) ) ;
+                TN( tFlags , "" ) ;
 
                 putNegAM( *(countT*)&finger , FINGERnEG_WOtABLEsAID ) ;
                 ZE( countT , finger ) ;
@@ -276,6 +290,8 @@
 
             ) ;
 
+                "<a href=\"https://")+T(bSandbox?"factory1.":"")+T("ideafarm.com/talk.anonymous\" target=\"_blank\" rel=\"noopener\">Click this sentence to view the anonymous speech that is awaiting certification.</a>\r\n"
+                "<p>\r\n"
                 "</script>\r\n"
                     "}\r\n"
                         "lathKeyAnon = eventP.keyCode ;\r\n"
@@ -688,6 +704,8 @@
     ZE( boolT , bBlocked ) ;
 
     meP.pushSnipF( tinP , stBodyP , ifcIDsNIPpREDEFINED_HEADrAW ) ;
+
+    //if( psttKVReportP && psttKVReportP->idAdam ) etThread.traceF( tinP , psttKVReportP ) ;
 {
 /*1*/voidT talkCBF( tinS& tinP , etherC& etThread , const boolT& bQuitP , httpServerC& meP , countT& cArgP , httpReplyS& replyP , stackC& stBodyP , const strokeS* const psttKVReportP , switchC& swKVP , strokeS*& psttLeverKVP , sessionsC& sessionsP , nicNameC& nnPeerP , const strokeS* const psttUrlP , const strokeS* const psttPeerAgentP , const osTextT* const postBodyP )/*1*/
 
