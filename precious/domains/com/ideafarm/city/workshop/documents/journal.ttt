@@ -7408,11 +7408,94 @@ I have other business to attend to today and tomorrow, but plan to continue to w
 
 
 
+    all explanatory and support information is available by clicking an "about" link
+    the page is as simple as possible, so that it can be understood without explanation
+    the entry for each table displays idTable (serially assigned), language, time created, ageActive, and topic
+   the home page redirects to a Wo'O's Table Talk page that lists "tables"
+   web site is immediately understandable since it is an action web site
+  wish
+ playcraft
+ objectives: tool , friendly to smart phones
+!job C: redesign web site: home redirects to talk root page; home content moved to an "about" page
 
 
 
 
 
+
+
+
+
+
+
+
+   
+    by refreshing the page, a viewer can cycle tables
+    else the page displays a table selected round robin for a given peer IP address
+    if page service is in response to a form submitted containing idSubscriber, that id is used to select the table to serve
+   page service is for a selected table
+   the length of that list determines the number of tables
+   the key is to maintain a list of active participants
+   the tables are assigned round robin according to idSubscriber, and idSubscriber's assignment is short lived (1 day?)
+   server associates each post with a "table" according to who posted it
+   default display is to display all posts
+  think
+    e.g. wo post per tock, or wo post per tock << 4
+   the goal here is to automatially divide participants into oo "tables" whenever the rate of posting is greater than a threshold
+   you tube discussions become unusable when many people participate
+  think
+ playcraft
+ objective: scale
+!job C: table talk: divide
+
+
+
+
+
+
+
+
+
+
+
+
+
+   
+   that page displays the topic prominently as the title of the page: "Topic: Trump"
+   a topic, once seconded by another subscriber, creates a new "table talk" page
+     Trump is awesome
+     Trump sucks
+    examples of what not to do
+     food
+     Pelosi
+     Trump
+    examples
+    neutral
+    long term reusability
+   guide: keep topic short and neutral, with one word topics best
+   topic checkbox
+  wish
+ playcraft
+ objective: scalability
+!job C: Wo'O's Table Talk: "new topic" submission, when seconded, creates a new "table" that remains active until no longer active
+
+
+
+
+
+
+
+
+
+  display a topic title
+    a topic setting must be "seconded" by another subscriber
+    any subscriber can set the topic
+   if topic is open, instructions appear regarding how to set the topic
+   if the lath post is old, the page title is "Topic: Open"
+  wish
+ playcraft
+ objective: set the page title
+!job C: Wo'O's Table Talk: poster declares topic
 
 
 
@@ -7432,6 +7515,25 @@ I have other business to attend to today and tomorrow, but plan to continue to w
 =========================================================================================================================================================
 
 
+  nawwh
+   defense #3: captcha based upon the Epoch Times page
+   defense #2: just wait out the attack, accumulating ip's to remember
+   defense #1: wo pending submission per ip
+   if anonymous form is ddos attacked, the only effect is dos of anonymous postings (by filling up the pending queue)
+   don't do this now
+  think
+   but it could be combined with an image that tells the user to type in another secret that is displayed in the image
+   conj: this alone is easy to defeat
+  think
+   tell the user to refresh the page immediately before typing and to submit within a tick
+   upon submission, if the secret is wrong then the submitted text is used to initialize the speech box (so that the user doesn't have to type it all over again)
+   the secret is changed every 2*tick
+   the servers all use the same secret, which is read from a network file
+   random secret embedded in an invisible field of the anonymous speech form
+  wish
+ playcraft
+ objective: ddos defense
+!job C: anonymous speech embedded secret
   cool ; it works!
    alt: accept file only if not exist another file with same nicName
    alt: purge items for an IP with more than X items
