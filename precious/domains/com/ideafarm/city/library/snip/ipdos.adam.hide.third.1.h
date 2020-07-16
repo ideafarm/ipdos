@@ -31380,10 +31380,15 @@ plateC& fooC::operator +=( plateC& plateP )                                     
 #define ifcIDsNIPpREDEFINED_REDIRECTlOCATIONfACTORY14   0xdddd0ade
 #define ifcIDsNIPpREDEFINED_REDIRECTlOCATIONfACTORY15   0xdddd0adf
 #define ifcIDsNIPpREDEFINED_REDIRECTlOCATIONfACTORY16   0xdddd0ae0
-#define ifcIDsNIPpREDEFINED_HEADrAW                     0xdddd0ae1
+#define ifcIDsNIPpREDEFINED_BODYrAWbEGIN                0xdddd0ae1
+#define ifcIDsNIPpREDEFINED_HEADrAW5hEADeND             0xdddd0ae2
+#define ifcIDsNIPpREDEFINED_HEADrAW4sCRIPTeND           0xdddd0ae3
+#define ifcIDsNIPpREDEFINED_HEADrAW3sCRIPTbEGIN         0xdddd0ae4
+#define ifcIDsNIPpREDEFINED_HEADrAW2aFTERtITLE          0xdddd0ae5
+#define ifcIDsNIPpREDEFINED_HEADrAW1bEFOREtITLE         0xdddd0ae6
 /*3*/
 #define ifcIDsNIPpREDEFINED_min     0xdddd0790
-#define ifcIDsNIPpREDEFINED_max     0xdddd0ae1
+#define ifcIDsNIPpREDEFINED_max     0xdddd0ae6
 
 
 //
