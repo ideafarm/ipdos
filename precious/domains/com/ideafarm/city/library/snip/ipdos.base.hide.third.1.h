@@ -9986,9 +9986,10 @@ flHIRE_SHOW
 #define FINGERnEG_WOtABLEsAID                           ((countT)-(sCountT)0xcccc005e)
 #define FINGERnEG_WOtABLEsAIDaNON                       ((countT)-(sCountT)0xcccc005f)
 #define FINGERnEG_WOtABLEsAIDtOPIC                      ((countT)-(sCountT)0xcccc0060)
+#define FINGERnEG_WOtABLEnEWtOPICcERTIFIED              ((countT)-(sCountT)0xcccc0061)
 /*3*/
 #define FINGERnEG_min     0xcccc0001
-#define FINGERnEG_max     0xcccc0060
+#define FINGERnEG_max     0xcccc0061
 
 
 //
