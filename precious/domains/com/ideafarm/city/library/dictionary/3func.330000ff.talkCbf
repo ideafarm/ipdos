@@ -22,8 +22,6 @@
                 "<p>\r\n"
                 "<h2>Topic: Open</h2>\r\n"
                 "<p>\r\n"
-                "<hr>\r\n"
-                "<p>\r\n"
 
             TN( tSay , "" ) ; tSay = T(
         {
@@ -179,6 +177,7 @@
             {
             stackC stFile( tinP , etThread , TAG( TAGiDnULL ) , flSTACKc_DOnOTsERIALIZE , ifcSTACKtYPE_PTR_strokeS , ifcIDgRABlAYER_7BASEmISC1 ) ;
         {
+        if( bSecretIsOK )
 
         }
             }
@@ -285,7 +284,7 @@
                 {
                 TN( tProposedTopicClean , "" ) ;                //SANITIZE THE SPEECH TO SUPPRESS ALL HTML
             {
-            else if( tValueProposedTopic.csF( tinP ) )
+            else if( tValueProposedTopic.csF( tinP ) && etThread.strCompareF( tinP , tTopicGuide , tValueProposedTopic ) )
             }
                 THREADmODE1rESTORE
 
@@ -411,255 +410,296 @@
         if( subscriberIdTry )
 
         }
-            DEL( prPosts ) ;
-            if( prPosts ) meP.pushSnipF( tinP , stBodyP , *prPosts ) ;
+            }
+                DEL( prPosts ) ;
+                if( prPosts ) meP.pushSnipF( tinP , stBodyP , *prPosts ) ;
 
-            etThread.strMakeF( tinP , prPosts , tSay , 0 , flSTRmAKE_PREFIXlENGTH ) ; ___( prPosts ) ;
+                etThread.strMakeF( tinP , prPosts , tSay , 0 , flSTRmAKE_PREFIXlENGTH ) ; ___( prPosts ) ;
 
-            ) ;
+                ) ;
 
-                "</script>\r\n"
-                    "}\r\n"
+                    "</script>\r\n"
                         "}\r\n"
-                            "document.getElementById( \"subscriberidspeech\" ).focus() ;\r\n"
+                            "}\r\n"
+                                "document.getElementById( \"subscriberidspeech\" ).focus() ;\r\n"
+                            "{\r\n"
+                            "else\r\n"
+                            "}\r\n"
+                                "document.getElementById( \"speech\" ).focus() ;\r\n"
+                                "document.getElementById( \"subscriberidspeecherror\" ).innerHTML = \"\" ;\r\n"
+                            "{\r\n"
+                            "if( costId )\r\n"
+                            "costId = strId.length ;\r\n"
+                            "strId  = document.getElementById( \"subscriberidspeech\" ).value ;\r\n"
                         "{\r\n"
-                        "else\r\n"
+                        "function focusOnLoadF()\r\n"
                         "}\r\n"
-                            "document.getElementById( \"speech\" ).focus() ;\r\n"
-                            "document.getElementById( \"subscriberidspeecherror\" ).innerHTML = \"\" ;\r\n"
+                            "}\r\n"
+                                "document.getElementById( \"subscriberidtopicerror\" ).innerHTML = \"Subscriber ID is blank.\" ;\r\n"
+                                "document.getElementById( \"subscriberidtopic\" ).focus() ;\r\n"
+                            "{\r\n"
+                            "else\r\n"
+                            "}\r\n"
+                                "document.getElementById( \"subscriberidtopicerror\" ).innerHTML = \"\" ;\r\n"
+                            "{\r\n"
+                            "if( costId )\r\n"
+                            "costId = strId.length ;\r\n"
+                            "strId  = document.getElementById( \"subscriberidtopic\" ).value ;\r\n"
                         "{\r\n"
-                        "if( costId )\r\n"
-                        "costId = strId.length ;\r\n"
-                        "strId  = document.getElementById( \"subscriberidspeech\" ).value ;\r\n"
-                    "{\r\n"
-                    "function focusOnLoadF()\r\n"
-                    "}\r\n"
+                        "function refocusIfTopicF()\r\n"
                         "}\r\n"
-                            "document.getElementById( \"subscriberidtopicerror\" ).innerHTML = \"Subscriber ID is blank.\" ;\r\n"
-                            "document.getElementById( \"subscriberidtopic\" ).focus() ;\r\n"
+                            "}\r\n"
+                                "document.getElementById( \"subscriberidspeecherror\" ).innerHTML = \"Subscriber ID is blank.\" ;\r\n"
+                                "document.getElementById( \"subscriberidspeech\" ).focus() ;\r\n"
+                            "{\r\n"
+                            "else\r\n"
+                            "}\r\n"
+                                "document.getElementById( \"subscriberidspeecherror\" ).innerHTML = \"\" ;\r\n"
+                            "{\r\n"
+                            "if( costId )\r\n"
+                            "costId = strId.length ;\r\n"
+                            "strId  = document.getElementById( \"subscriberidspeech\" ).value ;\r\n"
                         "{\r\n"
-                        "else\r\n"
+                        "function refocusIfSpeechF()\r\n"
                         "}\r\n"
-                            "document.getElementById( \"subscriberidtopicerror\" ).innerHTML = \"\" ;\r\n"
+                            "lathKeyTopic = eventP.keyCode ;\r\n"
                         "{\r\n"
-                        "if( costId )\r\n"
-                        "costId = strId.length ;\r\n"
-                        "strId  = document.getElementById( \"subscriberidtopic\" ).value ;\r\n"
-                    "{\r\n"
-                    "function refocusIfTopicF()\r\n"
-                    "}\r\n"
+                        "function getKeyCodeTopicF( eventP )\r\n"
                         "}\r\n"
-                            "document.getElementById( \"subscriberidspeecherror\" ).innerHTML = \"Subscriber ID is blank.\" ;\r\n"
-                            "document.getElementById( \"subscriberidspeech\" ).focus() ;\r\n"
+                            "lathKey = eventP.keyCode ;\r\n"
                         "{\r\n"
-                        "else\r\n"
+                        "function getKeyCodeF( eventP )\r\n"
                         "}\r\n"
-                            "document.getElementById( \"subscriberidspeecherror\" ).innerHTML = \"\" ;\r\n"
+                            "}\r\n"
+                                "document.getElementById( \"sayremainingtopic\" ).innerHTML = 40 - costBoxTopic ;\r\n"
+                                "costBoxTopic += deltaLength ;\r\n"
+                                "if( lathKeyTopic == 8 ) deltaLength = - 1 ;\r\n"
+                                "if( bWothTopic ) { bWothTopic = 0 ; deltaLength = 0 ; }\r\n"
+                                "var deltaLength = 1 ;\r\n"
+                            "{\r\n"
+                            "if( lathKeyTopic != 46 && ( bValidNewChar || bValidBackspace ) )\r\n"   //IGNORES DELETE KEY (46) SINCE DON'T KNOW WHAT WAS DELETED
+                            "var bValidNewChar   = costBoxTopic < 40 && lathKeyTopic != 8 ;\r\n"
+                            "var bValidBackspace = costBoxTopic && lathKeyTopic == 8 ;\r\n"
+                            "costBoxTopic = strBoxTopic.length ;\r\n"
+                            "strBoxTopic  = document.getElementById( \"proposedtopic\" ).value ;\r\n"
                         "{\r\n"
-                        "if( costId )\r\n"
-                        "costId = strId.length ;\r\n"
-                        "strId  = document.getElementById( \"subscriberidspeech\" ).value ;\r\n"
-                    "{\r\n"
-                    "function refocusIfSpeechF()\r\n"
-                    "}\r\n"
-                        "lathKeyTopic = eventP.keyCode ;\r\n"
-                    "{\r\n"
-                    "function getKeyCodeTopicF( eventP )\r\n"
-                    "}\r\n"
-                        "lathKeyAnon = eventP.keyCode ;\r\n"
-                    "{\r\n"
-                    "function getKeyCodeAnonF( eventP )\r\n"
-                    "}\r\n"
-                        "lathKey = eventP.keyCode ;\r\n"
-                    "{\r\n"
-                    "function getKeyCodeF( eventP )\r\n"
-                    "}\r\n"
+                        "function sayLengthTopicF()\r\n"
                         "}\r\n"
-                            "document.getElementById( \"sayremainingtopic\" ).innerHTML = 40 - costBoxTopic ;\r\n"
-                            "costBoxTopic += deltaLength ;\r\n"
-                            "if( lathKeyTopic == 8 ) deltaLength = - 1 ;\r\n"
-                            "if( bWothTopic ) { bWothTopic = 0 ; deltaLength = 0 ; }\r\n"
-                            "var deltaLength = 1 ;\r\n"
+                            "}\r\n"
+                                "document.getElementById( \"sayRemaining\" ).innerHTML = 5000 - costBox ;\r\n"
+                                "costBox += deltaLength ;\r\n"
+                                "if( lathKey == 8 ) deltaLength = - 1 ;\r\n"
+                                "if( bWoth ) { bWoth = 0 ; deltaLength = 0 ; }\r\n"
+                                "var deltaLength = 1 ;\r\n"
+                            "{\r\n"
+                            "if( lathKey != 46 && ( bValidNewChar || bValidBackspace ) )\r\n"   //IGNORES DELETE KEY (46) SINCE DON'T KNOW WHAT WAS DELETED
+                            "var bValidNewChar   = costBox < 5000 && lathKey != 8 ;\r\n"
+                            "var bValidBackspace = costBox && lathKey == 8 ;\r\n"
+                            "costBox = strBox.length ;\r\n"
+                            "strBox = document.getElementById( \"speech\" ).value ;\r\n"
                         "{\r\n"
-                        "if( lathKeyTopic != 46 && ( bValidNewChar || bValidBackspace ) )\r\n"   //IGNORES DELETE KEY (46) SINCE DON'T KNOW WHAT WAS DELETED
-                        "var bValidNewChar   = costBoxTopic < 40 && lathKeyTopic != 8 ;\r\n"
-                        "var bValidBackspace = costBoxTopic && lathKeyTopic == 8 ;\r\n"
-                        "costBoxTopic = strBoxTopic.length ;\r\n"
-                        "strBoxTopic  = document.getElementById( \"proposedtopic\" ).value ;\r\n"
-                    "{\r\n"
-                    "function sayLengthTopicF()\r\n"
-                    "}\r\n"
-                        "}\r\n"
-                            "document.getElementById( \"sayRemainingAnon\" ).innerHTML = 100 - costBoxAnon ;\r\n"
-                            "costBoxAnon += deltaLength ;\r\n"
-                            "if( lathKeyAnon == 8 ) deltaLength = - 1 ;\r\n"
-                            "if( bWothAnon ) { bWothAnon = 0 ; deltaLength = 0 ; }\r\n"
-                            "var deltaLength = 1 ;\r\n"
-                        "{\r\n"
-                        "if( lathKeyAnon != 46 && ( bValidNewChar || bValidBackspace ) )\r\n"   //IGNORES DELETE KEY (46) SINCE DON'T KNOW WHAT WAS DELETED
-                        "var bValidNewChar   = costBoxAnon < 100 && lathKeyAnon != 8 ;\r\n"
-                        "var bValidBackspace = costBoxAnon && lathKeyAnon == 8 ;\r\n"
-                        "costBoxAnon = strBoxAnon.length ;\r\n"
-                        "strBoxAnon  = document.getElementById( \"speechanon\" ).value ;\r\n"
-                    "{\r\n"
-                    "function sayLengthAnonF()\r\n"
-                    "}\r\n"
-                        "}\r\n"
-                            "document.getElementById( \"sayRemaining\" ).innerHTML = 5000 - costBox ;\r\n"
-                            "costBox += deltaLength ;\r\n"
-                            "if( lathKey == 8 ) deltaLength = - 1 ;\r\n"
-                            "if( bWoth ) { bWoth = 0 ; deltaLength = 0 ; }\r\n"
-                            "var deltaLength = 1 ;\r\n"
-                        "{\r\n"
-                        "if( lathKey != 46 && ( bValidNewChar || bValidBackspace ) )\r\n"   //IGNORES DELETE KEY (46) SINCE DON'T KNOW WHAT WAS DELETED
-                        "var bValidNewChar   = costBox < 5000 && lathKey != 8 ;\r\n"
-                        "var bValidBackspace = costBox && lathKey == 8 ;\r\n"
-                        "costBox = strBox.length ;\r\n"
-                        "strBox = document.getElementById( \"speech\" ).value ;\r\n"
-                    "{\r\n"
-                    "function sayLengthF()\r\n"
-                    "function onLoadDoF() { sayLengthF() ; sayLengthAnonF() ; sayLengthTopicF() ; focusOnLoadF() ; }\r\n"
-                    "var bWothTopic   = 1 ;\r\n"
-                    "var bWothAnon    = 1 ;\r\n"
-                    "var bWoth        = 1 ;\r\n"
-                    "var lathKeyTopic = 0 ;\r\n"
-                    "var lathKeyAnon  = 0 ;\r\n"
-                    "var lathKey      = 0 ;\r\n"
-                    "var costBoxTopic = 0 ;\r\n"
-                    "var costBoxAnon  = 0 ;\r\n"
-                    "var costBox      = 0 ;\r\n"
-                    "var strBoxTopic  = \"\" ;\r\n"
-                    "var strBoxAnon   = \"\" ;\r\n"
-                    "var strBox       = \"\" ;\r\n"
-                "<script>\r\n"
-                
-            TN( tSay , "" ) ; tSay = T(
-            ZE( pbRefC* , prPosts ) ;
+                        "function sayLengthF()\r\n"
+                        "function onLoadDoF() { sayLengthF() ; sayLengthTopicF() ; focusOnLoadF() ; }\r\n"
+                        "var bWothTopic   = 1 ;\r\n"
+                        "var bWoth        = 1 ;\r\n"
+                        "var lathKeyTopic = 0 ;\r\n"
+                        "var lathKey      = 0 ;\r\n"
+                        "var costBoxTopic = 0 ;\r\n"
+                        "var costBox      = 0 ;\r\n"
+                        "var strBoxTopic  = \"\" ;\r\n"
+                        "var strBox       = \"\" ;\r\n"
+                    "<script>\r\n"
+                    
+                TN( tSay , "" ) ; tSay = T(
+                ZE( pbRefC* , prPosts ) ;
+            {
+
+            }
+                DEL( prPosts ) ;
+                if( prPosts ) meP.pushSnipF( tinP , stBodyP , *prPosts ) ;
+
+                etThread.strMakeF( tinP , prPosts , tSay , 0 , flSTRmAKE_PREFIXlENGTH ) ; ___( prPosts ) ;
+
+                ) ;
+
+                    "<p>\r\n"
+                    "<span id=\"subscriberidtopicerror\" style=\"color:red\"></span>\r\n"
+                    "</form>\r\n"
+                    "</table>\r\n"
+                        "</tr>\r\n"
+                            "</td>\r\n"
+                                "<span id=\"sayremainingtopic\"></span>\r\n"
+                                "Remaining:\r\n"
+                            "<td valign=\"center\">\r\n"
+                            "</td>\r\n"
+                                "<input id=\"submit\" name=\"submit\" type=\"submit\" value=\"Propose\"/>\r\n"
+                            "<td valign=\"center\">\r\n"
+                            "</td>\r\n"
+                                "<input type=\"text\" id=\"proposedtopic\" name=\"proposedtopic\" maxlength=\"40\" onfocus=\"refocusIfTopicF()\" onkeydown=\"refocusIfTopicF() ; getKeyCodeTopicF( event ) ; sayLengthTopicF()\" value=\"")+tTopicGuide+T("\">\r\n"
+                            "<td valign=\"center\">\r\n"
+                            "</td>\r\n"
+                                "<label for=\"proposedtopic\">Propose a topic:</label>\r\n"
+                            "<td valign=\"center\">\r\n"
+                        "<tr>\r\n"
+                    "<table>\r\n"
+                    "<input id=\"secret\" name=\"secret\" type=\"hidden\" value=\"")+tValueSecret+T("\"/>\r\n"
+                    "<input id=\"subscriberid\" name=\"subscriberid\" type=\"hidden\" value=\"")+tValueSubscriberId+T("\"/>\r\n"
+                    "ideafarm.com/talk\" id=\"proposedtopicform\" method=\"post\" name=\"proposedtopicform\">\r\n"
+                    
+                tSay += T(
+                if( bSandbox ) tSay += T("factory1." ) ;
+                TN( tSay , "<form action=\"https://" ) ;
+                ZE( pbRefC* , prPosts ) ;
+            {
+
+            }
+                DEL( prPosts ) ;
+                if( prPosts ) meP.pushSnipF( tinP , stBodyP , *prPosts ) ;
+
+                etThread.strMakeF( tinP , prPosts , tSay , 0 , flSTRmAKE_PREFIXlENGTH ) ; ___( prPosts ) ;
+
+                ) ;
+
+                    "<span id=\"subscriberidspeecherror\" style=\"color:red\"></span>\r\n"
+                    "</form>\r\n"
+                    "</table>\r\n"
+                        "</tr>\r\n"
+                            "</td>\r\n"
+                                "<span id=\"sayRemaining\"></span>\r\n"
+                                "Remaining:\r\n"
+                            "<td valign=\"center\">\r\n"
+                            "</td>\r\n"
+                                "<input id=\"submit\" name=\"submit\" type=\"submit\" value=\"Speak!\"/>\r\n"
+                            "<td valign=\"center\">\r\n"
+                            "</td>\r\n"
+                                "<textarea id=\"speech\" name=\"speech\" rows=\"4\" cols=\"100\" maxlength=\"5000\" onfocus=\"refocusIfSpeechF()\" onkeydown=\"refocusIfSpeechF() ; getKeyCodeF( event ) ; sayLengthF()\">Be respectful and lawful.  What is said cannot be unsaid.</textarea>\r\n"
+                            "<td valign=\"center\">\r\n"
+                            "</td>\r\n"
+                                "<label for=\"speech\">What you say will appear immediately:</label>\r\n"
+                            "<td valign=\"center\">\r\n"
+                        "<tr>\r\n"
+                    "<table>\r\n"
+                    "<input id=\"secret\" name=\"secret\" type=\"hidden\" value=\"")+tValueSecret+T("\"/>\r\n"
+                    "<input id=\"subscriberid\" name=\"subscriberid\" type=\"hidden\" value=\"")+tValueSubscriberId+T("\"/>\r\n"
+                    "ideafarm.com/talk\" id=\"newpost\" method=\"post\" name=\"mypost\">\r\n"
+                    
+                tSay += T(
+                if( bSandbox ) tSay += T("factory1." ) ;
+                TN( tSay , "<form action=\"https://" ) ;
+                ZE( pbRefC* , prPosts ) ;
+            {
         {
-
+        else
         }
-            DEL( prPosts ) ;
-            if( prPosts ) meP.pushSnipF( tinP , stBodyP , *prPosts ) ;
+            }
+                DEL( prPosts ) ;
+                if( prPosts ) meP.pushSnipF( tinP , stBodyP , *prPosts ) ;
 
-            etThread.strMakeF( tinP , prPosts , tSay , 0 , flSTRmAKE_PREFIXlENGTH ) ; ___( prPosts ) ;
+                etThread.strMakeF( tinP , prPosts , tSay , 0 , flSTRmAKE_PREFIXlENGTH ) ; ___( prPosts ) ;
 
-            ) ;
+                ) ;
 
-                "<p>\r\n"
-                "<span id=\"subscriberidtopicerror\" style=\"color:red\"></span>\r\n"
-                "</form>\r\n"
-                "</table>\r\n"
-                    "</tr>\r\n"
-                        "</td>\r\n"
-                            "<span id=\"sayremainingtopic\"></span>\r\n"
-                            "Remaining:\r\n"
-                        "<td valign=\"center\">\r\n"
-                        "</td>\r\n"
-                            "<input id=\"submit\" name=\"submit\" type=\"submit\" value=\"Propose\"/>\r\n"
-                        "<td valign=\"center\">\r\n"
-                        "</td>\r\n"
-                            "<input type=\"text\" id=\"proposedtopic\" name=\"proposedtopic\" maxlength=\"40\" onfocus=\"refocusIfTopicF()\" onkeydown=\"refocusIfTopicF() ; getKeyCodeTopicF( event ) ; sayLengthTopicF()\" value=\"short & neutral\">\r\n"
-                            "<label for=\"proposedtopic\">Proposed topic:</label><br>\r\n"
-                        "<td valign=\"center\">\r\n"
-                        "</td>\r\n"
-                            "<input id=\"secrettopic\" name=\"secrettopic\" type=\"password\" value=\"\" onfocus=\"refocusIfTopicF()\"/>\r\n"
-                            "<label for=\"secrettopic\">Secret:</label><br>\r\n"
-                        "<td valign=\"center\">\r\n"
-                        "</td>\r\n"
-                            "<input id=\"subscriberidtopic\" name=\"subscriberidtopic\" type=\"text\" value=\"\"/>\r\n"
-                            "<label for=\"subscriberidtopic\">Subscriber ID:</label><br>\r\n"
-                        "<td valign=\"center\">\r\n"
-                    "<tr>\r\n"
-                "<table>\r\n"
-                "ideafarm.com/talk\" id=\"proposedtopicform\" method=\"post\" name=\"proposedtopicform\">\r\n"
-                
-            tSay += T(
-            if( bSandbox ) tSay += T("factory1." ) ;
-            TN( tSay , "<form action=\"https://" ) ;
-            ZE( pbRefC* , prPosts ) ;
+                    "</script>\r\n"
+                        "}\r\n"
+                            "lathKeyAnon = eventP.keyCode ;\r\n"
+                        "{\r\n"
+                        "function getKeyCodeAnonF( eventP )\r\n"
+                        "}\r\n"
+                            "}\r\n"
+                                "document.getElementById( \"sayRemainingAnon\" ).innerHTML = 100 - costBoxAnon ;\r\n"
+                                "costBoxAnon += deltaLength ;\r\n"
+                                "if( lathKeyAnon == 8 ) deltaLength = - 1 ;\r\n"
+                                "if( bWothAnon ) { bWothAnon = 0 ; deltaLength = 0 ; }\r\n"
+                                "var deltaLength = 1 ;\r\n"
+                            "{\r\n"
+                            "if( lathKeyAnon != 46 && ( bValidNewChar || bValidBackspace ) )\r\n"   //IGNORES DELETE KEY (46) SINCE DON'T KNOW WHAT WAS DELETED
+                            "var bValidNewChar   = costBoxAnon < 100 && lathKeyAnon != 8 ;\r\n"
+                            "var bValidBackspace = costBoxAnon && lathKeyAnon == 8 ;\r\n"
+                            "costBoxAnon = strBoxAnon.length ;\r\n"
+                            "strBoxAnon  = document.getElementById( \"speechanon\" ).value ;\r\n"
+                        "{\r\n"
+                        "function sayLengthAnonF()\r\n"
+                        "function onLoadDoF() { sayLengthAnonF() ; }\r\n"
+                        "var bWothAnon    = 1 ;\r\n"
+                        "var lathKeyAnon  = 0 ;\r\n"
+                        "var costBoxAnon  = 0 ;\r\n"
+                        "var strBoxAnon   = \"\" ;\r\n"
+                    "<script>\r\n"
+                    
+                TN( tSay , "" ) ; tSay = T(
+                ZE( pbRefC* , prPosts ) ;
+            {
+
+            }
+                DEL( prPosts ) ;
+                if( prPosts ) meP.pushSnipF( tinP , stBodyP , *prPosts ) ;
+
+                etThread.strMakeF( tinP , prPosts , tSay , 0 , flSTRmAKE_PREFIXlENGTH ) ; ___( prPosts ) ;
+
+                ) ;
+
+                    "</form>\r\n"
+                    "</table>\r\n"
+                        "</tr>\r\n"
+                            "</td>\r\n"
+                                "<input id=\"submit\" name=\"submit\" type=\"submit\" value=\"Log In!\"/>\r\n"
+                            "<td valign=\"center\">\r\n"
+                            "</td>\r\n"
+                                "<input id=\"secret\" name=\"secret\" type=\"password\" value=\"\"/>\r\n"
+                                "<label for=\"secret\">Secret:</label><br>\r\n"
+                            "<td valign=\"center\">\r\n"
+                            "</td>\r\n"
+                                "<input id=\"subscriberid\" name=\"subscriberid\" type=\"text\" value=\"\"/>\r\n"
+                                "<label for=\"subscriberid\">Subscriber ID:</label><br>\r\n"
+                            "<td valign=\"center\">\r\n"
+                            "</td>\r\n"
+                                "If you are a subscriber, please log in:\r\n"
+                            "<td valign=\"center\">\r\n"
+                        "<tr>\r\n"
+                    "<table>\r\n"
+                    "ideafarm.com/talk\" id=\"login\" method=\"get\" name=\"login\">\r\n"
+                    
+                tSay += T(
+                if( bSandbox ) tSay += T("factory1." ) ;
+                TN( tSay , "<form action=\"https://" ) ;
+                ZE( pbRefC* , prPosts ) ;
+            {
+
+            }
+                DEL( prPosts ) ;
+                if( prPosts ) meP.pushSnipF( tinP , stBodyP , *prPosts ) ;
+
+                etThread.strMakeF( tinP , prPosts , tSay , 0 , flSTRmAKE_PREFIXlENGTH ) ; ___( prPosts ) ;
+
+                ) ;
+
+                    "</form>\r\n"
+                    "</table>\r\n"
+                        "</tr>\r\n"
+                            "</td>\r\n"
+                                "<span id=\"sayRemainingAnon\"></span>\r\n"
+                                "Remaining:\r\n"
+                            "<td valign=\"center\">\r\n"
+                            "</td>\r\n"
+                                "<input id=\"submit\" name=\"submit\" type=\"submit\" value=\"Speak!\"/>\r\n"
+                            "<td valign=\"center\">\r\n"
+                            "</td>\r\n"
+                                "<textarea id=\"speechanon\" name=\"speechanon\" rows=\"1\" cols=\"100\" maxlength=\"100\" onkeydown=\"getKeyCodeAnonF( event ) ; sayLengthAnonF()\">Be respectful and lawful.  What is said cannot be unsaid.</textarea>\r\n"
+                            "<td valign=\"center\">\r\n"
+                            "</td>\r\n"
+                                "<label for=\"speechanon\">Anyone can speak anonymously:</label>\r\n"
+                            "<td valign=\"center\">\r\n"
+                        "<tr>\r\n"
+                    "<table>\r\n"
+                    "ideafarm.com/talk.anonymous\" id=\"newpost\" method=\"post\" name=\"mypost\">\r\n"
+                    
+                tSay += T(
+                if( bSandbox ) tSay += T("factory1." ) ;
+                TN( tSay , "<p><form action=\"https://" ) ;
+                ZE( pbRefC* , prPosts ) ;
+            {
         {
-
-        }
-            DEL( prPosts ) ;
-            if( prPosts ) meP.pushSnipF( tinP , stBodyP , *prPosts ) ;
-
-            etThread.strMakeF( tinP , prPosts , tSay , 0 , flSTRmAKE_PREFIXlENGTH ) ; ___( prPosts ) ;
-
-            ) ;
-
-                "<p>\r\n"
-                "<hr>\r\n"
-                "<p>\r\n"
-                "<a href=\"https://")+T(bSandbox?"factory1.":"")+T("ideafarm.com/talk.anonymous\" target=\"_blank\" rel=\"noopener\">Click this sentence to view the anonymous speech that is awaiting certification.</a>\r\n"
-                "<p>\r\n"
-                "</form>\r\n"
-                "</table>\r\n"
-                    "</tr>\r\n"
-                        "</td>\r\n"
-                            "<span id=\"sayRemainingAnon\"></span>\r\n"
-                            "Remaining:\r\n"
-                        "<td valign=\"center\">\r\n"
-                        "</td>\r\n"
-                            "<input id=\"submit\" name=\"submit\" type=\"submit\" value=\"Speak!\"/>\r\n"
-                        "<td valign=\"center\">\r\n"
-                        "</td>\r\n"
-                            "<textarea id=\"speechanon\" name=\"speechanon\" rows=\"1\" cols=\"100\" maxlength=\"100\" onkeydown=\"getKeyCodeAnonF( event ) ; sayLengthAnonF()\">Be respectful and lawful.  What is said cannot be unsaid.</textarea>\r\n"
-                        "<td valign=\"center\">\r\n"
-                        "</td>\r\n"
-                            "<label for=\"speechanon\">Anonymous Speech:</label>\r\n"
-                        "<td valign=\"center\">\r\n"
-                    "<tr>\r\n"
-                "<table>\r\n"
-                "ideafarm.com/talk.anonymous\" id=\"newpost\" method=\"post\" name=\"mypost\">\r\n"
-                
-            tSay += T(
-            if( bSandbox ) tSay += T("factory1." ) ;
-            TN( tSay , "<p><hr><p><form action=\"https://" ) ;
-            ZE( pbRefC* , prPosts ) ;
-        {
-
-        }
-            DEL( prPosts ) ;
-            if( prPosts ) meP.pushSnipF( tinP , stBodyP , *prPosts ) ;
-
-            etThread.strMakeF( tinP , prPosts , tSay , 0 , flSTRmAKE_PREFIXlENGTH ) ; ___( prPosts ) ;
-
-            ) ;
-
-                "<span id=\"subscriberidspeecherror\" style=\"color:red\"></span>\r\n"
-                "</form>\r\n"
-                "</table>\r\n"
-                    "</tr>\r\n"
-                        "</td>\r\n"
-                            "<span id=\"sayRemaining\"></span>\r\n"
-                            "Remaining:\r\n"
-                        "<td valign=\"center\">\r\n"
-                        "</td>\r\n"
-                            "<input id=\"submit\" name=\"submit\" type=\"submit\" value=\"Speak!\"/>\r\n"
-                        "<td valign=\"center\">\r\n"
-                        "</td>\r\n"
-                            "<textarea id=\"speech\" name=\"speech\" rows=\"4\" cols=\"100\" maxlength=\"5000\" onfocus=\"refocusIfSpeechF()\" onkeydown=\"refocusIfSpeechF() ; getKeyCodeF( event ) ; sayLengthF()\">Be respectful and lawful.  What is said cannot be unsaid.</textarea>\r\n"
-                        "<td valign=\"center\">\r\n"
-                        "</td>\r\n"
-                            "<label for=\"speech\">Speech:</label>\r\n"
-                        "<td valign=\"center\">\r\n"
-                        "</td>\r\n"
-                            "<input id=\"secretspeech\" name=\"secretspeech\" type=\"password\" value=\"\" onfocus=\"refocusIfSpeechF()\"/>\r\n"
-                            "<label for=\"secretspeech\">Secret:</label><br>\r\n"
-                        "<td valign=\"center\">\r\n"
-                        "</td>\r\n"
-                            "<input id=\"subscriberidspeech\" name=\"subscriberidspeech\" type=\"text\" value=\"\"/>\r\n"
-                            "<label for=\"subscriberidspeech\">Subscriber ID:</label><br>\r\n"
-                        "<td valign=\"center\">\r\n"
-                    "<tr>\r\n"
-                "<table>\r\n"
-                "ideafarm.com/talk\" id=\"newpost\" method=\"post\" name=\"mypost\">\r\n"
-                
-            tSay += T(
-            if( bSandbox ) tSay += T("factory1." ) ;
-            TN( tSay , "<form action=\"https://" ) ;
-            ZE( pbRefC* , prPosts ) ;
-        {
+        if( !bSecretIsOK )
 
         }
             while( ~hFind && !POOP ) ;
@@ -818,18 +858,27 @@
         ZE( boolT , bSecretIsOK ) ;
         //VALIDATE THE SECRET
 
+        TN( tTopicGuide , "short & neutral" ) ;
+
         }
-            secretTry       = etThread.strDigitsToSCountF( tinP , tValueSecretTopic       , 0x3e ) ;
-            subscriberIdTry = etThread.strDigitsToSCountF( tinP , tValueSubscriberIdTopic , 0x3e ) ; //U:: THIS WILL ONLY WORK IF THE ID IS <= MAXCOUNTT
+            }
+                secretTry       = etThread.strDigitsToSCountF( tinP , tValueSecretTopic       , 0x3e ) ;
+                subscriberIdTry = etThread.strDigitsToSCountF( tinP , tValueSubscriberIdTopic , 0x3e ) ; //U:: THIS WILL ONLY WORK IF THE ID IS <= MAXCOUNTT
+            {
+            if( !subscriberIdTry || !secretTry )
+
+            secretTry       = etThread.strDigitsToSCountF( tinP , tValueSecretSpeech       , 0x3e ) ;
+            subscriberIdTry = etThread.strDigitsToSCountF( tinP , tValueSubscriberIdSpeech , 0x3e ) ; //U:: THIS WILL ONLY WORK IF THE ID IS <= MAXCOUNTT
         {
         if( !subscriberIdTry || !secretTry )
+        //U:: ELIMINATE THIS
 
-        countT   secretTry       = etThread.strDigitsToSCountF( tinP , tValueSecretSpeech       , 0x3e ) ;
-        count04T subscriberIdTry = etThread.strDigitsToSCountF( tinP , tValueSubscriberIdSpeech , 0x3e ) ; //U:: THIS WILL ONLY WORK IF THE ID IS <= MAXCOUNTT
+        countT   secretTry       = etThread.strDigitsToSCountF( tinP , tValueSecret       , 0x3e ) ;
+        count04T subscriberIdTry = etThread.strDigitsToSCountF( tinP , tValueSubscriberId , 0x3e ) ; //U:: THIS WILL ONLY WORK IF THE ID IS <= MAXCOUNTT
 
-        etThread.traceF( tinP , tKeySpeech      +T(":    ")+tValueSpeech       ) ;
-        etThread.traceF( tinP , tKeySecretSpeech      +T(":    ")+tValueSecretSpeech       ) ;
-        etThread.traceF( tinP , tKeySubscriberIdSpeech+T(":    ")+tValueSubscriberIdSpeech ) ;
+        etThread.traceF( tinP , tKeySpeech            +T(":    ")+tValueSpeech       ) ;
+        etThread.traceF( tinP , tKeySecretSpeech      +T(":    ")+tValueSecret       ) ;
+        etThread.traceF( tinP , tKeySubscriberIdSpeech+T(":    ")+tValueSubscriberId ) ;
 
         }
             }
@@ -858,8 +907,10 @@
             & tValueSpeech              ,
             & tValueSecretTopic         ,
             & tValueSecretSpeech        ,
+            & tValueSecret              ,
             & tValueSubscriberIdTopic   ,
             & tValueSubscriberIdSpeech  ,
+            & tValueSubscriberId        ,
         {
         textC* pptValue[] =
 
@@ -868,8 +919,10 @@
             & tKeySpeech              ,
             & tKeySecretTopic         ,
             & tKeySecretSpeech        ,
+            & tKeySecret              ,
             & tKeySubscriberIdTopic   ,
             & tKeySubscriberIdSpeech  ,
+            & tKeySubscriberId        ,
         {
         textC* pptKey[] =
 
@@ -877,15 +930,19 @@
         TN( tValueSpeech              , "" ) ;
         TN( tValueSecretTopic         , "" ) ;
         TN( tValueSecretSpeech        , "" ) ;
+        TN( tValueSecret              , "" ) ;
         TN( tValueSubscriberIdTopic   , "" ) ;
         TN( tValueSubscriberIdSpeech  , "" ) ;
+        TN( tValueSubscriberId        , "" ) ;
 
         TN( tKeyProposedTopic       , "proposedtopic"       ) ;
         TN( tKeySpeech              , "speech"       ) ;
         TN( tKeySecretTopic         , "secrettopic"        ) ;
         TN( tKeySecretSpeech        , "secretspeech"       ) ;
+        TN( tKeySecret              , "secret"             ) ;
         TN( tKeySubscriberIdTopic   , "subscriberidtopic"  ) ;
         TN( tKeySubscriberIdSpeech  , "subscriberidspeech" ) ;
+        TN( tKeySubscriberId        , "subscriberid"       ) ;
 
         boolT bSandbox = etherC::ifc_idHomeI_IF() & fliIDhOME_HOMELESS ;
 
@@ -899,24 +956,28 @@
             ) ;
 
                 "<p>\r\n"
-                "<hr>\r\n"
-                "<p>\r\n"
-                "(Your posting is excessive if the frequency of your posts is turning the \"conversation\" into a monologue or is impeding others from participating.)\r\n"
-                "But posting off-topic is disruptive, as is excessive posting.\r\n"
-                "(Viewpoints and the words chosen will never be deemed \"disruptive\" per se.)\r\n"
-                "You may express any viewpoint, and you may use any words to express that viewpoint.\r\n"
-                "<p>\r\n"
-                "Do not post at all unless you will remain here to participate in any ensuing discussion.\r\n"
-                "(A topic is active if the most recent post is less than one hour old.)\r\n"
-                "If a topic is being actively discussed, do not post off topic.\r\n"
-                "This is a forum for respectful conversation.\r\n"
-                "<p>\r\n"
-                "This is a permanent speech record that will not be altered except on court order.\r\n"
-                "What you say cannot be unsaid.\r\n"
-                "<em>Penal Code 403: \"Every person who... willfully disturbs or breaks up any assembly or meeting... is guilty of a misdemeanor.\"</em>\r\n"
-                "However, disruptive behavior will be prosecuted.\r\n"
-                "You may post any speech that is protected by the First Amendment, including hate speech, commercial solicitation, and nondisruptive heckling.\r\n"
-                "By posting here, you agree to California (Santa Clara County) jurisdiction.\r\n"
+                "</details>\r\n"
+                    "(Your posting is excessive if the frequency of your posts is turning the \"conversation\" into a monologue or is impeding others from participating.)\r\n"
+                    "But posting off-topic is disruptive, as is excessive posting.\r\n"
+                    "(Viewpoints and the words chosen will never be deemed \"disruptive\" per se.)\r\n"
+                    "You may express any viewpoint, and you may use any words to express that viewpoint.\r\n"
+                    "<p>\r\n"
+                    "Do not post at all unless you will remain here to participate in any ensuing discussion.\r\n"
+                    "(A topic is active if the most recent post is less than one hour old.)\r\n"
+                    "If a topic is being actively discussed, do not post off topic.\r\n"
+                    "This is a forum for respectful conversation.\r\n"
+                    "<p>\r\n"
+                    "This is a permanent speech record that will not be altered except on court order.\r\n"
+                    "What you say cannot be unsaid.\r\n"
+                    "<em>Penal Code 403: \"Every person who... willfully disturbs or breaks up any assembly or meeting... is guilty of a misdemeanor.\"</em>\r\n"
+                    "However, disruptive behavior will be prosecuted.\r\n"
+                    "You may post any speech that is protected by the First Amendment, including hate speech, commercial solicitation, and nondisruptive heckling.\r\n"
+                    "By posting here, you agree to California (Santa Clara County) jurisdiction.\r\n"
+                    "<p>\r\n"
+                    "</summary>\r\n"
+                        "Click this line before posting.\r\n"
+                    "<summary>\r\n"
+                "<details>\r\n"
                 "<p>\r\n"
                 "<h1>Wo'O's Table Talk:  An English Language Open Public Forum for Respectful Conversation</h1>\r\n"
 
