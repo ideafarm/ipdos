@@ -18,7 +18,7 @@
 
             ) ;
 
-                "<iframe src=\"https://")+T(bSandbox?"factory1.":"")+T("ideafarm.com/talk.body\" title=\"Wo'O's Table Talk Current Conversation\" style=\"width:100% ; border:none \" height=\"1000px\">Your browser does not support the iframe tag.</iframe>\r\n"
+                "<iframe src=\"https://")+T(bSandbox?"factory1.":"")+T("ideafarm.com/talk.body?subscriberid=")+tValueSubscriberId+T("&secret=")+tValueSecret+T("\" title=\"Wo'O's Table Talk Current Conversation\" style=\"width:100% ; border:none \" height=\"1000px\">Your browser does not support the iframe tag.</iframe>\r\n"
                 "<p>\r\n"
                 "<h2>Topic: <span id=\"showtopic\" style=\"color:cyan\">")+tTopic+T("</span></h2>\r\n"
                 "<p>\r\n"
@@ -881,6 +881,52 @@
 
                 "<p>\r\n"
                 "</details>\r\n"
+                    "</ul>\r\n"
+                    "<li>Lock in the low introductory subscription price by subscribing today!\r\n"
+                    "<li>Make money!\r\n"
+                    "<li>Find new friends!\r\n"
+                    "<li>Be heard!\r\n"
+                    "<li>No one can control the topics discussed, the viewpoints expressed, or the words used.\r\n"
+                    "<li>No one is silenced or censored.\r\n"
+                    "<li>Anonymous people can say practically anything and be heard and receive feedback.\r\n"
+                    "<li>Subscribers moderate the conversation by deescalating and guiding, not by censoring or silencing.\r\n"
+                    "<li>Any subscriber can \"certify\" (approve) a pending anonymous post.\r\n"
+                    "<ul>\r\n"
+                    "<p>\r\n"
+                    "<h2>Beneifits of Subscribing Today</h2>\r\n"
+                    "<p>\r\n"
+                    "</ul>\r\n"
+                    "<li>Today's low subscription price will rise as the Wo'O's Table community grows.\r\n"
+                    "<li>(Nonsubscribers must distribute a link that reveals their email address.)\r\n"
+                    "<li>Subscribers can earn \"rewards\" (referral commissions) by giving privacy-encoded links to others.\r\n"
+                    "<li>A copy of each of your posts will be emailed to you.\r\n"
+                    "<li>You can select the new topic.\r\n"
+                    "<li>You can propose a new topic.\r\n"
+                    "<li>Your posts appear immediately.\r\n"
+                    "<ul>\r\n"
+                    "<p>\r\n"
+                    "<h2>Features of Subscribing Today</h2>\r\n"
+                    "<p>\r\n"
+                    "</summary>\r\n"
+                        "Click this line to view a list of features and benefits enjoyed by subscribers.\r\n"
+                    "<summary>\r\n"
+                "<details>\r\n"
+                "<p>\r\n"
+
+            TN( tSay ,
+        {
+
+        }
+            DEL( prPosts ) ;
+            if( prPosts ) meP.pushSnipF( tinP , stBodyP , *prPosts ) ;
+
+            etThread.strMakeF( tinP , prPosts , tSay , 0 , flSTRmAKE_PREFIXlENGTH ) ; ___( prPosts ) ;
+            ZE( pbRefC* , prPosts ) ;
+
+            ) ;
+
+                "<p>\r\n"
+                "</details>\r\n"
                     "(Your posting is excessive if the frequency of your posts is turning the \"conversation\" into a monologue or is impeding others from participating.)\r\n"
                     "But posting off-topic is disruptive, as is excessive posting.\r\n"
                     "(Viewpoints and the words chosen will never be deemed \"disruptive\" per se.)\r\n"
@@ -1085,7 +1131,7 @@
 
             ) ;
 
-                "<h1>Wo'O's Table Talk:  An English Language Open Public Forum for Respectful Conversation</h1>\r\n"
+                "<h1>Wo'O's Table Talk:  An Uncensored English Language Open Public Forum for Respectful Conversation</h1>\r\n"
 
             TN( tSay ,
         {
@@ -1421,19 +1467,6 @@
         /***************************************************************************************************/
 
         TN( tTopicGuide , "short & neutral" ) ;
-
-        }
-            }
-                secretTry       = etThread.strDigitsToSCountF( tinP , tValueSecretTopic       , 0x3e ) ;
-                subscriberIdTry = etThread.strDigitsToSCountF( tinP , tValueSubscriberIdTopic , 0x3e ) ; //U:: THIS WILL ONLY WORK IF THE ID IS <= MAXCOUNTT
-            {
-            if( !subscriberIdTry || !secretTry )
-
-            secretTry       = etThread.strDigitsToSCountF( tinP , tValueSecretSpeech       , 0x3e ) ;
-            subscriberIdTry = etThread.strDigitsToSCountF( tinP , tValueSubscriberIdSpeech , 0x3e ) ; //U:: THIS WILL ONLY WORK IF THE ID IS <= MAXCOUNTT
-        {
-        if( !subscriberIdTry || !secretTry )
-        //U:: ELIMINATE THIS
 
         countT   secretTry       = etThread.strDigitsToSCountF( tinP , tValueSecret       , 0x3e ) ;
         count04T subscriberIdTry = etThread.strDigitsToSCountF( tinP , tValueSubscriberId , 0x3e ) ; //U:: THIS WILL ONLY WORK IF THE ID IS <= MAXCOUNTT
