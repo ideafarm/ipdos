@@ -149,7 +149,7 @@
                             "<td>\r\n"
                             "</td>\r\n"
                                 "</form>\r\n"
-                                    "<input id=\"submit\" name=\"submit\" type=\"submit\" value=\"Change Topic\"/>\r\n"
+                                    "<input id=\"submit\" name=\"submit\" type=\"submit\" value=\"Change Topic\" onclick=\" window.parent.document.getElementById( 'showtopic' ).innerHTML = '")+tSaidTopic+T("' ; \"/>\r\n"
                                     "<input id=\"newtopic\" name=\"newtopic\" type=\"hidden\" value=\"")+tSaidTopic+T("\"/>\r\n"
                                     "<input id=\"secret\" name=\"secret\" type=\"hidden\" value=\"")+tValueSecret+T("\"/>\r\n"
                                     "<input id=\"subscriberid\" name=\"subscriberid\" type=\"hidden\" value=\"")+tValueSubscriberId+T("\"/>\r\n"
@@ -313,24 +313,76 @@
         /***************************************************************************************************/
         /***************************************************************************************************/
         /***************************************************************************************************/
+
+        }
+            while( ~hFind && !POOP ) ;
+            }
+                DEL( pInfo ) ;
+                }
+                    }
+                        if( POOP ) { POOPR ; }
+                        tinP.pEtScratch->diskFileOrDirDeleteF( tinP , pInfo->psttIfoName , flFILEoRdIRdELETE_null , 1 ) ;
+                        SCOOPS
+                    {
+                    IFsCRATCH
+                {
+                else
+                }
+                    break ;
+                    DEL( pInfo ) ;
+                {
+                if( !pInfo || !pInfo->psttIfoName )
+
+                etThread.diskFindFileOrDirF( tinP , pInfo , hFind , tPath , &pat ) ;
+                ZE( infoFileS* , pInfo ) ;
+            {
+            do
+            handleC hFind( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_FILEfIND ) ;
+            patternC pat( tinP , etThread , tPattern , ifcIDtYPEpATTERN_FOREIGNwILDCARDsTRICT ) ;
+            TN( tPattern , "" ) ; tPattern = T("newTopic")+T(bSandbox?".sandbox.*":".live.*") ;
+            TN( tPath , "////factory3/d/ideafarm.home.102/ephemeral/backed.up.daily/domains/com/ideafarm/wo.o.s.table/newTopic/" ) ;
+        {
+
+        }
+            DEL( prPosts ) ;
+            if( prPosts ) meP.pushSnipF( tinP , stBodyP , *prPosts ) ;
+
+            etThread.strMakeF( tinP , prPosts , tSay , 0 , flSTRmAKE_PREFIXlENGTH ) ; ___( prPosts ) ;
+            ZE( pbRefC* , prPosts ) ;
+
+            TN( tSay , "" ) ; tSay = T("<script> window.parent.document.getElementById( 'showtopic' ).innerHTML = 'Open!' ; </script>\r\n<p>\r\n") ;
+
+            countT secondsRemaining = 60 * minAllowed - allSeconds ;
+            countT allSeconds = seconds + minutes * 60 ;
+
+        {
     {
     else
     }
-        DEL( prPosts ) ;
-        if( prPosts ) meP.pushSnipF( tinP , stBodyP , *prPosts ) ;
+        }
+            DEL( prPosts ) ;
+            if( prPosts ) meP.pushSnipF( tinP , stBodyP , *prPosts ) ;
 
-        etThread.strMakeF( tinP , prPosts , tSay , 0 , flSTRmAKE_PREFIXlENGTH ) ; ___( prPosts ) ;
-        ZE( pbRefC* , prPosts ) ;
+            etThread.strMakeF( tinP , prPosts , tSay , 0 , flSTRmAKE_PREFIXlENGTH ) ; ___( prPosts ) ;
+            ZE( pbRefC* , prPosts ) ;
 
-        TN( tSay , "" ) ; tSay = T("seconds remaining for this topic: ")+TF4(secondsRemaining,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FOREIGN|flFORMAT_NObASE,0,0xa)+T("\r\n<p>\r\n") ;
+            ) ;
 
-        countT secondsRemaining = 60 * minAllowed - allSeconds ;
-        countT allSeconds = seconds + minutes * 60 ;
+                "</script>\r\n"
+                    "document.getElementById( 'currenttopic' ).innerHTML = window.parent.document.getElementById( 'showtopic' ).innerHTML ;\r\n"
+                "<script>\r\n"
+                "<span id=\"topiccountdown\">: Topic is now <span id=\"currenttopic\" style=\"color:cyan\"></span> and will become unlocked in ")+TF4(secondsRemaining,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FOREIGN|flFORMAT_NObASE,0,0xa)+T(" seconds.</span>\r\n<p>\r\n"
+
+            TN( tSay , "" ) ; tSay = T(
+
+            countT secondsRemaining = 60 * minAllowed - allSeconds ;
+            countT allSeconds = seconds + minutes * 60 ;
+        {
     {
-    if( !years && !months && !days && !hours && minutes < minAllowed )
+    if( cFiles && !years && !months && !days && !hours && minutes < minAllowed )
     const countT minAllowed = 1 ; // 2 IN PRODUCTION
 
-    etThread.osTimeToOldTimeF( tinP , countTC() , seconds , minutes , hours , days , months , years , countTC() , timeA1 , timeA2 , flOStIMEfROMoLDtIME_OLDtIMEiSutc ) ;
+    if( cFiles ) etThread.osTimeToOldTimeF( tinP , countTC() , seconds , minutes , hours , days , months , years , countTC() , timeA1 , timeA2 , flOStIMEfROMoLDtIME_OLDtIMEiSutc ) ;
     ZE( sCountT , years   ) ;
     ZE( countT  , months  ) ;
     ZE( countT  , days    ) ;
@@ -360,6 +412,7 @@
                 etThread.osTimeSubtractF( tinP , timeE1 , timeE2 , pInfo->timeCreated1 , pInfo->timeCreated2 ) ;
                 sCountT timeE2 = timeN2 ;
                 countT  timeE1 = timeN1 ;
+                cFiles ++ ;
             {
             else
             }
@@ -377,6 +430,7 @@
         TN( tPattern , "" ) ; tPattern = T("said.table")+T(bSandbox?".sandbox.*":".live.*") ;
         TN( tPath , "////factory3/d/ideafarm.home.102/ephemeral/backed.up.daily/domains/com/ideafarm/wo.o.s.table/said/" ) ;
     {
+    ZE( countT , cFiles ) ;
     sCountT timeA2 = MAXscOUNTT ; // AGE OF THE YOUNGEST POST
     countT  timeA1 = MAXcOUNTT  ; // AGE OF THE YOUNGEST POST ; "A": "AGE"
     stackC stFile( tinP , etThread , TAG( TAGiDnULL ) , flSTACKc_DOnOTsERIALIZE , ifcSTACKtYPE_PTR_strokeS , ifcIDgRABlAYER_7BASEmISC1 ) ;
@@ -388,7 +442,7 @@
         etThread.strMakeF( tinP , prPosts , tSay , 0 , flSTRmAKE_PREFIXlENGTH ) ; ___( prPosts ) ;
         ZE( pbRefC* , prPosts ) ;
 
-        TN( tSay , "" ) ; tSay = tTimeForeign+T("\r\n<p>\r\n") ;
+        TN( tSay , "" ) ; tSay = tTimeForeign ;
 
         textC tTimeForeign( ifcIDtEXTgEN_TIMEnOWfOREIGN , tinP , TAG( TAGiDnULL ) ) ;
     {
@@ -467,6 +521,14 @@
             TN( tShort , "" ) ;
 
             }
+                etThread.traceF( tinP , T("wrote   ")+T(psttFile) ) ;
+                etThread.boxPutUniqueF( tinP , psttFile , tFile , WS( said ) ) ; ___( psttFile ) ;
+                ZE( strokeS* , psttFile ) ;
+
+                TN( tFile , "" ) ; tFile = T("////factory3/d/ideafarm.home.102/ephemeral/backed.up.daily/domains/com/ideafarm/wo.o.s.table/said/said.table")+T(bSandbox?".sandbox.":".live.")+T("@1@")+T(".")+tHost ;
+            {
+
+            }
                 if( !tHost.csF( tinP ) ) tHost = T("factories") ;
                 etThread.delF( tinP , psttHost ) ;
                 else       tHost = T(psttHost) ;
@@ -481,31 +543,64 @@
 
             THREADmODE1oN( flTHREADmODE1_ALLOWsTOPwHILEgRABBING )
 
-            newTopic << (strokeS*)tSaidAddressStatus ;
-            newTopic << (strokeS*)tSaidAddressZip ;
-            newTopic << (strokeS*)tSaidAddressCountry ;
-            newTopic << (strokeS*)tSaidAddressCountryCode ;
-            newTopic << (strokeS*)tSaidAddressState ;
-            newTopic << (strokeS*)tSaidAddressCity ;
-            newTopic << (strokeS*)tSaidAddressStreet ;
-            newTopic << (strokeS*)tSaidNnPeer ;
-            newTopic << (strokeS*)tSaidNnPeer ;
-            newTopic << (strokeS*)tSaidZipUse ;
-            newTopic << (strokeS*)tSaidAddressName ;
-            newTopic << (strokeS*)tSaidLastName ;
-            newTopic << (strokeS*)tSaidFirstName ;
-            newTopic << (strokeS*)tSaidPaypalPayerEmail ;
-            newTopic << (strokeS*)tSaidIdSubscriber0 ;
-            newTopic << (strokeS*)tNewTopic ;
-            newTopic << (strokeS*)tTimeForeign ;
-            newTopic << (countT)timeN2 ;
-            newTopic << timeN1 ;
-            newTopic << (countT)1 ;             // IDfORMAT
-            newTopic << finger ;
-            soulC newTopic( tinP , TAG( TAGiDnULL ) ) ;
+            }
+                said << (strokeS*)tSaidAddressStatus ;
+                said << (strokeS*)tSaidAddressZip ;
+                said << (strokeS*)tSaidAddressCountry ;
+                said << (strokeS*)tSaidAddressCountryCode ;
+                said << (strokeS*)tSaidAddressState ;
+                said << (strokeS*)tSaidAddressCity ;
+                said << (strokeS*)tSaidAddressStreet ;
+                said << nnPeerP ;                                   // FORMAT 2
+                said << (strokeS*)tSaidNnPeer ;
+                said << (strokeS*)tSaidZipUse ;
+                said << (strokeS*)tSaidAddressName ;
+                said << (strokeS*)tSaidLastName ;
+                said << (strokeS*)tSaidFirstName ;
+                said << (strokeS*)tSaidPaypalPayerEmail ;
+                said << (strokeS*)tSaidIdSubscriber0 ;
+                said << (strokeS*)( T("topic: ")+tNewTopic ) ;
+                said << (strokeS*)T("") ;
+                said << (strokeS*)tFlags ;                          // FORMAT 4
+                said << (strokeS*)tTimeForeign ;
+                said << (countT)timeN2 ;
+                said << timeN1 ;
+                said << (countT)4 ;             // IDfORMAT
+                said << finger ;
+                TN( tFlags , "" ) ;
 
-            putNegAM( *(countT*)&finger , FINGERnEG_WOtABLEnEWtOPICcERTIFIED ) ;
-            ZE( countT , finger ) ;
+                putNegAM( *(countT*)&finger , FINGERnEG_WOtABLEsAID ) ;
+                ZE( countT , finger ) ;
+            {
+            soulC said( tinP , TAG( TAGiDnULL ) ) ;
+
+            }
+                newTopic << (strokeS*)tSaidAddressStatus ;
+                newTopic << (strokeS*)tSaidAddressZip ;
+                newTopic << (strokeS*)tSaidAddressCountry ;
+                newTopic << (strokeS*)tSaidAddressCountryCode ;
+                newTopic << (strokeS*)tSaidAddressState ;
+                newTopic << (strokeS*)tSaidAddressCity ;
+                newTopic << (strokeS*)tSaidAddressStreet ;
+                newTopic << (strokeS*)tSaidNnPeer ;
+                newTopic << (strokeS*)tSaidNnPeer ;
+                newTopic << (strokeS*)tSaidZipUse ;
+                newTopic << (strokeS*)tSaidAddressName ;
+                newTopic << (strokeS*)tSaidLastName ;
+                newTopic << (strokeS*)tSaidFirstName ;
+                newTopic << (strokeS*)tSaidPaypalPayerEmail ;
+                newTopic << (strokeS*)tSaidIdSubscriber0 ;
+                newTopic << (strokeS*)tNewTopic ;
+                newTopic << (strokeS*)tTimeForeign ;
+                newTopic << (countT)timeN2 ;
+                newTopic << timeN1 ;
+                newTopic << (countT)1 ;             // IDfORMAT
+                newTopic << finger ;
+
+                putNegAM( *(countT*)&finger , FINGERnEG_WOtABLEnEWtOPICcERTIFIED ) ;
+                ZE( countT , finger ) ;
+            {
+            soulC newTopic( tinP , TAG( TAGiDnULL ) ) ;
 
             textC tTimeForeign( ifcIDtEXTgEN_TIMEnOWfOREIGN , tinP , TAG( TAGiDnULL ) ) ;
 

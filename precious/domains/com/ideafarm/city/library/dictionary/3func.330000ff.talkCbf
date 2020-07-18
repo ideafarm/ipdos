@@ -18,13 +18,14 @@
 
             ) ;
 
-                "<iframe src=\"https://")+T(bSandbox?"factory1.":"")+T("ideafarm.com/talk.body\" title=\"Wo'O's Table Talk Current Conversation\" style=\"width:100% ; \" height=\"500px\">Your browser does not support the iframe tag.</iframe>\r\n"
+                "<iframe src=\"https://")+T(bSandbox?"factory1.":"")+T("ideafarm.com/talk.body\" title=\"Wo'O's Table Talk Current Conversation\" style=\"width:100% ; border:none \" height=\"1000px\">Your browser does not support the iframe tag.</iframe>\r\n"
                 "<p>\r\n"
-                "<h2>Topic: ")+tTopic+T("</h2>\r\n"
+                "<h2>Topic: <span id=\"showtopic\" style=\"color:cyan\">")+tTopic+T("</span></h2>\r\n"
                 "<p>\r\n"
 
             TN( tSay , "" ) ; tSay = T(
         {
+
         if( !tTopic.csF( tinP ) ) tTopic = T("Open!") ;
 
         /***************************************************************************************************/
@@ -115,9 +116,6 @@
         /***************************************************************************************************/
         /***************************************************************************************************/
 
-
-//U::FROM
-
         }
             }
                 DEL( prPosts ) ;
@@ -195,7 +193,7 @@
                         "function sayLengthTopicF()\r\n"
                         "}\r\n"
                             "}\r\n"
-                                "document.getElementById( \"sayRemaining\" ).innerHTML = 5000 - costBox ;\r\n"
+                                "document.getElementById( \"sayremainingspeech\" ).innerHTML = 5000 - costBox ;\r\n"
                                 "costBox += deltaLength ;\r\n"
                                 "if( lathKey == 8 ) deltaLength = - 1 ;\r\n"
                                 "if( bWoth ) { bWoth = 0 ; deltaLength = 0 ; }\r\n"
@@ -207,8 +205,8 @@
                             "costBox = strBox.length ;\r\n"
                             "strBox = document.getElementById( \"speech\" ).value ;\r\n"
                         "{\r\n"
-                        "function sayLengthF()\r\n"
-                        "function onLoadDoF() { sayLengthF() ; sayLengthTopicF() ; focusOnLoadF() ; }\r\n"
+                        "function sayLengthSpeechF()\r\n"
+                        "function onLoadDoF() { sayLengthSpeechF() ; sayLengthTopicF() ; focusOnLoadF() ; }\r\n"
                         "var bWothTopic   = 1 ;\r\n"
                         "var bWoth        = 1 ;\r\n"
                         "var lathKeyTopic = 0 ;\r\n"
@@ -234,6 +232,7 @@
                 if( prPosts ) meP.pushSnipF( tinP , stBodyP , *prPosts ) ;
 
                 etThread.strMakeF( tinP , prPosts , tSay , 0 , flSTRmAKE_PREFIXlENGTH ) ; ___( prPosts ) ;
+                ZE( pbRefC* , prPosts ) ;
 
                 ) ;
 
@@ -250,7 +249,7 @@
                                 "<input id=\"submit\" name=\"submit\" type=\"submit\" value=\"Propose\"/>\r\n"
                             "<td valign=\"center\">\r\n"
                             "</td>\r\n"
-                                "<input type=\"text\" id=\"proposedtopic\" name=\"proposedtopic\" maxlength=\"40\" onfocus=\"refocusIfTopicF()\" onkeydown=\"refocusIfTopicF() ; getKeyCodeTopicF( event ) ; sayLengthTopicF()\" value=\"")+tTopicGuide+T("\">\r\n"
+                                "<input type=\"text\" id=\"proposedtopic\" name=\"proposedtopic\" maxlength=\"40\" onfocus=\"/*refocusIfTopicF()*/\" onkeydown=\"/*refocusIfTopicF() ;*/ getKeyCodeTopicF( event ) ; sayLengthTopicF()\" value=\"")+tTopicGuide+T("\">\r\n"
                             "<td valign=\"center\">\r\n"
                             "</td>\r\n"
                                 "<label for=\"proposedtopic\">Propose a topic:</label>\r\n"
@@ -260,15 +259,11 @@
                     "<input id=\"secret\" name=\"secret\" type=\"hidden\" value=\"")+tValueSecret+T("\"/>\r\n"
                     "<input id=\"subscriberid\" name=\"subscriberid\" type=\"hidden\" value=\"")+tValueSubscriberId+T("\"/>\r\n"
                     "ideafarm.com/talk\" id=\"proposedtopicform\" method=\"post\" name=\"proposedtopicform\">\r\n"
-                    
+
                 tSay += T(
                 if( bSandbox ) tSay += T("factory1." ) ;
                 TN( tSay , "<p>\r\n<form action=\"https://" ) ;
-                ZE( pbRefC* , prPosts ) ;
-
-                etThread.traceF( tinP , T("topic is NOT FRESH so displaying form to propose a topic") ) ;
             {
-            if( !bTopicIsFresh )
 
             /***************************************************************************************************/
             /****                                                                                           ****/
@@ -327,14 +322,14 @@
                     "</table>\r\n"
                         "</tr>\r\n"
                             "</td>\r\n"
-                                "<span id=\"sayRemaining\"></span>\r\n"
+                                "<span id=\"sayremainingspeech\"></span>\r\n"
                                 "Remaining:\r\n"
                             "<td valign=\"center\">\r\n"
                             "</td>\r\n"
                                 "<input id=\"submit\" name=\"submit\" type=\"submit\" value=\"Speak!\"/>\r\n"
                             "<td valign=\"center\">\r\n"
                             "</td>\r\n"
-                                "<textarea id=\"speech\" name=\"speech\" rows=\"4\" cols=\"100\" maxlength=\"5000\" onfocus=\"refocusIfSpeechF()\" onkeydown=\"refocusIfSpeechF() ; getKeyCodeF( event ) ; sayLengthF()\">Be respectful and lawful.  What is said cannot be unsaid.</textarea>\r\n"
+                                "<textarea id=\"speech\" name=\"speech\" rows=\"4\" cols=\"100\" maxlength=\"5000\" onfocus=\"/*refocusIfSpeechF()*/\" onkeydown=\"/*refocusIfSpeechF() ;*/ getKeyCodeF( event ) ; sayLengthSpeechF()\">Be respectful and lawful.  What is said cannot be unsaid.</textarea>\r\n"
                             "<td valign=\"center\">\r\n"
                             "</td>\r\n"
                                 "<label for=\"speech\">What you say will appear immediately:</label>\r\n"
@@ -374,7 +369,7 @@
                         "function getKeyCodeAnonF( eventP )\r\n"
                         "}\r\n"
                             "}\r\n"
-                                "document.getElementById( \"sayRemainingAnon\" ).innerHTML = 100 - costBoxAnon ;\r\n"
+                                "document.getElementById( \"sayremaininganon\" ).innerHTML = 100 - costBoxAnon ;\r\n"
                                 "costBoxAnon += deltaLength ;\r\n"
                                 "if( lathKeyAnon == 8 ) deltaLength = - 1 ;\r\n"
                                 "if( bWothAnon ) { bWothAnon = 0 ; deltaLength = 0 ; }\r\n"
@@ -595,7 +590,7 @@
                     "</table>\r\n"
                         "</tr>\r\n"
                             "</td>\r\n"
-                                "<span id=\"sayRemainingAnon\"></span>\r\n"
+                                "<span id=\"sayremaininganon\"></span>\r\n"
                                 "Remaining:\r\n"
                             "<td valign=\"center\">\r\n"
                             "</td>\r\n"
@@ -864,7 +859,6 @@
         /***************************************************************************************************/
         /***************************************************************************************************/
         /***************************************************************************************************/
-//U::TO
 
         /***************************************************************************************************/
         /***************************************************************************************************/
