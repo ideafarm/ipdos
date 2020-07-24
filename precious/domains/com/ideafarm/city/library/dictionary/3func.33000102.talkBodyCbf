@@ -62,6 +62,7 @@
                 said >> psttSaidLastName ; ___( psttSaidLastName ) ;
                 ZE( strokeS* , psttSaidLastName ) ;
 
+                //etThread.traceF( tinP , T("talkBodyCBF: tSaidFirstName: ")+tSaidFirstName ) ; //U::
                 etThread.delF( tinP , psttSaidFirstName ) ;
                 tSaidFirstName = T(psttSaidFirstName) ;
                 said >> psttSaidFirstName ; ___( psttSaidFirstName ) ;
@@ -123,10 +124,10 @@
             TN( tSaidSpeech , "" ) ;
             TN( tSaidTimeForeign , "" ) ;
 
-            stFile >> psttFile ;
+            stFileSaid >> psttFile ;
             ZE( strokeS* , psttFile ) ;
         {
-        while( stFile )
+        while( stFileSaid )
         TN( tb4 , "    " ) ;
     {
 
@@ -145,12 +146,12 @@
                     "</table>\r\n"
                         "</tr>\r\n"
                             "</td>\r\n"
-                                )+tSaidTopic+T(
+                                )+tPTopicTopic+T(
                             "<td>\r\n"
                             "</td>\r\n"
                                 "</form>\r\n"
-                                    "<input id=\"submit\" name=\"submit\" type=\"submit\" value=\"Change Topic\" onclick=\" window.parent.document.getElementById( 'showtopic' ).innerHTML = '")+tSaidTopic+T("' ; \"/>\r\n"
-                                    "<input id=\"newtopic\" name=\"newtopic\" type=\"hidden\" value=\"")+tSaidTopic+T("\"/>\r\n"
+                                    "<input id=\"submit\" name=\"submit\" type=\"submit\" value=\"Change Topic\" onclick=\" window.parent.document.getElementById( 'showtopic' ).innerHTML = '")+tPTopicTopic+T("' ; \"/>\r\n"
+                                    "<input id=\"newtopic\" name=\"newtopic\" type=\"hidden\" value=\"")+tPTopicTopic+T("\"/>\r\n"
                                     "<input id=\"secret\" name=\"secret\" type=\"hidden\" value=\"")+tValueSecret+T("\"/>\r\n"
                                     "<input id=\"subscriberid\" name=\"subscriberid\" type=\"hidden\" value=\"")+tValueSubscriberId+T("\"/>\r\n"
                                     "<input id=\"filenametopic\" name=\"filenametopic\" type=\"hidden\" value=\"")+T(psttFile)+T("\"/>\r\n"
@@ -162,12 +163,12 @@
 
                 TN( tOut , "" ) ; tOut = T(
 
-                //if( !etThread.strCompareF( tinP , tSaidFlags , T("anonymous") ) ) tOutFlags = T(" (anonymous) ") ; // FOR FUTURE USE.  CURRENT CODE DOES NOT SUPPORT ANONYMOUS TOPIC PROPOSALS
+                //if( !etThread.strCompareF( tinP , tPTopicFlags , T("anonymous") ) ) tOutFlags = T(" (anonymous) ") ; // FOR FUTURE USE.  CURRENT CODE DOES NOT SUPPORT ANONYMOUS TOPIC PROPOSALS
                 //TN( tOutFlags , "" ) ;
 
                 }
                     etThread.delF( tinP , psttSaidCountryCode ) ;
-                    tSaidCountryCode = T(psttSaidCountryCode) ;
+                    tPTopicCountryCode = T(psttSaidCountryCode) ;
                     said >> psttSaidCountryCode ; ___( psttSaidCountryCode ) ;
                     ZE( strokeS* , psttSaidCountryCode ) ;
 
@@ -176,7 +177,7 @@
                     ZE( strokeS* , psttSaidState ) ;
 
                     etThread.delF( tinP , psttSaidCity ) ;
-                    tSaidCity = T(psttSaidCity) ;
+                    tPTopicCity = T(psttSaidCity) ;
                     said >> psttSaidCity ; ___( psttSaidCity ) ;
                     ZE( strokeS* , psttSaidCity ) ;
 
@@ -192,7 +193,7 @@
                     ZE( strokeS* , psttSaidNnPeer ) ;
 
                     etThread.delF( tinP , psttSaidZipUse ) ;
-                    tSaidZipUse = T(psttSaidZipUse) ;
+                    tPTopicZipUse = T(psttSaidZipUse) ;
                     said >> psttSaidZipUse ; ___( psttSaidZipUse ) ;
                     ZE( strokeS* , psttSaidZipUse ) ;
 
@@ -201,12 +202,12 @@
                     ZE( strokeS* , psttSaidAddressName ) ;
 
                     etThread.delF( tinP , psttSaidLastName ) ;
-                    tSaidLastName = T(psttSaidLastName) ;
+                    tPTopicLastName = T(psttSaidLastName) ;
                     said >> psttSaidLastName ; ___( psttSaidLastName ) ;
                     ZE( strokeS* , psttSaidLastName ) ;
 
                     etThread.delF( tinP , psttSaidFirstName ) ;
-                    tSaidFirstName = T(psttSaidFirstName) ;
+                    tPTopicFirstName = T(psttSaidFirstName) ;
                     said >> psttSaidFirstName ; ___( psttSaidFirstName ) ;
                     ZE( strokeS* , psttSaidFirstName ) ;
 
@@ -215,12 +216,12 @@
                     ZE( strokeS* , psttSaidPaypalPayerEmail ) ;
 
                     etThread.delF( tinP , psttSaidIdSubscriber0 ) ;
-                    tSaidIdSubscriber0 = T(psttSaidIdSubscriber0) ;
+                    tPTopicIdSubscriber0 = T(psttSaidIdSubscriber0) ;
                     said >> psttSaidIdSubscriber0 ; ___( psttSaidIdSubscriber0 ) ;
                     ZE( strokeS* , psttSaidIdSubscriber0 ) ;
 
                     etThread.delF( tinP , psttTopicClean ) ;
-                    tSaidTopic = T(psttTopicClean) ;
+                    tPTopicTopic = T(psttTopicClean) ;
                     said >> psttTopicClean ; ___( psttTopicClean ) ;
                     ZE( strokeS* , psttTopicClean ) ;
 
@@ -230,14 +231,14 @@
 
                     }
                         etThread.delF( tinP , psttFlags ) ;
-                        tSaidFlags = T(psttFlags) ;
+                        tPTopicFlags = T(psttFlags) ;
                         said >> psttFlags ; ___( psttFlags ) ;
                         ZE( strokeS* , psttFlags ) ;
                     {
                     if( idFormat >= 4 )
 
                     etThread.delF( tinP , psttTimeForeign ) ;
-                    tSaidTimeForeign = T(psttTimeForeign) ;
+                    tPTopicTimeForeign = T(psttTimeForeign) ;
                     said >> psttTimeForeign ; ___( psttTimeForeign ) ;
                     ZE( strokeS* , psttTimeForeign ) ;
 
@@ -256,20 +257,20 @@
                     etThread.boxGetShadowF( tinP , said , psttFile ) ;
                     soulC said( tinP , TAG( TAGiDnULL ) ) ;
                 {
-                TN( tSaidFlags , "" ) ;
-                TN( tSaidCountryCode , "" ) ;
-                TN( tSaidCity , "" ) ;
-                TN( tSaidZipUse , "" ) ;
-                TN( tSaidLastName , "" ) ;
-                TN( tSaidFirstName , "" ) ;
-                TN( tSaidIdSubscriber0 , "" ) ;
-                TN( tSaidTopic , "" ) ;
-                TN( tSaidTimeForeign , "" ) ;
+                TN( tPTopicFlags , "" ) ;
+                TN( tPTopicCountryCode , "" ) ;
+                TN( tPTopicCity , "" ) ;
+                TN( tPTopicZipUse , "" ) ;
+                TN( tPTopicLastName , "" ) ;
+                TN( tPTopicFirstName , "" ) ;
+                TN( tPTopicIdSubscriber0 , "" ) ;
+                TN( tPTopicTopic , "" ) ;
+                TN( tPTopicTimeForeign , "" ) ;
 
-                stFile >> psttFile ;
+                stFilePTopic >> psttFile ;
                 ZE( strokeS* , psttFile ) ;
             {
-            while( stFile )
+            while( stFilePTopic )
             TN( tb4 , "    " ) ;
 
             }
@@ -278,7 +279,7 @@
                     DEL( pInfo ) ;
                     }
                         if( !ids ) etThread.delF( tinP , psttFile ) ; //SHOULD BE IMPOSSIBLE
-                        stFile.sinkF( tinP , ids , psttFile , flSTACKsINK_UNIQUE|flSTACKsINK_REVERSE ) ;
+                        stFilePTopic.sinkF( tinP , ids , psttFile , flSTACKsINK_UNIQUE|flSTACKsINK_REVERSE ) ;
                         ZE( countT , ids ) ;
 
                         etThread.strMakeF( tinP , psttFile , pInfo->psttIfoName ) ; ___( psttFile ) ;
@@ -300,7 +301,7 @@
                 TN( tPattern , "" ) ; tPattern = T("ptopic.table")+T(bSandbox?".sandbox.*":".live.*") ;
                 TN( tPath , "////factory3/d/ideafarm.home.102/ephemeral/backed.up.daily/domains/com/ideafarm/wo.o.s.table/ptopic/" ) ;
             {
-            stackC stFile( tinP , etThread , TAG( TAGiDnULL ) , flSTACKc_DOnOTsERIALIZE , ifcSTACKtYPE_PTR_strokeS , ifcIDgRABlAYER_7BASEmISC1 ) ;
+            stackC stFilePTopic( tinP , etThread , TAG( TAGiDnULL ) , flSTACKc_DOnOTsERIALIZE , ifcSTACKtYPE_PTR_strokeS , ifcIDgRABlAYER_7BASEmISC1 ) ;
         {
         //if( bSecretIsOK && !bTopicIsFresh )
 
@@ -390,14 +391,14 @@
     ZE( countT  , minutes ) ;
     ZE( countT  , seconds ) ;
 
-    etThread.traceF( tinP , T("age of youngest post: ")+TT(timeA1,timeA2) ) ;
+    //etThread.traceF( tinP , T("age of youngest post: ")+TT(timeA1,timeA2) ) ;
     }
         while( ~hFind && !POOP ) ;
         }
             DEL( pInfo ) ;
             }
                 if( !ids ) etThread.delF( tinP , psttFile ) ; //SHOULD BE IMPOSSIBLE
-                stFile.sinkF( tinP , ids , psttFile , flSTACKsINK_UNIQUE|flSTACKsINK_REVERSE ) ;
+                stFileSaid.sinkF( tinP , ids , psttFile , flSTACKsINK_UNIQUE|flSTACKsINK_REVERSE ) ;
                 ZE( countT , ids ) ;
 
                 etThread.strMakeF( tinP , psttFile , pInfo->psttIfoName ) ; ___( psttFile ) ;
@@ -408,7 +409,7 @@
                     timeA1 = timeE1 ;
                 {
                 if( timeA2 > timeE2 || timeA1 > timeE1 )
-                etThread.traceF( tinP , T("age: ")+TT(timeE1,timeE2) ) ;
+                //etThread.traceF( tinP , T("age: ")+TT(timeE1,timeE2) ) ;
                 etThread.osTimeSubtractF( tinP , timeE1 , timeE2 , pInfo->timeCreated1 , pInfo->timeCreated2 ) ;
                 sCountT timeE2 = timeN2 ;
                 countT  timeE1 = timeN1 ;
@@ -433,7 +434,7 @@
     ZE( countT , cFiles ) ;
     sCountT timeA2 = MAXscOUNTT ; // AGE OF THE YOUNGEST POST
     countT  timeA1 = MAXcOUNTT  ; // AGE OF THE YOUNGEST POST ; "A": "AGE"
-    stackC stFile( tinP , etThread , TAG( TAGiDnULL ) , flSTACKc_DOnOTsERIALIZE , ifcSTACKtYPE_PTR_strokeS , ifcIDgRABlAYER_7BASEmISC1 ) ;
+    stackC stFileSaid( tinP , etThread , TAG( TAGiDnULL ) , flSTACKc_DOnOTsERIALIZE , ifcSTACKtYPE_PTR_strokeS , ifcIDgRABlAYER_7BASEmISC1 ) ;
 
     }
         DEL( prPosts ) ;
@@ -485,7 +486,7 @@
             etThread.boxPutF( tinP , T("smtp.mailgun.org[admin]/b42/smtp/")+tHost+T("@ideafarm.com/")+tToUse+T("//wo@ideafarm.com/ideafarm.factory.reports@gmail.com") , tBody ) ;
 
             ;
-                : tSaidPaypalPayerEmail
+                : tLoginPaypalPayerEmail
                 ? tEmailSandboxMe
             textC& tToUse = bSandbox
             TN( tEmailSandboxMe , "ideafarmcity@gmail.com" ) ;
@@ -512,20 +513,20 @@
                 ZE( strokeS* , psttShort ) ;
                 ZE( strokeS* , psttnu ) ;
 
-                etThread.traceF( tinP , T("wrote   ")+T(psttFile) ) ;
+                //etThread.traceF( tinP , T("wrote   ")+T(psttFile) ) ;
                 etThread.boxPutUniqueF( tinP , psttFile , tFile , WS( newTopic ) ) ; ___( psttFile ) ;
                 ZE( strokeS* , psttFile ) ;
 
-                TN( tFile , "" ) ; tFile = T("////factory3/d/ideafarm.home.102/ephemeral/backed.up.daily/domains/com/ideafarm/wo.o.s.table/newTopic/newTopic")+T(bSandbox?".sandbox.":".live.")+T("@1@")+T(".")+tHost ;
+                TN( tFile , "" ) ; tFile = T("////factory3/d/ideafarm.home.102/ephemeral/backed.up.daily/domains/com/ideafarm/wo.o.s.table/newTopic/newTopic")+T(bSandbox?".sandbox.@1@.":".live.@1@.")+T(nnPeerP)+tDot+TF4(((countT*)&subscriberIdTry)[0],flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_NObASE,0,0x3e)+tDot+TF4(((countT*)&subscriberIdTry)[1],flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_NObASE,0,0x3e)+tDot+tHost ;
             {
             TN( tShort , "" ) ;
 
             }
-                etThread.traceF( tinP , T("wrote   ")+T(psttFile) ) ;
+                //etThread.traceF( tinP , T("wrote   ")+T(psttFile) ) ;
                 etThread.boxPutUniqueF( tinP , psttFile , tFile , WS( said ) ) ; ___( psttFile ) ;
                 ZE( strokeS* , psttFile ) ;
 
-                TN( tFile , "" ) ; tFile = T("////factory3/d/ideafarm.home.102/ephemeral/backed.up.daily/domains/com/ideafarm/wo.o.s.table/said/said.table")+T(bSandbox?".sandbox.":".live.")+T("@1@")+T(".")+tHost ;
+                TN( tFile , "" ) ; tFile = T("////factory3/d/ideafarm.home.102/ephemeral/backed.up.daily/domains/com/ideafarm/wo.o.s.table/said/said.table")+T(bSandbox?".sandbox.@1@.":".live.@1@.")+T(nnPeerP)+tDot+TF4(((countT*)&subscriberIdTry)[0],flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_NObASE,0,0x3e)+tDot+TF4(((countT*)&subscriberIdTry)[1],flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_NObASE,0,0x3e)+tDot+tHost ;
             {
 
             }
@@ -544,21 +545,21 @@
             THREADmODE1oN( flTHREADmODE1_ALLOWsTOPwHILEgRABBING )
 
             }
-                said << (strokeS*)tSaidAddressStatus ;
-                said << (strokeS*)tSaidAddressZip ;
-                said << (strokeS*)tSaidAddressCountry ;
-                said << (strokeS*)tSaidAddressCountryCode ;
-                said << (strokeS*)tSaidAddressState ;
-                said << (strokeS*)tSaidAddressCity ;
-                said << (strokeS*)tSaidAddressStreet ;
+                said << (strokeS*)tLoginAddressStatus ;
+                said << (strokeS*)tLoginAddressZip ;
+                said << (strokeS*)tLoginAddressCountry ;
+                said << (strokeS*)tLoginAddressCountryCode ;
+                said << (strokeS*)tLoginAddressState ;
+                said << (strokeS*)tLoginAddressCity ;
+                said << (strokeS*)tLoginAddressStreet ;
                 said << nnPeerP ;                                   // FORMAT 2
-                said << (strokeS*)tSaidNnPeer ;
-                said << (strokeS*)tSaidZipUse ;
-                said << (strokeS*)tSaidAddressName ;
-                said << (strokeS*)tSaidLastName ;
-                said << (strokeS*)tSaidFirstName ;
-                said << (strokeS*)tSaidPaypalPayerEmail ;
-                said << (strokeS*)tSaidIdSubscriber0 ;
+                said << (strokeS*)tLoginNnPeer ;
+                said << (strokeS*)tLoginZipUse ;
+                said << (strokeS*)tLoginAddressName ;
+                said << (strokeS*)tLoginLastName ;
+                said << (strokeS*)tLoginFirstName ;
+                said << (strokeS*)tLoginPaypalPayerEmail ;
+                said << (strokeS*)tLoginIdSubscriber0 ;
                 said << (strokeS*)( T("topic: ")+tNewTopic ) ;
                 said << (strokeS*)T("") ;
                 said << (strokeS*)tFlags ;                          // FORMAT 4
@@ -575,21 +576,21 @@
             soulC said( tinP , TAG( TAGiDnULL ) ) ;
 
             }
-                newTopic << (strokeS*)tSaidAddressStatus ;
-                newTopic << (strokeS*)tSaidAddressZip ;
-                newTopic << (strokeS*)tSaidAddressCountry ;
-                newTopic << (strokeS*)tSaidAddressCountryCode ;
-                newTopic << (strokeS*)tSaidAddressState ;
-                newTopic << (strokeS*)tSaidAddressCity ;
-                newTopic << (strokeS*)tSaidAddressStreet ;
-                newTopic << (strokeS*)tSaidNnPeer ;
-                newTopic << (strokeS*)tSaidNnPeer ;
-                newTopic << (strokeS*)tSaidZipUse ;
-                newTopic << (strokeS*)tSaidAddressName ;
-                newTopic << (strokeS*)tSaidLastName ;
-                newTopic << (strokeS*)tSaidFirstName ;
-                newTopic << (strokeS*)tSaidPaypalPayerEmail ;
-                newTopic << (strokeS*)tSaidIdSubscriber0 ;
+                newTopic << (strokeS*)tLoginAddressStatus ;
+                newTopic << (strokeS*)tLoginAddressZip ;
+                newTopic << (strokeS*)tLoginAddressCountry ;
+                newTopic << (strokeS*)tLoginAddressCountryCode ;
+                newTopic << (strokeS*)tLoginAddressState ;
+                newTopic << (strokeS*)tLoginAddressCity ;
+                newTopic << (strokeS*)tLoginAddressStreet ;
+                newTopic << (strokeS*)tLoginNnPeer ;
+                newTopic << (strokeS*)tLoginNnPeer ;
+                newTopic << (strokeS*)tLoginZipUse ;
+                newTopic << (strokeS*)tLoginAddressName ;
+                newTopic << (strokeS*)tLoginLastName ;
+                newTopic << (strokeS*)tLoginFirstName ;
+                newTopic << (strokeS*)tLoginPaypalPayerEmail ;
+                newTopic << (strokeS*)tLoginIdSubscriber0 ;
                 newTopic << (strokeS*)tNewTopic ;
                 newTopic << (strokeS*)tTimeForeign ;
                 newTopic << (countT)timeN2 ;
@@ -610,7 +611,7 @@
         {
         if( tNewTopic.csF( tinP ) )
 
-        etThread.traceF( tinP , T("new topic:    ")+tNewTopic ) ;
+        //etThread.traceF( tinP , T("new topic:    ")+tNewTopic ) ;
 
         }
             }
@@ -707,63 +708,63 @@
 
     }
         }
-            while( ~hFind && !POOP ) ;
+            while( !bSecretIsOK && ~hFind && !POOP ) ;
             }
                 DEL( pInfo ) ;
                 }
                     etThread.delF( tinP , psttValueAddressStatus ) ;
-                    tSaidAddressStatus = T(psttValueAddressStatus) ;
+                    tLoginAddressStatus = T(psttValueAddressStatus) ;
                     rec >> psttValueAddressStatus ; ___( psttValueAddressStatus ) ;
                     ZE( strokeS* , psttValueAddressStatus ) ;
 
                     etThread.delF( tinP , psttValueAddressZip ) ;
-                    tSaidAddressZip = T(psttValueAddressZip) ;
+                    tLoginAddressZip = T(psttValueAddressZip) ;
                     rec >> psttValueAddressZip ; ___( psttValueAddressZip ) ;
                     ZE( strokeS* , psttValueAddressZip ) ;
 
                     etThread.delF( tinP , psttValueAddressCountry ) ;
-                    tSaidAddressCountry = T(psttValueAddressCountry) ;
+                    tLoginAddressCountry = T(psttValueAddressCountry) ;
                     rec >> psttValueAddressCountry ; ___( psttValueAddressCountry ) ;
                     ZE( strokeS* , psttValueAddressCountry ) ;
 
                     etThread.delF( tinP , psttValueAddressCountryCode ) ;
-                    tSaidAddressCountryCode = T(psttValueAddressCountryCode) ;
+                    tLoginAddressCountryCode = T(psttValueAddressCountryCode) ;
                     rec >> psttValueAddressCountryCode ; ___( psttValueAddressCountryCode ) ;
                     ZE( strokeS* , psttValueAddressCountryCode ) ;
 
                     etThread.delF( tinP , psttValueAddressState ) ;
-                    tSaidAddressState = T(psttValueAddressState) ;
+                    tLoginAddressState = T(psttValueAddressState) ;
                     rec >> psttValueAddressState ; ___( psttValueAddressState ) ;
                     ZE( strokeS* , psttValueAddressState ) ;
 
                     etThread.delF( tinP , psttValueAddressCity ) ;
-                    tSaidAddressCity = T(psttValueAddressCity) ;
+                    tLoginAddressCity = T(psttValueAddressCity) ;
                     rec >> psttValueAddressCity ; ___( psttValueAddressCity ) ;
                     ZE( strokeS* , psttValueAddressCity ) ;
 
                     etThread.delF( tinP , psttValueAddressStreet ) ;
-                    tSaidAddressStreet = T(psttValueAddressStreet) ;
+                    tLoginAddressStreet = T(psttValueAddressStreet) ;
                     rec >> psttValueAddressStreet ; ___( psttValueAddressStreet ) ;
                     ZE( strokeS* , psttValueAddressStreet ) ;
 
                     etThread.delF( tinP , psttValueAddressName ) ;
-                    tSaidAddressName = T(psttValueAddressName) ;
+                    tLoginAddressName = T(psttValueAddressName) ;
 
                     rec >> psttValueAddressName ; ___( psttValueAddressName ) ;
                     ZE( strokeS* , psttValueAddressName ) ;
 
                     etThread.delF( tinP , psttValueLastName ) ;
-                    tSaidLastName = T(psttValueLastName) ;
+                    tLoginLastName = T(psttValueLastName) ;
                     rec >> psttValueLastName ; ___( psttValueLastName ) ;
                     ZE( strokeS* , psttValueLastName ) ;
 
                     etThread.delF( tinP , psttValueFirstName ) ;
-                    tSaidFirstName = T(psttValueFirstName) ;
+                    tLoginFirstName = T(psttValueFirstName) ;
                     rec >> psttValueFirstName ; ___( psttValueFirstName ) ;
                     ZE( strokeS* , psttValueFirstName ) ;
 
                     }
-                        etThread.traceF( tinP , T(bSecretIsOK?"secret is OK":"secret is NOT ok") ) ;
+                        //etThread.traceF( tinP , T(bSecretIsOK?"secret is OK":"secret is NOT ok") ) ;
                         bSecretIsOK = secretTry == secret ;                 //U::DO THIS ONLY IF THIS RECORD IS NOT AN "UNSUBSCRIBE"
                     {
                     if( subscriberIdTry == idSubscriber )
@@ -771,9 +772,9 @@
                     rec >> secret ;
                     ZE( countT , secret ) ;
 
-                    etThread.traceF( tinP , T("[tSaidIdSubscriber0]:    ")+tSaidIdSubscriber0 ) ;
+                    //etThread.traceF( tinP , T("[tLoginIdSubscriber0]:    ")+tLoginIdSubscriber0 ) ;
 
-                    tSaidIdSubscriber0 = TF4(((countT*)&idSubscriber)[0],flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_NObASE,0,0x3e) ;
+                    tLoginIdSubscriber0 = TF4(((countT*)&idSubscriber)[0],flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_NObASE,0,0x3e) ;
                     rec >> ((countT*)&idSubscriber)[ 1 ] ;
                     rec >> ((countT*)&idSubscriber)[ 0 ] ;
                     ZE( count04T , idSubscriber ) ;
@@ -795,17 +796,17 @@
                     ZE( strokeS* , psttValueRewardBoxHidden ) ;
 
                     etThread.delF( tinP , psttZipUse ) ;
-                    tSaidZipUse = T(psttZipUse) ;
+                    tLoginZipUse = T(psttZipUse) ;
                     rec >> psttZipUse ; ___( psttZipUse ) ;
                     ZE( strokeS* , psttZipUse ) ;
 
                     etThread.delF( tinP , psttValuePaypalPayerEmail ) ;
-                    tSaidPaypalPayerEmail = T(psttValuePaypalPayerEmail) ;
+                    tLoginPaypalPayerEmail = T(psttValuePaypalPayerEmail) ;
                     rec >> psttValuePaypalPayerEmail ; ___( psttValuePaypalPayerEmail ) ;
                     ZE( strokeS* , psttValuePaypalPayerEmail ) ;
 
                     etThread.delF( tinP , psttNnPeer ) ;
-                    tSaidNnPeer = T(psttNnPeer) ;
+                    tLoginNnPeer = T(psttNnPeer) ;
                     rec >> psttNnPeer ; ___( psttNnPeer ) ;
                     ZE( strokeS* , psttNnPeer ) ;
 
@@ -828,7 +829,7 @@
                     etThread.boxGetShadowF( tinP , rec , pInfo->psttIfoName ) ;
                     soulC rec( tinP , TAG( TAGiDnULL ) ) ;
 
-                    etThread.traceF( tinP , T("found 1:    ")+T(fn) ) ;
+                    //etThread.traceF( tinP , T("found 1:    ")+T(fn) ) ;
                     fileNameC fn( tinP , etThread , pInfo->psttIfoName ) ;
                 {
                 else
@@ -860,20 +861,20 @@
         /***************************************************************************************************/
     {
     if( subscriberIdTry && secretTry )
-    TN( tSaidAddressStatus      , "" ) ;
-    TN( tSaidAddressZip         , "" ) ;
-    TN( tSaidAddressCountry     , "" ) ;
-    TN( tSaidAddressCountryCode , "" ) ;
-    TN( tSaidAddressState       , "" ) ;
-    TN( tSaidAddressCity        , "" ) ;
-    TN( tSaidAddressStreet      , "" ) ;
-    TN( tSaidAddressName        , "" ) ;
-    TN( tSaidLastName           , "" ) ;
-    TN( tSaidFirstName          , "" ) ;
-    TN( tSaidIdSubscriber0      , "" ) ;
-    TN( tSaidZipUse             , "" ) ;
-    TN( tSaidPaypalPayerEmail   , "" ) ;
-    TN( tSaidNnPeer             , "" ) ;
+    TN( tLoginAddressStatus      , "" ) ;
+    TN( tLoginAddressZip         , "" ) ;
+    TN( tLoginAddressCountry     , "" ) ;
+    TN( tLoginAddressCountryCode , "" ) ;
+    TN( tLoginAddressState       , "" ) ;
+    TN( tLoginAddressCity        , "" ) ;
+    TN( tLoginAddressStreet      , "" ) ;
+    TN( tLoginAddressName        , "" ) ;
+    TN( tLoginLastName           , "" ) ;
+    TN( tLoginFirstName          , "" ) ;
+    TN( tLoginIdSubscriber0      , "" ) ;
+    TN( tLoginZipUse             , "" ) ;
+    TN( tLoginPaypalPayerEmail   , "" ) ;
+    TN( tLoginNnPeer             , "" ) ;
     ZE( boolT , bSecretIsOK ) ;
 
     countT   secretTry       = etThread.strDigitsToSCountF( tinP , tValueSecret       , 0x3e ) ;
@@ -922,6 +923,7 @@
     TN( tKeyFilenameTopic       , "filenametopic"      ) ;
     TN( tKeySecret              , "secret"             ) ;
     TN( tKeySubscriberId        , "subscriberid"       ) ;
+    TN( tDot , "." ) ;
 
     /***************************************************************************************************/
     /***************************************************************************************************/
@@ -935,7 +937,7 @@
 
     boolT bSandbox = etherC::ifc_idHomeI_IF() & fliIDhOME_HOMELESS ;
 
-    if( psttKVReportP && psttKVReportP->idAdam ) etThread.traceF( tinP , T("body received query: ")+T(psttKVReportP) ) ;
+    //if( psttKVReportP && psttKVReportP->idAdam ) etThread.traceF( tinP , T("body received query: ")+T(psttKVReportP) ) ;
 {
 /*1*/voidT talkBodyCBF( tinS& tinP , etherC& etThread , const boolT& bQuitP , httpServerC& meP , countT& cArgP , httpReplyS& replyP , stackC& stBodyP , const strokeS* const psttKVReportP , switchC& swKVP , strokeS*& psttLeverKVP , sessionsC& sessionsP , nicNameC& nnPeerP , const strokeS* const psttUrlP , const strokeS* const psttPeerAgentP , const osTextT* const postBodyP )/*1*/
 

@@ -183,6 +183,12 @@ DONEdRIVENsERVER( tmcHttpServerF )
                                 if( prPostsHttpLocation ) costReply += sizeof postLocationKey - 1 + COSTS( *prPostsHttpLocation ) + ( bQuery ? 1 + psttQueryKV->idAdam : 0 ) ;
                                 boolT bQuery = psttQueryKV && psttQueryKV->idAdam ;
 
+                                }
+                                    etThread.strMakeFromOsTextF( tinP , psttQueryKV , "rc=2" ) ; ___( psttQueryKV) ;      // REFERRAL CHAMPION OF THE MONTH
+                                    etThread.delF( tinP , psttQueryKV ) ;
+                                {
+                                if( !psttQueryKV || !psttQueryKV->idAdam )
+
                                 ;
                                     + costBody
                                     + 4
@@ -548,7 +554,7 @@ DONEdRIVENsERVER( tmcHttpServerF )
                                             ;
                                                 )
                                                     1 == etThread.strIdF( tinP , T("/?") , tUrl )
-                                                    !etThread.strCompareF( tinP , T("/") , tUrl ) ||
+                                                    !etThread.strCompareF( tinP , tSlash , tUrl ) ||
                                                 (
                                                 idPortMe == ifcIDpORT_HTTP                      &&
                                             const boolT bIsRootPage =
@@ -580,7 +586,7 @@ DONEdRIVENsERVER( tmcHttpServerF )
                                             //}
                                                 //}
                                                 //    bShowImageAds = etherC::ranUniI_IF( tinP ) <= mProb ; //"=" IS REDUNDANT BECAUSE ranUniC GUARANTEES RESULT STRICTLY LESS THAN RANGE 
-                                                //    measure04T mProb = !etThread.strCompareF( tinP , psttName , T("/") ) ? 1.0 / 8.0 : 1.0 / 4.0 ;
+                                                //    measure04T mProb = !etThread.strCompareF( tinP , psttName , tSlash ) ? 1.0 / 8.0 : 1.0 / 4.0 ;
                                                 //{
                                                 //if( !( F(session.privilegesF(tinP)) & flSESSIONpRIVILEGE_HIDEiMAGEaDS ) )
                 
@@ -717,7 +723,7 @@ DONEdRIVENsERVER( tmcHttpServerF )
             
                                             //}
                                             //    bShowImageAds = etherC::ranUniI_IF( tinP ) <= mProb ; //"=" IS REDUNDANT BECAUSE ranUniC GUARANTEES RESULT STRICTLY LESS THAN RANGE 
-                                            //    measure04T mProb = !etThread.strCompareF( tinP , psttName , T("/") ) ? 1.0 / 8.0 : 1.0 / 4.0 ;
+                                            //    measure04T mProb = !etThread.strCompareF( tinP , psttName , tSlash ) ? 1.0 / 8.0 : 1.0 / 4.0 ;
                                             //{
                                             //if( !( F(session.privilegesF(tinP)) & flSESSIONpRIVILEGE_HIDEiMAGEaDS ) )
                                             //ZE( boolT , bShowImageAds ) ;
@@ -1024,7 +1030,7 @@ DONEdRIVENsERVER( tmcHttpServerF )
                                     +S2(sa_SSSmARKnUMERIC9,sc_cSSSmARK)
                                 +S2(sa_SSSoR,sc_ccSSS)
                             +S3(3,sc_ccSSSrEPEAT,3)
-                            +T("/")
+                            +tSlash
                         +S2(sa_SSSaND,sc_ccSSS)
                         T("")
 
@@ -1035,7 +1041,8 @@ DONEdRIVENsERVER( tmcHttpServerF )
                 if( psttName && psttName->idAdam )
                 ZE( boolT , bFile ) ;
 
-                if( nnPeerP != nnMeP && ( !psttName || etThread.strCompareF( tinP , psttName , tSlashDeadman ) ) ) etThread.traceF( tinP , TF3(meP.idPortF(tinP),flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,9)+T(nnPeerP)+T("    request:    \"")+T(psttName)+T("\"")+(psttQueryKV?T("    ")+T(psttQueryKV):T("")) , flTRACE_null , ifcIDtRACEdIVERT_7 ) ;
+                if( psttName && !etThread.strCompareF( tinP , psttName , tSlash ) ) etThread.traceF( tinP , TF3(meP.idPortF(tinP),flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,9)+T(nnPeerP)+T("    request:    \"")+T(psttName)+T("\"")+(psttQueryKV?T("    ")+T(psttQueryKV):T("")) , flTRACE_null , ifcIDtRACEdIVERT_7 ) ;
+                //OLD: (NEEDS EDITING): if( /*U::nnPeerP != nnMeP && ( !psttName || ( etThread.strCompareF( tinP , psttName , tSlashDeadman ) && !etThread.strCompareF( tinP , psttName , tSlash ) ) ) ) etThread.traceF( tinP , TF3(meP.idPortF(tinP),flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,9)+T(nnPeerP)+T("    request:    \"")+T(psttName)+T("\"")+(psttQueryKV?T("    ")+T(psttQueryKV):T("")) , flTRACE_null , ifcIDtRACEdIVERT_7 ) ;
 
                 ___( postBody ) ;
                 ___( psttAgent ) ;
@@ -1051,6 +1058,7 @@ DONEdRIVENsERVER( tmcHttpServerF )
             {
             while( !etThread && !POOP )
             TN( tSlashDeadman , "/deadman" ) ;
+            TN( tSlash        , "/"        ) ;
             ZE( countT , idEscaped ) ;
             //LOGrAW( T("------------------------- B E G I N   S E S S I O N -------------------------------------------------------\r\n") ) ;
             //CONoUTrAW( T("------------------------- B E G I N   S E S S I O N -------------------------------------------------------\r\n") ) ;
