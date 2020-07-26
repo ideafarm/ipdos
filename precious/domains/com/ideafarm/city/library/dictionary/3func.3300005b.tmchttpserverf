@@ -62,7 +62,12 @@ DONEdRIVENsERVER( tmcHttpServerF )
         ZE( sCountT , timeA2 ) ;
         ZE( countT , timeA1 ) ;
         { _IO_ etThread( tinP , pswKV ) ; }
-        POOPR
+
+        }
+            etThread.traceF( tinP , T("tmcHttpServerF: coding error: unexpected scratch impotence detected while cleaning up thread 67") ) ;
+            POOPRqUIET
+        {
+        if( POOP )
         TELL( "tmcHttpServerF: cleaning up (part 1)" ) ;
 
         }
@@ -184,7 +189,7 @@ DONEdRIVENsERVER( tmcHttpServerF )
                                 boolT bQuery = psttQueryKV && psttQueryKV->idAdam ;
 
                                 }
-                                    etThread.strMakeFromOsTextF( tinP , psttQueryKV , "rc=2" ) ; ___( psttQueryKV) ;      // REFERRAL CHAMPION OF THE MONTH
+                                    etThread.strMakeFromOsTextF( tinP , psttQueryKV , "rc=" postREFERRALcHAMPIONiD ) ; ___( psttQueryKV) ;
                                     etThread.delF( tinP , psttQueryKV ) ;
                                 {
                                 if( !psttQueryKV || !psttQueryKV->idAdam )
@@ -1041,8 +1046,7 @@ DONEdRIVENsERVER( tmcHttpServerF )
                 if( psttName && psttName->idAdam )
                 ZE( boolT , bFile ) ;
 
-                if( psttName && !etThread.strCompareF( tinP , psttName , tSlash ) ) etThread.traceF( tinP , TF3(meP.idPortF(tinP),flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,9)+T(nnPeerP)+T("    request:    \"")+T(psttName)+T("\"")+(psttQueryKV?T("    ")+T(psttQueryKV):T("")) , flTRACE_null , ifcIDtRACEdIVERT_7 ) ;
-                //OLD: (NEEDS EDITING): if( /*U::nnPeerP != nnMeP && ( !psttName || ( etThread.strCompareF( tinP , psttName , tSlashDeadman ) && !etThread.strCompareF( tinP , psttName , tSlash ) ) ) ) etThread.traceF( tinP , TF3(meP.idPortF(tinP),flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,9)+T(nnPeerP)+T("    request:    \"")+T(psttName)+T("\"")+(psttQueryKV?T("    ")+T(psttQueryKV):T("")) , flTRACE_null , ifcIDtRACEdIVERT_7 ) ;
+                if( psttName && etThread.strCompareF( tinP , psttName , tSlashDeadman ) ) etThread.traceF( tinP , TF3(meP.idPortF(tinP),flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,9)+T(nnPeerP)+T("    request:    \"")+T(psttName)+T("\"")+(psttQueryKV?T("    ")+T(psttQueryKV):T("")) , flTRACE_null , !etThread.strCompareF( tinP , psttName , tSlash ) ? ifcIDtRACEdIVERT_7 : ifcIDtRACEdIVERT_6 ) ;
 
                 ___( postBody ) ;
                 ___( psttAgent ) ;

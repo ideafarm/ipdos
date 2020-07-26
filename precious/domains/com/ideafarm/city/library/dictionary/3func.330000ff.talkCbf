@@ -40,16 +40,22 @@
 
         }
             }
+                tinP.pEtScratch->traceF( tinP , T("disk or file error 43") ) ;
+                POOPR
+            {
+            if( POOP )
+
+            }
                 break ;
 
-                etThread.delF( tinP , psttFile ) ;
+                tinP.pEtScratch->delF( tinP , psttFile ) ;
 
-                etThread.delF( tinP , psttValueTopic ) ;
+                tinP.pEtScratch->delF( tinP , psttValueTopic ) ;
                 tTopic = T(psttValueTopic) ;
                 newTopic >> psttValueTopic ; ___( psttValueTopic ) ;
                 ZE( strokeS* , psttValueTopic ) ;
 
-                etThread.delF( tinP , psttTimeForeign ) ;
+                tinP.pEtScratch->delF( tinP , psttTimeForeign ) ;
                 newTopic >> psttTimeForeign ; ___( psttTimeForeign ) ;
                 ZE( strokeS* , psttTimeForeign ) ;
 
@@ -65,7 +71,7 @@
                 newTopic >> finger ;
                 ZE( countT , finger ) ;
 
-                etThread.boxGetShadowF( tinP , newTopic , psttFile ) ;
+                tinP.pEtScratch->boxGetShadowF( tinP , newTopic , psttFile ) ;
                 soulC newTopic( tinP , TAG( TAGiDnULL ) ) ;
 
                 stFile >> psttFile ;
@@ -79,11 +85,11 @@
                 }
                     DEL( pInfo ) ;
                     }
-                        if( !ids ) etThread.delF( tinP , psttFile ) ; //SHOULD BE IMPOSSIBLE
+                        if( !ids ) tinP.pEtScratch->delF( tinP , psttFile ) ; //SHOULD BE IMPOSSIBLE
                         stFile.sinkF( tinP , ids , psttFile , flSTACKsINK_UNIQUE|flSTACKsINK_REVERSE ) ;
                         ZE( countT , ids ) ;
 
-                        etThread.strMakeF( tinP , psttFile , pInfo->psttIfoName ) ; ___( psttFile ) ;
+                        tinP.pEtScratch->strMakeF( tinP , psttFile , pInfo->psttIfoName ) ; ___( psttFile ) ;
                         ZE( strokeS* , psttFile ) ;
                     {
                     else
@@ -91,19 +97,28 @@
                         break ;
                         DEL( pInfo ) ;
                     {
-                    if( !pInfo || !pInfo->psttIfoName )
+                    else if( !pInfo || !pInfo->psttIfoName )
+                    }
+                        break ;
+                        tinP.pEtScratch->traceF( tinP , T("disk or file error 97") ) ;
+                        POOPR
+                    {
+                    if( POOP )
 
-                    etThread.diskFindFileOrDirF( tinP , pInfo , hFind , tPath , &pat ) ;
+                    tinP.pEtScratch->diskFindFileOrDirF( tinP , pInfo , hFind , tPath , &pat ) ;
                     ZE( infoFileS* , pInfo ) ;
                 {
                 do
                 handleC hFind( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_FILEfIND ) ;
-                patternC pat( tinP , etThread , tPattern , ifcIDtYPEpATTERN_FOREIGNwILDCARDsTRICT ) ;
+                patternC pat( tinP , *tinP.pEtScratch , tPattern , ifcIDtYPEpATTERN_FOREIGNwILDCARDsTRICT ) ;
                 TN( tPattern , "" ) ; tPattern = T("newTopic")+T(bSandbox?".sandbox.*":".live.*") ;
                 TN( tPath , "////factory3/d/ideafarm.home.102/ephemeral/backed.up.daily/domains/com/ideafarm/wo.o.s.table/newTopic/" ) ;
             {
-            stackC stFile( tinP , etThread , TAG( TAGiDnULL ) , flSTACKc_DOnOTsERIALIZE , ifcSTACKtYPE_PTR_strokeS , ifcIDgRABlAYER_7BASEmISC1 ) ;
+            stackC stFile( tinP , *tinP.pEtScratch , TAG( TAGiDnULL ) , flSTACKc_DOnOTsERIALIZE , ifcSTACKtYPE_PTR_strokeS , ifcIDgRABlAYER_7BASEmISC1 ) ;
+
+            SCOOPS
         {
+        IFsCRATCH
         TN( tTopic , "" ) ;
 
         /***************************************************************************************************/
@@ -280,9 +295,9 @@
                     }
                         if( !timeE2 && timeE1 < TICK ) bTopicIsFresh = 1 ;
 
-                        //etThread.traceF( tinP , T("age: ")+TT(timeE1,timeE2) ) ;
-                        etThread.osTimeSubtractF( tinP , timeE1 , timeE2 , pInfo->timeCreated1 , pInfo->timeCreated2 ) ;
-                        etThread.osTimeNowF( tinP , timeE1 , timeE2 ) ;
+                        //tinP.pEtScratch->traceF( tinP , T("age: ")+TT(timeE1,timeE2) ) ;
+                        tinP.pEtScratch->osTimeSubtractF( tinP , timeE1 , timeE2 , pInfo->timeCreated1 , pInfo->timeCreated2 ) ;
+                        tinP.pEtScratch->osTimeNowF( tinP , timeE1 , timeE2 ) ;
                         ZE( sCountT , timeE2 ) ;
                         ZE( countT , timeE1 ) ;
                     {
@@ -291,17 +306,26 @@
                         break ;
                         DEL( pInfo ) ;
                     {
-                    if( !pInfo || !pInfo->psttIfoName )
+                    else if( !pInfo || !pInfo->psttIfoName )
+                    }
+                        break ;
+                        tinP.pEtScratch->traceF( tinP , T("disk or file error 312") ) ;
+                        POOPR
+                    {
+                    if( POOP )
 
-                    etThread.diskFindFileOrDirF( tinP , pInfo , hFind , tPath , &pat ) ;
+                    tinP.pEtScratch->diskFindFileOrDirF( tinP , pInfo , hFind , tPath , &pat ) ;
                     ZE( infoFileS* , pInfo ) ;
                 {
                 do
                 handleC hFind( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_FILEfIND ) ;
-                patternC pat( tinP , etThread , tPattern , ifcIDtYPEpATTERN_FOREIGNwILDCARDsTRICT ) ;
+                patternC pat( tinP , *tinP.pEtScratch , tPattern , ifcIDtYPEpATTERN_FOREIGNwILDCARDsTRICT ) ;
                 TN( tPattern , "" ) ; tPattern = T("said.table")+T(bSandbox?".sandbox.*":".live.*") ;
                 TN( tPath , "////factory3/d/ideafarm.home.102/ephemeral/backed.up.daily/domains/com/ideafarm/wo.o.s.table/said/" ) ;
+
+                SCOOPS
             {
+            IFsCRATCH
 
             /***************************************************************************************************/
             /****                                                                                           ****/
@@ -460,19 +484,32 @@
                         ZE( strokeS* , psttShort ) ;
                         ZE( strokeS* , psttnu ) ;
 
+                        }
+                            tinP.pEtScratch->traceF( tinP , T("disk or file error 487") ) ;
+                            POOPR
+                        {
+                        if( POOP )
+
                         //etThread.traceF( tinP , T("wrote   ")+T(psttFile) ) ;
-                        etThread.boxPutUniqueF( tinP , psttFile , tFile , WS( said ) ) ; ___( psttFile ) ;
+                        tinP.pEtScratch->boxPutUniqueF( tinP , psttFile , tFile , WS( said ) ) ; ___( psttFile ) ;
                         ZE( strokeS* , psttFile ) ;
 
                         TN( tFile , "" ) ; tFile = T("////factory3/d/ideafarm.home.102/ephemeral/backed.up.daily/domains/com/ideafarm/wo.o.s.table/said.anon/said.anon.table")+T(bSandbox?".sandbox.@1@.":".live.@1@.")+T(nnPeerP)+tDot+TF4(((countT*)&subscriberIdTry)[0],flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_NObASE,0,0x3e)+tDot+TF4(((countT*)&subscriberIdTry)[1],flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_NObASE,0,0x3e)+tDot+tHost ;
+
+                        SCOOPS
                     {
+                    IFsCRATCH
                     TN( tShort , "" ) ;
 
                     }
                         if( !tHost.csF( tinP ) ) tHost = T("factories") ;
                         etThread.delF( tinP , psttHost ) ;
                         else       tHost = T(psttHost) ;
-                        if( POOP ) { POOPR ; }
+                        }
+                            tinP.pEtScratch->traceF( tinP , T("disk or file error 504") ) ;
+                            POOPR
+                        {
+                        if( POOP )
                         tinP.pEtScratch->sockPsttHostF( tinP , psttHost ) ; ___( psttHost ) ;
                         ZE( strokeS* , psttHost ) ;
 
@@ -563,18 +600,27 @@
                             break ;
                             DEL( pInfo ) ;
                         {
-                        if( !pInfo || !pInfo->psttIfoName )
+                        else if( !pInfo || !pInfo->psttIfoName )
+                        }
+                            break ;
+                            tinP.pEtScratch->traceF( tinP , T("disk or file error 597") ) ;
+                            POOPR
+                        {
+                        if( POOP )
 
-                        etThread.diskFindFileOrDirF( tinP , pInfo , hFind , tPath , &pat ) ;
+                        tinP.pEtScratch->diskFindFileOrDirF( tinP , pInfo , hFind , tPath , &pat ) ;
                         ZE( infoFileS* , pInfo ) ;
                     {
                     do
                     handleC hFind( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_FILEfIND ) ;
-                    patternC pat( tinP , etThread , tPattern , ifcIDtYPEpATTERN_FOREIGNwILDCARDsTRICT ) ;
+                    patternC pat( tinP , *tinP.pEtScratch , tPattern , ifcIDtYPEpATTERN_FOREIGNwILDCARDsTRICT ) ;
 
                     TN( tPattern , "" ) ; tPattern = T("said.anon.table")+T(bSandbox?".sandbox.":".live.")+T(nnPeerP)+T(".*") ;
                     TN( tPath , "////factory3/d/ideafarm.home.102/ephemeral/backed.up.daily/domains/com/ideafarm/wo.o.s.table/said.anon/" ) ;
+
+                    SCOOPS
                 {
+                IFsCRATCH
                 ZE( boolT , bBlocked2 ) ;
             {
             if( tValueSpeechAnon.csF( tinP ) )
@@ -629,233 +675,252 @@
 
         }
             }
-                THREADmODE1rESTORE
-
-                etThread.boxPutF( tinP , T("smtp.mailgun.org[admin]/b42/smtp/")+tHost+T("@ideafarm.com/")+tToUse+T("//wo@ideafarm.com/ideafarm.factory.reports@gmail.com") , tBody ) ;
-
-                ;
-                    : tLoginPaypalPayerEmail
-                    ? tEmailSandboxMe
-                textC& tToUse = bSandbox
-                TN( tEmailSandboxMe , "ideafarmcity@gmail.com" ) ;
-
-                tBody += T("time:  ")+tTimeForeign+T("\r\n") ;
-                tBody += T("\r\nreference:  ")+tShort+T("\r\n") ;
-
-                tBody += T("your proposed topic:\r\n\r\n")+tValueProposedTopic+T("\r\n\r\n") ;
-
-                ) ;
-
-                    "\r\n"
-                    "\r\n"
-                    "Subject: Wo'O's Table:  You just proposed this topic on Wo'O's Table Talk.\r\n"
-
-                TN( tBody ,
-
-                }
-                    etThread.delF( tinP , psttFile ) ;
-                    etThread.delF( tinP , psttShort ) ;
-                    etThread.delF( tinP , psttnu ) ;
-                    tShort = T(psttShort) ;
-                    etThread.strBisectF( tinP , psttnu , psttShort , psttFile , T("/") , - 1 , flSTRbISECT_APPENDdELIMITER ) ; ___( psttnu ) ; ___( psttShort ) ;
-                    ZE( strokeS* , psttShort ) ;
-                    ZE( strokeS* , psttnu ) ;
-
-                    //etThread.traceF( tinP , T("wrote   ")+T(psttFile) ) ;
-                    etThread.boxPutUniqueF( tinP , psttFile , tFile , WS( said ) ) ; ___( psttFile ) ;
-                    ZE( strokeS* , psttFile ) ;
-
-                    TN( tFile , "" ) ; tFile = T("////factory3/d/ideafarm.home.102/ephemeral/backed.up.daily/domains/com/ideafarm/wo.o.s.table/ptopic/ptopic.table")+T(bSandbox?".sandbox.@1@.":".live.@1@.")+T(nnPeerP)+tDot+TF4(((countT*)&subscriberIdTry)[0],flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_NObASE,0,0x3e)+tDot+TF4(((countT*)&subscriberIdTry)[1],flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_NObASE,0,0x3e)+tDot+tHost ;
-                {
-                TN( tShort , "" ) ;
-
-                }
-                    if( !tHost.csF( tinP ) ) tHost = T("factories") ;
-                    etThread.delF( tinP , psttHost ) ;
-                    else       tHost = T(psttHost) ;
-                    if( POOP ) { POOPR ; }
-                    tinP.pEtScratch->sockPsttHostF( tinP , psttHost ) ; ___( psttHost ) ;
-                    ZE( strokeS* , psttHost ) ;
-
-                    SCOOPS
-                {
-                IFsCRATCH
-                TN( tHost , "" ) ;
-
-                THREADmODE1oN( flTHREADmODE1_ALLOWsTOPwHILEgRABBING )
-
-                said << (strokeS*)tLoginAddressStatus ;
-                said << (strokeS*)tLoginAddressZip ;
-                said << (strokeS*)tLoginAddressCountry ;
-                said << (strokeS*)tLoginAddressCountryCode ;
-                said << (strokeS*)tLoginAddressState ;
-                said << (strokeS*)tLoginAddressCity ;
-                said << (strokeS*)tLoginAddressStreet ;
-                said << nnPeerP ;                                   // FORMAT 2
-                said << (strokeS*)tLoginNnPeer ;
-                said << (strokeS*)tLoginZipUse ;
-                said << (strokeS*)tLoginAddressName ;
-                said << (strokeS*)tLoginLastName ;
-                said << (strokeS*)tLoginFirstName ;
-                said << (strokeS*)tLoginPaypalPayerEmail ;
-                said << (strokeS*)tLoginIdSubscriber0 ;
-                said << (strokeS*)tProposedTopicClean ;
-                said << (strokeS*)tValueProposedTopic ;
-                said << (strokeS*)tFlags ;                          // FORMAT 4
-                said << (strokeS*)tTimeForeign ;
-                said << (countT)timeN2 ;
-                said << timeN1 ;
-                said << (countT)4 ;             // IDfORMAT
-                said << finger ;
-                soulC said( tinP , TAG( TAGiDnULL ) ) ;
-                TN( tFlags , "" ) ;
-
-                putNegAM( *(countT*)&finger , FINGERnEG_WOtABLEsAIDtOPIC ) ;
-                ZE( countT , finger ) ;
-
-                textC tTimeForeign( ifcIDtEXTgEN_TIMEnOWfOREIGN , tinP , TAG( TAGiDnULL ) ) ;
-
-                etThread.osTimeNowF( tinP , timeN1 , timeN2 ) ;
-                ZE( sCountT , timeN2 ) ;
-                ZE( countT , timeN1 ) ;
-
-                }
-                    etThread.delF( tinP , psttClean ) ;
-                    tProposedTopicClean = T(psttClean) ;
-
-                    etThread.delF( tinP , psttRaw ) ;
-                    etThread.strReplaceAnyF( tinP , psttClean , psttRaw , T("<>") , tDot ) ; ___( psttClean ) ;
-                    ZE( strokeS* , psttClean ) ;
-
-                    etThread.strMakeF( tinP , psttRaw , tValueProposedTopic ) ; ___( psttRaw ) ;
-                    ZE( strokeS* , psttRaw ) ;
-                {
-                TN( tProposedTopicClean , "" ) ;                //SANITIZE THE SPEECH TO SUPPRESS ALL HTML
+                tinP.pEtScratch->traceF( tinP , T("disk or file error 632") ) ;
+                POOPR
             {
-            else if( tValueProposedTopic.csF( tinP ) && etThread.strCompareF( tinP , tTopicGuide , tValueProposedTopic ) )
+            if( POOP )
+
             }
-                THREADmODE1rESTORE
-
-                etThread.boxPutF( tinP , T("smtp.mailgun.org[admin]/b42/smtp/")+tHost+T("@ideafarm.com/")+tToUse+T("//wo@ideafarm.com/ideafarm.factory.reports@gmail.com") , tBody ) ;
-
-                ;
-                    : tLoginPaypalPayerEmail
-                    ? tEmailSandboxMe
-                textC& tToUse = bSandbox
-                TN( tEmailSandboxMe , "ideafarmcity@gmail.com" ) ;
-
-                tBody += T("time:  ")+tTimeForeign+T("\r\n") ;
-                tBody += T("\r\nreference:  ")+tShort+T("\r\n") ;
-
-                tBody += T("your post:\r\n\r\n")+tValueSpeech+T("\r\n\r\n") ;
-
-                ) ;
-
-                    "\r\n"
-                    "\r\n"
-                    "Subject: Wo'O's Table:  You just posted this on Wo'O's Table Talk.\r\n"
-
-                TN( tBody ,
-
                 }
-                    etThread.delF( tinP , psttFile ) ;
-                    etThread.delF( tinP , psttShort ) ;
-                    etThread.delF( tinP , psttnu ) ;
-                    tShort = T(psttShort) ;
-                    etThread.strBisectF( tinP , psttnu , psttShort , psttFile , T("/") , - 1 , flSTRbISECT_APPENDdELIMITER ) ; ___( psttnu ) ; ___( psttShort ) ;
-                    ZE( strokeS* , psttShort ) ;
-                    ZE( strokeS* , psttnu ) ;
+                    THREADmODE1rESTORE
 
-                    //etThread.traceF( tinP , T("wrote   ")+T(psttFile) ) ;
-                    etThread.boxPutUniqueF( tinP , psttFile , tFile , WS( said ) ) ; ___( psttFile ) ;
+                    tinP.pEtScratch ->boxPutF( tinP , T("smtp.mailgun.org[admin]/b42/smtp/")+tHost+T("@ideafarm.com/")+tToUse+T("//wo@ideafarm.com/ideafarm.factory.reports@gmail.com") , tBody ) ;
+
+                    ;
+                        : tLoginPaypalPayerEmail
+                        ? tEmailSandboxMe
+                    textC& tToUse = bSandbox
+                    TN( tEmailSandboxMe , "ideafarmcity@gmail.com" ) ;
+
+                    tBody += T("time:  ")+tTimeForeign+T("\r\n") ;
+                    tBody += T("\r\nreference:  ")+tShort+T("\r\n") ;
+
+                    tBody += T("your proposed topic:\r\n\r\n")+tValueProposedTopic+T("\r\n\r\n") ;
+
+                    ) ;
+
+                        "\r\n"
+                        "\r\n"
+                        "Subject: Wo'O's Table:  You just proposed this topic on Wo'O's Table Talk.\r\n"
+
+                    TN( tBody ,
+
+                    }
+                        tinP.pEtScratch ->delF( tinP , psttFile ) ;
+                        tinP.pEtScratch ->delF( tinP , psttShort ) ;
+                        tinP.pEtScratch ->delF( tinP , psttnu ) ;
+                        tShort = T(psttShort) ;
+                        tinP.pEtScratch ->strBisectF( tinP , psttnu , psttShort , psttFile , T("/") , - 1 , flSTRbISECT_APPENDdELIMITER ) ; ___( psttnu ) ; ___( psttShort ) ;
+                        ZE( strokeS* , psttShort ) ;
+                        ZE( strokeS* , psttnu ) ;
+
+                        //tinP.pEtScratch ->traceF( tinP , T("wrote   ")+T(psttFile) ) ;
+                        tinP.pEtScratch ->boxPutUniqueF( tinP , psttFile , tFile , WS( said ) ) ; ___( psttFile ) ;
+                        ZE( strokeS* , psttFile ) ;
+
+                        TN( tFile , "" ) ; tFile = T("////factory3/d/ideafarm.home.102/ephemeral/backed.up.daily/domains/com/ideafarm/wo.o.s.table/ptopic/ptopic.table")+T(bSandbox?".sandbox.@1@.":".live.@1@.")+T(nnPeerP)+tDot+TF4(((countT*)&subscriberIdTry)[0],flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_NObASE,0,0x3e)+tDot+TF4(((countT*)&subscriberIdTry)[1],flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_NObASE,0,0x3e)+tDot+tHost ;
+                    {
+                    TN( tShort , "" ) ;
+
+                    }
+                        if( !tHost.csF( tinP ) ) tHost = T("factories") ;
+                        tinP.pEtScratch ->delF( tinP , psttHost ) ;
+                        else       tHost = T(psttHost) ;
+                        }
+                            tinP.pEtScratch->traceF( tinP , T("disk or file error 720") ) ;
+                            POOPR
+                        {
+                        if( POOP )
+                        tinP.pEtScratch->sockPsttHostF( tinP , psttHost ) ; ___( psttHost ) ;
+                        ZE( strokeS* , psttHost ) ;
+
+                        SCOOPS
+                    {
+                    IFsCRATCH
+                    TN( tHost , "" ) ;
+
+                    THREADmODE1oN( flTHREADmODE1_ALLOWsTOPwHILEgRABBING )
+
+                    said << (strokeS*)tLoginAddressStatus ;
+                    said << (strokeS*)tLoginAddressZip ;
+                    said << (strokeS*)tLoginAddressCountry ;
+                    said << (strokeS*)tLoginAddressCountryCode ;
+                    said << (strokeS*)tLoginAddressState ;
+                    said << (strokeS*)tLoginAddressCity ;
+                    said << (strokeS*)tLoginAddressStreet ;
+                    said << nnPeerP ;                                   // FORMAT 2
+                    said << (strokeS*)tLoginNnPeer ;
+                    said << (strokeS*)tLoginZipUse ;
+                    said << (strokeS*)tLoginAddressName ;
+                    said << (strokeS*)tLoginLastName ;
+                    said << (strokeS*)tLoginFirstName ;
+                    said << (strokeS*)tLoginPaypalPayerEmail ;
+                    said << (strokeS*)tLoginIdSubscriber0 ;
+                    said << (strokeS*)tProposedTopicClean ;
+                    said << (strokeS*)tValueProposedTopic ;
+                    said << (strokeS*)tFlags ;                          // FORMAT 4
+                    said << (strokeS*)tTimeForeign ;
+                    said << (countT)timeN2 ;
+                    said << timeN1 ;
+                    said << (countT)4 ;             // IDfORMAT
+                    said << finger ;
+                    soulC said( tinP , TAG( TAGiDnULL ) ) ;
+                    TN( tFlags , "" ) ;
+
+                    putNegAM( *(countT*)&finger , FINGERnEG_WOtABLEsAIDtOPIC ) ;
+                    ZE( countT , finger ) ;
+
+                    textC tTimeForeign( ifcIDtEXTgEN_TIMEnOWfOREIGN , tinP , TAG( TAGiDnULL ) ) ;
+
+                    tinP.pEtScratch ->osTimeNowF( tinP , timeN1 , timeN2 ) ;
+                    ZE( sCountT , timeN2 ) ;
+                    ZE( countT , timeN1 ) ;
+
+                    }
+                        tinP.pEtScratch ->delF( tinP , psttClean ) ;
+                        tProposedTopicClean = T(psttClean) ;
+
+                        tinP.pEtScratch ->delF( tinP , psttRaw ) ;
+                        tinP.pEtScratch ->strReplaceAnyF( tinP , psttClean , psttRaw , T("<>") , tDot ) ; ___( psttClean ) ;
+                        ZE( strokeS* , psttClean ) ;
+
+                        tinP.pEtScratch ->strMakeF( tinP , psttRaw , tValueProposedTopic ) ; ___( psttRaw ) ;
+                        ZE( strokeS* , psttRaw ) ;
+                    {
+                    TN( tProposedTopicClean , "" ) ;                //SANITIZE THE SPEECH TO SUPPRESS ALL HTML
+                {
+                else if( tValueProposedTopic.csF( tinP ) && tinP.pEtScratch ->strCompareF( tinP , tTopicGuide , tValueProposedTopic ) )
+                }
+                    THREADmODE1rESTORE
+
+                    tinP.pEtScratch ->boxPutF( tinP , T("smtp.mailgun.org[admin]/b42/smtp/")+tHost+T("@ideafarm.com/")+tToUse+T("//wo@ideafarm.com/ideafarm.factory.reports@gmail.com") , tBody ) ;
+
+                    ;
+                        : tLoginPaypalPayerEmail
+                        ? tEmailSandboxMe
+                    textC& tToUse = bSandbox
+                    TN( tEmailSandboxMe , "ideafarmcity@gmail.com" ) ;
+
+                    tBody += T("time:  ")+tTimeForeign+T("\r\n") ;
+                    tBody += T("\r\nreference:  ")+tShort+T("\r\n") ;
+
+                    tBody += T("your post:\r\n\r\n")+tValueSpeech+T("\r\n\r\n") ;
+
+                    ) ;
+
+                        "\r\n"
+                        "\r\n"
+                        "Subject: Wo'O's Table:  You just posted this on Wo'O's Table Talk.\r\n"
+
+                    TN( tBody ,
+
+                    }
+                        tinP.pEtScratch ->delF( tinP , psttFile ) ;
+                        tinP.pEtScratch ->delF( tinP , psttShort ) ;
+                        tinP.pEtScratch ->delF( tinP , psttnu ) ;
+                        tShort = T(psttShort) ;
+                        tinP.pEtScratch ->strBisectF( tinP , psttnu , psttShort , psttFile , T("/") , - 1 , flSTRbISECT_APPENDdELIMITER ) ; ___( psttnu ) ; ___( psttShort ) ;
+                        ZE( strokeS* , psttShort ) ;
+                        ZE( strokeS* , psttnu ) ;
+
+                        //tinP.pEtScratch ->traceF( tinP , T("wrote   ")+T(psttFile) ) ;
+                        tinP.pEtScratch ->boxPutUniqueF( tinP , psttFile , tFile , WS( said ) ) ; ___( psttFile ) ;
+                        ZE( strokeS* , psttFile ) ;
+
+                        TN( tFile , "" ) ; tFile = T("////factory3/d/ideafarm.home.102/ephemeral/backed.up.daily/domains/com/ideafarm/wo.o.s.table/said/said.table")+T(bSandbox?".sandbox.@1@.":".live.@1@.")+T(nnPeerP)+tDot+TF4(((countT*)&subscriberIdTry)[0],flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_NObASE,0,0x3e)+tDot+TF4(((countT*)&subscriberIdTry)[1],flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_NObASE,0,0x3e)+tDot+tHost ;
+                    {
+                    TN( tShort , "" ) ;
+
+                    }
+                        if( !tHost.csF( tinP ) ) tHost = T("factories") ;
+                        tinP.pEtScratch ->delF( tinP , psttHost ) ;
+                        else       tHost = T(psttHost) ;
+                        }
+                            tinP.pEtScratch->traceF( tinP , T("disk or file error 825") ) ;
+                            POOPR
+                        {
+                        if( POOP )
+                        tinP.pEtScratch->sockPsttHostF( tinP , psttHost ) ; ___( psttHost ) ;
+                        ZE( strokeS* , psttHost ) ;
+
+                        SCOOPS
+                    {
+                    IFsCRATCH
+                    TN( tHost , "" ) ;
+
+                    THREADmODE1oN( flTHREADmODE1_ALLOWsTOPwHILEgRABBING )
+
+                    said << (strokeS*)tLoginAddressStatus ;
+                    said << (strokeS*)tLoginAddressZip ;
+                    said << (strokeS*)tLoginAddressCountry ;
+                    said << (strokeS*)tLoginAddressCountryCode ;
+                    said << (strokeS*)tLoginAddressState ;
+                    said << (strokeS*)tLoginAddressCity ;
+                    said << (strokeS*)tLoginAddressStreet ;
+                    said << nnPeerP ;                                   // FORMAT 2
+                    said << (strokeS*)tLoginNnPeer ;
+                    said << (strokeS*)tLoginZipUse ;
+                    said << (strokeS*)tLoginAddressName ;
+                    said << (strokeS*)tLoginLastName ;
+                    said << (strokeS*)tLoginFirstName ;
+                    said << (strokeS*)tLoginPaypalPayerEmail ;
+                    said << (strokeS*)tLoginIdSubscriber0 ;
+                    said << (strokeS*)tSpeechClean ;
+                    said << (strokeS*)tValueSpeech ;
+                    said << (strokeS*)tFlags ;                          // FORMAT 4
+                    said << (strokeS*)tTimeForeign ;
+                    said << (countT)timeN2 ;
+                    said << timeN1 ;
+                    said << (countT)4 ;             // IDfORMAT
+                    said << finger ;
+                    soulC said( tinP , *tinP.pEtScratch , TAG( TAGiDnULL ) ) ;
+                    TN( tFlags , "" ) ;
+
+                    putNegAM( *(countT*)&finger , FINGERnEG_WOtABLEsAID ) ;
+                    ZE( countT , finger ) ;
+
+                    textC tTimeForeign( ifcIDtEXTgEN_TIMEnOWfOREIGN , tinP , TAG( TAGiDnULL ) ) ;
+
+                    tinP.pEtScratch ->osTimeNowF( tinP , timeN1 , timeN2 ) ;
+                    ZE( sCountT , timeN2 ) ;
+                    ZE( countT , timeN1 ) ;
+
+                    }
+                        tinP.pEtScratch ->delF( tinP , psttClean ) ;
+                        tSpeechClean = T(psttClean) ;
+
+                        tinP.pEtScratch ->delF( tinP , psttRaw ) ;
+                        tinP.pEtScratch ->strReplaceAnyF( tinP , psttClean , psttRaw , T("<>") , tDot ) ; ___( psttClean ) ;
+                        ZE( strokeS* , psttClean ) ;
+
+                        tinP.pEtScratch ->strMakeF( tinP , psttRaw , tValueSpeech ) ; ___( psttRaw ) ;
+                        ZE( strokeS* , psttRaw ) ;
+                    {
+                    TN( tSpeechClean , "" ) ;                //SANITIZE THE SPEECH TO SUPPRESS ALL HTML
+                {
+                else if( tValueSpeech.csF( tinP ) )
+                }
+                    tinP.pEtScratch ->delF( tinP , psttFile ) ;
+                    //tinP.pEtScratch ->traceF( tinP , T("wrote   ")+T(psttFile) ) ;
+                    tinP.pEtScratch ->boxPutUniqueF( tinP , psttFile , tFile , tBlocked , tBlocked.csF( tinP ) ) ; ___( psttFile ) ;
                     ZE( strokeS* , psttFile ) ;
+                    TN( tBlocked , "blocked" ) ;
 
-                    TN( tFile , "" ) ; tFile = T("////factory3/d/ideafarm.home.102/ephemeral/backed.up.daily/domains/com/ideafarm/wo.o.s.table/said/said.table")+T(bSandbox?".sandbox.@1@.":".live.@1@.")+T(nnPeerP)+tDot+TF4(((countT*)&subscriberIdTry)[0],flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_NObASE,0,0x3e)+tDot+TF4(((countT*)&subscriberIdTry)[1],flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_NObASE,0,0x3e)+tDot+tHost ;
+                    TN( tFile , "" ) ; tFile = T("////factory3/d/ideafarm.home.102/ephemeral/backed.up.daily/domains/com/ideafarm/wo.o.s.table/blocked.ip/blocked.ip.@1@.")+T(nnPeerP)+tDot+TF4(((countT*)&subscriberIdTry)[0],flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_NObASE,0,0x3e)+tDot+TF4(((countT*)&subscriberIdTry)[1],flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_NObASE,0,0x3e) ;
+
+                    DEL( prPosts ) ;
+                    if( prPosts ) meP.pushSnipF( tinP , stBodyP , *prPosts ) ;
+
+                    tinP.pEtScratch ->strMakeF( tinP , prPosts , T("<span style=\"color:red\">The secret \"")+tValueSecret+T("\" is wrong.  Your IP address is now blocked for a TICK (about 6 foreign minutes).</span>") , 0 , flSTRmAKE_PREFIXlENGTH ) ; ___( prPosts ) ;
+                    ZE( pbRefC* , prPosts ) ;
                 {
-                TN( tShort , "" ) ;
-
-                }
-                    if( !tHost.csF( tinP ) ) tHost = T("factories") ;
-                    etThread.delF( tinP , psttHost ) ;
-                    else       tHost = T(psttHost) ;
-                    if( POOP ) { POOPR ; }
-                    tinP.pEtScratch->sockPsttHostF( tinP , psttHost ) ; ___( psttHost ) ;
-                    ZE( strokeS* , psttHost ) ;
-
-                    SCOOPS
-                {
-                IFsCRATCH
-                TN( tHost , "" ) ;
-
-                THREADmODE1oN( flTHREADmODE1_ALLOWsTOPwHILEgRABBING )
-
-                said << (strokeS*)tLoginAddressStatus ;
-                said << (strokeS*)tLoginAddressZip ;
-                said << (strokeS*)tLoginAddressCountry ;
-                said << (strokeS*)tLoginAddressCountryCode ;
-                said << (strokeS*)tLoginAddressState ;
-                said << (strokeS*)tLoginAddressCity ;
-                said << (strokeS*)tLoginAddressStreet ;
-                said << nnPeerP ;                                   // FORMAT 2
-                said << (strokeS*)tLoginNnPeer ;
-                said << (strokeS*)tLoginZipUse ;
-                said << (strokeS*)tLoginAddressName ;
-                said << (strokeS*)tLoginLastName ;
-                said << (strokeS*)tLoginFirstName ;
-                said << (strokeS*)tLoginPaypalPayerEmail ;
-                said << (strokeS*)tLoginIdSubscriber0 ;
-                said << (strokeS*)tSpeechClean ;
-                said << (strokeS*)tValueSpeech ;
-                said << (strokeS*)tFlags ;                          // FORMAT 4
-                said << (strokeS*)tTimeForeign ;
-                said << (countT)timeN2 ;
-                said << timeN1 ;
-                said << (countT)4 ;             // IDfORMAT
-                said << finger ;
-                soulC said( tinP , TAG( TAGiDnULL ) ) ;
-                TN( tFlags , "" ) ;
-
-                putNegAM( *(countT*)&finger , FINGERnEG_WOtABLEsAID ) ;
-                ZE( countT , finger ) ;
-
-                textC tTimeForeign( ifcIDtEXTgEN_TIMEnOWfOREIGN , tinP , TAG( TAGiDnULL ) ) ;
-
-                etThread.osTimeNowF( tinP , timeN1 , timeN2 ) ;
-                ZE( sCountT , timeN2 ) ;
-                ZE( countT , timeN1 ) ;
-
-                }
-                    etThread.delF( tinP , psttClean ) ;
-                    tSpeechClean = T(psttClean) ;
-
-                    etThread.delF( tinP , psttRaw ) ;
-                    etThread.strReplaceAnyF( tinP , psttClean , psttRaw , T("<>") , tDot ) ; ___( psttClean ) ;
-                    ZE( strokeS* , psttClean ) ;
-
-                    etThread.strMakeF( tinP , psttRaw , tValueSpeech ) ; ___( psttRaw ) ;
-                    ZE( strokeS* , psttRaw ) ;
-                {
-                TN( tSpeechClean , "" ) ;                //SANITIZE THE SPEECH TO SUPPRESS ALL HTML
+                if( !bSecretIsOK )
             {
-            else if( tValueSpeech.csF( tinP ) )
-            }
-                etThread.delF( tinP , psttFile ) ;
-                //etThread.traceF( tinP , T("wrote   ")+T(psttFile) ) ;
-                etThread.boxPutUniqueF( tinP , psttFile , tFile , tBlocked , tBlocked.csF( tinP ) ) ; ___( psttFile ) ;
-                ZE( strokeS* , psttFile ) ;
-                TN( tBlocked , "blocked" ) ;
+            if( subscriberIdTry )
 
-                TN( tFile , "" ) ; tFile = T("////factory3/d/ideafarm.home.102/ephemeral/backed.up.daily/domains/com/ideafarm/wo.o.s.table/blocked.ip/blocked.ip.@1@.")+T(nnPeerP)+tDot+TF4(((countT*)&subscriberIdTry)[0],flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_NObASE,0,0x3e)+tDot+TF4(((countT*)&subscriberIdTry)[1],flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_NObASE,0,0x3e) ;
-
-                DEL( prPosts ) ;
-                if( prPosts ) meP.pushSnipF( tinP , stBodyP , *prPosts ) ;
-
-                etThread.strMakeF( tinP , prPosts , T("<span style=\"color:red\">The secret \"")+tValueSecret+T("\" is wrong.  Your IP address is now blocked for a TICK (about 6 foreign minutes).</span>") , 0 , flSTRmAKE_PREFIXlENGTH ) ; ___( prPosts ) ;
-                ZE( pbRefC* , prPosts ) ;
-            {
-            if( !bSecretIsOK )
+            SCOOPS
         {
-        if( subscriberIdTry )
+        IFsCRATCH
 
         /***************************************************************************************************/
         /***************************************************************************************************/
@@ -949,6 +1014,8 @@
                     "<p>\r\n"
                     "</ul>\r\n"
                     "<li>Today's low subscription price will rise as the Wo'O's Table community grows.\r\n"
+                    "<br>(Nonsubscribers must wait 30 days.)\r\n"
+                    "<li>Subscribers are trusted; \"rewards\" are advanced immediately.\r\n"
                     "<br>(Nonsubscribers must distribute a link that reveals their email address.)\r\n"
                     "<li>Subscribers can earn \"rewards\" (referral commissions) by giving privacy-encoded links to others.\r\n"
                     "<li>A copy of each of your posts will be emailed to you.\r\n"
@@ -982,13 +1049,19 @@
 
         }
             }
+                tinP.pEtScratch->traceF( tinP , T("disk or file error 985") ) ;
+                POOPR
+            {
+            if( POOP )
+
+            }
                 }
                     }
-                        etThread.delF( tinP , psttFile ) ;
+                        tinP.pEtScratch ->delF( tinP , psttFile ) ;
 
                         DEL( prPosts ) ;
                         if( prPosts ) meP.pushSnipF( tinP , stBodyP , *prPosts ) ;
-                        etThread.strMakeF( tinP , prPosts , T("<p>\r\n")+tOut+T("\r\n") , 0 , flSTRmAKE_PREFIXlENGTH ) ; ___( prPosts ) ;
+                        tinP.pEtScratch ->strMakeF( tinP , prPosts , T("<p>\r\n")+tOut+T("\r\n") , 0 , flSTRmAKE_PREFIXlENGTH ) ; ___( prPosts ) ;
                         ZE( pbRefC* , prPosts ) ;
 
                         ) ;
@@ -1016,16 +1089,16 @@
                             said >> nnPeer ;
                             nicNameC nnPeer ;
 
-                            etThread.delF( tinP , psttSpeechClean ) ;
+                            tinP.pEtScratch ->delF( tinP , psttSpeechClean ) ;
                             tLoginSpeech = T(psttSpeechClean) ;
                             said >> psttSpeechClean ; ___( psttSpeechClean ) ;
                             ZE( strokeS* , psttSpeechClean ) ;
 
-                            etThread.delF( tinP , psttValueSpeech ) ;
+                            tinP.pEtScratch ->delF( tinP , psttValueSpeech ) ;
                             said >> psttValueSpeech ; ___( psttValueSpeech ) ;
                             ZE( strokeS* , psttValueSpeech ) ;
 
-                            etThread.delF( tinP , psttTimeForeign ) ;
+                            tinP.pEtScratch ->delF( tinP , psttTimeForeign ) ;
                             tLoginTimeForeign = T(psttTimeForeign) ;
                             said >> psttTimeForeign ; ___( psttTimeForeign ) ;
                             ZE( strokeS* , psttTimeForeign ) ;
@@ -1042,7 +1115,7 @@
                             said >> finger ;
                             ZE( countT , finger ) ;
 
-                            etThread.boxGetShadowF( tinP , said , psttFile ) ;
+                            tinP.pEtScratch ->boxGetShadowF( tinP , said , psttFile ) ;
                             soulC said( tinP , TAG( TAGiDnULL ) ) ;
                         {
                         TN( tLoginSpeech , "" ) ;
@@ -1057,7 +1130,7 @@
                         DEL( prPosts ) ;
                         if( prPosts ) meP.pushSnipF( tinP , stBodyP , *prPosts ) ;
 
-                        etThread.strMakeF( tinP , prPosts , tSay , 0 , flSTRmAKE_PREFIXlENGTH ) ; ___( prPosts ) ;
+                        tinP.pEtScratch ->strMakeF( tinP , prPosts , tSay , 0 , flSTRmAKE_PREFIXlENGTH ) ; ___( prPosts ) ;
                         ZE( pbRefC* , prPosts ) ;
 
                         ) ;
@@ -1086,7 +1159,7 @@
                     //DEL( prPosts ) ;
                     //if( prPosts ) meP.pushSnipF( tinP , stBodyP , *prPosts ) ;
                     //
-                    //etThread.strMakeF( tinP , prPosts , tSay , 0 , flSTRmAKE_PREFIXlENGTH ) ; ___( prPosts ) ;
+                    //tinP.pEtScratch ->strMakeF( tinP , prPosts , tSay , 0 , flSTRmAKE_PREFIXlENGTH ) ; ___( prPosts ) ;
                     //ZE( pbRefC* , prPosts ) ;
                     //
                     //TN( tSay , "<p>\r\nNo anonymous posts are awaiting certification.\r\n" ) ;
@@ -1101,11 +1174,11 @@
                 }
                     DEL( pInfo ) ;
                     }
-                        if( !ids ) etThread.delF( tinP , psttFile ) ; //SHOULD BE IMPOSSIBLE
+                        if( !ids ) tinP.pEtScratch ->delF( tinP , psttFile ) ; //SHOULD BE IMPOSSIBLE
                         stFile.sinkF( tinP , ids , psttFile , flSTACKsINK_UNIQUE|flSTACKsINK_REVERSE ) ;
                         ZE( countT , ids ) ;
 
-                        etThread.strMakeF( tinP , psttFile , pInfo->psttIfoName ) ; ___( psttFile ) ;
+                        tinP.pEtScratch ->strMakeF( tinP , psttFile , pInfo->psttIfoName ) ; ___( psttFile ) ;
                         ZE( strokeS* , psttFile ) ;
                     {
                     else
@@ -1113,19 +1186,28 @@
                         break ;
                         DEL( pInfo ) ;
                     {
-                    if( !pInfo || !pInfo->psttIfoName )
+                    else if( !pInfo || !pInfo->psttIfoName )
+                    }
+                        break ;
+                        tinP.pEtScratch->traceF( tinP , T("disk or file error 1119") ) ;
+                        POOPR
+                    {
+                    if( POOP )
 
-                    etThread.diskFindFileOrDirF( tinP , pInfo , hFind , tPath , &pat ) ;
+                    tinP.pEtScratch ->diskFindFileOrDirF( tinP , pInfo , hFind , tPath , &pat ) ;
                     ZE( infoFileS* , pInfo ) ;
                 {
                 do
                 handleC hFind( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_FILEfIND ) ;
-                patternC pat( tinP , etThread , tPattern , ifcIDtYPEpATTERN_FOREIGNwILDCARDsTRICT ) ;
+                patternC pat( tinP , *tinP.pEtScratch , tPattern , ifcIDtYPEpATTERN_FOREIGNwILDCARDsTRICT ) ;
                 TN( tPattern , "" ) ; tPattern = T("said.anon.table")+T(bSandbox?".sandbox.*":".live.*") ;
                 TN( tPath , "////factory3/d/ideafarm.home.102/ephemeral/backed.up.daily/domains/com/ideafarm/wo.o.s.table/said.anon/" ) ;
             {
-            stackC stFile( tinP , etThread , TAG( TAGiDnULL ) , flSTACKc_DOnOTsERIALIZE , ifcSTACKtYPE_PTR_strokeS , ifcIDgRABlAYER_7BASEmISC1 ) ;
+            stackC stFile( tinP , *tinP.pEtScratch , TAG( TAGiDnULL ) , flSTACKc_DOnOTsERIALIZE , ifcSTACKtYPE_PTR_strokeS , ifcIDgRABlAYER_7BASEmISC1 ) ;
+
+            SCOOPS
         {
+        IFsCRATCH
         if( bSecretIsOK )
         ZE( boolT , bTopicIsFresh ) ;
 
@@ -1210,7 +1292,11 @@
                         if( !tHost.csF( tinP ) ) tHost = T("factories") ;
                         etThread.delF( tinP , psttHost ) ;
                         else       tHost = T(psttHost) ;
-                        if( POOP ) { POOPR ; }
+                        }
+                            tinP.pEtScratch->traceF( tinP , T("disk or file error 1276") ) ;
+                            POOPR
+                        {
+                        if( POOP )
                         tinP.pEtScratch->sockPsttHostF( tinP , psttHost ) ; ___( psttHost ) ;
                         ZE( strokeS* , psttHost ) ;
 
@@ -1290,7 +1376,11 @@
                         {
                     {
                     else
-                    if( POOP ) { POOPR ; }
+                    }
+                        tinP.pEtScratch->traceF( tinP , T("disk or file error 1356") ) ;
+                        POOPR
+                    {
+                    if( POOP )
                     tinP.pEtScratch->boxGetF( tinP , rec , tValueFilenameSpeechAnon , 1 , 1 ) ;
                     soulC rec( tinP , *tinP.pEtScratch , TAG( TAGiDnULL ) ) ;
 
@@ -1320,59 +1410,59 @@
             }
                 DEL( pInfo ) ;
                 }
-                    etThread.delF( tinP , psttValueAddressStatus ) ;
+                    tinP.pEtScratch->delF( tinP , psttValueAddressStatus ) ;
                     tLoginAddressStatus = T(psttValueAddressStatus) ;
                     rec >> psttValueAddressStatus ; ___( psttValueAddressStatus ) ;
                     ZE( strokeS* , psttValueAddressStatus ) ;
 
-                    etThread.delF( tinP , psttValueAddressZip ) ;
+                    tinP.pEtScratch->delF( tinP , psttValueAddressZip ) ;
                     tLoginAddressZip = T(psttValueAddressZip) ;
                     rec >> psttValueAddressZip ; ___( psttValueAddressZip ) ;
                     ZE( strokeS* , psttValueAddressZip ) ;
 
-                    etThread.delF( tinP , psttValueAddressCountry ) ;
+                    tinP.pEtScratch->delF( tinP , psttValueAddressCountry ) ;
                     tLoginAddressCountry = T(psttValueAddressCountry) ;
                     rec >> psttValueAddressCountry ; ___( psttValueAddressCountry ) ;
                     ZE( strokeS* , psttValueAddressCountry ) ;
 
-                    etThread.delF( tinP , psttValueAddressCountryCode ) ;
+                    tinP.pEtScratch->delF( tinP , psttValueAddressCountryCode ) ;
                     tLoginAddressCountryCode = T(psttValueAddressCountryCode) ;
                     rec >> psttValueAddressCountryCode ; ___( psttValueAddressCountryCode ) ;
                     ZE( strokeS* , psttValueAddressCountryCode ) ;
 
-                    etThread.delF( tinP , psttValueAddressState ) ;
+                    tinP.pEtScratch->delF( tinP , psttValueAddressState ) ;
                     tLoginAddressState = T(psttValueAddressState) ;
                     rec >> psttValueAddressState ; ___( psttValueAddressState ) ;
                     ZE( strokeS* , psttValueAddressState ) ;
 
-                    etThread.delF( tinP , psttValueAddressCity ) ;
+                    tinP.pEtScratch->delF( tinP , psttValueAddressCity ) ;
                     tLoginAddressCity = T(psttValueAddressCity) ;
                     rec >> psttValueAddressCity ; ___( psttValueAddressCity ) ;
                     ZE( strokeS* , psttValueAddressCity ) ;
 
-                    etThread.delF( tinP , psttValueAddressStreet ) ;
+                    tinP.pEtScratch->delF( tinP , psttValueAddressStreet ) ;
                     tLoginAddressStreet = T(psttValueAddressStreet) ;
                     rec >> psttValueAddressStreet ; ___( psttValueAddressStreet ) ;
                     ZE( strokeS* , psttValueAddressStreet ) ;
 
-                    etThread.delF( tinP , psttValueAddressName ) ;
+                    tinP.pEtScratch->delF( tinP , psttValueAddressName ) ;
                     tLoginAddressName = T(psttValueAddressName) ;
 
                     rec >> psttValueAddressName ; ___( psttValueAddressName ) ;
                     ZE( strokeS* , psttValueAddressName ) ;
 
-                    etThread.delF( tinP , psttValueLastName ) ;
+                    tinP.pEtScratch->delF( tinP , psttValueLastName ) ;
                     tLoginLastName = T(psttValueLastName) ;
                     rec >> psttValueLastName ; ___( psttValueLastName ) ;
                     ZE( strokeS* , psttValueLastName ) ;
 
-                    etThread.delF( tinP , psttValueFirstName ) ;
+                    tinP.pEtScratch->delF( tinP , psttValueFirstName ) ;
                     tLoginFirstName = T(psttValueFirstName) ;
                     rec >> psttValueFirstName ; ___( psttValueFirstName ) ;
                     ZE( strokeS* , psttValueFirstName ) ;
 
                     }
-                        //etThread.traceF( tinP , T(bSecretIsOK?"secret is OK":"secret is NOT ok") ) ;
+                        //tinP.pEtScratch->traceF( tinP , T(bSecretIsOK?"secret is OK":"secret is NOT ok") ) ;
                         bSecretIsOK = secretTry == secret ;                 //U::DO THIS ONLY IF THIS RECORD IS NOT AN "UNSUBSCRIBE"
                     {
                     if( subscriberIdTry == idSubscriber )
@@ -1380,45 +1470,45 @@
                     rec >> secret ;
                     ZE( countT , secret ) ;
 
-                    //etThread.traceF( tinP , T("[tLoginIdSubscriber0]:    ")+tLoginIdSubscriber0 ) ;
+                    //tinP.pEtScratch->traceF( tinP , T("[tLoginIdSubscriber0]:    ")+tLoginIdSubscriber0 ) ;
 
                     tLoginIdSubscriber0 = TF4(((countT*)&idSubscriber)[0],flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_NObASE,0,0x3e) ;
                     rec >> ((countT*)&idSubscriber)[ 1 ] ;
                     rec >> ((countT*)&idSubscriber)[ 0 ] ;
                     ZE( count04T , idSubscriber ) ;
 
-                    etThread.delF( tinP , psttValueTransId ) ;
+                    tinP.pEtScratch->delF( tinP , psttValueTransId ) ;
                     rec >> psttValueTransId ; ___( psttValueTransId ) ;
                     ZE( strokeS* , psttValueTransId ) ;
 
-                    etThread.delF( tinP , psttValueTransType ) ;
+                    tinP.pEtScratch->delF( tinP , psttValueTransType ) ;
                     rec >> psttValueTransType ; ___( psttValueTransType ) ;
                     ZE( strokeS* , psttValueTransType ) ;
 
-                    etThread.delF( tinP , psttValueRewardBox ) ;
+                    tinP.pEtScratch->delF( tinP , psttValueRewardBox ) ;
                     rec >> psttValueRewardBox ; ___( psttValueRewardBox ) ;
                     ZE( strokeS* , psttValueRewardBox ) ;
 
-                    etThread.delF( tinP , psttValueRewardBoxHidden ) ;
+                    tinP.pEtScratch->delF( tinP , psttValueRewardBoxHidden ) ;
                     rec >> psttValueRewardBoxHidden ; ___( psttValueRewardBoxHidden ) ;
                     ZE( strokeS* , psttValueRewardBoxHidden ) ;
 
-                    etThread.delF( tinP , psttZipUse ) ;
+                    tinP.pEtScratch->delF( tinP , psttZipUse ) ;
                     tLoginZipUse = T(psttZipUse) ;
                     rec >> psttZipUse ; ___( psttZipUse ) ;
                     ZE( strokeS* , psttZipUse ) ;
 
-                    etThread.delF( tinP , psttValuePaypalPayerEmail ) ;
+                    tinP.pEtScratch->delF( tinP , psttValuePaypalPayerEmail ) ;
                     tLoginPaypalPayerEmail = T(psttValuePaypalPayerEmail) ;
                     rec >> psttValuePaypalPayerEmail ; ___( psttValuePaypalPayerEmail ) ;
                     ZE( strokeS* , psttValuePaypalPayerEmail ) ;
 
-                    etThread.delF( tinP , psttNnPeer ) ;
+                    tinP.pEtScratch->delF( tinP , psttNnPeer ) ;
                     tLoginNnPeer = T(psttNnPeer) ;
                     rec >> psttNnPeer ; ___( psttNnPeer ) ;
                     ZE( strokeS* , psttNnPeer ) ;
 
-                    etThread.delF( tinP , psttAction ) ;
+                    tinP.pEtScratch->delF( tinP , psttAction ) ;
                     rec >> psttAction ; ___( psttAction ) ;
                     ZE( strokeS* , psttAction ) ;
 
@@ -1434,28 +1524,37 @@
                     rec >> finger ;
                     ZE( countT , finger ) ;
 
-                    etThread.boxGetShadowF( tinP , rec , pInfo->psttIfoName ) ;
-                    soulC rec( tinP , TAG( TAGiDnULL ) ) ;
+                    tinP.pEtScratch->boxGetShadowF( tinP , rec , pInfo->psttIfoName ) ;
+                    soulC rec( tinP , *tinP.pEtScratch , TAG( TAGiDnULL ) ) ;
 
-                    //etThread.traceF( tinP , T("found 1:    ")+T(fn) ) ;
-                    fileNameC fn( tinP , etThread , pInfo->psttIfoName ) ;
+                    //tinP.pEtScratch->traceF( tinP , T("found 1:    ")+T(fn) ) ;
+                    fileNameC fn( tinP , *tinP.pEtScratch , pInfo->psttIfoName ) ;
                 {
                 else
                 }
                     break ;
                     DEL( pInfo ) ;
                 {
-                if( !pInfo || !pInfo->psttIfoName )
+                else if( !pInfo || !pInfo->psttIfoName )
+                }
+                    break ;
+                    tinP.pEtScratch->traceF( tinP , T("disk or file error 1451") ) ;
+                    POOPR
+                {
+                if( POOP )
 
-                etThread.diskFindFileOrDirF( tinP , pInfo , hFind , tPath , &pat ) ;
+                tinP.pEtScratch->diskFindFileOrDirF( tinP , pInfo , hFind , tPath , &pat ) ;
                 ZE( infoFileS* , pInfo ) ;
             {
             do
             handleC hFind( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_FILEfIND ) ;
-            patternC pat( tinP , etThread , tPattern , ifcIDtYPEpATTERN_FOREIGNwILDCARDsTRICT ) ;
+            patternC pat( tinP , *tinP.pEtScratch , tPattern , ifcIDtYPEpATTERN_FOREIGNwILDCARDsTRICT ) ;
             TN( tPattern , "subscription.table.live.*" ) ;
             TN( tPath , "////factory3/d/ideafarm.home.102/ephemeral/backed.up.daily/domains/com/ideafarm/wo.o.s.table/subscriptions/" ) ;
+
+            SCOOPS
         {
+        IFsCRATCH
         TN( tLoginAddressStatus      , "" ) ;
         TN( tLoginAddressZip         , "" ) ;
         TN( tLoginAddressCountry     , "" ) ;
@@ -1606,11 +1705,11 @@
             DEL( pInfo ) ;
             }
                 else                          bBlocked = 1 ;
-                if( timeE2 || timeE1 > TICK ) etThread.diskFileOrDirDeleteF( tinP , pInfo->psttIfoName , flFILEoRdIRdELETE_null , 1 ) ;
+                if( timeE2 || timeE1 > TICK ) tinP.pEtScratch->diskFileOrDirDeleteF( tinP , pInfo->psttIfoName , flFILEoRdIRdELETE_null , 1 ) ;
 
-                //etThread.traceF( tinP , T("age: ")+TT(timeE1,timeE2) ) ;
-                etThread.osTimeSubtractF( tinP , timeE1 , timeE2 , pInfo->timeCreated1 , pInfo->timeCreated2 ) ;
-                etThread.osTimeNowF( tinP , timeE1 , timeE2 ) ;
+                //tinP.pEtScratch->traceF( tinP , T("age: ")+TT(timeE1,timeE2) ) ;
+                tinP.pEtScratch->osTimeSubtractF( tinP , timeE1 , timeE2 , pInfo->timeCreated1 , pInfo->timeCreated2 ) ;
+                tinP.pEtScratch->osTimeNowF( tinP , timeE1 , timeE2 ) ;
                 ZE( sCountT , timeE2 ) ;
                 ZE( countT , timeE1 ) ;
             {
@@ -1619,17 +1718,26 @@
                 break ;
                 DEL( pInfo ) ;
             {
-            if( !pInfo || !pInfo->psttIfoName )
+            else if( !pInfo || !pInfo->psttIfoName )
+            }
+                break ;
+                tinP.pEtScratch->traceF( tinP , T("disk or file error 1633") ) ;
+                POOPR
+            {
+            if( POOP )
 
-            etThread.diskFindFileOrDirF( tinP , pInfo , hFind , tPath , &pat ) ;
+            tinP.pEtScratch->diskFindFileOrDirF( tinP , pInfo , hFind , tPath , &pat ) ;
             ZE( infoFileS* , pInfo ) ;
         {
         do
         handleC hFind( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_FILEfIND ) ;
-        patternC pat( tinP , etThread , tPattern , ifcIDtYPEpATTERN_FOREIGNwILDCARDsTRICT ) ;
+        patternC pat( tinP , *tinP.pEtScratch , tPattern , ifcIDtYPEpATTERN_FOREIGNwILDCARDsTRICT ) ;
         TN( tPattern , "blocked.ip." ) ; tPattern += T(nnPeerP)+T(".*") ;
         TN( tPath , "////factory3/d/ideafarm.home.102/ephemeral/backed.up.daily/domains/com/ideafarm/wo.o.s.table/blocked.ip/" ) ;
+
+        SCOOPS
     {
+    IFsCRATCH
     ZE( boolT , bBlocked ) ;
 
     meP.pushSnipF( tinP , stBodyP , ifcIDsNIPpREDEFINED_BODYrAWbEGIN ) ;
