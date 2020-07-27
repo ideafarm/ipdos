@@ -248,7 +248,6 @@ voidT etherDispenseSerialNumberF_4P_GF( tinS& tinP , etherC& etherP , soulC& slP
     ZE( count04T , noName ) ;
     if( !POOP ) noName = etherP.etherDispenseSerialNumberF( tinP , psttFileP ) ;
     etherP.delF( tinP , psttFileP ) ;
-
 }
 
 voidT poolNewF_331P3_GF( tinS& tinP , etherC& etherP , soulC& slP , const strokeS* const _psttNameP )

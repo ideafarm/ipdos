@@ -857,6 +857,7 @@
                     DEL( prPosts ) ;
                     if( prPosts ) meP.pushSnipF( tinP , stBodyP , *prPosts ) ;
 
+                    etThread.traceF( tinP , T("set error message: secret is wrong") ) ;
                     etThread.strMakeF( tinP , prPosts , T("<span style=\"color:red\">The secret \"")+tValueSecret+T("\" is wrong.  Your IP address is now blocked for a TICK (about 6 foreign minutes).</span>") , 0 , flSTRmAKE_PREFIXlENGTH ) ; ___( prPosts ) ;
                     ZE( pbRefC* , prPosts ) ;
                 {
@@ -1342,7 +1343,27 @@
         /***************************************************************************************************/
 
         }
-            while( !bSecretIsOK && ~hFind && !POOP ) ;      //U:: THIS WILL NEED EDITING WHEN ADD CODE TO HANDLE UNSUBSCRIBE NOTICE (BECAUSE ENCOUNTERING A SUBSCRIBE NOTICE SHOULD NOT END THE LOOPING
+            if( !bSecretIsOK ) etThread.traceF( tinP , T("secret is wrong") ) ;
+
+            }
+                tLoginAddressStatus      = tn ;
+                tLoginAddressZip         =
+                tLoginAddressCountry     =
+                tLoginAddressCountryCode =
+                tLoginAddressState       =
+                tLoginAddressCity        =
+                tLoginAddressStreet      =
+                tLoginAddressName        =
+                tLoginLastName           =
+                tLoginFirstName          =
+                tLoginIdSubscriber0      =
+                tLoginZipUse             =
+                tLoginPaypalPayerEmail   =
+                tLoginNnPeer             =
+            {
+            if( !bSecretIsOK )
+
+            while( ~hFind && !POOP ) ;
             }
                 DEL( pInfo ) ;
                 }
@@ -1355,37 +1376,37 @@
                             if( POOP )
 
                             etThread.delF( tinP , psttValueAddressStatus ) ;
-                            tLoginAddressStatus = T(psttValueAddressStatus) ;
+                            tLoginAddressStatus = bOn ? T(psttValueAddressStatus) : tn ;
                             rec >> psttValueAddressStatus ; ___( psttValueAddressStatus ) ;
                             ZE( strokeS* , psttValueAddressStatus ) ;
 
                             etThread.delF( tinP , psttValueAddressZip ) ;
-                            tLoginAddressZip = T(psttValueAddressZip) ;
+                            tLoginAddressZip = bOn ? T(psttValueAddressZip) : tn ;
                             rec >> psttValueAddressZip ; ___( psttValueAddressZip ) ;
                             ZE( strokeS* , psttValueAddressZip ) ;
 
                             etThread.delF( tinP , psttValueAddressCountry ) ;
-                            tLoginAddressCountry = T(psttValueAddressCountry) ;
+                            tLoginAddressCountry = bOn ? T(psttValueAddressCountry) : tn ;
                             rec >> psttValueAddressCountry ; ___( psttValueAddressCountry ) ;
                             ZE( strokeS* , psttValueAddressCountry ) ;
 
                             etThread.delF( tinP , psttValueAddressCountryCode ) ;
-                            tLoginAddressCountryCode = T(psttValueAddressCountryCode) ;
+                            tLoginAddressCountryCode = bOn ? T(psttValueAddressCountryCode) : tn ;
                             rec >> psttValueAddressCountryCode ; ___( psttValueAddressCountryCode ) ;
                             ZE( strokeS* , psttValueAddressCountryCode ) ;
 
                             etThread.delF( tinP , psttValueAddressState ) ;
-                            tLoginAddressState = T(psttValueAddressState) ;
+                            tLoginAddressState = bOn ? T(psttValueAddressState) : tn ;
                             rec >> psttValueAddressState ; ___( psttValueAddressState ) ;
                             ZE( strokeS* , psttValueAddressState ) ;
 
                             etThread.delF( tinP , psttValueAddressCity ) ;
-                            tLoginAddressCity = T(psttValueAddressCity) ;
+                            tLoginAddressCity = bOn ? T(psttValueAddressCity) : tn ;
                             rec >> psttValueAddressCity ; ___( psttValueAddressCity ) ;
                             ZE( strokeS* , psttValueAddressCity ) ;
 
                             etThread.delF( tinP , psttValueAddressStreet ) ;
-                            tLoginAddressStreet = T(psttValueAddressStreet) ;
+                            tLoginAddressStreet = bOn ? T(psttValueAddressStreet) : tn ;
                             rec >> psttValueAddressStreet ; ___( psttValueAddressStreet ) ;
                             ZE( strokeS* , psttValueAddressStreet ) ;
 
@@ -1396,18 +1417,18 @@
                             ZE( strokeS* , psttValueAddressName ) ;
 
                             etThread.delF( tinP , psttValueLastName ) ;
-                            tLoginLastName = T(psttValueLastName) ;
+                            tLoginLastName = bOn ? T(psttValueLastName) : tn ;
                             rec >> psttValueLastName ; ___( psttValueLastName ) ;
                             ZE( strokeS* , psttValueLastName ) ;
 
                             etThread.delF( tinP , psttValueFirstName ) ;
-                            tLoginFirstName = T(psttValueFirstName) ;
+                            tLoginFirstName = bOn ? T(psttValueFirstName) : tn ;
                             rec >> psttValueFirstName ; ___( psttValueFirstName ) ;
                             ZE( strokeS* , psttValueFirstName ) ;
 
                             }
-                                //etThread.traceF( tinP , T(bSecretIsOK?"secret is OK":"secret is NOT ok") ) ;
-                                bSecretIsOK = secretTry == secret ;                 //U::DO THIS ONLY IF THIS RECORD IS NOT AN "UNSUBSCRIBE"
+                                if( bOn && !bSecretIsOK ) etThread.traceF( tinP , T("secret is NOT ok [secretTry]:    ")+TF4(secretTry,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_NObASE,0,0x3e)+T("    ")+TF4(secret,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_NObASE,0,0x3e) ) ;
+                                bSecretIsOK = !bOn ? 0 : secretTry == secret ;
                             {
                             if( subscriberIdTry == idSubscriber )
 
@@ -1416,7 +1437,7 @@
 
                             //etThread.traceF( tinP , T("[tLoginIdSubscriber0]:    ")+tLoginIdSubscriber0 ) ;
 
-                            tLoginIdSubscriber0 = TF4(((countT*)&idSubscriber)[0],flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_NObASE,0,0x3e) ;
+                            tLoginIdSubscriber0 = bOn ? TF4(((countT*)&idSubscriber)[0],flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_NObASE,0,0x3e) : tn ;
                             rec >> ((countT*)&idSubscriber)[ 1 ] ;
                             rec >> ((countT*)&idSubscriber)[ 0 ] ;
                             ZE( count04T , idSubscriber ) ;
@@ -1438,21 +1459,23 @@
                             ZE( strokeS* , psttValueRewardBoxHidden ) ;
 
                             etThread.delF( tinP , psttZipUse ) ;
-                            tLoginZipUse = T(psttZipUse) ;
+                            tLoginZipUse = bOn ? T(psttZipUse) : tn ;
                             rec >> psttZipUse ; ___( psttZipUse ) ;
                             ZE( strokeS* , psttZipUse ) ;
 
                             etThread.delF( tinP , psttValuePaypalPayerEmail ) ;
-                            tLoginPaypalPayerEmail = T(psttValuePaypalPayerEmail) ;
+                            tLoginPaypalPayerEmail = bOn ? T(psttValuePaypalPayerEmail) : tn ;
                             rec >> psttValuePaypalPayerEmail ; ___( psttValuePaypalPayerEmail ) ;
                             ZE( strokeS* , psttValuePaypalPayerEmail ) ;
 
                             etThread.delF( tinP , psttNnPeer ) ;
-                            tLoginNnPeer = T(psttNnPeer) ;
+                            tLoginNnPeer = bOn ? T(psttNnPeer) : tn ;
                             rec >> psttNnPeer ; ___( psttNnPeer ) ;
                             ZE( strokeS* , psttNnPeer ) ;
 
                             etThread.delF( tinP , psttAction ) ;
+                            boolT bOn = !etThread.strCompareF( tinP , psttAction , tRegister ) ;
+                            etThread.traceF( tinP , T("action: ")+T(psttAction) ) ;
                             rec >> psttAction ; ___( psttAction ) ;
                             ZE( strokeS* , psttAction ) ;
 
@@ -1498,9 +1521,15 @@
             do
             handleC hFind( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_FILEfIND ) ;
             patternC pat( tinP , etThread , tPattern , ifcIDtYPEpATTERN_FOREIGNwILDCARDsTRICT ) ;
+            TN( tRegister , "register" ) ;
             TN( tPattern , "subscription.table.live.*" ) ;
             TN( tPath , "////factory3/d/ideafarm.home.102/ephemeral/backed.up.daily/domains/com/ideafarm/wo.o.s.table/subscriptions/" ) ;
+            TN( tn , "" ) ;
+
+            etThread.traceF( tinP , T("[tValueSubscriberId,tValueSecret]:    ")+tb4+tValueSubscriberId+tb4+tValueSecret ) ;
+            TN( tb4 , "    " ) ;
         {
+        if( tValueSubscriberId.csF( tinP ) && tValueSecret.csF( tinP ) )
         TN( tLoginAddressStatus      , "" ) ;
         TN( tLoginAddressZip         , "" ) ;
         TN( tLoginAddressCountry     , "" ) ;
@@ -1534,8 +1563,6 @@
         count04T subscriberIdTry = etThread.strDigitsToSCountF( tinP , tValueSubscriberId , 0x3e ) ; //U:: THIS WILL ONLY WORK IF THE ID IS <= MAXCOUNTT
 
         //etThread.traceF( tinP , tKeySpeech            +T(":    ")+tValueSpeech       ) ;
-        //etThread.traceF( tinP , tKeySecretSpeech      +T(":    ")+tValueSecret       ) ;
-        //etThread.traceF( tinP , tKeySubscriberIdSpeech+T(":    ")+tValueSubscriberId ) ;
 
         }
             }
@@ -1565,11 +1592,7 @@
             &tValueProposedTopic       ,
             &tValueSpeechAnon          ,
             &tValueSpeech              ,
-            &tValueSecretTopic         ,
-            &tValueSecretSpeech        ,
             &tValueSecret              ,
-            &tValueSubscriberIdTopic   ,
-            &tValueSubscriberIdSpeech  ,
             &tValueSubscriberId        ,
         {
         textC* pptValue[] =
@@ -1580,11 +1603,7 @@
             &tKeyProposedTopic       ,
             &tKeySpeechAnon          ,
             &tKeySpeech              ,
-            &tKeySecretTopic         ,
-            &tKeySecretSpeech        ,
             &tKeySecret              ,
-            &tKeySubscriberIdTopic   ,
-            &tKeySubscriberIdSpeech  ,
             &tKeySubscriberId        ,
         {
         textC* pptKey[] =
@@ -1594,11 +1613,7 @@
         TN( tValueProposedTopic       , "" ) ;
         TN( tValueSpeechAnon          , "" ) ;
         TN( tValueSpeech              , "" ) ;
-        TN( tValueSecretTopic         , "" ) ;
-        TN( tValueSecretSpeech        , "" ) ;
         TN( tValueSecret              , "" ) ;
-        TN( tValueSubscriberIdTopic   , "" ) ;
-        TN( tValueSubscriberIdSpeech  , "" ) ;
         TN( tValueSubscriberId        , "" ) ;
 
         TN( tKeyFilenameSpeechAnon  , "filenamespeechanon" ) ;
@@ -1606,11 +1621,7 @@
         TN( tKeyProposedTopic       , "proposedtopic"      ) ;
         TN( tKeySpeechAnon          , "speechanon"         ) ;
         TN( tKeySpeech              , "speech"             ) ;
-        TN( tKeySecretTopic         , "secrettopic"        ) ;
-        TN( tKeySecretSpeech        , "secretspeech"       ) ;
         TN( tKeySecret              , "secret"             ) ;
-        TN( tKeySubscriberIdTopic   , "subscriberidtopic"  ) ;
-        TN( tKeySubscriberIdSpeech  , "subscriberidspeech" ) ;
         TN( tKeySubscriberId        , "subscriberid"       ) ;
 
         /***************************************************************************************************/

@@ -102,16 +102,18 @@
             ether.delF( tinP , psttKey ) ;
         
             }
-                ether.strMakeF( tinP , psttAgentP , psttValue ) ; ___( psttAgentP ) ;
-                if( psttAgentP ) ether.delF( tinP , psttAgentP ) ;
+                }
+                    ether.strMakeF( tinP , psttAgentP , psttValue ) ; ___( psttAgentP ) ;
+                    if( psttAgentP ) ether.delF( tinP , psttAgentP ) ;
+                {
+                else if( !ether.strCompareF( tinP , psttKey , tKeyUserAgent     ) )
+                else if( !ether.strCompareF( tinP , psttKey , tKeyConnection    ) ) bCloseP = !!ether.strCompareF( tinP , psttValue , T("close") ) ;
+                     if( !ether.strCompareF( tinP , psttKey , tKeyContentLength ) ) costBody = ether.strDigitsToSCountF( tinP , psttValue , 0xa , 1 ) ;
+            
+                ether.strTrimF( tinP , psttValue , 0 , T(TbLACKnEWlINE) ) ; ___( psttValue ) ;
+                ether.strSubstringF( tinP , psttValue , idf , countTC() , psttl ) ; ___( psttValue ) ;
             {
-            else if( !ether.strCompareF( tinP , psttKey , tKeyUserAgent     ) )
-            else if( !ether.strCompareF( tinP , psttKey , tKeyConnection    ) ) bCloseP = !!ether.strCompareF( tinP , psttValue , T("close") ) ;
-                 if( !ether.strCompareF( tinP , psttKey , tKeyContentLength ) ) costBody = ether.strDigitsToSCountF( tinP , psttValue , 0xa , 1 ) ;
-        
-            ether.strTrimF( tinP , psttValue , 0 , T(TbLACKnEWlINE) ) ; ___( psttValue ) ;
-            ether.strSubstringF( tinP , psttValue , idf , idl , psttl ) ; ___( psttValue ) ;
-            ZE( countT , idl ) ;
+            if( idf )
             ether.strConvertToLowerCaseF( tinP , psttKey ) ; ___( psttKey ) ;
             ether.strSubstringF( tinP , psttKey , idf , sttq , tColonWhite , psttl , 1 ) ; ___( psttKey ) ;
             strokeS sttq( (countT)0 , sc_IGNOREqUOTES ) ;

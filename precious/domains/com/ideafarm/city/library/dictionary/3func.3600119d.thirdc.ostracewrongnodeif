@@ -12,6 +12,7 @@
 
         }
             }
+#endif
                 //BLAMMO ; //U::20170410@1500: KEEP UNTIL UNDERSTAND WHY THIS OCCURS AND CAN PREVENT IT
 
                 else              tinP.pEther->traceF( tinP , (strokeS*)(const osTextT*)ostoSay , flTRACE_PARAMETERiSoStEXT ) ;
@@ -47,6 +48,8 @@
                 OStEXTCF( ostoSay , (countT)pbP , '0' ) ;
                 OStEXTAK( ostoSay , "osTraceWrongNodeIF / warning: memory in another node is being referenced [pbP,idNodeWanted,osOffNodeWanted,osOffNode]: " ) ;
                 OStEXT(   ostoSay , TUCK << 2 ) ;
+#if defined( NEVERdEFINED )
+//DISABLE IN PRODUCTION
             {
             if( osOffNodeWanted != NUMA_NO_PREFERRED_NODE && processGlobal1I.idNumaNode && info.VirtualAttributes.Valid && info.VirtualAttributes.Node != osOffNodeWanted )
 

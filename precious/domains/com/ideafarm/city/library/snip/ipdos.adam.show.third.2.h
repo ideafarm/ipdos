@@ -1,45 +1,3 @@
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004d1.setinoutframe BEGIN
-
-
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-// Respecting the rights of other people is an important part of empowering one another.
-//
-
-/*
-*/
-
-/**/
-
-/*1*//*SETiNoUTfRAME*//*1*/
-
-#define SETiNoUTfRAME                                                                                                                           \
-                                                                                                                                                \
-    countT    cgin  = *ppcGlyph[    offd ] ;                                                                                                    \
-    countT*   psin  =  ppcSize[     offd ] ;                                                                                                    \
-    flagsT*   pfin  =  pFlagsTail[  offd ] ;                                                                                                    \
-    mPoint3S* ptin  =  ppPointTail[ offd ] ;                                                                                                    \
-    mPoint3S* ppin  =  ppPoint[     offd ] ;                                                                                                    \
-                                                                                                                                                \
-    if( ++ offd == 3 ) offd = 1 ; /* OFFSET 0 IS ONLY USED WO TIME ; AFTER THAT ONLY OFFSETS 1 AND 2 ARE USED */                                \
-                                                                                                                                                \
-    countT&   cgout = *ppcGlyph[    offd ] ;                                                                                                    \
-    countT*   psout =  ppcSize[     offd ] ;                                                                                                    \
-    flagsT*   pfout =  pFlagsTail[  offd ] ;                                                                                                    \
-    mPoint3S* ptout =  ppPointTail[ offd ] ;                                                                                                    \
-    mPoint3S* ppout =  ppPoint[     offd ] ;
-
-
-//
-// Respecting the rights of other people is an important part of empowering one another.
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004d1.setinoutframe END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004d2.flsurfc BEGIN
 
 
@@ -5264,6 +5222,61 @@ use this rather than _ to avoid the overhead of _
 //
 
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200565.ifwhereknowsthread END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200566.postREFERRALcHAMPIONiD BEGIN
+
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+/*
+*/
+/**/
+
+/*1*//*postREFERRALcHAMPIONiD*//*1*/
+
+#define postREFERRALcHAMPIONiD   "1"
+
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200566.postREFERRALcHAMPIONiD END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200567.postREFERRALcHAMPIONnAME BEGIN
+
+
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+/*
+*/
+/**/
+
+/*1*//*postREFERRALcHAMPIONnAME*//*1*/
+
+#define postREFERRALcHAMPIONnAME "Wo'O Ideafarm"
+
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200567.postREFERRALcHAMPIONnAME END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.thirdParties : 1snip.15000014.thirdparties BEGIN
 
 
@@ -12943,6 +12956,7 @@ TASK0PROTO( tmDrawF ) ;
 /**/
 
 /*1*/voidT noteFromPaypalCBF( tinS& tinP , etherC& etThread , const boolT& bQuitP , httpServerC& meP , countT& cArgP , httpReplyS& replyP , stackC& stBodyP , const strokeS* const psttKVReportP , switchC& swKVP , strokeS*& psttLeverKVP , sessionsC& sessionsP , nicNameC& nnPeerP , const strokeS* const psttUrlP , const strokeS* const psttPeerAgentP , const osTextT* const postBodyP ) ;/*1*/
+/*1*/voidT noteFromSnailMailerCBF( tinS& tinP , etherC& etThread , const boolT& bQuitP , httpServerC& meP , countT& cArgP , httpReplyS& replyP , stackC& stBodyP , const strokeS* const psttKVReportP , switchC& swKVP , strokeS*& psttLeverKVP , sessionsC& sessionsP , nicNameC& nnPeerP , const strokeS* const psttUrlP , const strokeS* const psttPeerAgentP , const osTextT* const postBodyP ) ;/*1*/
 
 
 //

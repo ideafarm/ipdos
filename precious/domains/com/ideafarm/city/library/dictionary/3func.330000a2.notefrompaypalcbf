@@ -93,7 +93,7 @@
                 etThread.boxPutUniqueF( tinP , psttFile , tFile , WS( rec ) ) ; ___( psttFile ) ;
                 ZE( strokeS* , psttFile ) ;
 
-                TN( tFile , "" ) ; tFile = T("////factory3/d/ideafarm.home.102/ephemeral/backed.up.daily/domains/com/ideafarm/wo.o.s.table/subscriptions/subscription.table")+T(bSandbox?".sandbox.":".live.")+tHost ;
+                TN( tFile , "" ) ; tFile = T("////factory3/d/ideafarm.home.102/ephemeral/backed.up.daily/domains/com/ideafarm/wo.o.s.table/subscriptions/subscription.table")+T(bSandbox?".sandbox.@1@.":".live.@1@.")+T(nnPeerP)+T(".")+tIdSubscriber+T(".")+tHost ;
             {
             TN( tShort , "" ) ;
 
@@ -152,6 +152,8 @@
             {
             if( !bDelete )
             ZE( countT , secret ) ;
+
+            TN( tIdSubscriber , "" ) ; tIdSubscriber = TF4((countT)idSubscriber,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_NObASE,0,0x3e) ;
 
             count04T idSubscriber = bDelete ? 0 : etThread.etherDispenseSerialNumberF( tinP , T(bSandbox?"////factory1/d/tmp/idSubscriberLath":"////factory3/d/ideafarm.home.102/ephemeral/backed.up.daily/domains/com/ideafarm/wo.o.s.table/idSubscriberLath") ) ;
 

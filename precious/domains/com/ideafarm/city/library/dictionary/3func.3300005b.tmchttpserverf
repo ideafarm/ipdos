@@ -984,6 +984,7 @@ DONEdRIVENsERVER( tmcHttpServerF )
                 if( bClose )
 
                 }
+                    DEL( pFW ) ;
                     }
                         }
                             //etThread.traceF( tinP , TF3(meP.idPortF(tinP),flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,9)+T(nnPeerP)+T("    wrote   file window [cbw]:    ")+TF2(cbw,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) , flTRACE_null , ifcIDtRACEdIVERT_7 ) ;
@@ -1008,7 +1009,7 @@ DONEdRIVENsERVER( tmcHttpServerF )
                         {
                         if( !pbw || !cbw )
 
-                        fws.getF( tinP , pbw , cbw ) ;
+                        pFW->getF( tinP , pbw , cbw ) ;
                         ZE( countT , cbw ) ;
                         ZE( byteT* , pbw ) ;
                     {
@@ -1043,8 +1044,8 @@ DONEdRIVENsERVER( tmcHttpServerF )
                     TN( tContentType , "" ) ;
 
                     sCountC cbBody( tinP , etThread , pcLoHi , SC << 1 ) ;
-                    countT pcLoHi[] = { fws.cbFileLoF() , fws.cbFileHiF() } ;
-                    //etThread.traceF( tinP , TF3(meP.idPortF(tinP),flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,9)+T(nnPeerP)+T("    serving file [cbFileLo,cbFileHi]:    ")+TF3(fws.cbFileLoF(),flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,9)+TF3(fws.cbFileHiF(),flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,9) , flTRACE_null , ifcIDtRACEdIVERT_7 ) ;
+                    countT pcLoHi[] = { pFW->cbFileLoF() , pFW->cbFileHiF() } ;
+                    //etThread.traceF( tinP , TF3(meP.idPortF(tinP),flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,9)+T(nnPeerP)+T("    serving file [cbFileLo,cbFileHi]:    ")+TF3(pFW->cbFileLoF(),flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,9)+TF3(pFW->cbFileHiF(),flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,9) , flTRACE_null , ifcIDtRACEdIVERT_7 ) ;
                 {
                 else
                 }
@@ -1064,14 +1065,26 @@ DONEdRIVENsERVER( tmcHttpServerF )
                     TN( tBody , "The page (or other resource) that you requested does not exist here.\r\n\r\nIf you think that this is our error, please let us know.\r\n" ) ;
 
                     etThread.traceF( tinP , TF3(meP.idPortF(tinP),flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,9)+T(nnPeerP)+T("    error: could not open file:    ")+tFileIn , flTRACE_null , ifcIDtRACEdIVERT_7 ) ;
-                    POOPR ;
                 {
-                if( POOP )
+                if( !pFW )
 
-                fileWindowsC fws( tinP , *tinP.pEtScratch , tFileIn , flFILEwINDOW_null , 1 ) ;
+                }
+                    }
+                        DEL( pFW ) ;
+                        POOPRqUIET
+                    {
+                    if( POOP )
+
+                    pFW = new( 0 , tinP , LF ) fileWindowsC( tinP , *tinP.pEtScratch , tFileIn , flFILEwINDOW_null , 1 ) ; ___( pFW ) ;
+
+                    SCOOPS
+                {
+                IFsCRATCH
                 //etThread.traceF( tinP , TF3(meP.idPortF(tinP),flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,9)+T(nnPeerP)+T("    attempting to open file:    ")+tFileIn , flTRACE_null , ifcIDtRACEdIVERT_7 ) ;
                 TN( tFileIn , "" ) ; tFileIn = T("////factory9/x/archive")+T(psttName) ;
                 //TN( tFileIn , "" ) ; tFileIn = T("////factory3/e/archive")+T(psttName) ;
+
+                ZE( fileWindowsC* , pFW ) ;
             {
             if( bFile )
 
