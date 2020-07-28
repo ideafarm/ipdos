@@ -8964,6 +8964,7 @@ pso not 0 is guaranteed for code between me and DONEdRIVENsERVER
         sessionC& sessionP = sessionsP.registerConnectionF( tinP , nnPeerP , /*psttPeerP*/T("notQueried") ) ;               \
         if( !etThread )                                                                                                     \
         {                                                                                                                   \
+            etThread.traceF( tinP , T("TASKdRIVENsERVER [cSession]:    ")+TF2(cSession,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;                        \
             psoP->etherF( tinP , *tinP.pEtScratch ) ;                                                                       \
             TELL( "TASKdRIVENsERVER: entering application code" )                                                           \
                                                                                                                             \
@@ -9023,7 +9024,8 @@ see adam.0140104 for an example
         etThread.delF( tinP , pc8tp2 ) ;                                                                                    \
         etThread.delF( tinP , pc8tp ) ;                                                                                     \
                                                                                                                             \
-        cSession -- ;                                                                                                       \
+        etThread.traceF( tinP , T("DONEdRIVENsERVER [cSession]:    ")+TF2(cSession,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;                        \
+        dec02AM( cSession ) ;                                                                                               \
     }                                                                                                                       \
     DONE( taskFP )
 

@@ -9,299 +9,347 @@
 
 }
     }
-        }
-            DELzOMBIE( pzSessions ) ;
-            sessionsC* pzSessions = (sessionsC*)pbSessions ;
-        {
-        if( bDeleteSessions )
+        DELzOMBIE( pzSessions ) ;
+        sessionsC* pzSessions = (sessionsC*)pbSessions ;
+    {
+    if( bDeleteSessions )
 
+    }
+        while( cSession ) { ++ s ; thirdC::dosSleepIF( tinP , TUCK * 0x40 ) ; }
+        sleepC s( tinP , TAG( TAGiDnULL ) ) ;
+    {
+    TELL( "server: final wait (forever) for all sessions to end" )
+
+    b_lever_idSession.ungrabF( tinP ) ;
+    }
+        }
+            }
+                if( POOP ) POOPR
+                tinP.pEtScratch->sockCancelF( tinP , hSoc ) ;
+                SCOOPS
+                //}
+                //    thirdC::dosTellMonitorIF( tinP , tellC( tinP , TAG( TAGiDnULL ) , ifcIDtYPEtELL_LOG , poste , sizeof poste ) ) ;
+                //    const osTextT poste[] = "ifcDrivenServerF: canceling a client session because i am quitting" ;
+                //{
+                const handleC& hSoc = pso->handleF( tinP ) ;
+                TELL( "server: canceling a client session" )
+            {
+            if( pso )
+            socketC*& pso = (socketC*&)(countT&)sw_pso ;
+            lever_idSession = sw_pso.leverF( tinP , idf ) ;
+        {
+        for( countT idf = 1 ; idf <= cFlavors ; idf ++ )
+        countT cFlavors = sw_pso.cFlavorsF( tinP ) ;
+    {
+    b_lever_idSession.grabF( tinP , TAG( TAGiDnULL ) ) ;
+
+    }
+        }
+            while( cSession && cTries -- ) { ++ s ; thirdC::dosSleepIF( tinP , time1nap ) ; }
+            sleepC s( tinP , TAG( TAGiDnULL ) ) ;
+        {
+        TELL( "server: will wait for a while to see cSession = 0" )
+
+        }
+            time1nap = info2P.time1grace / cTries ;
+            cTries >>= 1 ;
+        {
+        while( time1nap < TUCK * 0x40 && cTries > 1 )
+        countT time1nap = info2P.time1grace / cTries ;
+        countT cTries = 0x10 ;
+    {
+    else if( info2P.time1grace )
+    }
         }
             while( cSession ) { ++ s ; thirdC::dosSleepIF( tinP , TUCK * 0x40 ) ; }
             sleepC s( tinP , TAG( TAGiDnULL ) ) ;
         {
-        TELL( "server: final wait (forever) for all sessions to end" )
-    
-        b_lever_idSession.ungrabF( tinP ) ;
+        TELL( "server: will wait forever until cSession is 0" )
+    {
+    if( info2P.time1grace == - 1 )
+
+    if( info2P.bState ) if( info1P.pBat_pbdVarying ) info1P.pBat_pbdVarying->ungrabF( tinP ) ;
+
+    }
+        //A:  THREADmODE1rESTORE
+        //A:  DEL( pState ) ;
+        //A:  THREADmODE1oN( flTHREADmODE1_ALLOWsTOPwHILEgRABBING )
+        //A:  info1P.ppbdVarying = 0 ;
+        //A:  *info1P.ppbdVarying = 0 ; //U::BUG: MIGRATED FROM pbdVarying WITHOUT ADEQUATE STUDY; THIS FUNCTION COULD CONTAIN A BUG IN CODE HANDLING THIS MEMBER
+        //A:  if( info2P.stateEndF ) (*info2P.stateEndF)( tinP , *this , *info1P.ppbdVarying , info2P.cbdVarying , info2P.cArg ) ;
+        //A:  if( info1P.pBat_pbdVarying ) info1P.pBat_pbdVarying->grabF( tinP , TAG( TAGiDnULL ) ) ;
+        //A: 20141130@1135: COMMENTED OUT AS PART OF ELIMINATION OF stateC
+    {
+    //if( pState )
+
+    }
+        info1P.sgnIdPortReplaced.giveF( tinP ) ;
+        TELL( "server: cleaning up" )
+
         }
             }
                 }
-                    if( POOP ) POOPR
-                    tinP.pEtScratch->sockCancelF( tinP , hSoc ) ;
-                    SCOOPS
-                    //}
-                    //    thirdC::dosTellMonitorIF( tinP , tellC( tinP , TAG( TAGiDnULL ) , ifcIDtYPEtELL_LOG , poste , sizeof poste ) ) ;
-                    //    const osTextT poste[] = "ifcDrivenServerF: canceling a client session because i am quitting" ;
-                    //{
-                    const handleC& hSoc = pso->handleF( tinP ) ;
-                    TELL( "server: canceling a client session" )
-                {
-                if( pso )
-                socketC*& pso = (socketC*&)(countT&)sw_pso ;
-                lever_idSession = sw_pso.leverF( tinP , idf ) ;
-            {
-            for( countT idf = 1 ; idf <= cFlavors ; idf ++ )
-            countT cFlavors = sw_pso.cFlavorsF( tinP ) ;
-        {
-        b_lever_idSession.grabF( tinP , TAG( TAGiDnULL ) ) ;
-    
-        }
-            }
-                while( cSession && cTries -- ) { ++ s ; thirdC::dosSleepIF( tinP , time1nap ) ; }
-                sleepC s( tinP , TAG( TAGiDnULL ) ) ;
-            {
-            TELL( "server: will wait for a while to see cSession = 0" )
-    
-            }
-                time1nap = info2P.time1grace / cTries ;
-                cTries >>= 1 ;
-            {
-            while( time1nap < TUCK * 0x40 && cTries > 1 )
-            countT time1nap = info2P.time1grace / cTries ;
-            countT cTries = 0x10 ;
-        {
-        else if( info2P.time1grace )
-        }
-            }
-                while( cSession ) { ++ s ; thirdC::dosSleepIF( tinP , TUCK * 0x40 ) ; }
-                sleepC s( tinP , TAG( TAGiDnULL ) ) ;
-            {
-            TELL( "server: will wait forever until cSession is 0" )
-        {
-        if( info2P.time1grace == - 1 )
-    
-        if( info2P.bState ) if( info1P.pBat_pbdVarying ) info1P.pBat_pbdVarying->ungrabF( tinP ) ;
-
-        }
-            //A:  THREADmODE1rESTORE
-            //A:  DEL( pState ) ;
-            //A:  THREADmODE1oN( flTHREADmODE1_ALLOWsTOPwHILEgRABBING )
-            //A:  info1P.ppbdVarying = 0 ;
-            //A:  *info1P.ppbdVarying = 0 ; //U::BUG: MIGRATED FROM pbdVarying WITHOUT ADEQUATE STUDY; THIS FUNCTION COULD CONTAIN A BUG IN CODE HANDLING THIS MEMBER
-            //A:  if( info2P.stateEndF ) (*info2P.stateEndF)( tinP , *this , *info1P.ppbdVarying , info2P.cbdVarying , info2P.cArg ) ;
-            //A:  if( info1P.pBat_pbdVarying ) info1P.pBat_pbdVarying->grabF( tinP , TAG( TAGiDnULL ) ) ;
-            //A: 20141130@1135: COMMENTED OUT AS PART OF ELIMINATION OF stateC
-        {
-        //if( pState )
-
-        }
-            info1P.sgnIdPortReplaced.giveF( tinP ) ;
-            TELL( "server: cleaning up" )
-
-            }
-                TELL( "server: destroying listener socket" )
-                info1P.idPort = 0 ;
-
-                }
-                    traceF( tinP , T("ifcDrivenServerF: coding error: unexpected scratch impotnce 94") ) ;
+                    traceF( tinP , T("ifcDrivenServerF / could not dt listener socket") ) ;
                     POOPRqUIET
                 {
                 if( POOP )
-    
-                }
-                    }
-                        }
-                            ZE( countT , tid ) ; tinP.pEtScratch->osThreadF( tinP , tid , info1P.tmF , 0 , flTHREADlAUNCH_SHOWpONY , 0 , (countT)pc8tp_tm ) ;
-                            //traceF( tinP , T(nnPeer)+T("    ifcDrivenServerF / launching server thread for this client") , flTRACE_null , ifcIDtRACEdIVERT_7 ) ;
-                            TELL( "server: launching server thread for this client" )
-
-                            memCopyF( tinP , (byteT*)&pc8tp_tm2->c2 , (byteT*)&nnPeer , sizeof nnPeer ) ;
-                            pc8tp_tm2->c1 = (countT)&sessions ;
-                            pc8tp_tm1->c8 = (countT)&sw_cSessionWithPeer ;
-                            pc8tp_tm1->c7 = (countT)&lever_nnPeer ;
-                            pc8tp_tm1->c6 = info2P.cArg ;
-                            pc8tp_tm1->c5 = (countT)&cSession ;
-                            pc8tp_tm1->c4 = (countT)&sw_pso ;
-                            pc8tp_tm1->c3 = (countT)&lever_idSession ;
-                            pc8tp_tm1->c2 = (countT)&b_lever_idSession ;
-                            pc8tp_tm1->c1 = idSessionLath ;
-
-                            pc8tp_tm->c2 = (countT)pc8tp_tm2 ;
-                            pc8tp_tm->c1 = (countT)pc8tp_tm1 ;
-                        {
-                        if( pc8tp_tm && pc8tp_tm1 && pc8tp_tm2 )
-                        newF( tinP , LF , pc8tp_tm2 ) ; ___( pc8tp_tm2 ) ;
-                        newF( tinP , LF , pc8tp_tm1 ) ; ___( pc8tp_tm1 ) ;
-                        newF( tinP , LF , pc8tp_tm ) ; ___( pc8tp_tm ) ;
-                        ZE( count8S* , pc8tp_tm2 ) ;
-                        ZE( count8S* , pc8tp_tm1 ) ;
-                        ZE( count8S* , pc8tp_tm ) ;
-
-                        if( !POOP ) cSession ++ ;
-                        //if( 0x401043a == processGlobal1I.idAdamRoot ) ifcSayIF( T("about to launch service thread: third is ")+T(third?"IMPOTENT":"potent") , flSAY_APPEND | flSAY_LOG ) ;
-    
-                        sw_cSessionWithPeer.ungrabF( tinP ) ;
-                        ++ sw_cSessionWithPeer ;
-                        lever_nnPeer = nnPeer ;
-                        if( sw_cSessionWithPeer.cFlavorsF( tinP ) > 0x10/*U::INCREASE TO GIVE MORE PROTECTION AGAINST ATTACK*/ ) sw_cSessionWithPeer.freeAllF( tinP ) ;
-                        sw_cSessionWithPeer.grabF( tinP , TAG( TAGiDnULL ) ) ;
-    
-                        b_lever_idSession.ungrabF( tinP ) ;
-                        sw_pso = (countT)pso ;
-                        lever_idSession = ++ idSessionLath ;
-                        b_lever_idSession.grabF( tinP , TAG( TAGiDnULL ) ) ;
-                        TELL( "server: preparing to serve the accepted socket" )
-                        //traceF( tinP , T(nnPeer)+T("    ifcDrivenServerF / preparing to serve this client") , flTRACE_null , ifcIDtRACEdIVERT_7 ) ;
-                    {
-                    else if( pso )
-                    }
-                        DEL( pso ) ;
-                        TELL( "server: deleting the accepted socket without serving it" )
-                        traceF( tinP , T(nnPeer)+T("    ifcDrivenServerF / deleting accepted socket without serving it") , flTRACE_null , ifcIDtRACEdIVERT_7 ) ;
-                    {
-                    if( info1P.bQuit || third || bSilent || POOP )
-
-                    sw_cSessionWithPeer.ungrabF( tinP ) ;
-
-                    }
-                        //bSilent |= 1 ; //TO PREVENT WO PEER FROM OPENING MANY SESSIONS TO DOS ATTACK
-                        //LOGrAW( "setting bSilent because this client's session count is high" ) ;
-                        //U:: ENABLE AFTER SUPPRESSING THIS FOR DEADMAN
-                    {
-                    if( 0x10 < sw_cSessionWithPeer )
-
-                    lever_nnPeer = nnPeer ;
-                    sw_cSessionWithPeer.grabF( tinP , TAG( TAGiDnULL ) ) ;
-                    TELL( "server: detecting dos attack client" )
-                    //U::EXCLUDE ZOMBIE SESSIONS FROM THE COUNT, SO HTTP CLIENT CAN INITIATE AN ARBITRARILY LONG BURST OF SESSIONS TO GET E.G. ALL IMAGES FOR A PAGE
-    
-                    ( bRefuse ? cRefused : cAccepted ) ++ ;
-                    if( bRefuse ) { LOGrAW( "refusing a client\r\n" ) ; }
-
-                    bSilent = 0/*diskFileExistsF( tinP , T("///ideafarm/ephemeral/domains/com/ideafarm/ipdos/attackers/")+T(nnPeer) )*/ ;
-    
-                    //if( 0x401043a == processGlobal1I.idAdamRoot ) ifcSayIF( T("acceptF returned (2); bSilent: ")+TF1(bSilent) , flSAY_APPEND | flSAY_LOG ) ;
-                    b_pnnSilent.ungrabF( tinP ) ;
-                    }
-                        }
-                            break ;
-                            LOGrAW3( "peer is on the silence list [nnPeer]: " , nnPeer , "\r\n" ) ;
-                            traceF( tinP , T(nnPeer)+T("    ifcDrivenServerF / this peer is on the silence list") , flTRACE_null , ifcIDtRACEdIVERT_7 ) ;
-                            bSilent = 1 ;
-                        {
-                        if( nnPeer == pnnSilent[ off ] )
-                    {
-                    for( countT off = 0 ; off < cnnSilent ; off ++ )
-                    b_pnnSilent.grabF( tinP , TAG( TAGiDnULL ) ) ;
-                    ZE( boolT , bSilent ) ;
-    
-                    //if( 0x401043a == processGlobal1I.idAdamRoot ) ifcSayIF( T("acceptF returned (1); nnPeer: ")+T(nnPeer)+T("; bRefuse: ")+TF1(bRefuse) , flSAY_APPEND | flSAY_LOG ) ;
-                    ___( pso ) ;
-                    TELL( "server: a client has connected" )
-                    //traceF( tinP , T(nnPeer)+T("    ifcDrivenServerF / a client has connected") , flTRACE_null , ifcIDtRACEdIVERT_7 ) ;
-                    sol.acceptF( tinP , pso , countTC() , nnPeer , bRefuse ) ; //IF ALL SESSIONS END WHILE BLOCKED HERE, WILL STILL REFUSE WO SESSION; THIS CAN BE FIXED BY FRESHING bRefuse AT END OF EACH SESSION THREAD IN DONEtMsERVER
-                    //traceF( tinP , T("ifcDrivenServerF / waiting for a client to connect") , flTRACE_null , ifcIDtRACEdIVERT_7 ) ;
-                    TELL( "server: waiting for a client to connect" )
-                    nicNameC nnPeer ;
-
-                    }
-                        LOGrAW( tSay ) ;
-                        TN( tSay , "" ) ; tSay = TT(timeN1,timeN2)+T("| ifcDrivenServerF/too many sessions, so will refuse the next connection attempt\r\n") ;
-                        osTimeNowF( tinP , timeN1 , timeN2 ) ;
-                        ZE( sCountT , timeN2 ) ;
-                        ZE( countT  , timeN1 ) ;
-                    {
-                    if( bRefuse )
-                    boolT bRefuse = info2P.cSessionMax <= cSession ;
-                    ZE( socketC* , pso ) ;
-                    TELL( "server: beginning loop" )
-                {
-                while( !info1P.bQuit && !POOP )
-                ZE( countT , cRefused ) ;
-                ZE( countT , cAccepted ) ;
-    
-                //LOGrAW3( "listener socket has been bound to port [idPort]: " , info1P.idPort , "\r\n" ) ;
-                }   
-                    info1P.sgnIdPortReplaced.giveF( tinP ) ;
-                    sol.listenF( tinP ) ;
-                    info1P.idPort = sol.bindF( tinP , info2P.idPortHint ) ;
-                {
-                if( !info1P.bQuit )
-
-                if( info2P.psttName ) sol.nameF( tinP , info2P.psttName ) ;
-
-                delF( tinP , psttPemPrivateKey   ) ;
-                delF( tinP , psttPemCertificates ) ;
-                socketC sol( tinP , *tinP.pEtScratch , TAG( TAGiDnULL ) , ifcSOCKETtYPE_STREAM , info2P.flagsSocket , &info1P.time1idleTimeoutRead , &info1P.time1idleTimeoutWrite , 0 , psttPemCertificates , psttPemPrivateKey ) ;
-
-                }
-                    }
-                        strMakeF( tinP , psttPemPrivateKey   , T("///c/Certbot/live/ideafarm.com/privkey.pem")   ) ; ___( psttPemPrivateKey   ) ;
-                        strMakeF( tinP , psttPemCertificates , T("///c/Certbot/live/ideafarm.com/fullchain.pem") ) ; ___( psttPemCertificates ) ;
-                        // ACCESS WILL BE DENIED IF NOT RUN ELEVATED
-                    {
-                    else
-                    }
-                        strMakeF( tinP , psttPemPrivateKey   , T("///d/Certbot/live/ideafarm.com/privkey.pem")   ) ; ___( psttPemPrivateKey   ) ;
-                        strMakeF( tinP , psttPemCertificates , T("///d/Certbot/live/ideafarm.com/fullchain.pem") ) ; ___( psttPemCertificates ) ;
-                    {
-                    if( etherC::ifc_idHomeI_IF() & fliIDhOME_HOMELESS )
-                {
-                if( F(info2P.flagsSocket) & flSOCKETc_CRYPTfOREIGNsSL )
-                ZE( strokeS* , psttPemPrivateKey   ) ;
-                ZE( strokeS* , psttPemCertificates ) ;
-
-                TELL( "server: constructing listener socket" )
+                DEL( psoListen ) ;
                 SCOOPS
             {
-            while( !info1P.bQuit )
-            threadC th( tinP , *this , TAG( TAGiDnULL ) , tmLoadSilentF , cArg_tmLoadSilent , flTHREADlAUNCH_SHOWpONY ) ;
-            TELL( "server: launching thread tmLoadSilentF" )
+            IFsCRATCH
+            TELL( "server: destroying listener socket" )
+            info1P.idPort = 0 ;
 
-            countT cArg_tmLoadSilent = (countT)pc8tp ;
-            pc8tp->c3 = (countT)&cnnSilent ;
-            pc8tp->c2 = (countT)&pnnSilent ;
-            pc8tp->c1 = (countT)&b_pnnSilent ;
+            }
+                }
+                    }
+                        }
+                            }
+                                ZE( countT , tid ) ; tinP.pEtScratch->osThreadF( tinP , tid , info1P.tmF , 0 , flTHREADlAUNCH_SHOWpONY , 0 , (countT)pc8tp_tm ) ;
+                                //traceF( tinP , T(nnPeer)+T("    ifcDrivenServerF / launching server thread for this client") , flTRACE_null , ifcIDtRACEdIVERT_7 ) ;
+                                TELL( "server: launching server thread for this client" )
+
+                                memCopyF( tinP , (byteT*)&pc8tp_tm2->c2 , (byteT*)&nnPeer , sizeof nnPeer ) ;
+                                pc8tp_tm2->c1 = (countT)&sessions ;
+                                pc8tp_tm1->c8 = (countT)&sw_cSessionWithPeer ;
+                                pc8tp_tm1->c7 = (countT)&lever_nnPeer ;
+                                pc8tp_tm1->c6 = info2P.cArg ;
+                                pc8tp_tm1->c5 = (countT)&cSession ;
+                                pc8tp_tm1->c4 = (countT)&sw_pso ;
+                                pc8tp_tm1->c3 = (countT)&lever_idSession ;
+                                pc8tp_tm1->c2 = (countT)&b_lever_idSession ;
+                                pc8tp_tm1->c1 = idSessionLath ;
+
+                                pc8tp_tm->c2 = (countT)pc8tp_tm2 ;
+                                pc8tp_tm->c1 = (countT)pc8tp_tm1 ;
+                            {
+                            if( pc8tp_tm && pc8tp_tm1 && pc8tp_tm2 )
+                            newF( tinP , LF , pc8tp_tm2 ) ; ___( pc8tp_tm2 ) ;
+                            newF( tinP , LF , pc8tp_tm1 ) ; ___( pc8tp_tm1 ) ;
+                            newF( tinP , LF , pc8tp_tm ) ; ___( pc8tp_tm ) ;
+                            ZE( count8S* , pc8tp_tm2 ) ;
+                            ZE( count8S* , pc8tp_tm1 ) ;
+                            ZE( count8S* , pc8tp_tm ) ;
+
+                            if( !POOP ) inc02AM( cSession ) ;
+                            //if( 0x401043a == processGlobal1I.idAdamRoot ) ifcSayIF( T("about to launch service thread: third is ")+T(third?"IMPOTENT":"potent") , flSAY_APPEND | flSAY_LOG ) ;
+
+                            sw_cSessionWithPeer.ungrabF( tinP ) ;
+                            ++ sw_cSessionWithPeer ;
+                            lever_nnPeer = nnPeer ;
+                            if( sw_cSessionWithPeer.cFlavorsF( tinP ) > 0x10/*U::INCREASE TO GIVE MORE PROTECTION AGAINST ATTACK*/ ) sw_cSessionWithPeer.freeAllF( tinP ) ;
+                            sw_cSessionWithPeer.grabF( tinP , TAG( TAGiDnULL ) ) ;
+
+                            b_lever_idSession.ungrabF( tinP ) ;
+                            sw_pso = (countT)pso ;
+                            lever_idSession = ++ idSessionLath ;
+                            b_lever_idSession.grabF( tinP , TAG( TAGiDnULL ) ) ;
+                            TELL( "server: preparing to serve the accepted socket" )
+                            //traceF( tinP , T(nnPeer)+T("    ifcDrivenServerF / preparing to serve this client") , flTRACE_null , ifcIDtRACEdIVERT_7 ) ;
+                        {
+                        else if( pso )
+                        }
+                            DEL( pso ) ;
+                            TELL( "server: deleting the accepted socket without serving it" )
+                            traceF( tinP , T(nnPeer)+T("    ifcDrivenServerF / deleting accepted socket without serving it") , flTRACE_null , ifcIDtRACEdIVERT_7 ) ;
+                        {
+                        if( info1P.bQuit || third || bSilent || POOP )
+
+                        sw_cSessionWithPeer.ungrabF( tinP ) ;
+
+                        }
+                            //bSilent |= 1 ; //TO PREVENT WO PEER FROM OPENING MANY SESSIONS TO DOS ATTACK
+                            //LOGrAW( "setting bSilent because this client's session count is high" ) ;
+                            //U:: ENABLE AFTER SUPPRESSING THIS FOR DEADMAN
+                        {
+                        if( 0x10 < sw_cSessionWithPeer )
+
+                        lever_nnPeer = nnPeer ;
+                        sw_cSessionWithPeer.grabF( tinP , TAG( TAGiDnULL ) ) ;
+                        TELL( "server: detecting dos attack client" )
+                        //U::EXCLUDE ZOMBIE SESSIONS FROM THE COUNT, SO HTTP CLIENT CAN INITIATE AN ARBITRARILY LONG BURST OF SESSIONS TO GET E.G. ALL IMAGES FOR A PAGE
+
+                        ( bRefuse ? cRefused : cAccepted ) ++ ;
+                        if( bRefuse ) { LOGrAW( "refusing a client\r\n" ) ; }
+
+                        bSilent = 0/*diskFileExistsF( tinP , T("///ideafarm/ephemeral/domains/com/ideafarm/ipdos/attackers/")+T(nnPeer) )*/ ;
+
+                        //if( 0x401043a == processGlobal1I.idAdamRoot ) ifcSayIF( T("acceptF returned (2); bSilent: ")+TF1(bSilent) , flSAY_APPEND | flSAY_LOG ) ;
+                        b_pnnSilent.ungrabF( tinP ) ;
+                        }
+                            }
+                                break ;
+                                LOGrAW3( "peer is on the silence list [nnPeer]: " , nnPeer , "\r\n" ) ;
+                                traceF( tinP , T(nnPeer)+T("    ifcDrivenServerF / this peer is on the silence list") , flTRACE_null , ifcIDtRACEdIVERT_7 ) ;
+                                bSilent = 1 ;
+                            {
+                            if( nnPeer == pnnSilent[ off ] )
+                        {
+                        for( countT off = 0 ; off < cnnSilent ; off ++ )
+                        b_pnnSilent.grabF( tinP , TAG( TAGiDnULL ) ) ;
+                        ZE( boolT , bSilent ) ;
+
+                        //if( 0x401043a == processGlobal1I.idAdamRoot ) ifcSayIF( T("acceptF returned (1); nnPeer: ")+T(nnPeer)+T("; bRefuse: ")+TF1(bRefuse) , flSAY_APPEND | flSAY_LOG ) ;
+                        ___( pso ) ;
+                        TELL( "server: a client has connected" )
+                        //traceF( tinP , T(nnPeer)+T("    ifcDrivenServerF / a client has connected") , flTRACE_null , ifcIDtRACEdIVERT_7 ) ;
+
+                        }
+                            }
+                                break ;
+                                traceF( tinP , T("ifcDrivenServerF / listener socket failed to accept a connection") ) ;
+                                POOPRqUIET
+                                DEL( psoListen ) ;
+                                POOPRqUIET
+                            {
+                            if( POOP )
+                            psoListen->acceptF( tinP , pso , countTC() , nnPeer , bRefuse ) ; //IF ALL SESSIONS END WHILE BLOCKED HERE, WILL STILL REFUSE WO SESSION; THIS CAN BE FIXED BY FRESHING bRefuse AT END OF EACH SESSION THREAD IN DONEtMsERVER
+                            SCOOPS
+                        {
+                        IFsCRATCH
+                        //traceF( tinP , T("ifcDrivenServerF / waiting for a client to connect") , flTRACE_null , ifcIDtRACEdIVERT_7 ) ;
+                        TELL( "server: waiting for a client to connect" )
+                        nicNameC nnPeer ;
+
+                        }
+                            traceF( tinP , T("ifcDrivenServerF / too many sessions, so refusing this wo [cSession]:    ")+TF2(cSession,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
+                            LOGrAW( tSay ) ;
+                            TN( tSay , "" ) ; tSay = TT(timeN1,timeN2)+T("| ifcDrivenServerF/too many sessions, so will refuse the next connection attempt\r\n") ;
+                            osTimeNowF( tinP , timeN1 , timeN2 ) ;
+                            ZE( sCountT , timeN2 ) ;
+                            ZE( countT  , timeN1 ) ;
+                        {
+                        if( bRefuse )
+                        boolT bRefuse = info2P.cSessionMax <= cSession ;
+                        traceF( tinP , T("ifcDrivenServerF / inspecting [cSession]:    ")+TF2(cSession,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
+                        ZE( socketC* , pso ) ;
+                        TELL( "server: beginning loop" )
+                    {
+                    while( !info1P.bQuit && !POOP )
+                    ZE( countT , cRefused ) ;
+                    ZE( countT , cAccepted ) ;
+                {
+                if( psoListen )
+
+                //LOGrAW3( "listener socket has been bound to port [idPort]: " , info1P.idPort , "\r\n" ) ;
+                }
+                    }
+                        traceF( tinP , T("ifcDrivenServerF / could not configure (name, bind, listen) listener socket") ) ;
+                        POOPRqUIET
+                        DEL( psoListen ) ;
+                        POOPRqUIET
+                    {
+                    if( POOP )
+
+                    }   
+                        info1P.sgnIdPortReplaced.giveF( tinP ) ;
+                        psoListen->listenF( tinP ) ;
+                        info1P.idPort = psoListen->bindF( tinP , info2P.idPortHint ) ;
+                    {
+                    if( !info1P.bQuit )
+
+                    if( info2P.psttName ) psoListen->nameF( tinP , info2P.psttName ) ;
+                    SCOOPS
+                {
+                IFsCRATCH
+            {
+            if( psoListen )
+
+            delF( tinP , psttPemPrivateKey   ) ;
+            delF( tinP , psttPemCertificates ) ;
+            }
+                }
+                    traceF( tinP , T("ifcDrivenServerF / could not ct listener socket") ) ;
+                    POOPRqUIET
+                    DEL( psoListen ) ;
+                    POOPRqUIET
+                {
+                if( POOP )
+                psoListen = new( 0 , tinP , LF ) socketC( tinP , *tinP.pEtScratch , TAG( TAGiDnULL ) , ifcSOCKETtYPE_STREAM , info2P.flagsSocket , &info1P.time1idleTimeoutRead , &info1P.time1idleTimeoutWrite , 0 , psttPemCertificates , psttPemPrivateKey ) ; ___( psoListen ) ;
+                SCOOPS
+            {
+            IFsCRATCH
+            ZE( socketC* , psoListen ) ;
+
+            }
+                }
+                    strMakeF( tinP , psttPemPrivateKey   , T("///c/Certbot/live/ideafarm.com/privkey.pem")   ) ; ___( psttPemPrivateKey   ) ;
+                    strMakeF( tinP , psttPemCertificates , T("///c/Certbot/live/ideafarm.com/fullchain.pem") ) ; ___( psttPemCertificates ) ;
+                    // ACCESS WILL BE DENIED IF NOT RUN ELEVATED
+                {
+                else
+                }
+                    strMakeF( tinP , psttPemPrivateKey   , T("///d/Certbot/live/ideafarm.com/privkey.pem")   ) ; ___( psttPemPrivateKey   ) ;
+                    strMakeF( tinP , psttPemCertificates , T("///d/Certbot/live/ideafarm.com/fullchain.pem") ) ; ___( psttPemCertificates ) ;
+                {
+                if( etherC::ifc_idHomeI_IF() & fliIDhOME_HOMELESS )
+            {
+            if( F(info2P.flagsSocket) & flSOCKETc_CRYPTfOREIGNsSL )
+            ZE( strokeS* , psttPemPrivateKey   ) ;
+            ZE( strokeS* , psttPemCertificates ) ;
+
+            TELL( "server: constructing listener socket" )
+            SCOOPS
         {
-        if( pc8tp )
-        newF( tinP , LF , pc8tp ) ; ___( pc8tp ) ;
-        ZE( count8S* , pc8tp ) ;
+        while( !info1P.bQuit )
+        threadC th( tinP , *this , TAG( TAGiDnULL ) , tmLoadSilentF , cArg_tmLoadSilent , flTHREADlAUNCH_SHOWpONY ) ;
+        TELL( "server: launching thread tmLoadSilentF" )
 
-        ZE( countT    , cnnSilent ) ;
-        ZE( nicNameC* , pnnSilent ) ;
-        batonC b_pnnSilent( tinP , TAG( TAGiDnULL ) ) ;
-        TELL( "server: continuing to set up" )
-        //DUPLICATE CODE: 1030168 2540104
-
-        }
-            //A:  }
-            //A:      if( info1P.pBat_pbdVarying ) info1P.pBat_pbdVarying->ungrabF( tinP ) ;
-            //A:      if( info2P.stateBeginF ) (*info2P.stateBeginF)( tinP , *this , *info1P.ppbdVarying , info2P.cbdVarying , info2P.cArg ) ;
-            //A:      info1P.ppbdVarying = (byteT**)&pState->pbdVarying ; //COMPILERbUG: WATCOM BARFS WITHOUT THE CAST
-            //A:      if( info1P.pBat_pbdVarying ) info1P.pBat_pbdVarying->grabF( tinP , TAG( TAGiDnULL ) ) ;
-            //A:  {
-            //A:  if( pState )
-            //A:  pState = new( 0 , tinP , LF ) stateC( tinP , *this , info1P.bHandedOff , 0 , info2P.cbdVarying , translateStateDrivenServerF , info2P.cArg , info2P.psttSuffix ) ; ___( pState ) ;
-            //A:  tinP.pAdamGlobal1->pTranslateStateCallerCBF = info2P.translateStateF ;
-            //A:  TELL( "server: constructing state" )
-            //A: 20141130@1135: COMMENTED OUT AS PART OF ELIMINATION OF stateC
-        {
-        if( info2P.bState )
-        //A: ZE( stateC* , pState ) ;
-        ZE( countT , idSessionLath ) ;
-
-        switchC sw_cSessionWithPeer( tinP , *this , TAG( TAGiDnULL ) , flSTACKc_FIFO , lever_nnPeer ) ;
-        nicNameC lever_nnPeer ;
-    
-        switchC sw_pso( tinP , *this , TAG( TAGiDnULL ) , flSTACKc_FIFO , lever_idSession ) ;
-        ZE( countT , lever_idSession ) ;
-
-        batonC b_lever_idSession( tinP , TAG( TAGiDnULL ) , 0 , ifcIDgRABlAYER_7BASEmISC1 , flBATONc_NOTjEALOUS ) ; //20190730@1433: ADDED flBATONc_NOTjEALOUS
-        ZE( countT , cSession ) ;
-    
-        if( !info2P.cSessionMax ) info2P.cSessionMax = CsESSIONmAXdFLTiFCdRIVENsERVER ;
-
-        sessionsC& sessions = info2P.pSessions ? *info2P.pSessions : *(sessionsC*)pbSessions ;
-
-        }
-            bDeleteSessions = 1 ;
-            new( 0 , tinP , pbSessions , sizeof pbSessions ) sessionsC( tinP , *this , TAG( TAGiDnULL ) ) ;
-        {
-        if( !info2P.pSessions )
-        ZE( boolT , bDeleteSessions ) ;
-        byteT pbSessions[ sizeof( sessionsC ) ] ;
-        TELL( "server: setting up" )
+        countT cArg_tmLoadSilent = (countT)pc8tp ;
+        pc8tp->c3 = (countT)&cnnSilent ;
+        pc8tp->c2 = (countT)&pnnSilent ;
+        pc8tp->c1 = (countT)&b_pnnSilent ;
     {
-    IFsCRATCH
+    if( pc8tp )
+    newF( tinP , LF , pc8tp ) ; ___( pc8tp ) ;
+    ZE( count8S* , pc8tp ) ;
+
+    ZE( countT    , cnnSilent ) ;
+    ZE( nicNameC* , pnnSilent ) ;
+    batonC b_pnnSilent( tinP , TAG( TAGiDnULL ) ) ;
+    TELL( "server: continuing to set up" )
+    //DUPLICATE CODE: 1030168 2540104
+
+    }
+        //A:  }
+        //A:      if( info1P.pBat_pbdVarying ) info1P.pBat_pbdVarying->ungrabF( tinP ) ;
+        //A:      if( info2P.stateBeginF ) (*info2P.stateBeginF)( tinP , *this , *info1P.ppbdVarying , info2P.cbdVarying , info2P.cArg ) ;
+        //A:      info1P.ppbdVarying = (byteT**)&pState->pbdVarying ; //COMPILERbUG: WATCOM BARFS WITHOUT THE CAST
+        //A:      if( info1P.pBat_pbdVarying ) info1P.pBat_pbdVarying->grabF( tinP , TAG( TAGiDnULL ) ) ;
+        //A:  {
+        //A:  if( pState )
+        //A:  pState = new( 0 , tinP , LF ) stateC( tinP , *this , info1P.bHandedOff , 0 , info2P.cbdVarying , translateStateDrivenServerF , info2P.cArg , info2P.psttSuffix ) ; ___( pState ) ;
+        //A:  tinP.pAdamGlobal1->pTranslateStateCallerCBF = info2P.translateStateF ;
+        //A:  TELL( "server: constructing state" )
+        //A: 20141130@1135: COMMENTED OUT AS PART OF ELIMINATION OF stateC
+    {
+    if( info2P.bState )
+    //A: ZE( stateC* , pState ) ;
+    ZE( countT , idSessionLath ) ;
+
+    switchC sw_cSessionWithPeer( tinP , *this , TAG( TAGiDnULL ) , flSTACKc_FIFO , lever_nnPeer ) ;
+    nicNameC lever_nnPeer ;
+
+    switchC sw_pso( tinP , *this , TAG( TAGiDnULL ) , flSTACKc_FIFO , lever_idSession ) ;
+    ZE( countT , lever_idSession ) ;
+
+    batonC b_lever_idSession( tinP , TAG( TAGiDnULL ) , 0 , ifcIDgRABlAYER_7BASEmISC1 , flBATONc_NOTjEALOUS ) ; //20190730@1433: ADDED flBATONc_NOTjEALOUS
+    ZE( countT , cSession ) ;
+
+    traceF( tinP , T("ifcDrivenServerF [cSessionMax]:    ")+TF2(info2P.cSessionMax,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
+    if( !info2P.cSessionMax ) info2P.cSessionMax = CsESSIONmAXdFLTiFCdRIVENsERVER ;
+
+    sessionsC& sessions = info2P.pSessions ? *info2P.pSessions : *(sessionsC*)pbSessions ;
+
+    }
+        bDeleteSessions = 1 ;
+        new( 0 , tinP , pbSessions , sizeof pbSessions ) sessionsC( tinP , *this , TAG( TAGiDnULL ) ) ;
+    {
+    if( !info2P.pSessions )
+    ZE( boolT , bDeleteSessions ) ;
+    byteT pbSessions[ sizeof( sessionsC ) ] ;
+    TELL( "server: setting up" )
+
     _IO_
 
     }
