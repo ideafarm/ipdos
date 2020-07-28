@@ -7499,6 +7499,7 @@ I have other business to attend to today and tomorrow, but plan to continue to w
 
 
 
+  !subjob C: quiet the trace chatter
    this job involves quieting trace chatter and adding tracing and perhaps reports
    the load on the 3 http servers is heavy, and i cannot see why
   think
@@ -7506,7 +7507,77 @@ I have other business to attend to today and tomorrow, but plan to continue to w
  objective: glass walls
 !job C: glass walls
 
-  
+
+
+ playcraft
+ objective: glass walls
+!subjob C: quiet the trace chatter
+
+
+
+
+
+
+      homeCBF: deletes from attacker folder
+      ifcDrivenServer: move to attacker folder after deciding to allow
+     /?redirect=yes
+      homeCBF: write to "allowWo" folder
+     /
+    recipe
+   think
+   play
+    the action for the button specifies the redirect
+    if not, then a button is displayed
+   conj: redirection can be modified depending upon whether ?redirect=yes is specified: yup
+   this is currently a fail moved temporarily redirector
+   "/" is served by homeCBF
+  think
+   conj: button actions a page that will redirect to the home page without the button
+   issue: home page is static, and i don't want to make it dynamic
+   can i do this without captcha?
+   allow 8 serves, before blocking, so that all images on home page will load
+  think
+   quick and dirty
+  play
+   conj: opening details can do this: yup (but not supported by Edge)
+    all blocks are cleared every ifc hour
+    clicking the button makes the other content of the page visible
+    clicking the button makes the button disappear
+    manually edited whitelist allows known web crawlers for Google and other major search engines
+    button removes the block for that ip
+    block all ip's after woth request unless a button is pressed
+   appr
+   defense is easier if i don't worry about web crawlers
+  think
+   goal #2: suppress repeated requests by different peers for the same resource
+   goal #1: suppress repeated requests by the same peer for the same resource
+  think
+   the real goal is to suppress
+   i can do this so that crawlers can read each page wo time
+  think
+   set up dut
+  play
+   alt: the button press is sticky in that continued serves to that ip remain unblocked until a time period with no requests occurs
+   what to do about talk body?
+  think
+   every button press unblocks the ip
+   every request blocks the ip
+  theory
+   pressing the button unblocks the ip
+   display a single button
+  recipe
+   if the wrong button is pressed, nothing happens (the user can try all of the
+   if the correct button is pressed, the block record (file) is deleted
+   the buttons are preceded by "Click the button that displays "6":
+   display a form on the home page that displays 8 buttons labelled 1 - 8
+   when a request for the home page is accepted, it is served and then the ip is written to the blocked list
+  recipe
+   a simple approach to eliminating attacks would be to require user interaction on woth response to disable blocking of the ip
+   factory1 is being hit right now with a continuous stream of requests from 2 servers, identifiable via reverse dns lookup
+  think
+ playcraft
+ objective: detect and block nonhuman peers other than whitelist
+!job C: captcha for web pages  
 
 
 !thrust: debug until all factories run without failure
@@ -7522,6 +7593,14 @@ I have other business to attend to today and tomorrow, but plan to continue to w
 =========================================================================================================================================================
 
 
+  f16c48cd dc84c61f_        220.132.198.31  AS3462 Data Communication Business Group / 220-132-198-31.hinet-ip.hinet.net (Douliu, Taiwan)
+  34b8968b b8698b43_        184.105.139.67  AS6939 Hurricane Electric LLC / scan-01.shadowserver.org (Fremont, CA)
+ playcraft
+ objective: analyze server's load
+!job A: who is 34b8968b
+  set up dut
+ playcraft
+!job W: home page: Where's the food?
   resp: ifcDrivenServerF: polish code to use IFsCRATCH correctly
    alt: wo request per tock per nnPeer value
    if this is an attack, look at trace to see the nnPeer values involved and craft a defense
