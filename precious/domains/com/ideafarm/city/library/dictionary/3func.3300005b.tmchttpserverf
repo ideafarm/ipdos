@@ -102,10 +102,9 @@ DONEdRIVENsERVER( tmcHttpServerF )
    
                     etThread.delF( tinP , postsReply ) ;
 
-                    if( bClose ) { DEL( psoP ) ; }
-
                     }
                         }
+                            bClose = 1 ;
                             etThread.traceF( tinP , T("tmcHttpServerF: could not write to socket 109 [nnPeer]:    ")+T(nnPeerP) ) ;
                             POOPRqUIET
                         {
@@ -977,11 +976,7 @@ DONEdRIVENsERVER( tmcHttpServerF )
             {
             else
             }
-                }
-                    DEL( psoP ) ;
-                    //etThread.traceF( tinP , TF3(meP.idPortF(tinP),flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,9)+T(nnPeerP)+T("    closing connection") , flTRACE_null , ifcIDtRACEdIVERT_7 ) ;
-                {
-                if( bClose )
+                //if( bClose ) etThread.traceF( tinP , TF3(meP.idPortF(tinP),flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,9)+T(nnPeerP)+T("    closing connection") , flTRACE_null , ifcIDtRACEdIVERT_7 ) ;
 
                 }
                     DEL( pFW ) ;
@@ -991,6 +986,7 @@ DONEdRIVENsERVER( tmcHttpServerF )
 
                             }
                                 }
+                                    bClose = 1 ;
                                     etThread.traceF( tinP , T("tmcHttpServerF: could not write to socket 965") ) ;
                                     POOPRqUIET
                                 {
@@ -1017,6 +1013,7 @@ DONEdRIVENsERVER( tmcHttpServerF )
 
                     }
                         }
+                            bClose = 1 ;
                             etThread.traceF( tinP , T("tmcHttpServerF: could not write to socket 980") ) ;
                             POOPRqUIET
                         {
