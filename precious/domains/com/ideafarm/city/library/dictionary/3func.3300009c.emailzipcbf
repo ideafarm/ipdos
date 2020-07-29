@@ -115,7 +115,8 @@
 
             }
                 etThread.delF( tinP , psttMyNetBiosHostName ) ;
-                tMyNetBiosHostName = T(psttMyNetBiosHostName) ;
+                else                         tMyNetBiosHostName = T(psttMyNetBiosHostName) ;
+                if( !psttMyNetBiosHostName ) etThread.traceF( tinP , T("error: reverse DNS lookup on myself failed") ) ;
                 etThread.sockPsttHostF( tinP , psttMyNetBiosHostName , nicNameC() ) ; ___( psttMyNetBiosHostName ) ;
                 ZE( strokeS* , psttMyNetBiosHostName ) ;
             {

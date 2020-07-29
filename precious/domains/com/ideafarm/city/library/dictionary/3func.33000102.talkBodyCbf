@@ -587,18 +587,11 @@
             }
                 if( !tHost.csF( tinP ) ) tHost = T("factories") ;
                 etThread.delF( tinP , psttHost ) ;
-                else       tHost = T(psttHost) ;
-                }
-                    tinP.pEtScratch->traceF( tinP , T("disk or file error 537") ) ;
-                    POOPR
-                {
-                if( POOP )
-                tinP.pEtScratch->sockPsttHostF( tinP , psttHost ) ; ___( psttHost ) ;
+                else            tHost = T(psttHost) ;
+                if( !psttHost ) etThread.traceF( tinP , T("error: reverse DNS lookup on myself failed 591") ) ;
+                etThread.sockPsttHostF( tinP , psttHost ) ; ___( psttHost ) ;
                 ZE( strokeS* , psttHost ) ;
-
-                SCOOPS
             {
-            IFsCRATCH
             TN( tHost , "" ) ;
 
             THREADmODE1oN( flTHREADmODE1_ALLOWsTOPwHILEgRABBING )

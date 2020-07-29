@@ -33,14 +33,11 @@
     }
         if( !tHost.csF( tinP ) ) tHost = T("factories") ;
         delF( tinP , psttHost ) ;
-        else       tHost = T(psttHost) ;
-        if( POOP ) { POOPR ; }
-        tinP.pEtScratch->sockPsttHostF( tinP , psttHost ) ; ___( psttHost ) ;
+        else            tHost = T(psttHost) ;
+        if( !psttHost ) traceF( tinP , T("error: reverse DNS lookup on myself failed") ) ;
+        sockPsttHostF( tinP , psttHost ) ; ___( psttHost ) ;
         ZE( strokeS* , psttHost ) ;
-
-        SCOOPS
     {
-    IFsCRATCH
     TN( tHost , "" ) ;
 
     textC tTime( ifcIDtEXTgEN_TIMEnOWfOREIGN , tinP , TAG( TAGiDnULL ) ) ;

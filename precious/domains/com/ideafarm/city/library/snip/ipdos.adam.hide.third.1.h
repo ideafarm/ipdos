@@ -8919,55 +8919,55 @@ pso not 0 is guaranteed for code between me and DONEdRIVENsERVER
 //U::RENAME THE count8S* PARAMETERS TO BEGIN WITH '_'
 
 /*1*//*TASKdRIVENsERVER*//*1*/
-#define TASKdRIVENsERVER(taskFP)                                                                                            \
-                                                                                                                            \
-    TASK( taskFP )                                                                                                          \
-    if( pTaskP && pTaskP->c1 )                                                                                              \
-    {                                                                                                                       \
-        TELL( "TASKdRIVENsERVER: setting up" )                                                                              \
-        count8S*   pc8tp                 =    (count8S*)pTaskP->c1 ;                                                        \
-        count8S*   pc8tp1                =     (count8S*)pc8tp->c1 ;                                                        \
-        count8S*   pc8tp2                =     (count8S*)pc8tp->c2 ;                                                        \
-        countT     ids                   =              pc8tp1->c1 ;                                                        \
-        batonC&    b_lever               =    *(batonC*)pc8tp1->c2 ;                                                        \
-        countT&    lever                 =    *(countT*)pc8tp1->c3 ;                                                        \
-        switchC&   sw_pso                =   *(switchC*)pc8tp1->c4 ;                                                        \
-        countT&    cSession              =    *(countT*)pc8tp1->c5 ;                                                        \
-        countT     cArg                  =              pc8tp1->c6 ;                                                        \
-        nicNameC&  lever_nnPeerP         =  *(nicNameC*)pc8tp1->c7 ;                                                        \
-        switchC&   sw_cSessionWithPeerP  =   *(switchC*)pc8tp1->c8 ;                                                        \
-        sessionsC& sessionsP             = *(sessionsC*)pc8tp2->c1 ;                                                        \
-        nicNameC&  nnPeerP               = *(nicNameC*)&pc8tp2->c2 ;                                                        \
-                                                                                                                            \
-        b_lever.grabF( tinP , TAG( TAGiDnULL ) ) ;                                                                          \
-        lever = ids ;                                                                                                       \
-        socketC*& psoP = (socketC*&)(countT&)sw_pso ;                                                                       \
-        b_lever.ungrabF( tinP ) ;                                                                                           \
-        __Z( psoP ) ;                                                                                                       \
-                                                                                                                            \
-        ZE( countT , idPortMeP ) ;                                                                                          \
-        nicNameC nnMeP ;                                                                                                    \
-        psoP->myNameF( tinP , idPortMeP , nnMeP ) ;                                                                         \
-                                                                                                                            \
-        /* THIS IS TOO SLOW (2 TOCKS)                                             */                                        \
-        /* ZE( strokeS* , psttPeerP ) ;                                           */                                        \
-        /* {                                                                      */                                        \
-        /*    if( nnPeerP.pcId[ 0 ] )                                             */                                        \
-        /*    {                                                                   */                                        \
-        /*        TELL( "querying dns for peer name string" ) ;                   */                                        \
-        /*        tinP.pEtScratch->sockPsttHostF( tinP , psttPeerP , nnPeerP ) ;  */                                        \
-        /*        TELL( "returned from querying dns for peer name string" ) ;     */                                        \
-        /*    }                                                                   */                                        \
-        /*    if( POOP ) { POOPR }                                                */                                        \
-        /*}                                                                       */                                        \
-                                                                                                                            \
-        sessionC& sessionP = sessionsP.registerConnectionF( tinP , nnPeerP , /*psttPeerP*/T("notQueried") ) ;               \
-        if( !etThread )                                                                                                     \
-        {                                                                                                                   \
+#define TASKdRIVENsERVER(taskFP)                                                                                                                            \
+                                                                                                                                                            \
+    TASK( taskFP )                                                                                                                                          \
+    if( pTaskP && pTaskP->c1 )                                                                                                                              \
+    {                                                                                                                                                       \
+        TELL( "TASKdRIVENsERVER: setting up" )                                                                                                              \
+        count8S*   pc8tp                 =    (count8S*)pTaskP->c1 ;                                                                                        \
+        count8S*   pc8tp1                =     (count8S*)pc8tp->c1 ;                                                                                        \
+        count8S*   pc8tp2                =     (count8S*)pc8tp->c2 ;                                                                                        \
+        countT     ids                   =              pc8tp1->c1 ;                                                                                        \
+        batonC&    b_lever               =    *(batonC*)pc8tp1->c2 ;                                                                                        \
+        countT&    lever                 =    *(countT*)pc8tp1->c3 ;                                                                                        \
+        switchC&   sw_pso                =   *(switchC*)pc8tp1->c4 ;                                                                                        \
+        countT&    cSession              =    *(countT*)pc8tp1->c5 ;                                                                                        \
+        countT     cArg                  =              pc8tp1->c6 ;                                                                                        \
+        nicNameC&  lever_nnPeerP         =  *(nicNameC*)pc8tp1->c7 ;                                                                                        \
+        switchC&   sw_cSessionWithPeerP  =   *(switchC*)pc8tp1->c8 ;                                                                                        \
+        sessionsC& sessionsP             = *(sessionsC*)pc8tp2->c1 ;                                                                                        \
+        nicNameC&  nnPeerP               = *(nicNameC*)&pc8tp2->c2 ;                                                                                        \
+                                                                                                                                                            \
+        b_lever.grabF( tinP , TAG( TAGiDnULL ) ) ;                                                                                                          \
+        lever = ids ;                                                                                                                                       \
+        socketC*& psoP = (socketC*&)(countT&)sw_pso ;                                                                                                       \
+        b_lever.ungrabF( tinP ) ;                                                                                                                           \
+        __Z( psoP ) ;                                                                                                                                       \
+                                                                                                                                                            \
+        ZE( countT , idPortMeP ) ;                                                                                                                          \
+        nicNameC nnMeP ;                                                                                                                                    \
+        psoP->myNameF( tinP , idPortMeP , nnMeP ) ;                                                                                                         \
+                                                                                                                                                            \
+        /* THIS IS TOO SLOW (2 TOCKS)                                             */                                                                        \
+        /* ZE( strokeS* , psttPeerP ) ;                                           */                                                                        \
+        /* {                                                                      */                                                                        \
+        /*    if( nnPeerP.pcId[ 0 ] )                                             */                                                                        \
+        /*    {                                                                   */                                                                        \
+        /*        TELL( "querying dns for peer name string" ) ;                   */                                                                        \
+        /*        tinP.pEtScratch->sockPsttHostF( tinP , psttPeerP , nnPeerP ) ;  */                                                                        \
+        /*        TELL( "returned from querying dns for peer name string" ) ;     */                                                                        \
+        /*    }                                                                   */                                                                        \
+        /*    if( POOP ) { POOPR }                                                */                                                                        \
+        /*}                                                                       */                                                                        \
+                                                                                                                                                            \
+        sessionC& sessionP = sessionsP.registerConnectionF( tinP , nnPeerP , /*psttPeerP*/T("notQueried") ) ;                                               \
+        if( !etThread )                                                                                                                                     \
+        {                                                                                                                                                   \
             etThread.traceF( tinP , T("TASKdRIVENsERVER [cSession]:    ")+TF2(cSession,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;                        \
-            psoP->etherF( tinP , *tinP.pEtScratch ) ;                                                                       \
-            TELL( "TASKdRIVENsERVER: entering application code" )                                                           \
-                                                                                                                            \
+            psoP->etherF( tinP , *tinP.pEtScratch ) ;                                                                                                       \
+            TELL( "TASKdRIVENsERVER: entering application code" )                                                                                           \
+                                                                                                                                                            \
             {
 
 
@@ -8996,37 +8996,37 @@ see adam.0140104 for an example
 /**/
 
 /*1*//*DONEdRIVENsERVER*//*1*/
-#define DONEdRIVENsERVER(taskFP)                                                                                            \
-                                                                                                                            \
-            }                                                                                                               \
-                                                                                                                            \
-            {                                                                                                               \
-                sleepC s( tinP , TAG( TAGiDnULL ) ) ;                                                                       \
-                while( tinP.cKidThreads ) { ++ s ; thirdC::dosSleepRawIF( tinP , 250 ) ; }                                  \
-            }                                                                                                               \
-                                                                                                                            \
-            b_lever.grabF( tinP , TAG( TAGiDnULL ) ) ;                                                                      \
-            DEL( psoP ) ;                                                                                                   \
-            lever = ids ;                                                                                                   \
-            if( (countT)&psoP == (countT)&(countT&)sw_pso ) sw_pso.freeF( tinP ) ;                                          \
-            else                                           __1                                                              \
-            b_lever.ungrabF( tinP ) ;                                                                                       \
-        }                                                                                                                   \
-                                                                                                                            \
-        sessionsP.unregisterConnectionF( tinP , nnPeerP ) ;                                                                 \
-        sw_cSessionWithPeerP.grabF( tinP , TAG( TAGiDnULL ) ) ;                                                             \
-        lever_nnPeerP = nnPeerP ;                                                                                           \
-        -- sw_cSessionWithPeerP ;                                                                                           \
-        sw_cSessionWithPeerP.ungrabF( tinP ) ;                                                                              \
-                                                                                                                            \
-        /*etThread.delF( tinP , psttPeerP ) ;*/                                                                             \
-        etThread.delF( tinP , pc8tp1 ) ;                                                                                    \
-        etThread.delF( tinP , pc8tp2 ) ;                                                                                    \
-        etThread.delF( tinP , pc8tp ) ;                                                                                     \
-                                                                                                                            \
+#define DONEdRIVENsERVER(taskFP)                                                                                                                        \
+                                                                                                                                                        \
+            }                                                                                                                                           \
+                                                                                                                                                        \
+            {                                                                                                                                           \
+                sleepC s( tinP , TAG( TAGiDnULL ) ) ;                                                                                                   \
+                while( tinP.cKidThreads ) { ++ s ; thirdC::dosSleepRawIF( tinP , 250 ) ; }                                                              \
+            }                                                                                                                                           \
+                                                                                                                                                        \
+            b_lever.grabF( tinP , TAG( TAGiDnULL ) ) ;                                                                                                  \
+            DEL( psoP ) ;                                                                                                                               \
+            lever = ids ;                                                                                                                               \
+            if( (countT)&psoP == (countT)&(countT&)sw_pso ) sw_pso.freeF( tinP ) ;                                                                      \
+            else                                           __1                                                                                          \
+            b_lever.ungrabF( tinP ) ;                                                                                                                   \
+        }                                                                                                                                               \
+                                                                                                                                                        \
+        sessionsP.unregisterConnectionF( tinP , nnPeerP ) ;                                                                                             \
+        sw_cSessionWithPeerP.grabF( tinP , TAG( TAGiDnULL ) ) ;                                                                                         \
+        lever_nnPeerP = nnPeerP ;                                                                                                                       \
+        -- sw_cSessionWithPeerP ;                                                                                                                       \
+        sw_cSessionWithPeerP.ungrabF( tinP ) ;                                                                                                          \
+                                                                                                                                                        \
+        /*etThread.delF( tinP , psttPeerP ) ;*/                                                                                                         \
+        etThread.delF( tinP , pc8tp1 ) ;                                                                                                                \
+        etThread.delF( tinP , pc8tp2 ) ;                                                                                                                \
+        etThread.delF( tinP , pc8tp ) ;                                                                                                                 \
+                                                                                                                                                        \
         etThread.traceF( tinP , T("DONEdRIVENsERVER [cSession]:    ")+TF2(cSession,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;                        \
-        dec02AM( cSession ) ;                                                                                               \
-    }                                                                                                                       \
+        dec02AM( cSession ) ;                                                                                                                           \
+    }                                                                                                                                                   \
     DONE( taskFP )
 
 
@@ -44460,45 +44460,3 @@ arguments
 //
 
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004cf.login END
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004d1.setinoutframe BEGIN
-
-
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-// Respecting the rights of other people is an important part of empowering one another.
-//
-
-/*
-*/
-
-/**/
-
-/*1*//*SETiNoUTfRAME*//*1*/
-
-#define SETiNoUTfRAME                                                                                                                           \
-                                                                                                                                                \
-    countT    cgin  = *ppcGlyph[    offd ] ;                                                                                                    \
-    countT*   psin  =  ppcSize[     offd ] ;                                                                                                    \
-    flagsT*   pfin  =  pFlagsTail[  offd ] ;                                                                                                    \
-    mPoint3S* ptin  =  ppPointTail[ offd ] ;                                                                                                    \
-    mPoint3S* ppin  =  ppPoint[     offd ] ;                                                                                                    \
-                                                                                                                                                \
-    if( ++ offd == 3 ) offd = 1 ; /* OFFSET 0 IS ONLY USED WO TIME ; AFTER THAT ONLY OFFSETS 1 AND 2 ARE USED */                                \
-                                                                                                                                                \
-    countT&   cgout = *ppcGlyph[    offd ] ;                                                                                                    \
-    countT*   psout =  ppcSize[     offd ] ;                                                                                                    \
-    flagsT*   pfout =  pFlagsTail[  offd ] ;                                                                                                    \
-    mPoint3S* ptout =  ppPointTail[ offd ] ;                                                                                                    \
-    mPoint3S* ppout =  ppPoint[     offd ] ;
-
-
-//
-// Respecting the rights of other people is an important part of empowering one another.
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004d1.setinoutframe END
