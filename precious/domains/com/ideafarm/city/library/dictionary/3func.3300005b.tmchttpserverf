@@ -1062,7 +1062,7 @@ DONEdRIVENsERVER( tmcHttpServerF )
 
                     TN( tBody , "The page (or other resource) that you requested does not exist here.\r\n\r\nIf you think that this is our error, please let us know.\r\n" ) ;
 
-                    etThread.traceF( tinP , TF3(meP.idPortF(tinP),flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,9)+T(nnPeerP)+T("    error: could not open file:    ")+tFileIn , flTRACE_null , ifcIDtRACEdIVERT_7 ) ;
+                    etThread.traceF( tinP , TF3(meP.idPortF(tinP),flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,9)+T(nnPeerP)+T("    error: could not open file:    ")+tFileIn , flTRACE_null , ifcIDtRACEdIVERT_5 ) ;
                 {
                 if( !pFW )
 
@@ -1086,6 +1086,8 @@ DONEdRIVENsERVER( tmcHttpServerF )
             {
             if( bFile )
 
+            if( psttName && etThread.strCompareF( tinP , psttName , tSlashDeadman ) ) etThread.traceF( tinP , TF3(meP.idPortF(tinP),flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,9)+T(nnPeerP)+T("    request:    \"")+T(psttName)+T("\"")+(psttQueryKV?T("    ")+T(psttQueryKV):T("")) , flTRACE_null , !etThread.strCompareF( tinP , psttName , tSlash ) ? ifcIDtRACEdIVERT_7 : !bFile ? ifcIDtRACEdIVERT_6 : ifcIDtRACEdIVERT_5 ) ;
+
             }
                 bFile = 1 == etThread.strIdF( tinP , tPattern , psttName ) ;
 
@@ -1108,8 +1110,6 @@ DONEdRIVENsERVER( tmcHttpServerF )
             {
             if( psttName && psttName->idAdam )
             ZE( boolT , bFile ) ;
-
-            if( psttName && etThread.strCompareF( tinP , psttName , tSlashDeadman ) ) etThread.traceF( tinP , TF3(meP.idPortF(tinP),flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,9)+T(nnPeerP)+T("    request:    \"")+T(psttName)+T("\"")+(psttQueryKV?T("    ")+T(psttQueryKV):T("")) , flTRACE_null , !etThread.strCompareF( tinP , psttName , tSlash ) ? ifcIDtRACEdIVERT_7 : ifcIDtRACEdIVERT_6 ) ;
 
             ___( postBody ) ;
             ___( psttAgent ) ;

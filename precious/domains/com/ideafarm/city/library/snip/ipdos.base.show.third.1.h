@@ -1,4 +1,6 @@
 
+#define ifcIDaDAM_TOOLwHITElISTuPDATER                                 0x51000793
+
 // IPDOS (tm) <> IdeaFarm (tm) Piggyback Distributed Operating System
 
 // For build environment info, see file "\ideafarm.work\backed.up.never\txt\readme.first.ipdos.build.environment.txt"

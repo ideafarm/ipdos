@@ -30,12 +30,13 @@ while( !ether && ~hFind && !POOP ) ;
                         IFsCRATCH
                         etThread.boxPutF( tinP , tPathWhite+T(fn) , tHost , tHost.csF( tinP ) ) ;
                     {
-                    if( bWhite ) for( countT offn = 0 ; offn < cNicName ; offn ++ )
+                    else for( countT offn = 0 ; offn < cNicName ; offn ++ )
+                    if( !bWhite ) etThread.traceF( tinP , tHost+T("    VERIFIED: blocked pending human inspection of web site") ) ;
 
                     }
                         }
                             break ;
-                            etThread.traceF( tinP , T("================================================ White Bot found! [tHost]:    ")+tHost ) ;
+                            //etThread.traceF( tinP , T("================================================ White Bot found! [tHost]:    ")+tHost ) ;
                             bWhite = 1 ;
                         {
                         if( idHit && idHit - 1 + pptWhite[ offw ]->csF( tinP ) == tHost.csF( tinP ) )
@@ -48,12 +49,12 @@ while( !ether && ~hFind && !POOP ) ;
 
                 }
                     }
-                        etThread.traceF( tinP , T(nnPeer)+tb4+T(pNicName[offn])+tb4+tHost+T("    VERIFIED: blocked pending human inspection of web site") ) ;
+                        break ;
                         bVerified = 1 ;
                     {
                     if( nnPeer == pNicName[ offn ] )
                 {
-                for( countT offn = 0 ; offn < cNicName && !bVerified ; offn ++ )
+                for( countT offn = 0 ; offn < cNicName ; offn ++ )
                 ZE( boolT , bVerified ) ;
 
                 etThread.sockNicNameF( tinP , pNicName , cNicName , tHost ) ;
@@ -104,6 +105,10 @@ TN( tPathBlock , "////factory3/d/ideafarm.home.102/ephemeral/domains/com/ideafar
 TN( tAnonymous , "**** ANONYMOUS ****" ) ;
 
 } ;
+    &sSuffix2020073011590003             ,
+    &sSuffix2020073011590002             ,
+    &sSuffix2020073011590001             ,
+
     &sSuffix2020072914270008             ,
     &tSuffix2020072914270007             ,
     &tSuffix2020072914270006             ,
@@ -143,6 +148,11 @@ TN( tAnonymous , "**** ANONYMOUS ****" ) ;
     &tSuffix2020072914250001             ,
 {
 textC* pptBlack[] =
+
+
+TN( sSuffix2020073011590003                , ".tum.de" ) ;
+TN( sSuffix2020073011590002                , ".ipip.net" ) ;               //GRAY           //U:: THIS WO IS INTERESTING, PROVIDES API TO OBTAIN LOCATION OF IP
+TN( sSuffix2020073011590001                , ".shodan.io" ) ;               //GRAY
 
 TN( sSuffix2020072914270008                , ".uni-bonn.de" ) ;
 TN( tSuffix2020072914270007                , ".shadowserver.org" ) ;
