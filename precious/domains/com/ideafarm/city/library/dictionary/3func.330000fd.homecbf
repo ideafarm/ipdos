@@ -187,18 +187,36 @@
 
         ) ;
 
-            "If you get blocked, use another computer and then post a request for help on the Wo'O's Table Talk page.\r\n"
-            "<p>\r\n"
-            "This is to eliminate computer generated requests, including attacks on our servers.\r\n"
-            "The IDEAFARM.COM servers will only allow one more request from your IP address.\r\n"
-            "Refreshing this page will cause you to be \"blocked\" for an indefinite period from viewing this web site.\r\n"
-            "Do not refresh this page!\r\n"
-            "<p>\r\n"
-            "</form>\r\n"
-                "<input id=\"submitcaptcha\" name=\"submitcaptcha\" type=\"submit\" value=\"Click if you're human.\"/>\r\n"
-            "<form action=\"https://")+T(bSandbox?"factory1.":"")+T("ideafarm.com/?redirect=yes\" id=\"captcha\" method=\"post\" name=\"captcha\">\r\n"
-            "<p>\r\n"
-            "Please prove that you are a human by clicking this button:\r\n"
+            "</body>\r\n"
+                "If you get blocked, use another computer and then post a request for help on the Wo'O's Table Talk page.\r\n"
+                "<p>\r\n"
+                "This is to eliminate computer generated requests, including attacks on our servers.\r\n"
+                "The IDEAFARM.COM servers will only allow one more request from your IP address.\r\n"
+                "Refreshing this page will cause you to be \"blocked\" for an indefinite period from viewing this web site.\r\n"
+                "Do not refresh this page!\r\n"
+                "<p>\r\n"
+                "</form>\r\n"
+                    "<input id=\"submitcaptcha\" name=\"submitcaptcha\" type=\"submit\" value=\"Click if you're human.\"/>\r\n"
+                "<form action=\"https://")+T(bSandbox?"factory1.":"")+T("ideafarm.com/?redirect=yes\" id=\"captcha\" method=\"post\" name=\"captcha\">\r\n"
+                "<p>\r\n"
+                "Please prove that you are a human by clicking this button:\r\n"
+                "<br>\r\n"
+                "<a href=\"https://")+T(bSandbox?"factory1.":"")+T("ideafarm.com/home.force.redirect.8\"></a>\r\n"
+                "<a href=\"https://")+T(bSandbox?"factory1.":"")+T("ideafarm.com/home.force.redirect.7\"></a>\r\n"
+                "<a href=\"https://")+T(bSandbox?"factory1.":"")+T("ideafarm.com/home.force.redirect.6\"></a>\r\n"
+                "<a href=\"https://")+T(bSandbox?"factory1.":"")+T("ideafarm.com/home.force.redirect.5\"></a>\r\n"
+                "<a href=\"https://")+T(bSandbox?"factory1.":"")+T("ideafarm.com/home.force.redirect.4\"></a>\r\n"
+                "<a href=\"https://")+T(bSandbox?"factory1.":"")+T("ideafarm.com/home.force.redirect.3\"></a>\r\n"
+                "<a href=\"https://")+T(bSandbox?"factory1.":"")+T("ideafarm.com/home.force.redirect.2\"></a>\r\n"
+                "<a href=\"https://")+T(bSandbox?"factory1.":"")+T("ideafarm.com/home.force.redirect.1\"></a>\r\n"
+                "<a href=\"https://")+T(bSandbox?"factory1.":"")+T("ideafarm.com/home.force.redirect\"></a>\r\n"          //THESE ARE TRAPS TO ENSURE THAT BOT DOES NOT "ACTIVATE" THE BUTTON
+            "<body style=\"background-color:#000 ; color:#ff6 ; font-family: sans-serif ;\">\r\n"
+            "</head>\r\n"
+                "<meta name=\"keywords\" content=\"\">\r\n"
+                "<meta name=\"description\" content=\"\">\r\n"
+                "<title>Wo'O's Table Captcha</title>\r\n"
+            "<head>\r\n"
+            "<!doctype html>\r\n"
 
         TN( tSay , "" ) ; tSay = T(
 
@@ -206,36 +224,42 @@
 
         etThread.boxPutF( tinP , tFileAllowWoMore , "z" , 1 ) ; //U:: USE fileC TO AVOID WRITE TO DISK DATA SECTOR
     {
-    if( etThread.strCompareF( tinP , tValueRedirect , tYes ) )
+    if( !bRedirect )
     TN( tFileBlock       , "" ) ; tFileBlock       = T("////factory3/d/ideafarm.home.102/ephemeral/domains/com/ideafarm/ipdos/attackers/block/")+T(nnPeerP) ;
     TN( tFileAllowWoMore , "" ) ; tFileAllowWoMore = T("////factory3/d/ideafarm.home.102/ephemeral/domains/com/ideafarm/ipdos/attackers/allowWoMore/")+T(nnPeerP) ;
-    TN( tYes , "yes" ) ;
 
     boolT bSandbox = etherC::ifc_idHomeI_IF() & fliIDhOME_HOMELESS ;
 
     }
+        bRedirect = !etThread.strCompareF( tinP , tValueRedirect , tYes ) ;
+
         }
-            if( !etThread.strCompareF( tinP , psttLeverKVP , *pptKey[ offk ] ) ) *pptValue[ offk ] = T((strokeS*)(countT)swKVP) ;
+            }
+                if( !etThread.strCompareF( tinP , psttLeverKVP , *pptKey[ offk ] ) ) *pptValue[ offk ] = T((strokeS*)(countT)swKVP) ;
+            {
+            for( countT offk = 0 ; offk < sizeof pptKey / sizeof pptKey[ 0 ] ; offk ++ )
+
+            psttLeverKVP = (strokeS*)swKVP.leverF( tinP , idf ) ;
         {
-        for( countT offk = 0 ; offk < sizeof pptKey / sizeof pptKey[ 0 ] ; offk ++ )
+        for( countT idf = 1 ; idf <= cFlavors ; idf ++ )
+        countT cFlavors = swKVP.cFlavorsF( tinP ) ;
 
-        psttLeverKVP = (strokeS*)swKVP.leverF( tinP , idf ) ;
+        } ;
+            &tValueRedirect ,
+        {
+        textC* pptValue[] =
+
+        } ;
+            &tKeyRedirect ,
+        {
+        textC* pptKey[] =
+
+        TN( tYes , "yes" ) ;
+        TN( tValueRedirect , "" ) ;
+        TN( tKeyRedirect   , "redirect" ) ;
     {
-    for( countT idf = 1 ; idf <= cFlavors ; idf ++ )
-    countT cFlavors = swKVP.cFlavorsF( tinP ) ;
-
-    } ;
-        &tValueRedirect ,
-    {
-    textC* pptValue[] =
-
-    } ;
-        &tKeyRedirect ,
-    {
-    textC* pptKey[] =
-
-    TN( tValueRedirect , "" ) ;
-    TN( tKeyRedirect   , "redirect" ) ;
+    if( !bRedirect )
+    boolT bRedirect = !etThread.strCompareF( tinP , psttUrlP , T("/home.force.redirect") ) ;
 
     /***************************************************************************************************/
     /***************************************************************************************************/
@@ -246,6 +270,7 @@
     /***************************************************************************************************/
     /***************************************************************************************************/
     /***************************************************************************************************/
+    etThread.traceF( tinP , T("[psttUrlP]:    ")+T(psttUrlP) ) ;
 {
 /*1*/voidT homeCBF( tinS& tinP , etherC& etThread , const boolT& bQuitP , httpServerC& meP , countT& cArgP , httpReplyS& replyP , stackC& stBodyP , const strokeS* const psttKVReportP , switchC& swKVP , strokeS*& psttLeverKVP , sessionsC& sessionsP , nicNameC& nnPeerP , const strokeS* const psttUrlP , const strokeS* const psttPeerAgentP , const osTextT* const postBodyP )/*1*/
 

@@ -28692,6 +28692,7 @@ applications should avoid using thirdC objects
   static voidT openSsl_getContextIF( tinS& tinP , handleC& handleP , const osTextT* const postPemCertificatesP = 0 , const osTextT* const postPemPrivateKeyP = 0 ) ;
   //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.350011a1.thirdC.openSsl_getContextIF!||
   static voidT openSsl_getWrapperIF( tinS& tinP , handleC& handleP , const handleC& hContextP ) ;
+  static voidT openSsl_wrapperFreeIF( tinS& tinP , handleC& handleP ) ;
   //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.350011a2.thirdC.openSsl_getWrapperIF!||
   static voidT openSsl_wrapSocketIF( tinS& tinP , const handleC& hWrapperP , const handleC& hSocketP ) ;
   //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.350011a3.thirdC.openSsl_wrapSocketIF!||

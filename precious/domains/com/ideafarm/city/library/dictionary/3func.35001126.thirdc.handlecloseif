@@ -13,21 +13,28 @@
         handleP.osh = handleP.oshInvalid ;
 
         }
-            default : { BLAMMO ; break ; }
-            
+            }
+                break ;
+                BLAMMO ;
+                _IO_
+            {
+            default :
             }
                 break ;
                 DEL( *(bookC**)&handleP.osh ) ;
+                _IO_
             {
             case ifcIDtYPEhANDLE_BOOKSrEADcURSOR :
             }
                 break ;
                 DEL( *(cloudInfoS**)&handleP.osh ) ;
+                _IO_
             {
             case ifcIDtYPEhANDLE_CLOUD :
             }
                 break ;
                 BOSnOvALUE( WHATgbo , (*processGlobal1I.openSsl_pContextFreeF)( (SSL_CTX*)handleP.osh ) )
+                _IO_
             {
             case ifcIDtYPEhANDLE_openSslContext :
             }
@@ -43,6 +50,7 @@
                     {
     
                 #if defined( __NT__ )
+                _IO_
             {
             case ifcIDtYPEhANDLE_CRITICALsECTION :
             }
@@ -70,7 +78,8 @@
             }
                 break ;
 
-                if( handleP.cNoteF() ) { BOSnOvALUE( WHATgbo , (*processGlobal1I.openSsl_pWrapperFreeF)( (SSL*)handleP.cNoteF() ) ) }
+                if( handleP.cNoteF() ) thirdC::openSsl_wrapperFreeIF( tinP , handleP ) ;
+                //if( handleP.cNoteF() ) { BOSnOvALUE( WHATgbo , (*processGlobal1I.openSsl_pWrapperFreeF)( (SSL*)handleP.cNoteF() ) ) }
     
                 #endif
                     
@@ -99,7 +108,9 @@
                 //{
                 //U:: 20200524@2335: WHY NEEDED?  CAN'T DO THIS EARLY OR LATE.  COMMENTED OUT BECAUSE CAUSES PROCESS C++ INIT TO FAIL WHEN HOME IS CLOAKED
 
-                if( handleP.cNoteF() ) { BOSnOvALUE( WHATgbo , (*processGlobal1I.openSsl_pWaveByeF)(    (SSL*)handleP.cNoteF() ) ) }
+                if( handleP.cNoteF() ) thirdC::openSsl_waveByeIF( tinP , handleP ) ;
+                //if( handleP.cNoteF() ) { BOSnOvALUE( WHATgbo , (*processGlobal1I.openSsl_pWaveByeF)(    (SSL*)handleP.cNoteF() ) ) }
+                _IO_
             {
             case ifcIDtYPEhANDLE_SOCKET :
             }
@@ -119,11 +130,13 @@
 
                 #elif defined( __NT__ )
                 #if defined( __OS2__ )
+                _IO_
             {
             case ifcIDtYPEhANDLE_CONSOLEhANDLER :
             }
                 break ;
                 BOSdOnOTtEST( WHATgbo , SetUnhandledExceptionFilter( (LPTOP_LEVEL_EXCEPTION_FILTER)handleP.osF( ifcIDtYPEhANDLE_EXCEPTIONhANDLER ) ) )
+                _IO_
             {
             case ifcIDtYPEhANDLE_EXCEPTIONhANDLER :
             }
@@ -131,6 +144,7 @@
                 BOSpOOP
                 BOS( WHATgbo , BOSoK , DeleteObject( (HGDIOBJ)handleP.osh ) )
                 TINSL
+                _IO_
             {
             case ifcIDtYPEhANDLE_DRAWINGtOOL :
             }
@@ -158,6 +172,7 @@
                     //U:
                 
                 #if defined( __OS2__ )
+                _IO_
             {
             case ifcIDtYPEhANDLE_DRAWpRIVATE :
             }
@@ -178,6 +193,7 @@
                     #if defined( __OS2__ )
                 {
                 if( !handleP.cNote )
+                _IO_
             {
             case ifcIDtYPEhANDLE_WINDOW :
             }
@@ -197,6 +213,7 @@
                     //U:
                     
                 #ifdef __OS2__
+                _IO_
             {
             case ifcIDtYPEhANDLE_FILEwAIT :
             }
@@ -218,6 +235,7 @@
                     //U:
                     
                 #ifdef __OS2__
+                _IO_
             {
             case ifcIDtYPEhANDLE_FILEfIND :
             }
@@ -233,6 +251,7 @@
                     //U:
                     
                 #ifdef __OS2__
+                _IO_
             {
             case ifcIDtYPEhANDLE_FILEfINDbASE :
             }
@@ -250,6 +269,7 @@
                     #ifdef __OS2__
                 {
                 if( handleP.idType != ifcIDtYPEhANDLE_PROCESS || !handleP.cNote )
+                _IO_
             {
             case ifcIDtYPEhANDLE_THREAD         :
             case ifcIDtYPEhANDLE_PROCESS        :
@@ -260,6 +280,7 @@
 
                 BOSpOOP
                 BOS( WHATgbo , BOSoK , UnmapViewOfFile( (voidT*)handleP.cNote ) )
+                _IO_
             {
             case ifcIDtYPEhANDLE_FILEmAPPING    :
             }
@@ -397,6 +418,7 @@
                     BOSdOnOTtEST( WHATgbo , DosFreeMem( (voidT*)handleP.cNote ) )
 
                 #ifdef __OS2__
+                _IO_
             {
             case ifcIDtYPEhANDLE_SHAREDmEMORY :
             }
@@ -448,6 +470,7 @@
                     TINSL
                 {
                 if( handleP.osh > 2 ) //DO NOT CLOSE THE STANDARD FILE HANDLES 0 , 1 , 2 (STDIN STDOUT STDERR)
+                _IO_
             {
             case ifcIDtYPEhANDLE_FILE :
             }
@@ -459,6 +482,7 @@
                 #elif defined( __NT__ )
                     //U::
                 #ifdef __OS2__
+                _IO_
             {
             case ifcIDtYPEhANDLE_DLL :
             }
@@ -552,11 +576,13 @@
                 listingC* pListing = (listingC*)handleP.osh ;
 
                 //__( thirdC::dosPriorityIF( tinP ) - ifcTHREADpRIORITY_SPINLOCK ) ;
+                _IO_
             {
             case ifcIDtYPEhANDLE_LISTING :
             }
                 break ;
                 ((linkedC*)handleP.osh)->ungrabF( tinP ) ;
+                _IO_
             {
             case ifcIDtYPEhANDLE_LINKED :
             }
@@ -566,6 +592,7 @@
             }
                 break ;
                 sadamsC::pSadamsIF( tinP )->unlockF( tinP , handleP ) ;
+                _IO_
             {
             case ifcIDtYPEhANDLE_sadamsC :
         {
