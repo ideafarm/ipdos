@@ -10,6 +10,14 @@
 }
     return ostEscaped ;
 
+    }
+        ether.delF( tinP , postBodyP ) ;
+        ether.delF( tinP , psttAgentP ) ;
+        ether.delF( tinP , psttQueryKVP ) ;
+        ether.delF( tinP , psttNameP ) ;
+    {
+    if( bFailP )
+
     ether.delF( tinP , psttAction ) ;
     }
         ether.delF( tinP , pstt1e ) ;
@@ -173,6 +181,8 @@
         //LOGrAW( T("\"")+T(psttl)+T("\"\r\n") ) ; //U::        
         }
             }
+                break ;
+                bFailP = 1 ;
                 ether.traceF( tinP , T("readRequestF: could not read socket 175") ) ;
                 POOPRqUIET
             {
@@ -196,7 +206,7 @@
 
     __( bCloseP ) ;
 {
-/*1*/osTextT httpServerC::readRequestF( tinS& tinP , strokeS*& psttNameP , strokeS*& psttQueryKVP , switchC& swKVP , strokeS*& psttLeverKVP , strokeS*& psttAgentP , osTextT*& postBodyP , boolT& bCloseP , socketC* psoP , const osTextT* const postEscapeP )/*1*/
+/*1*/osTextT httpServerC::readRequestF( tinS& tinP , boolT& bFailP , strokeS*& psttNameP , strokeS*& psttQueryKVP , switchC& swKVP , strokeS*& psttLeverKVP , strokeS*& psttAgentP , osTextT*& postBodyP , boolT& bCloseP , socketC* psoP , const osTextT* const postEscapeP )/*1*/
 /**/
 */
 /*

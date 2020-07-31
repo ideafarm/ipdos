@@ -1111,11 +1111,14 @@ DONEdRIVENsERVER( tmcHttpServerF )
             if( psttName && psttName->idAdam )
             ZE( boolT , bFile ) ;
 
+            if( bFail ) break ;
+
             ___( postBody ) ;
             ___( psttAgent ) ;
             ___( psttLeverKV ) ;
             ___( psttName ) ;
-            idEscaped = meP.readRequestF( tinP , psttName , psttQueryKV , *pswKV , psttLeverKV , psttAgent , postBody , bClose , psoP , pHttpRawCommandServerCBFP ? "!@" : 0 ) ;
+            idEscaped = meP.readRequestF( tinP , bFail , psttName , psttQueryKV , *pswKV , psttLeverKV , psttAgent , postBody , bClose , psoP , pHttpRawCommandServerCBFP ? "!@" : 0 ) ;
+            ZE( boolT , bFail ) ;
             ZE( boolT , bClose ) ;
             ZE( osTextT* , postBody ) ;
             ZE( strokeS* , psttAgent ) ;
