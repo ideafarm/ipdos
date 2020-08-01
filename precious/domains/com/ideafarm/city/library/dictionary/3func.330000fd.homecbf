@@ -143,8 +143,7 @@
         static countT pIdSnipBalance[] =
 
         } ;
-            ifcIDsNIPpREDEFINED_REDIRECTlOCATIONfACTORY3        // ALL EXTERNAL VISITORS ARE HANDLED BY factory3 DURING DEVELOPMENT OF THE LOAD BALANCING CODE
-            //ifcIDsNIPpREDEFINED_REDIRECTlOCATIONfACTORY1        // U::FOR CRAFTWORK ONLY
+            ifcIDsNIPpREDEFINED_REDIRECTlOCATIONfACTORY1
         {
         static countT pIdSnipNoBalance[] =
 
@@ -155,7 +154,7 @@
             ;
                 : ifcIDhTTPlOADmODE_bALANCE
                 ? ifcIDhTTPlOADmODE_NObALANCE
-            idLoadMode = psttHttpLoadMode && !etThread.strCompareF( tinP , psttHttpLoadMode , T("nobalance") )
+            idLoadMode = bSandbox || ( psttHttpLoadMode && !etThread.strCompareF( tinP , psttHttpLoadMode , T("nobalance") ) )
             ZE( strokeS* , psttHttpLoadMode ) ; etThread.querySettingF( tinP , psttHttpLoadMode , T("!ipdos.serve.http.load.mode")  ) ; ___( psttHttpLoadMode ) ;
         {
         if( !idLoadMode )

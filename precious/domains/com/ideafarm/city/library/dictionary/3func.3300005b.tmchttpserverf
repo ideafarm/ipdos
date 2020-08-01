@@ -983,7 +983,7 @@ DONEdRIVENsERVER( tmcHttpServerF )
                     DEL( pFW ) ;
                     }
                         }
-                            //etThread.traceF( tinP , TF3(meP.idPortF(tinP),flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,9)+T(nnPeerP)+T("    wrote   file window [cbw]:    ")+TF2(cbw,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) , flTRACE_null , ifcIDtRACEdIVERT_7 ) ;
+                            etThread.traceF( tinP , TF3(meP.idPortF(tinP),flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,9)+T(nnPeerP)+T("    wrote   file window [cbw]:    ")+TF2(cbw,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) , flTRACE_null , ifcIDtRACEdIVERT_7 ) ;
 
                             }
                                 }
@@ -997,12 +997,12 @@ DONEdRIVENsERVER( tmcHttpServerF )
                             {
                             IFsCRATCH
 
-                            //etThread.traceF( tinP , TF3(meP.idPortF(tinP),flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,9)+T(nnPeerP)+T("    writing file window [cbw]:    ")+TF2(cbw,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) , flTRACE_null , ifcIDtRACEdIVERT_7 ) ;
+                            etThread.traceF( tinP , TF3(meP.idPortF(tinP),flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,9)+T(nnPeerP)+T("    writing file window [cbw]:    ")+TF2(cbw,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) , flTRACE_null , ifcIDtRACEdIVERT_7 ) ;
                         {
                         else
                         }
                             break ;
-                            //etThread.traceF( tinP , TF3(meP.idPortF(tinP),flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,9)+T(nnPeerP)+T("    all file windows have been written") , flTRACE_null , ifcIDtRACEdIVERT_7 ) ;
+                            etThread.traceF( tinP , TF3(meP.idPortF(tinP),flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,9)+T(nnPeerP)+T("    all file windows have been written") , flTRACE_null , ifcIDtRACEdIVERT_7 ) ;
                         {
                         if( !pbw || !cbw )
 
@@ -1043,7 +1043,7 @@ DONEdRIVENsERVER( tmcHttpServerF )
 
                     sCountC cbBody( tinP , etThread , pcLoHi , SC << 1 ) ;
                     countT pcLoHi[] = { pFW->cbFileLoF() , pFW->cbFileHiF() } ;
-                    //etThread.traceF( tinP , TF3(meP.idPortF(tinP),flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,9)+T(nnPeerP)+T("    serving file [cbFileLo,cbFileHi]:    ")+TF3(pFW->cbFileLoF(),flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,9)+TF3(pFW->cbFileHiF(),flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,9) , flTRACE_null , ifcIDtRACEdIVERT_7 ) ;
+                    etThread.traceF( tinP , TF3(meP.idPortF(tinP),flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,9)+T(nnPeerP)+T("    serving file [cbFileLo,cbFileHi]:    ")+TF3(pFW->cbFileLoF(),flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,9)+TF3(pFW->cbFileHiF(),flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,9) , flTRACE_null , ifcIDtRACEdIVERT_7 ) ;
                 {
                 else
                 }
@@ -1078,7 +1078,7 @@ DONEdRIVENsERVER( tmcHttpServerF )
                     SCOOPS
                 {
                 IFsCRATCH
-                //etThread.traceF( tinP , TF3(meP.idPortF(tinP),flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,9)+T(nnPeerP)+T("    attempting to open file:    ")+tFileIn , flTRACE_null , ifcIDtRACEdIVERT_7 ) ;
+                etThread.traceF( tinP , TF3(meP.idPortF(tinP),flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,9)+T(nnPeerP)+T("    attempting to open file:    ")+tFileIn , flTRACE_null , ifcIDtRACEdIVERT_7 ) ;
                 TN( tFileIn , "" ) ; tFileIn = T("////factory9/x/archive")+T(psttName) ;
                 //TN( tFileIn , "" ) ; tFileIn = T("////factory3/e/archive")+T(psttName) ;
 
@@ -1112,6 +1112,8 @@ DONEdRIVENsERVER( tmcHttpServerF )
             ZE( boolT , bFile ) ;
 
             if( bFail ) break ;
+
+            etThread.traceF( tinP , T(psttName)+T(!bClose?"        connection will be kept open":"        CONNECTION WILL BE CLOSED") ) ;
 
             ___( postBody ) ;
             ___( psttAgent ) ;

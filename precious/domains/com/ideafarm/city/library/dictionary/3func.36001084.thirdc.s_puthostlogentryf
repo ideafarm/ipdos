@@ -11,7 +11,7 @@
     s_readF( tinP , &osti , 1 , hso ) ;
     ZE( osTextT , osti ) ;
     s_writeF( tinP , hso , tOut , tOut.csF( tinP ) ) ;
-    TN( tOut , "" ) ; tOut = T("GET ")+T("///ideafarm/ephemeral/domains/com/ideafarm/dynamic/host.log.html?entry=")+T(postP)+T(" HTTP/1.0\r\n\r\n") ;
+    TN( tOut , "" ) ; tOut = T("GET ")+T("///ideafarm/ephemeral/domains/com/ideafarm/dynamic/host.log.html?entry=")+T(postP)+T(" HTTP/1.1\r\n\r\n") ;   //20200731@1556: CHANGED FROM HTTP/1.0 TO HTTP/1.1 WITHOUT ANALYSIS
     s_connectF( tinP , hso , 0x50 , s_nicNameF( tinP , WWWiDEAFARMcOM ) ) ;
     s_socketIF( tinP , hso ) ;
     handleC hso( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_SOCKET ) ;
