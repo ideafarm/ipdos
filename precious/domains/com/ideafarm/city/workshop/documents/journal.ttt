@@ -7638,8 +7638,7 @@ I have other business to attend to today and tomorrow, but plan to continue to w
 
 
 
-
-
+   !subjob C: enhance fileC fileWindowC boxC etc to take a string of strings for the file name
    all accessed files on \\factory3\ should be mirrored on \\factory4 and \\factory5
    all code that accesses \\factory3\d\... should be edited to failover to \\factory4\... and then \\factory5\...
    factory3 is currently a SPF
@@ -7654,9 +7653,344 @@ I have other business to attend to today and tomorrow, but plan to continue to w
 
 
 
-  
 
 
+
+     there might be devils in details for this
+    for read, the cycle succeeds if 1 name is read, i.e. if the requested data is obtained
+    for write, the cycle succeeds if 1 or more names were written     
+    each cTry corrsponds to wo cycle through the names
+   cTries semantics
+   the names are processed in the order specified
+   there is no healing
+   this is a simple mirroring functionality
+    when reading, reads from the woth name that it can open
+    when writing, writes to all names
+   wish
+  think
+ playcraft
+ objective: no SPF
+!subjob C: enhance fileC fileWindowC boxC etc to take a string of strings for the file name
+
+
+
+
+
+
+
+!job E: many file shares are not visible
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    | 41cd0b2  | 1'th: 93d1.a5020063    voidT etherC::strMakeF( tinS& tinP , strokeS*& psttOutP , const strokeS* const psttInP , const countT csttExtraP )
+    | 41cd0b2  | 41'th: d570.01050063    osTextT socketC::readWoLineF( tinS& tinP , strokeS*& psttP , const countT csttEstimateP , const osTextT* const postEscapeP )
+   asking for a huge pool drop: 30010004
+  see
+   | 
+   | 000b4165.ed71f8d1 ! 00000000.00000000 @ 00000000.00000000 # c        $ e04      % tmcHttpServerF   | tmcHttpServerF / ++++ 
+   | 000b4165.ed71fd16 ! 00000000.00000445 @ 00000000.00000445 # c        $ e04      % tmcHttpServerF   | napkinC::napkinC: could not allocate pbNapkin [idLineCtP,idiFileCtP,cbP,postP]: e3d1 a5020063 30010004 sexC/data/adam.temp.b7500015.06b2.poolC.slots.00000014.slotsC.sex.0000000a.0.14.a
+   | 000b4165.ed71fd16 ! 00000000.00000445 @ 00000000.00000000 # c        $ e04      % tmcHttpServerF   | napkinC::napkinC: tracing pool tallies
+   | 000b4165.ed71fd16 ! 00000000.00000445 @ 00000000.00000000 # c        $ e04      % tmcHttpServerF   | pool tallies for the current pool:    adam.temp.b7500015.06b2
+   | 
+   | cOwned        : 0
+   | cFree         : 0
+   | cTotal        : 0
+   | cOwnedPerTuck : 0
+   | 
+   | cbOwned       : 0
+   | cbFree        : 0
+   | cbTotal       : 0
+   | cbOwnedPerTuck: 0
+   | 
+   | owned:      bytes       #slots      minsize     maxsize     file        line        file2       line2
+   | free:       bytes       #slots      ffffffff    ffffffff    ffffffff    ffffffff    cbSlot      cSlots
+   | 
+   | 
+   | 000b4165.ed71fd16 ! 00000000.00000445 @ 00000000.00000000 # c        $ e04      % tmcHttpServerF   | napkinC::napkinC: traced  pool tallies; now calling BLAMMO
+   | 
+   | 
+   | //
+   | // Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+   | //
+   | // This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+   | // Respecting the rights of other people is an important part of empowering one another.
+   | //
+   | 
+   | Subject: IPDOS (tm) Exception Event
+   | 
+   | IdeaFarm (tm) Piggyback Distributed Operating System
+   | http://ideafarm.com
+   | Wo'O Ideafarm
+   |  
+   | An BLAMMO (3740dddd) exception occured while executing thread
+   | tmcHttpServerF at 26997467 (offset from in: e4db6937)
+   | codes [-8,7]: 4205ff51cf3b2567 b8c4424533cc8e31
+   | POOP: 0
+   | bCleanFailed: 0
+   | tinP.pAdamGlobal1->flagsAdamState: aa10000e
+   | tinP.pAdamGlobal1->idLineBlammo: c53
+   | tinP.pAdamGlobal1->idiFileBlammo: 300e3063
+   | tinP.pAdamGlobal1->idLineBlammoCt: 0
+   | tinP.pAdamGlobal1->idiFileBlammoCt: 0
+   | processGlobal1I.idLineBlammo: c53
+   | processGlobal1I.idiFileBlammo: 300e3063
+   | processGlobal1I.idLineBlammoCt: 0
+   | processGlobal1I.idiFileBlammoCt: 0
+   | cGrabbed: 2
+   | tinP.cGrabitC_set: 2d1
+   | tinP.cGrabitC_reset: 2d1
+   | tinP.cGrabitC_registered: 2d1
+   | tinP.cGrabitC_unregistered: 2d1
+   | brcLath: 0
+   | idLine_brcLath: 99e
+   | idiFile_brcLath: b5010053
+   | U::debug [tinSnap.monitor.idWhat1]: 7340dddd
+   | idWhat1: GObOSoTHER
+   | idWhat2: 10053
+   | postTell: "napkinC::napkinC: traced  pool tallies; now calling BLAMMO"
+   | postTellWait: ""
+   | postTellIf: ""
+   | etherC::pcPhaseLowI[1]: 5
+   | etherC::pcPhaseLowI[2]: 2
+   | etherC::pcPhaseLowI[3]: 0
+   | etherC::pcPhaseLowI[4]: 2
+   | etherC::pcPhaseLowI[5]: 2
+   | etherC::pcPhaseLowI[6]: 2
+   | etherC::pcPhaseLowI[7]: 2
+   | etherC::pcPhaseLowI[8]: 2
+   | etherC::pcPhaseLowI[9]: 2
+   | etherC::pcPhaseLowI[a]: 2
+   | etherC::pcPhaseLowI[b]: 2
+   | etherC::pcPhaseLowI[c]: 2
+   | etherC::pcPhaseLowI[d]: 2
+   | etherC::pcPhaseLowI[e]: 2
+   | etherC::pcPhaseLowI[f]: ffffffff
+   | etherC::pcPhaseLowI[01]: ffffffff
+   | processGlobal1I.pcUtility[0]: 3beeffff
+   | processGlobal1I.pcUtility[1]: c716
+   | processGlobal1I.pcUtility[2]: 02252ac
+   | processGlobal1I.pcUtility[3]: 5fd72ac
+   | processGlobal1I.pcUtility[4]: 206b1ac
+   | processGlobal1I.pcUtility[5]: d445e9c
+   | processGlobal1I.pcUtility[6]: 0
+   | processGlobal1I.pcUtility[7]: 0
+   | processGlobal1I.pcUtility[8]: 0
+   | processGlobal1I.pcUtility[9]: 0
+   | processGlobal1I.pcUtility[a]: 0
+   | processGlobal1I.pcUtility[b]: 0
+   | processGlobal1I.pcUtility[c]: 0
+   | processGlobal1I.pcUtility[d]: 0
+   | processGlobal1I.pcUtility[e]: 0
+   | processGlobal1I.pcUtility[f]: 0
+   | etherC::pcUtilityI[0]: 0
+   | etherC::pcUtilityI[1]: 0
+   | etherC::pcUtilityI[2]: 0
+   | etherC::pcUtilityI[3]: 0
+   | etherC::pcUtilityI[4]: 0
+   | etherC::pcUtilityI[5]: 0
+   | etherC::pcUtilityI[6]: 0
+   | etherC::pcUtilityI[7]: 0
+   | etherC::pcUtilityI[8]: 0
+   | etherC::pcUtilityI[9]: 0
+   | etherC::pcUtilityI[a]: 0
+   | etherC::pcUtilityI[b]: 0
+   | etherC::pcUtilityI[c]: 0
+   | etherC::pcUtilityI[d]: 0
+   | etherC::pcUtilityI[e]: 0
+   | etherC::pcUtilityI[f]: 0
+   | tinP.pcUtility[0]: 0
+   | tinP.pcUtility[1]: 0
+   | tinP.pcUtility[2]: 0
+   | tinP.pcUtility[3]: 0
+   | tinP.pcUtility[4]: 0
+   | tinP.pcUtility[5]: 0
+   | tinP.pcUtility[6]: 0
+   | tinP.pcUtility[7]: 0
+   | tinP.pcUtility[8]: 0
+   | tinP.pcUtility[9]: 0
+   | tinP.pcUtility[a]: 0
+   | tinP.pcUtility[b]: 0
+   | tinP.pcUtility[c]: 0
+   | tinP.pcUtility[d]: 0
+   | tinP.pcUtility[e]: 0
+   | tinP.pcUtility[f]: 0
+   | tinP.pPanLifiRecurseGrabbedLevel[0](pandle,idLineGrab,idiFileGrab,cRecurse): 4402301 c57 01050063 0
+   | tinP.pPanLifiRecurseGrabbedLevel[5](pandle,idLineGrab,idiFileGrab,cRecurse): 4b0deb61 624 0101e063 0
+   | tinP.pPanLifiRecurseGrabbedLevel[a](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[f](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[41](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[91](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[e1](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[32](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[82](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[d2](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[23](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[73](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[c3](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[14](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[64](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[b4](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[05](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[55](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[a5](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[f5](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[46](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[96](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[e6](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[37](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[87](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[d7](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[28](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[78](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[c8](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[19](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[69](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[b9](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[0a](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[5a](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[aa](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[fa](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[4b](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[9b](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[eb](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[3c](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[8c](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[dc](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[2d](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[7d](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[cd](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[1e](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[6e](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[be](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[0f](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[5f](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[af](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[ff](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[401](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[901](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[e01](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[311](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[811](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[d11](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[221](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[721](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[c21](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[131](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[631](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[b31](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[041](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pAdamGlobal1->_thirdC_.cAllKidThreads: c
+   | tinP.cKidThreads: 0
+   | cAllOrphanThreadsI: 0
+   | cDllLoaded: 1
+   | dll load history: d:\ideafarm.home.102\ephemeral\domains\com\ideafarm\city\park\exedll\1\hover\ideafarm.00000dab.ipdos-wd
+   | idThread: e04
+   | base os user name: "WoIdeafarm"
+   | processGlobal1I.idHome: 102
+   | processGlobal1I.idAdamRoot: b7500015
+   | pAdamGlobal1->idAdam: b7500015
+   | idPhaseProcess: PROLOGaLLgLOBALScONSTRUCTED
+   | idPhaseAdamI: WORKING
+   | idPhase1: WORKING
+   | idPhase2: 0
+   | idPhase3: 0
+   | idLineMile: b510
+   | idiFileMile: 0
+   | bFixed: 0
+   | cFixed: 0
+   | cNest: e
+   |  
+   | Call Nest:
+   |  
+   | 41cd0b2  | 99'th: 8a62.c2110053    voidT thirdC::dosRaiseExceptionIF( tinS& tinP , const countT idExceptionP , const countT* const pcArgsP , const countT ccArgsP )
+   | 41cd0b2  | 02'th: ae00.300e3063    napkinC::napkinC( tinS& tinP , const countT idLineCtP , const countT idiFileCtP , const byteT* const pbBitsCtP , const osTextT* const postP , const handleC* const phFileP , countT cbP , const countT idHowP , const flagsT flagsP , countT cTriesP , countT idMemorySpaceP )
+   | 41cd0b2  | 21'th: 9910.3000e063    sexC::sexC( tinS& tinP , const countT idLineCtP , const countT idiFileCtP , const byteT* const pbBitsCtP , const countT idLineNewP , const countT idiFileNewP , const osTextT* const postNameP , const countT expCbSlotP , const countT expSlotsP , const flagsT flagsP , const countT idStateSpaceP , countT idMemorySpaceP , poolC* const pPoolContainsMeP ) :
+   | 41cd0b2  | 1'th: ce30.0101e063    byteT* slotsC::newF( tinS& tinP , const countT idLineP , const countT idiFileP , const flagsT flagsP )
+   | 41cd0b2  | 1'th: 0a30.4002e063    voidT poolC::newF( tinS& tinP , const countT idLineP , const countT idiFileP , byteT*& pbP , const countT cbP , const flagsT flagsP )
+   | 41cd0b2  | 1'th: 1930.4002e063    voidT poolC::newF( tinS& tinP , const countT idLineP , const countT idiFileP , byteT*& pbP , const countT cbP , const flagsT flagsP )
+   | 41cd0b2  | 1'th: 9730.4002e063    voidT poolC::newF( tinS& tinP , const countT idLineP , const countT idiFileP , byteT*& pbP , const countT cbP , const flagsT flagsP )
+   | 41cd0b2  | 1'th: 93d1.a5020063    voidT etherC::strMakeF( tinS& tinP , strokeS*& psttOutP , const strokeS* const psttInP , const countT csttExtraP )
+   | 41cd0b2  | 41'th: d570.01050063    osTextT socketC::readWoLineF( tinS& tinP , strokeS*& psttP , const countT csttEstimateP , const osTextT* const postEscapeP )
+   | 41cd0b2  | c1'th: a292.7005a063    osTextT httpServerC::readRequestF( tinS& tinP , strokeS*& psttNameP , strokeS*& psttQueryKVP , switchC& swKVP , strokeS*& psttLeverKVP , strokeS*& psttAgentP , osTextT*& postBodyP , boolT& bCloseP , socketC* psoP , const osTextT* const postEscapeP )
+   | 41cd0b2  | 33'th: 5e32.b5000033    TASKdRIVENsERVER( tmcHttpServerF )
+   | 41cd0b2  | 47'th: 3e32.b5000033    TASKdRIVENsERVER( tmcHttpServerF )
+   | 41cd0b2  | 1'th: 3e32.b5000033    TASKdRIVENsERVER( tmcHttpServerF )
+   | 41cd0b2  | 6'th: 1960.d0000033    countT __export threadLocalStorageF( const countT idTypeP , kidFT pThreadWorkF , countT cArgP , countT cHowP , const osTextT** ppostHowP , countT hWindowingClientIP , countT hPreviousWindowingClientP , osTextT* postP , countT idCmdShowP )
+   | 
+   |  
+   | Execution Steps:
+   |  
+   |  
+   | idLine: c530
+   | idiFile: 300e3063
+   | idLineCt: 0000
+   | idiFileCt: 0
+   |  
+   | Probable defect location: IdeaFarm (tm) Cell b7500015/b7500015.
+   |  
+   | Try this woth:
+   | Use the Services icon to stop the IdeaFarm driver.
+   | Reboot if necessary.  Start the driver.
+   |  
+   | Please always report to www.ideafarm.com that this information appeared,
+   | so that the quality of this software can be improved for you and also for others.
+   | 
+   | BLAMMO at c53(300e3063) ct at 0(0) on thread tmcHttpServerF**************************** BLAMMO ******************************
+   | 
+  listing
+ playcraft
+ changed: ?
+!job B: http gone factory3
 
 
 
@@ -7672,6 +8006,9 @@ I have other business to attend to today and tomorrow, but plan to continue to w
 =========================================================================================================================================================
 =========================================================================================================================================================
 
+  cool ; it works!
+ playcraft
+!job C: eliminate http file service SPF  
   this would be fun, but nawwwh
      test this by rebooting the listener or the talker or unplugging a nic cable
     if the connection fails, retry is done until it is reestablished
