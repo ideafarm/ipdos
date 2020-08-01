@@ -1069,25 +1069,41 @@ DONEdRIVENsERVER( tmcHttpServerF )
 
                     TN( tBody , "The page (or other resource) that you requested does not exist here.\r\n\r\nIf you think that this is our error, please let us know.\r\n" ) ;
 
-                    etThread.traceF( tinP , TF3(meP.idPortF(tinP),flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,9)+T(nnPeerP)+T("    error: could not open file:    ")+tFileIn ) ;
+                    }
+                        etThread.traceF( tinP , TF3(meP.idPortF(tinP),flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,9)+T(nnPeerP)+T("    error: could not open file:    ")+*pptFileIn[offf] ) ;
+                    {
+                    for( countT offf = 0 ; offf < sizeof pptFileIn / sizeof pptFileIn[ 0 ] ; offf ++ )
                 {
                 if( !pFW )
 
                 }
                     }
-                        DEL( pFW ) ;
-                        POOPRqUIET
+                        }
+                            DEL( pFW ) ;
+                            POOPRqUIET
+                        {
+                        else
+                        if( !POOP ) break ;
+                        pFW = new( 0 , tinP , LF ) fileWindowsC( tinP , *tinP.pEtScratch , *pptFileIn[ offf ] , flFILEwINDOW_null , 1 ) ; ___( pFW ) ;
+                        SCOOPS
                     {
-                    if( POOP )
-
-                    pFW = new( 0 , tinP , LF ) fileWindowsC( tinP , *tinP.pEtScratch , tFileIn , flFILEwINDOW_null , 1 ) ; ___( pFW ) ;
-
-                    SCOOPS
+                    IFsCRATCH
+                    etThread.traceF( tinP , TF3(meP.idPortF(tinP),flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,9)+T(nnPeerP)+T("    attempting to open file:    ")+*pptFileIn[offf] ) ;
                 {
-                IFsCRATCH
-                etThread.traceF( tinP , TF3(meP.idPortF(tinP),flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,9)+T(nnPeerP)+T("    attempting to open file:    ")+tFileIn ) ;
-                TN( tFileIn , "" ) ; tFileIn = T("////factory9/x/archive")+T(psttName) ;
-                //TN( tFileIn , "" ) ; tFileIn = T("////factory3/e/archive")+T(psttName) ;
+                for( countT offf = 0 ; offf < sizeof pptFileIn / sizeof pptFileIn[ 0 ] ; offf ++ )
+
+                } ;
+                    &tFileIn9z ,
+                    &tFileIn9y ,
+                    &tFileIn9x ,
+                    &tFileIn3e ,
+                {
+                textC* pptFileIn[]=
+
+                TN( tFileIn9z , "" ) ; tFileIn9z = T("////factory9/z/archive")+T(psttName) ;
+                TN( tFileIn9y , "" ) ; tFileIn9y = T("////factory9/y/archive")+T(psttName) ;
+                TN( tFileIn9x , "" ) ; tFileIn9x = T("////factory9/x/archive")+T(psttName) ;
+                TN( tFileIn3e , "" ) ; tFileIn3e = T("////factory3/e/archive")+T(psttName) ;
 
                 ZE( fileWindowsC* , pFW ) ;
             {
