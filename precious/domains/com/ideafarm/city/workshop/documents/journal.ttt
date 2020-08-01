@@ -7588,6 +7588,42 @@ I have other business to attend to today and tomorrow, but plan to continue to w
 
 
 
+
+
+    i might also divert based upon peer IP, to reduce latency for distant peers
+    but excess traffic is diverted to Rackspace CDN
+    traffic normally is handled by my servers to keep bandwidth costs down
+    if all of my servers go dark, ideafarm.com is still served by Rackspace (but talk is not updated)
+    set up factoryR.ideafarm.com as wo of the values of ideafarm.com
+    dynamic loading to send surplus incoming reqeusts to factoryR.ideafarm.com
+   objectives
+    use Rackspace's CDN as just another factoryX.ideafarm.com
+   approach
+  think
+ playcraft
+ objective: speed, with unlimited traffic capacity
+!job C: speed and scaling
+
+
+
+
+    wrapping all of this into a queryFileCacheF and storeIntoFileCacheF member functions for httpServerC
+    retrying query when wo or more slots are pending
+    replacing that slot
+    using setIfEqAM to set the upper countT of the target tickCount to -1 to indicate pending
+    adding a static member to httpServerC
+    defining a struct that knows how to compare itself
+   this will involve
+  think
+    ok. osTimeTicksSinceBootIF now returns a 04 bit tick value, so won't wrap in my lifetime
+    ignore time wrap
+    uses computer time osTimeTicksSinceBootIF rather than ifc time 
+    if not found, replaces least recently used
+    uses setIfZeAM rather than grabC for serialization
+    fixed size array whose size can be set by parameter of httpServerC ct
+    single cache that is shared by all instances of httpServerC in a process
+   wish
+  think
   set up dut
  playcraft
  objective: page load speed ; reduce disk io
@@ -7598,6 +7634,17 @@ I have other business to attend to today and tomorrow, but plan to continue to w
   
 
 
+
+
+
+
+
+
+
+
+
+
+  
 
 
 
@@ -7615,6 +7662,36 @@ I have other business to attend to today and tomorrow, but plan to continue to w
 =========================================================================================================================================================
 =========================================================================================================================================================
 
+  this would be fun, but nawwwh
+     test this by rebooting the listener or the talker or unplugging a nic cable
+    if the connection fails, retry is done until it is reestablished
+   each process opens a connection to that listener and maintains it until the process terminates
+   approach: a single console program that accepts connections
+  think
+    [timestamp] factory4 [trace entry including local timestamp]
+    [timestamp] factory5 [trace entry including local timestamp]
+    [timestamp] factory3 [trace entry including local timestamp]
+    [timestamp] factory1 [trace entry including local timestamp]
+   i would like to see the timing of events and be able to watch them occur in a console window similar to:
+  think
+ playcraft
+ objective: glass walls
+!job C: single trace facility for multiple computers over WAN
+  cool ; found wo
+  see: my servers must be on the whitelist!
+    9639f662        38.111.147.105
+    8639f662        38.111.147.104
+    7639f662        38.111.147.103
+   blocked
+  listing
+   conj: factory3 factory4 are not answering load balancer: 
+  think
+   pressing the button always gets slowly to factory5
+   captcha displays quickly
+  see
+ playcraft
+ changed: captcha
+!job B: http: redirect seems to always resolve to factory5
   nawwh
  playcraft
  objective: glass walls

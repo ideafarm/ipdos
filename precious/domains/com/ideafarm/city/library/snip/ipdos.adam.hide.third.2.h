@@ -28603,7 +28603,7 @@ applications should avoid using thirdC objects
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34007.thirdC.osTimeSubtractF!||
  voidT osTimeToOldTimeF( tinS& tinP , countT& msP , countT& ssP , countT& mmP , countT& hhP , countT& dP , countT& mP , sCountT& yP , countT& dowP , const countT time1P , const sCountT time2P = 0 , const flagsT flagsP = flOStIMEtOoLDtIME_null ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34090.thirdC.osTimeToOldTimeF!||
- static countT osTimeTicksSinceBootIF( voidT ) ;
+ static count04T osTimeTicksSinceBootIF( voidT ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.340f6.thirdC.osTimeTicksSinceBootIF!||
  voidT osTimeOldUtcToOldLocalF( tinS& tinP , countT& msLP , countT& ssLP , countT& mmLP , countT& hhLP , countT& dLP , countT& mLP , sCountT& yLP , countT& dowLP , const countT msUP , const countT ssUP , const countT mmUP , const countT hhUP , const countT dUP , const countT mUP , const sCountT yUP , const countT dowUP , const countT idZoneP ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3412e.thirdC.osTimeOldUtcToOldLocalF!||
