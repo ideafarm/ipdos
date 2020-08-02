@@ -7638,6 +7638,25 @@ I have other business to attend to today and tomorrow, but plan to continue to w
 
 
 
+
+
+
+
+  !subjob C: diskFileExistsF: enhance to accept string of strings
+   the code will need to be written carefully so that it heals (i.e. code must function correctly if the locations are inconsistent)
+   i like this idea
+  think
+    diskMoveFileOrDirF: each pair is processed
+    boxZapF: tries to zap every name
+    diskFileExistsF: returns true iff exists in 1 or more names
+   what string of strings semantics would work for this application for these 3 api's?
+  think
+   tinP.pEtScratch->diskMoveFileOrDirF( tinP , tFileBlock , tFileAllowWoMore , 1 ) ;
+   tinP.pEtScratch->boxZapF( tinP , tFileAllowWoMore , 1 ) ; if( POOP ) { POOPR }
+   boolT bHuman = diskFileExistsF( tinP , tFileHuman ) ;
+  ifcDrivenServerF
+   inspect code to do this without enhancing file io api
+  think
    !subjob C: enhance fileC fileWindowC boxC etc to take a string of strings for the file name
    all accessed files on \\factory3\ should be mirrored on \\factory4 and \\factory5
    all code that accesses \\factory3\d\... should be edited to failover to \\factory4\... and then \\factory5\...
@@ -7650,12 +7669,35 @@ I have other business to attend to today and tomorrow, but plan to continue to w
 
 
 
+  !subjob B: ISsTRINGoFsTRINGS definition appears to be wrong
+  set up dut
+ playcraft
+ objective: elegance
+!subjob C: diskFileExistsF: enhance to accept string of strings
 
 
 
 
 
+!thrust: debug until all factories run without failure
 
+=========================================================================================================================================================
+=========================================================================================================================================================
+=========================================================================================================================================================
+=========================================================================================================================================================
+====- DONE: BELOW -======================================================================================================================================
+=========================================================================================================================================================
+=========================================================================================================================================================
+=========================================================================================================================================================
+=========================================================================================================================================================
+
+
+  see: yup ; it's wrong
+  set up dut
+ playcraft
+ changed: null
+!subjob B: ISsTRINGoFsTRINGS definition appears to be wrong
+  nawwh
      there might be devils in details for this
     for read, the cycle succeeds if 1 name is read, i.e. if the requested data is obtained
     for write, the cycle succeeds if 1 or more names were written     
@@ -7671,67 +7713,10 @@ I have other business to attend to today and tomorrow, but plan to continue to w
  playcraft
  objective: no SPF
 !subjob C: enhance fileC fileWindowC boxC etc to take a string of strings for the file name
-
-
-
-
-
-
-
+ windows is such shit
 !job E: many file shares are not visible
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  cool ; found wo (leak)
+    pEther->strMakeF( tinP , psttP , 0 , csttEstimateP ) ; ___( psttP ) ;
     | 41cd0b2  | 1'th: 93d1.a5020063    voidT etherC::strMakeF( tinS& tinP , strokeS*& psttOutP , const strokeS* const psttInP , const countT csttExtraP )
     | 41cd0b2  | 41'th: d570.01050063    osTextT socketC::readWoLineF( tinS& tinP , strokeS*& psttP , const countT csttEstimateP , const osTextT* const postEscapeP )
    asking for a huge pool drop: 30010004
@@ -7991,21 +7976,6 @@ I have other business to attend to today and tomorrow, but plan to continue to w
  playcraft
  changed: ?
 !job B: http gone factory3
-
-
-
-!thrust: debug until all factories run without failure
-
-=========================================================================================================================================================
-=========================================================================================================================================================
-=========================================================================================================================================================
-=========================================================================================================================================================
-====- DONE: BELOW -======================================================================================================================================
-=========================================================================================================================================================
-=========================================================================================================================================================
-=========================================================================================================================================================
-=========================================================================================================================================================
-
   cool ; it works!
  playcraft
 !job C: eliminate http file service SPF  
