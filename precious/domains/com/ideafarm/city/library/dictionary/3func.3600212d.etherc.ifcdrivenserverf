@@ -177,32 +177,48 @@
                                 }
                                     }
                                         if( POOP ) { POOPR }
-                                        tinP.pEtScratch->diskMoveFileOrDirF( tinP , tFileBlock , tFileAllowWoMore , 1 ) ;
+                                        tinP.pEtScratch->diskMoveFileOrDirF( tinP , tListBlock , tListAllowWoMore , 1 ) ;
                                         SCOOPS
                                     {
                                     IFsCRATCH
                                 {
                                 if( !bSilent )
 
-                                bSilent = diskFileExistsF( tinP , tFileBlock ) ;
+                                bSilent = diskFileExistsF( tinP , tListBlock ) ;
                             {
                             else
                             }
                                 }
-                                    tinP.pEtScratch->boxZapF( tinP , tFileBlock       , 1 ) ; if( POOP ) { POOPR }
-                                    tinP.pEtScratch->boxZapF( tinP , tFileAllowWoMore , 1 ) ; if( POOP ) { POOPR }
+                                    tinP.pEtScratch->boxZapF( tinP , tListBlock       , 1 ) ; if( POOP ) { POOPR }
+                                    tinP.pEtScratch->boxZapF( tinP , tListAllowWoMore , 1 ) ; if( POOP ) { POOPR }
                                     SCOOPS
                                 {
                                 IFsCRATCH
                             {
                             if( bHuman || bWhite )
 
-                            boolT bWhite = diskFileExistsF( tinP , tFileWhite ) ;
-                            boolT bHuman = diskFileExistsF( tinP , tFileHuman ) ;
-                            TN( tFileWhite       , "" ) ; tFileWhite       = T("////factory3/d/ideafarm.home.102/ephemeral/domains/com/ideafarm/ipdos/attackers/white/")+T(nnPeer) ;
-                            TN( tFileBlock       , "" ) ; tFileBlock       = T("////factory3/d/ideafarm.home.102/ephemeral/domains/com/ideafarm/ipdos/attackers/block/")+T(nnPeer) ;
-                            TN( tFileAllowWoMore , "" ) ; tFileAllowWoMore = T("////factory3/d/ideafarm.home.102/ephemeral/domains/com/ideafarm/ipdos/attackers/allowWoMore/")+T(nnPeer) ;
-                            TN( tFileHuman       , "" ) ; tFileHuman       = T("////factory3/d/ideafarm.home.102/ephemeral/domains/com/ideafarm/ipdos/attackers/human/")+T(nnPeer) ;
+                            boolT bWhite = diskFileExistsF( tinP , tListWhite ) ;
+                            boolT bHuman = diskFileExistsF( tinP , tListHuman ) ;
+
+                            tListWhite += T("////factory5/d/ideafarm.home.102/ephemeral/domains/com/ideafarm/ipdos/attackers/white/")+T(nnPeer) ;
+                            tListWhite += T("////factory4/d/ideafarm.home.102/ephemeral/domains/com/ideafarm/ipdos/attackers/white/")+T(nnPeer) ;
+                            tListWhite += T("////factory3/d/ideafarm.home.102/ephemeral/domains/com/ideafarm/ipdos/attackers/white/")+T(nnPeer) ;
+                            TlIST( tListWhite ) ;
+
+                            tListBlock += T("////factory5/d/ideafarm.home.102/ephemeral/domains/com/ideafarm/ipdos/attackers/block/")+T(nnPeer) ;
+                            tListBlock += T("////factory4/d/ideafarm.home.102/ephemeral/domains/com/ideafarm/ipdos/attackers/block/")+T(nnPeer) ;
+                            tListBlock += T("////factory3/d/ideafarm.home.102/ephemeral/domains/com/ideafarm/ipdos/attackers/block/")+T(nnPeer) ;
+                            TlIST( tListBlock ) ;
+
+                            tListAllowWoMore += T("////factory5/d/ideafarm.home.102/ephemeral/domains/com/ideafarm/ipdos/attackers/allowWoMore/")+T(nnPeer) ;
+                            tListAllowWoMore += T("////factory4/d/ideafarm.home.102/ephemeral/domains/com/ideafarm/ipdos/attackers/allowWoMore/")+T(nnPeer) ;
+                            tListAllowWoMore += T("////factory3/d/ideafarm.home.102/ephemeral/domains/com/ideafarm/ipdos/attackers/allowWoMore/")+T(nnPeer) ;
+                            TlIST( tListAllowWoMore ) ;
+
+                            tListHuman += T("////factory5/d/ideafarm.home.102/ephemeral/domains/com/ideafarm/ipdos/attackers/human/")+T(nnPeer) ;
+                            tListHuman += T("////factory4/d/ideafarm.home.102/ephemeral/domains/com/ideafarm/ipdos/attackers/human/")+T(nnPeer) ;
+                            tListHuman += T("////factory3/d/ideafarm.home.102/ephemeral/domains/com/ideafarm/ipdos/attackers/human/")+T(nnPeer) ;
+                            TlIST( tListHuman ) ;
                         {
 
                         //if( 0x401043a == processGlobal1I.idAdamRoot ) ifcSayIF( T("acceptF returned (2); bSilent: ")+TF1(bSilent) , flSAY_APPEND | flSAY_LOG ) ;

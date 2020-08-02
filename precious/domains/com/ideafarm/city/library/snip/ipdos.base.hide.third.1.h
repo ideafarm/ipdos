@@ -1,4 +1,6 @@
 
+#define COUNTsTRINGSiN(cStringsP,psttP) FORsTRINGSiN8( (psttP) ){ (cStringsP) ++ ; }
+
 #define TlIST(nameP) textC nameP( tinP , TAG( TAGiDnULL ) , flTEXTc_LIST )
 
 #define ifcIDaDAM_TOOLwHITElISTuPDATER                                 0x51000793
@@ -44462,45 +44464,3 @@ arguments
 //
 
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004cf.login END
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004d1.setinoutframe BEGIN
-
-
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-// Respecting the rights of other people is an important part of empowering one another.
-//
-
-/*
-*/
-
-/**/
-
-/*1*//*SETiNoUTfRAME*//*1*/
-
-#define SETiNoUTfRAME                                                                                                                           \
-                                                                                                                                                \
-    countT    cgin  = *ppcGlyph[    offd ] ;                                                                                                    \
-    countT*   psin  =  ppcSize[     offd ] ;                                                                                                    \
-    flagsT*   pfin  =  pFlagsTail[  offd ] ;                                                                                                    \
-    mPoint3S* ptin  =  ppPointTail[ offd ] ;                                                                                                    \
-    mPoint3S* ppin  =  ppPoint[     offd ] ;                                                                                                    \
-                                                                                                                                                \
-    if( ++ offd == 3 ) offd = 1 ; /* OFFSET 0 IS ONLY USED WO TIME ; AFTER THAT ONLY OFFSETS 1 AND 2 ARE USED */                                \
-                                                                                                                                                \
-    countT&   cgout = *ppcGlyph[    offd ] ;                                                                                                    \
-    countT*   psout =  ppcSize[     offd ] ;                                                                                                    \
-    flagsT*   pfout =  pFlagsTail[  offd ] ;                                                                                                    \
-    mPoint3S* ptout =  ppPointTail[ offd ] ;                                                                                                    \
-    mPoint3S* ppout =  ppPoint[     offd ] ;
-
-
-//
-// Respecting the rights of other people is an important part of empowering one another.
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004d1.setinoutframe END
