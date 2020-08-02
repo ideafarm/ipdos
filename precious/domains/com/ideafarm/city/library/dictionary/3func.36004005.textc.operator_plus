@@ -19,9 +19,19 @@
         ether.delF( tinP , psttBoth ) ;
         tr.bConvertible = bConvertible && tP.bConvertible ;
         TN( tr , psttBoth ) ;
-        ether.strFuseF( tinP , psttBoth , (textC&)tP ) ; ___BITScT( psttBoth , 0xd51 ) ;
-        ether.strFuseF( tinP , psttBoth , psttMe , 0 , 0 , strokeS() , 0 , 0 ,/*U::SOUL?*/ ((textC&)tP).csF( tinP ) ) ; ___BITScT( psttBoth , 0xd52 ) ;
+
+        else        { ether.strFuseF(         tinP , psttBoth , tP ) ; ___BITScT( psttBoth , 0xd51 ) ; }
+        if( bList ) { ether.strFuseSeparateF( tinP , psttBoth , tP ) ; ___BITScT( psttBoth , 0xd51 ) ; }
+ 
+        ether.strFuseF( tinP , psttBoth , psttMe , 0 , 0 , strokeS() , 0 , 0 , csttExtra ) ; ___BITScT( psttBoth , 0xd52 ) ;
         ZE( strokeS* , psttBoth ) ;
+
+        ;
+            :            ((textC&)tP).csF( tinP )
+            ? CSpREFIX + ((textC&)tP).csF( tinP )
+        countT csttExtra = bList
+        boolT bList = F(flags) & flTEXTc_LIST ;
+
         _IO_
     {
     if( !ether && !!psttMe )

@@ -26582,7 +26582,7 @@ code may use setIfZeAM on *(countT*)this
     const countT        idFormat ;
     countT              idSerialLath ;
     countT              idCellLath ;
-    countT              osTicksAtCt ;
+    count04T            osTicksAtCt ;
     countT              timeBoot1 ;
     sCountT             timeBoot2 ;
     grabC               grabTimeUnique ;

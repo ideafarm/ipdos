@@ -1,4 +1,6 @@
 
+#define TlIST(nameP) textC nameP( tinP , TAG( TAGiDnULL ) , flTEXTc_LIST )
+
 #define ifcIDaDAM_TOOLwHITElISTuPDATER                                 0x51000793
 
 // IPDOS (tm) <> IdeaFarm (tm) Piggyback Distributed Operating System
@@ -27070,6 +27072,7 @@ add constants here as needed to avoid this
 
 /*3*/
 #define flTEXTc_vTextC               0xe0000171
+#define flTEXTc_LIST                 0xe0000271
 /*3*/
 #define flTEXTc_null    0xe0000071
 
