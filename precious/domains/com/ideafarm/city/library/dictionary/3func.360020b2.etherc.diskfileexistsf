@@ -9,39 +9,50 @@
 
 }
     return cFound ;
-    }
-        delF( tinP , psttnu ) ;
-        cFound = diskFindFileOrDirF( tinP , psttnu , fnLike.pathF() , &pat ) ; ___( psttnu ) ;
-        ZE( strokeS* , psttnu ) ;
-        
-        patternC pat( tinP , *this , fnLike , ifcIDtYPEpATTERN_FOREIGNwILDCARDsTRICT ) ;
-        fileNameC fnLike( tinP , *this , psttLikeP ) ;
 
-    {
-    else
+    if( !bStringOfStrings ) delF( tinP , pstt1u ) ;
+
     }
         }
-            else cFound = 1 ;
-            }
-                if( fileTest.idOpenResultF( tinP ) == ifcOPENrESULT_ERRORsHARINGvIOLATION ) cFound = 1 ;
-                POOPRqUIET
-            {
-            if( POOP )
-
-            THREADmODE1rESTORE
-            fileC fileTest( tinP , psttLikeP , ifcOPENaCCESS_R , ifcOPENsHARE_WR , flOPENdETAILS_DOnOTvALIDATE | flOPENdETAILS_BUMPkEY | flOPENdETAILS_DOnOTmAKEdIRiFnEEDED , ifcOPENhOW_nFeO , flFILEaTTR_null , flFILEc_null , 1 ) ;
-            THREADmODE1oN( flTHREADmODE1_QUIETiMPOTENCE ) ;
-
-            SCOOPS
+            delF( tinP , psttnu ) ;
+            cFound = diskFindFileOrDirF( tinP , psttnu , fnLike.pathF() , &pat ) ; ___( psttnu ) ;
+            ZE( strokeS* , psttnu ) ;
+            
+            patternC pat( tinP , *this , fnLike , ifcIDtYPEpATTERN_FOREIGNwILDCARDsTRICT ) ;
+            fileNameC fnLike( tinP , *this , psttc1 ) ;
         {
-        IFsCRATCH
+        else
+        }
+            }
+                else cFound = 1 ;
+                }
+                    if( fileTest.idOpenResultF( tinP ) == ifcOPENrESULT_ERRORsHARINGvIOLATION ) cFound = 1 ;
+                    POOPRqUIET
+                {
+                if( POOP )
+
+                THREADmODE1rESTORE
+                fileC fileTest( tinP , psttc1 , ifcOPENaCCESS_R , ifcOPENsHARE_WR , flOPENdETAILS_DOnOTvALIDATE | flOPENdETAILS_BUMPkEY | flOPENdETAILS_DOnOTmAKEdIRiFnEEDED , ifcOPENhOW_nFeO , flFILEaTTR_null , flFILEc_null , 1 ) ;
+                THREADmODE1oN( flTHREADmODE1_QUIETiMPOTENCE ) ;
+
+                SCOOPS
+            {
+            IFsCRATCH
+        {
+        )
+            !strIdF( tinP , S1C( '?' ) , psttc1 )
+            &&
+            !strIdF( tinP , S1C( '*' ) , psttc1 )
+        (
+        if
     {
-    )
-        !strIdF( tinP , S1C( '?' ) , psttLikeP )
-        &&
-        !strIdF( tinP , S1C( '*' ) , psttLikeP )
-    (
-    if
+    FORsTRINGSiN1( pstt1u )
+
+    else                    pstt1u = (strokeS*)psttLikeP ;
+    if( !bStringOfStrings ) { strFuseSeparateF( tinP , pstt1u , psttLikeP ) ; ___( pstt1u ) ; }
+    ZE( strokeS* , pstt1u ) ;
+    boolT bStringOfStrings = ISsTRINGoFsTRINGS( psttLikeP ) ;
+
     ZE( countT , cFound ) ;
 
     _IO_
@@ -56,6 +67,11 @@
 {
 /**//*1*/countT etherC::diskFileExistsF( tinS& tinP , const strokeS* const psttLikeP )/*1*/
 */
+  the result is as if the caller called me repeatedly and accumulated my return value
+   for example, wildcards and paths may differ
+  the strings need not bear any relationship to each other
+  will accumulate over all strings specified
+ may also be a string of strings
   example: T("///ideafarm/ephemeral/tmp/10300cc.one.file")
   example: T("///ideafarm/ephemeral/tmp/10300cc.???")
   example: T("///ideafarm/ephemeral/tmp/10300cc*")
