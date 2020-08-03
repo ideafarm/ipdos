@@ -14,6 +14,7 @@
         }
             delF( tinP , pstt1Old ) ;
             delF( tinP , pstt1New ) ;
+            _IO_
         {
         if( !bStringOfStringsNew )
 
@@ -27,6 +28,7 @@
                             }
                                 cFail ++ ;
                                 POOPRqUIET
+                                _IO_
                             {
                             if( POOP )
 
@@ -46,6 +48,7 @@
                                     if( bDir && bMade ) diskFileOrDirDeleteF( tinP , psttc1 ) ;
                                     boolT bMade = diskMakeDirIfNeededF( tinP , psttn ) ;                            //U::20171120@1252: THIS IS A NONREENTRANT KLUDGE MADE NECESSARY BY THE RECENT CHANGE TO diskMakeDirIfNeededF.  THAT FUNCTION SHOULD BE CHANGED BACK TO ALWAYS IGNORE THE LEAF DIRECTORY, WHICH WILL REQUIRE REGRESSION TESTING TO LEARN WHY I MADE THE CHANGE
                                     boolT bDir = psttc1[ CSpREFIX - 1 + psttc1->idAdam ].idAdam == '/' ;
+                                    _IO_
                                 {
                                 diskMapFileNameF( tinP , pstto , psttc2 ) ; ___( pstto ) ;
                                 diskMapFileNameF( tinP , psttn , psttc1 ) ; ___( psttn ) ;
@@ -53,12 +56,15 @@
                                 ZE( strokeS* , psttn ) ;
                                 ZE( osTextT* , postOld ) ;
                                 ZE( osTextT* , postNew ) ;
+                                _IO_
                             {
                             //CS:CODEsYNC: DUPLICATE CODE 3600200f 3600200f
 
                             SCOOPS
+                            _IO_
                         {
                         IFsCRATCH
+                        _IO_
                     {
                     else
                     }
@@ -80,6 +86,7 @@
                                 if( bDir && bMade ) diskFileOrDirDeleteF( tinP , psttc1 ) ;
                                 boolT bMade = diskMakeDirIfNeededF( tinP , psttn ) ;                            //U::20171120@1252: THIS IS A NONREENTRANT KLUDGE MADE NECESSARY BY THE RECENT CHANGE TO diskMakeDirIfNeededF.  THAT FUNCTION SHOULD BE CHANGED BACK TO ALWAYS IGNORE THE LEAF DIRECTORY, WHICH WILL REQUIRE REGRESSION TESTING TO LEARN WHY I MADE THE CHANGE
                                 boolT bDir = psttc1[ CSpREFIX - 1 + psttc1->idAdam ].idAdam == '/' ;
+                                _IO_
                             {
                             diskMapFileNameF( tinP , pstto , psttc2 ) ; ___( pstto ) ;
                             diskMapFileNameF( tinP , psttn , psttc1 ) ; ___( psttn ) ;
@@ -87,20 +94,25 @@
                             ZE( strokeS* , psttn ) ;
                             ZE( osTextT* , postOld ) ;
                             ZE( osTextT* , postNew ) ;
+                            _IO_
                         {
                         //CS:CODEsYNC: DUPLICATE CODE 3600200f 3600200f
+                        _IO_
                     {
                     if( this != tinP.pEtScratch )
 
                     if( cSkip -- ) continue ;
+                    _IO_
                 {
                 FORsTRINGSiN2( pstt1Old )
                 countT cSkip = idNew - 1 ;
 
                 idNew ++ ;
+                _IO_
             {
             FORsTRINGSiN1( pstt1New )
             ZE( countT , idNew ) ;
+            _IO_
         {
         if( !POOP )
 
@@ -113,15 +125,18 @@
         }
             pstt1Old = (strokeS*)psttOldP ;
             pstt1New = (strokeS*)psttNewP ;
+            _IO_
         {
         else
         }
             strFuseSeparateF( tinP , pstt1Old , psttOldP ) ; ___( pstt1Old ) ;
             strFuseSeparateF( tinP , pstt1New , psttNewP ) ; ___( pstt1New ) ;
+            _IO_
         {
         if( !bStringOfStringsNew )
         ZE( strokeS* , pstt1Old ) ;
         ZE( strokeS* , pstt1New ) ;
+        _IO_
     {
     if( !POOP )
     ZE( countT , cFail ) ;
