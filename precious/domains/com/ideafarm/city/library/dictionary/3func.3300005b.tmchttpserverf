@@ -72,7 +72,7 @@ DONEdRIVENsERVER( tmcHttpServerF )
         }
             if( bClose ) break ;
 
-            etThread.traceF( tinP , T("accumulated time pending:    ")+TT(timeTotalPending1,timeTotalPending2) ) ;
+            etThread.traceF( tinP , T("accumulated time pending [nnPeer,time]:    ")+T(nnPeerP)+T("    ")+TT(timeTotalPending1,timeTotalPending2) ) ;
             etThread.osTimeAddF(      tinP , timeTotalPending1 , timeTotalPending2 , timeElapsed1 , timeElapsed2 ) ;
             etThread.osTimeSubtractF( tinP , timeElapsed1 , timeElapsed2 , timeStart1 , timeStart2 ) ;
             etThread.osTimeNowF(      tinP , timeElapsed1 , timeElapsed2 ) ;
@@ -1134,7 +1134,24 @@ DONEdRIVENsERVER( tmcHttpServerF )
             if( psttName && psttName->idAdam )
             ZE( boolT , bFile ) ;
 
-            if( bFail ) break ;
+            }
+                break ;
+
+                }
+                    if( POOP ) { POOPRqUIET ; }
+                    tinP.pEtScratch->boxPutF( tinP , tListBlock , tSay , tSay.csF( tinP ) ) ;
+                    SCOOPS
+                {
+                IFsCRATCH
+
+                TN( tSay , "blocked because readRequestF failed, which is attacker behavior" ) ;
+
+                tListBlock += T("////factory5/d/ideafarm.home.102/ephemeral/domains/com/ideafarm/ipdos/attackers/block/")+T(nnPeerP) ;
+                tListBlock += T("////factory4/d/ideafarm.home.102/ephemeral/domains/com/ideafarm/ipdos/attackers/block/")+T(nnPeerP) ;
+                tListBlock += T("////factory3/d/ideafarm.home.102/ephemeral/domains/com/ideafarm/ipdos/attackers/block/")+T(nnPeerP) ;
+                TlIST( tListBlock ) ;
+            {
+            if( bFail )
 
             //etThread.traceF( tinP , T(psttName)+T(!bClose?"        connection will be kept open":"        CONNECTION WILL BE CLOSED") ) ;
 

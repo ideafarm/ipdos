@@ -26,7 +26,12 @@
             sOut << psttLeverKVP ;
                             
             else if(  tinP.pEtScratch->strCompareF( tinP , psttLeverKVP , T("submit") ) ) tReport += T(psttLeverKVP)+T(": \"")+T(psttvTrimmed)+T("\"<BR>\r\n") ;
-                 if( !tinP.pEtScratch->strCompareF( tinP , psttLeverKVP , T("form"  ) ) ) { etThread.strMakeF( tinP , psttForm , psttvTrimmed ) ; ___( psttForm ) ; }
+            }
+                etThread.strMakeF( tinP , psttForm , psttvTrimmed ) ; ___( psttForm ) ;
+                etThread.delF( tinP , psttForm ) ;
+                etThread.traceF( tinP , T("coding error / multiple \"form\" keys received [lag,now]:    ")+T(psttForm)+T("    ")+T(psttvTrimmed) ) ;
+            {
+            if( !tinP.pEtScratch->strCompareF( tinP , psttLeverKVP , T("form"  ) ) )
 
             etThread.strTrimF( tinP , psttvTrimmed , psttv , T(TbLACKnEWlINE) ) ; ___( psttvTrimmed ) ;
             ZE( strokeS* , psttvTrimmed ) ;
