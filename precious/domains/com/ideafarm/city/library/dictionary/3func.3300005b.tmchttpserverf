@@ -1138,18 +1138,40 @@ DONEdRIVENsERVER( tmcHttpServerF )
                 break ;
 
                 }
-                    if( POOP ) { POOPRqUIET ; }
-                    tinP.pEtScratch->boxPutF( tinP , tListBlock , tSay , tSay.csF( tinP ) ) ;
-                    SCOOPS
-                {
-                IFsCRATCH
+                    }
+                        if( POOP ) { POOPRqUIET ; }
+                        tinP.pEtScratch->boxPutF( tinP , tListBlock , tSay , tSay.csF( tinP ) ) ;
+                        SCOOPS
+                    {
+                    IFsCRATCH
 
-                TN( tSay , "blocked because readRequestF failed, which is attacker behavior" ) ;
+                    TN( tSay , "blocked because readRequestF failed, which is attacker behavior" ) ;
+                {
+                if( !bHuman && !bWhite && !bWoMore )    //U::20200804@2120: I'VE SEEN THIS BLOCK FACTORY 3-5, SO THIS IS TOO STRICT; WITH THIS CODE, I AM BLOCKING INNOCENT PEERS
+
+                boolT bWoMore = etThread.diskFileExistsF( tinP , tListAllowWoMore ) ;
+                boolT bWhite  = etThread.diskFileExistsF( tinP , tListWhite  ) ;
+                boolT bHuman  = etThread.diskFileExistsF( tinP , tListHuman  ) ;
+
+                tListWhite += T("////factory5/d/ideafarm.home.102/ephemeral/domains/com/ideafarm/ipdos/attackers/white/")+T(nnPeerP) ;
+                tListWhite += T("////factory4/d/ideafarm.home.102/ephemeral/domains/com/ideafarm/ipdos/attackers/white/")+T(nnPeerP) ;
+                tListWhite += T("////factory3/d/ideafarm.home.102/ephemeral/domains/com/ideafarm/ipdos/attackers/white/")+T(nnPeerP) ;
+                TlIST( tListWhite ) ;
 
                 tListBlock += T("////factory5/d/ideafarm.home.102/ephemeral/domains/com/ideafarm/ipdos/attackers/block/")+T(nnPeerP) ;
                 tListBlock += T("////factory4/d/ideafarm.home.102/ephemeral/domains/com/ideafarm/ipdos/attackers/block/")+T(nnPeerP) ;
                 tListBlock += T("////factory3/d/ideafarm.home.102/ephemeral/domains/com/ideafarm/ipdos/attackers/block/")+T(nnPeerP) ;
                 TlIST( tListBlock ) ;
+
+                tListAllowWoMore += T("////factory5/d/ideafarm.home.102/ephemeral/domains/com/ideafarm/ipdos/attackers/allowWoMore/")+T(nnPeerP) ;
+                tListAllowWoMore += T("////factory4/d/ideafarm.home.102/ephemeral/domains/com/ideafarm/ipdos/attackers/allowWoMore/")+T(nnPeerP) ;
+                tListAllowWoMore += T("////factory3/d/ideafarm.home.102/ephemeral/domains/com/ideafarm/ipdos/attackers/allowWoMore/")+T(nnPeerP) ;
+                TlIST( tListAllowWoMore ) ;
+
+                tListHuman += T("////factory5/d/ideafarm.home.102/ephemeral/domains/com/ideafarm/ipdos/attackers/human/")+T(nnPeerP) ;
+                tListHuman += T("////factory4/d/ideafarm.home.102/ephemeral/domains/com/ideafarm/ipdos/attackers/human/")+T(nnPeerP) ;
+                tListHuman += T("////factory3/d/ideafarm.home.102/ephemeral/domains/com/ideafarm/ipdos/attackers/human/")+T(nnPeerP) ;
+                TlIST( tListHuman ) ;
             {
             if( bFail )
 
