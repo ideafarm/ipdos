@@ -44,7 +44,7 @@ else
 {
 if( ether )
 
-/*PROD*/ ether.ifcHireF( tinP , T("ifcIDaDAM_WATCH") , ifcIDaDAM_WATCHiDLEcPU , T("!ignoreFireByOperator") , flHIRE_DISPLAYaUTO , nicNameC() ) ;
+//U::/*PROD*/ ether.ifcHireF( tinP , T("ifcIDaDAM_WATCH") , ifcIDaDAM_WATCHiDLEcPU , T("!ignoreFireByOperator") , flHIRE_DISPLAYaUTO , nicNameC() ) ;
 
 //TEST PASSED 4 DAYS 20130915: ether.ifcHireF( tinP , T("ifcIDaDAM_WATCH") , ifcIDaDAM_ROOThTTPsERVER , T("!ignoreFireByOperator") , flHIRE_DISPLAYaUTO , nicNameC() ) ;
 
@@ -96,7 +96,7 @@ DONE( tmWatch05F )
             }
                 }
                     inc02AM( cDone ) ;
-                    etThread.traceF( tinP , T("deadman was received aok") ) ;
+                    //etThread.traceF( tinP , T("deadman was received aok [blob]:    \"")+T(posti)+T("\"") ) ;
                     countT idGotMe = 1 + incv02AM( idGotAok ) ;
                 {
                 else
@@ -105,7 +105,65 @@ DONE( tmWatch05F )
                     POOPR ;
                 {
                 if( POOP )
-                tinP.pEtScratch->boxGetShadowF( tinP , posti , costi , T("//http/deadman") , 1 , TOCK >> 0 ) ; ___( posti ) ;
+
+                tinP.pEtScratch->delF( tinP , pNicName ) ;
+
+                }
+                    }
+                        __1
+                        //etThread.traceF( tinP , T("unexpected trademark") ) ;
+                    {
+                    if( etThread.strCompareF( tinP , T(postTM) , tTM ) )
+
+                    //etThread.traceF( tinP , T("[postTM]:    \"")+T(postTM)+T("\"") ) ;
+
+                    }
+                        lag1 = post2[ 0 ] ;
+                        lag2 = lag1 ;
+
+                        else if( post2[ 0 ] == '\n' && lag1 == '\r' && lag2 == '\n' ) bArmed = 1 ;
+                        }
+                            postTM[ sizeof postTM - 1 - cDo -- ] = post2[ 0 ] ;                            
+                        {
+                        if( bArmed )
+
+                        sGet.readF( tinP , post2 , 1 ) ;
+                        osTextT post2[] = { 0 , 0 } ;
+                    {
+                    while( !POOP && cDo )
+                    ZE( countT , lag2 ) ;
+                    ZE( countT , lag1 ) ;
+                    ZE( boolT , bArmed ) ;
+                    countT cDo = sizeof postTM - 1 ;
+                    osTextT postTM[ 0xe ] = { 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 } ;
+                    //                        I   d   e   a   f   a   r   m       (   t   m   )
+
+                    sGet.writeF( tinP , (osTextT*)tRequest ) ;
+
+                    TN( tRequest , "" ) ; tRequest = T("GET /deadman HTTP/1.1\r\nHost: ideafarm.com\r\n\r\n") ;
+
+                    //etThread.traceF( tinP , T("[idpMeBound,idpMe,nnMe]:    ")+TF2(idpMeBound,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+TF2(idpMe,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+T(nnMe) ) ;
+
+                    sGet.myNameF( tinP , idpMe , nnMe ) ;
+                    nicNameC nnMe ;
+                    ZE( countT , idpMe ) ;
+
+                    sGet.connectF( tinP , 0x50 , pNicName[ 0 ] , 1 ) ;
+
+                    countT idpMeBound = sGet.bindF( tinP ) ;
+
+                    socketC sGet( tinP , *tinP.pEtScratch , TAG( TAGiDnULL ) ) ;
+                {
+                else
+                if( POOP ) { POOPR ; }
+
+                __Z( cNicName ) ;
+                __Z( pNicName ) ;
+                socketC::nicNameIF( tinP , *tinP.pEtScratch , pNicName , cNicName , 0/*T("factory3.ideafarm.com")*/ ) ; ___( pNicName ) ;
+                ZE( nicNameC* , pNicName ) ;
+                ZE( countT , cNicName ) ;
+
+                //etThread.traceF( tinP , T("requesting deadman") ) ;
                 SCOOPS
             {
             IFsCRATCH
@@ -121,6 +179,7 @@ DONE( tmWatch05F )
         idCycle ++ ;
     {
     while( !etThread && !ether )
+    TN( tTM , "IdeaFarm (tm)" ) ;
     homeS& home = homeS::homeIF() ;
     ZE( countT , idCycle ) ;
     countT idGorilla = 1 + incv02AM( idGorillaLath ) ;
@@ -178,7 +237,7 @@ DONE( tmWatch05TallyF )
 }
     }
         }
-            ++ s ; ether.osSleepF( tinP , INSPECTIONpERIOD ) ;
+            //U::++ s ; ether.osSleepF( tinP , INSPECTIONpERIOD ) ;
             sleepC s( tinP , TAG( TAGiDnULL ) ) ;
         {
 
