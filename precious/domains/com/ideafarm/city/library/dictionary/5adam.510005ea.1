@@ -238,7 +238,7 @@ DONE( tmWatch05TallyF )
 }
     }
         }
-            //U::++ s ; ether.osSleepF( tinP , INSPECTIONpERIOD ) ;
+            ++ s ; ether.osSleepF( tinP , INSPECTIONpERIOD ) ;
             sleepC s( tinP , TAG( TAGiDnULL ) ) ;
         {
 
@@ -370,10 +370,10 @@ DONE( tmWatch05TallyF )
 
     homeS& home = homeS::homeIF() ;
 
-    //}
-    //    ++ s ; ether.osSleepF( tinP , TOCK << 5 ) ;
-    //    sleepC s( tinP , TAG( TAGiDnULL ) ) ;
-    //{
+    }
+        ++ s ; ether.osSleepF( tinP , TOCK << 5 ) ;
+        sleepC s( tinP , TAG( TAGiDnULL ) ) ;
+    {
 
     etThread.osThreadSwitchingDesireF( tinP , ifcTHREADpRIORITY_RUDE ) ;
 {
