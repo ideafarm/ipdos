@@ -117,8 +117,7 @@
                 said >> finger ;
                 ZE( countT , finger ) ;
 
-                tinP.pEtScratch->boxGetShadowF( tinP , said , T("////factory3/d/ideafarm.home.102/ephemeral/backed.up.daily/domains/com/ideafarm/wo.o.s.table/said/")+T(psttShort) ) ;
-//U::
+                tinP.pEtScratch->boxGetShadowF( tinP , said , tListSaidFile ) ;
                 soulC said( tinP , TAG( TAGiDnULL ) ) ;
             {
             TN( tSaidFlags , "" ) ;
@@ -130,6 +129,11 @@
             TN( tSaidIdSubscriber0 , "" ) ;
             TN( tSaidSpeech , "" ) ;
             TN( tSaidTimeForeign , "" ) ;
+
+            tListSaidFile += T("////factory5/d/ideafarm.home.102/ephemeral/backed.up.daily/domains/com/ideafarm/wo.o.s.table/said/")+T(psttShort) ;
+            tListSaidFile += T("////factory4/d/ideafarm.home.102/ephemeral/backed.up.daily/domains/com/ideafarm/wo.o.s.table/said/")+T(psttShort) ;
+            tListSaidFile += T("////factory3/d/ideafarm.home.102/ephemeral/backed.up.daily/domains/com/ideafarm/wo.o.s.table/said/")+T(psttShort) ;
+            TlIST( tListSaidFile ) ;
 
             stFileShortSaid >> psttShort ;
             ZE( strokeS* , psttShort ) ;
@@ -150,7 +154,7 @@
             if( POOP )
 
             }
-                tinP.pEtScratch->delF( tinP , psttFile ) ;
+                tinP.pEtScratch->delF( tinP , psttShort ) ;
 
                 DEL( prPosts ) ;
                 if( prPosts ) meP.pushSnipF( tinP , stBodyP , *prPosts ) ;
@@ -170,7 +174,7 @@
                                     "<input id=\"newtopic\" name=\"newtopic\" type=\"hidden\" value=\"")+tPTopicTopic+T("\"/>\r\n"
                                     "<input id=\"secret\" name=\"secret\" type=\"hidden\" value=\"")+tValueSecret+T("\"/>\r\n"
                                     "<input id=\"subscriberid\" name=\"subscriberid\" type=\"hidden\" value=\"")+tValueSubscriberId+T("\"/>\r\n"
-                                    "<input id=\"filenametopic\" name=\"filenametopic\" type=\"hidden\" value=\"")+T(psttFile)+T("\"/>\r\n"
+                                    "<input id=\"filenametopic\" name=\"filenametopic\" type=\"hidden\" value=\"")+T(psttShort)+T("\"/>\r\n"
                                 "<form action=\"https://")+T(bSandbox?"factory1.":"")+T("ideafarm.com/talk.body\" id=\"launchtopic\" method=\"post\" name=\"launchtopic\">\r\n"
                             "<td valign=\"center\">\r\n"
                         "<tr>\r\n"
@@ -270,7 +274,7 @@
                     said >> finger ;
                     ZE( countT , finger ) ;
 
-                    tinP.pEtScratch->boxGetShadowF( tinP , said , psttFile ) ;
+                    tinP.pEtScratch->boxGetShadowF( tinP , said , tListSelectTopicLong ) ;
                     soulC said( tinP , *tinP.pEtScratch , TAG( TAGiDnULL ) ) ;
                 {
                 TN( tPTopicFlags , "" ) ;
@@ -283,8 +287,13 @@
                 TN( tPTopicTopic , "" ) ;
                 TN( tPTopicTimeForeign , "" ) ;
 
-                stFilePTopic >> psttFile ;
-                ZE( strokeS* , psttFile ) ;
+                tListSelectTopicLong += T("////factory5/d/ideafarm.home.102/ephemeral/backed.up.daily/domains/com/ideafarm/wo.o.s.table/ptopic/")+T(psttShort) ;
+                tListSelectTopicLong += T("////factory4/d/ideafarm.home.102/ephemeral/backed.up.daily/domains/com/ideafarm/wo.o.s.table/ptopic/")+T(psttShort) ;
+                tListSelectTopicLong += T("////factory3/d/ideafarm.home.102/ephemeral/backed.up.daily/domains/com/ideafarm/wo.o.s.table/ptopic/")+T(psttShort) ;
+                TlIST( tListSelectTopicLong ) ;
+
+                stFilePTopic >> psttShort ;
+                ZE( strokeS* , psttShort ) ;
             {
             while( stFilePTopic )
             TN( tb4 , "    " ) ;
@@ -294,12 +303,16 @@
                 }
                     DEL( pInfo ) ;
                     }
-                        if( !ids ) tinP.pEtScratch->delF( tinP , psttFile ) ; //SHOULD BE IMPOSSIBLE
-                        stFilePTopic.sinkF( tinP , ids , psttFile , flSTACKsINK_UNIQUE|flSTACKsINK_REVERSE ) ;
+                        if( !ids ) tinP.pEtScratch->delF( tinP , psttShort ) ;
+                        stFilePTopic.sinkF( tinP , ids , psttShort , flSTACKsINK_UNIQUE|flSTACKsINK_REVERSE ) ;
                         ZE( countT , ids ) ;
 
-                        tinP.pEtScratch->strMakeF( tinP , psttFile , pInfo->psttIfoName ) ; ___( psttFile ) ;
-                        ZE( strokeS* , psttFile ) ;
+                        }
+                            etThread.delF( tinP , psttnu ) ;
+                            etThread.strBisectF( tinP , psttnu , psttShort , pInfo->psttIfoName , T("/") , - 1 , flSTRbISECT_APPENDdELIMITER ) ; ___( psttnu ) ; ___( psttShort ) ;
+                            ZE( strokeS* , psttnu ) ;
+                        {
+                        ZE( strokeS* , psttShort ) ;
                     {
                     else
                     }
@@ -313,16 +326,22 @@
                     {
                     if( POOP )
 
-                    tinP.pEtScratch->diskFindFileOrDirF( tinP , pInfo , hFind , tPath , &pat ) ;
+                    tinP.pEtScratch->diskFindFileOrDirF( tinP , pInfo , hFind , psttc1 , &pat ) ;
                     ZE( infoFileS* , pInfo ) ;
                 {
                 do
                 handleC hFind( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_FILEfIND ) ;
-                patternC pat( tinP , *tinP.pEtScratch , tPattern , ifcIDtYPEpATTERN_FOREIGNwILDCARDsTRICT ) ;
-                TN( tPattern , "" ) ; tPattern = T("ptopic.table")+T(bSandbox?".sandbox.*":".live.*") ;
-                TN( tPath , "////factory3/d/ideafarm.home.102/ephemeral/backed.up.daily/domains/com/ideafarm/wo.o.s.table/ptopic/" ) ;
             {
+            FORsTRINGSiN1( (strokeS*)tListPTopicPath )
             stackC stFilePTopic( tinP , *tinP.pEtScratch , TAG( TAGiDnULL ) , flSTACKc_DOnOTsERIALIZE , ifcSTACKtYPE_PTR_strokeS , ifcIDgRABlAYER_7BASEmISC1 ) ;
+
+            tListPTopicPath += T("////factory5/d/ideafarm.home.102/ephemeral/backed.up.daily/domains/com/ideafarm/wo.o.s.table/ptopic/") ;
+            tListPTopicPath += T("////factory4/d/ideafarm.home.102/ephemeral/backed.up.daily/domains/com/ideafarm/wo.o.s.table/ptopic/") ;
+            tListPTopicPath += T("////factory3/d/ideafarm.home.102/ephemeral/backed.up.daily/domains/com/ideafarm/wo.o.s.table/ptopic/") ;
+            TlIST( tListPTopicPath ) ;
+
+            patternC pat( tinP , *tinP.pEtScratch , tPattern , ifcIDtYPEpATTERN_FOREIGNwILDCARDsTRICT ) ;
+            TN( tPattern , "" ) ; tPattern = T("ptopic.table")+T(bSandbox?".sandbox.*":".live.*") ;
 
             SCOOPS
         {
@@ -340,37 +359,45 @@
         /***************************************************************************************************/
 
         }
-            while( ~hFind && !POOP ) ;
             }
-                DEL( pInfo ) ;
+                while( ~hFind && !POOP ) ;
                 }
-                    }
-                        if( POOP ) { POOPR ; }
-                        tinP.pEtScratch->diskFileOrDirDeleteF( tinP , pInfo->psttIfoName , flFILEoRdIRdELETE_null , 1 ) ;
-                        SCOOPS
-                    {
-                    IFsCRATCH
-                {
-                else
-                }
-                    break ;
                     DEL( pInfo ) ;
-                {
-                else if( !pInfo || !pInfo->psttIfoName )
-                }
-                    tinP.pEtScratch->traceF( tinP , T("disk or file error 337") ) ;
-                    POOPR
-                {
-                if( POOP )
+                    }
+                        }
+                            if( POOP ) { POOPR ; }
+                            tinP.pEtScratch->diskFileOrDirDeleteF( tinP , pInfo->psttIfoName , flFILEoRdIRdELETE_null , 1 ) ;
+                            SCOOPS
+                        {
+                        IFsCRATCH
+                    {
+                    else
+                    }
+                        break ;
+                        DEL( pInfo ) ;
+                    {
+                    else if( !pInfo || !pInfo->psttIfoName )
+                    }
+                        tinP.pEtScratch->traceF( tinP , T("disk or file error 337") ) ;
+                        POOPR
+                    {
+                    if( POOP )
 
-                tinP.pEtScratch->diskFindFileOrDirF( tinP , pInfo , hFind , tPath , &pat ) ;
-                ZE( infoFileS* , pInfo ) ;
+                    tinP.pEtScratch->diskFindFileOrDirF( tinP , pInfo , hFind , psttc1 , &pat ) ;
+                    ZE( infoFileS* , pInfo ) ;
+                {
+                do
+                handleC hFind( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_FILEfIND ) ;
             {
-            do
-            handleC hFind( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_FILEfIND ) ;
+            FORsTRINGSiN1( (strokeS*)tListPath )
+
+            tListPath += T("////factory5/d/ideafarm.home.102/ephemeral/backed.up.daily/domains/com/ideafarm/wo.o.s.table/newTopic/") ;
+            tListPath += T("////factory4/d/ideafarm.home.102/ephemeral/backed.up.daily/domains/com/ideafarm/wo.o.s.table/newTopic/") ;
+            tListPath += T("////factory3/d/ideafarm.home.102/ephemeral/backed.up.daily/domains/com/ideafarm/wo.o.s.table/newTopic/") ;
+            TlIST( tListPath ) ;
+
             patternC pat( tinP , *tinP.pEtScratch , tPattern , ifcIDtYPEpATTERN_FOREIGNwILDCARDsTRICT ) ;
             TN( tPattern , "" ) ; tPattern = T("newTopic")+T(bSandbox?".sandbox.*":".live.*") ;
-            TN( tPath , "////factory3/d/ideafarm.home.102/ephemeral/backed.up.daily/domains/com/ideafarm/wo.o.s.table/newTopic/" ) ;
 
             SCOOPS
         {
@@ -472,7 +499,7 @@
             patternC pat( tinP , *tinP.pEtScratch , tPattern , ifcIDtYPEpATTERN_FOREIGNwILDCARDsTRICT ) ;
             TN( tPattern , "" ) ; tPattern = T("said.table")+T(bSandbox?".sandbox.*":".live.*") ;
         {
-        FORsTRINGSiN1( (strokeS*)tListSaid )
+        FORsTRINGSiN1( (strokeS*)tListSaidPath )
 
         SCOOPS
     {
@@ -482,10 +509,10 @@
     countT  timeA1 = MAXcOUNTT  ; // AGE OF THE YOUNGEST POST ; "A": "AGE"
     stackC stFileShortSaid( tinP , etThread , TAG( TAGiDnULL ) , flSTACKc_DOnOTsERIALIZE , ifcSTACKtYPE_PTR_strokeS , ifcIDgRABlAYER_7BASEmISC1 ) ;
 
-    tListSaid += T("////factory5/d/ideafarm.home.102/ephemeral/backed.up.daily/domains/com/ideafarm/wo.o.s.table/said/") ;
-    tListSaid += T("////factory4/d/ideafarm.home.102/ephemeral/backed.up.daily/domains/com/ideafarm/wo.o.s.table/said/") ;
-    tListSaid += T("////factory3/d/ideafarm.home.102/ephemeral/backed.up.daily/domains/com/ideafarm/wo.o.s.table/said/") ;
-    TlIST( tListSaid ) ;
+    tListSaidPath += T("////factory5/d/ideafarm.home.102/ephemeral/backed.up.daily/domains/com/ideafarm/wo.o.s.table/said/") ;
+    tListSaidPath += T("////factory4/d/ideafarm.home.102/ephemeral/backed.up.daily/domains/com/ideafarm/wo.o.s.table/said/") ;
+    tListSaidPath += T("////factory3/d/ideafarm.home.102/ephemeral/backed.up.daily/domains/com/ideafarm/wo.o.s.table/said/") ;
+    TlIST( tListSaidPath ) ;
 
     }
         DEL( prPosts ) ;
@@ -782,15 +809,20 @@
                 POOPR
             {
             if( POOP )
-            tinP.pEtScratch->boxGetF( tinP , rec , tValueFilenameTopic , 1 , 1 ) ;
+            tinP.pEtScratch->boxGetF( tinP , rec , tListSelectTopicLong , 1 , 1 ) ;
             soulC rec( tinP , *tinP.pEtScratch , TAG( TAGiDnULL ) ) ;
 
             SCOOPS
         {
         IFsCRATCH
         TN( tNewTopic , "" ) ;
+
+        tListSelectTopicLong += T("////factory5/d/ideafarm.home.102/ephemeral/backed.up.daily/domains/com/ideafarm/wo.o.s.table/ptopic/")+tValueSelectTopicShort ;
+        tListSelectTopicLong += T("////factory4/d/ideafarm.home.102/ephemeral/backed.up.daily/domains/com/ideafarm/wo.o.s.table/ptopic/")+tValueSelectTopicShort ;
+        tListSelectTopicLong += T("////factory3/d/ideafarm.home.102/ephemeral/backed.up.daily/domains/com/ideafarm/wo.o.s.table/ptopic/")+tValueSelectTopicShort ;
+        TlIST( tListSelectTopicLong ) ;
     {
-    if( tValueFilenameTopic.csF( tinP ) )
+    if( tValueSelectTopicShort.csF( tinP ) )
 
     }
         }
@@ -1007,24 +1039,24 @@
     countT cFlavors = swKVP.cFlavorsF( tinP ) ;
 
     } ;
-        &tValueFilenameTopic       ,
+        &tValueSelectTopicShort    ,
         &tValueSecret              ,
         &tValueSubscriberId        ,
     {
     textC* pptValue[] =
 
     } ;
-        &tKeyFilenameTopic       ,
+        &tKeySelectTopicShort    ,
         &tKeySecret              ,
         &tKeySubscriberId        ,
     {
     textC* pptKey[] =
 
-    TN( tValueFilenameTopic       , "" ) ;
+    TN( tValueSelectTopicShort    , "" ) ;
     TN( tValueSecret              , "" ) ;
     TN( tValueSubscriberId        , "" ) ;
 
-    TN( tKeyFilenameTopic       , "filenametopic"      ) ;
+    TN( tKeySelectTopicShort    , "filenametopic"      ) ;
     TN( tKeySecret              , "secret"             ) ;
     TN( tKeySubscriberId        , "subscriberid"       ) ;
     TN( tDot , "." ) ;

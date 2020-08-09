@@ -86,12 +86,12 @@
 
 /*1*//*ETHERlIST1bEFOREwORK*//*1*/
 
-#define ETHERlIST1bEFOREwORK                                                                                                        \
+#define ETHERlIST1bEFOREwORK(psttP)                                                                                                        \
                                                                                                                                     \
-    boolT _bStringOfStrings = ISsTRINGoFsTRINGS( psttP ) ;                                                                          \
+    boolT _bStringOfStrings = ISsTRINGoFsTRINGS( (psttP) ) ;                                                                          \
     ZE( strokeS* , _pstt1u ) ;                                                                                                      \
-    if( !_bStringOfStrings ) { strFuseSeparateF( tinP , _pstt1u , psttP ) ; ___( _pstt1u ) ; }                                      \
-    else                    _pstt1u = (strokeS*)psttP ;                                                                             \
+    if( !_bStringOfStrings ) { strFuseSeparateF( tinP , _pstt1u , (psttP) ) ; ___( _pstt1u ) ; }                                      \
+    else                    _pstt1u = (strokeS*)(psttP) ;                                                                             \
                                                                                                                                     \
     ZE( countT , _cOk ) ;                                                                                                           \
     {                                                                                                                               \
