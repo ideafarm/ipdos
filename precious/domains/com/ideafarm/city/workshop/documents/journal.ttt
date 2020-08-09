@@ -7604,42 +7604,6 @@ I have other business to attend to today and tomorrow, but plan to continue to w
  objective: speed, with unlimited traffic capacity
 !job C: speed and scaling
 
-  !subjob C: eliminate factory3 spf for postings
-  !subjob C: eliminate factory3 spf for subscriptions
-  !subjob C: use lists to write black and white and wo files
-  !subjob C: boxZapF: edit ifcDrivenServerF to refer instead to list
-  !subjob C: diskFileExistsF: edit ifcDrivenServerF to refer instead to list
-  !subjob C: diskFileExistsF: enhance to accept string of strings
-   the code will need to be written carefully so that it heals (i.e. code must function correctly if the locations are inconsistent)
-   i like this idea
-  think
-    diskMoveFileOrDirF: each pair is processed
-    boxZapF: tries to zap every name
-    diskFileExistsF: returns true iff exists in 1 or more names
-   what string of strings semantics would work for this application for these 3 api's?
-  think
-   tinP.pEtScratch->diskMoveFileOrDirF( tinP , tFileBlock , tFileAllowWoMore , 1 ) ;
-   tinP.pEtScratch->boxZapF( tinP , tFileAllowWoMore , 1 ) ; if( POOP ) { POOPR }
-   boolT bHuman = diskFileExistsF( tinP , tFileHuman ) ;
-  ifcDrivenServerF
-   inspect code to do this without enhancing file io api
-  think
-   !subjob C: enhance fileC fileWindowC boxC etc to take a string of strings for the file name
-   all accessed files on \\factory3\ should be mirrored on \\factory4 and \\factory5
-   all code that accesses \\factory3\d\... should be edited to failover to \\factory4\... and then \\factory5\...
-   factory3 is currently a SPF
-  think
- playcraft
- objective: rock solid
-!job C: eliminate factory3 SPF
-
- playcraft
- objective: users can post and view posts even if factory3 is down  
-!subjob C: eliminate factory3 spf for postings
-
- playcraft
- objective: users can log in even if factory3 is down  
-!subjob C: eliminate factory3 spf for subscriptions
 
 
 
@@ -7673,114 +7637,6 @@ I have other business to attend to today and tomorrow, but plan to continue to w
 
 
 
-
-
-   to see this, scroll vertically; you will see that some lines are darker and/or blurrier than others, and as you scroll, the anomalies remain stationary.
-   the block of '=' in this file ("DONE: BELOW") clearly reveals inconsistency in the clarity and brightness of the screen
-  see
- playcraft
- objective: monitor without clearly visible rendering defects
-!job E: monitor: take this piece of shit back to Walmart
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-   !subjob C: finish editing all code that refers to ///factory3/
-  think
- playcraft
- objective: no false positives, no cpu spins
-!job C: polish code that uses read failures to detect attackers
-
-
-
-
-
-  !subjob C: boxGetShadowF: edit to accept list
-  set up dut
-  get this done so all code uses factory3-5 symmetrically
- playcraft
- objective: elegance
-!subjob C: finish editing all code that refers to ///factory3/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-!job C: talkCBF: edit 10 sections to use factory3-5 symmetrically (no SPF)
-
-
-
-
-
-
-
 !thrust: debug until all factories run without failure
 
 =========================================================================================================================================================
@@ -7793,6 +7649,63 @@ I have other business to attend to today and tomorrow, but plan to continue to w
 =========================================================================================================================================================
 =========================================================================================================================================================
 
+  !subjob C: eliminate factory3 spf for postings
+  !subjob C: eliminate factory3 spf for subscriptions
+  !subjob C: use lists to write black and white and wo files
+  !subjob C: boxZapF: edit ifcDrivenServerF to refer instead to list
+  !subjob C: diskFileExistsF: edit ifcDrivenServerF to refer instead to list
+  !subjob C: diskFileExistsF: enhance to accept string of strings
+   the code will need to be written carefully so that it heals (i.e. code must function correctly if the locations are inconsistent)
+   i like this idea
+  think
+    diskMoveFileOrDirF: each pair is processed
+    boxZapF: tries to zap every name
+    diskFileExistsF: returns true iff exists in 1 or more names
+   what string of strings semantics would work for this application for these 3 api's?
+  think
+   tinP.pEtScratch->diskMoveFileOrDirF( tinP , tFileBlock , tFileAllowWoMore , 1 ) ;
+   tinP.pEtScratch->boxZapF( tinP , tFileAllowWoMore , 1 ) ; if( POOP ) { POOPR }
+   boolT bHuman = diskFileExistsF( tinP , tFileHuman ) ;
+  ifcDrivenServerF
+   inspect code to do this without enhancing file io api
+  think
+   !subjob C: enhance fileC fileWindowC boxC etc to take a string of strings for the file name
+   all accessed files on \\factory3\ should be mirrored on \\factory4 and \\factory5
+   all code that accesses \\factory3\d\... should be edited to failover to \\factory4\... and then \\factory5\...
+   factory3 is currently a SPF
+  think
+ playcraft
+ objective: rock solid
+!job C: eliminate factory3 SPF
+ playcraft
+ objective: users can post and view posts even if factory3 is down  
+!subjob C: eliminate factory3 spf for postings
+ playcraft
+ objective: users can log in even if factory3 is down  
+!subjob C: eliminate factory3 spf for subscriptions
+   i can add instructions to help people report that they have been blocked
+   conj: users with current browsers will never generate these
+   the current code blocks an IP in response to a readRequestF failure
+  think
+  set up dut
+   !subjob C: finish editing all code that refers to ///factory3/
+  think
+ playcraft
+ objective: no false positives, no cpu spins
+!job C: polish code that uses read failures to detect attackers
+   to see this, scroll vertically; you will see that some lines are darker and/or blurrier than others, and as you scroll, the anomalies remain stationary.
+   the block of '=' in this file ("DONE: BELOW") clearly reveals inconsistency in the clarity and brightness of the screen
+  see
+ playcraft
+ objective: monitor without clearly visible rendering defects
+!job E: monitor: take this piece of shit back to Walmart
+  !subjob C: boxGetShadowF: edit to accept list
+  set up dut
+  get this done so all code uses factory3-5 symmetrically
+ playcraft
+ objective: elegance
+!subjob C: finish editing all code that refers to ///factory3/
+!job C: talkCBF: edit 10 sections to use factory3-5 symmetrically (no SPF)
    like boxPutF
   think
  playcraft
