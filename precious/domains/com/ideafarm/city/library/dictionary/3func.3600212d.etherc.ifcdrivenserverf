@@ -257,7 +257,7 @@
                                 {
                                 if( pNicNameMe[ offMe ] == nnPeer )
                             {
-                            for( countT offMe = 0 ; offMe < cNicNameMe ; offMe ++ )
+                            if( !bSandbox ) for( countT offMe = 0 ; offMe < cNicNameMe ; offMe ++ )
                             ZE( boolT , bHeIsSpoofingMe ) ;
                             ZE( boolT , bHeIsMe ) ;
 
@@ -441,6 +441,8 @@
     ZE( boolT , bDeleteSessions ) ;
     byteT pbSessions[ sizeof( sessionsC ) ] ;
     TELL( "server: setting up" )
+
+    boolT bSandbox = etherC::ifc_idHomeI_IF() & fliIDhOME_HOMELESS ;
 
     _IO_
 

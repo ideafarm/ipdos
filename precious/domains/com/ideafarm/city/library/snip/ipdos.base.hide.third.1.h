@@ -1,4 +1,117 @@
 
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+/*
+*/
+/**/
+
+/*1*//*ETHERlIST3aFTERoPTIONALbREAK*//*1*/
+
+#define ETHERlIST3aFTERoPTIONALbREAK \
+                                                                                                                                    \
+                }                                                                                                                   \
+                else                                                                                                                \
+                {                                                                                                                   \
+                    if( !_pScoop ) break ;                                                                                          \
+                    else                                                                                                            \
+                    {                                                                                                               \
+                        POOPRqUIET                                                                                                  \
+                        DEL( _pScoop ) ;                                                                                            \
+                    }                                                                                                               \
+                }                                                                                                                   \
+            }                                                                                                                       \
+        }                                                                                                                           \
+    }                                                                                                                               \
+                                                                                                                                    \
+    if( !_bStringOfStrings ) delF( tinP , _pstt1u ) ;                                                                               \
+                                                                                                                                    \
+    __Z( _cOk ) ;
+
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+/*
+*/
+/**/
+
+/*1*//*ETHERlIST2bEFOREoPTIONALbREAK*//*1*/
+
+#define ETHERlIST2bEFOREoPTIONALbREAK                                                                                               \
+                                                                                                                                    \
+                if( !POOP )                                                                                                         \
+                {                                                                                                                   \
+                    _cOk ++ ;                                                                                                       \
+                    DEL( _pScoop ) ;                                                                                                \
+                                                                                                                                    \
+                    /* CALLER'S OPTIONAL BREAK STATEMENT */
+
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+/*
+*/
+/**/
+
+/*1*//*ETHERlIST1bEFOREwORK*//*1*/
+
+#define ETHERlIST1bEFOREwORK                                                                                                        \
+                                                                                                                                    \
+    boolT _bStringOfStrings = ISsTRINGoFsTRINGS( psttP ) ;                                                                          \
+    ZE( strokeS* , _pstt1u ) ;                                                                                                      \
+    if( !_bStringOfStrings ) { strFuseSeparateF( tinP , _pstt1u , psttP ) ; ___( _pstt1u ) ; }                                      \
+    else                    _pstt1u = (strokeS*)psttP ;                                                                             \
+                                                                                                                                    \
+    ZE( countT , _cOk ) ;                                                                                                           \
+    {                                                                                                                               \
+        FORsTRINGSiN1( _pstt1u )                                                                                                    \
+        {                                                                                                                           \
+            IFsCRATCH                                                                                                               \
+            {                                                                                                                       \
+                scoopC* _pScoop = this != tinP.pEtScratch ? 0 : new( 0 , tinP , LF ) scoopC( tinP ) ; ___( _pScoop ) ;              \
+                                                                                                                                    \
+                /* CALLER'S WORK CODE */
+
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+
+
 #define COUNTsTRINGSiN(cStringsP,psttP) FORsTRINGSiN8( (psttP) ){ (cStringsP) ++ ; }
 
 #define TlIST(nameP) textC nameP( tinP , TAG( TAGiDnULL ) , flTEXTc_LIST )
@@ -44419,90 +44532,3 @@ arguments
 //
 
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004ce.fepend END
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004cf.login BEGIN
-
-
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-// Respecting the rights of other people is an important part of empowering one another.
-//
-
-/*
-*/
-
-/**/
-
-/*1*//*LOGiN(postP)*//*1*/
-
-#define LOGiN(postP)                                                                                                                            \
-                                                                                                                                                \
-    {                                                                                                                                           \
-        LOGrAW( "\r\n" ) ;                                                                                                                      \
-                                                                                                                                                \
-        FEG                                                                                                                                     \
-                                                                                                                                                \
-            FEP                                                                                                                                 \
-                                                                                                                                                \
-                LOGrAW( T(postP)+T(" [offgi,offp,offpi,ppin[offpi]]: ")+TF1(offgi)+T(" ")+T(offp)+T(" ")+T(offpi)+T(" ")+TFF(ppin[offpi].x)+T(" ")+TFF(ppin[offpi].y)+T(" ")+TFF(ppin[offpi].z)+T("\r\n") ) ; \
-                offpi ++ ;                                                                                                                      \
-                                                                                                                                                \
-            FEPeND                                                                                                                              \
-                                                                                                                                                \
-            if( offgi < cgin - 1 ) { LOGrAW( T(postP)+T("\r\n") ) ; }                                                                           \
-                                                                                                                                                \
-        FEGeND                                                                                                                                  \
-    }
-
-
-//
-// Respecting the rights of other people is an important part of empowering one another.
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004cf.login END
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004d1.setinoutframe BEGIN
-
-
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-// Respecting the rights of other people is an important part of empowering one another.
-//
-
-/*
-*/
-
-/**/
-
-/*1*//*SETiNoUTfRAME*//*1*/
-
-#define SETiNoUTfRAME                                                                                                                           \
-                                                                                                                                                \
-    countT    cgin  = *ppcGlyph[    offd ] ;                                                                                                    \
-    countT*   psin  =  ppcSize[     offd ] ;                                                                                                    \
-    flagsT*   pfin  =  pFlagsTail[  offd ] ;                                                                                                    \
-    mPoint3S* ptin  =  ppPointTail[ offd ] ;                                                                                                    \
-    mPoint3S* ppin  =  ppPoint[     offd ] ;                                                                                                    \
-                                                                                                                                                \
-    if( ++ offd == 3 ) offd = 1 ; /* OFFSET 0 IS ONLY USED WO TIME ; AFTER THAT ONLY OFFSETS 1 AND 2 ARE USED */                                \
-                                                                                                                                                \
-    countT&   cgout = *ppcGlyph[    offd ] ;                                                                                                    \
-    countT*   psout =  ppcSize[     offd ] ;                                                                                                    \
-    flagsT*   pfout =  pFlagsTail[  offd ] ;                                                                                                    \
-    mPoint3S* ptout =  ppPointTail[ offd ] ;                                                                                                    \
-    mPoint3S* ppout =  ppPoint[     offd ] ;
-
-
-//
-// Respecting the rights of other people is an important part of empowering one another.
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004d1.setinoutframe END
