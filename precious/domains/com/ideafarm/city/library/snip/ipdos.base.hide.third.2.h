@@ -25369,7 +25369,7 @@ examples
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34066.switchStackC.flagsStackF!||
  countT idTypeF( tinS& tinP ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34067.switchStackC.idTypeF!||
- voidT purgeF( tinS& tinP , const boolT bTinHasLeverP = 0 ) ;
+ voidT purgeF( tinS& tinP , countT cPlatesRetainP = 0 , const boolT bTinHasLeverP = 0 ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3408a.switchStackC.purgeF!||
  voidT sortF( tinS& tinP , const flagsT flagsP = flSTACKsORT_null , const boolT bTinHasLeverP = 0 , ifc4FT pSubtractFP = 0 , const countT subtractionParmP = 0 ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3409e.switchStackC.sortF!||

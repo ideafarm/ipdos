@@ -7611,7 +7611,10 @@ I have other business to attend to today and tomorrow, but plan to continue to w
 
 
 
-
+  next: cacheC: add grabF ungrabF api's and then move to base
+   switchStackC would eliminate this problem
+   using switchC for this requires that only wo blob can be stored for each time
+  think
   !subjob C: switchC: flSTACKsINK_REVERSE: optionally let caller specify that this flag is to be used when sinking into stackk
    try using switchC with a countT lever
     i can shift this to make wrap rare
@@ -7645,6 +7648,45 @@ I have other business to attend to today and tomorrow, but plan to continue to w
 
 
 
+
+
+
+
+
+!thrust: debug until all factories run without failure
+
+=========================================================================================================================================================
+=========================================================================================================================================================
+=========================================================================================================================================================
+=========================================================================================================================================================
+====- DONE: BELOW -======================================================================================================================================
+=========================================================================================================================================================
+=========================================================================================================================================================
+=========================================================================================================================================================
+=========================================================================================================================================================
+
+
+  !subjob C: switchStackC::purgeF: add cPlatesRetain param  !subjob C: switchC: migrate REVERSE flag from sinkF flags to ct flags
+    conj: sinking some but not all reversed will result in incorrect and random sorting
+   this is not desirable to specify on sinkF call because that invites coding errors due to inconsistent calls
+   the problem is that the reverse flag is specified on the sinkF call rather than on the ct call
+  think
+   inspect the code; how does it work?
+  look
+    for purging, to allow an app to tell the switch to purge the least recent (lowest) plates
+    for convenience, to control the order of the plates
+    for efficiency, to allow app to control the amount of work done during sinks
+   i want to be able to control the order in which plates are sunk
+  think
+ playcraft
+ objective: elegance
+!subjob C: switchC: flSTACKsINK_REVERSE: optionally let caller specify that this flag is to be used when sinking into stackk
+   i won't be able to use it for my current need for purging
+   i am doing this for code functionality completeness
+  think
+ playcraft
+ objective: elegance
+!subjob C: switchStackC::purgeF: add cPlatesRetain param  !subjob C: switchC: migrate REVERSE flag from sinkF flags to ct flags
   !subjob C: switchC: migrate REVERSE flag from sinkF flags to ct flags
     conj: sinking some but not all reversed will result in incorrect and random sorting
    this is not desirable to specify on sinkF call because that invites coding errors due to inconsistent calls
@@ -7660,28 +7702,12 @@ I have other business to attend to today and tomorrow, but plan to continue to w
  playcraft
  objective: elegance
 !subjob C: switchC: flSTACKsINK_REVERSE: optionally let caller specify that this flag is to be used when sinking into stackk
-
-
-
    #define flSTACKc_SINKrEVERSE               0xe080000c
    #define flSTACKsINK_REVERSE  /*fl*/
   just do this
  playcraft
  objective: elegance
 !subjob C: switchC: migrate REVERSE flag from sinkF flags to ct flags
-
-!thrust: debug until all factories run without failure
-
-=========================================================================================================================================================
-=========================================================================================================================================================
-=========================================================================================================================================================
-=========================================================================================================================================================
-====- DONE: BELOW -======================================================================================================================================
-=========================================================================================================================================================
-=========================================================================================================================================================
-=========================================================================================================================================================
-=========================================================================================================================================================
-
   !subjob C: eliminate factory3 spf for postings
   !subjob C: eliminate factory3 spf for subscriptions
   !subjob C: use lists to write black and white and wo files

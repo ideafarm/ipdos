@@ -13,38 +13,189 @@ ether.loafIF( tinP ) ;
 etThread.traceF( tinP , T("ok") ) ;
 
 }
-    etThread.traceF( tinP , cached.psttName ) ;
-    cachedS& cached = *(cachedS*)&(countT&)swCache ;
+    etThread.traceF( tinP , T("destroyed cache") ) ;
+    DEL( pCache ) ;
+    etThread.traceF( tinP , T("destroying cache") ) ;
 
-    cLever = swCache.leverF( tinP , idf ) ;
+    pCache->reportF( tinP , T("cache report after query") ) ;
+    }
+        etThread.traceF( tinP , T("found: ")+T(pFound->psttName) ) ;
+    {
+    if( pFound )
+    cachedS* pFound = (*pCache)( T("name 6") , 1 ) ;
+    etThread.traceF( tinP , T("querying cache") ) ;
+
+    pCache->reportF( tinP , T("cache report after purge") ) ;
+
+    pCache->purgeF( tinP , 5 ) ;
+
+    pCache->reportF( tinP , T("cache report after ct") ) ;
+
+    }
+        pCache->pushF( tinP , psttName , pbBlob , cbBlob ) ;
+
+        ether.memCopyF( tinP , pbBlob , "abcd" , cbBlob ) ;
+        countT cbBlob = 4 ;
+
+        ether.newF( tinP , LF , pbBlob , 4 ) ; ___( pbBlob ) ;
+        ZE( byteT* , pbBlob ) ;
+
+        ether.traceF( tinP , psttName ) ;
+        ether.strMakeF( tinP , psttName , T("name ")+TF2(8-cDo,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ; ___( psttName ) ;
+        ZE( strokeS* , psttName ) ;
+    {
+    while( cDo -- )
+    countT cDo = 8 ;
+
+    TN( tb4 , "    " ) ;
+
+    cacheC* pCache = new( 0 , tinP , LF ) cacheC( tinP , etThread ) ; ___( pCache ) ;
 {
-for( countT idf = 1 ; idf <= cFlavors ; idf ++ )
-etThread.traceF( tinP , TF2(cFlavors,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
-countT cFlavors = swCache.cFlavorsF( tinP ) ;
 
-}
-    new( 0 , tinP , (byteT*)pCached , sizeof( cachedS ) ) cachedS( tinP , etThread , psttName , pbBlob , cbBlob ) ; ___( pCached ) ;
-    cachedS* pCached = (cachedS*)&(countT&)swCache ;
-    cLever = (countT)thirdC::osTimeTicksSinceBootIF() + ++ bias ; // ">> 0x10" GRAINSIZE IS APPROX 1 FOREIGN MINUTE ON factory1
-    static countT bias ;    //TO GUARANTEE UNIQUENESS
-
-    etThread.memCopyF( tinP , pbBlob , "abcd" , cbBlob ) ;
-    countT cbBlob = 4 ;
-
-    etThread.newF( tinP , LF , pbBlob , 4 ) ; ___( pbBlob ) ;
-    ZE( byteT* , pbBlob ) ;
-
-    etThread.traceF( tinP , psttName ) ;
-    etThread.strMakeF( tinP , psttName , T("name ")+TF2(8-cDo,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ; ___( psttName ) ;
-    ZE( strokeS* , psttName ) ;
-{
-while( cDo -- )
-static countT cDo = 8 ;
-
-static switchC swCache( tinP , etThread , TAG( TAGiDnULL ) , flSTACKc_DOnOTsERIALIZE | flSTACKc_SINKrEVERSE , cLever /*, 0 , sizeof( cachedS )*/ ) ;
-static ZE( countT , cLever ) ;
 
 TODO
+
+}
+    }
+        }
+            while( !POOP && !swsCache.third && ~hDown ) ;
+            }
+                ether.traceF( tinP , cached.psttName ) ;
+                cachedS& cached = *(cachedS*)&(countT&)swsCache.downF( tinP , hDown ) ;
+            {
+            do
+            handleC hDown( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_STACKwALK ) ;
+        {
+        if( swsCache )
+
+        ether.traceF( tinP , T("[cLever]:    ")+TF2(cLever,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
+        cLever = swsCache.leverF( tinP , idf ) ;
+    {
+    for( countT idf = 1 ; idf <= cFlavors ; idf ++ )
+    ether.traceF( tinP , T("[cFlavors]:    ")+TF2(cFlavors,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
+
+    countT cFlavors = swsCache.cFlavorsF( tinP ) ;
+
+    ether.traceF( tinP , T("cache report [title]:    ")+(psttTitleP?T(psttTitleP):T("cacheC report")) ) ;
+
+    TN( tb4 , "    " ) ;
+{
+voidT cacheC::reportF( tinS& tinP , const strokeS* const psttTitleP )
+
+}
+    swsCache.freeNullFlavorsF( tinP ) ;
+
+    }
+        if( !swsCache ) swsCache.freeF( tinP , 1 ) ;
+
+        }
+            while( !POOP && !swsCache.third && ~hDown ) ;
+            }
+                }
+                    swsCache.extractF( 0 , tinP ) ;
+                    DELzOMBIE( pCached ) ;
+                {
+                else
+                if( cRetainP && cRetainP -- ) ;
+                cachedS* pCached = (cachedS*)&(countT&)swsCache.downF( tinP , hDown ) ;
+            {
+            do
+            handleC hDown( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_STACKwALK ) ;
+        {
+        if( swsCache )
+
+        cLever = swsCache.leverF( tinP , idf ) ;
+    {
+    for( countT idf = 1 ; idf <= cFlavors ; idf ++ )
+    countT cFlavors = swsCache.cFlavorsF( tinP ) ;
+{
+voidT cacheC::purgeF( tinS& tinP , countT cRetainP )
+
+}
+    return pFound ;
+
+    }
+        }
+            pFound = (cachedS*)&(countT&)swsCache[ 1 ] ;
+
+            swsCache << pbExtracted ;
+            //cLever = (countT)thirdC::osTimeTicksSinceBootIF() + ++ bias ; // ">> 0x10" GRAINSIZE IS APPROX 1 FOREIGN MINUTE ON factory1
+            //static countT bias = TOCK ;
+
+            cLever = leverUse ;
+            leverUse += 0x11111111 ;
+        {
+        else
+        }
+            DELzOMBIE( pDoomed ) ;
+            cachedS* pDoomed = (cachedS*)pbExtracted ;
+        {
+        if( bDeleteIfP )
+    {
+    if( bExtracted )
+
+    }
+        swsCache.freeNullFlavorsF( tinP ) ;
+
+        }
+            }
+                if( !swsCache ) swsCache.freeF( tinP , 1 ) ;
+
+                while( !POOP && !swsCache.third && ~hDown ) ;
+                }
+                    }
+                        break ;
+                        bExtracted = 1 ;
+                        swsCache.extractF( pbExtracted , tinP ) ;
+                    {
+                    if( !ether.strCompareF( tinP , psttNameP , pCached->psttName ) )
+                    cachedS* pCached = (cachedS*)&(countT&)swsCache.downF( tinP , hDown ) ;
+                {
+                do
+                handleC hDown( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_STACKwALK ) ;
+            {
+            if( swsCache )
+
+            cLever = swsCache.leverF( tinP , idf ) ;
+        {
+        for( countT idf = 1 ; idf <= cFlavors ; idf ++ )
+        countT cFlavors = swsCache.cFlavorsF( tinP ) ;
+    {
+    byteT pbExtracted[ sizeof( cachedS ) ] ;
+    ZE( boolT , bExtracted ) ;
+
+    ZE( cachedS* , pFound ) ;
+
+    TINSL
+{
+cachedS* cacheC::operator ()( const strokeS* const psttNameP , boolT bDeleteIfP )
+
+}
+    swsCache << pbza ;
+
+    new( 0 , tinP , pbza , sizeof pbza ) cachedS( tinP , ether , psttNameP , pbP , cbP ) ;
+    byteT pbza[ sizeof( cachedS ) ] ;
+
+    //cLever = (countT)thirdC::osTimeTicksSinceBootIF() + ++ bias ; // ">> 0x10" GRAINSIZE IS APPROX 1 FOREIGN MINUTE ON factory1
+    //static countT bias ;
+
+    cLever = leverUse ;
+    leverUse += 0x11111111 ;
+{
+voidT cacheC::pushF( tinS& tinP , strokeS*& psttNameP , byteT*& pbP , countT& cbP )
+
+}
+{
+swsCache( tinP , etherP , TAG( TAGiDnULL ) , flSTACKc_DOnOTsERIALIZE | flSTACKc_SINKrEVERSE , cLever , flSTACKc_DOnOTsERIALIZE | flSTACKc_BLOB , sizeof( cachedS ) )
+cLever( 0 ) ,
+ether( etherP ) ,
+cacheC::cacheC( tinS& tinP , etherC& etherP ) :
+
+}
+    purgeF( tinP , 0 ) ;
+    TINSL
+{
+cacheC::~cacheC( voidT )
 
 }
     cbBlobP   = 0 ;
@@ -60,11 +211,32 @@ cachedS::cachedS( tinS& tinP , etherC& etherP , strokeS*& psttNameP , osTextT*& 
 }
     ether.delF( tinP , *(byteT**)&pbBlob ) ;
     ether.delF( tinP , *(strokeS**)&psttName ) ;
+    ether.traceF( tinP , T("destroying [name]:    ")+T(psttName) ) ;
     TINSL
 {
 cachedS::~cachedS( voidT )
 
+NEWdELcLASS( 2 , cacheC )
 NEWdELcLASS( 1 , cachedS )
+
+countT leverUse ;
+
+} ;
+    voidT reportF( tinS& tinP , const strokeS* const psttTitleP = 0 ) ;
+    voidT pushF( tinS& tinP , strokeS*& psttNameP , byteT*& pbP , countT& cbP ) ;
+    voidT purgeF( tinS& tinP , countT cRetainP ) ;
+    cachedS* operator ()( const strokeS* const psttNameP , boolT bDeleteIfP = 0 ) ;
+    cacheC( tinS& tinP , etherC& etherP ) ;
+    ~cacheC( voidT ) ;
+    NEWdELcLASSpROTOS
+
+    public :
+
+    switchStackC swsCache ;
+    countT       cLever   ;
+    etherC&      ether    ;
+{
+class cacheC
 
 } ;
     cachedS( tinS& tinP , etherC& etherP , strokeS*& psttNameP , osTextT*& pbBlobP , countT& cbBlobP ) ;
