@@ -104,7 +104,7 @@
                         DEL( pInfo ) ;
                         }
                             if( !ids ) etThread.delF( tinP , psttShort ) ;
-                            stNewTopicFileShort.sinkF( tinP , ids , psttShort , flSTACKsINK_UNIQUE|flSTACKsINK_REVERSE ) ;
+                            stNewTopicFileShort.sinkF( tinP , ids , psttShort , flSTACKsINK_UNIQUE ) ;
                             ZE( countT , ids ) ;
 
                             }
@@ -137,7 +137,7 @@
                 patternC pat( tinP , etThread , tPattern , ifcIDtYPEpATTERN_FOREIGNwILDCARDsTRICT ) ;
                 TN( tPattern , "" ) ; tPattern = T("newTopic")+T(bSandbox?".sandbox.*":".live.*") ;
             {
-            stackC stNewTopicFileShort( tinP , etThread , TAG( TAGiDnULL ) , flSTACKc_DOnOTsERIALIZE , ifcSTACKtYPE_PTR_strokeS , ifcIDgRABlAYER_7BASEmISC1 ) ;
+            stackC stNewTopicFileShort( tinP , etThread , TAG( TAGiDnULL ) , flSTACKc_DOnOTsERIALIZE | flSTACKc_SINKrEVERSE , ifcSTACKtYPE_PTR_strokeS , ifcIDgRABlAYER_7BASEmISC1 ) ;
         {
         TN( tTopic , "" ) ;
 
@@ -1208,7 +1208,7 @@
                         DEL( pInfo ) ;
                         }
                             if( !ids ) etThread.delF( tinP , psttShort ) ;
-                            stSaidAnonFileShort.sinkF( tinP , ids , psttShort , flSTACKsINK_UNIQUE|flSTACKsINK_REVERSE ) ;
+                            stSaidAnonFileShort.sinkF( tinP , ids , psttShort , flSTACKsINK_UNIQUE ) ;
                             ZE( countT , ids ) ;
 
                             }
@@ -1241,7 +1241,7 @@
                 patternC pat( tinP , etThread , tPattern , ifcIDtYPEpATTERN_FOREIGNwILDCARDsTRICT ) ;
                 TN( tPattern , "" ) ; tPattern = T("said.anon.table")+T(bSandbox?".sandbox.*":".live.*") ;
             {
-            stackC stSaidAnonFileShort( tinP , etThread , TAG( TAGiDnULL ) , flSTACKc_DOnOTsERIALIZE , ifcSTACKtYPE_PTR_strokeS , ifcIDgRABlAYER_7BASEmISC1 ) ;
+            stackC stSaidAnonFileShort( tinP , etThread , TAG( TAGiDnULL ) , flSTACKc_DOnOTsERIALIZE | flSTACKc_SINKrEVERSE , ifcSTACKtYPE_PTR_strokeS , ifcIDgRABlAYER_7BASEmISC1 ) ;
         {
         if( bSecretIsOK )
         ZE( boolT , bTopicIsFresh ) ;

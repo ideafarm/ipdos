@@ -3645,7 +3645,6 @@ examples
 /*3*/
 #define flSTACKsINK_UNIQUE   0xe0000108
 #define flSTACKsINK_QUERY    0xe0000208
-#define flSTACKsINK_REVERSE  0xe0000408
 /*3*/
 #define flSTACKsINK_null    0xe0000008
 
@@ -4293,6 +4292,7 @@ some flags are used only for switches
 #define flSTACKc_DISALLOWsMALLvALUE        0xe010000c
 #define flSTACKc_LEVERiSlENpREFIXED        0xe020000c
 #define flSTACKc_PATCHnEWfLAVOR            0xe040000c
+#define flSTACKc_SINKrEVERSE               0xe080000c
 /*3*/
 #define flSTACKc_null    0xe000000c
 

@@ -305,7 +305,7 @@
                         DEL( pInfo ) ;
                         }
                             if( !ids ) tinP.pEtScratch->delF( tinP , psttShort ) ;
-                            stFilePTopic.sinkF( tinP , ids , psttShort , flSTACKsINK_UNIQUE|flSTACKsINK_REVERSE ) ;
+                            stFilePTopic.sinkF( tinP , ids , psttShort , flSTACKsINK_UNIQUE ) ;
                             ZE( countT , ids ) ;
 
                             }
@@ -334,7 +334,7 @@
                     handleC hFind( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_FILEfIND ) ;
                 {
                 FORsTRINGSiN1( (strokeS*)tListPTopicPath )
-                stackC stFilePTopic( tinP , *tinP.pEtScratch , TAG( TAGiDnULL ) , flSTACKc_DOnOTsERIALIZE , ifcSTACKtYPE_PTR_strokeS , ifcIDgRABlAYER_7BASEmISC1 ) ;
+                stackC stFilePTopic( tinP , *tinP.pEtScratch , TAG( TAGiDnULL ) , flSTACKc_DOnOTsERIALIZE | flSTACKc_SINKrEVERSE , ifcSTACKtYPE_PTR_strokeS , ifcIDgRABlAYER_7BASEmISC1 ) ;
 
                 tListPTopicPath += T("////factory5/d/ideafarm.home.102/ephemeral/backed.up.daily/domains/com/ideafarm/wo.o.s.table/ptopic/") ;
                 tListPTopicPath += T("////factory4/d/ideafarm.home.102/ephemeral/backed.up.daily/domains/com/ideafarm/wo.o.s.table/ptopic/") ;
@@ -460,7 +460,7 @@
                 DEL( pInfo ) ;
                 }
                     if( !ids ) tinP.pEtScratch->delF( tinP , psttShort ) ;
-                    stFileShortSaid.sinkF( tinP , ids , psttShort , flSTACKsINK_UNIQUE|flSTACKsINK_REVERSE ) ;
+                    stFileShortSaid.sinkF( tinP , ids , psttShort , flSTACKsINK_UNIQUE ) ;
                     ZE( countT , ids ) ;
 
                     }
@@ -509,7 +509,7 @@
     ZE( countT , cFiles ) ;
     sCountT timeA2 = MAXscOUNTT ; // AGE OF THE YOUNGEST POST
     countT  timeA1 = MAXcOUNTT  ; // AGE OF THE YOUNGEST POST ; "A": "AGE"
-    stackC stFileShortSaid( tinP , etThread , TAG( TAGiDnULL ) , flSTACKc_DOnOTsERIALIZE , ifcSTACKtYPE_PTR_strokeS , ifcIDgRABlAYER_7BASEmISC1 ) ;
+    stackC stFileShortSaid( tinP , etThread , TAG( TAGiDnULL ) , flSTACKc_DOnOTsERIALIZE | flSTACKc_SINKrEVERSE , ifcSTACKtYPE_PTR_strokeS , ifcIDgRABlAYER_7BASEmISC1 ) ;
 
     tListSaidPath += T("////factory5/d/ideafarm.home.102/ephemeral/backed.up.daily/domains/com/ideafarm/wo.o.s.table/said/") ;
     tListSaidPath += T("////factory4/d/ideafarm.home.102/ephemeral/backed.up.daily/domains/com/ideafarm/wo.o.s.table/said/") ;

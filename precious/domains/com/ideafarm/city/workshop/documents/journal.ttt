@@ -7612,7 +7612,14 @@ I have other business to attend to today and tomorrow, but plan to continue to w
 
 
 
-
+  !subjob C: switchC: flSTACKsINK_REVERSE: optionally let caller specify that this flag is to be used when sinking into stackk
+   try using switchC with a countT lever
+    i can shift this to make wrap rare
+   use the lower countT of msSinceBoot
+  set up dut to play with this idea
+   conj: this can be done by extract followed by sink
+   a stackC instance would be ideal if it could be told to resort itself
+  think
     wrapping all of this into a queryFileCacheF and storeIntoFileCacheF member functions for httpServerC
     retrying query when wo or more slots are pending
     replacing that slot
@@ -7636,6 +7643,32 @@ I have other business to attend to today and tomorrow, but plan to continue to w
 !job C: optimize: cache for files (such as the handout)
 
 
+
+
+  !subjob C: switchC: migrate REVERSE flag from sinkF flags to ct flags
+    conj: sinking some but not all reversed will result in incorrect and random sorting
+   this is not desirable to specify on sinkF call because that invites coding errors due to inconsistent calls
+   the problem is that the reverse flag is specified on the sinkF call rather than on the ct call
+  think
+   inspect the code; how does it work?
+  look
+    for purging, to allow an app to tell the switch to purge the least recent (lowest) plates
+    for convenience, to control the order of the plates
+    for efficiency, to allow app to control the amount of work done during sinks
+   i want to be able to control the order in which plates are sunk
+  think
+ playcraft
+ objective: elegance
+!subjob C: switchC: flSTACKsINK_REVERSE: optionally let caller specify that this flag is to be used when sinking into stackk
+
+
+
+   #define flSTACKc_SINKrEVERSE               0xe080000c
+   #define flSTACKsINK_REVERSE  /*fl*/
+  just do this
+ playcraft
+ objective: elegance
+!subjob C: switchC: migrate REVERSE flag from sinkF flags to ct flags
 
 !thrust: debug until all factories run without failure
 
