@@ -36,7 +36,8 @@ PUSE( tinP , postTo ) ;
 {
 if( postTo )
 
-osTextT* postTo = PUSE.newF( tinP , LF , 2 * sizeof( countT ) + sizeof postFrom ) ; ___( postTo ) ;
+PUSE.newF( tinP , LF , postTo , 2 * sizeof( countT ) + sizeof postFrom ) ; ___( postTo ) ;
+static ZE( osTextT* , postTo ) ;    //"static" IS TO WORK AROUND DEBUGGER BUG
 
 TODO
 
@@ -44,7 +45,7 @@ osTextT postFrom[] = "abcdefgh" ;
 
 // 
 // 
-// 
+// 20200811@1334: TESTED AOK (AFTER MINOR EDIT: CHANGE TO poolC::newF PARAMETERS)
 // 2011.12.31: TESTED AOK
 // 
 // MAINTENANCE HISTORY

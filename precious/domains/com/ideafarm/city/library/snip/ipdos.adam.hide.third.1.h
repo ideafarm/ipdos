@@ -1,3 +1,155 @@
+#define PrEF(classP,nameP,pointerP) classP& nameP = *(classP*)(const byteT*)(pointerP) ;
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+/*
+*/
+/**/
+
+/*1*//*GARBAGEcOLLECTORdEF(idP,classP)*//*1*/
+
+#define GARBAGEcOLLECTORdEF(idP,classP)                                                                                                                 \
+                                                                                                                                                        \
+    voidT _garbageCollector##idP##CBF( tinS& tinP , byteT* pbvspP , countT idEventP , countT cRefOldP , countT cRefNewLaterP , countT cArgP )           \
+    {                                                                                                                                                   \
+        switch( idEventP )                                                                                                                              \
+        {                                                                                                                                               \
+            case ifcIDeVENTvsp_DT :                                                                                                                     \
+            {                                                                                                                                           \
+                if( !cRefNewLaterP )                                                                                                                    \
+                {                                                                                                                                       \
+                    blobSP& blobsp = *(blobSP*)pbvspP ;                                                                                                 \
+                                                                                                                                                        \
+                    classP* pDoomed = (classP*)(const byteT*)*(blobSP*)pbvspP ;                                                                         \
+                    DELzOMBIE( pDoomed ) ;                                                                                                              \
+                                                                                                                                                        \
+                    byteT* pbDoomed = (byteT*)( (countT)( (const byteT*)*(blobSP*)pbvspP - 2 * sizeof( countT ) ) ) ;                                   \
+                    PUSE( tinP , pbDoomed ) ;                                                                                                           \
+                }                                                                                                                                       \
+                break ;                                                                                                                                 \
+            }                                                                                                                                           \
+        }                                                                                                                                               \
+    }
+
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+/*
+*/
+/**/
+
+/*1*//*POINTERc_BEGIN(idP,classP)*//*1*/
+
+#define POINTERc_BEGIN(idP,classP)                                                                                  \
+                                                                                                                    \
+    ZE( byteT* , _pbBack##idP ) ;                                                                                   \
+    PUSE.newF( tinP , LF , _pbBack##idP , 2 * sizeof( countT ) + sizeof( classP ) ) ; ___( _pbBack##idP ) ;         \
+    ((countT*)_pbBack##idP)[ 0 ] = 0 ;                                                                              \
+    ((countT*)_pbBack##idP)[ 1 ] = sizeof( classP ) ;                                                               \
+    new( 0 , tinP , _pbBack##idP + 2 * sizeof( countT ) , sizeof( classP ) ) classP(
+
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+/*
+*/
+/**/
+
+/*1*//*POINTERc_END(idP,nameP)*//*1*/
+
+#define POINTERc_END(idP,nameP)                                                                                     \
+                                                                                                                    \
+    ) ;                                                                                                             \
+    blobVSP nameP( _pbBack##idP + 2 * sizeof( countT ) , GARBAGEcOLLECTORnAME( idP ) ) ;
+
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+/*
+*/
+/**/
+
+/*1*//*POINTERc*//*1*/
+
+#define POINTERc blobVSP
+
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+/*
+*/
+/**/
+
+/*1*//*GARBAGEcOLLECTORnAME(idP)*//*1*/
+
+#define GARBAGEcOLLECTORnAME(idP) _garbageCollector##idP##CBF
+
+
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+
 
 // IPDOS (tm) <> IdeaFarm (tm) Piggyback Distributed Operating System
 
@@ -44506,98 +44658,3 @@ arguments
 //
 
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004d1.setinoutframe END
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004d2.flsurfc BEGIN
-
-
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-// Respecting the rights of other people is an important part of empowering one another.
-//
-
-/*
-*/
-/**/
-
-/*1*//*flSURFc*//*1*/
-
-/*3*/
-#define flSURFc_NOsMOOTHIES                 0xe00001e7
-/*3*/
-#define flSURFc_null    0xe00000e7
-
-
-//
-// Respecting the rights of other people is an important part of empowering one another.
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004d2.flsurfc END
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004d3.fldevicec BEGIN
-
-
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-// Respecting the rights of other people is an important part of empowering one another.
-//
-
-/*
-*/
-/**/
-
-/*1*//*flDEVICEc*//*1*/
-
-/*3*/
-#define flDEVICEc_NOsMOOTHIES                 0xe00001e8
-/*3*/
-#define flDEVICEc_null    0xe00000e8
-
-
-//
-// Respecting the rights of other people is an important part of empowering one another.
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004d3.fldevicec END
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004d4.fepfailbreakif BEGIN
-
-
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-// Respecting the rights of other people is an important part of empowering one another.
-//
-
-
-/*
-*/
-
-/**/
-
-/*1*//*FEPfAILbREAKiF*//*1*/
-
-#define FEPfAILbREAKiF                                                                                                                          \
-                                                                                                                                                \
-    if( offpo >= cPointMax )                                                                                                                    \
-    {                                                                                                                                           \
-        bFail = 1 ;                                                                                                                             \
-        break ;                                                                                                                                 \
-    }
-
-
-//
-// Respecting the rights of other people is an important part of empowering one another.
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004d4.fepfailbreakif END

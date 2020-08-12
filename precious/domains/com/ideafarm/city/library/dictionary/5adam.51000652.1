@@ -28,10 +28,12 @@ CONoUTrAW5( "----------------------------------------------------------------[cR
             sp3 = sp2 ;
             CONoUTrAW( "----------------------------------------------------------------assigning sp3 from sp2\r\n" ) ;
             CONoUTrAW5( "----------------------------------------------------------------[cRef,costsp]: " , cRef , " " , costsp , "\r\n" ) ;
+            THREADmODE3rESTORE
             byteT* pbw2 = sp2 ;
             CONoUTrAW( "----------------------------------------------------------------getting write ref from sp2\r\n" ) ;
             CONoUTrAW5( "----------------------------------------------------------------[cRef,costsp]: " , cRef , " " , costsp , "\r\n" ) ;
             byteT* pbw1 = sp1 ;
+            THREADmODE3oN( flTHREADmODE3_ALLOWwRITEABLEpOINTERgET ) ;
             CONoUTrAW( "----------------------------------------------------------------getting write ref from sp1\r\n" ) ;
             CONoUTrAW5( "----------------------------------------------------------------[cRef,costsp]: " , cRef , " " , costsp , "\r\n" ) ;
             blobVSP sp3 ;
@@ -58,15 +60,16 @@ TODO
 
 }
     }
-        default                   : { CONoUTrAW9( "??: [@,idEvent,cRefOld,cRefNew]: " , pbvspP , " " , idEventP , " " , cRefOldP , " " , cRefNewP , "\r\n" ) ; break ; }
-        case ifcIDeVENTvsp_DT     : { CONoUTrAW7( "DT: [@,cRefOld,cRefNew]: " , pbvspP , " " , cRefOldP , " " , cRefNewP , "\r\n" ) ; break ; }
-        case ifcIDeVENTvsp_WrEFdT : { CONoUTrAW7( "WrEFdT: [@,cRefOld,cRefNew]: " , pbvspP , " " , cRefOldP , " " , cRefNewP , "\r\n" ) ; break ; }
-        case ifcIDeVENTvsp_WrEFcT : { CONoUTrAW7( "WrEFcT: [@,cRefOld,cRefNew]: " , pbvspP , " " , cRefOldP , " " , cRefNewP , "\r\n" ) ; break ; }
-        case ifcIDeVENTvsp_CT     : { CONoUTrAW7( "CT:     [@,cRefOld,cRefNew]: " , pbvspP , " " , cRefOldP , " " , cRefNewP , "\r\n" ) ; break ; }
+        default                   : { CONoUTrAW9( "??: [@,idEvent,cRefOld,cRefNew]: " , pbvspP , " " , idEventP , " " , cRefOldP , " " , cRefNewLaterP , "\r\n" ) ; break ; }
+        case ifcIDeVENTvsp_DT     : { CONoUTrAW7( "DT: [@,cRefOld,cRefNew]: " , pbvspP , " " , cRefOldP , " " , cRefNewLaterP , "\r\n" ) ; break ; }
+        case ifcIDeVENTvsp_WrEFdT : { CONoUTrAW7( "WrEFdT: [@,cRefOld,cRefNew]: " , pbvspP , " " , cRefOldP , " " , cRefNewLaterP , "\r\n" ) ; break ; }
+        case ifcIDeVENTvsp_WrEFcT : { CONoUTrAW7( "WrEFcT: [@,cRefOld,cRefNew]: " , pbvspP , " " , cRefOldP , " " , cRefNewLaterP , "\r\n" ) ; break ; }
+        case ifcIDeVENTvsp_CT     : { CONoUTrAW7( "CT:     [@,cRefOld,cRefNew]: " , pbvspP , " " , cRefOldP , " " , cRefNewLaterP , "\r\n" ) ; break ; }
     {
     switch( idEventP )
 {
-voidT myCBF( byteT* pbvspP , countT idEventP , countT cRefOldP , countT cRefNewP )
+voidT myCBF( tinS& tinP , byteT* pbvspP , countT idEventP , countT cRefOldP , countT cRefNewLaterP , countT cArgP )
+            
 
 /*1*/WAKEsHOWtEXT( "example.other.1snip.11200470.VERYsMARTpOINTERcLASSdEF" )/*1*/
 /**/
