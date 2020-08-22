@@ -23,9 +23,9 @@ TODO
 }
     return 0 ;
 
-    tinP.pEther->delF( tinP , psttShort ) ;
-    tinP.pEther->delF( tinP , psttPath ) ;
-    tinP.pEther->delF( tinP , psttShortNew ) ;
+    PUSE( tinP , *(byteT**)&psttShort ) ;
+    PUSE( tinP , *(byteT**)&psttPath ) ;
+    PUSE( tinP , *(byteT**)&psttShortNew ) ;
 
     if( tinP.pEther->strCompareF( tinP , psttShortNew , psttShort ) ) tinP.pEther->diskMoveFileOrDirF( tinP , T(psttPath)+T(psttShortNew) , tNameOld ) ;
 
@@ -40,7 +40,7 @@ TODO
 
     TN( tNameOld , ifFileNameC( tinP , *tinP.pEther , postNameP ) ) ;
 
-    if( !( cFilesP % TUCK ) ) tinP.pEther->traceF( tinP , T("[cFilesP]: ")+TF2(cFilesP,flFORMAT_UNSIGNED|flFORMAT_NObIGITvALUES) ) ;
+    if( !( cFilesP % TUCK ) ) etherC::etRockIF( tinP ).traceF( tinP , T("[cFilesP]: ")+TF2(cFilesP,flFORMAT_UNSIGNED|flFORMAT_NObIGITvALUES) ) ;
 {
 boolT diskWalkRenameCBF( tinS& tinP , countT& cDirsP , countT& cFilesP , boolT& bQuitP , const osTextT* const postNameP , countT* const pcArgP , const countT* const pModuloDirsP , const countT* const pModuloFilesP )
 

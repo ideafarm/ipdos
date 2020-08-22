@@ -57,13 +57,13 @@ TASK( tmWorkerF )
         }
             break ;
             }
-                tinP.pEther->delF( tinP , pbDoomed ) ;
+                PUSE( tinP , pbDoomed ) ;
                 byteT* pbDoomed = (byteT*)( (countT)( (const byteT*)*(blobSP*)pbvspP - 2 * sizeof( countT ) ) ) ;
                 blobSP& blobsp = *(blobSP*)pbvspP ;
-                tinP.pEther->traceF( tinP , T("deleting") ) ;
+                etherC::etRockIF( tinP ).traceF( tinP , T("deleting") ) ;
             {
             else
-            if( cRefNewLaterP ) tinP.pEther->traceF( tinP , T("not deleting") ) ;
+            if( cRefNewLaterP ) etherC::etRockIF( tinP ).traceF( tinP , T("not deleting") ) ;
         {
         case ifcIDeVENTvsp_DT :
     {

@@ -24,15 +24,15 @@ TODO
     return bDoIt ;
 
     }
-        tinP.pEther->delF( tinP , psttOldLower ) ;
+        PUSE( tinP , *(byteT**)&psttOldLower ) ;
         }
-            tinP.pEther->delF( tinP , psttShortNew ) ;
-            tinP.pEther->delF( tinP , psttShortOld ) ;
-            tinP.pEther->delF( tinP , psttPath ) ;
+            PUSE( tinP , *(byteT**)&psttShortNew ) ;
+            PUSE( tinP , *(byteT**)&psttShortOld ) ;
+            PUSE( tinP , *(byteT**)&psttPath ) ;
 
             }
                 tinP.pEther->diskWalkCopyFileF( tinP , tNew , tOld , 0 ) ;
-                tinP.pEther->traceF( tinP , T("copying to: ")+tNew ) ;
+                etherC::etRockIF( tinP ).traceF( tinP , T("copying to: ")+tNew ) ;
             {
             if( !tinP.pEther->diskFileExistsF( tinP , tNew ) )
 

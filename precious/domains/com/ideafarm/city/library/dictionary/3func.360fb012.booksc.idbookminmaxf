@@ -42,7 +42,7 @@
                     while( ~hFind ) ;
                     }
                         DEL( pInfo ) ;
-                        //if( tinP.pEther && pInfo ) tinP.pEther->trace F( tinP , T("idBookMinMaxF inspected  [psttIfoName]:    ")+T(pInfo->psttIfoName) ) ;
+                        //if( tinP.pEther && pInfo ) etherC::etRockIF( tinP ).trace F( tinP , T("idBookMinMaxF inspected  [psttIfoName]:    ")+T(pInfo->psttIfoName) ) ;
                         }
                             }
                                 }
@@ -79,7 +79,7 @@
                                 {
                                 if( !pcpIdBookMinP )
                 
-                                tinP.pEther->delF( tinP , pstt1w ) ;
+                                PUSE( tinP , *(byteT**)&pstt1w ) ;
                                 }
                                     }
                                         else                       pco -- ;
@@ -93,12 +93,12 @@
                                 if( pcpIdBookThis )
                                 PUSE.newF( tinP , LF , *(byteT**)&pcpIdBookThis , sizeof( countT ) * cWords ) ; ___( pcpIdBookThis ) ;
                                 ZE( countT* , pcpIdBookThis ) ;
-                                tinP.pEther->delF( tinP , psttw ) ;
+                                PUSE( tinP , *(byteT**)&psttw ) ;
                                 countT cWords = tinP.pEther->strWordsOldF( tinP , pstt1w , psttw , sttq , tDot ) ; ___( pstt1w ) ;
                                 ZE( strokeS* , pstt1w ) ;
                 
                                 tinP.pEther->strSubstringF( tinP , psttw , idf , sttq , tAfter , pInfo->psttIfoName ) ; ___( psttw ) ;
-                                tinP.pEther->delF( tinP , psttw ) ;
+                                PUSE( tinP , *(byteT**)&psttw ) ;
                                 tinP.pEther->strSubstringF( tinP , psttw , idf , sttq , tBefore , pInfo->psttIfoName ) ; ___( psttw ) ;
                                 countT idf = 1 ;
                                 ZE( strokeS* , psttw ) ;
@@ -113,7 +113,7 @@
                         {
                         if( pInfo && !( F(pInfo->flags) & flFILEaTTR_DIRECTORY ) )
 
-                        //if( tinP.pEther && pInfo ) tinP.pEther->trace F( tinP , T("idBookMinMaxF inspecting [psttIfoName]:    ")+T(pInfo->psttIfoName) ) ;
+                        //if( tinP.pEther && pInfo ) etherC::etRockIF( tinP ).trace F( tinP , T("idBookMinMaxF inspecting [psttIfoName]:    ")+T(pInfo->psttIfoName) ) ;
                         }
                             }
                                 break ;
@@ -156,7 +156,7 @@
         
                 while( ~hFind ) ;
                 }
-                    //if( tinP.pEther ) tinP.pEther->trace F( tinP , T("idBookMinMazF inspected  [postName]:    ")+T(postName) ) ;
+                    //etherC::etRockIF( tinP ).trace F( tinP , T("idBookMinMazF inspected  [postName]:    ")+T(postName) ) ;
                     }
                         }
                             if( sgn < 0 ) thirdC::c_memcpyIF( tinP , (byteT*)pcpIdBookScratchMax , (byteT*)pcpIdBookScratch1 , cbToCopy ) ;
@@ -233,7 +233,7 @@
                         __( ~hFind ) ;
                     {
                     if( !postName[ 0 ] )
-                    //if( tinP.pEther ) tinP.pEther->trace F( tinP , T("idBookMinMazF inspecting [postName]:    ")+T(postName) ) ;
+                    //etherC::etRockIF( tinP ).trace F( tinP , T("idBookMinMazF inspecting [postName]:    ")+T(postName) ) ;
                     thirdC::dosFindFileOrDirSimpleIF( tinP , postName , sizeof postName , hFind , postFindLike ) ;
                     postName[ 0 ] = 0 ;
                     osTextT postName[ TUCK << 1 ] ;

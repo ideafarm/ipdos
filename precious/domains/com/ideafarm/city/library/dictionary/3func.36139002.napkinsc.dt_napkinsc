@@ -12,30 +12,30 @@
 
     }
         }
-            tinP.pEther->delF( tinP , pstt1f ) ;
+            PUSE( tinP , *(byteT**)&pstt1f ) ;
             }
-                //tinP.pEther->traceF( tinP , T("deleted : ")+T(psttc1) ) ;
-                tinP.pEther->diskFileOrDirDeleteF( tinP , psttc1 ) ;
-                //tinP.pEther->traceF( tinP , T("deleting: ")+T(psttc1) ) ;
+                //etherC::etRockIF( tinP ).traceF( tinP , T("deleted : ")+T(psttc1) ) ;
+                ether.diskFileOrDirDeleteF( tinP , psttc1 ) ;
+                //etherC::etRockIF( tinP ).traceF( tinP , T("deleting: ")+T(psttc1) ) ;
             {
             FORsTRINGSiN1( pstt1f )
 
             tinP.pcQuit = pcQuitSave ;
 
-            countT cFound = tinP.pEther->diskFindFileOrDirF( tinP , pstt1f , fnLike.pathF() , &pat , 0 , 0 , 0 , 8 ) ; ___( pstt1f ) ;
+            countT cFound = ether.diskFindFileOrDirF( tinP , pstt1f , fnLike.pathF() , &pat , 0 , 0 , 0 , 8 ) ; ___( pstt1f ) ;
             ZE( strokeS* , pstt1f ) ;
 
-            patternC pat( tinP , *tinP.pEther , fnLike , ifcIDtYPEpATTERN_FOREIGNwILDCARDsTRICT ) ;
-            fileNameC fnLike( tinP , *tinP.pEther , tLike ) ;
+            patternC pat( tinP , ether , fnLike , ifcIDtYPEpATTERN_FOREIGNwILDCARDsTRICT ) ;
+            fileNameC fnLike( tinP , ether , tLike ) ;
 
                                        tinP.pcQuit = 0 ;
             const countT* pcQuitSave = tinP.pcQuit ;
 
-            //tinP.pEther->traceF( tinP , T("deleting: ")+tLike ) ;
+            //etherC::etRockIF( tinP ).traceF( tinP , T("deleting: ")+tLike ) ;
 
             TN( tLike , "" ) ; tLike = T(iffn)+T(postName)+T(".*") ;
 
-            ifFileNameC iffn( tinP , *tinP.pEther , postPath ) ;
+            ifFileNameC iffn( tinP , ether , postPath ) ;
         {
         if( !POOP )
 

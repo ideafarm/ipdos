@@ -10,7 +10,7 @@
 }
     return pbDockNapkinData + offWant ; //U:: NEED TO CALCULATE THE OFFSET TO RETURN
 
-    //tinP.pEther->traceF( tinP , T("  [pbDockNapkinData,offWant,+]: ")+TF3((countT)pbDockNapkinData,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE,8)+T("    ")+TF3(offWant,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,8)+T("    ")+TF3((countT)(pbDockNapkinData+offWant),flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE,8) /*, flTRACE_NOpREFIX*/ ) ;
+    //etherC::etRockIF( tinP ).traceF( tinP , T("  [pbDockNapkinData,offWant,+]: ")+TF3((countT)pbDockNapkinData,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE,8)+T("    ")+TF3(offWant,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,8)+T("    ")+TF3((countT)(pbDockNapkinData+offWant),flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE,8) /*, flTRACE_NOpREFIX*/ ) ;
 
     countT offWant = (countT)offByteWant & mask ;
     }
@@ -70,7 +70,7 @@
 
         ctFileF( tinP , offDockMake , tName ) ;
 
-        //tinP.pEther->traceF( tinP , T("  [tName]: \"")+tName+T("\"") /*, flTRACE_NOpREFIX*/ ) ;
+        //etherC::etRockIF( tinP ).traceF( tinP , T("  [tName]: \"")+tName+T("\"") /*, flTRACE_NOpREFIX*/ ) ;
         TN( tName , "" ) ; tName = T(postName)+T(".")+TF3(offNapkinWant,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE|flFORMAT_FOREIGN,8) ;
 
         }
@@ -84,7 +84,7 @@
         {
         if( pcDockOffNapkin[ offDockMake ] != - 1 )
 
-        //tinP.pEther->traceF( tinP , T("  [offDockMake]: ")+TF2(offDockMake,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) /*, flTRACE_NOpREFIX*/ ) ;
+        //etherC::etRockIF( tinP ).traceF( tinP , T("  [offDockMake]: ")+TF2(offDockMake,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) /*, flTRACE_NOpREFIX*/ ) ;
                              offDockNextCt %= cDocks ;
         countT offDockMake = offDockNextCt ++ ;
     {
@@ -95,7 +95,7 @@
     {
     if( offDockWant != - 1 )
 
-    //tinP.pEther->traceF( tinP , T("  [offDockWant]: ")+TF2(offDockWant,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) /*, flTRACE_NOpREFIX*/ ) ;
+    //etherC::etRockIF( tinP ).traceF( tinP , T("  [offDockWant]: ")+TF2(offDockWant,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) /*, flTRACE_NOpREFIX*/ ) ;
     }
         }
             break ;
@@ -107,7 +107,7 @@
     countT offDockWant = - 1 ;
     ZE( byteT* , pbDockNapkinData ) ;
 
-    //tinP.pEther->traceF( tinP , T("[offElementP,offNapkinWant]: ")+TF2(offElementP,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+TF2(offNapkinWant,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) /*, flTRACE_NOpREFIX*/ ) ;
+    //etherC::etRockIF( tinP ).traceF( tinP , T("[offElementP,offNapkinWant]: ")+TF2(offElementP,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+TF2(offNapkinWant,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) /*, flTRACE_NOpREFIX*/ ) ;
     }
         offNapkinWant = (countT)offn ;
         offn >>= expCbPerNapkin ;

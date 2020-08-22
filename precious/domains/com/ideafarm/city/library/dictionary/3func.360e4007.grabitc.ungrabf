@@ -24,8 +24,8 @@
             //20170106@0926: tmReportF in 4fb
             BLAMMO ;
             //}
-            //    tinP.pEther->traceF( tinP , T("btrAM failed / cRef: ")+TF2(cRef,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T(" ; flagsi" ": ")+TF2(flagsi,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T(" ; idTypeDatum: ")+TF2(idTypeDatum,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
-            //    tinP.pEther->traceF( tinP , T("[cGrabitC_set,cGrabitC_reset]: ")+TF2(tinP.cGrabitC_set,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T(" ")+TF2(tinP.cGrabitC_reset,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
+            //    etherC::etRockIF( tinP ).traceF( tinP , T("btrAM failed / cRef: ")+TF2(cRef,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T(" ; flagsi" ": ")+TF2(flagsi,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T(" ; idTypeDatum: ")+TF2(idTypeDatum,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
+            //    etherC::etRockIF( tinP ).traceF( tinP , T("[cGrabitC_set,cGrabitC_reset]: ")+TF2(tinP.cGrabitC_set,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T(" ")+TF2(tinP.cGrabitC_reset,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
             //    byteT    idTypeDatum = (byteT)listing.idTypeDatumF() ;
             //    byteT    flagsi      =        listing.flagsF() ;
             //    count01T cRef        =        listing.cRefPrivate2F() ;
@@ -34,18 +34,18 @@
             //if( tinP.pc Utility[ 0 ] )
 
             }
-                tinP.pEther->traceF( tinP , T("    should match [correct,pbPad[offp]]: ")+TF2(GRABITbYTEiNITIALvALUE,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T(" ")+TF2(pbPad[offp],flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
+                etherC::etRockIF( tinP ).traceF( tinP , T("    should match [correct,pbPad[offp]]: ")+TF2(GRABITbYTEiNITIALvALUE,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T(" ")+TF2(pbPad[offp],flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
                 LOGrAW5(                      "    should match [correct,pbPad[offp]]: " ,    GRABITbYTEiNITIALvALUE                                           , " " ,    pbPad[ offp ] , "\r\n" ) ;
             {
             for( countT offp = 0 ; offp < sizeof pbPad ; offp ++ )
 
-            tinP.pEther->traceF( tinP , T("grabitC::ungrabF error: already ungrabbed; memory has been trashed if these numbers don't match [correct,*pbo,bitsDefault]: ")+TF2(GRABITbYTEiNITIALvALUE,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T(" ")+TF2(*pbo,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T(" ")+TF2(bitsDefault,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
+            etherC::etRockIF( tinP ).traceF( tinP , T("grabitC::ungrabF error: already ungrabbed; memory has been trashed if these numbers don't match [correct,*pbo,bitsDefault]: ")+TF2(GRABITbYTEiNITIALvALUE,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T(" ")+TF2(*pbo,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T(" ")+TF2(bitsDefault,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
             LOGrAW7(                  "\r\ngrabitC::ungrabF error: already ungrabbed; memory has been trashed if these numbers don't match [correct,*pbo,bitsDefault]: " ,    GRABITbYTEiNITIALvALUE                                           , " " ,    *pbo                                           , " " ,    bitsDefault                                           , "\r\n" ) ;
 
-            tinP.pEther->traceF( tinP , T("grabitC::ungrabF error: already ungrabbed [tinP.cGrabitC_set,tinP.cGrabitC_reset]: ")+TF2(tinP.cGrabitC_set,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T(" ")+TF2(tinP.cGrabitC_reset,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
+            etherC::etRockIF( tinP ).traceF( tinP , T("grabitC::ungrabF error: already ungrabbed [tinP.cGrabitC_set,tinP.cGrabitC_reset]: ")+TF2(tinP.cGrabitC_set,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T(" ")+TF2(tinP.cGrabitC_reset,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
             LOGrAW5(                  "\r\ngrabitC::ungrabF error: already ungrabbed [tinP.cGrabitC_set,tinP.cGrabitC_reset]: " ,    tinP.cGrabitC_set                                           , " " ,    tinP.cGrabitC_reset , "\r\n" ) ;
 
-            tinP.pEther->traceF( tinP , T("grabitC::ungrabF error: [offo,savebyte1,savebyte2]: ")+TF2(offo,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T(" ")+TF2(savebyte1,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T(" ")+TF2(savebyte2,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
+            etherC::etRockIF( tinP ).traceF( tinP , T("grabitC::ungrabF error: [offo,savebyte1,savebyte2]: ")+TF2(offo,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T(" ")+TF2(savebyte1,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T(" ")+TF2(savebyte2,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
             LOGrAW7(                  "\r\ngrabitC::ungrabF error: [offo,savebyte1,savebyte2]: " , offo , " " , savebyte1 , " " , savebyte2 , "\r\n" ) ;
 
             countT savebyte2 = *pbo ;

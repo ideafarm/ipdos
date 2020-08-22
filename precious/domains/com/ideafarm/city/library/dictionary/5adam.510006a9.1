@@ -36,12 +36,12 @@ TODO
 }
     return 0 ;
 
-    tinP.pEther->delF( tinP , psttShort ) ;
-    tinP.pEther->delF( tinP , psttPath ) ;
+    PUSE( tinP , *(byteT**)&psttShort ) ;
+    PUSE( tinP , *(byteT**)&psttPath ) ;
 
     }
         tinP.pEther->diskMoveFileOrDirF( tinP , T(psttPath)+T(psttShort) , tNameOld , 1 ) ;
-        tinP.pEther->traceF( tinP , (strokeS*)tNameOld ) ;
+        etherC::etRockIF( tinP ).traceF( tinP , (strokeS*)tNameOld ) ;
     {
     if( bHit )
     boolT bHit = tinP.pEther->strReplaceF( tinP , psttShort , 0 , tDotsP , tDotP ) ; ___( psttShort ) ;
@@ -54,7 +54,7 @@ TODO
 
     TN( tNameOld , ifFileNameC( tinP , *tinP.pEther , postNameP ) ) ;
 
-    if( !( cDoneP % TUCK ) ) tinP.pEther->traceF( tinP , T("[cDoneP]: ")+TF2(cDoneP,flFORMAT_UNSIGNED|flFORMAT_NObIGITvALUES) ) ;
+    if( !( cDoneP % TUCK ) ) etherC::etRockIF( tinP ).traceF( tinP , T("[cDoneP]: ")+TF2(cDoneP,flFORMAT_UNSIGNED|flFORMAT_NObIGITvALUES) ) ;
     cDoneP ++ ;
 
     textC&        tDotP          =         *(textC*)pcArgP[ 3 ] ;

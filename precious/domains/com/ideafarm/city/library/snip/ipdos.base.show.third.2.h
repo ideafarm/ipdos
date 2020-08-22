@@ -16945,7 +16945,7 @@ members
  countT     pLFnest[ ( 1 + OFFsLOTtINnESTmAX ) << 1 ] ; //U::MOVE THIS AND cNest TO ADJACENT TO fingerprint
  flagsT     pFlagsThreadLevelMode[ 1 + OFFsLOTtINnESTmAX ] ;
 
- voidT glassF( tinS& tinP , strokeS*& psttP ) const ;
+ voidT glassF( tinS& tinP , etherC& etherP , strokeS*& psttP ) const ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3612f004.dropNoteS.glassF!||
 /**/
 }
@@ -26322,6 +26322,8 @@ the element size must be an integral multiple of 2 between 1 and TOCK
 
 /*1*/class _export napkinsC/*1*/
 {
+    etherC&      ether ;
+
     const        countT idLineCt ;
     const        countT idiFileCt ;
     const        byteT  pbBitsCt[ CBbITScT ] ;
@@ -26351,7 +26353,7 @@ the element size must be an integral multiple of 2 between 1 and TOCK
 
     ~napkinsC( voidT ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.36139002.napkinsC.dt_napkinsC!||
-    napkinsC( tinS& tinP , const countT idLineCtP , const countT idiFileCtP , const byteT* const pbBitsCtP , const osTextT* const postP , countT expCbPerNapkinP , countT expCbPerItemP , const countT idStateSpaceP = 0 , const flagsT flagsP = flNAPKINSc_null , const countT idMemorySpaceP = 0 ) ;
+    napkinsC( tinS& tinP , etherC& etherP , const countT idLineCtP , const countT idiFileCtP , const byteT* const pbBitsCtP , const osTextT* const postP , countT expCbPerNapkinP , countT expCbPerItemP , const countT idStateSpaceP = 0 , const flagsT flagsP = flNAPKINSc_null , const countT idMemorySpaceP = 0 ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.36139003.napkinsC.napkinsC!||
     byteT* operator []( const countT offElementP ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.36139004.napkinsC.operator_element!||
@@ -28483,7 +28485,7 @@ applications should avoid using thirdC objects
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3401e.thirdC.dosLoadModuleF!||
  voidT dosMoveF( tinS& tinP , const osTextT* const postNewP , const osTextT* const postOldP , countT cTriesP = 0 ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3401f.thirdC.dosMoveF!||
- static voidT dosOpenIF( tinS& tinP , handleC& handleP , countT& idResultP , const osTextT* const postP , const countT idAccessP = ifcOPENaCCESS_R , const countT idShareP = ifcOPENsHARE_R , const flagsT flagsDetailsP = flOPENdETAILS_LOCsEQ , const countT idHowP = ifcOPENhOW_nFeO , const flagsT flagsAttributeP = flFILEaTTR_null , const countT cbP = 0 , countT cTriesP = 0 ) ;
+ static voidT dosOpenIF( tinS& tinP , etherC* pEtherP , handleC& handleP , countT& idResultP , const osTextT* const postP , const countT idAccessP = ifcOPENaCCESS_R , const countT idShareP = ifcOPENsHARE_R , const flagsT flagsDetailsP = flOPENdETAILS_LOCsEQ , const countT idHowP = ifcOPENhOW_nFeO , const flagsT flagsAttributeP = flFILEaTTR_null , const countT cbP = 0 , countT cTriesP = 0 ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34020.thirdC.dosOpenIF!||
  voidT dosOpenF( tinS& tinP , handleC& handleP , countT& idResultP , const osTextT* const postP , const countT idAccessP = ifcOPENaCCESS_R , const countT idShareP = ifcOPENsHARE_R , const flagsT flagsDetailsP = flOPENdETAILS_LOCsEQ , const countT idHowP = ifcOPENhOW_nFeO , const flagsT flagsAttributeP = flFILEaTTR_null , const countT cbP = 0 , countT cTriesP = 0 ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.340a2.thirdC.dosOpenF!||
@@ -29420,7 +29422,7 @@ applications should avoid using thirdC objects
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34002.sexHeadS.dt_sexHeadS!||
     sexHeadS( tinS& tinP , const countT expCbSlotP , const countT expSlotsP , const osTextT* const postP , const flagsT flagsCtP ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34003.sexHeadS.sexHeadS!||
-    voidT glassF( tinS& tinP , strokeS*& psttP ) const ;
+    voidT glassF( tinS& tinP , etherC& etherP , strokeS*& psttP ) const ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.360df004.sexHeadS.glassF!||
     voidT traceF( tinS& tinP ) const ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.360df005.sexHeadS.traceF!||
@@ -29511,7 +29513,7 @@ applications should avoid using thirdC objects
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34010.sexC.ctFileNameLikeF!||
     voidT flushF( tinS& tinP ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34011.sexC.flushF!||
-    voidT glassF( tinS& tinP , strokeS*& psttP ) const ;
+    voidT glassF( tinS& tinP , etherC& etherP , strokeS*& psttP ) const ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.360e0012.sexC.glassF!||
 
     inline countT idLathNewDelF(  voidT ) const { return idLathNewDel ; }
@@ -29595,7 +29597,7 @@ applications should avoid using thirdC objects
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400c.slotsC.ctFileNameLikeF!||
     voidT flushF( tinS& tinP ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400d.slotsC.flushF!||
-    voidT glassF( tinS& tinP , strokeS*& psttP ) const ;
+    voidT glassF( tinS& tinP , etherC& etherP , strokeS*& psttP ) const ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.360e100e.slotsC.glassF!||
     voidT deleteEmptiesIfF( tinS& tinP ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.360e100f.slotsC.deleteEmptiesIfF!||
@@ -30316,10 +30318,8 @@ listC must be the wo'th base class of any class derived from it
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.35015.poolC.reportIF!||
     static voidT reportIF( tinS& tinP ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/!||
-    voidT glassF( tinS& tinP , strokeS*& psttP ) const ;
+    voidT glassF( tinS& tinP , etherC& etherP , strokeS*& psttP ) const ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.360e2018.poolC.glassF!||
-    static voidT glassIF( tinS& tinP , strokeS*& pstt1P ) ;
-    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.350e2019.poolC.glassIF!||
     voidT deleteEmptiesIfF( tinS& tinP ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.360e201a.poolC.deleteEmptiesIfF!||
     static voidT deleteEmptiesIfIF( tinS& tinP ) ;
@@ -34957,6 +34957,7 @@ it is illegal to refer to this symbol in the definition of an adam
     }
     ;
 
+    etherC&             ether                                   ;
     fCopyableS          fc                                      ;
 
     countT              cLeverVolBody                           ;
@@ -34971,7 +34972,7 @@ it is illegal to refer to this symbol in the definition of an adam
 
     ~featuresS( voidT ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34001.featuresS.dt_featuresS!||
-    featuresS( tinS& tinP , const countT idAdamP , soulC*& psFeaturesP ) ;
+    featuresS( tinS& tinP , etherC& etherP , const countT idAdamP , soulC*& psFeaturesP ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34002.featuresS.featuresS!||
     featuresS( featuresS& fP ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34003.featuresS.featuresS!||
@@ -35092,7 +35093,7 @@ it is illegal to refer to this symbol in the definition of an adam
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34001.sadamC.NEWdELcLASSb!||
     ~sadamC( voidT ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34002.sadamC.dt_sadamC!||
-    sadamC( tinS& tinP , const countT idAdamP , soulC*& psFeaturesP ) ;
+    sadamC( tinS& tinP , etherC& etherP , const countT idAdamP , soulC*& psFeaturesP ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34003.sadamC.sadamC!||
     sadamC( sadamC& sP ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34004.sadamC.sadamC!||
@@ -44050,6 +44051,8 @@ VARIABLEcLASSdEF( countC , countT )
 
 /*1*/class _export bitTreeC/*1*/
 {
+    etherC&      ether ;
+
     byteT        pbDockNapRaw[ sizeof( napkinC ) ] ;
     byteT*       pbRawBegin ;
     byteT*       pbRawCursor ;
@@ -44086,7 +44089,7 @@ VARIABLEcLASSdEF( countC , countT )
 
     ~bitTreeC( voidT ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3613b002.bitTreeC.dt_bitTreeC!||
-    bitTreeC( tinS& tinP , const osTextT* const postP , const flagsT flagsP = flBITtREEc_null , const countT idStateSpaceP = 0 , const countT expNodesPerNapkinP = 0x15 , const countT cNodeMaxP = 0 , const countT idMemorySpaceP = 0 ) ;
+    bitTreeC( tinS& tinP , etherC& etherP , const osTextT* const postP , const flagsT flagsP = flBITtREEc_null , const countT idStateSpaceP = 0 , const countT expNodesPerNapkinP = 0x15 , const countT cNodeMaxP = 0 , const countT idMemorySpaceP = 0 ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3613b003.bitTreeC.bitTreeC!||
 
     voidT newF( tinS& tinP , const countT idLineP , const countT idiFileP , const byteT* pbBitsP , countT offBitP , countT cBitsP , countT* const pcDatumP = 0 ) ;
@@ -44143,7 +44146,7 @@ VARIABLEcLASSdEF( countC , countT )
     NEWdELcLASSpROTOS
     ~keyValuePairsC( voidT ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3613c002.keyValuePairsC.dt_keyValuePairsC!||
-    keyValuePairsC( tinS& tinP , const osTextT* const postNameP , const flagsT flagsP = flKEYvALUEpAIRSc_null , const countT idStateSpaceP = 0 , const countT expNodesPerNapkinP = 0x15 , const countT cNodeMaxP = 0 , const countT cbDataBookP = 0 , const countT cIndexEntriesBookP = 0 , const countT cKeepInactiveP = 0 , const countT idMemorySpaceP = 0 ) ;
+    keyValuePairsC( tinS& tinP , etherC& etherP , const osTextT* const postNameP , const flagsT flagsP = flKEYvALUEpAIRSc_null , const countT idStateSpaceP = 0 , const countT expNodesPerNapkinP = 0x15 , const countT cNodeMaxP = 0 , const countT cbDataBookP = 0 , const countT cIndexEntriesBookP = 0 , const countT cKeepInactiveP = 0 , const countT idMemorySpaceP = 0 ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3613c003.keyValuePairsC.keyValuePairsC!||
     voidT newF( tinS& tinP , const countT idLineP , const countT idiFileP , const byteT* pbBitsP , countT offBitP , countT cBitsP , const byteT* const pbP , const countT cbP = 0 ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3613c004.keyValuePairsC.newF!||

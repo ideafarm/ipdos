@@ -21,7 +21,7 @@
         //THIS INDICATES A DESIGN ERROR, BUT I CANNOT FIX IT UNTIL I AM AGAIN FAMILIAR WITH THE CODE, WHICH WOULD TAKE SEVERAL STRONGS OF WORKING WITH IT
         //U:: 20151023@1047:  DEADLOCK OCCURS WITHIN SEVERAL TICK HERE BECAUSE I (tmDrawF) HAVE GRABBED deviceP AND tmDisplayF/liveF/messageHandler CANNOT GRAB deviceP SO CANNOT EVER GIVE THE SIGN
 
-        tinP.pEther->traceF( tinP , T("pelF/pushJob/-") ) ;
+        etherC::etRockIF( tinP ).traceF( tinP , T("pelF/pushJob/-") ) ;
 
         /*O*/ }
         /*O*/     *tinP.pAdamGlobal1->_deviceC_pStkJob << (byteT*)&job ;
@@ -37,7 +37,7 @@
         // IT IS THE MOST INTERESTING SEGMENT OF CODE FOR STUDYING ANIMATION SPEED AND VARIABILITY THEREOF
         // EXECUTION OF THIS SNIPPET RANGES FROM 0 TIME TO 139 TIME (1/20 SECOND)
 
-        tinP.pEther->traceF( tinP , T("pelF/pushJob/+") ) ;
+        etherC::etRockIF( tinP ).traceF( tinP , T("pelF/pushJob/+") ) ;
 
         countT cPending = cFlavors ;
         countT cFlavors = swSpace.cFlavorsF( tinP ) ;

@@ -12,7 +12,7 @@
         }
             break ;
             }
-                tinP.pEther->delF( tinP , psttw ) ;
+                PUSE( tinP , *(byteT**)&psttw ) ;
                 }
                     slP << *(strokeS**)&(countT&)*this ;
                     slP >> psttLever ;
@@ -43,14 +43,14 @@
                 {
                 else if( _pSwSoixlOldApi->idSlotOfLeverF( tinP , (countT)psttw ) )
                 }
-                    tinP.pEther->delF( tinP , psttQueryWord ) ;
+                    PUSE( tinP , *(byteT**)&psttQueryWord ) ;
                     }
                         POPUPsOIXLoLD( T("I, \"")+T(postName)+T("\", have placed \"")+tNameShort+T("\" onto your desk.  Read that document and then edit it to indicate what additional information you want.  Then drop it into the Depository to obtain the additional information.") ) ;
                         tinP.pEther->boxPutF( tinP , tName , tBody , tBody.csF(  tinP ) ) ;
                         TN( tName , "" ) ; tName = T("///desk/")+tNameShort ;
                         TN( tNameShort , "") ; tNameShort = T("soixlOld.help.")+T(postName)+T(".")+T(psttQueryWord)+T(".txt") ;
         
-                        tinP.pEther->delF( tinP , pstth ) ;
+                        PUSE( tinP , *(byteT**)&pstth ) ;
                         TN( tBody , "" ) ; tBody = T(pstth) ;
                         tinP.pEther->strReverseF( tinP , pstth , T(psttzDoc) , T("\r\n") ) ; ___CT( pstth ) ;
                         ZE( strokeS* , pstth ) ;
@@ -86,7 +86,7 @@
                     TN( tName , "" ) ; tName = T("///desk/")+tNameShort ;
                     TN( tNameShort , "") ; tNameShort = T("soixlOld.help.")+T(postName)+T(".txt") ;
     
-                    tinP.pEther->delF( tinP , pstth ) ;
+                    PUSE( tinP , *(byteT**)&pstth ) ;
                     tBody = T(pstth) ;
                     tinP.pEther->strReverseF( tinP , pstth , tBody , T("\r\n") ) ; ___CT( pstth ) ;
                     ZE( strokeS* , pstth ) ;

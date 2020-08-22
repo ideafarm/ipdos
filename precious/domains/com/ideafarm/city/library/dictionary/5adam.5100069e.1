@@ -30,10 +30,10 @@ TODO
 }
     return 0 ;
 
-    tinP.pEther->delF( tinP , psttShort2 ) ;
-    tinP.pEther->delF( tinP , psttShort1 ) ;
-    tinP.pEther->delF( tinP , psttShort ) ;
-    tinP.pEther->delF( tinP , psttPath ) ;
+    PUSE( tinP , *(byteT**)&psttShort2 ) ;
+    PUSE( tinP , *(byteT**)&psttShort1 ) ;
+    PUSE( tinP , *(byteT**)&psttShort ) ;
+    PUSE( tinP , *(byteT**)&psttPath ) ;
 
     }
         }
@@ -68,8 +68,8 @@ TODO
     // 123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef0
     // 0              1               2               3               4
 
-    //tinP.pEther->traceF( tinP , psttShort ) ;
-    //tinP.pEther->traceF( tinP , psttPath ) ;
+    //etherC::etRockIF( tinP ).traceF( tinP , psttShort ) ;
+    //etherC::etRockIF( tinP ).traceF( tinP , psttPath ) ;
 
     ___( psttShort ) ;
     ___( psttPath ) ;
@@ -79,7 +79,7 @@ TODO
 
     TN( tNameOld , ifFileNameC( tinP , *tinP.pEther , postNameP ) ) ;
 
-    if( !( cDoneP % TUCK ) ) tinP.pEther->traceF( tinP , T("[cDoneP]: ")+TF2(cDoneP,flFORMAT_UNSIGNED|flFORMAT_NObIGITvALUES) ) ;
+    if( !( cDoneP % TUCK ) ) etherC::etRockIF( tinP ).traceF( tinP , T("[cDoneP]: ")+TF2(cDoneP,flFORMAT_UNSIGNED|flFORMAT_NObIGITvALUES) ) ;
     cDoneP ++ ;
 
     textC&        tZeP           =         *(textC*)pcArgP[ 3 ] ;

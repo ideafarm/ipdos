@@ -8,7 +8,7 @@
 
 
 }
-    (*tinP.pEther)( tinP , pswVolBody ) ; //MUST NOT BE DONE BEFORE STROKE STRINGS INCLUDING VOLATILE BODY STRINGS ARE DESTROYED, BECAUSE I AM STILL IN swSadam, SO MUCH CONTINUE TO BE A VALID FORMATTED INSTANCE
+    ether( tinP , pswVolBody ) ; //MUST NOT BE DONE BEFORE STROKE STRINGS INCLUDING VOLATILE BODY STRINGS ARE DESTROYED, BECAUSE I AM STILL IN swSadam, SO MUCH CONTINUE TO BE A VALID FORMATTED INSTANCE
 
     }
         DELzOMBIE( pd ) ;
@@ -18,12 +18,12 @@
     for( countT idf = 1 ; idf <= cFlavors ; idf ++ )
     countT cFlavors = pswVolBody->cFlavorsF( tinP ) ;
 
-    tinP.pEther->delF( tinP , psttDefaultHighlightTabOwnerOff   ) ;
-    tinP.pEther->delF( tinP , psttDefaultHighlightTabOwnerOn    ) ;
-    tinP.pEther->delF( tinP , psttFlyover                       ) ;
-    tinP.pEther->delF( tinP , psttBody                          ) ;
-    tinP.pEther->delF( tinP , pczChannelIn                      ) ;
-    tinP.pEther->delF( tinP , pczChannelOut                     ) ;
+    PUSE( tinP , *(byteT**)&psttDefaultHighlightTabOwnerOff   ) ;
+    PUSE( tinP , *(byteT**)&psttDefaultHighlightTabOwnerOn    ) ;
+    PUSE( tinP , *(byteT**)&psttFlyover                       ) ;
+    PUSE( tinP , *(byteT**)&psttBody                          ) ;
+    ether.delF( tinP , pczChannelIn                      ) ;
+    ether.delF( tinP , pczChannelOut                     ) ;
 
     }
         if( POOP ) return ;

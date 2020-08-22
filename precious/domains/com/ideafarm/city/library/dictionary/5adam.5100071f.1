@@ -42,11 +42,11 @@ TODO
     return bDoIt ;
 
     }
-        tinP.pEther->delF( tinP , psttShortNew ) ;
-        tinP.pEther->delF( tinP , psttShortOld ) ;
-        tinP.pEther->delF( tinP , psttPath ) ;
+        PUSE( tinP , *(byteT**)&psttShortNew ) ;
+        PUSE( tinP , *(byteT**)&psttShortOld ) ;
+        PUSE( tinP , *(byteT**)&psttPath ) ;
 
-        tinP.pEther->traceF( tinP , T("new: ")+T(psttShortNew) ) ;
+        etherC::etRockIF( tinP ).traceF( tinP , T("new: ")+T(psttShortNew) ) ;
         tinP.pEther->diskMoveFileOrDirF( tinP , T(psttPath)+T(psttShortNew) , tOld , 0 ) ;
         tinP.pEther->strReplaceF( tinP , psttShortNew , psttShortOld , T("!ideafarm.7.") , T("!ideafarm.8.2.00000000.00000001.") , 0 , flSTRrEPLACE_null ) ;
         ZE( strokeS* , psttShortNew ) ;

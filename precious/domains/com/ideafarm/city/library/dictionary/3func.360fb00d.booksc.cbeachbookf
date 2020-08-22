@@ -55,7 +55,7 @@
                 {
                 TN( tIdLook , "" ) ;
 
-                tinP.pEther->delF( tinP , pstt1w ) ;
+                PUSE( tinP , *(byteT**)&pstt1w ) ;
                 }
                     }
                         else                       pco -- ;
@@ -70,12 +70,12 @@
                 PUSE.newF( tinP , LF , *(byteT**)&pcpIdLook , sizeof( countT ) * cWords ) ; ___( pcpIdLook ) ;
                 ZE( countT* , pcpIdLook ) ;
 
-                tinP.pEther->delF( tinP , psttw ) ;
+                PUSE( tinP , *(byteT**)&psttw ) ;
                 countT cWords = tinP.pEther->strWordsOldF( tinP , pstt1w , psttw , sttq , tDot ) ; ___( pstt1w ) ;
                 ZE( strokeS* , pstt1w ) ;
 
                 tinP.pEther->strSubstringF( tinP , psttw , idf , sttq , tAfter , pInfo->psttIfoName ) ; ___( psttw ) ;
-                tinP.pEther->delF( tinP , psttw ) ;
+                PUSE( tinP , *(byteT**)&psttw ) ;
                 tinP.pEther->strSubstringF( tinP , psttw , idf , sttq , tBefore , pInfo->psttIfoName ) ; ___( psttw ) ;
                 countT idf = 1 ;
                 ZE( strokeS* , psttw ) ;

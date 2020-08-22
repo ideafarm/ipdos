@@ -38,13 +38,13 @@
 
     traceF( tinP , T("strReplaceF / 1 [soulP]:  ")+TF2((countT)soulP,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ; //U::TO FIND A BUG
 
-    if( postJot ) tinP.pEther->delF( tinP , postJot ) ;
+    if( postJot ) PUSE( tinP , postJot ) ;
     soulC sAfter( tinP , TAG( TAGiDnULL ) , flSOUL_null , postJot ) ;
 
     traceF( tinP , T("strReplaceF / 2") ) ; //U::TO FIND A BUG
 
     }
-        tinP.pEther->delF( tinP , psttJot ) ;
+        PUSE( tinP , *(byteT**)&psttJot ) ;
         tinP.pEther->strMakeF( tinP , postJot , psttJot ) ; ___( postJot ) ;
         tinP.pEther->strUniqueF( tinP , psttJot ) ; ___( psttJot ) ;
         ZE( strokeS* , psttJot ) ;

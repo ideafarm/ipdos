@@ -24,8 +24,8 @@ TODO
     return bDoIt ;
 
     }
-        tinP.pEther->delF( tinP , psttShort ) ;
-        tinP.pEther->delF( tinP , psttPath ) ;
+        PUSE( tinP , *(byteT**)&psttShort ) ;
+        PUSE( tinP , *(byteT**)&psttPath ) ;
 
         }
             DEL( pInfoShrunk ) ;
@@ -33,7 +33,7 @@ TODO
 
             }
                 tinP.pEther->diskFileOrDirDeleteF( tinP , tShrunk , flFILEoRdIRdELETE_null , 0 ) ;
-                tinP.pEther->traceF( tinP , T("deleting: ")+tShrunk ) ;
+                etherC::etRockIF( tinP ).traceF( tinP , T("deleting: ")+tShrunk ) ;
             {
             if( pInfoShrunk->cbUsedHigh > pInfoUnshrunk->cbUsedHigh || pInfoShrunk->cbUsed > pInfoUnshrunk->cbUsed )
 

@@ -35,19 +35,19 @@ TODO
     return bDoIt ;
 
     }
-        tinP.pEther->delF( tinP , psttShort ) ;
-        tinP.pEther->delF( tinP , psttPath ) ;
-        tinP.pEther->delF( tinP , psttDate ) ;
-        tinP.pEther->delF( tinP , psttMetaType ) ;
-        tinP.pEther->delF( tinP , psttNU ) ;
+        PUSE( tinP , *(byteT**)&psttShort ) ;
+        PUSE( tinP , *(byteT**)&psttPath ) ;
+        PUSE( tinP , *(byteT**)&psttDate ) ;
+        PUSE( tinP , *(byteT**)&psttMetaType ) ;
+        PUSE( tinP , *(byteT**)&psttNU ) ;
 
         }
-            tinP.pEther->delF( tinP , psttCurrentName ) ;
-            tinP.pEther->delF( tinP , pstt1Words ) ;
+            PUSE( tinP , *(byteT**)&psttCurrentName ) ;
+            PUSE( tinP , *(byteT**)&pstt1Words ) ;
 
             }
                 }
-                    if( !ids ) tinP.pEther->delF( tinP , psttWord ) ;
+                    if( !ids ) PUSE( tinP , *(byteT**)&psttWord ) ;
                     stKeywordsP.sinkF( tinP , ids , psttWord , flSTACKsINK_UNIQUE , 0 , 0 ) ;
                     ZE( countT , ids ) ;
 
@@ -61,7 +61,7 @@ TODO
                 (
                 if
 
-                //tinP.pEther->traceF( tinP , T("keyword [psttc1]: ")+T(psttc1) ) ;
+                //etherC::etRockIF( tinP ).traceF( tinP , T("keyword [psttc1]: ")+T(psttc1) ) ;
             {
             FORsTRINGSiN1( pstt1Words )
 
@@ -69,18 +69,18 @@ TODO
             strokeS sttq( (countT)0 , sc_IGNOREqUOTES ) ;
             ZE( strokeS* , pstt1Words ) ;
 
-            //tinP.pEther->traceF( tinP , T("[tUse]: ")+tUse2 ) ;
+            //etherC::etRockIF( tinP ).traceF( tinP , T("[tUse]: ")+tUse2 ) ;
 
-            tinP.pEther->delF( tinP , psttPrefix2 ) ;
+            PUSE( tinP , *(byteT**)&psttPrefix2 ) ;
             TN( tUse2 , psttPrefix2 ? psttPrefix2 : (strokeS*)tUse ) ;
-            tinP.pEther->delF( tinP , psttSuffix2 ) ;
+            PUSE( tinP , *(byteT**)&psttSuffix2 ) ;
             tinP.pEther->strBisectF( tinP , psttPrefix2 , psttSuffix2 , tUse , tDotP , -1 , flSTRbISECT_null , 0 ) ;  ___( psttPrefix2 ) ; ___( psttSuffix2 ) ;
             ZE( strokeS* , psttSuffix2 ) ;
             ZE( strokeS* , psttPrefix2 ) ;
 
-            tinP.pEther->delF( tinP , psttSuffix ) ;
+            PUSE( tinP , *(byteT**)&psttSuffix ) ;
             TN( tUse , psttSuffix ? psttSuffix : psttCurrentName ) ;
-            tinP.pEther->delF( tinP , psttPrefix ) ;
+            PUSE( tinP , *(byteT**)&psttPrefix ) ;
             tinP.pEther->strBisectF( tinP , psttPrefix , psttSuffix , psttCurrentName , T(".!.") , -1 , flSTRbISECT_null , 0 ) ;  ___( psttPrefix ) ; ___( psttSuffix ) ;
             ZE( strokeS* , psttSuffix ) ;
             ZE( strokeS* , psttPrefix ) ;
@@ -117,7 +117,7 @@ TODO
 
             tinP.pEther->strConvertToLowerCaseF( tinP , psttCurrentName ) ;
 
-            tinP.pEther->delF( tinP , posti ) ;
+            PUSE( tinP , posti ) ;
             tinP.pEther->strMakeFromOsTextF( tinP , psttCurrentName , posti ) ; ___( psttCurrentName ) ;
             ZE( strokeS* , psttCurrentName ) ;
 
@@ -127,7 +127,7 @@ TODO
         {
         if( !tinP.pEther->strCompareF( tinP , psttMetaType , tMetaDotCurrentnameP ) )
 
-        //tinP.pEther->traceF( tinP , T("[psttMetaType]: ")+T(psttMetaType) ) ;
+        //etherC::etRockIF( tinP ).traceF( tinP , T("[psttMetaType]: ")+T(psttMetaType) ) ;
         tinP.pEther->strBisectF( tinP , psttNU , psttMetaType , psttShort , tDotP , -2 , flSTRbISECT_APPENDdELIMITER , 0 ) ;  ___( psttNU ) ; ___( psttMetaType ) ;
         ZE( strokeS* , psttMetaType ) ;
         ZE( strokeS* , psttNU ) ;
@@ -135,17 +135,17 @@ TODO
         }
             tDateLathP = T(psttDate) ;
             FLUSHkEYWORDS
-            //tinP.pEther->traceF( tinP , T("date has changed [tDateLathP]: ")+tDateLathP ) ;
+            //etherC::etRockIF( tinP ).traceF( tinP , T("date has changed [tDateLathP]: ")+tDateLathP ) ;
         {
         if( tinP.pEther->strCompareF( tinP , psttDate , tDateLathP ) )
 
-        //tinP.pEther->traceF( tinP , T("[psttDate]: ")+T(psttDate) ) ;
+        //etherC::etRockIF( tinP ).traceF( tinP , T("[psttDate]: ")+T(psttDate) ) ;
         tinP.pEther->strSubstringF( tinP , psttDate , idf , idl , psttShort , 0 ) ; ___( psttDate ) ;
         ZE( strokeS* , psttDate ) ;
         countT idl = 0x28 ;
         countT idf = 0x21 ;
 
-        tinP.pEther->traceF( tinP , T("[psttShort]: ")+T(psttShort) ) ;
+        etherC::etRockIF( tinP ).traceF( tinP , T("[psttShort]: ")+T(psttShort) ) ;
 
         tPathLathP = T(psttPath) ;
         tinP.pEther->strBisectF( tinP , psttPath , psttShort , tName , tSlashP , -1 , flSTRbISECT_APPENDdELIMITER , 0 ) ;  ___( psttPath ) ; ___( psttShort ) ;
@@ -159,7 +159,7 @@ TODO
     }
         tDateLathP = tnP ;
         FLUSHkEYWORDS
-        //tinP.pEther->traceF( tinP , T("end of file list [tDateLathP]: ")+tDateLathP ) ;
+        //etherC::etRockIF( tinP ).traceF( tinP , T("end of file list [tDateLathP]: ")+tDateLathP ) ;
     {
     if( !postNameP )
 
@@ -180,17 +180,17 @@ TODO
 /*1*/boolT diskWalkFooCBF( tinS& tinP , countT& cDirsP , countT& cFilesP , boolT& bQuitP , const osTextT* const postNameP , countT* const pcArgP , const countT* const pModuloFilesP , const countT* const pModuloDirsP )/*1*/
 
     }
-        tinP.pEther->delF( tinP , psttAllWords ) ;                                                                                                          \
+        PUSE( tinP , *(byteT**)&psttAllWords ) ;                                                                                                          \
                                                                                                                                                             \
         tinP.pEther->boxPutF( tinP , tPathOutP+T("!ideafarm.8.2.00000000.00000001.")+tDateLathP+T("@0000.!.control.page.keywords") , posto , costo ) ;      \
         countT   costo = tAllWords.csF( tinP ) ;                                                                                                            \
         osTextT* posto = tAllWords ;                                                                                                                        \
                                                                                                                                                             \
-        /*tinP.pEther->traceF( tinP , T("[tDateLathP,psttAllWords]:    ")+tDateLathP+T("    ")+tAllWords ) ;*/                                              \
+        /*etherC::etRockIF( tinP ).traceF( tinP , T("[tDateLathP,psttAllWords]:    ")+tDateLathP+T("    ")+tAllWords ) ;*/                                              \
         TN( tAllWords , psttAllWords ) ;                                                                                                                    \
                                                                                                                                                             \
         }                                                                                                                                                   \
-            tinP.pEther->delF( tinP , psttWord ) ;                                                                                                          \
+            PUSE( tinP , *(byteT**)&psttWord ) ;                                                                                                          \
                                        tinP.pEther->strFuseF( tinP , psttAllWords , psttWord ) ;                                                            \
             if( psttAllWords->idAdam ) tinP.pEther->strFuseF( tinP , psttAllWords , T(" ") ) ;                                                              \
             stKeywordsP >> psttWord ;                                                                                                                       \

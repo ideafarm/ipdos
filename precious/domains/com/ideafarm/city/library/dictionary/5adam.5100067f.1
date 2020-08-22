@@ -215,11 +215,11 @@ TODO
         //else bQuitP |= 1 ;
         }
             }
-                tinP.pEther->delF( tinP , psttDateAtTime ) ;
+                PUSE( tinP , *(byteT**)&psttDateAtTime ) ;
 
                 else tinP.pEther->strFuseF( tinP , sourP , T("ERROR: DATEtIME NOT CALCULATED\r\n") ) ;
                 }
-                    tinP.pEther->delF( tinP , psttNew ) ;
+                    PUSE( tinP , *(byteT**)&psttNew ) ;
                     }
                         }
                             }
@@ -254,7 +254,7 @@ TODO
 
                 }
                     }
-                        tinP.pEther->delF( tinP , psttSnip ) ;
+                        PUSE( tinP , *(byteT**)&psttSnip ) ;
 
                         }
                             }
@@ -284,8 +284,8 @@ TODO
                                 ZE( countT , ms ) ;
 
                                 }
-                                    tinP.pEther->delF( tinP , psttTime1 ) ;
-                                    tinP.pEther->delF( tinP , psttTime2 ) ;
+                                    PUSE( tinP , *(byteT**)&psttTime1 ) ;
+                                    PUSE( tinP , *(byteT**)&psttTime2 ) ;
 
                                     timeF2 = tinP.pEther->strDigitsToSCountF( tinP , psttTime2 , 0 , 1 ) ;
                                     timeF1 = tinP.pEther->strDigitsToSCountF( tinP , psttTime1 , 0 , 1 ) ;
