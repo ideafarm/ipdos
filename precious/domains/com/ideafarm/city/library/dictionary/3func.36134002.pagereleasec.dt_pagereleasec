@@ -10,7 +10,7 @@
 }
     pBooksSave->unlockF( tinP ) ;
     if( !( 1 + incv02AM( pBooksSave->cRefBookF() ) ) ) { BLAMMO ; } ; //U::O: CONJ: cRef CAN BE MAINTAINED USING ++ -- SINCE MUST ALWAYS BE SERIALIZED SINCE pBook IS VOLATILE
-    pBooksSave->selectBookF( tinP , flBOOKScsELECT_null , tinP.pBookMark[ offr ].pcpIdBook ) ;
+    pBooksSave->selectBookF( tinP , ether , flBOOKScsELECT_null , tinP.pBookMark[ offr ].pcpIdBook ) ;
     pBooksSave->lockF( tinP , TAG( TAGiDnULL ) ) ;
 
     if( offr == sizeof tinP.pBookMark / sizeof tinP.pBookMark[ 0 ] ) { BLAMMO ; }

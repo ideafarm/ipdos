@@ -12,7 +12,7 @@
 }
     }
         *(flagsT*)&flagsCtBook &= ~( F(flBOOKc_RESETcREFoNcT) ) ;
-        touchAllBooksF( tinP , &bnu ) ;
+        touchAllBooksF( tinP , etherC::etRockIF( tinP ) , &bnu ) ;
         ZE( boolT , bnu ) ;
     {
     if( tinP.pPoolUse && F(flagsP) & flBOOKSc_RESETcREFoNcT )
@@ -21,7 +21,7 @@
 
     //CONoUTrAW3( "[heap.cNew-cDel]:    " , processGlobal3S::_processGlobal3I_IF().heap.cNewF()-processGlobal3S::_processGlobal3I_IF().heap.cDelF() , "    \r\n" ) ;
 
-    //if( tinP.pEther ) etherC::etRockIF( tinP ).trace F( tinP , TF3((countT)this,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE,8)+T(": ")+T(postNameShort)+T(": ")+T("ct - [offBookBackNow,CbOOKsLOTS]:    ")+TF2(offBookBackNow,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+TF2(CbOOKsLOTS,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ; //U:: TO FIND A BUG
+    //etherC::etRockIF( tinP ).trace F( tinP , TF3((countT)this,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE,8)+T(": ")+T(postNameShort)+T(": ")+T("ct - [offBookBackNow,CbOOKsLOTS]:    ")+TF2(offBookBackNow,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+TF2(CbOOKsLOTS,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ; //U:: TO FIND A BUG
 
     }
         else if( this == &processGlobal3I.bksWords     ) processGlobal1I.flCt |= flCTdTg_bksWords     ;
@@ -37,16 +37,16 @@
     if( !POOP )
 
     //CONoUTrAW3( "[heap.cNew-cDel]:    " , processGlobal3S::_processGlobal3I_IF().heap.cNewF()-processGlobal3S::_processGlobal3I_IF().heap.cDelF() , "    called setBookNameIdF\r\n" ) ;
-    setBookNameIdF( tinP , F(flagsCt) & flBOOKSc_PURGEoNcT ? flBOOKScsELECT_PURGE : flBOOKScsELECT_null , 0 , pbQuitP ) ;
+    setBookNameIdF( tinP , etherC::etRockIF( tinP ) , F(flagsCt) & flBOOKSc_PURGEoNcT ? flBOOKScsELECT_PURGE : flBOOKScsELECT_null , 0 , pbQuitP ) ;
     //CONoUTrAW3( "[heap.cNew-cDel]:    " , processGlobal3S::_processGlobal3I_IF().heap.cNewF()-processGlobal3S::_processGlobal3I_IF().heap.cDelF() , "    \r\n" ) ;
 
-    //if( tinP.pEther ) etherC::etRockIF( tinP ).trace F( tinP , TF3((countT)this,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE,8)+T(": ")+T(postNameShort)+T(": ")+T("ct [offBookBackNow]: ")+TF2(offBookBackNow,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T(": ct / incremented") ) ; //U:: TO FIND A BUG
+    //etherC::etRockIF( tinP ).trace F( tinP , TF3((countT)this,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE,8)+T(": ")+T(postNameShort)+T(": ")+T("ct [offBookBackNow]: ")+TF2(offBookBackNow,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T(": ct / incremented") ) ; //U:: TO FIND A BUG
     offBookBackNow ++ ;
 
     }
         //CONoUTrAW3( "[heap.cNew-cDel]:    " , processGlobal3S::_processGlobal3I_IF().heap.cNewF()-processGlobal3S::_processGlobal3I_IF().heap.cDelF() , "    psttFindLike\r\n" ) ;
         }
-            tinP.pEther->strMakeF( tinP , psttFindLike , tLike ) ; ___( psttFindLike ) ;
+            etherC::etRockIF( tinP ).strMakeF( tinP , psttFindLike , tLike ) ; ___( psttFindLike ) ;
             tLike += T("/ideafarm/ipdos/memorySpaces/")+T(thirdC::postUserNameIF())+T("/")+TF3(idMemorySpace?idMemorySpace:tinP.pAdamGlobal1->idMemorySpace,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FOREIGN|flFORMAT_FILLzE,8)+T("/stateSpaces/")+TF2(idStateSpace,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("/")+T(postNameShort)+T(".booksC.1.book.*.bookC") ;
             TN( tLike , "///ideafarm/ephemeral/backed.up.daily/domains/com" ) ;
         {
@@ -171,7 +171,7 @@
     //FOR CYCLING, ALL EXISTING FILES MUST BE OPENED.  THIS IS NOT CURRENTLY DONE
     //U:: CYCLING IS CURRENTLY NOT SUPPORTED CORRECTLY WHEN CbOOKsLOTS IS NOT 1
 
-    //if( tinP.pEther ) etherC::etRockIF( tinP ).trace F( tinP , TF3((countT)this,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE,8)+T(": ")+T(postNameShort)+T(": ")+T("ct + [offBookBackNow,CbOOKsLOTS]:    ")+TF2(offBookBackNow,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+TF2(CbOOKsLOTS,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ; //U:: TO FIND A BUG
+    //etherC::etRockIF( tinP ).trace F( tinP , TF3((countT)this,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE,8)+T(": ")+T(postNameShort)+T(": ")+T("ct + [offBookBackNow,CbOOKsLOTS]:    ")+TF2(offBookBackNow,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+TF2(CbOOKsLOTS,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ; //U:: TO FIND A BUG
 {
 bFill( bFillP )
 psttFindLike( 0 ) ,

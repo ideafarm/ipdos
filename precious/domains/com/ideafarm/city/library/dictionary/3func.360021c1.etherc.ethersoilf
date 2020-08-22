@@ -5710,8 +5710,8 @@
 /*N1D*/
 /*N1D*/                                                 TN( tFolderFile , "" ) ; tFolderFile = tFolder+tFile ;
 /*N1D*/
-/*N1D*/                                                                        jotC jotBranches( tinP , "ethersoil.branches" , flJOTc_WRITE | flJOTc_DELETE | flJOTc_PRIVATE , TICK << 4 , TOCK << 6 , 8 ) ; //20180724@1648: CNR STOPPAGE FOR 2015
-/*N1D*/                                                 //OLD: FAILS FOR 2015: jotC jotBranches( tinP , "ethersoil.branches" , flJOTc_WRITE | flJOTc_DELETE | flJOTc_PRIVATE , TICK << 2 , TOCK << 6 , 1 ) ; //PRODUCTION (20140521@0515: TICK<<1 IS CURRENTLY LARGE ENOUGH FOR THE PRODUCTION WEB SITE)
+/*N1D*/                                                                        jotC jotBranches( tinP , *this , "ethersoil.branches" , flJOTc_WRITE | flJOTc_DELETE | flJOTc_PRIVATE , TICK << 4 , TOCK << 6 , 8 ) ; //20180724@1648: CNR STOPPAGE FOR 2015
+/*N1D*/                                                 //OLD: FAILS FOR 2015: jotC jotBranches( tinP , *this , "ethersoil.branches" , flJOTc_WRITE | flJOTc_DELETE | flJOTc_PRIVATE , TICK << 2 , TOCK << 6 , 1 ) ; //PRODUCTION (20140521@0515: TICK<<1 IS CURRENTLY LARGE ENOUGH FOR THE PRODUCTION WEB SITE)
 /*N1D*/                                                 //U:: USE AN INDEX THAT IS 8 TIMES THE DEFAULT SIZE, TO ELIMINATE THRASHING
 /*N1D*/                                                 // 20140829@0750: 6 BOOKS ARE REQUIRED FOR THE INDEX
 /*N1D*/                                                 // 20140829@0750: 4 BOOKS ARE REQUIRED IF EACH BOOK IS TICK << 2, SO IT WOULD BE NEAT IF TICK << 4 WOULD WORK (NOT TESTED YET)

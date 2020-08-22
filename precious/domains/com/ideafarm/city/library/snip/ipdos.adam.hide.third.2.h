@@ -38299,7 +38299,7 @@ the only function of this object is to edit tinS::grabPseudo so that the monitor
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34007.branchS.jumpIfIF!||
  static voidT putFileIF( tinS& tinP , etherC& etherP , const boolT& bQuitP , countT& cPendingP , stackC& st_putFileJob_P , putFileS& pP , const countT offLevelP , const countT jMeP , const countT jDadP , const countT jGrandDadP , countT& cLeverBranchP , switchC& swFileP , countT cNestP , const countT idEditionP , const strokeS* const psttTimeStampP , const strokeS* const psttBanner1P , const strokeS* const psttBanner2P , const strokeS* const psttNameSpaceP = 0 ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34008.branchS.putFileIF!||
- voidT hashF( tinS& tinP , const countT jbrMeP , barryC& barryHashP , stackC& stHashCollisionsP ) ;
+ voidT hashF( tinS& tinP , etherC& etherP , const countT jbrMeP , barryC& barryHashP , stackC& stHashCollisionsP ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400a.branchS.hashF!||
  static countT bEditionIF( tinS& tinP , etherC& etherP , const countT jMeP , const countT idEditionP ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400b.branchS.bEditionIF!||
@@ -39872,7 +39872,6 @@ base class to make a derived class of objects easily contained by a stackC objec
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.adamGlobal1S : 1snip.150000bf.adamglobal1s END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.booksC : 1snip.15000112.booksc BEGIN
 
-
 //
 // Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
@@ -39910,13 +39909,13 @@ base class to make a derived class of objects easily contained by a stackC objec
     byteT           pbFileReadCursor[ sizeof( fileC   ) ] ;
     byteT           pbNapReadCursor[  sizeof( napkinC ) ] ;
 
-    voidT idBookMinMaxF( tinS& tinP , countT*& pcpIdBookMinP , countT*& pcpIdBookMaxP , const flagsT flagsP = flBOOKScsELECT_null , const boolT* pbQuitP = 0 ) ;
+    voidT idBookMinMaxF( tinS& tinP , etherC& etherP , countT*& pcpIdBookMinP , countT*& pcpIdBookMaxP , const flagsT flagsP = flBOOKScsELECT_null , const boolT* pbQuitP = 0 ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.360fb012.booksc.idbookminmaxf!||
-    voidT setBookNameIdF( tinS& tinP , const flagsT flagsP = flBOOKScsELECT_null , const countT* const pcpIdBookWantP = 0 , const boolT* pbQuitP = 0 ) ;
+    voidT setBookNameIdF( tinS& tinP , etherC& etherP , const flagsT flagsP = flBOOKScsELECT_null , const countT* const pcpIdBookWantP = 0 , const boolT* pbQuitP = 0 ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.360fb00b.booksC.setPostBookNameF!||
-    voidT setPcpIdBookWantF( tinS& tinP , const flagsT flagsP , const countT* const pcpIdBookWantP , const boolT* pbQuitP ) ;
+    voidT setPcpIdBookWantF( tinS& tinP , etherC& etherP , const flagsT flagsP , const countT* const pcpIdBookWantP , const boolT* pbQuitP ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.360fb013.booksc.setpcpidbookwantf!||
-    voidT touchAllBooksF( tinS& tinP , const boolT* pbQuitP ) ;
+    voidT touchAllBooksF( tinS& tinP , etherC& etherP , const boolT* pbQuitP ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.360fb014.booksc.touchAllBooksF!||
 
     public :
@@ -39929,27 +39928,27 @@ base class to make a derived class of objects easily contained by a stackC objec
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34003.booksC.booksC!||
     countT writeF( tinS& tinP , const byteT* pb1P = 0 , countT cb1P = 0 , const byteT* pb2P = 0 , countT cb2P = 0 , const flagsT flagsP = flBOOKScwRITE_null , handleC* const phWroteP = 0 /*, countT** ppcpIdAptP = 0*/ ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34005.booksC.writeF!||
-    boolT readF( tinS& tinP , const byteT*& pbP , countT& cbP , handleC& handleP , const flagsT flagsP = flBOOKScrEAD_null , const boolT* pbQuitP = 0 , handleC* const phCursorP = 0 , const countT idCursorP = 1 ) ;
+    boolT readF( tinS& tinP , etherC& etherP , const byteT*& pbP , countT& cbP , handleC& handleP , const flagsT flagsP = flBOOKScrEAD_null , const boolT* pbQuitP = 0 , handleC* const phCursorP = 0 , const countT idCursorP = 1 ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34006.booksC.readF!||
     countT writeF( tinS& tinP , handle0111C& hJotP , const byteT* const pb1P = 0 , const countT cb1P = 0 , const byteT* const pb2P = 0 , const countT cb2P = 0 , const flagsT flagsP = flBOOKScwRITE_null ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.360fb007.booksC.writeF!||
-    boolT readF( tinS& tinP , const byteT*& pbP , countT& cbP , handle0111C& hJotP , const flagsT flagsP = flBOOKScrEAD_null , const boolT* pbQuitP = 0 , handleC* const phCursorP = 0 , const countT idCursorP = 1 ) ;
+    boolT readF( tinS& tinP , etherC& etherP , const byteT*& pbP , countT& cbP , handle0111C& hJotP , const flagsT flagsP = flBOOKScrEAD_null , const boolT* pbQuitP = 0 , handleC* const phCursorP = 0 , const countT idCursorP = 1 ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.360fb008.booksC.readF!||
     countT writeF( tinS& tinP , handle0011C& hJotP , const byteT* const pb1P = 0 , const countT cb1P = 0 , const byteT* const pb2P = 0 , const countT cb2P = 0 , const flagsT flagsP = flBOOKScwRITE_null ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.360fb009.booksC.writeF!||
-    boolT readF( tinS& tinP , const byteT*& pbP , countT& cbP , handle0011C& hJotP , const flagsT flagsP = flBOOKScrEAD_null , const boolT* pbQuitP = 0 , handleC* const phCursorP = 0 , const countT idCursorP = 1 ) ;
+    boolT readF( tinS& tinP , etherC& etherP , const byteT*& pbP , countT& cbP , handle0011C& hJotP , const flagsT flagsP = flBOOKScrEAD_null , const boolT* pbQuitP = 0 , handleC* const phCursorP = 0 , const countT idCursorP = 1 ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.360fb00a.booksC.readF!||
-    voidT readF( tinS& tinP , pageC& pageP , handleC& handleP , const flagsT flagsP = flBOOKScrEAD_null , const boolT* pbQuitP = 0 , handleC* const phCursorP = 0 , const countT idCursorP = 1 ) ;
+    voidT readF( tinS& tinP , etherC& etherP , pageC& pageP , handleC& handleP , const flagsT flagsP = flBOOKScrEAD_null , const boolT* pbQuitP = 0 , handleC* const phCursorP = 0 , const countT idCursorP = 1 ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.360fb00e.booksC.readF!||
-    voidT readF( tinS& tinP , pageC& pageP , handle0111C& hJotP , const flagsT flagsP = flBOOKScrEAD_null , const boolT* pbQuitP = 0 , handleC* const phCursorP = 0 , const countT idCursorP = 1 ) ;
+    voidT readF( tinS& tinP , etherC& etherP , pageC& pageP , handle0111C& hJotP , const flagsT flagsP = flBOOKScrEAD_null , const boolT* pbQuitP = 0 , handleC* const phCursorP = 0 , const countT idCursorP = 1 ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.360fb00f.booksC.readF!||
-    voidT readF( tinS& tinP , pageC& pageP , handle0011C& hJotP , const flagsT flagsP = flBOOKScrEAD_null , const boolT* pbQuitP = 0 , handleC* const phCursorP = 0 , const countT idCursorP = 1 ) ;
+    voidT readF( tinS& tinP , etherC& etherP , pageC& pageP , handle0011C& hJotP , const flagsT flagsP = flBOOKScrEAD_null , const boolT* pbQuitP = 0 , handleC* const phCursorP = 0 , const countT idCursorP = 1 ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.360fb010.booksC.readF!||
-    voidT selectBookF( tinS& tinP , const flagsT flagsP = flBOOKScsELECT_null , const countT* const pcpIdBookWantP = 0 , const boolT* pbQuitP = 0 ) ;
+    voidT selectBookF( tinS& tinP , etherC& etherP , const flagsT flagsP = flBOOKScsELECT_null , const countT* const pcpIdBookWantP = 0 , const boolT* pbQuitP = 0 ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.360fb00c.booksC.selectBookF!||
-    voidT cbEachBookF( tinS& tinP , countT*& pcpIdBookSizePairsP ) ;
+    voidT cbEachBookF( tinS& tinP , etherC& etherP , countT*& pcpIdBookSizePairsP ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.360fb00d.booksC.cbEachBookF!||
-    voidT setF( tinS& tinP , const byteT bFillP = 0 ) ;
+    voidT setF( tinS& tinP , etherC& etherP , const byteT bFillP = 0 ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.360fb011.booksc.setf!||
 
     inline operator const poopC&(  voidT )       { return poop ; }
@@ -40491,7 +40490,6 @@ base class to make a derived class of objects easily contained by a stackC objec
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.adamGlobal6S : 1snip.150000e7.adamglobal6s END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.pageReleaseC : 1snip.1500016d.pagereleasec BEGIN
 
-
 //
 // Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
@@ -40506,6 +40504,7 @@ base class to make a derived class of objects easily contained by a stackC objec
 
 /*1*/class _export pageReleaseC/*1*/
 {
+    etherC&      ether ;
     booksC*      pBooksSave ;
     bookMarkOldS bmOldSave ;
     bookMarkS    bmNewSave ;
@@ -40516,7 +40515,7 @@ base class to make a derived class of objects easily contained by a stackC objec
 
     ~pageReleaseC( voidT ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.36134002.pageReleaseC.dt_pageReleaseC!||
-    pageReleaseC( tinS& tinP , const byteT* const pbP ) ;
+    pageReleaseC( tinS& tinP , etherC& etherP , const byteT* const pbP ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.36134003.pageReleaseC.pageReleaseC!||
 }
 ;
@@ -40635,7 +40634,6 @@ base class to make a derived class of objects easily contained by a stackC objec
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.branchPageC : 1snip.1500016b.branchpagec END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.jotC : 1snip.15000165.jotc BEGIN
 
-
 //
 // Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
@@ -40649,6 +40647,7 @@ base class to make a derived class of objects easily contained by a stackC objec
 
 /*1*/class _export jotC : public grabC/*1*/
 {
+    etherC&      ether ;
     countT       idSlotJot ;
     countT       tagHighNibble ;
     const countT _idThreadCt ;
@@ -40665,7 +40664,7 @@ base class to make a derived class of objects easily contained by a stackC objec
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3612d001.jotC.NEWdELcLASSb!||
     ~jotC( voidT ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3612d002.jotC.dt_jotC!||
-    jotC( tinS& tinP , const osTextT* const postNameP , const flagsT flagsP = flJOTc_null , const countT cbDataBookP = 0 , const countT cIndexEntriesBookP = 0 , const countT cKeepInactiveP = 0 , countT idGrabLayerP = ifcIDgRABlAYER_7BASEmISC1 , flagsT flagsGrabP = flGRABc_null , countT idMemorySpaceP = 0 ) ;
+    jotC( tinS& tinP , etherC& etherP , const osTextT* const postNameP , const flagsT flagsP = flJOTc_null , const countT cbDataBookP = 0 , const countT cIndexEntriesBookP = 0 , const countT cKeepInactiveP = 0 , countT idGrabLayerP = ifcIDgRABlAYER_7BASEmISC1 , flagsT flagsGrabP = flGRABc_null , countT idMemorySpaceP = 0 ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3612d003.jotC.jotC!||
     countT peekIdBookF( tinS& tinP , countT idP ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3612d008.jotC.peekIdBookF!||
@@ -40721,7 +40720,6 @@ base class to make a derived class of objects easily contained by a stackC objec
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.jotC : 1snip.15000165.jotc END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.barryC : 1snip.15000166.barryc BEGIN
 
-
 //
 // Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
@@ -40736,6 +40734,8 @@ base class to make a derived class of objects easily contained by a stackC objec
 
 /*1*/class _export barryC/*1*/
 {
+    etherC&      ether ;
+
     byteT        pbBksBits[ sizeof( booksC ) ] ;
     booksC*      pBksBits ;
 
@@ -40757,12 +40757,12 @@ base class to make a derived class of objects easily contained by a stackC objec
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34003001.NEWdELcLASS!||
     ~barryC( voidT ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3612e002.barryC.dt_barryC!||
-    barryC( tinS& tinP , const countT expBitsPerFieldP = 0 , countT cBitsIndexP = 0 , countT expBytesPerBookP = 0 ) ;
+    barryC( tinS& tinP , etherC& etherP , const countT expBitsPerFieldP = 0 , countT cBitsIndexP = 0 , countT expBytesPerBookP = 0 ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3612e003.barryC.barryC!||
     countT& operator ()( tinS& tinP , const countT offP , countT& maskP , countT& offBitP ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3612e004.barryC.operator_call!||
 
-    inline voidT setF( tinS& tinP , const byteT bFillP = 0 ) { pBksBits->setF( tinP , bFillP ) ; }
+    inline voidT setF( tinS& tinP , const byteT bFillP = 0 ) { pBksBits->setF( tinP , ether , bFillP ) ; }
 }
 ;
 
@@ -41990,7 +41990,7 @@ parameters
 {
     public :
 
-    stkIdSubC( tinS& tinP , const countT idAccP ) ;
+    stkIdSubC( tinS& tinP , etherC& etherP , const countT idAccP ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34001.stkIdSubC.stkIdSubC!||
 }
 ;
@@ -44132,6 +44132,7 @@ VARIABLEcLASSdEF( countC , countT )
 
 /*1*/class _export keyValuePairsC/*1*/
 {
+    etherC&             ether ;
     osTextT             postNameCt[ TUCK ] ;
     const countT        cbDataBookCt ;
     const countT        cIndexEntriesBookCt ;

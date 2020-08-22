@@ -13,14 +13,14 @@
             if( !pbi ) break ;
     
             __NZ( bDelete ) ;
-            bDelete = readF( tinP , pbi , cbi , hRead , flBOOKScrEAD_null , &bQuit ) ;
+            bDelete = readF( tinP , etherP , pbi , cbi , hRead , flBOOKScrEAD_null , &bQuit ) ;
             cbi = 0 ;
             pbi = 0 ;
 
             if( !pbi ) break ;
     
             __NZ( bDelete ) ;
-            boolT bDelete = readF( tinP , pbi , cbi , hRead , flBOOKScrEAD_STILLhUNGRYiSoK , &bQuit ) ; // NEEDED BECAUSE "READ REMAINDER OF CURRENT BOOK" REPEATEDLY WILL NEVER ADVANCE TO THE NEXT BOOK; SO WE BEGIN EACH ITERATION WITH READING THE WOTH BYTE OF THE CURRENT BOOK
+            boolT bDelete = readF( tinP , etherP , pbi , cbi , hRead , flBOOKScrEAD_STILLhUNGRYiSoK , &bQuit ) ; // NEEDED BECAUSE "READ REMAINDER OF CURRENT BOOK" REPEATEDLY WILL NEVER ADVANCE TO THE NEXT BOOK; SO WE BEGIN EACH ITERATION WITH READING THE WOTH BYTE OF THE CURRENT BOOK
             countT cbi = 1 ;
 
             ZE( const byteT* , pbi ) ;
@@ -41,7 +41,7 @@
     IFbEcAREFUL
     SCOOP
 {
-/*1*/voidT booksC::touchAllBooksF( tinS& tinP , const boolT* pbQuitP )/*1*/
+/*1*/voidT booksC::touchAllBooksF( tinS& tinP , etherC& etherP , const boolT* pbQuitP )/*1*/
 
 /**/
 */

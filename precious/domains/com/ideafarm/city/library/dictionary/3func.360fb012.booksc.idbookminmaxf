@@ -29,7 +29,7 @@
         }
             }
                 }
-                    ++ s ; tinP.pEther->osSleepF( tinP , TOCK ) ;
+                    ++ s ; etherP.osSleepF( tinP , TOCK ) ;
             
                     }
                         break ;
@@ -42,7 +42,7 @@
                     while( ~hFind ) ;
                     }
                         DEL( pInfo ) ;
-                        //if( tinP.pEther && pInfo ) etherC::etRockIF( tinP ).trace F( tinP , T("idBookMinMaxF inspected  [psttIfoName]:    ")+T(pInfo->psttIfoName) ) ;
+                        //if( pInfo ) etherC::etRockIF( tinP ).trace F( tinP , T("idBookMinMaxF inspected  [psttIfoName]:    ")+T(pInfo->psttIfoName) ) ;
                         }
                             }
                                 }
@@ -84,7 +84,7 @@
                                     }
                                         else                       pco -- ;
                                         if( pco == pcpIdBookThis ) pco = pcpIdBookThis + cWords - 1 ;
-                                        *pco = tinP.pEther->strDigitsToSCountF( tinP , psttc1 , 0 , 1 ) ;
+                                        *pco = etherP.strDigitsToSCountF( tinP , psttc1 , 0 , 1 ) ;
                                     {
                                     FORsTRINGSiN1( pstt1w )
                 
@@ -94,12 +94,12 @@
                                 PUSE.newF( tinP , LF , *(byteT**)&pcpIdBookThis , sizeof( countT ) * cWords ) ; ___( pcpIdBookThis ) ;
                                 ZE( countT* , pcpIdBookThis ) ;
                                 PUSE( tinP , *(byteT**)&psttw ) ;
-                                countT cWords = tinP.pEther->strWordsOldF( tinP , pstt1w , psttw , sttq , tDot ) ; ___( pstt1w ) ;
+                                countT cWords = etherP.strWordsOldF( tinP , pstt1w , psttw , sttq , tDot ) ; ___( pstt1w ) ;
                                 ZE( strokeS* , pstt1w ) ;
                 
-                                tinP.pEther->strSubstringF( tinP , psttw , idf , sttq , tAfter , pInfo->psttIfoName ) ; ___( psttw ) ;
+                                etherP.strSubstringF( tinP , psttw , idf , sttq , tAfter , pInfo->psttIfoName ) ; ___( psttw ) ;
                                 PUSE( tinP , *(byteT**)&psttw ) ;
-                                tinP.pEther->strSubstringF( tinP , psttw , idf , sttq , tBefore , pInfo->psttIfoName ) ; ___( psttw ) ;
+                                etherP.strSubstringF( tinP , psttw , idf , sttq , tBefore , pInfo->psttIfoName ) ; ___( psttw ) ;
                                 countT idf = 1 ;
                                 ZE( strokeS* , psttw ) ;
                             {
@@ -113,7 +113,7 @@
                         {
                         if( pInfo && !( F(pInfo->flags) & flFILEaTTR_DIRECTORY ) )
 
-                        //if( tinP.pEther && pInfo ) etherC::etRockIF( tinP ).trace F( tinP , T("idBookMinMaxF inspecting [psttIfoName]:    ")+T(pInfo->psttIfoName) ) ;
+                        //if( pInfo ) etherC::etRockIF( tinP ).trace F( tinP , T("idBookMinMaxF inspecting [psttIfoName]:    ")+T(pInfo->psttIfoName) ) ;
                         }
                             }
                                 break ;
@@ -128,8 +128,8 @@
                     do
                     handleC hFind( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_FILEfIND ) ;
 
-                    patternC pat( tinP , *tinP.pEther , fnLike , ifcIDtYPEpATTERN_FOREIGNwILDCARDsTRICT ) ;
-                    fileNameC fnLike( tinP , *tinP.pEther , psttFindLike ) ;
+                    patternC pat( tinP , etherP , fnLike , ifcIDtYPEpATTERN_FOREIGNwILDCARDsTRICT ) ;
+                    fileNameC fnLike( tinP , etherP , psttFindLike ) ;
                     TN( tDot , "." ) ;
                     strokeS sttDot( '.' ) ;
                     strokeS sttq( 0 , sc_IGNOREqUOTES ) ;
@@ -144,7 +144,7 @@
         else
         }
             }
-                ++ s ; tinP.pEther->osSleepF( tinP , TOCK ) ;
+                ++ s ; etherP.osSleepF( tinP , TOCK ) ;
 
                 }
                     break ;
@@ -309,7 +309,7 @@
     IFbEcAREFUL
     SCOOP
 {
-/*1*/voidT booksC::idBookMinMaxF( tinS& tinP , countT*& pcpIdBookMinP , countT*& pcpIdBookMaxP , const flagsT flagsP , const boolT* pbQuitP )/*1*/
+/*1*/voidT booksC::idBookMinMaxF( tinS& tinP , etherC& etherP , countT*& pcpIdBookMinP , countT*& pcpIdBookMaxP , const flagsT flagsP , const boolT* pbQuitP )/*1*/
 
 /**/
 */
