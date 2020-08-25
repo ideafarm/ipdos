@@ -7758,11 +7758,67 @@ I have other business to attend to today and tomorrow, but plan to continue to w
 
 
 
+
+
+      
+  think
+ playcraft
+ objective: web site reliability ; burnin test
+!job E: bring up http service on all factories
+
+
+  !subjob E: rearrange servers to bring tiny server to top
+   i will need to rearrange the servers so that i have physical access to factory7
+  think
+ playcraft
+ objective: enable autorenewal
+!job A: configure all factories to serve http
+
+
+
+
+
+  no can do until healing has finished (doing 2013 now)
+ playcraft
+ objective: access
+!subjob E: rearrange servers to bring tiny server to top
+
+
+
+ playcraft
+ objective: unattended renewal
+!job A: certbot: use a hook to launch a bat file that robocopies to the other factories
+
+ playcraft
+ objective: reliable autorenew
+!job A: DNS: point unused factories to factory3 (not 1) so autorenew is more reliable
+
+
+  !subjob C: //ANOTHER ALTERNATIVE IS TO SET UP A TIME FIELD IN homeS AND HAVE SOME PROCESS KEEP IT UPDATED
   next: booksC (this is an issue because used early/late)
   verify baseline
  playcraft
  objective: correct impotence functionality
 !job C: incrementally "pop" away all use of tinP.pEther
+
+
+
+
+
+  next: freshen homeS with this time; then move this code into some adam (WATCH?)
+  set up dut to play
+   have a process in home responsible for updating the home's time for some small grainsize, such as a tuck (about 1/200 second)
+   rather than pass a reference into listC ct'or, why not get the time from homeS?
+   i am eliminating tinP.pEther
+   it uses tinP.pEther to do this
+   listC::listC timestamps the instance
+  think
+ playcraft
+ objective: efficiency , avoid needing to reference an etherC instance
+!subjob C: feasibility: //ANOTHER ALTERNATIVE IS TO SET UP A TIME FIELD IN homeS AND HAVE SOME PROCESS KEEP IT UPDATED
+
+
+
 
 
 !thrust: debug until all factories run without failure
@@ -7778,6 +7834,144 @@ I have other business to attend to today and tomorrow, but plan to continue to w
 =========================================================================================================================================================
 
 
+   after each renewal, use robocopy to copy to factory2 - factory9
+  how
+   | 
+   | C:\> robocopy C:\Certbot \\factory9\c\Certbot /s
+   | 
+  listing
+   | 
+   | C:\WINDOWS\system32>certbot renew    --webroot -w d:\tmp\certbot.challenge            --force-renewal
+   | Saving debug log to C:\Certbot\log\letsencrypt.log
+   | 
+   | - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+   | Processing C:\Certbot\renewal\ideafarm.com.conf
+   | - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+   | Plugins selected: Authenticator webroot, Installer None
+   | Renewing an existing certificate
+   | 
+   | - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+   | new certificate deployed without reload, fullchain is
+   | C:\Certbot\live\ideafarm.com\fullchain.pem
+   | - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+   | 
+   | - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+   | 
+   | Congratulations, all renewals succeeded. The following certs have been renewed:
+   |   C:\Certbot\live\ideafarm.com\fullchain.pem (success)
+   | - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+   | 
+   | C:\WINDOWS\system32>
+   | 
+  listing
+   as of this writing, the command must (i think) be run manually every 60 days
+   these servers were impostored by editing DNS to point them to factory1
+   some servers are down
+   this was done on factory1 in an elevated command window
+  think
+   | 
+   | C:\>certbot renew    --webroot -w d:\tmp\certbot.challenge  --dry-run
+   | Saving debug log to C:\Certbot\log\letsencrypt.log
+   | 
+   | - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+   | Processing C:\Certbot\renewal\ideafarm.com.conf
+   | - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+   | Cert not due for renewal, but simulating renewal for dry run
+   | Plugins selected: Authenticator webroot, Installer None
+   | Renewing an existing certificate
+   | Performing the following challenges:
+   | http-01 challenge for archive.ideafarm.com
+   | http-01 challenge for craftwork.ideafarm.com
+   | http-01 challenge for factory1.ideafarm.com
+   | http-01 challenge for factory10.ideafarm.com
+   | http-01 challenge for factory2.ideafarm.com
+   | http-01 challenge for factory3.ideafarm.com
+   | http-01 challenge for factory4.ideafarm.com
+   | http-01 challenge for factory5.ideafarm.com
+   | http-01 challenge for factory6.ideafarm.com
+   | http-01 challenge for factory7.ideafarm.com
+   | http-01 challenge for factory8.ideafarm.com
+   | http-01 challenge for factory9.ideafarm.com
+   | http-01 challenge for ideafarm.com
+   | http-01 challenge for test.ideafarm.com
+   | http-01 challenge for www.ideafarm.com
+   | Using the webroot path d:\tmp\certbot.challenge for all unmatched domains.
+   | Waiting for verification...
+   | Cleaning up challenges
+   | 
+   | - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+   | new certificate deployed without reload, fullchain is
+   | C:\Certbot\live\ideafarm.com\fullchain.pem
+   | - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+   | 
+   | - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+   | ** DRY RUN: simulating 'certbot renew' close to cert expiry
+   | **          (The test certificates below have not been saved.)
+   | 
+   | Congratulations, all renewals succeeded. The following certs have been renewed:
+   |   C:\Certbot\live\ideafarm.com\fullchain.pem (success)
+   | ** DRY RUN: simulating 'certbot renew' close to cert expiry
+   | **          (The test certificates above have not been saved.)
+   | - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+   | 
+   | C:\>
+   | 
+  listing
+ playcraft
+ objective: glass walls
+!job A: certificate renewal procedure
+  cool ; it works (i think)
+    \\factory1\d\tmp\certbot.challenge
+   i want http to recognize certbot challenge uri's and serve them from a hardcoded directory on factory1
+  think
+ playcraft
+ objective: unattended or minimally attended certificate renewal
+!job C: enhance http server to serve Certbot challenge files
+   problem: now ipdos is not serving: cnr
+     run elevated (administrator cmd prompt)
+     X: 3 4 5
+    robocopy c:\certbot \\factoryX\c\certbot /s
+    restore all dns entries
+     if it reports no errors, run certbot renew
+     run certbot renew --dry-run
+    run certbot
+    edit dns to point all names to factory1
+   the procedure, i think, is
+   this sucks, but works
+   certificate renewal uses certbot with a single Letsencrypt certificate that includes all subdomains explicitly
+  think
+   | 
+   | C:\PROGRA~2\Certbot>certbot renew --dry-run
+   | Saving debug log to C:\Certbot\log\letsencrypt.log
+   | 
+   | - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+   | Processing C:\Certbot\renewal\ideafarm.com.conf
+   | - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+   | Cert is due for renewal, auto-renewing...
+   | Plugins selected: Authenticator standalone, Installer None
+   | Renewing an existing certificate
+   | Performing the following challenges:
+   | http-01 challenge for archive.ideafarm.com
+   | http-01 challenge for craftwork.ideafarm.com
+   | http-01 challenge for factory1.ideafarm.com
+   | http-01 challenge for factory10.ideafarm.com
+   | http-01 challenge for factory2.ideafarm.com
+   | http-01 challenge for factory3.ideafarm.com
+   | http-01 challenge for factory4.ideafarm.com
+   | http-01 challenge for factory5.ideafarm.com
+   | http-01 challenge for factory6.ideafarm.com
+   | http-01 challenge for factory7.ideafarm.com
+   | http-01 challenge for factory8.ideafarm.com
+   | http-01 challenge for factory9.ideafarm.com
+   | http-01 challenge for ideafarm.com
+   | http-01 challenge for test.ideafarm.com
+   | http-01 challenge for www.ideafarm.com
+   | Waiting for verification...
+   | 
+  listing
+ playcraft
+ objective: correct function
+!job A: certificate renewal
   nawwh
   !subjob C: fileC fileWindowC: add thirdC* parameter
   snap code
