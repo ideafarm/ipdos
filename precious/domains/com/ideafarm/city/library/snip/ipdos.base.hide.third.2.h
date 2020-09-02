@@ -30163,7 +30163,6 @@ listC must be the wo'th base class of any class derived from it
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.listC : 1snip.150000fa.listc END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.poolC : 1snip.150000f6.poolc BEGIN
 
-
 //
 // Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
@@ -30279,17 +30278,17 @@ listC must be the wo'th base class of any class derived from it
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400b.poolC.postNameF!||
     voidT walkF( tinS& tinP , slotsWalkCBFT pSlotsWalkCBFP , countT& cArgP ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400c.poolC.walkF!||
-    voidT reportF( tinS& tinP , soulC& soulP ) ;
+    voidT reportF( tinS& tinP , etherC& etherP , soulC& soulP ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34010.poolC.reportF!||
-    voidT reportF( tinS& tinP , const countT*& pczLeverP , switchC& swTallyP ) ;
+    voidT reportF( tinS& tinP , etherC& etherP , const countT*& pczLeverP , switchC& swTallyP ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.36014.poolC.reportF!||
-    voidT reportF( tinS& tinP ) ;
+    voidT reportF( tinS& tinP , etherC& etherP ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.360e2016.poolC.reportF!||
     voidT flushF( tinS& tinP ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34013.poolC.flushF!||
-    static voidT reportIF( tinS& tinP , const countT*& pczLeverP , switchC& swTallyP ) ;
+    static voidT reportIF( tinS& tinP , etherC& etherP , const countT*& pczLeverP , switchC& swTallyP ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.35015.poolC.reportIF!||
-    static voidT reportIF( tinS& tinP ) ;
+    static voidT reportIF( tinS& tinP , etherC& etherP ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/!||
     voidT glassF( tinS& tinP , etherC& etherP , strokeS*& psttP ) const ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.360e2018.poolC.glassF!||
