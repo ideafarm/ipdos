@@ -665,7 +665,7 @@ etThread.traceF( tinP , T("freshen thread exiting") ) ;
     }
         }
             etRock.traceF( tinP , T("[poopCloud]: ")+TF3((countT)poopCloud,flFORMAT_UNSIGNED|flFORMAT_NObIGITvALUES|flFORMAT_FILLzE,8)+T(" ; !downloading / made   ghost \"")+tShort+T("\"") ) ;
-            { fileC fg( tinP , (strokeS*)( T(psttzLocalContainerP)+tShort ) , ifcOPENaCCESS_W , 0 , flOPENdETAILS_DOnOTvALIDATE | flOPENdETAILS_DOnOTrEGISTER /*flOPENdETAILS_null*/ , ifcOPENhOW_nCeR ) ; }
+            { fileC fg( tinP , &etThread , (strokeS*)( T(psttzLocalContainerP)+tShort ) , ifcOPENaCCESS_W , 0 , flOPENdETAILS_DOnOTvALIDATE | flOPENdETAILS_DOnOTrEGISTER /*flOPENdETAILS_null*/ , ifcOPENhOW_nCeR ) ; }
             etRock.traceF( tinP , T("[poopCloud]: ")+TF3((countT)poopCloud,flFORMAT_UNSIGNED|flFORMAT_NObIGITvALUES|flFORMAT_FILLzE,8)+T(" ; !downloading / making ghost \"")+tShort+T("\"") ) ;
         {
         else
@@ -781,7 +781,7 @@ TASK( tmFreshenFileF )
                                     if( pInfo && !pInfo->psttIfoName ) { etScratch.strMakeF( tinP , pInfo->psttIfoName , tLong ) ; ___( pInfo->psttIfoName ) ; }
 
                                     etScratch.diskFileQueryF( tinP , pInfo , myFile ) ; ___( pInfo ) ;
-                                    fileC myFile( tinP , (const strokeS*)tLong , ifcOPENaCCESS_R , ifcOPENsHARE_R , flOPENdETAILS_LOCsEQ , ifcOPENhOW_nFeO , flFILEaTTR_null , flFILEc_null , 1 ) ;
+                                    fileC myFile( tinP , &etherP , (const strokeS*)tLong , ifcOPENaCCESS_R , ifcOPENsHARE_R , flOPENdETAILS_LOCsEQ , ifcOPENhOW_nFeO , flFILEaTTR_null , flFILEc_null , 1 ) ;
                                 {
                                 while( !bQuitP && !etPrime && !etherP && !POOP )
 
@@ -1352,7 +1352,7 @@ TASK( tmHasherF )
                     {
                     if( POOP )
 
-                    fileC fi( tinP , pInfoP->psttIfoName , ifcOPENaCCESS_R , ifcOPENsHARE_R , flOPENdETAILS_LOCsEQ , ifcOPENhOW_nFeO , flFILEaTTR_null , flFILEc_null , 1 ) ;
+                    fileC fi( tinP , &etherP , pInfoP->psttIfoName , ifcOPENaCCESS_R , ifcOPENsHARE_R , flOPENdETAILS_LOCsEQ , ifcOPENhOW_nFeO , flFILEaTTR_null , flFILEc_null , 1 ) ;
                 {
                 //OBTAIN md5 HASH
 

@@ -126,7 +126,7 @@ etThread.osThreadF( TaRG1( tmServerF ) , (countT)&psttzLeverFolder , (countT)&sw
             {
             if( POOP )
 
-            fileC* pFlock = new( 0 , tinP , LF ) fileC( tinP , psttf , ifcOPENaCCESS_R , 0 , flOPENdETAILS_DOnOTvALIDATE | flOPENdETAILS_BUMPkEY | flOPENdETAILS_DOnOTmAKEdIRiFnEEDED , ifcOPENhOW_nFeO , flFILEaTTR_null , flFILEc_null , 1 ) ; ___( pFlock ) ;
+            fileC* pFlock = new( 0 , tinP , LF ) fileC( tinP , tinP.pEtScratch , psttf , ifcOPENaCCESS_R , 0 , flOPENdETAILS_DOnOTvALIDATE | flOPENdETAILS_BUMPkEY | flOPENdETAILS_DOnOTmAKEdIRiFnEEDED , ifcOPENhOW_nFeO , flFILEaTTR_null , flFILEc_null , 1 ) ; ___( pFlock ) ;
         {
         while( cDo -- )  //THIS IS TO VERIFY THAT I CAN DESTROY AND RECREATE THE FILE LOCK
         countT cDo = 2 ;
@@ -322,10 +322,10 @@ DONE( tmWatchHandlesF )
             TN( tb4 , "    " ) ;
 
             const handleC& hfError = fError ;
-            fileC fError( tinP , (strokeS*)tError , ifcOPENaCCESS_W , 0 , flOPENdETAILS_LOCsEQ , ifcOPENhOW_nCeR ) ;
+            fileC fError( tinP , &etThread , (strokeS*)tError , ifcOPENaCCESS_W , 0 , flOPENdETAILS_LOCsEQ , ifcOPENhOW_nCeR ) ;
 
             const handleC& hfOut = fOut ;
-            fileC fOut( tinP , (strokeS*)tOut , ifcOPENaCCESS_W , 0 , flOPENdETAILS_LOCsEQ , ifcOPENhOW_nCeR ) ;
+            fileC fOut( tinP , &etThread , (strokeS*)tOut , ifcOPENaCCESS_W , 0 , flOPENdETAILS_LOCsEQ , ifcOPENhOW_nCeR ) ;
 
             TN( tError  , "" ) ; tError  = T("///d/tmp/handle.error.")+tSuffix ;
             TN( tOut    , "" ) ; tOut    = T("///d/tmp/handle.out.")+tSuffix ;
@@ -755,7 +755,7 @@ voidT reportFilesSimpleF( tinS& tinP , etherC& etherP , socketC*& psoP , fileC*&
         {
         if( POOP )
 
-        pFlockP = new( 0 , tinP , LF ) fileC( tinP , psttFolderP , ifcOPENaCCESS_R , 0 , flOPENdETAILS_DOnOTvALIDATE | flOPENdETAILS_BUMPkEY | flOPENdETAILS_DOnOTmAKEdIRiFnEEDED , ifcOPENhOW_nFeO , flFILEaTTR_null , flFILEc_null , 1 ) ; ___( pFlockP ) ;
+        pFlockP = new( 0 , tinP , LF ) fileC( tinP , &etherP , psttFolderP , ifcOPENaCCESS_R , 0 , flOPENdETAILS_DOnOTvALIDATE | flOPENdETAILS_BUMPkEY | flOPENdETAILS_DOnOTmAKEdIRiFnEEDED , ifcOPENhOW_nFeO , flFILEaTTR_null , flFILEc_null , 1 ) ; ___( pFlockP ) ;
 
         SCOOPS
     {

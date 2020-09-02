@@ -26096,7 +26096,6 @@ it is illegal to refer to this symbol in the definition of an adam
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.plateS : 1snip.15000017.plates END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.fileC : 1snip.150000f7.filec BEGIN
 
-
 //
 // Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
@@ -26117,7 +26116,7 @@ it is illegal to refer to this symbol in the definition of an adam
     osTextT      postFileOrZip[ TUCK << 2 ] ; // DONE THIS WAY SO THAT I CAN BE USED EARLY AND LATE WHEN NO poolC INSTANCE EXISTS
     flagsT       flagsCt ;
 
-    voidT ctF( tinS& tinP , const osTextT* const postP , const countT idAccessP , const countT idShareP , const flagsT flagsDetailsP , const countT idHowP , const flagsT flagsAttributeP , const countT cTriesP ) ;
+    voidT ctF( tinS& tinP , etherC* pEtherP , const osTextT* const postP , const countT idAccessP , const countT idShareP , const flagsT flagsDetailsP , const countT idHowP , const flagsT flagsAttributeP , const countT cTriesP ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34003.fileC.ctF!||
 
     public :
@@ -26126,9 +26125,9 @@ it is illegal to refer to this symbol in the definition of an adam
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34001.fileC.NEWdELcLASSb!||
     ~fileC( voidT ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34002.fileC.dt_fileC!||
-    fileC( tinS& tinP , const osTextT* const postP , const countT idAccessP = ifcOPENaCCESS_R , const countT idShareP = ifcOPENsHARE_R , const flagsT flagsDetailsP = flOPENdETAILS_LOCsEQ , const countT idHowP = ifcOPENhOW_nFeO , const flagsT flagsAttributeP = flFILEaTTR_null , const flagsT flagsP = flFILEc_null , const countT cTriesP = 0 , const osTextT* const postZipP = 0 ) ;
+    fileC( tinS& tinP , etherC* pEtherP , const osTextT* const postP , const countT idAccessP = ifcOPENaCCESS_R , const countT idShareP = ifcOPENsHARE_R , const flagsT flagsDetailsP = flOPENdETAILS_LOCsEQ , const countT idHowP = ifcOPENhOW_nFeO , const flagsT flagsAttributeP = flFILEaTTR_null , const flagsT flagsP = flFILEc_null , const countT cTriesP = 0 , const osTextT* const postZipP = 0 ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34004.fileC.fileC!||
-    fileC( tinS& tinP , const strokeS* const psttP , const countT idAccessP = ifcOPENaCCESS_R , const countT idShareP = ifcOPENsHARE_R , const flagsT flagsDetailsP = flOPENdETAILS_LOCsEQ , const countT idHowP = ifcOPENhOW_nFeO , const flagsT flagsAttributeP = flFILEaTTR_null , const flagsT flagsP = flFILEc_null , const countT cTriesP = 0 , const osTextT* const postZipP = 0 ) ;
+    fileC( tinS& tinP , etherC* pEtherP , const strokeS* const psttP , const countT idAccessP = ifcOPENaCCESS_R , const countT idShareP = ifcOPENsHARE_R , const flagsT flagsDetailsP = flOPENdETAILS_LOCsEQ , const countT idHowP = ifcOPENhOW_nFeO , const flagsT flagsAttributeP = flFILEaTTR_null , const flagsT flagsP = flFILEc_null , const countT cTriesP = 0 , const osTextT* const postZipP = 0 ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34005.fileC.fileC!||
     countT idOpenResultF( tinS& tinP  ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34006.fileC.idOpenResultF!||

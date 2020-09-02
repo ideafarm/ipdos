@@ -3989,7 +3989,7 @@
 /*N1D*/                                                                     cbCurrentZipFile = pInfo->cbUsedHigh
 /*N1D*/                                                                     diskFileQueryF( tinP , pInfo , woZip ) ;
 /*N1D*/                                                                     ZE( infoFileS* , pInfo ) ;
-/*N1D*/                                                                     fileC woZip( tinP , psttCurrentZipFile ) ;
+/*N1D*/                                                                     fileC woZip( tinP , this , psttCurrentZipFile ) ;
 /*N1D*/                                                                 {
 /*N1D*/
 /*N1D*/                                                                 //__( idDeathType ) ;
@@ -4057,7 +4057,7 @@
 /*N1D*/                                                                 cbInput = pInfo->cbUsedHigh
 /*N1D*/                                                                 diskFileQueryF( tinP , pInfo , inFile ) ;
 /*N1D*/                                                                 ZE( infoFileS* , pInfo ) ;
-/*N1D*/                                                                 fileC inFile( tinP , (const strokeS*)( tArchive+T(psttzFileName) ) ) ;
+/*N1D*/                                                                 fileC inFile( tinP , this , (const strokeS*)( tArchive+T(psttzFileName) ) ) ;
 /*N1D*/                                                             {
 /*N1D*/                                                             ZE( countT , cbInput ) ;
 /*N1D*/                                                         {
@@ -4344,7 +4344,7 @@
 /*N1D*/                                                     }
 /*N1D*/                                                         }
 /*N1D*/                                                             osEditF( tinP , tNoteFileLong ) ;
-/*N1D*/                                                             { fileC( tinP , (strokeS*)tNoteFileLong , ifcOPENaCCESS_W , 0 , flOPENdETAILS_LOCsEQ , ifcOPENhOW_nCeF ) ; }
+/*N1D*/                                                             { fileC( tinP , this , (strokeS*)tNoteFileLong , ifcOPENaCCESS_W , 0 , flOPENdETAILS_LOCsEQ , ifcOPENhOW_nCeF ) ; }
 /*N1D*/
 /*N1D*/                                                             third.dosExecPgmF( tinP , countTC() , countTC() , value , idDeathType , postExeMp3 , tq+T(osfn)+tq ) ;
 /*N1D*/                                                             TN( tq , "\"" ) ;
@@ -4899,7 +4899,7 @@
 /*N1D*/                                                         patternC pat( tinP , *this , fnLike , ifcIDtYPEpATTERN_FOREIGNwILDCARDsTRICT ) ;
 /*N1D*/                                                         fileNameC fnLike( tinP , *this , tFolderFrom+tShortNoSuffix+T("meta.part.*") ) ;
 /*N1D*/
-/*N1D*/                                                         fileC foData( tinP , (strokeS*)tLongData , ifcOPENaCCESS_W , 0 , flOPENdETAILS_LOCsEQ , ifcOPENhOW_nCeR ) ;
+/*N1D*/                                                         fileC foData( tinP , this , (strokeS*)tLongData , ifcOPENaCCESS_W , 0 , flOPENdETAILS_LOCsEQ , ifcOPENhOW_nCeR ) ;
 /*N1D*/                                                         traceF( tinP , T("i have all parts needed to reassemble ")+tLongData ) ;
 /*N1D*/                                                         TN( tLongData , "" ) ; tLongData = tFolderTo+tShortNoSuffix+tData ;
 /*N1D*/                                                     {
@@ -5018,7 +5018,7 @@
 /*N1D*/                                                 }
 /*N1D*/                                                     DEL( pInfo ) ;
 /*N1D*/                                                     }
-/*N1D*/                                                         fileC foTally( tinP , (strokeS*)( tFolderTo+tShortNoSuffix+T("meta.numparts.")+TF3(idPartLath,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE|flFORMAT_FOREIGN,8) ) , ifcOPENaCCESS_W , 0 , flOPENdETAILS_LOCsEQ , ifcOPENhOW_nCeR ) ;
+/*N1D*/                                                         fileC foTally( tinP , this , (strokeS*)( tFolderTo+tShortNoSuffix+T("meta.numparts.")+TF3(idPartLath,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE|flFORMAT_FOREIGN,8) ) , ifcOPENaCCESS_W , 0 , flOPENdETAILS_LOCsEQ , ifcOPENhOW_nCeR ) ;
 /*N1D*/
 /*N1D*/                                                         __NZ( pFo ) ;
 /*N1D*/                                                         }
@@ -5057,7 +5057,7 @@
 /*N1D*/                                                                 cbOutRemainPart = !cbInRemainHigh && cbInRemain < sizeBytes
 /*N1D*/           
 /*N1D*/                                                                 __Z( pFo ) ;
-/*N1D*/                                                                 pFo = new( 0 , tinP , LF ) fileC( tinP , (strokeS*)( tFolderTo+tShortNoSuffix+T("meta.part.")+TF3(++idPartLath,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE|flFORMAT_FOREIGN,8) ) , ifcOPENaCCESS_W , 0 , flOPENdETAILS_LOCsEQ , ifcOPENhOW_nCeR ) ; ___( pFo ) ;
+/*N1D*/                                                                 pFo = new( 0 , tinP , LF ) fileC( tinP , this , (strokeS*)( tFolderTo+tShortNoSuffix+T("meta.part.")+TF3(++idPartLath,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE|flFORMAT_FOREIGN,8) ) , ifcOPENaCCESS_W , 0 , flOPENdETAILS_LOCsEQ , ifcOPENhOW_nCeR ) ; ___( pFo ) ;
 /*N1D*/                                                             {
 /*N1D*/                                                             if( !pFo )
 /*N1D*/                                                         {
@@ -5068,7 +5068,7 @@
 /*N1D*/
 /*N1D*/                                                         countT cbInRemainHigh = pInfo->cbUsedHigh ;
 /*N1D*/                                                         countT cbInRemain     = pInfo->cbUsed     ;
-/*N1D*/                                                         fileC fi( tinP , pInfo->psttIfoName ) ;
+/*N1D*/                                                         fileC fi( tinP , this , pInfo->psttIfoName ) ;
 /*N1D*/
 /*N1D*/                                                         }
 /*N1D*/                                                             delF( tinP , psttShortNoSuffix ) ;
@@ -6700,7 +6700,7 @@
                                                     {
                                                     ZE( countT , cbFileHi ) ;
                                                     ZE( countT , cbFileLo ) ;
-                                                    fileC inFile( tinP , psttv ) ;
+                                                    fileC inFile( tinP , this , psttv ) ;
 
                                                     // 
                                                     //  THIS CAN BE DONE USING arrayC
