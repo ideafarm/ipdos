@@ -14,7 +14,7 @@
     tinP.ta.pushed.u.listWalk.cbf.idNestP -- ;
 
     tinP.tlsDelF( *(byteT**)&pczName ) ;
-    //{ puseC puseat( tinP , ifcIDpOOL_ADAMtEMP ) ; PUSE( tinP , *(byteT**)&pczName ) ; }
+    //{ puseC puseat( tinP , 0 , ifcIDpOOL_ADAMtEMP ) ; PUSE( tinP , *(byteT**)&pczName ) ; }
 
     if( bClearPoolRecord ) tinP.ta.retained.u.listWalk.walk.pPoolRecord = 0 ;
 
@@ -415,7 +415,7 @@
     if( pczName[ 0 ] == LISTnAME_ROOT && pczName[ 1 ] == LISTnAME_ROOTsYSTEM3 && pczName[ 2 ] == LISTnAME_FIELDvALUEiNDEX && pczName[ 3 ] && !pczName[ 4 ] && !tinP.ta.retained.u.listWalk.walk.pPoolRecord )
     ZE( boolT , bClearPoolRecord ) ;
 
-    nameF( tinP , pczName ) ; //20140111@1810: NOW ALLOCATED IN TLS: { puseC puseat( tinP , ifcIDpOOL_ADAMtEMP ) ; ___( pczName ) ; }
+    nameF( tinP , pczName ) ; //20140111@1810: NOW ALLOCATED IN TLS: { puseC puseat( tinP , 0 , ifcIDpOOL_ADAMtEMP ) ; ___( pczName ) ; }
     ZE( countT* , pczName ) ;
 
     tinP.ta.pushed.u.listWalk.cbf.idNestP ++ ;

@@ -30230,7 +30230,7 @@ listC must be the wo'th base class of any class derived from it
 
     voidT ctFaceF( tinS& tinP , const countT idLineCtP , const countT idiFileCtP , const byteT* const pbBitsCtP , const countT idStateSpaceP ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400e.poolC.ctFaceF!||
-    voidT ctFilesF( tinS& tinP , const osTextT* const postNameP , const countT idStateSpaceP ) ;
+    voidT ctFilesF( tinS& tinP , etherC* pEtherP , const osTextT* const postNameP , const countT idStateSpaceP ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400f.poolC.ctFilesF!||
 
     public :
@@ -30254,7 +30254,7 @@ listC must be the wo'th base class of any class derived from it
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34001.poolC.NEWdELcLASSb!||
     ~poolC( voidT ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34002.poolC.dt_poolC!||
-    poolC( tinS& tinP , const countT idLineCtP , const countT idiFileCtP , const byteT* const pbBitsCtP , const osTextT* const postNameP , const flagsT flagsP = flPOOLc_null , const countT idStateSpaceP = 0 , const countT expCbSlotMinP = - 1 , const countT expCbSlotMaxP = - 1 , const countT* pczHintPreallocationP = 0 , countT idMemorySpaceP = 0 ) ;
+    poolC( tinS& tinP , etherC* pEtherP , const countT idLineCtP , const countT idiFileCtP , const byteT* const pbBitsCtP , const osTextT* const postNameP , const flagsT flagsP = flPOOLc_null , const countT idStateSpaceP = 0 , const countT expCbSlotMinP = - 1 , const countT expCbSlotMaxP = - 1 , const countT* pczHintPreallocationP = 0 , countT idMemorySpaceP = 0 ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34003.poolC.poolC!||
     voidT newF( tinS& tinP , const countT idLineP , const countT idiFileP , byteT*& pbP , const countT cbP , const flagsT flagsP = flPOOLcnEW_null ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34004.poolC.newF!||
@@ -30341,9 +30341,9 @@ listC must be the wo'th base class of any class derived from it
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34001.puseC.NEWdELcLASSb!||
     ~puseC( voidT ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34002.puseC.dt_puseC!||
-    puseC( tinS& tinP , const osTextT* const postNameP , const flagsT flagsP = flPOOLc_null , const countT idStateSpaceP = 0 , const countT expCbSlotMinP = - 1 , const countT expCbSlotMaxP = - 1 , const countT* const pczHintPreallocationP = 0 , const countT idMemorySpaceP = 0 ) ;
+    puseC( tinS& tinP , etherC* pEtherP , const osTextT* const postNameP , const flagsT flagsP = flPOOLc_null , const countT idStateSpaceP = 0 , const countT expCbSlotMinP = - 1 , const countT expCbSlotMaxP = - 1 , const countT* const pczHintPreallocationP = 0 , const countT idMemorySpaceP = 0 ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34003.puseC.puseC!||
-    puseC( tinS& tinP , const countT idPoolP ) ;
+    puseC( tinS& tinP , etherC* pEtherP , const countT idPoolP ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34004.puseC.puseC!||
     puseC( tinS& tinP , poolC& poolP ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34008.puseC.puseC!||

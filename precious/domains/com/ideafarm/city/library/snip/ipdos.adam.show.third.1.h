@@ -38274,7 +38274,7 @@ args
                                                                                                                                                                     \
         ZE(  countT* , pczV ) ;                                                                                                                                     \
         {                                                                                                                                                           \
-            puseC puseat( tinP , ifcIDpOOL_ADAMtEMP ) ;                                                                                                             \
+            puseC puseat( tinP , 0 , ifcIDpOOL_ADAMtEMP ) ;                                                                                                             \
             etherC::strStretchIF( tinP , pczV , 0 , valueP , cNetP ) ; ___( pczV ) ;                                                                                \
         }                                                                                                                                                           \
                                                                                                                                                                     \
@@ -38300,15 +38300,15 @@ args
                     *pvspPostKey = dictionaryQueryFromIdIF( tinP , idKeyP ) ;                                                                                       \
                 }                                                                                                                                                   \
                                                                                                                                                                     \
-                puseC puseat( tinP , ifcIDpOOL_ADAMtEMP ) ;                                                                                                         \
+                puseC puseat( tinP , 0 , ifcIDpOOL_ADAMtEMP ) ;                                                                                                         \
                 puseat.doNothingWhenDieF() ;                                                                                                                        \
                 pPuseIndex = ~hIndexP                                                                                                                               \
                     ? new( 0 , tinP , LF ) puseC( puseIndexP )                                                                                                      \
-                    : new( 0 , tinP , LF ) puseC( tinP , idStateSpace == ifcIDsTATEsPACE_SINGLEaDAM( tinP ) || idStateSpace == ifcIDsTATEsPACE_SCRATCH ? ifcIDpOOL_ADAMtEMP : ifcIDpOOL_HOMEtEMP ) \
+                    : new( 0 , tinP , LF ) puseC( tinP , 0 , idStateSpace == ifcIDsTATEsPACE_SINGLEaDAM( tinP ) || idStateSpace == ifcIDsTATEsPACE_SCRATCH ? ifcIDpOOL_ADAMtEMP : ifcIDpOOL_HOMEtEMP ) \
                 ;                                                                                                                                                   \
                                                                                                                                                                     \
                 {                                                                                                                                                   \
-                    puseC puseat( tinP , ifcIDpOOL_ADAMtEMP ) ;                                                                                                     \
+                    puseC puseat( tinP , 0 , ifcIDpOOL_ADAMtEMP ) ;                                                                                                     \
                     ___( pPuseIndex ) ;                                                                                                                             \
                 }                                                                                                                                                   \
                                                                                                                                                                     \
@@ -38346,7 +38346,7 @@ args
         }                                                                                                                                                           \
                                                                                                                                                                     \
         {                                                                                                                                                           \
-            puseC puseat( tinP , ifcIDpOOL_ADAMtEMP ) ;                                                                                                             \
+            puseC puseat( tinP , 0 , ifcIDpOOL_ADAMtEMP ) ;                                                                                                             \
             DELlIST( fieldEditParamOutC , pOut ) ;                                                                                                                  \
             PUSE( tinP , *(byteT**)&pczV ) ;                                                                                                                        \
             DEL( pPuseIndex ) ;                                                                                                                                     \
@@ -38433,7 +38433,7 @@ args
                                                                                                                                                                     \
         ZE(  countT* , pczV ) ;                                                                                                                                     \
         {                                                                                                                                                           \
-            puseC puseat( tinP , ifcIDpOOL_ADAMtEMP ) ;                                                                                                             \
+            puseC puseat( tinP , 0 , ifcIDpOOL_ADAMtEMP ) ;                                                                                                             \
             etherC::strStretchIF( tinP , pczV , 0 , valueP , cNetP ) ; ___( pczV ) ;                                                                                \
         }                                                                                                                                                           \
                                                                                                                                                                     \
@@ -38462,15 +38462,15 @@ args
                     *pvspPostKey = dictionaryQueryFromIdIF( tinP , idKeyP ) ;                                                                                       \
                 }                                                                                                                                                   \
                                                                                                                                                                     \
-                puseC puseat( tinP , ifcIDpOOL_ADAMtEMP ) ;                                                                                                         \
+                puseC puseat( tinP , 0 , ifcIDpOOL_ADAMtEMP ) ;                                                                                                         \
                 puseat.doNothingWhenDieF() ;                                                                                                                        \
                 pPuseIndex = !bOpenIK                                                                                                                               \
                     ? new( 0 , tinP , LF ) puseC( puseIndexP )                                                                                                      \
-                    : new( 0 , tinP , LF ) puseC( tinP , idStateSpace == ifcIDsTATEsPACE_SINGLEaDAM( tinP ) || idStateSpace == ifcIDsTATEsPACE_SCRATCH ? ifcIDpOOL_ADAMtEMP : ifcIDpOOL_HOMEtEMP ) \
+                    : new( 0 , tinP , LF ) puseC( tinP , 0 , idStateSpace == ifcIDsTATEsPACE_SINGLEaDAM( tinP ) || idStateSpace == ifcIDsTATEsPACE_SCRATCH ? ifcIDpOOL_ADAMtEMP : ifcIDpOOL_HOMEtEMP ) \
                 ;                                                                                                                                                   \
                                                                                                                                                                     \
                 {                                                                                                                                                   \
-                    puseC puseat( tinP , ifcIDpOOL_ADAMtEMP ) ;                                                                                                     \
+                    puseC puseat( tinP , 0 , ifcIDpOOL_ADAMtEMP ) ;                                                                                                     \
                     ___( pPuseIndex ) ;                                                                                                                             \
                 }                                                                                                                                                   \
                                                                                                                                                                     \
@@ -38512,7 +38512,7 @@ args
         }                                                                                                                                                           \
                                                                                                                                                                     \
         {                                                                                                                                                           \
-            puseC puseat( tinP , ifcIDpOOL_ADAMtEMP ) ;                                                                                                             \
+            puseC puseat( tinP , 0 , ifcIDpOOL_ADAMtEMP ) ;                                                                                                             \
             DELlIST( fieldEditParamOutC , pOut ) ;                                                                                                                  \
         }                                                                                                                                                           \
                                                                                                                                                                     \
@@ -38523,7 +38523,7 @@ args
             countT ccV   = thirdC::c_strlenIF( tinP , pczV  ) ;                                                                                                     \
             countT ccIKV = ccIK + ccV ;                                                                                                                             \
             {                                                                                                                                                       \
-                puseC puseat( tinP , ifcIDpOOL_ADAMtEMP ) ;                                                                                                         \
+                puseC puseat( tinP , 0 , ifcIDpOOL_ADAMtEMP ) ;                                                                                                         \
                 PUSE.newF( tinP , LF , *(byteT**)&pczIKV , sizeof( countT ) * ( ccIKV + 1 ) ) ; ___( pczIKV ) ;                                                     \
                 __Z( pczIKV ) ;                                                                                                                                     \
             }                                                                                                                                                       \
@@ -38541,11 +38541,11 @@ args
                 }                                                                                                                                                   \
             }                                                                                                                                                       \
                                                                                                                                                                     \
-            { puseC puseat( tinP , ifcIDpOOL_ADAMtEMP ) ; PUSE( tinP , *(byteT**)&pczIKV ) ; }                                                                      \
+            { puseC puseat( tinP , 0 , ifcIDpOOL_ADAMtEMP ) ; PUSE( tinP , *(byteT**)&pczIKV ) ; }                                                                      \
         }                                                                                                                                                           \
                                                                                                                                                                     \
         {                                                                                                                                                           \
-            puseC puseat( tinP , ifcIDpOOL_ADAMtEMP ) ;                                                                                                             \
+            puseC puseat( tinP , 0 , ifcIDpOOL_ADAMtEMP ) ;                                                                                                             \
             PUSE( tinP , *(byteT**)&pczV ) ;                                                                                                                        \
             DEL( pPuseIndex ) ;                                                                                                                                     \
         }                                                                                                                                                           \
@@ -38654,7 +38654,7 @@ args
         }                                                                                                                                                                       \
                                                                                                                                                                                 \
         tinP.ta.retained.u.listWalk.walk.pPoolRecord = &PUSE ;                                                                                                                    \
-        puseC puseIndex( tinP , idStateSpace == ifcIDsTATEsPACE_SINGLEaDAM( tinP ) || idStateSpace == ifcIDsTATEsPACE_SCRATCH ? ifcIDpOOL_ADAMtEMP : ifcIDpOOL_HOMEtEMP ) ;     \
+        puseC puseIndex( tinP , 0 , idStateSpace == ifcIDsTATEsPACE_SINGLEaDAM( tinP ) || idStateSpace == ifcIDsTATEsPACE_SCRATCH ? ifcIDpOOL_ADAMtEMP : ifcIDpOOL_HOMEtEMP ) ;     \
                                                                                                                                                                                 \
         if( !bLiteralKey )                                                                                                                                                      \
         {                                                                                                                                                                       \
@@ -38664,7 +38664,7 @@ args
                                                                                                                                                                                 \
         ZE( countT* , pczIKVR ) ;                                                                                                                                               \
         {                                                                                                                                                                       \
-            puseC puseat( tinP , ifcIDpOOL_ADAMtEMP ) ;                                                                                                                         \
+            puseC puseat( tinP , 0 , ifcIDpOOL_ADAMtEMP ) ;                                                                                                                         \
                                                                                                                                                                                 \
             ZE( countT* , pczIKV ) ;                                                                                                                                            \
             {                                                                                                                                                                   \
@@ -38702,7 +38702,7 @@ args
         }                                                                                                                                                                       \
                                                                                                                                                                                 \
         {                                                                                                                                                                       \
-            puseC puseat( tinP , ifcIDpOOL_ADAMtEMP ) ;                                                                                                                         \
+            puseC puseat( tinP , 0 , ifcIDpOOL_ADAMtEMP ) ;                                                                                                                         \
             PUSE( tinP , *(byteT**)&pczIKVR ) ;                                                                                                                                 \
             __NZ( pczIKVR ) ;                                                                                                                                                   \
         }                                                                                                                                                                       \
