@@ -1,3 +1,226 @@
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004d2.flsurfc BEGIN
+
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+/*
+*/
+/**/
+
+/*1*//*flSURFc*//*1*/
+
+/*3*/
+#define flSURFc_NOsMOOTHIES                 0xe00001e7
+/*3*/
+#define flSURFc_null    0xe00000e7
+
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004d2.flsurfc END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004d3.fldevicec BEGIN
+
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+/*
+*/
+/**/
+
+/*1*//*flDEVICEc*//*1*/
+
+/*3*/
+#define flDEVICEc_NOsMOOTHIES                 0xe00001e8
+/*3*/
+#define flDEVICEc_null    0xe00000e8
+
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004d3.fldevicec END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004d4.fepfailbreakif BEGIN
+
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+
+/*
+*/
+
+/**/
+
+/*1*//*FEPfAILbREAKiF*//*1*/
+
+#define FEPfAILbREAKiF                                                                                                                          \
+                                                                                                                                                \
+    if( offpo >= cPointMax )                                                                                                                    \
+    {                                                                                                                                           \
+        bFail = 1 ;                                                                                                                             \
+        break ;                                                                                                                                 \
+    }
+
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004d4.fepfailbreakif END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004d5.flunzip BEGIN
+
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+/*
+*/
+/**/
+/*1*//*flUNZIP*//*1*/
+
+/*3*/
+#define flUNZIP_NOTuSED                    0xe00001e9
+/*3*/
+#define flUNZIP_null    0xe00000e9
+
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004d5.flunzip END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004d6.flfilec BEGIN
+
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+/*
+*/
+/**/
+/*1*//*flFILEc*//*1*/
+
+//20200428@1809:  flFILEc_ZIP flFILEc_UNZIP ARE NOT FOUND ANYWHERE IN THE CODE (DICTIONARY) EXCEPT HERE ; CONJ: THEY REPRESENT SOME IDEA FOR THE fileC CLASS THAT WAS NEVER IMPLEMENTED
+
+//#define flFILEc_UNZIP
+//#define flFILEc_ZIP
+
+/*3*/
+#define flFILEc_DELETE                   0xe00001ea
+/*3*/
+#define flFILEc_null    0xe00000ea
+
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004d6.flfilec END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004d7.ccutilityhomes BEGIN
+
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+/*
+*/
+/**/
+/*1*//*CCuTILITYhOMEs*//*1*/
+
+#define CCuTILITYhOMEs 0x10
+
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004d7.ccutilityhomes END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004d8.flhomesutility BEGIN
+
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+/*
+*/
+/**/
+/*1*//*flHOMEsuTILITY*//*1*/
+
+/*3*/
+#define flHOMEsuTILITY_1            0xe00001eb
+#define flHOMEsuTILITY_2            0xe00002eb
+#define flHOMEsuTILITY_4            0xe00004eb
+#define flHOMEsuTILITY_8            0xe00008eb
+#define flHOMEsuTILITY_01           0xe00010eb
+#define flHOMEsuTILITY_02           0xe00020eb
+#define flHOMEsuTILITY_04           0xe00040eb
+#define flHOMEsuTILITY_08           0xe00080eb
+#define flHOMEsuTILITY_TRACE        0xe00100eb
+#define flHOMEsuTILITY_SNAPsHOT     0xe00200eb
+#define flHOMEsuTILITY_DEBUG        0xe00400eb
+/*3*/
+#define flHOMEsuTILITY_null    0xe00000eb
+
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004d8.flhomesutility END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004d9.ctallybuckets BEGIN
 
 
@@ -2606,9 +2829,8 @@ parameters
 /*1*//*flFILEwINDOW*//*1*/
 
 /*3*/
-#define flFILEwINDOW_WRITE                  0xe0000103
-#define flFILEwINDOW_DOnOTvALIDATE          0xe0000203
-#define flFILEwINDOW_DOnOTmAKEdIRiFnEEDED   0xe0000403
+#define flFILEwINDOW_WRITE          0xe0000103
+#define flFILEwINDOW_DOnOTvALIDATE  0xe0000203
 /*3*/
 #define flFILEwINDOW_null    0xe0000003
 
@@ -5226,199 +5448,6 @@ use this rather than _ to avoid the overhead of _
 //
 
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.1120056c.ETHERlIST3aFTERoPTIONALbREAK END
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.1120056d.GARBAGEcOLLECTORnAME BEGIN
-
-
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-// Respecting the rights of other people is an important part of empowering one another.
-//
-
-/*
-*/
-/**/
-
-/*1*//*GARBAGEcOLLECTORnAME(idP)*//*1*/
-
-#define GARBAGEcOLLECTORnAME(idP) _garbageCollector##idP##CBF
-
-
-
-//
-// Respecting the rights of other people is an important part of empowering one another.
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.1120056d.GARBAGEcOLLECTORnAME END
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.1120056e.POINTERc BEGIN
-
-
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-// Respecting the rights of other people is an important part of empowering one another.
-//
-
-/*
-*/
-/**/
-
-/*1*//*POINTERc*//*1*/
-
-#define POINTERc blobVSP
-
-
-//
-// Respecting the rights of other people is an important part of empowering one another.
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.1120056e.POINTERc END
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.1120056f.POINTERc_END BEGIN
-
-
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-// Respecting the rights of other people is an important part of empowering one another.
-//
-
-/*
-*/
-/**/
-
-/*1*//*POINTERc_END(idP,nameP)*//*1*/
-
-#define POINTERc_END(idP,nameP)                                                                                     \
-                                                                                                                    \
-    ) ;                                                                                                             \
-    blobVSP nameP( _pbBack##idP + 2 * sizeof( countT ) , GARBAGEcOLLECTORnAME( idP ) ) ;
-
-
-//
-// Respecting the rights of other people is an important part of empowering one another.
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.1120056f.POINTERc_END END
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200570.POINTERc_BEGIN BEGIN
-
-
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-// Respecting the rights of other people is an important part of empowering one another.
-//
-
-/*
-*/
-/**/
-
-/*1*//*POINTERc_BEGIN(idP,classP)*//*1*/
-
-#define POINTERc_BEGIN(idP,classP)                                                                                  \
-                                                                                                                    \
-    ZE( byteT* , _pbBack##idP ) ;                                                                                   \
-    PUSE.newF( tinP , LF , _pbBack##idP , 2 * sizeof( countT ) + sizeof( classP ) ) ; ___( _pbBack##idP ) ;         \
-    ((countT*)_pbBack##idP)[ 0 ] = 0 ;                                                                              \
-    ((countT*)_pbBack##idP)[ 1 ] = sizeof( classP ) ;                                                               \
-    new( 0 , tinP , _pbBack##idP + 2 * sizeof( countT ) , sizeof( classP ) ) classP(
-
-
-//
-// Respecting the rights of other people is an important part of empowering one another.
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200570.POINTERc_BEGIN END
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200571.GARBAGEcOLLECTORdEF BEGIN
-
-
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-// Respecting the rights of other people is an important part of empowering one another.
-//
-
-/*
-*/
-/**/
-
-/*1*//*GARBAGEcOLLECTORdEF(idP,classP)*//*1*/
-
-#define GARBAGEcOLLECTORdEF(idP,classP)                                                                                                                 \
-                                                                                                                                                        \
-    voidT _garbageCollector##idP##CBF( tinS& tinP , byteT* pbvspP , countT idEventP , countT cRefOldP , countT cRefNewLaterP , countT cArgP )           \
-    {                                                                                                                                                   \
-        switch( idEventP )                                                                                                                              \
-        {                                                                                                                                               \
-            case ifcIDeVENTvsp_DT :                                                                                                                     \
-            {                                                                                                                                           \
-                if( !cRefNewLaterP )                                                                                                                    \
-                {                                                                                                                                       \
-                    blobSP& blobsp = *(blobSP*)pbvspP ;                                                                                                 \
-                                                                                                                                                        \
-                    classP* pDoomed = (classP*)(const byteT*)*(blobSP*)pbvspP ;                                                                         \
-                    DELzOMBIE( pDoomed ) ;                                                                                                              \
-                                                                                                                                                        \
-                    byteT* pbDoomed = (byteT*)( (countT)( (const byteT*)*(blobSP*)pbvspP - 2 * sizeof( countT ) ) ) ;                                   \
-                    PUSE( tinP , pbDoomed ) ;                                                                                                           \
-                }                                                                                                                                       \
-                break ;                                                                                                                                 \
-            }                                                                                                                                           \
-        }                                                                                                                                               \
-    }
-
-
-//
-// Respecting the rights of other people is an important part of empowering one another.
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200571.GARBAGEcOLLECTORdEF END
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200572.PrEF BEGIN
-
-
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-// Respecting the rights of other people is an important part of empowering one another.
-//
-
-/*
-*/
-/**/
-
-/*1*//*PrEF(classP,nameP,pointerP)*//*1*/
-
-#define PrEF(classP,nameP,pointerP) classP& nameP = *(classP*)(const byteT*)(pointerP) ;
-
-
-//
-// Respecting the rights of other people is an important part of empowering one another.
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200572.PrEF END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.thirdParties : 1snip.15000014.thirdparties BEGIN
 
 
@@ -16916,7 +16945,7 @@ members
  countT     pLFnest[ ( 1 + OFFsLOTtINnESTmAX ) << 1 ] ; //U::MOVE THIS AND cNest TO ADJACENT TO fingerprint
  flagsT     pFlagsThreadLevelMode[ 1 + OFFsLOTtINnESTmAX ] ;
 
- voidT glassF( tinS& tinP , etherC& etherP , strokeS*& psttP ) const ;
+ voidT glassF( tinS& tinP , strokeS*& psttP ) const ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3612f004.dropNoteS.glassF!||
 /**/
 }
@@ -26096,6 +26125,7 @@ it is illegal to refer to this symbol in the definition of an adam
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.plateS : 1snip.15000017.plates END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.fileC : 1snip.150000f7.filec BEGIN
 
+
 //
 // Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
@@ -26116,7 +26146,7 @@ it is illegal to refer to this symbol in the definition of an adam
     osTextT      postFileOrZip[ TUCK << 2 ] ; // DONE THIS WAY SO THAT I CAN BE USED EARLY AND LATE WHEN NO poolC INSTANCE EXISTS
     flagsT       flagsCt ;
 
-    voidT ctF( tinS& tinP , etherC* pEtherP , const osTextT* const postP , const countT idAccessP , const countT idShareP , const flagsT flagsDetailsP , const countT idHowP , const flagsT flagsAttributeP , const countT cTriesP ) ;
+    voidT ctF( tinS& tinP , const osTextT* const postP , const countT idAccessP , const countT idShareP , const flagsT flagsDetailsP , const countT idHowP , const flagsT flagsAttributeP , const countT cTriesP ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34003.fileC.ctF!||
 
     public :
@@ -26125,9 +26155,9 @@ it is illegal to refer to this symbol in the definition of an adam
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34001.fileC.NEWdELcLASSb!||
     ~fileC( voidT ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34002.fileC.dt_fileC!||
-    fileC( tinS& tinP , etherC* pEtherP , const osTextT* const postP , const countT idAccessP = ifcOPENaCCESS_R , const countT idShareP = ifcOPENsHARE_R , const flagsT flagsDetailsP = flOPENdETAILS_LOCsEQ , const countT idHowP = ifcOPENhOW_nFeO , const flagsT flagsAttributeP = flFILEaTTR_null , const flagsT flagsP = flFILEc_null , const countT cTriesP = 0 , const osTextT* const postZipP = 0 ) ;
+    fileC( tinS& tinP , const osTextT* const postP , const countT idAccessP = ifcOPENaCCESS_R , const countT idShareP = ifcOPENsHARE_R , const flagsT flagsDetailsP = flOPENdETAILS_LOCsEQ , const countT idHowP = ifcOPENhOW_nFeO , const flagsT flagsAttributeP = flFILEaTTR_null , const flagsT flagsP = flFILEc_null , const countT cTriesP = 0 , const osTextT* const postZipP = 0 ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34004.fileC.fileC!||
-    fileC( tinS& tinP , etherC* pEtherP , const strokeS* const psttP , const countT idAccessP = ifcOPENaCCESS_R , const countT idShareP = ifcOPENsHARE_R , const flagsT flagsDetailsP = flOPENdETAILS_LOCsEQ , const countT idHowP = ifcOPENhOW_nFeO , const flagsT flagsAttributeP = flFILEaTTR_null , const flagsT flagsP = flFILEc_null , const countT cTriesP = 0 , const osTextT* const postZipP = 0 ) ;
+    fileC( tinS& tinP , const strokeS* const psttP , const countT idAccessP = ifcOPENaCCESS_R , const countT idShareP = ifcOPENsHARE_R , const flagsT flagsDetailsP = flOPENdETAILS_LOCsEQ , const countT idHowP = ifcOPENhOW_nFeO , const flagsT flagsAttributeP = flFILEaTTR_null , const flagsT flagsP = flFILEc_null , const countT cTriesP = 0 , const osTextT* const postZipP = 0 ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34005.fileC.fileC!||
     countT idOpenResultF( tinS& tinP  ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34006.fileC.idOpenResultF!||
@@ -26292,8 +26322,6 @@ the element size must be an integral multiple of 2 between 1 and TOCK
 
 /*1*/class _export napkinsC/*1*/
 {
-    etherC&      ether ;
-
     const        countT idLineCt ;
     const        countT idiFileCt ;
     const        byteT  pbBitsCt[ CBbITScT ] ;
@@ -26323,7 +26351,7 @@ the element size must be an integral multiple of 2 between 1 and TOCK
 
     ~napkinsC( voidT ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.36139002.napkinsC.dt_napkinsC!||
-    napkinsC( tinS& tinP , etherC& etherP , const countT idLineCtP , const countT idiFileCtP , const byteT* const pbBitsCtP , const osTextT* const postP , countT expCbPerNapkinP , countT expCbPerItemP , const countT idStateSpaceP = 0 , const flagsT flagsP = flNAPKINSc_null , const countT idMemorySpaceP = 0 ) ;
+    napkinsC( tinS& tinP , const countT idLineCtP , const countT idiFileCtP , const byteT* const pbBitsCtP , const osTextT* const postP , countT expCbPerNapkinP , countT expCbPerItemP , const countT idStateSpaceP = 0 , const flagsT flagsP = flNAPKINSc_null , const countT idMemorySpaceP = 0 ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.36139003.napkinsC.napkinsC!||
     byteT* operator []( const countT offElementP ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.36139004.napkinsC.operator_element!||
@@ -26726,14 +26754,11 @@ code may use setIfZeAM on *(countT*)this
     countT              idSerialLath ;
     countT              idCellLath ;
     count04T            osTicksAtCt ;
-    grabC               grabTimeUnique ;
-    grabC               grabTimeNow ;
     countT              timeBoot1 ;
     sCountT             timeBoot2 ;
+    grabC               grabTimeUnique ;
     countT              timeUniqueLath1 ;
     sCountT             timeUniqueLath2 ;
-    countT              timeNow1 ;
-    sCountT             timeNow2 ;
     flagsT              flags ;
     flagsT              flagsUtility ;
     flagsT              flagsAdams ;
@@ -29395,7 +29420,7 @@ applications should avoid using thirdC objects
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34002.sexHeadS.dt_sexHeadS!||
     sexHeadS( tinS& tinP , const countT expCbSlotP , const countT expSlotsP , const osTextT* const postP , const flagsT flagsCtP ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34003.sexHeadS.sexHeadS!||
-    voidT glassF( tinS& tinP , etherC& etherP , strokeS*& psttP ) const ;
+    voidT glassF( tinS& tinP , strokeS*& psttP ) const ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.360df004.sexHeadS.glassF!||
     voidT traceF( tinS& tinP ) const ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.360df005.sexHeadS.traceF!||
@@ -29486,7 +29511,7 @@ applications should avoid using thirdC objects
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34010.sexC.ctFileNameLikeF!||
     voidT flushF( tinS& tinP ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34011.sexC.flushF!||
-    voidT glassF( tinS& tinP , etherC& etherP , strokeS*& psttP ) const ;
+    voidT glassF( tinS& tinP , strokeS*& psttP ) const ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.360e0012.sexC.glassF!||
 
     inline countT idLathNewDelF(  voidT ) const { return idLathNewDel ; }
@@ -29570,7 +29595,7 @@ applications should avoid using thirdC objects
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400c.slotsC.ctFileNameLikeF!||
     voidT flushF( tinS& tinP ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400d.slotsC.flushF!||
-    voidT glassF( tinS& tinP , etherC& etherP , strokeS*& psttP ) const ;
+    voidT glassF( tinS& tinP , strokeS*& psttP ) const ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.360e100e.slotsC.glassF!||
     voidT deleteEmptiesIfF( tinS& tinP ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.360e100f.slotsC.deleteEmptiesIfF!||
@@ -30163,6 +30188,7 @@ listC must be the wo'th base class of any class derived from it
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.listC : 1snip.150000fa.listc END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.poolC : 1snip.150000f6.poolc BEGIN
 
+
 //
 // Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
@@ -30230,7 +30256,7 @@ listC must be the wo'th base class of any class derived from it
 
     voidT ctFaceF( tinS& tinP , const countT idLineCtP , const countT idiFileCtP , const byteT* const pbBitsCtP , const countT idStateSpaceP ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400e.poolC.ctFaceF!||
-    voidT ctFilesF( tinS& tinP , etherC* pEtherP , const osTextT* const postNameP , const countT idStateSpaceP ) ;
+    voidT ctFilesF( tinS& tinP , const osTextT* const postNameP , const countT idStateSpaceP ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400f.poolC.ctFilesF!||
 
     public :
@@ -30254,7 +30280,7 @@ listC must be the wo'th base class of any class derived from it
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34001.poolC.NEWdELcLASSb!||
     ~poolC( voidT ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34002.poolC.dt_poolC!||
-    poolC( tinS& tinP , etherC* pEtherP , const countT idLineCtP , const countT idiFileCtP , const byteT* const pbBitsCtP , const osTextT* const postNameP , const flagsT flagsP = flPOOLc_null , const countT idStateSpaceP = 0 , const countT expCbSlotMinP = - 1 , const countT expCbSlotMaxP = - 1 , const countT* pczHintPreallocationP = 0 , countT idMemorySpaceP = 0 ) ;
+    poolC( tinS& tinP , const countT idLineCtP , const countT idiFileCtP , const byteT* const pbBitsCtP , const osTextT* const postNameP , const flagsT flagsP = flPOOLc_null , const countT idStateSpaceP = 0 , const countT expCbSlotMinP = - 1 , const countT expCbSlotMaxP = - 1 , const countT* pczHintPreallocationP = 0 , countT idMemorySpaceP = 0 ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34003.poolC.poolC!||
     voidT newF( tinS& tinP , const countT idLineP , const countT idiFileP , byteT*& pbP , const countT cbP , const flagsT flagsP = flPOOLcnEW_null ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34004.poolC.newF!||
@@ -30278,20 +30304,22 @@ listC must be the wo'th base class of any class derived from it
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400b.poolC.postNameF!||
     voidT walkF( tinS& tinP , slotsWalkCBFT pSlotsWalkCBFP , countT& cArgP ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400c.poolC.walkF!||
-    voidT reportF( tinS& tinP , etherC& etherP , soulC& soulP ) ;
+    voidT reportF( tinS& tinP , soulC& soulP ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34010.poolC.reportF!||
-    voidT reportF( tinS& tinP , etherC& etherP , const countT*& pczLeverP , switchC& swTallyP ) ;
+    voidT reportF( tinS& tinP , const countT*& pczLeverP , switchC& swTallyP ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.36014.poolC.reportF!||
-    voidT reportF( tinS& tinP , etherC& etherP ) ;
+    voidT reportF( tinS& tinP ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.360e2016.poolC.reportF!||
     voidT flushF( tinS& tinP ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34013.poolC.flushF!||
-    static voidT reportIF( tinS& tinP , etherC& etherP , const countT*& pczLeverP , switchC& swTallyP ) ;
+    static voidT reportIF( tinS& tinP , const countT*& pczLeverP , switchC& swTallyP ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.35015.poolC.reportIF!||
-    static voidT reportIF( tinS& tinP , etherC& etherP ) ;
+    static voidT reportIF( tinS& tinP ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/!||
-    voidT glassF( tinS& tinP , etherC& etherP , strokeS*& psttP ) const ;
+    voidT glassF( tinS& tinP , strokeS*& psttP ) const ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.360e2018.poolC.glassF!||
+    static voidT glassIF( tinS& tinP , strokeS*& pstt1P ) ;
+    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.350e2019.poolC.glassIF!||
     voidT deleteEmptiesIfF( tinS& tinP ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.360e201a.poolC.deleteEmptiesIfF!||
     static voidT deleteEmptiesIfIF( tinS& tinP ) ;
@@ -30341,9 +30369,9 @@ listC must be the wo'th base class of any class derived from it
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34001.puseC.NEWdELcLASSb!||
     ~puseC( voidT ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34002.puseC.dt_puseC!||
-    puseC( tinS& tinP , etherC* pEtherP , const osTextT* const postNameP , const flagsT flagsP = flPOOLc_null , const countT idStateSpaceP = 0 , const countT expCbSlotMinP = - 1 , const countT expCbSlotMaxP = - 1 , const countT* const pczHintPreallocationP = 0 , const countT idMemorySpaceP = 0 ) ;
+    puseC( tinS& tinP , const osTextT* const postNameP , const flagsT flagsP = flPOOLc_null , const countT idStateSpaceP = 0 , const countT expCbSlotMinP = - 1 , const countT expCbSlotMaxP = - 1 , const countT* const pczHintPreallocationP = 0 , const countT idMemorySpaceP = 0 ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34003.puseC.puseC!||
-    puseC( tinS& tinP , etherC* pEtherP , const countT idPoolP ) ;
+    puseC( tinS& tinP , const countT idPoolP ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34004.puseC.puseC!||
     puseC( tinS& tinP , poolC& poolP ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34008.puseC.puseC!||
@@ -34929,7 +34957,6 @@ it is illegal to refer to this symbol in the definition of an adam
     }
     ;
 
-    etherC&             ether                                   ;
     fCopyableS          fc                                      ;
 
     countT              cLeverVolBody                           ;
@@ -34944,7 +34971,7 @@ it is illegal to refer to this symbol in the definition of an adam
 
     ~featuresS( voidT ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34001.featuresS.dt_featuresS!||
-    featuresS( tinS& tinP , etherC& etherP , const countT idAdamP , soulC*& psFeaturesP ) ;
+    featuresS( tinS& tinP , const countT idAdamP , soulC*& psFeaturesP ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34002.featuresS.featuresS!||
     featuresS( featuresS& fP ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34003.featuresS.featuresS!||
@@ -35065,7 +35092,7 @@ it is illegal to refer to this symbol in the definition of an adam
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34001.sadamC.NEWdELcLASSb!||
     ~sadamC( voidT ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34002.sadamC.dt_sadamC!||
-    sadamC( tinS& tinP , etherC& etherP , const countT idAdamP , soulC*& psFeaturesP ) ;
+    sadamC( tinS& tinP , const countT idAdamP , soulC*& psFeaturesP ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34003.sadamC.sadamC!||
     sadamC( sadamC& sP ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34004.sadamC.sadamC!||
@@ -38271,7 +38298,7 @@ the only function of this object is to edit tinS::grabPseudo so that the monitor
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34007.branchS.jumpIfIF!||
  static voidT putFileIF( tinS& tinP , etherC& etherP , const boolT& bQuitP , countT& cPendingP , stackC& st_putFileJob_P , putFileS& pP , const countT offLevelP , const countT jMeP , const countT jDadP , const countT jGrandDadP , countT& cLeverBranchP , switchC& swFileP , countT cNestP , const countT idEditionP , const strokeS* const psttTimeStampP , const strokeS* const psttBanner1P , const strokeS* const psttBanner2P , const strokeS* const psttNameSpaceP = 0 ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34008.branchS.putFileIF!||
- voidT hashF( tinS& tinP , etherC& etherP , const countT jbrMeP , barryC& barryHashP , stackC& stHashCollisionsP ) ;
+ voidT hashF( tinS& tinP , const countT jbrMeP , barryC& barryHashP , stackC& stHashCollisionsP ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400a.branchS.hashF!||
  static countT bEditionIF( tinS& tinP , etherC& etherP , const countT jMeP , const countT idEditionP ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400b.branchS.bEditionIF!||
@@ -39882,13 +39909,13 @@ base class to make a derived class of objects easily contained by a stackC objec
     byteT           pbFileReadCursor[ sizeof( fileC   ) ] ;
     byteT           pbNapReadCursor[  sizeof( napkinC ) ] ;
 
-    voidT idBookMinMaxF( tinS& tinP , etherC& etherP , countT*& pcpIdBookMinP , countT*& pcpIdBookMaxP , const flagsT flagsP = flBOOKScsELECT_null , const boolT* pbQuitP = 0 ) ;
+    voidT idBookMinMaxF( tinS& tinP , countT*& pcpIdBookMinP , countT*& pcpIdBookMaxP , const flagsT flagsP = flBOOKScsELECT_null , const boolT* pbQuitP = 0 ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.360fb012.booksc.idbookminmaxf!||
-    voidT setBookNameIdF( tinS& tinP , etherC& etherP , const flagsT flagsP = flBOOKScsELECT_null , const countT* const pcpIdBookWantP = 0 , const boolT* pbQuitP = 0 ) ;
+    voidT setBookNameIdF( tinS& tinP , const flagsT flagsP = flBOOKScsELECT_null , const countT* const pcpIdBookWantP = 0 , const boolT* pbQuitP = 0 ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.360fb00b.booksC.setPostBookNameF!||
-    voidT setPcpIdBookWantF( tinS& tinP , etherC& etherP , const flagsT flagsP , const countT* const pcpIdBookWantP , const boolT* pbQuitP ) ;
+    voidT setPcpIdBookWantF( tinS& tinP , const flagsT flagsP , const countT* const pcpIdBookWantP , const boolT* pbQuitP ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.360fb013.booksc.setpcpidbookwantf!||
-    voidT touchAllBooksF( tinS& tinP , etherC& etherP , const boolT* pbQuitP ) ;
+    voidT touchAllBooksF( tinS& tinP , const boolT* pbQuitP ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.360fb014.booksc.touchAllBooksF!||
 
     public :
@@ -39901,27 +39928,27 @@ base class to make a derived class of objects easily contained by a stackC objec
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34003.booksC.booksC!||
     countT writeF( tinS& tinP , const byteT* pb1P = 0 , countT cb1P = 0 , const byteT* pb2P = 0 , countT cb2P = 0 , const flagsT flagsP = flBOOKScwRITE_null , handleC* const phWroteP = 0 /*, countT** ppcpIdAptP = 0*/ ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34005.booksC.writeF!||
-    boolT readF( tinS& tinP , etherC& etherP , const byteT*& pbP , countT& cbP , handleC& handleP , const flagsT flagsP = flBOOKScrEAD_null , const boolT* pbQuitP = 0 , handleC* const phCursorP = 0 , const countT idCursorP = 1 ) ;
+    boolT readF( tinS& tinP , const byteT*& pbP , countT& cbP , handleC& handleP , const flagsT flagsP = flBOOKScrEAD_null , const boolT* pbQuitP = 0 , handleC* const phCursorP = 0 , const countT idCursorP = 1 ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34006.booksC.readF!||
     countT writeF( tinS& tinP , handle0111C& hJotP , const byteT* const pb1P = 0 , const countT cb1P = 0 , const byteT* const pb2P = 0 , const countT cb2P = 0 , const flagsT flagsP = flBOOKScwRITE_null ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.360fb007.booksC.writeF!||
-    boolT readF( tinS& tinP , etherC& etherP , const byteT*& pbP , countT& cbP , handle0111C& hJotP , const flagsT flagsP = flBOOKScrEAD_null , const boolT* pbQuitP = 0 , handleC* const phCursorP = 0 , const countT idCursorP = 1 ) ;
+    boolT readF( tinS& tinP , const byteT*& pbP , countT& cbP , handle0111C& hJotP , const flagsT flagsP = flBOOKScrEAD_null , const boolT* pbQuitP = 0 , handleC* const phCursorP = 0 , const countT idCursorP = 1 ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.360fb008.booksC.readF!||
     countT writeF( tinS& tinP , handle0011C& hJotP , const byteT* const pb1P = 0 , const countT cb1P = 0 , const byteT* const pb2P = 0 , const countT cb2P = 0 , const flagsT flagsP = flBOOKScwRITE_null ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.360fb009.booksC.writeF!||
-    boolT readF( tinS& tinP , etherC& etherP , const byteT*& pbP , countT& cbP , handle0011C& hJotP , const flagsT flagsP = flBOOKScrEAD_null , const boolT* pbQuitP = 0 , handleC* const phCursorP = 0 , const countT idCursorP = 1 ) ;
+    boolT readF( tinS& tinP , const byteT*& pbP , countT& cbP , handle0011C& hJotP , const flagsT flagsP = flBOOKScrEAD_null , const boolT* pbQuitP = 0 , handleC* const phCursorP = 0 , const countT idCursorP = 1 ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.360fb00a.booksC.readF!||
-    voidT readF( tinS& tinP , etherC& etherP , pageC& pageP , handleC& handleP , const flagsT flagsP = flBOOKScrEAD_null , const boolT* pbQuitP = 0 , handleC* const phCursorP = 0 , const countT idCursorP = 1 ) ;
+    voidT readF( tinS& tinP , pageC& pageP , handleC& handleP , const flagsT flagsP = flBOOKScrEAD_null , const boolT* pbQuitP = 0 , handleC* const phCursorP = 0 , const countT idCursorP = 1 ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.360fb00e.booksC.readF!||
-    voidT readF( tinS& tinP , etherC& etherP , pageC& pageP , handle0111C& hJotP , const flagsT flagsP = flBOOKScrEAD_null , const boolT* pbQuitP = 0 , handleC* const phCursorP = 0 , const countT idCursorP = 1 ) ;
+    voidT readF( tinS& tinP , pageC& pageP , handle0111C& hJotP , const flagsT flagsP = flBOOKScrEAD_null , const boolT* pbQuitP = 0 , handleC* const phCursorP = 0 , const countT idCursorP = 1 ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.360fb00f.booksC.readF!||
-    voidT readF( tinS& tinP , etherC& etherP , pageC& pageP , handle0011C& hJotP , const flagsT flagsP = flBOOKScrEAD_null , const boolT* pbQuitP = 0 , handleC* const phCursorP = 0 , const countT idCursorP = 1 ) ;
+    voidT readF( tinS& tinP , pageC& pageP , handle0011C& hJotP , const flagsT flagsP = flBOOKScrEAD_null , const boolT* pbQuitP = 0 , handleC* const phCursorP = 0 , const countT idCursorP = 1 ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.360fb010.booksC.readF!||
-    voidT selectBookF( tinS& tinP , etherC& etherP , const flagsT flagsP = flBOOKScsELECT_null , const countT* const pcpIdBookWantP = 0 , const boolT* pbQuitP = 0 ) ;
+    voidT selectBookF( tinS& tinP , const flagsT flagsP = flBOOKScsELECT_null , const countT* const pcpIdBookWantP = 0 , const boolT* pbQuitP = 0 ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.360fb00c.booksC.selectBookF!||
-    voidT cbEachBookF( tinS& tinP , etherC& etherP , countT*& pcpIdBookSizePairsP ) ;
+    voidT cbEachBookF( tinS& tinP , countT*& pcpIdBookSizePairsP ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.360fb00d.booksC.cbEachBookF!||
-    voidT setF( tinS& tinP , etherC& etherP , const byteT bFillP = 0 ) ;
+    voidT setF( tinS& tinP , const byteT bFillP = 0 ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.360fb011.booksc.setf!||
 
     inline operator const poopC&(  voidT )       { return poop ; }
@@ -40478,7 +40505,6 @@ base class to make a derived class of objects easily contained by a stackC objec
 
 /*1*/class _export pageReleaseC/*1*/
 {
-    etherC&      ether ;
     booksC*      pBooksSave ;
     bookMarkOldS bmOldSave ;
     bookMarkS    bmNewSave ;
@@ -40489,7 +40515,7 @@ base class to make a derived class of objects easily contained by a stackC objec
 
     ~pageReleaseC( voidT ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.36134002.pageReleaseC.dt_pageReleaseC!||
-    pageReleaseC( tinS& tinP , etherC& etherP , const byteT* const pbP ) ;
+    pageReleaseC( tinS& tinP , const byteT* const pbP ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.36134003.pageReleaseC.pageReleaseC!||
 }
 ;
@@ -40622,7 +40648,6 @@ base class to make a derived class of objects easily contained by a stackC objec
 
 /*1*/class _export jotC : public grabC/*1*/
 {
-    etherC&      ether ;
     countT       idSlotJot ;
     countT       tagHighNibble ;
     const countT _idThreadCt ;
@@ -40639,7 +40664,7 @@ base class to make a derived class of objects easily contained by a stackC objec
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3612d001.jotC.NEWdELcLASSb!||
     ~jotC( voidT ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3612d002.jotC.dt_jotC!||
-    jotC( tinS& tinP , etherC& etherP , const osTextT* const postNameP , const flagsT flagsP = flJOTc_null , const countT cbDataBookP = 0 , const countT cIndexEntriesBookP = 0 , const countT cKeepInactiveP = 0 , countT idGrabLayerP = ifcIDgRABlAYER_7BASEmISC1 , flagsT flagsGrabP = flGRABc_null , countT idMemorySpaceP = 0 ) ;
+    jotC( tinS& tinP , const osTextT* const postNameP , const flagsT flagsP = flJOTc_null , const countT cbDataBookP = 0 , const countT cIndexEntriesBookP = 0 , const countT cKeepInactiveP = 0 , countT idGrabLayerP = ifcIDgRABlAYER_7BASEmISC1 , flagsT flagsGrabP = flGRABc_null , countT idMemorySpaceP = 0 ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3612d003.jotC.jotC!||
     countT peekIdBookF( tinS& tinP , countT idP ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3612d008.jotC.peekIdBookF!||
@@ -40710,8 +40735,6 @@ base class to make a derived class of objects easily contained by a stackC objec
 
 /*1*/class _export barryC/*1*/
 {
-    etherC&      ether ;
-
     byteT        pbBksBits[ sizeof( booksC ) ] ;
     booksC*      pBksBits ;
 
@@ -40733,12 +40756,12 @@ base class to make a derived class of objects easily contained by a stackC objec
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34003001.NEWdELcLASS!||
     ~barryC( voidT ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3612e002.barryC.dt_barryC!||
-    barryC( tinS& tinP , etherC& etherP , const countT expBitsPerFieldP = 0 , countT cBitsIndexP = 0 , countT expBytesPerBookP = 0 ) ;
+    barryC( tinS& tinP , const countT expBitsPerFieldP = 0 , countT cBitsIndexP = 0 , countT expBytesPerBookP = 0 ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3612e003.barryC.barryC!||
     countT& operator ()( tinS& tinP , const countT offP , countT& maskP , countT& offBitP ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3612e004.barryC.operator_call!||
 
-    inline voidT setF( tinS& tinP , const byteT bFillP = 0 ) { pBksBits->setF( tinP , ether , bFillP ) ; }
+    inline voidT setF( tinS& tinP , const byteT bFillP = 0 ) { pBksBits->setF( tinP , bFillP ) ; }
 }
 ;
 
@@ -41966,7 +41989,7 @@ parameters
 {
     public :
 
-    stkIdSubC( tinS& tinP , etherC& etherP , const countT idAccP ) ;
+    stkIdSubC( tinS& tinP , const countT idAccP ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34001.stkIdSubC.stkIdSubC!||
 }
 ;
@@ -44027,8 +44050,6 @@ VARIABLEcLASSdEF( countC , countT )
 
 /*1*/class _export bitTreeC/*1*/
 {
-    etherC&      ether ;
-
     byteT        pbDockNapRaw[ sizeof( napkinC ) ] ;
     byteT*       pbRawBegin ;
     byteT*       pbRawCursor ;
@@ -44065,7 +44086,7 @@ VARIABLEcLASSdEF( countC , countT )
 
     ~bitTreeC( voidT ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3613b002.bitTreeC.dt_bitTreeC!||
-    bitTreeC( tinS& tinP , etherC& etherP , const osTextT* const postP , const flagsT flagsP = flBITtREEc_null , const countT idStateSpaceP = 0 , const countT expNodesPerNapkinP = 0x15 , const countT cNodeMaxP = 0 , const countT idMemorySpaceP = 0 ) ;
+    bitTreeC( tinS& tinP , const osTextT* const postP , const flagsT flagsP = flBITtREEc_null , const countT idStateSpaceP = 0 , const countT expNodesPerNapkinP = 0x15 , const countT cNodeMaxP = 0 , const countT idMemorySpaceP = 0 ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3613b003.bitTreeC.bitTreeC!||
 
     voidT newF( tinS& tinP , const countT idLineP , const countT idiFileP , const byteT* pbBitsP , countT offBitP , countT cBitsP , countT* const pcDatumP = 0 ) ;
@@ -44108,7 +44129,6 @@ VARIABLEcLASSdEF( countC , countT )
 
 /*1*/class _export keyValuePairsC/*1*/
 {
-    etherC&             ether ;
     osTextT             postNameCt[ TUCK ] ;
     const countT        cbDataBookCt ;
     const countT        cIndexEntriesBookCt ;
@@ -44123,7 +44143,7 @@ VARIABLEcLASSdEF( countC , countT )
     NEWdELcLASSpROTOS
     ~keyValuePairsC( voidT ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3613c002.keyValuePairsC.dt_keyValuePairsC!||
-    keyValuePairsC( tinS& tinP , etherC& etherP , const osTextT* const postNameP , const flagsT flagsP = flKEYvALUEpAIRSc_null , const countT idStateSpaceP = 0 , const countT expNodesPerNapkinP = 0x15 , const countT cNodeMaxP = 0 , const countT cbDataBookP = 0 , const countT cIndexEntriesBookP = 0 , const countT cKeepInactiveP = 0 , const countT idMemorySpaceP = 0 ) ;
+    keyValuePairsC( tinS& tinP , const osTextT* const postNameP , const flagsT flagsP = flKEYvALUEpAIRSc_null , const countT idStateSpaceP = 0 , const countT expNodesPerNapkinP = 0x15 , const countT cNodeMaxP = 0 , const countT cbDataBookP = 0 , const countT cIndexEntriesBookP = 0 , const countT cKeepInactiveP = 0 , const countT idMemorySpaceP = 0 ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3613c003.keyValuePairsC.keyValuePairsC!||
     voidT newF( tinS& tinP , const countT idLineP , const countT idiFileP , const byteT* pbBitsP , countT offBitP , countT cBitsP , const byteT* const pbP , const countT cbP = 0 ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3613c004.keyValuePairsC.newF!||

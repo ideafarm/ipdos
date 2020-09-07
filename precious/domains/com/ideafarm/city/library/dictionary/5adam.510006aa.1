@@ -23,9 +23,9 @@ TODO
 }
     return 0 ;
 
-    PUSE( tinP , *(byteT**)&psttShort ) ;
-    PUSE( tinP , *(byteT**)&psttPath ) ;
-    PUSE( tinP , *(byteT**)&psttShortNew ) ;
+    tinP.pEther->delF( tinP , psttShort ) ;
+    tinP.pEther->delF( tinP , psttPath ) ;
+    tinP.pEther->delF( tinP , psttShortNew ) ;
 
     if( tinP.pEther->strCompareF( tinP , psttShortNew , psttShort ) ) tinP.pEther->diskMoveFileOrDirF( tinP , T(psttPath)+T(psttShortNew) , tNameOld ) ;
 

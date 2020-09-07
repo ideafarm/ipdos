@@ -10,7 +10,7 @@
 }
     DEL( psFeaturesP ) ;
 
-    ether( tinP , psFeature ) ;
+    (*tinP.pEther)( tinP , psFeature ) ;
     }
         }
             psFeature->removeAllF( tinP ) ;
@@ -42,7 +42,7 @@
                         }
                             }
                                 *psFeature >> psttFlyover ;
-                                PUSE( tinP , *(byteT**)&psttFlyover ) ;
+                                tinP.pEther->delF( tinP , psttFlyover ) ;
                             {
                             if( idTypeItem == ifcIDtYPEsOULiTEM_strokeSptr )
                             psFeature->pbFieldF( tinP , idTypeItem , countTC() , countTC() , 1 ) ;
@@ -186,10 +186,10 @@
                         }
                             }
                                 *ppczChannel = pczChannel ;
-                                if( *ppczChannel ) ether.delF( tinP , *ppczChannel ) ;
+                                if( *ppczChannel ) tinP.pEther->delF( tinP , *ppczChannel ) ;
                             {
                             else
-                            if( !ppczChannel ) ether.delF( tinP , pczChannel ) ;
+                            if( !ppczChannel ) tinP.pEther->delF( tinP , pczChannel ) ;
 
                             }
                                 case ifcIDtYPEsADAMcHANNEL_IN  : { ppczChannel = &pczChannelIn  ; break ; }
@@ -231,12 +231,12 @@
                         if( (countT)*psFeature )
 
                         }
-                            PUSE( tinP , *(byteT**)&psttOldCB ) ;
+                            tinP.pEther->delF( tinP , psttOldCB ) ;
                             }
                                 }
                                     hBase.resetF() ;
-                                    ether.dllEntryF( tinP , *ppSadamCBF , hBase , psttOldCB ) ;
-                                    ((thirdC&)ether).dosQueryModuleHandleF( tinP , hBase , thirdC::postBaseNameIF( tinP ) ) ;
+                                    tinP.pEther->dllEntryF( tinP , *ppSadamCBF , hBase , psttOldCB ) ;
+                                    ((thirdC&)(*tinP.pEther)).dosQueryModuleHandleF( tinP , hBase , thirdC::postBaseNameIF( tinP ) ) ;
                                     handleC hBase( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_DLL ) ;
                                 {
                                 if( !*ppSadamCBF )
@@ -404,15 +404,15 @@
                     }
                         break ;
 
-                        ether.strMakeF( tinP , psttDefaultHighlightTabOwnerOff , T("") ) ; ___( psttDefaultHighlightTabOwnerOff ) ;
-                        PUSE( tinP , *(byteT**)&psttDefaultHighlightTabOwnerOff ) ;
+                        tinP.pEther->strMakeF( tinP , psttDefaultHighlightTabOwnerOff , T("") ) ; ___( psttDefaultHighlightTabOwnerOff ) ;
+                        tinP.pEther->delF( tinP , psttDefaultHighlightTabOwnerOff ) ;
 
-                        //U::ether.strMakeF( tinP , psttDefaultHighlightTabOwnerOn , T("X") ) ; ___( psttDefaultHighlightTabOwnerOn ) ;
-                        ether.strMakeF( tinP , psttDefaultHighlightTabOwnerOn , T("") ) ; ___( psttDefaultHighlightTabOwnerOn ) ; //U::
+                        //U::tinP.pEther->strMakeF( tinP , psttDefaultHighlightTabOwnerOn , T("X") ) ; ___( psttDefaultHighlightTabOwnerOn ) ;
+                        tinP.pEther->strMakeF( tinP , psttDefaultHighlightTabOwnerOn , T("") ) ; ___( psttDefaultHighlightTabOwnerOn ) ; //U::
                         //U:: WHEN eyeOldC GOES INTO PRODUCTION, EITHER 'X' HIGHLIGHTING WILL BE NEEDED FOR TAB HIGHLIGHTING, OR SOMETHING BETTER THAN 'X' THAT CAN BE SUPPORTED WITHOUT USING FLOODFILL (UNTIL eycC SUPPORTS FLOODFILL, IF IT EVER DOES)
                         //U:: 'X' IS USED PROVISIONALLY WHEN eyeOldC IS SUPPORTED.  UNTIL THEN, 'X' IS NOT USED (COLOR HIGHLIGHTING IS USED INSTEAD, BECAUSE IT LOOKS BETTER THAN THE X HIGHLIGHTING)
 
-                        PUSE( tinP , *(byteT**)&psttDefaultHighlightTabOwnerOn ) ;
+                        tinP.pEther->delF( tinP , psttDefaultHighlightTabOwnerOn ) ;
 
                         else fc.idTab = - 1 ;
                         }
@@ -501,7 +501,7 @@
                             //{
                             //if( fc.idAdam == 0x5 || fc.idAdam == 0xb )
 
-                            PUSE( tinP , posti ) ;
+                            tinP.pEther->delF( tinP , posti ) ;
                             if( posti && *posti ) thirdC::c_strncpyIF( tinP , fc.postOldComment , posti , sizeof fc.postOldComment ) ;
                             *psFeature >> posti ; ___( posti ) ;
                             ZE( osTextT* , posti ) ;
@@ -531,7 +531,7 @@
         while( (countT)*psFeaturesP )
     {
     if( psFeature )
-    ether( tinP , psFeature , TAG( TAGiDnULL ) ) ;
+    (*tinP.pEther)( tinP , psFeature , TAG( TAGiDnULL ) ) ;
     ZE( soulC* , psFeature ) ;
 
     }
@@ -542,7 +542,7 @@
     fc.idIntercom = 0 ;
     fc.cyclesPerDragRedraw = 4 ;
 
-    ether( tinP , pswVolBody , TAG( TAGiDnULL ) , flSTACKc_PATCHnEWfLAVOR | flSTACKc_BLOB | flSTACKc_DOnOTsERIALIZE | flSTACKc_ALLOWmULTIPLEuNSERIALIZED , cLeverVolBody , 0 , sizeof( vBodyS ) ) ; ___( pswVolBody ) ;
+    (*tinP.pEther)( tinP , pswVolBody , TAG( TAGiDnULL ) , flSTACKc_PATCHnEWfLAVOR | flSTACKc_BLOB | flSTACKc_DOnOTsERIALIZE | flSTACKc_ALLOWmULTIPLEuNSERIALIZED , cLeverVolBody , 0 , sizeof( vBodyS ) ) ; ___( pswVolBody ) ;
 
     }
         if( POOP ) return ;
@@ -560,8 +560,7 @@ psttBody( 0 ) ,
 pczChannelIn( 0 ) ,
 pczChannelOut( 0 ) ,
 fc( idAdamP ) ,
-ether( etherP ) ,
-/*1*/featuresS::featuresS( tinS& tinP , etherC& etherP , const countT idAdamP , soulC*& psFeaturesP ) :/*1*/
+/*1*/featuresS::featuresS( tinS& tinP , const countT idAdamP , soulC*& psFeaturesP ) :/*1*/
 
 /**/
 */

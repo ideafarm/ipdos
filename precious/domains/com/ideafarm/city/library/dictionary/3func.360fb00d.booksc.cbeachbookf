@@ -21,7 +21,7 @@
                 *pcpIdBookSizePairsP = cBooks ;
             {
             if( pcpIdBookSizePairsP )
-            etherP.newF( tinP , LF , pcpIdBookSizePairsP , 1 + ( cBooks << 1 ) ) ; ___( pcpIdBookSizePairsP ) ;
+            tinP.pEther->newF( tinP , LF , pcpIdBookSizePairsP , 1 + ( cBooks << 1 ) ) ; ___( pcpIdBookSizePairsP ) ;
         {
         if( cBooks )
         countT cBooks = stqIdBookCb ;
@@ -31,7 +31,7 @@
             DEL( pInfo ) ;
             }
                 DEL( pLook ) ;
-                etherP.delF( tinP , pcpIdLook ) ;
+                tinP.pEther->delF( tinP , pcpIdLook ) ;
                 }
                     //CONoUTrAW3( T("book: \"")+tName+T("\" [cbUsed]: ") , head.cbUsed , "\r\n" ) ;
 
@@ -55,12 +55,12 @@
                 {
                 TN( tIdLook , "" ) ;
 
-                PUSE( tinP , *(byteT**)&pstt1w ) ;
+                tinP.pEther->delF( tinP , pstt1w ) ;
                 }
                     }
                         else                       pco -- ;
                         if( pco == pcpIdLook ) pco = pcpIdLook + cWords - 1 ;
-                        *pco = etherP.strDigitsToSCountF( tinP , psttc1 , 0 , 1 ) ;
+                        *pco = tinP.pEther->strDigitsToSCountF( tinP , psttc1 , 0 , 1 ) ;
                     {
                     FORsTRINGSiN1( pstt1w )
 
@@ -70,13 +70,13 @@
                 PUSE.newF( tinP , LF , *(byteT**)&pcpIdLook , sizeof( countT ) * cWords ) ; ___( pcpIdLook ) ;
                 ZE( countT* , pcpIdLook ) ;
 
-                PUSE( tinP , *(byteT**)&psttw ) ;
-                countT cWords = etherP.strWordsOldF( tinP , pstt1w , psttw , sttq , tDot ) ; ___( pstt1w ) ;
+                tinP.pEther->delF( tinP , psttw ) ;
+                countT cWords = tinP.pEther->strWordsOldF( tinP , pstt1w , psttw , sttq , tDot ) ; ___( pstt1w ) ;
                 ZE( strokeS* , pstt1w ) ;
 
-                etherP.strSubstringF( tinP , psttw , idf , sttq , tAfter , pInfo->psttIfoName ) ; ___( psttw ) ;
-                PUSE( tinP , *(byteT**)&psttw ) ;
-                etherP.strSubstringF( tinP , psttw , idf , sttq , tBefore , pInfo->psttIfoName ) ; ___( psttw ) ;
+                tinP.pEther->strSubstringF( tinP , psttw , idf , sttq , tAfter , pInfo->psttIfoName ) ; ___( psttw ) ;
+                tinP.pEther->delF( tinP , psttw ) ;
+                tinP.pEther->strSubstringF( tinP , psttw , idf , sttq , tBefore , pInfo->psttIfoName ) ; ___( psttw ) ;
                 countT idf = 1 ;
                 ZE( strokeS* , psttw ) ;
             {
@@ -87,8 +87,8 @@
         do
         handleC hFind( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_FILEfIND ) ;
 
-        patternC pat( tinP , etherP , fnLike , ifcIDtYPEpATTERN_FOREIGNwILDCARDsTRICT ) ;
-        fileNameC fnLike( tinP , etherP , psttFindLike ) ;
+        patternC pat( tinP , *tinP.pEther , fnLike , ifcIDtYPEpATTERN_FOREIGNwILDCARDsTRICT ) ;
+        fileNameC fnLike( tinP , *tinP.pEther , psttFindLike ) ;
         TN( tDot , "." ) ;
         strokeS sttq( 0 , sc_IGNOREqUOTES ) ;
         TN( tAfter  , ".bookC" ) ;
@@ -109,7 +109,7 @@
     IFbEcAREFUL
     SCOOP
 {
-/*1*/voidT booksC::cbEachBookF( tinS& tinP , etherC& etherP , countT*& pcpIdBookSizePairsP )/*1*/
+/*1*/voidT booksC::cbEachBookF( tinS& tinP , countT*& pcpIdBookSizePairsP )/*1*/
 
 /**/
 */

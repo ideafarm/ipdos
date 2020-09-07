@@ -35,19 +35,19 @@ TODO
     return bDoIt ;
 
     }
-        PUSE( tinP , *(byteT**)&psttShort ) ;
-        PUSE( tinP , *(byteT**)&psttPath ) ;
-        PUSE( tinP , *(byteT**)&psttDate ) ;
-        PUSE( tinP , *(byteT**)&psttMetaType ) ;
-        PUSE( tinP , *(byteT**)&psttNU ) ;
+        tinP.pEther->delF( tinP , psttShort ) ;
+        tinP.pEther->delF( tinP , psttPath ) ;
+        tinP.pEther->delF( tinP , psttDate ) ;
+        tinP.pEther->delF( tinP , psttMetaType ) ;
+        tinP.pEther->delF( tinP , psttNU ) ;
 
         }
-            PUSE( tinP , *(byteT**)&psttCurrentName ) ;
-            PUSE( tinP , *(byteT**)&pstt1Words ) ;
+            tinP.pEther->delF( tinP , psttCurrentName ) ;
+            tinP.pEther->delF( tinP , pstt1Words ) ;
 
             }
                 }
-                    if( !ids ) PUSE( tinP , *(byteT**)&psttWord ) ;
+                    if( !ids ) tinP.pEther->delF( tinP , psttWord ) ;
                     stKeywordsP.sinkF( tinP , ids , psttWord , flSTACKsINK_UNIQUE , 0 , 0 ) ;
                     ZE( countT , ids ) ;
 
@@ -71,16 +71,16 @@ TODO
 
             //etherC::etRockIF( tinP ).traceF( tinP , T("[tUse]: ")+tUse2 ) ;
 
-            PUSE( tinP , *(byteT**)&psttPrefix2 ) ;
+            tinP.pEther->delF( tinP , psttPrefix2 ) ;
             TN( tUse2 , psttPrefix2 ? psttPrefix2 : (strokeS*)tUse ) ;
-            PUSE( tinP , *(byteT**)&psttSuffix2 ) ;
+            tinP.pEther->delF( tinP , psttSuffix2 ) ;
             tinP.pEther->strBisectF( tinP , psttPrefix2 , psttSuffix2 , tUse , tDotP , -1 , flSTRbISECT_null , 0 ) ;  ___( psttPrefix2 ) ; ___( psttSuffix2 ) ;
             ZE( strokeS* , psttSuffix2 ) ;
             ZE( strokeS* , psttPrefix2 ) ;
 
-            PUSE( tinP , *(byteT**)&psttSuffix ) ;
+            tinP.pEther->delF( tinP , psttSuffix ) ;
             TN( tUse , psttSuffix ? psttSuffix : psttCurrentName ) ;
-            PUSE( tinP , *(byteT**)&psttPrefix ) ;
+            tinP.pEther->delF( tinP , psttPrefix ) ;
             tinP.pEther->strBisectF( tinP , psttPrefix , psttSuffix , psttCurrentName , T(".!.") , -1 , flSTRbISECT_null , 0 ) ;  ___( psttPrefix ) ; ___( psttSuffix ) ;
             ZE( strokeS* , psttSuffix ) ;
             ZE( strokeS* , psttPrefix ) ;
@@ -117,7 +117,7 @@ TODO
 
             tinP.pEther->strConvertToLowerCaseF( tinP , psttCurrentName ) ;
 
-            PUSE( tinP , posti ) ;
+            tinP.pEther->delF( tinP , posti ) ;
             tinP.pEther->strMakeFromOsTextF( tinP , psttCurrentName , posti ) ; ___( psttCurrentName ) ;
             ZE( strokeS* , psttCurrentName ) ;
 
@@ -180,7 +180,7 @@ TODO
 /*1*/boolT diskWalkFooCBF( tinS& tinP , countT& cDirsP , countT& cFilesP , boolT& bQuitP , const osTextT* const postNameP , countT* const pcArgP , const countT* const pModuloFilesP , const countT* const pModuloDirsP )/*1*/
 
     }
-        PUSE( tinP , *(byteT**)&psttAllWords ) ;                                                                                                          \
+        tinP.pEther->delF( tinP , psttAllWords ) ;                                                                                                          \
                                                                                                                                                             \
         tinP.pEther->boxPutF( tinP , tPathOutP+T("!ideafarm.8.2.00000000.00000001.")+tDateLathP+T("@0000.!.control.page.keywords") , posto , costo ) ;      \
         countT   costo = tAllWords.csF( tinP ) ;                                                                                                            \
@@ -190,7 +190,7 @@ TODO
         TN( tAllWords , psttAllWords ) ;                                                                                                                    \
                                                                                                                                                             \
         }                                                                                                                                                   \
-            PUSE( tinP , *(byteT**)&psttWord ) ;                                                                                                          \
+            tinP.pEther->delF( tinP , psttWord ) ;                                                                                                          \
                                        tinP.pEther->strFuseF( tinP , psttAllWords , psttWord ) ;                                                            \
             if( psttAllWords->idAdam ) tinP.pEther->strFuseF( tinP , psttAllWords , T(" ") ) ;                                                              \
             stKeywordsP >> psttWord ;                                                                                                                       \

@@ -523,7 +523,7 @@
 
             keyValuePairsC& kvFileMetaByNameLocal = *(keyValuePairsC*)pb_kvFileMetaByNameLocal ;
             flagsState |= flCLOUDsTATE_CTkVlOCAL ;
-            new( 0 , tinP , pb_kvFileMetaByNameLocal , sizeof pb_kvFileMetaByNameLocal ) keyValuePairsC( tinP , ether , T("kv.cloud.file.meta.by.name.")+T(psttNameP)+T(".local") , flKEYvALUEpAIRSc_WRITE | flKEYvALUEpAIRSc_PURGEoNcT | flKEYvALUEpAIRSc_PURGEoNdT , 0 , 0x18 ) ;
+            new( 0 , tinP , pb_kvFileMetaByNameLocal , sizeof pb_kvFileMetaByNameLocal ) keyValuePairsC( tinP , T("kv.cloud.file.meta.by.name.")+T(psttNameP)+T(".local") , flKEYvALUEpAIRSc_WRITE | flKEYvALUEpAIRSc_PURGEoNcT | flKEYvALUEpAIRSc_PURGEoNdT , 0 , 0x18 ) ;
         {
         if( !POOP && !( F(flagsCt) & flCLOUDc_DOnOTlOADlOCAL ) )
 
@@ -570,7 +570,7 @@
 
             keyValuePairsC& kvFileMetaByNameRemote = *(keyValuePairsC*)pb_kvFileMetaByNameRemote ;
             flagsState |= flCLOUDsTATE_CTkVrEMOTE ;
-            new( 0 , tinP , pb_kvFileMetaByNameRemote , sizeof pb_kvFileMetaByNameRemote ) keyValuePairsC( tinP , ether , T("kv.cloud.file.meta.by.name.")+T(psttNameP)+T(".cloud") , flKEYvALUEpAIRSc_WRITE | flKEYvALUEpAIRSc_PURGEoNcT | flKEYvALUEpAIRSc_PURGEoNdT , 0 , 0x18 ) ;
+            new( 0 , tinP , pb_kvFileMetaByNameRemote , sizeof pb_kvFileMetaByNameRemote ) keyValuePairsC( tinP , T("kv.cloud.file.meta.by.name.")+T(psttNameP)+T(".cloud") , flKEYvALUEpAIRSc_WRITE | flKEYvALUEpAIRSc_PURGEoNcT | flKEYvALUEpAIRSc_PURGEoNdT , 0 , 0x18 ) ;
         {
         if( !POOP && !( F(flagsCt) & flCLOUDc_DOnOTlOADrEMOTE ) )
 
@@ -665,7 +665,7 @@ etThread.traceF( tinP , T("freshen thread exiting") ) ;
     }
         }
             etRock.traceF( tinP , T("[poopCloud]: ")+TF3((countT)poopCloud,flFORMAT_UNSIGNED|flFORMAT_NObIGITvALUES|flFORMAT_FILLzE,8)+T(" ; !downloading / made   ghost \"")+tShort+T("\"") ) ;
-            { fileC fg( tinP , &etThread , (strokeS*)( T(psttzLocalContainerP)+tShort ) , ifcOPENaCCESS_W , 0 , flOPENdETAILS_DOnOTvALIDATE | flOPENdETAILS_DOnOTrEGISTER /*flOPENdETAILS_null*/ , ifcOPENhOW_nCeR ) ; }
+            { fileC fg( tinP , (strokeS*)( T(psttzLocalContainerP)+tShort ) , ifcOPENaCCESS_W , 0 , flOPENdETAILS_DOnOTvALIDATE | flOPENdETAILS_DOnOTrEGISTER /*flOPENdETAILS_null*/ , ifcOPENhOW_nCeR ) ; }
             etRock.traceF( tinP , T("[poopCloud]: ")+TF3((countT)poopCloud,flFORMAT_UNSIGNED|flFORMAT_NObIGITvALUES|flFORMAT_FILLzE,8)+T(" ; !downloading / making ghost \"")+tShort+T("\"") ) ;
         {
         else
@@ -781,7 +781,7 @@ TASK( tmFreshenFileF )
                                     if( pInfo && !pInfo->psttIfoName ) { etScratch.strMakeF( tinP , pInfo->psttIfoName , tLong ) ; ___( pInfo->psttIfoName ) ; }
 
                                     etScratch.diskFileQueryF( tinP , pInfo , myFile ) ; ___( pInfo ) ;
-                                    fileC myFile( tinP , &etherP , (const strokeS*)tLong , ifcOPENaCCESS_R , ifcOPENsHARE_R , flOPENdETAILS_LOCsEQ , ifcOPENhOW_nFeO , flFILEaTTR_null , flFILEc_null , 1 ) ;
+                                    fileC myFile( tinP , (const strokeS*)tLong , ifcOPENaCCESS_R , ifcOPENsHARE_R , flOPENdETAILS_LOCsEQ , ifcOPENhOW_nFeO , flFILEaTTR_null , flFILEc_null , 1 ) ;
                                 {
                                 while( !bQuitP && !etPrime && !etherP && !POOP )
 
@@ -971,10 +971,10 @@ TASK( tmFreshenFileF )
 
             etherP.delF( tinP , psttu ) ;
 
-            jotC jotFile2( tinP , etherP , T("walklocal.file.2.")+T(psttu) , flJOTc_DELETE | flJOTc_WRITE ) ;
-            jotC jotDir2(  tinP , etherP , T("walklocal.dir.2." )+T(psttu) , flJOTc_DELETE | flJOTc_WRITE ) ;
-            jotC jotFile1( tinP , etherP , T("walklocal.file.1.")+T(psttu) , flJOTc_DELETE | flJOTc_WRITE ) ;
-            jotC jotDir1(  tinP , etherP , T("walklocal.dir.1." )+T(psttu) , flJOTc_DELETE | flJOTc_WRITE ) ;
+            jotC jotFile2( tinP , T("walklocal.file.2.")+T(psttu) , flJOTc_DELETE | flJOTc_WRITE ) ;
+            jotC jotDir2(  tinP , T("walklocal.dir.2." )+T(psttu) , flJOTc_DELETE | flJOTc_WRITE ) ;
+            jotC jotFile1( tinP , T("walklocal.file.1.")+T(psttu) , flJOTc_DELETE | flJOTc_WRITE ) ;
+            jotC jotDir1(  tinP , T("walklocal.dir.1." )+T(psttu) , flJOTc_DELETE | flJOTc_WRITE ) ;
 
             etherP.strUniqueF( tinP , psttu ) ; ___( psttu ) ;
             ZE( strokeS* , psttu ) ;
@@ -1028,7 +1028,7 @@ voidT walkLocalToLoadKvF( tinS& tinP , etherC& etherP , const boolT& bQuitP , ke
         }
             sDoomedFileNamesP << (strokeS*)T(postBufferCP) ;
         {
-        if( !pCloudNixCBFP || (*pCloudNixCBFP)( tinP , etCloud , cloudP , T(postBufferCP) , pcArgNixP ) )
+        if( !pCloudNixCBFP || (*pCloudNixCBFP)( tinP , *tinP.pEther , cloudP , T(postBufferCP) , pcArgNixP ) )
     {
     if( !POOP && bNix )
 
@@ -1110,7 +1110,7 @@ countT walkRemoteToNixCBF( tinS& tinP , countT& cArg1P , countT& cArg2P )
         }
             sDoomedFileNamesP << (strokeS*)T(postBufferCP) ;
         {
-        if( !pCloudNixCBFP || (*pCloudNixCBFP)( tinP , etCloud , cloudP , T(postBufferCP) , pcArgNixP ) )
+        if( !pCloudNixCBFP || (*pCloudNixCBFP)( tinP , *tinP.pEther , cloudP , T(postBufferCP) , pcArgNixP ) )
     {
     if( !POOP && bNix )
 
@@ -1195,7 +1195,7 @@ countT walkLocalToNixCBF( tinS& tinP , countT& cArg1P , countT& cArg2P )
 
             //etCloud.traceF( tinP , T("stale:  ")+tShort ) ;
         {
-        if( !pCloudUpdateCBFP || (*pCloudUpdateCBFP)( tinP , etCloud , cloudP , tShort , pcArgUpdateP ) )
+        if( !pCloudUpdateCBFP || (*pCloudUpdateCBFP)( tinP , *tinP.pEther , cloudP , tShort , pcArgUpdateP ) )
     {
     if( !POOP && bDo )
     
@@ -1352,7 +1352,7 @@ TASK( tmHasherF )
                     {
                     if( POOP )
 
-                    fileC fi( tinP , &etherP , pInfoP->psttIfoName , ifcOPENaCCESS_R , ifcOPENsHARE_R , flOPENdETAILS_LOCsEQ , ifcOPENhOW_nFeO , flFILEaTTR_null , flFILEc_null , 1 ) ;
+                    fileC fi( tinP , pInfoP->psttIfoName , ifcOPENaCCESS_R , ifcOPENsHARE_R , flOPENdETAILS_LOCsEQ , ifcOPENhOW_nFeO , flFILEaTTR_null , flFILEc_null , 1 ) ;
                 {
                 //OBTAIN md5 HASH
 

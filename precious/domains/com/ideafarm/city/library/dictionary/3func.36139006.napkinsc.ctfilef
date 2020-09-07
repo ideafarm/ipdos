@@ -8,7 +8,7 @@
 
 
 }
-    new( 0 , tinP , pbDockFile + offDockP * sizeof( fileC ) , sizeof( fileC ) ) fileC( tinP , 0 , ostoName , access , share , flagsDetails , how , flFILEaTTR_null , flFILEc_null ) ;
+    new( 0 , tinP , pbDockFile + offDockP * sizeof( fileC ) , sizeof( fileC ) ) fileC( tinP , ostoName , access , share , flagsDetails , how , flFILEaTTR_null , flFILEc_null ) ;
 
     //etherC::etRockIF( tinP ).traceF( tinP , T(ostoName) ) ;
 
@@ -24,6 +24,7 @@
         osFileNameC osName( tinP , ether , T(psttm) ) ;
         ether.diskMapFileNameF( tinP , psttm , tName ) ; ___( psttm ) ;
         ZE( strokeS* , psttm ) ;
+        etherC& ether = *tinP.pEther ;
 
         ctFileNameIF( tinP , tName , postNameP ) ;
         TN( tName , "" ) ;

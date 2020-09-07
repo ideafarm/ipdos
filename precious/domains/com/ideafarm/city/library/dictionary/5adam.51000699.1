@@ -107,18 +107,18 @@ TODO
     return 1 ;
 
     }
-        PUSE( tinP , *(byteT**)&psttShort ) ;
+        tinP.pEther->delF( tinP , psttShort ) ;
 
         }
-            PUSE( tinP , *(byteT**)&psttBody ) ;
-            PUSE( tinP , *(byteT**)&psttStamp ) ;
-            PUSE( tinP , *(byteT**)&psttFound ) ;
+            tinP.pEther->delF( tinP , psttBody ) ;
+            tinP.pEther->delF( tinP , psttStamp ) ;
+            tinP.pEther->delF( tinP , psttFound ) ;
 
             }
-                PUSE( tinP , *(byteT**)&psttFoundTime ) ;
-                PUSE( tinP , *(byteT**)&psttFoundDate ) ;
-                PUSE( tinP , *(byteT**)&psttStampTime ) ;
-                PUSE( tinP , *(byteT**)&psttStampDate ) ;
+                tinP.pEther->delF( tinP , psttFoundTime ) ;
+                tinP.pEther->delF( tinP , psttFoundDate ) ;
+                tinP.pEther->delF( tinP , psttStampTime ) ;
+                tinP.pEther->delF( tinP , psttStampDate ) ;
 
                 else                                                                                                                                       etherC::etRockIF( tinP ).traceF( tinP , T(psttStamp) ) ;
                 if( tinP.pEther->strCompareF( tinP , psttStampDate , psttFoundDate ) || tinP.pEther->strCompareF( tinP , psttStampTime , psttFoundTime ) ) etherC::etRockIF( tinP ).traceF( tinP , T(psttStamp)+tSpaceP+T(psttFound) ) ;

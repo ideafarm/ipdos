@@ -105,10 +105,10 @@ TODO
         if( !( cFilesP % TUCK ) ) { CONoUTrAW3( "\r        \r" , cFilesP , "" ) }
 
         }
-            PUSE( tinP , *(byteT**)&psttHey ) ;
+            tinP.pEther->delF( tinP , psttHey ) ;
 
             tinP.pEther->strMakeF( tinP , psttShort , tShort ) ; ___( psttShort ) ;
-            if( psttShort ) PUSE( tinP , *(byteT**)&psttShort ) ;
+            if( psttShort ) tinP.pEther->delF( tinP , psttShort ) ;
             strokeS*& psttShort = *(strokeS**)&(countT&)swShortOnHeyP ;
             psttzHeyP = psttHey ;
 
@@ -120,12 +120,12 @@ TODO
 
         }
             }
-                PUSE( tinP , *(byteT**)&psttp ) ;
+                tinP.pEther->delF( tinP , psttp ) ;
                 tShort = T(psttp) ;                
                 tinP.pEther->strSubstringF( tinP , psttp , idf , countTC() , tName ) ; ___( psttp ) ;
             {
             if( idf )
-            PUSE( tinP , *(byteT**)&psttp ) ;
+            tinP.pEther->delF( tinP , psttp ) ;
             tinP.pEther->strSubstringF( tinP , psttp , idf , sttqP , tArcP , tName ) ; ___( psttp ) ;
             countT idf = 1 ;
             ZE( strokeS* , psttp ) ;

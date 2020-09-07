@@ -34,8 +34,7 @@ if( POOP ) { CONoUTrAW( "loafing with POOP in my pants\r\n" ) ; }
 
     #if !defined( CgORILLAS )
 
-    etThread.osThreadF( TaRG1( tmWatchFileF ) ) ;
-    etThread.osThreadF( TaRG1( tmHomeClockF ) ) ;
+    etThread.osThreadF( TaRG1( tmWatchFileF    ) ) ;
 
     ether.traceF( tinP , T("WATCH: launching watch threads") ) ;
 {
@@ -73,29 +72,6 @@ TN( tComputerName , "" ) ;
 //REMOVE IN PRODUCTION
 
 TODO
-
-DONE( tmHomeClockF )
-
-}
-    thirdC::dosSleepWinkIF( tinP ) ;
-
-    // /*if( !( idCycle % TUCK ) )*/ etThread.traceF( tinP , TF2(idCycle,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TT(home.timeNow1,home.timeNow2) ) ;
-
-    home.grabTimeNow.ungrabF( tinP ) ;
-    etThread.osTimeNowF( tinP , home.timeNow1 , home.timeNow2 ) ;
-    home.timeNow2 = home.timeNow1 = 0 ;
-    home.grabTimeNow.grabF( tinP , TAG( TAGiDnULL ) ) ;
-
-    //idCycle ++ ;
-{
-while( !ether && !etThread && !POOP )
-//ZE( countT , idCycle ) ;
-homeS& home = homeS::homeIF() ;
-//TN( tb4 , "    " ) ;
-
-etThread.osThreadSwitchingDesireF( tinP , ifcTHREADpRIORITY_RUDE ) ;
-
-TASK( tmHomeClockF )
 
 DONE( tmWatch05F )
 }

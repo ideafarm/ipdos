@@ -18,7 +18,7 @@
         if( cRefWas == 1 ) { BLAMMO ; }                             //SHOULD BE IMPOSSIBLE SINCE pageP NOW CONTAINS A REFERENCE
 
         //}
-        //    etherC::etRockIF( tinP ).trace F( tinP , (const strokeS* const)(const osTextT* const)ostoSay , flTRACE_LOOP | flTRACE_PARAMETERiSoStEXT ) ;
+        //    tinP.pEther->trace F( tinP , (const strokeS* const)(const osTextT* const)ostoSay , flTRACE_LOOP | flTRACE_PARAMETERiSoStEXT ) ;
         //
         //    OStEXTAK(   ostoSay , " -" ) ;
         //    OStEXTC(    ostoSay , cRefWas , 0 ) ;
@@ -29,7 +29,7 @@
         //    OStEXTAK(   ostoSay , "booksC [this,pcRef,cRefWas]:    " ) ;
         //    OStEXT(     ostoSay , TUCK << 2 ) ;
         //{
-        //if( tinP.pAdamGlobal1->idAdam == ifcIDaDAM_ACCESSeVENTS3bOOKbYhASHbYTE1 )
+        //if( tinP.pEther && tinP.pAdamGlobal1->idAdam == ifcIDaDAM_ACCESSeVENTS3bOOKbYhASHbYTE1 )
 
         countT cRefWas = decv02AM( *pcRef ) ;
         countT* pcRef = &((bookHeadS&)BOOKnOW).cRef ;
@@ -38,9 +38,9 @@
 
     if( !pbQuitP || !*pbQuitP ) pageP = pageC( tinP , *this , bCallerMustDelete ? 0 : &((bookHeadS&)BOOKnOW).cRef , pbz , cbz , bCallerMustDelete ? flPAGEc_DELETE : flPAGEc_null ) ; //U: 20181210@1339: CONJ: BUG: IF flPAGEc_DELETE THEN COPY CONSTRUCTOR SHOULD COPY THE pbz SO THAT EACH INSTANCE CAN DELETE IT
 
-    //etherC::etRockIF( tinP ).trace F( tinP , T("[idBook,cRef]:    ")+TF2((pcpIdBookF())[1],flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+TF2(cRefBookF(),flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ; //U:: TO FIND A BUG
+    //tinP.pEther->trace F( tinP , T("[idBook,cRef]:    ")+TF2((pcpIdBookF())[1],flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+TF2(cRefBookF(),flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ; //U:: TO FIND A BUG
 
-    boolT bCallerMustDelete = readF( tinP , etherP , pbz , cbz , handleP , flagsP | flBOOKScrEAD_INCREMENTrEFERENCEcOUNTiF , pbQuitP , phCursorP , idCursorP ) ;
+    boolT bCallerMustDelete = readF( tinP , pbz , cbz , handleP , flagsP | flBOOKScrEAD_INCREMENTrEFERENCEcOUNTiF , pbQuitP , phCursorP , idCursorP ) ;
 
     countT cbz = pageP ;
     ZE( const byteT* , pbz ) ;
@@ -63,7 +63,7 @@
     {
     IFbEcAREFUL
 {
-/*1*/voidT booksC::readF( tinS& tinP , etherC& etherP , pageC& pageP , handleC& handleP , const flagsT flagsP , const boolT* pbQuitP , handleC* const phCursorP , const countT idCursorP )/*1*/
+/*1*/voidT booksC::readF( tinS& tinP , pageC& pageP , handleC& handleP , const flagsT flagsP , const boolT* pbQuitP , handleC* const phCursorP , const countT idCursorP )/*1*/
 
 /**/
 */

@@ -42,9 +42,9 @@ TODO
     return bDoIt ;
 
     }
-        PUSE( tinP , *(byteT**)&psttShortNew ) ;
-        PUSE( tinP , *(byteT**)&psttShortOld ) ;
-        PUSE( tinP , *(byteT**)&psttPath ) ;
+        tinP.pEther->delF( tinP , psttShortNew ) ;
+        tinP.pEther->delF( tinP , psttShortOld ) ;
+        tinP.pEther->delF( tinP , psttPath ) ;
 
         etherC::etRockIF( tinP ).traceF( tinP , T("new: ")+T(psttShortNew) ) ;
         tinP.pEther->diskMoveFileOrDirF( tinP , T(psttPath)+T(psttShortNew) , tOld , 0 ) ;

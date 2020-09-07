@@ -54,7 +54,7 @@
                     {
                     if( !pOutP )
                                         
-                    puseC puseat( tinP , 0 , ifcIDpOOL_ADAMtEMP ) ;
+                    puseC puseat( tinP , ifcIDpOOL_ADAMtEMP ) ;
                 {
                 THREADmODE2oN( flTHREADmODE2_UNLOCKpOOLiDENTITY )
             {
@@ -95,7 +95,7 @@
                         case ifcIDtYPEmIXINdATUM_listingVSP : { if( !F(inP.flagsTypeMask) || F(inP.flagsTypeMask) & flFIELDeDITtYPEmASK_LISTINGsp ) { listingVSP vspValue =             *(list_listingVSP_C*)pListingP ; if( (const listingC*)vspValue && ( !inP.pBool_listingC_ptr_ok || boolC::orIF( inP.pBool_listingC_ptr_ok , (countT)(const listingC*)vspValue ) ) && ( !inP.pBool_listingC_ptr_no || !boolC::orIF( inP.pBool_listingC_ptr_no , (countT)(const listingC*)vspValue ) ) ) { listingVSP   vsp( vspValue , vspDatumListingCBF   , (countT)(const listingC*)vspValue ) ; vspListingOld = vsp ; } } break ; }
                         case ifcIDtYPEmIXINdATUM_countTstrz : { if( !F(inP.flagsTypeMask) || F(inP.flagsTypeMask) & flFIELDeDITtYPEmASK_COUNTsTRZ ) { countT*    pValue   =    (countT*)*(list_countTstrz_C*)pListingP ; if( pValue                    && ( !inP.pBool_countTstrz_ok   || boolC::orIF( inP.pBool_countTstrz_ok   ,                            pValue ) ) && ( !inP.pBool_countTstrz_no   || !boolC::orIF( inP.pBool_countTstrz_no   ,                            pValue ) ) ) { countStrzVSP vsp( pValue   , vspDatumCountStrzCBF , (countT)pListingP                 ) ; vspczOld      = vsp ; } } break ; }
                         case ifcIDtYPEmIXINdATUM_blob       : { if( !F(inP.flagsTypeMask) || F(inP.flagsTypeMask) & flFIELDeDITtYPEmASK_BLOB      ) { osTextT*   pValue   =         (osTextT*)*(list_blob_C*)pListingP ; if( pValue                    && ( !inP.pBool_blob_ok         || boolC::orIF( inP.pBool_blob_ok         ,                            pValue ) ) && ( !inP.pBool_blob_no         || !boolC::orIF( inP.pBool_blob_no         ,                            pValue ) ) ) { blobVSP      vsp( pValue   , vspDatumBlobCBF      , (countT)pListingP                 ) ; vspbzOld      = vsp ; } } break ; }
-                        case ifcIDtYPEmIXINdATUM_countT     : { if( !F(inP.flagsTypeMask) || F(inP.flagsTypeMask) & flFIELDeDITtYPEmASK_COUNT     ) { countT*    pValue   =        (countT*)*(list_countT_C*)pListingP ; if( pValue                    && ( !inP.pBool_countT_ok       || boolC::orIF( inP.pBool_countT_ok       ,                           *pValue ) ) && ( !inP.pBool_countT_no       || !boolC::orIF( inP.pBool_countT_no       ,                           *pValue ) ) ) { countVSP     vsp( pValue   , vspDatumCountCBF     , (countT)pListingP                 ) ; vspcOld       = vsp ; /*etherC::etRockIF( tinP ).traceF( tinP , T("listWalkFieldEditCBF cursored countT [listing_countT_C*,countT*,countT]:   ")+TF2((countT)pListingP,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+TF2((countT)(countT*)*(listing_countT_C*)pListingP,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+TF2(*(countT*)*(listing_countT_C*)pListingP,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;*/ } } break ; }
+                        case ifcIDtYPEmIXINdATUM_countT     : { if( !F(inP.flagsTypeMask) || F(inP.flagsTypeMask) & flFIELDeDITtYPEmASK_COUNT     ) { countT*    pValue   =        (countT*)*(list_countT_C*)pListingP ; if( pValue                    && ( !inP.pBool_countT_ok       || boolC::orIF( inP.pBool_countT_ok       ,                           *pValue ) ) && ( !inP.pBool_countT_no       || !boolC::orIF( inP.pBool_countT_no       ,                           *pValue ) ) ) { countVSP     vsp( pValue   , vspDatumCountCBF     , (countT)pListingP                 ) ; vspcOld       = vsp ; /*if( tinP.pEther ) etherC::etRockIF( tinP ).traceF( tinP , T("listWalkFieldEditCBF cursored countT [listing_countT_C*,countT*,countT]:   ")+TF2((countT)pListingP,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+TF2((countT)(countT*)*(listing_countT_C*)pListingP,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+TF2(*(countT*)*(listing_countT_C*)pListingP,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;*/ } } break ; }
                     {
                     switch( pListingP->idTypeDatumF() ) //CS:CODEsYNC: 00104b0 21e0006 21e0002 21e0008 21e0009 220000e
                 {
@@ -106,7 +106,7 @@
                         case ifcIDtYPEmIXINdATUM_listingVSP : { if( !F(inP.flagsTypeMask) || F(inP.flagsTypeMask) & flFIELDeDITtYPEmASK_LISTINGsp ) { listingVSP vspValue =          *(listing_listingVSP_C*)pListingP ; if( (const listingC*)vspValue && ( !inP.pBool_listingC_ptr_ok || boolC::orIF( inP.pBool_listingC_ptr_ok , (countT)(const listingC*)vspValue ) ) && ( !inP.pBool_listingC_ptr_no || !boolC::orIF( inP.pBool_listingC_ptr_no , (countT)(const listingC*)vspValue ) ) ) { listingVSP   vsp( vspValue , vspDatumListingCBF   , (countT)(const listingC*)vspValue ) ; vspListingOld = vsp ; } } break ; }
                         case ifcIDtYPEmIXINdATUM_countTstrz : { if( !F(inP.flagsTypeMask) || F(inP.flagsTypeMask) & flFIELDeDITtYPEmASK_COUNTsTRZ ) { countT*    pValue   = (countT*)*(listing_countTstrz_C*)pListingP ; if( pValue                    && ( !inP.pBool_countTstrz_ok   || boolC::orIF( inP.pBool_countTstrz_ok   ,                            pValue ) ) && ( !inP.pBool_countTstrz_no   || !boolC::orIF( inP.pBool_countTstrz_no   ,                            pValue ) ) ) { countStrzVSP vsp( pValue   , vspDatumCountStrzCBF , (countT)pListingP                 ) ; vspczOld      = vsp ; } } break ; }
                         case ifcIDtYPEmIXINdATUM_blob       : { if( !F(inP.flagsTypeMask) || F(inP.flagsTypeMask) & flFIELDeDITtYPEmASK_BLOB      ) { osTextT*   pValue   =      (osTextT*)*(listing_blob_C*)pListingP ; if( pValue                    && ( !inP.pBool_blob_ok         || boolC::orIF( inP.pBool_blob_ok         ,                            pValue ) ) && ( !inP.pBool_blob_no         || !boolC::orIF( inP.pBool_blob_no         ,                            pValue ) ) ) { blobVSP      vsp( pValue   , vspDatumBlobCBF      , (countT)pListingP                 ) ; vspbzOld      = vsp ; } } break ; }
-                        case ifcIDtYPEmIXINdATUM_countT     : { if( !F(inP.flagsTypeMask) || F(inP.flagsTypeMask) & flFIELDeDITtYPEmASK_COUNT     ) { countT*    pValue   =     (countT*)*(listing_countT_C*)pListingP ; if( pValue                    && ( !inP.pBool_countT_ok       || boolC::orIF( inP.pBool_countT_ok       ,                           *pValue ) ) && ( !inP.pBool_countT_no       || !boolC::orIF( inP.pBool_countT_no       ,                           *pValue ) ) ) { countVSP     vsp( pValue   , vspDatumCountCBF     , (countT)pListingP                 ) ; vspcOld       = vsp ; /*etherC::etRockIF( tinP ).traceF( tinP , T("listWalkFieldEditCBF cursored countT [listing_countT_C*,countT*,countT]:   ")+TF2((countT)pListingP,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+TF2((countT)(countT*)*(listing_countT_C*)pListingP,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+TF2(*(countT*)*(listing_countT_C*)pListingP,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;*/ } } break ; }
+                        case ifcIDtYPEmIXINdATUM_countT     : { if( !F(inP.flagsTypeMask) || F(inP.flagsTypeMask) & flFIELDeDITtYPEmASK_COUNT     ) { countT*    pValue   =     (countT*)*(listing_countT_C*)pListingP ; if( pValue                    && ( !inP.pBool_countT_ok       || boolC::orIF( inP.pBool_countT_ok       ,                           *pValue ) ) && ( !inP.pBool_countT_no       || !boolC::orIF( inP.pBool_countT_no       ,                           *pValue ) ) ) { countVSP     vsp( pValue   , vspDatumCountCBF     , (countT)pListingP                 ) ; vspcOld       = vsp ; /*if( tinP.pEther ) etherC::etRockIF( tinP ).traceF( tinP , T("listWalkFieldEditCBF cursored countT [listing_countT_C*,countT*,countT]:   ")+TF2((countT)pListingP,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+TF2((countT)(countT*)*(listing_countT_C*)pListingP,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+TF2(*(countT*)*(listing_countT_C*)pListingP,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;*/ } } break ; }
                     {
                     switch( pListingP->idTypeDatumF() ) //CS:CODEsYNC: 00104b0 21e0006 21e0002 21e0008 21e0009 220000e
                 {
@@ -313,7 +313,7 @@
                     __Z( idSerialNew ) ;
                     }
                         idSerialNew =  tinP.pEther->ifcGetNextSerialNumberF( tinP , inP.postzIdSerialSpace ) ;
-                        puseC puseat( tinP , 0 , ifcIDpOOL_ADAMtEMP ) ;
+                        puseC puseat( tinP , ifcIDpOOL_ADAMtEMP ) ;
                     {
                     ZE( countT , idSerialNew ) ;
                 {
@@ -415,7 +415,7 @@
                 {
                 if( F(inP.flags) & flFIELDeDIT_MODEqUERYnEW && ( !F(inP.flagsTypeMask) || F(inP.flagsTypeMask) & flFIELDeDITtYPEmASK_COUNT ) )
 
-                //etherC::etRockIF( tinP ).traceF( tinP , T("listWalkFieldEditCBF pushing countT [listing_countT_C*,countT*,countT]:   ")+TF2((countT)pNew,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+TF2((countT)(countT*)*pNew,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+TF2((countT)*(countT*)*pNew,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
+                //if( tinP.pEther ) etherC::etRockIF( tinP ).traceF( tinP , T("listWalkFieldEditCBF pushing countT [listing_countT_C*,countT*,countT]:   ")+TF2((countT)pNew,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+TF2((countT)(countT*)*pNew,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+TF2((countT)*(countT*)*pNew,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
 
                 listing_countT_C* pNew = new( 0 , tinP , idLineNewP , idiFileNewP ) listing_countT_C( tinP , *tinP.ta.pushed.u.listWalk.cbf.pDadP , inP.cValue ) ; ___( pNew ) ;
             {
@@ -434,7 +434,7 @@
                 __Z( idSerialNew ) ;
                 }
                     idSerialNew =  tinP.pEther->ifcGetNextSerialNumberF( tinP , inP.postzIdSerialSpace ) ;
-                    puseC puseat( tinP , 0 , ifcIDpOOL_ADAMtEMP ) ;
+                    puseC puseat( tinP , ifcIDpOOL_ADAMtEMP ) ;
                 {
                 ZE( countT , idSerialNew ) ;
             {

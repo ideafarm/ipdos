@@ -15,31 +15,39 @@
     grabBookNow.ungrabF( tinP ) ;
 
     }
-        if( cRefWas == -1 ) { BLAMMO ; }
+        }
+            if( cRefWas == -1 ) { BLAMMO ; }
 
-        //}
-        //    etherC::etRockIF( tinP ).traceF( tinP , (const strokeS* const)(const osTextT* const)ostoSay , flTRACE_LOOP | flTRACE_PARAMETERiSoStEXT ) ;
-        //
-        //    OStEXTAK( ostoSay , " +" ) ;
-        //    OStEXTC(  ostoSay , cRefWas , 0 ) ;
-        //    OStEXTAK( ostoSay , "    " ) ;
-        //    OStEXTC(  ostoSay , pcRef , 0 ) ;
-        //    OStEXTAK( ostoSay , "    " ) ;
-        //    OStEXTCmIN( ostoSay , this , 8 ) ;
-        //    OStEXTAK( ostoSay , "booksC [this,pcRef,cRefWas]:    " ) ;
-        //    OStEXT(   ostoSay , TUCK << 2 ) ;
-        //{
-        //if( tinP.pAdamGlobal1->idAdam == ifcIDaDAM_ACCESSeVENTS3bOOKbYhASHbYTE1 )
-
-        countT cRefWas = incv02AM( *pcRef ) ;
-        countT* pcRef = &head.cRef ;
+            //}
+            //    etherC::etRockIF( tinP ).traceF( tinP , (const strokeS* const)(const osTextT* const)ostoSay , flTRACE_LOOP | flTRACE_PARAMETERiSoStEXT ) ;
+            //
+            //    OStEXTAK( ostoSay , " +" ) ;
+            //    OStEXTC(  ostoSay , cRefWas , 0 ) ;
+            //    OStEXTAK( ostoSay , "    " ) ;
+            //    OStEXTC(  ostoSay , pcRef , 0 ) ;
+            //    OStEXTAK( ostoSay , "    " ) ;
+            //    OStEXTCmIN( ostoSay , this , 8 ) ;
+            //    OStEXTAK( ostoSay , "booksC [this,pcRef,cRefWas]:    " ) ;
+            //    OStEXT(   ostoSay , TUCK << 2 ) ;
+            //{
+            //if( tinP.pAdamGlobal1->idAdam == ifcIDaDAM_ACCESSeVENTS3bOOKbYhASHbYTE1 )
+    
+            countT cRefWas = incv02AM( *pcRef ) ;
+            countT* pcRef = &head.cRef ;
+        {
+        else
+        }
+            if( cRefWas == -1 ) { BLAMMO ; }
+            countT cRefWas = incv02AM( head.cRef ) ;
+        {
+        if( !tinP.pEther )
     
         bookHeadS& head = BOOKnOW ;
     {
     if( F(flagsP) & flBOOKScrEAD_INCREMENTrEFERENCEcOUNTiF && !bCallerMustDelete )    //20181210@1318: ADDED "&& !bCallerMustDelete" BECAUSE I AM RETURNING A pbP THAT POINTS TO A poolC DROP RATHER THAN INTO A bookC INSTANCE
 
     }
-        etherP( tinP , pStkSnip ) ;  //20181210@1316: ADDED WITHOUT ANALYSIS
+        (*tinP.pEther)( tinP , pStkSnip ) ;  //20181210@1316: ADDED WITHOUT ANALYSIS
 
         }
             PUSE( tinP , pbw ) ;
@@ -50,7 +58,7 @@
     {
     else
     }
-        etherP( tinP , pStkSnip ) ;
+        (*tinP.pEther)( tinP , pStkSnip ) ;
 
         }
             *pbo = 0 ;
@@ -131,7 +139,7 @@
                     if( !POOP )
 
                     __Z( pStkSnip ) ;
-                    if( !pStkSnip ) etherP( tinP , pStkSnip , TAG( TAGiDnULL ) , flSTACKc_FIFO | flSTACKc_DOnOTsERIALIZE | flSTACKc_ALLOWmULTIPLEuNSERIALIZED | flSTACKc_XRAY , ifcSTACKtYPE_PTR_byteT ) ; ___( pStkSnip ) ;
+                    if( !pStkSnip ) (*tinP.pEther)( tinP , pStkSnip , TAG( TAGiDnULL ) , flSTACKc_FIFO | flSTACKc_DOnOTsERIALIZE | flSTACKc_ALLOWmULTIPLEuNSERIALIZED | flSTACKc_XRAY , ifcSTACKtYPE_PTR_byteT ) ; ___( pStkSnip ) ;
                     __Z( cbzSnip ) ;
                 {
                 if( pbzSnip )
@@ -188,7 +196,7 @@
                     PUSE( tinP , *(byteT**)&PCPiDbOOKnOW ) ; //AT THE BEGINNING OF THIS BLOCK, I DELETED THIS BOOK.  CODE THAT LOOKS AT THE BOOK INSTANCES MUST CHECK FOR !PCPiDbOOKnOW TO AVOID ACCESSING A DELETED INSTANCE.  RACE CONDITION EXIST IF MULTIPLE THREADS ARE READING, BUT MULTITHREADED READING PROBABLY IS UNSUPPORTABLE ANYWAY
                     cbToDo = 0 ;
                 {
-                if( F(flagsP) & flBOOKScrEAD_STILLhUNGRYiSoK && !bookC::bFileExistsIF( tinP , etherP , tName , idStateSpace , idMemorySpace ) )
+                if( F(flagsP) & flBOOKScrEAD_STILLhUNGRYiSoK && !bookC::bFileExistsIF( tinP , *tinP.pEther , tName , idStateSpace , idMemorySpace ) )
 
                 //20181107@1116: THIS BUG WAS WORKED AROUND BY EDITING OTHER CODE SO THAT THIS CODE ISN'T EXERCIZED.  THIS CODE IS INCORRECT.  CORRECT CODE WILL AVOID DELETING A bookC AND THEN ATTEMPTING TO UNDO THAT DELETION
                 //U:: BUG: THIS WILL CREATE A ZOMBIE POINTER TO book0C; REWRITE TO AVOID DELETING THE BOOK
@@ -274,7 +282,7 @@
         boolT bWrongBook = *pcpOffIdBookWant - 1 != *PCPiDbOOKnOW || thirdC::c_memcmpIF( tinP , (byteT*)( pcpOffIdBookWant + 2 ) , (byteT*)( PCPiDbOOKnOW + 1 ) , sizeof( countT ) * *PCPiDbOOKnOW ) ;
 
         //}
-        //    etherC::etRockIF( tinP ).trace F( tinP , T("booksC::readF / wanted [offInBook,idBook]:")+T("    ")+TF2(pcpOffIdBookWant[1],flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+TF2(pcpOffIdBookWant[2],flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ; //U:: TO FIND A BUG
+        //    tinP.pEther->trace F( tinP , T("booksC::readF / wanted [offInBook,idBook]:")+T("    ")+TF2(pcpOffIdBookWant[1],flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+TF2(pcpOffIdBookWant[2],flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ; //U:: TO FIND A BUG
         //    offWantedLath = offWanted ;
         //{
         //if( tinP.pc Utility[ 0 ] /*&& offWanted >> 0x10 != offWantedLath >> 0x10*/ )
@@ -302,7 +310,7 @@
             //c2AppNote.c2 = PCPiDbOOKnOW[ 1 ] ;  //20140831@1232: CHANGED WITHOUT ANALYSIS SO THAT NULL HANDLE WILL DEFAULT TO BEGINNING OF WOTH BOOK RATHER THAN CURRENT BOOK
             c2AppNote.c1 = 0 ;
 
-            if( idStateSpace ) idBookMinMaxF( tinP , etherP , pcpIdBookMin , pcpIdBookMax , flBOOKScsELECT_null , &bQuit ) ;
+            if( idStateSpace ) idBookMinMaxF( tinP , pcpIdBookMin , pcpIdBookMax , flBOOKScsELECT_null , &bQuit ) ;
             ZE( countT* , pcpIdBookMax ) ;
             ZE( countT* , pcpIdBookMin ) ;
         {
@@ -373,7 +381,7 @@
     IFbEcAREFUL
     SCOOP
 {
-/*1*/boolT booksC::readF( tinS& tinP , etherC& etherP , const byteT*& pbP , countT& cbP , handleC& handleP , const flagsT flagsP , const boolT* pbQuitP , handleC* const phCursorP , const countT idCursorP )/*1*/
+/*1*/boolT booksC::readF( tinS& tinP , const byteT*& pbP , countT& cbP , handleC& handleP , const flagsT flagsP , const boolT* pbQuitP , handleC* const phCursorP , const countT idCursorP )/*1*/
 
 //20180816@1429: ENHANCE TO READ REMAINDER OF CURRENT BOOK IF !cbP
 

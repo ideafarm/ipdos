@@ -377,7 +377,7 @@ DONEdRIVENsERVER( tmcHttpServerF )
                                             }
                                                 etThread.delF( tinP , postLathPeanut ) ;
                                                 if( postLathPeanut ) { etThread.strMakeF( tinP , prPostsLathPeanut , T(postLathPeanut) , 0 , flSTRmAKE_PREFIXlENGTH ) ; ___( prPostsLathPeanut ) ; }
-                                                puseC puseWork1( tinP , 0 , ifcIDpOOL_ADAMtEMP ) ; //--------------------------------------------------------------------------------------
+                                                puseC puseWork1( tinP , ifcIDpOOL_ADAMtEMP ) ; //--------------------------------------------------------------------------------------
                                                 //PUSE.list_osTextTstrz_Old 2012F( tinP , postLathPeanut , pczName ) ; //A:ASSUME: ANOTHER THREAD MIGHT REPLACE THIS VALUE WHILE I AM USING THIS POINTER, BUT THIS POINTER WILL REMAIN POINTING TO VALID STORAGE
                                                 puseC pusePeanut( pusePeanutP ) ;
                                                 ZE( osTextT* , postLathPeanut ) ;
@@ -1084,9 +1084,9 @@ DONEdRIVENsERVER( tmcHttpServerF )
                         {
                         else
                         if( !POOP ) break ;
-                        //tinP.pcUtility[ 0 ] -- ; //U:: TO FIND A BUG
-                        pFW = new( 0 , tinP , LF ) fileWindowsC( tinP , *tinP.pEtScratch , *pptFileIn[ offf ] , flFILEwINDOW_DOnOTvALIDATE | flFILEwINDOW_DOnOTmAKEdIRiFnEEDED , 1 ) ; ___( pFW ) ; //DOnOTvALIDATE IS A WORKAROUND TO PREVENT dosOpenIF FROM USING THE WRONG poopC INSTANCE (THIS IS A CODE DESIGN ERROR: NO IMAGE FUNCTION SHOULD ASSUME A PARTICULAR thirdC OR etherC INSTANCE TO USE WHEN CALLING NONIMAGE FUNCTIONS)
-                        //tinP.pcUtility[ 0 ] ++ ; //U:: TO FIND A BUG
+                        tinP.pcUtility[ 0 ] -- ; //U:: TO FIND A BUG
+                        pFW = new( 0 , tinP , LF ) fileWindowsC( tinP , *tinP.pEtScratch , *pptFileIn[ offf ] , flFILEwINDOW_DOnOTvALIDATE , 1 ) ; ___( pFW ) ; //DOnOTvALIDATE IS A WORKAROUND TO PREVENT dosOpenIF FROM USING THE WRONG poopC INSTANCE (THIS IS A CODE DESIGN ERROR: NO IMAGE FUNCTION SHOULD ASSUME A PARTICULAR thirdC OR etherC INSTANCE TO USE WHEN CALLING NONIMAGE FUNCTIONS)
+                        tinP.pcUtility[ 0 ] ++ ; //U:: TO FIND A BUG
                         _IO_
                         SCOOPS
                     {
@@ -1110,51 +1110,12 @@ DONEdRIVENsERVER( tmcHttpServerF )
 
                 ZE( fileWindowsC* , pFW ) ;
             {
-            else if( bFileArchive )
-            }
-                etThread.delF( tinP , pbIn ) ;
-                }
-                    }
-                        bClose = 1 ;
-                        //etThread.traceF( tinP , T("tmcHttpServerF: could not write to socket 1118") ) ;
-                        POOPRqUIET
-                    {
-                    if( POOP )
-                    psoP->writeF( tinP , pbIn , cbIn ) ;
-                    psoP->writeF( tinP , (osTextT*)tReply , tReply.csF( tinP ) ) ;
-                    SCOOPS
-                {
-                IFsCRATCH
+            if( bFile )
 
-                TN( tReply , "" ) ; tReply = T("HTTP/1.1 200 OK\r\nServer: IPDOS (tm) IdeaFarm (tm) Piggyback Distributed Operating System (tm)\r\nContent-Type: text/plain\r\nContent-Length: ")+TF4(cbIn,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FOREIGN|flFORMAT_NObASE,0,0xa)+T("\r\n\r\n") ;
-
-                }
-                    }
-                        bClose = 1 ;
-                        etThread.traceF( tinP , T("tmcHttpServerF: could not get challenge file") ) ;
-                        POOPRqUIET
-                    {
-                    if( POOP )
-                    tinP.pEtScratch->boxGetShadowF( tinP , pbIn , cbIn , tFileIn ) ; ___( pbIn ) ;
-                    SCOOPS
-                {
-                IFsCRATCH
-                ZE( countT , cbIn ) ;
-                ZE( byteT* , pbIn ) ;
-
-                TN( tFileIn , "" ) ; tFileIn = T("////factory1/d/tmp/certbot.challenge")+T(psttName) ;
-                //                               "////factory1/d/tmp/certbot.challenge/.well-known/acme-challenge
-            {
-            if( bFileChallenge )
-
-            if( psttName && etThread.strCompareF( tinP , psttName , tSlashDeadman ) ) etThread.traceF( tinP , TF3(meP.idPortF(tinP),flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,9)+T(nnPeerP)+T("    request:    \"")+T(psttName)+T("\"")+(psttQueryKV?T("    ")+T(psttQueryKV):T("")) , flTRACE_null , !etThread.strCompareF( tinP , psttName , tSlash ) ? ifcIDtRACEdIVERT_7 : !bFileArchive ? ifcIDtRACEdIVERT_6 : ifcIDtRACEdIVERT_5 ) ;
+            if( psttName && etThread.strCompareF( tinP , psttName , tSlashDeadman ) ) etThread.traceF( tinP , TF3(meP.idPortF(tinP),flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,9)+T(nnPeerP)+T("    request:    \"")+T(psttName)+T("\"")+(psttQueryKV?T("    ")+T(psttQueryKV):T("")) , flTRACE_null , !etThread.strCompareF( tinP , psttName , tSlash ) ? ifcIDtRACEdIVERT_7 : !bFile ? ifcIDtRACEdIVERT_6 : ifcIDtRACEdIVERT_5 ) ;
 
             }
-                bFileChallenge = 1 == etThread.strIdF( tinP , tPatternChallenge , psttName ) ;
-                bFileArchive   = 1 == etThread.strIdF( tinP , tPatternArchive   , psttName ) ;
-
-                TN( tPatternChallenge , "/.well-known/acme-challenge/" ) ;
-                // "/.well-known/acme-challenge/ZkmjsTYwqPtrWqTRu-3VunoLb_X656Tg8iILtFL8ZWE"
+                bFile = 1 == etThread.strIdF( tinP , tPattern , psttName ) ;
 
                 ;
 
@@ -1169,13 +1130,12 @@ DONEdRIVENsERVER( tmcHttpServerF )
                     +S2(sa_SSSaND,sc_ccSSS)
                     T("")
 
-                TN( tPatternArchive , "" ) ; tPatternArchive =
+                TN( tPattern , "" ) ; tPattern =
                 // "2013/!ideafarm."
                 //  yyyy
             {
             if( psttName && psttName->idAdam )
-            ZE( boolT , bFileChallenge ) ;
-            ZE( boolT , bFileArchive ) ;
+            ZE( boolT , bFile ) ;
 
             }
                 break ;
@@ -1196,44 +1156,24 @@ DONEdRIVENsERVER( tmcHttpServerF )
                 boolT bWhite  = etThread.diskFileExistsF( tinP , tListWhite  ) ;
                 boolT bHuman  = etThread.diskFileExistsF( tinP , tListHuman  ) ;
 
-                tListWhite += T("////factory9/d/ideafarm.home.101/ephemeral/domains/com/ideafarm/ipdos/attackers/white/")+T(nnPeerP) ;
-                tListWhite += T("////factory8/d/ideafarm.home.101/ephemeral/domains/com/ideafarm/ipdos/attackers/white/")+T(nnPeerP) ;
-                tListWhite += T("////factory7/d/ideafarm.home.101/ephemeral/domains/com/ideafarm/ipdos/attackers/white/")+T(nnPeerP) ;
-                tListWhite += T("////factory6/d/ideafarm.home.101/ephemeral/domains/com/ideafarm/ipdos/attackers/white/")+T(nnPeerP) ;
-                tListWhite += T("////factory5/d/ideafarm.home.101/ephemeral/domains/com/ideafarm/ipdos/attackers/white/")+T(nnPeerP) ;
-                tListWhite += T("////factory4/d/ideafarm.home.101/ephemeral/domains/com/ideafarm/ipdos/attackers/white/")+T(nnPeerP) ;
-                tListWhite += T("////factory3/d/ideafarm.home.101/ephemeral/domains/com/ideafarm/ipdos/attackers/white/")+T(nnPeerP) ;
-                tListWhite += T("////factory2/d/ideafarm.home.101/ephemeral/domains/com/ideafarm/ipdos/attackers/white/")+T(nnPeerP) ;
+                tListWhite += T("////factory5/d/ideafarm.home.102/ephemeral/domains/com/ideafarm/ipdos/attackers/white/")+T(nnPeerP) ;
+                tListWhite += T("////factory4/d/ideafarm.home.102/ephemeral/domains/com/ideafarm/ipdos/attackers/white/")+T(nnPeerP) ;
+                tListWhite += T("////factory3/d/ideafarm.home.102/ephemeral/domains/com/ideafarm/ipdos/attackers/white/")+T(nnPeerP) ;
                 TlIST( tListWhite ) ;
 
-                tListBlock += T("////factory9/d/ideafarm.home.101/ephemeral/domains/com/ideafarm/ipdos/attackers/block/")+T(nnPeerP) ;
-                tListBlock += T("////factory8/d/ideafarm.home.101/ephemeral/domains/com/ideafarm/ipdos/attackers/block/")+T(nnPeerP) ;
-                tListBlock += T("////factory7/d/ideafarm.home.101/ephemeral/domains/com/ideafarm/ipdos/attackers/block/")+T(nnPeerP) ;
-                tListBlock += T("////factory6/d/ideafarm.home.101/ephemeral/domains/com/ideafarm/ipdos/attackers/block/")+T(nnPeerP) ;
-                tListBlock += T("////factory5/d/ideafarm.home.101/ephemeral/domains/com/ideafarm/ipdos/attackers/block/")+T(nnPeerP) ;
-                tListBlock += T("////factory4/d/ideafarm.home.101/ephemeral/domains/com/ideafarm/ipdos/attackers/block/")+T(nnPeerP) ;
-                tListBlock += T("////factory3/d/ideafarm.home.101/ephemeral/domains/com/ideafarm/ipdos/attackers/block/")+T(nnPeerP) ;
-                tListBlock += T("////factory2/d/ideafarm.home.101/ephemeral/domains/com/ideafarm/ipdos/attackers/block/")+T(nnPeerP) ;
+                tListBlock += T("////factory5/d/ideafarm.home.102/ephemeral/domains/com/ideafarm/ipdos/attackers/block/")+T(nnPeerP) ;
+                tListBlock += T("////factory4/d/ideafarm.home.102/ephemeral/domains/com/ideafarm/ipdos/attackers/block/")+T(nnPeerP) ;
+                tListBlock += T("////factory3/d/ideafarm.home.102/ephemeral/domains/com/ideafarm/ipdos/attackers/block/")+T(nnPeerP) ;
                 TlIST( tListBlock ) ;
 
-                tListAllowWoMore += T("////factory9/d/ideafarm.home.101/ephemeral/domains/com/ideafarm/ipdos/attackers/allowWoMore/")+T(nnPeerP) ;
-                tListAllowWoMore += T("////factory8/d/ideafarm.home.101/ephemeral/domains/com/ideafarm/ipdos/attackers/allowWoMore/")+T(nnPeerP) ;
-                tListAllowWoMore += T("////factory7/d/ideafarm.home.101/ephemeral/domains/com/ideafarm/ipdos/attackers/allowWoMore/")+T(nnPeerP) ;
-                tListAllowWoMore += T("////factory6/d/ideafarm.home.101/ephemeral/domains/com/ideafarm/ipdos/attackers/allowWoMore/")+T(nnPeerP) ;
-                tListAllowWoMore += T("////factory5/d/ideafarm.home.101/ephemeral/domains/com/ideafarm/ipdos/attackers/allowWoMore/")+T(nnPeerP) ;
-                tListAllowWoMore += T("////factory4/d/ideafarm.home.101/ephemeral/domains/com/ideafarm/ipdos/attackers/allowWoMore/")+T(nnPeerP) ;
-                tListAllowWoMore += T("////factory3/d/ideafarm.home.101/ephemeral/domains/com/ideafarm/ipdos/attackers/allowWoMore/")+T(nnPeerP) ;
-                tListAllowWoMore += T("////factory2/d/ideafarm.home.101/ephemeral/domains/com/ideafarm/ipdos/attackers/allowWoMore/")+T(nnPeerP) ;
+                tListAllowWoMore += T("////factory5/d/ideafarm.home.102/ephemeral/domains/com/ideafarm/ipdos/attackers/allowWoMore/")+T(nnPeerP) ;
+                tListAllowWoMore += T("////factory4/d/ideafarm.home.102/ephemeral/domains/com/ideafarm/ipdos/attackers/allowWoMore/")+T(nnPeerP) ;
+                tListAllowWoMore += T("////factory3/d/ideafarm.home.102/ephemeral/domains/com/ideafarm/ipdos/attackers/allowWoMore/")+T(nnPeerP) ;
                 TlIST( tListAllowWoMore ) ;
 
-                tListHuman += T("////factory9/d/ideafarm.home.101/ephemeral/domains/com/ideafarm/ipdos/attackers/human/")+T(nnPeerP) ;
-                tListHuman += T("////factory8/d/ideafarm.home.101/ephemeral/domains/com/ideafarm/ipdos/attackers/human/")+T(nnPeerP) ;
-                tListHuman += T("////factory7/d/ideafarm.home.101/ephemeral/domains/com/ideafarm/ipdos/attackers/human/")+T(nnPeerP) ;
-                tListHuman += T("////factory6/d/ideafarm.home.101/ephemeral/domains/com/ideafarm/ipdos/attackers/human/")+T(nnPeerP) ;
-                tListHuman += T("////factory5/d/ideafarm.home.101/ephemeral/domains/com/ideafarm/ipdos/attackers/human/")+T(nnPeerP) ;
-                tListHuman += T("////factory4/d/ideafarm.home.101/ephemeral/domains/com/ideafarm/ipdos/attackers/human/")+T(nnPeerP) ;
-                tListHuman += T("////factory3/d/ideafarm.home.101/ephemeral/domains/com/ideafarm/ipdos/attackers/human/")+T(nnPeerP) ;
-                tListHuman += T("////factory2/d/ideafarm.home.101/ephemeral/domains/com/ideafarm/ipdos/attackers/human/")+T(nnPeerP) ;
+                tListHuman += T("////factory5/d/ideafarm.home.102/ephemeral/domains/com/ideafarm/ipdos/attackers/human/")+T(nnPeerP) ;
+                tListHuman += T("////factory4/d/ideafarm.home.102/ephemeral/domains/com/ideafarm/ipdos/attackers/human/")+T(nnPeerP) ;
+                tListHuman += T("////factory3/d/ideafarm.home.102/ephemeral/domains/com/ideafarm/ipdos/attackers/human/")+T(nnPeerP) ;
                 TlIST( tListHuman ) ;
             {
             if( bFail )

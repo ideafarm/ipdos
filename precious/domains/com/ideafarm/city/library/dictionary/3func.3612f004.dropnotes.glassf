@@ -8,26 +8,26 @@
 
 
 }
-                   etherP.strFuseF( tinP , psttP , TF3(idNewForTagLine,flFORMAT_UNSIGNED|flFORMAT_NObIGITvALUES,9) ) ;
-                   etherP.strFuseF( tinP , psttP , TF3(idThreadDel    ,flFORMAT_UNSIGNED|flFORMAT_NObIGITvALUES,9) ) ;
-                   etherP.strFuseF( tinP , psttP , TF3(idThreadNew    ,flFORMAT_UNSIGNED|flFORMAT_NObIGITvALUES,9) ) ;
-                   etherP.strFuseF( tinP , psttP , TF3(flagsMonitor   ,flFORMAT_UNSIGNED|flFORMAT_NObIGITvALUES,9) ) ;
-                   etherP.strFuseF( tinP , psttP , TF3(idiFileTagged2 ,flFORMAT_UNSIGNED|flFORMAT_NObIGITvALUES,9) ) ;
-                   etherP.strFuseF( tinP , psttP , TF3(idLineTagged2  ,flFORMAT_UNSIGNED|flFORMAT_NObIGITvALUES,9) ) ;
-                   etherP.strFuseF( tinP , psttP , TF3(idiFileTagged  ,flFORMAT_UNSIGNED|flFORMAT_NObIGITvALUES,9) ) ;
-                   etherP.strFuseF( tinP , psttP , TF3(idLineTagged   ,flFORMAT_UNSIGNED|flFORMAT_NObIGITvALUES,9) ) ;
-                   etherP.strFuseF( tinP , psttP , TF3(idAdam         ,flFORMAT_UNSIGNED|flFORMAT_NObIGITvALUES,9) ) ;
-                   etherP.strFuseF( tinP , psttP , TF3(cbUsedReally   ,flFORMAT_UNSIGNED|flFORMAT_NObIGITvALUES,9) ) ;
-                   etherP.strFuseF( tinP , psttP , TF3(cbRequested    ,flFORMAT_UNSIGNED|flFORMAT_NObIGITvALUES,9) ) ;
+                   tinP.pEther->strFuseF( tinP , psttP , TF3(idNewForTagLine,flFORMAT_UNSIGNED|flFORMAT_NObIGITvALUES,9) ) ;
+                   tinP.pEther->strFuseF( tinP , psttP , TF3(idThreadDel    ,flFORMAT_UNSIGNED|flFORMAT_NObIGITvALUES,9) ) ;
+                   tinP.pEther->strFuseF( tinP , psttP , TF3(idThreadNew    ,flFORMAT_UNSIGNED|flFORMAT_NObIGITvALUES,9) ) ;
+                   tinP.pEther->strFuseF( tinP , psttP , TF3(flagsMonitor   ,flFORMAT_UNSIGNED|flFORMAT_NObIGITvALUES,9) ) ;
+                   tinP.pEther->strFuseF( tinP , psttP , TF3(idiFileTagged2 ,flFORMAT_UNSIGNED|flFORMAT_NObIGITvALUES,9) ) ;
+                   tinP.pEther->strFuseF( tinP , psttP , TF3(idLineTagged2  ,flFORMAT_UNSIGNED|flFORMAT_NObIGITvALUES,9) ) ;
+                   tinP.pEther->strFuseF( tinP , psttP , TF3(idiFileTagged  ,flFORMAT_UNSIGNED|flFORMAT_NObIGITvALUES,9) ) ;
+                   tinP.pEther->strFuseF( tinP , psttP , TF3(idLineTagged   ,flFORMAT_UNSIGNED|flFORMAT_NObIGITvALUES,9) ) ;
+                   tinP.pEther->strFuseF( tinP , psttP , TF3(idAdam         ,flFORMAT_UNSIGNED|flFORMAT_NObIGITvALUES,9) ) ;
+                   tinP.pEther->strFuseF( tinP , psttP , TF3(cbUsedReally   ,flFORMAT_UNSIGNED|flFORMAT_NObIGITvALUES,9) ) ;
+                   tinP.pEther->strFuseF( tinP , psttP , TF3(cbRequested    ,flFORMAT_UNSIGNED|flFORMAT_NObIGITvALUES,9) ) ;
 
-    else           etherP.strFuseF( tinP , psttP , TF3(idType         ,flFORMAT_UNSIGNED|flFORMAT_NObIGITvALUES,costMaxType+1) ) ;
-    if( postType ) etherP.strFuseF( tinP , psttP , TP(postType,costMaxType+1) ) ;
+    else           tinP.pEther->strFuseF( tinP , psttP , TF3(idType         ,flFORMAT_UNSIGNED|flFORMAT_NObIGITvALUES,costMaxType+1) ) ;
+    if( postType ) tinP.pEther->strFuseF( tinP , psttP , TP(postType,costMaxType+1) ) ;
 
-                   etherP.strFuseF( tinP , psttP , T(idNewLath>idDelLath?"* ":"  ") ) ; // THIS DROP IS IN USE
+                   tinP.pEther->strFuseF( tinP , psttP , T(idNewLath>idDelLath?"* ":"  ") ) ; // THIS DROP IS IN USE
 
-                   etherP.strFuseF( tinP , psttP , TF3(idDelLath      ,flFORMAT_UNSIGNED|flFORMAT_NObIGITvALUES,9) ) ;
-                   etherP.strFuseF( tinP , psttP , TF3(idNewLath      ,flFORMAT_UNSIGNED|flFORMAT_NObIGITvALUES,9) ) ;
-                   etherP.strMakeF( tinP , psttP , T("dropNoteS [idNewLath,idDelLath,idType,cbRequested,cbUsedReally,idAdam,idLineTagged,idiFileTagged,idLineTagged2,idiFileTagged2,flagsMonitor,idThreadNew,idThreadDel,idNewForTagLine]: ") , costMaxType + ( TUCK << 1 ) ) ; ___( psttP ) ;
+                   tinP.pEther->strFuseF( tinP , psttP , TF3(idDelLath      ,flFORMAT_UNSIGNED|flFORMAT_NObIGITvALUES,9) ) ;
+                   tinP.pEther->strFuseF( tinP , psttP , TF3(idNewLath      ,flFORMAT_UNSIGNED|flFORMAT_NObIGITvALUES,9) ) ;
+                   tinP.pEther->strMakeF( tinP , psttP , T("dropNoteS [idNewLath,idDelLath,idType,cbRequested,cbUsedReally,idAdam,idLineTagged,idiFileTagged,idLineTagged2,idiFileTagged2,flagsMonitor,idThreadNew,idThreadDel,idNewForTagLine]: ") , costMaxType + ( TUCK << 1 ) ) ; ___( psttP ) ;
 
     const osTextT* postType = processGlobal3I.mapdropNoteType( idType ) ;
     countT costMaxType = processGlobal3I.mapdropNoteType.costMaxF() ;
@@ -35,11 +35,12 @@
     }
         if( POOP ) return ;
         __NZ( psttP ) ;
+        __Z( tinP.pEther ) ;
         if( POOP ) return ;
     {
     IFbEcAREFUL
 {
-/*1*/voidT dropNoteS::glassF( tinS& tinP , etherC& etherP , strokeS*& psttP ) const/*1*/
+/*1*/voidT dropNoteS::glassF( tinS& tinP , strokeS*& psttP ) const/*1*/
 
 /**/
 */

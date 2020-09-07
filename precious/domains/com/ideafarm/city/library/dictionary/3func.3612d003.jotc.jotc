@@ -10,7 +10,7 @@
 }
     //etherC::etRockIF( tinP ).traceF( tinP , T("jotC + [this,tag,name]: ")+TF2((countT)this,flFORMAT_UNSIGNED|flFORMAT_NObIGITvALUES)+T("    ")+TF2(tagHighNibble,flFORMAT_UNSIGNED|flFORMAT_NObIGITvALUES)+T("    ")+T(postNameP) ) ;
 
-    PUSE( tinP , *(byteT**)&pcpIdBookSizePairs ) ;
+    tinP.pEther->delF( tinP , pcpIdBookSizePairs ) ;
     }
         idMaxWritten += cJots ;
         }
@@ -31,7 +31,7 @@
     {
     if( pcpIdBookSizePairs )
 
-    bksIndex.cbEachBookF( tinP , ether , pcpIdBookSizePairs ) ;
+    bksIndex.cbEachBookF( tinP , pcpIdBookSizePairs ) ;
     ZE( countT* , pcpIdBookSizePairs ) ;
 
     idMaxWritten = idLathRead = tagHighNibble ; // SEE jotC::writeF FOR THE SPECIFICATION OF THE BIT LAYOUT OF AN idJot VALUE
@@ -74,8 +74,7 @@ _idThreadCt( tinP.monitor.idThread ) ,
 tagHighNibble( 0 ) ,
 idSlotJot( 0 ) ,
 grabC( tinP , TAG( TAGiDnULL ) , flagsGrabP | flGRABc_NOTjEALOUS , idGrabLayerP ) ,     // flGRABc_NOTjEALOUS IS ADDED BECAUSE USING ME WILL USUALLY OR ALWAYS RESULT IN booksC BEING GRABBED
-ether( etherP ) ,
-/*1*/jotC::jotC( tinS& tinP , etherC& etherP , const osTextT* const postNameP , const flagsT flagsP , const countT cbDataBookP , const countT cIndexEntriesBookP , const countT cKeepInactiveP , countT idGrabLayerP , flagsT flagsGrabP , countT idMemorySpaceP ) :/*1*/
+/*1*/jotC::jotC( tinS& tinP , const osTextT* const postNameP , const flagsT flagsP , const countT cbDataBookP , const countT cIndexEntriesBookP , const countT cKeepInactiveP , countT idGrabLayerP , flagsT flagsGrabP , countT idMemorySpaceP ) :/*1*/
 
 // IF flJOTc_DOnOTrEGISTER THEN I WILL NOT SET ANY BITS IN NM_HIGH FOR idJot VALUES
 

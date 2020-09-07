@@ -57,7 +57,7 @@ TASK( tmWorkerF )
         }
             break ;
             }
-                PUSE( tinP , pbDoomed ) ;
+                tinP.pEther->delF( tinP , pbDoomed ) ;
                 byteT* pbDoomed = (byteT*)( (countT)( (const byteT*)*(blobSP*)pbvspP - 2 * sizeof( countT ) ) ) ;
                 blobSP& blobsp = *(blobSP*)pbvspP ;
                 etherC::etRockIF( tinP ).traceF( tinP , T("deleting") ) ;
