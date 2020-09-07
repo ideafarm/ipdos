@@ -95,14 +95,6 @@
     _pSwSoixlOldApi->ungrabF( tinP ) ;
 }
 {
-    TN( tNameSoixlOld , "etherDispenseSerialNumberF_4@" ) ;
-    _pSwSoixlOldApi->grabF( tinP , TAG( TAGiDnULL ) ) ;
-    _psttLeverSoixlOldApi = tNameSoixlOld ;
-    if( *_pSwSoixlOldApi ) { BLAMMO ; }
-    *_pSwSoixlOldApi = (countT)etherDispenseSerialNumberF_4P_GF ;
-    _pSwSoixlOldApi->ungrabF( tinP ) ;
-}
-{
     TN( tNameSoixlOld , "poolNewF_331@3" ) ;
     _pSwSoixlOldApi->grabF( tinP , TAG( TAGiDnULL ) ) ;
     _psttLeverSoixlOldApi = tNameSoixlOld ;
@@ -356,22 +348,6 @@
     _psttLeverSoixlOldApi = tNameSoixlOld ;
     if( *_pSwSoixlOldApi ) { BLAMMO ; }
     *_pSwSoixlOldApi = (countT)diskFileSetAttrF_4P7_GF ;
-    _pSwSoixlOldApi->ungrabF( tinP ) ;
-}
-{
-    TN( tNameSoixlOld , "diskFindFileOrDirF_4@b4@patternC@" ) ;
-    _pSwSoixlOldApi->grabF( tinP , TAG( TAGiDnULL ) ) ;
-    _psttLeverSoixlOldApi = tNameSoixlOld ;
-    if( *_pSwSoixlOldApi ) { BLAMMO ; }
-    *_pSwSoixlOldApi = (countT)diskFindFileOrDirF_4Pb4PpatternCP_GF ;
-    _pSwSoixlOldApi->ungrabF( tinP ) ;
-}
-{
-    TN( tNameSoixlOld , "diskFindFileOrDirF_4@4@patternC@h@grabC@33" ) ;
-    _pSwSoixlOldApi->grabF( tinP , TAG( TAGiDnULL ) ) ;
-    _psttLeverSoixlOldApi = tNameSoixlOld ;
-    if( *_pSwSoixlOldApi ) { BLAMMO ; }
-    *_pSwSoixlOldApi = (countT)diskFindFileOrDirF_4P4PpatternCPhPgrabCP33_GF ;
     _pSwSoixlOldApi->ungrabF( tinP ) ;
 }
 {

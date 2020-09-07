@@ -23,8 +23,6 @@ voidT ether_idCitizenHirerI_F__GF( tinS& tinP , etherC& etherP , soulC& slP , co
 
 voidT etherWhereF_373_GF( tinS& tinP , etherC& etherP , soulC& slP , const strokeS* const _psttNameP ) ;
 
-voidT etherDispenseSerialNumberF_4P_GF( tinS& tinP , etherC& etherP , soulC& slP , const strokeS* const _psttNameP ) ;
-
 voidT poolNewF_331P3_GF( tinS& tinP , etherC& etherP , soulC& slP , const strokeS* const _psttNameP ) ;
 
 voidT delF_1P_GF( tinS& tinP , etherC& etherP , soulC& slP , const strokeS* const _psttNameP ) ;
@@ -88,10 +86,6 @@ voidT diskFileQueryAttrF_4P_GF( tinS& tinP , etherC& etherP , soulC& slP , const
 voidT diskFileRefreshF_4P4P4P4P_GF( tinS& tinP , etherC& etherP , soulC& slP , const strokeS* const _psttNameP ) ;
 
 voidT diskFileSetAttrF_4P7_GF( tinS& tinP , etherC& etherP , soulC& slP , const strokeS* const _psttNameP ) ;
-
-voidT diskFindFileOrDirF_4Pb4PpatternCP_GF( tinS& tinP , etherC& etherP , soulC& slP , const strokeS* const _psttNameP ) ;
-
-voidT diskFindFileOrDirF_4P4PpatternCPhPgrabCP33_GF( tinS& tinP , etherC& etherP , soulC& slP , const strokeS* const _psttNameP ) ;
 
 voidT diskChooseSiteF_4P4P4P_GF( tinS& tinP , etherC& etherP , soulC& slP , const strokeS* const _psttNameP ) ;
 
