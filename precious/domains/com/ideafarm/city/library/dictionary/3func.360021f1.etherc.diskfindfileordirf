@@ -57,7 +57,15 @@
             delF( tinP , psttPath ) ;
             }
                 }
-                    diskFindFileOrDirF( tinP , psttA , handle , psttPath , pPatternP ) ; ___( psttA ) ;
+                    }
+                        }
+                            delF( tinP , psttA ) ;
+                            POOPRqUIET ;
+                        {
+                        if( POOP )
+                        tinP.pEtScratch->diskFindFileOrDirF( tinP , psttA , handle , psttPath , pPatternP ) ; ___( psttA ) ;
+                        SCOOPS
+                    {
 
                     }
                         break ;
@@ -91,7 +99,15 @@
                 while( psttA )
                 countT cRem = cMaxP ;
 
-                diskFindFileOrDirF( tinP , psttA , handle , psttPath , pPatternP ) ; ___( psttA ) ;
+                }
+                    }
+                        delF( tinP , psttA ) ;
+                        POOPRqUIET ;
+                    {
+                    if( POOP )
+                    tinP.pEtScratch->diskFindFileOrDirF( tinP , psttA , handle , psttPath , pPatternP ) ; ___( psttA ) ;
+                    SCOOPS
+                {
                 ZE( strokeS* , psttA ) ;
                 handleC handle( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_FILEfIND ) ;
             {
@@ -127,7 +143,11 @@
                     if( pInfoDisk )
 
                     }
-                        if( POOP ) { POOPRqUIET ; }
+                        }
+                            DEL( pInfoDisk ) ;
+                            POOPRqUIET ;
+                        {
+                        if( POOP )
                         tinP.pEtScratch->diskInfoF( tinP , pInfoDisk , psttDisk , 1 ) ; ___( pInfoDisk ) ; //U::NOT IN HERE
                         SCOOPS
                     {
