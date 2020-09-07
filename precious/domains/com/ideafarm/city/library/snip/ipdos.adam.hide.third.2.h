@@ -2831,6 +2831,7 @@ parameters
 /*3*/
 #define flFILEwINDOW_WRITE          0xe0000103
 #define flFILEwINDOW_DOnOTvALIDATE  0xe0000203
+#define flFILEwINDOW_DOnOTmAKEdIRiFnEEDED   0xe0000403
 /*3*/
 #define flFILEwINDOW_null    0xe0000003
 

@@ -1,0 +1,59 @@
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+
+/*3*/
+#define fliLISTINGc_GRABBED             0x80
+#define fliLISTINGc_MIXINlIST           0x40
+#define fliLISTINGc_MIXINdATUM          0x20
+#define fliLISTINGc_DELETErEQUESTED     0x10
+#define fliLISTINGc_DESTRUCTING         0x08
+#define fliLISTINGc_FIELD               0x04
+#define fliLISTINGc_RECORD              0x02
+/*3*/
+
+#define offLISTINGgRABBEDbIT 7
+// THIS IS THE BIT OFFSET OF fliLISTINGc_GRABBED
+
+// PERSISTENT STORE NEED NOT BE MIGRATED BECAUSE THESE CHANGES WILL NOT AFFECT THE POSITION OF THE BITS OR OF THE idTypeDatum VALUES
+// 3. IN THIS FIELD, USE THE HIGH BITS FOR FLAGS, THE LOW BITS FOR idTypeDatum, AND USE fliLISTINGc_maskBitsUsed TO MASK AWAY THE PORTION NOT WANTED
+// 2. REDEFINE THE ABOVE CONSTANTS TO BE 0x8000, 0x4000, ETC.
+// 1. COMBINE listingC::flagsi AND listingC::idTypeDatum INTO A SINGLE count01T FIELD
+// WHEN ADDING FLAGS, IF NO BITS ARE AVAILABLE, THEN DO THIS
+// THERE IS ONLY WO UNUSED BIT
+
+// CS:CODEsYNC 1100039e 1100039e: ALL OF THE ABOVE CONSTANTS MUST BE OR'D TOGETHER IN fliLISTINGc_maskBitsUsed
+
+    )
+        fliLISTINGc_maskTypeBits                                                                    \
+        fliLISTINGc_GRABBED             |                                                           \
+        fliLISTINGc_DELETErEQUESTED     |                                                           \
+        fliLISTINGc_DESTRUCTING         |                                                           \
+        fliLISTINGc_FIELD               |                                                           \
+        fliLISTINGc_RECORD              |                                                           \
+    (                                                                                               \
+                                                                                                    \
+#define fliLISTINGc_maskBitsUsed                                                                    \
+
+#define fliLISTINGc_maskTypeBits ( fliLISTINGc_MIXINlIST | fliLISTINGc_MIXINdATUM )
+#define fliLISTINGc_null          0x00
+
+//CS: CODEsYNC: 21e0008 00104af
+
+/*1*//*fliLISTINGc*//*1*/
+/**/
+*/
+/*
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+

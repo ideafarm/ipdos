@@ -1,0 +1,42 @@
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+
+;
+}
+    inline measureT* mulF( const matrix3C& mP ) const { vec3_matMatMulAM( pmmResult , pmm , mP.pmm , cRows , mP.cRows ) ; return pmmResult ; }
+    inline measureT* mulF( const vector3C& vP ) const { vec3_matVecMulAM( pmmResult , pmm , vP.pmv , cRows            ) ; return pmmResult ; }
+    inline measureT* subF( const vector3C& vP ) const { vec3_matVecSubAM( pmmResult , pmm , vP.pmv , cRows            ) ; return pmmResult ; }
+    inline voidT     operator -=( vector3C& vP ) { vec3_matVecSubInPlaceAM( pmm , vP.pmv , cRows ) ; }
+    inline operator  measureT*( voidT ) const { return pmm ; }
+
+    {}
+    pmmResult( pmResultP )
+    cRows( cRowsP ) ,
+    pmm( pmP ) ,                                                                                    // pmP MUST POINT TO ( cRowsP * 3 ) measureT VALUES
+    inline matrix3C( measureT* pmP , countT cRowsP ,  measureT* pmResultP = 0 ) :
+
+    public :
+
+    const countT    cRows ;
+    measureT* const pmmResult ;
+    measureT* const pmm ;
+{
+/*1*/class _export matrix3C/*1*/
+
+/**/
+*/
+/*
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+

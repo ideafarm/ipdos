@@ -1,0 +1,70 @@
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+
+//CODEsYNC: 0030089 0010301 CBbITScT MUST SPECIFY AN INTEGRAL NUMBER OF countT OBJECTS
+//CODE SYNC: 0050011 0030078 0030050: SIZEOF_handleC MUST BE MULTIPLE OF sizeof( countT )
+
+;
+}
+    FRIENDS_grabC
+
+    inline countT&          osTidLockF(      voidT )       { return osTidLock      ; } //THIS ACCOMODATES signC::giveF
+    inline flagsT&          flagsRefF(       voidT )       { return flags          ; } //U::THIS IS A KLUDGE TO ACCOMODATE SOME STRANGE CODE IN treeOldC::delF
+    inline flagsT           flagsF(          voidT ) const { return flags          ; } //THIS ACCOMODATES batonC
+    inline const grabStatS& statF(           voidT ) const { return stat           ; }
+    inline countT           idMeF(           voidT ) const { return idMe           ; }
+    inline countT           osTidF(          voidT ) const { return osTid          ; }
+    inline countT           cGrabbedF(       voidT ) const { return cGrabbed       ; }
+    inline countT           idGrabberHighF(  voidT ) const { return idGrabberHigh  ; }
+    inline countT           idGrabberOkF(    voidT ) const { return idGrabberOk    ; }
+
+    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34006.grabC.ungrabF!||
+    countT ungrabF( tinS& tinP , const flagsT flagsP = flGRABcUNGRABf_null ) ;
+    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34005.grabC.grabF!||
+    boolT grabF( tinS& tinP , const countT idLineP , const countT idiFileP , const byteT* const pbBitsP , const flagsT flagsP = flGRABcGRABf_null ) ;
+    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34004.grabC.formatF!||
+    voidT formatF( tinS& tinP , flagsT flagsP , const countT idLineCtP , const countT idiFileCtP , const byteT* const pbBitsCtP , countT idGrabLayerP = ifcIDgRABlAYER_7BASEmISC1 ) ;
+    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34003.grabC.grabC!||
+    grabC( tinS& tinP , const countT idLineCtP , const countT idiFileCtP , const byteT* const pbBitsCtP , flagsT flagsP = flGRABc_null , countT idGrabLayerP = ifcIDgRABlAYER_7BASEmISC1 ) ;
+    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34002.grabC.dt_grabC!||
+    ~grabC( voidT ) ;
+    NEWdELcLASSpROTOS
+
+    public :
+
+    grabStatS    stat ;
+
+    countT       osTidLock ; //IF NOT ZE THEN ALL OTHER grabF CALLERS YIELDBLOCK AT BEGINNING OF grabF
+    countT       cGrabPending2 ;
+    countT       cGrabPending1 ;
+    countT       idDesireGrabber ;      // ALL INEQUALITY COMPARISONS ARE DONE BY TESTING THE RESULT OF AN UNSIGNED SUBTRACTION CAST TO A SIGNED RESULT
+    countT       idGrabberHigh ;        // ALL CODE MUST SUPPORT WRAPPING TO 0 ; THIS MEMBER IS NONCONFORMANT IN THAT THE VALUE 0 IS VALID
+    countT       idGrabberOk ;          // ALL CODE MUST SUPPORT WRAPPING TO 0 ; THIS MEMBER IS NONCONFORMANT IN THAT THE VALUE 0 IS VALID
+    countT       cGrabbed ;
+    countT       osTid ;
+
+    flagsT       flags ;
+    countT       idMe ;
+
+    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34007.grabC._lookIF!||
+    static voidT _lookIF( tinS& tinP , grabWantS*& pGrabWantP , countT& cGrabWantP ) ;
+{
+/*1*/class _export grabC : public baseGrabC/*1*/
+/**/
+*/
+\<A HREF=\"5.1500006a.1.0.html\"\>definition\</A\>
+/*
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+

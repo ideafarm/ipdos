@@ -1,0 +1,443 @@
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+
+#endif
+
+    "FIN:       nop                                                     " /*                                                                                    */  \
+    "           jmp         AGAIN                                       " /*                                                                                    */  \
+    "           dec         ebx                                         " /*                                                                                    */  \
+    "OK:        add         eax , 04h                                   " /*                                                                                    */  \
+    "                                                                   " /*                                                                                    */  \
+    "           fstp        dword ptr [eax]                             " /* 1.0/4096.0                                                                         */  \
+    "           fldz                                                    " /* 0.0                      1.0/4096.0                                                */  \
+    "           jae         OK                                          " /* |                                                                                  */  \
+    "           fcomip      st(0) , st(1)                               " /* 1.0/4096.0                                                                         */  \
+    "           fabs                                                    " /* |v|                      1.0/4096.0                                                */  \
+    "           fld         dword ptr [eax]                             " /* [v]                      1.0/4096.0                                                */  \
+    "           je          FIN                                         " /*                                                                                    */  \
+    "AGAIN:     cmp         ebx , 0h                                    " /*                                                                                    */  \
+    "                                                                   " /*                                                                                    */  \
+    "           fdivp       st(1) , st(0)                               " /* 1.0/4096.0                                                                         */  \
+    "           pop         ecx                                         " /*                                                                                    */  \
+    "           fild        dword ptr [esp]                             " /* 4096.0                   1.0                                                       */  \
+    "           push        ecx                                         " /*                                                                                    */  \
+    "           shl         ecx , 0ch                                   " /*                                                                                    */  \
+    "           mov         ecx , 01h                                   " /*                                                                                    */  \
+    "           fld1                                                    " /* 1.0                                                                                */  \
+CODEmINE:
+
+#if defined( NEVERdEFINED )
+
+;
+    value  [eax]                                                                                                                                                    \
+    modify [ebx ecx edx esi edi esp]                                                                                                                                \
+    parm   [eax]                                                                                                                                                    \
+                                                                                                                                                                    \
+    "               add         esp , 0a0h                          " /* DEALLOCATE FOR LOCALS                                                                  */  \
+    "               frstor      dword ptr [esp]                     " /*                                                                                        */  \
+    "                                                               " /*                                                                                        */  \
+    "               mov         ebp , dword ptr 074h[esp]           " /* ebp (save)                                                                             */  \
+    "               mov         eax , 080h[esp]                     " /* bFail                                                                                  */  \
+    "               ffree       st(0)                               " /* []                                                                                     */  \
+    "FIN:           ffree       st(1)                               " /* [0.0]                                                                                  */  \
+    "                                                               " /*                                                                                        */  \
+    "               jmp         POINT1                              " /*                                                                                        */  \
+    "               rep movsd                                       " /*                                                                                        */  \
+    "               mov         ecx , 03h                           " /*                                                                                        */  \
+    "               inc         dword ptr [edx]                     " /* *psout                                                                                 */  \
+    "               dec         dword ptr [ebx]                     " /* *psin                                                                                  */  \
+    "COPY:          dec         dword ptr 084h[esp]                 " /* cOutMaxP                 EMIT THE INPUT POINT                                          */  \
+    "                                                               " /*                                                                                        */  \
+    "               fincstp                                         " /* [0.0 fuzz]                                                                             */  \
+    "               fincstp                                         " /* [* 0.0 fuzz]                                                                           */  \
+    "               ffree       st(1)                               " /* [* * 0.0 fuzz]                                                                         */  \
+    "               ffree       st(0)                               " /* [* |A.?| 0.0 fuzz]                                                                     */  \
+    "               add         edi , 0ch                           " /*                                                                                        */  \
+    "               fstp        dword ptr 08h[edi]                  " /* [ratio |A.?| 0.0 fuzz]                                                                 */  \
+    "               fstp        dword ptr 04h[edi]                  " /* [bigbe.z ratio |A.?| 0.0 fuzz]                                                         */  \
+    "               fstp        dword ptr [edi]                     " /* [bigbe.y bigbe.z ratio |A.?| 0.0 fuzz]                                                 */  \
+    "               inc         dword ptr [edx]                     " /* *psout                                                                                 */  \
+    "INSERT:        dec         dword ptr 084h[esp]                 " /* cOutMaxP ([bigbe.x bigbe.y bigbe.z ratio |A.?| 0.0 fuzz])                              */  \
+    "                                                               " /*                                                                                        */  \
+    "               jmp         COPY                                " /* ([0.0 fuzz])                                                                           */  \
+    "               fdecstp                                         " /* [0.0 fuzz * * * * * *]                                                                 */  \
+    "               fdecstp                                         " /* [fuzz * * * * * * 0.0]                                                                 */  \
+    "               fdecstp                                         " /* [* * * * * * 0.0 fuzz]                                                                 */  \
+    "               ffree       st(4)                               " /* [* * * * * 0.0 fuzz *]                                                                 */  \
+    "               ffree       st(3)                               " /* [* * * * |A.?| 0.0 fuzz *]                                                             */  \
+    "               ffree       st(2)                               " /* [* * * ratio |A.?| 0.0 fuzz *]                                                         */  \
+    "               ffree       st(1)                               " /* [* * bigbe.z ratio |A.?| 0.0 fuzz *]                                                   */  \
+    "PURGE:         ffree       st(0)                               " /* [* bigbe.y bigbe.z ratio |A.?| 0.0 fuzz *]                                             */  \
+    "                                                               " /*                                                                                        */  \
+    "               jmp         INSERT                              " /*                                                                                        */  \
+    "               jnz         PURGE                               " /*                                                                                        */  \
+    "               fxch        st(2)                               " /* [bigbe.x bigbe.y bigbe.z ratio |A.?| 0.0 fuzz]                                         */  \
+    "               fcomi       st(0) , st(5)                       " /*                                                                                        */  \
+    "TESTZ2:        fxch        st(2)                               " /* [bigbe.z bigbe.y bigbe.x ratio |A.?| 0.0 fuzz]                                         */  \
+    "                                                               " /*                                                                                        */  \
+    "               jmp         INSERT                              " /*                                                                                        */  \
+    "               jnz         PURGE                               " /*                                                                                        */  \
+    "               fcomi       st(0) , st(5)                       " /*                                                                                        */  \
+    "               jz          TESTZ2                              " /*                                                                                        */  \
+    "NOTbEHIND:     cmp         eax , 0h                            " /* {offDim}                                                                               */  \
+    "                                                               " /*                                                                                        */  \
+    "               jmp         INSERT                              " /*                                                                                        */  \
+    "               jae         PURGE                               " /*                                                                                        */  \
+    "               fxch        st(2)                               " /* [bigbe.x bigbe.y bigbe.z ratio |A.?| 0.0 fuzz]                                         */  \
+    "               fcomi       st(0) , st(5)                       " /*                                                                                        */  \
+    "TESTZ:         fxch        st(2)                               " /* [bigbe.z bigbe.y bigbe.x ratio |A.?| 0.0 fuzz]                                         */  \
+    "                                                               " /*                                                                                        */  \
+    "               jmp         INSERT                              " /*                                                                                        */  \
+    "               jae         PURGE                               " /*                                                                                        */  \
+    "               fcomi       st(0) , st(5)                       " /*                                                                                        */  \
+    "               jz          TESTZ                               " /*                                                                                        */  \
+    "               cmp         eax , 0h                            " /* {offDim}                                                                               */  \
+    "               jz          NOTbEHIND                           " /*                                                                                        */  \
+    "OKZ:           cmp         dword ptr 078h[esp] , 0h            " /* bBehind ([bigbe.x bigbe.y bigbe.z ratio |A.?| 0.0 fuzz])                               */  \
+    "                                                               " /*                                                                                        */  \
+    "               fincstp                                         " /* [bigbe.x bigbe.y 0.0 ratio |A.?| 0.0 fuzz]                                             */  \
+    "               ffree       st(0)                               " /* [* bigbe.x bigbe.y 0.0 ratio |A.?| 0.0 fuzz]                                           */  \
+    "               fxch        st(3)                               " /* [maybe.z bigbe.x bigbe.y 0.0 ratio |A.?| 0.0 fuzz]                                     */  \
+    "               fldz                                            " /* [0.0 bigbe.x bigbe.y maybe.z ratio |A.?| 0.0 fuzz]                                     */  \
+    "               jae         OKZ                                 " /*                                                                                        */  \
+    "               fcomip      st(0) , st(7)                       " /* [bigbe.x bigbe.y maybe.z ratio |A.?| 0.0 fuzz *]                                       */  \
+    "               fabs                                            " /* [|maybe.z| bigbe.x bigbe.y maybe.z ratio |A.?| 0.0 fuzz]                               */  \
+    "OKY:           fld         st(2)                               " /* [maybe.z bigbe.x bigbe.y maybe.z ratio |A.?| 0.0 fuzz]                                 */  \
+    "                                                               " /*                                                                                        */  \
+    "               fincstp                                         " /* [bigbe.x 0.0 maybe.z ratio |A.?| 0.0 fuzz *]                                           */  \
+    "               ffree       st(0)                               " /* [* bigbe.x 0.0 maybe.z ratio |A.?| 0.0 fuzz]                                           */  \
+    "               fxch        st(2)                               " /* [maybe.y bigbe.x 0.0 maybe.z ratio |A.?| 0.0 fuzz]                                     */  \
+    "               fldz                                            " /* [0.0 bigbe.x maybe.y maybe.z ratio |A.?| 0.0 fuzz]                                     */  \
+    "               jae         OKY                                 " /*                                                                                        */  \
+    "               fcomip      st(0) , st(7)                       " /* [bigbe.x maybe.y maybe.z ratio |A.?| 0.0 fuzz *]                                       */  \
+    "               fabs                                            " /* [|maybe.y| bigbe.x maybe.y maybe.z ratio |A.?| 0.0 fuzz]                               */  \
+    "OKX:           fld         st(1)                               " /* [maybe.y bigbe.x maybe.y maybe.z ratio |A.?| 0.0 fuzz]                                 */  \
+    "                                                               " /*                                                                                        */  \
+    "               fldz                                            " /* [0.0 maybe.y maybe.z ratio |A.?| 0.0 fuzz *]                                           */  \
+    "               fincstp                                         " /* [maybe.y maybe.z ratio |A.?| 0.0 fuzz * *]                                             */  \
+    "               ffree       st(0)                               " /* [* maybe.y maybe.z ratio |A.?| 0.0 fuzz *]                                             */  \
+    "               jae         OKX                                 " /*                                                                                        */  \
+    "               fcomip      st(0) , st(7)                       " /* [maybe.x maybe.y maybe.z ratio |A.?| 0.0 fuzz *]                                       */  \
+    "               fabs                                            " /* [|maybe.x| maybe.x maybe.y maybe.z ratio |A.?| 0.0 fuzz]                               */  \
+    "               fld         st(0)                               " /* [maybe.x maybe.x maybe.y maybe.z ratio |A.?| 0.0 fuzz]                                 */  \
+    "                                                               " /*                                                                                        */  \
+    "               fdecstp                                         " /* [maybe.x maybe.y maybe.z ratio |A.?| 0.0 fuzz *]                                       */  \
+    "                                                               " /*                                                                                        */  \
+    "               fdecstp                                         " /* [maybe.y maybe.z ratio |A.?| 0.0 fuzz * maybe.x]                                       */  \
+    "                                                               " /*                                                                                        */  \
+    "               fadd        dword ptr 08h[ecx]                  " /* [maybe.z ratio |A.?| 0.0 fuzz * maybe.x maybe.y]                                       */  \
+    "               fincstp                                         " /* [delta.z ratio |A.?| 0.0 fuzz * maybe.x maybe.y]                                       */  \
+    "               fadd        dword ptr 04h[ecx]                  " /* [maybe.y delta.z ratio |A.?| 0.0 fuzz * maybe.x]                                       */  \
+    "               fincstp                                         " /* [delta.y delta.z ratio |A.?| 0.0 fuzz * maybe.x]                                       */  \
+    "               fadd        dword ptr [ecx]                     " /* [maybe.x delta.y delta.z ratio |A.?| 0.0 fuzz *]                                       */  \
+    "                                                               " /*                                                                                        */  \
+    "               fmulp       st(3) , st(0)                       " /* [delta.x delta.y delta.z ratio |A.?| 0.0 fuzz]                                         */  \
+    "               fmul        st(2) , st(0)                       " /* [ratio delta.x delta.y B.z-A.z ratio |A.?| 0.0 fuzz]                                   */  \
+    "               fmul        st(1) , st(0)                       " /* [ratio delta.x B.y-A.y B.z-A.z ratio |A.?| 0.0 fuzz]                                   */  \
+    "               fld         st(3)                               " /* [ratio B.x-A.x B.y-A.y B.z-A.z ratio |A.?| 0.0 fuzz]                                   */  \
+    "               fsub        dword ptr [ecx]                     " /* [B.x-A.x B.y-A.y B.z-A.z ratio |A.?| 0.0 fuzz]                                         */  \
+    "               fld         dword ptr [esi]                     " /* [B.x B.y-A.y B.z-A.z ratio |A.?| 0.0 fuzz]                                             */  \
+    "               fsub        dword ptr 04h[ecx]                  " /* [B.y-A.y B.z-A.z ratio |A.?| 0.0 fuzz]                                                 */  \
+    "               fld         dword ptr 04h[esi]                  " /* [B.y B.z-A.z ratio |A.?| 0.0 fuzz]                                                     */  \
+    "               fsub        dword ptr 08h[ecx]                  " /* [B.z-A.z ratio |A.?| 0.0 fuzz]                                                         */  \
+    "               fld         dword ptr 08h[esi]                  " /* [B.z ratio |A.?| 0.0 fuzz]                                                             */  \
+    "                                                               " /*                                                                                        */  \
+    "               fdivr       st(0) , st(1)                       " /* [|A.?|/(|A.?|+|B.?|) |A.?| 0.0 fuzz]                                                   */  \
+    "               faddp       st(1) , st(0)                       " /* [|A.?|+|B.?| |A.?| 0.0 fuzz]                                                           */  \
+    "               fld         st(1)                               " /* [|A.?| |B.?| |A.?| 0.0 fuzz]                                                           */  \
+    "               fabs                                            " /* [|B.?| |A.?| 0.0 fuzz]                                                                 */  \
+    "               fld         dword ptr [esi+eax*4]               " /* [B.? |A.?| 0.0 fuzz]                                                                   */  \
+    "               fabs                                            " /* [|A.?| 0.0 fuzz]                                                                       */  \
+    "               fld         dword ptr [ecx+eax*4]               " /* [A.? 0.0 fuzz]                                                                         */  \
+    "                                                               " /*                                                                                        */  \
+    "               sub         ecx , 0ch                           " /* {pLag}                   POINTS TO LATH INPUT POINT: 'A'                               */  \
+    "               mov         ecx , esi                           " /*                                                                                        */  \
+    "               sub         eax , 01h                           " /* {offDim}                 ? DWORD OFFSET TO USE (EITHER 0 FOR x OR 2 FOR z)             */  \
+    "                                                               " /*                                                                                        */  \
+    "               jz          COPY                                " /*                                                                                        */  \
+    "               cmp         eax , 0h                            " /* dim                                                                                    */  \
+    "OBEY:          mov         eax , dword ptr 07ch[esp]           " /* dim                                                                                    */  \
+    "                                                               " /*                                                                                        */  \
+    "                                                               " /* SET dim AND bBehind (END) ********************************************************     */  \
+    "                                                               " /*                                                                                        */  \
+    "USEZ:          mov         dword ptr 07ch[esp] , 03h           " /* dim     <- 'z'                                                                         */  \
+    "               jmp         OBEY                                " /*                                                                                        */  \
+    "               mov         dword ptr 07ch[esp] , 01h           " /* dim     <- 'x'                                                                         */  \
+    "               ja          USEZ                                " /*                                                                                        */  \
+    "               fincstp                                         " /* [0.0 fuzz]                                                                             */  \
+    "               ffree       st(0)                               " /* [* 0.0 fuzz]                                                                           */  \
+    "               fcomip      st(0) , st(1)                       " /* [|delta.x| 0.0 fuzz]                                                                   */  \
+    "               fabs                                            " /* [|delta.z| |delta.x| 0.0 fuzz]                                                         */  \
+    "               fsub        dword ptr -04h[esi]                 " /* [B.z-A.z] |delta.x| 0.0 fuzz]                                                          */  \
+    "               fld         dword ptr 08h[esi]                  " /* [B.z |delta.x| 0.0 fuzz]                                                               */  \
+    "               fabs                                            " /* [|delta.x| 0.0 fuzz]                                                                   */  \
+    "               fsub        dword ptr -0ch[esi]                 " /* [B.x-A.x 0.0 fuzz]                                                                     */  \
+    "PASS3:         fld         dword ptr [esi]                     " /* [B.x 0.0 fuzz]                                                                         */  \
+    "                                                               " /*                                                                                        */  \
+    "                                                               " /* ---- SET dim AND bBehind FOR "ABOVE OR BELOW" ------------------------------------     */  \
+    "                                                               " /*                                                                                        */  \
+    "               jmp         COPY                                " /*                                                                                        */  \
+    "               mov         eax , 01h                           " /* {bTestedX}                                                                             */  \
+    "               jb          PASS3                               " /*                                                                                        */  \
+    "               fcomip      st(0) , st(1)                       " /* [0.0 fuzz]                                                                             */  \
+    "               fld         dword ptr [esi]                     " /* [B.z 0.0 fuzz]                                                                         */  \
+    "               jbe         COPY                                " /*                                                                                        */  \
+    "RETRY3:        fcomip      st(0) , st(1)                       " /* [0.0 fuzz]                                                                             */  \
+    "                                                               " /*                                                                                        */  \
+    "                                                               " /* ---- IS A.z > 0 && B.z < 0 ? -----------------------------------------------------     */  \
+    "                                                               " /*                                                                                        */  \
+    "               jmp         COPY                                " /*                                                                                        */  \
+    "               ja          PASS3                               " /*                                                                                        */  \
+    "               fcomip      st(0) , st(1)                       " /* [0.0 fuzz]                                                                             */  \
+    "               fld         dword ptr 08h[esi]                  " /* [B.z 0.0 fuzz]                                                                         */  \
+    "               fincstp                                         " /* [0.0 fuzz]                                                                             */  \
+    "               ffree       st(0)                               " /* [* 0.0 fuzz]                                                                           */  \
+    "               jae         RETRY3                              " /*                                                                                        */  \
+    "               fcomi       st(0) , st(1)                       " /*                                                                                        */  \
+    "SKIPX:         fld         dword ptr -04h[esi]                 " /* [A.z 0.0 fuzz]                                                                         */  \
+    "                                                               " /*                                                                                        */  \
+    "                                                               " /* ---- IS A.z < 0 && B.z > 0 ? -----------------------------------------------------     */  \
+    "                                                               " /*                                                                                        */  \
+    "               jmp         COPY                                " /*                                                                                        */  \
+    "               mov         eax , 01h                           " /* {bTestedX}                                                                             */  \
+    "               jb          PASS3                               " /*                                                                                        */  \
+    "               fcomip      st(0) , st(1)                       " /* [0.0 fuzz]                                                                             */  \
+    "               fld         dword ptr [esi]                     " /* [B.x 0.0 fuzz]                                                                         */  \
+    "               jbe         COPY                                " /*                                                                                        */  \
+    "RETRY2:        fcomip      st(0) , st(1)                       " /* [0.0 fuzz]                                                                             */  \
+    "                                                               " /*                                                                                        */  \
+    "                                                               " /* ---- IS A.x > 0 && B.x < 0 ? -----------------------------------------------------     */  \
+    "                                                               " /*                                                                                        */  \
+    "               jmp         COPY                                " /*                                                                                        */  \
+    "               ja          PASS3                               " /*                                                                                        */  \
+    "               fcomip      st(0) , st(1)                       " /* [0.0 fuzz]                                                                             */  \
+    "               fld         dword ptr [esi]                     " /* [B.x 0.0 fuzz]                                                                         */  \
+    "               fincstp                                         " /* [0.0 fuzz]                                                                             */  \
+    "               ffree       st(0)                               " /* [* 0.0 fuzz]                                                                           */  \
+    "               jae         RETRY2                              " /*                                                                                        */  \
+    "               fcomi       st(0) , st(1)                       " /*                                                                                        */  \
+    "               fld         dword ptr -0ch[esi]                 " /* [A.x 0.0 fuzz]                                                                         */  \
+    "                                                               " /*                                                                                        */  \
+    "                                                               " /* ---- IS A.x < 0 && B.x > 0 ? -----------------------------------------------------     */  \
+    "                                                               " /*                                                                                        */  \
+    "               ja          SKIPX                               " /*                                                                                        */  \
+    "LOOKaBOVE:     cmp         eax , 0h                            " /* {bTestedX}               ( !AbEHIND && !BbEHIND ) ||                                   */  \
+    "                                                               " /*                                                                                        */  \
+    "               jmp         OBEY                                " /*                                                                                        */  \
+    "               mov         dword ptr 07ch[esp] , 01h           " /* dim     <- 'x'                                                                         */  \
+    "PASS2:         mov         dword ptr 078h[esp] , 01h           " /* bBehind <- TRUE          ( A.x < 0 && B.x > 0 ) || ( A.x > 0 && B.x < 0 )              */  \
+    "                                                               " /*                                                                                        */  \
+    "                                                               " /* ---- SET dim AND bBehind FOR "BEHIND" --------------------------------------------     */  \
+    "                                                               " /*                                                                                        */  \
+    "               jmp         LOOKaBOVE                           " /*                          ( ( AbEHIND || BbEHIND ) && !AlEFT && ArIGHT && !BlEFT ) J    */  \
+    "               mov         eax , 01h                           " /* {bTestedX}                                                                             */  \
+    "                                                               " /*                                                                                        */  \
+    "               jb          PASS2                               " /*                          ( ( AbEHIND || BbEHIND ) && !AlEFT && ArIGHT ) JiF ( BlEFT )  */  \
+    "               fcomip      st(0) , st(1)                       " /* [0.0 fuzz]                                                                             */  \
+    "               fld         dword ptr [esi]                     " /* [B.x 0.0 fuzz]           ( ( AbEHIND || BbEHIND ) && !AlEFT && ArIGHT )                */  \
+    "                                                               " /*                                                                                        */  \
+    "               jbe         LOOKaBOVE                           " /*                          ( ( AbEHIND || BbEHIND ) && !AlEFT ) JiF ( !ArIGHT )          */  \
+    "ANOTLEFT:      fcomip      st(0) , st(1)                       " /* [0.0 fuzz]               ( ( AbEHIND || BbEHIND ) && !AlEFT )                          */  \
+    "                                                               " /* [A.x 0.0 fuzz]                                                                         */  \
+    "                                                               " /*                                                                                        */  \
+    "               jmp         LOOKaBOVE                           " /*                          ( ( AbEHIND || BbEHIND ) && AlEFT && !BrIGHT ) J              */  \
+    "                                                               " /*                                                                                        */  \
+    "               ja          PASS2                               " /*                          ( ( AbEHIND || BbEHIND ) && ( AlEFT ) ) JiF ( BrIGHT )        */  \
+    "               fcomip      st(0) , st(1)                       " /* [0.0 fuzz]                                                                             */  \
+    "               fld         dword ptr [esi]                     " /* [B.x 0.0 fuzz]                                                                         */  \
+    "               fincstp                                         " /* [0.0 fuzz]                                                                             */  \
+    "               ffree       st(0)                               " /* [* 0.0 fuzz]             ( ( AbEHIND || BbEHIND ) && ( AlEFT ) )                       */  \
+    "                                                               " /*                                                                                        */  \
+    "               jae         ANOTLEFT                            " /*                          ( AbEHIND || BbEHIND ) JiF ( !AlEFT )                         */  \
+    "               fcomi       st(0) , st(1)                       " /*                                                                                        */  \
+    "AORBBEHIND:    fld         dword ptr -0ch[esi]                 " /* [A.x 0.0 fuzz]           ( AbEHIND || BbEHIND ) BUG: WOTH EXEC A.V.                    */  \
+    "                                                               " /*                                                                                        */  \
+    "               jmp         LOOKaBOVE                           " /*                          ( !AbEHIND && !BbEHIND ) J                                    */  \
+    "                                                               " /*                                                                                        */  \
+    "               jb          AORBBEHIND                          " /*                          ( !AbEHIND ) JiF ( BbEHIND )                                  */  \
+    "               fcomip      st(0) , st(1)                       " /* [0.0 fuzz]                                                                             */  \
+    "               fld         dword ptr 08h[esi]                  " /* [B.z 0.0 fuzz]                                                                         */  \
+    "                                                               " /*                                                                                        */  \
+    "               jb          AORBBEHIND                          " /*                          JiF ( AbEHIND )                                               */  \
+    "               fcomip      st(0) , st(1)                       " /* [0.0 fuzz]                                                                             */  \
+    "               fld         dword ptr -04h[esi]                 " /* [A.z 0.0 fuzz]           BUG: WOTH EXECUTION REFERENCES UNDEFINED MEMORY?              */  \
+    "                                                               " /*                                                                                        */  \
+    "               mov         eax , 0h                            " /* {bTestedX}                                                                             */  \
+    "               mov         dword ptr 07ch[esp] , 0h            " /* dim                                                                                    */  \
+    "               mov         dword ptr 078h[esp] , 0h            " /* bBehind                  INITIALIZE bBehind dim {bTestedX}                             */  \
+    "                                                               " /*                                                                                        */  \
+    "               je          COPY                                " /*                                                                                        */  \
+    "POINT3:        cmp         dword ptr [edx] , 0h                " /* *psout                   HAVE I EMITTED ANY POINTS FOR THIS GLYPH?                     */  \
+    "                                                               " /*                                                                                        */  \
+    "               jmp         FIN                                 " /*                                                                                        */  \
+    "               mov         dword ptr 080h[esp] , 01h           " /* bFail                    FAIL RETURN BECAUSE NOT ENOUGH ROOM FOR 2 MORE POINTS         */  \
+    "                                                               " /*                                                                                        */  \
+    "               ja          POINT3                              " /*                                                                                        */  \
+    "POINT2:        cmp         dword ptr 084h[esp] , 01h           " /* cOutMaxP                 ROOM FOR 2 MORE POINTS IN THE OUTPUT BUFFER?                  */  \
+    "                                                               " /*                                                                                        */  \
+    "               jmp         GLYPH                               " /*                                                                                        */  \
+    "               add         edx , 04h                           " /* psout                                                                                  */  \
+    "               add         ebx , 04h                           " /* psin                     SET UP FOR NEW GLYPH AND JUMP BACK TO PROCESS IT              */  \
+    "                                                               " /*                                                                                        */  \
+    "               jne         POINT2                              " /*                                                                                        */  \
+    "POINT1:        cmp         dword ptr [ebx] , 0h                " /* *psin                    ANY MORE POINTS IN THIS GLYPH?                                */  \
+    "                                                               " /*                                                                                        */  \
+    "               mov         dword ptr [edx] , 0h                " /* *psout                                                                                 */  \
+    "               inc         dword ptr [ebp]                     " /* *pcgout                                                                                */  \
+    "                                                               " /*                                                                                        */  \
+    "               dec         dword ptr 0a0h[esp]                 " /* cgin                                                                                   */  \
+    "               je          FIN                                 " /*                                                                                        */  \
+    "GLYPH:         cmp         dword ptr 0a0h[esp] , 0h            " /* cgin                     ANY MORE GLYPHS?                                              */  \
+    "                                                               " /*                                                                                        */  \
+    "                                                               " /* **********************************************************************************     */  \
+    "                                                               " /* **********************************************************************************     */  \
+    "                                                               " /* **********************************************************************************     */  \
+    "                                                               " /* **********************************************************************************     */  \
+    "                                                               " /* ****                                                                          ****     */  \
+    "                                                               " /* **** PROCESS A GLYPH                                                          ****     */  \
+    "                                                               " /* ****                                                                          ****     */  \
+    "                                                               " /* **********************************************************************************     */  \
+    "                                                               " /* **********************************************************************************     */  \
+    "                                                               " /* **********************************************************************************     */  \
+    "                                                               " /* **********************************************************************************     */  \
+    "                                                               " /*                                                                                        */  \
+    "               fldz                                            " /* [0.0 fuzz]                                                                             */  \
+    "               fdivp       st(1) , st(0)                       " /* [1.0/4096.0]                                                                           */  \
+    "               pop         ecx                                 " /*                                                                                        */  \
+    "               fild        dword ptr [esp]                     " /* [4096.0 1.0]                                                                           */  \
+    "               push        ecx                                 " /*                                                                                        */  \
+    "               shl         ecx , 0ch                           " /*                                                                                        */  \
+    "               mov         ecx , 01h                           " /*                                                                                        */  \
+    "               fld1                                            " /* [1.0]                                                                                  */  \
+    "                                                               " /*                                                                                        */  \
+    "               mov         dword ptr 080h[esp] , 0h            " /* bFail                                                                                  */  \
+    "               mov         edi , dword ptr 0b4h[esp]           " /* ppout                                                                                  */  \
+    "               mov         esi , dword ptr 0a8h[esp]           " /* ppin                                                                                   */  \
+    "               mov         dword ptr [ebp] , 0h                " /* *pcgout                                                                                */  \
+    "               mov         ebp , dword ptr 0ach[esp]           " /* pcgout                                                                                 */  \
+    "               mov         edx , dword ptr 0b0h[esp]           " /* psout                                                                                  */  \
+    "               mov         ebx , dword ptr 0a4h[esp]           " /* psin                                                                                   */  \
+    "               mov         dword ptr 084h[esp] , eax           " /* cOutMaxP                                                                               */  \
+    "               mov         dword ptr 074h[esp] , ebp           " /* ebp (save)                                                                             */  \
+    "                                                               " /*                                                                                        */  \
+    "               fldcw       dword ptr 070h[esp]                 " /* {fpcw}                                                                                 */  \
+    "               and         dword ptr 070h[esp] , 0fff0h        " /* {fpcw}                                                                                 */  \
+    "               fstcw       dword ptr 070h[esp]                 " /* {fpcw}                   UNMASK ALL FP EXCEPTIONS FOR STRONG TYPE CHECKING             */  \
+    "                                                               " /*                                                                                        */  \
+    "               fsave       dword ptr [esp]                     " /*                                                                                        */  \
+    "               sub         esp , 0a0h                          " /* ALLOCATE FOR LOCALS AND SET UP REFERENCE REGISTERS                                     */  \
+    "                                                               " /*                                                                                        */  \
+    "                                                               " /* **********************************************************************************     */  \
+    "                                                               " /* **********************************************************************************     */  \
+    "                                                               " /* **********************************************************************************     */  \
+    "                                                               " /* **********************************************************************************     */  \
+    "                                                               " /* ****                                                                          ****     */  \
+    "                                                               " /* **** SET UP                                                                   ****     */  \
+    "                                                               " /* ****                                                                          ****     */  \
+    "                                                               " /* **********************************************************************************     */  \
+    "                                                               " /* **********************************************************************************     */  \
+    "                                                               " /* **********************************************************************************     */  \
+    "                                                               " /* **********************************************************************************     */  \
+    "                                                               " /*                                                                                        */  \
+    "                                                               " /* **********************************************************************************     */  \
+    "                                                               " /* **********************************************************************************     */  \
+    "                                                               " /* **********************************************************************************     */  \
+    "                                                               " /* **********************************************************************************     */  \
+    "                                                               " /* ****                                                                          ****     */  \
+    "                                                               " /* **** I RETURN bFail.                                                          ****     */  \
+    "                                                               " /* ****                                                                          ****     */  \
+    "                                                               " /* **** THE HEADING OF THE ADJACENT ORIGINAL POINT.  THE GLYPH IS NOT SPLIT.     ****     */  \
+    "                                                               " /* **** THE ARBITRARY VALUE FOR HEADING USED FOR EACH OF THE INSERTED POINTS IS  ****     */  \
+    "                                                               " /* **** DIRECTLY ABOVE ME.  FOR A POINT DIRECTLY ABOVE ME, HEADING IS ARBITRARY. ****     */  \
+    "                                                               " /* **** PAIR OF POINTS THAT BOTH REPRESENT THE POINT ON THE LINE THAT IS         ****     */  \
+    "                                                               " /* **** THAT ONE OF THE POINTS IS BEHIND ME AND ONE IS AHEAD OF ME, I INSERT A   ****     */  \
+    "                                                               " /* **** WHEN A LINE BETWEEN TWO ADJACENT POINTS PASSES DIRECTLY ABOVE ME, SUCH   ****     */  \
+    "                                                               " /* ****                                                                          ****     */  \
+    "                                                               " /* **** SPLIT.                                                                   ****     */  \
+    "                                                               " /* **** INSERT THE POINT ON THAT LINE THAT IS DIRECTLY BEHIND ME.  THE GLYPH IS  ****     */  \
+    "                                                               " /* **** WHEN A LINE BETWEEN TWO ADJACENT POINTS PASSES DIRECTLY BEHIND ME, I     ****     */  \
+    "                                                               " /* ****                                                                          ****     */  \
+    "                                                               " /* **** OO INSERTED POINTS.                                                      ****     */  \
+    "                                                               " /* **** ADDITIONAL POINTS.  SOMETIMES THE GLYPH IS SPLIT INTO OO GLYPHS BETWEEN  ****     */  \
+    "                                                               " /* **** POINTS.  ALL INPUT POINTS ARE COPIED TO OUTPUT.  MY JOB IS TO INSERT     ****     */  \
+    "                                                               " /* **** OUTPUTS AN ARRAY OF (X,Y,Z) POINTS GIVEN AN INPUT ARRAY OF (X,Y,Z)       ****     */  \
+    "                                                               " /* ****                                                                          ****     */  \
+    "                                                               " /* **********************************************************************************     */  \
+    "                                                               " /* **********************************************************************************     */  \
+    "                                                               " /* **********************************************************************************     */  \
+    "                                                               " /* **********************************************************************************     */  \
+    "                                                               " /*                                                                                        */  \
+    /*                                                                                                                                                          */  \
+    /* esp           stack frame                                                                                                                                */  \
+    /* ebp           pcgout                                                                                                                                     */  \
+    /* edi           cursor: point output                                                                                                                       */  \
+    /* esi           cursor: point input                                                                                                                        */  \
+    /* edx           psout                                                                                                                                      */  \
+    /* ecx           temporary: {pLag}                                                                                                                          */  \
+    /* ebx           psin                                                                                                                                       */  \
+    /* eax           temporary: {bTestedX} {offDim}                                                                                                             */  \
+    /*                                                                                                                                                          */  \
+    /* 0a0h         (end)                                                                                                                                       */  \
+    /* 09ch                                                                                                                                                     */  \
+    /* 098h                                                                                                                                                     */  \
+    /* 094h                                                                                                                                                     */  \
+    /* 090h                                                                                                                                                     */  \
+    /* 08ch                                                                                                                                                     */  \
+    /* 088h                                                                                                                                                     */  \
+    /* 084h         cOutMaxP                                                                                                                                    */  \
+    /* 080h         bFail                                                                                                                                       */  \
+    /* 07ch         dim                                                                                                                                         */  \
+    /* 078h         bBehind                                                                                                                                     */  \
+    /* 074h         ebp (save)                                                                                                                                  */  \
+    /* 070h         temporary: {fpcw}                                                                                                                           */  \
+    /* 06ch         debugging temporary: {idIn}                                                                                                                 */  \
+    /* 000h         fpuState                                                                                                                                    */  \
+    /*                                                                                                                                                          */  \
+    /* REGISTER AND STACK VARIABLES                                                                                                                             */  \
+    /*                                                                                                                                                          */  \
+    /* 014h         0b4h[esp]     ppout                                                                                                                         */  \
+    /* 010h         0b0h[esp]     psout                                                                                                                         */  \
+    /* 00ch         0ach[esp]     pcgout                                                                                                                        */  \
+    /* 008h         0a8h[esp]     ppin                                                                                                                          */  \
+    /* 004h         0a4h[esp]     psin                                                                                                                          */  \
+    /* 000h         0a0h[esp]     cgin                                                                                                                          */  \
+    /*                                                                                                                                                          */  \
+    /* ONeNTRY      AFTERfRAMED                                                                                                                                 */  \
+    /*                                                                                                                                                          */  \
+    /* OFFSETS TO MASTER PARAMETERS ON THE STACK                                                                                                                */  \
+                                                                                                                                                                    \
+#pragma aux insertBehindAboveBelowAM =                                                                                                                              \
+
+
+#endif
+
+    "DEBUG:     nop                                             " /*                                                                                    */  \
+    "                                                           " /*                                                                                    */  \
+    "           nop                                             " /*                                                                                    */  \
+    "           jb          DEBUG                               " /*                                                                                    */  \
+    "           cmp         dword ptr 06ch[esp] , 0ah           " /* {idIn}                                                                             */  \
+    "           inc         dword ptr 06ch[esp]                 " /* {idIn}                                                                             */  \
+    "           mov         dword ptr 06ch[esp] , 0h            " /* {idIn}                                                                             */  \
+
+#if defined( NEVERdEFINED )
+
+                                                                                
+/*1*/boolT __export insertBehindAboveBelowAM( countT cOutMaxP ) ;/*1*/          
+
+/**/
+*/
+/*
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+

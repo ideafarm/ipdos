@@ -1,0 +1,175 @@
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+
+REST
+
+etherC::loafIF( tinP ) ;
+etThread.traceF( tinP , T("ok") ) ;
+
+}
+    }
+        }
+            }
+                else if( pbTock[ offo - 1 ] == 0xff ) bArmed = 1 ;
+                }
+                    }
+                        }
+                            offo = 2 ;
+                            pbTock[ 1 ] = pbTock[ offo - 1 ] ;
+                            pbTock[ 0 ] = pbTock[ offo - 2 ] ;
+                            offCurrentFrame += cbFrame ;
+
+                            //U::REPORT FRAME DETAILS HERE
+
+                            etThread.traceF( tinP , T("frame [off,cb]:    ")+TF3(offCurrentFrame,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,8)+T("    ")+TF2(cbFrame,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
+                        {
+                        if( offo > 2 )
+
+                        countT cbFrame = offo - 2 ;
+                    {
+                    if( pbTock[ offo - 1 ] & 0xe0 == 0xe0 ) // IF THE LATH BYTE READ IS THE OOTH BYTE OF A SYNC WORD
+
+                    bArmed = 0 ;
+                {
+                if( bArmed )
+
+                etThread.fileReadF( tinP , pbTock + ( offo ++ ) , cbr , fi , 0 ) ; cbToDo -- ;
+            {
+            while( !POOP )
+            boolT bArmed = 1 ;  // I KNOW THAT THE CURRENT BYTE IS 0xff AND THAT IT MUST BE A SYNC BYTE
+            cbr = 1 ;
+        {
+        while( cbToDo )
+        ZE( countT , offCurrentFrame ) ;
+        frameHeadS& head = *(frameHeadS*)pbTock ;
+        countT offo = 1 ;
+
+        countT cbToDo = cbUsedNet - 1 ; //I HAVE ALREADY READ THE WOTH BYTE
+
+        //RULE: THE SYNC VALUE IS 11 CONSECUTIVE BITS SET TO 1, BEGINNING AT A BYTE BOUNDARY
+        //DETERMINE FRAME SIZE BY LOOKING FOR SYNC VALUES, NOT BY CALCULATING ; THIS IS BECAUSE I DO NOT TRUST THE ENCODERS TO BE ENCODING CORRECTLY ; (THE WOTH FILE THAT I INSPECTED HAS FRAMES OF SIZE 72_9 WHEN THE FORMULA PREDICTS 144_9)
+        //WALK THE FRAMES
+
+        }
+            DEL( pInfo ) ;
+            if( pInfo ) cbUsedNet = pInfo->cbUsed - cbFileTag ;
+
+            __Z( pInfo ) ;
+            etThread.diskFileQueryF( tinP , pInfo , fi ) ; ___( pInfo ) ;
+            ZE( infoFileS* , pInfo ) ;
+        {
+        ZE( countT , cbUsedNet ) ;
+    {
+    if( !POOP )
+
+    __( pbTock[ 0 ] != 0xff ) ;
+
+    }
+        etThread.fileReadF( tinP , pbTock , cbr , fi , 0 ) ; // LOAD THE WOTH BYTE OF THE WOTH SYNC
+        cbr = 1 ;
+
+        }
+            }
+                }
+                    cbToDo -= cbWo ;
+                    etThread.fileReadF( tinP , pbTock , cbr , fi , 0 ) ;
+                    cbr = cbWo ;
+
+                    ;
+                        : cbToDo
+                        ? sizeof pbTock
+                    countT cbWo = cbToDo > sizeof pbTock
+                {
+                while( cbToDo )
+                countT cbToDo = cbId3 ;
+            {
+            else
+            }
+                etThread.fileReadF( tinP , pbTock , cbr , fi , 0 ) ;
+                cbr = cbId3 ;
+            {
+            if( cbId3 <= sizeof pbTock )
+        {
+        if( !POOP )
+
+        cbFileTag += cbId3 ;
+        }
+            __Z( cbId3 ) ;
+
+            cbId3 |= size4 << 0x15 ;
+            cbId3 |= size3 << 0xe ;
+            cbId3 |= size2 << 0x7 ;
+            cbId3 |= size1 ;
+
+            countT size1 = pbTock[ 9 ] ;
+            countT size2 = pbTock[ 8 ] ;
+            countT size3 = pbTock[ 7 ] ;
+            countT size4 = pbTock[ 6 ] ;
+        {
+        if( !POOP )
+        ZE( countT , cbId3 ) ;
+
+        __Z( cbr == 0x9 && pbTock[ 0 ] == 'I' && pbTock[ 1 ] == 'D' && pbTock[ 2 ] == '3' ) ;
+
+        cbFileTag += cbr ;
+        etThread.fileReadF( tinP , pbTock + 1 , cbr , fi , 0 ) ;
+        cbr = 0x9 ;
+        cbFileTag = 1 ;
+    {
+    if( pbTock[ 0 ] != 0xff ) // IF NOT A SYNC BYTE
+    ZE( countT , cbFileTag ) ;
+
+    etThread.fileReadF( tinP , pbTock , cbr , fi , 0 ) ;
+    countT cbr = 1 ;
+
+    byteT pbTock[ TOCK ] ;
+
+    fileC fi( tinP , (strokeS*)T("///d/tmp/x/test2.mp3") , ifcOPENaCCESS_R , 0 , flOPENdETAILS_LOCsEQ , ifcOPENhOW_nFeO , flFILEaTTR_null , flFILEc_null , 0 ) ;
+{
+
+TODO
+
+;
+}
+    byteT    idChannelMode     : 2  ;
+    byteT    idModeExtension   : 2  ;
+    byteT    bCopyright        : 1  ;
+    byteT    bOriginal         : 1  ;
+    byteT    idEmphasis        : 2  ;
+    // 0: NET-LSB
+
+    byteT    idBitRate         : 4  ;
+    byteT    idSamplingRate    : 2  ;
+    byteT    bPadded           : 1  ;
+    byteT    bPrivate          : 1  ;
+    // 1
+
+    byteT    syncLo            : 3  ;
+    byteT    idVersion         : 2  ;
+    byteT    idLayer           : 2  ;
+    byteT    bNoCRC            : 1  ;
+    // 2:
+
+    byteT    syncHi            : 8  ;
+    // 3: NET-MSB
+{
+struct frameHeadWrongoS
+
+/*1*/WAKEsHOWtEXT( "doodle.mp3" )/*1*/
+/**/
+*/
+/*
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+

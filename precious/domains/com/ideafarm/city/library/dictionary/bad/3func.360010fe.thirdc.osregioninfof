@@ -1,0 +1,401 @@
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+
+}
+    cBitsGrainP = cBitsGrain ;
+
+    }
+        while( !third && ~hDown ) ;
+        }
+            }
+                }
+                    pVmRegionAllocP[ ida ].flags  = pInfo->fla ;
+                    pVmRegionAllocP[ ida ].cb    += pInfo->cb ;
+                    pVmRegionAllocP[ ida ].c_pb   = pInfo->c_pbla ;
+
+                    pVmRegionP[      idr ].flags  = pInfo->fl ;
+                    pVmRegionP[      idr ].cb     = pInfo->cb ;
+                    pVmRegionP[      idr ].c_pb   = pInfo->c_pbl ;
+                {
+                if( !POOP )
+
+                __( cAllocs  < ida ) ;
+                __( cRegions < idr ) ;
+                __Z( ida ) ;
+                __Z( idr ) ;
+                countT ida  = pbIdAllocP[  idr  ] ;
+                countT idr  = pbIdRegionP[ offp ] ;
+                countT offp = pInfo->c_pbl >> cBitsGrain ;
+            {
+            if( pInfo )
+            ifInfoS* pInfo = (ifInfoS*)stInfo.downF( tinP , hDown ) ;
+        {
+        do
+        handleC hDown( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_STACKwALK ) ;
+    {   //COPY THE REGION INFORMATION FROM THE STACK PLATES INTO THE REGION INFORMATION ARRAYS
+    if( !POOP )
+
+    c_memsetIF( tinP , (byteT*)pVmRegionAllocP , sizeof( vmRegionS ) * ( 2 + cAllocs  ) ) ;
+    c_memsetIF( tinP , (byteT*)pVmRegionP      , sizeof( vmRegionS ) * ( 2 + cRegions ) ) ;
+
+    newF( tinP , LF , (byteT*&)pVmRegionAllocP , sizeof( vmRegionS ) * ( 2 + cAllocs  ) ) ; ___( pVmRegionAllocP ) ;
+    newF( tinP , LF , (byteT*&)pVmRegionP      , sizeof( vmRegionS ) * ( 2 + cRegions ) ) ; ___( pVmRegionP ) ;
+
+    }
+        }
+            cAllocs = idAllocNext ;
+            __( idRegionNext < cRegions ) ;
+            while( !third && ~hDown ) ;
+            }
+                }
+                    pbIdAllocP[ idRegionNext ++ ] = (byteT)idAllocNext ;
+
+                    __( pbIdRegionP[ offPageMin ] - idRegionNext ) ;
+                    __( !pbIdRegionP[ offPageMin ] ) ;
+                    __( offPageEnd == offPageMin ) ;
+                    countT offPageEnd   = pInfo->c_pbl + pInfo->cb >> cBitsGrain ;
+                    countT offPageMin   = pInfo->c_pbl             >> cBitsGrain ;
+                    }
+                        __( idAllocNext > 0xff ) ;
+                        idAllocNext ++ ;
+                        c_pblaLast  = pInfo->c_pbla ;
+                    {
+                    if( c_pblaLast != pInfo->c_pbla )
+                {
+                if( pInfo )
+                ifInfoS* pInfo = (ifInfoS*)stInfo.downF( tinP , hDown ) ;
+            {
+            do
+            handleC hDown( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_STACKwALK ) ;
+            ZE( countT , c_pblaLast ) ;
+            countT idAllocNext = 1 ;
+            countT idRegionNext = 1 ;
+            pbIdAllocP[ 1 + cRegions ] = 0 ;
+        {
+        if( !POOP )
+
+        c_memsetIF( tinP , pbIdAllocP , 1 + cRegions ) ;
+
+        newF( tinP , LF , pbIdAllocP , 2 + cRegions ) ; ___( pbIdAllocP ) ;
+    {   //MAKE pbIdAllocP ARRAY
+    ZE( countT , cAllocs ) ;
+
+    __Z( cRegions ) ;
+    }
+        }
+            __( cRegions - stInfo ) ;
+            cRegions = idRegionNext - 1 ;
+            __( offPageNext ) ;
+            while( !third && ~hDown ) ;
+            }
+                }
+                    __( idRegionNext > 0xff ) ;
+                    idRegionNext ++ ;
+
+                    offPageNext = offPageEnd ;
+                    else              c_memsetIF( tinP , pbIdRegionP + offPageNext , offPageEnd - offPageNext , (byteT)idRegionNext ) ;
+                    if( !offPageEnd ) c_memsetIF( tinP , pbIdRegionP + offPageNext , cPages     - offPageNext , (byteT)idRegionNext ) ;
+
+                    __( offPageNext != offPageMin ) ;
+                    __( offPageEnd  == offPageMin ) ;
+                    countT offPageEnd   = pInfo->c_pbl + pInfo->cb >> cBitsGrain ;
+                    countT offPageMin   = pInfo->c_pbl             >> cBitsGrain ;
+                {
+                if( pInfo )
+                ifInfoS* pInfo = (ifInfoS*)stInfo.downF( tinP , hDown ) ;
+            {
+            do
+            handleC hDown( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_STACKwALK ) ;
+            ZE( countT , offPageNext ) ;
+            countT idRegionNext = 1 ;
+            pbIdRegionP[ cPages ] = 0 ;
+        {
+        if( !POOP )
+
+        c_memsetIF( tinP , pbIdRegionP , cPages + 1 ) ;
+
+        newF( tinP , LF , pbIdRegionP , cPages + 1 ) ; ___( pbIdRegionP ) ;
+        __Z( cPages ) ;
+        countT cPages = cBitsGrain ? 1 << sizeof( countT ) * SB - cBitsGrain : 0 ;
+    {   //MAKE pbIdRegionP ARRAY
+    ZE( countT , cRegions ) ;
+
+    // THIS IS TO CONFORM TO IFC CONVENTION THAT ENCOURAGES USE OF ID'S RATHER THAN OFFSETS TO INDEX INTO ARRAYS, AND CONVENTION THAT NULL DATA VALUES SHOULD BE AVOIDED
+    // THE REMAINING ARRAYS WILL USE 1-BASED INDEXING.  THE ELEMENT AT OFFSET 0 WILL NOT BE USED.
+    // pbIdRegion WILL CONTAIN idRegion, WHICH IS GUARANTEED TO BE NONZE
+    // pbIdRegion WILL BE INDEXED USING offPage, SINCE offPage IS EASIER TO OBTAIN FROM AN ADDRESS VALUE
+    //ARRAY INDEXING CONVENTIONS
+
+    }
+        }
+            bitsUsed >>= 1 ;
+            else               cBitsGrain ++ ;
+            if( bitsUsed & 1 ) break ;
+        {
+        while( bitsUsed )
+
+        while( !third && ~hDown ) ;
+        }
+            if( pInfo ) bitsUsed |= pInfo->c_pbl | pInfo->cb ;
+            ifInfoS* pInfo = (ifInfoS*)stInfo.downF( tinP , hDown ) ;
+        {
+        do
+        handleC hDown( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_STACKwALK ) ;
+        ZE( countT , bitsUsed ) ;
+    {
+    if( stInfo )
+    ZE( countT , cBitsGrain ) ;
+
+    }
+        }
+            stInfo.insertF( tinP , (countT)pbInfoi , ifcSTACKtYPE_PTR_byteT , -1 ) ;
+            c_pblEndMax = 0 ;
+
+            pInfoi->fla    = pInfoi->fl = flVM_NOiNFOaVAILABLE ;
+            pInfoi->c_pbla = 0 ;
+            pInfoi->cb     = - c_pblEndMax ;
+            pInfoi->c_pbl  =   c_pblEndMax ;
+
+            ifInfoS* pInfoi = (ifInfoS*)pbInfoi ;
+        {
+        if( pbInfoi )
+        newF( tinP , LF , pbInfoi , sizeof( ifInfoS ) ) ; ___( pbInfoi ) ;
+        ZE( byteT* , pbInfoi ) ;
+    {
+    if( c_pblEndMax )
+    }
+        while( !third && ~hDown ) ;
+        }
+            }
+                else                         __1
+                if( c_pblEndMax < c_pblEnd ) c_pblEndMax = c_pblEnd ;
+
+                }
+                    else         hDown = hdSave ;
+                    if( ~hDown ) stInfo.downF( tinP , hDown ) ;
+
+                    if( pbInfoi2 ) stInfo.insertF( tinP , (countT)pbInfoi2 , ifcSTACKtYPE_PTR_byteT ) ;
+                    else stInfo.insertF( tinP , (countT)pbInfoi1 , ifcSTACKtYPE_PTR_byteT ) ;
+                    }
+                        stInfo.insertF( tinP , (countT)pbInfoi1 , ifcSTACKtYPE_PTR_byteT , 1 ) ;
+                        bTop = 0 ;
+                    {
+                    if( bTop )
+                    boolT bTop = !stInfo.downUndoF( tinP , hDown ) ;
+                    handleC hdSave = hDown ;
+                {
+                if( pbInfoi1 )
+                if( !pbInfoi1 ) { pbInfoi1 = pbInfoi2 ; pbInfoi2 = 0 ; }
+
+                }
+                    }
+                        c_pblEndMax = pInfo->c_pbl ;
+                        pbInfoi2 = pbInfoi ;
+
+                        pInfoi->fla    = pInfo->fla ;
+                        pInfoi->fl     = flVM_NOiNFOaVAILABLE ;
+                        pInfoi->c_pbla = pInfo->c_pbla ;
+                        pInfoi->cb     = pInfo->c_pbl - c_pblEndMax ;
+                        pInfoi->c_pbl  = c_pblEndMax ;
+
+                        ifInfoS* pInfoi = (ifInfoS*)pbInfoi ;
+                    {
+                    if( pbInfoi )
+                    newF( tinP , LF , pbInfoi , sizeof( ifInfoS ) ) ; ___( pbInfoi ) ;
+                    ZE( byteT* , pbInfoi ) ;
+                {
+                if( c_pblEndMax < pInfo->c_pbl )
+
+                }
+                    }
+                        c_pblEndMax = pInfo->c_pbla ;
+                        pbInfoi1 = pbInfoi ;
+
+                        pInfoi->fla    = pInfoi->fl = flVM_NOiNFOaVAILABLE ;
+                        pInfoi->c_pbla = 0 ;
+                        pInfoi->cb     = pInfo->c_pbla - c_pblEndMax ;
+                        pInfoi->c_pbl  = c_pblEndMax ;
+
+                        ifInfoS* pInfoi = (ifInfoS*)pbInfoi ;
+                    {
+                    if( pbInfoi )
+                    newF( tinP , LF , pbInfoi , sizeof( ifInfoS ) ) ; ___( pbInfoi ) ;
+                    ZE( byteT* , pbInfoi ) ;
+                {
+                if( c_pblEndMax < pInfo->c_pbla )
+                ZE( byteT* , pbInfoi1 ) ;
+                ZE( byteT* , pbInfoi2 ) ;
+
+                countT c_pblEnd = pInfo->c_pbl + pInfo->cb ;
+            {
+            if( pInfo )
+            ifInfoS* pInfo = (ifInfoS*)stInfo.downF( tinP , hDown ) ;
+        {
+        do
+        handleC hDown( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_STACKwALK ) ;
+    {
+    if( stInfo ) // INSERT GENERATED ifInfoS OBJECTS TO ELIMINATE COVERAGE HOLES
+    ZE( countT , c_pblEndMax ) ;
+
+    //  WINDOWS NT APPEARS TO NORMALLY PROVIDE COMPLETE COVERAGE, BUT HAS BEEN OBSERVED TO FAIL TO DO THIS
+    //  A HOLE IS A GAP IN COVERAGE FOR THE ADDRESS SPACE
+    // THE PLATES IN stInfo MAP 1:1 TO THE RECORDS RETURNED BY THE OS.  FOR SOME OS, THESE RECORDS CAN CONTAIN "COVERAGE HOLES" 
+    }
+        }
+            c_pbqLag = c_pbq ;
+            if( c_pbq < c_pbqLag || c_pbq >= c_pbqEnd ) break ;
+
+            #endif
+
+                }
+                    }
+                        c_pbq += osInfo.RegionSize ;
+
+                        }
+                            stInfo << pbInfo ;
+                            if( osInfo.AllocationProtect & PAGE_NOCACHE           ) pInfo->fla |= flVM_MODEnOcACHE ;
+                            if( osInfo.AllocationProtect & PAGE_GUARD             ) pInfo->fla |= flVM_MODEgUARD ;
+                            if( osInfo.AllocationProtect & PAGE_EXECUTE_WRITECOPY ) pInfo->fla |= flVM_ACCESSdO | flVM_ACCESSrEAD | flVM_ACCESSwRITE | flVM_ACCESScOPYoNwRITE ;
+                            if( osInfo.AllocationProtect & PAGE_EXECUTE_READWRITE ) pInfo->fla |= flVM_ACCESSdO | flVM_ACCESSrEAD | flVM_ACCESSwRITE ;
+                            if( osInfo.AllocationProtect & PAGE_EXECUTE_READ      ) pInfo->fla |= flVM_ACCESSdO | flVM_ACCESSrEAD ;
+                            if( osInfo.AllocationProtect & PAGE_EXECUTE           ) pInfo->fla |= flVM_ACCESSdO ;
+                            if( osInfo.AllocationProtect & PAGE_WRITECOPY         ) pInfo->fla |= flVM_ACCESSrEAD | flVM_ACCESSwRITE | flVM_ACCESScOPYoNwRITE ;
+                            if( osInfo.AllocationProtect & PAGE_READWRITE         ) pInfo->fla |= flVM_ACCESSrEAD | flVM_ACCESSwRITE ;
+                            if( osInfo.AllocationProtect & PAGE_READONLY          ) pInfo->fla |= flVM_ACCESSrEAD ;
+                            //if( osInfo.AllocationProtect & PAGE_NOACCESS          ) pInfo->fla |= flVM_null ;
+
+                            if( osInfo.Protect           & PAGE_NOCACHE           ) pInfo->fl |= flVM_MODEnOcACHE ;
+                            if( osInfo.Protect           & PAGE_GUARD             ) pInfo->fl |= flVM_MODEgUARD ;
+                            if( osInfo.Protect           & PAGE_EXECUTE_WRITECOPY ) pInfo->fl |= flVM_ACCESSdO | flVM_ACCESSrEAD | flVM_ACCESSwRITE | flVM_ACCESScOPYoNwRITE ;
+                            if( osInfo.Protect           & PAGE_EXECUTE_READWRITE ) pInfo->fl |= flVM_ACCESSdO | flVM_ACCESSrEAD | flVM_ACCESSwRITE ;
+                            if( osInfo.Protect           & PAGE_EXECUTE_READ      ) pInfo->fl |= flVM_ACCESSdO | flVM_ACCESSrEAD ;
+                            if( osInfo.Protect           & PAGE_EXECUTE           ) pInfo->fl |= flVM_ACCESSdO ;
+                            if( osInfo.Protect           & PAGE_WRITECOPY         ) pInfo->fl |= flVM_ACCESSrEAD | flVM_ACCESSwRITE | flVM_ACCESScOPYoNwRITE ;
+                            if( osInfo.Protect           & PAGE_READWRITE         ) pInfo->fl |= flVM_ACCESSrEAD | flVM_ACCESSwRITE ;
+                            if( osInfo.Protect           & PAGE_READONLY          ) pInfo->fl |= flVM_ACCESSrEAD ;
+                            //if( osInfo.Protect           & PAGE_NOACCESS          ) pInfo->fl |= flVM_null ;
+
+                            if( osInfo.Type              & MEM_PRIVATE            ) pInfo->fl |= flVM_COMMITpRIVATE ;
+                            if( osInfo.Type              & MEM_MAPPED             ) pInfo->fl |= flVM_COMMITmAPPED ;
+                            if( osInfo.Type              & MEM_IMAGE              ) pInfo->fl |= flVM_COMMITlOADiMAGE ;
+
+                            if( osInfo.State             & MEM_COMMIT             ) pInfo->fl |= flVM_ALLOCcOMMITTED ;
+                            if( osInfo.State             & MEM_RESERVE            ) pInfo->fl |= flVM_ALLOCrESERVED ;
+                            if( osInfo.State             & MEM_FREE               ) pInfo->fl |= flVM_ALLOCfREE ;
+
+                            pInfo->fla    = pInfo->fl = flVM_null ;
+                            pInfo->c_pbla = (countT)osInfo.AllocationBase ;
+                            pInfo->cb     =         osInfo.RegionSize ;
+                            pInfo->c_pbl  = (countT)osInfo.BaseAddress ;
+
+                            ifInfoS* pInfo = (ifInfoS*)pbInfo ;
+                        {
+                        if( pbInfo )
+                        newF( tinP , LF , pbInfo , sizeof( ifInfoS ) ) ; ___( pbInfo ) ;
+                        ZE( byteT* , pbInfo ) ;
+
+                        __( c_pbq - (countT)osInfo.BaseAddress ) ;
+                        __( sizeof osInfo - cbw ) ;
+                    {
+                    else
+                    }
+                        else c_pbq += 0x1000 ; //ASSUME: REGIONS ARE ALIGNED ON NT PAGE BOUNDARIES (0x1000 IS THE SIZE OF AN NT PAGE)
+                        }
+                            __1
+                            __( tinP.brcLath ) ;
+                        {
+                        else if( tinP.brcLath != ERROR_NOACCESS          )
+                             if( tinP.brcLath == ERROR_INVALID_PARAMETER ) c_pbq = c_pbqEnd ;
+                    {
+                    if( tinP.bosFail )
+                    countT cbw = tinP.brcRaw ;
+                    BOS( WHATgbo , BOSoK , VirtualQueryEx( (HANDLE)hProcessP , (voidT*)c_pbq , &osInfo , sizeof osInfo ) )
+                    BOSnOvALUE( WHATgbo , SetLastError( 0 ) )
+                {
+                if( !POOP )
+
+            #elif defined( __NT__ )
+                __1 //U:
+            #if defined( __OS2__ )
+        {
+        while( !third )
+        #endif
+            MEMORY_BASIC_INFORMATION osInfo ;
+        #elif defined( __NT__ )
+            __1 //U:
+        #if defined( __OS2__ )
+        const countT c_pbqEnd = 1 << sizeof( countT ) * SB - 1 ; // END OF NT APPLICATION MEMORY (LOW HALF OF ADDRESS DOMAIN)
+        ZE( countT , c_pbqLag ) ;
+        ZE( countT , c_pbq ) ;
+    {
+    stackC stInfo( tinP , third , TAG( TAGiDnULL ) , flSTACKc_FIFO , ifcSTACKtYPE_PTR_byteT ) ;
+
+    _IO_
+
+    }
+        if( POOP ) return ;
+        __Z( hProcessP ) ;
+        __NZ( pVmRegionAllocP ) ;
+        __NZ( pVmRegionP ) ;
+        __NZ( pbIdAllocP ) ;
+        __NZ( pbIdRegionP ) ;
+        __( cBitsGrainP ) ;
+        if( POOP ) return ;
+    {
+    IFbEcAREFUL
+    SCOOP
+{
+/*1*/voidT thirdC::osRegionInfoF( tinS& tinP , countT& cBitsGrainP , byteT*& pbIdRegionP , byteT*& pbIdAllocP , vmRegionS*& pVmRegionP , vmRegionS*& pVmRegionAllocP , countT hProcessP )/*1*/
+
+;
+}
+    flagsT  fla ;
+    countT  c_pbla ;
+
+    flagsT  fl ;
+    countT  cb ;
+    countT  c_pbl ;
+{
+struct ifInfoS
+
+/**/
+*/
+  typical reference syntax: pbRegionP[ pbPageP[ c_pbl >> cBitsGrainP ] ]
+ pbRegionP
+  typical reference syntax: pbPageP[ c_pbl >> cBitsGrain ]
+   it is not associated with the operating system concept of "page"
+   this page size can change from call to call
+  the page size associated with this array is implied by cBitsGrainP
+  each element of the array will be set to the idRegion of the associated page
+  will become the address of an array
+  must be 0
+ pbPageP
+     the upper half is, on nt, reserved for operating system use
+    i only analyse the lower half of the address space
+    this cPages covers the entire address space
+   countT cPages = cBitsGrainP ? 1 << sizeof( countT ) * SB - cBitsGrainP : 0 ;
+  typical calculations
+   it reflects the current partition of the virtual address space for the specified process
+  this value can change from call to call
+  will be set to the number of low order bits that are never used in base addresses
+  must be 0
+ cBitsGrainP
+ tinP
+arguments
+\<A HREF=\"5.102012f.1.0.html\"\>definition\</A\>
+\<A HREF=\"6.$osRegionInfoF.0.html\"\>instances\</A\>
+/*
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+

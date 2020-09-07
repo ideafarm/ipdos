@@ -1,0 +1,84 @@
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+
+}
+    #endif
+
+        // CONTEXT_DEBUG_REGISTERS  DB 0-3,6,7
+        // CONTEXT_FLOATING_POINT   387 state
+        // CONTEXT_SEGMENTS         DS, ES, FS, GS
+        // CONTEXT_INTEGER          AX, BX, CX, DX, SI, DI
+        // CONTEXT_CONTROL          SS:SP, CS:IP, FLAGS, BP
+
+        // THIS CAN BE VIEWED AS A HANDLE, WITH WHICH PREVIOUS STACK FRAMES CAN BE ACCESSED
+        // IT IS THE WO'TH VALUE PUSHED IN THE CURRENT STACK FRAME
+        // pcWothP CONTAINS THE VALUE OF ebp, WHICH IS THE ADDRESS WHERE THE PREVIOUS VALUE OF ebp IS STORED
+        //  ON I386, SLOTS ARE ALLOCATED DOWNWARD IN MEMORY SO pcLathP'S VALUE IS THE LOWEST VALUE USED IN MEMORY
+        // pcLathP CONTAINS THE VALUE OF esp, WHICH IS THE ADDRESS OF THE CONCEPTUALLY TOPMOST STACK SLOT (MOST RECENT WO PUSHED)
+
+        }
+            (countT&)pcWothP = info.Ebp ;
+            (countT&)pcLathP  = info.Esp ;
+        {
+        if( !POOP )
+        BOSpOOP
+        BOS( WHATgbo , BOSoK , GetThreadContext( (voidT*)osHandleP , &info ) )
+        info.ContextFlags = CONTEXT_CONTROL /* | CONTEXT_INTEGER | CONTEXT_SEGMENTS | CONTEXT_FLOATING_POINT | CONTEXT_DEBUG_REGISTERS */ ;
+        //c_memsetIF( tinP , (byteT*)&info , sizeof info ) ;
+        CONTEXT info ;
+
+    #elif defined( __NT__ )
+        //U:
+    #if defined( __OS2__ )
+
+    _IO_
+
+    }
+        if( POOP ) return ;
+        __NZ( pcWothP ) ;
+        __NZ( pcLathP ) ;
+        __Z( osHandleP ) ;
+        if( POOP ) return ;
+    {
+    IFbEcAREFUL
+    SCOOP
+{
+/*1*/voidT thirdC::dosReadThreadContextF( tinS& tinP , countT*& pcLathP , countT*& pcWothP , const countT osHandleP )/*1*/
+
+/**/
+*/
+   the calling process need not be the process that contains the thread
+  must be valid in the calling process
+  must not be 0
+ osHandleP
+  iow, pcWothP points to the "base" of the current stack frame, which in turn points to the base of the prior stack frame, and so on
+  *pcWothP contains the value of pcWothP for the previous cpu stack frame
+  contains the address of the wo'th countT object pushed onto the cpu's stack for the current stack frame
+ pcWothP
+  contains the address of the most recently pushed countT object on the cpu's stack
+ pcLathP
+ tinP
+arguments
+ for windows nt running on Intel x86, pcLathP <= pcWothP
+the relative magnitude depends upon the cpu and on whether the operating system uses the stack frame layout that is "natural" for that cpu
+the values returned are guaranteed to be aligned on countT boundaries
+the lath item is the most recently pushed item in the current frame
+the wo'th item is the base of the current frame
+i retrieve the wo'th and lath items in the current stack frame
+\<A HREF=\"5.102012d.1.0.html\"\>definition\</A\>
+\<A HREF=\"6.$dosReadThreadContextF.0.html\"\>instances\</A\>
+/*
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+

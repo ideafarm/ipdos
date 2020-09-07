@@ -1,0 +1,177 @@
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+
+REST
+
+etherC::loafIF( tinP ) ;
+
+CONoUTrAW( "\r\n" DASH127 "\r\n" ) ;
+
+}
+    etThread.strokeF( tinP , T("[confMin,confMax]: ")+TF2(mConfMin,flFORMAT_NObIGITvALUES)+T(" ")+TF2(mConfMax,flFORMAT_NObIGITvALUES)+T("\r\n") ) ;
+
+    measureT mConfMax = mMean + 2.0 * mSD ;
+    measureT mConfMin = mMean - 2.0 * mSD ;
+
+    etThread.strokeF( tinP , T("[mean,stdDev]    : ")+TF2(mMean,flFORMAT_NObIGITvALUES)+T(" ")+TF2(mSD,flFORMAT_NObIGITvALUES)+T("\r\n") ) ;
+
+    measureT mSD   = tinP.brcm04Raw ;
+    BOSmEASURE04( WHATgbo , sqrt( mIpaSumSq / cSampleSave - mMean * mMean ) )
+    measureT mMean = mIpaSum / cSampleSave ;
+
+    etThread.strokeF( tinP , T("\r\n[min,max]        : ")+TF2(mIpaMin,flFORMAT_NObIGITvALUES)+T(" ")+TF2(mIpaMax,flFORMAT_NObIGITvALUES)+T("\r\n") ) ;
+
+    }
+        etThread.strokeF( tinP , T("[cyclesPerTime,tally]    : ")+TF6(mLever,flFORMAT_FILLzE|flFORMAT_NObIGITvALUES,0,0,0,6)+T(" ")+TF2(tally,flFORMAT_NObIGITvALUES)+T("\r\n") ) ;
+        countT tally = swCyclesPerTime ;
+        mLever = *(measureT*)&cLever ;
+        countT cLever = swCyclesPerTime.leverF( tinP , idf ) ;
+    {
+    for( countT idf = 1 ; idf <= cFlavors ; idf ++ )
+    cFlavors = swCyclesPerTime.cFlavorsF( tinP ) ;
+
+    CONoUTrAW( "\r\n" ) ;
+    }
+        etThread.strokeF( tinP , T("[inPerNano,tally]        : ")+TF6(mLever,flFORMAT_FILLzE|flFORMAT_NObIGITvALUES,0,0,0,6)+T(" ")+TF2(tally,flFORMAT_NObIGITvALUES)+T("\r\n") ) ;
+        countT tally = swInPerNano ;
+        mLever = *(measureT*)&cLever ;
+        countT cLever = swInPerNano.leverF( tinP , idf ) ;
+    {
+    for( countT idf = 1 ; idf <= cFlavors ; idf ++ )
+    countT cFlavors = swInPerNano.cFlavorsF( tinP ) ;
+{
+if( cSample == - 1 )
+
+#endif
+    etThread.strokeF( tinP , T("\r \r\n[dot]: ")+TF2(mC,flFORMAT_NObIGITvALUES)+T("    null loop\r\n\r\n") ) ;
+#else
+    etThread.strokeF( tinP , T("\r \r\n[dot]: ")+TF2(mC,flFORMAT_NObIGITvALUES)+T("    VECsSE\r\n\r\n") ) ;
+#elif defined( VECsSE )
+    etThread.strokeF( tinP , T("\r \r\n[dot]: ")+TF2(mC,flFORMAT_NObIGITvALUES)+T("    VECaLIGNED\r\n\r\n") ) ;
+#elif defined( VECaLIGNED )
+    etThread.strokeF( tinP , T("\r \r\n[dot]: ")+TF2(mC,flFORMAT_NObIGITvALUES)+T("    VEC\r\n\r\n") ) ;
+#if defined( VEC )
+
+}
+    //etThread.strokeF( tinP , T("[cyclesPerNano,instructionsPerNano,instructionsPerNanoTheory]: ")+TF2(mCyclesPerNano,flFORMAT_NObIGITvALUES)+T(" ")+TF2(mInstructionsPerNano,flFORMAT_NObIGITvALUES)+T(" ")+TF2(mInstructionsPerNanoTheory,flFORMAT_NObIGITvALUES)+T("\r\n") ) ;
+    
+    measureT mInstructionsPerNanoTheory = 1.66 ;
+    
+    mIpaSumSq += mInstructionsPerNano * mInstructionsPerNano ;
+    mIpaSum   += mInstructionsPerNano ;
+
+    if( mIpaMax < mInstructionsPerNano ) mIpaMax = mInstructionsPerNano ;
+    if( mIpaMin > mInstructionsPerNano ) mIpaMin = mInstructionsPerNano ;
+
+    swCyclesPerTime ++ ;
+    mLever = mCyclesPerTime ;
+
+    swInPerNano ++ ;
+    mLever = mInstructionsPerNano ;
+
+    measureT mInstructionsPerNano = insPerCycle * mCyclesPerNano ;
+    measureT mCyclesPerNano       = mCyclesPerTime / mNanoPerTime ;
+    
+    //etThread.strokeF( tinP , T("[cycles per time]: ")+TF2(mCyclesPerTime,flFORMAT_NObIGITvALUES)+T("\r\n") ) ;
+    
+    measureT mCyclesPerTime = mCycles / mTime ;
+    measureT mCycles = cDoSave ;
+    measureT mTime = timeE1 ;
+
+    //etThread.strokeF( tinP , T("[cycles,elapsedTime]: ")+TF2(cDoSave,flFORMAT_NObIGITvALUES)+T(" ")+TT(timeE1,timeE2)+T("\r\n") ) ;
+    etThread.osTimeSubtractF( tinP , timeE1 , timeE2 , timeN1 , timeN2 ) ;
+    etThread.osTimeNowF( tinP , timeE1 , timeE2 ) ;
+    
+    }
+        #endif
+            vec3sse_mulAM( mC , pmaA , pmaB ) ;
+        #elif defined( VECsSE )
+            vec3_mulAM( mC , pmaA , pmaB ) ;
+        #elif defined( VECaLIGNED )
+            vec3_mulAM( mC , pmA , pmB ) ;
+        #if defined( VEC )
+    {
+    while( cDo -- )
+    
+    ZE( sCountT , timeE2 ) ;
+    ZE( countT  , timeE1 ) ;
+    etThread.osTimeNowF( tinP , timeN1 , timeN2 ) ;
+    ZE( sCountT , timeN2 ) ;
+    ZE( countT  , timeN1 ) ;
+
+    const countT cDoSave = cDo ;
+    countT cDo = TICK ;
+
+    if( !( cSample % 0x10 ) ) CONoUTrAW3( "        \r" , cSample , "\r" ) ;
+{
+while( !ether && cSample -- )
+const countT cSampleSave = cSample ;
+countT cSample = TUCK ;
+
+ZE( measureT , mC ) ;
+
+#endif
+
+    }
+        pmaB[ offs ] = pmB[ offs ] ;
+        pmaA[ offs ] = pmA[ offs ] ;
+    {
+    for( sCountT offs = 2 ; offs >= 0 ; offs -- )
+    
+    measureT* pmaB = (measureT*)( (byteT*)pmB + cbAlign001AM( (byteT*)pmB ) ) ;
+    measureT* pmaA = (measureT*)( (byteT*)pmA + cbAlign001AM( (byteT*)pmA ) ) ;
+
+#if !defined( VEC )
+    
+measureT pmB[] = { 4.0 , 5.0 , 6.0 , 0.0 , 0.0 , 0.0 , 0.0 , 0.0 , 0.0 , 0.0 , 0.0 , 0.0 , 0.0 , 0.0 , 0.0 , 0.0 , 0.0 , 0.0 , 0.0 } ;
+measureT pmA[] = { 1.0 , 2.0 , 3.0 , 0.0 , 0.0 , 0.0 , 0.0 , 0.0 , 0.0 , 0.0 , 0.0 , 0.0 , 0.0 , 0.0 , 0.0 , 0.0 , 0.0 , 0.0 , 0.0 } ;
+
+etThread.strokeF( tinP , T("\r\n\r\n" DASH127 "\r\n\r\n[ns per time,micros per time, insPerCycle]: ")+TF2(mNanoPerTime,flFORMAT_NObIGITvALUES)+T(" ")+TF2(mMicroPerTime,flFORMAT_NObIGITvALUES)+T(" ")+TF2(insPerCycle,flFORMAT_NObIGITvALUES)+T("\r\n") ) ;
+const measureT mNanoPerTime = 24.0 * 60.0 * 60.0 / 256.0 / 256.0 * 1e9 / 256.0 / 256.0 ;
+const measureT mMicroPerTime = 24.0 * 60.0 * 60.0 / 256.0 / 256.0 * 1e6 / 256.0 / 256.0 ;
+
+measureT mIpaMax = -1e9 ;
+measureT mIpaMin =  1e9 ;
+
+ZE( measureT , mIpaSumSq ) ;
+ZE( measureT , mIpaSum ) ;
+
+    #endif
+        const countT insPerCycle = 0x4 ;
+    #else
+        const countT insPerCycle = 0x14 ;
+    #elif defined( VECsSE )
+        const countT insPerCycle = 0x10 ;
+    #elif defined( VECaLIGNED )
+        const countT insPerCycle = 0x10 ;
+    #if defined( VEC )
+
+switchC swCyclesPerTime( tinP , etThread , TAG( TAGiDnULL ) , flSTACKc_DOnOTsERIALIZE , *(countT*)&mLever ) ;
+switchC swInPerNano( tinP , etThread , TAG( TAGiDnULL ) , flSTACKc_DOnOTsERIALIZE , *(countT*)&mLever ) ;
+ZE( measureT , mLever ) ;
+
+TODO
+
+//#define VECsSE
+//#define VECaLIGNED
+//#define VEC
+//DEFINE 0 OR 1 OF THESE TO SELECT THE FLAVOR TO BE BENCHMARKED
+
+/*1*/WAKEsHOWtEXT( "example.benchmark.1snip.1c00001f.vec3_mulAM" )/*1*/
+/**/
+*/
+/*
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+

@@ -1,0 +1,35 @@
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+
+;
+    modify [ebx ecx edx]                                                                                    \
+    parm   [eax] [esi]                                                                                      \
+                                                                                                            \
+    "               mov dword ptr [esi + 0ch] , edx     "                                                   \
+    "               mov dword ptr [esi + 08h] , ecx     "                                                   \
+    "               mov dword ptr [esi + 04h] , ebx     "                                                   \
+    "               mov dword ptr [esi      ] , eax     "                                                   \
+    "                                                   "                                                   \
+    "               cpuid                               "                                                   \
+                                                                                                            \
+#pragma aux cpuIdAM =                                                                                       \
+
+/*1*/voidT __export cpuIdAM( countT idModeP , countT* pcNameP ) ;/*1*/
+
+/**/
+*/
+/*
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+

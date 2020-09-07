@@ -1,0 +1,120 @@
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+
+REST
+
+}
+    bArm = 1 ;    
+
+    etThread.traceF( tinP , TF3(++icCycle,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,9)+T("speed [mean,cDoneNew,time1E,cDonePerTime,cDone1,cDone2]: ")+TF3(mean,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,8)+tb+TF3(cDoneNew,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,8)+tb+TF3(time1E,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,8)+tb+TF3(cDonePerTime,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,8)+tb+TF3(cDone1,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,8)+tDot+TF3(cDone2,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,8) ) ;
+
+    mean /= cGot ;
+    for( countT offi = 0 ; offi < cGot ; offi ++ ) mean += pcDonePerTime[ offi ] ;
+    ZE( countT , mean ) ;
+
+    ;
+        : sizeof pcDonePerTime / sizeof pcDonePerTime[ 0 ]
+        ? ccDonePerTime
+    countT cGot = ccDonePerTime < sizeof pcDonePerTime / sizeof pcDonePerTime[ 0 ]
+
+    ccDonePerTime ++ ;
+    pcDonePerTime[ ccDonePerTime % ( sizeof pcDonePerTime / sizeof pcDonePerTime[ 0 ] ) ] = cDonePerTime ;
+
+    countT cDonePerTime = cDoneNew /** TUCK*/ / time1E ; // REALLY PER TUCK, NOT PER TIME, DUE TO "* TUCK"
+
+    etThread.osTimeSubtractF( tinP , time1E , time2E , time1LathSave , time2LathSave ) ;
+
+    cDone1Lag = cDone1Snap ;
+    countT cDoneNew = cDone1Snap - cDone1Lag ;
+    if( cDone1Snap < cDone1Lag ) cDone2 ++ ;
+    countT cDone2Snap = cDone2 ;
+    countT cDone1Snap = cDone1 ;
+
+    time2Lath = time2E ;
+    time1Lath = time1E ;
+    etThread.osTimeNowF( tinP , time1E , time2E ) ;
+    ZE( sCountT , time2E ) ;
+    ZE( countT  , time1E ) ;
+
+    sCountT time2LathSave = time2Lath ;
+    countT  time1LathSave = time1Lath ;
+
+    }
+        ++ s ; ether.osSleepF( tinP , TOCK << 0 ) ;
+        sleepC s( tinP , TAG( TAGiDnULL ) ) ;
+    {
+{
+while( !ether )
+ZE( countT , icCycle ) ;
+
+ZE( countT , ccDonePerTime ) ;
+countT pcDonePerTime[ 0x10 ] ;
+
+cDone2Lag = cDone2 ;
+cDone1Lag = cDone1 ;
+
+etThread.osTimeNowF( tinP , time1Lath , time2Lath ) ;
+ZE( sCountT , time2Lath ) ;
+ZE( countT  , time1Lath ) ;
+TN( tDot , "." ) ;
+TN( tb , " " ) ;
+
+while( cDo -- ) etThread.osThreadF( TaRG1( tmGorilla5F ) /*, (countT)&grabFoo*/ ) ;
+
+countT cDo = TUCK >> 1 ;
+//countT cDo = 1 ;
+//BB: SAMEO IMMEDIATELY: countT cDo = TUCK >> 1 ;
+//G: CNR: countT cDo = 2 ;
+//B: SAMEO: countT cDo = 12 ;
+
+etThread.traceF( tinP , T("[offo,bitsReally]: ")+TF2(idBit-ifcIDgRABITbIT_00,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T(" ")+TF2(bitsReally,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
+
+TODO
+
+DONE( tmGorilla5F )
+
+}
+    gg.ungrabF( tinP ) ;
+    inc02AM( cDone1 ) ;
+    gg.grabF( tinP , TAG( TAGiDnULL ) ) ;
+    idCycle ++ ;
+{
+while( !ether /*&& cDo --*/ )
+countT cDo = TOCK << 2 ;
+countT idCycle ;
+TN( tb , " " ) ;
+
+grabitC gg( tinP , TAG( TAGiDnULL ) , bb , idBit , *(grabitC*)0 , 0 , 0 , 0 , flGRABITc_SUPPRESScTdT , TUCK , ifcIDgRABlAYER_7BASEmISC1 ) ;
+
+TASK( tmGorilla5F )             // SPEED: 3
+
+countT cNapping2 ;
+countT cNapping1 ;
+countT cDone2Lag ;
+countT cDone2 ;
+countT cDone1Lag ;
+countT cDone1 ;
+boolT bArm ;
+
+byteT& bb = *(byteT*)&bitsReally ;
+countT bitsReally = -1 & ~( 1 << ( idBit - ifcIDgRABITbIT_00 ) ) ;
+const countT idBit = ifcIDgRABITbIT_50 ;
+
+/*1*/WAKEsHOWtEXT( "gorilla.test.bts.btr.in.grabc" )/*1*/
+/**/
+*/
+/*
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+

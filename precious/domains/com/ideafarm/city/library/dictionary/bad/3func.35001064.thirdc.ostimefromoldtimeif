@@ -1,0 +1,179 @@
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+
+}
+    }
+        osTimeAddIF( tinP , time1P , time2P , timeToday1 , timeToday2 ) ;
+        timeFromMsIF( tinP , timeToday1 , timeToday2 , 60*60*1000*utc.wHour + 60*1000*utc.wMinute + 1000*utc.wSecond + utc.wMilliseconds ) ;
+        ZE( sCountT , timeToday2 ) ;
+        ZE( countT , timeToday1 ) ;
+        // TIME ELAPSED TODAY
+
+        time2P = 365 * utc.wYear + cld + offDOY ;
+
+        sCountT cld = utc.wYear/4 - utc.wYear/100 + utc.wYear/400 ;
+        // NUMBER OF LEAP DAYS BETWEEN NOW AND TIME 0, EXCLUDING THIS YEAR
+
+        }
+            } } } } } } } } } } }
+            if( utc.wMonth > 10 ) { offDOY += 30 ; // WE ARE AFTER NOV *
+            if( utc.wMonth >  9 ) { offDOY += 31 ; // WE ARE AFTER OCT
+            if( utc.wMonth >  8 ) { offDOY += 30 ; // WE ARE AFTER SEP *
+            if( utc.wMonth >  7 ) { offDOY += 31 ; // WE ARE AFTER AUG
+            if( utc.wMonth >  6 ) { offDOY += 31 ; // WE ARE AFTER JUL
+            if( utc.wMonth >  5 ) { offDOY += 30 ; // WE ARE AFTER JUN *
+            if( utc.wMonth >  4 ) { offDOY += 31 ; // WE ARE AFTER MAY
+            if( utc.wMonth >  3 ) { offDOY += 30 ; // WE ARE AFTER APR *
+            if( utc.wMonth >  2 ) { offDOY += 31 ; // WE ARE AFTER MAR
+            if( utc.wMonth >  1 ) { offDOY += 28 + bLeapYearF( utc.wYear ) ; // WE ARE AFTER FEB
+            if( utc.wMonth >  0 ) { offDOY += 31 ; // WE ARE AFTER JAN
+            offDOY = utc.wDay ;
+        {
+        ZE( sCountT , offDOY ) ;
+    {
+    if( !POOP )
+
+    }
+        utc.wDay   -- ;
+        utc.wMonth -- ;
+        utc.wYear  -- ;
+
+        BOSpOOP
+        BOS( WHATgbo , BOSoK , TzSpecificLocalTimeToSystemTime( 0 , &local , &utc ) ) ;
+        thirdC::c_memsetIF( tinP , (byteT*)&utc , sizeof utc ) ;
+        local.wMilliseconds = (WORD)msP ;
+        local.wSecond       = (WORD)ssP ;
+        local.wMinute       = (WORD)mmP ;
+        local.wHour         = (WORD)hhP ;
+        local.wDay          = (WORD)( dP + 1 ) ;
+        local.wDayOfWeek    = (WORD)0 ;
+        local.wMonth        = (WORD)( mP + 1 ) ;
+        local.wYear         = (WORD)( yP + 1 ) ;
+        SYSTEMTIME local ;
+    {
+    else
+    }
+        utc.wMilliseconds   = (WORD)msP ;
+        utc.wSecond         = (WORD)ssP ;
+        utc.wMinute         = (WORD)mmP ;
+        utc.wHour           = (WORD)hhP ;
+        utc.wDay            = (WORD)dP  ;
+        utc.wDayOfWeek      = (WORD)0   ;
+        utc.wMonth          = (WORD)mP  ;
+        utc.wYear           = (WORD)yP  ;
+    {
+    if( F(flagsP) & flOStIMEfROMoLDtIME_OLDtIMEiSutc )
+    SYSTEMTIME utc ;
+
+    _IO_
+
+    }
+        if( POOP ) return ;
+
+        FV( flOStIMEfROMoLDtIME , flagsP ) ;
+        __( msP > 999 ) ;
+        __( ssP >  59 ) ;
+        __( mmP >  59 ) ;
+        __( hhP >  23 ) ;
+        }
+            }
+                break ;
+                __(  dP > 30 ) ;
+            {
+            default :
+            }
+                break ;
+                __(  dP > 29 ) ;
+            {
+            case 0xa :
+            case   8 :
+            case   5 :
+            case   3 :
+            }
+                break ;
+                __(  dP > 27 + bLeapYearF( yP ) ) ;
+            {
+            case 1 :
+        {
+        switch( mP )
+        __(  mP >  11 ) ;
+        __( time2P ) ;
+        __( time1P ) ;
+
+        // msP: [0,999]
+        // ssP: [0,59]
+        // mmP: [0,59]
+        // hhP: [0,23]
+        // dP: [0,30]
+        // mP: [0,11]
+        // yP: [-inf,inf] (yP=0 INDICATES A TIME IN THE FIRST YEAR OF OUR LORD
+        // NOTE THAT mP, dP, ETC ARE UNSIGNED; THEY ARE OFFSETS FROM THE BEGINNING OF THE YEAR, EVEN IF THE YEAR IS NEGATIVE
+        // ALL PARAMETERS ARE ASSUMED TO BE OFFSETS (E.G. TIMES WITHIN YEAR OF OUR LORD 1997 WOULD HAVE yP=1996)
+        // THE OFF OF "Dec 31,  -1" IS -1
+        // THE OFF OF "Jan 1, 0000" IS 0
+
+        if( POOP ) return ;
+    {
+    IFbEcAREFUL        
+{
+/*1*/voidT thirdC::osTimeFromOldTimeIF( tinS& tinP , countT& time1P , sCountT& time2P , sCountT yP , countT mP , countT dP , countT hhP , countT mmP , countT ssP , countT msP , const flagsT flagsP )/*1*/
+
+/**/
+*/
+  the domain of this parameter is [0,999]
+  the number of complete milliseconds after yP dP hhP mmP ssP since Jesus's conventional time of birth
+ msP
+  the domain of this parameter is [0,59]
+  the number of complete seconds after yP dP hhP mmP since Jesus's conventional time of birth
+ ssP
+  the domain of this parameter is [0,59]
+  the number of complete minutes after yP dP hhP since Jesus's conventional time of birth
+ mmP
+  the domain of this parameter is [0,23]
+  the number of complete hours after yP dP since Jesus's conventional time of birth
+ hhP
+  the domain of this parameter is [0,27] for mP 1 in a nonleap year
+  the domain of this parameter is [0,28] for mP 1 in a leap year
+  the domain of this parameter is [0,29] for mP in { 3 , 5 , 8 , a }
+  the domain of this parameter is [0,30] for mP in { 0 , 2 , 4 , 6 , 7 , 9 , b }
+  the number of complete days after yP mP since Jesus's conventional time of birth
+ dP
+  the domain of this parameter is [0,11]
+  the number of complete months after yP since Jesus's conventional time of birth
+ mP
+  the domain of this parameter is unrestricted; any value can be specified
+  set yP = -1 for a time in the last year before our lord
+  set yP = 0 for a time in the first year of our lord
+   example: for a time during the year 2010_9, set yP to 2009_9
+  the number of complete years since Jesus's conventional time of birth
+ yP
+ time2P
+ time1P
+arguments
+all paramters are specified as ze based offsets
+a time unit is 1 / ( 256 * 256 * 256 * 256 ) of a day
+time1P will be set to the remainder, in time units
+time2P will be set to the number of complete days since Jesus's conventional time of birth
+  a year is a leap year if, and only if, !(Y%4) && ( !!(Y%100) || ( Y && !(Y%400) ) )
+ this function correctly accounts for leap years and leap centuries
+calculates city time from conventional calendar time
+  \<A HREF=\"5.ab00104.1.1.0.html\"\>ab00104:  WAKEsHOW( "example.simplest.func.102006b.thirdC.osTimeFromOldTimeIF" )\</A\>
+ simplest
+examples
+\<A HREF=\"5.102006b.1.0.html\"\>definition\</A\>
+\<A HREF=\"6.$osTimeFromOldTimeIF.0.html\"\>instances\</A\>
+/*
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+

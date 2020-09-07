@@ -1,0 +1,899 @@
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+
+}
+    for( countT offi = 0 ; offi < sizeof ppsMacroEscapes / sizeof ppsMacroEscapes[ 0 ] ; offi ++ ) tMacroEscapes += tn+*ppsMacroEscapes[offi] ;
+
+    //CS:CODEsYNC: 36131005 15000153
+    ppsMacroEscapes[ 0xd ] = &sMarke2 ; //d
+    ppsMacroEscapes[ 0xc ] = &sMarkd2 ; //c
+    ppsMacroEscapes[ 0xb ] = &sMarkc2 ; //b
+    ppsMacroEscapes[ 0xa ] = &sMarkb2 ; //a
+    ppsMacroEscapes[ 0x9 ] = &sMarkf1 ; //9
+    ppsMacroEscapes[ 0x8 ] = &sMarka1 ; //8
+    ppsMacroEscapes[ 0x7 ] = &sMark91 ; //7
+    ppsMacroEscapes[ 0x6 ] = &sMark81 ; //6
+    ppsMacroEscapes[ 0x5 ] = &sMark71 ; //5
+    ppsMacroEscapes[ 0x4 ] = &sMark61 ; //4
+    ppsMacroEscapes[ 0x3 ] = &sMark51 ; //3
+    ppsMacroEscapes[ 0x2 ] = &sMark41 ; //2
+    ppsMacroEscapes[ 0x1 ] = &sMark31 ; //1
+    ppsMacroEscapes[ 0x0 ] = &sMark21 ; //0
+
+    sMark101 = strokeS( 0x101 , sc_MARK ) ; // putFileIF USES THIS MARK TO FLAG A BRANCH VALUE THAT CANNOT BE USED AS A PAGE TITLE (THIS MARK IS ASSOCIATED WITH A PARTICULAR HARDCODED STRING THAT WILL BE USED INSTEAD)
+    sMarke2  = strokeS( 0x2e , sc_MARK ) ; // \h:                                     FLAG: EMIT SPAN HTML WITH ID OF THE FORM "<span id=value>" or "</span>"
+    sMarkd2  = strokeS( 0x2d , sc_MARK ) ; // \w:                                     DELIMITS A SOIL FILE NAME (WILL BE RENDERED AS AN ICON ANCHOR)
+    sMarkc2  = strokeS( 0x2c , sc_MARK ) ; // \y:                                     DELIMITS A MISCELLANEOUS FILE NAME (WILL BE RENDERED AS AN ICON ANCHOR)
+    sMarkb2  = strokeS( 0x2b , sc_MARK ) ; // \z:                                     DELIMITS A ZIP FILE NAME (WILL BE RENDERED AS AN ICON ANCHOR)
+    sMarka2  = strokeS( 0x2a , sc_MARK ) ; // \9:                                     FLAG: CONDITIONALLY INCLUDE THIS BRANCH IFF idEditionP == 9
+    sMark92  = strokeS( 0x29 , sc_MARK ) ; // \8:                                     FLAG: CONDITIONALLY INCLUDE THIS BRANCH IFF idEditionP == 8
+    sMark82  = strokeS( 0x28 , sc_MARK ) ; // \7:                                     FLAG: CONDITIONALLY INCLUDE THIS BRANCH IFF idEditionP == 7
+    sMark72  = strokeS( 0x27 , sc_MARK ) ; // \6:                                     FLAG: CONDITIONALLY INCLUDE THIS BRANCH IFF idEditionP == 6
+    sMark62  = strokeS( 0x26 , sc_MARK ) ; // \5:                                     FLAG: CONDITIONALLY INCLUDE THIS BRANCH IFF idEditionP == 5
+    sMark52  = strokeS( 0x25 , sc_MARK ) ; // \4:                                     FLAG: CONDITIONALLY INCLUDE THIS BRANCH IFF idEditionP == 4
+    sMark42  = strokeS( 0x24 , sc_MARK ) ; // \3:                                     FLAG: CONDITIONALLY INCLUDE THIS BRANCH IFF idEditionP == 3
+    sMark32  = strokeS( 0x23 , sc_MARK ) ; // \2:                                     FLAG: CONDITIONALLY INCLUDE THIS BRANCH IFF idEditionP == 2
+    sMark22  = strokeS( 0x22 , sc_MARK ) ; // \1:                                     FLAG: CONDITIONALLY INCLUDE THIS BRANCH IFF idEditionP == 1
+    sMark12  = strokeS( 0x21 , sc_MARK ) ; // \0:                                     FLAG: CONDITIONALLY INCLUDE THIS BRANCH IFF idEditionP == 0 (THESE BRANCHES ARE COMMENTS BECAUSE idEditionP CANNOT BE 0)
+    sMark02  = strokeS( 0x20 , sc_MARK ) ; // \n:                                     NULL (EMITTED TO ASCII HTML FILE AS NULL STRING)
+    sMarkf1  = strokeS( 0x1f , sc_MARK ) ; // \i :                                    DELIMITS AN IMAGE FILE NAME
+    sMarke1  = strokeS( 0x1e , sc_MARK ) ; // \k:                                     FLAG: SUPPRESS KID PAGE
+    sMarkd1  = strokeS( 0x1d , sc_MARK ) ; // \d:                                     FLAG: SUPPRESS NEW PARAGRAPH (FORMAT AS IF DETAIL); WILL STILL BE ITALICIZED; THIS DOES NOTHING EXCEPT WHEN THE BRANCH IS A TOPIC SENTENCE
+    sMarkc1  = strokeS( 0x1c , sc_MARK ) ; // \r:                                     FLAG: RAW: DO NOT CAPITALIZE AND DO NOT APPEND TERMINATING PERIOD
+    sMarkb1  = strokeS( 0x1b , sc_MARK ) ; // \x:                                     FLAG: REDUCE MAX LEVEL BY 1 SO THAT MY PAGE OMITS THE DETAIL SENTENCES AND FORMATS THE TOPIC SENTENCES AS A SINGLE PARAGRAPH
+    sMarka1  = strokeS( 0x1a , sc_MARK ) ; // \o: LINK OTHER THAN TO LAW OR TREATISE: DELIMITS A URL TO A SCHOLARLY TREATISE (WILL BE RENDERED AS AN ICON ANCHOR)
+    sMark91  = strokeS( 0x19 , sc_MARK ) ; // \t: LINK SCHOLARLY TREATISE:            DELIMITS A URL TO A SCHOLARLY TREATISE (WILL BE RENDERED AS AN ICON ANCHOR)
+    sMark81  = strokeS( 0x18 , sc_MARK ) ; // \l: LINK LAW:                           DELIMITS A URL TO A LEGAL AUTHORITY (WILL BE RENDERED AS AN ICON ANCHOR)
+    sMark71  = strokeS( 0x17 , sc_MARK ) ; // \p: PDF:                                DELIMITS A PDF FILE NAME (WILL BE RENDERED AS AN ICON ANCHOR)
+    sMark61  = strokeS( 0x16 , sc_MARK ) ; // \e: EMAIL:                              DELIMITS AN EMAIL FILE NAME (WILL BE RENDERED AS AN ICON ANCHOR)
+    sMark51  = strokeS( 0x15 , sc_MARK ) ; // \c : TEXT:                               DELIMITS AN ASCII TEXT FILE NAME (WILL BE RENDERED AS AN ICON ANCHOR)
+    sMark41  = strokeS( 0x14 , sc_MARK ) ; // \v: VIDEO:                              DELIMITS A VIDEO MOVIE FILE NAME (WILL BE RENDERED AS AN ICON ANCHOR)
+    sMark31  = strokeS( 0x13 , sc_MARK ) ; // \s: SNAPSHOT PHOTO::                    DELIMITS A SNAPSHOT PHOTO FILE NAME (WILL BE RENDERED AS AN ICON ANCHOR)
+    sMark21  = strokeS( 0x12 , sc_MARK ) ; // \a: AUDIO:                              DELIMITS AN AUDIO FILE NAME (WILL BE RENDERED AS AN ICON ANCHOR)
+    sMark11  = strokeS( 0x11 , sc_MARK ) ; // \f: FILE:                               DELIMITS A FILE NAME (WILL BE REGISTERED AS A REFERENCED FILE SO THAT E.G. THE FILE WILL BE INCLUDED IN THE ZIP PACKAGE IN WHICH MY OUTPUT IS PUT BY THE CALLER)
+    sMark01  = strokeS( 0x10 , sc_MARK ) ; // \m: MARK:                               DELIMITS THE PORTION OF THE BRANCH VALUE THAT IS NOT FORMATTING HTML
+
+    tSpanEndOpenClose = T("</span>") ;
+    tSpanBeginFlyClimbUp2 = T(" onmouseout=\"sayMessageF( 0 , 16000 )\" onmouseover=\"sayMessageF( 'Click to climb up two levels into the knowledge tree to focus on this sentence.' , 0 )\"") ;
+    tSpanBeginFlyClimbUp1 = T(" onmouseout=\"sayMessageF( 0 , 16000 )\" onmouseover=\"sayMessageF( 'Click to climb up one level into the knowledge tree to focus on this paragraph.' , 0 )\"") ;
+    tSpanBeginFlyJump     = T(" onmouseout=\"sayMessageF( 0 , 16000 )\" onmouseover=\"sayMessageF( 'Click to jump to another part of the knowledge tree.  (This is a reference.)' , 0 )\"") ;
+    tSpanBeginColorReferenceWhite = T(" style=\"color:#222\"") ;
+    tSpanBeginColorReferenceBlack = T(" style=\"color:#c80\"") ;
+    tSpanBeginClose = T(">") ;
+    tSpanBeginOpen  = T("<span") ;
+    //tLinkMiddleDetailSuffix  = T("' , 0 )\">" ) ;
+    //tLinkMiddleDetailMessage = T("Click to climb up two levels into the knowledge tree to focus on this sentence." ) ;
+    //tLinkMiddleDetailPrefix  = T("\" onmouseout=\"sayMessageF( 0 , 16000 )\" onmouseover=\"sayMessageF( '" ) ;
+    tLinkEnd = T("</a>") ;
+    tLinkMiddle   = T("\">") ;
+    //tLinkMiddleParaSuffix   = T("' , 0 )\">" ) ;
+    //tLinkMiddleParaMessage  = T("Click to climb up one level into the knowledge tree to focus on this paragraph." ) ;
+    //tLinkMiddleParaPrefix   = T("\" onmouseout=\"sayMessageF( 0 , 16000 )\" onmouseover=\"sayMessageF( '" ) ;
+    tLinkBegin = T("<a href=\"") ;
+    tNewDetail = T("\r\n      ") ;
+    tNewPara = T("\r\n    <p>\r\n    ") ; //U::20151009@2013: AM GETTING THIS BETWEEN TABLE COLUMNS IN CHRONICLE REPORT
+    tTitleEnd = T("</h3>") ;
+    tTitleBegin = T("\r\n    <p>\r\n    <h3>") ;
+    titOff = T("</i>") ;
+    titOn  = T("<i>") ;
+    
+    tEpilogWhite = tTailProlog+tTailHardWhite+T("\r\n")+tEnd ;
+    tEpilogBlack = tTailProlog+tTailHardBlack+T("\r\n")+tEnd ;
+    tTailProlog = T("\r\n") ;
+
+    ) ;
+
+        "</html>\r\n"
+        "\r\n"
+
+    tEnd = T(
+
+    ) ;
+
+            //"    <span style=\"color:#222\" onmouseout=\"sayMessageF( 0 , 16000 )\" onmouseover=\"sayMessageF( 'Hints, beneficial thought steering, and other messages are displayed here.' , 0 )\"><i><span id=\"message2\">&thinsp;</span></i></span>\r\n"
+            //"    <p>\r\n"
+            //"    <hr>\r\n"
+            //"    <p>\r\n"
+            ""
+        :
+            ""
+        ?
+        idModeP == ifcIDmODEpUTfILE_ROOT
+
+    tTailHardWhite = T(
+
+    ) ;
+
+            //"    <span style=\"color:lightblue\" onmouseout=\"sayMessageF( 0 , 16000 )\" onmouseover=\"sayMessageF( 'Hints, beneficial thought steering, and other messages are displayed here.' , 0 )\"><i><span id=\"message2\">&thinsp;</span></i></span>\r\n"
+            //"    <p>\r\n"
+            //"    <hr>\r\n"
+            //"    <p>\r\n"
+            //"\r\n"
+            ""
+        :
+            ""
+        ?
+        idModeP == ifcIDmODEpUTfILE_ROOT
+
+    tTailHardBlack = T(
+
+    ) ;
+
+        ""
+
+    tBodyProlog_002 = T(
+
+    ) ;
+
+        ""
+
+    tBodyProlog_f1 = T(
+
+    ) ;
+
+        ""
+
+    tBodyProlog_e1 = T(
+
+    ) ;
+
+        ""
+
+    tBodyProlog_d1 = T(
+
+    ) ;
+
+        ""
+
+    tBodyProlog_c1 = T(
+
+    ) ;
+
+        ""
+
+    tBodyProlog_b1 = T(
+
+    ) ;
+
+        ""
+
+    tBodyProlog_a1 = T(
+
+    ) ;
+
+        ""
+
+    tBodyProlog_91 = T(
+
+    ) ;
+
+        ""
+
+    tBodyProlog_81 = T(
+
+    ) ;
+
+        ""
+
+    tBodyProlog_71 = T(
+
+    ) ;
+
+        ""
+
+    tBodyProlog_61 = T(
+
+    ) ;
+
+        ""
+
+    tBodyProlog_51 = T(
+
+    ) ;
+
+        ""
+
+    tBodyProlog_41 = T(
+
+    ) ;
+
+        ""
+
+    tBodyProlog_31 = T(
+
+    ) ;
+
+        ""
+
+    tBodyProlog_21 = T(
+
+    ) ;
+
+        ""
+
+    tBodyProlog_11 = T(
+
+    ) ;
+
+            "<hr>\r\n"
+            "<p>\r\n"
+            "    </table>\r\n"
+            "        </tr>\r\n"
+            "            </td>\r\n"
+        :
+            ""
+        ?
+        idModeP == ifcIDmODEpUTfILE_ROOT
+
+    tBodyProlog_01 = T(
+
+    ) ;
+
+            "                <span style=\"color:#222\" onmouseout=\"sayMessageF( 0 , 16000 )\" onmouseover=\"sayMessageF( 'Hints, beneficial thought steering, and other messages are displayed here.' , 0 )\"><i><span id=\"message1\">&thinsp;</span></i></span>\r\n"
+        :
+            ""
+        ?
+        idModeP == ifcIDmODEpUTfILE_ROOT
+
+    tBodyProlog_f0White = T(
+
+    ) ;
+
+            "                <span style=\"color:lightblue\" onmouseout=\"sayMessageF( 0 , 16000 )\" onmouseover=\"sayMessageF( 'Hints, beneficial thought steering, and other messages are displayed here.' , 0 )\"><i><span id=\"message1\">&thinsp;</span></i></span>\r\n"
+        :
+            ""
+        ?
+        idModeP == ifcIDmODEpUTfILE_ROOT
+
+    tBodyProlog_f0Black = T(
+
+    ) ;
+
+            "            <td colspan=\"2\" align=left valign=\"top\">\r\n"
+            "        <tr align=left valign=\"top\">\r\n"
+            "        </tr>\r\n"
+            "            </td>\r\n"
+            "</span>\r\n"
+        :
+            ""
+        ?
+        idModeP == ifcIDmODEpUTfILE_ROOT
+
+    tBodyProlog_e0 = T(
+
+    ) ;
+
+            "                <span style=\"color:#222\" onmouseout=\"sayMessageF( 0 , 16000 )\" onmouseover=\"sayMessageF( 'I disagree with what he says, but I will defend his right to say it!' , 0 )\">"
+        :
+            ""
+        ?
+        idModeP == ifcIDmODEpUTfILE_ROOT
+
+    tBodyProlog_d0White = T(
+
+    ) ;
+
+            "                <span style=\"color:lightgreen\" onmouseout=\"sayMessageF( 0 , 16000 )\" onmouseover=\"sayMessageF( 'I disagree with what he says, but I will defend his right to say it!' , 0 )\">"
+        :
+            ""
+        ?
+        idModeP == ifcIDmODEpUTfILE_ROOT
+
+    tBodyProlog_d0Black = T(
+
+    ) ;
+
+            "            <td colspan=\"2\" align=left valign=\"top\">\r\n"
+            "        <tr align=left valign=\"top\">\r\n"
+            "        </tr>\r\n"
+            "            </td>\r\n"
+            "                </table>\r\n"
+            "                    </tr>\r\n"
+            "                        <td>\r\n"
+            "                            </table>\r\n"
+            "                                </tr>\r\n"
+            "                                    </td>\r\n"
+        :
+            //20190801@1825:  "            <td colspan=\"2\" align=left valign=\"top\">\r\n"
+            //20190801@1825:  "        <tr align=left valign=\"top\">\r\n"
+            //20190801@1825:  "        </tr>\r\n"
+            //20190801@1825:  "            </td>\r\n"
+            //20190801@1825:  "                </table>\r\n"
+            //20190801@1825:  "                    </tr>\r\n"
+            //20190801@1825:  "                        <td>\r\n"
+            //20190801@1825:  "                            </table>\r\n"
+            //20190801@1825:  "                                </tr>\r\n"
+            //20190801@1825:  "                                    </td>\r\n"
+            ""
+        ?
+        idModeP == ifcIDmODEpUTfILE_ROOT
+
+    tBodyProlog_c0 = T(
+
+    ) ;
+
+            "                                        <a href=\"http://ideafarm.com\" onmouseout=\"sayMessageF( 0 , 16000 )\" onmouseover=\"sayMessageF( 'Click to go to the IDEAFARM.COM home page!' , 0 )\">home</a>\r\n"
+            //"                                        <a href=\"http://bundle.ideafarm.com\" onmouseout=\"sayMessageF( 0 , 16000 )\" onmouseover=\"sayMessageF( 'IdeaFarm (tm) Bundle:  Download, install, configure, and purchase here, to publish your files to the Rackspace.com cloud!' , 0 )\">bundle</a>\r\n"
+            //"                                        <a href=\"http://wo.ideafarm.com\" onmouseout=\"sayMessageF( 0 , 16000 )\" onmouseover=\"sayMessageF( 'Become acquainted with me here!' , 0 )\">bio</a>\r\n"
+            "                                        <a href=\"http://archiveview.ideafarm.com\" onmouseout=\"sayMessageF( 0 , 16000 )\" onmouseover=\"sayMessageF( 'IdeaFarm (tm) Operations Archive:  Browse evidence, court documents, logs, and my journal here!' , 0 )\">archive</a>\r\n"
+            "                                        <a href=\"http://pay.ideafarm.com\" onmouseout=\"sayMessageF( 0 , 16000 )\" onmouseover=\"sayMessageF( 'Pay for an IdeaFarm (tm) product or service here!' , 0 )\">pay</a>\r\n"
+            //"                                        <a href=\"http://speech.ideafarm.com\" onmouseout=\"sayMessageF( 0 , 16000 )\" onmouseover=\"sayMessageF( 'Free speech forum:  Hear what anyone would say, including dangerous speech expressing prohibited viewpoints on prohibited topics!' , 0 )\">speech</a>\r\n"
+            //"                                        <a href=\"http://news.ideafarm.com\" onmouseout=\"sayMessageF( 0 , 16000 )\" onmouseover=\"sayMessageF( 'IdeaFarm (tm) Organizer:  Join the discussion here!' , 0 )\">news</a>\r\n"
+            //"                                        <a href=\"http://essays.ideafarm.com\" onmouseout=\"sayMessageF( 0 , 16000 )\" onmouseover=\"sayMessageF( 'Essays and other writings!' , 0 )\">essays</a>\r\n"
+            //"                                        <a href=\"http://hooks.ideafarm.com\" onmouseout=\"sayMessageF( 0 , 16000 )\" onmouseover=\"sayMessageF( 'These essays are designed to bring visitors to IDEAFARM.COM.' , 0 )\">hooks</a>\r\n"
+            //"                                        <a href=\"http://tutorials.ideafarm.com\" onmouseout=\"sayMessageF( 0 , 16000 )\" onmouseover=\"sayMessageF( 'New visitors:  Read this first!' , 0 )\">tutorials</a>\r\n"
+            "                                    <td align=right valign=\"top\">\r\n"
+            "                                    </td>\r\n"
+        :
+            //20190801@1825:  "                                        <a href=\"http://archiveview.ideafarm.com\" onmouseout=\"sayMessageF( 0 , 16000 )\" onmouseover=\"sayMessageF( 'IdeaFarm (tm) Operations Archive:  Browse evidence, court documents, logs, and my journal here!' , 0 )\">archive</a>\r\n"
+            //20190801@1825:  "                                        <a href=\"http://pay.ideafarm.com\" onmouseout=\"sayMessageF( 0 , 16000 )\" onmouseover=\"sayMessageF( 'Pay for an IdeaFarm (tm) product or service here!' , 0 )\">pay</a>\r\n"
+            //20190801@1825:  //"                                        <a href=\"http://speech.ideafarm.com\" onmouseout=\"sayMessageF( 0 , 16000 )\" onmouseover=\"sayMessageF( 'Free speech forum:  Hear what anyone would say, including dangerous speech expressing prohibited viewpoints on prohibited topics!' , 0 )\">speech</a>\r\n"
+            //20190801@1825:  "                                    <td align=right valign=\"top\">\r\n"
+            //20190801@1825:  "                                    </td>\r\n"
+            ""
+        ?
+        idModeP == ifcIDmODEpUTfILE_ROOT
+
+    tBodyProlog_b0 = T(
+
+    ) ;
+
+            ""
+        :
+            "                                        <span onmouseover=\"sayMessageF( 'Hate speech is fully protected by the First Amendment of the Constitution of the United States of America.  This is an uncensored forum.  Hate speech is as welcome here as is any other kind of protected speech, including vigorous expressions of opposition to hate!  Please remember that (1) you are responsible for what you write, and that (2) what is said cannot be unsaid.' , 0 )\">hateSpeech</span>\r\n"
+            "                                        <span onmouseover=\"sayMessageF( 'The IdeaFarm (tm) Organizer is a forum for all viewpoints and all categories of speech that are protected by the First Amendment of the Constitution of the United States of America.  Neither the advertisers nor Ideafarm (tm) Operations accepts liability for what is expressed in this forum; that liability remains with the person who submitted the writing.  All submitted writings are published along with the identity of the submitting author, and no editing or legal advice is provided.  Please report any writing that is both objectionable and unprotected.  No writing, protected or otherwise, will be removed except in obedience to a court order.' , 0 )\">legalNotice</span>\r\n"
+        ?
+        idModeP == ifcIDmODEpUTfILE_NEWS
+
+    tBodyProlog_a0 = T(
+
+    ) ;
+
+            //"                                        <span onmouseover=\"sayMessageF( 'Review IdeaFarm (tm) Bundle and get ONE YEAR FREE!<p>You will receive your FREE YEAR regardless of whether your review is positive or negative.  All I ask is that you be honest and reasonably thorough in trying out IdeaFarm (tm) Bundle and then writing a review that will be useful for others considering installing Bundle.<p>Terms:  Complete the installation sequence just like a normal user, including the purchase of a subscription, and do not tell me that you intend to write a review.  Then either write a review about the installation experience or play with Bundle for a few days or weeks so that you can write a more comprehensive review.  Publish your review on any web page that is accessible to anyone on the Internet.  Send me a link.  When I receive your link and verify that you have written what appears to be an honest and informative review, I will refund each of your subscription payments for ONE YEAR.  Your review must be signed with the same name used to purchase your subscription, and must remain visible during that year.<p>This is a limited time offer, subject to change or termination without notice.<p>Links to all submitted reviews, regardless of content or opinion, will be listed on IDEAFARM.COM.' , 0 )\">reviews</span>\r\n"
+            "                                        <span onmouseover=\"sayMessageF( 'Pages on IDEAFARM.COM are generated from source text, so the URI of a page can change over time.  Cite the root page of an IdeaFarm (tm) Knowledge Tree whenever that is adequate.  You are viewing a root page if there are no numbers in its URI.<p>The first number in the URI for each page is a hash of the page title.  The second number is a serial number that is used to ensure that the URI for each page is unique when multiple pages have the same title.  If the page title is long and likely to be unique, you can confidently cite the page using its URI.  When citing any page with numbers in the URI, your citation should include the page title and, when practical, a quoted snippet of text that is likely to appear only on that page.<p>Page content can change.  Make a PDF file of the page being cited and provide that file to your readers.  Some browsers can be configured to do this when Ctrl-P is pressed.' , 0 )\">how2cite</span>\r\n"
+            "                                    <td align=left valign=\"top\">\r\n"
+            "                                <tr>\r\n"
+            "                            <table style=\"width:100%\">\r\n"
+            "                        <td>\r\n"
+            "                    <tr>\r\n"
+            "                    </tr>\r\n"
+            "                        <td>\r\n"
+            "                            </table>\r\n"
+            "                                </tr>\r\n"
+            "                                    </td>\r\n"
+            "</span>\r\n"
+        :
+            //20190801@1825:  "                                    <td align=left valign=\"top\">\r\n"
+            //20190801@1825:  "                                <tr>\r\n"
+            //20190801@1825:  "                            <table style=\"width:100%\">\r\n"
+            //20190801@1825:  "                        <td>\r\n"
+            //20190801@1825:  "                    <tr>\r\n"
+            //20190801@1825:  "                    </tr>\r\n"
+            //20190801@1825:  "                        <td>\r\n"
+            //20190801@1825:  "                            </table>\r\n"
+            //20190801@1825:  "                                </tr>\r\n"
+            //20190801@1825:  "                                    </td>\r\n"
+            //20190801@1825:  "</span>\r\n"
+            ""
+        ?
+        idModeP == ifcIDmODEpUTfILE_ROOT
+
+    tBodyProlog_90 = T(
+
+    ) ;
+
+            "                                        <span style=\"color:#222\" onmouseout=\"sayMessageF( 0 , 16000 )\" onmouseover=\"sayMessageF( 'I disagree with what he says, but I will defend his right to say it!' , 0 )\">"
+            "                                    <td align=right valign=\"top\" style=\"width:30%\">\r\n"
+            "                                    </td>\r\n"
+            "\" onmouseout=\"sayMessageF( 0 , 16000 )\" onmouseover=\"sayMessageF( 'Click here to view the visitor log and other reports for this page and for IDEAFARM.COM!' , 0 )\">reports</a></span>\r\n"
+        :
+            ""
+        ?
+        idModeP == ifcIDmODEpUTfILE_ROOT
+
+    tBodyProlog_80White = T(
+
+    ) ;
+
+            "                                        <span style=\"color:lightgreen\" onmouseout=\"sayMessageF( 0 , 16000 )\" onmouseover=\"sayMessageF( 'I disagree with what he says, but I will defend his right to say it!' , 0 )\">"
+            "                                    <td align=right valign=\"top\" style=\"width:30%\">\r\n"
+            "                                    </td>\r\n"
+            "\" onmouseout=\"sayMessageF( 0 , 16000 )\" onmouseover=\"sayMessageF( 'Click here to view the visitor log and other reports for this page and for IDEAFARM.COM!' , 0 )\">reports</a></span>\r\n"
+        :
+            ""
+        ?
+        idModeP == ifcIDmODEpUTfILE_ROOT
+
+    tBodyProlog_80Black = T(
+
+    ) ;
+
+            "                                        <span><a href=\"http://reports.ideafarm.com/access/"
+            "\" onmouseout=\"sayMessageF( 0 , 16000 )\" onmouseover=\"sayMessageF( 'Click to change the color scheme to color on black (for normal viewing).' , 0 )\">black</a>\r\n"
+        :
+            ""
+        ?
+        idModeP == ifcIDmODEpUTfILE_ROOT
+
+    tBodyProlog_70White = T(
+
+    ) ;
+
+            "                                        <span><a href=\"http://reports.ideafarm.com/access/"
+            "\" onmouseout=\"sayMessageF( 0 , 16000 )\" onmouseover=\"sayMessageF( 'Click to change the color scheme to black on white (for printing).' , 0 )\">white</a>\r\n"
+        :
+            ""
+        ?
+        idModeP == ifcIDmODEpUTfILE_ROOT
+
+    tBodyProlog_70Black = T(
+
+    ) ;
+
+        ""
+
+    tBodyProlog_60 = T(
+
+    ) ;
+
+            "                                        <a href=\""
+            "                                        <span onmouseover=\"sayMessageF( 'This website is a new kind of book, an IdeaFarm (tm) Knowedge Tree.  IdeaFarm (tm) Knowledge Trees are distinguished from other forms of writing in that sentences are arranged in a tree rather than sequentially.  IdeaFarm (tm) Knowledge Trees can be illustrated with documents, pictures, videos, and audio recordings.  Although the use of rich text is possible, IdeaFarm (tm) Knowledge Tree authors are encouraged to use plain text and to avoid altering the standard layout of each page, to avoid confusing viewers who are unfamiliar with climbing around in a knowledge tree.<p>Adjust text size now for comfort.  Click the word white if you prefer a white background.<p>In normal writing, sentences are arranged in a sequence and are meant to be read in that sequence.  In a knowledge tree, sentences are called branches, and branches are arranged in a tree, growing upward from a single root branch.  The root branch is the title of the tree.<p>Each page of this web site displays a three level view of a part of the knowledge tree.  The page title is a branch at some level L.  The page title is followed by wo or more paragraphs.  The italicized first sentence of each paragraph is a branch at level L+1 that grows up from the title branch.  The remaining sentences of each paragraph are branches at level L+2 that grow up from the italicized sentence.<p>To climb up into more detail, click on a sentence.  To climb back down, click down1.  If you get lost, click down1 on each page until you recognize where you are.' , 0 )\">help</span>\r\n"
+            "                                        <span onmouseover=\"sayMessageF( 'Copyright (c) 2014-2018 Wo\\x27O Ideafarm.  All rights reserved.  Respecting the rights of other people is an important part of empowering one another.' , 0 )\">copyright</span>\r\n"
+            "                                        <span onmouseover=\"sayMessageF( 'Transparency:  IdeaFarm (tm) Operations operates transparently.  Any email sent to me, or by me, is automatically published here (click archive above).  Anyone worldwide can see practically every communication that I have with anyone.  I welcome email from you, but be aware that I live in a fishbowl.<p>Your actions are also visible publicly.  All accessess to web pages and other resources at IDEAFARM.COM are logged, including the requestor\\x27s IP address, and all log entries are publicly visible.  To view the reports for this page, click \\x27reports\\x27.<p>Public Rosters:  Some purchases made on IDEAFARM.COM will result in you being listed on a public roster.  This is true, for example, if you become an IdeaFarm (tm) Associate or subscribe to the IdeaFarm (tm) Organizer.  All such exceptions to the following privacy policy are clearly marked.<p>Your personal information:  No page on IDEAFARM.COM asks you to enter personal information.  I use the Advanced Advertiser and Demographics features of Google Analytics to better understand general patterns as people visit IDEAFARM.COM.  Google Analytics uses anonymous cookies and does not provide me with any of your personal information.  If I ever receive your personal information, such as when you make a purchase, it will only be used to administer your account.  It will not be sold or disclosed.  Any nonadministrative use will occur only with your permission, which will default to NO until you change it to YES.' , 0 )\">privacy</span>\r\n"
+            "                                        <span onmouseover=\"sayMessageF( 'Before contacting me, read the privacy notice.  To send an email to me, click the icon that appears at the top left corner of every page.  Clicking the icon will tell me which page you were viewing.<p>If that does not put you into your email editor, then just copy my name and email and paste it into an email.  If you do that, please also paste the URL of the page into the email.<p>Sending me an email will not result in your email address being added to any mailing list.  I try to respond to every email received, but I never initiate email contact with visitors to IDEAFARM.COM or users of IdeaFarm (tm) Bundle unless I have an administrative reason to do so.' , 0 )\">contact</span>\r\n"
+            "                                        <span onmouseover=\"sayMessageF( 'Wo\\x27O Ideafarm\\x27s Pledge:<p><center>I pledge to be good news<br>for all who come into contact with me,<br>especially my coworkers and employer, or,<br>my customers and employees.<p>This pledge,<br>to be good news,<br>to be a giver not a taker,<br>is the foundation of my plan<br>to achieve economic success.<p>My pledge is public<br>so that you can encourage me to live up to it,<br>so that I will reap its economic benefits in full measure,<br>and so that my success will encourage you and others<br>to pledge to be good news.</center>' , 0 )\">pledge</span>\r\n"
+        :
+            ""
+        ?
+        idModeP == ifcIDmODEpUTfILE_ROOT
+
+    tBodyProlog_50 = T(
+
+    ) ;
+
+            "                                        <span style=\"color:#444\"><a href=\"https://steemit.com/@ideafarm\" onmouseout=\"sayMessageF( 0 , 16000 )\" onmouseover=\"sayMessageF( 'Click to view my social activity on Steemit!' , 0 )\">steemit.com/@ideafarm</a></span>\r\n"
+            "                                        <span style=\"color:#222\" onmouseout=\"sayMessageF( 0 , 16000 )\" onmouseover=\"sayMessageF( 'Click the icon in the upper left corner to send me email, or copy this line and paste it into the TO line of a new email.' , 0 )\"><i>Wo&#39;O Ideafarm &lt;ideafarm@uchicago.edu&gt;</i></span>\r\n"
+        :
+            ""
+        ?
+        idModeP == ifcIDmODEpUTfILE_ROOT
+
+    tBodyProlog_40White = T(
+
+    ) ;
+
+            "                                        <span style=\"color:blue\"><a href=\"https://steemit.com/@ideafarm\" onmouseout=\"sayMessageF( 0 , 16000 )\" onmouseover=\"sayMessageF( 'Click to view my social activity on Steemit!' , 0 )\">steemit.com/@ideafarm</a></span>\r\n"
+            "                                        <span style=\"color:lightblue\" onmouseout=\"sayMessageF( 0 , 16000 )\" onmouseover=\"sayMessageF( 'Click the icon in the upper left corner to send me email, or copy my name and email address (in blue) and paste it into the TO line of a new email.' , 0 )\"><i>Wo&#39;O Ideafarm &lt;ideafarm@uchicago.edu&gt;</i></span>\r\n"
+        :
+            ""
+        ?
+        idModeP == ifcIDmODEpUTfILE_ROOT
+
+    tBodyProlog_40Black = T(
+
+    }
+        ) ;
+
+            "                                    <td align=left valign=\"top\">\r\n"
+            "                                <tr>\r\n"
+            "                            <table style=\"width:100%\">\r\n"
+            "                        <td>\r\n"
+            "                    <tr>\r\n"
+            "                <table style=\"width:100%\">\r\n"
+            "            <td>\r\n"
+            "            </td>\r\n"
+            "                </form>\r\n"
+            "                    <input type=\"image\" src=\"http://" postDOMAINnAMEaRCHIVEiDEAFARMcOM "/")+thpuIcon+T("\" alt=\"Submit\" onmouseout=\"sayMessageF( 0 , 16000 )\" onmouseover='sayMessageF( \"Click to email a comment to Wo&#39;O Ideafarm.<p>WARNING:  Do this only after you have read the privacy notice!\" , 0 )'/>\r\n"
+            "\" method=\"post\" enctype=\"multipart/form-data\">\r\n"
+
+        tBodyProlog_30 = T(
+    {
+    else
+    if( idModeP == ifcIDmODEpUTfILE_ROOT ) tBodyProlog_30 = T("") ;
+
+    ) ;
+
+        //    : ""
+        //    ? "++++"
+        //idModeP == ifcIDmODEpUTfILE_ROOT
+        ""
+
+    tBodyProlog_20 = T(
+
+    ) ;
+
+            "&subject=ideafarm%2Ecom%2F"
+            //"+%7D%0D%0A%0D%0A%7Bbranch%3A+"
+            //"%7Burl%3A+"
+            "                <form action=\"mailto:ideafarm@uchicago.edu?body=Respectful+comments+are+welcome%2e++Put+your+comment+or+message+here+after+deleting+these+instructions%2E++All+received+emails+become+part+of+the+public+record+of+IDEAFARM%2ECOM%2E%0D%0A%0D%0ATo+encourage+comments%2C+sending+this+email+will+not+result+in+you+being+placed+on+any+list%2C+or+receiving+emails%2C+other+than+a+single+reply%2E%0D%0A%0D%0ATo+receive+occasional+IDEAFARM%2ECOM+news%2C+say+%22Count+me+in%21%22"
+            "            <td width=40 align=left valign=\"top\">\r\n"
+            "        <tr align=left valign=\"top\">\r\n"
+            "    <table style=\"width:100%\">\r\n"
+            "\r\n"
+            "\r\n"
+        :
+            ""
+        ?
+        idModeP == ifcIDmODEpUTfILE_ROOT
+
+    tHtml50TableBegin = T(
+
+    tTailParmNew = T("</body>") ;
+
+    ) ;
+
+        "    </style>"
+        "        }\r\n"
+        "            border-color: #000 ;\r\n"
+        "            border-width: 1px 8px 1px 8px ;\r\n"
+        "            border-style: solid ;\r\n"
+        "            text-decoration: none ;\r\n"
+        "            color: #000 ;\r\n"
+        "        {\r\n"
+        "        H3\r\n"
+        "        }\r\n"
+        "            border-color: #000 ;\r\n"
+        "            border-width: 1px 1px 1px 0px ;\r\n"
+        "            border-style: solid ;\r\n"
+        "            text-decoration: none ;\r\n"
+        "            color: #000 ;\r\n"
+        "        {\r\n"
+        "        A:active\r\n"
+        "        }\r\n"
+        "            border-color: #000 ;\r\n"
+        "            border-width: 1px 1px 1px 0px ; \r\n"
+        "            border-style: solid ;\r\n"
+        "            text-decoration: none ;\r\n"
+        "            color: #000 ;\r\n"
+        "        {\r\n"
+        "        A:hover\r\n"
+        "        } \r\n"
+        "            border-color: #000 ;\r\n"
+        "            border-width: 0px 1px 0px 0px ;\r\n"
+        "            border-style: solid ;\r\n"
+        "            text-decoration: none ;\r\n"
+        "            color: #000 ;\r\n"
+        "        {\r\n"
+        "        A:visited\r\n"
+        "        }\r\n"
+        "            border-color: #000 ;\r\n"
+        "            border-width: 0px 1px 0px 0px ;\r\n"
+        "            border-style: solid ;\r\n"
+        "            text-decoration: none ;\r\n"
+        "            color: #000 ;\r\n"
+        "        {\r\n"
+        "        A:link\r\n"
+        "    <style type=\"text/css\">\r\n"
+        "\r\n"
+        "<body style=\"font-family:arial ; background-color:#fff ; color:#000\" onload=\"sayMessageDefaultF( 16000 )\">\r\n"
+
+    tHtml40BodyBeginWhite = T(
+
+    ) ;
+
+        "    </style>"
+        "        }\r\n"
+        "            border-color: #ff6 ;\r\n"
+        "            border-width: 1px 8px 1px 8px ;\r\n"
+        "            border-style: solid ;\r\n"
+        "            text-decoration: none ;\r\n"
+        "            color: #ff6 ;\r\n"
+        "        {\r\n"
+        "        H3\r\n"
+        "        }\r\n"
+        "            border-color: white ;\r\n"
+        "            border-width: 1px 1px 1px 0px ;\r\n"
+        "            border-style: solid ;\r\n"
+        "            text-decoration: none ;\r\n"
+        "            color: white ;\r\n"
+        "        {\r\n"
+        "        A:active\r\n"
+        "        }\r\n"
+        "            border-color: #ff6 ;\r\n"
+        "            border-width: 1px 1px 1px 0px ; \r\n"
+        "            border-style: solid ;\r\n"
+        "            text-decoration: none ;\r\n"
+        "            color: #ff6 ;\r\n"
+        "        {\r\n"
+        "        A:hover\r\n"
+        "        } \r\n"
+        "            border-color: red ;\r\n"
+        "            border-width: 0px 1px 0px 0px ;\r\n"
+        "            border-style: solid ;\r\n"
+        "            text-decoration: none ;\r\n"
+        "            color: #ff6 ;\r\n"
+        "        {\r\n"
+        "        A:visited\r\n"
+        "        }\r\n"
+        "            border-color: green ;\r\n"
+        "            border-width: 0px 1px 0px 0px ;\r\n"
+        "            border-style: solid ;\r\n"
+        "            text-decoration: none ;\r\n"
+        "            color: #ff6 ;\r\n"
+        "        {\r\n"
+        "        A:link\r\n"
+        "    <style type=\"text/css\">\r\n"
+        "\r\n"
+        "<body style=\"font-family:arial ; background-color:#000 ; color:#ff6\" onload=\"sayMessageDefaultF( 16000 )\">\r\n"
+
+    tHtml40BodyBeginBlack = T(
+
+    ) ;
+
+        "\" onmouseout=\"sayMessageF( 0 , 16000 )\" onmouseover=\"sayMessageF( 'Click to climb down one level to view the page on which I am the topic sentence of a paragraph.' , 0 )\">down1</a>\r\n"
+
+    tPrologf = T(
+
+    ) ;
+
+        "                                        <a href=\""
+
+    tProloge = T(
+
+    ) ;
+
+        "\" onmouseout=\"sayMessageF( 0 , 16000 )\" onmouseover=\"sayMessageF( 'Click to climb down two levels to view the page on which I am a detail sentence.' , 0 )\">down2</a>\r\n"
+
+    tPrologd = T(
+
+
+    ) ;
+
+        "                                        <a href=\""
+
+    tPrologc = T(
+
+    //GAP GOES HERE
+
+    }
+        default : { BLAMMO ; break ; }
+        }
+            break ;
+
+        {
+        case ifcIDmODEpUTfILE_OTHER :
+        case ifcIDmODEpUTfILE_PAY :
+        case ifcIDmODEpUTfILE_ARCHIVE :
+        }
+            break ;
+
+        {
+        case ifcIDmODEpUTfILE_IPDOS :
+        }
+            break ;
+
+        {
+        case ifcIDmODEpUTfILE_NEWS :
+        }
+            break ;
+
+        {
+        case ifcIDmODEpUTfILE_BUNDLE :
+        }
+            break ;
+
+        {
+        case ifcIDmODEpUTfILE_WO :
+        case ifcIDmODEpUTfILE_ESSAYS :
+        case ifcIDmODEpUTfILE_TUTORIALS :
+        }
+            break ;
+
+        {
+        case ifcIDmODEpUTfILE_PAID :
+        case ifcIDmODEpUTfILE_ROOT :
+    {
+    switch( idModeP )
+
+    }
+        pswUrlReferenced->ungrabF( tinP ) ;
+        ++ *pswUrlReferenced ;
+        *ppsttLever = *ppthpu[ offt ] ;
+        pswUrlReferenced->grabF( tinP , TAG( TAGiDnULL ) ) ;
+    {
+    for( countT offt = 0 ; offt < sizeof ppthpu / sizeof ppthpu[ 0 ] ; offt ++ )
+
+    }
+        pswUrlReferenced->ungrabF( tinP ) ;
+        ++ *pswUrlReferenced ;
+        *ppsttLever = *ppthpu[ offt ] ;
+        pswUrlReferenced->grabF( tinP , TAG( TAGiDnULL ) ) ;
+    {
+    for( countT offt = 0 ; offt < sizeof ppthpu / sizeof ppthpu[ 0 ] ; offt ++ )
+
+    ppthpu[ 0x17 ] = &thpub ; //CS:CODEsYNC: 36140005 15000153
+    ppthpu[ 0x16 ] = &thpua ;
+    ppthpu[ 0x15 ] = &thpu9 ;
+    ppthpu[ 0x14 ] = &thpu8 ;
+    ppthpu[ 0x13 ] = &thpu7 ;
+    ppthpu[ 0x12 ] = &thpu6 ;
+    ppthpu[ 0x11 ] = &thpu5 ;
+    ppthpu[ 0x10 ] = &thpu4 ;
+    ppthpu[ 0x0f ] = &thpu3 ;
+    ppthpu[ 0x0e ] = &thpu2 ;
+    ppthpu[ 0x0d ] = &thpu1 ;
+
+    ppthpu[ 0x0c ] = &thpuLinkOther ;
+    ppthpu[ 0x0b ] = &thpuLinkTreatise ;
+    ppthpu[ 0x0a ] = &thpuLinkLaw ;
+    ppthpu[ 0x09 ] = &thpuSoilIcon ;
+    ppthpu[ 0x08 ] = &thpuMiscIcon ;
+    ppthpu[ 0x07 ] = &thpuZipIcon ;
+    ppthpu[ 0x06 ] = &thpuTextPdf ;
+    ppthpu[ 0x05 ] = &thpuTextEmail ;
+    ppthpu[ 0x04 ] = &thpuTextAscii ;
+    ppthpu[ 0x03 ] = &thpuVideocam ;
+    ppthpu[ 0x02 ] = &thpuCamera ;
+    ppthpu[ 0x01 ] = &thpuMicrophone ;
+    ppthpu[ 0x00 ] = &thpuIcon ;
+
+    thpub            = T("2012/!ideafarm.9.2.00000000.00000001.20120518@1235.20120518@1335.306edcc98975d82f3a66231d571177d9.001.data.png" ) ;
+    thpua            = T("2012/!ideafarm.9.2.00000000.00000001.20120518@1240.20120518@1357.f6d6d74be383d8807d318b6374b03a25.001.data.png" ) ;
+    thpu9            = T("2012/!ideafarm.9.2.00000000.00000001.20120413@1305.20150910@0056.61c1dfda7cdb4363d7b2a1def8192eb9.001.data.html") ;
+    thpu8            = T("2012/!ideafarm.9.2.00000000.00000001.20120413@1306.20150910@0056.4622bb0446b2f3523c3d30b51f6850af.001.data.html") ;
+    thpu7            = T("2012/!ideafarm.9.2.00000000.00000001.20120413@1318.20150910@0035.9ed0738e6f2e7e6996fada3cfcb2826f.001.data.html") ;
+    thpu6            = T("2012/!ideafarm.9.2.00000000.00000001.20120510@1242.20150910@0035.8158c18fe21c5433bd154688aa1dd241.001.data.html") ;
+    thpu5            = T("2012/!ideafarm.9.2.00000000.00000001.20120526@1655.20150910@0056.8c3fd12c2118fa8152b9c85572aea290.001.data.html") ;
+    thpu4            = T("2012/!ideafarm.9.2.00000000.00000001.20120526@2029.20150910@0147.dfb421efac9b24ac86ff9115282f0b43.001.data.html") ;
+    thpu3            = T("2012/!ideafarm.9.2.00000000.00000001.20120527@1251.20150910@0035.3571f1af549cf162045d86101e707edc.001.data.html") ;
+    thpu2            = T("2012/!ideafarm.9.2.00000000.00000001.20120604@2159.20150910@0035.ee8350d868cf8c8f01bc16304b51b4ea.001.data.html") ;
+    thpu1            = T("2012/!ideafarm.9.2.00000000.00000001.20120726@1639.20150910@0056.aac4ca4f98b9e429deb388de757c0e6d.001.data.html") ;
+
+    thpuLinkOther    = T("2012/!ideafarm.9.2.00000000.00000001.20120419@2100.20160728@1246.b91bc1d963297d01bf849bbd965aa629.001.data.png" ) ;
+    thpuLinkTreatise = T("2012/!ideafarm.9.2.00000000.00000001.20120419@2039.20160723@1102.4f148af3900dc410ce6a8b569b2e7e79.001.data.png" ) ;
+    thpuLinkLaw      = T("2012/!ideafarm.9.2.00000000.00000001.20120419@2007.20160723@1101.5426efe145689ec63cc1b48cb0a73337.001.data.png" ) ;
+    thpuTextPdf      = T("2012/!ideafarm.9.2.00000000.00000001.20120419@1410.20150910@0013.392ee74cb1938157524f32d237b77e18.001.data.png" ) ;
+    thpuTextEmail    = T("2012/!ideafarm.9.2.00000000.00000001.20120419@1917.20160723@1101.bd449b70823f86e7d841d343f8c3f3ec.001.data.png" ) ;
+    thpuTextAscii    = T("2012/!ideafarm.9.2.00000000.00000001.20120419@1401.20150910@0002.576aa420a38b8d246cc9b2f565e12656.001.data.png" ) ;
+    thpuSoilIcon     = T("2013/!ideafarm.9.2.00000000.00000001.20130715@1851.20160723@1109.8a6b399c2d8970ca3c36b86af161688e.001.data.png" ) ;
+    thpuMiscIcon     = T("2012/!ideafarm.9.2.00000000.00000001.20120424@0741.20160723@1102.e2a0f4d7076f844ff53a1e154fa85c65.001.data.png" ) ;
+    thpuZipIcon      = T("2013/!ideafarm.9.2.00000000.00000001.20130715@1724.20160723@1109.a65c4f7824154149a8e464bce9a2ed6c.001.data.png" ) ;
+    thpuVideocam     = T("2012/!ideafarm.9.2.00000000.00000001.20120417@1932.20150910@0002.f43c44e8976b6e6d46affc33f0f3f0ff.001.data.png" ) ;
+    thpuCamera       = T("2012/!ideafarm.9.2.00000000.00000001.20120417@1944.20150910@0002.0c9435d68d335d353a4b50f63db467b7.001.data.png" ) ;
+    thpuMicrophone   = T("2012/!ideafarm.9.2.00000000.00000001.20120417@1852.20150910@0002.5b85590ecf73366ac70a1e8c2eecbab0.001.data.png" ) ;
+    thpuIcon         = T("2013/!ideafarm.9.2.00000000.00000001.20130121@0001.20150910@0015.11de60d8e1b5ed704d0aefe39dda0b4e.001.data.ico" ) ;
+
+    thpArchiveSlash = T("archive/") ;
+
+    thDotDotSlash = T("../") ;
+    thNull = T("") ;
+
+    ) ;
+
+        "\r\n"
+        "</head>\r\n"
+        "    </script>\r\n"
+        "\r\n"
+        "        }\r\n"
+        "            }\r\n"
+        "                default : { clearMessageF() ; break ; }\r\n"
+        "                case 4  : { sayMessageF( \"")+thpSign+T("\" , msP ) ; break ; }\r\n"
+        "                case 1  : { sayMessageF( \"")+thpMessageDefault+T("\" , msP ) ; break ; }\r\n"
+        "            {\r\n"
+        "            switch( ( ++ idDefaultMessageLath ) % 0x10 )\r\n"
+        "        {\r\n"
+        "        function sayMessageDefaultF( msP )\r\n"
+        "\r\n"
+        "        }\r\n"
+        "            }\r\n"
+        "                }\r\n"
+        "                    /*hTimer = setTimeout( \" clearMessageF() \" , msP ) ;*/\r\n"
+        "                {\r\n"
+        "                if( msP )\r\n"
+        "\r\n"
+        //"                document.getElementById( \"message2\" ).innerHTML = postP ;\r\n"
+        "                document.getElementById( \"message1\" ).innerHTML = postP ;\r\n"
+        "            {\r\n"
+        "            else\r\n"
+        "            }\r\n"
+        "                sayMessageDefaultF( msP ) ;\r\n" 
+        "                if( !msP ) msP = 16000 ;\r\n"
+        "            {\r\n"
+        "            if( !postP )\r\n" 
+        "\r\n"
+        "            }\r\n"
+        "                hTimer = 0 ;\r\n"
+        "                clearTimeout( hTimer ) ;\r\n"
+        "            {\r\n"
+        "            if( hTimer )\r\n"
+        "        {\r\n"
+        "        function sayMessageF( postP , msP )\r\n"
+        "\r\n"
+        "        }\r\n"
+        //"            document.getElementById( \"message2\" ).innerHTML = \"&thinsp;\" ;\r\n"
+        "            document.getElementById( \"message1\" ).innerHTML = \"&thinsp;\" ;\r\n"
+        "\r\n"
+        "            }\r\n"
+        "                hTimer = 0 ;\r\n"
+        "                clearTimeout( hTimer ) ;\r\n"
+        "            {\r\n"
+        "            if( hTimer )\r\n"
+        "        {\r\n"
+        "        function clearMessageF()\r\n"
+        "\r\n"
+        "        var idDefaultMessageLath = 0 ;\r\n"
+        "        var hTimer = 0 ;\r\n"
+        "\r\n"
+        "    <script type=\"text/javascript\">\r\n"
+
+
+
+
+        //"    </script>\r\n"
+        //"\r\n"
+        //"        ga('send', 'pageview');\r\n"
+        //"        ga('create', 'UA-47899902-1', 'ideafarm.com');\r\n"
+        //"\r\n"
+        //"        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');\r\n"
+        //"        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)\r\n"
+        //"        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),\r\n"
+        //"        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){\r\n"
+        //"    <script>\r\n"
+        //ENABLE IN PRODUCTION IF WANT GOOGLE ANALYTICS INFORMATION (AND GOOGLE SPYING); THIS IS DISABLED BECAUSE DURING TESTING, WHEN THE HTML FILE IS LOCAL, GOOGLE SHIT HANGS THE BROWSER
+
+
+
+
+        "    </title>\r\n"
+        "\r\n"
+
+    tHtml30TitleEnd = T(
+
+    thpMessageDefault = T("This is an IdeaFarm " "(tm) Knowledge Tree, rendered as foreign (conventional linear) text.") ;
+    thpSign = T("Do not fear that you will die.  Fear that you might never live!") ;
+
+    ) ;
+
+        "        "
+        "    <title>\r\n"
+        "    <meta name=\"robots\" content=\"noindex\">\r\n"
+        "<head>\r\n"
+        "<html>\r\n"
+        "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01//EN\" \"http://www.w3.org/TR/html4/strict.dtd\">\r\n"
+
+    tHtml10PageBeginWhite = T(
+    ) ;
+
+        "        "
+        "    <title>\r\n"
+        "\r\n"
+        "<head>\r\n"
+        "<html>\r\n"
+        "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01//EN\" \"http://www.w3.org/TR/html4/strict.dtd\">\r\n"
+
+    tHtml10PageBeginBlack = T(
+    thPageTitleImage = T("Image at original resolution") ;
+    thDotZDot = T(".z.") ;
+    thLeaf = T("pages") ;
+    thSlash = T("/") ;
+    thDotDot = T("..") ;
+    thDot = T(".") ;
+{
+/*1*/voidT putFileS::ctF( tinS& tinP , etherC& etherP , const countT idModeP )/*1*/
+
+// tHtmlNN: "numbered text html": MAJOR SNIPPET (THE HTML PAGE IS ASSEMBLED BY CONCATENATING MAJOR SNIPPETS, IN NUMERICAL SEQUENCE, WITH MIXIN SNIPPETS IN BETWEEN
+// thpu: "text html parameter url"
+// thp: "text html parametric": MIXIN SNIPPET THAT USER SHOULD BE ABLE TO SPECIFY
+// thu: "text html url": MIXIN
+// th: "text html": MIXIN SNIPPET
+//
+// NAMING CONVENTION
+
+/**/
+
+*/
+/*
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+

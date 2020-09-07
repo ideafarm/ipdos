@@ -1,0 +1,80 @@
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+
+}
+    _OUTsTACKc_
+    //O: __NZ( ppValue ) ;
+    sinkPrivateF( tinP , idSlotP , valueP , ppValue , flagsP , pSubtractFP , subtractionParmP ) ;
+    ZE( plateS* , ppValue ) ;
+    _INsTACKc_
+{
+/*1*/voidT stackC::sinkF( tinS& tinP , countT& idSlotP , const countT valueP , const flagsT flagsP , ifc4FT pSubtractFP , const countT subtractionParmP )/*1*/
+
+/**/
+*/
+  it is only passed into pSubtractF
+  value is not used
+  if 0 then cbd is used
+  can be 0
+ subtractionParmP
+  can be 0
+ pSubtractFP
+ ||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/1snip.001008b.flSTACKsINK_!||
+ flagsP
+  can be 0
+ valueP
+    for a unique sink, 0 indicates that the item was not added because an equivalent item is already there
+    for a query, 0 indicates that an equivalent item is not on the stack
+   0 indicates either that the item was not added or that the item is not on the stack
+   2 indicates that there is one item above the newly inserted item
+   1 indicates that the new item is at the top
+  after return, contains the slot containing the new item
+  must be 0
+ idSlotP
+arguments
+ the overhead of maintaining the tab array can be avoided by loading the stack before calling me
+ once it is set up, the tabs are maintained whenever a plate is added or removed from the stack
+ this array of tabs is not set up until i am called for the wo'th time
+ i use an array of tabs to jump around, doing a binary search
+for efficiency, i should not be called until after the initial plates have been loaded
+after calling this function, stackC::extractF( tinP ) can be used to remove the item that it references
+if a plate is added, this function zees the internal cursor that is used to make operator [] speedy
+ flSTACKsINK_QUERY can only be used when all plates were sunk into the stack using sinkF
+ impotence does not occur when an item is not found
+  1 indicates that valueP was found at the top of the stack
+ instead, idSlotP is set to 0 if the item is not found, or to the position where the item was found
+ if flSTACKsINK_QUERY is specified in flagsP, the item is never added to the stack
+this can also be used to query whether the item is on the stack without changing the stack
+  the function must be of type ifc3FT, i.e.: "countT (*ifcFT)( tinS& tinP , countT& , countT& , countT& )"
+   }
+   return c1P - c2P ;
+   etherC& ether = *(etherC*)pEther ;
+   if( !pEther ) return ;
+{
+   countT subtractF( tinS& tinP , countT& pEther , countT& c1P , countT& c2P , countT& c3P )
+  cast its parameters as in this example (which is the default subtration function)
+  pSubtractFP should be a function that returns the "relative density" of two objects
+   an item will not sink past another item of the same density
+  iow, this function preserves ordering
+ the new item sinks until the item below it is equally or more dense than it is
+like operator << except the new item "sinks" into the stack
+  \<A HREF=\"5.1d10104.1.1.0.html\"\>1d10104:  WAKEsHOW( "example.simplest.func.115000c.stackC.sinkF" )\</A\>
+ simplest
+examples
+\<A HREF=\"5.115000c.1.0.html\"\>definition\</A\>
+\<A HREF=\"6.$sinkF.0.html\"\>instances\</A\>
+/*
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+

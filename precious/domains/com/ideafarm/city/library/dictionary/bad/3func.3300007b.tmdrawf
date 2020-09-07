@@ -1,0 +1,142 @@
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+
+DONE( tmDrawF )
+//tinP.pc Utility[ 0 ] -- ; //U::TO FIND A BUG
+}
+    }
+        LOGrAW( T("mean nap time [mean,tinP.m01DrawSmooth]: ")+TF1(mean)+T(" ")+TF6(tinP.pAdamGlobal1->m01DrawSmooth,flFORMAT_EXPONENT,0,0,2,6)+T("\r\n") ) ;
+        mean /= sizeof pcNap / sizeof pcNap[ 0 ] ;
+        for( countT offi = 0 ; offi < sizeof pcNap / sizeof pcNap[ 0 ] ; offi ++ ) mean += pcNap[ offi ] ;
+        ZE( measureT , mean ) ;
+    {
+
+    }
+        LOGrAW( T("mean time [target,mean]: ")+TF1((measureT)msTarget)+T(" ")+TF1(mean)+T("\r\n") ) ;
+        mean /= sizeof pcOlder / sizeof pcOlder[ 0 ] ;
+        for( countT offi = 0 ; offi < sizeof pcOlder / sizeof pcOlder[ 0 ] ; offi ++ ) mean += pcOlder[ offi ] ;
+        ZE( measureT , mean ) ;
+    {
+
+    deviceP.ungrabF( tinP ) ; //------------------------------------------------------------------------------------------------------------------------
+    }
+        }
+            msAgeLath = msAge ;
+            }
+                //tinP.pAdamGlobal1->m01DrawSmooth  = 1.0                         ; //TO SUPPRESS GIVING THIS HINT TO APPLICATION CODE ; NORMALLY THIS SHOULD BE COMMENTED OUT
+                //flagsCbf                         &= ~( F(flDEVICEcbf_TOOsLOW) ) ; //TO SUPPRESS GIVING THIS HINT TO APPLICATION CODE ; NORMALLY THIS SHOULD BE COMMENTED OUT
+            
+                }
+                    else if(  tinP.pAdamGlobal1->m01DrawSmooth                  ) tinP.pAdamGlobal1->m01DrawSmooth      = 0.0 ;
+                    else if(  tinP.pAdamGlobal1->m01DrawSmooth >= 1.0 / 16.0    ) tinP.pAdamGlobal1->m01DrawSmooth     /= 2.0 ;
+                    else if( !( F(flagsCbf) & flDEVICEcbf_TOOsLOW )             ) flagsCbf                             |= flDEVICEcbf_TOOsLOW ;
+                    else if(  tinP.pAdamGlobal1->m01DrawSmooth >= 2.0 / 16.0    ) tinP.pAdamGlobal1->m01DrawSmooth     /= 2.0 ;
+                         if(  msNap >= 2                                        ) msNap >>= 1 ;
+                {
+                else if( msOlder > msTarget ) // TOO SLOW
+                }
+                    else                                                          msNap ++ ;
+                    else if(  tinP.pAdamGlobal1->m01DrawSmooth <= 8.0 / 16.0    ) tinP.pAdamGlobal1->m01DrawSmooth     *= 2                           ;
+                    else if(  F(flagsCbf) & flDEVICEcbf_TOOsLOW                 ) flagsCbf                             &= ~( F(flDEVICEcbf_TOOsLOW) ) ;
+                    else if(  tinP.pAdamGlobal1->m01DrawSmooth <= 1.0 / 16.0    ) tinP.pAdamGlobal1->m01DrawSmooth     *= 2                           ;
+                         if( !tinP.pAdamGlobal1->m01DrawSmooth                  ) tinP.pAdamGlobal1->m01DrawSmooth      = 1.0 / 16.0                  ;
+                {
+                if( msOlder < msTarget ) // TOO FAST
+            
+                pcOlder[ ( offoOlder ++ ) % ( sizeof pcOlder / sizeof pcOlder[ 0 ] ) ] = msOlder ;
+                countT msOlder = msAge - msAgeLath ;
+            {
+            if( msAge >= msAgeLath )
+            countT msAge = (countT)thirdC::osTimeTicksSinceBootIF() ;
+            
+            deviceP.grabF( tinP , TAG( TAGiDnULL ) ) ; //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+            
+            pcNap[ ( offoNap ++ ) % ( sizeof pcNap / sizeof pcNap[ 0 ] ) ] = msNap ;
+
+            //tinP.cYield = 0 ;
+            //thirdC::osThreadYieldIF( tinP , TAG( TAGiDnULL ) ) ;
+            //tinP.cYield = 0 ;
+            //U::TO OPTIMIZE FOR DRAWING SPEED ; FOR PRODUCTION, THIS CODE SHOULD BE REPLACED WITH A msNap RAW SLEEP
+
+            deviceP.ungrabF( tinP ) ; //------------------------------------------------------------------------------------------------------------------
+            
+            if( deviceP.idGroupF() == /*displayC*/ 0x36118 ) ((displayC*)&deviceP)->invalidateF( tinP ) ;
+
+            }
+                (*deviceP.pDeviceCBF)( tinP , flagsCbf , deviceP , deviceP.cArg , ifcIDeVENTdEVICEc_TICK , ++ idTickLath ) ;
+                _IO_
+            
+                // CALLBACK SHOULD INSPECT flagsP AND/OR WATCH tinP.pAdamGlobal1->m01DrawSmooth AND ADJUST ITS BEHAVIOR TO MAINTAIN A BALANCE BETWEEN SPEED, COMPLEXITY, AND DESIRED SMOOTHING
+                // ALL CHANGES TO ASSOCIATES OF deviceP SHOULD BE MADE WITHIN THIS CALL ; APPLICATION CODE THAT MAKES SUCH CHANGES AT ANY OTHER TIME MUST GRAB deviceP BEFORE DOING SO TO AVOID DEADLOCKING WITH ME BY GRABBING ANOTHER ASSOCIATE AND THEN ATTEMPTING TO GRAB THE deviceP ASSOCIATE ; IOW, THE deviceP ASSOCIATE MUST ALWAYS BE THE WOTH ASSOCIATE GRABBED, AND THIS IS DONE BY EXPLICITLY GRABBING deviceP WOTH ; THE ASSOCIATION TOPOLOGY IS UNCONSTRAINED, SO VARIOUS ASSOCIATES WALKING EACH'S ASSOCIATE STACK CAN RESULT IN GRABBING IN ARBITRARY ORDERINGS, CAUSING DEADLOCK
+            {
+            if( deviceP.pDeviceCBF )
+        {
+        else
+        }
+            deviceP.grabF( tinP , TAG( TAGiDnULL ) ) ; //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+            msAgeLath = 0 ;
+            }
+                ++ s ; thirdC::dosSleepRawIF( tinP , TUCK >> 2 ) ;
+                sleepC s( tinP , TAG( TAGiDnULL ) ) ;
+            {
+            deviceP.ungrabF( tinP ) ; //------------------------------------------------------------------------------------------------------------------
+            //LOGrAW5( "tmDrawF [pDevice,bSuppressAnimation]: " , &deviceP , " " , deviceP.bSuppressAnimation , "\r\n" ) ;
+        {
+        if( deviceP.bSuppressAnimation || !deviceP.cColF() || !deviceP.cRowF() )
+
+        idCycle ++ ;
+    {
+    while( !bQuitP /*&& !etThread*/ )
+    flagsT flagsCbf = flDEVICEcbf_null ;
+    ZE( countT , idTickLath ) ;
+
+    ZE( countT , idCycle ) ;
+    deviceP.grabF( tinP , TAG( TAGiDnULL ) ) ; //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    ZE( countT , msAgeLath ) ;
+    countT msNap = msTarget ;
+    const countT msTarget = /*TUCK >> 3*/1 ;
+
+    ZE( countT , offoNap ) ;
+    ZE( countT , offoOlder ) ;
+    thirdC::c_memsetIF( tinP , (byteT*)pcNap   , sizeof pcNap   ) ;
+    thirdC::c_memsetIF( tinP , (byteT*)pcOlder , sizeof pcOlder ) ;
+    countT pcNap[ TUCK >> 4 ] ;
+    countT pcOlder[ TUCK >> 4 ] ;
+
+    displayArgS* pStuff = displayC::pStuffIF() ;
+
+    etThread.osThreadSwitchingDesireF( tinP , ifcTHREADpRIORITY_SPINLOCK ) ;
+
+    sgnReadyP.waitF( tinP ) ;
+
+    signC&   sgnReadyP =   *(signC*)pTaskP->c4 ;
+    stackC&  st_idEyeP =  *(stackC*)pTaskP->c3 ;
+    deviceC& deviceP   = *(deviceC*)pTaskP->c2 ;
+    boolT&   bQuitP    =   *(boolT*)pTaskP->c1 ;
+{
+if( pTaskP && pTaskP->c1 && pTaskP->c2 && pTaskP->c3 )
+//tinP.pc Utility[ 0 ] ++ ; //U::TO FIND A BUG
+/*1*/TASK( tmDrawF )/*1*/
+
+/**/
+*/
+this is difficult because the time consumed by the callback can vary wildly as the complexity of what the device's associates draw changes
+i attempt to keep the length of each period as close as i can to a target value in msP
+else i periodically call the device's callback function and then, if the device is a displayC, invalidate the entire window of the displayC
+if the device has ze dimension or animation is suppressed for it then i do nothing
+wo instance of me exists for each instance of deviceC
+/*
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+

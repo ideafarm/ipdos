@@ -1,0 +1,150 @@
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+
+}
+    return pbDockNapkinData + offWant ; //U:: NEED TO CALCULATE THE OFFSET TO RETURN
+
+    //etherC::etRockIF( tinP ).traceF( tinP , T("  [pbDockNapkinData,offWant,+]: ")+TF3((countT)pbDockNapkinData,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE,8)+T("    ")+TF3(offWant,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,8)+T("    ")+TF3((countT)(pbDockNapkinData+offWant),flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE,8) /*, flTRACE_NOpREFIX*/ ) ;
+
+    countT offWant = (countT)offByteWant & mask ;
+    }
+        }
+            mask >>= cShift ;
+            mask <<= cShift ;
+            countT cShift = sizeof( countT ) * SB - expCbPerNapkin ;
+        {
+        else
+        if( !expCbPerNapkin ) mask = 0 ;
+    {
+    countT mask = - 1 ;
+
+    // A MASK IS CALCULATED THAT WILL BE USED TO RETAIN ONLY THE LOW BITS IN pOffB[ 0 ]
+    // SO pOffB[ 1 , 2 , ... ] ARE DISCARDED
+    // THE MODULUS BIT IS ALWAYS IN pOffB[ 0 ] SINCE NAPKIN SIZE IS LIMITED TO MAXcOUNTT
+    // RECIPE FOR DISCARDING THE BITS AT AND ABOVE THE MODULUS BIT
+
+    // THE BITS WHICH REMAIN REPRESENT THE VALUE OF THE OFFSET INTO THE NAPKIN THAT CONTAINS THE SPECIFIED BYTE
+    // TO CALCULATE THE MODULUS, THOSE BITS ARE DISCARDED
+    // THE LATTER VALUE IS A MULTIPLE OF THE NAPKIN SIZE SO DOES NOT MODIFY THE MODULUS
+    // THE TOTAL VALUE IN pOffB[] EQUALS THE VALUE OF THE BITS BELOW THAT BIT POSITION, PLUS THE VALUE OF THE BITS AT OR ABOVE THAT BIT POSITION
+    // NAPKIN SIZE IS A POWER OF 2, SO IS REPRESENTED BY A SINGLE BIT
+    // RECIPE
+
+    // CALCULATE THE OFFSET WITHIN THE NAPKIN
+
+    }
+        pcDockOffNapkin[ offDockMake ] = offNapkinWant ;
+
+        pbDockNapkinData = napkin ;
+        napkin.formattingIsDoneF( tinP ) ;
+        napkinC& napkin = *( (napkinC*)pbDockNapkin + offDockMake ) ;
+
+        }
+            THREADmODE3rESTORE
+            ) ;
+                idMemorySpaceCt
+                - 1 ,
+                flNAPKINc_null ,
+                ifcOPENsHAREDmEMORYhOW_nCeF ,
+                1 << expCbPerNapkin ,
+                (const handleC*)((fileC*)pbDockFile)[ offDockMake ] ,
+                postBuf ,
+                pbBitsCt ,
+                idiFileCt ,
+                idLineCt ,
+                tinP ,
+            (
+            new( 0 , tinP , (byteT*)( (napkinC*)pbDockNapkin + offDockMake ) , sizeof( napkinC ) ) napkinC
+            THREADmODE3oN( flTHREADmODE3_ALLOWeXPLICITmEMORYsPACE )
+
+            thirdC::c_strcatIF( tinP , postBuf , tName ) ;
+            thirdC::c_strcpyIF( tinP , postBuf , "napkinsC/" ) ;
+            osTextT postBuf[ TUCK ] ;
+        {
+
+        ctFileF( tinP , offDockMake , tName ) ;
+
+        //etherC::etRockIF( tinP ).traceF( tinP , T("  [tName]: \"")+tName+T("\"") /*, flTRACE_NOpREFIX*/ ) ;
+        TN( tName , "" ) ; tName = T(postName)+T(".")+TF3(offNapkinWant,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE|flFORMAT_FOREIGN,8) ;
+
+        }
+            DELzOMBIE( pfDoomed ) ;
+            fileC* pfDoomed = (fileC*)pbDockFile + offDockMake ;
+
+            DELzOMBIE( pnDoomed ) ;
+            napkinC* pnDoomed = (napkinC*)pbDockNapkin + offDockMake ;
+
+            pcDockOffNapkin[ offDockMake ]  = - 1 ;
+        {
+        if( pcDockOffNapkin[ offDockMake ] != - 1 )
+
+        //etherC::etRockIF( tinP ).traceF( tinP , T("  [offDockMake]: ")+TF2(offDockMake,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) /*, flTRACE_NOpREFIX*/ ) ;
+                             offDockNextCt %= cDocks ;
+        countT offDockMake = offDockNextCt ++ ;
+    {
+    else
+    }
+        pbDockNapkinData = napkin ;
+        napkinC& napkin = *( (napkinC*)pbDockNapkin + offDockWant ) ;
+    {
+    if( offDockWant != - 1 )
+
+    //etherC::etRockIF( tinP ).traceF( tinP , T("  [offDockWant]: ")+TF2(offDockWant,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) /*, flTRACE_NOpREFIX*/ ) ;
+    }
+        }
+            break ;
+            offDockWant = offDock ;
+        {
+        if( pcDockOffNapkin[ offDock ] == offNapkinWant )
+    {
+    for( countT offDock = 0 ; offDock < cDocks ; offDock ++ )
+    countT offDockWant = - 1 ;
+    ZE( byteT* , pbDockNapkinData ) ;
+
+    //etherC::etRockIF( tinP ).traceF( tinP , T("[offElementP,offNapkinWant]: ")+TF2(offElementP,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+TF2(offNapkinWant,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) /*, flTRACE_NOpREFIX*/ ) ;
+    }
+        offNapkinWant = (countT)offn ;
+        offn >>= expCbPerNapkin ;
+
+        count04T offn = offByteWant ;
+
+        offByteWant <<= expCbPerItem ;
+    {
+    count04T offByteWant   = offElementP ;   //A:ASSUME: countT IS 02 BITS
+    countT   offNapkinWant = - 1 ;
+
+    _IO_
+
+    TINSL
+
+    //
+    // offNapkinWant = offByte     >> expCbPerNapkin
+    //
+    // offByte       = offElementP << expCbPerItem
+    //
+    // offNapkinWant SPECIFIES THE napkinC THAT I WANT
+    // offElementP   SPECIFIES THE ARRAY ELEMENT THAT I WANT
+    
+    // CALCULATE pcDockOffNapkin
+
+    //A:ASSUME: sizeof( countT ) == sizeof( count02T )
+{
+/*1*/byteT* napkinsC::operator []( const countT offElementP )/*1*/
+
+/**/
+*/
+/*
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+

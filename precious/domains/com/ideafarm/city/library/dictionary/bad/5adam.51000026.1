@@ -1,0 +1,70 @@
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+
+//VISIBLE
+
+REST
+etThread.osProcessIdPhaseAdamF( tinP , ifcIDpHASEhANDOFFoLD_SHUTTINGdOWN ) ;
+
+etThread.delF( tinP , psttnu ) ;
+etThread.faceHearF( tinP , psttnu ) ;
+ZE( strokeS* , psttnu ) ;
+
+}
+    default                             : { __1                                        ; break ; }
+    case ifcPROCESSdEATH_HARDWAREfAILURE : { etThread.strokeF( tinP , T("hardware failure"             )+tEnter ) ; break ; }
+    case ifcPROCESSdEATH_SOFTWAREfAILURE : { etThread.strokeF( tinP , T("software failure"             )+tEnter ) ; break ; }
+    case ifcPROCESSdEATH_MURDERED        : { etThread.strokeF( tinP , T("murdered"                     )+tEnter ) ; break ; }
+    case ifcPROCESSdEATH_NORMAL          : { etThread.strokeF( tinP , T("old age (or hired on windows)")+tEnter ) ; break ; }
+{
+switch( idDeathType )
+TN( tEnter , "\r\npress the enter key now" ) ;
+
+etThread.delF( tinP , psttIdDeathType ) ;
+etThread.delF( tinP , psttValue ) ;
+etThread.strokeF( tinP , T("\r\nvalue = ")+T(psttValue)+T("\r\nidDeathType = ")+T(psttIdDeathType)+T("\r\n") ) ;
+etThread.strFromF( tinP , psttIdDeathType , idDeathType ) ;
+etThread.strFromF( tinP , psttValue , value ) ;
+ZE( strokeS* , psttIdDeathType ) ;
+ZE( strokeS* , psttValue ) ;
+
+etThread.osProcessWaitF( tinP , value , idDeathType , pid ) ;
+ZE( countT , idDeathType ) ;
+ZE( countT , value ) ;
+{ ZE( countT , tnu ) ; etThread.osThreadF( tinP , tnu , tmKillF , 0 , flTHREADlAUNCH_null , 0 , pid ) ; }
+
+etThread.osSessionF( tinP , countTC() , pid , 0x4010024 , 0 , 100 , 100 , 400 , 200 ) ;
+ZE( countT , pid ) ;
+
+TODO
+
+DONE( tmKillF )
+
+etThread.osProcessKillF( tinP , pid ) ;
+etThread.osSleepF( tinP , TOCK * 2 , 0 , flSLEEP_TALK ) ;
+
+const countT pid = pTaskP ? pTaskP->c1 : 0 ;
+TASK( tmKillF )
+
+/*1*/WAKEhIDE( "example.simplest.snip.0010018.ifcPROCESSdEATH.2of2.killer" )/*1*/
+/**/
+*/
+on os/2, "murdered" is reported (which is correct)
+on windows, "old age" is reported
+the ifcPROCESSdEATH value is not available on windows
+\<A HREF=\"5.5200104.1.0.html\"\>definition\</A\>
+/*
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+

@@ -1,0 +1,200 @@
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+
+}
+    #endif
+
+        THREADmODE1rESTORE
+        __Z( bDone ) ;
+        THREADmODE1oN( flTHREADmODE1_QUIETiMPOTENCE )
+
+        }
+            }
+                }
+                    if( bForever || cTriesP ) { ++ s ; dosSleepIF( tinP , TOCK >> 2 ) ; }
+                    POOPRqUIET
+                {
+                else
+                }
+                    break ;
+                    bDone = 1 ;
+                {
+                if( !POOP )
+
+                }
+                    }
+                        }
+                            else       pInfoDisk1P->bLocal = tinP.brcRaw == DRIVE_FIXED || tinP.brcRaw == DRIVE_RAMDISK /*|| tinP.brcRaw == DRIVE_REMOVABLE || tinP.brcRaw == DRIVE_CDROM*/ ;
+                            if( POOP ) { if( !bQuiet ) { LOGrAW3( "dosQueryFSInfoF / GetDriveType [brcQuery]: " , tinP.brcQuery , "\r\n" ) ; } }
+
+                            BOSpOOP
+                            BOS( WHATsfr , BOSoK , GetDriveType( postRoot ) )
+
+                            pInfoDisk1P->idVolume = cSerial ;
+                            pInfoDisk1P->cUnusedUnits = cFreeClusters ;
+                            pInfoDisk1P->cAllocationUnits = cClusters ;
+                            pInfoDisk1P->cSectorsPerAllocationUnit = cSectorsPerCluster ;
+                            pInfoDisk1P->cBytesPerSector = (count01T)cBytesPerSector ;
+                        {
+                        else
+                        if( POOP ) { if( !bQuiet ) { LOGrAW( "dosQueryFSInfoF / new failed\r\n" ) ; } }
+
+                        __Z( pInfoDisk1P ) ;
+                        pInfoDisk1P = new( 0 , tinP , LF ) infoDisk1S( tinP , *this ) ; ___( pInfoDisk1P ) ;
+                    {
+                    else
+                    if( POOP ) { if( !bQuiet ) { LOGrAW3( "dosQueryFSInfoF / GetVolumeInformation [brcQuery]: " , tinP.brcQuery , "\r\n" ) ; } }
+
+                    BOSpOOP
+                    BOS( WHATsfr , BOSoK , GetVolumeInformation( postRoot , 0 , 0 , &cSerial , &cnu1 , &cnu2 , 0 , 0 ) )
+                    BOSnOvALUE( WHATgbo , SetLastError( 0 ) )
+                    ZE( DWORD , cnu2 ) ;
+                    ZE( DWORD , cnu1 ) ;
+                {
+                else
+                }
+                    }
+                        LOGrAW( "\r\n" ) ;
+                        LOGrAW( postRoot ) ;
+                        LOGrAW3( "dosQueryFSInfoF / GetDiskFreeSpace [brcQuery]: " , tinP.brcQuery , "\r\n" ) ;
+                    {
+                    if( !bQuiet )
+                {
+                if( POOP )
+
+                THREADmODE1rESTORE
+                BOSpOOP
+                THREADmODE1oN( flTHREADmODE1_QUIETiMPOTENCE )
+                BOS( WHATsfr , BOSoK , GetDiskFreeSpace( postRoot , &cSectorsPerCluster , &cBytesPerSector , &cFreeClusters , &cClusters ) )
+                BOSnOvALUE( WHATgbo , SetLastError( 0 ) )
+
+                //LOGrAW( "\r\n" ) ;
+                //LOGrAW( postRoot ) ;
+                //LOGrAW( "dosQueryFSInfoF / GetDiskFreeSpace [postRoot]: " ) ;
+
+                ZE( DWORD , cSerial ) ;
+                ZE( DWORD , cClusters ) ;
+                ZE( DWORD , cFreeClusters ) ;
+                ZE( DWORD , cBytesPerSector ) ;
+                ZE( DWORD , cSectorsPerCluster ) ;
+            {
+            while( bForever || cTriesP -- )
+            const boolT bQuiet   = cTriesP == 1 ;
+            const boolT bForever = !cTriesP ;
+            sleepC s( tinP , TAG( TAGiDnULL ) ) ;
+
+            SCOOPS
+        {
+        IFsCRATCH
+        ZE( boolT , bDone ) ;
+
+        __( !( *postRoot >= 'a' && *postRoot <= 'z' ) ) ;
+        const osTextT postRoot[] = { postDriveNameP[ 3 ] , ':' , '\\' , 0 } ;
+
+    #elif defined( __NT__ )
+
+        }
+            if( hfi ) { BOSdOnOTtEST( WHATgbo , DosClose( hfi ) ) }
+            }
+                if( !POOP ) pInfoDisk1P->bLocal = !( type >> 15 & 1 ) ;
+                BOSpOOP
+                BOSI( WHATgbo , BOSfAIL , DosQueryHType( hfi , &type , &flags ) )
+                ZE( ULONG , flags ) ;
+                ZE( ULONG , type ) ;
+            {
+            if( !*this && hfi )
+            BOSpOOP
+            }
+                pInfoDisk1P->bLocal = 0 ;
+                tinP.bosFail = 0 ;
+            {
+            if( tinP.brcRaw == ERROR_ACCESS_DENIED )
+            BOSI( WHATsfr , BOSfAIL , DosOpen( postRoot , &hfi , &action , 0 , 0 , OPEN_ACTION_OPEN_IF_EXISTS , OPEN_FLAGS_DASD|OPEN_SHARE_DENYNONE , 0 ) )
+            const osTextT postRoot[] = { postDriveNameP[ 3 ] , ':' , 0 } ;
+            ZE( ULONG , action ) ;
+            ZE( HFILE , hfi ) ;
+            pInfoDisk1P->bLocal = 1 ;
+        {
+        if( !*this && pInfoDisk1P )
+        if( !*this && pInfoDisk1P ) *pInfoDisk1P << infoDisk1a << infoDisk1b ;
+        }
+            __Z( pInfoDisk1P ) ;
+            pInfoDisk1P = new( 0 , tinP , LF ) infoDisk1S( tinP , *this ) ; ___( pInfoDisk1P ) ;
+        {
+        if( !*this && cFound == 2 )
+        }
+            BOSpOOP
+            if( tinP.bosFail && ( tinP.brcRaw == ERROR_INVALID_DRIVE || tinP.brcRaw == ERROR_NOT_READY ) ) tinP.bosFail = 0 ;
+            cFound += !tinP.bosFail ;
+            BOSI( WHATsfr , BOSfAIL , DosQueryFSInfo( idDrive , FSIL_VOLSER , &infoDisk1b , sizeof infoDisk1b ) )
+
+            BOSpOOP
+            if( tinP.bosFail && ( tinP.brcRaw == ERROR_INVALID_DRIVE || tinP.brcRaw == ERROR_NOT_READY ) ) tinP.bosFail = 0 ;
+            cFound += !tinP.bosFail ;
+            BOSI( WHATsfr , BOSfAIL , DosQueryFSInfo( idDrive , FSIL_ALLOC , &infoDisk1a , sizeof infoDisk1a ) )
+        {
+        if( !POOP )
+        ZE( countT , cFound ) ;
+        else __( idDrive ) ;
+        if( idDrive >= 'a' && idDrive <= 'z' ) idDrive -= 'a' - 1 ;
+        countT idDrive = postDriveNameP[ 3 ] ;
+        infoDisk1bS infoDisk1b ;
+        infoDisk1aS infoDisk1a ;
+
+    #ifdef __OS2__
+    _IO_
+
+    }
+        if( POOP ) return ;
+        __( postDriveNameP[ 2 ] != '/' ) ;
+        __( postDriveNameP[ 1 ] != '/' ) ;
+        __( postDriveNameP[ 0 ] != '/' ) ;
+        if( POOP ) return ;
+        #endif
+            __( sizeof( countT ) != sizeof( DWORD ) || fnu ) ;
+        #elif defined( __NT__ )
+            __( sizeof( count01T ) != sizeof( USHORT ) || fnu ) ;
+            __( sizeof( countT ) != sizeof( ULONG ) || fnu ) ;
+        #ifdef __OS2__
+        ZE( boolT , fnu ) ;
+        __Z( postDriveNameP ) ;
+        if( POOP ) return ;
+    {
+    IFbEcAREFUL    
+    SCOOP
+{
+/*1*/voidT thirdC::dosQueryFSInfoF( tinS& tinP , infoDisk1S*& pInfoDisk1P , const osTextT* const postDriveNameP , countT cTriesP )/*1*/
+
+//U: CONJ: THIS API SHOULD USE "?:\\" FORMAT RATHER THAN "///?" (OR "///?/")
+
+// 20121001: APPARENTLY VERY OLD CODE (WIN98 VINTAGE) THAT IGNORED A VARIETY OF SPURIOUS ERRORS WAS REWRITTEN TO NOT IGNORE ANY ERRORS AND TO ENSURE THAT OUTPUT STRUCTURE IS COMPLETELY DEFINED
+//
+//MODIFICATION HISTORY
+
+/**/
+*/
+  example: "///c" "/this.part/is/ignored/bla/bla.bla"
+  example: "///c"
+ postDriveNameP
+ pInfoDisk1P
+arguments
+  \<A HREF=\"5.dd00104.1.1.0.html\"\>dd00104:  WAKEsHOW( "example.simplest.func.1020026.thirdC.dosQueryFSInfoF" )\</A\>
+ simplest
+examples
+\<A HREF=\"5.1020026.1.0.html\"\>definition\</A\>
+\<A HREF=\"6.$dosQueryFSInfoF.0.html\"\>instances\</A\>
+/*
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+

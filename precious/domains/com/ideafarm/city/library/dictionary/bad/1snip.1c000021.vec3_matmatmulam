@@ -1,0 +1,75 @@
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+
+;
+    modify [ecx eax ebx edx edi esi esp]                                                                                                              \
+    parm   [ecx] [eax] [ebx] [edx] [edi]                                                                                                              \
+                                                                                                                                                      \
+    "FIN:       pop         ebx                                 " /*                                                                */                \
+    "                                                           " /*                                                                */                \
+    "           jmp         NEXTcOL                             " /*                                                                */                \
+    "           add         ebx , 0ch                           " /* TARGET NEXT COL  OF B                                          */                \
+    "           add         ecx , 04h                           " /* TARGET NEXT CELL OF C                                          */                \
+    "                                                           " /*                                                                */                \
+    "           fstp        dword ptr [ecx]                     " /* + CALCULATE AND STORE AN INNER PRODUCT END                     */                \
+    "           faddp       st(1) , st(0)                       " /* |                                                              */                \
+    "           fmul        dword ptr 08h[ebx]                  " /* |                                                              */                \
+    "           fld         dword ptr 08h[eax]                  " /* |                                                              */                \
+    "           faddp       st(1) , st(0)                       " /* |                                                              */                \
+    "           fmul        dword ptr 04h[ebx]                  " /* |                                                              */                \
+    "           fld         dword ptr 04h[eax]                  " /* |                                                              */                \
+    "           fmul        dword ptr [ebx]                     " /* |                                                              */                \
+    "           fld         dword ptr [eax]                     " /* + CALCULATE AND STORE AN INNER PRODUCT BEGIN                   */                \
+    "CALC:      dec         edi                                 " /*                                                                */                \
+    "                                                           " /*                                                                */                \
+    "           jmp         NEXTrOW                             " /*                                                                */                \
+    "           mov         edi , esi                           " /* RELOAD THE NUMBER OF COLS IN B TO DO                           */                \
+    "           mov         ebx , [esp]                         " /* TARGET ZE'TH COL OF B                                          */                \
+    "           add         eax , 0ch                           " /* TARGET NEXT ROW OF A                                           */                \
+    "           ja          CALC                                " /*                                                                */                \
+    "NEXTcOL:   cmp         edi , 0h                            " /* MORE COLS OF B TO DO?                                          */                \
+    "                                                           " /*                                                                */                \
+    "           dec         edx                                 " /*                                                                */                \
+    "           je          FIN                                 " /*                                                                */                \
+    "NEXTrOW:   cmp         edx , 0h                            " /* MORE ROWS OF A TO DO?                                          */                \
+    "                                                           " /*                                                                */                \
+    "           mov         esi , edi                           " /* SAVE THE NUMBER OF COLS IN B                                   */                \
+    "           push        ebx                                 " /* SAVE THE BEGINNING OF B                                        */                \
+                                                                                                                                                      \
+#pragma aux vec3_matMatMulAM =                                                                                                                        \
+
+/*1*/voidT __export vec3_matMatMulAM( measureT* pmCP , const measureT* pmAP , const measureT* pmBP , countT rowsAP , countT colsBP ) ;/*1*/
+/**/
+*/
+   row varies most rapidly
+   col by col
+  must point to ( colsAP * 3 ) measureT values for the right matrix operand
+ pmBP
+   col varies most rapidly
+   row by row
+  must point to ( rowsAP * 3 ) measureT values for the left matrix operand
+ pmAP
+   col varies most rapidly
+   row by row
+  on return, will contain cell values in rowwise order
+  must point to enough measureT to hold all calculated inner products
+ pmCP
+arguments
+ the right matrix must have 3 rows
+ the left matrix must have 3 cols
+i do matrix multiplication quickly for vectors in 3 space
+/*
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+

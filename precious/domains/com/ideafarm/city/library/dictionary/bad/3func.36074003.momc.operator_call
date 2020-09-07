@@ -1,0 +1,141 @@
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+
+}
+    if( bExistingPin ) pEther->delF( tinP , *(byteT**)&pbP ) ;
+    }
+        }
+            }
+                pEther->memCopyF( tinP , (byteT*)pCursor , (byteT*)pczNameP , cczName * sizeof( countT ) ) ;
+                *( pCursor ++ ) = (count01T)( cczName * sizeof( countT ) / sizeof( count01T ) ) ;
+                *( pCursor ++ ) = (count01T)( bPinP ? ifcIDcMDsPOUSE_INSERTnAMEDpIN : ifcIDcMDsPOUSE_INSERTnAMEDpILL ) ;
+                *( pCursor ++ ) = 0                                                                                    ; //ESCAPE CODE
+                count01T* pCursor = pcP ;
+            {
+            if( pcP )
+            pEther->newF( tinP , LF , pcP , ccP ) ; ___( pcP ) ;
+            ccP = 3 + cczName * sizeof( countT ) / sizeof( count01T ) ; //A: ASSUME: sizeof( countT ) IS A MULTIPLE OF sizeof( count01T )
+            countT cczName = pEther->strBodyLengthF( tinP , pczNameP ) + 1 ;
+        
+            else if( !bExistingPin ) pEther->boxPutF( tinP , tBig , pbP , cbP ) ;
+            }
+                ccBody = 0 ;
+                pEther->delF( tinP , pcBody ) ;
+                pEther->boxPutF( tinP , tBig , (byteT*)pcBody , sizeof( count01T ) * ccBody ) ;
+            {
+            if( !bPinP )
+        {
+        else
+        }
+            ccP = ccBody ;
+            pcP = pcBody ;
+        {
+        if( !pczNameP )
+    
+        }
+            }
+                for( countT off = 0 ; off < cbP ; off ++ ) pcBody[ off ] = (*this)( tinP , pbP[ off ] ) ;
+            {
+            if( pcBody )
+            pEther->newF( tinP , LF , pcBody , ccBody ) ; ___( pcBody ) ;
+            ccBody = cbP ;
+        {
+        else
+        }
+            for( countT off = 0 ; off < cbP ; off ++ ) (*this)( tinP , pbP[ off ] ) ;
+        {
+        if( pczNameP && bPinP )
+        ZE( countT    , ccBody ) ;
+        ZE( count01T* , pcBody ) ;
+    
+        if( !cbP ) cbP = pEther->strBodyLengthF( tinP , pbP ) ;
+    {
+    if( pbP )
+
+    if( bExistingPin ) { pEther->boxGetShadowF( tinP , *(byteT**)&pbP , cbP , tBig ) ; ___( pbP ) ; }
+    const boolT bExistingPin = !pbP && !cbP && pczNameP && bPinP ;
+
+    }
+        tBig = T("///desk/" POSTfOLDERsECURITYkEYdEPOSITORY )+(idHomeDisk==1?T(""):T(" (Home ")+TF1(idHomeDisk)+T(")"))+T("/")+tName ;
+        countT idHomeDisk = etherC::ifc_idHomeIdisk_IF() ;
+        textC tName( tinP , TAG( TAGiDnULL ) , flTEXTc_null , pczNameP , flFORMAT_UNSIGNED|flFORMAT_FOREIGN|flFORMAT_FILLzE , 8 , 0 , tDot ) ;
+        TN( tDot , "." ) ;
+    {
+    if( pczNameP )
+    TN( tBig , "" ) ;
+    _IO_
+
+    }
+        if( *pEther ) return ;
+        __( !pbP && ( !pczNameP || !bPinP ) ) ;
+        __( ccP ) ;
+        __NZ( pcP ) ;
+        if( *pEther ) return ;
+    {
+    IFbEcAREFUL    
+{
+/*1*/voidT momC::operator ()( tinS& tinP , count01T*& pcP , countT& ccP , const byteT* pbP , countT cbP , const countT* const pczNameP , const boolT bPinP )/*1*/
+/**/
+*/
+   the file will not be overwritten because such an overwrite would not alter its contents
+  if 1 and !pbP then the pin file will be used as input and will be implicitly overwritten
+  set to 1 to write a pin to the Security Key Depository
+  set to 0 to write a pill to the Security Key Depository
+  must be 0 if pczNameP is 0
+ bPinP
+  a file that contains either the pill or the pin will be written to the Security Key Depository
+   if bPinP is 1 then the escape sequence will specify a pin
+   if bPinP is 0 then the escape sequence will specify a pill
+  if not 0 then pcP will contain a short code string that just contains an escape sequence that names the pill or pin to be inserted
+  if 0 then the pcP will point to the code string that represents pbP
+  is usually 0
+  can be 0
+ pczNameP
+  if not 0 then pbP must point to cbP byteT values, which will be encoded
+   the terminating null is not encoded
+  if 0 then pbP is assumed to be null terminated
+  can be 0
+ cbP
+  if 0 then the bytes in the specified pin file will be encoded
+  must point to the byteT values to be encoded
+  must not be 0 unless pczNameP and bPinP
+ pbP
+  will be set to the number of codes in pcP
+  must be 0
+ ccP
+  will be allocated and will point to a string of ccP codes
+  must be 0
+ pcP
+ tinP
+arguments
+high security relies on secure transport of "pills" via secondary channels, such as trusted courier
+medium security (no pills) relies on long connection duration (days or strongs)
+high security depends upon preventing eavesdroppers and alterers from capturing the entire code stream
+callers who use security pills can achieve high security
+callers who do not use security pills can achieve medium security
+   the posessor of such a CD-ROM will be assumed to be the registered owner of that pin image
+   some pins will consist of an entire CD-ROM filled with superrandom numbers
+  the name is also motivated by the "needle in haystack" concept
+  pin files will also serve to prove the identity of human residents
+  pin files can be reused and are intended to be delivered via trusted courier and used to secure the transmission of pills over ip
+  the name is chosen mainly to correspond to the use of pin numbers
+  "pin" refers to "pill input"
+ a pin is a snippet of raw in the clear information
+ a pill is a snippet of the encoded information
+i support security pills and security pins
+i encode arbitrary byteT strings and can be used for an unbounded byteT stream
+/*
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+

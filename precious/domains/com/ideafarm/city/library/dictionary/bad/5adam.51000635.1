@@ -1,0 +1,188 @@
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+
+REST
+
+etherC::loafIF( tinP ) ;
+
+#endif
+    #endif
+        etThread.strokeF( tinP , T("")+S2(0,scOld_WRAPoFF)+tcQuit+T(" countT   /=    Performance [cCycles,timeE1,cCyclesPerTime]: ")+TF1(cCycles)+tb+TF1(timeE1)+tb+TF1(cCyclesPerTime)+tcr ) ;
+        LOGrAW7( "countT   /=    [cCycles,timeE1,cCyclesPerTime]: " , cCycles , " " , timeE1 , " " , cCyclesPerTime , "\r\n" ) ;
+    #elif defined( DIV )
+        etThread.strokeF( tinP , T("")+S2(0,scOld_WRAPoFF)+tcQuit+T(" countT   *=    Performance [cCycles,timeE1,cCyclesPerTime]: ")+TF1(cCycles)+tb+TF1(timeE1)+tb+TF1(cCyclesPerTime)+tcr ) ;
+        LOGrAW7( "countT   *=    [cCycles,timeE1,cCyclesPerTime]: " , cCycles , " " , timeE1 , " " , cCyclesPerTime , "\r\n" ) ;
+    #elif defined( MUL )
+        etThread.strokeF( tinP , T("")+S2(0,scOld_WRAPoFF)+tcQuit+T(" countT   -=    Performance [cCycles,timeE1,cCyclesPerTime]: ")+TF1(cCycles)+tb+TF1(timeE1)+tb+TF1(cCyclesPerTime)+tcr ) ;
+        LOGrAW7( "countT   -=    [cCycles,timeE1,cCyclesPerTime]: " , cCycles , " " , timeE1 , " " , cCyclesPerTime , "\r\n" ) ;
+    #elif defined( SUB )
+        etThread.strokeF( tinP , T("")+S2(0,scOld_WRAPoFF)+tcQuit+T(" countT   dec02AM Performance [cCycles,timeE1,cCyclesPerTime]: ")+TF1(cCycles)+tb+TF1(timeE1)+tb+TF1(cCyclesPerTime)+tcr ) ;
+        LOGrAW7( "countT   dec02AM [cCycles,timeE1,cCyclesPerTime]: " , cCycles , " " , timeE1 , " " , cCyclesPerTime , "\r\n" ) ;
+    #elif defined( DECAM )
+        etThread.strokeF( tinP , T("")+S2(0,scOld_WRAPoFF)+tcQuit+T(" countT   --     Performance [cCycles,timeE1,cCyclesPerTime]: ")+TF1(cCycles)+tb+TF1(timeE1)+tb+TF1(cCyclesPerTime)+tcr ) ;
+        LOGrAW7( "countT   --    [cCycles,timeE1,cCyclesPerTime]: " , cCycles , " " , timeE1 , " " , cCyclesPerTime , "\r\n" ) ;
+    #if defined( DECREMENT )
+#else
+    #endif
+        etThread.strokeF( tinP , T("")+S2(0,scOld_WRAPoFF)+tcQuit+T(" measureT /=     Performance [cCycles,timeE1,cCyclesPerTime]: ")+TF1(cCycles)+tb+TF1(timeE1)+tb+TF1(cCyclesPerTime)+tcr ) ;
+        LOGrAW7( "measureT /=    [cCycles,timeE1,cCyclesPerTime]: " , cCycles , " " , timeE1 , " " , cCyclesPerTime , "\r\n" ) ;
+    #elif defined( DIV )
+        etThread.strokeF( tinP , T("")+S2(0,scOld_WRAPoFF)+tcQuit+T(" measureT *=     Performance [cCycles,timeE1,cCyclesPerTime]: ")+TF1(cCycles)+tb+TF1(timeE1)+tb+TF1(cCyclesPerTime)+tcr ) ;
+        LOGrAW7( "measureT *=    [cCycles,timeE1,cCyclesPerTime]: " , cCycles , " " , timeE1 , " " , cCyclesPerTime , "\r\n" ) ;
+    #elif defined( MUL )
+        etThread.strokeF( tinP , T("")+S2(0,scOld_WRAPoFF)+tcQuit+T(" measureT -=     Performance [cCycles,timeE1,cCyclesPerTime]: ")+TF1(cCycles)+tb+TF1(timeE1)+tb+TF1(cCyclesPerTime)+tcr ) ;
+        LOGrAW7( "measureT -=    [cCycles,timeE1,cCyclesPerTime]: " , cCycles , " " , timeE1 , " " , cCyclesPerTime , "\r\n" ) ;
+    #elif defined( SUB )
+        etThread.strokeF( tinP , T("")+S2(0,scOld_WRAPoFF)+tcQuit+T(" measureT dec02AM is not available")+tcr ) ;
+        LOGrAW( "measureT dec02AM is NOT AVVAILABLE\r\n" ) ;
+    #elif defined( DECAM )
+        etThread.strokeF( tinP , T("")+S2(0,scOld_WRAPoFF)+tcQuit+T(" measureT --     Performance [cCycles,timeE1,cCyclesPerTime]: ")+TF1(cCycles)+tb+TF1(timeE1)+tb+TF1(cCyclesPerTime)+tcr ) ;
+        LOGrAW7( "measureT --    [cCycles,timeE1,cCyclesPerTime]: " , cCycles , " " , timeE1 , " " , cCyclesPerTime , "\r\n" ) ;
+    #if defined( DECREMENT )
+#if defined( MEASURE )
+
+TN( tcr , "\r\n" ) ;
+TN( tb , " " ) ;
+
+countT cCyclesPerTime = timeE1 ? cCycles / timeE1 : 0 ;
+
+etThread.osTimeSubtractF( tinP , timeE1 , timeE2 , timeS1 , timeS2 ) ;
+etThread.osTimeNowF( tinP , timeE1 , timeE2 ) ;
+ZE( sCountT , timeE2 ) ;
+ZE( countT , timeE1 ) ;
+
+#endif
+    #endif
+        while( -- idCycle ) target /= idCycle ;
+    #elif defined( DIV )
+        while( -- idCycle ) target *= idCycle ;
+    #elif defined( MUL )
+        while( -- idCycle ) target -= idCycle ;
+    #elif defined( SUB )
+        while( -- idCycle ) dec02AM( target ) ;
+    #elif defined( DECAM )
+        while( -- idCycle ) target -- ;
+    #if defined( DECREMENT )
+#else
+    #endif
+        while( -- idCycle ) target /= (measureT)idCycle ;
+    #elif defined( DIV )
+        while( -- idCycle ) target *= (measureT)idCycle ;
+    #elif defined( MUL )
+        while( -- idCycle ) target -= (measureT)idCycle ;
+    #elif defined( SUB )
+    #elif defined( DECAM )
+        while( -- idCycle ) target -- ;
+    #if defined( DECREMENT )
+#if defined( MEASURE )
+
+etThread.osTimeNowF( tinP , timeS1 , timeS2 ) ;
+ZE( sCountT , timeS2 ) ;
+ZE( countT , timeS1 ) ;
+
+#endif
+    #endif
+        countT idCycle = cCycles + 1 ;
+    #elif defined( DIV )
+        countT idCycle = cCycles + 1 ;
+    #elif defined( MUL )
+        countT idCycle = cCycles + 1 ;
+    #elif defined( SUB )
+        countT idCycle = cCycles + 1 ;
+    #elif defined( DECAM )
+        countT idCycle = cCycles + 1 ;
+    #if defined( DECREMENT )
+    countT target = 1 ;
+#else
+    #endif
+        measureT idCycle = cCycles + 1 ;
+    #elif defined( DIV )
+        measureT idCycle = cCycles + 1 ;
+    #elif defined( MUL )
+        measureT idCycle = cCycles + 1 ;
+    #elif defined( SUB )
+        measureT idCycle = cCycles + 1 ;
+    #elif defined( DECAM )
+        measureT idCycle = cCycles + 1 ;
+    #if defined( DECREMENT )
+    measureT target = 1.0 ;
+#if defined( MEASURE )
+const countT cCycles = TICK ;
+
+tcButtonQuitC tcQuit( tinP ) ;
+
+TODO
+
+//#define MUL
+//#define DIV
+//#define SUB
+//#define DECAM
+#define DECREMENT
+
+//#define MEASURE
+
+/*1*/WAKEsHOW( "tool.benchmark.arithmetic.speed" )/*1*/
+/**/
+*/
+ | 
+ | measureT *=    [cCycles,timeE1,cCyclesPerTime]: 0000001 04743 e4
+ | measureT *=    [cCycles,timeE1,cCyclesPerTime]: 0000001 ded33 e4
+ | measureT *=    [cCycles,timeE1,cCyclesPerTime]: 0000001 40b33 f4
+ | measureT *=    [cCycles,timeE1,cCyclesPerTime]: 0000001 ded33 e4
+ | 
+ | countT   /=    [cCycles,timeE1,cCyclesPerTime]: 0000001 60a6  a62
+ | countT   /=    [cCycles,timeE1,cCyclesPerTime]: 0000001 fec6  952
+ | countT   /=    [cCycles,timeE1,cCyclesPerTime]: 0000001 0fc6  952
+ | countT   /=    [cCycles,timeE1,cCyclesPerTime]: 0000001 60a6  a62
+ | 
+ | measureT /=    [cCycles,timeE1,cCyclesPerTime]: 0000001 b924  7d3
+ | measureT /=    [cCycles,timeE1,cCyclesPerTime]: 0000001 5854  ea3
+ | measureT /=    [cCycles,timeE1,cCyclesPerTime]: 0000001 a924  8d3
+ | measureT /=    [cCycles,timeE1,cCyclesPerTime]: 0000001 b924  7d3
+ | 
+ | measureT -=    [cCycles,timeE1,cCyclesPerTime]: 0000001 5733  9f4
+ | measureT -=    [cCycles,timeE1,cCyclesPerTime]: 0000001 6733  9f4
+ | measureT -=    [cCycles,timeE1,cCyclesPerTime]: 0000001 6733  9f4
+ | measureT -=    [cCycles,timeE1,cCyclesPerTime]: 0000001 a503  b45
+ | 
+ | measureT --    [cCycles,timeE1,cCyclesPerTime]: 0000001 c803  545
+ | measureT --    [cCycles,timeE1,cCyclesPerTime]: 0000001 a503  b45
+ | measureT --    [cCycles,timeE1,cCyclesPerTime]: 0000001 ca93  074
+ | measureT --    [cCycles,timeE1,cCyclesPerTime]: 0000001 7a33  4f4
+ | 
+ | countT   *=    [cCycles,timeE1,cCyclesPerTime]: 0000001 0421  70e
+ | countT   *=    [cCycles,timeE1,cCyclesPerTime]: 0000001 1421  60e
+ | countT   *=    [cCycles,timeE1,cCyclesPerTime]: 0000001 f021  d2e
+ | countT   *=    [cCycles,timeE1,cCyclesPerTime]: 0000001 b251  71c
+ | 
+ | countT   -=    [cCycles,timeE1,cCyclesPerTime]: 0000001 b3c   ee41
+ | countT   -=    [cCycles,timeE1,cCyclesPerTime]: 0000001 a0c   3451
+ | countT   -=    [cCycles,timeE1,cCyclesPerTime]: 0000001 a0c   3451
+ | countT   -=    [cCycles,timeE1,cCyclesPerTime]: 0000001 c3c   ce41
+ | 
+ | countT   dec02AM [cCycles,timeE1,cCyclesPerTime]: 0000001 a0c   3451
+ | countT   dec02AM [cCycles,timeE1,cCyclesPerTime]: 0000001 c3c   ce41
+ | countT   dec02AM [cCycles,timeE1,cCyclesPerTime]: 0000001 c3c   ce41
+ | countT   dec02AM [cCycles,timeE1,cCyclesPerTime]: 0000001 a0c   3451
+ | 
+ | countT   --    [cCycles,timeE1,cCyclesPerTime]: 0000001 52f   7e01
+ | countT   --    [cCycles,timeE1,cCyclesPerTime]: 0000001 c3c   ce41
+ | countT   --    [cCycles,timeE1,cCyclesPerTime]: 0000001 b3c   ee41
+ | countT   --    [cCycles,timeE1,cCyclesPerTime]: 0000001 a0c   3451
+ | 
+output at 2011.07.04 with netbook with windows 7 with intel atom
+/*
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+

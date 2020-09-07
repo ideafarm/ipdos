@@ -1,0 +1,344 @@
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+
+REST
+
+etherC::loafIF( tinP ) ;
+etThread.traceF( tinP , T("ok") ) ;
+
+}
+    }
+        }
+            }
+                }
+                    cbFramePredictedLath = cbFramePredicted ;
+                    cbToDoSave = cbToDo ;
+
+                    //}
+                    //    etThread.delF( tinP , psttSay ) ;
+                    //    etThread.traceF( tinP , psttSay ) ;
+                    //    etThread.strFuseF( tinP , psttSay , TF3(head.idEmphasis     ,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,2) ) ;
+                    //    //etThread.strFuseF( tinP , psttSay , TF3(head.bOriginal      ,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,2) ) ;
+                    //    //etThread.strFuseF( tinP , psttSay , TF3(head.bCopyright     ,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,2) ) ;
+                    //    etThread.strFuseF( tinP , psttSay , TF3(head.idModeExtension,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,2) ) ;
+                    //    etThread.strFuseF( tinP , psttSay , TF3(head.idChannelMode  ,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,2) ) ;
+                    //    //etThread.strFuseF( tinP , psttSay , TF3(head.bPrivate       ,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,2) ) ;
+                    //    etThread.strFuseF( tinP , psttSay , TF3(cbFramePredicted    ,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,5) ) ;
+                    //    etThread.strFuseF( tinP , psttSay , TF3(head.bPadded        ,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,2) ) ;
+                    //    etThread.strFuseF( tinP , psttSay , TF4(samplesPerSec       ,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FOREIGN|flFORMAT_NObASE,6,0xa)+tb ) ;
+                    //    //etThread.strFuseF( tinP , psttSay , TF3(head.idSamplingRate ,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,2) ) ;
+                    //    etThread.strFuseF( tinP , psttSay , TF4(bitsPerSec          ,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FOREIGN|flFORMAT_NObASE,6,0xa)+tb ) ;
+                    //    //etThread.strFuseF( tinP , psttSay , TF3(head.idBitRate      ,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,2) ) ;
+                    //    etThread.strFuseF( tinP , psttSay , TF3(head.bNoCRC         ,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,2) ) ;
+                    //    //etThread.strFuseF( tinP , psttSay , TF3(head.idLayer        ,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,2) ) ;
+                    //    etThread.strFuseF( tinP , psttSay , T(ppostVersion[idMpegVersion])+tb ) ;
+                    //    //etThread.strFuseF( tinP , psttSay , TF3(head.idVersion      ,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,2) ) ;
+                    //    etThread.strFuseF( tinP , psttSay , TF3(cbDelta             ,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,4) ) ;
+                    //    etThread.strFuseF( tinP , psttSay , TF3(cbToDo              ,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,8) ) ;
+                    //    etThread.strFuseF( tinP , psttSay , TF3(idFrame            ,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,8) ) ;
+                    //    etThread.strMakeF( tinP , psttSay , 0 , TOCK ) ; ___( psttSay ) ;
+                    //    ZE( strokeS* , psttSay ) ;
+                    //{
+                    //if( !( ++ idFrame % TUCK ) )
+
+                    if( cbDelta != cbFramePredictedLath ) etThread.traceF( tinP , T("unexpected size [idFrame,expected,actual]: ")+TF3(idFrame,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,5)+tb+TF3(cbFramePredictedLath,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,4)+tb+TF3(cbDelta,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,4) ) ;
+                    ++ idFrame ;
+
+                    countT cbDelta = cbToDoSave-cbToDo ;
+
+                    countT cbFramePredicted = !samplesPerSec ? 0 : 144 * bitsPerSec / samplesPerSec + !!head.bPadded ;
+
+                    }
+                        }
+                            break ;
+                            etThread.traceF( tinP , T("unrecognized MPEG version") ) ;
+                        {
+                        default :
+                        }
+                            break ;
+                            samplesPerSec = pSamplesPerSecMPEG25[ head.idSamplingRate ] ;
+                        {
+                        case 3 :
+                        }
+                            break ;
+                            samplesPerSec = pSamplesPerSecMPEG2[ head.idSamplingRate ] ;
+                            bitsPerSec = pBitsPerSecMPEG2[ head.idBitRate ] ;
+                        {
+                        case 2 :
+                        }
+                            break ;
+                            samplesPerSec = pSamplesPerSecMPEG1[ head.idSamplingRate ] ;
+                            bitsPerSec    = pBitsPerSecMPEG1[ head.idBitRate ] ;
+                        {
+                        case 1 :
+                    {
+                    switch( idMpegVersion )
+                    ZE( countT , samplesPerSec ) ;
+                    ZE( countT , bitsPerSec ) ;
+
+                    if( head.idLayer != 1 ) etThread.traceF( tinP , T("unexpected MPEG layer (not layer III)") ) ;
+
+                    ;
+                                : 3
+                                ? 0
+                            : head.idVersion == 1
+                            ? 2
+                        : head.idVersion == 2
+                        ? 1
+                    countT idMpegVersion = head.idVersion == 3  //    1 : MPEG1    ;    2 : MPEG2    ,    3 : MPEG2.5
+                {
+                )
+                    head.idSync             == wothHead.idSync             
+                    &&
+                    head.idVersion          == wothHead.idVersion          
+                    &&
+                    head.idLayer            == wothHead.idLayer            
+                    &&
+                    head.bNoCRC             == wothHead.bNoCRC             
+                    &&
+                    //head.idBitRate          == wothHead.idBitRate          
+                    //&&
+                    //head.idSamplingRate     == wothHead.idSamplingRate     
+                    //&&
+                    //head.bPadded            == wothHead.bPadded            
+                    //&&
+                    head.bPrivate           == wothHead.bPrivate           
+                    &&
+                    //head.idChannelMode      == wothHead.idChannelMode      
+                    //&&
+                    //head.idModeExtension    == wothHead.idModeExtension    
+                    //&&
+                    head.bCopyright         == wothHead.bCopyright         
+                    &&
+                    head.bOriginal          == wothHead.bOriginal          
+                    &&
+                    head.idEmphasis         == wothHead.idEmphasis         
+                (
+                if
+
+                ((byteT*)&head)[ 0 ] = pbTock[ 3 ] ;
+                ((byteT*)&head)[ 1 ] = pbTock[ 2 ] ;
+                ((byteT*)&head)[ 2 ] = pbTock[ 1 ] ;
+                ((byteT*)&head)[ 3 ] = pbTock[ 0 ] ;
+                frameHeadS head ;
+
+                etThread.fileReadF( tinP , pbTock + 2 , cbr , fi , 0 ) ; cbToDo -= 2 ;
+                cbr = 2 ;
+            {
+            if( cbToDo >= 2 )
+
+            }
+                if( pbTock[ 1 ] & 0xe0 == 0xe0 ) break ;
+
+                etThread.fileReadF( tinP , pbTock + 1 , cbr , fi , 0 ) ; cbToDo -- ;
+            {
+            while( cbToDo )
+            //FIND A POSSIBLE SYNCoOTH
+
+            }
+                if( *pbTock == 0xff ) break ;
+
+                etThread.fileReadF( tinP , pbTock , cbr , fi , 0 ) ; cbToDo -- ;
+            {
+            while( cbToDo )
+            cbr = 1 ;
+            //FIND A POSSIBLE SYNCwOTH
+        {
+        while( cbToDo && !ether )
+        ZE( countT , cbFramePredictedLath ) ;
+        TN( tb , " " ) ;
+        etThread.traceF( tinP , T("[idFrame,cbToDo,cbDelta,idVersion"/*",idLayer"*/",bNoCRC,idBitRate,idSamplingRate,bPadded,cbFramePredicted"/*",bPrivate"*/",idChannelMode,idModeExtension"/*",bCopyright,bOriginal"*/",idEmphasis") ) ;
+        countT cbToDoSave = cbToDo ;
+        countT idFrame = 1 ; // ALREADY HAVE FOUND THE WOTH HEADER
+
+        countT pSamplesPerSecMPEG25[] = { 11025 , 12000 ,  8000 , 0 } ;
+        countT pSamplesPerSecMPEG2[]  = { 22050 , 24000 , 16000 , 0 } ;
+        countT pSamplesPerSecMPEG1[]  = { 44100 , 48000 , 32000 , 0 } ;
+
+        ;
+        }
+
+            128000 , 256000 , 320000 ,      0
+             64000 , 128000 , 160000 , 112000 ,
+             32000 ,  64000 ,  80000 ,  56000 ,
+                 0 ,   8000 ,  16000 ,  24000 ,
+        {
+        countT pBitsPerSecMPEG2[] =
+
+        ;
+        }
+            224000 , 256000 , 320000 ,      0
+            112000 , 128000 , 160000 , 192000 ,
+             56000 ,  64000 ,  80000 ,  96000 ,
+                 0 ,  32000 ,  40000 ,  48000 ,
+        {
+        countT pBitsPerSecMPEG1[] =
+
+        ;
+        }
+            "MPEG-2.5" ,
+            "MPEG-2" ,
+            "MPEG-1" ,
+            "invalid" ,
+        {
+        osTextT* ppostVersion[] =
+
+        ((byteT*)&wothHead)[ 0 ] = pbTock[ 3 ] ;
+        ((byteT*)&wothHead)[ 1 ] = pbTock[ 2 ] ;
+        ((byteT*)&wothHead)[ 2 ] = pbTock[ 1 ] ;
+        ((byteT*)&wothHead)[ 3 ] = pbTock[ 0 ] ;
+        frameHeadS wothHead ;
+
+        etThread.fileReadF( tinP , pbTock + 1 , cbr , fi , 0 ) ; cbToDo -= cbr ;
+        cbr = 3 ;
+        //READ REMAINDER OF WOTH HEAD (WOTH BYTE HAS ALREADY BEEN READ)
+    {
+    if( !POOP )
+
+    }
+        __( cbToDo < 3 ) ;
+        cbToDo = cbUsedNet - 1 ; //I HAVE ALREADY READ THE WOTH BYTE
+
+        //RULE: THE SYNC VALUE IS 11 CONSECUTIVE BITS SET TO 1, BEGINNING AT A BYTE BOUNDARY
+        //DETERMINE FRAME SIZE BY LOOKING FOR SYNC VALUES, NOT BY CALCULATING ; THIS IS BECAUSE I DO NOT TRUST THE ENCODERS TO BE ENCODING CORRECTLY ; (THE WOTH FILE THAT I INSPECTED HAS FRAMES OF SIZE 72_9 WHEN THE FORMULA PREDICTS 144_9)
+        //WALK THE FRAMES
+
+        }
+            DEL( pInfo ) ;
+            if( pInfo ) cbUsedNet = pInfo->cbUsed - cbFileTag ;
+
+            __Z( pInfo ) ;
+            etThread.diskFileQueryF( tinP , pInfo , fi ) ; ___( pInfo ) ;
+            ZE( infoFileS* , pInfo ) ;
+        {
+        ZE( countT , cbUsedNet ) ;
+    {
+    if( !POOP )
+    ZE( countT , cbToDo ) ;
+
+    __( pbTock[ 0 ] != 0xff ) ;
+
+    }
+        etThread.fileReadF( tinP , pbTock , cbr , fi , 0 ) ; // LOAD THE WOTH BYTE OF THE WOTH SYNC
+        cbr = 1 ;
+
+        }
+            }
+                }
+                    cbToDo -= cbWo ;
+                    etThread.fileReadF( tinP , pbTock , cbr , fi , 0 ) ;
+                    cbr = cbWo ;
+
+                    ;
+                        : cbToDo
+                        ? sizeof pbTock
+                    countT cbWo = cbToDo > sizeof pbTock
+                {
+                while( cbToDo )
+                countT cbToDo = cbId3 ;
+            {
+            else
+            }
+                etThread.fileReadF( tinP , pbTock , cbr , fi , 0 ) ;
+                cbr = cbId3 ;
+            {
+            if( cbId3 <= sizeof pbTock )
+        {
+        if( !POOP )
+
+        cbFileTag += cbId3 ;
+        }
+            __Z( cbId3 ) ;
+
+            cbId3 |= size4 << 0x15 ;
+            cbId3 |= size3 << 0xe ;
+            cbId3 |= size2 << 0x7 ;
+            cbId3 |= size1 ;
+
+            countT size1 = pbTock[ 9 ] ;
+            countT size2 = pbTock[ 8 ] ;
+            countT size3 = pbTock[ 7 ] ;
+            countT size4 = pbTock[ 6 ] ;
+        {
+        if( !POOP )
+        ZE( countT , cbId3 ) ;
+
+        __Z( cbr == 0x9 && pbTock[ 0 ] == 'I' && pbTock[ 1 ] == 'D' && pbTock[ 2 ] == '3' ) ;
+
+        cbFileTag += cbr ;
+        etThread.fileReadF( tinP , pbTock + 1 , cbr , fi , 0 ) ;
+        cbr = 0x9 ;
+        cbFileTag = 1 ;
+    {
+    if( pbTock[ 0 ] != 0xff ) // IF NOT A SYNC BYTE
+    ZE( countT , cbFileTag ) ;
+
+    etThread.fileReadF( tinP , pbTock , cbr , fi , 0 ) ;
+    countT cbr = 1 ;
+
+    byteT pbTock[ TOCK ] ;
+
+    fileC fi( tinP , (strokeS*)T("///d/tmp/x/test3.mp3") , ifcOPENaCCESS_R , 0 , flOPENdETAILS_LOCsEQ , ifcOPENhOW_nFeO , flFILEaTTR_null , flFILEc_null , 0 ) ;
+{
+
+//BLAMMO ;
+//
+//while( !POOP && ~hFind ) ;
+//}
+//    DEL( pInfo ) ;
+//    }
+//        etThread.traceF( tinP , pInfo->psttIfoName ) ;
+//    {
+//    if( pInfo )
+//    etThread.diskFindFileOrDirOldF( tinP , pInfo , hFind , tLike ) ;
+//    ZE( infoFileS* , pInfo ) ;
+//{
+//do
+//handleC hFind( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_FILEfIND ) ;
+//
+//TN( tLike    , "" ) ; tLike = tArchive+T("*.mp3") ;
+//TN( tArchive , "///d/ideafarm.home.101/IdeaFarm (tm)/SYSTEM/Drop Files Here To Archive/" ) ;
+
+TODO
+
+;
+}
+    countT idSync            : 11 ;
+    countT idVersion         : 2  ;
+    countT idLayer           : 2  ;
+    countT bNoCRC            : 1  ;
+    // 2-3: NET-MSB
+
+    countT idBitRate         : 4  ;
+    countT idSamplingRate    : 2  ;
+    countT bPadded           : 1  ;
+    countT bPrivate          : 1  ;
+    // 1
+
+    countT idChannelMode     : 2  ;
+    countT idModeExtension   : 2  ;
+    countT bCopyright        : 1  ;
+    countT bOriginal         : 1  ;
+    countT idEmphasis        : 2  ;
+    // 0: NET-LSB
+{
+struct frameHeadS
+
+/*1*/WAKEsHOWtEXT( "doodle.mp3" )/*1*/
+/**/
+*/
+/*
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+

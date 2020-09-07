@@ -1,0 +1,315 @@
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+
+}
+    return cRenamed ;
+
+    delF( tinP , psttFolderMapped ) ;
+    while( ~hFind && ( !etPrime || bIgnoreEtPrime ) ) ;
+    }
+        DEL( pInfo ) ;
+        }
+            }
+                }
+                    }
+                        boxPutF(            tinP , tNewFileMetaCurrentName , tShort , tShort.csF( tinP ) ) ;
+                        boxPutF(            tinP , tNewFileMetaHashedName  , tShort , tShort.csF( tinP ) ) ;
+                        diskMoveFileOrDirF( tinP , tNewFileData            , pInfo->psttIfoName ) ;
+
+                        traceF( tinP , tNewFileData+T("    ")+T(pInfo->psttIfoName) , flTRACE_null , ifcIDtRACEdIVERT_8 ) ;
+
+                        }
+                            ) ;
+                                || diskFileExistsF( tinP , tNewFileMetaCurrentName )
+                                || diskFileExistsF( tinP , tNewFileMetaHashedName  )
+                                   diskFileExistsF( tinP , tNewFileData            )
+                            (
+                            while
+                            }
+                                tNewFileMetaCurrentName = tPart1+tDotTypeMetaDotCurrentName ;
+                                tNewFileMetaHashedName  = tPart1+tDotTypeMetaDotHashedName ;
+                                tNewFileData            = tPart1+tDotTypeData+tDotExt ;
+
+                                //U::20200410@2003: CONJ: THIS CODE IS INCOMPLETE ; THERE ARE NOW MORE META FILES IN EACH FILE GROUP
+
+                                TN( tPart1 , "" ) ; tPart1 = tPath+tNewPrefix+tTimePair+tDot+tHash+tDot+TF3(++idSeq,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE|flFORMAT_FOREIGN,3) ;
+                            {
+                            do
+                            ZE( countT , idSeq ) ;
+
+                            }
+                                delF( tinP , psttHash ) ;
+                                tHash = T(psttHash) ;
+                                hasher.queryStringF( tinP , psttHash ) ; ___( psttHash ) ;
+                                ZE( strokeS* , psttHash ) ;
+
+                                hasher.eatF( tinP , tShort , tShort.csF( tinP ) ) ;
+                                hasherC hasher( tinP , *this ) ;
+                            {
+                            TN( tHash , "" ) ;
+                        {
+                        TN( tNewFileMetaCurrentName , "" ) ;
+                        TN( tNewFileMetaHashedName , "" ) ;
+                        TN( tNewFileData , "" ) ;
+
+                        }
+                            }
+                                delF( tinP , psttSansDots ) ;
+                                tTimePair = T(psttSansDots) ;
+                                strSubstringF( tinP , psttSansDots , idf , idl , tTimePair ) ; ___( psttSansDots ) ;
+                                countT idl = tTimePair.csF( tinP) - 1 ;
+                                countT idf = 2 ;
+                                ZE( strokeS* , psttSansDots ) ;
+                            {
+                            if( tTimePair.csF( tinP ) > 2 )
+
+                            }
+                                }
+                                    }
+                                        }
+                                            tTimePair = tDot+tTimeFromPrefix+tDot+tDateAtTimeFromFileMeta+tDot ;
+                                        {
+                                        else                    // THERE IS NO TIME AFTER HEY
+                                        }
+                                            delF( tinP , psttSingleTime ) ;
+                                            tTimePair = T(psttSingleTime)+tDateAtTimeFromFileMeta+tDot ;
+                                            strSubstringF( tinP , psttSingleTime , idf , idl , tShort ) ; ___( psttSingleTime ) ;
+                                            countT idf = idHit2 ;
+                                            countT idl = idf - 1 ;
+                                            ZE( strokeS* , psttSingleTime ) ;
+                                        {
+                                        if( idHit2 )            // I HAVE A SINGLE TIME AFTER HEY                                                  
+                                        idHit2 = strIdF( tinP , 0 , flSTRmATCH_null , idf , sttq , tSssDotDateAtTimeDot , tShort ) ;
+                                        idf = idfSave ;
+                                    {
+                                    else
+                                    }
+                                        delF( tinP , psttDoubleTime ) ;
+                                        tTimePair = T(psttDoubleTime) ;
+                                        strSubstringF( tinP , psttDoubleTime , idf , idl , tShort ) ; ___( psttDoubleTime ) ;
+                                        countT idf = idHit2 ;
+                                        countT idl = idf - 1 ;
+                                        ZE( strokeS* , psttDoubleTime ) ;
+                                    {
+                                    if( idHit2 )            // I HAVE A DOUBLE TIME AFTER HEY                                                  
+                                    countT idHit2 = strIdF( tinP , 0 , flSTRmATCH_null , idf , sttq , tSssDotDateAtTimeDotDateAtTimeDot , tShort ) ;
+                                    countT idfSave = -- idf ;                             
+                                {
+                                else                        // I HAVE A DOT HEY DOT
+                                }
+                                    tTimePair = tDot+tTimeFromPrefix+tDot+tDateAtTimeFromFileMeta+tDot ;
+                                {
+                                if( !idHit )
+                                idHit = strIdF( tinP , 0 , flSTRmATCH_null , idf , sttq , tDotHeyDot , tShort ) ;
+
+                                tSequenceNumber = tSequenceNumberFromPrefix ;
+                                }
+                                    delF( tinP , psttSequenceNumberFromPrefix ) ;
+                                    tSequenceNumberFromPrefix = T(psttSequenceNumberFromPrefix) ;
+                                    strSubstringF( tinP , psttSequenceNumberFromPrefix , idf , idl , tShort ) ; ___( psttSequenceNumberFromPrefix ) ;
+                                    countT idl = ++ idf + 2 ;
+                                    ZE( strokeS* , psttSequenceNumberFromPrefix ) ;
+                                {
+                                TN( tSequenceNumberFromPrefix , "" ) ;
+
+                                }
+                                    delF( tinP , psttTimeFromPrefix ) ;
+                                    tTimeFromPrefix = T(psttTimeFromPrefix) ;
+                                    strSubstringF( tinP , psttTimeFromPrefix , idf , idl , tShort ) ; ___( psttTimeFromPrefix ) ;
+                                    countT idl = idf + 0xc ;
+                                    ZE( strokeS* , psttTimeFromPrefix ) ;
+                                {
+                                TN( tTimeFromPrefix , "" ) ;
+                            {
+                            else                            // I HAVE A PREFIX
+                            }
+                                tTimePair = tDot+tDateAtTimeFromFileMeta+tDot+tDateAtTimeFromFileMeta+tDot ;
+                            {
+                            if( !idHit )                    // NOT A VALID PREFIX
+
+                            countT idHit = strIdF( tinP , 0 , flSTRmATCH_null , idf , sttq , tPrefix6 , tShort ) ;
+
+                            TN( tPrefix6   , "!ideafarm.6." ) ;
+                            TN( tDotHeyDot , ".!." ) ;
+                            TN( tDot , "." ) ;
+                            strokeS sttq( 0 , sc_IGNOREqUOTES ) ;
+                            countT idf = 1 ;
+                        {
+                        TN( tSequenceNumber , "001" ) ;
+                        TN( tTimePair , "" ) ;
+
+                        cRenamed ++ ;
+                    {
+                    if( 1 != strIdF( tinP , tNewPrefix , tShort ) )
+                {
+                if( tShort.csF( tinP ) )
+
+                }
+                    delF( tinP , psttDotExt ) ;
+                    delF( tinP , psttnu ) ;
+                    tDotExt = T(psttDotExt) ;
+                    strBisectF( tinP , psttnu , psttDotExt , tShort , tDot , - 1 , flSTRbISECT_PREPENDdELIMITER ) ; ___( psttnu ) ; ___( psttDotExt ) ;
+                    ZE( strokeS* , psttDotExt ) ;
+                    ZE( strokeS* , psttnu ) ;
+                {
+                TN( tDotExt , "" ) ;
+
+                }
+                    delF( tinP , psttShort ) ;
+                    delF( tinP , psttPath ) ;
+                    tShort = T(psttShort) ;
+                    tPath  = T(psttPath) ;
+                    strBisectF( tinP , psttPath , psttShort , pInfo->psttIfoName , tSlash , - 1 , flSTRbISECT_APPENDdELIMITER ) ; ___( psttPath ) ; ___( psttShort ) ;
+                    ZE( strokeS* , psttShort ) ;
+                    ZE( strokeS* , psttPath ) ;
+                {
+                TN( tShort , "" ) ;
+                TN( tPath , "" ) ;
+
+                }
+                    ;
+    
+                        +TF4(mm,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE|flFORMAT_FOREIGN|flFORMAT_NObASE,2,0xa)
+                        +TF4(hh,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE|flFORMAT_FOREIGN|flFORMAT_NObASE,2,0xa)
+                        +S1C('@')
+                        +TF4(1+da,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE|flFORMAT_FOREIGN|flFORMAT_NObASE,2,0xa)
+                        +TF4(1+mo,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE|flFORMAT_FOREIGN|flFORMAT_NObASE,2,0xa)
+                         TF4(1+ye,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE|flFORMAT_FOREIGN|flFORMAT_NObASE,4,0xa)
+    
+                    tDateAtTimeFromFileMeta =
+    
+                    osTimeToOldTimeF( tinP , ms , ss , mm , hh , da , mo , ye , dow , pInfo->timeWritten1 , pInfo->timeWritten2 ) ;
+                    ZE( countT , dow ) ;
+                    ZE( sCountT , ye ) ;
+                    ZE( countT , mo ) ;
+                    ZE( countT , da ) ;
+                    ZE( countT , hh ) ;
+                    ZE( countT , mm ) ;
+                    ZE( countT , ss ) ;
+                    ZE( countT , ms ) ;
+                {
+                TN( tDateAtTimeFromFileMeta , "" ) ;
+            {
+            else
+            }
+                if( F(flagsP) & flETHERrENAMEtOhASH_RECURSE && !strIdF( tinP , tSDS , pInfo->psttIfoName ) && !strIdF( tinP , tSDDS , pInfo->psttIfoName ) ) cRenamed += diskRenameToHashF( tinP , pInfo->psttIfoName , flagsP ) ;
+            {
+            if( pInfo->psttIfoName[ CSpREFIX - 1 + pInfo->psttIfoName->idAdam ].idAdam == '/' )
+        {
+        if( pInfo && pInfo->psttIfoName )
+        diskFindFileOrDirF( tinP , pInfo , hFind , T(psttFolderMapped) ) ;
+        ZE( infoFileS* , pInfo ) ;
+    {
+    do
+    handleC hFind( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_FILEfIND ) ;
+    TN( tDotTypeMetaDotCurrentName , ".meta.currentname" ) ;
+    TN( tDotTypeMetaDotHashedName , ".meta.hashedname" ) ;
+    TN( tDotTypeData , ".data" ) ;
+    TN( tNewPrefix , "!ideafarm.9.2.00000000.00000001." ) ;
+    TN( tOsLikePath , osFileNameC( tinP , third , T(psttFolderMapped) ) ) ;
+    TN( tSDDS , "/../" ) ;
+    TN( tSDS , "/./" ) ;
+    TN( tSlash , "/" ) ;
+    TN( tDot , "." ) ;
+    ZE( countT , cRenamed ) ;
+
+    ;
+
+        +S2(sa_SSSaNDeND,sc_ccSSS)
+            +T(".")
+            +tPatternDateAtTime
+            +T(".")
+        +S2(sa_SSSaND,sc_ccSSS)
+        T("")
+
+    TN( tSssDotDateAtTimeDot , "" ) ; tSssDotDateAtTimeDot =
+    // ".20130510@2359."
+    //   yyyymmdd hhmm
+
+    ;
+
+        +S2(sa_SSSaNDeND,sc_ccSSS)
+            +T(".")
+            +tPatternDateAtTime
+            +T(".")
+            +tPatternDateAtTime
+            +T(".")
+        +S2(sa_SSSaND,sc_ccSSS)
+        T("")
+
+    TN( tSssDotDateAtTimeDotDateAtTimeDot , "" ) ; tSssDotDateAtTimeDotDateAtTimeDot =
+    // ".20130510@2359.20130510@2359."
+    //   yyyymmdd hhmm yyyymmdd hhmm
+
+    ;
+
+        +S2(sa_SSSoReND,sc_ccSSS)
+            +T("xz")                                                 // "x" OR "z" ARE ALLOWED AS A DIGIT.  IT MEANS "UNKNOWN"
+            +S2(sa_SSSmARKnUMERIC9,sc_cSSSmARK)
+        +S2(sa_SSSoR,sc_ccSSS)
+        +S3(2,sc_ccSSSrEPEAT,2)
+        +S2(sa_SSSoReND,sc_ccSSS)
+            +T("012xz")
+        +S2(sa_SSSoR,sc_ccSSS)
+        +T("@")
+        +S2(sa_SSSoReND,sc_ccSSS)
+            +T("xz")                                                 // "x" OR "z" ARE ALLOWED AS A DIGIT.  IT MEANS "UNKNOWN"
+            +S2(sa_SSSmARKnUMERIC9,sc_cSSSmARK)
+        +S2(sa_SSSoR,sc_ccSSS)
+        +S3(7,sc_ccSSSrEPEAT,7)
+        T("")
+
+    TN( tPatternDateAtTime , "" ) ; tPatternDateAtTime =
+    // "20130510@2359"
+    //  yyyymmdd hhmm
+
+    //   IF FIND 0 THEN USE TIME AFTER ".6." FOR WOTH TIME AND FILE TIME FOR OOTH TIME
+    //   IF FIND 1 THEN USE IT AND FOLLOW IT WITH THE FILE TIME
+    //   IF FIND 2 USE THEM IN THE ORDER FOUND, EVEN IF NOT IN ORDER
+    //  LOOK FOR OO TIMES AFTER ".!."
+    //  
+    // RECIPE
+    // EXAMPLE: !ideafarm.6.19981028@0000.001.!.day.title.ttt
+    // EXAMPLE: !ideafarm.6.19991228@0000.001.000b3751.c44d5e6f.2f9afda7.scanner.!.19991228@0000.notarized.declaration.of.legal.name.change.0600x.jpg
+
+    //FILE NAME FORMAT: !ideafarm.9.2.00000000.00000001.
+
+    diskMapFileNameF( tinP , psttFolderMapped , psttFolderP ) ; ___( psttFolderMapped ) ;
+    ZE( strokeS* , psttFolderMapped ) ;
+
+    etherC& etPrime = etPrimeIF( tinP ) ;
+    const boolT bIgnoreEtPrime = F(flagsP) & flETHERrENAMEtOhASH_KEEPwORKINGiFfIRED ;
+
+    _IO_
+
+    }
+        if( POOP ) return 0 ;
+        FV(flETHERrENAMEtOhASH,flagsP) ;
+        __Z( psttFolderP[ CSpREFIX - 1 + psttFolderP->idAdam ].idAdam == '/' ) ;
+        if( POOP ) return 0 ;
+        __Z( psttFolderP ) ;
+        if( POOP ) return 0 ;
+    {
+    IFbEcAREFUL
+    SCOOP
+{
+/*1*/countT etherC::diskRenameToHashF( tinS& tinP , const strokeS* const psttFolderP , const flagsT flagsP )/*1*/
+
+/**/
+
+*/
+/*
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+

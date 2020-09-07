@@ -1,0 +1,67 @@
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+
+/*3*/
+#define ifcIDgRABlAYER_fLEAF                        /*id*/
+#define ifcIDgRABlAYER_eHEAP                        /*id*/
+#define ifcIDgRABlAYER_dLINKEDc                     /*id*/
+#define ifcIDgRABlAYER_cBASEmISC4                   /*id*/
+#define ifcIDgRABlAYER_cBASEmISC3                   /*id*/
+#define ifcIDgRABlAYER_cBASEmISC2                   /*id*/
+#define ifcIDgRABlAYER_cBASEmISC1                   /*id*/
+#define ifcIDgRABlAYER_bPOOLlAYER3                  /*id*/
+#define ifcIDgRABlAYER_bPOOLlAYER2                  /*id*/
+#define ifcIDgRABlAYER_bPOOLlAYER1                  /*id*/
+#define ifcIDgRABlAYER_aGRABuNIVERSEc               /*id*/
+#define ifcIDgRABlAYER_9BOOKSc                      /*id*/
+#define ifcIDgRABlAYER_8POOL5nEW                    /*id*/
+#define ifcIDgRABlAYER_8POOL4dT                     /*id*/
+#define ifcIDgRABlAYER_8POOL3dT                     /*id*/
+#define ifcIDgRABlAYER_8POOL2cT                     /*id*/
+#define ifcIDgRABlAYER_8POOL1cT                     /*id*/
+#define ifcIDgRABlAYER_7BASEmISC4                   /*id*/
+#define ifcIDgRABlAYER_7BASEmISC3                   /*id*/
+#define ifcIDgRABlAYER_7BASEmISC2                   /*id*/
+#define ifcIDgRABlAYER_7BASEmISC1                   /*id*/
+#define ifcIDgRABlAYER_6BONE                        /*id*/
+#define ifcIDgRABlAYER_5BONE                        /*id*/
+#define ifcIDgRABlAYER_4INNER                       /*id*/
+#define ifcIDgRABlAYER_3MIDDLE                      /*id*/
+#define ifcIDgRABlAYER_2OUTER                       /*id*/
+#define ifcIDgRABlAYER_1SKIN                        /*id*/
+/*3*/
+
+/*1*//*ifcIDgRABlAYER*//*1*/
+/**/
+*/
+  used for grabC instances that must be ct early yet are grabbed later than a level 3 object
+ ifcIDgRABlAYER_5BONE
+  used for grabC instances used during allocation of a poolC drop
+  grabC instances can be assigned to this group during construction
+ ifcIDgRABlAYER_4INNER
+  reserved for bits grabbed using grabitC instances
+  prohibited for grabC instances
+ ifcIDgRABlAYER_3MIDDLE
+  default group assigned to grabC instances
+ ifcIDgRABlAYER_2OUTER
+obsolete: ordering begins with "outer" (low) and ends with "inner" (high)
+ this is enforced by baseGrabC::registerBegunF
+when multiple objects are grabbed by a thread, they must be grabbed in ascending order
+ bits grabbed using grabitC instances are not ordered with respect to each other
+all grabbable objects are weakly ordered
+unidirectional grabbing is enforced to prevent grab loop deadlocking
+/*
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+

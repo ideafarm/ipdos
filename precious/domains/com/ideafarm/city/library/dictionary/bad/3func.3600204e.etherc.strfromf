@@ -1,0 +1,244 @@
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+
+}
+    POSTPONEtEST( psttP ) ; // CALLER MUST TAG
+    }
+        if(    F(flagsFormatP) & flFORMAT_DIGITnAMES     ) { ___( psttP ) ; strReplaceF( tinP , psttP , 0 , ifcIDtYPEsTRrEPLACE_DIGITStOdIGITnAMES , csttExtraP ) ; }
+        if( !( F(flagsFormatP) & flFORMAT_FOREIGN      ) ) { ___( psttP ) ; strReverseF( tinP , psttP                                                           ) ; }
+        if(    F(flagsFormatP) & flFORMAT_SIGNcOLrIGHT   ) {                strFuseF(    tinP , psttP , sttSign                                                 ) ; }
+
+        }
+            strFuseF( tinP , psttP , psttBuf ) ; ___( psttP ) ;_WQ
+
+            }
+                else                   psttBuf[ CSpREFIX + 1 ] = S1C( '?' -  1 + radix - 62 ) ;
+                else if( radix <= 62 ) psttBuf[ CSpREFIX + 1 ] = S1C( 'A' -  1 + radix - 36 ) ;
+                else if( radix <= 36 ) psttBuf[ CSpREFIX + 1 ] = S1C( 'a' -  1 + radix - 10 ) ;
+                     if( radix <= 10 ) psttBuf[ CSpREFIX + 1 ] = S1C( '0' -  1 + radix      ) ;
+            {
+            else
+            if( !bForeign && !bNoBigitValues ) psttBuf[ CSpREFIX + 1 ] = S1C(sscDIGIT|SDBITS(cdBits)|radix-1) ;
+
+            psttBuf[ CSpREFIX + 1 ] = 0 ;_WQ
+            psttBuf[ CSpREFIX     ] = '_' ;_WQ
+            SETpREFIX( psttBuf , 2 , 0 ) ;_WQ
+            strokeS psttBuf[ CSpREFIX + 2 ] ;_WQ
+        {
+        if( bRadixIndicator )
+
+        delF( tinP , psttBigits ) ;_WQ
+        strFuseF( tinP , psttP , psttBigits , 0 , 0 , strokeS() , 0 , 0 ,/*U::SOUL?*/ 4 + csttExtraP ) ;_WQ
+
+        if( F(flagsFormatP) & flFORMAT_SIGNcOLlEFT ) strFuseF( tinP , psttP , sttSign , 4 + csttExtraP ) ;_WQ
+
+        if( psttBigits ) { strMakeF( tinP , psttP , T("") , psttBigits->idAdam + 4 + csttExtraP ) ; }
+
+        }
+            __Z( psttBigits ) ;_WQ
+
+            if( bPrependedSign && sttFill == s0 ) { strFuseF( tinP , psttBigits , sttSign , 0 , 1 ) ; ___( psttBigits ) ; }
+
+            }
+                if( psttBigits && psttBigits->idAdam < csd ) { strResizeF( tinP , psttBigits , csd , sttFill , 1 , 1 ) ; ___( psttBigits ) ; }
+
+                }
+                    if( bPrependedSign && sttFill == s0         ) csd -- ;_WQ
+                    if( F(flagsFormatP) & flFORMAT_SIGNcOLrIGHT ) csd -- ;_WQ
+                    if( F(flagsFormatP) & flFORMAT_SIGNcOLlEFT  ) csd -- ;_WQ
+                {
+                if( csP != - 1 )
+                countT csd = csr /*- 2 * bRadixIndicator*/ ; // "-2 * bRadixIndicator" REMOVED TO MAKE csP == -1 WORK FOR radixP 0x24
+
+                ;_WQ
+                    : csP
+                    ? cBigitsMax + bPrependedSign
+                countT csr = csP == - 1                     // THIS IS NEWLY ADDED WITHOUT MODIFYING THE CALCULATION OF csd ; I AM NOT SURE WHETHER THE RESULTING csd VALUE IS WHAT I WANT FOR ALL POSSIBLE COMBINATIONS OF FLAGS
+            {
+            if( csP )
+
+            if( bPrependedSign && sttFill != s0 ) { strFuseF( tinP , psttBigits , sttSign , 0 , 1 ) ; ___( psttBigits ) ; }
+
+            else if( F(flagsFormatP) & flFORMAT_FILLsIGN ) sttFill = sttSign ;
+                 if( F(flagsFormatP) & flFORMAT_FILLzE   ) sttFill = s0      ;
+            strokeS sttFill = S1C(' ') ;_WQ
+
+            }
+                }
+                    strFuseF( tinP , psttBigits , stt , 0 , 1 ) ; ___( psttBigits ) ;_WQ
+
+                    }
+                        else                  stt = '?' + digit - 62 ;
+                        else if( digit < 62 ) stt = 'A' + digit - 36 ;
+                        else if( digit < 36 ) stt = 'a' + digit - 10 ;
+                             if( digit < 10 ) stt = '0' + digit ;
+                    {
+                    else
+                    if( !bForeign && !bNoBigitValues ) stt = S1C(sscDIGIT|SDBITS(cdBits)|digit) ;
+
+                    strokeS stt = ' ' ;_WQ
+                    value /= radix ;_WQ
+                    countT digit = value % radix ;_WQ
+                {
+                while( value )
+
+                else                                                         value =   valueP ;
+                if( !( F(flagsFormatP) & flFORMAT_UNSIGNED ) && valueP < 0 ) value = - valueP ;
+                ZE( countT , value ) ;_WQ
+            {
+            else
+            if( !valueP ) { strFuseF( tinP , psttBigits , s0 ) ; ___( psttBigits ) ; }
+            strokeS s0 = bForeign || bNoBigitValues ? S1C( '0' ) : S2( sscDIGIT | SDBITS( cdBits ) , sc_cALPHABET1 ) ;_WQ
+
+            }
+                strMakeF( tinP , psttBigits , 0 , cstta ) ; ___( psttBigits ) ;_WQ
+                if( csP != - 1 && cstta < csP ) cstta = csP ;_WQ
+                countT cstta = cBigitsMax + bPrependedSign ;_WQ
+
+                }
+                    test /= radix ;_WQ
+                    cBigitsMax ++ ;_WQ
+                {
+                while( test / radix )
+
+                ;_WQ
+                    : MAXscOUNTT
+                    ? MAXcOUNTT
+                countT test = F(flagsFormatP) & flFORMAT_UNSIGNED
+            {
+            countT cBigitsMax = 1 ;_WQ
+        {
+        ZE( strokeS* , psttBigits ) ; // PREPENDED SIGN, DIGITS.  WILL -NOT- CONTAIN: SIGN COLUMNS, RADIX INDICATOR
+
+        }
+            }
+                rr <<= 1 ;_WQ
+                cdBits ++ ;_WQ
+            {
+            while( rr < radix )
+            countT rr = 2 ;_WQ
+        {
+        ZE( countT , cdBits ) ; //"cDigitBits": 0-BASED: 0 MEANS 1 BIT; f MEANS 01 BITS
+
+        const boolT bNoBigitValues = F(flagsFormatP) & flFORMAT_NObIGITvALUES /* || !thirdC::p WinRootIF() */ ;_WQ
+        const boolT bForeign       = !tinP.strokeMode.idCasteDefault ;_WQ
+
+        const boolT bRadixIndicator = radix != 16 && !( F(flagsFormatP) & flFORMAT_NObASE ) ;_WQ
+
+        }
+            else                                                              sttSign = S1C(' ') ;
+            else if( F(flagsFormatP) & flFORMAT_SHOWpLUS )                    sttSign = S1C('+') ;
+                 if( valueP < 0 && !( F(flagsFormatP) & flFORMAT_UNSIGNED ) ) sttSign = S1C('-') ;
+        {
+        strokeS sttSign ;_WQ
+
+        }
+            bPrependedSign = bNeedSign && !bSignCols ;_WQ
+            boolT bSignCols = F(flagsFormatP) & flFORMAT_SIGNcOLlEFT || F(flagsFormatP) & flFORMAT_SIGNcOLrIGHT ;_WQ
+            boolT bNeedSign = ( valueP < 0 && !( F(flagsFormatP) & flFORMAT_UNSIGNED ) ) || ( F(flagsFormatP) & flFORMAT_SHOWpLUS ) ;_WQ
+        {
+        ZE( boolT , bPrependedSign ) ;_WQ
+
+        if( !radix ) radix = 16 ;_WQ
+        countT radix = radixP ;_WQ
+        //IF RADIX IS NOT 16 THEN AN EXPLICIT RADIX INDICATOR WILL BE INCLUDED (E.G.: "12345_9" INDICATES 12345 BASE 10)
+
+        //U: OPTIMIZE: ELIMINATE THE USE OF strReverseF BY REWRITING THIS FUNCTION
+    {
+    else
+    }
+        POSTPONEtEST( psttP ) ;_WQ
+        strMakeF( tinP , psttP , TF4(v4,flags,0,0xa)+tDot+TF4(v3,flags,0,0xa)+tDot+TF4(v2,flags,0,0xa)+tDot+TF4(v1,flags,0,0xa) ) ; // CALLER MUST TAG ___( psttP ) ;_WQ
+        flagsT flags = flFORMAT_UNSIGNED | flFORMAT_FOREIGN | flFORMAT_NObASE ;_WQ
+        TN( tDot , "." ) ;_WQ
+        countT v4 = vv & 0xff ; vv >>= 8 ;_WQ
+        countT v3 = vv & 0xff ; vv >>= 8 ;_WQ
+        countT v2 = vv & 0xff ; vv >>= 8 ;_WQ
+        countT v1 = vv & 0xff ; vv >>= 8 ;_WQ
+        countT vv = valueP ;_WQ
+    {
+    else if( F(flagsFormatP) & flFORMAT_DOTTEDdECIMAL )
+    }
+        strFuseF( tinP , psttP , tSuffix ) ; ___( psttP ) ;_WQ
+        POSTPONEtEST( psttP ) ;_WQ
+        strFromF( tinP , psttP , valueP , flFORMAT_UNSIGNED , 0 , 0 , tSuffix.csF( tinP ) + csttExtraP ) ; // CALLER MUST TAG ___( psttP ) ;_WQ
+        TN( tSuffix , "@" "ideafarm.com" ) ;_WQ
+    {
+    else if( F(flagsFormatP) & flFORMAT_CITIZENeMAIL )
+    }
+        strFuseF( tinP , psttP , tSuffix ) ; ___( psttP ) ;_WQ
+        POSTPONEtEST( psttP ) ;_WQ
+        strFromF( tinP , psttP , valueP , flFORMAT_DIGITnAMES | flFORMAT_UNSIGNED , 0 , 0 , tSuffix.csF( tinP ) + csttExtraP ) ; // CALLER MUST TAG ___( psttP ) ;_WQ
+        TN( tSuffix , "'O Ideafarm" ) ;_WQ
+    {
+    if( F(flagsFormatP) & flFORMAT_CITIZENnAME )
+    _IO_
+
+    }
+        countT foo = 2 ;_WQ
+    {
+    if( idIn == 0x1f )
+    countT idIn = 1 + incv02AM( idInLath ) ;_WQ
+    static countT idInLath ;_WQ
+
+    }
+        if( POOP ) return ;
+        { countT cb = 4 ; __( sizeof valueP - cb ) ; }
+        __(  tinP.strokeMode.idCasteDefault && radixP > 0x10000 ) ;_WQ
+        __( !tinP.strokeMode.idCasteDefault && radixP > 64 ) ;_WQ
+        __( radixP && radixP < 2 ) ;_WQ
+        __NZ( psttP ) ;_WQ
+        if( POOP ) return ;
+    {
+    IFbEcAREFUL
+    SCOOP
+{
+/*1*/voidT etherC::strFromF( tinS& tinP , strokeS*& psttP , const sCountT valueP , const flagsT flagsFormatP , const countT csP , const countT radixP , const countT csttExtraP )/*1*/
+
+/**/
+*/
+ csttExtraP
+     example: hexadecimal: radix f
+     example: binary: radix 1
+    the ifc convention for indicating radix is to use the symbol for the maximum value representable by a single bigit using that radix
+   U:: migrate this function and all calling code to make it conform to the ifc convention for indicating radix
+   but this function was written before i thought of that, so it requires the caller to specify radixP using the foreign convention
+   this would conform to the convention used for explicit radix indicators in the rendered text
+   this function should have been written to use value 1 for binary, i.e. to require radixP to specify the maximum value representable by a single bigit
+  example: value 2 produces binary
+  if not 0 and !!tinP.strokeMode.idCasteDefault then must be 2 <= radixP <= 65536_9 (00001)
+  if not 0 and  !tinP.strokeMode.idCasteDefault then must be 2 <= radixP <= 64_9
+  if 0 then 16_9 is implied
+  can be 0
+ radixP
+  -1 : special value that results in a string long enough to represent the maximum value of valueP, the latter depending upon whether flFORMAT_UNSIGNED is set
+  if more strokes are needed to represent the number, psttP will be longer than csP
+  minimum length of the final string
+ csP
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/1snip.001004c.flFORMAT!||
+ flagsFormatP
+  this is the value that is to be represented as a string of digits
+ valueP
+  will be set to contain the string
+ psttP
+arguments
+  \<A HREF=\"5.2910104.1.1.0.html\"\>2910104:  WAKEsHOW( "example.simplest.func.1030058.etherC.strFromF" )\</A\>
+ simplest
+examples
+\<A HREF=\"5.1030058.1.0.html\"\>definition\</A\>
+\<A HREF=\"6.$strFromF.0.html\"\>instances\</A\>
+/*
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+

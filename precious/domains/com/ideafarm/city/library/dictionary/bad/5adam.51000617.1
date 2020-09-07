@@ -1,0 +1,166 @@
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+                            
+REST
+
+etherC::loafIF( tinP ) ;
+etThread.traceF( tinP , T("ok") ) ;
+
+#endif
+
+else sayErrorF( tinP , "could not open service manager" ) ;
+}
+    BOSpOOP
+    BOS( WHATgbo , BOSoK , CloseServiceHandle( hsm ) )
+    CONoUTrAW( "service manager opened aok\r\n" ) ;
+{
+if( hsm )
+SC_HANDLE hsm = (SC_HANDLE)tinP.brcRaw ;
+BOSpOOP
+BOS( WHATgbo , BOSoK , OpenSCManager( 0 , 0 , SC_MANAGER_CREATE_SERVICE ) )
+
+#if defined( NEVERdEFINED )
+
+}
+    etThread.traceF( tinP , tSay ) ;
+
+    tSay += tb4+T(postTUCK2) ;
+
+    if( !bOk ) sayErrorF( tinP , "could not look up displayable privilege name" ) ;
+    bOk = tinP.brcRaw ;
+    BOSpOOP
+    BOS( WHATgbo , BOSoK , LookupPrivilegeDisplayName( "" , postTUCK , postTUCK2 , &cbr , &idLanguage ) )
+    cbr = sizeof postTUCK2 ;
+    osTextT postTUCK2[ TUCK ] ;
+    ZE( DWORD , idLanguage ) ;
+
+    tSay += tb4+T(postTUCK) ;
+
+    if( !bOk ) sayErrorF( tinP , "could not look up privilege name" ) ;
+    bOk = tinP.brcRaw ;
+    BOSpOOP
+    BOS( WHATgbo , BOSoK , LookupPrivilegeName( "" , &pin.Privileges[ offi ].Luid , postTUCK , &cbr ) )
+    thirdC::c_memsetIF( tinP , postTUCK , sizeof postTUCK ) ;
+    DWORD cbr = sizeof postTUCK ;
+    osTextT postTUCK[ TUCK ] ;
+
+    }
+        if( attributes & SE_PRIVILEGE_USED_FOR_ACCESS    ) tSay += tb4+tUsedForAccess ;
+        if( attributes & SE_PRIVILEGE_REMOVED            ) tSay += tb4+tRemoved ;
+        if( attributes & SE_PRIVILEGE_ENABLED_BY_DEFAULT ) tSay += tb4+tEnabledByDefault ;
+        if( attributes & SE_PRIVILEGE_ENABLED            ) tSay += tb4+tEnabled ;
+    {
+    else
+    if( !attributes ) tSay += tb4+tb02 ;
+
+    tSay += TF2((countT)pin.Privileges[offi].Luid.LowPart,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tDot+TF2((countT)pin.Privileges[offi].Luid.HighPart,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2(attributes,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ;
+    countT attributes = pin.Privileges[ offi ].Attributes ;
+
+    TN( tSay , "" ) ; tSay = t1 ;
+{
+for( countT offi = 0 ; offi < pin.PrivilegeCount ; offi ++ )
+TN( tUsedForAccess , "usedForAccess" ) ;
+TN( tRemoved , "removed" ) ;
+TN( tEnabledByDefault , "enabledByDefault" ) ;
+TN( tEnabled , "enabled" ) ;
+TN( t1 , "[Luid,Attributes]:    " ) ;
+TN( tb02 , "                                " ) ;
+TN( tb4 , "    " ) ;
+TN( tDot , "." ) ;
+
+if( !bOk ) sayErrorF( tinP , "could not get token privileges" ) ;
+bOk = tinP.brcRaw ;
+BOSpOOP
+BOS( WHATgbo , BOSoK , GetTokenInformation( hToken , TokenPrivileges , (TOKEN_PRIVILEGES*)&pin , sizeof pin , &cbr ) )
+thirdC::c_memsetIF( tinP , (byteT*)&pin , sizeof pin ) ;
+pinS pin ;
+ZE( DWORD , cbr ) ;
+
+}
+    }
+        etThread.traceF( tinP , T("attempted  to restart factory9") ) ;
+        }
+            etThread.traceF( tinP , T("could not initiate system shutdown on factory9 [rc]: ")+TF2(rc,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
+            countT rc = GetLastError() ;
+        {
+        if( !bOk )
+        boolT bOk = InitiateSystemShutdown( "factory9" , 0 , 0 , 1 , 1 ) ;
+        etThread.traceF( tinP , T("attempting to restart factory9") ) ;
+    {
+    else
+    if( !tinP.brcRaw ) sayErrorF( tinP , "could not adjust token privileges" ) ;
+    BOSpOOP
+    BOS( WHATgbo , BOSoK , AdjustTokenPrivileges( hToken , 0 , (TOKEN_PRIVILEGES*)&pin1 , 0 , 0 , 0 ) )
+
+    pin1S pin1( tinP ) ;
+{
+
+if( !bOk ) sayErrorF( tinP , "could not open process token" ) ;
+boolT bOk = tinP.brcRaw ;
+BOSpOOP
+BOS( WHATgbo , BOSoK , OpenProcessToken( (HANDLE)tinP.brcRaw , TOKEN_ALL_ACCESS , &hToken ) )
+ZE( HANDLE , hToken ) ;
+
+BOSdOnOTtEST( WHATgbo , GetCurrentProcess() )
+
+TODO
+
+}
+    }
+        default                        : { CONoUTrAW3( "ERROR CODE: " , rc , "\r\n" ) ; break ; }
+        case ERROR_INSUFFICIENT_BUFFER : { CONoUTrAW(  "ERROR_INSUFFICIENT_BUFFER\r\n" ) ; break ; }
+        case ERROR_ACCESS_DENIED       : { CONoUTrAW(  "ERROR_ACCESS_DENIED\r\n" ) ; break ; }
+    {
+    switch( rc )
+    countT rc = tinP.brcRaw ;
+    BOSdOnOTtEST( WHATgbo , GetLastError() )
+    CONoUTrAW( ": " ) ;
+    CONoUTrAW( postP ) ;
+{
+voidT sayErrorF( tinS& tinP , osTextT* postP )
+
+}
+    Privileges[ 0 ].Attributes    = SE_PRIVILEGE_ENABLED ;
+    //Privileges[ 0 ].Luid.HighPart = 0 ;
+    //Privileges[ 0 ].Luid.LowPart  = 0x18 ;
+
+    BOSpOOP
+    BOS( WHATgbo , BOSoK , LookupPrivilegeValue( 0 , "SeRemoteShutdownPrivilege" , &Privileges[ 0 ].Luid ) )
+{
+PrivilegeCount( 1 )
+pin1S::pin1S( tinS& tinP ) :
+
+;
+}
+    pin1S( tinS& tinP ) ;
+
+    LUID_AND_ATTRIBUTES Privileges[ 1 ] ;
+    DWORD               PrivilegeCount ;
+{
+struct pin1S
+
+;
+}
+    LUID_AND_ATTRIBUTES Privileges[ TUCK ] ;
+    DWORD               PrivilegeCount ;
+{
+struct pinS
+
+/*1*/WAKEsHOWtEXT( "doodle.privileges" )/*1*/
+/**/
+*/
+/*
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+

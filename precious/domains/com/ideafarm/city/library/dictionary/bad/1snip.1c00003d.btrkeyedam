@@ -1,0 +1,39 @@
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+
+;
+                                                                                                                                        \
+    value [ebx]                                                                                                                         \
+    modify [esi ebx ecx]                                                                                                                \
+    parm [esi] [edi] [edx] [eax]                                                                                                        \
+    "               setc         bl                               "  /*                                                           */    \
+    "               mov          ebx , 0                          "  /* STORE THE PRIOR BIT VALUE                                 */    \
+    "MATCHED:       lock btr     dword ptr [esi] , edx            "  /* ATOMIC TEST AND RESET ; CARRY FLAG RECEIVES OLD BIT VALUE */    \
+    "               mov          dword ptr [ecx] , 0              "  /* INTENTIONAL BLAMMO                                        */    \
+    "               jz           MATCHED                          "  /* WAS A VALUE OTHER THAN keyFromP IN keyToP?                */    \
+    "               lock cmpxchg dword ptr [edi] , ecx            "  /* eax WILL RECEIVE SQUATTER VALUE                           */    \
+    "               mov          ecx , 0                          "  /*                                                           */    \
+                                                                                                                                        \
+#pragma aux btrKeyedAM =                                                                                                                \
+
+countT __export btrKeyedAM( byteT* pbP , countT& keyToP , countT offP , countT keyFromP ) ;
+
+
+/*1*/countT __export btrKeyedAM( byteT* pbP , countT& keyToP , countT offP , countT keyFromP ) ;/*1*/
+/**/
+*/
+/*
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+

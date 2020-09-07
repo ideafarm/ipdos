@@ -1,0 +1,77 @@
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+
+;
+}
+    inline count01T&    cRefPrivate2F( voidT ) { return cRef ; } //IT IS ILLEGAL TO REFER TO THIS SYMBOL ANYWHERE OTHER THAN WITHIN datum_listingVSP_C CT/DT
+    inline byteT        cRefF( voidT ) const { return (byteT)cRef ; }
+    inline countT       idTypeDatumF( voidT ) const { return idTypeDatum ; }
+    inline byteT&       flagsRefF( voidT ) { return flagsi ; }
+    inline byteT        flagsF( voidT ) const { return flagsi ; }
+
+    inline listingC&    operator =( listC& listDadP ) { aptDad = (byteT*)&listDadP ; return *this ; }
+
+    inline listC*       pDadModifyF( voidT ) const { return (      listC*)(byteT*)aptDad ; }
+    inline const listC* pDadF( voidT )       const { return (const listC*)(byteT*)aptDad ; }
+
+    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400c.listingC.nameF!||
+    countT nameF( tinS& tinP , countT*& pczNameP ) const ;
+    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400b.listingC.nameF!||
+    countT nameF( sCountT idP = 0 ) const ;
+    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34009.listingC.cRefDatumF!||
+    countT cRefDatumF( voidT ) const ;
+    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34008.listingC.operator_subtract!||
+    sCountT operator -( const listingC& lP ) const ;
+    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34007.listingC.openF!||
+    voidT openF( tinS& tinP , handleC& hListP , const countT* const pczNameDadP = 0 , countT idGrabLayerP = ifcIDgRABlAYER_7BASEmISC1 ) ;
+    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34003.listingC.listingC!||
+    listingC( tinS& tinP , const listC& listDadP , const flagsT flagsP = flLISTINGc_null ) ;
+    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34002.listingC.dt_listingC!||
+    ~listingC( voidT ) ;
+    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34001.listingC.NEWdELcLASSb!||
+    NEWdELcLASSpROTOS
+
+    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400a.listingC.bIsListingIF!||
+    static boolT bIsListingIF( tinS& tinP , const listingC* pdListingP , const byteT bitsP = 0 , const byteT idTypeDatumP = 0 ) ;
+    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34006.listingC.bIsListingIF!||
+    static boolT bIsListingIF( tinS& tinP , const aptC& aptP , const byteT bitsP = 0 , const byteT idTypeDatumP = 0 ) ;
+
+    public :
+
+    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400b.listingC.listingC!||
+    listingC( tinS& tinP , const flagsT flagsP = flLISTINGc_null ) ;        // ILLEGAL FOR ANY CODE TO CALL THIS EXCEPT FOR THE PRIVATE listC CONSTRUCTOR THAT IS CALLED BY poolC::face_poolC_S::face_poolC_S TO CONSTRUCT THE ROOT listC FOR THE POOL
+
+    aptC            aptBro ;       // THE NEXT listingC (MY YOUNGER BROTHER) IN THE LIST ANCHORED IN aptDad
+    aptC            aptDad ;        // THE listC INSTANCE, IF ANY, THAT CONTAINS ME (WILL BE NULL ONLY FOR THE ROOT LIST)
+
+                                    // THE ORDERING OF idTypeDatum AND flagsi IS INTENTIONAL ; IF ADDITIONAL FLAG BITS ARE NEEDED, COMBINE THESE OO FIELDS INTO A SINGLE count01T FIELD ; SEE INSTRUCTIONS IN 1*.fliLISTINGc
+    byteT           idTypeDatum ;/*old ordering: 2*/   // IF NOT NULL THEN AN INSTANCE DERIVED FROM datumC RESIDES IMMEDIATELY AFTER THE "ME" THAT IS DERIVED FROM listingC, WHERE "ME" IS EITHER A listingC OR A listC
+    byteT           flagsi ;     /*old ordering: 3*/   // cRef OVERFLOW CAN BE DETECTED BY INSPECTING BOTH bFinger AND flagsi SINCE OVERFLOW WILL CHANGE bFinger AND WILL THEN EVENTUALLY SET AN ILLEGAL FLAG IN flagsi
+    count01T        cRef ;       /*old ordering: 1*/   //U::POSSIBLY OBSOLETE COMMENT NOW THAT cRef IS A BYTE:  CS:CODEsYNC: 003018e 003015e ; A:ASSUME: sizeof( countT ) == 4 ; IF THIS IS NOT TRUE THEN SMART POINTER WILL NOT REFERENCE cRef AND WILL TRASH ME
+    protected :                     // cRef IS HERE SO THAT IT IS ALIGNED TO countT SO THAT IT CAN BE MANIPULATED WITH A NORMAL SMART POINTER (WHICH WILL TRASH MY OTHER MEMBERS ON OVERFLOW)
+{
+/*1*/class _export listingC/*1*/
+
+// FOR EFFICIENT USE OF POOL, listingC SHOULD BE SIZED A POWER OF 2 MINUS sizeof( countT ) (SO THAT LISTINGS CONTAINING DATA WILL BE SIZED A POWER OF 2)
+
+//IT IS POOR CODING STYLE TO USE MEMBERS WITH EXPLICIT DESTRUCTORS IN ME AND IN CLASSES DERIVED FROM ME
+//WARNING: ALL MEMBERS, INCLUDING THOSE IN DERIVED CLASSES, WILL BE DESTRUCTED OO TIMES (SEE MY DESTRUCTOR) WHEN A DERIVED CLASS IS DESTROYED BY CALLING ~listingC DIRECTLY
+
+/**/
+*/
+it is illegal for any application code to construct or reference listingC (or derived class) instances anywhere other than within the definition of a listWalkCBFT function
+/*
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+

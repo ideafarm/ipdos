@@ -1,0 +1,40 @@
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+
+BOOLcLASSESpTR( countT )
+
+BOOLcLASSESpTR( byteT )
+
+    class _export    equal_##typeP##strz_C : public boolC { const typeP* pTest                  ; const countT cElt ; public : NEWdELcLASSpROTOS inline    equal_##typeP##strz_C( boolC*& pRootP , typeP* pTestP             , countT cEltP = 0 ) : boolC( pRootP ) , pTest( pTestP )           , cElt( cEltP ) {} inline boolT bOkF( countT vP ) { return 0 ; } inline boolT bOkF( osTextT* pvP ) { TINSL return  !thirdC::c_strcmpIF( tinP , pvP , (osTextT*)pTest )                                                                   ; } inline boolT bOkF( countT* pvP ) { TINSL return  !thirdC::c_strcmpIF( tinP , pvP , (countT*)pTest , cElt )                                                                         ; } } ;
+    class _export notEqual_##typeP##strz_C : public boolC { const typeP* pTest                  ; const countT cElt ; public : NEWdELcLASSpROTOS inline notEqual_##typeP##strz_C( boolC*& pRootP , typeP* pTestP             , countT cEltP = 0 ) : boolC( pRootP ) , pTest( pTestP )           , cElt( cEltP ) {} inline boolT bOkF( countT vP ) { return 0 ; } inline boolT bOkF( osTextT* pvP ) { TINSL return !!thirdC::c_strcmpIF( tinP , pvP , (osTextT*)pTest )                                                                   ; } inline boolT bOkF( countT* pvP ) { TINSL return !!thirdC::c_strcmpIF( tinP , pvP , (countT*)pTest , cElt )                                                                         ; } } ;     \
+    class _export    below_##typeP##strz_C : public boolC { const typeP* pTest                  ; const countT cElt ; public : NEWdELcLASSpROTOS inline    below_##typeP##strz_C( boolC*& pRootP , typeP* pTestP             , countT cEltP = 0 ) : boolC( pRootP ) , pTest( pTestP )           , cElt( cEltP ) {} inline boolT bOkF( countT vP ) { return 0 ; } inline boolT bOkF( osTextT* pvP ) { TINSL return   thirdC::c_strcmpIF( tinP , pvP , (osTextT*)pTest ) < 0                                                               ; } inline boolT bOkF( countT* pvP ) { TINSL return   thirdC::c_strcmpIF( tinP , pvP , (countT*)pTest , cElt ) < 0                                                                     ; } } ;     \
+    class _export    above_##typeP##strz_C : public boolC { const typeP* pTest                  ; const countT cElt ; public : NEWdELcLASSpROTOS inline    above_##typeP##strz_C( boolC*& pRootP , typeP* pTestP             , countT cEltP = 0 ) : boolC( pRootP ) , pTest( pTestP )           , cElt( cEltP ) {} inline boolT bOkF( countT vP ) { return 0 ; } inline boolT bOkF( osTextT* pvP ) { TINSL return   thirdC::c_strcmpIF( tinP , pvP , (osTextT*)pTest ) > 0                                                               ; } inline boolT bOkF( countT* pvP ) { TINSL return   thirdC::c_strcmpIF( tinP , pvP , (countT*)pTest , cElt ) > 0                                                                     ; } } ;     \
+    class _export       in_##typeP##strz_C : public boolC { const typeP* pLo ; const typeP* pHi ; const countT cElt ; public : NEWdELcLASSpROTOS inline       in_##typeP##strz_C( boolC*& pRootP , typeP* pLoP , typeP* pHiP , countT cEltP = 0 ) : boolC( pRootP ) , pLo( pLoP ) , pHi( pHiP ) , cElt( cEltP ) {} inline boolT bOkF( countT vP ) { return 0 ; } inline boolT bOkF( osTextT* pvP ) { TINSL return ( thirdC::c_strcmpIF( tinP , (osTextT*)pLo , pvP   ) < 0 ) && ( thirdC::c_strcmpIF( tinP , pvP , (osTextT*)pHi ) < 0 ) ; } inline boolT bOkF( countT* pvP ) { TINSL return ( thirdC::c_strcmpIF( tinP , (countT*)pLo , pvP   , cElt ) < 0 ) && ( thirdC::c_strcmpIF( tinP , pvP , (countT*)pHi , cElt ) < 0 ) ; } } ;     \
+    class _export      out_##typeP##strz_C : public boolC { const typeP* pLo ; const typeP* pHi ; const countT cElt ; public : NEWdELcLASSpROTOS inline      out_##typeP##strz_C( boolC*& pRootP , typeP* pLoP , typeP* pHiP , countT cEltP = 0 ) : boolC( pRootP ) , pLo( pLoP ) , pHi( pHiP ) , cElt( cEltP ) {} inline boolT bOkF( countT vP ) { return 0 ; } inline boolT bOkF( osTextT* pvP ) { TINSL return ( thirdC::c_strcmpIF( tinP , pvP , (osTextT*)pLo   ) < 0 ) || ( thirdC::c_strcmpIF( tinP , (osTextT*)pHi , pvP ) < 0 ) ; } inline boolT bOkF( countT* pvP ) { TINSL return ( thirdC::c_strcmpIF( tinP , pvP , (countT*)pLo   , cElt ) < 0 ) || ( thirdC::c_strcmpIF( tinP , (countT*)pHi , pvP , cElt ) < 0 ) ; } } ;     \
+                                                                                                                                                                                                                                                                                                                                                                                                                          \
+#define BOOLcLASSESpTR(typeP)                                                                                                                                                                                                                                                                                                                                                                                             \
+
+//FOR MAX SPEED, THIS DEFINITION DOES NOT CONTAIN CODE THAT WOULD DETECT THE WRONG OVERLOAD BEING CALLED
+//FOR ANY PARTICULAR INSTANCE OF THIS MACRO, ONLY WO OVERLOAD OF bOkF IS EVER USED
+//THE OLD CODE DID NOT WASTE SPACE BUT HAD THE POSSIBILITY OF b aseC CALLING A NONEXISTENT OVERLOAD
+//THE OLD VERSION DID NOT IMPOSE THIS REQUIREMENT
+//THE CURRENT WATCOM COMPILER REQUIRES ALL OVERLOADS OF bOkF TO BE DEFINED
+
+/*1*//*BOOLcLASSESpTR(typeP)*//*1*/
+/**/
+*/
+/*
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+

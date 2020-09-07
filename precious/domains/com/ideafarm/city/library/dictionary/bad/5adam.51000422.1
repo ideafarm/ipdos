@@ -1,0 +1,257 @@
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+
+REST
+
+}
+    etThread.delF( tinP , pbi ) ;
+
+    }
+        pbc += sizeof( rHeaderS ) + rHeader.cbData ;
+
+        rHeader.logF( tinP ) ;
+        rHeader.swabF() ;
+        rHeaderS& rHeader = *(rHeaderS*)pbc ;
+        logLabelsF( tinP , pbc , (byteT*)&header ) ;
+    {
+    while( cResources -- )
+    countT cResources = header.cAnswers + header.cAuthorities + header.cNotes ;
+    pbc = pbi + sizeof( headerS ) + sizeof( questionS ) ;
+
+    question.logF( tinP ) ;
+    logLabelsF( tinP , pbc , (byteT*)&header ) ;
+    question.swabF() ;
+    questionS& question = *(questionS*)pbc ;
+    pbc = pbi + sizeof( headerS ) ;
+
+    header.logF( tinP ) ;
+    header.swabF() ;
+
+    headerS& header = *(headerS*)pbi ;
+
+    }
+        so.readF( tinP , pbi , cbi , idPort , nicName ) ; ___( pbi ) ;
+        nicNameC nicName ;
+        ZE( countT , idPort ) ;
+
+        query.swabF() ;
+        so.writeF( tinP , 0x35 , so.nicNameF( tinP , etThread , T("NS4.BAYAREA.NET") ) , (byteT*)&query , sizeof query ) ;
+        query.swabF() ;
+        so.bindF( tinP ) ;
+        socketC so( tinP , etThread , TAG( TAGiDnULL ) , ifcSOCKETtYPE_DATAgRAM ) ;
+
+        query.logF( tinP ) ;
+
+        }
+            query.question.pbLabels[ off ] = 0 ;                                                                                                                off += 1 ;
+            query.question.pbLabels[ off ] = 3 ; thirdC::c_memcpyIF( tinP , query.question.pbLabels + off + 1 , "com"      , query.question.pbLabels[ off ] ) ; off += 4 ;
+            query.question.pbLabels[ off ] = 8 ; thirdC::c_memcpyIF( tinP , query.question.pbLabels + off + 1 , "ideafarm" , query.question.pbLabels[ off ] ) ; off += 9 ;
+
+            ZE( countT , off ) ;
+        {
+
+        queryS query ;
+    {
+    ZE( byteT* , pbc ) ;
+    ZE( countT , cbi ) ;
+    ZE( byteT* , pbi ) ;
+{
+
+TODO
+
+}
+    question.swabF() ;
+    header.swabF() ;
+{
+voidT queryS::swabF( voidT )
+
+}
+    question.logF( tinP ) ;
+    logLabelsF( tinP , pbc , (byteT*)&header ) ;
+    byteT* pbc = (byteT*)&header + sizeof( headerS ) ;
+    header.logF( tinP ) ;
+{
+voidT queryS::logF( tinS& tinP )
+
+}
+    cbData        = SWAB2( cbData        ) ;
+    secondsToLive = SWAB2( secondsToLive ) ;
+    idClass       = SWAB2( idClass       ) ;
+    idType        = SWAB2( idType        ) ;
+{
+voidT rHeaderS::swabF( voidT )
+
+}
+    thirdC::logIF( tinP , T("question: idType: ")+TF1(idType)+T(" idClass: ")+TF1(idClass) ) ;
+{
+voidT questionS::logF( tinS& tinP )
+
+}
+    idClass = SWAB2( idClass ) ;
+    idType  = SWAB2( idType  ) ;
+{
+voidT questionS::swabF( voidT )
+
+}
+    cNotes       = SWAB2( cNotes       ) ;
+    cAuthorities = SWAB2( cAuthorities ) ;
+    cAnswers     = SWAB2( cAnswers     ) ;
+    cQuestions   = SWAB2( cQuestions   ) ;
+    idQuery      = SWAB2( idQuery      ) ;
+{
+voidT headerS::swabF( voidT )
+
+}
+{
+idClass( 1 )
+idType( 1 ) ,
+questionS::questionS( voidT ) :
+
+}
+    thirdC::logIF( tinP , T("header: cQuestions: ")+TF1(cQuestions)+T(" cAnswers: ")+TF1(cAnswers)+T(" cAuthorities: ")+TF1(cAuthorities)+T(" cNotes: ")+TF1(cNotes) ) ;
+{
+voidT headerS::logF( tinS& tinP )
+
+}
+{
+cNotes( 0 )
+cAuthorities( 0 ) ,
+cAnswers( 0 ) ,
+cQuestions( 1 ) ,
+idError( 0 ) ,
+reserved1( 0 ) ,
+bCanRecurse( 0 ) ,
+bPleaseRecurse( 0 ) ,
+bTruncated( 0 ) ,
+bAuthoritative( 0 ) ,
+idType( 0 ) ,
+bQuery( 1 ) ,
+idQuery( ++ idQueryLast ) ,
+headerS::headerS( voidT ) :
+
+count01T headerS::idQueryLast ;
+
+}
+    thirdC::logIF( tinP , T("rHeader: idType: ")+TF1(idType)+T(" idClass: ")+TF1(idClass)+T(" secondsToLive: ")+TF1(secondsToLive)+T(" cbData: ")+TF1(cbData) ) ;
+{
+voidT rHeaderS::logF( tinS& tinP )
+
+}
+{
+cbData( 0 )
+secondsToLive( 0 ) ,
+idClass( 0 ) ,
+idType( 0 ) ,
+rHeaderS::rHeaderS( voidT ) :
+
+}
+    thirdC::logIF( tinP , T("label: \"")+T(osto001)+T("\"") ) ;
+
+    }
+        }
+            OStEXTAK( osto001 , "." )
+            OStEXTAL( osto001 , pbLabel , cbLabel )
+
+            osTextT* pbLabel =  pbP ; pbP += cbLabel ;
+            countT   cbLabel = *pbP ; pbP += 1 ;
+        {
+        else
+        else if( *pbP & 0xc0 ) ;
+        }
+            pbP += 2 ;
+            logLabelsF( tinP , pbr , pbOriginP ) ;
+            byteT* pbr = pbOriginP + off ;
+            countT off = SWAB2( *(count01T*)pbP ) & ~0xc000 ;
+        {
+        if( ( *pbP & 0xc0 ) == 0xc0 )
+    {
+    while( *pbP )
+    OStEXT( osto001 , 0x100 )
+{
+voidT logLabelsF( tinS& tinP , byteT*& pbP , byteT* const pbOriginP )
+*/
+  must point to the beginning of the header record for the message being parsed
+ pbOriginP
+  will point to the end of the label
+  must point to the beginning of the label
+ pbP
+arguments
+/*
+
+;
+}
+    voidT swabF( voidT ) ;
+    voidT logF( tinS& tinP ) ;
+    questionS question ;
+    headerS   header ;
+{
+struct queryS
+
+;
+}
+    voidT swabF( voidT ) ;
+    voidT logF( tinS& tinP ) ;
+    rHeaderS( voidT ) ;
+
+    count01T cbData ;
+    count01T secondsToLive ;
+    count01T idClass ;
+    count01T idType ;
+{
+struct rHeaderS //THIS IS THE PART OF THE "RESOURCE RECORD" THAT FOLLOWS THE LABELS FOR THE RESOURCE
+
+;
+}
+    voidT swabF( voidT ) ;
+    voidT logF( tinS& tinP ) ;
+    questionS( voidT ) ;
+
+    count01T           idClass             ;
+    count01T           idType              ;
+    byteT               pbLabels[ 0xe ]     ;
+{
+struct questionS
+
+;
+}
+    voidT swabF( voidT ) ;
+    voidT logF( tinS& tinP ) ;
+    headerS( voidT ) ;
+
+    count01T           cNotes              ;
+    count01T           cAuthorities        ;
+    count01T           cAnswers            ;
+    count01T           cQuestions          ;
+    byteT               idError         : 4 ;
+    byteT               reserved1       : 3 ;
+    byteT               bCanRecurse     : 1 ;
+    byteT               bPleaseRecurse  : 1 ;
+    byteT               bTruncated      : 1 ;
+    byteT               bAuthoritative  : 1 ;
+    byteT               idType          : 4 ;
+    byteT               bQuery          : 1 ;
+    count01T           idQuery             ;
+    static count01T    idQueryLast         ;
+{
+struct headerS
+
+#define SWAB2(cP) (count01T)( ( (((count01T)cP)&0xffff) >> 8 ) | ( (count01T)((cP)<<8) & 0xffff ) )
+
+/*1*/WAKEhIDE( "doodle.dns.rr.zone.query" )/*1*/
+/**/
+*/
+/*
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+

@@ -1,0 +1,77 @@
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+
+DONE( tm_httpServerC_F )
+TELL( "cleaned up" ) ;
+}
+    TELL( "cleaning up" ) ;
+    }
+        TELL( "returned from ifcDrivenServerF" ) ;
+        etThread.ifcDrivenServerF( tinP , i1 , i2 ) ;
+        TELL( "calling ifcDrivenServerF" ) ;
+
+        i1.time1idleTimeoutWrite = i1.time1idleTimeoutRead = SOCKETtIMEOUTdEFAULTwAN ; //RAW COMMAND SERVERS MUST REPLACE THIS WITH A LARGER VALUE; THIS VALUE ASSUMES WEB BROWSER ONLY NEEDS TO BURST ALL IMAGES FOR A PAGE AND WILL DO SO IMMEDIATELY
+        //20190904@1529: RETIRED i1.time1idleTimeoutWrite = i1.time1idleTimeoutRead = TOCK * 0x40 ; //RAW COMMAND SERVERS MUST REPLACE THIS WITH A LARGER VALUE; THIS VALUE ASSUMES WEB BROWSER ONLY NEEDS TO BURST ALL IMAGES FOR A PAGE AND WILL DO SO IMMEDIATELY
+        etThread.delF( tinP , psttName ) ;
+        serverInfo2S i2( idPortP , flagsSocketP , psttName , 0 , cArgSys , 0 , /*1U::bState SET TO ZE PROVISIONALLY SO DOOR AND PANIC DOOR CAN BE SERVED BY SAME PROCESS TO MAKE DEVELOPMENT OF THE INTERFACES EASIER; SET TO 1 WHEN THESE DOORS ARE SERVED BY SEPARATE PROCESSES, AS CALLED FOR IN THE DESIGN*/0 , 0 , 0 , 0 , 0 , 0 , &meP.sessions ) ;
+        serverInfo1S i1( 0 , 0 , bHandedOff , sgnIdPortReplaced , tmcHttpServerF , countTC() , bQuitP , time1idleTimeoutRead , time1idleTimeoutWrite ) ;
+        signC sgnIdPortReplaced( tinP , TAG( TAGiDnULL ) ) ;
+        ZE( boolT , bHandedOff ) ;
+        TELL( "constructing serverInfoS parameters" ) ;
+    
+        threadC thrCache( tinP , etThread , TAG( TAGiDnULL ) , tmHttpCacheF , cArgSys , flTHREADlAUNCH_SHOWpONY ) ;
+        HTTPsYSpARAMSsET( cArgSys )
+        ZE( countT , time1idleTimeoutWrite ) ;
+        ZE( countT , time1idleTimeoutRead ) ;
+        TELL( "launching tmHttpCacheF" ) ;
+    {
+
+    if( pHttpFreshenCacheCBFP ) (*pHttpFreshenCacheCBFP)( tinP , etThread , bQuitP , meP , meP.sessions , cArgAppP , 0 ) ; //ENSURE THAT APP CODE HAS OPPORTUNITY TO INITIALIZE ITS CACHE BEFORE ANY CLIENT CONNECTIONS ARE ACCEPTED
+    TELL( "freshening cache if" ) ;
+
+    if( pHttpLoadContentDynamicFP ) (*pHttpLoadContentDynamicFP)( tinP , etThread , bQuitP , meP , cArgAppP ) ;
+    TELL( "loading dynamic content if" ) ;
+
+    if( pHttpLoadContentStaticFP ) (*pHttpLoadContentStaticFP)( tinP , etThread , bQuitP , meP , cArgAppP ) ;
+
+    TELL( "saw meP.sgnCtDone; loading static content if" ) ;
+    meP.sgnCtDone.waitF( tinP ) ;
+    TELL( "waiting for meP.sgnCtDone" ) ;
+
+    strokeS*&                psttName                                   =              *(strokeS**)&_c8tp2.c2 ;
+    httpRawCommandServerCBFT pHttpRawCommandServerCBFP                  = (httpRawCommandServerCBFT)_c8tp2.c1 ;
+    httpFreshenCacheCBFT     pHttpFreshenCacheCBFP                      =     (httpFreshenCacheCBFT)_c8tp1.c8 ;
+    httpEatKeyValuePairsCBFT pHttpEatKeyValuePairsCBFP                  = (httpEatKeyValuePairsCBFT)_c8tp1.c7 ;
+    httpLoadContentDynamicFT pHttpLoadContentDynamicFP                  = (httpLoadContentDynamicFT)_c8tp1.c6 ;
+    httpLoadContentStaticFT  pHttpLoadContentStaticFP                   =  (httpLoadContentStaticFT)_c8tp1.c5 ;
+    countT&                  cArgAppP                                   =                 *(countT*)_c8tp1.c4 ;
+    countT                   idPortP                                    =                           _c8tp1.c3 ;
+    flagsT                   flagsSocketP                               =                   (flagsT)_c8tp1.c2 ;
+    httpServerC&             meP                                        =            *(httpServerC*)_c8tp1.c1 ;
+
+    count8S& _c8tp2 = *(count8S*)_c8tp.c2 ;
+    count8S& _c8tp1 = *(count8S*)_c8tp.c1 ;
+    count8S& _c8tp  = *(count8S*)cArgThreadP ;
+
+    boolT&  bQuitP                                                      =                  *(boolT*)pTaskP->c2 ;
+    countT& cArgThreadP                                                 =                 *(countT*)pTaskP->c1 ;
+{
+if( pTaskP && pTaskP->c1 && pTaskP->c2 )
+/*1*/TASK( tm_httpServerC_F )/*1*/
+/**/
+*/
+/*
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+

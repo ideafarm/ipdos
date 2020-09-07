@@ -1,0 +1,50 @@
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+
+//VISIBLE
+
+REST
+etThread.osProcessIdPhaseAdamF( tinP , ifcIDpHASEhANDOFFoLD_SHUTTINGdOWN ) ;
+
+etThread.osSleepF( tinP , TOCK ) ;
+etThread.strokeF( tinP , T("my wait is over; the other thread posted the event semaphore\r\n") ) ;
+third.dosCloseEventSemF( tinP , handle ) ;
+
+third.dosWaitEventSemF( tinP , handle ) ;
+etThread.strokeF( tinP , T("i am about to wait on the event semaphore\r\n") ) ;
+
+{ ZE( countT , tnu ) ; etThread.osThreadF( tinP , tnu , tmF , 0 , flTHREADlAUNCH_null , 0 , handle ) ; }
+
+third.dosOpenEventSemF( tinP , handle ) ;
+handleC handle( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_EVENTsEMAPHORE ) ;
+
+thirdC& third = ether ;
+etThread.flagsMode |= flTHIRDmODE_TESTaUTOdOsLEEPS ;
+
+TODO
+
+DONE( tmF )
+third.dosPostEventSemF( tinP , pTaskP ? pTaskP->c1 : 0 ) ;
+etThread.osSleepF( tinP , TOCK * 4 ) ;
+thirdC& third = ether ;
+TASK( tmF )
+
+/*1*/WAKEhIDE( "example.simplest.func.1020033.thirdC.dosWaitEventSemF" )/*1*/
+/**/
+*/
+\<A HREF=\"5.2d00104.1.0.html\"\>definition\</A\>
+/*
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+

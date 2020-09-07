@@ -1,0 +1,116 @@
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+
+}
+    return bMatch ;
+
+    bMatch = 0 ;
+    )
+        !bArmedStar && cArmedQuestion < cWildRemain                                 // TOO MANY WILD REMAIN
+        ||
+        cWildRemain < cArmedQuestion                                                // NOT ENOUGH WILD REMAIN
+    (
+    if
+
+    countT cWildRemain = psttP->idAdam - cOk ;
+
+    delF( tinP , pstt1w ) ;
+    }
+        }
+            cArmedQuestion = bArmedStar = 0 ;
+
+            }
+                else cOk = idf ? idf - 1 : psttP->idAdam ;
+                }
+                    break ;
+                    bMatch = 0 ;
+                {
+                )
+                    !bArmedStar && cArmedQuestion < cWildEat                        // TOO MANY WILD EATEN
+                    ||
+                    cWildEat < cArmedQuestion                                       // NOT ENOUGH WILD EATEN
+                    ||
+                    !idHit                                                          // NOT FOUND
+                (
+                if
+
+                ;
+                    :             0
+                    ?             idHit -  cOk - 1
+                countT cWildEat = idHit >= cOk + 1
+
+                countT idHit = strIdF( tinP , 0 , flSTRmATCH_null , idf , sttq , psttc1 , psttP ) ;            
+                countT idf = cOk + 1 ;
+            {
+            else
+            }
+                break ;
+                bMatch = 0 ;
+            {
+            if( psttP->idAdam - cOk < psttc1->idAdam )                              // IF NOT ENOUGH THEN QUIT
+        {
+        if( !cWild )
+
+        }
+            while( idfq && strIdF( tinP , 0 , flSTRmATCH_null , idfq , sttq , tQuestion , psttc1 ) ) { cArmedQuestion ++ ; cWild ++ ; }
+            countT idfq = 1 ;
+        {
+
+        if( strIdF( tinP , tStar , psttc1 ) ) cWild = bArmedStar = 1 ;              // MULTIPLE ASTERISKS ARE REDUNDANT AND ONLY WO WILL BE COUNTED
+        ZE( countT , cWild ) ;                                                      // THIS IS ONLY USED AS A BOOLEAN
+
+        //traceF( tinP , T("like: ")+T(psttc1) ) ;
+    {
+    FORsTRINGSiN1( pstt1w )
+    ZE( countT , cArmedQuestion ) ;
+    ZE( boolT , bArmedStar ) ;
+    TN( tQuestion , "?" ) ;
+    TN( tStar , "*" ) ;
+    strWordsF( tinP , pstt1w , psttLikeP , sttq , T("*?") , flSTRwORDS_DELIMITERS ) ; ___( pstt1w ) ;
+    strokeS sttq( 0 , sc_IGNOREqUOTES ) ;
+    ZE( strokeS* , pstt1w ) ;
+
+    ZE( countT , cOk ) ;
+
+    boolT bMatch = 1;
+
+    //traceF( tinP , T("[psttP]    : ")+T(psttP    ) ) ;
+    //traceF( tinP , T("[psttLikeP]: ")+T(psttLikeP) ) ;
+
+    }
+        if( POOP ) return 0 ;
+        __Z( *psttLikeP ) ;
+        if( POOP ) return 0 ;
+        __Z( psttP ) ;
+        __Z( psttLikeP ) ;
+        if( POOP ) return 0 ;
+    {
+    IFbEcAREFUL
+{
+/*1*/boolT etherC::strFileMatchF( tinS& tinP , const strokeS* const psttLikeP , const strokeS* const psttP )/*1*/
+
+/**/
+
+*/
+ i was tested using Windows 7
+i am intended to produce exactly the same result that would be produced by the base operating system
+ any other stroke matches only itself
+ '?' matches exactly wo strokes
+ '*' matches ze or more strokes
+ the pattern is a string containing '*', '?', and other strokes
+i return true iff psttP satisfies the pattern specified in psttLikeP
+/*
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+
