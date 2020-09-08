@@ -44627,6 +44627,7 @@ i am nonconformant in that all of my member function definitions are in a single
 /*1*/struct _export cachedS/*1*/
 {
     etherC&              ether    ;
+    const countT         osTimePushedMs ;
     const strokeS* const psttName ;
     const countT         cbBlob   ;
     const byteT* const   pbBlob   ;
