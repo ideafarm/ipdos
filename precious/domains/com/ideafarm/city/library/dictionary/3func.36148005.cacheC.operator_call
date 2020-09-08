@@ -17,14 +17,14 @@
             pFound = (cachedS*)&(countT&)swsCache[ 1 ] ;
 
             swsCache << pbExtracted ;
-            cLever = (countT)thirdC::osTimeTicksSinceBootIF() ;
+            cLeverOsTimeLathReferenced = (countT)thirdC::osTimeTicksSinceBootIF() ;
         {
         else
         }
             DELzOMBIE( pDoomed ) ;
             cachedS* pDoomed = (cachedS*)pbExtracted ;
         {
-        if( maxAgeMsP && maxAgeMsP < ageMs )
+        if( osTimeToLiveMs < ageMs )
     {
     if( bExtracted )
 
@@ -41,10 +41,11 @@
                 }
                     }
                         break ;
-
-                        ageMs = msSinceBootNow - pCached->osTimePushedMs ;
                         bExtracted = 1 ;
                         swsCache.extractF( pbExtracted , tinP ) ;
+
+                        osTimeToLiveMs =                  pCached->osTimeToLiveMs ;
+                        ageMs          = msSinceBootNow - pCached->osTimePushedMs ;
                     {
                     if( !ether.strCompareF( tinP , psttNameP , pCached->psttName ) )
                     cachedS* pCached = (cachedS*)&(countT&)swsCache.downF( tinP , hDown ) ;
@@ -54,23 +55,22 @@
             {
             if( swsCache )
 
-            cLever = swsCache.leverF( tinP , idf ) ;
+            cLeverOsTimeLathReferenced = swsCache.leverF( tinP , idf ) ;
         {
         for( countT idf = 1 ; idf <= cFlavors ; idf ++ )
         countT cFlavors = swsCache.cFlavorsF( tinP ) ;
     {
     byteT pbExtracted[ sizeof( cachedS ) ] ;
-    ZE( countT , ageMs ) ;
     ZE( boolT , bExtracted ) ;
+    ZE( countT , ageMs ) ;
+    ZE( countT , osTimeToLiveMs ) ;
     ZE( cachedS* , pFound ) ;
 
     grabF( tinP , TAG( TAGiDnULL ) ) ;
 
     countT msSinceBootNow = (countT)thirdC::osTimeTicksSinceBootIF() ;
-
-    TINSL
 {
-/*1*/cachedS* cacheC::operator ()( const strokeS* const psttNameP , countT maxAgeMsP )/*1*/
+/*1*/cachedS* cacheC::operator ()( tinS& tinP , const strokeS* const psttNameP )/*1*/
 
 /**/
 */

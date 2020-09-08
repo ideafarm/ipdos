@@ -44629,6 +44629,7 @@ i am nonconformant in that all of my member function definitions are in a single
 {
     etherC&              ether    ;
     const countT         osTimePushedMs ;
+    const countT         osTimeToLiveMs ;
     const strokeS* const psttName ;
     const countT         cbBlob   ;
     const byteT* const   pbBlob   ;
@@ -44638,7 +44639,7 @@ i am nonconformant in that all of my member function definitions are in a single
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/!||
     ~cachedS( voidT ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.36147002.cachedS.dt_cachedS!||
-    cachedS( tinS& tinP , etherC& etherP , strokeS*& psttNameP , osTextT*& pbBlobP , countT& cbBlobP , const countT cArgP = 0 ) ;
+    cachedS( tinS& tinP , etherC& etherP , strokeS*& psttNameP , osTextT*& pbBlobP , countT& cbBlobP , const countT osTimeToLiveMsP = - 1 , const countT cArgP = 0 ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.36147003.cachedS.cachedS!||
 } ;
 
@@ -44679,7 +44680,7 @@ i am nonconformant in that all of my member function definitions are in a single
 /*1*/class _export cacheC/*1*/
 {
     etherC&      ether    ;
-    countT       cLever   ;
+    countT       cLeverOsTimeLathReferenced ;
     switchStackC swsCache ;
 
     public :
@@ -44690,11 +44691,11 @@ i am nonconformant in that all of my member function definitions are in a single
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.36148002.cacheC.dt_cacheC!||
     cacheC( tinS& tinP , etherC& etherP ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.36148003.cacheC.cacheC!||
-    cachedS* operator ()( const strokeS* const psttNameP , countT maxAgeMsP = 0 ) ;
+    cachedS* operator ()( tinS& tinP , const strokeS* const psttNameP ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.36148005.cacheC.operator_call!||
     voidT purgeF( tinS& tinP , countT cRetainP ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.36148006.cacheC.purgeF!||
-    voidT pushF( tinS& tinP , strokeS*& psttNameP , byteT*& pbP , countT& cbP , const countT cArgP = 0 ) ;
+    voidT pushF( tinS& tinP , strokeS*& psttNameP , byteT*& pbP , countT& cbP , const countT osTimeToLiveMsP = - 1 , const countT cArgP = 0 ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.36148004.cacheC.pushF!||
     voidT reportF( tinS& tinP , const strokeS* const psttTitleP = 0 ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.36148007.cacheC.reportF!||

@@ -1006,7 +1006,7 @@ DONEdRIVENsERVER( tmcHttpServerF )
                                     }
                                         //U:: LATER, PURGE BY NUMBER OF PLATES, BY AGE, AND/OR BY SIZE
 
-                                        pzCache->pushF( tinP , psttn , pbBlob , cbBlob , 0 ) ; // "0": "NOT LENGTH PREFIXED"
+                                        pzCache->pushF( tinP , psttn , pbBlob , cbBlob , maxAgeMsFile , 0 ) ; // "0": "NOT LENGTH PREFIXED"
 
                                         etThread.memCopyF( tinP , pbc , pbw              , cbw  ) ;
                                         etThread.memCopyF( tinP , pbc , (osTextT*)tReply , cbDo ) ; pbc += cbDo ;
@@ -1174,7 +1174,7 @@ DONEdRIVENsERVER( tmcHttpServerF )
             }
                 else           pzCache->ungrabF( tinP ) ;
                 if( pzCached ) etThread.traceF( tinP , T("found in cache:    ")+T(pzCached->psttName) ) ;
-                pzCached = (*pzCache)( tNameCache , maxAgeMs ) ;
+                pzCached = (*pzCache)( tinP , tNameCache ) ;
                 pzCache->grabF( tinP , TAG( TAGiDnULL ) ) ;
             {
             if( pzCache )
@@ -1268,7 +1268,7 @@ DONEdRIVENsERVER( tmcHttpServerF )
             TELL( "reading a request" ) ;
         {
         while( !etThread && !POOP )
-        const countT maxAgeMs = etThread.osTimeToOldTimeMsF( tinP , TICK ) ; //U:: TOCK IN PRODUCTION
+        const countT maxAgeMsFile = etThread.osTimeToOldTimeMsF( tinP , TICK ) ; //U:: TOCK IN PRODUCTION
         ZE( sCountT , timeTotalPending2 ) ;
         ZE( countT  , timeTotalPending1 ) ;
         TN( tBar , "|" ) ;
