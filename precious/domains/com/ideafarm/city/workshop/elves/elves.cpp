@@ -2940,6 +2940,8 @@ void elf_obey_C::liveF( void )
                 //THIS LIST IS IN REVERSE ORDER OF WHAT WILL APPEAR IN ipdos.h
                 char* ppostFrom[] =
                 {
+                    "1snip.15*.cacheC"                          ,
+                    "1snip.15*.cachedS"                         ,
                     "1snip.15*.diskFindHandleS"                 ,
                     "1snip.15*.fileNameC"                       ,
                     "1snip.15*.patternC"                        ,

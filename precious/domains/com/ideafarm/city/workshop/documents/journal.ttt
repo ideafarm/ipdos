@@ -7872,6 +7872,54 @@ I have other business to attend to today and tomorrow, but plan to continue to w
 
 
 
+
+
+
+
+
+
+
+
+
+  !subjob C: cacheC
+   decision: do it!
+   for this, i will want to use ifc time, not msTick
+   this also has the advantage of being useful in other contexts
+   the easiest way to do this is to define a cacheC class and to pass a reference to it in to each httpServerC instance
+  think
+   tentative decision: use a single cache for all instances
+    this can be done flavor by flavor, so that 2 images are stored only when they differ
+    if in the future i need to tailor that reply, that can still be handled within a single cache by adding a flag and the idPort to the cache record
+    conj: the current code isn't capable of tailoring the reply to whether http or https is being used
+    conj: yup
+   can i assume that responses are invariant w.r.t. whether http or https is used?
+   it would be wasteful to have 2 caches in memory
+   the current http process uses 2 instances of httpServerC
+  think
+    pbReply
+    cbReply
+     flag: if set, pbReply points to length prefixed blob; else pbReply points to unprefixed blob
+    flags
+    msTick
+   the switchC data is a small struct
+    don't build a reply if the reply is young in the switchC
+    don't read a file if the file is young in the switchC
+     file size limit:  TOCK << 2
+    whenever a file is retrieved, if the file is not too large, update the switchC
+    whenever a reply is calculated, update the switchC
+     postsReply
+     04 bit msTick
+     switched on name+query
+    allocate a switchC to be used for the cache
+   code changes
+   all changes will be in tmcHttpServerF
+   the existing cache thread will not be used
+  plan
+     default msTtl for registered pages: TOCK << 4 (1 mb)
+    add a msTtl member
+    default ttl for files is large, such as an hour (TICK << 4)
+    files must be governed by a default ttl (for files) since there is no registration for them
+   lets just do quick and dirty caching of all request/response pairs
      iow, eliminate query params that are not really needed
     tune by eliminating query sections that do not affect the output
     initially, use the full name+query and study the resulting behavior
@@ -7901,7 +7949,24 @@ I have other business to attend to today and tomorrow, but plan to continue to w
 
 
 
-!job C: eliminate captcha and all attacker detection code (comment it out)
+
+
+    if old, causes the image to be deleted rather than returned
+    alt: request specifies max age
+   i will need to add age capability
+   it looks like the cacheC simply remembers the most recent N pushes
+  think
+   adam 3
+   i already have an adam with cacheC defined and working
+   shit
+  think
+  set up dut
+   objective is to store blobs switched on a strokeS string
+  think
+ playcraft
+ objective: elegance
+!subjob C: cacheC
+
 
 
 
@@ -7934,6 +7999,7 @@ I have other business to attend to today and tomorrow, but plan to continue to w
 =========================================================================================================================================================
 
 
+!job C: eliminate captcha and all attacker detection code (comment it out)
   nawwh
    conj: this has been fixed
   think

@@ -1,31 +1,3 @@
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004d9.ctallybuckets BEGIN
-
-
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-// Respecting the rights of other people is an important part of empowering one another.
-//
-
-/*
-*/
-
-/**/
-
-/*1*//*CtALLYbUCKETS*//*1*/
-
-#define CtALLYbUCKETS ( TUCK << 6 )
-
-
-//
-// Respecting the rights of other people is an important part of empowering one another.
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004d9.ctallybuckets END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004da.cbostallyperlog BEGIN
 
 
@@ -32095,6 +32067,7 @@ examples
  boolT osTimeTestF( tinS& tinP , countT& timeA1P , sCountT& timeA2P , const countT timeD1P = 0 , const sCountT timeD2P = 0 ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34138.etherC.osTimeTestF!||
  voidT osTimeToOldTimeF( tinS& tinP , countT& msP , countT& ssP , countT& mmP , countT& hhP , countT& dP , countT& mP , sCountT& yP , countT& dowP , const countT time1P , const sCountT time2P = 0 , const flagsT flagsP = flOStIMEtOoLDtIME_null ) ;
+ countT osTimeToOldTimeMsF( tinS& tinP , countT time1P , sCountT time2P = 0 ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.340f2.etherC.osTimeToOldTimeF!||
  voidT osTimeWatchF( tinS& tinP , countT& time1P , sCountT& time2P , signC& sgnP , boolT& fFireP , countT timeGrainP = TOCK ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34091.etherC.osTimeWatchF!||
@@ -44639,3 +44612,83 @@ i am nonconformant in that all of my member function definitions are in a single
 //
 
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.diskFindHandleS : 1snip.15000185.diskFindHandleS END
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+
+/*
+*/
+/**/
+
+/*1*/struct _export cachedS/*1*/
+{
+    etherC&              ether    ;
+    const strokeS* const psttName ;
+    const countT         cbBlob   ;
+    const byteT* const   pbBlob   ;
+    const countT         cArg     ;
+
+    NEWdELcLASSpROTOS
+    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/!||
+    ~cachedS( voidT ) ;
+    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.36147002.cachedS.dt_cachedS!||
+    cachedS( tinS& tinP , etherC& etherP , strokeS*& psttNameP , osTextT*& pbBlobP , countT& cbBlobP , const countT cArgP = 0 ) ;
+    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.36147003.cachedS.cachedS!||
+} ;
+
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+
+/*
+*/
+/**/
+
+/*1*/class _export cacheC/*1*/
+{
+    etherC&      ether    ;
+    countT       cLever   ;
+    switchStackC swsCache ;
+
+    public :
+
+    NEWdELcLASSpROTOS
+    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/!||
+    ~cacheC( voidT ) ;
+    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.36148002.cacheC.dt_cacheC!||
+    cacheC( tinS& tinP , etherC& etherP ) ;
+    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.36148003.cacheC.cacheC!||
+    cachedS* operator ()( const strokeS* const psttNameP , countT maxAgeMsP = 0 ) ;
+    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.36148005.cacheC.operator_call!||
+    voidT purgeF( tinS& tinP , countT cRetainP ) ;
+    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.36148006.cacheC.purgeF!||
+    voidT pushF( tinS& tinP , strokeS*& psttNameP , byteT*& pbP , countT& cbP ) ;
+    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.36148004.cacheC.pushF!||
+    voidT reportF( tinS& tinP , const strokeS* const psttTitleP = 0 ) ;
+    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.36148007.cacheC.reportF!||
+} ;
+
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+

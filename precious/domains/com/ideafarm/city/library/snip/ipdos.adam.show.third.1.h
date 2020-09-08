@@ -8090,9 +8090,11 @@ it is illegal to refer to this symbol in the definition of an adam
 #define ifciDtYPEdROPnOTE_patternC                                      0xdddd042a
 #define ifciDtYPEdROPnOTE_fileNameC                                     0xdddd042b
 #define ifciDtYPEdROPnOTE_diskFindHandleS                               0xdddd042c
+#define ifciDtYPEdROPnOTE_cacheC                                        0xdddd042d
+#define ifciDtYPEdROPnOTE_cachedS                                       0xdddd042e
 /*3*/
 #define ifciDtYPEdROPnOTE_min     0xdddd0337
-#define ifciDtYPEdROPnOTE_max     0xdddd042c
+#define ifciDtYPEdROPnOTE_max     0xdddd042e
 
 
 //
@@ -44729,3 +44731,31 @@ arguments
 //
 
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004d8.flhomesutility END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004d9.ctallybuckets BEGIN
+
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+/*
+*/
+
+/**/
+
+/*1*//*CtALLYbUCKETS*//*1*/
+
+#define CtALLYbUCKETS ( TUCK << 6 )
+
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004d9.ctallybuckets END
