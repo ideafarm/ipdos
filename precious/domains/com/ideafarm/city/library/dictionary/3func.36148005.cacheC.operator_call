@@ -10,6 +10,8 @@
 }
     return pFound ;
 
+    ungrabF( tinP ) ;
+
     }
         }
             pFound = (cachedS*)&(countT&)swsCache[ 1 ] ;
@@ -60,8 +62,9 @@
     byteT pbExtracted[ sizeof( cachedS ) ] ;
     ZE( countT , ageMs ) ;
     ZE( boolT , bExtracted ) ;
-
     ZE( cachedS* , pFound ) ;
+
+    grabF( tinP , TAG( TAGiDnULL ) ) ;
 
     countT msSinceBootNow = (countT)thirdC::osTimeTicksSinceBootIF() ;
 

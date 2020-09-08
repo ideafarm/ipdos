@@ -44698,6 +44698,9 @@ i am nonconformant in that all of my member function definitions are in a single
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.36148004.cacheC.pushF!||
     voidT reportF( tinS& tinP , const strokeS* const psttTitleP = 0 ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.36148007.cacheC.reportF!||
+
+    inline voidT ungrabF( tinS& tinP ) { swsCache.ungrabF( tinP ) ; }
+    inline voidT grabF( tinS& tinP , const countT idLineP , const countT idiFileP , const byteT* const pbBitsP ) { swsCache.grabF( tinP , idLineP , idiFileP , pbBitsP ) ; }
 } ;
 
 

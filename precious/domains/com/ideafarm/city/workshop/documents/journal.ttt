@@ -7881,6 +7881,7 @@ I have other business to attend to today and tomorrow, but plan to continue to w
 
 
 
+  !subjob C: tmcHttpServerF: use the cacheC for dynamic pages such as /talk.body
   !subjob C: tmcHttpServerF: use the cacheC
   !subjob C: httpServerC: make a cacheC instance available
   !subjob C: cacheC
@@ -7954,11 +7955,16 @@ I have other business to attend to today and tomorrow, but plan to continue to w
 
 
 
-
-  incrementally do this
+   decision: do it (playcraft)
+   i like that
+    if i can do that, then i can use caching for /talk.body?loggedin=yes and /talk.body?loggedin=no
+    validate it in talkCBF, and pass a query to talkBodyCBF to indicate whether to display logged in content
+   alt: don't validate the secret in talkBodyCBF
+   the challenge here is that the response has 2 flavors, depending upon whether a valid secret has been provided
+  think
  playcraft
  objective: elegance
-!subjob C: tmcHttpServerF: use the cacheC
+!subjob C: tmcHttpServerF: use the cacheC for dynamic pages such as /talk.body
 
 
 
@@ -7988,6 +7994,11 @@ I have other business to attend to today and tomorrow, but plan to continue to w
 =========================================================================================================================================================
 
 
+  do for files only
+  incrementally do this
+ playcraft
+ objective: elegance
+!subjob C: tmcHttpServerF: use the cacheC
    modify ct'or to optionally take a cacheC* parameter
   think
  playcraft

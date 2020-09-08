@@ -107,16 +107,18 @@ DONEdRIVENsERVER( tmcHttpServerF )
                     meP.swReply.grabF( tinP , TAG( TAGiDnULL ) ) ;
                     TELL( "tallying" ) ;
    
-                    else etThread.delF( tinP , postsReply ) ;
-                    }
-                        //U:: LATER, PURGE BY NUMBER OF PLATES, BY AGE, AND/OR BY SIZE
-
-                        pzCache->pushF( tinP , psttn , postsReply , costo , 1 ) ; // "1": "LENGTH PREFIXED, SO NEED TO USE POSTS( pb )"
-                        countT costo = COSTS( postsReply ) ;
-                        etThread.strMakeF( tinP , psttn , tNameQuery ) ; ___( psttn ) ;
-                        ZE( strokeS* , psttn ) ;
-                    {
-                    if( pzCache )
+                    /*else*/ etThread.delF( tinP , postsReply ) ;
+                    //}
+                    //    //U:: LATER, PURGE BY NUMBER OF PLATES, BY AGE, AND/OR BY SIZE
+                    //
+                    //    pzCache->pushF( tinP , psttn , postsReply , costo , 1 ) ; // "1": "LENGTH PREFIXED, SO NEED TO USE POSTS( pb )"
+                    //    countT costo = COSTS( postsReply ) ;
+                    //    etThread.strMakeF( tinP , psttn , tNameCache ) ; ___( psttn ) ;
+                    //    ZE( strokeS* , psttn ) ;
+                    //{
+                    //if( pzCache )
+                    //U:: THINK ABOUT HOW TO SUPPORT THAT KIND OF CACHING
+                    //U:: MAINLY WANT TO CACHE /talk.body, BUT THIS HAS 2 IMAGES DEPENDING ON WHETHER THE SECRET IS CORRECT FOR THE SUBSCRIBER
 
                     }
                         }
@@ -999,6 +1001,32 @@ DONEdRIVENsERVER( tmcHttpServerF )
                     DEL( pFW ) ;
                     }
                         }
+                            }
+                                }
+                                    }
+                                        //U:: LATER, PURGE BY NUMBER OF PLATES, BY AGE, AND/OR BY SIZE
+
+                                        pzCache->pushF( tinP , psttn , pbBlob , cbBlob , 0 ) ; // "0": "NOT LENGTH PREFIXED"
+
+                                        etThread.memCopyF( tinP , pbc , pbw              , cbw  ) ;
+                                        etThread.memCopyF( tinP , pbc , (osTextT*)tReply , cbDo ) ; pbc += cbDo ;
+                                        countT cbDo = cbBlob - cbw ;
+                                        byteT* pbc = pbBlob ;
+                                    {
+                                    if( pbBlob )
+                                    etThread.newF( tinP , LF , pbBlob , cbBlob ) ; ___( pbBlob ) ;
+                                    countT       cbBlob = tReply.csF( tinP ) + cbw ;
+                                    ZE( byteT* , pbBlob ) ;
+
+                                    etThread.strMakeF( tinP , psttn , tNameCache ) ; ___( psttn ) ;
+                                    ZE( strokeS* , psttn ) ;
+                                {
+                                if( pzCache )
+
+                                bCacheThis = 0 ;
+                            {
+                            if( bCacheThis )
+
                             //etThread.traceF( tinP , TF3(meP.idPortF(tinP),flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,9)+T(nnPeerP)+T("    wrote   file window [cbw]:    ")+TF2(cbw,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
 
                             }
@@ -1022,7 +1050,7 @@ DONEdRIVENsERVER( tmcHttpServerF )
                         {
                         if( !pbw || !cbw )
 
-                        pFW->getF( tinP , pbw , cbw ) ;
+                        pFW->getF( tinP , pbw , cbw , cbWindow ) ;
                         ZE( countT , cbw ) ;
                         ZE( byteT* , pbw ) ;
                     {
@@ -1056,6 +1084,10 @@ DONEdRIVENsERVER( tmcHttpServerF )
                         ZE( strokeS* , psttLower ) ;
                     {
                     TN( tContentType , "" ) ;
+
+                    boolT bCacheThis = !pcLoHi[ 1 ] && pcLoHi[ 0 ] <= cbWindow ;
+
+                    const countT cbWindow = TICK >> 2 ;
 
                     sCountC cbBody( tinP , etThread , pcLoHi , SC << 1 ) ;
                     countT pcLoHi[] = { pFW->cbFileLoF() , pFW->cbFileHiF() } ;
@@ -1119,7 +1151,34 @@ DONEdRIVENsERVER( tmcHttpServerF )
 
                 ZE( fileWindowsC* , pFW ) ;
             {
-            if( bFile )
+            else if( bFile )
+            }
+                pzCache->ungrabF( tinP ) ;
+
+                }
+                    }
+                        bClose = 1 ;
+                        //etThread.traceF( tinP , T("tmcHttpServerF: could not write to socket 96 [nnPeer]:    ")+T(nnPeerP) ) ;
+                        POOPRqUIET
+                    {
+                    if( POOP )
+                    else                 psoP->writeF( tinP ,        pzCached->pbBlob   ,        pzCached->cbBlob   ) ;
+                    if( pzCached->cArg ) psoP->writeF( tinP , POSTS( pzCached->pbBlob ) , COSTS( pzCached->pbBlob ) ) ;
+                    SCOOPS
+                {
+                IFsCRATCH
+                TELL( "writing reply" ) ;
+            {
+            if( pzCached )
+
+            }
+                else           pzCache->ungrabF( tinP ) ;
+                if( pzCached ) etThread.traceF( tinP , T("found in cache:    ")+T(pzCached->psttName) ) ;
+                pzCached = (*pzCache)( tNameCache , maxAgeMs ) ;
+                pzCache->grabF( tinP , TAG( TAGiDnULL ) ) ;
+            {
+            if( pzCache )
+            ZE( cachedS* , pzCached ) ;
 
             if( psttName && etThread.strCompareF( tinP , psttName , tSlashDeadman ) ) etThread.traceF( tinP , TF3(meP.idPortF(tinP),flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,9)+T(nnPeerP)+T("    request:    \"")+T(psttName)+T("\"")+(psttQueryKV?T("    ")+T(psttQueryKV):T("")) , flTRACE_null , !etThread.strCompareF( tinP , psttName , tSlash ) ? ifcIDtRACEdIVERT_7 : !bFile ? ifcIDtRACEdIVERT_6 : ifcIDtRACEdIVERT_5 ) ;
 
@@ -1193,7 +1252,7 @@ DONEdRIVENsERVER( tmcHttpServerF )
             ZE( sCountT , timeStart2 ) ;
             ZE( countT  , timeStart1 ) ;
 
-            TN( tNameQuery , psttName ) ; if( psttQueryKV && psttQueryKV->idAdam ) tNameQuery += tBar+T(psttQueryKV) ;
+            TN( tNameCache , psttName ) ;//U:: DO THIS ONLY WHEN DESIRED FOR CACHING: if( psttQueryKV && psttQueryKV->idAdam ) tNameCache += tBar+T(psttQueryKV) ;
 
             ___( postBody ) ;
             ___( psttAgent ) ;
@@ -1209,6 +1268,7 @@ DONEdRIVENsERVER( tmcHttpServerF )
             TELL( "reading a request" ) ;
         {
         while( !etThread && !POOP )
+        const countT maxAgeMs = etThread.osTimeToOldTimeMsF( tinP , TICK ) ; //U:: TOCK IN PRODUCTION
         ZE( sCountT , timeTotalPending2 ) ;
         ZE( countT  , timeTotalPending1 ) ;
         TN( tBar , "|" ) ;
