@@ -25,8 +25,7 @@
 
             TN( tSay , "" ) ; tSay = T(
 
-            if( tValueSubscriberId.csF( tinP ) && tValueSecret.csF( tinP ) ) tQuery = T("?subscriberid=")+tValueSubscriberId+T("&secret=")+tValueSecret ;
-            TN( tQuery , "" ) ;
+            TN( tQuery , bSecretIsOK ? "?secretisok=yes" : "?secretisok=no" ) ;
         {
 
         if( !tTopic.csF( tinP ) ) tTopic = T("Open!") ;
@@ -1251,6 +1250,31 @@
         /***************************************************************************************************/
         /****                                                                                           ****/
         /****  DISPLAY FORMS TO CERTIFY ANONYMOUS SPEECH                                                ****/
+        /****                                                                                           ****/
+        /***************************************************************************************************/
+        /***************************************************************************************************/
+        /***************************************************************************************************/
+
+        }
+            DEL( prPosts ) ;
+            if( prPosts ) meP.pushSnipF( tinP , stBodyP , *prPosts ) ;
+
+            etThread.strMakeF( tinP , prPosts , tSay , 0 , flSTRmAKE_PREFIXlENGTH ) ; ___( prPosts ) ;
+            ZE( pbRefC* , prPosts ) ;
+
+            ) ;
+
+                "<span hidden id=\"hiddensecret\">")+tValueSecret+T("</span>\r\n"
+                "<span hidden id=\"hiddensubscriberid\">")+tValueSubscriberId+T("</span>\r\n"
+
+            TN( tSay , "" ) ; tSay = T(
+        {
+
+        /***************************************************************************************************/
+        /***************************************************************************************************/
+        /***************************************************************************************************/
+        /****                                                                                           ****/
+        /****  DISPLAY (HIDDEN) SUBSCRIBERID AND SECRET SO AVAILABLE TO IFRAME                          ****/
         /****                                                                                           ****/
         /***************************************************************************************************/
         /***************************************************************************************************/

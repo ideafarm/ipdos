@@ -9,6 +9,12 @@
 
 }
     }
+        replyP.idSnipHttpLocation = ifcIDsNIPpREDEFINED_REDIRECTlOCATIONtALKbODY ;
+        replyP.idSnipHttpPrefix   = ifcIDsNIPpREDEFINED_HTTPfAILmOVED            ;
+    {
+    if( tValueSelectTopicShort.csF( tinP ) ) //DO THIS IFF AM RESPONDING TO A FORM (IT DOES NOT WORK WITH FIREFOX.  THE GOAL WAS TO PREVENT BROWSER FROM REPEATEDLY RESENDING THE QUERY, WHICH INTERFERES WITH CACHEING)
+
+    }
         }
             tinP.pEtScratch->traceF( tinP , T("disk or file error 13") ) ;
             POOPR
@@ -170,13 +176,17 @@
                                     )+tPTopicTopic+T(
                                 "<td>\r\n"
                                 "</td>\r\n"
+                                    "</script>\r\n"
+                                        "document.getElementById( 'secret' ).innerHTML = window.parent.document.getElementById( 'hiddensecret' ).innerHTML ;\r\n"
+                                        "document.getElementById( 'subscriberid'   ).innerHTML = window.parent.document.getElementById( 'hiddensubscriberid' ).innerHTML ;\r\n"
+                                    "<script>\r\n"
                                     "</form>\r\n"
                                         "<input id=\"submit\" name=\"submit\" type=\"submit\" value=\"Change Topic\" onclick=\" window.parent.document.getElementById( 'showtopic' ).innerHTML = '")+tPTopicTopic+T("' ; \"/>\r\n"
                                         "<input id=\"newtopic\" name=\"newtopic\" type=\"hidden\" value=\"")+tPTopicTopic+T("\"/>\r\n"
-                                        "<input id=\"secret\" name=\"secret\" type=\"hidden\" value=\"")+tValueSecret+T("\"/>\r\n"
-                                        "<input id=\"subscriberid\" name=\"subscriberid\" type=\"hidden\" value=\"")+tValueSubscriberId+T("\"/>\r\n"
+                                        "<input id=\"secret\" name=\"secret\" type=\"hidden\" value=\"\"/>\r\n"
+                                        "<input id=\"subscriberid\" name=\"subscriberid\" type=\"hidden\" value=\"\"/>\r\n"
                                         "<input id=\"filenametopic\" name=\"filenametopic\" type=\"hidden\" value=\"")+T(psttShort)+T("\"/>\r\n"
-                                    "<form action=\"https://")+T(bSandbox?"factory1.":"")+T("ideafarm.com/talk.body\" id=\"launchtopic\" method=\"post\" name=\"launchtopic\">\r\n"
+                                    "<form action=\"https://")+T(bSandbox?"factory1.":"")+T("ideafarm.com/talk.body\" id=\"launchtopic\" method=\"get\" name=\"launchtopic\">\r\n"
                                 "<td valign=\"center\">\r\n"
                             "<tr>\r\n"
                         "<table>\r\n"
@@ -348,7 +358,7 @@
             {
             IFsCRATCH
         {
-        if( bSecretIsOK /*&& !bTopicIsFresh*/ ) // bTopicIsFresh IS NOT SET (FOR SPEED, TO AVOID DISK READS), SO I CAN'T CHECK IT HERE
+        if( bDadSecretIsOk || bSecretIsOK /*&& !bTopicIsFresh*/ ) // bTopicIsFresh IS NOT SET (FOR SPEED, TO AVOID DISK READS), SO I CAN'T CHECK IT HERE
 
         /***************************************************************************************************/
         /***************************************************************************************************/
@@ -359,6 +369,27 @@
         /***************************************************************************************************/
         /***************************************************************************************************/
         /***************************************************************************************************/
+
+        //}
+        //    DEL( prPosts ) ;
+        //    if( prPosts ) meP.pushSnipF( tinP , stBodyP , *prPosts ) ;
+        //
+        //    etThread.strMakeF( tinP , prPosts , tSay , 0 , flSTRmAKE_PREFIXlENGTH ) ; ___( prPosts ) ;
+        //    ZE( pbRefC* , prPosts ) ;
+        //
+        //    ) ;
+        //
+        //        "<p>\r\n"
+        //        "</form>\r\n"
+        //            "<input id=\"submit\" name=\"submit\" type=\"submit\" value=\"Please click.\"/>\r\n"
+        //            "<input id=\"secretisok\" name=\"secretisok\" type=\"hidden\" value=\"yes\"/>\r\n"
+        //        "<form action=\"https://")+T(bSandbox?"factory1.":"")+T("ideafarm.com/talk.body\" id=\"fixit\" method=\"get\" name=\"fixit\">\r\n"
+        //        "<p>\r\n"
+        //
+        //    TN( tSay , "" ) ; tSay = T(
+        //{
+        //if( !tValueDadSecretIsOk.csF( tinP ) )  //CS:CODEsYNC: DUPLICATE 33000102 33000102
+        //THIS IS A WORKAROUND TO UNDESIRABLE BROWSER BEHAVIOR, BUT IT MIGHT NOT BE REALLY NEEDED.  (SEE THE REQUEST QUERY STRING for /talk.body)
 
         }
             }
@@ -421,6 +452,27 @@
     {
     else
     }
+        //}
+        //    DEL( prPosts ) ;
+        //    if( prPosts ) meP.pushSnipF( tinP , stBodyP , *prPosts ) ;
+        //
+        //    etThread.strMakeF( tinP , prPosts , tSay , 0 , flSTRmAKE_PREFIXlENGTH ) ; ___( prPosts ) ;
+        //    ZE( pbRefC* , prPosts ) ;
+        //
+        //    ) ;
+        //
+        //        "<p>\r\n"
+        //        "</form>\r\n"
+        //            "<input id=\"submit\" name=\"submit\" type=\"submit\" value=\"Please click.\"/>\r\n"
+        //            "<input id=\"secretisok\" name=\"secretisok\" type=\"hidden\" value=\"yes\"/>\r\n"
+        //        "<form action=\"https://")+T(bSandbox?"factory1.":"")+T("ideafarm.com/talk.body\" id=\"fixit\" method=\"get\" name=\"fixit\">\r\n"
+        //        "<p>\r\n"
+        //
+        //    TN( tSay , "" ) ; tSay = T(
+        //{
+        //if( !tValueDadSecretIsOk.csF( tinP ) )  //CS:CODEsYNC: DUPLICATE 33000102 33000102
+        //THIS IS A WORKAROUND TO UNDESIRABLE BROWSER BEHAVIOR, BUT IT MIGHT NOT BE REALLY NEEDED.  (SEE THE REQUEST QUERY STRING for /talk.body)
+
         }
             DEL( prPosts ) ;
             if( prPosts ) meP.pushSnipF( tinP , stBodyP , *prPosts ) ;
@@ -544,7 +596,7 @@
         etThread.strMakeF( tinP , prPosts , tSay , 0 , flSTRmAKE_PREFIXlENGTH ) ; ___( prPosts ) ;
         ZE( pbRefC* , prPosts ) ;
 
-        TN( tSay , "<meta http-equiv=\"refresh\" content=\"1\"/>\r\n" ) ;
+        TN( tSay , "<meta http-equiv=\"refresh\" content=\"8\"/>\r\n" ) ;
     {
 
     meP.pushSnipF( tinP , stBodyP , ifcIDsNIPpREDEFINED_HEADrAW2aFTERtITLE ) ;
@@ -1018,6 +1070,8 @@
     countT   secretTry       = etThread.strDigitsToSCountF( tinP , tValueSecret       , 0x3e ) ;
     count04T subscriberIdTry = etThread.strDigitsToSCountF( tinP , tValueSubscriberId , 0x3e ) ; //U:: THIS WILL ONLY WORK IF THE ID IS <= MAXCOUNTT
 
+    boolT bDadSecretIsOk = !etThread.strCompareF( tinP , tValueDadSecretIsOk , T("yes") ) ;
+
     }
         }
             if( !etThread.strCompareF( tinP , psttLeverKVP , *pptKey[ offk ] ) ) *pptValue[ offk ] = T((strokeS*)(countT)swKVP) ;
@@ -1041,6 +1095,7 @@
     countT cFlavors = swKVP.cFlavorsF( tinP ) ;
 
     } ;
+        &tValueDadSecretIsOk       ,
         &tValueSelectTopicShort    ,
         &tValueSecret              ,
         &tValueSubscriberId        ,
@@ -1048,16 +1103,19 @@
     textC* pptValue[] =
 
     } ;
+        &tKeyDadSecretIsOk       ,
         &tKeySelectTopicShort    ,
         &tKeySecret              ,
         &tKeySubscriberId        ,
     {
     textC* pptKey[] =
 
+    TN( tValueDadSecretIsOk       , "" ) ;
     TN( tValueSelectTopicShort    , "" ) ;
     TN( tValueSecret              , "" ) ;
     TN( tValueSubscriberId        , "" ) ;
 
+    TN( tKeyDadSecretIsOk       , "secretisok"         ) ;
     TN( tKeySelectTopicShort    , "filenametopic"      ) ;
     TN( tKeySecret              , "secret"             ) ;
     TN( tKeySubscriberId        , "subscriberid"       ) ;

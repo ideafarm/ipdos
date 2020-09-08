@@ -7881,6 +7881,7 @@ I have other business to attend to today and tomorrow, but plan to continue to w
 
 
 
+  !subjob C: tmcHttpServerF: support a cbf telling me to map future duplicate requests to another uri
   !subjob C: tmcHttpServerF: use the cacheC for dynamic pages such as /talk.body
   !subjob C: cacheC: add ttlMs member to cachedS
   !subjob C: tmcHttpServerF: use the cacheC
@@ -7956,30 +7957,27 @@ I have other business to attend to today and tomorrow, but plan to continue to w
 
 
 
-   decision: do it (playcraft)
-   i like that
-    if i can do that, then i can use caching for /talk.body?loggedin=yes and /talk.body?loggedin=no
-    validate it in talkCBF, and pass a query to talkBodyCBF to indicate whether to display logged in content
-   alt: don't validate the secret in talkBodyCBF
-   the challenge here is that the response has 2 flavors, depending upon whether a valid secret has been provided
+
+
+
+
+
+
+
+
+
+
+
+
+    this might be an attack surface since memory consumption will grow
+   alt: a switchC levered on tNameQuery where each flavor is the tNameQueryOverride to use
+   this defeats cacheing and also results in fruitless disk accesses
+   the problem is that Firefox refreshes talkBodyCBF by repeatedly sending the form query resulting from approving a topic
   think
  playcraft
  objective: elegance
-!subjob C: tmcHttpServerF: use the cacheC for dynamic pages such as /talk.body
+!subjob C: tmcHttpServerF: support a cbf telling me to map future duplicate requests to another uri
 
-
-
-
-
-
-  set up dut
-   cacheC code that queries will decide whether to discard an old item without input from caller
-   the code that pushes an item knows what kind of item it is
-   the objective here is to set ttlMs for each item when pushed
-  think
- playcraft
- objective: elegance
-!subjob C: cacheC: add ttlMs member to cachedS
 
 
 
@@ -8012,6 +8010,46 @@ I have other business to attend to today and tomorrow, but plan to continue to w
 =========================================================================================================================================================
 
 
+     !subjob C: playcraft feasibility of obtaining credentials from parent
+     if the credentials can be obtained from parent, i don't need credentials to be passed as query and my content does not need to be unique for each session
+    alt: obtain the credentials from parent
+    alt: a separate iframe that displays and processes topic selection forms
+   think
+    credentials are needed only because topics can be selected
+   see
+     displays content including proposed topics (hidden credentials)
+     obey selectTopic (uses credentials)
+     set bSecretIsOK and tLogin*
+     get query pairs
+    talkBodyCBF
+   pseudocode
+    but that form contains credentials
+    there is only wo form
+   think
+  study feasibility of eliminating use of idSubscriber secret from talkBodyCBF
+   decision: do it (playcraft)
+   i like that
+    if i can do that, then i can use caching for /talk.body?loggedin=yes and /talk.body?loggedin=no
+    validate it in talkCBF, and pass a query to talkBodyCBF to indicate whether to display logged in content
+   alt: don't validate the secret in talkBodyCBF
+   the challenge here is that the response has 2 flavors, depending upon whether a valid secret has been provided
+  think
+ playcraft
+ objective: elegance
+!subjob C: tmcHttpServerF: use the cacheC for dynamic pages such as /talk.body
+  cool ; it works
+  set up dut
+ playcraft
+ objective: elegance
+!subjob C: playcraft feasibility of obtaining credentials from parent
+  set up dut
+   cacheC code that queries will decide whether to discard an old item without input from caller
+   the code that pushes an item knows what kind of item it is
+   the objective here is to set ttlMs for each item when pushed
+  think
+ playcraft
+ objective: elegance
+!subjob C: cacheC: add ttlMs member to cachedS
   do for files only
   incrementally do this
  playcraft

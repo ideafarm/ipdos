@@ -107,18 +107,16 @@ DONEdRIVENsERVER( tmcHttpServerF )
                     meP.swReply.grabF( tinP , TAG( TAGiDnULL ) ) ;
                     TELL( "tallying" ) ;
    
-                    /*else*/ etThread.delF( tinP , postsReply ) ;
-                    //}
-                    //    //U:: LATER, PURGE BY NUMBER OF PLATES, BY AGE, AND/OR BY SIZE
-                    //
-                    //    pzCache->pushF( tinP , psttn , postsReply , costo , 1 ) ; // "1": "LENGTH PREFIXED, SO NEED TO USE POSTS( pb )"
-                    //    countT costo = COSTS( postsReply ) ;
-                    //    etThread.strMakeF( tinP , psttn , tNameCache ) ; ___( psttn ) ;
-                    //    ZE( strokeS* , psttn ) ;
-                    //{
-                    //if( pzCache )
-                    //U:: THINK ABOUT HOW TO SUPPORT THAT KIND OF CACHING
-                    //U:: MAINLY WANT TO CACHE /talk.body, BUT THIS HAS 2 IMAGES DEPENDING ON WHETHER THE SECRET IS CORRECT FOR THE SUBSCRIBER
+                    else etThread.delF( tinP , postsReply ) ;
+                    }
+                        //U:: LATER, PURGE BY NUMBER OF PLATES, BY AGE, AND/OR BY SIZE
+
+                        pzCache->pushF( tinP , psttn , postsReply , costo , maxAgeMsNotFile , 1 ) ; // "1": "LENGTH PREFIXED, SO NEED TO USE POSTS( pb )"
+                        countT costo = COSTS( postsReply ) ;
+                        etThread.strMakeF( tinP , psttn , tNameCache ) ; ___( psttn ) ;
+                        ZE( strokeS* , psttn ) ;
+                    {
+                    if( pzCache )
 
                     }
                         }
@@ -134,9 +132,9 @@ DONEdRIVENsERVER( tmcHttpServerF )
                     TELL( "writing reply" ) ;
 
                     }
-                        //LOGrAW( "\"\r\n" ) ;
-                        //LOGrAW( POSTS( postsReply ) ) ;
-                        //LOGrAW( "postsReply:\r\n\"" ) ;
+                        LOGrAW( "\"\r\n" ) ;
+                        LOGrAW( POSTS( postsReply ) ) ;
+                        LOGrAW( "postsReply:\r\n\"" ) ;
                     {
                     //if( bDebugLog )
                     //U::
@@ -1252,7 +1250,7 @@ DONEdRIVENsERVER( tmcHttpServerF )
             ZE( sCountT , timeStart2 ) ;
             ZE( countT  , timeStart1 ) ;
 
-            TN( tNameCache , psttName ) ;//U:: DO THIS ONLY WHEN DESIRED FOR CACHING: if( psttQueryKV && psttQueryKV->idAdam ) tNameCache += tBar+T(psttQueryKV) ;
+            TN( tNameCache , psttName ) ; if( psttQueryKV && psttQueryKV->idAdam ) tNameCache += tBar+T(psttQueryKV) ;
 
             ___( postBody ) ;
             ___( psttAgent ) ;
@@ -1268,7 +1266,8 @@ DONEdRIVENsERVER( tmcHttpServerF )
             TELL( "reading a request" ) ;
         {
         while( !etThread && !POOP )
-        const countT maxAgeMsFile = etThread.osTimeToOldTimeMsF( tinP , TICK ) ; //U:: TOCK IN PRODUCTION
+        const countT maxAgeMsNotFile = etThread.osTimeToOldTimeMsF( tinP , TOCK << 2 ) ;
+        const countT maxAgeMsFile    = etThread.osTimeToOldTimeMsF( tinP , TICK      ) ;
         ZE( sCountT , timeTotalPending2 ) ;
         ZE( countT  , timeTotalPending1 ) ;
         TN( tBar , "|" ) ;
