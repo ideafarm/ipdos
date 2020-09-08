@@ -7881,6 +7881,8 @@ I have other business to attend to today and tomorrow, but plan to continue to w
 
 
 
+  !subjob C: tmcHttpServerF: use the cacheC
+  !subjob C: httpServerC: make a cacheC instance available
   !subjob C: cacheC
    decision: do it!
    for this, i will want to use ifc time, not msTick
@@ -7951,27 +7953,12 @@ I have other business to attend to today and tomorrow, but plan to continue to w
 
 
 
-   the age of the item is from the time pushed, not last referenced
-   oops
-    if old, causes the image to be deleted rather than returned
-    alt: request specifies max age
-   i will need to add age capability
-   it looks like the cacheC simply remembers the most recent N pushes
-  think
-   adam 3
-   i already have an adam with cacheC defined and working
-   shit
-  think
-  set up dut
-   objective is to store blobs switched on a strokeS string
-  think
+
+
+  incrementally do this
  playcraft
  objective: elegance
-!subjob C: cacheC
-
-
-
-
+!subjob C: tmcHttpServerF: use the cacheC
 
 
 
@@ -8001,6 +7988,28 @@ I have other business to attend to today and tomorrow, but plan to continue to w
 =========================================================================================================================================================
 
 
+   modify ct'or to optionally take a cacheC* parameter
+  think
+ playcraft
+ objective: elegance
+!subjob C: httpServerC: make a cacheC instance available
+   the age of the item is from the time pushed, not last referenced
+   oops
+    if old, causes the image to be deleted rather than returned
+    alt: request specifies max age
+   i will need to add age capability
+   it looks like the cacheC simply remembers the most recent N pushes
+  think
+   adam 3
+   i already have an adam with cacheC defined and working
+   shit
+  think
+  set up dut
+   objective is to store blobs switched on a strokeS string
+  think
+ playcraft
+ objective: elegance
+!subjob C: cacheC
 !job C: eliminate captcha and all attacker detection code (comment it out)
   nawwh
    conj: this has been fixed

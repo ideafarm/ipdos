@@ -387,6 +387,8 @@ class   /*ff*/hoverC/*ff*/                      ; /*ff*//**//*ff*/
 class   /*ff*/patternC/*ff*/                    ; /*ff*//**//*ff*/
 class   /*ff*/fileNameC/*ff*/                   ; /*ff*//**//*ff*/
 struct  /*ff*/diskFindHandleS/*ff*/             ; /*ff*//**//*ff*/
+class   /*ff*/cacheC/*ff*/                      ; /*ff*//**//*ff*/
+struct  /*ff*/cachedS/*ff*/                     ; /*ff*//**//*ff*/
 
 //INCLUDE GENERATED SNIPPETS HERE
 

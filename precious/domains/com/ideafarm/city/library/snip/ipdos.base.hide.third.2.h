@@ -38794,14 +38794,6 @@ the only function of this object is to edit tinS::grabPseudo so that the monitor
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.sessionsC : 1snip.150000ba.sessionsc END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.httpServerC : 1snip.150000b7.httpserverc BEGIN
 
-
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-// Respecting the rights of other people is an important part of empowering one another.
-//
-
 /*
 */
 /**/
@@ -38823,6 +38815,7 @@ the only function of this object is to edit tinS::grabPseudo so that the monitor
     signC            sgnCtDone ;
     threadC*         pThrServe ;
     sessionsC        sessions ;
+    cacheC*          pzCache ;
 
     voidT storeReplyPrivateF( tinS& tinP , storeReplyPrivateF_argS& argP ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400b.httpServerC.storeReplyPrivateF!||
@@ -38836,7 +38829,8 @@ the only function of this object is to edit tinS::grabPseudo so that the monitor
     /* construction and initialization */
     ~httpServerC( voidT ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34001.httpServerC.dt_httpServerC!||
-    httpServerC( tinS& tinP , httpServerC_arg1S& arg1P , httpServerC_arg2S& arg2P ) ;
+    httpServerC( tinS& tinP , httpServerC_arg1S& arg1P , httpServerC_arg2S& arg2P , cacheC* pCacheP = 0 ) ;
+    inline cacheC* pzCacheF( voidT ) { return pzCache ; }
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34002.httpServerC.httpServerC!||
     voidT ct1F( tinS& tinP ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34003.httpServerC.ct1F!||
@@ -38891,6 +38885,13 @@ the only function of this object is to edit tinS::grabPseudo so that the monitor
 }
 ;
 
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
 
 //
 // Respecting the rights of other people is an important part of empowering one another.
@@ -44657,6 +44658,20 @@ i am nonconformant in that all of my member function definitions are in a single
 //
 
 
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+
 /*
 */
 /**/
@@ -44679,7 +44694,7 @@ i am nonconformant in that all of my member function definitions are in a single
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.36148005.cacheC.operator_call!||
     voidT purgeF( tinS& tinP , countT cRetainP ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.36148006.cacheC.purgeF!||
-    voidT pushF( tinS& tinP , strokeS*& psttNameP , byteT*& pbP , countT& cbP ) ;
+    voidT pushF( tinS& tinP , strokeS*& psttNameP , byteT*& pbP , countT& cbP , const countT cArgP = 0 ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.36148004.cacheC.pushF!||
     voidT reportF( tinS& tinP , const strokeS* const psttTitleP = 0 ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.36148007.cacheC.reportF!||
