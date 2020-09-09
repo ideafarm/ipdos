@@ -374,6 +374,8 @@
     ((countT)0x36144) , "hoverC" ,
     ((countT)0x36145) , "patternC" ,
     ((countT)0x36146) , "fileNameC" ,
+    ((countT)0x36147) , "cachedS" ,
+    ((countT)0x36148) , "cacheC" ,
     ((countT)0x41000) , "citygate" ,
     ((countT)0x01000) , "cnotcppheader" ,
     ((countT)0x11100) , "homedriveis_i" ,
