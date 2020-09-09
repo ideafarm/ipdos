@@ -9,6 +9,24 @@
 
 }
     }
+        etThread.traceF( tinP , T("talkBodyCBF / updated swMapUrl [tUrlNew]:    ")+tUrlNew ) ;
+        etThread.traceF( tinP , T("talkBodyCBF / updated swMapUrl [tUrlOld]:    ")+tUrlOld ) ;
+
+        swMapUrl.ungrabF( tinP ) ;
+
+        etThread.strMakeF( tinP , psttUrlNew , tUrlNew ) ; ___( psttUrlNew ) ;
+        etThread.delF( tinP , psttUrlNew ) ;
+        strokeS*& psttUrlNew = *(strokeS**)&(countT&)swMapUrl ;
+        psttLeverUrl = tUrlOld ;
+
+        swMapUrl.grabF( tinP , TAG( TAGiDnULL ) ) ;
+
+        TN( tUrlNew , "" ) ; tUrlNew = T(psttNameP)+T("?secretisok=yes") ;
+        TN( tUrlOld , "" ) ; tUrlOld = T(psttNameP)+T("?")+T(psttQueryKVP) ;
+
+        switchC&  swMapUrl     = meP.swMapUrlF() ;
+        strokeS*& psttLeverUrl = meP.psttLeverUrlF() ;
+
         replyP.idSnipHttpLocation = ifcIDsNIPpREDEFINED_REDIRECTlOCATIONtALKbODY ;
         replyP.idSnipHttpPrefix   = ifcIDsNIPpREDEFINED_HTTPfAILmOVED            ;
     {
@@ -1134,8 +1152,9 @@
     boolT bSandbox = etherC::ifc_idHomeI_IF() & fliIDhOME_HOMELESS ;
 
     //if( psttKVReportP && psttKVReportP->idAdam ) etThread.traceF( tinP , T("body received query: ")+T(psttKVReportP) ) ;
+    etThread.traceF( tinP , T("[psttNameP]:    ")+T(psttNameP) ) ;
 {
-/*1*/voidT talkBodyCBF( tinS& tinP , etherC& etThread , const boolT& bQuitP , httpServerC& meP , countT& cArgP , httpReplyS& replyP , stackC& stBodyP , const strokeS* const psttKVReportP , switchC& swKVP , strokeS*& psttLeverKVP , sessionsC& sessionsP , nicNameC& nnPeerP , const strokeS* const psttUrlP , const strokeS* const psttPeerAgentP , const osTextT* const postBodyP )/*1*/
+/*1*/voidT talkBodyCBF( tinS& tinP , etherC& etThread , const boolT& bQuitP , httpServerC& meP , countT& cArgP , httpReplyS& replyP , stackC& stBodyP , const strokeS* const psttKVReportP , switchC& swKVP , strokeS*& psttLeverKVP , sessionsC& sessionsP , nicNameC& nnPeerP , const strokeS* const psttNameP , const strokeS* const psttQueryKVP , const strokeS* const psttPeerAgentP , const osTextT* const postBodyP )/*1*/
 
 /**/
 */

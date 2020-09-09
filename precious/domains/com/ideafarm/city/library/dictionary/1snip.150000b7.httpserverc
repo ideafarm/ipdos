@@ -9,12 +9,15 @@
 
 ;
 }
-    friend voidT loginCBF( tinS& tinP , etherC& etThread , const boolT& bQuitP , httpServerC& meP , countT& cArgP , httpReplyS& replyP , stackC& stBodyP , const strokeS* const psttKVReportP , switchC& swKVP , strokeS*& psttLeverKVP , sessionsC& sessionsP , nicNameC& nnPeerP , const strokeS* const psttUrlP , const strokeS* const psttPeerAgentP , const osTextT* const postBodyP ) ; //U::idPort
+    friend voidT loginCBF( tinS& tinP , etherC& etThread , const boolT& bQuitP , httpServerC& meP , countT& cArgP , httpReplyS& replyP , stackC& stBodyP , const strokeS* const psttKVReportP , switchC& swKVP , strokeS*& psttLeverKVP , sessionsC& sessionsP , nicNameC& nnPeerP , const strokeS* const psttNameP , const strokeS* const psttQueryKVP , const strokeS* const psttPeerAgentP , const osTextT* const postBodyP ) ; //U::idPort
     friend TASKpROTO( tmHttpCacheF ) ;
     friend TASKpROTO( tm_httpServerC_F ) ;
     friend TASKpROTO( tmcHttpServerF ) ;
 
-    inline countT idPortF( tinS& tinP ) { return idPort ; }
+    inline switchC&  swMapUrlF( voidT ) { return swMapUrl ; }
+    inline strokeS*& psttLeverUrlF( voidT ) { return psttLeverUrl ; }
+    inline countT    idPortF( tinS& tinP ) { return idPort ; }
+
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34016.httpServerC.pushSnipNamedF!||
     voidT pushSnipNamedF( tinS& tinP , stackC& stBodyP , const strokeS* const psttNameSnipP ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34012.httpServerC.pushSnipF!||
@@ -84,6 +87,7 @@
     switchC          swSnipById ;
     countT           cLeverIdSnip ;
     switchC          swReply ;
+    switchC          swMapUrl ;
     strokeS*         psttLeverUrl ;
     countT           cArgThread ;
     httpReplySrefC* pRefReplyAlert ;

@@ -131,11 +131,11 @@ DONEdRIVENsERVER( tmcHttpServerF )
                     IFsCRATCH
                     TELL( "writing reply" ) ;
 
-                    }
-                        LOGrAW( "\"\r\n" ) ;
-                        LOGrAW( POSTS( postsReply ) ) ;
-                        LOGrAW( "postsReply:\r\n\"" ) ;
-                    {
+                    //}
+                    //    LOGrAW( "\"\r\n" ) ;
+                    //    LOGrAW( POSTS( postsReply ) ) ;
+                    //    LOGrAW( "postsReply:\r\n\"" ) ;
+                    //{
                     //if( bDebugLog )
                     //U::
 
@@ -624,7 +624,7 @@ DONEdRIVENsERVER( tmcHttpServerF )
                                         ZE( boolT , bAllowBigHead ) ;
         
                                         }
-                                            (*REPLY.pCBF)( tinP , etThread , bQuitP , meP , cArgAppP , REPLY , *pStkBodyDynamic , psttKVReport , *pswKV , psttLeverKV , sessionsP , nnPeerP , psttName , psttAgent , postBody ) ;
+                                            (*REPLY.pCBF)( tinP , etThread , bQuitP , meP , cArgAppP , REPLY , *pStkBodyDynamic , psttKVReport , *pswKV , psttLeverKV , sessionsP , nnPeerP , psttName , psttQueryKV , psttAgent , postBody ) ;
                                             TELL( T(psttName) ) ;
                                             _IO_
                                         {
@@ -692,7 +692,7 @@ DONEdRIVENsERVER( tmcHttpServerF )
                                         //THESE WERE REMOVED IN 2019. 20200729@1734: ENABLED WITHOUT ANALYSIS
                         
                                         }
-                                            (*REPLY.pCBF)( tinP , etThread , bQuitP , meP , cArgAppP , REPLY , *pStkBody , psttKVReport , *pswKV , psttLeverKV , sessionsP , nnPeerP , psttName , psttAgent , postBody ) ;
+                                            (*REPLY.pCBF)( tinP , etThread , bQuitP , meP , cArgAppP , REPLY , *pStkBody , psttKVReport , *pswKV , psttLeverKV , sessionsP , nnPeerP , psttName , psttQueryKV , psttAgent , postBody ) ;
                                             _IO_
                                         {
                                         if( REPLY.pCBF )
@@ -815,7 +815,7 @@ DONEdRIVENsERVER( tmcHttpServerF )
                                         break ;
 
                                         }
-                                            (*REPLY.pCBF)( tinP , etThread , bQuitP , meP , cArgAppP , REPLY , *pStkBody , psttKVReport , *pswKV , psttLeverKV , sessionsP , nnPeerP , psttName , psttAgent , postBody ) ;
+                                            (*REPLY.pCBF)( tinP , etThread , bQuitP , meP , cArgAppP , REPLY , *pStkBody , psttKVReport , *pswKV , psttLeverKV , sessionsP , nnPeerP , psttName , psttQueryKV , psttAgent , postBody ) ;
                                             _IO_
                                         {
                                         if( REPLY.pCBF )
@@ -891,7 +891,7 @@ DONEdRIVENsERVER( tmcHttpServerF )
                 ZE( stackC* , pStkBody ) ; //EVERYTHING AFTER THE HTTP HEADER AND ITS TRAILING "\r\n\r\n"
                 TELL( "getting recycled items" ) ;
 
-                (*pHttpEatKeyValuePairsCBFP)( tinP , etThread , bQuitP , psttKVReport , T("///ideafarm/ephemeral/backed.up.daily/domains/com/ideafarm/")+TF1(ifcIDaDAM_ROOTfORMdATAeATER)+T("/in/form") , *pswKV , psttLeverKV , sessionsP , nnPeerP , psttName , psttAgent , postBody ) ;
+                (*pHttpEatKeyValuePairsCBFP)( tinP , etThread , bQuitP , psttKVReport , T("///ideafarm/ephemeral/backed.up.daily/domains/com/ideafarm/")+TF1(ifcIDaDAM_ROOTfORMdATAeATER)+T("/in/form") , *pswKV , psttLeverKV , sessionsP , nnPeerP , psttName , psttQueryKV , psttAgent , postBody ) ;
                 ZE( strokeS* , psttKVReport ) ;
                 TELL( "calling keyvalue eater" ) ;
 
@@ -1250,7 +1250,7 @@ DONEdRIVENsERVER( tmcHttpServerF )
             ZE( sCountT , timeStart2 ) ;
             ZE( countT  , timeStart1 ) ;
 
-            TN( tNameCache , psttName ) ; if( psttQueryKV && psttQueryKV->idAdam ) tNameCache += tBar+T(psttQueryKV) ;
+            TN( tNameCache , psttName ) ; if( psttQueryKV && psttQueryKV->idAdam ) tNameCache += tQuest+T(psttQueryKV) ;
 
             ___( postBody ) ;
             ___( psttAgent ) ;
@@ -1270,7 +1270,7 @@ DONEdRIVENsERVER( tmcHttpServerF )
         const countT maxAgeMsFile    = etThread.osTimeToOldTimeMsF( tinP , TICK      ) ;
         ZE( sCountT , timeTotalPending2 ) ;
         ZE( countT  , timeTotalPending1 ) ;
-        TN( tBar , "|" ) ;
+        TN( tQuest , "?" ) ;
         TN( tSlashDeadman , "/deadman" ) ;
         TN( tSlash        , "/"        ) ;
         ZE( countT , idEscaped ) ;
