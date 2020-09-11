@@ -353,7 +353,7 @@ TELL( "cleaning up 0" )
     //etThread.traceF( tinP , T("tmEatTelemetryF / 2") ) ;
     TELL( "purging period data" )
 
-    //U::sgnDone_tmReportF_.waitF( tinP ) ;
+    sgnDone_tmReportF_.waitF( tinP ) ;
     //etThread.traceF( tinP , T("tmEatTelemetryF / 3") ) ;
     TELL( "waiting for tmReportF to end" )
 
@@ -868,7 +868,7 @@ TELL( "cleaning up 0" )
     {
     THREADmODE3oN( flTHREADmODE3_ALLOWeXPLICITmEMORYsPACE )
 
-    //U::etThread.osThreadF( tinP , countTC() , tmReportF , &sgnDone_tmReportF_ , flTHREADlAUNCH_null , 0 , (countT)&bQuitEatingP , idMemorySpaceP , (countT)&stPeriodData , (countT)&memorySpace , idMinuteZeP , (countT)&fliPendingSnapShotRequestP , (countT)postSnapShotRequestP , (countT)&bCompileReportP ) ;
+    etThread.osThreadF( tinP , countTC() , tmReportF , &sgnDone_tmReportF_ , flTHREADlAUNCH_null , 0 , (countT)&bQuitEatingP , idMemorySpaceP , (countT)&stPeriodData , (countT)&memorySpace , idMinuteZeP , (countT)&fliPendingSnapShotRequestP , (countT)postSnapShotRequestP , (countT)&bCompileReportP ) ;
     signC sgnDone_tmReportF_( tinP , TAG( TAGiDnULL ) ) ;
     TELL( "launching tmReportF" )
 
