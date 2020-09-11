@@ -111,10 +111,13 @@ DONEdRIVENsERVER( tmcHttpServerF )
                     }
                         //U:: LATER, PURGE BY NUMBER OF PLATES, BY AGE, AND/OR BY SIZE
 
-                        pzCache->pushF( tinP , psttn , postsReply , costo , maxAgeMsNotFile , 1 ) ; // "1": "LENGTH PREFIXED, SO NEED TO USE POSTS( pb )"
+                        pzCache->pushF( tinP , psttn , postsReply , costo , bTalkBody ? maxAgeMsNotFileTalkBody : maxAgeMsNotFileNotTalkBody , 1 ) ; // "1": "LENGTH PREFIXED, SO NEED TO USE POSTS( pb )"
+
                         countT costo = COSTS( postsReply ) ;
                         etThread.strMakeF( tinP , psttn , tNameCache ) ; ___( psttn ) ;
                         ZE( strokeS* , psttn ) ;
+
+                        boolT bTalkBody = psttName && !etThread.strCompareF( tinP , tSlashTalkBody , psttName ) ;
                     {
                     if( pzCache )
 
@@ -1266,13 +1269,15 @@ DONEdRIVENsERVER( tmcHttpServerF )
             TELL( "reading a request" ) ;
         {
         while( !etThread && !POOP )
-        const countT maxAgeMsNotFile = etThread.osTimeToOldTimeMsF( tinP , TOCK << 2 ) ;
-        const countT maxAgeMsFile    = etThread.osTimeToOldTimeMsF( tinP , TICK      ) ;
+        const countT maxAgeMsNotFileNotTalkBody = etThread.osTimeToOldTimeMsF( tinP , TICK << 4 ) ;
+        const countT maxAgeMsNotFileTalkBody    = etThread.osTimeToOldTimeMsF( tinP , TOCK << 2 ) ;
+        const countT maxAgeMsFile               = etThread.osTimeToOldTimeMsF( tinP , TICK << 4 ) ;
         ZE( sCountT , timeTotalPending2 ) ;
         ZE( countT  , timeTotalPending1 ) ;
-        TN( tQuest , "?" ) ;
-        TN( tSlashDeadman , "/deadman" ) ;
-        TN( tSlash        , "/"        ) ;
+        TN( tQuest         , "?"           ) ;
+        TN( tSlashTalkBody , "/talk.body"  ) ;
+        TN( tSlashDeadman  , "/deadman"    ) ;
+        TN( tSlash         , "/"           ) ;
         ZE( countT , idEscaped ) ;
         //LOGrAW( T("------------------------- B E G I N   S E S S I O N -------------------------------------------------------\r\n") ) ;
         //CONoUTrAW( T("------------------------- B E G I N   S E S S I O N -------------------------------------------------------\r\n") ) ;
