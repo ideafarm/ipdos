@@ -81,6 +81,8 @@
                 if( handleP.cNoteF() ) thirdC::openSsl_wrapperFreeIF( tinP , handleP ) ;
                 //if( handleP.cNoteF() ) { BOSnOvALUE( WHATgbo , (*processGlobal1I.openSsl_pWrapperFreeF)( (SSL*)handleP.cNoteF() ) ) }
     
+                handleP.osh = handleP.oshInvalid ;
+
                 #endif
                     
                     if( tinP.bosFail && handleP.osh != handleP.oshInvalid && tinP.brcLath != WSAENOTCONN && tinP.brcLath != WSAENOTSOCK ) { BLAMMO ; }
@@ -89,10 +91,12 @@
                     //LOGrAW5( "" , handleP.osh , "    " , tinP.pAdamGlobal1->idAdam , " ----\r\n" ) ;
                     
                 #elif defined( __NT__ )
+
                     if( 0 > (sCountT)tinP.brcLath ) { BLAMMO ; }
                     BOSdOnOTtEST( WHATgbo , soclose( handleP.osh ) )
+
                 #ifdef __OS2__
-                    
+
                 #endif
                     BOSS( WHATgbo , BOSfAIL , shutdown( handleP.osh , 2 ) )
                 #elif defined( __NT__ )
@@ -443,7 +447,7 @@
                     {
                     if( pInfo )
 
-                    handleP.osh = 0 ;
+                    handleP.osh = handleP.oshInvalid ;
                     #endif
 
                         BOSpOOP
