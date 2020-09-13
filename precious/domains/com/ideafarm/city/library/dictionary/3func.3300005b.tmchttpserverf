@@ -148,7 +148,7 @@ DONEdRIVENsERVER( tmcHttpServerF )
                             DELzOMBIE( prPosts ) ;
                             pbRefC* prPosts = (pbRefC*)&(*pStkBody)[ 1 ] ;
                         {
-                        while( *pStkBody )
+                        while( !POOP && *pStkBody )
                         TELL( "cleaning up 3" ) ;
 
                         DEL( prPostsMugShot         ) ;
@@ -171,7 +171,7 @@ DONEdRIVENsERVER( tmcHttpServerF )
                             DEL( prPostsHttp ) ;
                             }
                                 }
-                                    while( ~hWalk ) ;
+                                    while( !POOP && ~hWalk ) ;
                                     }
                                         etThread.memCopyF( tinP , postc , POSTS( rPosts ) , COSTS( rPosts ) ) ; postc += COSTS( rPosts ) ;
                                         pbRefC& rPosts = *(pbRefC*)&pStkBody->downF( tinP , hWalk ) ;
@@ -234,7 +234,7 @@ DONEdRIVENsERVER( tmcHttpServerF )
                             etThread.strMakeF( tinP , prPostsCostBody , TF4(costBody,flFORMAT_NObASE|flFORMAT_FOREIGN,0,0xa) , 0 , flSTRmAKE_PREFIXlENGTH ) ; ___( prPostsCostBody ) ;
 
                             }
-                                while( ~hWalk ) ;
+                                while( !POOP && ~hWalk ) ;
                                 }
                                     costBody += COSTS( rPosts ) ;
                                     pbRefC& rPosts = *(pbRefC*)&pStkBody->downF( tinP , hWalk ) ;
@@ -290,7 +290,7 @@ DONEdRIVENsERVER( tmcHttpServerF )
                                             pStkBodyDynamic->extractF( (byteT*)&(*pStkBody)[ - 1 ] , tinP , 1 ) ;
                                             *pStkBody << (byteT*)0 ;
                                         {
-                                        while( *pStkBodyDynamic )
+                                        while( !POOP && *pStkBodyDynamic )
                                         PUSHrEPLY( prPostBody ) ;
                         
                                         }

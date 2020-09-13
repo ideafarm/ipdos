@@ -23589,7 +23589,6 @@ examples
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.1120027f.scoops END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200280.ifscratch BEGIN
 
-
 //
 // Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
@@ -23607,7 +23606,7 @@ examples
         if( tinP.pEtScratch )                                                                           \
         {                                                                                               \
             SCOOPS                                                                                      \
-            if( POOP ) POOPR                                                                            \
+            if( POOP ) POOPRqUIET                                                                       \
         }                                                                                               \
                                                                                                         \
         if( !tinP.pEtScratch ) __1                                                                      \
