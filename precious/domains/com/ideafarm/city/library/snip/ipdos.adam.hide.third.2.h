@@ -305,7 +305,8 @@
 #define flTRACE_NOpREFIX          0xe00004ee
 #define flTRACE_KEEPcRlF          0xe00008ee
 #define flTRACE_NOcONSOLE         0xe00010ee
-#define flTRACE_LOOP              0xe00020ee
+#define flTRACE_NOtELL            0xe00020ee
+#define flTRACE_LOOP              0xe00040ee
 /*3*/
 #define flTRACE_null    0xe00000ee
 

@@ -60,7 +60,7 @@
 
             }
                 }
-                    TELL( (const osTextT*)ostoSay + costBefore ) ;
+                    if( !( F(flagsP) & flTRACE_NOtELL ) ) { TELL( (const osTextT*)ostoSay + costBefore ) ; }
                     }
                         }
                             }
@@ -107,7 +107,7 @@
                 else
                 }
                     OStEXTA(  ostoSay , (osTextT*)psttP ) ;
-                    TELL( (osTextT*)psttP ) ;
+                    if( !( F(flagsP) & flTRACE_NOtELL ) ) { TELL( (osTextT*)psttP ) ; }
                 {
                 if( F(flagsP) & flTRACE_PARAMETERiSoStEXT )
             {
