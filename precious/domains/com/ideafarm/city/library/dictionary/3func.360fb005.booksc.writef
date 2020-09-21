@@ -401,11 +401,11 @@
         FV( flBOOKScwRITE , flagsP ) ;
         //__( ppcpIdAptP && ( this == &processGlobal3I.bksTelemetry || this == &processGlobal3I.bksTrace || this == &processGlobal3I.bksTraceDivert01 || this == &processGlobal3I.bksWord || this == &processGlobal3I.bksWords ) ) ; //CAPTURE OF TELEMETRY OR TRACE IS GUARANTEED TO NEVER INVOLVE USE OF A poolC INSTANCE; SUCH USAGE COULD EMIT TELEMETRY OR TRACE, CAUSING SCRATCH BOOK OVERFLOW
         //__( ppcpIdAptP && *ppcpIdAptP ) ; //20171112@1557: ADDED WITHOUT ANALYSIS WHILE EDITING TO PREALLOCATE TO AVOID USING POOL WHILE grabBookNow IS GRABBED
-        if( pb2P && !cb2P ) cb2P = thirdC::c_strlenIF( tinP , pb2P ) ;
-        if( pb1P && !cb1P ) cb1P = thirdC::c_strlenIF( tinP , pb1P ) ;
         if( POOP ) return 0 ;
         __NZ( cbBodyNew < cb1P + cb2P && F(flagsP) & flBOOKScwRITE_ALLoRnONE ) ;
         __NZ( !pb2P && cb2P ) ;
+        if( pb2P && !cb2P ) cb2P = thirdC::c_strlenIF( tinP , pb2P ) ;
+        if( pb1P && !cb1P ) cb1P = thirdC::c_strlenIF( tinP , pb1P ) ;  //20200920@1713: MOVED THESE 2 LINES EARLIER TO HERE W/O ANALYSIS
         if( POOP ) return 0 ;
     {
     IFbEcAREFUL    
