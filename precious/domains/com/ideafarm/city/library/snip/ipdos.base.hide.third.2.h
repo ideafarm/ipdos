@@ -26668,6 +26668,7 @@ code may use setIfZeAM on *(countT*)this
 /**/
     const countT        finger ;
     const countT        idFormat ;
+    const countT        idMe ;
     countT              idSerialLath ;
     countT              idCellLath ;
     count04T            osTicksAtCt ;
@@ -40025,9 +40026,9 @@ base class to make a derived class of objects easily contained by a stackC objec
     cryC                                     cry52 ;
     grabUniverseC                            grabUniverse ;
     cryC                                     cry512 ;
+    napkinC                                  napSlab ;
     napkinC                 /*P3*/ /*CT:71*/ napHome ;
     cryC                                     cry5113 ;
-    napkinC                                  napSlab ;
     cryC                                     cry5112 ;
     cryC                                     cry511 ;
     doC                                      do1 ;
@@ -42454,6 +42455,7 @@ application code that uses an instance of me must ensure that the pool that cont
     const countT idFormat ;
     flagsT       flagsi ;
     countT       cMile ;
+    countT       cHome    ;
 
     NEWdELcLASSpROTOS
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34001.slabS.NEWdELcLASSb!||
