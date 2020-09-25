@@ -1,9 +1,9 @@
 #define DEBUG
 
 //U::ENABLE THESE PREPROCESSOR IF/ENDIF IN PRODUCTION
-//#if not defined( DEBUG )
+#if not defined( DEBUG )
     #define RELEASE
-//#endif
+#endif
 
 #define TELL
 
@@ -2819,7 +2819,18 @@ void elf_obey_C::liveF( void )
 
                     //REMOVE bench.baseless IN PRODUCTION
                     //system( "zip -9r  \\ideafarm.home.1\\ephemeral\\domains\\com\\ideafarm\\release\\ideafarm.bundle.zip \\ideafarm.home.1\\precious\\domains\\com\\ideafarm\\city\\workshop\\bench.baseless \\ideafarm.home.1\\precious\\domains\\com\\ideafarm\\city\\workshop\\handle \\ideafarm.home.1\\precious\\domains\\com\\ideafarm\\city\\workshop\\infozip \\ideafarm.home.1\\precious\\domains\\com\\ideafarm\\city\\workshop\\openssl\\bin \\ideafarm.home.1\\precious\\domains\\com\\ideafarm\\city\\workshop\\zlib \\ideafarm.home.1\\precious\\domains\\com\\ideafarm\\city\\library\\blob \\ideafarm.home.1\\ephemeral\\domains\\com\\ideafarm\\city\\park\\exedll\\1" ) ;
-                    system( "zip -9r  \\ideafarm.home.1\\ephemeral\\domains\\com\\ideafarm\\release\\ideafarm.bundle.zip \\ideafarm.home.1\\precious\\domains\\com\\ideafarm\\city\\workshop\\handle \\ideafarm.home.1\\precious\\domains\\com\\ideafarm\\city\\workshop\\infozip \\ideafarm.home.1\\precious\\domains\\com\\ideafarm\\city\\workshop\\openssl\\bin \\ideafarm.home.1\\precious\\domains\\com\\ideafarm\\city\\workshop\\zlib \\ideafarm.home.1\\precious\\domains\\com\\ideafarm\\city\\library\\blob \\ideafarm.home.1\\ephemeral\\domains\\com\\ideafarm\\city\\park\\exedll\\1" ) ;
+                    system
+                    (
+                        "zip -9r"
+                        " \\ideafarm.home.1\\ephemeral\\domains\\com\\ideafarm\\release\\ideafarm.bundle.zip"
+                        " \\ideafarm.home.1\\precious\\domains\\com\\ideafarm\\city\\workshop\\handle"
+                        " \\ideafarm.home.1\\precious\\domains\\com\\ideafarm\\city\\workshop\\infozip"
+                        " \\ideafarm.home.1\\precious\\domains\\com\\ideafarm\\city\\workshop\\openssl\\bin"
+                        " \\ideafarm.home.1\\precious\\domains\\com\\ideafarm\\city\\workshop\\zlib"
+                      //" \\ideafarm.home.1\\precious\\domains\\com\\ideafarm\\city\\library\\blob"
+                        " \\ideafarm.home.1\\precious\\domains\\com\\ideafarm\\city\\library\\dictionary\\7reso.71000002.favicon.ico"       //20200924@2037: THIS IS SO HTTP CAN SERVE favicon.ico
+                        " \\ideafarm.home.1\\ephemeral\\domains\\com\\ideafarm\\city\\park\\exedll\\1"
+                    ) ;
 
                     //U::O: IN THE PRECEEDING LINE, THE ENTIRE ZLIB DIRECTORY IS NOT NEEDED: \\ideafarm.home.1\\precious\\domains\\com\\ideafarm\\city\\workshop\\zlib
 

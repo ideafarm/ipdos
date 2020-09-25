@@ -8045,6 +8045,12 @@ I have other business to attend to today and tomorrow, but plan to continue to w
 
 
 
+   this will be a major development environment improvement
+   should have done this 15 years ago
+  think
+ playcraft
+ objective: elegance
+!job C: eve: //U:: 20200924@1716: HIGH PRIORITY: REWRITE THIS TO LAUNCH THREADS TO DO ALL BUILDS SIMULTANEOUSLY
 
 
 
@@ -8069,6 +8075,55 @@ I have other business to attend to today and tomorrow, but plan to continue to w
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  next: set up dut (temporary impotence code to cause the failure every time)
+   this is a mystery, because eve does not report build failure
+  think
+   188_
+    failing to read master into memory
+   5679_        22137_9
+  look
+   | 
+   |  poopC sniff sniff [idLine,idiFile,idSubType]:    9765        11120063    b6020063
+   |  poopC sniff sniff [idLine,idiFile,idSubType]:    881         12600015    1
+   | 
+  listing
+ playcraft
+ changed: homeS slabS
+!job B: build is very slow
+
+
+
+
+
+   next: factory3 ifcreset ; start
+   pending: move the homes from factory7 to factory3
+  test
+  !subjob C: migrate away from factory3 for http service
   !subjob C: homes alternate in use of NUMA 1 or 2
    decision: use factory3: 64GB, fast, 12 processors
   think
@@ -8081,30 +8136,25 @@ I have other business to attend to today and tomorrow, but plan to continue to w
 
 
 
+!job A: inspect factory2-9 to ensure that work and precious are pulled from cloud with deletion
+
+
+!job A: inspect factory1 to ensure that work and precious are pushed to cloud with deletion
 
 
 
 
 
-
-
-
-
-
-
-   study how homeS napkin is named when adam is kernel monitor
-  study
-   all processes for that home use homeS::idNuma
-   ct'or for homeS atomically increments slabC::cHome, setting its homeS::idNuma to cHome % 2
-   slabC contains an cHome member
-  wish
-   it also wastes cpu capacity
-   this results in wo hot cpu and wo cold wo
-   current code always uses numa 2
+   alt: during release, include that file (will produce a dictionary folder with wo file)
+   it is embedded within the exe, but i don't see any way to obtain it
+   the goal is to serve that file
+   the file is in dictionary:     3,777 7reso.71000002.favicon.ico
   think
  playcraft
- objective: efficiency, heat distribution
-!subjob C: homes alternate in use of NUMA 1 or 2
+ objective: elegance
+!job C: serve favicon.ico
+
+
 
 
 
@@ -8154,6 +8204,63 @@ I have other business to attend to today and tomorrow, but plan to continue to w
 =========================================================================================================================================================
 
 
+  !subjob C: eliminate form.unk writing
+  edit code to put http files on 2 4 6   
+   http:  2 4 6
+   publishing: 3 or 6: 3 (more processors, faster base speed)
+  think
+   select a factory
+  think
+ playcraft
+ objective: dedicate factory3 to publishing
+!subjob C: migrate away from factory3 for http service
+   httpEatKeyValuePairsDefaultCBF
+  list function that can write these
+   578 is an obsolete adam: ifcIDaDAM_ROOTfORMdATAeATER                                    0x51000578
+   some written yesterday, several per minute
+  see
+   | 
+   |  Directory of D:\ideafarm.home.1\ephemeral\backed.up.daily\domains\com\ideafarm\87500015\in
+   | 
+   | 2020-09-07  19:17               244 form.unk.000b418b.18775b1e.326b92eb.c3240000.0fc30000
+   | 2020-09-07  19:19               244 form.unk.000b418b.18cb445c.326b92eb.42a30000.49930000
+   | 2020-09-07  19:20               244 form.unk.000b418b.18e974f2.326b92eb.ccb30000.87730000
+   | 2020-09-07  19:27               244 form.unk.000b418b.1a39c2ab.326b92eb.88830000.87330000
+   | ...
+   | 2020-09-23  12:13               259 form.unk.000b419a.ccfe0d89.326b92eb.03320000.8c810000
+   | 2020-09-23  12:13               259 form.unk.000b419a.cd05f03d.326b92eb.03320000.8c810000
+   | 2020-09-23  12:13               259 form.unk.000b419a.cd0dcb90.326b92eb.03320000.8c810000
+   | 2020-09-23  12:13               259 form.unk.000b419a.cd15ccc1.326b92eb.03320000.8c810000
+   | 2020-09-23  12:13               259 form.unk.000b419a.cd1da90c.326b92eb.03320000.8c810000
+   | 2020-09-23  12:13               259 form.unk.000b419a.cd256a5a.326b92eb.03320000.8c810000
+   | 2020-09-23  12:14               259 form.unk.000b419a.cd2d4d40.326b92eb.03320000.8c810000
+   | 2020-09-23  12:14               259 form.unk.000b419a.cd352195.326b92eb.03320000.8c810000
+   | 2020-09-23  12:14               259 form.unk.000b419a.cd3ce21c.326b92eb.03320000.8c810000
+   |             1157 File(s)        407,486 bytes
+   | 
+  listing
+ playcraft
+!subjob C: eliminate form.unk writing
+  nawwh
+   i can later use idMe to eliminate the code in service.cpp
+  think
+  verify that idNumaNode does indeed alternate by inspecting trace for factory1: yup
+   i now have homeS::idMe, but no reason to use it
+   service.exe already does this
+  see
+   study how homeS napkin is named when adam is kernel monitor
+  study
+   all processes for that home use homeS::idNuma
+   ct'or for homeS atomically increments slabC::cHome, setting its homeS::idNuma to cHome % 2
+   slabC contains an cHome member
+  wish
+   it also wastes cpu capacity
+   this results in wo hot cpu and wo cold wo
+   current code always uses numa 2
+  think
+ playcraft
+ objective: efficiency, heat distribution
+!subjob C: homes alternate in use of NUMA 1 or 2
      ERROR_COMMITMENT_LIMIT
     rc = 5af_       1455_9
     BOS( WHATgbo , BOSoK , CreateThread( &sa , cbStackP , (tmfosFT)tmFP , pvP , CREATE_SUSPENDED , (ULONG*)&tidP ) )

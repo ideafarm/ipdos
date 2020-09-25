@@ -13,10 +13,13 @@
         }
             if( tReport.csF( tinP ) ) { etThread.strMakeF( tinP , psttReportP , tReport ) ; ___( psttReportP ) ; }
                                 
-            etThread.delF( tinP , psttFileName ) ;
-            etThread.boxPutUniqueF( tinP , psttFileName , T(psttFileLikeP)+T(".")+(psttForm?T(psttForm):T("unk")) , WS( sOut ) ) ;
-            ZE( strokeS* , psttFileName ) ;
-        {
+            }
+                etThread.delF( tinP , psttFileName ) ;
+                etThread.boxPutUniqueF( tinP , psttFileName , T(psttFileLikeP)+T(".")+(psttForm?T(psttForm):T("unk")) , WS( sOut ) ) ;
+                ZE( strokeS* , psttFileName ) ;
+            {
+            if( psttFileLikeP && psttForm ) // THIS IS AN ATTACK SURFACE.  AN ATTACKER CAN OVERWHELM A SERVER WITH DISK I/O AND EVENTUALLY FILL THE DISK
+        {                                   // ON THE NEXT LINE, "&& psttForm" IS ADDED AS A PARTIAL PROTECTION AGAINST ATTACK
         if( !bQuitP )
             
         }
@@ -30,6 +33,7 @@
                 etThread.strMakeF( tinP , psttForm , psttvTrimmed ) ; ___( psttForm ) ;
                 etThread.delF( tinP , psttForm ) ;
                 etThread.traceF( tinP , T("coding error / multiple \"form\" keys received [lag,now]:    ")+T(psttForm)+T("    ")+T(psttvTrimmed) ) ;
+                //U::BUG? WILL THE NEXT LINE ALWAYS COMPLAIN, EVEN IF ONLY WO form LEVER IS SEEN?
             {
             if( !tinP.pEtScratch->strCompareF( tinP , psttLeverKVP , T("form"  ) ) )
 

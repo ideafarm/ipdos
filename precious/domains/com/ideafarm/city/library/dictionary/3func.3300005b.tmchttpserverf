@@ -894,7 +894,7 @@ DONEdRIVENsERVER( tmcHttpServerF )
                 ZE( stackC* , pStkBody ) ; //EVERYTHING AFTER THE HTTP HEADER AND ITS TRAILING "\r\n\r\n"
                 TELL( "getting recycled items" ) ;
 
-                (*pHttpEatKeyValuePairsCBFP)( tinP , etThread , bQuitP , psttKVReport , T("///ideafarm/ephemeral/backed.up.daily/domains/com/ideafarm/")+TF1(ifcIDaDAM_ROOTfORMdATAeATER)+T("/in/form") , *pswKV , psttLeverKV , sessionsP , nnPeerP , psttName , psttQueryKV , psttAgent , postBody ) ;
+                (*pHttpEatKeyValuePairsCBFP)( tinP , etThread , bQuitP , psttKVReport , 0 /*DISABLED TO PREVENT ATTACK: T("///ideafarm/ephemeral/backed.up.daily/domains/com/ideafarm/")+TF1(ifcIDaDAM_ROOTfORMdATAeATER)+T("/in/form") */ , *pswKV , psttLeverKV , sessionsP , nnPeerP , psttName , psttQueryKV , psttAgent , postBody ) ;
                 ZE( strokeS* , psttKVReport ) ;
                 TELL( "calling keyvalue eater" ) ;
 
@@ -1148,7 +1148,7 @@ DONEdRIVENsERVER( tmcHttpServerF )
                 TN( tFileIn9z , "" ) ; tFileIn9z = T("////factory8/z/archive")+T(psttName) ;
                 TN( tFileIn9y , "" ) ; tFileIn9y = T("////factory8/y/archive")+T(psttName) ;
                 TN( tFileIn9x , "" ) ; tFileIn9x = T("////factory8/x/archive")+T(psttName) ;
-                TN( tFileIn3e , "" ) ; tFileIn3e = T("////factory3/e/archive")+T(psttName) ;
+                TN( tFileIn3e , "" ) ; tFileIn3e = T("////factory2/e/archive")+T(psttName) ;
 
                 ZE( fileWindowsC* , pFW ) ;
             {
@@ -1225,24 +1225,24 @@ DONEdRIVENsERVER( tmcHttpServerF )
                 boolT bWhite  = etThread.diskFileExistsF( tinP , tListWhite  ) ;
                 boolT bHuman  = etThread.diskFileExistsF( tinP , tListHuman  ) ;
 
-                tListWhite += T("////factory5/d/ideafarm.home.101/ephemeral/domains/com/ideafarm/ipdos/attackers/white/")+T(nnPeerP) ;
+                tListWhite += T("////factory6/d/ideafarm.home.101/ephemeral/domains/com/ideafarm/ipdos/attackers/white/")+T(nnPeerP) ;
                 tListWhite += T("////factory4/d/ideafarm.home.101/ephemeral/domains/com/ideafarm/ipdos/attackers/white/")+T(nnPeerP) ;
-                tListWhite += T("////factory3/d/ideafarm.home.101/ephemeral/domains/com/ideafarm/ipdos/attackers/white/")+T(nnPeerP) ;
+                tListWhite += T("////factory2/d/ideafarm.home.101/ephemeral/domains/com/ideafarm/ipdos/attackers/white/")+T(nnPeerP) ;
                 TlIST( tListWhite ) ;
 
-                tListBlock += T("////factory5/d/ideafarm.home.101/ephemeral/domains/com/ideafarm/ipdos/attackers/block/")+T(nnPeerP) ;
+                tListBlock += T("////factory6/d/ideafarm.home.101/ephemeral/domains/com/ideafarm/ipdos/attackers/block/")+T(nnPeerP) ;
                 tListBlock += T("////factory4/d/ideafarm.home.101/ephemeral/domains/com/ideafarm/ipdos/attackers/block/")+T(nnPeerP) ;
-                tListBlock += T("////factory3/d/ideafarm.home.101/ephemeral/domains/com/ideafarm/ipdos/attackers/block/")+T(nnPeerP) ;
+                tListBlock += T("////factory2/d/ideafarm.home.101/ephemeral/domains/com/ideafarm/ipdos/attackers/block/")+T(nnPeerP) ;
                 TlIST( tListBlock ) ;
 
-                tListAllowWoMore += T("////factory5/d/ideafarm.home.101/ephemeral/domains/com/ideafarm/ipdos/attackers/allowWoMore/")+T(nnPeerP) ;
+                tListAllowWoMore += T("////factory6/d/ideafarm.home.101/ephemeral/domains/com/ideafarm/ipdos/attackers/allowWoMore/")+T(nnPeerP) ;
                 tListAllowWoMore += T("////factory4/d/ideafarm.home.101/ephemeral/domains/com/ideafarm/ipdos/attackers/allowWoMore/")+T(nnPeerP) ;
-                tListAllowWoMore += T("////factory3/d/ideafarm.home.101/ephemeral/domains/com/ideafarm/ipdos/attackers/allowWoMore/")+T(nnPeerP) ;
+                tListAllowWoMore += T("////factory2/d/ideafarm.home.101/ephemeral/domains/com/ideafarm/ipdos/attackers/allowWoMore/")+T(nnPeerP) ;
                 TlIST( tListAllowWoMore ) ;
 
-                tListHuman += T("////factory5/d/ideafarm.home.101/ephemeral/domains/com/ideafarm/ipdos/attackers/human/")+T(nnPeerP) ;
+                tListHuman += T("////factory6/d/ideafarm.home.101/ephemeral/domains/com/ideafarm/ipdos/attackers/human/")+T(nnPeerP) ;
                 tListHuman += T("////factory4/d/ideafarm.home.101/ephemeral/domains/com/ideafarm/ipdos/attackers/human/")+T(nnPeerP) ;
-                tListHuman += T("////factory3/d/ideafarm.home.101/ephemeral/domains/com/ideafarm/ipdos/attackers/human/")+T(nnPeerP) ;
+                tListHuman += T("////factory2/d/ideafarm.home.101/ephemeral/domains/com/ideafarm/ipdos/attackers/human/")+T(nnPeerP) ;
                 TlIST( tListHuman ) ;
             {
             if( bFail )
