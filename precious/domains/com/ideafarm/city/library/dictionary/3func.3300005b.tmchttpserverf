@@ -1154,6 +1154,52 @@ DONEdRIVENsERVER( tmcHttpServerF )
             {
             else if( bFile )
             }
+                //if( bClose ) etThread.traceF( tinP , TF3(meP.idPortF(tinP),flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,9)+T(nnPeerP)+T("    closing connection") ) ;
+
+                etThread.delF( tinP , pbIcon ) ;
+
+                }
+                    }
+                        //U:: LATER, PURGE BY NUMBER OF PLATES, BY AGE, AND/OR BY SIZE
+
+                        pzCache->pushF( tinP , psttn , pbBlob , cbBlob , maxAgeMsFileFavIcon , 0 ) ; // "0": "NOT LENGTH PREFIXED"
+
+                        etThread.memCopyF( tinP , pbc , pbIcon           , cbIcon ) ;
+                        etThread.memCopyF( tinP , pbc , (osTextT*)tReply , cbDo   ) ; pbc += cbDo ;
+                        countT cbDo = cbBlob - cbIcon ;
+                        byteT* pbc = pbBlob ;
+                    {
+                    if( pbBlob )
+                    etThread.newF( tinP , LF , pbBlob , cbBlob ) ; ___( pbBlob ) ;
+                    countT       cbBlob = tReply.csF( tinP ) + cbIcon ;
+                    ZE( byteT* , pbBlob ) ;
+
+                    etThread.strMakeF( tinP , psttn , tNameCache ) ; ___( psttn ) ;
+                    ZE( strokeS* , psttn ) ;
+                {
+                if( pzCache )
+
+                }
+                    }
+                        bClose = 1 ;
+                        //etThread.traceF( tinP , T("tmcHttpServerF: could not write to socket 980") ) ;
+                        POOPRqUIET
+                    {
+                    if( POOP )
+                    psoP->writeF( tinP , pbIcon , cbIcon ) ;
+                    psoP->writeF( tinP , (osTextT*)tReply , tReply.csF( tinP ) ) ;
+                    SCOOPS
+                {
+                IFsCRATCH
+
+                TN( tReply , "" ) ; tReply = T("HTTP/1.1 200 OK\r\nServer: IPDOS (tm) IdeaFarm (tm) Piggyback Distributed Operating System (tm)\r\nContent-Type: image/x-icon\r\nContent-Length: ")+TF4(cbIcon,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FOREIGN|flFORMAT_NObASE,0,0xa)+T("\r\n\r\n") ;
+
+                etThread.boxGetShadowF( tinP , pbIcon , cbIcon , tFileFavIcon ) ; ___( pbIcon ) ;
+                ZE( countT , cbIcon ) ;
+                ZE( byteT* , pbIcon ) ;
+            {
+            else if( bFavIcon )
+            }
                 pzCache->ungrabF( tinP ) ;
 
                 }
@@ -1207,43 +1253,52 @@ DONEdRIVENsERVER( tmcHttpServerF )
             ZE( boolT , bFile ) ;
 
             }
+                etThread.delF( tinP , psttLower ) ;
+                tNameCache = T(psttLower) ;
+                bFavIcon = !etThread.strCompareF( tinP , psttLower , tNameTestFavIcon ) ;
+                etThread.strConvertToLowerCaseF( tinP , psttLower , psttName ) ; ___( psttLower ) ;
+                ZE( strokeS* , psttLower ) ;
+            {
+            ZE( boolT , bFavIcon ) ;
+
+            }
                 break ;
 
-                }
-                    }
-                        if( POOP ) { POOPRqUIET ; }
-                        tinP.pEtScratch->boxPutF( tinP , tListBlock , tSay , tSay.csF( tinP ) ) ;
-                        SCOOPS
-                    {
-                    IFsCRATCH
-
-                    TN( tSay , "blocked because readRequestF failed, which is attacker behavior" ) ;
-                {
-                if( !bHuman && !bWhite && !bWoMore )    //U::20200804@2120: I'VE SEEN THIS BLOCK FACTORY 3-5, SO THIS IS TOO STRICT; WITH THIS CODE, I AM BLOCKING INNOCENT PEERS
-
-                boolT bWoMore = etThread.diskFileExistsF( tinP , tListAllowWoMore ) ;
-                boolT bWhite  = etThread.diskFileExistsF( tinP , tListWhite  ) ;
-                boolT bHuman  = etThread.diskFileExistsF( tinP , tListHuman  ) ;
-
-                tListWhite += T("////factory6/d/ideafarm.home.101/ephemeral/domains/com/ideafarm/ipdos/attackers/white/")+T(nnPeerP) ;
-                tListWhite += T("////factory4/d/ideafarm.home.101/ephemeral/domains/com/ideafarm/ipdos/attackers/white/")+T(nnPeerP) ;
-                tListWhite += T("////factory2/d/ideafarm.home.101/ephemeral/domains/com/ideafarm/ipdos/attackers/white/")+T(nnPeerP) ;
-                TlIST( tListWhite ) ;
-
-                tListBlock += T("////factory6/d/ideafarm.home.101/ephemeral/domains/com/ideafarm/ipdos/attackers/block/")+T(nnPeerP) ;
-                tListBlock += T("////factory4/d/ideafarm.home.101/ephemeral/domains/com/ideafarm/ipdos/attackers/block/")+T(nnPeerP) ;
-                tListBlock += T("////factory2/d/ideafarm.home.101/ephemeral/domains/com/ideafarm/ipdos/attackers/block/")+T(nnPeerP) ;
-                TlIST( tListBlock ) ;
-
-                tListAllowWoMore += T("////factory6/d/ideafarm.home.101/ephemeral/domains/com/ideafarm/ipdos/attackers/allowWoMore/")+T(nnPeerP) ;
-                tListAllowWoMore += T("////factory4/d/ideafarm.home.101/ephemeral/domains/com/ideafarm/ipdos/attackers/allowWoMore/")+T(nnPeerP) ;
-                tListAllowWoMore += T("////factory2/d/ideafarm.home.101/ephemeral/domains/com/ideafarm/ipdos/attackers/allowWoMore/")+T(nnPeerP) ;
-                TlIST( tListAllowWoMore ) ;
-
-                tListHuman += T("////factory6/d/ideafarm.home.101/ephemeral/domains/com/ideafarm/ipdos/attackers/human/")+T(nnPeerP) ;
-                tListHuman += T("////factory4/d/ideafarm.home.101/ephemeral/domains/com/ideafarm/ipdos/attackers/human/")+T(nnPeerP) ;
-                tListHuman += T("////factory2/d/ideafarm.home.101/ephemeral/domains/com/ideafarm/ipdos/attackers/human/")+T(nnPeerP) ;
-                TlIST( tListHuman ) ;
+                //}
+                //    }
+                //        if( POOP ) { POOPRqUIET ; }
+                //        tinP.pEtScratch->boxPutF( tinP , tListBlock , tSay , tSay.csF( tinP ) ) ;
+                //        SCOOPS
+                //    {
+                //    IFsCRATCH
+                //
+                //    TN( tSay , "blocked because readRequestF failed, which is attacker behavior" ) ;
+                //{
+                //if( !bHuman && !bWhite && !bWoMore )    //U::20200804@2120: I'VE SEEN THIS BLOCK FACTORY 3-5, SO THIS IS TOO STRICT; WITH THIS CODE, I AM BLOCKING INNOCENT PEERS
+                //
+                //boolT bWoMore = etThread.diskFileExistsF( tinP , tListAllowWoMore ) ;
+                //boolT bWhite  = etThread.diskFileExistsF( tinP , tListWhite  ) ;
+                //boolT bHuman  = etThread.diskFileExistsF( tinP , tListHuman  ) ;
+                //
+                //tListWhite += T("////factory6/d/ideafarm.home.101/ephemeral/domains/com/ideafarm/ipdos/attackers/white/")+T(nnPeerP) ;
+                //tListWhite += T("////factory4/d/ideafarm.home.101/ephemeral/domains/com/ideafarm/ipdos/attackers/white/")+T(nnPeerP) ;
+                //tListWhite += T("////factory2/d/ideafarm.home.101/ephemeral/domains/com/ideafarm/ipdos/attackers/white/")+T(nnPeerP) ;
+                //TlIST( tListWhite ) ;
+                //
+                //tListBlock += T("////factory6/d/ideafarm.home.101/ephemeral/domains/com/ideafarm/ipdos/attackers/block/")+T(nnPeerP) ;
+                //tListBlock += T("////factory4/d/ideafarm.home.101/ephemeral/domains/com/ideafarm/ipdos/attackers/block/")+T(nnPeerP) ;
+                //tListBlock += T("////factory2/d/ideafarm.home.101/ephemeral/domains/com/ideafarm/ipdos/attackers/block/")+T(nnPeerP) ;
+                //TlIST( tListBlock ) ;
+                //
+                //tListAllowWoMore += T("////factory6/d/ideafarm.home.101/ephemeral/domains/com/ideafarm/ipdos/attackers/allowWoMore/")+T(nnPeerP) ;
+                //tListAllowWoMore += T("////factory4/d/ideafarm.home.101/ephemeral/domains/com/ideafarm/ipdos/attackers/allowWoMore/")+T(nnPeerP) ;
+                //tListAllowWoMore += T("////factory2/d/ideafarm.home.101/ephemeral/domains/com/ideafarm/ipdos/attackers/allowWoMore/")+T(nnPeerP) ;
+                //TlIST( tListAllowWoMore ) ;
+                //
+                //tListHuman += T("////factory6/d/ideafarm.home.101/ephemeral/domains/com/ideafarm/ipdos/attackers/human/")+T(nnPeerP) ;
+                //tListHuman += T("////factory4/d/ideafarm.home.101/ephemeral/domains/com/ideafarm/ipdos/attackers/human/")+T(nnPeerP) ;
+                //tListHuman += T("////factory2/d/ideafarm.home.101/ephemeral/domains/com/ideafarm/ipdos/attackers/human/")+T(nnPeerP) ;
+                //TlIST( tListHuman ) ;
             {
             if( bFail )
 
@@ -1272,12 +1327,15 @@ DONEdRIVENsERVER( tmcHttpServerF )
         const countT maxAgeMsNotFileNotTalkBody = etThread.osTimeToOldTimeMsF( tinP , TICK << 4 ) ;
         const countT maxAgeMsNotFileTalkBody    = etThread.osTimeToOldTimeMsF( tinP , TOCK << 2 ) ;
         const countT maxAgeMsFile               = etThread.osTimeToOldTimeMsF( tinP , TICK << 4 ) ;
+        const countT maxAgeMsFileFavIcon        = etThread.osTimeToOldTimeMsF( tinP , - 1       ) ;
         ZE( sCountT , timeTotalPending2 ) ;
         ZE( countT  , timeTotalPending1 ) ;
-        TN( tQuest         , "?"           ) ;
-        TN( tSlashTalkBody , "/talk.body"  ) ;
-        TN( tSlashDeadman  , "/deadman"    ) ;
-        TN( tSlash         , "/"           ) ;
+        TN( tFileFavIcon     , "///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/7reso.71000002.favicon.ico" ) ;
+        TN( tNameTestFavIcon , "favicon.ico" ) ;
+        TN( tQuest           , "?"           ) ;
+        TN( tSlashTalkBody   , "/talk.body"  ) ;
+        TN( tSlashDeadman    , "/deadman"    ) ;
+        TN( tSlash           , "/"           ) ;
         ZE( countT , idEscaped ) ;
         //LOGrAW( T("------------------------- B E G I N   S E S S I O N -------------------------------------------------------\r\n") ) ;
         //CONoUTrAW( T("------------------------- B E G I N   S E S S I O N -------------------------------------------------------\r\n") ) ;

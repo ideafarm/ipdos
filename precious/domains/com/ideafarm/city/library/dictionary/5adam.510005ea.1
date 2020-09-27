@@ -86,22 +86,15 @@ DONE( tmWatch05F )
     
         #if !defined( CgORILLAS )
 
-        etThread.delF( tinP , posti ) ;
-    
-        //CONoUTrAW( "\"\r\n ") ;
-        //CONoUTrAW( posti ) ;
-        //CONoUTrAW( DASH127  "\r\nreceived:\r\n\"") ;
-    
         }
             }
                 }
                     inc02AM( cDone ) ;
-                    //etThread.traceF( tinP , T("deadman was received aok [blob]:    \"")+T(posti)+T("\"") ) ;
                     countT idGotMe = 1 + incv02AM( idGotAok ) ;
                 {
                 else
                 }
-                    etThread.traceF( tinP , T("deadman was NOT received") ) ;
+                    etThread.traceF( tinP , T("deadman was NOT received") , flTRACE_null , ifcIDtRACEdIVERT_1 ) ;
                     POOPR ;
                 {
                 if( POOP )
@@ -113,11 +106,16 @@ DONE( tmWatch05F )
                     }
                         }
                             __1
-                            //etThread.traceF( tinP , T("unexpected trademark") ) ;
+                            etThread.traceF( tinP , T("unexpected trademark") , flTRACE_null , ifcIDtRACEdIVERT_1 ) ;
                         {
                         if( etThread.strCompareF( tinP , T(postTM) , tTM ) )
 
-                        //etThread.traceF( tinP , T("[postTM]:    \"")+T(postTM)+T("\"") ) ;
+                        etThread.traceF( tinP , T("received [timeE1|timeE2,postTM]:    ")+TT(timeE1,timeE2)+T("    \"")+T(postTM)+T("\"") , flTRACE_null , ifcIDtRACEdIVERT_1 ) ;
+
+                        etThread.osTimeSubtractF( tinP , timeE1 , timeE2 , timeA1 , timeA2 ) ;
+                        etThread.osTimeNowF( tinP , timeE1 , timeE2 ) ;
+                        ZE( sCountT , timeE2 ) ;
+                        ZE( countT  , timeE1 ) ;
 
                         }
                             lag1 = post2[ 0 ] ;
@@ -133,6 +131,7 @@ DONE( tmWatch05F )
                             osTextT post2[] = { 0 , 0 } ;
                         {
                         while( !POOP && cDo )
+                        etThread.traceF( tinP , T("reading reply") , flTRACE_null , ifcIDtRACEdIVERT_1 ) ;
                         ZE( countT , lag2 ) ;
                         ZE( countT , lag1 ) ;
                         ZE( boolT , bArmed ) ;
@@ -141,6 +140,11 @@ DONE( tmWatch05F )
                         //                        I   d   e   a   f   a   r   m       (   t   m   )
 
                         sGet.writeF( tinP , (osTextT*)tRequest ) ;
+                        etThread.traceF( tinP , T("writing request") , flTRACE_null , ifcIDtRACEdIVERT_1 ) ;
+
+                        etThread.osTimeNowF( tinP , timeA1 , timeA2 ) ;
+                        ZE( sCountT , timeA2 ) ;
+                        ZE( countT  , timeA1 ) ;
 
                         TN( tRequest , "" ) ; tRequest = T("GET /deadman HTTP/1.1\r\nHost: ideafarm.com\r\n\r\n") ;
 
@@ -151,12 +155,17 @@ DONE( tmWatch05F )
                         ZE( countT , idpMe ) ;
 
                         sGet.connectF( tinP , 0x50 , pNicName[ 0 ] , 1 ) ;
+                        etThread.traceF( tinP , T("connecting") , flTRACE_null , ifcIDtRACEdIVERT_1 ) ;
                         home.idPortWatchHttp = sGet.bindF( tinP ) ;
                         socketC sGet( tinP , *tinP.pEtScratch , TAG( TAGiDnULL ) ) ;
                     {
                 {
                 else
-                if( POOP ) { POOPR ; }
+                }
+                    etThread.traceF( tinP , T("error: could not obtain nicName array") , flTRACE_null , ifcIDtRACEdIVERT_1 ) ;
+                    POOPR ;
+                {
+                if( POOP )
 
                 __Z( cNicName ) ;
                 __Z( pNicName ) ;
@@ -168,15 +177,13 @@ DONE( tmWatch05F )
                 SCOOPS
             {
             IFsCRATCH
+
+            etThread.traceF( tinP , T("http watch cycle begun [idCycle]:    ")+TF2(idCycle,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) , flTRACE_null , ifcIDtRACEdIVERT_1 ) ;
         {
         if( F(home.flagsAdams) & flHOMEsaDAMS_ROOThTTPsERVER )
     
         //CONoUTrAW5( "cycle " , idCycle , " on thread " , tinP.monitor.idThread , ": querying...\r\n") ;
     
-        ZE( countT , costi ) ;
-        ZE( byteT* , posti ) ;
-
-        etThread.traceF( tinP , T("http watch cycle begun [idCycle]:    ")+TF2(idCycle,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
         idCycle ++ ;
     {
     while( !etThread && !ether )
