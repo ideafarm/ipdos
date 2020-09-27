@@ -36,7 +36,7 @@ DONEdRIVENsERVER( tmcHttpServerF )
     }
         }
             //else tLog += t2+TF2(*pswTally,flFORMAT_NObIGITvALUES)+t1+T(psttLeverUrlTally)+tcr ;
-            if( psttLeverUrlTally && !etThread.strCompareF( tinP , psttLeverUrlTally , T("/deadman") ) ) bDeadman = 1 ;
+            if( psttLeverUrlTally && !etThread.strCompareF( tinP , psttLeverUrlTally , tSlashDeadman ) ) bDeadman = 1 ;
             psttLeverUrlTally = (strokeS*)pswTally->leverF( tinP , idf ) ;
         {
         for( countT idf = 1 ; idf <= cFlavors ; idf ++ )
@@ -1334,7 +1334,6 @@ DONEdRIVENsERVER( tmcHttpServerF )
         TN( tNameTestFavIcon , "favicon.ico" ) ;
         TN( tQuest           , "?"           ) ;
         TN( tSlashTalkBody   , "/talk.body"  ) ;
-        TN( tSlashDeadman    , "/deadman"    ) ;
         TN( tSlash           , "/"           ) ;
         ZE( countT , idEscaped ) ;
         //LOGrAW( T("------------------------- B E G I N   S E S S I O N -------------------------------------------------------\r\n") ) ;
@@ -1354,6 +1353,7 @@ DONEdRIVENsERVER( tmcHttpServerF )
         count8S& c8P = *(count8S*)cArgAppP ;
     {
     if( pswKV && pswTally )
+    TN( tSlashDeadman    , "/deadman"    ) ;
 
     etThread( tinP , pswTally , TAG( TAGiDnULL ) , flSTACKc_DOnOTsERIALIZE | flSTACKc_ALLOWmULTIPLEuNSERIALIZED , psttLeverUrlTally ) ; ___( pswTally ) ;
     ZE( switchC* , pswTally ) ;
