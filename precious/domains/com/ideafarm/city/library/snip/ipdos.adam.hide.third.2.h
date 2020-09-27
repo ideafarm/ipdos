@@ -39973,14 +39973,14 @@ base class to make a derived class of objects easily contained by a stackC objec
     byteT pbBooksNoPuseFootTraceDivert06[ CBbOOKScnOpUSEbACK ] ;
     byteT pbBooksNoPuseFootTraceDivert07[ CBbOOKScnOpUSEbACK ] ;
     byteT pbBooksNoPuseFootTraceDivert08[ CBbOOKScnOpUSEbACK ] ;
-    //byteT pbBooksNoPuseFootTraceDivert09[ CBbOOKScnOpUSEbACK ] ;
-    //byteT pbBooksNoPuseFootTraceDivert0a[ CBbOOKScnOpUSEbACK ] ;
-    //byteT pbBooksNoPuseFootTraceDivert0b[ CBbOOKScnOpUSEbACK ] ;
-    //byteT pbBooksNoPuseFootTraceDivert0c[ CBbOOKScnOpUSEbACK ] ;
-    //byteT pbBooksNoPuseFootTraceDivert0d[ CBbOOKScnOpUSEbACK ] ;
-    //byteT pbBooksNoPuseFootTraceDivert0e[ CBbOOKScnOpUSEbACK ] ;
-    //byteT pbBooksNoPuseFootTraceDivert0f[ CBbOOKScnOpUSEbACK ] ;
-    //byteT pbBooksNoPuseFootTraceDivert10[ CBbOOKScnOpUSEbACK ] ;
+    byteT pbBooksNoPuseFootTraceDivert09[ CBbOOKScnOpUSEbACK ] ;
+    byteT pbBooksNoPuseFootTraceDivert0a[ CBbOOKScnOpUSEbACK ] ;
+    byteT pbBooksNoPuseFootTraceDivert0b[ CBbOOKScnOpUSEbACK ] ;
+    byteT pbBooksNoPuseFootTraceDivert0c[ CBbOOKScnOpUSEbACK ] ;
+    byteT pbBooksNoPuseFootTraceDivert0d[ CBbOOKScnOpUSEbACK ] ;
+    byteT pbBooksNoPuseFootTraceDivert0e[ CBbOOKScnOpUSEbACK ] ;
+    byteT pbBooksNoPuseFootTraceDivert0f[ CBbOOKScnOpUSEbACK ] ;
+    byteT pbBooksNoPuseFootTraceDivert10[ CBbOOKScnOpUSEbACK ] ;
     byteT pbBooksNoPuseFootWord[          CBbOOKScnOpUSEbACK ] ;
     byteT pbBooksNoPuseFootWords[         CBbOOKScnOpUSEbACK ] ;
 
@@ -40031,14 +40031,6 @@ base class to make a derived class of objects easily contained by a stackC objec
     booksC                                   bksTraceDivert06 ;
     booksC                                   bksTraceDivert07 ;
     booksC                                   bksTraceDivert08 ;
-    //booksC                                   bksTraceDivert09 ;
-    //booksC                                   bksTraceDivert0a ;
-    //booksC                                   bksTraceDivert0b ;
-    //booksC                                   bksTraceDivert0c ;
-    //booksC                                   bksTraceDivert0d ;
-    //booksC                                   bksTraceDivert0e ;
-    //booksC                                   bksTraceDivert0f ;
-    //booksC                                   bksTraceDivert10 ;
     bookC                                    bkTraceLoop ;
     booksC                                   bksWord ;
     booksC                                   bksWords ;
