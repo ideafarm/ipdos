@@ -1,32 +1,3 @@
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004db.flinoutframec BEGIN
-
-
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-// Respecting the rights of other people is an important part of empowering one another.
-//
-
-/*
-*/
-/**/
-/*1*//*flINoUTfRAMEc*//*1*/
-
-/*3*/
-#define flINoUTfRAMEc_TRACE            0xe00001ec
-/*3*/
-#define flINoUTfRAMEc_null    0xe00000ec
-
-
-//
-// Respecting the rights of other people is an important part of empowering one another.
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004db.flinoutframec END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004dc.ifcidformat BEGIN
 
 
@@ -3565,9 +3536,17 @@ use this rather than _ to avoid the overhead of _
 #define ifcIDtRACEdIVERT_6              0xdddd0bdc
 #define ifcIDtRACEdIVERT_7              0xdddd0bdd
 #define ifcIDtRACEdIVERT_8              0xdddd0bde
+#define ifcIDtRACEdIVERT_9              0xdddd0bdf
+#define ifcIDtRACEdIVERT_a              0xdddd0be0
+#define ifcIDtRACEdIVERT_b              0xdddd0be1
+#define ifcIDtRACEdIVERT_c              0xdddd0be2
+#define ifcIDtRACEdIVERT_d              0xdddd0be3
+#define ifcIDtRACEdIVERT_e              0xdddd0be4
+#define ifcIDtRACEdIVERT_f              0xdddd0be5
+#define ifcIDtRACEdIVERT_01             0xdddd0be6
 /*3*/
 #define ifcIDtRACEdIVERT_min     0xdddd0bd7
-#define ifcIDtRACEdIVERT_max     0xdddd0bde
+#define ifcIDtRACEdIVERT_max     0xdddd0be6
 
 
 //
@@ -39994,6 +39973,14 @@ base class to make a derived class of objects easily contained by a stackC objec
     byteT pbBooksNoPuseFootTraceDivert06[ CBbOOKScnOpUSEbACK ] ;
     byteT pbBooksNoPuseFootTraceDivert07[ CBbOOKScnOpUSEbACK ] ;
     byteT pbBooksNoPuseFootTraceDivert08[ CBbOOKScnOpUSEbACK ] ;
+    byteT pbBooksNoPuseFootTraceDivert09[ CBbOOKScnOpUSEbACK ] ;
+    byteT pbBooksNoPuseFootTraceDivert0a[ CBbOOKScnOpUSEbACK ] ;
+    byteT pbBooksNoPuseFootTraceDivert0b[ CBbOOKScnOpUSEbACK ] ;
+    byteT pbBooksNoPuseFootTraceDivert0c[ CBbOOKScnOpUSEbACK ] ;
+    byteT pbBooksNoPuseFootTraceDivert0d[ CBbOOKScnOpUSEbACK ] ;
+    byteT pbBooksNoPuseFootTraceDivert0e[ CBbOOKScnOpUSEbACK ] ;
+    byteT pbBooksNoPuseFootTraceDivert0f[ CBbOOKScnOpUSEbACK ] ;
+    byteT pbBooksNoPuseFootTraceDivert10[ CBbOOKScnOpUSEbACK ] ;
     byteT pbBooksNoPuseFootWord[          CBbOOKScnOpUSEbACK ] ;
     byteT pbBooksNoPuseFootWords[         CBbOOKScnOpUSEbACK ] ;
 
