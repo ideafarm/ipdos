@@ -1,32 +1,3 @@
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004db.flinoutframec BEGIN
-
-
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-// Respecting the rights of other people is an important part of empowering one another.
-//
-
-/*
-*/
-/**/
-/*1*//*flINoUTfRAMEc*//*1*/
-
-/*3*/
-#define flINoUTfRAMEc_TRACE            0xe00001ec
-/*3*/
-#define flINoUTfRAMEc_null    0xe00000ec
-
-
-//
-// Respecting the rights of other people is an important part of empowering one another.
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004db.flinoutframec END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004dc.ifcidformat BEGIN
 
 
@@ -3565,9 +3536,17 @@ use this rather than _ to avoid the overhead of _
 #define ifcIDtRACEdIVERT_6              0xdddd0bdc
 #define ifcIDtRACEdIVERT_7              0xdddd0bdd
 #define ifcIDtRACEdIVERT_8              0xdddd0bde
+#define ifcIDtRACEdIVERT_9              0xdddd0bdf
+#define ifcIDtRACEdIVERT_a              0xdddd0be0
+#define ifcIDtRACEdIVERT_b              0xdddd0be1
+#define ifcIDtRACEdIVERT_c              0xdddd0be2
+#define ifcIDtRACEdIVERT_d              0xdddd0be3
+#define ifcIDtRACEdIVERT_e              0xdddd0be4
+#define ifcIDtRACEdIVERT_f              0xdddd0be5
+#define ifcIDtRACEdIVERT_10             0xdddd0be6
 /*3*/
 #define ifcIDtRACEdIVERT_min     0xdddd0bd7
-#define ifcIDtRACEdIVERT_max     0xdddd0bde
+#define ifcIDtRACEdIVERT_max     0xdddd0be6
 
 
 //
@@ -39945,7 +39924,6 @@ base class to make a derived class of objects easily contained by a stackC objec
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.doC : 1snip.15000115.doc END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.processGlobal3S : 1snip.150000e2.processglobal3s BEGIN
 
-
 //
 // Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
@@ -39994,66 +39972,100 @@ base class to make a derived class of objects easily contained by a stackC objec
     byteT pbBooksNoPuseFootTraceDivert06[ CBbOOKScnOpUSEbACK ] ;
     byteT pbBooksNoPuseFootTraceDivert07[ CBbOOKScnOpUSEbACK ] ;
     byteT pbBooksNoPuseFootTraceDivert08[ CBbOOKScnOpUSEbACK ] ;
+    byteT pbBooksNoPuseFootTraceDivert09[ CBbOOKScnOpUSEbACK ] ;
+    byteT pbBooksNoPuseFootTraceDivert0a[ CBbOOKScnOpUSEbACK ] ;
+    byteT pbBooksNoPuseFootTraceDivert0b[ CBbOOKScnOpUSEbACK ] ;
+    byteT pbBooksNoPuseFootTraceDivert0c[ CBbOOKScnOpUSEbACK ] ;
+    byteT pbBooksNoPuseFootTraceDivert0d[ CBbOOKScnOpUSEbACK ] ;
+    byteT pbBooksNoPuseFootTraceDivert0e[ CBbOOKScnOpUSEbACK ] ;
+    byteT pbBooksNoPuseFootTraceDivert0f[ CBbOOKScnOpUSEbACK ] ;
+    byteT pbBooksNoPuseFootTraceDivert10[ CBbOOKScnOpUSEbACK ] ;
     byteT pbBooksNoPuseFootWord[          CBbOOKScnOpUSEbACK ] ;
     byteT pbBooksNoPuseFootWords[         CBbOOKScnOpUSEbACK ] ;
 
     public :
 
-    cryC                                     cry51c ;
+    cryC                                     cry301 ;
     const timeS                              timeBaseBuilt ;
     parameterC                               pPostIdNumaNode ;
     sCountFromPostC                          scfp_idNumaNode ;
-    cryC                                     cry51b ;
+    cryC                                     cry302 ;
     parameterC              /*P3*/ /*CT:20*/ pPostIdHome ;
-    cryC                                     cry51a ;
+    cryC                                     cry303 ;
     sCountFromPostC         /*P3*/ /*CT:30*/ scfp_idHome ;
-    cryC                                     cry519 ;
+    cryC                                     cry304 ;
     parameterC              /*P3*/ /*CT:40*/ pPostIdAdamRoot ; //MUST BE AFTER !idHome IS COMPLETELY OBEYED SO THAT THE FLAG BIT fliIDhOME_HOMELESS THAT I SET IS NOT OVERRIDDEN
-    cryC                                     cry518 ;
+    cryC                                     cry305 ;
     sCountFromPostC         /*P3*/ /*CT:50*/ scfp_idAdamRootOld ;
     sCountFromPostC         /*P3*/ /*CT:50*/ scfp_idAdamRoot ;
-    cryC                                     cry517 ;
+    cryC                                     cry306 ;
     sCountFromPostC         /*P3*/ /*CT:50*/ scfp_idAdam ;
-    cryC                                     cry516 ;
+    cryC                                     cry307 ;
     testWaterC              /*P3*/ /*CT:60*/ testWater ;
-    cryC                                     cry515 ;
+    cryC                                     cry308 ;
     gloSecurityGC           /*P3*/ /*CT:70*/ gloSecurity ;
-    cryC                                     cry514 ;
+    cryC                                     cry309 ;
     tinS                    /*P3*/ /*CT:80*/ tinVeryVeryEarlyLateMain ; // MUST BE CT AFTER tinP.pAdamGlobal1->pPoolHomeTemp AND BEFORE ANY GLOBALS THAT USE IT SUCH AS A grabC OBJECT
     heapC                                    heap ;                     // SIMPLE HEAP USED WHEN poolC CANNOT BE USED (E.G. TO AVOID NONMONOTONIC GRABBING)
-    cryC                                     cry513 ;
+    cryC                                     cry30a ;
     linkedC                                  _handleC_linked_sm ;
-    cryC                                     cry52 ;
+    cryC                                     cry30b ;
     grabUniverseC                            grabUniverse ;
-    cryC                                     cry512 ;
+    cryC                                     cry30c ;
     napkinC                                  napSlab ;
+    cryC                                     cry30d ;
+    cryC                                     cry30e ;
     napkinC                 /*P3*/ /*CT:71*/ napHome ;
-    cryC                                     cry5113 ;
-    cryC                                     cry5112 ;
-    cryC                                     cry511 ;
+    cryC                                     cry30f ;
     doC                                      do1 ;
     doC                                      do2 ;
-    cryC                                     cry510 ;
     booksC                                   bksTelemetry ;
     booksC                                   bksTrace ;
+
+    cryC                                     cry310 ;
     booksC                                   bksTraceDivert01 ;
+    cryC                                     cry311 ;
     booksC                                   bksTraceDivert02 ;
+    cryC                                     cry312 ;
     booksC                                   bksTraceDivert03 ;
+    cryC                                     cry313 ;
     booksC                                   bksTraceDivert04 ;
+    cryC                                     cry314 ;
     booksC                                   bksTraceDivert05 ;
+    cryC                                     cry315 ;
     booksC                                   bksTraceDivert06 ;
+    cryC                                     cry316 ;
     booksC                                   bksTraceDivert07 ;
+    cryC                                     cry317 ;
     booksC                                   bksTraceDivert08 ;
+    cryC                                     cry318 ;
+    booksC                                   bksTraceDivert09 ;
+    cryC                                     cry319 ;
+    booksC                                   bksTraceDivert0a ;
+    cryC                                     cry31a ;
+    booksC                                   bksTraceDivert0b ;
+    cryC                                     cry31b ;
+    booksC                                   bksTraceDivert0c ;
+    cryC                                     cry31c ;
+    booksC                                   bksTraceDivert0d ;
+    cryC                                     cry31d ;
+    booksC                                   bksTraceDivert0e ;
+    cryC                                     cry31e ;
+    booksC                                   bksTraceDivert0f ;
+    cryC                                     cry31f ;
+    booksC                                   bksTraceDivert10 ;
+    cryC                                     cry320 ;
+
     bookC                                    bkTraceLoop ;
     booksC                                   bksWord ;
     booksC                                   bksWords ;
-    cryC                                     cry51 ;
+    cryC                                     cry321 ;
     napkinC                 /*P3*/ /*CT:a1*/ _grabC_napGrabWant ; //CODEsYNC: 0a00001 0a00001 0a00001 0a00001
-    cryC                                     cry53 ;
+    cryC                                     cry322 ;
     grabC                   /*P3*/ /*CT:d1*/ _thirdC_grab_flagsProcessState_ ;
-    cryC                                     cry54 ;
+    cryC                                     cry323 ;
     handleC                 /*P3*/ /*CT:91*/ _thirdC_hWindowingClient ; // SOME OPERATING SYSTEMS PASS A HANDLE INTO A WINDOW PROCESS AS A COMMAND LINE PARAMETER; THIS IS WHERE IT IS PUT
-    cryC                                     cry55 ;
+    cryC                                     cry324 ;
     mapCTC                  /*P3*/ /*CT:90*/ mapPopClientWork ;
     mapCTC                  /*P3*/ /*CT:a0*/ mapProcessPhase ;
     mapCTC                  /*P3*/ /*CT:b0*/ mapAdamClass   ;
@@ -40076,7 +40088,7 @@ base class to make a derived class of objects easily contained by a stackC objec
     mapCTC                                   mapGroup           ;
     mapCTC                                   mapSSSIdAdam       ;
     mapCTC                                   mapIdPhaseProcess  ;
-    cryC                                     cry56 ;
+    cryC                                     cry325 ;
 
     ~processGlobal3S( voidT ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.360cc002.processglobal3s.dt_processglobal3s!||
