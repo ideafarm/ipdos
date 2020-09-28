@@ -1239,6 +1239,7 @@ DONEdRIVENsERVER( tmcHttpServerF )
                 : !etThread.strCompareF( tinP , psttName , tSlashDeadman )
                 ? ifcIDtRACEdIVERT_2
             const countT idTraceDivert = !psttName
+            //CS:CODEsYNC: 3300005b 3600212d
 
             }
                 bFile = 1 == etThread.strIdF( tinP , tPattern , psttName ) ;
@@ -1274,6 +1275,13 @@ DONEdRIVENsERVER( tmcHttpServerF )
 
             }
                 break ;
+
+                etThread.traceF( tinP , T("tmcHttpServerF / error: readRequestF failed") , flTRACE_null , ifcIDtRACEdIVERT_6 ) ;
+                etThread.traceF( tinP , T("tmcHttpServerF / error: readRequestF failed") , flTRACE_null , ifcIDtRACEdIVERT_5 ) ;
+                etThread.traceF( tinP , T("tmcHttpServerF / error: readRequestF failed") , flTRACE_null , ifcIDtRACEdIVERT_4 ) ;
+                etThread.traceF( tinP , T("tmcHttpServerF / error: readRequestF failed") , flTRACE_null , ifcIDtRACEdIVERT_3 ) ;
+                etThread.traceF( tinP , T("tmcHttpServerF / error: readRequestF failed") , flTRACE_null , ifcIDtRACEdIVERT_2 ) ;
+                //CS:CODEsYNC: 3300005b 3600212d
 
                 //}
                 //    }
@@ -1319,7 +1327,7 @@ DONEdRIVENsERVER( tmcHttpServerF )
             ZE( sCountT , timeStart2 ) ;
             ZE( countT  , timeStart1 ) ;
 
-            TN( tNameCache , psttName ) ; if( psttQueryKV && psttQueryKV->idAdam ) tNameCache += tQuest+T(psttQueryKV) ;
+            TN( tNameCache , psttName ) ; if( psttName && etThread.strCompareF( tinP , psttName  , tSlashDeadman ) && psttQueryKV && psttQueryKV->idAdam ) tNameCache += tQuest+T(psttQueryKV) ;
 
             ___( postBody ) ;
             ___( psttAgent ) ;
@@ -1363,7 +1371,16 @@ DONEdRIVENsERVER( tmcHttpServerF )
         puseC& pusePeanutP = *(puseC*)c8P.c1 ;
         count8S& c8P = *(count8S*)cArgAppP ;
     {
-    if( pswKV && pswTally )
+    else
+    }
+        etThread.traceF( tinP , T("tmcHttpServerF / error: recycler failure") , flTRACE_null , ifcIDtRACEdIVERT_6 ) ;
+        etThread.traceF( tinP , T("tmcHttpServerF / error: recycler failure") , flTRACE_null , ifcIDtRACEdIVERT_5 ) ;
+        etThread.traceF( tinP , T("tmcHttpServerF / error: recycler failure") , flTRACE_null , ifcIDtRACEdIVERT_4 ) ;
+        etThread.traceF( tinP , T("tmcHttpServerF / error: recycler failure") , flTRACE_null , ifcIDtRACEdIVERT_3 ) ;
+        etThread.traceF( tinP , T("tmcHttpServerF / error: recycler failure") , flTRACE_null , ifcIDtRACEdIVERT_2 ) ;
+        //CS:CODEsYNC: 3300005b 3600212d
+    {
+    if( !pswKV || !pswTally )
     TN( tSlashDeadman    , "/deadman"    ) ;
 
     etThread( tinP , pswTally , TAG( TAGiDnULL ) , flSTACKc_DOnOTsERIALIZE | flSTACKc_ALLOWmULTIPLEuNSERIALIZED , psttLeverUrlTally ) ; ___( pswTally ) ;
@@ -1382,7 +1399,13 @@ DONEdRIVENsERVER( tmcHttpServerF )
     HTTPsYSpARAMS( cArg )
 
     //tinP.pAdamGlobal1->pEtThreadMain->etherTestF( tinP ) ; //U:: TO FIND A BUG
-    //etThread.traceF( tinP , T("tmcHttpServerF / ++++ ") ) ;
+
+    etThread.traceF( tinP , T("tmcHttpServerF / ++++ ") , flTRACE_null , ifcIDtRACEdIVERT_6 ) ;
+    etThread.traceF( tinP , T("tmcHttpServerF / ++++ ") , flTRACE_null , ifcIDtRACEdIVERT_5 ) ;
+    etThread.traceF( tinP , T("tmcHttpServerF / ++++ ") , flTRACE_null , ifcIDtRACEdIVERT_4 ) ;
+    etThread.traceF( tinP , T("tmcHttpServerF / ++++ ") , flTRACE_null , ifcIDtRACEdIVERT_3 ) ;
+    etThread.traceF( tinP , T("tmcHttpServerF / ++++ ") , flTRACE_null , ifcIDtRACEdIVERT_2 ) ;
+    //CS:CODEsYNC: 3300005b 3600212d
 {
 if( cArg )
 _IO_

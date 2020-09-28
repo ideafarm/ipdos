@@ -106,6 +106,36 @@
                         }
                             }
                                 }
+                                    traceF( tinP , T("ifcDrivenServerF / did not launch server thread (heap failure)") , flTRACE_null , ifcIDtRACEdIVERT_6 ) ;
+                                    traceF( tinP , T("ifcDrivenServerF / did not launch server thread (heap failure)") , flTRACE_null , ifcIDtRACEdIVERT_5 ) ;
+                                    traceF( tinP , T("ifcDrivenServerF / did not launch server thread (heap failure)") , flTRACE_null , ifcIDtRACEdIVERT_4 ) ;
+                                    traceF( tinP , T("ifcDrivenServerF / did not launch server thread (heap failure)") , flTRACE_null , ifcIDtRACEdIVERT_3 ) ;
+                                    traceF( tinP , T("ifcDrivenServerF / did not launch server thread (heap failure)") , flTRACE_null , ifcIDtRACEdIVERT_2 ) ;
+                                    //CS:CODEsYNC: 3300005b 3600212d
+                                {
+                                else
+                                }
+                                    }
+                                        traceF( tinP , T("ifcDrivenServerF / launched server thread") , flTRACE_null , ifcIDtRACEdIVERT_6 ) ;
+                                        traceF( tinP , T("ifcDrivenServerF / launched server thread") , flTRACE_null , ifcIDtRACEdIVERT_5 ) ;
+                                        traceF( tinP , T("ifcDrivenServerF / launched server thread") , flTRACE_null , ifcIDtRACEdIVERT_4 ) ;
+                                        traceF( tinP , T("ifcDrivenServerF / launched server thread") , flTRACE_null , ifcIDtRACEdIVERT_3 ) ;
+                                        traceF( tinP , T("ifcDrivenServerF / launched server thread") , flTRACE_null , ifcIDtRACEdIVERT_2 ) ;
+                                        //CS:CODEsYNC: 3300005b 3600212d
+                                    {
+                                    else
+                                    }
+                                        traceF( tinP , T("ifcDrivenServerF / error: could not launch server thread") , flTRACE_null , ifcIDtRACEdIVERT_6 ) ;
+                                        traceF( tinP , T("ifcDrivenServerF / error: could not launch server thread") , flTRACE_null , ifcIDtRACEdIVERT_5 ) ;
+                                        traceF( tinP , T("ifcDrivenServerF / error: could not launch server thread") , flTRACE_null , ifcIDtRACEdIVERT_4 ) ;
+                                        traceF( tinP , T("ifcDrivenServerF / error: could not launch server thread") , flTRACE_null , ifcIDtRACEdIVERT_3 ) ;
+                                        traceF( tinP , T("ifcDrivenServerF / error: could not launch server thread") , flTRACE_null , ifcIDtRACEdIVERT_2 ) ;
+                                        //CS:CODEsYNC: 3300005b 3600212d
+
+                                        POOPR
+                                    {
+                                    if( POOP )
+
                                     ZE( countT , tid ) ; tinP.pEtScratch->osThreadF( tinP , tid , info1P.tmF , 0 , flTHREADlAUNCH_SHOWpONY , 0 , (countT)pc8tp_tm ) ;
                                     //traceF( tinP , T(nnPeer)+T("    ifcDrivenServerF / launching server thread for this client") , flTRACE_null , ifcIDtRACEdIVERT_7 ) ;
                                     TELL( "server: launching server thread for this client" )
@@ -152,17 +182,23 @@
                             }
                                 DEL( pso ) ;
                                 TELL( "server: deleting the accepted socket without serving it" )
-                                //traceF( tinP , T(nnPeer)+T("    ifcDrivenServerF / deleting accepted socket without serving it") , flTRACE_null , ifcIDtRACEdIVERT_7 ) ;
+
+                                traceF( tinP , T(nnPeer)+T("    ifcDrivenServerF / deleting accepted socket without serving it (bQuit | third | bSilent | POOP)") , flTRACE_null , ifcIDtRACEdIVERT_6 ) ;
+                                traceF( tinP , T(nnPeer)+T("    ifcDrivenServerF / deleting accepted socket without serving it (bQuit | third | bSilent | POOP)") , flTRACE_null , ifcIDtRACEdIVERT_5 ) ;
+                                traceF( tinP , T(nnPeer)+T("    ifcDrivenServerF / deleting accepted socket without serving it (bQuit | third | bSilent | POOP)") , flTRACE_null , ifcIDtRACEdIVERT_4 ) ;
+                                traceF( tinP , T(nnPeer)+T("    ifcDrivenServerF / deleting accepted socket without serving it (bQuit | third | bSilent | POOP)") , flTRACE_null , ifcIDtRACEdIVERT_3 ) ;
+                                traceF( tinP , T(nnPeer)+T("    ifcDrivenServerF / deleting accepted socket without serving it (bQuit | third | bSilent | POOP)") , flTRACE_null , ifcIDtRACEdIVERT_2 ) ;
+                                //CS:CODEsYNC: 3300005b 3600212d
                             {
                             if( info1P.bQuit || third || bSilent || POOP )
 
                             sw_cSessionWithPeer.ungrabF( tinP ) ;
 
-                            }
-                                //bSilent |= 1 ; //TO PREVENT WO PEER FROM OPENING MANY SESSIONS TO DOS ATTACK
-                                LOGrAW( "setting bSilent because this client's session count is high" ) ;
-                            {
-                            if( 0x10 < sw_cSessionWithPeer )
+                            //}
+                            //    //bSilent |= 1 ; //TO PREVENT WO PEER FROM OPENING MANY SESSIONS TO DOS ATTACK
+                            //    //LOGrAW( "setting bSilent because this client's session count is high" ) ;
+                            //{
+                            //if( 0x10 < sw_cSessionWithPeer )
 
                             lever_nnPeer = nnPeer ;
                             sw_cSessionWithPeer.grabF( tinP , TAG( TAGiDnULL ) ) ;
@@ -233,7 +269,14 @@
                                     }
                                         break ;
                                         LOGrAW3( "peer is on the silence list [nnPeer]: " , nnPeer , "\r\n" ) ;
-                                        traceF( tinP , T(nnPeer)+T("    ifcDrivenServerF / this peer is on the silence list") , flTRACE_null , ifcIDtRACEdIVERT_7 ) ;
+
+                                        traceF( tinP , T(nnPeer)+T("    ifcDrivenServerF / this peer is on the silence list") , flTRACE_null , ifcIDtRACEdIVERT_6 ) ;
+                                        traceF( tinP , T(nnPeer)+T("    ifcDrivenServerF / this peer is on the silence list") , flTRACE_null , ifcIDtRACEdIVERT_5 ) ;
+                                        traceF( tinP , T(nnPeer)+T("    ifcDrivenServerF / this peer is on the silence list") , flTRACE_null , ifcIDtRACEdIVERT_4 ) ;
+                                        traceF( tinP , T(nnPeer)+T("    ifcDrivenServerF / this peer is on the silence list") , flTRACE_null , ifcIDtRACEdIVERT_3 ) ;
+                                        traceF( tinP , T(nnPeer)+T("    ifcDrivenServerF / this peer is on the silence list") , flTRACE_null , ifcIDtRACEdIVERT_2 ) ;
+                                        //CS:CODEsYNC: 3300005b 3600212d
+
                                         bSilent = 1 ;
                                     {
                                     if( nnPeer == pnnSilent[ off ] )
@@ -253,7 +296,13 @@
                                 }
                                     break ;
                                     }
-                                        traceF( tinP , T("i am being spoofed [idpPeer,home.idPortWatchHttp]:    ")+TF2(idpPeer,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2(idPortWatchHttpSnap,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
+                                        traceF( tinP , T("ifcDrivenServerF / i am being spoofed [idpPeer,home.idPortWatchHttp]:    ")+TF2(idpPeer,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2(idPortWatchHttpSnap,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) , flTRACE_null , ifcIDtRACEdIVERT_6 ) ;
+                                        traceF( tinP , T("ifcDrivenServerF / i am being spoofed [idpPeer,home.idPortWatchHttp]:    ")+TF2(idpPeer,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2(idPortWatchHttpSnap,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) , flTRACE_null , ifcIDtRACEdIVERT_5 ) ;
+                                        traceF( tinP , T("ifcDrivenServerF / i am being spoofed [idpPeer,home.idPortWatchHttp]:    ")+TF2(idpPeer,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2(idPortWatchHttpSnap,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) , flTRACE_null , ifcIDtRACEdIVERT_4 ) ;
+                                        traceF( tinP , T("ifcDrivenServerF / i am being spoofed [idpPeer,home.idPortWatchHttp]:    ")+TF2(idpPeer,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2(idPortWatchHttpSnap,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) , flTRACE_null , ifcIDtRACEdIVERT_3 ) ;
+                                        traceF( tinP , T("ifcDrivenServerF / i am being spoofed [idpPeer,home.idPortWatchHttp]:    ")+TF2(idpPeer,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2(idPortWatchHttpSnap,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) , flTRACE_null , ifcIDtRACEdIVERT_2 ) ;
+                                        //CS:CODEsYNC: 3300005b 3600212d
+
                                         bHeIsSpoofingMe = 1 ;
                                     {
                                     if( idpPeer - idPortWatchHttpSnap )
@@ -268,7 +317,14 @@
                             }
                                 }
                                     break ;
-                                    traceF( tinP , T("ifcDrivenServerF / listener socket failed to accept a connection") ) ;
+
+                                    traceF( tinP , T("ifcDrivenServerF / listener socket failed to accept a connection") , flTRACE_null , ifcIDtRACEdIVERT_6 ) ;
+                                    traceF( tinP , T("ifcDrivenServerF / listener socket failed to accept a connection") , flTRACE_null , ifcIDtRACEdIVERT_5 ) ;
+                                    traceF( tinP , T("ifcDrivenServerF / listener socket failed to accept a connection") , flTRACE_null , ifcIDtRACEdIVERT_4 ) ;
+                                    traceF( tinP , T("ifcDrivenServerF / listener socket failed to accept a connection") , flTRACE_null , ifcIDtRACEdIVERT_3 ) ;
+                                    traceF( tinP , T("ifcDrivenServerF / listener socket failed to accept a connection") , flTRACE_null , ifcIDtRACEdIVERT_2 ) ;
+                                    //CS:CODEsYNC: 3300005b 3600212d
+
                                     POOPRqUIET
                                     DEL( psoListen ) ;
                                     POOPRqUIET
@@ -287,7 +343,13 @@
                             ZE( countT , idpPeer ) ;
 
                             }
-                                traceF( tinP , T("ifcDrivenServerF / too many sessions, so refusing this wo [cSession]:    ")+TF2(cSession,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
+                                traceF( tinP , T("ifcDrivenServerF / too many sessions, so refusing this wo [cSession]:    ")+TF2(cSession,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) , flTRACE_null , ifcIDtRACEdIVERT_6 ) ;
+                                traceF( tinP , T("ifcDrivenServerF / too many sessions, so refusing this wo [cSession]:    ")+TF2(cSession,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) , flTRACE_null , ifcIDtRACEdIVERT_5 ) ;
+                                traceF( tinP , T("ifcDrivenServerF / too many sessions, so refusing this wo [cSession]:    ")+TF2(cSession,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) , flTRACE_null , ifcIDtRACEdIVERT_4 ) ;
+                                traceF( tinP , T("ifcDrivenServerF / too many sessions, so refusing this wo [cSession]:    ")+TF2(cSession,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) , flTRACE_null , ifcIDtRACEdIVERT_3 ) ;
+                                traceF( tinP , T("ifcDrivenServerF / too many sessions, so refusing this wo [cSession]:    ")+TF2(cSession,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) , flTRACE_null , ifcIDtRACEdIVERT_2 ) ;
+                                //CS:CODEsYNC: 3300005b 3600212d
+
                                 LOGrAW( tSay ) ;
                                 TN( tSay , "" ) ; tSay = TT(timeN1,timeN2)+T("| ifcDrivenServerF/too many sessions, so will refuse the next connection attempt\r\n") ;
                                 osTimeNowF( tinP , timeN1 , timeN2 ) ;
