@@ -1,32 +1,3 @@
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004db.flinoutframec BEGIN
-
-
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-// Respecting the rights of other people is an important part of empowering one another.
-//
-
-/*
-*/
-/**/
-/*1*//*flINoUTfRAMEc*//*1*/
-
-/*3*/
-#define flINoUTfRAMEc_TRACE            0xe00001ec
-/*3*/
-#define flINoUTfRAMEc_null    0xe00000ec
-
-
-//
-// Respecting the rights of other people is an important part of empowering one another.
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004db.flinoutframec END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004dc.ifcidformat BEGIN
 
 
@@ -39945,7 +39916,6 @@ base class to make a derived class of objects easily contained by a stackC objec
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.doC : 1snip.15000115.doc END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.processGlobal3S : 1snip.150000e2.processglobal3s BEGIN
 
-
 //
 // Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
@@ -39994,6 +39964,14 @@ base class to make a derived class of objects easily contained by a stackC objec
     byteT pbBooksNoPuseFootTraceDivert06[ CBbOOKScnOpUSEbACK ] ;
     byteT pbBooksNoPuseFootTraceDivert07[ CBbOOKScnOpUSEbACK ] ;
     byteT pbBooksNoPuseFootTraceDivert08[ CBbOOKScnOpUSEbACK ] ;
+    byteT pbBooksNoPuseFootTraceDivert09[ CBbOOKScnOpUSEbACK ] ;
+    byteT pbBooksNoPuseFootTraceDivert0a[ CBbOOKScnOpUSEbACK ] ;
+    byteT pbBooksNoPuseFootTraceDivert0b[ CBbOOKScnOpUSEbACK ] ;
+    byteT pbBooksNoPuseFootTraceDivert0c[ CBbOOKScnOpUSEbACK ] ;
+    byteT pbBooksNoPuseFootTraceDivert0d[ CBbOOKScnOpUSEbACK ] ;
+    byteT pbBooksNoPuseFootTraceDivert0e[ CBbOOKScnOpUSEbACK ] ;
+    byteT pbBooksNoPuseFootTraceDivert0f[ CBbOOKScnOpUSEbACK ] ;
+    byteT pbBooksNoPuseFootTraceDivert10[ CBbOOKScnOpUSEbACK ] ;
     byteT pbBooksNoPuseFootWord[          CBbOOKScnOpUSEbACK ] ;
     byteT pbBooksNoPuseFootWords[         CBbOOKScnOpUSEbACK ] ;
 
@@ -40027,9 +40005,9 @@ base class to make a derived class of objects easily contained by a stackC objec
     grabUniverseC                            grabUniverse ;
     cryC                                     cry512 ;
     napkinC                                  napSlab ;
-    napkinC                 /*P3*/ /*CT:71*/ napHome ;
     cryC                                     cry5113 ;
     cryC                                     cry5112 ;
+    napkinC                 /*P3*/ /*CT:71*/ napHome ;
     cryC                                     cry511 ;
     doC                                      do1 ;
     doC                                      do2 ;
@@ -40044,6 +40022,14 @@ base class to make a derived class of objects easily contained by a stackC objec
     booksC                                   bksTraceDivert06 ;
     booksC                                   bksTraceDivert07 ;
     booksC                                   bksTraceDivert08 ;
+    booksC                                   bksTraceDivert09 ;
+    booksC                                   bksTraceDivert0a ;
+    booksC                                   bksTraceDivert0b ;
+    booksC                                   bksTraceDivert0c ;
+    booksC                                   bksTraceDivert0d ;
+    booksC                                   bksTraceDivert0e ;
+    booksC                                   bksTraceDivert0f ;
+    booksC                                   bksTraceDivert10 ;
     bookC                                    bkTraceLoop ;
     booksC                                   bksWord ;
     booksC                                   bksWords ;
