@@ -112,14 +112,13 @@ DONEdRIVENsERVER( tmcHttpServerF )
                         //U:: LATER, PURGE BY NUMBER OF PLATES, BY AGE, AND/OR BY SIZE
 
                         pzCache->pushF( tinP , psttn , postsReply , costo , bTalkBody ? maxAgeMsNotFileTalkBody : maxAgeMsNotFileNotTalkBody , 1 ) ; // "1": "LENGTH PREFIXED, SO NEED TO USE POSTS( pb )"
+                        boolT bTalkBody = psttName && !etThread.strCompareF( tinP , tSlashTalkBody , psttName ) ;
 
                         countT costo = COSTS( postsReply ) ;
                         etThread.strMakeF( tinP , psttn , tNameCache ) ; ___( psttn ) ;
                         ZE( strokeS* , psttn ) ;
-
-                        boolT bTalkBody = psttName && !etThread.strCompareF( tinP , tSlashTalkBody , psttName ) ;
                     {
-                    if( pzCache )
+                    if( pzCache && !bQuery )
 
                     }
                         }
@@ -207,7 +206,6 @@ DONEdRIVENsERVER( tmcHttpServerF )
 
                             if( bClose ) costReply += sizeof postOldConnectionClose - 1 ;
                             if( prPostsHttpLocation ) costReply += sizeof postLocationKey - 1 + COSTS( *prPostsHttpLocation ) + ( bQuery ? 1 + psttQueryKV->idAdam : 0 ) ;
-                            boolT bQuery = psttQueryKV && psttQueryKV->idAdam ;
 
                             }
                                 etThread.strMakeFromOsTextF( tinP , psttQueryKV , "rc=" postREFERRALcHAMPIONiD ) ; ___( psttQueryKV) ;
@@ -1022,7 +1020,7 @@ DONEdRIVENsERVER( tmcHttpServerF )
                                     etThread.strMakeF( tinP , psttn , tNameCache ) ; ___( psttn ) ;
                                     ZE( strokeS* , psttn ) ;
                                 {
-                                if( pzCache )
+                                if( pzCache && !bQuery )
 
                                 bCacheThis = 0 ;
                             {
@@ -1177,7 +1175,7 @@ DONEdRIVENsERVER( tmcHttpServerF )
                     etThread.strMakeF( tinP , psttn , tNameCache ) ; ___( psttn ) ;
                     ZE( strokeS* , psttn ) ;
                 {
-                if( pzCache )
+                if( pzCache && !bQuery )
 
                 }
                     }
@@ -1327,7 +1325,13 @@ DONEdRIVENsERVER( tmcHttpServerF )
             ZE( sCountT , timeStart2 ) ;
             ZE( countT  , timeStart1 ) ;
 
-            TN( tNameCache , psttName ) ; if( psttName && etThread.strCompareF( tinP , psttName  , tSlashDeadman ) && psttQueryKV && psttQueryKV->idAdam ) tNameCache += tQuest+T(psttQueryKV) ;
+            }
+                tNameCache += tQuest+T(psttQueryKV) ;
+                bQuery = 1 ;
+            {
+            if( psttName && etThread.strCompareF( tinP , psttName  , tSlashDeadman ) && psttQueryKV && psttQueryKV->idAdam )
+            TN( tNameCache , psttName ) ;
+            ZE( boolT , bQuery ) ;
 
             ___( postBody ) ;
             ___( psttAgent ) ;

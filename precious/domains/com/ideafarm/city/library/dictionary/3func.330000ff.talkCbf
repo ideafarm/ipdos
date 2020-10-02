@@ -1536,7 +1536,7 @@
         /***************************************************************************************************/
 
         }
-            if( !bSecretIsOK ) etThread.traceF( tinP , T("secret is wrong") ) ;
+            etThread.traceF( tinP , T(bSecretIsOK?"secret is aok":"secret is wrong") ) ;
 
             }
                 tLoginAddressStatus      = tn ;
@@ -1621,7 +1621,7 @@
                                 ZE( strokeS* , psttValueFirstName ) ;
 
                                 }
-                                    if( bOn && !bSecretIsOK ) etThread.traceF( tinP , T("secret is NOT ok [secretTry]:    ")+TF4(secretTry,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_NObASE,0,0x3e)+T("    ")+TF4(secret,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_NObASE,0,0x3e) ) ;
+                                    if( bOn ) etThread.traceF( tinP , T(bSecretIsOK?"secret is aok [secretTry]:    ":"secret is NOT ok [secretTry]:    ")+TF4(secretTry,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_NObASE,0,0x3e)+T("    ")+TF4(secret,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_NObASE,0,0x3e) ) ;
                                     bSecretIsOK = !bOn ? 0 : secretTry == secret ;
                                 {
                                 if( subscriberIdTry == idSubscriber )
@@ -1687,7 +1687,7 @@
                             {
                             else
                             }
-                                etThread.traceF( tinP , T("file error: could not get shadow [filename]:    ")+T(pInfo->psttIfoName) ) ;
+                                etThread.traceF( tinP , T("   file error: could not get shadow [filename]:    ")+T(pInfo->psttIfoName) ) ;
                                 POOPRqUIET
                             {
                             if( POOP )
@@ -1699,18 +1699,23 @@
                         {
                         IFsCRATCH
 
-                        //etThread.traceF( tinP , T("found 1:    ")+T(fn) ) ;
+                        etThread.traceF( tinP , T("  found 1:    ")+T(fn) ) ;
                         fileNameC fn( tinP , etThread , pInfo->psttIfoName ) ;
                     {
                     else
                     }
                         break ;
                         DEL( pInfo ) ;
+                        etThread.traceF( tinP , T("  no more files in this folder:    ")+T(psttc1) ) ;
                     {
                     if( !pInfo || !pInfo->psttIfoName )
 
                     etThread.diskFindFileOrDirF( tinP , pInfo , hFind , psttc1 , &pat ) ;
                     ZE( infoFileS* , pInfo ) ;
+
+                    etThread.traceF( tinP , T(" inspecting folder:    ")+T(psttc1) ) ;
+
+                    if( bSecretIsOK ) break ;  //U:: THIS WILL GIVE FALSE "OK" IF THE CURRENT PATH DOES NOT CONTAIN ALL RECORDS FOR THIS ID ; THE CURE FOR THIS WOULD BE TO HEAL THE SUBSCRIPTION PATHS
                 {
                 do
                 handleC hFind( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_FILEfIND ) ;
