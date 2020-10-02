@@ -1222,7 +1222,7 @@ DONEdRIVENsERVER( tmcHttpServerF )
                 pzCached = (*pzCache)( tinP , tNameCache ) ;
                 pzCache->grabF( tinP , TAG( TAGiDnULL ) ) ;
             {
-            if( pzCache )
+            if( pzCache && !bQuery )
             ZE( cachedS* , pzCached ) ;
 
             etThread.traceF( tinP , TF3(meP.idPortF(tinP),flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,9)+T(nnPeerP)+T("    request:    \"")+T(psttName)+T("\"")+(psttQueryKV?T("    ")+T(psttQueryKV):T("")) , flTRACE_null , idTraceDivert ) ;
@@ -1326,12 +1326,11 @@ DONEdRIVENsERVER( tmcHttpServerF )
             ZE( countT  , timeStart1 ) ;
 
             }
-                tNameCache += tQuest+T(psttQueryKV) ;
-                bQuery = 1 ;
+                if( bQuery && !bDeadman ) tNameCache += tQuest+T(psttQueryKV) ; // DEADMAN QUERY IS SUPPRESSED BECAUSE ITS ONLY FUNCTION IS TO UNIQUELY IDENTIFY THE DEADMAN REQUEST
+                boolT bDeadman = psttName && etThread.strCompareF( tinP , psttName  , tSlashDeadman ) ;
             {
-            if( psttName && etThread.strCompareF( tinP , psttName  , tSlashDeadman ) && psttQueryKV && psttQueryKV->idAdam )
             TN( tNameCache , psttName ) ;
-            ZE( boolT , bQuery ) ;
+            const boolT bQuery = psttQueryKV && psttQueryKV->idAdam ;
 
             ___( postBody ) ;
             ___( psttAgent ) ;
