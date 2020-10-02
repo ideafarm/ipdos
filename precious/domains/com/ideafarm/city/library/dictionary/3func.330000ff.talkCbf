@@ -120,7 +120,17 @@
                         {
                         if( !pInfo || !pInfo->psttIfoName )
 
-                        etThread.diskFindFileOrDirF( tinP , pInfo , hFind , psttc1 , &pat ) ;
+                        }
+                            }
+                                break ;
+                                etThread.traceF( tinP , T("disk or file error 126") ) ;
+                                POOPR
+                            {
+                            if( POOP )
+                            tinP.pEtScratch->diskFindFileOrDirF( tinP , pInfo , hFind , psttc1 , &pat ) ;
+                            SCOOPS
+                        {
+                        IFsCRATCH
                         ZE( infoFileS* , pInfo ) ;
                     {
                     do
@@ -328,7 +338,17 @@
                         {
                         if( !pInfo || !pInfo->psttIfoName )
 
-                        etThread.diskFindFileOrDirF( tinP , pInfo , hFind , psttc1 , &pat ) ;
+                        }
+                            }
+                                break ;
+                                etThread.traceF( tinP , T("disk or file error 334") ) ;
+                                POOPR
+                            {
+                            if( POOP )
+                            tinP.pEtScratch->diskFindFileOrDirF( tinP , pInfo , hFind , psttc1 , &pat ) ;
+                            SCOOPS
+                        {
+                        IFsCRATCH
                         ZE( infoFileS* , pInfo ) ;
                     {
                     do
@@ -650,7 +670,17 @@
                                 {
                                 if( !pInfo || !pInfo->psttIfoName )
 
-                                etThread.diskFindFileOrDirF( tinP , pInfo , hFind , psttc1 ) ;
+                                }
+                                    }
+                                        break ;
+                                        etThread.traceF( tinP , T("disk or file error 656") ) ;
+                                        POOPR
+                                    {
+                                    if( POOP )
+                                    tinP.pEtScratch->diskFindFileOrDirF( tinP , pInfo , hFind , psttc1 ) ;
+                                    SCOOPS
+                                {
+                                IFsCRATCH
                                 ZE( infoFileS* , pInfo ) ;
                             {
                             do
@@ -675,7 +705,17 @@
                                 {
                                 if( !pInfo || !pInfo->psttIfoName )
 
-                                etThread.diskFindFileOrDirF( tinP , pInfo , hFind , psttc1 , &pat ) ;
+                                }
+                                    }
+                                        break ;
+                                        etThread.traceF( tinP , T("disk or file error 681") ) ;
+                                        POOPR
+                                    {
+                                    if( POOP )
+                                    tinP.pEtScratch->diskFindFileOrDirF( tinP , pInfo , hFind , psttc1 , &pat ) ;
+                                    SCOOPS
+                                {
+                                IFsCRATCH
                                 ZE( infoFileS* , pInfo ) ;
                             {
                             do
@@ -1288,7 +1328,17 @@
                         {
                         if( !pInfo || !pInfo->psttIfoName )
 
-                        etThread.diskFindFileOrDirF( tinP , pInfo , hFind , psttc1 , &pat ) ;
+                        }
+                            }
+                                break ;
+                                etThread.traceF( tinP , T("disk or file error 1294") ) ;
+                                POOPR
+                            {
+                            if( POOP )
+                            tinP.pEtScratch->diskFindFileOrDirF( tinP , pInfo , hFind , psttc1 , &pat ) ;
+                            SCOOPS
+                        {
+                        IFsCRATCH
                         ZE( infoFileS* , pInfo ) ;
                     {
                     do
@@ -1710,7 +1760,17 @@
                     {
                     if( !pInfo || !pInfo->psttIfoName )
 
-                    etThread.diskFindFileOrDirF( tinP , pInfo , hFind , psttc1 , &pat ) ;
+                    }
+                        }
+                            break ;
+                            etThread.traceF( tinP , T("disk or file error 1714") ) ;
+                            POOPR
+                        {
+                        if( POOP )
+                        tinP.pEtScratch->diskFindFileOrDirF( tinP , pInfo , hFind , psttc1 , &pat ) ;
+                        SCOOPS
+                    {
+                    IFsCRATCH
                     ZE( infoFileS* , pInfo ) ;
 
                     etThread.traceF( tinP , T(" inspecting folder:    ")+T(psttc1) ) ;
@@ -1880,6 +1940,7 @@
                         }
                             if( POOP ) { POOPRqUIET }
                             tinP.pEtScratch->diskFileOrDirDeleteF( tinP , pInfo->psttIfoName , flFILEoRdIRdELETE_null , 1 ) ;
+                            SCOOPS
                         {
                         IFsCRATCH
                     {
@@ -1896,15 +1957,19 @@
                     break ;
                     DEL( pInfo ) ;
                 {
-                else if( !pInfo || !pInfo->psttIfoName )
-                }
-                    break ;
-                    etThread.traceF( tinP , T("disk or file error 1633") ) ;
-                    POOPR
-                {
-                if( POOP )
+                if( !pInfo || !pInfo->psttIfoName )
 
-                etThread.diskFindFileOrDirF( tinP , pInfo , hFind , psttc1 , &pat ) ;
+                }
+                    }
+                        break ;
+                        etThread.traceF( tinP , T("disk or file error 1633") ) ;
+                        POOPR
+                    {
+                    if( POOP )
+                    tinP.pEtScratch->diskFindFileOrDirF( tinP , pInfo , hFind , psttc1 , &pat ) ;
+                    SCOOPS
+                {
+                IFsCRATCH
                 ZE( infoFileS* , pInfo ) ;
             {
             do
