@@ -24,7 +24,7 @@
                     //LOGrAW5( "set process mask [idAdamRoot,maskp]:    " , processGlobal1I.idAdamRoot , "    " , myMaskPro , "\r\n" ) ;
                 {
                 if( SetProcessAffinityMask( GetCurrentProcess() , myMaskPro ) )
-                myMaskPro = (unsigned long)mask ;
+                myMaskPro = (unsigned long)mask ;   //ONLY HANDLES UP TO 02 PROCESSORS (IPDOS IS BUILT TO RUN IN 32 BIT MODE)
                 //LOGrAW5( "got process mask [idAdamRoot,maskp]:    " , processGlobal1I.idAdamRoot , "    " , myMaskPro , "\r\n" ) ;
             {
             if( GetProcessAffinityMask( GetCurrentProcess() , &myMaskPro , &myMaskSys ) )

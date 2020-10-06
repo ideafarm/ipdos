@@ -12,9 +12,13 @@ TELL( "cleaned up" ) ;
 }
     TELL( "cleaning up" ) ;
     }
+        etThread.osThreadSwitchingDesireF( tinP , idDesireOld ) ;
+
         TELL( "returned from ifcDrivenServerF" ) ;
         etThread.ifcDrivenServerF( tinP , i1 , i2 ) ;
         TELL( "calling ifcDrivenServerF" ) ;
+
+        countT idDesireOld = etThread.osThreadSwitchingDesireF( tinP , ifcTHREADpRIORITY_RUSH ) ;
 
         i1.time1idleTimeoutWrite = i1.time1idleTimeoutRead = SOCKETtIMEOUTdEFAULTwAN ; //RAW COMMAND SERVERS MUST REPLACE THIS WITH A LARGER VALUE; THIS VALUE ASSUMES WEB BROWSER ONLY NEEDS TO BURST ALL IMAGES FOR A PAGE AND WILL DO SO IMMEDIATELY
         //20190904@1529: RETIRED i1.time1idleTimeoutWrite = i1.time1idleTimeoutRead = TOCK * 0x40 ; //RAW COMMAND SERVERS MUST REPLACE THIS WITH A LARGER VALUE; THIS VALUE ASSUMES WEB BROWSER ONLY NEEDS TO BURST ALL IMAGES FOR A PAGE AND WILL DO SO IMMEDIATELY

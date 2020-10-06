@@ -603,8 +603,8 @@ class etherC
 {
     static int                  bPoop ;
 
-    DWORD                       flagsAffinityProcess ;
-    DWORD                       flagsAffinitySystem  ;
+    unsigned long               flagsAffinityProcess ;
+    unsigned long               flagsAffinitySystem  ;
     int                         cProcessors ;
     const char*                 postUser ;
 
@@ -4203,7 +4203,7 @@ postUser( 0 )
 
     int bOk = GetProcessAffinityMask( GetCurrentProcess() , &flagsAffinityProcess , &flagsAffinitySystem ) ;
 
-    int flags = flagsAffinityProcess ;
+    unsigned long flags = flagsAffinityProcess ; //WILL ONLY HANDLE UP TO 02 PROCESSORS
     while( flags )
     {
         if( flags & 1 ) cProcessors ++ ;

@@ -11,7 +11,6 @@
     traceF( tinP , T("-") ) ;
     traceF( tinP , T("osMakeHoverFileF /-") ) ;
 
-    __( bFail ) ;
     }
         batUpdate.ungrabF( tinP ) ;
         traceF( tinP , T("0") ) ;
@@ -201,7 +200,7 @@
                     //THIS SMUDGING OF MessageBoxExA DATES BACK TO THE MID 1990'S SO MIGHT NOT BE NEEDED ANY LONGER
 
                     if( pInfo->postImageName ) memCopyF( tinP , pInfo->postImageName , tName , tName.csF( tinP ) ) ; //U::WHY IS THIS 0 STARTING TODAY? 2002.12.26
-                    tName = T("ideafarm.")+TF3(idCopy,flFORMAT_UNSIGNED|flFORMAT_FILLzE|flFORMAT_FOREIGN,8) + ( pInfo->bDll?T(".ipdos-wd") : T(".ipdos-we") ) ;
+                    tName = T("ideafarm.")+TF3(idCopy,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE|flFORMAT_FOREIGN,8) + ( pInfo->bDll?T(".ipdos-wd") : T(".ipdos-we") ) ;
                     TN( tName , "" ) ;
                     traceF( tinP , T("osMakeHoverFileF / patching copy / 8") ) ;
                 {
@@ -302,7 +301,7 @@
                                         delF( tinP , psttw2 ) ;
                                         countT costDll = strMakeF( tinP , postDll , psttw2 ) ; ___( postDll ) ;
                                         ZE( osTextT* , postDll ) ;
-                                        strMakeF( tinP , psttw2 , T("ideafarm.")+TF3(idCopy,flFORMAT_UNSIGNED|flFORMAT_FILLzE|flFORMAT_FOREIGN,8)+T(".ipdos-wd") ) ; ___( psttw2 ) ;
+                                        strMakeF( tinP , psttw2 , T("ideafarm.")+TF3(idCopy,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE|flFORMAT_FOREIGN,8)+T(".ipdos-wd") ) ; ___( psttw2 ) ;
                                         ZE( strokeS* , psttw2 ) ;
                                         traceF( tinP , T("x") ) ;
                                     {
@@ -349,24 +348,20 @@
             ZE( imageExeDllC* , pInfo ) ;
             ZE( boolT , bModified ) ;
         {
-        else
-        }
-            bFail = 1 ;
-            POOPR ;
-        {
-        if( POOP )
+        if( !POOP )
 
         THREADmODE1rESTORE
         traceF( tinP , T("H") ) ;
         traceF( tinP , T("osMakeHoverFileF / read    master into memory [cbm]: ")+TF2(cbm,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
         boxGetShadowF( tinP , pbm , cbm , tMaster , 1 ) ; ___( pbm ) ;
-        traceF( tinP , T("osMakeHoverFileF / reading master into memory") ) ;
+        traceF( tinP , tMaster ) ;
+        traceF( tinP , T("osMakeHoverFileF / reading master into memory [tMaster]:") ) ;
         traceF( tinP , T("I") ) ;
         THREADmODE1oN( flTHREADmODE1_ALLOWsTOPwHILEgRABBING )
         ZE( countT , cbm ) ;
         ZE( byteT* , pbm ) ;
 
-        TN( tMaster , "" ) ; tMaster = T("///ideafarm/ephemeral/domains/com/ideafarm/city/park/exedll/1/master/ideafarm.")+TF3(cNameP,flFORMAT_UNSIGNED|flFORMAT_FILLzE|flFORMAT_FOREIGN,8)+T(".ipdos-wm") ;
+        TN( tMaster , "" ) ; tMaster = T("///ideafarm/ephemeral/domains/com/ideafarm/city/park/exedll/1/master/ideafarm.")+TF3(cNameP,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE|flFORMAT_FOREIGN,8)+T(".ipdos-wm") ;
         traceF( tinP , T("K") ) ;
 
         }
@@ -395,7 +390,6 @@
         batonC batUpdate( tinP , TAG( TAGiDnULL ) , T("ifc.update") , ifcIDgRABlAYER_7BASEmISC1 , flBATONc_NOTjEALOUS | flBATONc_SHARElAYER ) ;
         traceF( tinP , T("V") ) ;
     {
-    ZE( boolT , bFail ) ;
 
     traceF( tinP , T("osMakeHoverFileF /+") ) ;
 
