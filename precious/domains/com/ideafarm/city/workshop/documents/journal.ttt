@@ -8821,6 +8821,10 @@ I have other business to attend to today and tomorrow, but plan to continue to w
 
 
 
+
+
+
+  !subjob C: always-on performance auditing
   !subjob C: always-on where reporting for ipdos process
    decision: thrust direction: performance glass walls and performance results
   think
@@ -8841,28 +8845,24 @@ I have other business to attend to today and tomorrow, but plan to continue to w
 
 
 
-   i can also use this to develop the where report to separate by phase
-   let's use the current dut (factory1) as a testbed to study where i am spending time
-   pending: ifcIDpHASEaDAM_ constants have been expanded, and full header refresh build is pending
-   quick and dirty, using existing where system
+
+
+
+
+   can i get a thread's cpu cycle consumption?
+  look
+   this data would be written to a booksC instance dedicated for this purpose, one instance per process
+   the idea here is to, for each thread, monitor current time and cpu cycles consumed for that thread
   think
+   minimal overhead so can be always on
+   performance data from very beginning to very end of a process's life
+  wish
  playcraft
- objective: glass walls performance
-!subjob C: always-on where reporting for ipdos process
+ objective: glass walls
+!subjob C: always-on performance auditing
 
 
 
-
-
-
-
-   can i reproduce this running cloak alone at command prompt?
-  plan
-   alt: slash n squeeze
-  think
- playcraft
- changed: ?
-!job B: factory1 is very slow (see Process Explorer display) when service is just starting (only cloak)
 
 
 
@@ -8890,21 +8890,11 @@ I have other business to attend to today and tomorrow, but plan to continue to w
 
 
   
-   conj: cnr if rude priority when /deadman is requested: 
-  think
- playcraft
- objective: eliminate false positives
-!subjob C: rude priority for /deadman
 
 
 
 
 
-
-  next: set up dut factory1 http and wdw step through tmcHttpServerF for archive file
- playcraft
- changed: logic
-!job B: http not serving from archive
 
 
 
@@ -9448,36 +9438,6 @@ I have other business to attend to today and tomorrow, but plan to continue to w
 
 
 
-
-
-
-
-
-
-  then set up dut factory2 on bench
-  install factory1
- playcraft
- changed: all memory from factory2 installed on factory1
-!job B: identify which of the 12 Crucial memory sticks is bad
-
-
-   installing all memory from factory2: cnr runs noticeably faster
-   task manager reported 10 of 12 slots used, but all 12 slots were populated
-  see
-   experiment: remove half then remove other half; same speed?: 
-   has 10 sticks of 2 GB each
-  think
- playcraft
- changed: conj: bad memory stick
-!job B: factory1 is very slow executing
-
-
-
-
-
-
-
-
    stay on top of email and legal procedure reactively
    "summer vacation" mentally
    speak with sign
@@ -9524,6 +9484,54 @@ I have other business to attend to today and tomorrow, but plan to continue to w
 =========================================================================================================================================================
 
 
+  nawwh
+   i can also use this to develop the where report to separate by phase
+   let's use the current dut (factory1) as a testbed to study where i am spending time
+   pending: ifcIDpHASEaDAM_ constants have been expanded, and full header refresh build is pending
+   quick and dirty, using existing where system
+  think
+ playcraft
+ objective: glass walls performance
+!subjob C: always-on where reporting for ipdos process
+  cool ; found wo
+   can i reproduce this running cloak alone at command prompt?
+  plan
+   alt: slash n squeeze
+  think
+ playcraft
+ changed: ?
+!job B: factory1 is very slow (see Process Explorer display) when service is just starting (only cloak)
+  cool ; found wo
+  set up dut
+ playcraft
+ changed: ?
+!job B: http does not serve from archive
+   conj: cnr if rude priority when /deadman is requested: 
+  think
+ playcraft
+ objective: eliminate false positives
+!subjob C: rude priority for /deadman
+  cool ; found wo
+  set up dut factory1 http and wdw step through tmcHttpServerF for archive file
+ playcraft
+ changed: logic
+!job B: http not serving from archive
+  all 12 are working in factory2
+  then set up dut factory2 on bench
+  install factory1
+ playcraft
+ changed: all memory from factory2 installed on factory1
+!job B: identify which of the 12 Crucial memory sticks is bad
+  cool ; it works
+   installing all memory from factory2: cnr runs noticeably faster
+   task manager reported 10 of 12 slots used, but all 12 slots were populated
+  see
+   experiment: remove half then remove other half; same speed?: 
+   has 10 sticks of 2 GB each
+  think
+ playcraft
+ changed: conj: bad memory stick
+!job B: factory1 is very slow executing
    osMakeHoverFileF is failing but oddly is calling POOPR
   see
      /*1*/voidT etherC::osMakeHoverFileF( tinS& tinP , const countT cNameP , const boolT bRawNameP )/*1*/
