@@ -5127,7 +5127,7 @@ it is illegal to refer to this symbol in the definition of an adam
 //20160523@2009: DISABLED TO GET MOST RAPID EXECUTION TO COLLECT FAILURE HISTORY FOR SERVER
 //20160525@0921: ENABLED TO MAXIMIZE GLASS WALLS
 
-#if defined( NEVERdEFINED )
+#if !defined( NEVERdEFINED )
 
     #define _IO_
 

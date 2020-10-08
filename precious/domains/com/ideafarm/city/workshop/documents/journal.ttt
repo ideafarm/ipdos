@@ -8849,7 +8849,22 @@ I have other business to attend to today and tomorrow, but plan to continue to w
 
 
 
-   can i get a thread's cpu cycle consumption?
+   
+
+    delta
+    lifi of instance
+   dt'or writes this delta cycle observation to a booksC instance
+   inOutC: each instance captures delta cycles
+  plan
+   an alt would be to emit data to a booksC
+   but having multiple _IO_ for a file would break that
+   i could allocate static memory to accumulate mean and variance for each
+   alt: emit observations of cpu consumption for each _IO_ frame
+   what would i do with it?
+   let's assume that i can really get each thread's cpu cycle usage in real time
+  think
+  !subjob C: play with thread cycle query
+   can i get a thread's cpu cycle consumption? yup
   look
    this data would be written to a booksC instance dedicated for this purpose, one instance per process
    the idea here is to, for each thread, monitor current time and cpu cycles consumed for that thread
@@ -8863,6 +8878,18 @@ I have other business to attend to today and tomorrow, but plan to continue to w
 
 
 
+
+
+
+
+   experiment: oo threads, wo running rude and wo running idle, that do the same work so should produce the same tick count
+  think
+  set up dut
+   the goal here is to verify that i'm really getting a useable tick count for each thread
+  think
+ playcraft
+ objective: confidence
+!subjob C: play with thread cycle query
 
 
 
