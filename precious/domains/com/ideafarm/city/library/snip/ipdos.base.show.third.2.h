@@ -1,32 +1,3 @@
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004db.flinoutframec BEGIN
-
-
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-// Respecting the rights of other people is an important part of empowering one another.
-//
-
-/*
-*/
-/**/
-/*1*//*flINoUTfRAMEc*//*1*/
-
-/*3*/
-#define flINoUTfRAMEc_TRACE            0xe00001ec
-/*3*/
-#define flINoUTfRAMEc_null    0xe00000ec
-
-
-//
-// Respecting the rights of other people is an important part of empowering one another.
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004db.flinoutframec END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004dc.ifcidformat BEGIN
 
 
@@ -307,6 +278,8 @@
 #define flTRACE_NOcONSOLE         0xe00010ee
 #define flTRACE_NOtELL            0xe00020ee
 #define flTRACE_LOOP              0xe00040ee
+#define flTRACE_HOMEeCHO          0xe00080ee
+#define flTRACE_ECHOoNLY          0xe00100ee
 /*3*/
 #define flTRACE_null    0xe00000ee
 
@@ -39953,7 +39926,6 @@ base class to make a derived class of objects easily contained by a stackC objec
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.doC : 1snip.15000115.doc END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.processGlobal3S : 1snip.150000e2.processglobal3s BEGIN
 
-
 //
 // Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
@@ -39993,6 +39965,7 @@ base class to make a derived class of objects easily contained by a stackC objec
     private :
 
     byteT pbBooksNoPuseFootTelemetry[     CBbOOKScnOpUSEbACK ] ;
+    byteT pbBooksNoPuseFootTraceHomeEcho[ CBbOOKScnOpUSEbACK ] ;
     byteT pbBooksNoPuseFootTrace[         CBbOOKScnOpUSEbACK ] ;
     byteT pbBooksNoPuseFootTraceDivert01[ CBbOOKScnOpUSEbACK ] ;
     byteT pbBooksNoPuseFootTraceDivert02[ CBbOOKScnOpUSEbACK ] ;
@@ -40050,6 +40023,7 @@ base class to make a derived class of objects easily contained by a stackC objec
     doC                                      do1 ;
     doC                                      do2 ;
     booksC                                   bksTelemetry ;
+    booksC                                   bksTraceHomeEcho ;
     booksC                                   bksTrace ;
 
     cryC                                     cry310 ;

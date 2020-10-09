@@ -1211,7 +1211,7 @@ DONEdRIVENsERVER( tmcHttpServerF )
                 }
                     }
                         bClose = 1 ;
-                        //etThread.traceF( tinP , T("tmcHttpServerF: could not write to socket 96 [nnPeer]:    ")+T(nnPeerP) , flTRACE_null , idTraceDivert ) ;
+                        if( bDeadman ) etThread.traceF( tinP , T("tmcHttpServerF: could not write to socket 96 [nnPeer]:    ")+T(nnPeerP) , flTRACE_HOMEeCHO , idTraceDivert ) ;
                         POOPRqUIET
                     {
                     if( POOP )
@@ -1226,14 +1226,14 @@ DONEdRIVENsERVER( tmcHttpServerF )
 
             }
                 else           pzCache->ungrabF( tinP ) ;
-                if( pzCached ) etThread.traceF( tinP , T("found in cache:    ")+T(pzCached->psttName) , flTRACE_null , idTraceDivert ) ;
+                if( pzCached ) etThread.traceF( tinP , T("found in cache:    ")+T(pzCached->psttName) , bDeadman ? flTRACE_HOMEeCHO : flTRACE_null , idTraceDivert ) ;
                 pzCached = (*pzCache)( tinP , tNameCache ) ;
                 pzCache->grabF( tinP , TAG( TAGiDnULL ) ) ;
             {
             if( pzCache && !bQuery )
             ZE( cachedS* , pzCached ) ;
 
-            etThread.traceF( tinP , TF3(meP.idPortF(tinP),flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,9)+T(nnPeerP)+T("    request:    \"")+T(psttName)+T("\"")+(psttQueryKV?T("    ")+T(psttQueryKV):T("")) , flTRACE_null , idTraceDivert ) ;
+            etThread.traceF( tinP , TF3(meP.idPortF(tinP),flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,9)+T(nnPeerP)+T("    request:    \"")+T(psttName)+T("\"")+(psttQueryKV?T("    ")+T(psttQueryKV):T("")) , bDeadman ? flTRACE_HOMEeCHO | flTRACE_ECHOoNLY : flTRACE_null , idTraceDivert ) ;
 
             ;
                             : ifcIDtRACEdIVERT_6
@@ -1288,6 +1288,7 @@ DONEdRIVENsERVER( tmcHttpServerF )
                 etThread.traceF( tinP , T("tmcHttpServerF / error: readRequestF failed") , flTRACE_null , ifcIDtRACEdIVERT_4 ) ;
                 etThread.traceF( tinP , T("tmcHttpServerF / error: readRequestF failed") , flTRACE_null , ifcIDtRACEdIVERT_3 ) ;
                 etThread.traceF( tinP , T("tmcHttpServerF / error: readRequestF failed") , flTRACE_null , ifcIDtRACEdIVERT_2 ) ;
+                if( bDeadman ) etThread.traceF( tinP , T("tmcHttpServerF / error: readRequestF failed") , flTRACE_HOMEeCHO | flTRACE_ECHOoNLY ) ;
                 //CS:CODEsYNC: 3300005b 3600212d
 
                 //}
@@ -1328,7 +1329,7 @@ DONEdRIVENsERVER( tmcHttpServerF )
             {
             if( bFail )
 
-            //etThread.traceF( tinP , T(psttName)+T(!bClose?"        connection will be kept open":"        CONNECTION WILL BE CLOSED") ) ;
+            if( bDeadman ) etThread.traceF( tinP , T(psttName)+T(!bClose?"        connection will be kept open":"        CONNECTION WILL BE CLOSED") , flTRACE_HOMEeCHO | flTRACE_ECHOoNLY ) ;
 
             etThread.osTimeNowF( tinP , timeStart1 , timeStart2 ) ;
             ZE( sCountT , timeStart2 ) ;
