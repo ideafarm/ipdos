@@ -1085,6 +1085,7 @@ DONEdRIVENsERVER( tmcHttpServerF )
                             etThread.strConvertToLowerCaseF( tinP , psttLower , psttName ) ; ___( psttLower ) ;
                             ZE( strokeS* , psttLower ) ;
                         {
+                        if( psttName )
                         TN( tContentType , "" ) ;
 
                         boolT bCacheThis = !pcLoHi[ 1 ] && pcLoHi[ 0 ] <= cbWindow ;
@@ -1276,7 +1277,7 @@ DONEdRIVENsERVER( tmcHttpServerF )
                 etThread.strConvertToLowerCaseF( tinP , psttLower , psttName ) ; ___( psttLower ) ;
                 ZE( strokeS* , psttLower ) ;
             {
-            if( !bDeadman )
+            if( !bDeadman && psttName )
             ZE( boolT , bFavIcon ) ;
 
             }
