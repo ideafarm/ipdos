@@ -8824,21 +8824,6 @@ I have other business to attend to today and tomorrow, but plan to continue to w
 
 
 
-  !subjob C: always-on performance auditing
-  !subjob C: always-on where reporting for ipdos process
-   decision: thrust direction: performance glass walls and performance results
-  think
-   decision: move development from factory1
-   try: wdw to run a null adam: sameo while running, then cnr
-   re-image boot drive from 20200910: sameo
-    suppress _IO_: 
-   appr: slash n squeeze until it is fast
-   alt: focus on build; wtf is it doing?
-   before embarking on a general glass walls performance enhancement, let's see if i can do quick and dirty glass walls to figure out what is slowing everything down
-  think
- playcraft
- changed: ?, but the change was sudden and unmistakeable
-!job B: everything is very fucking slow when ipdos is running
 
 
 
@@ -8882,6 +8867,8 @@ I have other business to attend to today and tomorrow, but plan to continue to w
 
 
 
+   numbers change a lot
+  see
    experiment: oo threads, wo running rude and wo running idle, that do the same work so should produce the same tick count
   think
   set up dut
@@ -9465,6 +9452,55 @@ I have other business to attend to today and tomorrow, but plan to continue to w
 
 
 
+
+
+
+  !subjob B: quick and dirty console trace to see which lifi account for many _IO_
+  !subjob C: execution trace booksC
+   wo or more of these are executed too frequently so are too costly
+   i recall adding a few _IO_ to improve nest information
+  think
+ playcraft
+ objective: glass walls without speed loss
+!job C: enable telemetry and _IO_ while avoiding slowdown
+
+
+
+   i will also be able to see the cpu usage associated with each _IO_ instance
+   this will document all cpu usage (including inOutC ct/dt)
+  think
+    cTicksNet       excluding inOutC ct/dt
+    cTicksGross     including inOutC ct/dt
+    idiFile
+    idLine
+    idThread
+    idProcess
+    idPhase
+    idAdam
+    idAdamRoot
+   record
+   it will be written by ~inOutC
+   this book will contain _IO_ event data
+  think
+ playcraft
+ objective: glass walls
+!subjob C: execution trace booksC
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
    stay on top of email and legal procedure reactively
    "summer vacation" mentally
    speak with sign
@@ -9511,6 +9547,57 @@ I have other business to attend to today and tomorrow, but plan to continue to w
 =========================================================================================================================================================
 
 
+  nawwh
+   conj: grabC instance is zombie that has already been deallocated from memory
+  think
+    grabC instance dt'or complaint that finger isn't expected value
+   36_      54_9
+  look
+ playcraft
+ changed: disabled _IO_ and telemetry
+!job B: blammo: BLAMMO at 63(200c5063) ct at 0(0) on thread tm1F**************************** BLAMMO ******************************
+  cool ; it works
+   | 
+   |     //_IO_
+   |     //SPEED OPTIMIZATION: THIS _IO_ WOULD HAVE THE # HIGHEST FREQUENCY OF CALLS
+   | 
+   | 
+   | 
+   |     1c867    inOutFrameC [idLine,idiFile]: 9d4 b0042063        4d9_        1241_9      done
+   |     1c84f    inOutFrameC [idLine,idiFile]: ca5 c0042063        5ac_                    done
+   |     11e8a    inOutFrameC [idLine,idiFile]: 5833 e4110053       3385_       13189_9     done
+   |     112f0    inOutFrameC [idLine,idiFile]: a6 30035063         6a_         106_9       done
+   |      8789    inOutFrameC [idLine,idiFile]: ff3 5002e063        3ff_        1023_9      done
+   |      7934    inOutFrameC [idLine,idiFile]: 779 23010063        977_        2423_9      done
+   |      758e    inOutFrameC [idLine,idiFile]: 73 800d0153         37_         55_9        done
+   | 
+  listing (top offenders)
+   245_     581_9
+   | 
+   | inOutFrameC [idLine,idiFile]: 542 d0010053
+   | 
+  listing
+ playcraft
+ changed: added _IO_
+!subjob B: quick and dirty console trace to see which lifi account for many _IO_
+   cnr when disable _IO_ and telemetry
+   cool ; found wo
+  see
+  !subjob C: always-on performance auditing
+  !subjob C: always-on where reporting for ipdos process
+   decision: thrust direction: performance glass walls and performance results
+  think
+   decision: move development from factory1
+   try: wdw to run a null adam: sameo while running, then cnr
+   re-image boot drive from 20200910: sameo
+    suppress _IO_: 
+   appr: slash n squeeze until it is fast
+   alt: focus on build; wtf is it doing?
+   before embarking on a general glass walls performance enhancement, let's see if i can do quick and dirty glass walls to figure out what is slowing everything down
+  think
+ playcraft
+ changed: ?, but the change was sudden and unmistakeable
+!job B: everything is very fucking slow when ipdos is running
   nawwh
    i can also use this to develop the where report to separate by phase
    let's use the current dut (factory1) as a testbed to study where i am spending time
