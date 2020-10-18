@@ -23630,7 +23630,7 @@ examples
         if( tinP.pEtScratch )                                                                           \
         {                                                                                               \
             SCOOPS                                                                                      \
-            if( POOP ) POOPRqUIET                                                                       \
+            if( POOP ) { BLAMMO ; }                                                                     \
         }                                                                                               \
                                                                                                         \
         if( !tinP.pEtScratch ) __1                                                                      \
@@ -29932,6 +29932,8 @@ can be used for sCountC as well as measureT and sCountT and countT
 #define flHOMEs_EXCEPTIONhASoCCURRED        0xe002008e
 #define flHOMEs_INoUTtRACE                  0xe004008e
 #define flHOMEs_KILLsELFiMMEDIATELY         0xe008008e
+#define flHOMEs_TRACEsILENCED               0xe010008e
+#define flHOMEs_TRACEnOdIVERT               0xe020008e
 /*3*/
 #define flHOMEs_null    0xe000008e
 

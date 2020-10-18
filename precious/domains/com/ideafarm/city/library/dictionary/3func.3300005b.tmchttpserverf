@@ -72,7 +72,7 @@ DONEdRIVENsERVER( tmcHttpServerF )
         }
             if( bClose ) break ;
 
-            etThread.traceF( tinP , T("accumulated time pending [nnPeer,time]:    ")+T(nnPeerP)+T("    ")+TT(timeTotalPending1,timeTotalPending2) , flTRACE_null , idTraceDivert ) ;
+            etThread.traceF( tinP , T("accumulated time pending [nnPeer,time]:    ")+T(nnPeerP)+T("    ")+TT(timeTotalPending1,timeTotalPending2) , flTRACE_FORCEnOsILENCE , idTraceDivert ) ;
             etThread.osTimeAddF(      tinP , timeTotalPending1 , timeTotalPending2 , timeElapsed1 , timeElapsed2 ) ;
             etThread.osTimeSubtractF( tinP , timeElapsed1 , timeElapsed2 , timeStart1 , timeStart2 ) ;
             etThread.osTimeNowF(      tinP , timeElapsed1 , timeElapsed2 ) ;
@@ -87,7 +87,7 @@ DONEdRIVENsERVER( tmcHttpServerF )
             etThread.delF( tinP , psttQueryKV ) ;
             }
                 }
-                    //etThread.traceF( tinP , TF3(meP.idPortF(tinP),flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,9)+T(nnPeerP)+T("    nonfile response has been written") , flTRACE_null , idTraceDivert ) ;
+                    etThread.traceF( tinP , TF3(meP.idPortF(tinP),flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,9)+T(nnPeerP)+T("    nonfile response has been written") , flTRACE_FORCEnOsILENCE , idTraceDivert ) ;
 
                     etThread.delF( tinP , psttKVReport ) ;
                     pswKV->freeNullsF( tinP ) ;
@@ -114,7 +114,10 @@ DONEdRIVENsERVER( tmcHttpServerF )
                         }
                             //U:: LATER, PURGE BY NUMBER OF PLATES, BY AGE, AND/OR BY SIZE
 
-                            pzCache->pushF( tinP , psttn , postsReply , costo , bTalkBody ? maxAgeMsNotFileTalkBody : maxAgeMsNotFileNotTalkBody , 1 ) ; // "1": "LENGTH PREFIXED, SO NEED TO USE POSTS( pb )"
+                            etThread.traceF( tinP , T("tmcHttpServerF: cached this reply [maxAge]:    ")+TF2(maxAge,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) , flTRACE_FORCEnOsILENCE , idTraceDivert ) ;
+
+                            pzCache->pushF( tinP , psttn , postsReply , costo , maxAge , 1 ) ; // "1": "LENGTH PREFIXED, SO NEED TO USE POSTS( pb )"
+                            countT maxAge = bDeadman ? maxAgeDeadman : bTalkBody ? maxAgeMsNotFileTalkBody : maxAgeMsNotFileNotTalkBody ;
                             boolT bTalkBody = psttName && !etThread.strCompareF( tinP , tSlashTalkBody , psttName ) ;
 
                             countT costo = COSTS( postsReply ) ;
@@ -126,7 +129,7 @@ DONEdRIVENsERVER( tmcHttpServerF )
                         }
                             }
                                 bClose = 1 ;
-                                //etThread.traceF( tinP , T("tmcHttpServerF: could not write to socket 109 [nnPeer]:    ")+T(nnPeerP) , flTRACE_null , idTraceDivert ) ;
+                                etThread.traceF( tinP , T("tmcHttpServerF: could not write to socket 109 [nnPeer]:    ")+T(nnPeerP) , flTRACE_FORCEnOsILENCE , idTraceDivert ) ;
                                 POOPRqUIET
                             {
                             if( POOP )
@@ -637,7 +640,7 @@ DONEdRIVENsERVER( tmcHttpServerF )
 
                                             }
                                                 }
-                                                    etThread.traceF( tinP , T("tmcHttpServerF: could not obtain socket my name 611") ) ;
+                                                    etThread.traceF( tinP , T("tmcHttpServerF: could not obtain socket my name 611") , flTRACE_FORCEnOsILENCE ) ;
                                                     POOPRqUIET
                                                 {
                                                 if( POOP )
@@ -770,7 +773,7 @@ DONEdRIVENsERVER( tmcHttpServerF )
 
                                             }
                                                 }
-                                                    etThread.traceF( tinP , T("tmcHttpServerF: could not obtain socket my name 734") ) ;
+                                                    etThread.traceF( tinP , T("tmcHttpServerF: could not obtain socket my name 734") , flTRACE_FORCEnOsILENCE ) ;
                                                     POOPRqUIET
                                                 {
                                                 if( POOP )
@@ -886,7 +889,15 @@ DONEdRIVENsERVER( tmcHttpServerF )
                         ZE( boolT , bDebugLog ) ;
                         TELL( "preparing to compile the reply" ) ;
                     {
-                    if( pStkBody && pStkBodyDynamic )
+                    else
+                    }
+                        etThread.traceF( tinP , T("tmcHttpServerF / error: recycler failure 2") , flTRACE_null , ifcIDtRACEdIVERT_6 ) ;
+                        etThread.traceF( tinP , T("tmcHttpServerF / error: recycler failure 2") , flTRACE_null , ifcIDtRACEdIVERT_5 ) ;
+                        etThread.traceF( tinP , T("tmcHttpServerF / error: recycler failure 2") , flTRACE_null , ifcIDtRACEdIVERT_4 ) ;
+                        etThread.traceF( tinP , T("tmcHttpServerF / error: recycler failure 2") , flTRACE_null , ifcIDtRACEdIVERT_3 ) ;
+                        etThread.traceF( tinP , T("tmcHttpServerF / error: recycler failure 2") , flTRACE_FORCEnOsILENCE , ifcIDtRACEdIVERT_2 ) ;
+                    {
+                    if( !pStkBody || !pStkBodyDynamic )
 
                     etThread( tinP , pStkBodyDynamic , TAG( TAGiDnULL ) , flSTACKc_BLOB | flSTACKc_ALLOWzE | flSTACKc_FIFO | flSTACKc_DOnOTsERIALIZE | flSTACKc_ALLOWmULTIPLEuNSERIALIZED | flSTACKc_XRAY , sizeof( pbRefC ) ) ;
                     ZE( stackC* , pStkBodyDynamic ) ;
@@ -993,11 +1004,11 @@ DONEdRIVENsERVER( tmcHttpServerF )
                     //const boolT bDebug = 1 ;
                     //const boolT bDebug = psttName && !etThread.strCompareF( tinP , psttName , T("/nobot/action/myaccount.html") ) ;
 
-                    //etThread.traceF( tinP , TF3(meP.idPortF(tinP),flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,9)+T(nnPeerP)+T("    preparing nonfile response") , flTRACE_null , idTraceDivert ) ;
+                    etThread.traceF( tinP , TF3(meP.idPortF(tinP),flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,9)+T(nnPeerP)+T("    preparing nonfile response") , flTRACE_FORCEnOsILENCE , idTraceDivert ) ;
                 {
                 else
                 }
-                    //if( bClose ) etThread.traceF( tinP , TF3(meP.idPortF(tinP),flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,9)+T(nnPeerP)+T("    closing connection") , flTRACE_null , idTraceDivert ) ;
+                    if( bClose ) etThread.traceF( tinP , TF3(meP.idPortF(tinP),flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,9)+T(nnPeerP)+T("    closing connection") , flTRACE_FORCEnOsILENCE , idTraceDivert ) ;
 
                     }
                         DEL( pFW ) ;
@@ -1029,12 +1040,12 @@ DONEdRIVENsERVER( tmcHttpServerF )
                                 {
                                 if( bCacheThis )
 
-                                //etThread.traceF( tinP , TF3(meP.idPortF(tinP),flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,9)+T(nnPeerP)+T("    wrote   file window [cbw]:    ")+TF2(cbw,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) , flTRACE_null , idTraceDivert ) ;
+                                etThread.traceF( tinP , TF3(meP.idPortF(tinP),flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,9)+T(nnPeerP)+T("    wrote   file window [cbw]:    ")+TF2(cbw,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) , flTRACE_FORCEnOsILENCE , idTraceDivert ) ;
 
                                 }
                                     }
                                         bClose = 1 ;
-                                        //etThread.traceF( tinP , T("tmcHttpServerF: could not write to socket 965") , flTRACE_null , idTraceDivert ) ;
+                                        etThread.traceF( tinP , T("tmcHttpServerF: could not write to socket 965") , flTRACE_FORCEnOsILENCE , idTraceDivert ) ;
                                         POOPRqUIET
                                     {
                                     if( POOP )
@@ -1043,12 +1054,12 @@ DONEdRIVENsERVER( tmcHttpServerF )
                                 {
                                 IFsCRATCH
 
-                                //etThread.traceF( tinP , TF3(meP.idPortF(tinP),flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,9)+T(nnPeerP)+T("    writing file window [cbw]:    ")+TF2(cbw,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) , flTRACE_null , idTraceDivert ) ;
+                                etThread.traceF( tinP , TF3(meP.idPortF(tinP),flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,9)+T(nnPeerP)+T("    writing file window [cbw]:    ")+TF2(cbw,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) , flTRACE_FORCEnOsILENCE , idTraceDivert ) ;
                             {
                             else
                             }
                                 break ;
-                                //etThread.traceF( tinP , TF3(meP.idPortF(tinP),flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,9)+T(nnPeerP)+T("    all file windows have been written") , flTRACE_null , idTraceDivert ) ;
+                                etThread.traceF( tinP , TF3(meP.idPortF(tinP),flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,9)+T(nnPeerP)+T("    all file windows have been written") , flTRACE_FORCEnOsILENCE , idTraceDivert ) ;
                             {
                             if( !pbw || !cbw )
 
@@ -1061,7 +1072,7 @@ DONEdRIVENsERVER( tmcHttpServerF )
                         }
                             }
                                 bClose = 1 ;
-                                //etThread.traceF( tinP , T("tmcHttpServerF: could not write to socket 980") , flTRACE_null , idTraceDivert ) ;
+                                etThread.traceF( tinP , T("tmcHttpServerF: could not write to socket 980") , flTRACE_FORCEnOsILENCE , idTraceDivert ) ;
                                 POOPRqUIET
                             {
                             if( POOP )
@@ -1094,13 +1105,13 @@ DONEdRIVENsERVER( tmcHttpServerF )
 
                         sCountC cbBody( tinP , etThread , pcLoHi , SC << 1 ) ;
                         countT pcLoHi[] = { pFW->cbFileLoF() , pFW->cbFileHiF() } ;
-                        //etThread.traceF( tinP , TF3(meP.idPortF(tinP),flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,9)+T(nnPeerP)+T("    serving file [cbFileLo,cbFileHi]:    ")+TF3(pFW->cbFileLoF(),flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,9)+TF3(pFW->cbFileHiF(),flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,9) ) ;
+                        etThread.traceF( tinP , TF3(meP.idPortF(tinP),flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,9)+T(nnPeerP)+T("    serving file [cbFileLo,cbFileHi]:    ")+TF3(pFW->cbFileLoF(),flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,9)+TF3(pFW->cbFileHiF(),flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,9) ) ;
                     {
                     else
                     }
                         }
                             }
-                                //etThread.traceF( tinP , T("tmcHttpServerF: could not write to socket 1004") , flTRACE_null , idTraceDivert ) ;
+                                etThread.traceF( tinP , T("tmcHttpServerF: could not write to socket 1004") , flTRACE_FORCEnOsILENCE , idTraceDivert ) ;
                                 POOPRqUIET
                             {
                             if( POOP )
@@ -1114,7 +1125,7 @@ DONEdRIVENsERVER( tmcHttpServerF )
                         TN( tBody , "The page (or other resource) that you requested does not exist here.\r\n\r\nIf you think that this is our error, please let us know.\r\n" ) ;
 
                         }
-                            etThread.traceF( tinP , TF3(meP.idPortF(tinP),flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,9)+T(nnPeerP)+T("    error: could not open file:    ")+*pptFileIn[offf] , flTRACE_null , idTraceDivert ) ;
+                            etThread.traceF( tinP , TF3(meP.idPortF(tinP),flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,9)+T(nnPeerP)+T("    error: could not open file:    ")+*pptFileIn[offf] , flTRACE_FORCEnOsILENCE , idTraceDivert ) ;
                         {
                         for( countT offf = 0 ; offf < sizeof pptFileIn / sizeof pptFileIn[ 0 ] ; offf ++ )
                     {
@@ -1135,7 +1146,7 @@ DONEdRIVENsERVER( tmcHttpServerF )
                             SCOOPS
                         {
                         IFsCRATCH
-                        //etThread.traceF( tinP , TF3(meP.idPortF(tinP),flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,9)+T(nnPeerP)+T("    attempting to open file:    ")+*pptFileIn[offf] , flTRACE_null , idTraceDivert ) ;
+                        etThread.traceF( tinP , TF3(meP.idPortF(tinP),flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,9)+T(nnPeerP)+T("    attempting to open file:    ")+*pptFileIn[offf] , flTRACE_FORCEnOsILENCE , idTraceDivert ) ;
                     {
                     for( countT offf = 0 ; offf < sizeof pptFileIn / sizeof pptFileIn[ 0 ] ; offf ++ )
 
@@ -1156,7 +1167,7 @@ DONEdRIVENsERVER( tmcHttpServerF )
                 {
                 else if( bFile )
                 }
-                    //if( bClose ) etThread.traceF( tinP , TF3(meP.idPortF(tinP),flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,9)+T(nnPeerP)+T("    closing connection") , flTRACE_null , idTraceDivert ) ;
+                    if( bClose ) etThread.traceF( tinP , TF3(meP.idPortF(tinP),flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,9)+T(nnPeerP)+T("    closing connection") , flTRACE_FORCEnOsILENCE , idTraceDivert ) ;
 
                     etThread.delF( tinP , pbIcon ) ;
 
@@ -1184,7 +1195,7 @@ DONEdRIVENsERVER( tmcHttpServerF )
                     }
                         }
                             bClose = 1 ;
-                            //etThread.traceF( tinP , T("tmcHttpServerF: could not write to socket 980") , flTRACE_null , idTraceDivert ) ;
+                            etThread.traceF( tinP , T("tmcHttpServerF: could not write to socket 980") , flTRACE_FORCEnOsILENCE , idTraceDivert ) ;
                             POOPRqUIET
                         {
                         if( POOP )
@@ -1211,10 +1222,14 @@ DONEdRIVENsERVER( tmcHttpServerF )
                 }
                     }
                         bClose = 1 ;
-                        if( bDeadman ) etThread.traceF( tinP , T("tmcHttpServerF: could not write to socket 96 [nnPeer]:    ")+T(nnPeerP) , flTRACE_HOMEeCHO , idTraceDivert ) ;
+                        if( bDeadman ) etThread.traceF( tinP , T("tmcHttpServerF: could not write to socket 96 [nnPeer]:    ")+T(nnPeerP) , flTRACE_HOMEeCHO | flTRACE_FORCEnOsILENCE , idTraceDivert ) ;
                         POOPRqUIET
                     {
-                    if( POOP )
+                    else
+                    }
+                        etThread.traceF( tinP , T("tmcHttpServerF: wrote reply from cache") , flTRACE_HOMEeCHO | flTRACE_FORCEnOsILENCE , idTraceDivert ) ;
+                    {
+                    if( !POOP )
                     else                 psoP->writeF( tinP ,        pzCached->pbBlob   ,        pzCached->cbBlob   ) ;
                     if( pzCached->cArg ) psoP->writeF( tinP , POSTS( pzCached->pbBlob ) , COSTS( pzCached->pbBlob ) ) ;
                     SCOOPS
@@ -1225,15 +1240,19 @@ DONEdRIVENsERVER( tmcHttpServerF )
             if( pzCached )
 
             }
-                else           pzCache->ungrabF( tinP ) ;
-                if( pzCached ) etThread.traceF( tinP , T("found in cache:    ")+T(pzCached->psttName) , bDeadman ? flTRACE_HOMEeCHO : flTRACE_null , idTraceDivert ) ;
+                }
+                    etThread.traceF( tinP , T("NOT found in cache:    ")+tNameCache , bDeadman ? flTRACE_HOMEeCHO | flTRACE_FORCEnOsILENCE : flTRACE_FORCEnOsILENCE , idTraceDivert ) ;
+                    pzCache->ungrabF( tinP ) ;
+                {
+                else
+                if( pzCached ) etThread.traceF( tinP , T("found in cache:    ")+tNameCache , bDeadman ? flTRACE_HOMEeCHO | flTRACE_FORCEnOsILENCE : flTRACE_FORCEnOsILENCE , idTraceDivert ) ;
                 pzCached = (*pzCache)( tinP , tNameCache ) ;
                 pzCache->grabF( tinP , TAG( TAGiDnULL ) ) ;
             {
             if( pzCache && !bQuery )
             ZE( cachedS* , pzCached ) ;
 
-            etThread.traceF( tinP , TF3(meP.idPortF(tinP),flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,9)+T(nnPeerP)+T("    request:    \"")+T(psttName)+T("\"")+(psttQueryKV?T("    ")+T(psttQueryKV):T("")) , bDeadman ? flTRACE_HOMEeCHO | flTRACE_ECHOoNLY : flTRACE_null , idTraceDivert ) ;
+            etThread.traceF( tinP , TF3(meP.idPortF(tinP),flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,9)+T(nnPeerP)+T("    request:    \"")+T(psttName)+T("\"")+(psttQueryKV?T("    ")+T(psttQueryKV):T("")) , bDeadman ? flTRACE_HOMEeCHO | flTRACE_FORCEnOsILENCE | flTRACE_ECHOoNLY : flTRACE_FORCEnOsILENCE , idTraceDivert ) ;
 
             ;
                             : ifcIDtRACEdIVERT_6
@@ -1287,8 +1306,8 @@ DONEdRIVENsERVER( tmcHttpServerF )
                 etThread.traceF( tinP , T("tmcHttpServerF / error: readRequestF failed") , flTRACE_null , ifcIDtRACEdIVERT_5 ) ;
                 etThread.traceF( tinP , T("tmcHttpServerF / error: readRequestF failed") , flTRACE_null , ifcIDtRACEdIVERT_4 ) ;
                 etThread.traceF( tinP , T("tmcHttpServerF / error: readRequestF failed") , flTRACE_null , ifcIDtRACEdIVERT_3 ) ;
-                etThread.traceF( tinP , T("tmcHttpServerF / error: readRequestF failed") , flTRACE_null , ifcIDtRACEdIVERT_2 ) ;
-                if( bDeadman ) etThread.traceF( tinP , T("tmcHttpServerF / error: readRequestF failed") , flTRACE_HOMEeCHO | flTRACE_ECHOoNLY ) ;
+                etThread.traceF( tinP , T("tmcHttpServerF / error: readRequestF failed") , flTRACE_FORCEnOsILENCE , ifcIDtRACEdIVERT_2 ) ;
+                if( bDeadman ) etThread.traceF( tinP , T("tmcHttpServerF / error: readRequestF failed") , flTRACE_HOMEeCHO | flTRACE_FORCEnOsILENCE | flTRACE_ECHOoNLY ) ;
                 //CS:CODEsYNC: 3300005b 3600212d
 
                 //}
@@ -1329,7 +1348,7 @@ DONEdRIVENsERVER( tmcHttpServerF )
             {
             if( bFail )
 
-            if( bDeadman ) etThread.traceF( tinP , T(psttName)+T(!bClose?"        connection will be kept open":"        CONNECTION WILL BE CLOSED") , flTRACE_HOMEeCHO | flTRACE_ECHOoNLY ) ;
+            if( bDeadman ) etThread.traceF( tinP , T(psttName)+T(!bClose?"        connection will be kept open":"        CONNECTION WILL BE CLOSED") , flTRACE_HOMEeCHO | flTRACE_FORCEnOsILENCE | flTRACE_ECHOoNLY ) ;
 
             etThread.osTimeNowF( tinP , timeStart1 , timeStart2 ) ;
             ZE( sCountT , timeStart2 ) ;
@@ -1338,6 +1357,7 @@ DONEdRIVENsERVER( tmcHttpServerF )
             }
                 else if( bQuery ) tNameCache += tQuest+T(psttQueryKV) ; // DEADMAN QUERY IS SUPPRESSED BECAUSE ITS ONLY FUNCTION IS TO UNIQUELY IDENTIFY THE DEADMAN REQUEST
                 }
+                    bQuery = 0 ; //THE QUERY ON /deadman IS ONLY FOR DEBUGGING / TRACING PURPOSES
                     bClose = 1 ; //O:OPTIMIZATION
                     idDesireOld = etThread.osThreadSwitchingDesireF( tinP , ifcTHREADpRIORITY_RUDE ) ;      // DEADMAN TESTS ARE TO DETECT THAT I AM DEAD, NOT THAT I AM OVERWHELMED
                 {
@@ -1348,7 +1368,7 @@ DONEdRIVENsERVER( tmcHttpServerF )
             TN( tNameCache , psttName ) ;
             ZE( countT , idDesireOld ) ;
             ZE( boolT , bDeadman ) ;
-            const boolT bQuery = psttQueryKV && psttQueryKV->idAdam ;
+            boolT bQuery = psttQueryKV && psttQueryKV->idAdam ;
 
             // LAZY   : CONSTRUCTING AND SERVING NONCACHED RESPONSES
             // NORMAL : GENERAL SERVER WORKLOAD
@@ -1374,6 +1394,7 @@ DONEdRIVENsERVER( tmcHttpServerF )
         const countT maxAgeMsNotFileTalkBody    = etThread.osTimeToOldTimeMsF( tinP , TOCK << 2 ) ;
         const countT maxAgeMsFile               = etThread.osTimeToOldTimeMsF( tinP , TICK << 4 ) ;
         const countT maxAgeMsFileFavIcon        = etThread.osTimeToOldTimeMsF( tinP , - 1       ) ;
+        const countT maxAgeDeadman              = etThread.osTimeToOldTimeMsF( tinP , - 1       ) ;
         ZE( sCountT , timeTotalPending2 ) ;
         ZE( countT  , timeTotalPending1 ) ;
         TN( tFileFavIcon     , "///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/7reso.71000002.favicon.ico" ) ;
@@ -1404,7 +1425,7 @@ DONEdRIVENsERVER( tmcHttpServerF )
         etThread.traceF( tinP , T("tmcHttpServerF / error: recycler failure") , flTRACE_null , ifcIDtRACEdIVERT_5 ) ;
         etThread.traceF( tinP , T("tmcHttpServerF / error: recycler failure") , flTRACE_null , ifcIDtRACEdIVERT_4 ) ;
         etThread.traceF( tinP , T("tmcHttpServerF / error: recycler failure") , flTRACE_null , ifcIDtRACEdIVERT_3 ) ;
-        etThread.traceF( tinP , T("tmcHttpServerF / error: recycler failure") , flTRACE_null , ifcIDtRACEdIVERT_2 ) ;
+        etThread.traceF( tinP , T("tmcHttpServerF / error: recycler failure") , flTRACE_FORCEnOsILENCE , ifcIDtRACEdIVERT_2 ) ;
         //CS:CODEsYNC: 3300005b 3600212d
     {
     if( !pswKV || !pswTally )

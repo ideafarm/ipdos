@@ -280,6 +280,8 @@
 #define flTRACE_LOOP              0xe00040ee
 #define flTRACE_HOMEeCHO          0xe00080ee
 #define flTRACE_ECHOoNLY          0xe00100ee
+#define flTRACE_FORCEdIVERT       0xe00200ee
+#define flTRACE_FORCEnOsILENCE    0xe00400ee
 /*3*/
 #define flTRACE_null    0xe00000ee
 

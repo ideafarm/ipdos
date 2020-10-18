@@ -28,7 +28,7 @@
                     if( F(flagsP) & flTRACE_HOMEeCHO )
 
                     }
-                        if( pBksUse )                                                                 pBksUse->writeF( tinP , ostoSay , 0 , 0 , 0 , flBOOKScwRITE_ALLoRnONE | flBOOKScwRITE_ALLOWoDDlENGTH ) ;
+                        if( pBksUse ) pBksUse->writeF( tinP , ostoSay , 0 , 0 , 0 , flBOOKScwRITE_ALLoRnONE | flBOOKScwRITE_ALLOWoDDlENGTH ) ;
 
                         }
                             }
@@ -53,7 +53,8 @@
                             case ifcIDtRACEdIVERT_1  : { pBksUse = &processGlobal3S::_processGlobal3I_IF().bksTraceDivert01 ; break ; }
                             case 0                   : { pBksUse = &processGlobal3S::_processGlobal3I_IF().bksTrace         ; break ; }
                         {
-                        switch( idDivertP )
+                        else switch( idDivertP )
+                        if( !bDivertOk ) pBksUse = &processGlobal3S::_processGlobal3I_IF().bksTrace ;
                         ZE( booksC* , pBksUse ) ;
                     {
                     if( !( F(flagsP) & flTRACE_ECHOoNLY ) )
@@ -222,8 +223,12 @@
         //LOGrAW( "\r\ntraceF: suppressing trace:  " ) ;
         //U:: ENHANCE TO POSTPONE BY WRITING TO A TEMPORARY BUFFER THAT IS FLUSHED BY booksC WHEN IT CAN DO SO
     {
-    if( F(thirdC::third_flagsModeAdam1I_IF(tinP)) & flADAMmODE1_NOtRACING || F(tinP.flagsThreadMode3) & flTHREADmODE3_SUPPRESStRACING )
+    if( !bTraceOk || F(thirdC::third_flagsModeAdam1I_IF(tinP)) & flADAMmODE1_NOtRACING || F(tinP.flagsThreadMode3) & flTHREADmODE3_SUPPRESStRACING )
     //if( !thirdC::c_strcmpIF( tinP , tinP.postThreadName , "tmGetIdHomeF" ) )
+
+    const boolT bDivertOk = F(flagsP) & flTRACE_FORCEdIVERT    || !( F(home.flags) & flHOMEs_TRACEnOdIVERT ) ;
+    const boolT bTraceOk  = F(flagsP) & flTRACE_FORCEnOsILENCE || !( F(home.flags) & flHOMEs_TRACEsILENCED ) ;
+    homeS& home = homeS::homeIF() ;
 {
 /*1*/voidT etherC::traceF( tinS& tinP , const strokeS* const psttP , const flagsT flagsP , const countT idDivertP )/*1*/
 

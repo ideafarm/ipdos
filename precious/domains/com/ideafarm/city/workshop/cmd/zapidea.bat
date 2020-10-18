@@ -53,6 +53,7 @@ cd           \%1\ephemeral\backed.up.daily\domains\com\ideafarm\ipdos\memorySpac
 if exist bkstelemetry.*          del bkstelemetry.*
 if exist bkstrace.*              del bkstrace.*
 if exist bksTraceDivert??.*      del bksTraceDivert??.*
+if exist bksTraceHomeEcho.*      del bksTraceHomeEcho.*
 if exist bktraceloop.*           del bktraceloop.*
 if exist bksword.*               del bksword.*
 if exist bkswords.*              del bkswords.*
