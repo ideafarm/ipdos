@@ -168,7 +168,7 @@
                                 sw_cSessionWithPeer.ungrabF( tinP ) ;
                                 ++ sw_cSessionWithPeer ;
                                 lever_nnPeer = nnPeer ;
-                                if( sw_cSessionWithPeer.cFlavorsF( tinP ) > 0x10/*U::INCREASE TO GIVE MORE PROTECTION AGAINST ATTACK*/ ) sw_cSessionWithPeer.freeAllF( tinP ) ;
+                                if( sw_cSessionWithPeer.cFlavorsF( tinP ) > TUCK ) sw_cSessionWithPeer.freeAllF( tinP ) ;
                                 sw_cSessionWithPeer.grabF( tinP , TAG( TAGiDnULL ) ) ;
 
                                 b_lever_idSession.ungrabF( tinP ) ;
@@ -194,11 +194,10 @@
 
                             sw_cSessionWithPeer.ungrabF( tinP ) ;
 
-                            //}
-                            //    //bSilent |= 1 ; //TO PREVENT WO PEER FROM OPENING MANY SESSIONS TO DOS ATTACK
-                            //    //LOGrAW( "setting bSilent because this client's session count is high" ) ;
-                            //{
-                            //if( 0x10 < sw_cSessionWithPeer )
+                            }
+                                bSilent |= 1 ; //TO PREVENT WO PEER FROM OPENING MANY SESSIONS TO DOS ATTACK
+                            {
+                            if( 0x10 < sw_cSessionWithPeer )
 
                             lever_nnPeer = nnPeer ;
                             sw_cSessionWithPeer.grabF( tinP , TAG( TAGiDnULL ) ) ;

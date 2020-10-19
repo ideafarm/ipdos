@@ -1376,6 +1376,7 @@ DONEdRIVENsERVER( tmcHttpServerF )
             // RUDE   : SERVING DEADMAN
             // SCHEDULING PRIORITY
 
+            if( ++ cRequests == 0x10 ) bClose = 1 ;     // ATTACK PREVENTION (IN CONJUNCTION WITH CONNECTION RATE LIMIT)
             ___( postBody ) ;
             ___( psttAgent ) ;
             ___( psttLeverKV ) ;
@@ -1390,6 +1391,7 @@ DONEdRIVENsERVER( tmcHttpServerF )
             TELL( "reading a request" ) ;
         {
         while( !etThread && !POOP )
+        ZE( countT , cRequests ) ;
         const countT maxAgeMsNotFileNotTalkBody = etThread.osTimeToOldTimeMsF( tinP , TICK << 4 ) ;
         const countT maxAgeMsNotFileTalkBody    = etThread.osTimeToOldTimeMsF( tinP , TOCK << 2 ) ;
         const countT maxAgeMsFile               = etThread.osTimeToOldTimeMsF( tinP , TICK << 4 ) ;
