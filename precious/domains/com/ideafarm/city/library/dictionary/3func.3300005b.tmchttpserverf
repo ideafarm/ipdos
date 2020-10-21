@@ -880,9 +880,17 @@ DONEdRIVENsERVER( tmcHttpServerF )
                             //bDebugLog = REPLY.idSnipHttpPrefix == ifcIDsNIPpREDEFINED_HTTPfAILmOVEDtEMP ; //U::
 
                             if( !pRefReply ) { BLAMMO ; }
-                            //else             { CONoUTrAW( "FOUND AOK\r\n" ) ; }
-                            if( !pRefReply ) { CONoUTrAW( "NOT FOUND so will try to obtain !nf\r\n" ) ; meP.getReplyF( tinP , pRefReply , T("!nf") ) ; ___( pRefReply ) ; }
-                            meP.getReplyF( tinP , pRefReply , psttName ) ; ___( pRefReply ) ;
+
+                            }
+                                meP.getReplyF( tinP , pRefReply , T("!nf") ) ; ___( pRefReply ) ;
+                                _IO_
+                            {
+                            if( !pRefReply )
+
+                            }
+                                meP.getReplyF( tinP , pRefReply , psttName ) ; ___( pRefReply ) ;
+                                _IO_
+                            {
                             ZE( httpReplySrefC* , pRefReply ) ;
                         {
                         ZE( osTextT* , postsReply ) ;
@@ -1377,6 +1385,13 @@ DONEdRIVENsERVER( tmcHttpServerF )
             // SCHEDULING PRIORITY
 
             if( ++ cRequests == 0x10 ) bClose = 1 ;     // ATTACK PREVENTION (IN CONJUNCTION WITH CONNECTION RATE LIMIT)
+
+            }
+                __NZ( psttName->idCaste - sc_PREFIXlENGTH ) ;  //U::20201021@1217: TO FIND A BUG: NULL CASTE DETECTED WITHIN getReplyF
+                __Z(  psttName->idCaste                   ) ;  //U::20201021@1217: TO FIND A BUG: NULL CASTE DETECTED WITHIN getReplyF
+            {
+            if( psttName )
+
             ___( postBody ) ;
             ___( psttAgent ) ;
             ___( psttLeverKV ) ;
