@@ -17,10 +17,20 @@
         if( !bFound ) PUSE( tinP , *(byteT**)&prP ) ;
         
         swReply.ungrabF( tinP ) ;
-        if( bFound ) new( 0 , tinP , (byteT*)prP , sizeof( httpReplySrefC ) ) httpReplySrefC( *(httpReplySrefC*)&(countT&)swReply ) ;
+        }
+            }
+                new( 0 , tinP , (byteT*)prP , sizeof( httpReplySrefC ) ) httpReplySrefC( reply ) ;
+                _IO_
+            {
+
+            httpReplySrefC& reply = *(httpReplySrefC*)&(countT&)swReply ;
+            _IO_
+        {        
+        if( bFound )
         boolT bFound = swReply.idSlotOfLeverF( tinP , (countT)psttUrlP ) ;
         psttLeverUrl = (strokeS*)psttUrlP ;
         swReply.grabF( tinP , TAG( TAGiDnULL ) ) ;
+        _IO_
     {
     if( !POOP )
 
