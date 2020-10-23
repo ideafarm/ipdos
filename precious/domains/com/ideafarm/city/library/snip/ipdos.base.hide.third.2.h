@@ -16025,8 +16025,8 @@ TASK0PROTO( tmRelayBlowTeatF ) ;
  flagsT       flags ;             //RESET WIPES BEGINNING HERE
  countT       idType ;    //GENERAL TYPE (E.G. IMPOTENCE , EXCEPTION)
  countT       idSubType ; //WHERE THE OLD rc CODES GO NOW; IS TESTED FOR 0 VS !0
-// countT       idLineGrunt ;
-// countT       idiFileGrunt ;
+ countT       idLineGrunt ;
+ countT       idiFileGrunt ;
 
  public :
 
