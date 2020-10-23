@@ -2336,7 +2336,7 @@ parameters
 /**/
 
 /*1*//*SCOOPO*//*1*/
-#define SCOOPO(objectP) scoopC scoop( tinP , (poopC&)(objectP) ) ;
+#define SCOOPO(objectP) scoopC scoop( tinP , LF , (poopC&)(objectP) ) ;
 
 
 //
@@ -5091,7 +5091,7 @@ use this rather than _ to avoid the overhead of _
         {                                                                                                                           \
             IFsCRATCH                                                                                                               \
             {                                                                                                                       \
-                scoopC* _pScoop = this != tinP.pEtScratch ? 0 : new( 0 , tinP , LF ) scoopC( tinP ) ; ___( _pScoop ) ;              \
+                scoopC* _pScoop = this != tinP.pEtScratch ? 0 : new( 0 , tinP , LF ) scoopC( tinP , LF ) ; ___( _pScoop ) ;         \
                                                                                                                                     \
                 /* CALLER'S WORK CODE */
 
@@ -16065,7 +16065,6 @@ TASK0PROTO( tmRelayBlowTeatF ) ;
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.poopC : 1snip.15000092.poopc END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.scoopC : 1snip.15000093.scoopc BEGIN
 
-
 //
 // Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
@@ -16080,6 +16079,9 @@ TASK0PROTO( tmRelayBlowTeatF ) ;
 /*1*/class _export scoopC /*1*/
 {
  const countT idSerial ;
+ const countT idLineCt ;
+ const countT idiFileCt ;
+ const flagsT flagsCt          ;
  const poopC* const pPoopSave ;
  etherC*      const pEtherSave ;           //U::20200907@1044: THIS IS A WORKAROUND TO A DESIGN ERROR.  tinS::pEther SHOULD BE ELIMINATED BECAUSE IT BREAKS THE IMPOTENCE/BACKOFF MODEL (IT CAN RESULT IN etThread BEING USED WHEN *tinP.pEtScratch SHOULD BE USED, I.E. WHERE THE MACRO SCOOPS IS USED)
 
@@ -16089,9 +16091,9 @@ TASK0PROTO( tmRelayBlowTeatF ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34001.scoopC.NEWdELcLASSuSEnORMALpOOLoLD!||
  ~scoopC( voidT ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34002.scoopC.dt_scoopC!||
- scoopC( tinS& tinP , const poopC& poopP , flagsT flagsP = flSCOOPc_null ) ;
+ scoopC( tinS& tinP , const countT idLineP , const countT idiFileP , const poopC& poopP , flagsT flagsP = flSCOOPc_null ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34003.scoopC.scoopC!||
- scoopC( tinS& tinP ) ;
+ scoopC( tinS& tinP , const countT idLineP , const countT idiFileP ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34004.scoopC.scoopC!||
 }
 ;

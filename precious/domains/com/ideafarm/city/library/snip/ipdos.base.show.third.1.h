@@ -2026,7 +2026,7 @@ it is illegal to refer to this symbol in the definition of an adam
             if( pEtThread && tinP.pEtScratch )                                                                              \
             {                                                                                                               \
                 etherC& etThread  = *pEtThread ;                                                                            \
-                tinP.pScoopEtThread = new( 0 , tinP , LF ) scoopC( tinP , etThread ) ; ___( tinP.pScoopEtThread  ) ;        \
+                tinP.pScoopEtThread = new( 0 , tinP , LF ) scoopC( tinP , LF , etThread ) ; ___( tinP.pScoopEtThread  ) ;   \
                                                                                                                             \
                 /*POPUP( TF1(tinP.monitor.idThread)+T(" ")+T(tinP.postThreadName)+T("\r\n") ) ;*/                           \
                                                                                                                             \
@@ -23318,7 +23318,7 @@ examples
 /**/
 
 /*1*//*SCOOP*//*1*/
-#define SCOOP scoopC scoop( tinP , poop ) ;
+#define SCOOP scoopC scoop( tinP , LF , poop ) ;
 
 
 //
@@ -23348,7 +23348,7 @@ examples
 #define POOPIE                                                                            \
                                                                                           \
     poopC _poop( flPOOP_null ) ;                                                          \
-    scoopC _scoop( tinP , _poop ) ;
+    scoopC _scoop( tinP , LF , _poop ) ;
 
 
 //
@@ -23632,7 +23632,7 @@ examples
 /**/
 
 /*1*//*SCOOPS*//*1*/
-#define SCOOPS scoopC scoop( tinP ) ;
+#define SCOOPS scoopC scoop( tinP , LF ) ;
 
 
 //
@@ -23697,7 +23697,7 @@ examples
 #define POOPIES                                                                            \
                                                                                            \
     poopC _poop( flPOOP_SMELLY ) ;                                                         \
-    scoopC _scoop( tinP , _poop ) ;
+    scoopC _scoop( tinP , LF , _poop ) ;
 
 
 //
@@ -23729,7 +23729,7 @@ examples
                            tinP.pScoops = 0 ;                                                                                                                   \
     {                                                                                                                                                           \
         if( tinP.pScoops ) { BLAMMO ; }                                                                                                                         \
-        else               { tinP.pScoops = new( 0 , tinP , LF ) scoopC( tinP ) ; ___( tinP.pScoops ) ; }                                                       \
+        else               { tinP.pScoops = new( 0 , tinP , LF ) scoopC( tinP , LF ) ; ___( tinP.pScoops ) ; }                                                  \
     }
 
 
@@ -23782,7 +23782,7 @@ examples
 /**/
 
 /*1*//*SCOOPP*//*1*/
-#define SCOOPP scoopC scoop( tinP , *pPoop ) ;
+#define SCOOPP scoopC scoop( tinP , LF , *pPoop ) ;
 
 
 //
@@ -32461,7 +32461,7 @@ plateC& fooC::operator +=( plateC& plateP )                                     
                            tinP.pScoops = 0 ;                                                                                                                   \
     {                                                                                                                                                           \
         if( tinP.pScoops ) { BLAMMO ; }                                                                                                                         \
-        else               { tinP.pScoops = new( 0 , tinP , LF ) scoopC( tinP , (poopP) ) ; ___( tinP.pScoops ) ; }                                             \
+        else               { tinP.pScoops = new( 0 , tinP , LF ) scoopC( tinP , LF , (poopP) ) ; ___( tinP.pScoops ) ; }                                        \
     }
 
 
@@ -39610,6 +39610,7 @@ obsolete: ordering begins with "outer" (low) and ends with "inner" (high)
 
 /*3*/
 #define flSCOOPc_DOnOTcHECKtINiD                 0xe00001cb
+#define flSCOOPc_DTlOOKfORsCRATCHiMPOTENCE       0xe00002cb
 /*3*/
 #define flSCOOPc_null    0xe00000cb
 
