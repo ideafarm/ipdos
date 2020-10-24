@@ -27298,6 +27298,7 @@ it is illegal to modify any member other than pc Utility in the definition of an
  countT                 brcLath ;  // LATH NONZE RETURN CODE FROM A BOS (BASE OPERATING SYSTEM, E.G. WIN32) CALL ON THIS THREAD
  countT                 idLine_brcLath ;
  countT                 idiFile_brcLath ;
+ countT                 idBlammo ;
  countT                 pcUtility[ CCuTILITY ] ;
  flagsT                 flagsThreadMode1 ;
  flagsT                 flagsThreadMode2 ;
@@ -29075,7 +29076,7 @@ applications should avoid using thirdC objects
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34163.thirdC.postOldCmdLineIF!||
  static const osTextT* postExeFileNameIF( voidT ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34190.thirdC.postExeFileNameIF!||
- static voidT blammoIF( const countT idLineP , const countT idiFileP , const countT idLineCtP = 0 , const countT idiFileCtP = 0 ) ;
+ static voidT blammoIF( const countT idLineP , const countT idiFileP , const countT idLineCtP = 0 , const countT idiFileCtP = 0 , const countT idBlammoP = 0 ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34167.thirdC.blammoIF!||
  static voidT inOutChatterIfIF( tinS& tinP ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34168.thirdC.inOutChatterIF!||
@@ -39583,6 +39584,7 @@ base class to make a derived class of objects easily contained by a stackC objec
     countT                          idiFileBlammo   ;
     countT                          idLineBlammoCt  ;
     countT                          idiFileBlammoCt ;
+    countT                          idBlammo        ;
 
     //PUT PLATFORM DEPENDENT MEMBERS HERE SO THAT OFFSETS TO THE OTHER MEMBERS ARE INVARIANT
     #if defined( ifcENABLEtHIRDpARTIES )
@@ -39754,6 +39756,7 @@ base class to make a derived class of objects easily contained by a stackC objec
     countT                      idiFileBlammo ;
     countT                      idLineBlammoCt ;
     countT                      idiFileBlammoCt ;
+    countT                      idBlammo ;
     const countT                idAdam ;
     const countT                idCell ;
     countT                      idEventSadamsLath ;

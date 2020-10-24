@@ -1,4 +1,8 @@
 
+#define BLAMMOcTiD(idP) thirdC::blammoIF( LF , idLineCt , idiFileCt , (idP) ) ;
+
+#define BLAMMOiD(idP) thirdC::blammoIF( LF , 0 , 0 , (idP) ) ;
+
 //
 // Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
@@ -29672,7 +29676,6 @@ can be used for sCountC as well as measureT and sCountT and countT
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200322.posthtmlfoot END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200323.newdelclass0 BEGIN
 
-
 //
 // Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
@@ -29695,13 +29698,13 @@ can be used for sCountC as well as measureT and sCountT and countT
         voidT classP::operator delete( voidT* pvP )                                                                                             \
         {                                                                                                                                       \
             TINSL                                                                                                                               \
-            /*_IO_*/                                                                                                                         \
+            /*_IO_*/                                                                                                                            \
             countT idType = ifciDtYPEdROPnOTE_##typeP ;                                                                                         \
-            if( idType == ifciDtYPEdROPnOTE_strokeS && ((strokeS*)pvP)->idCaste != sc_cADAM ) { BLAMMO ; }                                      \
+            if( idType == ifciDtYPEdROPnOTE_strokeS && ((strokeS*)pvP)->idCaste != sc_cADAM ) { BLAMMOiD( 1 ) ; }                               \
                                                                                                                                                 \
             if( pvP && !( F(tinP.flagsThreadMode2) & flTHREADmODE2_DOnOTcaLLdELif ) )                                                           \
             {                                                                                                                                   \
-                if( !tinP.pPoolUse ) { BLAMMO ; }                                                                                               \
+                if( !tinP.pPoolUse ) { BLAMMOiD( 2 ) ; }                                                                                        \
                 PUSE( tinP , *(byteT**)&pvP ) ;                                                                                                 \
             }                                                                                                                                   \
         }                                                                                                                                       \
@@ -29709,13 +29712,13 @@ can be used for sCountC as well as measureT and sCountT and countT
         voidT classP::operator delete[]( voidT* pvP )                                                                                           \
         {                                                                                                                                       \
             TINSL                                                                                                                               \
-            /*_IO_*/                                                                                                                         \
+            /*_IO_*/                                                                                                                            \
             operator delete( pvP ) ;                                                                                                            \
         }                                                                                                                                       \
                                                                                                                                                 \
         voidT* classP::operator new( countT cbP , const countT cbFootP , tinS& tinP , const countT idLineP , const countT idiFileP )            \
         {                                                                                                                                       \
-            /*_IO_*/                                                                                                                         \
+            /*_IO_*/                                                                                                                            \
             countT cbaFoot = cbFootP ? cbFootP + 2 * sizeof( countT ) : 0 ;                                                                     \
             ZE( voidT* , pvn ) ;                                                                                                                \
             PUSE.newF( tinP , LF , *(byteT**)&pvn , ( cbaFoot + cbP ) ) ; /*APP CODE MUST TAG: ___( pvn ) ;*/                                   \
@@ -29729,7 +29732,7 @@ can be used for sCountC as well as measureT and sCountT and countT
             __Z( pvn ) ;                                                                                                                        \
             if( cbaFoot )                                                                                                                       \
             {                                                                                                                                   \
-                BLAMMO ;                                                                                                                        \
+                BLAMMOiD( 3 ) ;                                                                                                                 \
                 putNegAM( *(countT*)pvn , FINGERnEG_FOOTc1 ) ;                                                                                  \
                 putNegAM( *(countT*)( (byteT*)pvn + cbaFoot - sizeof( countT ) ) , FINGERnEG_FOOTc2 ) ;                                         \
             }                                                                                                                                   \
@@ -29739,13 +29742,13 @@ can be used for sCountC as well as measureT and sCountT and countT
                                                                                                                                                 \
         voidT* classP::operator new( countT cbP , const countT cbFootP , tinS& tinP , byteT* pbZombieP , const countT cbZombieP )               \
         {                                                                                                                                       \
-            /*_IO_*/                                                                                                                         \
+            /*_IO_*/                                                                                                                            \
             countT cbaFoot = cbFootP ? cbFootP + 2 * sizeof( countT ) : 0 ;                                                                     \
-            if( cbZombieP - ( cbaFoot + cbP ) ) BLAMMO ;                                                                                        \
+            if( cbZombieP - ( cbaFoot + cbP ) ) BLAMMOiD( 4 ) ;                                                                                 \
             if( tinP.fingerprint ) ;                                                                                                            \
             if( cbaFoot )                                                                                                                       \
             {                                                                                                                                   \
-                BLAMMO ;                                                                                                                        \
+                BLAMMOiD( 5 ) ;                                                                                                                 \
                 putNegAM( *(countT*)pbZombieP , FINGERnEG_FOOTc1 ) ;                                                                            \
                 putNegAM( *(countT*)( pbZombieP + cbaFoot - sizeof( countT ) ) , FINGERnEG_FOOTc2 ) ;                                           \
             }                                                                                                                                   \
@@ -29755,7 +29758,7 @@ can be used for sCountC as well as measureT and sCountT and countT
                                                                                                                                                 \
         voidT* classP::operator new( countT cbP , const countT cbFootP , tinS& tinP , napkinC* const pNapkinP )                                 \
         {                                                                                                                                       \
-            /*_IO_*/                                                                                                                         \
+            /*_IO_*/                                                                                                                            \
             countT cbaFoot = cbFootP ? cbFootP + 2 * sizeof( countT ) : 0 ;                                                                     \
                                                                                                                                                 \
             ZE( voidT* , pvn ) ;                                                                                                                \
@@ -29764,7 +29767,7 @@ can be used for sCountC as well as measureT and sCountT and countT
             __Z( pvn ) ;                                                                                                                        \
             if( cbaFoot )                                                                                                                       \
             {                                                                                                                                   \
-                BLAMMO ;                                                                                                                        \
+                BLAMMOiD( 6 ) ;                                                                                                                 \
                 putNegAM( *(countT*)pvn , FINGERnEG_FOOTc1 ) ;                                                                                  \
                 putNegAM( *(countT*)( (byteT*)pvn + cbaFoot - sizeof( countT ) ) , FINGERnEG_FOOTc2 ) ;                                         \
             }                                                                                                                                   \
@@ -29775,15 +29778,15 @@ can be used for sCountC as well as measureT and sCountT and countT
                                                                                                                                                 \
         voidT* classP::operator new[]( countT cbP , tinS& tinP , const countT idLineP , const countT idiFileP )                                 \
         {                                                                                                                                       \
-            /*_IO_*/                                                                                                                         \
+            /*_IO_*/                                                                                                                            \
             voidT* pvr = operator new( cbP , 0 , tinP , idLineP , idiFileP ) ;                                                                  \
             return pvr ;                                                                                                                        \
         }                                                                                                                                       \
                                                                                                                                                 \
         voidT* classP::operator new[]( countT cbP , tinS& tinP , byteT* pbZombieP , const countT cbZombieP )                                    \
         {                                                                                                                                       \
-            /*_IO_*/                                                                                                                         \
-            if( cbZombieP - cbP ) BLAMMO ;                                                                                                      \
+            /*_IO_*/                                                                                                                            \
+            if( cbZombieP - cbP ) BLAMMOiD( 7 ) ;                                                                                               \
             if( tinP.fingerprint ) ;                                                                                                            \
             voidT* pvr = (voidT*)pbZombieP ;                                                                                                    \
             return pvr ;                                                                                                                        \
@@ -29791,7 +29794,7 @@ can be used for sCountC as well as measureT and sCountT and countT
                                                                                                                                                 \
         voidT* classP::operator new[]( countT cbP , tinS& tinP , napkinC* const pNapkinP )                                                      \
         {                                                                                                                                       \
-            /*_IO_*/                                                                                                                         \
+            /*_IO_*/                                                                                                                            \
             voidT* pvr = operator new( cbP , 0 , tinP , pNapkinP ) ;                                                                            \
             return pvr ;                                                                                                                        \
         }
@@ -29803,13 +29806,13 @@ can be used for sCountC as well as measureT and sCountT and countT
         voidT classP::operator delete( voidT* pvP )                                                                                             \
         {                                                                                                                                       \
             TINSL                                                                                                                               \
-            /*_IO_*/                                                                                                                         \
+            /*_IO_*/                                                                                                                            \
             countT idType = ifciDtYPEdROPnOTE_##typeP ;                                                                                         \
-            if( idType == ifciDtYPEdROPnOTE_strokeS && ((strokeS*)pvP)->idCaste != sc_cADAM ) { BLAMMO ; }                                      \
+            if( idType == ifciDtYPEdROPnOTE_strokeS && ((strokeS*)pvP)->idCaste != sc_cADAM ) { BLAMMOiD( 8 ) ; }                               \
                                                                                                                                                 \
             if( pvP && !( F(tinP.flagsThreadMode2) & flTHREADmODE2_DOnOTcaLLdELif ) )                                                           \
             {                                                                                                                                   \
-                if( !tinP.pPoolUse ) { BLAMMO ; }                                                                                               \
+                if( !tinP.pPoolUse ) { BLAMMOiD( 9 ) ; }                                                                                        \
                 PUSE( tinP , *(byteT**)&pvP ) ;                                                                                                 \
             }                                                                                                                                   \
         }                                                                                                                                       \
@@ -29817,22 +29820,22 @@ can be used for sCountC as well as measureT and sCountT and countT
         voidT classP::operator delete[]( voidT* pvP )                                                                                           \
         {                                                                                                                                       \
             TINSL                                                                                                                               \
-            /*_IO_*/                                                                                                                         \
+            /*_IO_*/                                                                                                                            \
             operator delete( pvP ) ;                                                                                                            \
         }                                                                                                                                       \
                                                                                                                                                 \
         voidT* classP::operator new( countT cbP , const countT cbFootP , tinS& tinP , const countT idLineP , const countT idiFileP )            \
         {                                                                                                                                       \
-            /*_IO_*/                                                                                                                         \
+            /*_IO_*/                                                                                                                            \
             countT cbaFoot = cbFootP ? cbFootP + 2 * sizeof( countT ) : 0 ;                                                                     \
             ZE( voidT* , pvn ) ;                                                                                                                \
-            if( !tinP.pPoolUse ) { BLAMMO ; }                                                                                                   \
+            if( !tinP.pPoolUse ) { BLAMMOiD( 0xa ) ; }                                                                                          \
             PUSE.newF( tinP , LF , *(byteT**)&pvn , ( cbaFoot + cbP ) ) ; /*APP CODE MUST TAG: ___( pvn ) ;*/                                   \
             POSTPONEtEST( pvn ) ;                                                                                                               \
             __Z( pvn ) ;                                                                                                                        \
             if( cbaFoot )                                                                                                                       \
             {                                                                                                                                   \
-                BLAMMO ;                                                                                                                        \
+                BLAMMOiD( 0xb ) ;                                                                                                               \
                 putNegAM( *(countT*)pvn , FINGERnEG_FOOTc1 ) ;                                                                                  \
                 putNegAM( *(countT*)( (byteT*)pvn + cbaFoot - sizeof( countT ) ) , FINGERnEG_FOOTc2 ) ;                                         \
             }                                                                                                                                   \
@@ -29842,13 +29845,13 @@ can be used for sCountC as well as measureT and sCountT and countT
                                                                                                                                                 \
         voidT* classP::operator new( countT cbP , const countT cbFootP , tinS& tinP , byteT* pbZombieP , const countT cbZombieP )               \
         {                                                                                                                                       \
-            /*_IO_*/                                                                                                                         \
+            /*_IO_*/                                                                                                                            \
             countT cbaFoot = cbFootP ? cbFootP + 2 * sizeof( countT ) : 0 ;                                                                     \
-            if( cbZombieP - ( cbaFoot + cbP ) ) BLAMMO ;                                                                                        \
+            if( cbZombieP - ( cbaFoot + cbP ) ) BLAMMOiD( 0xc ) ;                                                                               \
             if( tinP.fingerprint ) ;                                                                                                            \
             if( cbaFoot )                                                                                                                       \
             {                                                                                                                                   \
-                BLAMMO ;                                                                                                                        \
+                BLAMMOiD( 0xd ) ;                                                                                                               \
                 putNegAM( *(countT*)pbZombieP , FINGERnEG_FOOTc1 ) ;                                                                            \
                 putNegAM( *(countT*)( pbZombieP + cbaFoot - sizeof( countT ) ) , FINGERnEG_FOOTc2 ) ;                                           \
             }                                                                                                                                   \
@@ -29858,7 +29861,7 @@ can be used for sCountC as well as measureT and sCountT and countT
                                                                                                                                                 \
         voidT* classP::operator new( countT cbP , const countT cbFootP , tinS& tinP , napkinC* const pNapkinP )                                 \
         {                                                                                                                                       \
-            /*_IO_*/                                                                                                                         \
+            /*_IO_*/                                                                                                                            \
             countT cbaFoot = cbFootP ? cbFootP + 2 * sizeof( countT ) : 0 ;                                                                     \
                                                                                                                                                 \
             ZE( voidT* , pvn ) ;                                                                                                                \
@@ -29867,7 +29870,7 @@ can be used for sCountC as well as measureT and sCountT and countT
             __Z( pvn ) ;                                                                                                                        \
             if( cbaFoot )                                                                                                                       \
             {                                                                                                                                   \
-                BLAMMO ;                                                                                                                        \
+                BLAMMOiD( 0xe ) ;                                                                                                               \
                 putNegAM( *(countT*)pvn , FINGERnEG_FOOTc1 ) ;                                                                                  \
                 putNegAM( *(countT*)( (byteT*)pvn + cbaFoot - sizeof( countT ) ) , FINGERnEG_FOOTc2 ) ;                                         \
             }                                                                                                                                   \
@@ -29878,15 +29881,15 @@ can be used for sCountC as well as measureT and sCountT and countT
                                                                                                                                                 \
         voidT* classP::operator new[]( countT cbP , tinS& tinP , const countT idLineP , const countT idiFileP )                                 \
         {                                                                                                                                       \
-            /*_IO_*/                                                                                                                         \
+            /*_IO_*/                                                                                                                            \
             voidT* pvr = operator new( cbP , 0 , tinP , idLineP , idiFileP ) ;                                                                  \
             return pvr ;                                                                                                                        \
         }                                                                                                                                       \
                                                                                                                                                 \
         voidT* classP::operator new[]( countT cbP , tinS& tinP , byteT* pbZombieP , const countT cbZombieP )                                    \
         {                                                                                                                                       \
-            /*_IO_*/                                                                                                                         \
-            if( cbZombieP - cbP ) BLAMMO ;                                                                                                      \
+            /*_IO_*/                                                                                                                            \
+            if( cbZombieP - cbP ) BLAMMOiD( 0xf ) ;                                                                                             \
             if( tinP.fingerprint ) ;                                                                                                            \
             voidT* pvr = (voidT*)pbZombieP ;                                                                                                    \
             return pvr ;                                                                                                                        \
@@ -29894,7 +29897,7 @@ can be used for sCountC as well as measureT and sCountT and countT
                                                                                                                                                 \
         voidT* classP::operator new[]( countT cbP , tinS& tinP , napkinC* const pNapkinP )                                                      \
         {                                                                                                                                       \
-            /*_IO_*/                                                                                                                         \
+            /*_IO_*/                                                                                                                            \
             voidT* pvr = operator new( cbP , 0 , tinP , pNapkinP ) ;                                                                            \
             return pvr ;                                                                                                                        \
         }
