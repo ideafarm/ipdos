@@ -1,62 +1,3 @@
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004db.flinoutframec BEGIN
-
-
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-// Respecting the rights of other people is an important part of empowering one another.
-//
-
-/*
-*/
-/**/
-/*1*//*flINoUTfRAMEc*//*1*/
-
-/*3*/
-#define flINoUTfRAMEc_TRACE            0xe00001ec
-/*3*/
-#define flINoUTfRAMEc_null    0xe00000ec
-
-
-//
-// Respecting the rights of other people is an important part of empowering one another.
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004db.flinoutframec END
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004dc.ifcidformat BEGIN
-
-
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-// Respecting the rights of other people is an important part of empowering one another.
-//
-
-/*
-*/
-/**/
-/*1*//*ifcIDfORMAT*//*1*/
-
-/*3*/
-#define ifcIDfORMAT_BOOK0hEAD           0xdddd0b74
-/*3*/
-#define ifcIDfORMAT_min     0xdddd0b74
-#define ifcIDfORMAT_max     0xdddd0b74
-
-
-//
-// Respecting the rights of other people is an important part of empowering one another.
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004dc.ifcidformat END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004dd.fillbyte BEGIN
 
 
@@ -5376,6 +5317,98 @@ use this rather than _ to avoid the overhead of _
 //
 
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200572.PrEF END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200573.testscratch BEGIN
+
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+/*
+*/
+/**/
+/*1*//*TESTsCRATCH*//*1*/
+
+#define TESTsCRATCH                                                                                     \
+                                                                                                        \
+        if( tinP.pEtScratch )                                                                           \
+        {                                                                                               \
+            SCOOPS                                                                                      \
+            if( POOP )                                                                                  \
+            {                                                                                           \
+                _IO_                                                                                    \
+                BLAMMO ;                                                                                \
+            }                                                                                           \
+        }
+
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200573.testscratch END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200574.blammoid BEGIN
+
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+/*
+\<A HREF=\"5.0010211.1.0.html\"\>definition\</A\>
+*/
+/**/
+
+/*1*//*BLAMMOiD(idP)*//*1*/
+
+#define BLAMMOiD(idP) thirdC::blammoIF( LF , 0 , 0 , (idP) ) ;
+
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200574.blammoid END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200575.blammoctid BEGIN
+
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+/*
+\<A HREF=\"5.0010211.1.0.html\"\>definition\</A\>
+*/
+/**/
+
+/*1*//*BLAMMOcT*//*1*/
+
+#define BLAMMOcTiD(idP) thirdC::blammoIF( LF , idLineCt , idiFileCt , (idP) ) ;
+
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200575.blammoctid END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.thirdParties : 1snip.15000014.thirdparties BEGIN
 
 
@@ -16065,6 +16098,7 @@ TASK0PROTO( tmRelayBlowTeatF ) ;
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.poopC : 1snip.15000092.poopc END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.scoopC : 1snip.15000093.scoopc BEGIN
 
+
 //
 // Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
@@ -16078,11 +16112,11 @@ TASK0PROTO( tmRelayBlowTeatF ) ;
 
 /*1*/class _export scoopC /*1*/
 {
- const countT idSerial ;
- const countT idLineCt ;
- const countT idiFileCt ;
+ const countT idSerial         ;
+ const countT idLineCt         ;
+ const countT idiFileCt        ;
  const flagsT flagsCt          ;
- const poopC* const pPoopSave ;
+ const poopC* const pPoopSave  ;
  etherC*      const pEtherSave ;           //U::20200907@1044: THIS IS A WORKAROUND TO A DESIGN ERROR.  tinS::pEther SHOULD BE ELIMINATED BECAUSE IT BREAKS THE IMPOTENCE/BACKOFF MODEL (IT CAN RESULT IN etThread BEING USED WHEN *tinP.pEtScratch SHOULD BE USED, I.E. WHERE THE MACRO SCOOPS IS USED)
 
  public :
@@ -39961,6 +39995,7 @@ base class to make a derived class of objects easily contained by a stackC objec
 
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.doC : 1snip.15000115.doc END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.processGlobal3S : 1snip.150000e2.processglobal3s BEGIN
+
 
 //
 // Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.

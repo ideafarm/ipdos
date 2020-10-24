@@ -1,41 +1,4 @@
 
-#define BLAMMOcTiD(idP) thirdC::blammoIF( LF , idLineCt , idiFileCt , (idP) ) ;
-
-#define BLAMMOiD(idP) thirdC::blammoIF( LF , 0 , 0 , (idP) ) ;
-
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-// Respecting the rights of other people is an important part of empowering one another.
-//
-
-/*
-*/
-/**/
-/*1*//*TESTsCRATCH*//*1*/
-
-#define TESTsCRATCH                                                                                     \
-                                                                                                        \
-        if( tinP.pEtScratch )                                                                           \
-        {                                                                                               \
-            SCOOPS                                                                                      \
-            if( POOP )                                                                                  \
-            {                                                                                           \
-                _IO_                                                                                    \
-                BLAMMO ;                                                                                \
-            }                                                                                           \
-        }
-
-
-//
-// Respecting the rights of other people is an important part of empowering one another.
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-
-
 // IPDOS (tm) <> IdeaFarm (tm) Piggyback Distributed Operating System
 
 // For build environment info, see file "\ideafarm.work\backed.up.never\txt\readme.first.ipdos.build.environment.txt"
@@ -45,7 +8,7 @@
 #pragma disable_message ( 549 , 656 , 657 , 665 , 666 , 726 ) ;
 
 #define SIZEOF_baseSoilXxxxC     ( sizeof( baseSoilXxxxC     ) )
-#define SIZEOF_batonC        ( 0x19c )
+#define SIZEOF_batonC        ( 0x1b4 )
 #define SIZEOF_bookC         ( sizeof( bookC         ) )
 #define SIZEOF_etherC        ( sizeof( etherC        ) )
 #define SIZEOF_fileC         ( sizeof( fileC         ) )
@@ -5163,6 +5126,7 @@ it is illegal to refer to this symbol in the definition of an adam
 
 //20160523@2009: DISABLED TO GET MOST RAPID EXECUTION TO COLLECT FAILURE HISTORY FOR SERVER
 //20160525@0921: ENABLED TO MAXIMIZE GLASS WALLS
+//20201008@1520: DISABLED TO INVESTIGATE SLOOOOW EXECUTION
 
 #if defined( NEVERdEFINED )
 
@@ -23660,7 +23624,10 @@ examples
 /*
 */
 /**/
-/*1*//*ifScratch*//*1*/
+/*1*//*IFsCRATCH*//*1*/
+
+//20201012@1237: POOPRqUIET -> BLAMMO, BECAUSE THIS IS AWLAYS A CODING ERROR (NONCONFORMANT CODE)
+//CODE THAT USES *tinP.pEtScratch IS REQUIRED TO ALWAYS CHECK FOR IMPOTENCE AND CALL POOPR OR POOPRqUIET
 
 #define IFsCRATCH                                                                                       \
                                                                                                         \
@@ -29676,6 +29643,7 @@ can be used for sCountC as well as measureT and sCountT and countT
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200322.posthtmlfoot END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200323.newdelclass0 BEGIN
 
+
 //
 // Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
@@ -29847,7 +29815,15 @@ can be used for sCountC as well as measureT and sCountT and countT
         {                                                                                                                                       \
             /*_IO_*/                                                                                                                            \
             countT cbaFoot = cbFootP ? cbFootP + 2 * sizeof( countT ) : 0 ;                                                                     \
-            if( cbZombieP - ( cbaFoot + cbP ) ) BLAMMOiD( 0xc ) ;                                                                               \
+            if( cbZombieP - ( cbaFoot + cbP ) )   /* DO A FULL BUILD (REFRESH HEADERS) IF THIS HAPPENS */                                       \
+            {                                                                                                                                   \
+                tinP.pcUtility[ 0 ] = cbZombieP ;                                                                                               \
+                tinP.pcUtility[ 1 ] = cbaFoot + cbP ;                                                                                           \
+                tinP.pcUtility[ 2 ] = cbaFoot ;                                                                                                 \
+                tinP.pcUtility[ 3 ] = cbP ;                                                                                                     \
+                tinP.pcUtility[ 4 ] = sizeof( batonC ) ;                                                                                        \
+                BLAMMOiD( 0xc ) ;                                                                                                               \
+            }                                                                                                                                   \
             if( tinP.fingerprint ) ;                                                                                                            \
             if( cbaFoot )                                                                                                                       \
             {                                                                                                                                   \
@@ -44852,3 +44828,62 @@ arguments
 //
 
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004da.cbostallyperlog END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004db.flinoutframec BEGIN
+
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+/*
+*/
+/**/
+/*1*//*flINoUTfRAMEc*//*1*/
+
+/*3*/
+#define flINoUTfRAMEc_TRACE            0xe00001ec
+/*3*/
+#define flINoUTfRAMEc_null    0xe00000ec
+
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004db.flinoutframec END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004dc.ifcidformat BEGIN
+
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+/*
+*/
+/**/
+/*1*//*ifcIDfORMAT*//*1*/
+
+/*3*/
+#define ifcIDfORMAT_BOOK0hEAD           0xdddd0b74
+/*3*/
+#define ifcIDfORMAT_min     0xdddd0b74
+#define ifcIDfORMAT_max     0xdddd0b74
+
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004dc.ifcidformat END
