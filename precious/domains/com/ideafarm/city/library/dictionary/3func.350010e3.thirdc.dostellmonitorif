@@ -39,7 +39,7 @@
                 THREADmODE1rESTORE
                 THREADmODE2rESTORE
 
-                processGlobal3I.bksTelemetry.writeF( tinP , tellP , tellP , 0 , 0 , flBOOKScwRITE_ALLoRnONE | flBOOKScwRITE_ELSEfILLtOeND | flBOOKScwRITE_HEADfINGER1 | flBOOKScwRITE_HEADiDfORMAT | flBOOKScwRITE_HEADcBdATA | flBOOKScwRITE_HEADfINGER2 | flBOOKScwRITE_TAILfINGER | flBOOKScwRITE_FLUSHbOOKhEADoNcHANGE | flBOOKScwRITE_FLUSHb4tAIL | flBOOKScwRITE_FLUSHaTpAGE ) ; //THESE FLAGS OPTIMIZE FOR DATA INTEGRITY AND WILL PRODUCE 1 DISK WRITE FOR EACH TELEMETRY EVENT PLUS A DISK WRITE AT THE END OF EACH PAGE
+                processGlobal3I.bksTelemetrySys.writeF( tinP , tellP , tellP , 0 , 0 , flBOOKScwRITE_ALLoRnONE | flBOOKScwRITE_ELSEfILLtOeND | flBOOKScwRITE_HEADfINGER1 | flBOOKScwRITE_HEADiDfORMAT | flBOOKScwRITE_HEADcBdATA | flBOOKScwRITE_HEADfINGER2 | flBOOKScwRITE_TAILfINGER | flBOOKScwRITE_FLUSHbOOKhEADoNcHANGE | flBOOKScwRITE_FLUSHb4tAIL | flBOOKScwRITE_FLUSHaTpAGE ) ; //THESE FLAGS OPTIMIZE FOR DATA INTEGRITY AND WILL PRODUCE 1 DISK WRITE FOR EACH TELEMETRY EVENT PLUS A DISK WRITE AT THE END OF EACH PAGE
 
                 //20201008@1741: ENABLED FOR PRODUCTION
                 //20201008@1512: DISABLED TO INVESTIGATE SLOOOOOW EXECUTION
@@ -58,7 +58,7 @@
                 //U:: COMMENT OUT IN PRODUCTION ; ENABLED TO STUDY DEADLOCK IN GRAPHICS TEST ADAM
                 //U:: 20141206@2020: COMMENTED OUT BECAUSE SAW TELEMETRY OVERFLOW THE SCRATCH BUFFER ; ALSO, CLOUD ADMINISTRATION GENERATES LOTS OF TELEMETRY, WHICH WOULD FILL AVAILABLE HARD DRIVE SPACE
 
-                //CONoUTrAW3( "\r\nDosTellMonitorIF: calling bksTelemetry.writeF [idIn]: " , incv02AM( idInLath ) , "" ) ;
+                //CONoUTrAW3( "\r\nDosTellMonitorIF: calling bksTelemetrySys.writeF [idIn]: " , incv02AM( idInLath ) , "" ) ;
                 //static countT idInLath ;
                 /* ENABLE WHEN CONFIDENT THAT THIS WORKS RELIABLY OR WHEN NEED IT FOR DEBUGGING: */
 
@@ -119,7 +119,16 @@
     
         if( F(tinP.flagsThreadMode1) & flTHREADmODE1_DISALLOWtELLmONITOR ) { BLAMMO ; }
     {
-    if( F(processGlobal1I.flCt) & flCTdTg_bksTelemetry && !( F(processGlobal1I.flDt) & flCTdTg_bksTelemetry ) )
+    )
+        !( F(processGlobal1I.flDt) & flCTdTg_bksTelemetryApp )
+        &&
+        !( F(processGlobal1I.flDt) & flCTdTg_bksTelemetrySys )
+        &&
+        F(processGlobal1I.flCt) & flCTdTg_bksTelemetryApp
+        &&
+        F(processGlobal1I.flCt) & flCTdTg_bksTelemetrySys
+    (
+    if
 {
 /*1*/voidT thirdC::dosTellMonitorIF( tinS& tinP , const tellC& tellP )/*1*/
 

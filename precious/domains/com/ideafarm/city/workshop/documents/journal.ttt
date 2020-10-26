@@ -9232,19 +9232,16 @@ I have other business to attend to today and tomorrow, but plan to continue to w
 
 
 
-    alt: /deadman1
-   rename /deadman
+
+
+
+   rename bksTelemetry
   play
-   deadman2: detect dos attack
-   deadman1: detect death of http service process
-   measure and trace response time for normal pages
+   bucket to receive application data
   wish
  playcraft
  objective: glass walls
-!job C: oo'th deadman to detect failure to serve normal (low priority) pages
-
-
-
+!job C: bksTelemetryApp
 
 
 
@@ -9301,6 +9298,17 @@ I have other business to attend to today and tomorrow, but plan to continue to w
 =========================================================================================================================================================
 
 
+  cool ; it works
+    alt: /deadman1
+   rename /deadman
+  play
+   deadman2: detect dos attack
+   deadman1: detect death of http service process
+   measure and trace response time for normal pages
+  wish
+ playcraft
+ objective: glass walls
+!job C: oo'th deadman to detect failure to serve normal (low priority) pages
   set up dut
     new( 0 , tinP , (byteT*)prP , sizeof( httpReplySrefC ) ) httpReplySrefC( reply ) ;
    2c0d_        11277_9

@@ -24,9 +24,10 @@
     //if( tinP.pEther ) tinP.pEther->trace F( tinP , TF3((countT)this,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE,8)+T(": ")+T(postNameShort)+T(": ")+T("ct - [offBookBackNow,CbOOKsLOTS]:    ")+TF2(offBookBackNow,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+TF2(CbOOKsLOTS,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ; //U:: TO FIND A BUG
 
     }
-        else if( this == &processGlobal3I.bksWords     ) processGlobal1I.flCt |= flCTdTg_bksWords     ;
-        else if( this == &processGlobal3I.bksWord      ) processGlobal1I.flCt |= flCTdTg_bksWord      ;
-             if( this == &processGlobal3I.bksTelemetry ) processGlobal1I.flCt |= flCTdTg_bksTelemetry ;
+        else if( this == &processGlobal3I.bksWords        ) processGlobal1I.flCt |= flCTdTg_bksWords        ;
+        else if( this == &processGlobal3I.bksWord         ) processGlobal1I.flCt |= flCTdTg_bksWord         ;
+        else if( this == &processGlobal3I.bksTelemetryApp ) processGlobal1I.flCt |= flCTdTg_bksTelemetryApp ;
+             if( this == &processGlobal3I.bksTelemetrySys ) processGlobal1I.flCt |= flCTdTg_bksTelemetrySys ;
     
         if( PCPiDbOOKnOW[ 0 ] == 1 && PCPiDbOOKnOW[ 1 ] == 1 ) ((bookHeadS&)BOOKnOW).flags |= flBOOKhEADs_PRIORbOOKnOTcONTINUEDhERE ;
     
@@ -181,7 +182,7 @@ cKeepInactive( cKeepInactiveP ) ,
     , ifcIDgRABlAYER_9BOOKSc
         : flGRABc_NOTjEALOUS | flGRABc_SHARElAYER                    // flGRABc_SHARElAYER: NEEDED BECAUSE booksC::writeF CAN CALL ITSELF RECURSIVELY DUE TO TELEMETRY WHEN CHANGING bookC INSTANCES
         ? flGRABc_DISABLED | flGRABc_EXPLICITfORMATTING
-    || this == &processGlobal3I.bksWords                             // U:: 20191111@1056: CONJ: flGRABc_SHARElAYER IS ONLY NEEDED FOR bksTelemetry
+    || this == &processGlobal3I.bksWords                             // U:: 20191111@1056: CONJ: flGRABc_SHARElAYER IS ONLY NEEDED FOR bksTelemetrySys
     || this == &processGlobal3I.bksWord                              // U:: 20191111@1056: CONJ: flGRABc_NOTjEAULOUS IS NOT NEEDED
     || this == &processGlobal3I.bksTraceDivert10
     || this == &processGlobal3I.bksTraceDivert0f
@@ -201,7 +202,8 @@ cKeepInactive( cKeepInactiveP ) ,
     || this == &processGlobal3I.bksTraceDivert01
     || this == &processGlobal3I.bksTrace
     || this == &processGlobal3I.bksTraceHomeEcho
-       this == &processGlobal3I.bksTelemetry                        //CS:CODEsYNC: 360fb003 3603e003
+    || this == &processGlobal3I.bksTelemetryApp
+       this == &processGlobal3I.bksTelemetrySys                        //CS:CODEsYNC: 360fb003 3603e003
     tinP , idLineCtP , idiFileCtP , pbBitsCtP ,
 (
 grabBookNow

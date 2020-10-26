@@ -40026,7 +40026,6 @@ base class to make a derived class of objects easily contained by a stackC objec
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.doC : 1snip.15000115.doc END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.processGlobal3S : 1snip.150000e2.processglobal3s BEGIN
 
-
 //
 // Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
@@ -40065,7 +40064,8 @@ base class to make a derived class of objects easily contained by a stackC objec
 
     private :
 
-    byteT pbBooksNoPuseFootTelemetry[     CBbOOKScnOpUSEbACK ] ;
+    byteT pbBooksNoPuseFootTelemetrySys[  CBbOOKScnOpUSEbACK ] ;
+    byteT pbBooksNoPuseFootTelemetryApp[  CBbOOKScnOpUSEbACK ] ;
     byteT pbBooksNoPuseFootTraceHomeEcho[ CBbOOKScnOpUSEbACK ] ;
     byteT pbBooksNoPuseFootTrace[         CBbOOKScnOpUSEbACK ] ;
     byteT pbBooksNoPuseFootTraceDivert01[ CBbOOKScnOpUSEbACK ] ;
@@ -40123,7 +40123,8 @@ base class to make a derived class of objects easily contained by a stackC objec
     cryC                                     cry30f ;
     doC                                      do1 ;
     doC                                      do2 ;
-    booksC                                   bksTelemetry ;
+    booksC                                   bksTelemetrySys ;
+    booksC                                   bksTelemetryApp ;
     booksC                                   bksTraceHomeEcho ;
     booksC                                   bksTrace ;
 

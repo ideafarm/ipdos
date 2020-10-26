@@ -43,7 +43,7 @@ REST
             memorySpaceS* pms = &memorySpaceKernel ;
             //CONoUTrAW( "kernel monitor is gone\r\n" ) ;
             WAITuNTILaLMOSTaLONE( 1 )
-            memorySpaceKernel.sgnDone_tmEatTelemetryF_.waitF( tinP ) ;
+            memorySpaceKernel.sgnDone_tmEatTelemetrySysF_.waitF( tinP ) ;
             bQuitConsole = memorySpaceKernel.bQuitMonitor = memorySpaceKernel.bQuitEating = 1 ;
             memorySpaceS& memorySpaceKernel = *(memorySpaceS*)&(countT&)swMemorySpace ;
             cLeverIdMemory = ifcIDmEMORYsPACE_KERNEL ;
@@ -65,7 +65,7 @@ REST
             DELzOMBIE( pms ) ;
             memorySpaceS* pms = &memorySpace ;
             etThread.traceF( tinP , T("fired  monitor [idMemory]:    ")+TF2(idMemory,flFORMAT_UNSIGNED|flFORMAT_NObIGITvALUES) ) ;
-            memorySpace.sgnDone_tmEatTelemetryF_.waitF( tinP ) ;
+            memorySpace.sgnDone_tmEatTelemetrySysF_.waitF( tinP ) ;
             memorySpace.bQuitMonitor = memorySpace.bQuitEating = 1 ;
             etThread.traceF( tinP , T("firing monitor [idMemory]:    ")+TF2(idMemory,flFORMAT_UNSIGNED|flFORMAT_NObIGITvALUES) ) ;
             memorySpaceS& memorySpace = *(memorySpaceS*)&(countT&)swMemorySpace ;
@@ -143,7 +143,7 @@ REST
         
         }
             }
-                etThread.osThreadF( TaRG2( tmEatTelemetryF , memorySpace.sgnDone_tmEatTelemetryF_ ) , (countT)pcArg ) ;
+                etThread.osThreadF( TaRG2( tmEatTelemetrySysF , memorySpace.sgnDone_tmEatTelemetrySysF_ ) , (countT)pcArg ) ;
 
                 pcArg[ 0x8 ] = (countT)&bCompileReport ;
                 pcArg[ 0x7 ] = (countT)postSnapShotRequest ;

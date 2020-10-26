@@ -332,11 +332,11 @@ DONE( tmFireAllF )
 if( pTaskP )
 TASK( tmFireAllF )
 
-DONE( tmEatTelemetryF )
-//etThread.traceF( tinP , T("tmEatTelemetryF / 0") ) ;
+DONE( tmEatTelemetrySysF )
+//etThread.traceF( tinP , T("tmEatTelemetrySysF / 0") ) ;
 TELL( "cleaning up 0" )
 }
-    //etThread.traceF( tinP , T("tmEatTelemetryF / 1") ) ;
+    //etThread.traceF( tinP , T("tmEatTelemetrySysF / 1") ) ;
     TELL( "cleaning up 1" )
     }
         while( ~hWalk && -- cToDo ) ;
@@ -350,18 +350,18 @@ TELL( "cleaning up 0" )
         countT cToDo = stPeriodData ;
     {
     if( stPeriodData )
-    //etThread.traceF( tinP , T("tmEatTelemetryF / 2") ) ;
+    //etThread.traceF( tinP , T("tmEatTelemetrySysF / 2") ) ;
     TELL( "purging period data" )
 
     sgnDone_tmReportF_.waitF( tinP ) ;
-    //etThread.traceF( tinP , T("tmEatTelemetryF / 3") ) ;
+    //etThread.traceF( tinP , T("tmEatTelemetrySysF / 3") ) ;
     TELL( "waiting for tmReportF to end" )
 
     THREADmODE3rESTORE
-    //etThread.traceF( tinP , T("tmEatTelemetryF / 4") ) ;
+    //etThread.traceF( tinP , T("tmEatTelemetrySysF / 4") ) ;
     }
-        //etThread.traceF( tinP , T("tmEatTelemetryF / 5") ) ;
-        if( idMemorySpaceP == ifcIDmEMORYsPACE_KERNEL ) bksTelemetry.fileFlagsRefF() &= ~flFILEc_DELETE ; // I AM PROBABLY READING THE CURRENT bookC, WHICH IS STILL OPEN FOR WRITING SO CANNOT BE DELETED NOW
+        //etThread.traceF( tinP , T("tmEatTelemetrySysF / 5") ) ;
+        if( idMemorySpaceP == ifcIDmEMORYsPACE_KERNEL ) bksTelemetrySys.fileFlagsRefF() &= ~flFILEc_DELETE ; // I AM PROBABLY READING THE CURRENT bookC, WHICH IS STILL OPEN FOR WRITING SO CANNOT BE DELETED NOW
         //U::THE NEXT LINE NO LONGER WILL WORK BECAUSE THE DELETE FLAG HAS ALREADY BEEN SPECIFIED WHEN CT fileC ; IT ALSO WOULDN'T WORK BECAUSE IT DOES NOT CHANGE THE FLAGS THAT ARE USED TO CT bookC INSTANCE
 
         }
@@ -370,7 +370,7 @@ TELL( "cleaning up 0" )
         if( idMemorySpaceP == 4 )
 
         }
-            //etThread.traceF( tinP , T("tmEatTelemetryF / 6") ) ;
+            //etThread.traceF( tinP , T("tmEatTelemetrySysF / 6") ) ;
             }
                 //CONoUTrAW( "." ) ;
                 ++ s ; etThread.osSleepF( tinP , TOCK >> 2 ) ;
@@ -805,7 +805,7 @@ TELL( "cleaning up 0" )
         
                             ++ idCycle ;
     
-                            //CONoUTrAW5( "tmEatTelemetryF [idMemorySpace,idHamburger]: " , idMemorySpaceP , " " , idHamburger , "\r\n" ) ;
+                            //CONoUTrAW5( "tmEatTelemetrySysF [idMemorySpace,idHamburger]: " , idMemorySpaceP , " " , idHamburger , "\r\n" ) ;
                             countT idHamburger = incv02AM( cHamburgersP ) ; // OPERATOR ++ CAN BE USED FOR SPEED IF ACCURACY IS NOT NEEDED; AS OF THIS WRITING ACCURACY IS NOT NEEDED
                             TELL( "got a hamburger" )
                         {
@@ -821,7 +821,7 @@ TELL( "cleaning up 0" )
                                 etThread.strDumpIF( tinP , psttd , (byteT*)&head , sizeof head ) ; ___( psttd ) ;
                                 ZE( strokeS* , psttd ) ;
 
-                                LOGrAW9( "tmEatTelemetryF bad header [bBad1,bBad2,bBad3,bBad4]: " , bBad1 , "    " , bBad2 , "    " , bBad3 , "    " , bBad4 , "\r\n" ) ;
+                                LOGrAW9( "tmEatTelemetrySysF bad header [bBad1,bBad2,bBad3,bBad4]: " , bBad1 , "    " , bBad2 , "    " , bBad3 , "    " , bBad4 , "\r\n" ) ;
                             {
                             if( bBad1 || bBad2 || bBad3 || bBad4 )
         
@@ -838,7 +838,7 @@ TELL( "cleaning up 0" )
                         if( bBookHead )
         
                         __( cbi - cbiSave ) ; //SHOULD ALWAYS GET THE ENTIRE SHEBANG
-                        //etThread.traceF( tinP , T("tmEatTelemetryF: readF returned telemetry") ) ; //U:: TO FIND A BUG
+                        //etThread.traceF( tinP , T("tmEatTelemetrySysF: readF returned telemetry") ) ; //U:: TO FIND A BUG
                         TELL( "readF returned telemetry" )
                     {
                     else
@@ -850,13 +850,13 @@ TELL( "cleaning up 0" )
                     {
                     if( !pbi )
     
-                    //etThread.traceF( tinP , T("tmEatTelemetryF / 7") ) ;
+                    //etThread.traceF( tinP , T("tmEatTelemetrySysF / 7") ) ;
                     //tinP.pc Utility[ 0 ] -- ; //U::TO FIND A BUG
-                    boolT bDelete = bksTelemetry.readF( tinP , pbi , cbi , hRead , flBOOKScrEAD_STILLhUNGRYiSoK ) ;
+                    boolT bDelete = bksTelemetrySys.readF( tinP , pbi , cbi , hRead , flBOOKScrEAD_STILLhUNGRYiSoK ) ;
                     //etThread.traceF( tinP , T("eating telemetry at [idDebug,off,idBook]:    ")+TF2(idDebug,flFORMAT_UNSIGNED|flFORMAT_NObIGITvALUES)+T("    ")+TF2(ch.c1,flFORMAT_UNSIGNED|flFORMAT_NObIGITvALUES)+T("    ")+TF2(ch.c2,flFORMAT_UNSIGNED|flFORMAT_NObIGITvALUES) ) ;
                     HANDLEaPPnOTEScOUNTcLASS ch = hRead ;
                     //tinP.pc Utility[ 0 ] ++ ; //U::TO FIND A BUG
-                    //etThread.traceF( tinP , T("tmEatTelemetryF / 8") ) ;
+                    //etThread.traceF( tinP , T("tmEatTelemetrySysF / 8") ) ;
                     TELL( "waiting to read a new telemetry item" )
 
                     }
@@ -871,7 +871,7 @@ TELL( "cleaning up 0" )
                 TELL( "eating 1" )
             {
             while( !bQuitEatingP && !POOP )
-            //etThread.traceF( tinP , T("tmEatTelemetryF / 9") ) ;
+            //etThread.traceF( tinP , T("tmEatTelemetrySysF / 9") ) ;
             ZE( countT , idDebug ) ;
             TELL( "eating 0" )
             sleepC s( tinP , TAG( TAGiDnULL ) ) ;
@@ -882,11 +882,11 @@ TELL( "cleaning up 0" )
             handleC hRead( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_BOOKS ) ;
             TELL( "preparing to eat" )
         {
-        if( !(const poopC&)bksTelemetry )
+        if( !(const poopC&)bksTelemetrySys )
 
-        etThread.traceF( tinP , T("tmEatTelemetryF / ct'ed bksTelemetry [idMemorySpaceP]: ")+TF2(idMemorySpaceP,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
-        booksC bksTelemetry( tinP , TAG( TAGiDnULL ) , "bksTelemetry" , ifcIDsTATEsPACE_MULTIPLEaDAMS , idMemorySpaceP == ifcIDmEMORYsPACE_KERNEL ? flBOOKSc_null : flBOOKSc_USEgRABuNIVERSEoVERRIDE , 0 , 0 , 0 , 0 , 0 , idMemorySpaceP , &bQuitEatingP ) ;
-        etThread.traceF( tinP , T("tmEatTelemetryF / ct'ing bksTelemetry [idMemorySpaceP]: ")+TF2(idMemorySpaceP,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
+        etThread.traceF( tinP , T("tmEatTelemetrySysF / ct'ed bksTelemetrySys [idMemorySpaceP]: ")+TF2(idMemorySpaceP,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
+        booksC bksTelemetrySys( tinP , TAG( TAGiDnULL ) , "bksTelemetrySys" , ifcIDsTATEsPACE_MULTIPLEaDAMS , idMemorySpaceP == ifcIDmEMORYsPACE_KERNEL ? flBOOKSc_null : flBOOKSc_USEgRABuNIVERSEoVERRIDE , 0 , 0 , 0 , 0 , 0 , idMemorySpaceP , &bQuitEatingP ) ;
+        etThread.traceF( tinP , T("tmEatTelemetrySysF / ct'ing bksTelemetrySys [idMemorySpaceP]: ")+TF2(idMemorySpaceP,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
 
         //U:: THE NEXT LINE USED TO SPECIFY THE DELETE FLAG, BUT AS OF 20131222@1558 THIS CAUSES FAILURES ; DELETE FLAG REMOVED WITHOUT ANALYSIS
 
@@ -915,7 +915,7 @@ TELL( "cleaning up 0" )
 
     //if( idMemorySpaceP == ifcIDmEMORYsPACE_KERNEL ) etThread.osThreadF( TaRG1( tmYellF ) ) ;
 
-    //CONoUTrAW3( "tmEatTelemetryF [idMemorySpaceP]: " , idMemorySpaceP , "\r\n" ) ;
+    //CONoUTrAW3( "tmEatTelemetrySysF [idMemorySpaceP]: " , idMemorySpaceP , "\r\n" ) ;
 
     TN( tb4 , "    " ) ;
 
@@ -934,7 +934,7 @@ TELL( "cleaning up 0" )
     countT* pcArgP = (countT*)pTaskP->c1 ;
 {
 if( pTaskP && pTaskP->c1 )
-TASK( tmEatTelemetryF )
+TASK( tmEatTelemetrySysF )
 
 #endif
 DONE( tmCloakF )

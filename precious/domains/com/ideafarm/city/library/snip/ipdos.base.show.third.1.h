@@ -15945,7 +15945,8 @@ these flag values are used by oo flagsT objects
 #define flCTdTg_THREADlOCALsTORAGE              0xe0000841
 #define flCTdTg_napSlabI                        0xe0001041
 #define flCTdTg_napHomeI                        0xe0002041
-#define flCTdTg_bksTelemetry                    0xe0004041
+#define flCTdTg_bksTelemetrySys                 0xe0004041
+#define flCTdTg_bksTelemetryApp                 0xe8000041
 #define flCTdTg_bksWord                         0xe0008041
 #define flCTdTg_bksWords                        0xe0010041
 #define flCTdTg_exceptionHandlerRegistered      0xe0020041

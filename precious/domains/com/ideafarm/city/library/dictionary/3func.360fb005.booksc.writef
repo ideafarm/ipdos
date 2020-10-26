@@ -347,8 +347,9 @@
         //20171117@2104: ppcpIdAptP SUPPORT IS COMMENTED OUT BECAUSE IT IS NOT CURRENTLY USED AND ITS CURRENT CODE REQUIRES USE OF PUSE, WHICH CAUSES NONMONOTONIC GRABBING.  BEFORE ENABLING, MUST BE REWRITTEN TO AVOID USING PUSE
 
         //const boolT bTraceDivert1 = this == &processGlobal3I.bksTraceDivert01 ;
-        const boolT bTrace        = this == &processGlobal3I.bksTrace        ;
-        const boolT bTelemetry    = this == &processGlobal3I.bksTelemetry    ;
+        const boolT bTrace        = this == &processGlobal3I.bksTrace           ;
+        const boolT bTelemetryApp = this == &processGlobal3I.bksTelemetryApp    ;
+        const boolT bTelemetry    = this == &processGlobal3I.bksTelemetrySys    ;
         _IO_
     {
     if( cb1P || F(flagsP) & flBOOKScwRITE_SETrEMAINING )
@@ -361,7 +362,7 @@
     //byteT _pbInOutFrame[ sizeof( inOutFrameC ) ] ;
     //20191008@0844: DON'T KNOW WHY DONE THIS WAY RATHER THAN JUST USE _IO_
 
-    //if( this == &processGlobal3I.bksTelemetry /*|| this == &processGlobal3I.bksTrace || this == &processGlobal3I.bksTraceDivert01*/ || this == &processGlobal3I.bksWord || this == &processGlobal3I.bksWords ) return 0 ;  //U:: TO WORKAROUND A BUG (NONMONOTONIC GRABBING)
+    //if( this == &processGlobal3I.bksTelemetrySys || this == &processGlobal3I.bksTelemetryApp /*|| this == &processGlobal3I.bksTrace || this == &processGlobal3I.bksTraceDivert01*/ || this == &processGlobal3I.bksWord || this == &processGlobal3I.bksWords ) return 0 ;  //U:: TO WORKAROUND A BUG (NONMONOTONIC GRABBING)
     //U::DELETE THE NEXT LINE ONCE I AM TESTED TO VERIFY THAT I DO NOT TRIGGER NONMONOTONIC GRABBING BLAMMO
 
     THREADmODE3oN( flTHREADmODE3_POOLaLLOCATEfROMhEAP )
@@ -399,7 +400,7 @@
         {
         if( phWroteP )
         FV( flBOOKScwRITE , flagsP ) ;
-        //__( ppcpIdAptP && ( this == &processGlobal3I.bksTelemetry || this == &processGlobal3I.bksTrace || this == &processGlobal3I.bksTraceDivert01 || this == &processGlobal3I.bksWord || this == &processGlobal3I.bksWords ) ) ; //CAPTURE OF TELEMETRY OR TRACE IS GUARANTEED TO NEVER INVOLVE USE OF A poolC INSTANCE; SUCH USAGE COULD EMIT TELEMETRY OR TRACE, CAUSING SCRATCH BOOK OVERFLOW
+        //__( ppcpIdAptP && ( this == &processGlobal3I.bksTelemetrySys || this == &processGlobal3I.bksTelemetryApp || this == &processGlobal3I.bksTrace || this == &processGlobal3I.bksTraceDivert01 || this == &processGlobal3I.bksWord || this == &processGlobal3I.bksWords ) ) ; //CAPTURE OF TELEMETRY OR TRACE IS GUARANTEED TO NEVER INVOLVE USE OF A poolC INSTANCE; SUCH USAGE COULD EMIT TELEMETRY OR TRACE, CAUSING SCRATCH BOOK OVERFLOW
         //__( ppcpIdAptP && *ppcpIdAptP ) ; //20171112@1557: ADDED WITHOUT ANALYSIS WHILE EDITING TO PREALLOCATE TO AVOID USING POOL WHILE grabBookNow IS GRABBED
         if( POOP ) return 0 ;
         __NZ( cbBodyNew < cb1P + cb2P && F(flagsP) & flBOOKScwRITE_ALLoRnONE ) ;

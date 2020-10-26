@@ -12,7 +12,7 @@ TASK0PROTO( tmKillYourselfImmediatelyF ) ;
 TASK0PROTO( tmHooF ) ;
 TASK0PROTO( tmGooF ) ;
 TASK0PROTO( tmFooF ) ;
-TASK0PROTO( tmEatTelemetryF ) ;
+TASK0PROTO( tmEatTelemetrySysF ) ;
 TASK0PROTO( tmFireAllF ) ;
 TASK0PROTO( tmConsoleF ) ;
 TASK0PROTO( tmCloakF ) ;
@@ -124,7 +124,7 @@ struct poolOldEntryS
     switchC         swTallySay ;
     countT          cLeverSay ;
     grabC           grab ;
-    signC           sgnDone_tmEatTelemetryF_ ;
+    signC           sgnDone_tmEatTelemetrySysF_ ;
     boolT           bQuitEating ;
     boolT           bQuitMonitor ;
     etherC&         ether ;
