@@ -36,7 +36,17 @@ DONEdRIVENsERVER( tmcHttpServerF )
     }
         }
             //else tLog += t2+TF2(*pswTally,flFORMAT_NObIGITvALUES)+t1+T(psttLeverUrlTally)+tcr ;
-            if( psttLeverUrlTally && !etThread.strCompareF( tinP , psttLeverUrlTally , tSlashDeadman ) ) bDeadman = 1 ;
+            bDeadman = 1 ;
+            )
+                )
+                    !etThread.strCompareF( tinP , psttLeverUrlTally , tSlashDeadman2 )
+                    ||
+                    !etThread.strCompareF( tinP , psttLeverUrlTally , tSlashDeadman1 )
+                (
+                &&
+                psttLeverUrlTally
+            (
+            if
             psttLeverUrlTally = (strokeS*)pswTally->leverF( tinP , idf ) ;
         {
         for( countT idf = 1 ; idf <= cFlavors ; idf ++ )
@@ -117,7 +127,7 @@ DONEdRIVENsERVER( tmcHttpServerF )
                             etThread.traceF( tinP , T("tmcHttpServerF: cached this reply [maxAge]:    ")+TF2(maxAge,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) , flTRACE_FORCEnOsILENCE , idTraceDivert ) ;
 
                             pzCache->pushF( tinP , psttn , postsReply , costo , maxAge , 1 ) ; // "1": "LENGTH PREFIXED, SO NEED TO USE POSTS( pb )"
-                            countT maxAge = bDeadman ? maxAgeDeadman : bTalkBody ? maxAgeMsNotFileTalkBody : maxAgeMsNotFileNotTalkBody ;
+                            countT maxAge = bDeadman1 || bDeadman2 ? maxAgeDeadman : bTalkBody ? maxAgeMsNotFileTalkBody : maxAgeMsNotFileNotTalkBody ;
                             boolT bTalkBody = psttName && !etThread.strCompareF( tinP , tSlashTalkBody , psttName ) ;
 
                             countT costo = COSTS( postsReply ) ;
@@ -1242,7 +1252,7 @@ DONEdRIVENsERVER( tmcHttpServerF )
                 }
                     }
                         bClose = 1 ;
-                        if( bDeadman ) etThread.traceF( tinP , T("tmcHttpServerF: could not write to socket 96 [nnPeer]:    ")+T(nnPeerP) , flTRACE_HOMEeCHO | flTRACE_FORCEnOsILENCE , idTraceDivert ) ;
+                        if( bDeadman1 || bDeadman2 ) etThread.traceF( tinP , T("tmcHttpServerF: could not write to socket 96 [nnPeer]:    ")+T(nnPeerP) , flTRACE_HOMEeCHO | flTRACE_FORCEnOsILENCE , idTraceDivert ) ;
                         POOPRqUIET
                     {
                     else
@@ -1261,11 +1271,11 @@ DONEdRIVENsERVER( tmcHttpServerF )
 
             }
                 }
-                    etThread.traceF( tinP , T("NOT found in cache:    ")+tNameCache , bDeadman ? flTRACE_HOMEeCHO | flTRACE_FORCEnOsILENCE : flTRACE_FORCEnOsILENCE , idTraceDivert ) ;
+                    etThread.traceF( tinP , T("NOT found in cache:    ")+tNameCache , bDeadman1 || bDeadman2 ? flTRACE_HOMEeCHO | flTRACE_FORCEnOsILENCE : flTRACE_FORCEnOsILENCE , idTraceDivert ) ;
                     pzCache->ungrabF( tinP ) ;
                 {
                 else
-                if( pzCached ) etThread.traceF( tinP , T("found in cache:    ")+tNameCache , bDeadman ? flTRACE_HOMEeCHO | flTRACE_FORCEnOsILENCE : flTRACE_FORCEnOsILENCE , idTraceDivert ) ;
+                if( pzCached ) etThread.traceF( tinP , T("found in cache:    ")+tNameCache , bDeadman1 || bDeadman2 ? flTRACE_HOMEeCHO | flTRACE_FORCEnOsILENCE : flTRACE_FORCEnOsILENCE , idTraceDivert ) ;
                 pzCached = (*pzCache)( tinP , tNameCache ) ;
                 pzCache->grabF( tinP , TAG( TAGiDnULL ) ) ;
             {
@@ -1273,7 +1283,7 @@ DONEdRIVENsERVER( tmcHttpServerF )
             ZE( cachedS* , pzCached ) ;
             TESTsCRATCH //U::TO FIND A BUG
 
-            etThread.traceF( tinP , TF3(meP.idPortF(tinP),flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,9)+T(nnPeerP)+T("    request:    \"")+T(psttName)+T("\"")+(psttQueryKV?T("    ")+T(psttQueryKV):T("")) , bDeadman ? flTRACE_HOMEeCHO | flTRACE_FORCEnOsILENCE | flTRACE_ECHOoNLY : flTRACE_FORCEnOsILENCE , idTraceDivert ) ;
+            etThread.traceF( tinP , TF3(meP.idPortF(tinP),flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,9)+T(nnPeerP)+T("    request:    \"")+T(psttName)+T("\"")+(psttQueryKV?T("    ")+T(psttQueryKV):T("")) , bDeadman1 || bDeadman2 ? flTRACE_HOMEeCHO | flTRACE_FORCEnOsILENCE | flTRACE_ECHOoNLY : flTRACE_FORCEnOsILENCE , idTraceDivert ) ;
 
             ;
                             : ifcIDtRACEdIVERT_6
@@ -1282,7 +1292,7 @@ DONEdRIVENsERVER( tmcHttpServerF )
                         ? ifcIDtRACEdIVERT_4
                     : !etThread.strCompareF( tinP , psttName , tSlash )
                     ? ifcIDtRACEdIVERT_3
-                : !etThread.strCompareF( tinP , psttName , tSlashDeadman )
+                : !etThread.strCompareF( tinP , psttName , tSlashDeadman1 )
                 ? ifcIDtRACEdIVERT_2
             const countT idTraceDivert = !psttName
             //CS:CODEsYNC: 3300005b 3600212d
@@ -1307,7 +1317,7 @@ DONEdRIVENsERVER( tmcHttpServerF )
                 // "2013/!ideafarm."
                 //  yyyy
             {
-            if( !bDeadman && psttName && psttName->idAdam )
+            if( !bDeadman1 && !bDeadman2 && psttName && psttName->idAdam )
             ZE( boolT , bFile ) ;
 
             }
@@ -1317,7 +1327,7 @@ DONEdRIVENsERVER( tmcHttpServerF )
                 etThread.strConvertToLowerCaseF( tinP , psttLower , psttName ) ; ___( psttLower ) ;
                 ZE( strokeS* , psttLower ) ;
             {
-            if( !bDeadman && psttName )
+            if( !bDeadman1 && !bDeadman2 && psttName )
             ZE( boolT , bFavIcon ) ;
 
             }
@@ -1328,7 +1338,7 @@ DONEdRIVENsERVER( tmcHttpServerF )
                 etThread.traceF( tinP , T("tmcHttpServerF / error: readRequestF failed") , flTRACE_null , ifcIDtRACEdIVERT_4 ) ;
                 etThread.traceF( tinP , T("tmcHttpServerF / error: readRequestF failed") , flTRACE_null , ifcIDtRACEdIVERT_3 ) ;
                 etThread.traceF( tinP , T("tmcHttpServerF / error: readRequestF failed") , flTRACE_FORCEnOsILENCE , ifcIDtRACEdIVERT_2 ) ;
-                if( bDeadman ) etThread.traceF( tinP , T("tmcHttpServerF / error: readRequestF failed") , flTRACE_HOMEeCHO | flTRACE_FORCEnOsILENCE | flTRACE_ECHOoNLY ) ;
+                if( bDeadman1 || bDeadman2 ) etThread.traceF( tinP , T("tmcHttpServerF / error: readRequestF failed") , flTRACE_HOMEeCHO | flTRACE_FORCEnOsILENCE | flTRACE_ECHOoNLY ) ;
                 //CS:CODEsYNC: 3300005b 3600212d
 
                 //}
@@ -1370,7 +1380,7 @@ DONEdRIVENsERVER( tmcHttpServerF )
             if( bFail )
             TESTsCRATCH //U::TO FIND A BUG
 
-            if( bDeadman ) etThread.traceF( tinP , T(psttName)+T(!bClose?"        connection will be kept open":"        CONNECTION WILL BE CLOSED") , flTRACE_HOMEeCHO | flTRACE_FORCEnOsILENCE | flTRACE_ECHOoNLY ) ;
+            if( bDeadman1 || bDeadman2 ) etThread.traceF( tinP , T(psttName)+T(!bClose?"        connection will be kept open":"        CONNECTION WILL BE CLOSED") , flTRACE_HOMEeCHO | flTRACE_FORCEnOsILENCE | flTRACE_ECHOoNLY ) ;
 
             etThread.osTimeNowF( tinP , timeStart1 , timeStart2 ) ;
             ZE( sCountT , timeStart2 ) ;
@@ -1379,17 +1389,19 @@ DONEdRIVENsERVER( tmcHttpServerF )
             }
                 else if( bQuery ) tNameCache += tQuest+T(psttQueryKV) ; // DEADMAN QUERY IS SUPPRESSED BECAUSE ITS ONLY FUNCTION IS TO UNIQUELY IDENTIFY THE DEADMAN REQUEST
                 }
-                    bQuery = 0 ; //THE QUERY ON /deadman IS ONLY FOR DEBUGGING / TRACING PURPOSES
+                    bQuery = 0 ; //THE QUERY ON /deadman1 AND /deadman2 IS ONLY FOR DEBUGGING / TRACING PURPOSES
                     bClose = 1 ; //O:OPTIMIZATION
-                    idDesireOld = etThread.osThreadSwitchingDesireF( tinP , ifcTHREADpRIORITY_RUDE ) ;      // DEADMAN TESTS ARE TO DETECT THAT I AM DEAD, NOT THAT I AM OVERWHELMED
+                    if( bDeadman1 ) idDesireOld = etThread.osThreadSwitchingDesireF( tinP , ifcTHREADpRIORITY_RUDE ) ;      // DEADMAN TESTS ARE TO DETECT THAT I AM DEAD, NOT THAT I AM OVERWHELMED
                 {
-                if( bDeadman )                                                                              // A:ASSUME: I AM RUNNING AT RUSH PRIORITY
+                if( bDeadman1 || bDeadman2 )                                                                              // A:ASSUME: I AM RUNNING AT RUSH PRIORITY
 
-                bDeadman = psttName && !etThread.strCompareF( tinP , psttName  , tSlashDeadman ) ;
+                bDeadman2 = psttName && !etThread.strCompareF( tinP , psttName  , tSlashDeadman2 ) ;
+                bDeadman1 = psttName && !etThread.strCompareF( tinP , psttName  , tSlashDeadman1 ) ;
             {
             TN( tNameCache , psttName ) ;
             ZE( countT , idDesireOld ) ;
-            ZE( boolT , bDeadman ) ;
+            ZE( boolT , bDeadman2 ) ;
+            ZE( boolT , bDeadman1 ) ;
             boolT bQuery = psttQueryKV && psttQueryKV->idAdam ;
 
             // LAZY   : CONSTRUCTING AND SERVING NONCACHED RESPONSES
@@ -1463,7 +1475,8 @@ DONEdRIVENsERVER( tmcHttpServerF )
         //CS:CODEsYNC: 3300005b 3600212d
     {
     if( !pswKV || !pswTally )
-    TN( tSlashDeadman    , "/deadman"    ) ;
+    TN( tSlashDeadman2    , "/deadman2" ) ;
+    TN( tSlashDeadman1    , "/deadman1" ) ;
 
     etThread( tinP , pswTally , TAG( TAGiDnULL ) , flSTACKc_DOnOTsERIALIZE | flSTACKc_ALLOWmULTIPLEuNSERIALIZED , psttLeverUrlTally ) ; ___( pswTally ) ;
     ZE( switchC* , pswTally ) ;
