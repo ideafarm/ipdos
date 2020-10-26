@@ -1242,7 +1242,6 @@ DONEdRIVENsERVER( tmcHttpServerF )
                 {
                 if( bFavIcon )
 
-                idDesireOld = etThread.osThreadSwitchingDesireF( tinP , ifcTHREADpRIORITY_LAZY ) ;
                 TESTsCRATCH //U::TO FIND A BUG
             {
             else
@@ -1391,9 +1390,11 @@ DONEdRIVENsERVER( tmcHttpServerF )
                 }
                     bQuery = 0 ; //THE QUERY ON /deadman1 AND /deadman2 IS ONLY FOR DEBUGGING / TRACING PURPOSES
                     bClose = 1 ; //O:OPTIMIZATION
-                    if( bDeadman1 ) idDesireOld = etThread.osThreadSwitchingDesireF( tinP , ifcTHREADpRIORITY_RUDE ) ;      // DEADMAN TESTS ARE TO DETECT THAT I AM DEAD, NOT THAT I AM OVERWHELMED
+                    else                 idDesireOld = etThread.osThreadSwitchingDesireF( tinP , ifcTHREADpRIORITY_LAZY    ) ;
+                    else if( bDeadman2 ) idDesireOld = etThread.osThreadSwitchingDesireF( tinP , ifcTHREADpRIORITY_LAZIEST ) ;      // DEADMAN2 TESTS ARE TO DETECT THAT I AM OVERWHELMED
+                         if( bDeadman1 ) idDesireOld = etThread.osThreadSwitchingDesireF( tinP , ifcTHREADpRIORITY_RUDE    ) ;      // DEADMAN1 TESTS ARE TO DETECT THAT I AM DEAD
                 {
-                if( bDeadman1 || bDeadman2 )                                                                              // A:ASSUME: I AM RUNNING AT RUSH PRIORITY
+                if( bDeadman1 || bDeadman2 )
 
                 bDeadman2 = psttName && !etThread.strCompareF( tinP , psttName  , tSlashDeadman2 ) ;
                 bDeadman1 = psttName && !etThread.strCompareF( tinP , psttName  , tSlashDeadman1 ) ;
