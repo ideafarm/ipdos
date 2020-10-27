@@ -1,33 +1,3 @@
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004dc.ifcidformat BEGIN
-
-
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-// Respecting the rights of other people is an important part of empowering one another.
-//
-
-/*
-*/
-/**/
-/*1*//*ifcIDfORMAT*//*1*/
-
-/*3*/
-#define ifcIDfORMAT_BOOK0hEAD           0xdddd0b74
-/*3*/
-#define ifcIDfORMAT_min     0xdddd0b74
-#define ifcIDfORMAT_max     0xdddd0b74
-
-
-//
-// Respecting the rights of other people is an important part of empowering one another.
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004dc.ifcidformat END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004dd.fillbyte BEGIN
 
 
@@ -5439,6 +5409,67 @@ use this rather than _ to avoid the overhead of _
 //
 
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200575.blammoctid END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200576.ifcidtypetellapp BEGIN
+
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+/*
+\<A HREF=\"5.001020f.1.0.html\"\>definition\</A\>
+*/
+/*1*//*ifcIDtYPEtELLaPP*//*1*/
+
+/*3*/
+#define ifcIDtYPEtELLaPP_NOOP                                           0xdddd0c0a
+/*3*/
+#define ifcIDtYPEtELLaPP_min     0xdddd0c0a
+#define ifcIDtYPEtELLaPP_max     0xdddd0c0a                                                               
+
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200576.ifcidtypetellapp END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200577.ifcidbookstell BEGIN
+
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+/*
+\<A HREF=\"5.001020f.1.0.html\"\>definition\</A\>
+*/
+/*1*//**//*1*/
+
+/*3*/
+#define ifcIDbOOKStELL_SYS                                           0xdddd0c0b
+#define ifcIDbOOKStELL_APP                                           0xdddd0c0c
+/*3*/
+#define ifcIDbOOKStELL_min     0xdddd0c0b
+#define ifcIDbOOKStELL_max     0xdddd0c0c                                                               
+
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200577.ifcidbookstell END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.thirdParties : 1snip.15000014.thirdparties BEGIN
 
 
@@ -39970,7 +40001,7 @@ base class to make a derived class of objects easily contained by a stackC objec
     inline voidT          lockF(   tinS& tinP , const countT idLineP , const countT idiFileP , const byteT* const pbBitsP ) { grabBookNow.grabF( tinP , idLineP , idiFileP , pbBitsP ) ; }
     inline voidT          unlockF( tinS& tinP ) { grabBookNow.ungrabF( tinP ) ; }
 
-    friend class napkinC ; //SO bksTelemetry.grabBookNow CAN BE FORMATTED
+    friend class napkinC ; //SO bksTelemetrySys.grabBookNow CAN BE FORMATTED
     friend voidT baseGrabC::registerBegunF( tinS& tinP , const countT idLineP , const countT idiFileP , const flagsT flagsP ) ;
 }
 ;
@@ -40025,6 +40056,7 @@ base class to make a derived class of objects easily contained by a stackC objec
 
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.doC : 1snip.15000115.doc END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.processGlobal3S : 1snip.150000e2.processglobal3s BEGIN
+
 
 //
 // Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.

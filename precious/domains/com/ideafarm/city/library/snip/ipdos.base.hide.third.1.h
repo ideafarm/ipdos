@@ -1,9 +1,4 @@
 
-#define ifcIDbOOKStELL_APP                                           2
-#define ifcIDbOOKStELL_SYS                                           1
-
-#define ifcIDtYPEtELLaPP_NOOP                                           0x11111111
-
 // IPDOS (tm) <> IdeaFarm (tm) Piggyback Distributed Operating System
 
 // For build environment info, see file "\ideafarm.work\backed.up.never\txt\readme.first.ipdos.build.environment.txt"
@@ -12,25 +7,25 @@
 
 #pragma disable_message ( 549 , 656 , 657 , 665 , 666 , 726 ) ;
 
-#define SIZEOF_baseSoilXxxxC     ( sizeof( baseSoilXxxxC     ) )
-#define SIZEOF_batonC        ( 0x1b4 )
-#define SIZEOF_bookC         ( sizeof( bookC         ) )
-#define SIZEOF_etherC        ( sizeof( etherC        ) )
-#define SIZEOF_fileC         ( sizeof( fileC         ) )
-#define SIZEOF_grabUniverseC ( sizeof( grabUniverseC ) )
-#define SIZEOF_handleC       ( sizeof( handleC       ) )
-#define SIZEOF_lexC          ( sizeof( lexC          ) )
-#define SIZEOF_napkinC       ( sizeof( napkinC       ) )
-#define SIZEOF_poolC         ( sizeof( poolC         ) )
-#define SIZEOF_pulpOldC         ( sizeof( pulpOldC         ) )
-#define SIZEOF_renderStateOldS  ( sizeof( renderStateOldS  ) )
-#define SIZEOF_rootWordC     ( sizeof( rootWordC     ) )
-#define SIZEOF_sexC          ( sizeof( sexC          ) )
-#define SIZEOF_soulC         ( sizeof( soulC         ) )
-#define SIZEOF_stackC        ( sizeof( stackC        ) )
-#define SIZEOF_switchC       ( sizeof( switchC       ) )
-#define SIZEOF_switchStackC  ( sizeof( switchStackC  ) )
-#define SIZEOF_windowOldC       ( sizeof( windowOldC       ) )
+#define SIZEOF_baseSoilXxxxC   ( sizeof( baseSoilXxxxC       ) )
+#define SIZEOF_batonC          ( 0x1b4                         )
+#define SIZEOF_bookC           ( sizeof( bookC               ) )
+#define SIZEOF_etherC          ( sizeof( etherC              ) )
+#define SIZEOF_fileC           ( sizeof( fileC               ) )
+#define SIZEOF_grabUniverseC   ( sizeof( grabUniverseC       ) )
+#define SIZEOF_handleC         ( sizeof( handleC             ) )
+#define SIZEOF_lexC            ( sizeof( lexC                ) )
+#define SIZEOF_napkinC         ( sizeof( napkinC             ) )
+#define SIZEOF_poolC           ( sizeof( poolC               ) )
+#define SIZEOF_pulpOldC        ( sizeof( pulpOldC            ) )
+#define SIZEOF_renderStateOldS ( sizeof( renderStateOldS     ) )
+#define SIZEOF_rootWordC       ( sizeof( rootWordC           ) )
+#define SIZEOF_sexC            ( sizeof( sexC                ) )
+#define SIZEOF_soulC           ( sizeof( soulC               ) )
+#define SIZEOF_stackC          ( sizeof( stackC              ) )
+#define SIZEOF_switchC         ( sizeof( switchC             ) )
+#define SIZEOF_switchStackC    ( sizeof( switchStackC        ) )
+#define SIZEOF_windowOldC      ( sizeof( windowOldC          ) )
 
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.1a000001.monolith : 1snip.1a000001.monolith BEGIN
 
@@ -14678,7 +14673,7 @@ arguments
             byteT pbZombie[ sizeof posty + sizeof( tellS ) ] ;                                                    \
             tellC tell( tinP , TAG( TAGiDnULL ) , ifcIDtYPEtELLsYS_YELL , posty , sizeof posty , pbZombie , sizeof pbZombie ) ; \
                                                                                                                         \
-            thirdC::dosTellMonitorIF( tinP , tell ) ;                                                                   \
+            thirdC::dosTellMonitorIF( tinP , tell , ifcIDbOOKStELL_SYS ) ;                                              \
         }
 
 #else
@@ -14691,7 +14686,7 @@ arguments
             byteT pbZombie[ sizeof( tellS ) + sizeof posta ] ;                                                            \
             tellC tell( tinP , TAG( TAGiDnULL ) , ifcIDtYPEtELLsYS_YELL , posta , sizeof posta , pbZombie , sizeof pbZombie ) ;     \
                                                                                                                                 \
-            thirdC::dosTellMonitorIF( tinP , tell ) ;                                                                           \
+            thirdC::dosTellMonitorIF( tinP , tell , ifcIDbOOKStELL_SYS ) ;                                                      \
         }
 
 #endif
@@ -14705,7 +14700,7 @@ arguments
 //
 
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.1120016f.yell END
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200170.ifcidtypetell BEGIN
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200170.ifcidtypetellsys BEGIN
 
 
 //
@@ -14833,7 +14828,7 @@ arguments
 // Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
 
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200170.ifcidtypetell END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200170.ifcidtypetellsys END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200171.cbtellmax BEGIN
 
 
@@ -14892,7 +14887,7 @@ arguments
 //
 
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200172.blammo END
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200173.tellc1 BEGIN
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200173.tellsysc1 BEGIN
 
 
 //
@@ -14909,12 +14904,12 @@ arguments
 
 /*1*//*TELLsYSc1(idTypeP)*//*1*/
 
-#define TELLsYSc1(idTypeP)                                                                                             \
+#define TELLsYSc1(idTypeP)                                                                                          \
                                                                                                                     \
     {                                                                                                               \
-        byteT pbZombie[ sizeof( tellS ) ] ;                                                                   \
+        byteT pbZombie[ sizeof( tellS ) ] ;                                                                         \
         tellC tell( tinP , TAG( TAGiDnULL ) , idTypeP , 0 , 0 , pbZombie , sizeof pbZombie ) ;                      \
-        thirdC::dosTellMonitorIF( tinP , tell ) ;                                                                   \
+        thirdC::dosTellMonitorIF( tinP , tell , ifcIDbOOKStELL_SYS ) ;                                              \
     }
 
 
@@ -14925,8 +14920,8 @@ arguments
 // Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
 
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200173.tellc1 END
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200174.tellc3 BEGIN
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200173.tellsysc1 END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200174.tellsysc3 BEGIN
 
 
 //
@@ -14943,12 +14938,12 @@ arguments
 
 /*1*//*TELLsYSc3(idTypeP,pbP,cbP)*//*1*/
 
-#define TELLsYSc3(idTypeP,pbP,cbP)                                                                                         \
+#define TELLsYSc3(idTypeP,pbP,cbP)                                                                                      \
                                                                                                                         \
     {                                                                                                                   \
-        byteT pbZombie[ sizeof( tellS ) + cbP ] ;                                                                 \
+        byteT pbZombie[ sizeof( tellS ) + cbP ] ;                                                                       \
         tellC tell( tinP , TAG( TAGiDnULL ) , idTypeP , pbP , cbP , pbZombie , sizeof pbZombie ) ;                      \
-        thirdC::dosTellMonitorIF( tinP , tell ) ;                                                                       \
+        thirdC::dosTellMonitorIF( tinP , tell , ifcIDbOOKStELL_SYS ) ;                                                  \
     }
 
 
@@ -14959,7 +14954,7 @@ arguments
 // Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
 
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200174.tellc3 END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200174.tellsysc3 END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200175.posthandoffmonitor BEGIN
 
 
@@ -15951,19 +15946,19 @@ these flag values are used by oo flagsT objects
 #define flCTdTg_napSlabI                        0xe0001041
 #define flCTdTg_napHomeI                        0xe0002041
 #define flCTdTg_bksTelemetrySys                 0xe0004041
-#define flCTdTg_bksTelemetryApp                 0xe8000041
-#define flCTdTg_bksWord                         0xe0008041
-#define flCTdTg_bksWords                        0xe0010041
-#define flCTdTg_exceptionHandlerRegistered      0xe0020041
-#define flCTdTg_processGlobalEnd                0xe0040041
-#define flCTdTg_DEBUG1                          0xe0080041
-#define flCTdTg_DEBUG2                          0xe0100041
-#define flCTdTg_DEBUG3                          0xe0200041
-#define flCTdTg_DEBUG4                          0xe0400041
-#define flCTdTg_DEBUG5                          0xe0800041
-#define flCTdTg_DEBUG6                          0xe1000041
-#define flCTdTg_DEBUG7                          0xe2000041
-#define flCTdTg_DEBUG8                          0xe4000041
+#define flCTdTg_bksTelemetryApp                 0xe0008041
+#define flCTdTg_bksWord                         0xe0010041
+#define flCTdTg_bksWords                        0xe0020041
+#define flCTdTg_exceptionHandlerRegistered      0xe0040041
+#define flCTdTg_processGlobalEnd                0xe0080041
+#define flCTdTg_DEBUG1                          0xe0100041
+#define flCTdTg_DEBUG2                          0xe0200041
+#define flCTdTg_DEBUG3                          0xe0400041
+#define flCTdTg_DEBUG4                          0xe0800041
+#define flCTdTg_DEBUG5                          0xe1000041
+#define flCTdTg_DEBUG6                          0xe2000041
+#define flCTdTg_DEBUG7                          0xe4000041
+#define flCTdTg_DEBUG8                          0xe8000041
 /*3*/
 #define flCTdTg_null    0xe0000041
 
@@ -16617,7 +16612,7 @@ it is illegal to refer to this symbol except in the definitions of grabWantF and
 //
 
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112001af.cfireallranks END
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112001b0.tellc3s BEGIN
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112001b0.tellsysc3s BEGIN
 
 
 //
@@ -16638,12 +16633,12 @@ after i return, that countT object will contain 1
 
 /*1*//*TELLsYSc3S(idTypeP,pbP,cbP)*//*1*/
 
-#define TELLsYSc3S(idTypeP,pbP,cbP)                                                                                    \
+#define TELLsYSc3S(idTypeP,pbP,cbP)                                                                                 \
                                                                                                                     \
     {                                                                                                               \
-        byteT pbZombie[ sizeof( tellS ) + cbP ] ;                                                             \
+        byteT pbZombie[ sizeof( tellS ) + cbP ] ;                                                                   \
         tellC tell( tinP , TAG( TAGiDnULL ) , idTypeP , pbP , cbP , pbZombie , sizeof pbZombie , 1 ) ;              \
-        thirdC::dosTellMonitorIF( tinP , tell ) ;                                                                   \
+        thirdC::dosTellMonitorIF( tinP , tell , ifcIDbOOKStELL_SYS ) ;                                              \
     }
 
 
@@ -16654,7 +16649,7 @@ after i return, that countT object will contain 1
 // Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
 
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112001b0.tellc3s END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112001b0.tellsysc3s END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112001b1.popupcallnest BEGIN
 
 
@@ -16816,7 +16811,7 @@ after i return, that countT object will contain 1
 //
 
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112001b4.tellif END
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112001b5.tellc3ebp BEGIN
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112001b5.tellsysc3ebp BEGIN
 
 
 //
@@ -16833,12 +16828,12 @@ after i return, that countT object will contain 1
 
 /*1*//*TELLsYSc3EBP(idTypeP,pbP,cbP,ebpP)*//*1*/
 
-#define TELLsYSc3EBP(idTypeP,pbP,cbP,ebpP)                                                                             \
+#define TELLsYSc3EBP(idTypeP,pbP,cbP,ebpP)                                                                          \
                                                                                                                     \
     {                                                                                                               \
-        byteT pbZombie[ sizeof( tellS ) + cbP ] ;                                                             \
+        byteT pbZombie[ sizeof( tellS ) + cbP ] ;                                                                   \
         tellC tell( tinP , TAG( TAGiDnULL ) , idTypeP , pbP , cbP , pbZombie , sizeof pbZombie , 0 , ebpP ) ;       \
-        thirdC::dosTellMonitorIF( tinP , tell ) ;                                                                   \
+        thirdC::dosTellMonitorIF( tinP , tell , ifcIDbOOKStELL_SYS ) ;                                              \
     }
 
 
@@ -16849,7 +16844,7 @@ after i return, that countT object will contain 1
 // Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
 
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112001b5.tellc3ebp END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112001b5.tellsysc3ebp END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112001b6.flsigncwait BEGIN
 
 
@@ -18495,7 +18490,7 @@ if cBitsP is f then 01 bits is indicated
 //
 
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112001e3.flcyrcleold END
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112001e4.telllifiname BEGIN
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112001e4.tellsyslifiname BEGIN
 
 
 //
@@ -18511,7 +18506,7 @@ if cBitsP is f then 01 bits is indicated
 
 /*1*//*TELLsYSlIFInAME(postP)*//*1*/
 
-#define TELLsYSlIFInAME(postP)                                                                     \
+#define TELLsYSlIFInAME(postP)                                                                  \
                                                                                                 \
     {                                                                                           \
         static boolT bDone ;                                                                    \
@@ -18524,7 +18519,7 @@ if cBitsP is f then 01 bits is indicated
             info.idiFile = DDNUMB ;                                                             \
             thirdC::c_strncpyIF( tinP , info.postName , postP , sizeof info.postName ) ;        \
             info.costName = thirdC::c_strlenIF( tinP , info.postName ) ;                        \
-            TELLsYSc3( ifcIDtYPEtELLsYS_LIFInAME , (byteT*)&info , sizeof info ) ;                     \
+            TELLsYSc3( ifcIDtYPEtELLsYS_LIFInAME , (byteT*)&info , sizeof info ) ;              \
         }                                                                                       \
     }
 
@@ -18536,7 +18531,7 @@ if cBitsP is f then 01 bits is indicated
 // Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
 
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112001e4.telllifiname END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112001e4.tellsyslifiname END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112001e5.set_bstopok BEGIN
 
 
@@ -18851,7 +18846,7 @@ most application code should use TLNA rather than TELLsYSlIFInAME
 //
 
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112001ed.idphaserestore END
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112001ee.tellc3lifi BEGIN
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112001ee.tellsysc3lifi BEGIN
 
 
 //
@@ -18868,12 +18863,12 @@ most application code should use TLNA rather than TELLsYSlIFInAME
 
 /*1*//*TELLsYSc3LIFI(idTypeP,pbP,cbP,idLineP,idiFileP)*//*1*/
 
-#define TELLsYSc3LIFI(idTypeP,pbP,cbP,idLineP,idiFileP)                                                                    \
+#define TELLsYSc3LIFI(idTypeP,pbP,cbP,idLineP,idiFileP)                                                                 \
                                                                                                                         \
     {                                                                                                                   \
-        byteT pbZombie[ sizeof( tellS ) + cbP ] ;                                                                 \
+        byteT pbZombie[ sizeof( tellS ) + cbP ] ;                                                                       \
         tellC tell( tinP , idLineP , idiFileP , 0 , idTypeP , pbP , cbP , pbZombie , sizeof pbZombie ) ;                \
-        thirdC::dosTellMonitorIF( tinP , tell ) ;                                                                       \
+        thirdC::dosTellMonitorIF( tinP , tell , ifcIDbOOKStELL_SYS ) ;                                                  \
     }
 
 
@@ -18884,8 +18879,8 @@ most application code should use TLNA rather than TELLsYSlIFInAME
 // Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
 
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112001ee.tellc3lifi END
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112001ef.tellc3slifi BEGIN
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112001ee.tellsysc3lifi END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112001ef.tellsysc3slifi BEGIN
 
 
 //
@@ -18906,12 +18901,12 @@ after i return, that countT object will contain 1
 
 /*1*//*TELLsYSc3SlIFI(idTypeP,pbP,cbP,idLineP,idiFileP)*//*1*/
 
-#define TELLsYSc3SlIFI(idTypeP,pbP,cbP,idLineP,idiFileP)                                                               \
+#define TELLsYSc3SlIFI(idTypeP,pbP,cbP,idLineP,idiFileP)                                                            \
                                                                                                                     \
     {                                                                                                               \
-        byteT pbZombie[ sizeof( tellS ) + cbP ] ;                                                             \
+        byteT pbZombie[ sizeof( tellS ) + cbP ] ;                                                                   \
         tellC tell( tinP , idLineP , idiFileP , 0 , idTypeP , pbP , cbP , pbZombie , sizeof pbZombie , 1 ) ;        \
-        thirdC::dosTellMonitorIF( tinP , tell ) ;                                                                   \
+        thirdC::dosTellMonitorIF( tinP , tell , ifcIDbOOKStELL_SYS ) ;                                              \
     }
 
 
@@ -18922,7 +18917,7 @@ after i return, that countT object will contain 1
 // Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
 
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112001ef.tellc3slifi END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112001ef.tellsysc3slifi END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112001f0.lograw BEGIN
 
 
@@ -29648,6 +29643,7 @@ can be used for sCountC as well as measureT and sCountT and countT
 
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200322.posthtmlfoot END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200323.newdelclass0 BEGIN
+
 
 //
 // Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
@@ -44284,9 +44280,9 @@ arguments
         {                                                                                                                                       \
             osTextT posta[ sizeof postDirNameP + CBtOaLIGN02( sizeof postDirNameP ) ] = postDirNameP ;                                          \
             byteT pbZombie[ sizeof( tellS ) + sizeof posta ] ;                                                                                  \
-            tellC tell( tinP , TAG( TAGiDnULL ) , ifcIDtYPEtELLsYS_SNAPsHOT , posta , sizeof posta , pbZombie , sizeof pbZombie ) ;                \
+            tellC tell( tinP , TAG( TAGiDnULL ) , ifcIDtYPEtELLsYS_SNAPsHOT , posta , sizeof posta , pbZombie , sizeof pbZombie ) ;             \
                                                                                                                                                 \
-            thirdC::dosTellMonitorIF( tinP , tell ) ;                                                                                           \
+            thirdC::dosTellMonitorIF( tinP , tell , ifcIDbOOKStELL_SYS ) ;                                                                      \
         }
 
 
@@ -44870,3 +44866,33 @@ arguments
 //
 
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004db.flinoutframec END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004dc.ifcidformat BEGIN
+
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+/*
+*/
+/**/
+/*1*//*ifcIDfORMAT*//*1*/
+
+/*3*/
+#define ifcIDfORMAT_BOOK0hEAD           0xdddd0b74
+/*3*/
+#define ifcIDfORMAT_min     0xdddd0b74
+#define ifcIDfORMAT_max     0xdddd0b74
+
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004dc.ifcidformat END
