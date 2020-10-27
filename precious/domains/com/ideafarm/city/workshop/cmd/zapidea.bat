@@ -50,7 +50,8 @@ if not exist \%1\ephemeral\backed.up.daily\domains\com\ideafarm\ipdos\memorySpac
 
 cd           \%1\ephemeral\backed.up.daily\domains\com\ideafarm\ipdos\memorySpaces\%xx%\00000%2\stateSpaces\ffffefff
 
-if exist bkstelemetry.*          del bkstelemetry.*
+if exist bkstelemetrysys.*       del bkstelemetrysys.*
+if exist bkstelemetryapp.*       del bkstelemetryapp.*
 if exist bkstrace.*              del bkstrace.*
 if exist bksTraceDivert??.*      del bksTraceDivert??.*
 if exist bksTraceHomeEcho.*      del bksTraceHomeEcho.*

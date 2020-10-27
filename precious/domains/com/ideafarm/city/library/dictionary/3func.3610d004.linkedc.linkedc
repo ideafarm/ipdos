@@ -31,7 +31,7 @@
     
             }
                 BLAMMO ;
-                LOGrAW( "linkedC::linkedC / error: i am already in the list, so am calling BLAMMO\r\n" ) ;
+                LOGrAW( "linkedC::linkedC / error: i am already in the list, so am calling BLAMMO\r\n" ) ;      //U::20201027@1300: OBSERVED, AFTER ADDING bksTelemetryApp
             {
             if( pc->pKid == this )
     
@@ -53,6 +53,10 @@
     grabitC grabitx( tinP , TAG( TAGiDnULL ) ) ;
 
     putNegAM( finger , FINGERnEG_LINKEDc ) ;
+    if( getNegAM( finger ) != FINGERnEG_GRABOTc ) { BLAMMO ; }  //U:: 20201027@1358: TO FIND A BUG
+    if( getNegAM( finger ) == FINGERnEG_LINKEDc ) { BLAMMO ; }  //U:: 20201027@1358: TO FIND A BUG
+
+    //if( tinP.pcUtility[ 0 ] ) { CONoUTrAW( "linkedC 1\r\n" ) ; } //U:: TO FIND A BUG
 
     _IO_
 {

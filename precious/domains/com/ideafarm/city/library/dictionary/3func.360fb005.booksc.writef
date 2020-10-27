@@ -131,7 +131,9 @@
                 }
                     //CONoUTrAW( "\r\n----------- DELETED  BOOK ------------" ) ;
                     bBookNowIsDestroyed = 1 ;
+                    tinP.pcUtility[ 0 ] -- ; //U:: TO FIND A BUG
                     DELzOMBIEbOOKbACKnOWiF
+                    tinP.pcUtility[ 0 ] ++ ; //U:: TO FIND A BUG
                     pBookUse = 0 ;
                     //CONoUTrAW( "\r\n----------- DELETING BOOK ++++++++++++" ) ;
                     _IO_
@@ -158,7 +160,7 @@
                         ;
                             : &tinP.pBk0TraceScratch
                             ? &tinP.pBk0TelemetryScratch
-                        ppBk0Scratch = bTelemetry
+                        ppBk0Scratch = bTelemetrySys
                     {
                     else
                     if( !pbtScratchBuffer || !pbtBook0 ) { BLAMMO ; }
@@ -184,14 +186,14 @@
                     //;
                     //    : TOCK ; //A:ASSUME: TRACE FROM DEL( p BookOld ) NEW( p BookOld ) IS FEWER THAN TOCK BYTES
                     //    ? sizeof( bookHeadS ) + 2 * ( sizeof( tellS ) + CBtELEMETRYeNVELOPE + sizeof( tellInfoNapkinS ) ) + 1       // ADD 1 TO ENSURE THAT THE LATH BYTE OF THE SCRATCH BUFFER IS NOT WRITTEN BY THE TELEMETRY EMITTED WHEN I DELETE AND NEW p BookOld
-                    //const countT cbtBuffer = bTelemetry
+                    //const countT cbtBuffer = bTelemetrySys
                     //ALLOCATED ROOM FOR 4 NAPKIN TELLS: DEL( p BookOld ) + NEW( p BookOld )
                     _IO_
                 {
                 )
                     ( bTrace     && !tinP.pBk0TraceScratch )
                     ||
-                    ( bTelemetry && !tinP.pBk0TelemetryScratch )
+                    ( bTelemetrySys && !tinP.pBk0TelemetryScratch )
                 (
                 if
 
@@ -323,7 +325,7 @@
                 ? tinP.pBk0TraceScratch
             : bTrace && tinP.pBk0TraceScratch
             ? tinP.pBk0TelemetryScratch
-        book0C* pBookUse = bTelemetry && tinP.pBk0TelemetryScratch
+        book0C* pBookUse = bTelemetrySys && tinP.pBk0TelemetryScratch
 
         //}
         //    }
@@ -348,8 +350,7 @@
 
         //const boolT bTraceDivert1 = this == &processGlobal3I.bksTraceDivert01 ;
         const boolT bTrace        = this == &processGlobal3I.bksTrace           ;
-        const boolT bTelemetryApp = this == &processGlobal3I.bksTelemetryApp    ;
-        const boolT bTelemetry    = this == &processGlobal3I.bksTelemetrySys    ;
+        const boolT bTelemetrySys = this == &processGlobal3I.bksTelemetrySys    ;
         _IO_
     {
     if( cb1P || F(flagsP) & flBOOKScwRITE_SETrEMAINING )

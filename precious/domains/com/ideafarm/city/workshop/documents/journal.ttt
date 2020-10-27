@@ -9234,25 +9234,129 @@ I have other business to attend to today and tomorrow, but plan to continue to w
 
 
 
-  next: set up dut
+
+
+
+
+   this is needed because wo application of app telemetry is to have inOutFrameC emit thread cycle deltas
+  think
+ playcraft
+ objective: support emission of application telemetry during dt / ct of bookC
+!job C: booksC::writeF: add support for telemetry app scratch
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   http dies about wo per day
+   the server is attacked by DOS that is effective
+   deadman is no longer failing, except after http dies
+  see
+   stay on top of email and legal procedure reactively
+   "summer vacation" mentally
+   speak with sign
+   minimal bug fixing to respond to software failures
+   no project work
+  policy
+   thrust: recover health, speak "Come Eat With Us" from now to election
+   minimal legal work
+   focus: burn-in test of factory3-5, knowing that each factory3-5 is an spf that will cause all service to fail
+   can wait: enhancement: file object like slabC that can be seen by all homes on all local factories (needed for cloaking of netBIOS files)
+   can wait: enhancing code to support cloaking for netBIOS files
+   can wait: fixing code in dosFindFileOrDirPrivateF to correctly handle netBIOS files
+   can wait: glass walls: consolidated trace facility (to see why http service is sometimes slow)
+   no software development until servers are known to be rock solid
+  plan
+   shutting down a factory3-5 brings down the web site
+   as long as factory3-5 are running, service is stable
+  think
+   this isn't really bad, but it is not ideal
+   no, but such a person can approve topics pending from subscribers
+   issue: with ?loggedin=yes, anyone can post anonymously and then certify their own posts
+  think
+    while that is being achieved, rock solid publication of the archive is within short term reach
+    done: after that is achieved, optimization for speed and scalability is within short term reach
+    done (qualified): server hardware and software rock solid stability is within short term reach
+    focus: i suffer from ptsd but full recovery is within short term reach
+   the stylized facts are
+   the overall objective is to get the right work done in the right order while restoring full mental and physical health
+  think
+ playcraft
+ objective: correct priorities for work flow
+!job A: executive overview
+
+!thrust: debug until all factories run without failure
+
+=========================================================================================================================================================
+=========================================================================================================================================================
+=========================================================================================================================================================
+=========================================================================================================================================================
+====- DONE: BELOW -======================================================================================================================================
+=========================================================================================================================================================
+=========================================================================================================================================================
+=========================================================================================================================================================
+=========================================================================================================================================================
+
+
+   resp: check finger to detect this
+   conj: the backing bytes for linkedC are being used multiple times
+  think
+  set up dut
+   initially, i want to set up a dut with which i can step through the code that handles this
+   the listing is from an exception report caused by the linkedC ct'or detecting that this is already in the list
+  think
+   | 
+   |    | Call Nest:
+   |    |  
+   |    | 663ead2  | ef'th: 2b62.c2110053    voidT thirdC::dosRaiseExceptionIF( tinS& tinP , const countT idExceptionP , const countT* const pcArgsP , const countT ccArgsP )
+   |    | 663ead2  | a'th: 6110.400d0163    linkedC::linkedC( tinS& tinP , const countT idLineCtP , const countT idiFileCtP , const byteT* const pbBitsCtP , linkedC& rootP ) :
+   |    | 663ead2  | 4'th: dd00.300af063    bookC::bookC( tinS& tinP , const countT idLineCtP , const countT idiFileCtP , const byteT* const pbBitsCtP , const osTextT* const postP , const countT idStateSpaceP , const flagsT flagsP , countT cbP , const byteT bFillP , const countT idMemorySpaceP ) :
+   |    | 663ead2  | 4'th: 3440.500bf063    countT booksC::writeF( tinS& tinP , const byteT* pb1P , countT cb1P , const byteT* pb2P , countT cb2P , const flagsT flagsP , handleC* const phWroteP /*U::, countT** ppcpIdAptP*/ )
+   |    | 663ead2  | 2'th: 3b30.500bf063    countT booksC::writeF( tinS& tinP , const byteT* pb1P , countT cb1P , const byteT* pb2P , countT cb2P , const flagsT flagsP , handleC* const phWroteP /*U::, countT** ppcpIdAptP*/ )
+   |    | 663ead2  | 3'th: 4730.500bf063    countT booksC::writeF( tinS& tinP , const byteT* pb1P , countT cb1P , const byteT* pb2P , countT cb2P , const flagsT flagsP , handleC* const phWroteP /*U::, countT** ppcpIdAptP*/ )
+   |    | 663ead2  | 1'th: 7330.500bf063    countT booksC::writeF( tinS& tinP , const byteT* pb1P , countT cb1P , const byteT* pb2P , countT cb2P , const flagsT flagsP , handleC* const phWroteP /*U::, countT** ppcpIdAptP*/ )
+   |    | 663ead2  | 1'th: 4230.500bf063    countT booksC::writeF( tinS& tinP , const byteT* pb1P , countT cb1P , const byteT* pb2P , countT cb2P , const flagsT flagsP , handleC* const phWroteP /*U::, countT** ppcpIdAptP*/ )
+   |    | 663ead2  | 4'th: 4a91.3e010053    voidT thirdC::dosTellMonitorIF( tinS& tinP , const tellC& tellP )
+   |    | 663ead2  | 1'th: e300.200e3063    napkinC::~napkinC( voidT )
+   |    | 663ead2  | 1'th: 8300.200af063    bookC::~bookC( voidT )
+   |    | 663ead2  | 1'th: f040.500bf063    countT booksC::writeF( tinS& tinP , const byteT* pb1P , countT cb1P , const byteT* pb2P , countT cb2P , const flagsT flagsP , handleC* const phWroteP /*U::, countT** ppcpIdAptP*/ )
+   |    | 663ead2  | 2'th: 3b30.500bf063    countT booksC::writeF( tinS& tinP , const byteT* pb1P , countT cb1P , const byteT* pb2P , countT cb2P , const flagsT flagsP , handleC* const phWroteP /*U::, countT** ppcpIdAptP*/ )
+   |    | 663ead2  | 3'th: 4730.500bf063    countT booksC::writeF( tinS& tinP , const byteT* pb1P , countT cb1P , const byteT* pb2P , countT cb2P , const flagsT flagsP , handleC* const phWroteP /*U::, countT** ppcpIdAptP*/ )
+   |    | 663ead2  | 1'th: 7330.500bf063    countT booksC::writeF( tinS& tinP , const byteT* pb1P , countT cb1P , const byteT* pb2P , countT cb2P , const flagsT flagsP , handleC* const phWroteP /*U::, countT** ppcpIdAptP*/ )
+   |    | 663ead2  | 1'th: 4230.500bf063    countT booksC::writeF( tinS& tinP , const byteT* pb1P , countT cb1P , const byteT* pb2P , countT cb2P , const flagsT flagsP , handleC* const phWroteP /*U::, countT** ppcpIdAptP*/ )
+   |    | 663ead2  | 51'th: 4a91.3e010053    voidT thirdC::dosTellMonitorIF( tinS& tinP , const tellC& tellP )
+   |    | 663ead2  | 0'th: 3e32.b5000033    TASKdRIVENsERVER( tmcHttpServerF )
+   |    | 663ead2  | 0'th: 1960.d0000033    countT __export threadLocalStorageF( const countT idTypeP , kidFT pThreadWorkF , countT cArgP , countT cHowP , const osTextT** ppostHowP , countT hWindowingClientIP , countT hPreviousWindowingClientP , osTextT* postP , countT idCmdShowP )
+   | 
+  listing
+ playcraft
+ objective: confidence
+!job A: test and inspect dosTellMonitorIF call resulting in bookC dt
+  cnr
+  set up dut
  playcraft
  changed: new code
 !job B: bksTelemetryApp is receiving data
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  nawwh
    i am already on the list
   see
    | 
@@ -9788,60 +9892,6 @@ I have other business to attend to today and tomorrow, but plan to continue to w
  playcraft
  changed: code squeeze
 !job B: http blammo
-
-
-
-
-   http dies about wo per day
-   the server is attacked by DOS that is effective
-   deadman is no longer failing, except after http dies
-  see
-   stay on top of email and legal procedure reactively
-   "summer vacation" mentally
-   speak with sign
-   minimal bug fixing to respond to software failures
-   no project work
-  policy
-   thrust: recover health, speak "Come Eat With Us" from now to election
-   minimal legal work
-   focus: burn-in test of factory3-5, knowing that each factory3-5 is an spf that will cause all service to fail
-   can wait: enhancement: file object like slabC that can be seen by all homes on all local factories (needed for cloaking of netBIOS files)
-   can wait: enhancing code to support cloaking for netBIOS files
-   can wait: fixing code in dosFindFileOrDirPrivateF to correctly handle netBIOS files
-   can wait: glass walls: consolidated trace facility (to see why http service is sometimes slow)
-   no software development until servers are known to be rock solid
-  plan
-   shutting down a factory3-5 brings down the web site
-   as long as factory3-5 are running, service is stable
-  think
-   this isn't really bad, but it is not ideal
-   no, but such a person can approve topics pending from subscribers
-   issue: with ?loggedin=yes, anyone can post anonymously and then certify their own posts
-  think
-    while that is being achieved, rock solid publication of the archive is within short term reach
-    done: after that is achieved, optimization for speed and scalability is within short term reach
-    done (qualified): server hardware and software rock solid stability is within short term reach
-    focus: i suffer from ptsd but full recovery is within short term reach
-   the stylized facts are
-   the overall objective is to get the right work done in the right order while restoring full mental and physical health
-  think
- playcraft
- objective: correct priorities for work flow
-!job A: executive overview
-
-!thrust: debug until all factories run without failure
-
-=========================================================================================================================================================
-=========================================================================================================================================================
-=========================================================================================================================================================
-=========================================================================================================================================================
-====- DONE: BELOW -======================================================================================================================================
-=========================================================================================================================================================
-=========================================================================================================================================================
-=========================================================================================================================================================
-=========================================================================================================================================================
-
-
    rename bksTelemetry
   play
    bucket to receive application data
