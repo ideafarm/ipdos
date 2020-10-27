@@ -27450,7 +27450,8 @@ it is illegal to modify any member other than pc Utility in the definition of an
  countT                 odoSockCbWrite ;
  poolC*                 pPoolUse ;
  adamC*                 pAdam ;
- book0C*                pBk0TelemetryScratch ;
+ book0C*                pBk0TelemetrySysScratch ;
+ book0C*                pBk0TelemetryAppScratch ;
  book0C*                pBk0TraceScratch ;
  tinArgS                ta ;
  const byteT*           ppbNewUntagged[ CmAXuNTAGGED ] ;

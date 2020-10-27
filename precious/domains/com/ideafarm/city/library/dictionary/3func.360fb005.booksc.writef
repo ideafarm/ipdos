@@ -158,8 +158,10 @@
                         {
 
                         ;
-                            : &tinP.pBk0TraceScratch
-                            ? &tinP.pBk0TelemetryScratch
+                                : &tinP.pBk0TraceScratch
+                                ? &tinP.pBk0TelemetryAppScratch
+                            : bTelemetryApp
+                            ? &tinP.pBk0TelemetrySysScratch
                         ppBk0Scratch = bTelemetrySys
                     {
                     else
@@ -186,14 +188,16 @@
                     //;
                     //    : TOCK ; //A:ASSUME: TRACE FROM DEL( p BookOld ) NEW( p BookOld ) IS FEWER THAN TOCK BYTES
                     //    ? sizeof( bookHeadS ) + 2 * ( sizeof( tellS ) + CBtELEMETRYeNVELOPE + sizeof( tellInfoNapkinS ) ) + 1       // ADD 1 TO ENSURE THAT THE LATH BYTE OF THE SCRATCH BUFFER IS NOT WRITTEN BY THE TELEMETRY EMITTED WHEN I DELETE AND NEW p BookOld
-                    //const countT cbtBuffer = bTelemetrySys
+                    //const countT cbtBuffer = bTelemetrySys || bTelemetryApp
                     //ALLOCATED ROOM FOR 4 NAPKIN TELLS: DEL( p BookOld ) + NEW( p BookOld )
                     _IO_
                 {
                 )
                     ( bTrace     && !tinP.pBk0TraceScratch )
                     ||
-                    ( bTelemetrySys && !tinP.pBk0TelemetryScratch )
+                    ( bTelemetryApp && !tinP.pBk0TelemetryAppScratch )
+                    ||
+                    ( bTelemetrySys && !tinP.pBk0TelemetrySysScratch )
                 (
                 if
 
@@ -233,7 +237,8 @@
             else
             else if( F(flagsP) & flBOOKScwRITE_NOsCRATCHING ) { BLAMMO ; }
             else if( pBookUse == tinP.pBk0TraceScratch ) { BLAMMO ; }
-            else if( pBookUse == tinP.pBk0TelemetryScratch ) { BLAMMO ; } //20141206@0700: OBSERVED WITHIN ifcIDaDAM_CLOUD WHILE 3 INSTANCES EXISTED ; 20151026@2013: DITTO WHILE MORE THAN 3 EXISTED BUT ONLY WO WAS ACTIVE AT A TIME ; 20151125@1532 piss (156)
+            else if( pBookUse == tinP.pBk0TelemetryAppScratch ) { BLAMMO ; }
+            else if( pBookUse == tinP.pBk0TelemetrySysScratch ) { BLAMMO ; } //20141206@0700: OBSERVED WITHIN ifcIDaDAM_CLOUD WHILE 3 INSTANCES EXISTED ; 20151026@2013: DITTO WHILE MORE THAN 3 EXISTED BUT ONLY WO WAS ACTIVE AT A TIME ; 20151125@1532 piss (156)
             }
                 break ;
                 if( ( !( F(flagsP) & flBOOKScwRITE_SETrEMAINING ) && cbDone1 != cb1P ) || cbDone2 != cb2P ) { BLAMMO ; } // cbDoneX MUST EQUAL cbXP; IF I DIDN'T WRITE THE LATH BYTE THEN I MUST HAVE WRITTEN ALL THAT I WANTED TO WRITE
@@ -302,7 +307,7 @@
             if( F(flagsP) & flBOOKScwRITE_FLUSHb4tAIL                   ) flagsWrite |= flBOOK0cwRITE_FLUSHb4tAIL                   ;
             if( F(flagsP) & flBOOKScwRITE_FLUSHbOOKhEADoNcHANGE         ) flagsWrite |= flBOOK0cwRITE_FLUSHbOOKhEADoNcHANGE         ;
         {
-        if( pBookUse != tinP.pBk0TelemetryScratch && pBookUse != tinP.pBk0TraceScratch )
+        if( pBookUse != tinP.pBk0TelemetrySysScratch && pBookUse != tinP.pBk0TelemetryAppScratch && pBookUse != tinP.pBk0TraceScratch )
 
         if( F(flagsP) & flBOOKScwRITE_SETrEMAINING                  ) flagsWrite |= flBOOK0cwRITE_SETrEMAINING                  ;
         if( F(flagsP) & flBOOKScwRITE_ALLOWoDDlENGTH                ) flagsWrite |= flBOOK0cwRITE_ALLOWoDDlENGTH                ;
@@ -321,11 +326,13 @@
         //if( !( (bookHeadS&)*pBookUse ).cbBody ) { BLAMMO ; } //U::TO FIND A BUG  20140401
 
         ;
-                : &BOOKnOW
-                ? tinP.pBk0TraceScratch
-            : bTrace && tinP.pBk0TraceScratch
-            ? tinP.pBk0TelemetryScratch
-        book0C* pBookUse = bTelemetrySys && tinP.pBk0TelemetryScratch
+                    : &BOOKnOW
+                    ? tinP.pBk0TraceScratch
+                : bTrace && tinP.pBk0TraceScratch
+                ? tinP.pBk0TelemetryAppScratch
+            : bTelemetryApp && tinP.pBk0TelemetryAppScratch
+            ? tinP.pBk0TelemetrySysScratch
+        book0C* pBookUse = bTelemetrySys && tinP.pBk0TelemetrySysScratch
 
         //}
         //    }
@@ -350,6 +357,7 @@
 
         //const boolT bTraceDivert1 = this == &processGlobal3I.bksTraceDivert01 ;
         const boolT bTrace        = this == &processGlobal3I.bksTrace           ;
+        const boolT bTelemetryApp = this == &processGlobal3I.bksTelemetryApp    ;
         const boolT bTelemetrySys = this == &processGlobal3I.bksTelemetrySys    ;
         _IO_
     {
