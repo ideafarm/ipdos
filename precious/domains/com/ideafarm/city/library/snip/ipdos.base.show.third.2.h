@@ -1,3 +1,157 @@
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004d8.flhomesutility BEGIN
+
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+/*
+*/
+/**/
+/*1*//*flHOMEsuTILITY*//*1*/
+
+/*3*/
+#define flHOMEsuTILITY_1            0xe00001eb
+#define flHOMEsuTILITY_2            0xe00002eb
+#define flHOMEsuTILITY_4            0xe00004eb
+#define flHOMEsuTILITY_8            0xe00008eb
+#define flHOMEsuTILITY_01           0xe00010eb
+#define flHOMEsuTILITY_02           0xe00020eb
+#define flHOMEsuTILITY_04           0xe00040eb
+#define flHOMEsuTILITY_08           0xe00080eb
+#define flHOMEsuTILITY_TRACE        0xe00100eb
+#define flHOMEsuTILITY_SNAPsHOT     0xe00200eb
+#define flHOMEsuTILITY_DEBUG        0xe00400eb
+/*3*/
+#define flHOMEsuTILITY_null    0xe00000eb
+
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004d8.flhomesutility END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004d9.ctallybuckets BEGIN
+
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+/*
+*/
+
+/**/
+
+/*1*//*CtALLYbUCKETS*//*1*/
+
+#define CtALLYbUCKETS ( TUCK << 6 )
+
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004d9.ctallybuckets END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004da.cbostallyperlog BEGIN
+
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+/*
+*/
+
+/**/
+
+/*1*//*CbOStALLYpERlOG*//*1*/
+
+#define CbOStALLYpERlOG ( TOCK >> 2 )
+
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004da.cbostallyperlog END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004db.flinoutframec BEGIN
+
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+/*
+*/
+/**/
+/*1*//*flINoUTfRAMEc*//*1*/
+
+/*3*/
+#define flINoUTfRAMEc_TRACE            0xe00001ec
+/*3*/
+#define flINoUTfRAMEc_null    0xe00000ec
+
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004db.flinoutframec END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004dc.ifcidformat BEGIN
+
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+/*
+*/
+/**/
+/*1*//*ifcIDfORMAT*//*1*/
+
+/*3*/
+#define ifcIDfORMAT_BOOK0hEAD           0xdddd0b74
+/*3*/
+#define ifcIDfORMAT_min     0xdddd0b74
+#define ifcIDfORMAT_max     0xdddd0b74
+
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004dc.ifcidformat END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004dd.fillbyte BEGIN
 
 
@@ -7589,7 +7743,7 @@ typedef countT (*/*ff*/idGrabberFT/*ff*/)( tinS& tinP , const countT idGrabberMe
 /**/
 /*1*//*bAcceptEventFT*//*1*/
 
-typedef boolT (*/*ff*/bAcceptEventFT/*ff*/)( tinS* pTinP , tellInfoExceptionS& infoP , countT* pcArgP ) ; /*ff*//**//*ff*/ 
+typedef boolT (*/*ff*/bAcceptEventFT/*ff*/)( tinS* pTinP , tellInfoSysExceptionS& infoP , countT* pcArgP ) ; /*ff*//**//*ff*/ 
 
 
 //
@@ -18991,7 +19145,7 @@ it is illegal to refer to this symbol anywhere except in napkinC definitions
 /*
 */
 /**/
-/*1*/extern tellInfoExceptionS tellInfoExceptionG ;/*1*/
+/*1*/extern tellInfoSysExceptionS tellInfoSysExceptionG ;/*1*/
 
 
 //
@@ -27443,7 +27597,7 @@ it is illegal to modify any member other than pc Utility in the definition of an
  countT                 idLineMileDad ;
  countT                 idiFileMileDad ;
  osTextT*               postRptExceptionLath ;
- tellInfoExceptionS*    pTieLath ;
+ tellInfoSysExceptionS*    pTieLath ;
  const countT*          pczl_pSwsRecycle ;
  switchStackC*          pSwsRecycle ;
  countT                 odoSockCbRead  ;
@@ -27713,7 +27867,7 @@ it is illegal to modify any member other than pc Utility in the definition of an
  tinS         tinEarlyLate ;
  countT       rc ;
  staticC      postRptExceptionLath ;
- staticC      tellInfoExceptionLath ;
+ staticC      tellInfoSysExceptionLath ;
  staticC      stackTop ; //KEEP THIS AT THE TOP OF THIS CLASS LAYOUT UNLESS THERE IS A REASON TO DO OTHERWISE (ITS LOCATION AT THE TOP MIGHT BECOME USEFUL)
 
  ~tlsStackFrameS( voidT ) ;
@@ -27767,7 +27921,7 @@ it is illegal to modify any member other than pc Utility in the definition of an
  tinS         tinEarlyLate ;
  countT       rc ;
  staticC      postRptExceptionLath ;
- staticC      tellInfoExceptionLath ;
+ staticC      tellInfoSysExceptionLath ;
  staticC      stackTop ; //KEEP THIS AT THE TOP OF THIS CLASS LAYOUT UNLESS THERE IS A REASON TO DO OTHERWISE (ITS LOCATION AT THE TOP MIGHT BECOME USEFUL)
 
  ~tlsStackFrameNoTlsS( voidT ) ;
@@ -29245,7 +29399,7 @@ applications should avoid using thirdC objects
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34004.restartC.restartC!||
  operator countT( voidT ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34005.restartC.operator_countT!||
- boolT bAcceptF( tinS* const pTinP , tellInfoExceptionS& infoP ) ;
+ boolT bAcceptF( tinS* const pTinP , tellInfoSysExceptionS& infoP ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34006.restartC.bAcceptF!||
 
  friend boolT thirdC::osExceptionHandlerWorkIF( const countT cArgP ) ;
@@ -33343,7 +33497,7 @@ each communication between hosts is speedy, unreliable, and limited in size to i
 //
 
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.netC : 1snip.1500003b.netc END
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.tellInfoProcessGlobal1S : 1snip.1500017d.tellinfoprocessglobal1s BEGIN
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.tellInfoSysProcessGlobal1S : 1snip.1500017d.tellinfoprocessglobal1s BEGIN
 
 
 //
@@ -33358,7 +33512,7 @@ each communication between hosts is speedy, unreliable, and limited in size to i
 */
 /**/
 
-/*1*/struct _export tellInfoProcessGlobal1S/*1*/
+/*1*/struct _export tellInfoSysProcessGlobal1S/*1*/
 {
     countT  osPid ;
     byteT*  pbEarlyGrain ;
@@ -33366,10 +33520,10 @@ each communication between hosts is speedy, unreliable, and limited in size to i
 
  public :
 
- ~tellInfoProcessGlobal1S( voidT ) ;
- //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34001.tellInfoProcessGlobal1S.dt_tellInfoProcessGlobal1S!||
- tellInfoProcessGlobal1S( voidT ) ;
- //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34002.tellInfoProcessGlobal1S.tellInfoProcessGlobal1S!||
+ ~tellInfoSysProcessGlobal1S( voidT ) ;
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34001.tellInfoSysProcessGlobal1S.dt_tellInfoSysProcessGlobal1S!||
+ tellInfoSysProcessGlobal1S( voidT ) ;
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34002.tellInfoSysProcessGlobal1S.tellInfoSysProcessGlobal1S!||
 }
 ;
 
@@ -33381,8 +33535,8 @@ each communication between hosts is speedy, unreliable, and limited in size to i
 // Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
 
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.tellInfoProcessGlobal1S : 1snip.1500017d.tellinfoprocessglobal1s END
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.tellInfoSexS : 1snip.1500017c.tellinfosexs BEGIN
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.tellInfoSysProcessGlobal1S : 1snip.1500017d.tellinfoprocessglobal1s END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.tellInfoSysSexS : 1snip.1500017c.tellinfosexs BEGIN
 
 
 //
@@ -33397,7 +33551,7 @@ each communication between hosts is speedy, unreliable, and limited in size to i
 */
 /**/
 
-/*1*/struct _export tellInfoSexS/*1*/
+/*1*/struct _export tellInfoSysSexS/*1*/
 {
     countT  osPid ;
     osTextT postName[ COSTpOOLnAMEmAX ] ;
@@ -33409,10 +33563,10 @@ each communication between hosts is speedy, unreliable, and limited in size to i
 
  public :
 
- ~tellInfoSexS( voidT ) ;
- //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34001.tellInfoSexS.dt_tellInfoSexS!||
- tellInfoSexS( voidT ) ;
- //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34002.tellInfoSexS.tellInfoSexS!||
+ ~tellInfoSysSexS( voidT ) ;
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34001.tellInfoSysSexS.dt_tellInfoSysSexS!||
+ tellInfoSysSexS( voidT ) ;
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34002.tellInfoSysSexS.tellInfoSysSexS!||
 }
 ;
 
@@ -33424,8 +33578,8 @@ each communication between hosts is speedy, unreliable, and limited in size to i
 // Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
 
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.tellInfoSexS : 1snip.1500017c.tellinfosexs END
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.tellInfoTinS : 1snip.15000059.tellinfotins BEGIN
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.tellInfoSysSexS : 1snip.1500017c.tellinfosexs END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.tellInfoSysTinS : 1snip.15000059.tellinfotins BEGIN
 
 
 //
@@ -33440,7 +33594,7 @@ each communication between hosts is speedy, unreliable, and limited in size to i
 */
 /**/
 
-/*1*/struct _export tellInfoTinS/*1*/
+/*1*/struct _export tellInfoSysTinS/*1*/
 {
     countT  idSerial ;
     countT  ip ;
@@ -33452,10 +33606,10 @@ each communication between hosts is speedy, unreliable, and limited in size to i
 
     public :
 
- ~tellInfoTinS( voidT ) ;
- //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34001.tellInfoTinS.dt_tellInfoTinS!||
- tellInfoTinS( voidT ) ;
- //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34002.tellInfoTinS.tellInfoTinS!||
+ ~tellInfoSysTinS( voidT ) ;
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34001.tellInfoSysTinS.dt_tellInfoSysTinS!||
+ tellInfoSysTinS( voidT ) ;
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34002.tellInfoSysTinS.tellInfoSysTinS!||
 }
 ;
 
@@ -33467,8 +33621,8 @@ each communication between hosts is speedy, unreliable, and limited in size to i
 // Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
 
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.tellInfoTinS : 1snip.15000059.tellinfotins END
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.tellInfo_grabC_S : 1snip.1500005b.tellinfo_grabc_s BEGIN
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.tellInfoSysTinS : 1snip.15000059.tellinfotins END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.tellInfoSys_grabC_S : 1snip.1500005b.tellinfo_grabc_s BEGIN
 
 
 //
@@ -33483,7 +33637,7 @@ each communication between hosts is speedy, unreliable, and limited in size to i
 */
 /**/
 
-/*1*/struct _export tellInfo_grabC_S/*1*/
+/*1*/struct _export tellInfoSys_grabC_S/*1*/
 {
     countT  idSerial ;
     countT  ip ;
@@ -33500,8 +33654,8 @@ each communication between hosts is speedy, unreliable, and limited in size to i
 // Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
 
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.tellInfo_grabC_S : 1snip.1500005b.tellinfo_grabc_s END
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.tellInfoExceptionS : 1snip.15000067.tellinfoexceptions BEGIN
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.tellInfoSys_grabC_S : 1snip.1500005b.tellinfo_grabc_s END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.tellInfoSysExceptionS : 1snip.15000067.tellinfoexceptions BEGIN
 
 
 //
@@ -33516,7 +33670,7 @@ each communication between hosts is speedy, unreliable, and limited in size to i
 */
 /**/
 
-/*1*/struct _export tellInfoExceptionS/*1*/
+/*1*/struct _export tellInfoSysExceptionS/*1*/
 {
     byteT   pbTin[ sizeof( tinS ) + CBtOaLIGN02( sizeof( tinS ) ) ] ;
     countT  idException ;
@@ -33531,10 +33685,10 @@ each communication between hosts is speedy, unreliable, and limited in size to i
 
     public :
 
- ~tellInfoExceptionS( voidT ) ;
- //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34001.tellInfoExceptionS.dt_tellInfoExceptionS!||
- tellInfoExceptionS( voidT ) ;
- //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34002.tellInfoExceptionS.tellInfoExceptionS!||
+ ~tellInfoSysExceptionS( voidT ) ;
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34001.tellInfoSysExceptionS.dt_tellInfoSysExceptionS!||
+ tellInfoSysExceptionS( voidT ) ;
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34002.tellInfoSysExceptionS.tellInfoSysExceptionS!||
 }
 ;
 
@@ -33546,8 +33700,8 @@ each communication between hosts is speedy, unreliable, and limited in size to i
 // Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
 
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.tellInfoExceptionS : 1snip.15000067.tellinfoexceptions END
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.tellInfoNapkinS : 1snip.1500006e.tellinfonapkins BEGIN
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.tellInfoSysExceptionS : 1snip.15000067.tellinfoexceptions END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.tellInfoSysNapkinS : 1snip.1500006e.tellinfonapkins BEGIN
 
 
 //
@@ -33562,7 +33716,7 @@ each communication between hosts is speedy, unreliable, and limited in size to i
 */
 /**/
 
-/*1*/struct _export tellInfoNapkinS/*1*/
+/*1*/struct _export tellInfoSysNapkinS/*1*/
 {
     countT  osPid ;
     osTextT postName[ COSTmAXnAPKINnAME + 1 + CBtOaLIGN02( COSTmAXnAPKINnAME + 1 ) ] ;
@@ -33574,10 +33728,10 @@ each communication between hosts is speedy, unreliable, and limited in size to i
 
  public :
 
- ~tellInfoNapkinS( voidT ) ;
- //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34001.tellInfoNapkinS.dt_tellInfoNapkinS!||
- tellInfoNapkinS( voidT ) ;
- //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34002.tellInfoNapkinS.tellInfoNapkinS!||
+ ~tellInfoSysNapkinS( voidT ) ;
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34001.tellInfoSysNapkinS.dt_tellInfoSysNapkinS!||
+ tellInfoSysNapkinS( voidT ) ;
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34002.tellInfoSysNapkinS.tellInfoSysNapkinS!||
 }
 ;
 
@@ -33589,8 +33743,8 @@ each communication between hosts is speedy, unreliable, and limited in size to i
 // Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
 
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.tellInfoNapkinS : 1snip.1500006e.tellinfonapkins END
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.tellInfoLifiS : 1snip.1500006f.tellinfolifis BEGIN
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.tellInfoSysNapkinS : 1snip.1500006e.tellinfonapkins END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.tellInfoSysLifiS : 1snip.1500006f.tellinfolifis BEGIN
 
 
 //
@@ -33604,7 +33758,7 @@ each communication between hosts is speedy, unreliable, and limited in size to i
 */
 /**/
 
-/*1*/struct _export tellInfoLifiS/*1*/
+/*1*/struct _export tellInfoSysLifiS/*1*/
 {
     countT  idLine ;
     countT  idiFile ;
@@ -33613,10 +33767,10 @@ each communication between hosts is speedy, unreliable, and limited in size to i
 
     public :
 
- ~tellInfoLifiS( voidT ) ;
- //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34001.tellInfoLifiS.dt_tellInfoLifiS!||
- tellInfoLifiS( voidT ) ;
- //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34002.tellInfoLifiS.tellInfoLifiS!||
+ ~tellInfoSysLifiS( voidT ) ;
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34001.tellInfoSysLifiS.dt_tellInfoSysLifiS!||
+ tellInfoSysLifiS( voidT ) ;
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34002.tellInfoSysLifiS.tellInfoSysLifiS!||
 }
 ;
 
@@ -33628,7 +33782,7 @@ each communication between hosts is speedy, unreliable, and limited in size to i
 // Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
 
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.tellInfoLifiS : 1snip.1500006f.tellinfolifis END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.tellInfoSysLifiS : 1snip.1500006f.tellinfolifis END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.tellS : 1snip.15000058.tells BEGIN
 
 
@@ -41732,7 +41886,7 @@ it is illegal to refer to marketC class or extances except within the definition
 //
 
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.listWalkArgS : 1snip.15000102.listwalkargs END
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.tellInfoAdamFiredS : 1snip.15000104.tellinfoadamfireds BEGIN
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.tellInfoSysAdamFiredS : 1snip.15000104.tellinfoadamfireds BEGIN
 
 
 //
@@ -41746,17 +41900,17 @@ it is illegal to refer to marketC class or extances except within the definition
 */
 /**/
 
-/*1*/struct _export tellInfoAdamFiredS/*1*/
+/*1*/struct _export tellInfoSysAdamFiredS/*1*/
 {
     countT  idAdamRoot ;
     countT  idAdam ;
 
     public :
 
- ~tellInfoAdamFiredS( voidT ) ;
- //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34001.tellInfoAdamFiredS.dt_tellInfoAdamFiredS!||
- tellInfoAdamFiredS( voidT ) ;
- //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34002.tellInfoAdamFiredS.tellInfoAdamFiredS!||
+ ~tellInfoSysAdamFiredS( voidT ) ;
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34001.tellInfoSysAdamFiredS.dt_tellInfoSysAdamFiredS!||
+ tellInfoSysAdamFiredS( voidT ) ;
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34002.tellInfoSysAdamFiredS.tellInfoSysAdamFiredS!||
 }
 ;
 
@@ -41768,7 +41922,7 @@ it is illegal to refer to marketC class or extances except within the definition
 // Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
 
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.tellInfoAdamFiredS : 1snip.15000104.tellinfoadamfireds END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.tellInfoSysAdamFiredS : 1snip.15000104.tellinfoadamfireds END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.sexGlobalEntryS : 1snip.15000105.sexglobalentrys BEGIN
 
 

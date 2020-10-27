@@ -1,4 +1,239 @@
 
+
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+/*
+\<A HREF=\"5.0010263.1.0.html\"\>definition\</A\>
+like TELLaPPc3 but synchronous
+ i do not return until the monitor has seen pbP
+pbP must point to a countT that contains 0
+after i return, that countT object will contain 1
+*/
+/**/
+
+/*1*//*TELLaPPc3SlIFI(idTypeP,pbP,cbP,idLineP,idiFileP)*//*1*/
+
+#define TELLaPPc3SlIFI(idTypeP,pbP,cbP,idLineP,idiFileP)                                                            \
+                                                                                                                    \
+    {                                                                                                               \
+        byteT pbZombie[ sizeof( tellS ) + cbP ] ;                                                                   \
+        tellC tell( tinP , idLineP , idiFileP , 0 , idTypeP , pbP , cbP , pbZombie , sizeof pbZombie , 1 ) ;        \
+        thirdC::dosTellMonitorIF( tinP , tell , ifcIDbOOKStELL_APP ) ;                                              \
+    }
+
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+/*
+\<A HREF=\"5.0010213.1.0.html\"\>definition\</A\>
+*/
+/**/
+
+/*1*//*TELLaPPc3LIFI(idTypeP,pbP,cbP,idLineP,idiFileP)*//*1*/
+
+#define TELLaPPc3LIFI(idTypeP,pbP,cbP,idLineP,idiFileP)                                                                 \
+                                                                                                                        \
+    {                                                                                                                   \
+        byteT pbZombie[ sizeof( tellS ) + cbP ] ;                                                                       \
+        tellC tell( tinP , idLineP , idiFileP , 0 , idTypeP , pbP , cbP , pbZombie , sizeof pbZombie ) ;                \
+        thirdC::dosTellMonitorIF( tinP , tell , ifcIDbOOKStELL_APP ) ;                                                  \
+    }
+
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+/*
+*/
+/**/
+
+/*1*//*TELLaPPlIFInAME(postP)*//*1*/
+
+#define TELLaPPlIFInAME(postP)                                                                  \
+                                                                                                \
+    {                                                                                           \
+        static boolT bDone ;                                                                    \
+        if( !bDone )                                                                            \
+        {                                                                                       \
+            bDone = 1 ;                                                                         \
+                                                                                                \
+            tellInfoSysLifiS info ;                                                                \
+            info.idLine = ifcLINE ;                                                             \
+            info.idiFile = DDNUMB ;                                                             \
+            thirdC::c_strncpyIF( tinP , info.postName , postP , sizeof info.postName ) ;        \
+            info.costName = thirdC::c_strlenIF( tinP , info.postName ) ;                        \
+            TELLaPPc3( ifcIDtYPEtELLsYS_LIFInAME , (byteT*)&info , sizeof info ) ;              \
+        }                                                                                       \
+    }
+
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+/*
+\<A HREF=\"5.0010274.1.0.html\"\>definition\</A\>
+*/
+/**/
+
+/*1*//*TELLaPPc3EBP(idTypeP,pbP,cbP,ebpP)*//*1*/
+
+#define TELLaPPc3EBP(idTypeP,pbP,cbP,ebpP)                                                                          \
+                                                                                                                    \
+    {                                                                                                               \
+        byteT pbZombie[ sizeof( tellS ) + cbP ] ;                                                                   \
+        tellC tell( tinP , TAG( TAGiDnULL ) , idTypeP , pbP , cbP , pbZombie , sizeof pbZombie , 0 , ebpP ) ;       \
+        thirdC::dosTellMonitorIF( tinP , tell , ifcIDbOOKStELL_APP ) ;                                              \
+    }
+
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+/*
+\<A HREF=\"5.0010263.1.0.html\"\>definition\</A\>
+like TELLaPPc3 but synchronous
+ i do not return until the monitor has seen pbP
+pbP must point to a countT that contains 0
+after i return, that countT object will contain 1
+*/
+/**/
+
+/*1*//*TELLaPPc3S(idTypeP,pbP,cbP)*//*1*/
+
+#define TELLaPPc3S(idTypeP,pbP,cbP)                                                                                 \
+                                                                                                                    \
+    {                                                                                                               \
+        byteT pbZombie[ sizeof( tellS ) + cbP ] ;                                                                   \
+        tellC tell( tinP , TAG( TAGiDnULL ) , idTypeP , pbP , cbP , pbZombie , sizeof pbZombie , 1 ) ;              \
+        thirdC::dosTellMonitorIF( tinP , tell , ifcIDbOOKStELL_APP ) ;                                              \
+    }
+
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+/*
+\<A HREF=\"5.0010213.1.0.html\"\>definition\</A\>
+*/
+/**/
+
+/*1*//*TELLaPPc3(idTypeP,pbP,cbP)*//*1*/
+
+#define TELLaPPc3(idTypeP,pbP,cbP)                                                                                      \
+                                                                                                                        \
+    {                                                                                                                   \
+        byteT pbZombie[ sizeof( tellS ) + cbP ] ;                                                                       \
+        tellC tell( tinP , TAG( TAGiDnULL ) , idTypeP , pbP , cbP , pbZombie , sizeof pbZombie ) ;                      \
+        thirdC::dosTellMonitorIF( tinP , tell , ifcIDbOOKStELL_APP ) ;                                                  \
+    }
+
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+/*
+\<A HREF=\"5.0010212.1.0.html\"\>definition\</A\>
+*/
+/**/
+
+/*1*//*TELLaPPc1(idTypeP)*//*1*/
+
+#define TELLaPPc1(idTypeP)                                                                                          \
+                                                                                                                    \
+    {                                                                                                               \
+        byteT pbZombie[ sizeof( tellS ) ] ;                                                                         \
+        tellC tell( tinP , TAG( TAGiDnULL ) , idTypeP , 0 , 0 , pbZombie , sizeof pbZombie ) ;                      \
+        thirdC::dosTellMonitorIF( tinP , tell , ifcIDbOOKStELL_APP ) ;                                              \
+    }
+
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+
+
 // IPDOS (tm) <> IdeaFarm (tm) Piggyback Distributed Operating System
 
 // For build environment info, see file "\ideafarm.work\backed.up.never\txt\readme.first.ipdos.build.environment.txt"
@@ -161,10 +396,10 @@ class  /*ff*/switchStackC/*ff*/                 ; /*ff*//*l*//*ff*/
 class  /*ff*/tableC/*ff*/                       ; /*ff*//*m*//*ff*/
 struct /*ff*/taskS/*ff*/                        ; /*ff*//**//*ff*/
 class  /*ff*/tellC/*ff*/                        ; /*ff*//**//*ff*/
-struct /*ff*/tellInfoExceptionS/*ff*/           ; /*ff*//**//*ff*/
-struct /*ff*/tellInfo_grabC_S/*ff*/             ; /*ff*//**//*ff*/
-struct /*ff*/tellInfoLifiS/*ff*/                ; /*ff*//**//*ff*/
-struct /*ff*/tellInfoNapkinS/*ff*/              ; /*ff*//**//*ff*/
+struct /*ff*/tellInfoSysExceptionS/*ff*/           ; /*ff*//**//*ff*/
+struct /*ff*/tellInfoSys_grabC_S/*ff*/             ; /*ff*//**//*ff*/
+struct /*ff*/tellInfoSysLifiS/*ff*/                ; /*ff*//**//*ff*/
+struct /*ff*/tellInfoSysNapkinS/*ff*/              ; /*ff*//**//*ff*/
 class  /*ff*/testWaterC/*ff*/                   ; /*ff*//**//*ff*/
 class  /*ff*/textC/*ff*/                        ; /*ff*//**//*ff*/
 class  /*ff*/textIdFileC/*ff*/                  ; /*ff*//**//*ff*/
@@ -306,7 +541,7 @@ class   /*ff*/list_countT_C/*ff*/               ; /*ff*//**//*ff*/
 class   /*ff*/list_blob_C/*ff*/                 ; /*ff*//**//*ff*/
 struct  /*ff*/listWalkArgOldS/*ff*/             ; /*ff*//**//*ff*/
 class   /*ff*/baseGrabC/*ff*/                   ; /*ff*//**//*ff*/
-struct  /*ff*/tellInfoAdamFiredS/*ff*/          ; /*ff*//**//*ff*/
+struct  /*ff*/tellInfoSysAdamFiredS/*ff*/          ; /*ff*//**//*ff*/
 struct  /*ff*/sexGlobalEntryS/*ff*/             ; /*ff*//**//*ff*/
 struct  /*ff*/subaccountS/*ff*/                 ; /*ff*//**//*ff*/
 class   /*ff*/pbC/*ff*/                         ; /*ff*//**//*ff*/
@@ -18514,7 +18749,7 @@ if cBitsP is f then 01 bits is indicated
         {                                                                                       \
             bDone = 1 ;                                                                         \
                                                                                                 \
-            tellInfoLifiS info ;                                                                \
+            tellInfoSysLifiS info ;                                                                \
             info.idLine = ifcLINE ;                                                             \
             info.idiFile = DDNUMB ;                                                             \
             thirdC::c_strncpyIF( tinP , info.postName , postP , sizeof info.postName ) ;        \
@@ -18770,7 +19005,7 @@ most application code should use TLNA rather than TELLsYSlIFInAME
         {                                                                                       \
             bDone = 1 ;                                                                         \
                                                                                                 \
-            tellInfoLifiS info ;                                                                \
+            tellInfoSysLifiS info ;                                                                \
             OStEXT( ostoName , sizeof info.postName )                                           \
             OStEXTA( ostoName , tinP.postThreadName )                                           \
             OStEXTAK( ostoName , "." )                                                          \
@@ -44742,157 +44977,3 @@ arguments
 //
 
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004d7.ccutilityhomes END
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004d8.flhomesutility BEGIN
-
-
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-// Respecting the rights of other people is an important part of empowering one another.
-//
-
-/*
-*/
-/**/
-/*1*//*flHOMEsuTILITY*//*1*/
-
-/*3*/
-#define flHOMEsuTILITY_1            0xe00001eb
-#define flHOMEsuTILITY_2            0xe00002eb
-#define flHOMEsuTILITY_4            0xe00004eb
-#define flHOMEsuTILITY_8            0xe00008eb
-#define flHOMEsuTILITY_01           0xe00010eb
-#define flHOMEsuTILITY_02           0xe00020eb
-#define flHOMEsuTILITY_04           0xe00040eb
-#define flHOMEsuTILITY_08           0xe00080eb
-#define flHOMEsuTILITY_TRACE        0xe00100eb
-#define flHOMEsuTILITY_SNAPsHOT     0xe00200eb
-#define flHOMEsuTILITY_DEBUG        0xe00400eb
-/*3*/
-#define flHOMEsuTILITY_null    0xe00000eb
-
-
-//
-// Respecting the rights of other people is an important part of empowering one another.
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004d8.flhomesutility END
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004d9.ctallybuckets BEGIN
-
-
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-// Respecting the rights of other people is an important part of empowering one another.
-//
-
-/*
-*/
-
-/**/
-
-/*1*//*CtALLYbUCKETS*//*1*/
-
-#define CtALLYbUCKETS ( TUCK << 6 )
-
-
-//
-// Respecting the rights of other people is an important part of empowering one another.
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004d9.ctallybuckets END
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004da.cbostallyperlog BEGIN
-
-
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-// Respecting the rights of other people is an important part of empowering one another.
-//
-
-/*
-*/
-
-/**/
-
-/*1*//*CbOStALLYpERlOG*//*1*/
-
-#define CbOStALLYpERlOG ( TOCK >> 2 )
-
-
-//
-// Respecting the rights of other people is an important part of empowering one another.
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004da.cbostallyperlog END
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004db.flinoutframec BEGIN
-
-
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-// Respecting the rights of other people is an important part of empowering one another.
-//
-
-/*
-*/
-/**/
-/*1*//*flINoUTfRAMEc*//*1*/
-
-/*3*/
-#define flINoUTfRAMEc_TRACE            0xe00001ec
-/*3*/
-#define flINoUTfRAMEc_null    0xe00000ec
-
-
-//
-// Respecting the rights of other people is an important part of empowering one another.
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004db.flinoutframec END
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004dc.ifcidformat BEGIN
-
-
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-// Respecting the rights of other people is an important part of empowering one another.
-//
-
-/*
-*/
-/**/
-/*1*//*ifcIDfORMAT*//*1*/
-
-/*3*/
-#define ifcIDfORMAT_BOOK0hEAD           0xdddd0b74
-/*3*/
-#define ifcIDfORMAT_min     0xdddd0b74
-#define ifcIDfORMAT_max     0xdddd0b74
-
-
-//
-// Respecting the rights of other people is an important part of empowering one another.
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004dc.ifcidformat END

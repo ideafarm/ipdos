@@ -466,7 +466,7 @@ boolT tinC::bIsF( tinS& tinP , const osTextT* const postThreadNameP )
         thirdC::c_strncpyIF( tinP , postThreadName , info.postThreadName , sizeof postThreadName ) ;
         idThread = info.idThread ;
         idTin = info.idTin ;    
-        tellInfoTinS& info = *(tellInfoTinS*)saidP.pbData ;
+        tellInfoSysTinS& info = *(tellInfoSysTinS*)saidP.pbData ;
     {
     if( !ether )
 
@@ -475,7 +475,7 @@ boolT tinC::bIsF( tinS& tinP , const osTextT* const postThreadNameP )
         __( pInfoP->osTid - osTid ) ;
     {
     if( pInfoP )
-    __( saidP.cbData - sizeof( tellInfoTinS ) ) ;
+    __( saidP.cbData - sizeof( tellInfoSysTinS ) ) ;
     __( !pbTin && saidP.idType - ifcIDtYPEtELLsYS_TINcTP ) ;
 
     _IO_
@@ -487,7 +487,7 @@ osTid( saidP.osTid ) ,
 cRef_pbTin( 0 ) ,
 bCopy_pbTin( !pbTin ) ,
 pbTin( pvOrIda && saidP.idType == ifcIDtYPEtELLsYS_TINcTI ? (byteT*)ap_artmentOldC( tinP , (countT)pvOrIda ) : 0 ) ,
-pvOrIda( saidP.pbData && saidP.cbData == sizeof( tellInfoTinS ) ? ((tellInfoTinS*)saidP.pbData)->ip : 0 ) ,
+pvOrIda( saidP.pbData && saidP.cbData == sizeof( tellInfoSysTinS ) ? ((tellInfoSysTinS*)saidP.pbData)->ip : 0 ) ,
 ether( tinP , TAG( TAGiDnULL ) , *tinP.pAdamGlobal1->pPoolAdamTemp ) ,
 bSelf( !pInfoP ) ,
 tinC::tinC( tinS& tinP , saidS& saidP , const ifcMonitorEventS* pInfoP ) :
@@ -696,8 +696,8 @@ fifoC::fifoC( tinS& tinP ) :
             __( !info.idLineCt ) ;
             __( !info.ip ) ;
             __( !info.serial ) ;
-            tellInfoGrabS& info = *(tellInfoGrabS*)said.pbData ;
-            __( said.cbData - sizeof( tellInfoGrabS ) ) ;
+            tellInfoSysGrabS& info = *(tellInfoSysGrabS*)said.pbData ;
+            __( said.cbData - sizeof( tellInfoSysGrabS ) ) ;
             TELL( "hearF: GRABcTI" )
         {
         case ifcIDtYPEtELLsYS_GRABdEP :

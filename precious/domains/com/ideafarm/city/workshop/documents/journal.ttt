@@ -9209,14 +9209,6 @@ I have other business to attend to today and tomorrow, but plan to continue to w
 
 
 
-   alt: idDataset: each emission specifies idDataset so data can be streamed like a prism to different buckets for further processing and archival
-   kernel monitor monitors bksTelemetrySystem but not bksTelemetryApplication
-   bksTelemetryApplication is where application code can place arbitrary data
-   rename bksTelemetry to bksTelemetrySystem
-  wish
- playcraft
- objective: glass walls
-!job C: bksTelemetryApplication
 
 
 
@@ -9238,21 +9230,27 @@ I have other business to attend to today and tomorrow, but plan to continue to w
 
 
 
-   this is needed because wo application of app telemetry is to have inOutFrameC emit thread cycle deltas
+
+
+
+
+
+
+
+
+
+
+
+
+
+  set up dut
+    it is not sampling ; it is a full audit record
+   this data can be used to reveal which functions are consuming the cpu
+   this will test the new bksTelemetryApp support
   think
  playcraft
- objective: support emission of application telemetry during dt / ct of bookC
-!job C: booksC::writeF: add support for telemetry app scratch
-
-
-
-
-
-
-
-
-
-
+ objective: glass walls
+!job C: inOutFrameC: emit application telemetry: thread cpu cycle delta
 
 
 
@@ -9317,6 +9315,20 @@ I have other business to attend to today and tomorrow, but plan to continue to w
 =========================================================================================================================================================
 
 
+  macros for app just like macros for sys
+   alt: idDataset: each emission specifies idDataset so data can be streamed like a prism to different buckets for further processing and archival
+   kernel monitor monitors bksTelemetrySystem but not bksTelemetryApplication
+   bksTelemetryApplication is where application code can place arbitrary data
+   rename bksTelemetry to bksTelemetrySystem
+  wish
+ playcraft
+ objective: glass walls
+!job C: bksTelemetryApplication
+   this is needed because wo application of app telemetry is to have inOutFrameC emit thread cycle deltas
+  think
+ playcraft
+ objective: support emission of application telemetry during dt / ct of bookC
+!job C: booksC::writeF: add support for telemetry app scratch
    resp: check finger to detect this
    conj: the backing bytes for linkedC are being used multiple times
   think

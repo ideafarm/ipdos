@@ -3137,7 +3137,7 @@ voidT writeLogF( tinS& tinP , etherC& etThread , const byteT* const pbCircleP , 
                                 if( head.idType != ifcIDtYPEtELLsYS_NAPKINdETACH )
                                 napkinEntryS entry( tinP , head.osPid , info.pvMe , info.idLineCt , info.idiFileCt , info.pvd , info.cbd , info.postName , info.costName ) ;
                 
-                                tellInfoNapkinS& info = *(tellInfoNapkinS*)pbData ;
+                                tellInfoSysNapkinS& info = *(tellInfoSysNapkinS*)pbData ;
                             {
                             else
                             }
@@ -3145,7 +3145,7 @@ voidT writeLogF( tinS& tinP , etherC& etThread , const byteT* const pbCircleP , 
                                 tEntry = TF3(etherC::ifc_idAdamG_IF( tinP ),flFORMAT_UNSIGNED,9)+T("| the monitor received an ifcIDtYPEtELLsYS_ERROReXCEPTION note with an incorrect data length\r\n") ;
                                 TN( tEntry , "" ) ;
                             {
-                            if( head.cbData != sizeof( tellInfoNapkinS ) )
+                            if( head.cbData != sizeof( tellInfoSysNapkinS ) )
                             TELL( "cirMonitor: NAPKINfORMAT NAPKINaTTACH NAPKINdETACH" )
                         {
                         _IO_    TLNA( "ifcIDtYPEtELLsYS_NAPKINfORMAT NAPKINaTTACH NAPKINdETACH" )
@@ -3220,7 +3220,7 @@ voidT writeLogF( tinS& tinP , etherC& etThread , const byteT* const pbCircleP , 
                                 if( head.idType != ifcIDtYPEtELLsYS_POOLoLDdETACH )
                                 poolOldEntryS entry( tinP , head.osPid , info.pvMe , info.cbPool , info.idClient , info.postName , info.costName ) ;
 
-                                tellInfoPoolOldS& info = *(tellInfoPoolOldS*)pbData ;
+                                tellInfoSysPoolOldS& info = *(tellInfoSysPoolOldS*)pbData ;
                             {
                             else
                             }
@@ -3228,7 +3228,7 @@ voidT writeLogF( tinS& tinP , etherC& etThread , const byteT* const pbCircleP , 
                                 tEntry = TF3(etherC::ifc_idAdamG_IF( tinP ),flFORMAT_UNSIGNED,9)+T("| the monitor received an ifcIDtYPEtELLsYS_POOLoLD note with an incorrect data length\r\n") ;
                                 TN( tEntry , "" ) ;
                             {
-                            if( head.cbData != sizeof( tellInfoPoolOldS ) )
+                            if( head.cbData != sizeof( tellInfoSysPoolOldS ) )
                             TELL( "cirMonitor: POOLoLDfORMAT POOLoLDaTTACH POOLoLDdETACH" )
                         {
                         _IO_    TLNA( "ifcIDtYPEtELLsYS_POOLoLDfORMAT POOLoLDaTTACH POOLoLDdETACH" )
@@ -3269,7 +3269,7 @@ voidT writeLogF( tinS& tinP , etherC& etThread , const byteT* const pbCircleP , 
                                 //etherP.ifcSayF( tinP , T("tinS/")+TF1(info.idSerial)+T("/-") , flSAY_APPEND | flSAY_LOG ) ; //U::
                 
                                 tinEntryS entry( tinP , info.idSerial , head.osTid , head.osPid , head.idType == ifcIDtYPEtELLsYS_TINdTI , info.ip , info.idTin , head.idThread , info.postThreadName , info.idTinNamed , info.idLineCt , info.idiFileCt ) ;
-                                tellInfoTinS& info = *(tellInfoTinS*)pbData ;
+                                tellInfoSysTinS& info = *(tellInfoSysTinS*)pbData ;
                             {
                             else
                             }
@@ -3277,7 +3277,7 @@ voidT writeLogF( tinS& tinP , etherC& etThread , const byteT* const pbCircleP , 
                                 tEntry = TF3(etherC::ifc_idAdamG_IF( tinP ),flFORMAT_UNSIGNED,9)+T("| the monitor received an ifcIDtYPEtELLsYS_ERROReXCEPTION note with an incorrect data length\r\n") ;
                                 TN( tEntry , "" ) ;
                             {
-                            if( head.cbData != sizeof( tellInfoTinS ) )
+                            if( head.cbData != sizeof( tellInfoSysTinS ) )
                             TELL( "cirMonitor: TINdTI TINdTP" )
                         {
                         _IO_    TLNA( "ifcIDtYPEtELLsYS_TINdTI" )
@@ -3314,7 +3314,7 @@ voidT writeLogF( tinS& tinP , etherC& etThread , const byteT* const pbCircleP , 
                                 //CONoUTrAW( info.postThreadName ) ;
                                 //CONoUTrAW( "ifcIDtYPEtELLsYS_TINcTI ifcIDtYPEtELLsYS_TINcTP: " ) ; //U::    
                                 tinEntryS entry( tinP , info.idSerial , head.osTid , head.osPid , head.idType == ifcIDtYPEtELLsYS_TINcTI , info.ip , info.idTin , head.idThread , info.postThreadName , info.idTinNamed , info.idLineCt , info.idiFileCt ) ;
-                                tellInfoTinS& info = *(tellInfoTinS*)pbData ;
+                                tellInfoSysTinS& info = *(tellInfoSysTinS*)pbData ;
                             {
                             else
                             }
@@ -3322,7 +3322,7 @@ voidT writeLogF( tinS& tinP , etherC& etThread , const byteT* const pbCircleP , 
                                 tEntry = TF3(etherC::ifc_idAdamG_IF( tinP ),flFORMAT_UNSIGNED,9)+T("| the monitor received an ifcIDtYPEtELLsYS_TINcT note with an incorrect data length\r\n") ;
                                 TN( tEntry , "" ) ;
                             {
-                            if( head.cbData != sizeof( tellInfoTinS ) )
+                            if( head.cbData != sizeof( tellInfoSysTinS ) )
                             TELL( "cirMonitor: TINcTI TINcTP" )
                         {
                         _IO_    TLNA( "ifcIDtYPEtELLsYS_TINcTI" )
@@ -3348,7 +3348,7 @@ voidT writeLogF( tinS& tinP , etherC& etThread , const byteT* const pbCircleP , 
                                 ZE( countT , ids ) ;
                                 entry.logF( tinP , napLogP ) ;
                                 grabEntryS entry( tinP , info.idSerial , head.osTid , head.osPid , head.idType == ifcIDtYPEtELLsYS_GRABdTI || head.idType == ifcIDtYPEtELLsYS_GRABdEI , info.ip , info.idLineCt , info.idiFileCt ) ;
-                                tellInfoGrabS& info = *(tellInfoGrabS*)pbData ;
+                                tellInfoSysGrabS& info = *(tellInfoSysGrabS*)pbData ;
                             {
                             else
                             }
@@ -3356,7 +3356,7 @@ voidT writeLogF( tinS& tinP , etherC& etThread , const byteT* const pbCircleP , 
                                 tEntry = TF3(etherC::ifc_idAdamG_IF( tinP ),flFORMAT_UNSIGNED,9)+T("| the monitor received an ifcIDtYPEtELLsYS_GRABd note with an incorrect data length\r\n") ;
                                 TN( tEntry , "" ) ;
                             {
-                            if( head.cbData != sizeof( tellInfoGrabS ) )
+                            if( head.cbData != sizeof( tellInfoSysGrabS ) )
                             TELL( "cirMonitor: GRABdTI GRABdTP GRABdEI GRABdEP" )
                         {
                         _IO_    TLNA( "ifcIDtYPEtELLsYS_GRABdTI" )
@@ -3384,7 +3384,7 @@ voidT writeLogF( tinS& tinP , etherC& etThread , const byteT* const pbCircleP , 
                                 ZE( countT , ids ) ;
                                 entry.logF( tinP , napLogP ) ;
                                 grabEntryS entry( tinP , info.idSerial , head.osTid , head.osPid , head.idType == ifcIDtYPEtELLsYS_GRABcTI || head.idType == ifcIDtYPEtELLsYS_GRABaTI , info.ip , info.idLineCt , info.idiFileCt ) ;
-                                tellInfoGrabS& info = *(tellInfoGrabS*)pbData ;
+                                tellInfoSysGrabS& info = *(tellInfoSysGrabS*)pbData ;
                             {
                             else
                             }
@@ -3392,7 +3392,7 @@ voidT writeLogF( tinS& tinP , etherC& etThread , const byteT* const pbCircleP , 
                                 tEntry = TF3(etherC::ifc_idAdamG_IF( tinP ),flFORMAT_UNSIGNED,9)+T("| ")+T("the monitor received an ifcIDtYPEtELLsYS_GRABca note with an incorrect data length\r\n") ;
                                 TN( tEntry , "" ) ;
                             {
-                            if( head.cbData != sizeof( tellInfoGrabS ) )
+                            if( head.cbData != sizeof( tellInfoSysGrabS ) )
                             TELL( "cirMonitor: GRABcTI GRABcTP GRABaTI GRABaTP" )
                         {
                         _IO_    TLNA( "ifcIDtYPEtELLsYS_GRABcTI" )
@@ -3439,7 +3439,7 @@ voidT writeLogF( tinS& tinP , etherC& etThread , const byteT* const pbCircleP , 
                                 ZE( strokeS* , psttl ) ;
                                 tinS& tin = *(tinS*)info.pbTin ;
                 
-                                tellInfoExceptionS& info = *(tellInfoExceptionS*)pbData ;
+                                tellInfoSysExceptionS& info = *(tellInfoSysExceptionS*)pbData ;
                             {
                             else
                             }
@@ -3447,7 +3447,7 @@ voidT writeLogF( tinS& tinP , etherC& etThread , const byteT* const pbCircleP , 
                                 tEntry = TF3(etherC::ifc_idAdamG_IF( tinP ),flFORMAT_UNSIGNED,9)+T("| ")+T("the monitor received an ifcIDtYPEtELLsYS_ERROReXCEPTION note with an incorrect data length\r\n") ;
                                 TN( tEntry , "" ) ;
                             {
-                            if( head.cbData != sizeof( tellInfoExceptionS ) )
+                            if( head.cbData != sizeof( tellInfoSysExceptionS ) )
                             TELL( "cirMonitor: ERROReXCEPTION" )
                         {
                         _IO_    TLNA( "ifcIDtYPEtELLsYS_ERROReXCEPTION" )
@@ -3482,7 +3482,7 @@ voidT writeLogF( tinS& tinP , etherC& etThread , const byteT* const pbCircleP , 
                                 ZE( countT , ids ) ;
 
                                 lifiEntryS entry( tinP , info.idLine , info.idiFile , info.postName ) ;
-                                tellInfoLifiS& info = *(tellInfoLifiS*)pbData ;
+                                tellInfoSysLifiS& info = *(tellInfoSysLifiS*)pbData ;
                             {
                             else
                             }
@@ -3490,7 +3490,7 @@ voidT writeLogF( tinS& tinP , etherC& etThread , const byteT* const pbCircleP , 
                                 tEntry = TF3(etherC::ifc_idAdamG_IF( tinP ),flFORMAT_UNSIGNED,9)+T("| ")+T("the monitor received an ifcIDtYPEtELLsYS_LIFInAME note with an incorrect data length\r\n") ;
                                 TN( tEntry , "" ) ;
                             {
-                            if( head.cbData != sizeof( tellInfoLifiS ) )
+                            if( head.cbData != sizeof( tellInfoSysLifiS ) )
                             TELL( "cirMonitor: TAG( TAGiDnULL )nAME" )
                         {
                         _IO_    TLNA( "ifcIDtYPEtELLsYS_LIFInAME" )
@@ -3560,7 +3560,7 @@ countT cirMonitorF( tinS& tinP , etherC& etherP , countT& cParmP , const byteT* 
     CONoUTrAW( "\r\n**** bAcceptEventF entered; returning 1\r\n" ) ; //U::
     if( pTinP && infoP.idException && pcArgP ) ;
 {
-boolT bAcceptEventF( tinS* pTinP , tellInfoExceptionS& infoP , countT* pcArgP )
+boolT bAcceptEventF( tinS* pTinP , tellInfoSysExceptionS& infoP , countT* pcArgP )
 
 }
     return sgn ;

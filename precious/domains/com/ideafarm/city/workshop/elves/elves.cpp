@@ -1,4 +1,4 @@
-//#define DEBUG
+#define DEBUG
 
 //U::ENABLE THESE PREPROCESSOR IF/ENDIF IN PRODUCTION
 #if not defined( DEBUG )
@@ -3015,7 +3015,7 @@ void elf_obey_C::liveF( void )
                     "1snip.15*.pbC"                             ,
                     "1snip.15*.subaccountS"                     ,
                     "1snip.15*.sexGlobalEntryS"                 ,
-                    "1snip.15*.tellInfoAdamFiredS"              ,
+                    "1snip.15*.tellInfoSysAdamFiredS"           ,
                     "1snip.15*.listWalkArgS"                    ,
                     "1snip.15*.list_countTstrz_C"               ,
                     "1snip.15*.list_blob_C"                     ,
@@ -3154,13 +3154,13 @@ void elf_obey_C::liveF( void )
                     "1snip.15*.textIdFileC"                     ,
                     "1snip.15*.tellC"                           ,
                     "1snip.15*.tellS"                           ,
-                    "1snip.15*.tellInfoLifiS"                   ,
-                    "1snip.15*.tellInfoNapkinS"                 ,
-                    "1snip.15*.tellInfoExceptionS"              ,
-                    "1snip.15*.tellInfo_grabC_S"                ,
-                    "1snip.15*.tellInfoTinS"                    ,
-                    "1snip.15*.tellInfoSexS"                    ,
-                    "1snip.15*.tellInfoProcessGlobal1S"         ,
+                    "1snip.15*.tellInfoSysLifiS"                ,
+                    "1snip.15*.tellInfoSysNapkinS"              ,
+                    "1snip.15*.tellInfoSysExceptionS"           ,
+                    "1snip.15*.tellInfoSys_grabC_S"             ,
+                    "1snip.15*.tellInfoSysTinS"                 ,
+                    "1snip.15*.tellInfoSysSexS"                 ,
+                    "1snip.15*.tellInfoSysProcessGlobal1S"      ,
                     "1snip.15*.netC"                            ,
                     "1snip.15*.socketC"                         ,
                     "1snip.15*.ag1_socketC_C"                   ,

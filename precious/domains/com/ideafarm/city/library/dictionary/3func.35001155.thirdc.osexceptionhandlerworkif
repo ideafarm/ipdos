@@ -65,7 +65,7 @@
                                 {/*_M*/
                                 if( !POOP )
                                 THREADmODE1rESTORE
-                                TELLsYSc3( ifcIDtYPEtELLsYS_ERROReXCEPTION , (byteT*)&tellInfo , sizeof tellInfo ) /*_M*/
+                                TELLsYSc3( ifcIDtYPEtELLsYS_ERROReXCEPTION , (byteT*)&tellInfoSys , sizeof tellInfoSys ) /*_M*/
                                 THREADmODE1oN( flTHREADmODE1_ALLOWsTOPwHILEgRABBING )
                             {
                         {/*_M*/
@@ -124,64 +124,64 @@
                             OStEXTAK( ostoRpt , "Please always report to www.ideafarm.com that this information appeared,\r\nso that the quality of this software can be improved for you and also for others.\r\n" ) ;/*_M*/
                             }
                                 OStEXTAK( ostoRpt , "\r\n \r\n" ) ;/*_M*/
-                                OStEXTA( ostoRpt , tellInfo.postFix2 ) ;/*_M*/
+                                OStEXTA( ostoRpt , tellInfoSys.postFix2 ) ;/*_M*/
                                 OStEXTAK( ostoRpt , " \r\nIf that does not work, try this:\r\n" ) ;/*_M*/
                             {/*_M*/
-                            if( tellInfo.postFix2[ 0 ] )
+                            if( tellInfoSys.postFix2[ 0 ] )
                             OStEXTAK( ostoRpt , "\r\n \r\n" ) ;/*_M*/
-                            OStEXTA( ostoRpt , tellInfo.postFix1 ) ;/*_M*/
+                            OStEXTA( ostoRpt , tellInfoSys.postFix1 ) ;/*_M*/
                             OStEXTAK( ostoRpt , ".\r\n \r\nTry this woth:\r\n" ) ;/*_M*/
-                            OStEXTA( ostoRpt , tellInfo.postSuspect ) ;/*_M*/
+                            OStEXTA( ostoRpt , tellInfoSys.postSuspect ) ;/*_M*/
                             OStEXTAK( ostoRpt , "Probable defect location: " ) ;/*_M*/
                             
                             OStEXTAK( ostoRpt , "\r\n \r\n" ) ;/*_M*/
                             }
                                 }
                                     break ;
-                                    OStEXTC( ostoRpt , tellInfo.pcInfo[ 0 ] , 0 ) ;/*_M*/
-                                    OStEXTAK( ostoRpt , "\r\nraw exception code (tellInfo.pcInfo[0]): " ) ;/*_M*/
-                                    OStEXTC( ostoRpt , tellInfo.idException , 0 ) ;/*_M*/
-                                    OStEXTAK( ostoRpt , "tellInfo.idException: " ) ;/*_M*/
+                                    OStEXTC( ostoRpt , tellInfoSys.pcInfo[ 0 ] , 0 ) ;/*_M*/
+                                    OStEXTAK( ostoRpt , "\r\nraw exception code (tellInfoSys.pcInfo[0]): " ) ;/*_M*/
+                                    OStEXTC( ostoRpt , tellInfoSys.idException , 0 ) ;/*_M*/
+                                    OStEXTAK( ostoRpt , "tellInfoSys.idException: " ) ;/*_M*/
                                 {/*_M*/
                                 default :
                                 }
                                     break ;
-                                    OStEXTC(    ostoRpt , tellInfo.pcInfo[ 2 ] , 0 ) ;/*_M*/
+                                    OStEXTC(    ostoRpt , tellInfoSys.pcInfo[ 2 ] , 0 ) ;/*_M*/
                                     OStEXTAK(   ostoRpt , "\r\nidiFileCt: " ) ;/*_M*/
-                                    OStEXTCmIN( ostoRpt , tellInfo.pcInfo[ 2 ] , 4 ) ;/*_M*/
+                                    OStEXTCmIN( ostoRpt , tellInfoSys.pcInfo[ 2 ] , 4 ) ;/*_M*/
                                     OStEXTAK(   ostoRpt , "\r\nidLineCt: " ) ;/*_M*/
-                                    OStEXTC(    ostoRpt , tellInfo.pcInfo[ 1 ] , 0 ) ;/*_M*/
+                                    OStEXTC(    ostoRpt , tellInfoSys.pcInfo[ 1 ] , 0 ) ;/*_M*/
                                     OStEXTAK(   ostoRpt , "\r\nidiFile: " ) ;/*_M*/
-                                    OStEXTCmIN( ostoRpt , tellInfo.pcInfo[ 0 ] , 4 ) ;/*_M*/
+                                    OStEXTCmIN( ostoRpt , tellInfoSys.pcInfo[ 0 ] , 4 ) ;/*_M*/
                                     OStEXTAK(   ostoRpt , "idLine: " ) ;/*_M*/
                                 {/*_M*/
                                 case ifcIDeVENTeXCEPTIONmONITORED_BLAMMO :
                                 }
                                     break ;
-                                    OStEXTCmIN( ostoRpt , tellInfo.pcInfo[ 5 ] , 7 ) ;/*_M*/
+                                    OStEXTCmIN( ostoRpt , tellInfoSys.pcInfo[ 5 ] , 7 ) ;/*_M*/
                                     OStEXTAK( ostoRpt , "\r\nidiFileNote: " ) ;/*_M*/
-                                    OStEXTCmIN( ostoRpt , tellInfo.pcInfo[ 4 ] , 4 ) ;/*_M*/
+                                    OStEXTCmIN( ostoRpt , tellInfoSys.pcInfo[ 4 ] , 4 ) ;/*_M*/
                                     OStEXTAK( ostoRpt , "\r\nidLineNote: " ) ;/*_M*/
-                                    OStEXTC( ostoRpt , tellInfo.pcInfo[ 3 ] , 0 ) ;/*_M*/
+                                    OStEXTC( ostoRpt , tellInfoSys.pcInfo[ 3 ] , 0 ) ;/*_M*/
                                     OStEXTAK( ostoRpt , "\r\nidType: " ) ;/*_M*/
-                                    OStEXTC( ostoRpt , tellInfo.pcInfo[ 2 ] , 0 ) ;/*_M*/
+                                    OStEXTC( ostoRpt , tellInfoSys.pcInfo[ 2 ] , 0 ) ;/*_M*/
                                     OStEXTAK( ostoRpt , "\r\nidSubType: " ) ;/*_M*/
-                                    OStEXTC( ostoRpt , tellInfo.pcInfo[ 1 ] , 0 ) ;/*_M*/
+                                    OStEXTC( ostoRpt , tellInfoSys.pcInfo[ 1 ] , 0 ) ;/*_M*/
                                     OStEXTAK( ostoRpt , "\r\nidiFile: " ) ;/*_M*/
-                                    OStEXTCmIN( ostoRpt , tellInfo.pcInfo[ 0 ] , 4 ) ;/*_M*/
+                                    OStEXTCmIN( ostoRpt , tellInfoSys.pcInfo[ 0 ] , 4 ) ;/*_M*/
                                     OStEXTAK( ostoRpt , "idLine: " ) ;/*_M*/
                                 {/*_M*/
                                 case ifcIDeVENTeXCEPTIONmONITORED_GRUNT :
                                 }
                                     break ;
-                                    OStEXTC( ostoRpt , tellInfo.pcInfo[ 1 ] , 0 ) ;/*_M*/
+                                    OStEXTC( ostoRpt , tellInfoSys.pcInfo[ 1 ] , 0 ) ;/*_M*/
                                     OStEXTAK( ostoRpt , "\r\npvTarget: " ) ;/*_M*/
-                                    OStEXTC( ostoRpt , tellInfo.pcInfo[ 0 ] , 0 ) ;/*_M*/
+                                    OStEXTC( ostoRpt , tellInfoSys.pcInfo[ 0 ] , 0 ) ;/*_M*/
                                     OStEXTAK( ostoRpt , "bWrite: " ) ;/*_M*/
                                 {/*_M*/
                                 case ifcIDeVENTeXCEPTIONmONITORED_ACCESSvIOLATION :
                             {
-                            switch( tellInfo.idException )
+                            switch( tellInfoSys.idException )
                             
                             OStEXTAK( ostoRpt , " \r\n" ) ;/*_M*/
                             }
@@ -292,9 +292,9 @@
                             if( !tinSnap.monitor.cInNest ) { OStEXTAK( ostoRpt , "\r\n \r\nCall Nest:  no nest information exists\r\n" ) ;/*_M*/ }
                             OStEXTC( ostoRpt , tinSnap.monitor.cInNest , 0 ) ;/*_M*/
                             OStEXTAK( ostoRpt , "\r\ncNest: " ) ;/*_M*/
-                            OStEXTC( ostoRpt , tellInfo.cFixed , 0 ) ;/*_M*/
+                            OStEXTC( ostoRpt , tellInfoSys.cFixed , 0 ) ;/*_M*/
                             OStEXTAK( ostoRpt , "\r\ncFixed: " ) ;/*_M*/
-                            OStEXTC( ostoRpt , tellInfo.bFixed , 0 ) ;/*_M*/
+                            OStEXTC( ostoRpt , tellInfoSys.bFixed , 0 ) ;/*_M*/
                             OStEXTAK( ostoRpt , "\r\nbFixed: " ) ;/*_M*/
                             //OStEXTC( ostoRpt , tinSnap.idiFileMileDad , 0 ) ;/*_M*/
                             //OStEXTAK( ostoRpt , "\r\nidiFileMileDad: " ) ;/*_M*/
@@ -482,22 +482,22 @@
                                         BLOBpUSH( prFloatP , sizeof *prFloatP )
                                     {/*_M*/
                                     for( sCountT off = - 8 ; off <= 7 ; off ++ )
-                                    byteT* pbCode = (byteT*)tellInfo.pvOffendingCode ;/*_M*/
+                                    byteT* pbCode = (byteT*)tellInfoSys.pvOffendingCode ;/*_M*/
                                     OStEXTAK( ostoRpt , "\r\ncodes [-8,7]: " ) ;/*_M*/
                                 {/*_M*/
                             
                                 OStEXTAK( ostoRpt , ")" ) ;/*_M*/
-                                OStEXTC(  ostoRpt , (countT)tellInfo.pvOffendingCode - tinSnap.pEIPInNest[ tinSnap.monitor.cInNest & OFFsLOTtINnESTmAX ] , 0 ) ;/*_M*/
+                                OStEXTC(  ostoRpt , (countT)tellInfoSys.pvOffendingCode - tinSnap.pEIPInNest[ tinSnap.monitor.cInNest & OFFsLOTtINnESTmAX ] , 0 ) ;/*_M*/
                                 OStEXTAK( ostoRpt , " (offset from in: " ) ;/*_M*/
-                                OStEXTC(  ostoRpt , tellInfo.pvOffendingCode , 0 ) ;/*_M*/
+                                OStEXTC(  ostoRpt , tellInfoSys.pvOffendingCode , 0 ) ;/*_M*/
                                 OStEXTAK( ostoRpt , " at " ) ;/*_M*/
                             {/*_M*/
-                            if( tellInfo.idException != ifcIDeVENTeXCEPTIONmONITORED_GRUNT )
+                            if( tellInfoSys.idException != ifcIDeVENTeXCEPTIONmONITORED_GRUNT )
                             OStEXTA(  ostoRpt , tinSnap.postThreadName ) ;/*_M*/
                             OStEXTAK( ostoRpt , ") exception occured while executing thread\r\n" ) ;/*_M*/
-                            OStEXTC(  ostoRpt , tellInfo.idException , 0 ) ;/*_M*/
+                            OStEXTC(  ostoRpt , tellInfoSys.idException , 0 ) ;/*_M*/
                             OStEXTAK( ostoRpt , " (" ) ;/*_M*/
-                            OStEXTA(  ostoRpt , processGlobal3I.mapExceptionType( tellInfo.idException ) ) ;/*_M*/
+                            OStEXTA(  ostoRpt , processGlobal3I.mapExceptionType( tellInfoSys.idException ) ) ;/*_M*/
                             OStEXTAK( ostoRpt , "Subject: IPDOS (tm) Exception Event\r\n\r\nIdeaFarm " "(tm) Piggyback Distributed Operating System\r\nhttp://ideafarm.com\r\nWo'O Ideafarm\r\n \r\nAn " ) ;/*_M*/
                             OStEXTAK( ostoRpt , "\r\n//\r\n// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.\r\n//\r\n// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.\r\n// Respecting the rights of other people is an important part of empowering one another.\r\n//\r\n\r\n" ) ;/*_M*/
 
@@ -655,7 +655,7 @@
                     }
                         pr = pr->prD ;/*_M*/
 
-                        else if( pr->bAcceptF( &tinP , tellInfo ) ) break ;
+                        else if( pr->bAcceptF( &tinP , tellInfoSys ) ) break ;
                              if( F(pr->flags) & flRESTARTc_SKIP    ) ;
                     {/*_M*/
                     while( pr )
@@ -667,8 +667,8 @@
                 ZE( countT , ebpAtException ) ;
                 ZE( countT , ebpAtRestart ) ;
 
-                tellInfo.cFixed = cFixed ;/*_M*/
-                tellInfo.bFixed = bFixed ;/*_M*/
+                tellInfoSys.cFixed = cFixed ;/*_M*/
+                tellInfoSys.bFixed = bFixed ;/*_M*/
                 }
                     inc02AM( cFixed ) ;/*_M*/
                 {/*_M*/
@@ -678,18 +678,18 @@
                     }
                         break ;
                         ADVICE( "COMPUTER CIRCUITRY" , "Use the Services icon to stop the IdeaFarm driver.  Reboot if necessary.  Start the driver." , "" ) ;/*_M*/
-                        tellInfo.pcInfo[ 0 ] = osInfoP.ExceptionRecord->ExceptionCode ;/*_M*/
-                        tellInfo.ccInfo = 1 ;/*_M*/
-                        tellInfo.idException = ifcIDeVENTeXCEPTIONmONITORED_NOTlISTED ;/*_M*/
+                        tellInfoSys.pcInfo[ 0 ] = osInfoP.ExceptionRecord->ExceptionCode ;/*_M*/
+                        tellInfoSys.ccInfo = 1 ;/*_M*/
+                        tellInfoSys.idException = ifcIDeVENTeXCEPTIONmONITORED_NOTlISTED ;/*_M*/
                     {/*_M*/
                     default :
                     }
                         break ;
                         ADVICEdFLT ;/*_M*/
-                        for( countT off = 0 ; off < tellInfo.ccInfo ; off ++ ) tellInfo.pcInfo[ off ] = osInfoP.ExceptionRecord->ExceptionInformation[ off ] ;/*_M*/
-                        if( tellInfo.ccInfo > sizeof tellInfo.pcInfo / sizeof tellInfo.pcInfo[ 0 ] ) tellInfo.ccInfo = sizeof tellInfo.pcInfo / sizeof tellInfo.pcInfo[ 0 ] ;/*_M*/
-                        tellInfo.ccInfo = osInfoP.ExceptionRecord->NumberParameters ;/*_M*/
-                        tellInfo.idException = ifcIDeVENTeXCEPTIONmONITORED_BLAMMO ;/*_M*/
+                        for( countT off = 0 ; off < tellInfoSys.ccInfo ; off ++ ) tellInfoSys.pcInfo[ off ] = osInfoP.ExceptionRecord->ExceptionInformation[ off ] ;/*_M*/
+                        if( tellInfoSys.ccInfo > sizeof tellInfoSys.pcInfo / sizeof tellInfoSys.pcInfo[ 0 ] ) tellInfoSys.ccInfo = sizeof tellInfoSys.pcInfo / sizeof tellInfoSys.pcInfo[ 0 ] ;/*_M*/
+                        tellInfoSys.ccInfo = osInfoP.ExceptionRecord->NumberParameters ;/*_M*/
+                        tellInfoSys.idException = ifcIDeVENTeXCEPTIONmONITORED_BLAMMO ;/*_M*/
                         //bFixed = 1 ;/*_M*/
                         //2011.04.10: COMMENTED OUT NEXT LINE SO THAT EXCEPTION HANDLER WOULD NOT BLOCK CLEANING UP BY DELETING tinS FOR A THREAD THAT HAS KIDS
                     {/*_M*/
@@ -698,10 +698,10 @@
                     }
                         break ;
                         ADVICEdFLT ;/*_M*/
-                        for( countT off = 0 ; off < tellInfo.ccInfo ; off ++ ) tellInfo.pcInfo[ off ] = osInfoP.ExceptionRecord->ExceptionInformation[ off ] ;/*_M*/
-                        if( tellInfo.ccInfo > sizeof tellInfo.pcInfo / sizeof tellInfo.pcInfo[ 0 ] ) tellInfo.ccInfo = sizeof tellInfo.pcInfo / sizeof tellInfo.pcInfo[ 0 ] ;/*_M*/
-                        tellInfo.ccInfo = osInfoP.ExceptionRecord->NumberParameters ;/*_M*/
-                        tellInfo.idException = ifcIDeVENTeXCEPTIONmONITORED_GRUNT ;/*_M*/
+                        for( countT off = 0 ; off < tellInfoSys.ccInfo ; off ++ ) tellInfoSys.pcInfo[ off ] = osInfoP.ExceptionRecord->ExceptionInformation[ off ] ;/*_M*/
+                        if( tellInfoSys.ccInfo > sizeof tellInfoSys.pcInfo / sizeof tellInfoSys.pcInfo[ 0 ] ) tellInfoSys.ccInfo = sizeof tellInfoSys.pcInfo / sizeof tellInfoSys.pcInfo[ 0 ] ;/*_M*/
+                        tellInfoSys.ccInfo = osInfoP.ExceptionRecord->NumberParameters ;/*_M*/
+                        tellInfoSys.idException = ifcIDeVENTeXCEPTIONmONITORED_GRUNT ;/*_M*/
                         //bFixed = 1 ;/*_M*/
                         //2011.04.10: COMMENTED OUT NEXT LINE SO THAT EXCEPTION HANDLER WOULD NOT BLOCK CLEANING UP BY DELETING tinS FOR A THREAD THAT HAS KIDS
                     {/*_M*/
@@ -723,56 +723,56 @@
                         //        sleepC s( tinP , TAG( TAGiDnULL ) ) ;
                         //    {
                         //    THREADmODE1oN( flTHREADmODE1_ALLOWsTOPwHILEgRABBING )
-                        //    LOGrAW5( "i will nap and then retry " , cCodeReadRetries , " to read code at " , tellInfo.pcInfo[ 1 ] , "\r\n" ) ;
+                        //    LOGrAW5( "i will nap and then retry " , cCodeReadRetries , " to read code at " , tellInfoSys.pcInfo[ 1 ] , "\r\n" ) ;
                         //    bQuiet = bFixed = 1 ;/*_M*/
                         //{/*_M*/
-                        //if( !tellInfo.pcInfo[ 0 ] && tellInfo.pcInfo[ 1 ] == (countT)tellInfo.pvOffendingCode && incv02AM( cCodeReadRetries ) < 0x4 )
+                        //if( !tellInfoSys.pcInfo[ 0 ] && tellInfoSys.pcInfo[ 1 ] == (countT)tellInfoSys.pvOffendingCode && incv02AM( cCodeReadRetries ) < 0x4 )
 
-                        tellInfo.pcInfo[ 1 ] =   osInfoP.ExceptionRecord->ExceptionInformation[ 1 ] ;/*_M*/ // pvTarget
-                        tellInfo.pcInfo[ 0 ] = !!osInfoP.ExceptionRecord->ExceptionInformation[ 0 ] ;/*_M*/ // bWrite
-                        tellInfo.ccInfo = 2 ;/*_M*/
-                        tellInfo.idException = ifcIDeVENTeXCEPTIONmONITORED_ACCESSvIOLATION ;/*_M*/
+                        tellInfoSys.pcInfo[ 1 ] =   osInfoP.ExceptionRecord->ExceptionInformation[ 1 ] ;/*_M*/ // pvTarget
+                        tellInfoSys.pcInfo[ 0 ] = !!osInfoP.ExceptionRecord->ExceptionInformation[ 0 ] ;/*_M*/ // bWrite
+                        tellInfoSys.ccInfo = 2 ;/*_M*/
+                        tellInfoSys.idException = ifcIDeVENTeXCEPTIONmONITORED_ACCESSvIOLATION ;/*_M*/
                     {/*_M*/
                     case EXCEPTION_ACCESS_VIOLATION                          :
-                    case DBG_CONTINUE                                        : {/*_M*/              tellInfo.idException = ifcIDeVENTeXCEPTIONmONITORED_DBGcONTINUE             ; ADVICEdFLT ; break ; }
-                    case DBG_TERMINATE_THREAD                                : {/*_M*/              tellInfo.idException = ifcIDeVENTeXCEPTIONmONITORED_DBGtERMINATEtHREAD      ; ADVICEdFLT ; break ; }
-                    case DBG_TERMINATE_PROCESS                               : {/*_M*/              tellInfo.idException = ifcIDeVENTeXCEPTIONmONITORED_DBGtERMINATEpROCESS     ; ADVICEdFLT ; break ; }
-                    case DBG_CONTROL_C                                       : {/*_M*/              tellInfo.idException = ifcIDeVENTeXCEPTIONmONITORED_DBGcONTROLc             ; ADVICEdFLT ; break ; }
-                    case DBG_CONTROL_BREAK                                   : {/*_M*/              tellInfo.idException = ifcIDeVENTeXCEPTIONmONITORED_DBGcONTROLbREAK         ; ADVICEdFLT ; break ; }
-                    case DBG_EXCEPTION_NOT_HANDLED                           : {/*_M*/              tellInfo.idException = ifcIDeVENTeXCEPTIONmONITORED_DBGnOThANDLED           ; ADVICEdFLT ; break ; }
-                    case CONTROL_C_EXIT                                      : {/*_M*/              tellInfo.idException = ifcIDeVENTeXCEPTIONmONITORED_CONTROLcnOTIFICATION    ; ADVICEdFLT ; break ; } //U: NOT TESTED.  THE OS CONSTANT LISTED IN WIN32 DOC IS "DBG_CONTROL_C"; CONJ: THIS IS A DOC ERROR; DBG_CONTROL_C IS MEANT TO BE A CODE THAT A DEBUGGER CAN RETURN IN ORDER TO RAISE A CONTROL_C EXCEPTION
-                    case EXCEPTION_ARRAY_BOUNDS_EXCEEDED                     : {/*_M*/              tellInfo.idException = ifcIDeVENTeXCEPTIONmONITORED_ARRAYbOUNDSeXCEEDED     ; ADVICEdFLT ; break ; }
-                    case EXCEPTION_DATATYPE_MISALIGNMENT                     : {/*_M*/              tellInfo.idException = ifcIDeVENTeXCEPTIONmONITORED_DATATYPEmISALIGNMENT    ; ADVICEdFLT ; break ; }
-                    case EXCEPTION_FLT_DENORMAL_OPERAND                      : {/*_M*/              tellInfo.idException = ifcIDeVENTeXCEPTIONmONITORED_FLOATdENORMALoPERAND    ; ADVICEdFLT ; break ; }
-                    case EXCEPTION_FLT_DIVIDE_BY_ZERO                        : {/*_M*/              tellInfo.idException = ifcIDeVENTeXCEPTIONmONITORED_FLOATdIVIDEbYzE       ; ADVICEdFLT ; break ; }
-                    case EXCEPTION_FLT_INEXACT_RESULT                        : {/*_M*/              tellInfo.idException = ifcIDeVENTeXCEPTIONmONITORED_FLOATiNEXACTrESULT      ; ADVICEdFLT ; break ; }
-                    case EXCEPTION_FLT_INVALID_OPERATION                     : {/*_M*/              tellInfo.idException = ifcIDeVENTeXCEPTIONmONITORED_FLOATiNVALIDoPERATION   ; ADVICEdFLT ; break ; }
-                    case EXCEPTION_FLT_OVERFLOW                              : {/*_M*/              tellInfo.idException = ifcIDeVENTeXCEPTIONmONITORED_FLOAToVERFLOW           ; ADVICEdFLT ; break ; }
-                    case EXCEPTION_FLT_STACK_CHECK                           : {/*_M*/              tellInfo.idException = ifcIDeVENTeXCEPTIONmONITORED_FLOATsTACKcHECK         ; ADVICEdFLT ; break ; }
-                    case EXCEPTION_FLT_UNDERFLOW                             : {/*_M*/              tellInfo.idException = ifcIDeVENTeXCEPTIONmONITORED_FLOATuNDERFLOW          ; ADVICEdFLT ; break ; }
-                    case EXCEPTION_ILLEGAL_INSTRUCTION                       : {/*_M*/              tellInfo.idException = ifcIDeVENTeXCEPTIONmONITORED_ILLEGALiNSTRUCTION      ; ADVICEdFLT ; break ; }
-                    case EXCEPTION_IN_PAGE_ERROR                             : {/*_M*/ bFixed = 1 ; tellInfo.idException = ifcIDeVENTeXCEPTIONmONITORED_INpAGEeRROR             ; ADVICE( "HARD DRIVE" , "Use the Services icon to stop the IdeaFarm driver.  Reboot if necessary.\r\nClose all Windows and stop all unnecessary services, to unload the computer.\r\nStart the driver." , "Look for other evidence that the hard drive might be starting to fail." ) ; break ; }
-                    case EXCEPTION_INT_DIVIDE_BY_ZERO                        : {/*_M*/              tellInfo.idException = ifcIDeVENTeXCEPTIONmONITORED_INTEGERdIVIDEbYzE     ; ADVICEdFLT ; break ; }
-                    case EXCEPTION_INT_OVERFLOW                              : {/*_M*/              tellInfo.idException = ifcIDeVENTeXCEPTIONmONITORED_INTEGERoVERFLOW         ; ADVICEdFLT ; break ; }
-                    case EXCEPTION_INVALID_DISPOSITION                       : {/*_M*/              tellInfo.idException = ifcIDeVENTeXCEPTIONmONITORED_INVALIDdISPOSITION      ; ADVICEdFLT ; break ; }
-                    case EXCEPTION_NONCONTINUABLE_EXCEPTION                  : {/*_M*/              tellInfo.idException = ifcIDeVENTeXCEPTIONmONITORED_NONCONTINUABLEeXCEPTION ; ADVICEdFLT ; break ; }
-                    case EXCEPTION_PRIV_INSTRUCTION                          : {/*_M*/              tellInfo.idException = ifcIDeVENTeXCEPTIONmONITORED_PRIVILEGEDiNSTRUCTION   ; ADVICEdFLT ; break ; }
-                    case EXCEPTION_STACK_OVERFLOW                            : {/*_M*/              tellInfo.idException = ifcIDeVENTeXCEPTIONmONITORED_STACKoVERFLOW           ; ADVICEdFLT ; break ; }
-                    case EXCEPTION_SINGLE_STEP                               : {/*_M*/              tellInfo.idException = ifcIDeVENTeXCEPTIONmONITORED_SINGLEsTEP              ; ADVICEdFLT ; break ; }
-                    case EXCEPTION_BREAKPOINT                                : {/*_M*/              tellInfo.idException = ifcIDeVENTeXCEPTIONmONITORED_BREAKPOINT              ; ADVICEdFLT ; break ; }
+                    case DBG_CONTINUE                                        : {/*_M*/              tellInfoSys.idException = ifcIDeVENTeXCEPTIONmONITORED_DBGcONTINUE             ; ADVICEdFLT ; break ; }
+                    case DBG_TERMINATE_THREAD                                : {/*_M*/              tellInfoSys.idException = ifcIDeVENTeXCEPTIONmONITORED_DBGtERMINATEtHREAD      ; ADVICEdFLT ; break ; }
+                    case DBG_TERMINATE_PROCESS                               : {/*_M*/              tellInfoSys.idException = ifcIDeVENTeXCEPTIONmONITORED_DBGtERMINATEpROCESS     ; ADVICEdFLT ; break ; }
+                    case DBG_CONTROL_C                                       : {/*_M*/              tellInfoSys.idException = ifcIDeVENTeXCEPTIONmONITORED_DBGcONTROLc             ; ADVICEdFLT ; break ; }
+                    case DBG_CONTROL_BREAK                                   : {/*_M*/              tellInfoSys.idException = ifcIDeVENTeXCEPTIONmONITORED_DBGcONTROLbREAK         ; ADVICEdFLT ; break ; }
+                    case DBG_EXCEPTION_NOT_HANDLED                           : {/*_M*/              tellInfoSys.idException = ifcIDeVENTeXCEPTIONmONITORED_DBGnOThANDLED           ; ADVICEdFLT ; break ; }
+                    case CONTROL_C_EXIT                                      : {/*_M*/              tellInfoSys.idException = ifcIDeVENTeXCEPTIONmONITORED_CONTROLcnOTIFICATION    ; ADVICEdFLT ; break ; } //U: NOT TESTED.  THE OS CONSTANT LISTED IN WIN32 DOC IS "DBG_CONTROL_C"; CONJ: THIS IS A DOC ERROR; DBG_CONTROL_C IS MEANT TO BE A CODE THAT A DEBUGGER CAN RETURN IN ORDER TO RAISE A CONTROL_C EXCEPTION
+                    case EXCEPTION_ARRAY_BOUNDS_EXCEEDED                     : {/*_M*/              tellInfoSys.idException = ifcIDeVENTeXCEPTIONmONITORED_ARRAYbOUNDSeXCEEDED     ; ADVICEdFLT ; break ; }
+                    case EXCEPTION_DATATYPE_MISALIGNMENT                     : {/*_M*/              tellInfoSys.idException = ifcIDeVENTeXCEPTIONmONITORED_DATATYPEmISALIGNMENT    ; ADVICEdFLT ; break ; }
+                    case EXCEPTION_FLT_DENORMAL_OPERAND                      : {/*_M*/              tellInfoSys.idException = ifcIDeVENTeXCEPTIONmONITORED_FLOATdENORMALoPERAND    ; ADVICEdFLT ; break ; }
+                    case EXCEPTION_FLT_DIVIDE_BY_ZERO                        : {/*_M*/              tellInfoSys.idException = ifcIDeVENTeXCEPTIONmONITORED_FLOATdIVIDEbYzE       ; ADVICEdFLT ; break ; }
+                    case EXCEPTION_FLT_INEXACT_RESULT                        : {/*_M*/              tellInfoSys.idException = ifcIDeVENTeXCEPTIONmONITORED_FLOATiNEXACTrESULT      ; ADVICEdFLT ; break ; }
+                    case EXCEPTION_FLT_INVALID_OPERATION                     : {/*_M*/              tellInfoSys.idException = ifcIDeVENTeXCEPTIONmONITORED_FLOATiNVALIDoPERATION   ; ADVICEdFLT ; break ; }
+                    case EXCEPTION_FLT_OVERFLOW                              : {/*_M*/              tellInfoSys.idException = ifcIDeVENTeXCEPTIONmONITORED_FLOAToVERFLOW           ; ADVICEdFLT ; break ; }
+                    case EXCEPTION_FLT_STACK_CHECK                           : {/*_M*/              tellInfoSys.idException = ifcIDeVENTeXCEPTIONmONITORED_FLOATsTACKcHECK         ; ADVICEdFLT ; break ; }
+                    case EXCEPTION_FLT_UNDERFLOW                             : {/*_M*/              tellInfoSys.idException = ifcIDeVENTeXCEPTIONmONITORED_FLOATuNDERFLOW          ; ADVICEdFLT ; break ; }
+                    case EXCEPTION_ILLEGAL_INSTRUCTION                       : {/*_M*/              tellInfoSys.idException = ifcIDeVENTeXCEPTIONmONITORED_ILLEGALiNSTRUCTION      ; ADVICEdFLT ; break ; }
+                    case EXCEPTION_IN_PAGE_ERROR                             : {/*_M*/ bFixed = 1 ; tellInfoSys.idException = ifcIDeVENTeXCEPTIONmONITORED_INpAGEeRROR             ; ADVICE( "HARD DRIVE" , "Use the Services icon to stop the IdeaFarm driver.  Reboot if necessary.\r\nClose all Windows and stop all unnecessary services, to unload the computer.\r\nStart the driver." , "Look for other evidence that the hard drive might be starting to fail." ) ; break ; }
+                    case EXCEPTION_INT_DIVIDE_BY_ZERO                        : {/*_M*/              tellInfoSys.idException = ifcIDeVENTeXCEPTIONmONITORED_INTEGERdIVIDEbYzE     ; ADVICEdFLT ; break ; }
+                    case EXCEPTION_INT_OVERFLOW                              : {/*_M*/              tellInfoSys.idException = ifcIDeVENTeXCEPTIONmONITORED_INTEGERoVERFLOW         ; ADVICEdFLT ; break ; }
+                    case EXCEPTION_INVALID_DISPOSITION                       : {/*_M*/              tellInfoSys.idException = ifcIDeVENTeXCEPTIONmONITORED_INVALIDdISPOSITION      ; ADVICEdFLT ; break ; }
+                    case EXCEPTION_NONCONTINUABLE_EXCEPTION                  : {/*_M*/              tellInfoSys.idException = ifcIDeVENTeXCEPTIONmONITORED_NONCONTINUABLEeXCEPTION ; ADVICEdFLT ; break ; }
+                    case EXCEPTION_PRIV_INSTRUCTION                          : {/*_M*/              tellInfoSys.idException = ifcIDeVENTeXCEPTIONmONITORED_PRIVILEGEDiNSTRUCTION   ; ADVICEdFLT ; break ; }
+                    case EXCEPTION_STACK_OVERFLOW                            : {/*_M*/              tellInfoSys.idException = ifcIDeVENTeXCEPTIONmONITORED_STACKoVERFLOW           ; ADVICEdFLT ; break ; }
+                    case EXCEPTION_SINGLE_STEP                               : {/*_M*/              tellInfoSys.idException = ifcIDeVENTeXCEPTIONmONITORED_SINGLEsTEP              ; ADVICEdFLT ; break ; }
+                    case EXCEPTION_BREAKPOINT                                : {/*_M*/              tellInfoSys.idException = ifcIDeVENTeXCEPTIONmONITORED_BREAKPOINT              ; ADVICEdFLT ; break ; }
                 {
                 else switch( osInfoP.ExceptionRecord->ExceptionCode )
                 }
-                    tellInfo.idException = ifcIDeVENTeXCEPTIONmONITORED_CODEnOTaVAILABLE ; ADVICEdFLT ;/*_M*/
+                    tellInfoSys.idException = ifcIDeVENTeXCEPTIONmONITORED_CODEnOTaVAILABLE ; ADVICEdFLT ;/*_M*/
                 {/*_M*/
                 if( !osInfoP.ExceptionRecord )
                 static boolT cFixed ;/*_M*/
                 ZE( boolT , bQuiet ) ;/*_M*/
 
-                tellInfo.postSuspect[ 0 ] = 0 ;/*_M*/
-                tellInfo.pcInfo[ 4 ] = tellInfo.pcInfo[ 3 ] = tellInfo.pcInfo[ 2 ] = tellInfo.pcInfo[ 1 ] = tellInfo.pcInfo[ 0 ] = tellInfo.ccInfo = 0 ;/*_M*/
-                tellInfo.pvOffendingCode = !osInfoP.ExceptionRecord ? 0 : osInfoP.ExceptionRecord->ExceptionAddress ;/*_M*/
-                //TELL( "osExceptionHandlerWorkIF/filling tellInfo" )
+                tellInfoSys.postSuspect[ 0 ] = 0 ;/*_M*/
+                tellInfoSys.pcInfo[ 4 ] = tellInfoSys.pcInfo[ 3 ] = tellInfoSys.pcInfo[ 2 ] = tellInfoSys.pcInfo[ 1 ] = tellInfoSys.pcInfo[ 0 ] = tellInfoSys.ccInfo = 0 ;/*_M*/
+                tellInfoSys.pvOffendingCode = !osInfoP.ExceptionRecord ? 0 : osInfoP.ExceptionRecord->ExceptionAddress ;/*_M*/
+                //TELL( "osExceptionHandlerWorkIF/filling tellInfoSys" )
 
                 }
                     OStEXTCmIN( ostoSuspectDflt , tinSnap.pAdamGlobal1->idAdam , 7 ) ;/*_M*/
@@ -793,8 +793,8 @@
         poopC _poop( flPOOP_null ) ;/*_M*/
         static countT cCodeReadRetries ;
 
-        const tinS&          tinSnap  = *(tinS*)tellInfo.pbTin ;
-        tellInfoExceptionS&  tellInfo = *tinP.pTieLath ;/*_M*/
+        const tinS&          tinSnap  = *(tinS*)tellInfoSys.pbTin ;
+        tellInfoSysExceptionS&  tellInfoSys = *tinP.pTieLath ;/*_M*/
 
         //TELL( "osExceptionHandlerWorkIF/+" )
         //A: ASSUME: tinP.pTieLath POINTS TO A STRUCTURE THAT CONTAINS AN IMAGE OF tinP AT EXCEPTION EVENT TIME
@@ -817,9 +817,9 @@
 
 #define ADVICEdFLT ADVICE( ostoSuspectDflt , "Use the Services icon to stop the IdeaFarm driver.\r\nReboot if necessary.  Start the driver." , "" )
 
- thirdC::c_strncpyIF( tinP , tellInfo.postFix2    , postFix2P    , sizeof tellInfo.postFix2    ) ;
- thirdC::c_strncpyIF( tinP , tellInfo.postFix1    , postFix1P    , sizeof tellInfo.postFix1    ) ;  \
- thirdC::c_strncpyIF( tinP , tellInfo.postSuspect , postSuspectP , sizeof tellInfo.postSuspect ) ;  \
+ thirdC::c_strncpyIF( tinP , tellInfoSys.postFix2    , postFix2P    , sizeof tellInfoSys.postFix2    ) ;
+ thirdC::c_strncpyIF( tinP , tellInfoSys.postFix1    , postFix1P    , sizeof tellInfoSys.postFix1    ) ;  \
+ thirdC::c_strncpyIF( tinP , tellInfoSys.postSuspect , postSuspectP , sizeof tellInfoSys.postSuspect ) ;  \
                                                                                                     \
 #define ADVICE(postSuspectP,postFix1P,postFix2P)                                                    \
 
