@@ -476,7 +476,7 @@ boolT tinC::bIsF( tinS& tinP , const osTextT* const postThreadNameP )
     {
     if( pInfoP )
     __( saidP.cbData - sizeof( tellInfoTinS ) ) ;
-    __( !pbTin && saidP.idType - ifcIDtYPEtELL_TINcTP ) ;
+    __( !pbTin && saidP.idType - ifcIDtYPEtELLsYS_TINcTP ) ;
 
     _IO_
 {
@@ -486,7 +486,7 @@ osPid( saidP.osPid ) ,
 osTid( saidP.osTid ) ,
 cRef_pbTin( 0 ) ,
 bCopy_pbTin( !pbTin ) ,
-pbTin( pvOrIda && saidP.idType == ifcIDtYPEtELL_TINcTI ? (byteT*)ap_artmentOldC( tinP , (countT)pvOrIda ) : 0 ) ,
+pbTin( pvOrIda && saidP.idType == ifcIDtYPEtELLsYS_TINcTI ? (byteT*)ap_artmentOldC( tinP , (countT)pvOrIda ) : 0 ) ,
 pvOrIda( saidP.pbData && saidP.cbData == sizeof( tellInfoTinS ) ? ((tellInfoTinS*)saidP.pbData)->ip : 0 ) ,
 ether( tinP , TAG( TAGiDnULL ) , *tinP.pAdamGlobal1->pPoolAdamTemp ) ,
 bSelf( !pInfoP ) ,
@@ -674,14 +674,14 @@ fifoC::fifoC( tinS& tinP ) :
             cellC::cAboutToGrab_lSerial ++ ;
 
             }
-                case ifcIDtYPEtELL_GRABdEP : { info2.flags = flGRABiNFOs_null                   ;           break ; }
-                case ifcIDtYPEtELL_GRABdEI : { info2.flags =                    flGRABiNFOs_IDA ;           break ; }
-                case ifcIDtYPEtELL_GRABdTP : { info2.flags = flGRABiNFOs_CT                     ;           break ; }
-                case ifcIDtYPEtELL_GRABdTI : { info2.flags = flGRABiNFOs_CT   | flGRABiNFOs_IDA ;           break ; }
-                case ifcIDtYPEtELL_GRABaTP : { info2.flags = flGRABiNFOs_null                   ; bCA = 1 ; break ; }
-                case ifcIDtYPEtELL_GRABaTI : { info2.flags =                    flGRABiNFOs_IDA ; bCA = 1 ; break ; }
-                case ifcIDtYPEtELL_GRABcTP : { info2.flags = flGRABiNFOs_CT                     ; bCA = 1 ; break ; }
-                case ifcIDtYPEtELL_GRABcTI : { info2.flags = flGRABiNFOs_CT   | flGRABiNFOs_IDA ; bCA = 1 ; break ; }
+                case ifcIDtYPEtELLsYS_GRABdEP : { info2.flags = flGRABiNFOs_null                   ;           break ; }
+                case ifcIDtYPEtELLsYS_GRABdEI : { info2.flags =                    flGRABiNFOs_IDA ;           break ; }
+                case ifcIDtYPEtELLsYS_GRABdTP : { info2.flags = flGRABiNFOs_CT                     ;           break ; }
+                case ifcIDtYPEtELLsYS_GRABdTI : { info2.flags = flGRABiNFOs_CT   | flGRABiNFOs_IDA ;           break ; }
+                case ifcIDtYPEtELLsYS_GRABaTP : { info2.flags = flGRABiNFOs_null                   ; bCA = 1 ; break ; }
+                case ifcIDtYPEtELLsYS_GRABaTI : { info2.flags =                    flGRABiNFOs_IDA ; bCA = 1 ; break ; }
+                case ifcIDtYPEtELLsYS_GRABcTP : { info2.flags = flGRABiNFOs_CT                     ; bCA = 1 ; break ; }
+                case ifcIDtYPEtELLsYS_GRABcTI : { info2.flags = flGRABiNFOs_CT   | flGRABiNFOs_IDA ; bCA = 1 ; break ; }
             {
             switch( said.idType )
             ZE( boolT , bCA ) ;
@@ -700,14 +700,14 @@ fifoC::fifoC( tinS& tinP ) :
             __( said.cbData - sizeof( tellInfoGrabS ) ) ;
             TELL( "hearF: GRABcTI" )
         {
-        case ifcIDtYPEtELL_GRABdEP :
-        case ifcIDtYPEtELL_GRABdEI :
-        case ifcIDtYPEtELL_GRABdTP :
-        case ifcIDtYPEtELL_GRABdTI :
-        case ifcIDtYPEtELL_GRABaTP :
-        case ifcIDtYPEtELL_GRABaTI :
-        case ifcIDtYPEtELL_GRABcTP :
-        case ifcIDtYPEtELL_GRABcTI :
+        case ifcIDtYPEtELLsYS_GRABdEP :
+        case ifcIDtYPEtELLsYS_GRABdEI :
+        case ifcIDtYPEtELLsYS_GRABdTP :
+        case ifcIDtYPEtELLsYS_GRABdTI :
+        case ifcIDtYPEtELLsYS_GRABaTP :
+        case ifcIDtYPEtELLsYS_GRABaTI :
+        case ifcIDtYPEtELLsYS_GRABcTP :
+        case ifcIDtYPEtELLsYS_GRABcTI :
         }
             break ;
 
@@ -716,7 +716,7 @@ fifoC::fifoC( tinS& tinP ) :
                 thirdC::dosWriteProcessMemoryIF( tinP , bOk , (voidT*)ip , said.osPid , (byteT*)pReply , sizeof( monQueryReplyS ) ) ;
                 ZE( boolT , bOk ) ;
             {
-            if( said.idType == ifcIDtYPEtELL_QUERYP )
+            if( said.idType == ifcIDtYPEtELLsYS_QUERYP )
 
             pReply->flags |= flMONqUERYrEPLY_READY ;
             }
@@ -762,46 +762,46 @@ fifoC::fifoC( tinS& tinP ) :
                 pReply = (monQueryReplyS*)pbInvisible ;
             {
             else
-            if( said.idType == ifcIDtYPEtELL_QUERYI ) pReply = (monQueryReplyS*)(byteT*)ap_artmentOldC( tinP , *(countT*)said.pbData ) ;
+            if( said.idType == ifcIDtYPEtELLsYS_QUERYI ) pReply = (monQueryReplyS*)(byteT*)ap_artmentOldC( tinP , *(countT*)said.pbData ) ;
             ZE( monQueryReplyS* , pReply ) ;
             byteT pbInvisible[ sizeof( monQueryReplyS ) ] ;
             countT ip = *(countT*)said.pbData ;
             __( said.cbData - sizeof( countT ) ) ;
             TELL( "hearF: QUERYP" )
         {
-        case ifcIDtYPEtELL_QUERYP :
-        case ifcIDtYPEtELL_QUERYI :
+        case ifcIDtYPEtELLsYS_QUERYP :
+        case ifcIDtYPEtELLsYS_QUERYI :
         }
             break ;
             }
                 THREADmODE1rESTORE
-                TELLc1( ifcIDtYPEtELL_FIREbASEmONITOR ) ;
+                TELLsYSc1( ifcIDtYPEtELLsYS_FIREbASEmONITOR ) ;
                 THREADmODE1oFF( flTHREADmODE1_DISALLOWtELLmONITOR )
             {
             else
             if( cell.bBase ) ether.etherFireImpersonateMonitorIF( tinP ) ;
         {
-        case ifcIDtYPEtELL_FIREbASEmONITOR :
+        case ifcIDtYPEtELLsYS_FIREbASEmONITOR :
         }
             break ;
             //cellC::classLogF( tinP , T("GLObEGINdT") , 0 , pInfo ) ;
         {
-        case ifcIDtYPEtELL_GLObEGINdT :
+        case ifcIDtYPEtELLsYS_GLObEGINdT :
         }
             break ;
             //cellC::classLogF( tinP , T("GLObEGINcT") , 0 , pInfo ) ;
         {
-        case ifcIDtYPEtELL_GLObEGINcT :
+        case ifcIDtYPEtELLsYS_GLObEGINcT :
         }
             break ;
             //cellC::classLogF( tinP , T("AOKfYIjUSTcALLEDaDAMmAIN") , 0 , pInfo ) ;
         {
-        case ifcIDtYPEtELL_AOKfYIjUSTcALLEDaDAMmAIN :
+        case ifcIDtYPEtELLsYS_AOKfYIjUSTcALLEDaDAMmAIN :
         }
             break ;
             //cellC::classLogF( tinP , T("AOKfYIaBOUTtOcALLaDAMmAIN") , 0 , pInfo ) ;
         {
-        case ifcIDtYPEtELL_AOKfYIaBOUTtOcALLaDAMmAIN :
+        case ifcIDtYPEtELLsYS_AOKfYIaBOUTtOcALLaDAMmAIN :
         }
             break ;
         
@@ -820,7 +820,7 @@ fifoC::fifoC( tinS& tinP ) :
             
             TELL( "hearF: LOG" )
         {
-        case ifcIDtYPEtELL_LOG :
+        case ifcIDtYPEtELLsYS_LOG :
         }
             break ;
             }
@@ -858,8 +858,8 @@ fifoC::fifoC( tinS& tinP ) :
             ZE( boolT , bFound ) ;
             TELL( "hearF: TINdTI TINdTP" )
         {
-        case ifcIDtYPEtELL_TINdTP :
-        case ifcIDtYPEtELL_TINdTI :
+        case ifcIDtYPEtELLsYS_TINdTP :
+        case ifcIDtYPEtELLsYS_TINdTI :
         }
             break ;
             else __1
@@ -920,8 +920,8 @@ fifoC::fifoC( tinS& tinP ) :
             THREADmODE1oFF( flTHREADmODE1_DISALLOWtELLmONITOR )
             TELL( "hearF: TINcTI TINcTP" )
         {
-        case ifcIDtYPEtELL_TINcTP :
-        case ifcIDtYPEtELL_TINcTI :
+        case ifcIDtYPEtELLsYS_TINcTP :
+        case ifcIDtYPEtELLsYS_TINcTI :
         }
             break ;
             //U::Y: cell.swHandle.ungrabF( tinP ) ;
@@ -935,7 +935,7 @@ fifoC::fifoC( tinS& tinP ) :
             //U::Y: __( said.cbData - sizeof( countT ) ) ;
             //U::Y: TELL( "hearF: OShANDLEdT" )
         {
-        case ifcIDtYPEtELL_OShANDLEdT :
+        case ifcIDtYPEtELLsYS_OShANDLEdT :
         }
             break ;
             //U::Y: cell.swHandle.ungrabF( tinP ) ;
@@ -954,7 +954,7 @@ fifoC::fifoC( tinS& tinP ) :
             //U::Y: __( said.cbData - sizeof( count3S ) ) ;
             //U::Y: TELL( "hearF: OShANDLEcT" )
         {
-        case ifcIDtYPEtELL_OShANDLEcT :
+        case ifcIDtYPEtELLsYS_OShANDLEcT :
         }
             break ;
             cell.b_pv_bFired.ungrabF( tinP ) ;
@@ -966,7 +966,7 @@ fifoC::fifoC( tinS& tinP ) :
             cell.b_pv_bFired.grabF( tinP , TAG( TAGiDnULL ) ) ;
             TELL( "hearF: FIREDdTP" )
         {
-        case ifcIDtYPEtELL_FIREDdTP :
+        case ifcIDtYPEtELLsYS_FIREDdTP :
         }
             break ;
             cell.b_pv_bFired.ungrabF( tinP ) ;
@@ -977,7 +977,7 @@ fifoC::fifoC( tinS& tinP ) :
             cell.b_pv_bFired.grabF( tinP , TAG( TAGiDnULL ) ) ;
             TELL( "hearF: FIREDcTP" )
         {
-        case ifcIDtYPEtELL_FIREDcTP :
+        case ifcIDtYPEtELLsYS_FIREDcTP :
         }
             break ;
             //U::Y: }
@@ -990,7 +990,7 @@ fifoC::fifoC( tinS& tinP ) :
             //U::Y: if( cell.bBase )
             //U::Y: TELL( "hearF: HEARTbEATdTPoSpID" )
         {
-        case ifcIDtYPEtELL_HEARTbEATdTPoSpID :
+        case ifcIDtYPEtELLsYS_HEARTbEATdTPoSpID :
         }
             break ;
             //U::Y: }
@@ -1002,7 +1002,7 @@ fifoC::fifoC( tinS& tinP ) :
             //U::Y: if( cell.bBase )
             //U::Y: TELL( "hearF: HEARTbEATcTPoSpID" )
         {
-        case ifcIDtYPEtELL_HEARTbEATcTPoSpID :
+        case ifcIDtYPEtELLsYS_HEARTbEATcTPoSpID :
         }
             break ;
             }
@@ -1014,7 +1014,7 @@ fifoC::fifoC( tinS& tinP ) :
                 cell.b_pv_cHeartBeat.grabF( tinP , TAG( TAGiDnULL ) ) ;
             
                 THREADmODE1rESTORE
-                TELLc3( ifcIDtYPEtELL_HEARTbEATdTPoSpID , (byteT*)&info , sizeof info )
+                TELLsYSc3( ifcIDtYPEtELLsYS_HEARTbEATdTPoSpID , (byteT*)&info , sizeof info )
                 THREADmODE1oFF( flTHREADmODE1_DISALLOWtELLmONITOR )
                 info.pv_cHeartBeat = cell.pv_cHeartBeat ;
                 info.osPid = said.osPid ;
@@ -1028,12 +1028,12 @@ fifoC::fifoC( tinS& tinP ) :
             if( !cell.bBase )
             TELL( "hearF: HEARTbEATdTP" )
         {
-        case ifcIDtYPEtELL_HEARTbEATdTP :
+        case ifcIDtYPEtELLsYS_HEARTbEATdTP :
         }
             break ;
             }
                 THREADmODE1rESTORE
-                TELLc3( ifcIDtYPEtELL_HEARTbEATcTPoSpID , (byteT*)&info , sizeof info )
+                TELLsYSc3( ifcIDtYPEtELLsYS_HEARTbEATcTPoSpID , (byteT*)&info , sizeof info )
                 THREADmODE1oFF( flTHREADmODE1_DISALLOWtELLmONITOR )
                 info.pv_cHeartBeat = cell.pv_cHeartBeat ;
                 info.osPid = said.osPid ;
@@ -1054,7 +1054,7 @@ fifoC::fifoC( tinS& tinP ) :
             if( !cell.bBase )
             TELL( "hearF: HEARTbEATcTP" )
         {
-        case ifcIDtYPEtELL_HEARTbEATcTP :
+        case ifcIDtYPEtELLsYS_HEARTbEATcTP :
         }
             break ;
             cell.b_pv_handoffOld.ungrabF( tinP ) ;
@@ -1065,7 +1065,7 @@ fifoC::fifoC( tinS& tinP ) :
             cell.b_pv_handoffOld.grabF( tinP , TAG( TAGiDnULL ) ) ;
             TELL( "hearF: HANDOFFoLDdETACH" )
         {
-        case ifcIDtYPEtELL_HANDOFFoLDdETACH :
+        case ifcIDtYPEtELLsYS_HANDOFFoLDdETACH :
         }
             break ;
             cell.b_pv_handoffOld.ungrabF( tinP ) ;
@@ -1075,7 +1075,7 @@ fifoC::fifoC( tinS& tinP ) :
             cell.b_pv_handoffOld.grabF( tinP , TAG( TAGiDnULL ) ) ;
             TELL( "hearF: HANDOFFoLDaTTACH" )
         {
-        case ifcIDtYPEtELL_HANDOFFoLDaTTACH :
+        case ifcIDtYPEtELLsYS_HANDOFFoLDaTTACH :
     {
     switch( said.idType )
     _IO_

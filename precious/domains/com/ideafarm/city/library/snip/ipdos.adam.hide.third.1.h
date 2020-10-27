@@ -1,4 +1,9 @@
 
+#define ifcIDbOOKStELL_APP                                           2
+#define ifcIDbOOKStELL_SYS                                           1
+
+#define ifcIDtYPEtELLaPP_NOOP                                           0x11111111
+
 // IPDOS (tm) <> IdeaFarm (tm) Piggyback Distributed Operating System
 
 // For build environment info, see file "\ideafarm.work\backed.up.never\txt\readme.first.ipdos.build.environment.txt"
@@ -704,9 +709,9 @@ examples
 /**/
 /*1*//*TODO*//*1*/
 #ifdef __OS2__
-    #define TODO MAINF( voidT , OSF )  TELLlIFInAME( POSTtHREADnAMEmAIN "/TODO" ) //WITH THIS TAG( TAGiDnULL ) NAME, THIS TAG( TAGiDnULL ) WILL BE SUPPRESSED IN THE GROSS WHERE REPORT UNLESS I AM THE HIGHEST NEST LEVEL
+    #define TODO MAINF( voidT , OSF )  TELLsYSlIFInAME( POSTtHREADnAMEmAIN "/TODO" ) //WITH THIS TAG( TAGiDnULL ) NAME, THIS TAG( TAGiDnULL ) WILL BE SUPPRESSED IN THE GROSS WHERE REPORT UNLESS I AM THE HIGHEST NEST LEVEL
 #elif defined( __NT__ )
-    #define TODO MAINF( countT , OSF )  TELLlIFInAME( POSTtHREADnAMEmAIN "/TODO" ) //WITH THIS TAG( TAGiDnULL ) NAME, THIS TAG( TAGiDnULL ) WILL BE SUPPRESSED IN THE GROSS WHERE REPORT UNLESS I AM THE HIGHEST NEST LEVEL
+    #define TODO MAINF( countT , OSF )  TELLsYSlIFInAME( POSTtHREADnAMEmAIN "/TODO" ) //WITH THIS TAG( TAGiDnULL ) NAME, THIS TAG( TAGiDnULL ) WILL BE SUPPRESSED IN THE GROSS WHERE REPORT UNLESS I AM THE HIGHEST NEST LEVEL
 #endif
 
 
@@ -1931,7 +1936,7 @@ it is illegal to refer to this symbol in the definition of an adam
     {                                                                                                                       \
         TINSL                                                                                                               \
         if( tinP.monitor.idThread <= ClOWtHREADS && !( ++ processGlobal1S::_processGlobal1I_IF().pcPhaseLow[ tinP.monitor.idThread ] ) ) { BLAMMO ; } \
-        _IO_ TELLlIFInAME( #taskFP )                                                                                        \
+        _IO_ TELLsYSlIFInAME( #taskFP )                                                                                        \
                                                                                                                             \
         OStEXT(   _ostoTmp , 0x80 )                                                                                         \
         OStEXTAK( _ostoTmp , "!ifc" )                                                                                       \
@@ -14671,7 +14676,7 @@ arguments
         {                                                                                                               \
             OStEXTV( posty , postFromP )                                                                                \
             byteT pbZombie[ sizeof posty + sizeof( tellS ) ] ;                                                    \
-            tellC tell( tinP , TAG( TAGiDnULL ) , ifcIDtYPEtELL_YELL , posty , sizeof posty , pbZombie , sizeof pbZombie ) ; \
+            tellC tell( tinP , TAG( TAGiDnULL ) , ifcIDtYPEtELLsYS_YELL , posty , sizeof posty , pbZombie , sizeof pbZombie ) ; \
                                                                                                                         \
             thirdC::dosTellMonitorIF( tinP , tell ) ;                                                                   \
         }
@@ -14684,7 +14689,7 @@ arguments
         {                                                                                                                       \
             osTextT posta[ sizeof postFromP + CBtOaLIGN02( sizeof postFromP ) ] = postFromP ;                                     \
             byteT pbZombie[ sizeof( tellS ) + sizeof posta ] ;                                                            \
-            tellC tell( tinP , TAG( TAGiDnULL ) , ifcIDtYPEtELL_YELL , posta , sizeof posta , pbZombie , sizeof pbZombie ) ;     \
+            tellC tell( tinP , TAG( TAGiDnULL ) , ifcIDtYPEtELLsYS_YELL , posta , sizeof posta , pbZombie , sizeof pbZombie ) ;     \
                                                                                                                                 \
             thirdC::dosTellMonitorIF( tinP , tell ) ;                                                                           \
         }
@@ -14713,112 +14718,112 @@ arguments
 /*
 \<A HREF=\"5.001020f.1.0.html\"\>definition\</A\>
 */
-/*1*//*ifcIDtYPEtELL*//*1*/
+/*1*//*ifcIDtYPEtELLsYS*//*1*/
 
 //CODEsYNC: 001020f 6a40104
 
 /*3*/
-#define ifcIDtYPEtELL_NOOP                                           0xdddd04c7
-#define ifcIDtYPEtELL_ERROReXCEPTION                                 0xdddd04c8
-#define ifcIDtYPEtELL_GRABcTI                                        0xdddd04c9
-#define ifcIDtYPEtELL_GRABdTI                                        0xdddd04ca
-#define ifcIDtYPEtELL_GRABcTP                                        0xdddd04cb
-#define ifcIDtYPEtELL_GRABdTP                                        0xdddd04cc
-#define ifcIDtYPEtELL_GRABaTI                                        0xdddd04cd
-#define ifcIDtYPEtELL_GRABdEI                                        0xdddd04ce
-#define ifcIDtYPEtELL_GRABaTP                                        0xdddd04cf
-#define ifcIDtYPEtELL_GRABdEP                                        0xdddd04d0
-#define ifcIDtYPEtELL_TINcTI                                         0xdddd04d1
-#define ifcIDtYPEtELL_TINdTI                                         0xdddd04d2
-#define ifcIDtYPEtELL_TINcTP                                         0xdddd04d3
-#define ifcIDtYPEtELL_TINdTP                                         0xdddd04d4
-#define ifcIDtYPEtELL_FIREDcTP                                       0xdddd04d5
-#define ifcIDtYPEtELL_FIREDdTP                                       0xdddd04d6
-#define ifcIDtYPEtELL_VM                                             0xdddd04d7
-#define ifcIDtYPEtELL_QUERYI                                         0xdddd04d8
-#define ifcIDtYPEtELL_QUERYP                                         0xdddd04d9
-#define ifcIDtYPEtELL_WATCH                                          0xdddd04da
-#define ifcIDtYPEtELL_YELL                                           0xdddd04db
-#define ifcIDtYPEtELL_LOG                                            0xdddd04dc
-#define ifcIDtYPEtELL_COCKED                                         0xdddd04dd
-#define ifcIDtYPEtELL_UNCOCKED                                       0xdddd04de
-#define ifcIDtYPEtELL_WHEREoN                                        0xdddd04df
-#define ifcIDtYPEtELL_WHEREoFF                                       0xdddd04e0
-#define ifcIDtYPEtELL_WHERErEPORT                                    0xdddd04e1
-#define ifcIDtYPEtELL_WHEREpURGE                                     0xdddd04e2
-#define ifcIDtYPEtELL_WHEREaLLoN                                     0xdddd04e3
-#define ifcIDtYPEtELL_WHEREaLLoFF                                    0xdddd04e4
-#define ifcIDtYPEtELL_WHEREaLLrEPORT                                 0xdddd04e5
-#define ifcIDtYPEtELL_WHEREpROCESSrEPORT                             0xdddd04e6
-#define ifcIDtYPEtELL_WHEREaLLpURGE                                  0xdddd04e7
-#define ifcIDtYPEtELL_WHEREaLLnOW                                    0xdddd04e8
-#define ifcIDtYPEtELL_WHEREmOVEt2p                                   0xdddd04e9
-#define ifcIDtYPEtELL_WHEREmOVEt2pwdoN                               0xdddd04ea
-#define ifcIDtYPEtELL_WHEREmOVEt2pwdoFF                              0xdddd04eb
-#define ifcIDtYPEtELL_WHERErwpdoN                                    0xdddd04ec
-#define ifcIDtYPEtELL_WHERErwpdoFF                                   0xdddd04ed
-#define ifcIDtYPEtELL_AOKfYIiMPOTENCE2bsEEN                          0xdddd04ee
-#define ifcIDtYPEtELL_AOKfYIaBOUTtOcALLaDAMmAIN                      0xdddd04ef
-#define ifcIDtYPEtELL_AOKfYIjUSTcALLEDaDAMmAIN                       0xdddd04f0
-#define ifcIDtYPEtELL_ERRORsOMEtHIRDoBJECTSeXIST                     0xdddd04f1
-#define ifcIDtYPEtELL_ERRORlABELiStOOlONG                            0xdddd04f2
-#define ifcIDtYPEtELL_dnsMsgHeaderS                                  0xdddd04f3
-#define ifcIDtYPEtELL_dnsResourceMiddleS                             0xdddd04f4
-#define ifcIDtYPEtELL_LOUDtIN                                        0xdddd04f5
-#define ifcIDtYPEtELL_QUIETtIN                                       0xdddd04f6
-#define ifcIDtYPEtELL_POOLoLDcORRUPToFFtOP                           0xdddd04f7
-#define ifcIDtYPEtELL_POOLoLDcORRUPT                                 0xdddd04f8
-#define ifcIDtYPEtELL_POOLoLDfORMAT                                  0xdddd04f9
-#define ifcIDtYPEtELL_POOLoLDaTTACH                                  0xdddd04fa
-#define ifcIDtYPEtELL_POOLoLDdETACH                                  0xdddd04fb
-#define ifcIDtYPEtELL_ERRORpeTpAINTiS0                               0xdddd04fc
-#define ifcIDtYPEtELL_ERRORpeTtEXTiS0                                0xdddd04fd
-#define ifcIDtYPEtELL_ERRORpsTfACEtALKiS0                            0xdddd04fe
-#define ifcIDtYPEtELL_ERRORpsTfACEhEARiS0                            0xdddd04ff
-#define ifcIDtYPEtELL_ERRORpsTaCCEPTORSiS0                           0xdddd0500
-#define ifcIDtYPEtELL_ERRORpsTfACEhEARcOLORiS0                       0xdddd0501
-#define ifcIDtYPEtELL_ERRORpsTfACEtALKcOLORiS0                       0xdddd0502
-#define ifcIDtYPEtELL_ERRORpsTfACEhEARvARSiS0                        0xdddd0503
-#define ifcIDtYPEtELL_ERRORpsTfACEtALKvARSiS0                        0xdddd0504
-#define ifcIDtYPEtELL_ERRORpsTqUITTERSiS0                            0xdddd0505
-#define ifcIDtYPEtELL_ERRORpsTcATCHERSiS0                            0xdddd0506
-#define ifcIDtYPEtELL_ERRORpsTkIDfACESiS0                            0xdddd0507
-#define ifcIDtYPEtELL_ERRORpsTsOCKfACEtALKiS0                        0xdddd0508
-#define ifcIDtYPEtELL_ERRORpsWeTtHREADiS0                            0xdddd0509
-#define ifcIDtYPEtELL_ERRORlABELtOOlONG                              0xdddd050a
-#define ifcIDtYPEtELL_AOKfYIeXCEPTIONhANDLERpUSH                     0xdddd050b
-#define ifcIDtYPEtELL_AOKfYIcANNOTcREATEwINDOWnOW                    0xdddd050c
-#define ifcIDtYPEtELL_AOKfYIcANcREATEwINDOWnOW                       0xdddd050d
-#define ifcIDtYPEtELL_ERRORbADcODEsTYLEsTROKEfUSEbUFFEReXHAUSTED     0xdddd050e
-#define ifcIDtYPEtELL_ERRORiMPOTENCE                                 0xdddd050f
-#define ifcIDtYPEtELL_ERRORgLOBALnEWoPERATORuSED                     0xdddd0510
-#define ifcIDtYPEtELL_READYtOdIE                                     0xdddd0511
-#define ifcIDtYPEtELL_OShANDLEcT                                     0xdddd0512
-#define ifcIDtYPEtELL_OShANDLEdT                                     0xdddd0513
-#define ifcIDtYPEtELL_HANDOFFoLDaTTACH                               0xdddd0514
-#define ifcIDtYPEtELL_HANDOFFoLDdETACH                               0xdddd0515
-#define ifcIDtYPEtELL_OSpIDeVENTbEGUN                                0xdddd0516
-#define ifcIDtYPEtELL_OSpIDeVENTeNDED                                0xdddd0517
-#define ifcIDtYPEtELL_HEARTbEATcTP                                   0xdddd0518
-#define ifcIDtYPEtELL_HEARTbEATdTP                                   0xdddd0519
-#define ifcIDtYPEtELL_HEARTbEATcTPoSpID                              0xdddd051a
-#define ifcIDtYPEtELL_HEARTbEATdTPoSpID                              0xdddd051b
-#define ifcIDtYPEtELL_GLObEGINcT                                     0xdddd051c
-#define ifcIDtYPEtELL_GLObEGINdT                                     0xdddd051d
-#define ifcIDtYPEtELL_FIREbASEmONITOR                                0xdddd051e
-#define ifcIDtYPEtELL_NAPKINfORMAT                                   0xdddd051f
-#define ifcIDtYPEtELL_NAPKINaTTACH                                   0xdddd0520
-#define ifcIDtYPEtELL_NAPKINdETACH                                   0xdddd0521
-#define ifcIDtYPEtELL_LIFInAME                                       0xdddd0522
-#define ifcIDtYPEtELL_ADAMfIRED                                      0xdddd0523
-#define ifcIDtYPEtELL_SNAPsHOT                                       0xdddd0524
-#define ifcIDtYPEtELL_SEXcT                                          0xdddd0525
-#define ifcIDtYPEtELL_SEXdT                                          0xdddd0526
-#define ifcIDtYPEtELL_PROCESSgLOBAL1scT                              0xdddd0527
-#define ifcIDtYPEtELL_PROCESSgLOBAL1sdT                              0xdddd0528
+#define ifcIDtYPEtELLsYS_NOOP                                           0xdddd04c7
+#define ifcIDtYPEtELLsYS_ERROReXCEPTION                                 0xdddd04c8
+#define ifcIDtYPEtELLsYS_GRABcTI                                        0xdddd04c9
+#define ifcIDtYPEtELLsYS_GRABdTI                                        0xdddd04ca
+#define ifcIDtYPEtELLsYS_GRABcTP                                        0xdddd04cb
+#define ifcIDtYPEtELLsYS_GRABdTP                                        0xdddd04cc
+#define ifcIDtYPEtELLsYS_GRABaTI                                        0xdddd04cd
+#define ifcIDtYPEtELLsYS_GRABdEI                                        0xdddd04ce
+#define ifcIDtYPEtELLsYS_GRABaTP                                        0xdddd04cf
+#define ifcIDtYPEtELLsYS_GRABdEP                                        0xdddd04d0
+#define ifcIDtYPEtELLsYS_TINcTI                                         0xdddd04d1
+#define ifcIDtYPEtELLsYS_TINdTI                                         0xdddd04d2
+#define ifcIDtYPEtELLsYS_TINcTP                                         0xdddd04d3
+#define ifcIDtYPEtELLsYS_TINdTP                                         0xdddd04d4
+#define ifcIDtYPEtELLsYS_FIREDcTP                                       0xdddd04d5
+#define ifcIDtYPEtELLsYS_FIREDdTP                                       0xdddd04d6
+#define ifcIDtYPEtELLsYS_VM                                             0xdddd04d7
+#define ifcIDtYPEtELLsYS_QUERYI                                         0xdddd04d8
+#define ifcIDtYPEtELLsYS_QUERYP                                         0xdddd04d9
+#define ifcIDtYPEtELLsYS_WATCH                                          0xdddd04da
+#define ifcIDtYPEtELLsYS_YELL                                           0xdddd04db
+#define ifcIDtYPEtELLsYS_LOG                                            0xdddd04dc
+#define ifcIDtYPEtELLsYS_COCKED                                         0xdddd04dd
+#define ifcIDtYPEtELLsYS_UNCOCKED                                       0xdddd04de
+#define ifcIDtYPEtELLsYS_WHEREoN                                        0xdddd04df
+#define ifcIDtYPEtELLsYS_WHEREoFF                                       0xdddd04e0
+#define ifcIDtYPEtELLsYS_WHERErEPORT                                    0xdddd04e1
+#define ifcIDtYPEtELLsYS_WHEREpURGE                                     0xdddd04e2
+#define ifcIDtYPEtELLsYS_WHEREaLLoN                                     0xdddd04e3
+#define ifcIDtYPEtELLsYS_WHEREaLLoFF                                    0xdddd04e4
+#define ifcIDtYPEtELLsYS_WHEREaLLrEPORT                                 0xdddd04e5
+#define ifcIDtYPEtELLsYS_WHEREpROCESSrEPORT                             0xdddd04e6
+#define ifcIDtYPEtELLsYS_WHEREaLLpURGE                                  0xdddd04e7
+#define ifcIDtYPEtELLsYS_WHEREaLLnOW                                    0xdddd04e8
+#define ifcIDtYPEtELLsYS_WHEREmOVEt2p                                   0xdddd04e9
+#define ifcIDtYPEtELLsYS_WHEREmOVEt2pwdoN                               0xdddd04ea
+#define ifcIDtYPEtELLsYS_WHEREmOVEt2pwdoFF                              0xdddd04eb
+#define ifcIDtYPEtELLsYS_WHERErwpdoN                                    0xdddd04ec
+#define ifcIDtYPEtELLsYS_WHERErwpdoFF                                   0xdddd04ed
+#define ifcIDtYPEtELLsYS_AOKfYIiMPOTENCE2bsEEN                          0xdddd04ee
+#define ifcIDtYPEtELLsYS_AOKfYIaBOUTtOcALLaDAMmAIN                      0xdddd04ef
+#define ifcIDtYPEtELLsYS_AOKfYIjUSTcALLEDaDAMmAIN                       0xdddd04f0
+#define ifcIDtYPEtELLsYS_ERRORsOMEtHIRDoBJECTSeXIST                     0xdddd04f1
+#define ifcIDtYPEtELLsYS_ERRORlABELiStOOlONG                            0xdddd04f2
+#define ifcIDtYPEtELLsYS_dnsMsgHeaderS                                  0xdddd04f3
+#define ifcIDtYPEtELLsYS_dnsResourceMiddleS                             0xdddd04f4
+#define ifcIDtYPEtELLsYS_LOUDtIN                                        0xdddd04f5
+#define ifcIDtYPEtELLsYS_QUIETtIN                                       0xdddd04f6
+#define ifcIDtYPEtELLsYS_POOLoLDcORRUPToFFtOP                           0xdddd04f7
+#define ifcIDtYPEtELLsYS_POOLoLDcORRUPT                                 0xdddd04f8
+#define ifcIDtYPEtELLsYS_POOLoLDfORMAT                                  0xdddd04f9
+#define ifcIDtYPEtELLsYS_POOLoLDaTTACH                                  0xdddd04fa
+#define ifcIDtYPEtELLsYS_POOLoLDdETACH                                  0xdddd04fb
+#define ifcIDtYPEtELLsYS_ERRORpeTpAINTiS0                               0xdddd04fc
+#define ifcIDtYPEtELLsYS_ERRORpeTtEXTiS0                                0xdddd04fd
+#define ifcIDtYPEtELLsYS_ERRORpsTfACEtALKiS0                            0xdddd04fe
+#define ifcIDtYPEtELLsYS_ERRORpsTfACEhEARiS0                            0xdddd04ff
+#define ifcIDtYPEtELLsYS_ERRORpsTaCCEPTORSiS0                           0xdddd0500
+#define ifcIDtYPEtELLsYS_ERRORpsTfACEhEARcOLORiS0                       0xdddd0501
+#define ifcIDtYPEtELLsYS_ERRORpsTfACEtALKcOLORiS0                       0xdddd0502
+#define ifcIDtYPEtELLsYS_ERRORpsTfACEhEARvARSiS0                        0xdddd0503
+#define ifcIDtYPEtELLsYS_ERRORpsTfACEtALKvARSiS0                        0xdddd0504
+#define ifcIDtYPEtELLsYS_ERRORpsTqUITTERSiS0                            0xdddd0505
+#define ifcIDtYPEtELLsYS_ERRORpsTcATCHERSiS0                            0xdddd0506
+#define ifcIDtYPEtELLsYS_ERRORpsTkIDfACESiS0                            0xdddd0507
+#define ifcIDtYPEtELLsYS_ERRORpsTsOCKfACEtALKiS0                        0xdddd0508
+#define ifcIDtYPEtELLsYS_ERRORpsWeTtHREADiS0                            0xdddd0509
+#define ifcIDtYPEtELLsYS_ERRORlABELtOOlONG                              0xdddd050a
+#define ifcIDtYPEtELLsYS_AOKfYIeXCEPTIONhANDLERpUSH                     0xdddd050b
+#define ifcIDtYPEtELLsYS_AOKfYIcANNOTcREATEwINDOWnOW                    0xdddd050c
+#define ifcIDtYPEtELLsYS_AOKfYIcANcREATEwINDOWnOW                       0xdddd050d
+#define ifcIDtYPEtELLsYS_ERRORbADcODEsTYLEsTROKEfUSEbUFFEReXHAUSTED     0xdddd050e
+#define ifcIDtYPEtELLsYS_ERRORiMPOTENCE                                 0xdddd050f
+#define ifcIDtYPEtELLsYS_ERRORgLOBALnEWoPERATORuSED                     0xdddd0510
+#define ifcIDtYPEtELLsYS_READYtOdIE                                     0xdddd0511
+#define ifcIDtYPEtELLsYS_OShANDLEcT                                     0xdddd0512
+#define ifcIDtYPEtELLsYS_OShANDLEdT                                     0xdddd0513
+#define ifcIDtYPEtELLsYS_HANDOFFoLDaTTACH                               0xdddd0514
+#define ifcIDtYPEtELLsYS_HANDOFFoLDdETACH                               0xdddd0515
+#define ifcIDtYPEtELLsYS_OSpIDeVENTbEGUN                                0xdddd0516
+#define ifcIDtYPEtELLsYS_OSpIDeVENTeNDED                                0xdddd0517
+#define ifcIDtYPEtELLsYS_HEARTbEATcTP                                   0xdddd0518
+#define ifcIDtYPEtELLsYS_HEARTbEATdTP                                   0xdddd0519
+#define ifcIDtYPEtELLsYS_HEARTbEATcTPoSpID                              0xdddd051a
+#define ifcIDtYPEtELLsYS_HEARTbEATdTPoSpID                              0xdddd051b
+#define ifcIDtYPEtELLsYS_GLObEGINcT                                     0xdddd051c
+#define ifcIDtYPEtELLsYS_GLObEGINdT                                     0xdddd051d
+#define ifcIDtYPEtELLsYS_FIREbASEmONITOR                                0xdddd051e
+#define ifcIDtYPEtELLsYS_NAPKINfORMAT                                   0xdddd051f
+#define ifcIDtYPEtELLsYS_NAPKINaTTACH                                   0xdddd0520
+#define ifcIDtYPEtELLsYS_NAPKINdETACH                                   0xdddd0521
+#define ifcIDtYPEtELLsYS_LIFInAME                                       0xdddd0522
+#define ifcIDtYPEtELLsYS_ADAMfIRED                                      0xdddd0523
+#define ifcIDtYPEtELLsYS_SNAPsHOT                                       0xdddd0524
+#define ifcIDtYPEtELLsYS_SEXcT                                          0xdddd0525
+#define ifcIDtYPEtELLsYS_SEXdT                                          0xdddd0526
+#define ifcIDtYPEtELLsYS_PROCESSgLOBAL1scT                              0xdddd0527
+#define ifcIDtYPEtELLsYS_PROCESSgLOBAL1sdT                              0xdddd0528
 /*3*/
-#define ifcIDtYPEtELL_min     0xdddd04c7
-#define ifcIDtYPEtELL_max     0xdddd0528                                                               
+#define ifcIDtYPEtELLsYS_min     0xdddd04c7
+#define ifcIDtYPEtELLsYS_max     0xdddd0528                                                               
 
 
 //
@@ -14846,7 +14851,7 @@ arguments
 
 /*1*//*CBtELLmAX*//*1*/
 
-//002 IS TOO SMALL; ifcIDtYPEtELL_LOG HAS EXCEEDED THIS WHEN THERE IS NO POOLoLD (SO THE DEFAULT ZOMBIE IS USED)
+//002 IS TOO SMALL; ifcIDtYPEtELLsYS_LOG HAS EXCEEDED THIS WHEN THERE IS NO POOLoLD (SO THE DEFAULT ZOMBIE IS USED)
 
 #define CBtELLmAX 0x800
 
@@ -14902,9 +14907,9 @@ arguments
 */
 /**/
 
-/*1*//*TELLc1(idTypeP)*//*1*/
+/*1*//*TELLsYSc1(idTypeP)*//*1*/
 
-#define TELLc1(idTypeP)                                                                                             \
+#define TELLsYSc1(idTypeP)                                                                                             \
                                                                                                                     \
     {                                                                                                               \
         byteT pbZombie[ sizeof( tellS ) ] ;                                                                   \
@@ -14936,9 +14941,9 @@ arguments
 */
 /**/
 
-/*1*//*TELLc3(idTypeP,pbP,cbP)*//*1*/
+/*1*//*TELLsYSc3(idTypeP,pbP,cbP)*//*1*/
 
-#define TELLc3(idTypeP,pbP,cbP)                                                                                         \
+#define TELLsYSc3(idTypeP,pbP,cbP)                                                                                         \
                                                                                                                         \
     {                                                                                                                   \
         byteT pbZombie[ sizeof( tellS ) + cbP ] ;                                                                 \
@@ -16624,16 +16629,16 @@ it is illegal to refer to this symbol except in the definitions of grabWantF and
 
 /*
 \<A HREF=\"5.0010263.1.0.html\"\>definition\</A\>
-like TELLc3 but synchronous
+like TELLsYSc3 but synchronous
  i do not return until the monitor has seen pbP
 pbP must point to a countT that contains 0
 after i return, that countT object will contain 1
 */
 /**/
 
-/*1*//*TELLc3S(idTypeP,pbP,cbP)*//*1*/
+/*1*//*TELLsYSc3S(idTypeP,pbP,cbP)*//*1*/
 
-#define TELLc3S(idTypeP,pbP,cbP)                                                                                    \
+#define TELLsYSc3S(idTypeP,pbP,cbP)                                                                                    \
                                                                                                                     \
     {                                                                                                               \
         byteT pbZombie[ sizeof( tellS ) + cbP ] ;                                                             \
@@ -16826,9 +16831,9 @@ after i return, that countT object will contain 1
 */
 /**/
 
-/*1*//*TELLc3EBP(idTypeP,pbP,cbP,ebpP)*//*1*/
+/*1*//*TELLsYSc3EBP(idTypeP,pbP,cbP,ebpP)*//*1*/
 
-#define TELLc3EBP(idTypeP,pbP,cbP,ebpP)                                                                             \
+#define TELLsYSc3EBP(idTypeP,pbP,cbP,ebpP)                                                                             \
                                                                                                                     \
     {                                                                                                               \
         byteT pbZombie[ sizeof( tellS ) + cbP ] ;                                                             \
@@ -18504,9 +18509,9 @@ if cBitsP is f then 01 bits is indicated
 */
 /**/
 
-/*1*//*TELLlIFInAME(postP)*//*1*/
+/*1*//*TELLsYSlIFInAME(postP)*//*1*/
 
-#define TELLlIFInAME(postP)                                                                     \
+#define TELLsYSlIFInAME(postP)                                                                     \
                                                                                                 \
     {                                                                                           \
         static boolT bDone ;                                                                    \
@@ -18519,7 +18524,7 @@ if cBitsP is f then 01 bits is indicated
             info.idiFile = DDNUMB ;                                                             \
             thirdC::c_strncpyIF( tinP , info.postName , postP , sizeof info.postName ) ;        \
             info.costName = thirdC::c_strlenIF( tinP , info.postName ) ;                        \
-            TELLc3( ifcIDtYPEtELL_LIFInAME , (byteT*)&info , sizeof info ) ;                     \
+            TELLsYSc3( ifcIDtYPEtELLsYS_LIFInAME , (byteT*)&info , sizeof info ) ;                     \
         }                                                                                       \
     }
 
@@ -18754,9 +18759,9 @@ if cBitsP is f then 01 bits is indicated
 //
 
 /*
-like TELLlIFInAME but appends postP to tinP.postThreadName
+like TELLsYSlIFInAME but appends postP to tinP.postThreadName
 this causes this line to be supressed in the TG report
-most application code should use TLNA rather than TELLlIFInAME
+most application code should use TLNA rather than TELLsYSlIFInAME
 */
 /**/
 
@@ -18779,7 +18784,7 @@ most application code should use TLNA rather than TELLlIFInAME
             info.costName = ostoName.costF() ;                                                  \
             info.idLine = ifcLINE ;                                                             \
             info.idiFile = DDNUMB ;                                                             \
-            TELLc3( ifcIDtYPEtELL_LIFInAME , (byteT*)&info , sizeof info ) ;                     \
+            TELLsYSc3( ifcIDtYPEtELLsYS_LIFInAME , (byteT*)&info , sizeof info ) ;                     \
         }                                                                                       \
     }
 
@@ -18861,9 +18866,9 @@ most application code should use TLNA rather than TELLlIFInAME
 */
 /**/
 
-/*1*//*TELLc3LIFI(idTypeP,pbP,cbP,idLineP,idiFileP)*//*1*/
+/*1*//*TELLsYSc3LIFI(idTypeP,pbP,cbP,idLineP,idiFileP)*//*1*/
 
-#define TELLc3LIFI(idTypeP,pbP,cbP,idLineP,idiFileP)                                                                    \
+#define TELLsYSc3LIFI(idTypeP,pbP,cbP,idLineP,idiFileP)                                                                    \
                                                                                                                         \
     {                                                                                                                   \
         byteT pbZombie[ sizeof( tellS ) + cbP ] ;                                                                 \
@@ -18892,16 +18897,16 @@ most application code should use TLNA rather than TELLlIFInAME
 
 /*
 \<A HREF=\"5.0010263.1.0.html\"\>definition\</A\>
-like TELLc3 but synchronous
+like TELLsYSc3 but synchronous
  i do not return until the monitor has seen pbP
 pbP must point to a countT that contains 0
 after i return, that countT object will contain 1
 */
 /**/
 
-/*1*//*TELLc3SlIFI(idTypeP,pbP,cbP,idLineP,idiFileP)*//*1*/
+/*1*//*TELLsYSc3SlIFI(idTypeP,pbP,cbP,idLineP,idiFileP)*//*1*/
 
-#define TELLc3SlIFI(idTypeP,pbP,cbP,idLineP,idiFileP)                                                               \
+#define TELLsYSc3SlIFI(idTypeP,pbP,cbP,idLineP,idiFileP)                                                               \
                                                                                                                     \
     {                                                                                                               \
         byteT pbZombie[ sizeof( tellS ) + cbP ] ;                                                             \
@@ -44279,7 +44284,7 @@ arguments
         {                                                                                                                                       \
             osTextT posta[ sizeof postDirNameP + CBtOaLIGN02( sizeof postDirNameP ) ] = postDirNameP ;                                          \
             byteT pbZombie[ sizeof( tellS ) + sizeof posta ] ;                                                                                  \
-            tellC tell( tinP , TAG( TAGiDnULL ) , ifcIDtYPEtELL_SNAPsHOT , posta , sizeof posta , pbZombie , sizeof pbZombie ) ;                \
+            tellC tell( tinP , TAG( TAGiDnULL ) , ifcIDtYPEtELLsYS_SNAPsHOT , posta , sizeof posta , pbZombie , sizeof pbZombie ) ;                \
                                                                                                                                                 \
             thirdC::dosTellMonitorIF( tinP , tell ) ;                                                                                           \
         }

@@ -99,7 +99,7 @@ DONE( tmTellF )
 }
     }
         etThread.osSleepF( tinP , TUCK * 0x40 ) ;
-        TELLc1( ifcIDtYPEtELL_NOOP ) ;
+        TELLsYSc1( ifcIDtYPEtELLsYS_NOOP ) ;
     {
     while( !etThread && !bQuitMonitoring )
 
@@ -455,13 +455,13 @@ TASK( tmLogF )
                 ZE( countT , ids ) ;
 
 if( entry.osPid != tinP.osPid ) { CONoUTrAW( TF3(entry.idSerial,flFORMAT_UNSIGNED,9)+TF3(entry.osPid,flFORMAT_UNSIGNED,9)+TF3(entry.bIda,flFORMAT_UNSIGNED,9)+TF3(entry.ip,flFORMAT_UNSIGNED,9)+T("\"")+T(entry.postThreadName)+T("\" -\r\n") ) ; } //U::
-                tinEntryS entry( tinP , info.idSerial , head.osPid , head.idType == ifcIDtYPEtELL_TINdTI , info.ip , info.idTin , head.idThread , info.postThreadName ) ;
+                tinEntryS entry( tinP , info.idSerial , head.osPid , head.idType == ifcIDtYPEtELLsYS_TINdTI , info.ip , info.idTin , head.idThread , info.postThreadName ) ;
                 tellInfoTinS& info = *(tellInfoTinS*)pbData ;
 
                 if( head.cbData != sizeof( tellInfoTinS ) ) { BLAMMO ; }
             {
-            case ifcIDtYPEtELL_TINdTP :
-            case ifcIDtYPEtELL_TINdTI :
+            case ifcIDtYPEtELLsYS_TINdTP :
+            case ifcIDtYPEtELLsYS_TINdTI :
             }
                 break ;
 
@@ -474,13 +474,13 @@ if( entry.osPid != tinP.osPid ) { CONoUTrAW( TF3(entry.idSerial,flFORMAT_UNSIGNE
                 ZE( countT , ids ) ;
 
 if( entry.osPid != tinP.osPid ) { CONoUTrAW( TF3(entry.idSerial,flFORMAT_UNSIGNED,9)+TF3(entry.osPid,flFORMAT_UNSIGNED,9)+TF3(entry.bIda,flFORMAT_UNSIGNED,9)+TF3(entry.ip,flFORMAT_UNSIGNED,9)+T("\"")+T(entry.postThreadName)+T("\" +\r\n") ) ; } //U::
-                tinEntryS entry( tinP , info.idSerial , head.osPid , head.idType == ifcIDtYPEtELL_TINcTI , info.ip , info.idTin , head.idThread , info.postThreadName ) ;
+                tinEntryS entry( tinP , info.idSerial , head.osPid , head.idType == ifcIDtYPEtELLsYS_TINcTI , info.ip , info.idTin , head.idThread , info.postThreadName ) ;
                 tellInfoTinS& info = *(tellInfoTinS*)pbData ;
 
                 if( head.cbData != sizeof( tellInfoTinS ) ) { BLAMMO ; }
             {
-            case ifcIDtYPEtELL_TINcTP :
-            case ifcIDtYPEtELL_TINcTI :
+            case ifcIDtYPEtELLsYS_TINcTP :
+            case ifcIDtYPEtELLsYS_TINcTI :
             }
                 break ;
 
@@ -490,30 +490,30 @@ if( entry.osPid != tinP.osPid ) { CONoUTrAW( TF3(entry.idSerial,flFORMAT_UNSIGNE
                 stGrabP.sinkF( tinP , ids , (byteT*)&entry , flSTACKsINK_QUERY , subtract_grabEntryS_F ) ;
                 stGrabP.grabF( tinP , TAG( TAGiDnULL ) ) ;
                 ZE( countT , ids ) ;
-                grabEntryS entry( tinP , info.idSerial , head.osPid , head.idType == ifcIDtYPEtELL_GRABdTI || head.idType == ifcIDtYPEtELL_GRABdEI , info.ip , info.idLineCt , info.idiFileCt ) ;
+                grabEntryS entry( tinP , info.idSerial , head.osPid , head.idType == ifcIDtYPEtELLsYS_GRABdTI || head.idType == ifcIDtYPEtELLsYS_GRABdEI , info.ip , info.idLineCt , info.idiFileCt ) ;
                 tellInfoGrabS& info = *(tellInfoGrabS*)pbData ;
 
                 if( head.cbData != sizeof( tellInfoGrabS ) ) { BLAMMO ; }
             {
-            case ifcIDtYPEtELL_GRABdEP :
-            case ifcIDtYPEtELL_GRABdEI :
-            case ifcIDtYPEtELL_GRABdTP :
-            case ifcIDtYPEtELL_GRABdTI :
+            case ifcIDtYPEtELLsYS_GRABdEP :
+            case ifcIDtYPEtELLsYS_GRABdEI :
+            case ifcIDtYPEtELLsYS_GRABdTP :
+            case ifcIDtYPEtELLsYS_GRABdTI :
             }
                 break ;
 
                 if( !ids ) { BLAMMO ; }
                 stGrabP.sinkF( tinP , ids , (byteT*)&entry , flSTACKsINK_UNIQUE , subtract_grabEntryS_F ) ;
                 ZE( countT , ids ) ;
-                grabEntryS entry( tinP , info.idSerial , head.osPid , head.idType == ifcIDtYPEtELL_GRABcTI || head.idType == ifcIDtYPEtELL_GRABaTI , info.ip , info.idLineCt , info.idiFileCt ) ;
+                grabEntryS entry( tinP , info.idSerial , head.osPid , head.idType == ifcIDtYPEtELLsYS_GRABcTI || head.idType == ifcIDtYPEtELLsYS_GRABaTI , info.ip , info.idLineCt , info.idiFileCt ) ;
                 tellInfoGrabS& info = *(tellInfoGrabS*)pbData ;
 
                 if( head.cbData != sizeof( tellInfoGrabS ) ) { BLAMMO ; }
             {
-            case ifcIDtYPEtELL_GRABaTP :
-            case ifcIDtYPEtELL_GRABaTI :
-            case ifcIDtYPEtELL_GRABcTP :
-            case ifcIDtYPEtELL_GRABcTI :
+            case ifcIDtYPEtELLsYS_GRABaTP :
+            case ifcIDtYPEtELLsYS_GRABaTI :
+            case ifcIDtYPEtELLsYS_GRABcTP :
+            case ifcIDtYPEtELLsYS_GRABcTI :
             }
                 break ;
 
@@ -532,7 +532,7 @@ if( entry.osPid != tinP.osPid ) { CONoUTrAW( TF3(entry.idSerial,flFORMAT_UNSIGNE
 
                 if( head.cbData != sizeof( tellInfoExceptionS ) ) { BLAMMO ; }
             {
-            case ifcIDtYPEtELL_ERROReXCEPTION :
+            case ifcIDtYPEtELLsYS_ERROReXCEPTION :
         {
         switch( head.idType )
 
@@ -546,7 +546,7 @@ if( entry.osPid != tinP.osPid ) { CONoUTrAW( TF3(entry.idSerial,flFORMAT_UNSIGNE
     if( head.cbData )
     ZE( byteT* , pbData ) ;
 
-    //if( head.idType != ifcIDtYPEtELL_NOOP && ( head.idType > ifcIDtYPEtELL_GRABdEP || head.idType < ifcIDtYPEtELL_GRABcTI ) ) { CONoUTrAW( TF1(++idEat)+T("  ")+T(processGlobal3I.mapSay(head.idType))+T("\r\n") ) ; }
+    //if( head.idType != ifcIDtYPEtELLsYS_NOOP && ( head.idType > ifcIDtYPEtELLsYS_GRABdEP || head.idType < ifcIDtYPEtELLsYS_GRABcTI ) ) { CONoUTrAW( TF1(++idEat)+T("  ")+T(processGlobal3I.mapSay(head.idType))+T("\r\n") ) ; }
 
     __( cbP - sizeof head - head.cbData ) ;
 

@@ -28492,7 +28492,7 @@ applications should avoid using thirdC objects
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.350011a9.thirdc.dosfilewindowif!||
  static voidT flushViewOfFileIF( tinS& tinP , const byteT* const pbP , const countT cbP = 0 ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34189.thirdC.flushViewOfFileIF!||
- static voidT dosTellMonitorIF( tinS& tinP , const tellC& tellP ) ;
+ static voidT dosTellMonitorIF( tinS& tinP , const tellC& tellP , const countT idBooksP = ifcIDbOOKStELL_APP ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.340e3.thirdC.dosTellMonitorIF!||
  static boolT dosOpenEventSem2IF( tinS& tinP , handleC& handleP , const osTextT* const postP = 0 , const boolT fGivenP = 0 ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34048.thirdC.dosOpenEventSem2IF!||

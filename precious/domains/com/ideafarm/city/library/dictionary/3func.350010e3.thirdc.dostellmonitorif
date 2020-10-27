@@ -39,7 +39,12 @@
                 THREADmODE1rESTORE
                 THREADmODE2rESTORE
 
-                processGlobal3I.bksTelemetrySys.writeF( tinP , tellP , tellP , 0 , 0 , flBOOKScwRITE_ALLoRnONE | flBOOKScwRITE_ELSEfILLtOeND | flBOOKScwRITE_HEADfINGER1 | flBOOKScwRITE_HEADiDfORMAT | flBOOKScwRITE_HEADcBdATA | flBOOKScwRITE_HEADfINGER2 | flBOOKScwRITE_TAILfINGER | flBOOKScwRITE_FLUSHbOOKhEADoNcHANGE | flBOOKScwRITE_FLUSHb4tAIL | flBOOKScwRITE_FLUSHaTpAGE ) ; //THESE FLAGS OPTIMIZE FOR DATA INTEGRITY AND WILL PRODUCE 1 DISK WRITE FOR EACH TELEMETRY EVENT PLUS A DISK WRITE AT THE END OF EACH PAGE
+                bksUse.writeF( tinP , tellP , tellP , 0 , 0 , flBOOKScwRITE_ALLoRnONE | flBOOKScwRITE_ELSEfILLtOeND | flBOOKScwRITE_HEADfINGER1 | flBOOKScwRITE_HEADiDfORMAT | flBOOKScwRITE_HEADcBdATA | flBOOKScwRITE_HEADfINGER2 | flBOOKScwRITE_TAILfINGER | flBOOKScwRITE_FLUSHbOOKhEADoNcHANGE | flBOOKScwRITE_FLUSHb4tAIL | flBOOKScwRITE_FLUSHaTpAGE ) ; //THESE FLAGS OPTIMIZE FOR DATA INTEGRITY AND WILL PRODUCE 1 DISK WRITE FOR EACH TELEMETRY EVENT PLUS A DISK WRITE AT THE END OF EACH PAGE
+
+                ;
+                    : processGlobal3I.bksTelemetryApp
+                    ? processGlobal3I.bksTelemetrySys
+                booksC& bksUse = idBooksP == ifcIDbOOKStELL_SYS
 
                 //20201008@1741: ENABLED FOR PRODUCTION
                 //20201008@1512: DISABLED TO INVESTIGATE SLOOOOOW EXECUTION
@@ -130,14 +135,14 @@
     (
     if
 {
-/*1*/voidT thirdC::dosTellMonitorIF( tinS& tinP , const tellC& tellP )/*1*/
+/*1*/voidT thirdC::dosTellMonitorIF( tinS& tinP , const tellC& tellP , const countT idBooksP )/*1*/
 
 //boolT _bWoth = 1 ; //U::
 
 /**/
 */
-even in the system code, use TELLc1 or TELLc3 where practical
-use TELLc1 or TELLc3
+even in the system code, use TELLsYSc1 or TELLsYSc3 where practical
+use TELLsYSc1 or TELLsYSc3
 i work unconditionally (even if impotence has occured on this thread)
 it is illegal to refer to this symbol in the definition of an adam
 \<A HREF=\"5.102010a.1.0.html\"\>definition\</A\>
