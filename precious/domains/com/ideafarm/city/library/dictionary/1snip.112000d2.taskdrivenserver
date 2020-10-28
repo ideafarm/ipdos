@@ -10,27 +10,33 @@
             {
                                                                                                                                                             \
             TELL( "TASKdRIVENsERVER: entering application code" )                                                                                           \
+                                                                                                                                                            \
+            }                                                                                                                                               \
+                /* }                                                                      */                                                                \
+                /*     if( POOP ) { POOPR }                                               */                                                                \
+                /*     }                                                                  */                                                                \
+                /*         TELL( "returned from querying dns for peer name string" ) ;    */                                                                \
+                /*         tinP.pEtScratch->sockPsttHostF( tinP , psttPeerP , nnPeerP ) ; */                                                                \
+                /*         TELL( "querying dns for peer name string" ) ;                  */                                                                \
+                /*     {                                                                  */                                                                \
+                /*     if( nnPeerP.pcId[ 0 ] )                                            */                                                                \
+                /* {                                                                      */                                                                \
+                /* ZE( strokeS* , psttPeerP ) ;                                           */                                                                \
+                /* THIS IS TOO SLOW (2 TOCKS)                                             */                                                                \
+                                                                                                                                                            \
+                if( POOP ) { POOPR ; }                                                                                                                      \
+                psoP->myNameF( tinP , idPortMeP , nnMeP ) ;                                                                                                 \
+                SCOOPS                                                                                                                                      \
+            {                                                                                                                                               \
+            IFsCRATCH                                                                                                                                       \
+            nicNameC nnMeP ;                                                                                                                                \
+            ZE( countT , idPortMeP ) ;                                                                                                                      \
+                                                                                                                                                            \
             psoP->etherF( tinP , *tinP.pEtScratch ) ;                                                                                                       \
             etThread.traceF( tinP , T("TASKdRIVENsERVER [cSession]:    ")+TF2(cSession,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;                        \
         {                                                                                                                                                   \
         if( !etThread )                                                                                                                                     \
         sessionC& sessionP = sessionsP.registerConnectionF( tinP , nnPeerP , /*psttPeerP*/T("notQueried") ) ;                                               \
-                                                                                                                                                            \
-        /*}                                                                       */                                                                        \
-        /*    if( POOP ) { POOPR }                                                */                                                                        \
-        /*    }                                                                   */                                                                        \
-        /*        TELL( "returned from querying dns for peer name string" ) ;     */                                                                        \
-        /*        tinP.pEtScratch->sockPsttHostF( tinP , psttPeerP , nnPeerP ) ;  */                                                                        \
-        /*        TELL( "querying dns for peer name string" ) ;                   */                                                                        \
-        /*    {                                                                   */                                                                        \
-        /*    if( nnPeerP.pcId[ 0 ] )                                             */                                                                        \
-        /* {                                                                      */                                                                        \
-        /* ZE( strokeS* , psttPeerP ) ;                                           */                                                                        \
-        /* THIS IS TOO SLOW (2 TOCKS)                                             */                                                                        \
-                                                                                                                                                            \
-        psoP->myNameF( tinP , idPortMeP , nnMeP ) ;                                                                                                         \
-        nicNameC nnMeP ;                                                                                                                                    \
-        ZE( countT , idPortMeP ) ;                                                                                                                          \
                                                                                                                                                             \
         __Z( psoP ) ;                                                                                                                                       \
         b_lever.ungrabF( tinP ) ;                                                                                                                           \
@@ -52,6 +58,7 @@
         count8S*   pc8tp1                =     (count8S*)pc8tp->c1 ;                                                                                        \
         count8S*   pc8tp                 =    (count8S*)pTaskP->c1 ;                                                                                        \
         TELL( "TASKdRIVENsERVER: setting up" )                                                                                                              \
+        TESTsCRATCH ;                                                                                                                                       \
     {                                                                                                                                                       \
     if( pTaskP && pTaskP->c1 )                                                                                                                              \
     TASK( taskFP )                                                                                                                                          \

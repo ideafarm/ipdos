@@ -5173,6 +5173,7 @@ use this rather than _ to avoid the overhead of _
             if( POOP )                                                                                  \
             {                                                                                           \
                 _IO_                                                                                    \
+                ((poopC&)POOP).chatterF( tinP , LF ) ;                                                  \
                 BLAMMO ;                                                                                \
             }                                                                                           \
         }

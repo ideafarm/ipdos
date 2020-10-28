@@ -1988,6 +1988,7 @@ it is illegal to refer to this symbol in the definition of an adam
             TELL( "TASK0: newing etThread" )                                                                                \
             etherC* pEtThread  = new( 0 , tinP , LF ) etherC( tinP , TAG( TAGiDnULL ) , flTHIRDmODE_TINoWNER | flagsThirdModeP ) ; ___( pEtThread ) ; \
             tinP.pEtScratch = new( 0 , tinP , LF ) etherC( tinP , TAG( TAGiDnULL ) , flTHIRDmODE_IMPOTENCEeXPECTED ) ; ___( tinP.pEtScratch ) ; \
+            TESTsCRATCH ;                                                                                                   \
             TELL( "TASK0: after newing etThread" )                                                                          \
             ZE( strokeS* , psttThreadFile ) ;                                                                               \
             if( pEtThread && tinP.pEtScratch )                                                                              \
@@ -8901,7 +8902,6 @@ it is illegal to refer to this symbol in the definition of an adam
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112000d1.fldrivenyouarefired END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112000d2.taskdrivenserver BEGIN
 
-
 //
 // Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
@@ -8929,6 +8929,7 @@ pso not 0 is guaranteed for code between me and DONEdRIVENsERVER
     TASK( taskFP )                                                                                                                                          \
     if( pTaskP && pTaskP->c1 )                                                                                                                              \
     {                                                                                                                                                       \
+        TESTsCRATCH ;                                                                                                                                       \
         TELL( "TASKdRIVENsERVER: setting up" )                                                                                                              \
         count8S*   pc8tp                 =    (count8S*)pTaskP->c1 ;                                                                                        \
         count8S*   pc8tp1                =     (count8S*)pc8tp->c1 ;                                                                                        \
@@ -8950,27 +8951,33 @@ pso not 0 is guaranteed for code between me and DONEdRIVENsERVER
         b_lever.ungrabF( tinP ) ;                                                                                                                           \
         __Z( psoP ) ;                                                                                                                                       \
                                                                                                                                                             \
-        ZE( countT , idPortMeP ) ;                                                                                                                          \
-        nicNameC nnMeP ;                                                                                                                                    \
-        psoP->myNameF( tinP , idPortMeP , nnMeP ) ;                                                                                                         \
-                                                                                                                                                            \
-        /* THIS IS TOO SLOW (2 TOCKS)                                             */                                                                        \
-        /* ZE( strokeS* , psttPeerP ) ;                                           */                                                                        \
-        /* {                                                                      */                                                                        \
-        /*    if( nnPeerP.pcId[ 0 ] )                                             */                                                                        \
-        /*    {                                                                   */                                                                        \
-        /*        TELL( "querying dns for peer name string" ) ;                   */                                                                        \
-        /*        tinP.pEtScratch->sockPsttHostF( tinP , psttPeerP , nnPeerP ) ;  */                                                                        \
-        /*        TELL( "returned from querying dns for peer name string" ) ;     */                                                                        \
-        /*    }                                                                   */                                                                        \
-        /*    if( POOP ) { POOPR }                                                */                                                                        \
-        /*}                                                                       */                                                                        \
-                                                                                                                                                            \
         sessionC& sessionP = sessionsP.registerConnectionF( tinP , nnPeerP , /*psttPeerP*/T("notQueried") ) ;                                               \
         if( !etThread )                                                                                                                                     \
         {                                                                                                                                                   \
             etThread.traceF( tinP , T("TASKdRIVENsERVER [cSession]:    ")+TF2(cSession,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;                        \
             psoP->etherF( tinP , *tinP.pEtScratch ) ;                                                                                                       \
+                                                                                                                                                            \
+            ZE( countT , idPortMeP ) ;                                                                                                                      \
+            nicNameC nnMeP ;                                                                                                                                \
+            IFsCRATCH                                                                                                                                       \
+            {                                                                                                                                               \
+                SCOOPS                                                                                                                                      \
+                psoP->myNameF( tinP , idPortMeP , nnMeP ) ;                                                                                                 \
+                if( POOP ) { POOPR ; }                                                                                                                      \
+                                                                                                                                                            \
+                /* THIS IS TOO SLOW (2 TOCKS)                                             */                                                                \
+                /* ZE( strokeS* , psttPeerP ) ;                                           */                                                                \
+                /* {                                                                      */                                                                \
+                /*     if( nnPeerP.pcId[ 0 ] )                                            */                                                                \
+                /*     {                                                                  */                                                                \
+                /*         TELL( "querying dns for peer name string" ) ;                  */                                                                \
+                /*         tinP.pEtScratch->sockPsttHostF( tinP , psttPeerP , nnPeerP ) ; */                                                                \
+                /*         TELL( "returned from querying dns for peer name string" ) ;    */                                                                \
+                /*     }                                                                  */                                                                \
+                /*     if( POOP ) { POOPR }                                               */                                                                \
+                /* }                                                                      */                                                                \
+            }                                                                                                                                               \
+                                                                                                                                                            \
             TELL( "TASKdRIVENsERVER: entering application code" )                                                                                           \
                                                                                                                                                             \
             {

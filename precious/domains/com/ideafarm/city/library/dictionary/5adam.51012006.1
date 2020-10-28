@@ -18,6 +18,18 @@ CONoUTrAW( "\r\nok\r\n" ) ;
 while( !ether )
 ZE( countT , idCycle ) ;
 
+//myDelta = ticksPerSec2 - ticksPerSec1 ;
+//static LARGE_INTEGER myDelta ;
+
+bOk = QueryThreadCycleTime( (HANDLE)(-2) ,  &cCycles2 ) ;
+bOk = QueryThreadCycleTime( (HANDLE)(-2) ,  &cCycles1 ) ;
+
+static ZE( ULONG64 , cCycles2 ) ;
+static ZE( ULONG64 , cCycles1 ) ;
+
+static BOOL bOk = QueryPerformanceFrequency( &ticksPerSec ) ;
+static LARGE_INTEGER ticksPerSec ;
+
 TODO
 
 byteT pbZombie[ sizeof( tellS ) + sizeof pbBlaBla ] ;
