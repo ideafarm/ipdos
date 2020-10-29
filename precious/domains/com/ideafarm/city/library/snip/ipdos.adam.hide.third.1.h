@@ -1,4 +1,7 @@
 
+#define flTHREADmODE4_QUIETiNoUTfRAMEc                                0xe00001ff
+#define flTHREADmODE4_null                                            0xe00000ff
+
 // IPDOS (tm) <> IdeaFarm (tm) Piggyback Distributed Operating System
 
 // For build environment info, see file "\ideafarm.work\backed.up.never\txt\readme.first.ipdos.build.environment.txt"
@@ -45070,3 +45073,102 @@ arguments
 //
 
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004e1.trace END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004e2.sa_marksystem BEGIN
+
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+/*
+*/
+/**/
+/*1*//*sa_MARKsYSTEM*//*1*/
+
+/*3*/
+#define sa_MARKsYSTEMbREAK                 1
+/*3*/
+
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004e2.sa_marksystem END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004e3.flbook0provision BEGIN
+
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+/*
+*/
+/**/
+/*1*//*flBOOK0pROVISION*//*1*/
+
+/*3*/
+#define flBOOK0pROVISION_FORMAT                     0xe00001ed
+#define flBOOK0pROVISION_DOnOTiNITIALIZE            0xe00002ed
+#define flBOOK0pROVISION_RESETcREFoNcT              0xe00004ed
+#define flBOOK0pROVISION_PRIORbOOKnOTcONTINUEDhERE  0xe00008ed
+/*3*/
+#define flBOOK0pROVISION_null    0xe00000ed
+
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004e3.flbook0provision END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004e3.fltrace BEGIN
+
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+/*
+*/
+/**/
+/*1*//*flTRACE*//*1*/
+
+/*3*/
+#define flTRACE_RESET             0xe00001ee
+#define flTRACE_PARAMETERiSoStEXT 0xe00002ee
+#define flTRACE_NOpREFIX          0xe00004ee
+#define flTRACE_KEEPcRlF          0xe00008ee
+#define flTRACE_NOcONSOLE         0xe00010ee
+#define flTRACE_NOtELL            0xe00020ee
+#define flTRACE_LOOP              0xe00040ee
+#define flTRACE_HOMEeCHO          0xe00080ee
+#define flTRACE_ECHOoNLY          0xe00100ee
+#define flTRACE_FORCEdIVERT       0xe00200ee
+#define flTRACE_FORCEnOsILENCE    0xe00400ee
+/*3*/
+#define flTRACE_null    0xe00000ee
+
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004e3.fltrace END

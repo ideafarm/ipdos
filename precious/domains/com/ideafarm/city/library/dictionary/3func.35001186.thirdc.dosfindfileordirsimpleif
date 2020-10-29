@@ -27,21 +27,24 @@
             #endif
 
                 }
-                    else                                                                                                                      { BOSpOOP ; }
-                    if( tinP.brcLath == ERROR_FILE_NOT_FOUND || tinP.brcLath == ERROR_PATH_NOT_FOUND || tinP.brcLath == ERROR_NO_MORE_FILES ) tinP.bosFail = 0 ;
+                    }
+                        BOSpOOP ;
+                        tinP.brcLath = brcLathSave ;
+                        tinP.bosFail = bosFailSave ;
+                    {
+                    else
+                    if( brcLathSave == ERROR_FILE_NOT_FOUND || brcLathSave == ERROR_PATH_NOT_FOUND || brcLathSave == ERROR_NO_MORE_FILES ) bosFailSave = 0 ;
 
-                    tinP.brcLath = save_brcLath ;
-                    tinP.bosFail = save_bosFail ;
                     handleP.closeIfF() ;
-                    countT save_brcLath = tinP.brcLath ;
-                    countT save_bosFail = tinP.bosFail ;
                     fFound = 0 ;
                     _IO_
                 {
-                if( tinP.bosFail )
+                if( bosFailSave )
 
                 }
                     fFound = !tinP.bosFail ;
+                    brcLathSave = tinP.brcLath ;
+                    bosFailSave = tinP.bosFail ;
                     BOS( WHATsfr , BOSoK , FindNextFile( (HANDLE)pOsh->hFind.osF( ifcIDtYPEhANDLE_FILEfINDbASE ) , &info ) )
                     _IO_
                 {
@@ -49,10 +52,14 @@
                 }
                     if( ~pOsh->hFind ) fFound = 1 ;
                     pOsh->hFind.osF( ifcIDtYPEhANDLE_FILEfINDbASE , (countT)tinP.brcRaw ) ;
+                    brcLathSave = tinP.brcLath ;
+                    bosFailSave = tinP.bosFail ;
                     BOS( WHATsfr , BOShANDLE , FindFirstFile( postLikeP , &info ) )
                     _IO_
                 {
                 if( bWoth )
+                ZE( countT , brcLathSave ) ;
+                ZE( countT , bosFailSave ) ;
                 //CS:CODEsYNCH: DUPLICATE CODE 3600101d 35001186
 
             #elif defined( __NT__ )

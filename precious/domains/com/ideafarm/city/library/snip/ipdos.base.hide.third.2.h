@@ -1,102 +1,3 @@
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004e2.sa_marksystem BEGIN
-
-
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-// Respecting the rights of other people is an important part of empowering one another.
-//
-
-/*
-*/
-/**/
-/*1*//*sa_MARKsYSTEM*//*1*/
-
-/*3*/
-#define sa_MARKsYSTEMbREAK                 1
-/*3*/
-
-
-//
-// Respecting the rights of other people is an important part of empowering one another.
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004e2.sa_marksystem END
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004e3.flbook0provision BEGIN
-
-
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-// Respecting the rights of other people is an important part of empowering one another.
-//
-
-/*
-*/
-/**/
-/*1*//*flBOOK0pROVISION*//*1*/
-
-/*3*/
-#define flBOOK0pROVISION_FORMAT                     0xe00001ed
-#define flBOOK0pROVISION_DOnOTiNITIALIZE            0xe00002ed
-#define flBOOK0pROVISION_RESETcREFoNcT              0xe00004ed
-#define flBOOK0pROVISION_PRIORbOOKnOTcONTINUEDhERE  0xe00008ed
-/*3*/
-#define flBOOK0pROVISION_null    0xe00000ed
-
-
-//
-// Respecting the rights of other people is an important part of empowering one another.
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004e3.flbook0provision END
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004e3.fltrace BEGIN
-
-
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-// Respecting the rights of other people is an important part of empowering one another.
-//
-
-/*
-*/
-/**/
-/*1*//*flTRACE*//*1*/
-
-/*3*/
-#define flTRACE_RESET             0xe00001ee
-#define flTRACE_PARAMETERiSoStEXT 0xe00002ee
-#define flTRACE_NOpREFIX          0xe00004ee
-#define flTRACE_KEEPcRlF          0xe00008ee
-#define flTRACE_NOcONSOLE         0xe00010ee
-#define flTRACE_NOtELL            0xe00020ee
-#define flTRACE_LOOP              0xe00040ee
-#define flTRACE_HOMEeCHO          0xe00080ee
-#define flTRACE_ECHOoNLY          0xe00100ee
-#define flTRACE_FORCEdIVERT       0xe00200ee
-#define flTRACE_FORCEnOsILENCE    0xe00400ee
-/*3*/
-#define flTRACE_null    0xe00000ee
-
-
-//
-// Respecting the rights of other people is an important part of empowering one another.
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004e3.fltrace END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004e4.flbook0c BEGIN
 
 
@@ -27486,6 +27387,7 @@ it is illegal to modify any member other than pc Utility in the definition of an
  flagsT                 flagsThreadMode1 ;
  flagsT                 flagsThreadMode2 ;
  flagsT                 flagsThreadMode3 ;
+ flagsT                 flagsThreadMode4 ;
  countT                 cKidThreads ;
  monitorS               monitor ;
 
@@ -44027,8 +43929,36 @@ VARIABLEcLASSdEF( countC , countT )
 //
 
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.directionS : 1snip.15000156.directions END
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.inOutFrameC : 1snip.15000159.inoutframec BEGIN
 
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+/*
+*/
+/**/
+
+/*1*/struct _export tellInfoAppInOutFrameS/*1*/
+{
+    count04T cCpuCycles1    ;
+    count04T cCpuCycles2    ;
+    count04T cCpuCycles3    ;
+    count04T cCpuCycles4    ;
+}
+;
+
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.inOutFrameC : 1snip.15000159.inoutframec BEGIN
 
 //
 // Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
@@ -44044,18 +43974,19 @@ VARIABLEcLASSdEF( countC , countT )
 
 /*1*/class _export inOutFrameC/*1*/
 {
-    tinS&        tinCt                     ;
-    const countT idLineCt                  ;
-    const countT idiFileCt                 ;
-    const countT idFileRankCt              ;
-    const flagsT flagsCt                   ;
-    countT       idFileNestSave            ;
-    countT       idLineNestSave            ;
-    countT       eipInNestSave             ;
-    countT       idProgressNestSave        ;
-    flagsT       pFlagsThreadLevelModeSave ;
-    const countT idWhat1Save               ;
-    const countT idWhat2Save               ;
+    tinS&                   tinCt                     ;
+    const countT            idLineCt                  ;
+    const countT            idiFileCt                 ;
+    tellInfoAppInOutFrameS  say                       ;
+    const countT            idFileRankCt              ;
+    const flagsT            flagsCt                   ;
+    countT                  idFileNestSave            ;
+    countT                  idLineNestSave            ;
+    countT                  eipInNestSave             ;
+    countT                  idProgressNestSave        ;
+    flagsT                  pFlagsThreadLevelModeSave ;
+    const countT            idWhat1Save               ;
+    const countT            idWhat2Save               ;
 
     public :
 
@@ -44925,3 +44856,173 @@ i am nonconformant in that all of my member function definitions are in a single
 //
 
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.cacheC : 1snip.15000187.cacheC END
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+/*
+*/
+/**/
+/*1*//*THREADmODE4rESTORE0*//*1*/
+
+#define THREADmODE4rESTORE0(flagsSaveP) tinP.flagsThreadMode4 = (flagsSaveP) ;
+
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+/*
+*/
+/**/
+/*1*//*THREADmODE4oN0(flagsP)*//*1*/
+
+#define THREADmODE4oN0(flagsP) tinP.flagsThreadMode4 |= (flagsP) ;
+
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+/*
+*/
+/**/
+/*1*//*THREADmODE4oFF0(flagsP)*//*1*/
+
+#define THREADmODE4oFF0(flagsP) tinP.flagsThreadMode4 &= ~( F(flagsP) ) ;
+
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+/*
+*/
+/**/
+/*1*//*THREADmODE4sAVE0(flagsSaveP)*//*1*/
+
+#define THREADmODE4sAVE0(flagsSaveP) (flagsSaveP) = tinP.flagsThreadMode4 ;
+
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+/*
+\<A HREF=\"5.001016e.1.0.html\"\>definition\</A\>
+*/
+/**/
+/*1*//*THREADmODE4oN(flagsP)*//*1*/
+
+#define THREADmODE4oN(flagsP)                                                                                            \
+                                                                                                                          \
+    flagsT _flagsThreadMode4Save = tinP.flagsThreadMode4 ;                                                                \
+    THREADmODE4oN0( flagsP )
+
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+/*
+\<A HREF=\"5.001016f.1.0.html\"\>definition\</A\>
+*/
+/**/
+/*1*//*THREADmODE4rESTORE*//*1*/
+
+#define THREADmODE4rESTORE THREADmODE4rESTORE0( _flagsThreadMode4Save )
+
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+/*
+\<A HREF=\"5.001016e.1.0.html\"\>definition\</A\>
+*/
+/**/
+/*1*//*THREADmODE4oFF(flagsP)*//*1*/
+
+#define THREADmODE4oFF(flagsP)                                                                                            \
+                                                                                                                          \
+    flagsT _flagsThreadMode4Save = tinP.flagsThreadMode4 ;                                                                \
+    THREADmODE4oFF0( flagsP )
+
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+

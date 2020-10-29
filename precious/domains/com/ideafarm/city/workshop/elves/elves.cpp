@@ -3668,6 +3668,7 @@ void elf_obey_C::compileF( const char* postGroupP , int bPauseP )
             !strcmp( postGroupP , "3611f" ) ||      // pelS
             !strcmp( postGroupP , "36122" ) ||      // deviceC
             !strcmp( postGroupP , "36123" ) ||      // surfC
+            !strcmp( postGroupP , "3612c" ) ||      // inOutFrameC (for speed, calling QueryThreadCycleTime)
             !strcmp( postGroupP , "36135" ) ||      // hashCalculatorMd5C
             !strcmp( postGroupP , "3613d" ) ||      // fileWindowC  20150415@1243: U::MIGRATE OS CALLS INTO thirdC
 

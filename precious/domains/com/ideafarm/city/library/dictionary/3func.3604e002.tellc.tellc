@@ -35,14 +35,20 @@
         if( !pbData ) pbData = pbZombieDflt ; // pbData WILL BE NULL IF poolOldWork IS IMPOTENT
     
         if( bDelete_pbData_ ) { ___( pbData ) ; }
-        ;
-                : ( PUSE.newF( tinP , LF , pbFromPool , sizeof( tellS ) + cbP ) , pbFromPool )
-                ? pbZombieDflt
-            : !pPool
-            ? pbZombieP
-        pbData = pbZombieP
-        poolC* pPool = tinP.pAdamGlobal1->pPoolAdamTemp ;
-        ZE( byteT* , pbFromPool ) ;
+        }
+            ;
+                    : ( PUSE.newF( tinP , LF , pbFromPool , sizeof( tellS ) + cbP ) , pbFromPool )
+                    ? pbZombieDflt
+                : !pPool
+                ? pbZombieP
+            pbData = pbZombieP
+            ZE( byteT* , pbFromPool ) ;
+
+            ;
+                : 0
+                ? tinP.pAdamGlobal1->pPoolAdamTemp
+            poolC* pPool = tinP.pAdamGlobal1
+        {
     {
     POOPIE
 

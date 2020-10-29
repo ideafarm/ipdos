@@ -33,6 +33,7 @@
     {
     if( pbNapkin && F(flagsSharedMemory) & flOPENsHAREDmEMORYrESULT_ALREADYeXISTED && this != &processGlobal3I.napHome ) //ASSUME: napHome IS CT WOTH
     
+    THREADmODE4rESTORE
     }
         else if( *this != sizeof( countT ) * ( 4 + CCwORD ) ) { BLAMMO ; }
         }
@@ -217,6 +218,7 @@
         processGlobal3I.bksTraceDivert01.grabBookNow.formatF( tinP , flGRABc_NOTjEALOUS | flGRABc_SNEAKYlOVER                      , TAG( TAGiDnULL ) , ifcIDgRABlAYER_9BOOKSc ) ; // flGRABc_SHARElAYER: NEEDED BECAUSE booksC::writeF CAN CALL ITSELF RECURSIVELY DUE TO TELEMETRY WHEN CHANGING bookC INSTANCES
         processGlobal3I.bksTrace.grabBookNow.formatF(         tinP , flGRABc_NOTjEALOUS | flGRABc_SNEAKYlOVER | flGRABc_SHARElAYER , TAG( TAGiDnULL ) , ifcIDgRABlAYER_9BOOKSc ) ; // flGRABc_SHARElAYER: NEEDED BECAUSE booksC::writeF CAN CALL ITSELF RECURSIVELY DUE TO TELEMETRY WHEN CHANGING bookC INSTANCES
         processGlobal3I.bksTraceHomeEcho.grabBookNow.formatF( tinP , flGRABc_NOTjEALOUS | flGRABc_SNEAKYlOVER | flGRABc_SHARElAYER , TAG( TAGiDnULL ) , ifcIDgRABlAYER_9BOOKSc ) ; // flGRABc_SHARElAYER: NEEDED BECAUSE booksC::writeF CAN CALL ITSELF RECURSIVELY DUE TO TELEMETRY WHEN CHANGING bookC INSTANCES
+        THREADmODE4oFF0( flTHREADmODE4_QUIETiNoUTfRAMEc )
         processGlobal3I.bksTelemetryApp.grabBookNow.formatF(     tinP , flGRABc_NOTjEALOUS | flGRABc_SNEAKYlOVER | flGRABc_SHARElAYER , TAG( TAGiDnULL ) , ifcIDgRABlAYER_9BOOKSc ) ;
         processGlobal3I.bksTelemetrySys.grabBookNow.formatF(     tinP , flGRABc_NOTjEALOUS | flGRABc_SNEAKYlOVER | flGRABc_SHARElAYER , TAG( TAGiDnULL ) , ifcIDgRABlAYER_9BOOKSc ) ; //20170820@1239: MOVED OUT OF IF BLOCK WITHOUT ANALYSIS (IF AND ELSE DIFFERED IN THAT IF SPECIFIED LAYER WHILE ELSE DID NOT)
         //CS:CODEsYNC: 360fb003 3603e003
@@ -338,6 +340,7 @@
         homeS* ph = (homeS*)(byteT*)*this ;
     {
     if( this == &processGlobal3I.napHome )
+    THREADmODE4oN( flTHREADmODE4_QUIETiNoUTfRAMEc )
 
     }
         }
@@ -370,7 +373,13 @@
         }
             }
                 THREADmODE3oFF( flTHREADmODE3_SUPPRESStRACING )
-                if( !( F(flagsCt) & flNAPKINc_DOnOTsERIALIZEcT ) ) pzbUniverseUse->ungrabF( tinP ) ;           //U::BUG: napGuts IS FULLY CT WITHOUT EVER UNGRABBING THIS
+
+                }
+                    THREADmODE4rESTORE
+                    pzbUniverseUse->ungrabF( tinP ) ;           //U::BUG: napGuts IS FULLY CT WITHOUT EVER UNGRABBING THIS
+                    THREADmODE4oN( flTHREADmODE4_QUIETiNoUTfRAMEc )
+                {
+                if( !( F(flagsCt) & flNAPKINc_DOnOTsERIALIZEcT ) )
             {
             else
             }
@@ -391,7 +400,12 @@
         tinP.cYield = 0 ;
 
         THREADmODE3oFF( flTHREADmODE3_SUPPRESStRACING )
-        if( !( F(flagsCt) & flNAPKINc_DOnOTsERIALIZEcT ) ) pzbUniverseUse->ungrabF( tinP ) ;
+        }
+            THREADmODE4rESTORE
+            pzbUniverseUse->ungrabF( tinP ) ;
+            THREADmODE4oN( flTHREADmODE4_QUIETiNoUTfRAMEc )
+        {
+        if( !( F(flagsCt) & flNAPKINc_DOnOTsERIALIZEcT ) )
 
         bDataAreaFormatted = 0 ;
     {
@@ -416,6 +430,7 @@
             THREADmODE1rESTORE ;
             bFail = !!POOP ;
             }
+                THREADmODE4rESTORE
                 }
                     else break ;
                     }
@@ -490,6 +505,7 @@
                 {
                 for(;;)
                 sleepC s( tinP , TAG( TAGiDnULL ) ) ;
+                THREADmODE4oN( flTHREADmODE4_QUIETiNoUTfRAMEc )
             {
             POOPIE
             THREADmODE1oN( flTHREADmODE1_ALLOWsTOPwHILEgRABBING ) ;
