@@ -9236,42 +9236,52 @@ I have other business to attend to today and tomorrow, but plan to continue to w
 
 
 
-  emit thread cpu cycle data
 
-  define app telemetry type constants
 
-    number of calls to query api
-    cycles after ct and before dt
-    cycles in inOutFrameC ct'or and dt'or
-   report 3 totals
-   objective: complete coverage, including an amount for the query call itself
-   | 
-   |     count04T     cCpuCycles4               ;
-   |     count04T     cCpuCycles3               ;
-   |     count04T     cCpuCycles2               ;
-   |     count04T     cCpuCycles1               ;
-   | 
-   | 
-   | bOk = QueryThreadCycleTime( (HANDLE)(-2) ,  &cCycles2 ) ;
-   | bOk = QueryThreadCycleTime( (HANDLE)(-2) ,  &cCycles1 ) ;
-   | 
-   | static ZE( ULONG64 , cCycles2 ) ;
-   | static ZE( ULONG64 , cCycles1 ) ;
-   | 
-  inOutFrameC: capture thread cpu cycle data consumed by inOutFrameC and between ct and dt
 
-  #define flTHREADmODE4_QUIETiNoUTfRAMEc                                0xe00001ff
-  #define flTHREADmODE4_null                                            0xe00000ff
-  tinS::oshThread: nawwh
-  study adam 6 to understand layout of input and of the record written to booksC
-  set up dut
-    it is not sampling ; it is a full audit record
-   this data can be used to reveal which functions are consuming the cpu
-   this will test the new bksTelemetryApp support
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   flagsThreadMode4 flTHREADmODE4_QUIETiNoUTfRAMEc
+   goal is to get it to work with minimal disabling
+   cnr if disable emission
   think
  playcraft
- objective: glass walls
-!job C: inOutFrameC: emit application telemetry: thread cpu cycle delta
+ changed: inOutFrameC emits app telemetry
+!job B: won't build
 
 
 
@@ -9286,11 +9296,65 @@ I have other business to attend to today and tomorrow, but plan to continue to w
 
 
 
+   kiss by just not doing it during napkinC, the whole thang
+  think
+   reset when ungrab
+   set when grab
+   override to reset if early on thread 1
+  recipe
+  !subjob C: tinS: inline function to return highest grab layer found
+    this would be simple and would solve the problem
+   alt: api to inspect tinS and suppress emission if high layer found
+   grabunivers's grab layer is next above grabBookNow, so cannot emit telemetry while the thread has grabUniverse
+   issue: napkinC grabs grabUniverse and if shared memory is new, does not ungrab it
+   issue: napkinC ct'or resets flag for thread 1 after bksTelemetry* instances are completely ct'd
+  think
+   | 
+   | THREADmODE4oFF0( flTHREADmODE4_QUIETiNoUTfRAMEc )
+   | THREADmODE4oN0( flTHREADmODE4_QUIETiNoUTfRAMEc )
+   | 
+  listing
+ playcraft
+ objective: correct code, glass walls
+!job C: napkinC: simple, correct handling of flTHREADmODE4_QUIETiNoUTfRAMEc
 
 
 
 
 
+
+
+
+
+
+   next: study this.  in particular, study grabC::grabF to see whether it can spin without ever napping
+   alt: whenever raising priority, set thread flag to disallow grabbing
+   this is a more general issue that occurs with any code that runs higher priority than the thread that has grabbed
+   this is because serialization must occur and the spinlock will never let the other thread ungrab
+   app telemetry should never be emitted during spinlock priority
+  think
+ playcraft
+ changed: ?
+!subjob B: call to spinlock blocks in app telemetry
+
+
+ objective: correct function
+!subjob C: napkinC ct'or: edit code to ensure that spinlock is always returned to prior thread priority
+
+
+
+
+
+
+
+
+
+   annotate the list to indicate who uses each layer
+  look
+   bksTelemetry* do not use poolC
+   conj: booksC needs poolC only if it is going to use poolC
+   what does booksC need higher than itself?
+  think
    | 
    | /*3*/
    | #define ifcIDgRABlAYER_1SKIN                        0xdddd0b44
@@ -9308,29 +9372,24 @@ I have other business to attend to today and tomorrow, but plan to continue to w
    | #define ifcIDgRABlAYER_8POOL3dT                     0xdddd0b50
    | #define ifcIDgRABlAYER_8POOL4dT                     0xdddd0b51
    | #define ifcIDgRABlAYER_8POOL5nEW                    0xdddd0b52
-   | #define ifcIDgRABlAYER_9BOOKSc                      0xdddd0b53
-   | #define ifcIDgRABlAYER_aGRABuNIVERSEc               0xdddd0b54
-   | #define ifcIDgRABlAYER_bPOOLlAYER1                  0xdddd0b55
-   | #define ifcIDgRABlAYER_bPOOLlAYER2                  0xdddd0b56
-   | #define ifcIDgRABlAYER_bPOOLlAYER3                  0xdddd0b57
-   | #define ifcIDgRABlAYER_cBASEmISC1                   0xdddd0b58
-   | #define ifcIDgRABlAYER_cBASEmISC2                   0xdddd0b59
-   | #define ifcIDgRABlAYER_cBASEmISC3                   0xdddd0b5a
-   | #define ifcIDgRABlAYER_cBASEmISC4                   0xdddd0b5b
-   | #define ifcIDgRABlAYER_dLINKEDc                     0xdddd0b5c
-   | #define ifcIDgRABlAYER_eHEAP                        0xdddd0b5d
-   | #define ifcIDgRABlAYER_fLEAF                        0xdddd0b5e
+   | #define ifcIDgRABlAYER_9BOOKSc                      0xdddd0b53     booksC::grabBookNow
+   | #define ifcIDgRABlAYER_aGRABuNIVERSEc               0xdddd0b54     processGlobal4S::bUniverse    processGlobal3S::grabUniverse    napkinC::pbUniverseOverride
+   | #define ifcIDgRABlAYER_bPOOLlAYER1                  0xdddd0b55     poolC::poolC: grabitC while registering pool name (conj: not needed)
+   | #define ifcIDgRABlAYER_bPOOLlAYER2                  0xdddd0b56     poolC::poolC: grabitC while registering pool name (these oo can be combined to a single layer)
+   | #define ifcIDgRABlAYER_bPOOLlAYER3                  0xdddd0b57     poolC::poolC: grabitC while registering pool name
+   | #define ifcIDgRABlAYER_cBASEmISC1                   0xdddd0b58     not used
+   | #define ifcIDgRABlAYER_cBASEmISC2                   0xdddd0b59     not used
+   | #define ifcIDgRABlAYER_cBASEmISC3                   0xdddd0b5a     not used
+   | #define ifcIDgRABlAYER_cBASEmISC4                   0xdddd0b5b     adamGlobal1::_thirdC_.pSwFileOpen
+   | #define ifcIDgRABlAYER_dLINKEDc                     0xdddd0b5c     processGlobal3S::_handleC_linked_sm
+   | #define ifcIDgRABlAYER_eHEAP                        0xdddd0b5d     heapC::grabMe
+   | #define ifcIDgRABlAYER_fLEAF                        0xdddd0b5e     processGlobal3S::_thirdC_grab_flagsProcessState_
    | /*3*/
-   | 
-   | [idAdam]: f0400015
-   | ! error: nonmonotonic grabbing (grab layer decrease attempted [bOnlyWo,lifi,idGrabLayer,lifiHe,idGrabLayerHe]: 0
-   |  ME: 300e3063(592) 35b0dddd ;
-   |  HE: 300dc063(93) c5b0dddd
    | 
   listing
  playcraft
- changed: app telemetry inoutframe
-!job B: nonmonotonic grab
+ objective: glass walls
+!job C: reorder grab layers so that telemetry can be emitted practicallyeverywhere
 
 
 
@@ -9340,29 +9399,16 @@ I have other business to attend to today and tomorrow, but plan to continue to w
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  snap precious
+   verify that pSwFileOpen is not used
+   eliminate any limits to pool identifier string of counts
+   eliminate zombie bytes
+   eliminate multiple execution paths (always use heap for everything
+   eliminate the use of poolC
+  wish
+ playcraft
+ objective: raise grab layer for booksC::grabBookNow so that telemetry can be emitted practically everywhere
+!job C: booksC: eliminate the use of poolC by using processGlobal3S::heap
 
 
    http dies about wo per day
@@ -9415,6 +9461,90 @@ I have other business to attend to today and tomorrow, but plan to continue to w
 =========================================================================================================================================================
 
 
+  nawwh
+  look
+ playcraft
+ objective: code robustness
+!subjob C: tinS: inline function to return highest grab layer found
+  !subjob B: call to spinlock blocks in app telemetry
+  !subjob C: napkinC ct'or: edit code to ensure that spinlock is always returned to prior thread priority
+  console trace
+ playcraft
+ changed: ?
+!job B: napkinC:: conj: does not ungrab grabuniverse
+  emit thread cpu cycle data
+  define app telemetry type constants
+    number of calls to query api
+    cycles after ct and before dt
+    cycles in inOutFrameC ct'or and dt'or
+   report 3 totals
+   objective: complete coverage, including an amount for the query call itself
+   | 
+   |     count04T     cCpuCycles4               ;
+   |     count04T     cCpuCycles3               ;
+   |     count04T     cCpuCycles2               ;
+   |     count04T     cCpuCycles1               ;
+   | 
+   | 
+   | bOk = QueryThreadCycleTime( (HANDLE)(-2) ,  &cCycles2 ) ;
+   | bOk = QueryThreadCycleTime( (HANDLE)(-2) ,  &cCycles1 ) ;
+   | 
+   | static ZE( ULONG64 , cCycles2 ) ;
+   | static ZE( ULONG64 , cCycles1 ) ;
+   | 
+  inOutFrameC: capture thread cpu cycle data consumed by inOutFrameC and between ct and dt
+  #define flTHREADmODE4_QUIETiNoUTfRAMEc                                0xe00001ff
+  #define flTHREADmODE4_null                                            0xe00000ff
+  tinS::oshThread: nawwh
+  study adam 6 to understand layout of input and of the record written to booksC
+  set up dut
+    it is not sampling ; it is a full audit record
+   this data can be used to reveal which functions are consuming the cpu
+   this will test the new bksTelemetryApp support
+  think
+ playcraft
+ objective: glass walls
+!job C: inOutFrameC: emit application telemetry: thread cpu cycle delta
+   | 
+   | /*3*/
+   | #define ifcIDgRABlAYER_1SKIN                        0xdddd0b44
+   | #define ifcIDgRABlAYER_2OUTER                       0xdddd0b45
+   | #define ifcIDgRABlAYER_3MIDDLE                      0xdddd0b46
+   | #define ifcIDgRABlAYER_4INNER                       0xdddd0b47
+   | #define ifcIDgRABlAYER_5BONE                        0xdddd0b48
+   | #define ifcIDgRABlAYER_6BONE                        0xdddd0b49
+   | #define ifcIDgRABlAYER_7BASEmISC1                   0xdddd0b4a
+   | #define ifcIDgRABlAYER_7BASEmISC2                   0xdddd0b4b
+   | #define ifcIDgRABlAYER_7BASEmISC3                   0xdddd0b4c
+   | #define ifcIDgRABlAYER_7BASEmISC4                   0xdddd0b4d
+   | #define ifcIDgRABlAYER_8POOL1cT                     0xdddd0b4e
+   | #define ifcIDgRABlAYER_8POOL2cT                     0xdddd0b4f
+   | #define ifcIDgRABlAYER_8POOL3dT                     0xdddd0b50
+   | #define ifcIDgRABlAYER_8POOL4dT                     0xdddd0b51
+   | #define ifcIDgRABlAYER_8POOL5nEW                    0xdddd0b52
+   | #define ifcIDgRABlAYER_9BOOKSc                      0xdddd0b53     *     ME
+   | #define ifcIDgRABlAYER_aGRABuNIVERSEc               0xdddd0b54     *  he
+   | #define ifcIDgRABlAYER_bPOOLlAYER1                  0xdddd0b55
+   | #define ifcIDgRABlAYER_bPOOLlAYER2                  0xdddd0b56
+   | #define ifcIDgRABlAYER_bPOOLlAYER3                  0xdddd0b57
+   | #define ifcIDgRABlAYER_cBASEmISC1                   0xdddd0b58
+   | #define ifcIDgRABlAYER_cBASEmISC2                   0xdddd0b59
+   | #define ifcIDgRABlAYER_cBASEmISC3                   0xdddd0b5a
+   | #define ifcIDgRABlAYER_cBASEmISC4                   0xdddd0b5b
+   | #define ifcIDgRABlAYER_dLINKEDc                     0xdddd0b5c
+   | #define ifcIDgRABlAYER_eHEAP                        0xdddd0b5d
+   | #define ifcIDgRABlAYER_fLEAF                        0xdddd0b5e
+   | /*3*/
+   | 
+   | [idAdam]: f0400015
+   | ! error: nonmonotonic grabbing (grab layer decrease attempted [bOnlyWo,lifi,idGrabLayer,lifiHe,idGrabLayerHe]: 0
+   |  ME: 300e3063(592) 35b0dddd ;
+   |  HE: 300dc063(93) c5b0dddd
+   | 
+  listing
+ playcraft
+ changed: app telemetry inoutframe
+!job B: nonmonotonic grab
   cool ; found wo
    | 
    | /*1*/osTextT httpServerC::readRequestF( tinS& tinP , boolT& bFailP , strokeS*& psttNameP , strokeS*& psttQueryKVP , switchC& swKVP , strokeS*& psttLeverKVP , strokeS*& psttAgentP , osTextT*& postBodyP , boolT& bCloseP , socketC* psoP , const osTextT* const postEscapeP )/*1*/
