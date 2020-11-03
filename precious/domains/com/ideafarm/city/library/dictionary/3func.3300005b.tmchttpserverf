@@ -1194,7 +1194,42 @@ DONEdRIVENsERVER( tmcHttpServerF )
 
                     ZE( fileWindowsC* , pFW ) ;
                 {
-                else if( bFile )
+                else if( bFileArchive )
+                }
+                    etThread.delF( tinP , pbIn ) ;
+                    }
+                        }
+                            bClose = 1 ;
+                            //etThread.traceF( tinP , T("tmcHttpServerF: could not write to socket 1118") ) ;
+                            POOPRqUIET
+                        {
+                        if( POOP )
+                        psoP->writeF( tinP , pbIn , cbIn ) ;
+                        psoP->writeF( tinP , (osTextT*)tReply , tReply.csF( tinP ) ) ;
+                        SCOOPS
+                    {
+                    IFsCRATCH
+
+                    TN( tReply , "" ) ; tReply = T("HTTP/1.1 200 OK\r\nServer: IPDOS (tm) IdeaFarm (tm) Piggyback Distributed Operating System (tm)\r\nContent-Type: text/plain\r\nContent-Length: ")+TF4(cbIn,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FOREIGN|flFORMAT_NObASE,0,0xa)+T("\r\n\r\n") ;
+
+                    }
+                        }
+                            bClose = 1 ;
+                            etThread.traceF( tinP , T("tmcHttpServerF: could not get challenge file") ) ;
+                            POOPRqUIET
+                        {
+                        if( POOP )
+                        tinP.pEtScratch->boxGetShadowF( tinP , pbIn , cbIn , tFileIn ) ; ___( pbIn ) ;
+                        SCOOPS
+                    {
+                    IFsCRATCH
+                    ZE( countT , cbIn ) ;
+                    ZE( byteT* , pbIn ) ;
+
+                    TN( tFileIn , "" ) ; tFileIn = T("////factory1/d/tmp/certbot.challenge")+T(psttName) ;
+                    //                               "////factory1/d/tmp/certbot.challenge/.well-known/acme-challenge
+                {
+                else if( bFileChallenge )
                 }
                     if( bClose ) etThread.traceF( tinP , TF3(meP.idPortF(tinP),flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,9)+T(nnPeerP)+T("    closing connection") , flTRACE_FORCEnOsILENCE , idTraceDivert ) ;
 
@@ -1287,7 +1322,7 @@ DONEdRIVENsERVER( tmcHttpServerF )
             ;
                             : ifcIDtRACEdIVERT_6
                             ? ifcIDtRACEdIVERT_5
-                        : !bFile
+                        : !bFileArchive
                         ? ifcIDtRACEdIVERT_4
                     : !etThread.strCompareF( tinP , psttName , tSlash )
                     ? ifcIDtRACEdIVERT_3
@@ -1297,7 +1332,12 @@ DONEdRIVENsERVER( tmcHttpServerF )
             //CS:CODEsYNC: 3300005b 3600212d
 
             }
-                bFile = 1 == etThread.strIdF( tinP , tPattern , psttName ) ;
+                bFileArchive   = 1 == etThread.strIdF( tinP , tPattern          , psttName ) ;
+                bFileChallenge = 1 == etThread.strIdF( tinP , tPatternChallenge , psttName ) ;
+
+                TN( tPatternChallenge , "/.well-known/acme-challenge/" ) ;
+                // "/.well-known/acme-challenge/ZkmjsTYwqPtrWqTRu-3VunoLb_X656Tg8iILtFL8ZWE"
+
 
                 ;
 
@@ -1317,7 +1357,8 @@ DONEdRIVENsERVER( tmcHttpServerF )
                 //  yyyy
             {
             if( !bDeadman1 && !bDeadman2 && psttName && psttName->idAdam )
-            ZE( boolT , bFile ) ;
+            ZE( boolT , bFileArchive ) ;
+            ZE( boolT , bFileChallenge ) ;
 
             }
                 etThread.delF( tinP , psttLower ) ;

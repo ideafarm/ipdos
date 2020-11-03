@@ -2970,6 +2970,7 @@ void elf_obey_C::liveF( void )
                     "1snip.15*.rParam_walk_S"                   ,
                     "1snip.15*.rParam_new_S"                    ,
                     "1snip.15*.inOutFrameC"                     ,
+                    "1snip.15*.tellInfoAppInOutFrameS"          ,
                     "1snip.15*.directionS"                      ,
                     "1snip.15*.iopS"                            ,
                     "1snip.15*.VARIABLEcLASSdEFS"               ,

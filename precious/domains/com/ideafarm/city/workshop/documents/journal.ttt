@@ -9397,8 +9397,45 @@ I have other business to attend to today and tomorrow, but plan to continue to w
 
 
 
-
-
+  next: set up dut adam
+   develop the dut adam incrementally so that at the end it is a comprehensive test for booksC
+   do this incrementally, beginning with creating a good dut adam
+   divide and conquer
+   it seems overwhelming, partly because i am still sick
+  think
+   detect and eliminate all remaining use of poolC
+   eliminate all use of textC
+   use heap to eliminate the kludged heap in writeF
+   use heap for pcpIdBookMin pcpIdBookMax
+   use heap for all allocations in ct'or
+  tentative plan
+   this will take a strong or oo
+   i will need a dut and an plan to incrementally eliminate the use of poolC
+   this will be a significant project
+  think
+    del postNameShort postBookNameScratch pbBookBack pbFlagsiBookBackCt pcpIdBookScratch1 pcpIdBookScratchMin pcpIdBookScratchMax ppcpIdBook
+   ~booksC
+    new psttFindLike
+    textC
+    new each element of ppcpIdBook
+    new postNameShort postBookNameScratch pbBookBack pbFlagsiBookBackCt pcpIdBookScratch1 pcpIdBookScratchMin pcpIdBookScratchMax ppcpIdBook
+   booksC
+    kludges its own heap to avoid using poolC
+   writeF
+    new bookC
+    textC
+   readF
+    new bookC
+    new pcpIdLook
+    textC staqC
+   cbEachBookF
+     conj: the pool flavor can produce arbitrary length, while the other flavor is limited to length wo
+    study this code, which has oo flavors
+    new pcpIdBookThis pcpIdBookMaxP pcpIdBookMinP
+   idBookMinMaxF
+    delete pcpIdBookMin pcpIdBookMax
+   setPcpIdBookWantF setF
+  list the ways that poolC is used
   snap precious
    verify that pSwFileOpen is not used
    eliminate any limits to pool identifier string of counts
@@ -9409,6 +9446,1059 @@ I have other business to attend to today and tomorrow, but plan to continue to w
  playcraft
  objective: raise grab layer for booksC::grabBookNow so that telemetry can be emitted practically everywhere
 !job C: booksC: eliminate the use of poolC by using processGlobal3S::heap
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  look
+   | 
+   | //
+   | // Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+   | //
+   | // This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+   | // Respecting the rights of other people is an important part of empowering one another.
+   | //
+   | 
+   | Subject: IPDOS (tm) Exception Event
+   | 
+   | IdeaFarm (tm) Piggyback Distributed Operating System
+   | http://ideafarm.com
+   | Wo'O Ideafarm
+   |  
+   | An GRUNT (4740dddd) exception occured while executing thread
+   | tmHireF
+   | POOP: 20070063
+   | bCleanFailed: 0
+   | tinP.pAdamGlobal1->flagsAdamState: aa10000e
+   | tinP.pAdamGlobal1->idLineBlammo: 0
+   | tinP.pAdamGlobal1->idiFileBlammo: 0
+   | tinP.pAdamGlobal1->idLineBlammoCt: 0
+   | tinP.pAdamGlobal1->idiFileBlammoCt: 0
+   | tinP.pAdamGlobal1->idBlammo: 0
+   | processGlobal1I.idLineBlammo: 0
+   | processGlobal1I.idiFileBlammo: 0
+   | processGlobal1I.idLineBlammoCt: 0
+   | processGlobal1I.idiFileBlammoCt: 0
+   | processGlobal1I.idBlammo: 0
+   | cGrabbed: 1
+   | tinP.cGrabitC_set: ff1
+   | tinP.cGrabitC_reset: ff1
+   | tinP.cGrabitC_registered: ff1
+   | tinP.cGrabitC_unregistered: ff1
+   | brcLath: 0
+   | idLine_brcLath: 37f
+   | idiFile_brcLath: 16010053
+   | U::debug [tinSnap.monitor.idWhat1]: 4340dddd
+   | idWhat1: GOiNoUTfRAMED
+   | idWhat2: 70063
+   | postTell: "poopC [idLineChatter,idiFileChatter,idLineGrunt,idiFileGrunt,idSubType]:    602         40010063    7683        a6110063    10b"
+   | postTellWait: ""
+   | postTellIf: ""
+   | etherC::pcPhaseLowI[1]: 5
+   | etherC::pcPhaseLowI[2]: 2
+   | etherC::pcPhaseLowI[3]: 0
+   | etherC::pcPhaseLowI[4]: 2
+   | etherC::pcPhaseLowI[5]: 2
+   | etherC::pcPhaseLowI[6]: 2
+   | etherC::pcPhaseLowI[7]: 2
+   | etherC::pcPhaseLowI[8]: 2
+   | etherC::pcPhaseLowI[9]: 2
+   | etherC::pcPhaseLowI[a]: 0
+   | etherC::pcPhaseLowI[b]: 0
+   | etherC::pcPhaseLowI[c]: 0
+   | etherC::pcPhaseLowI[d]: 0
+   | etherC::pcPhaseLowI[e]: 0
+   | etherC::pcPhaseLowI[f]: 0
+   | etherC::pcPhaseLowI[01]: 0
+   | processGlobal1I.pcUtility[0]: 17afffff
+   | processGlobal1I.pcUtility[1]: 726fffff
+   | processGlobal1I.pcUtility[2]: d13381
+   | processGlobal1I.pcUtility[3]: 427381
+   | processGlobal1I.pcUtility[4]: 8b6381
+   | processGlobal1I.pcUtility[5]: bd9381
+   | processGlobal1I.pcUtility[6]: 0
+   | processGlobal1I.pcUtility[7]: 0
+   | processGlobal1I.pcUtility[8]: 0
+   | processGlobal1I.pcUtility[9]: 0
+   | processGlobal1I.pcUtility[a]: 0
+   | processGlobal1I.pcUtility[b]: 0
+   | processGlobal1I.pcUtility[c]: 0
+   | processGlobal1I.pcUtility[d]: 0
+   | processGlobal1I.pcUtility[e]: 0
+   | processGlobal1I.pcUtility[f]: 0
+   | etherC::pcUtilityI[0]: 0
+   | etherC::pcUtilityI[1]: 0
+   | etherC::pcUtilityI[2]: 0
+   | etherC::pcUtilityI[3]: 0
+   | etherC::pcUtilityI[4]: 0
+   | etherC::pcUtilityI[5]: 0
+   | etherC::pcUtilityI[6]: 0
+   | etherC::pcUtilityI[7]: 0
+   | etherC::pcUtilityI[8]: 0
+   | etherC::pcUtilityI[9]: 0
+   | etherC::pcUtilityI[a]: 0
+   | etherC::pcUtilityI[b]: 0
+   | etherC::pcUtilityI[c]: 0
+   | etherC::pcUtilityI[d]: 0
+   | etherC::pcUtilityI[e]: 0
+   | etherC::pcUtilityI[f]: 0
+   | tinP.pcUtility[0]: 602
+   | tinP.pcUtility[1]: 40010063
+   | tinP.pcUtility[2]: 7683
+   | tinP.pcUtility[3]: a6110063
+   | tinP.pcUtility[4]: 10b0dddd
+   | tinP.pcUtility[5]: 0
+   | tinP.pcUtility[6]: 0
+   | tinP.pcUtility[7]: 0
+   | tinP.pcUtility[8]: 0
+   | tinP.pcUtility[9]: 0
+   | tinP.pcUtility[a]: 0
+   | tinP.pcUtility[b]: 0
+   | tinP.pcUtility[c]: 0
+   | tinP.pcUtility[d]: 0
+   | tinP.pcUtility[e]: 0
+   | tinP.pcUtility[f]: 0
+   | tinP.pPanLifiRecurseGrabbedLevel[0](pandle,idLineGrab,idiFileGrab,cRecurse): c0006ff 68c 52020063 0
+   | tinP.pPanLifiRecurseGrabbedLevel[5](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[a](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[f](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[41](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[91](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[e1](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[32](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[82](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[d2](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[23](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[73](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[c3](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[14](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[64](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[b4](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[05](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[55](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[a5](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[f5](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[46](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[96](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[e6](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[37](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[87](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[d7](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[28](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[78](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[c8](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[19](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[69](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[b9](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[0a](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[5a](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[aa](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[fa](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[4b](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[9b](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[eb](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[3c](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[8c](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[dc](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[2d](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[7d](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[cd](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[1e](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[6e](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[be](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[0f](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[5f](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[af](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[ff](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[401](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[901](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[e01](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[311](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[811](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[d11](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[221](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[721](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[c21](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[131](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[631](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[b31](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[041](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pAdamGlobal1->_thirdC_.cAllKidThreads: 6
+   | tinP.cKidThreads: 0
+   | cAllOrphanThreadsI: 0
+   | cDllLoaded: 1
+   | dll load history: d:\ideafarm.home.101\ephemeral\domains\com\ideafarm\city\park\exedll\1\hover\ideafarm.0000115d.ipdos-wd
+   | idThread: 9
+   | base os user name: "WoIdeafarm"
+   | processGlobal1I.idHome: 101
+   | processGlobal1I.idAdamRoot: 15600015
+   | pAdamGlobal1->idAdam: 15600015
+   | idPhaseProcess: PROLOGaLLgLOBALScONSTRUCTED
+   | idPhaseAdamI: DLLwORKING1
+   | idPhase1: WORKING
+   | idPhase2: 0
+   | idPhase3: 0
+   | idLineMile: fe10
+   | idiFileMile: 0
+   | bFixed: 0
+   | cFixed: 0
+   | cNest: 9
+   |  
+   | Call Nest:
+   |  
+   | 24d97b2  | 4'th: fc20.20070063    boxC::~boxC( voidT )
+   | 24d97b2  | 12'th: e722.b6020063    voidT etherC::boxGetShadowF( tinS& tinP , byteT*& pbP , countT& cbP , const strokeS* const psttP , countT cOpenTriesP , countT time1P , const sCountT time2P , const flagsT flagsOpenDetailsP , const flagsT flagsP , const osTextT* const postBodyP , countT costBodyP )
+   | 24d97b2  | b'th: 33fb.9e120063    countT etherC::ifcIdCopyF( tinS& tinP , countT cNameP )
+   | 24d97b2  | b'th: af75.21120063    voidT etherC::diskMapFileNameHoverF( tinS& tinP , strokeS*& psttP , const strokeS* const psttRawP )
+   | 24d97b2  | d'th: 18c0.52020063    voidT etherC::dllOpenF( tinS& tinP , handleC& hDllP , const strokeS* psttP )
+   | 24d97b2  | 6'th: 4416.13120063    countT etherC::ifcHireF( tinS& tinP , const strokeS* const psttOldCommentP , const countT idAdamP , const strokeS* const psttArgsP , flagsT flagsP , const countT time1LimitP , const sCountT time2LimitP , const countT cTriesP , nicNameC nicNameP )
+   | 24d97b2  | a1'th: 3d10.15600015    
+   | 24d97b2  | 1'th: 3d10.15600015    
+   | 24d97b2  | 2'th: 2960.d0000033    countT __export threadLocalStorageF( const countT idTypeP , kidFT pThreadWorkF , countT cArgP , countT cHowP , const osTextT** ppostHowP , countT hWindowingClientIP , countT hPreviousWindowingClientP , osTextT* postP , countT idCmdShowP )
+   | 
+   |  
+   | Execution Steps:
+   |  
+   |          \ 4230.500bf063    countT booksC::writeF( tinS& tinP , const byteT* pb1P , countT cb1P , const byteT* pb2P , countT cb2P , const flagsT flagsP , handleC* const phWroteP /*U::, countT** ppcpIdAptP*/ )
+   |           \ 7330.500bf063    countT booksC::writeF( tinS& tinP , const byteT* pb1P , countT cb1P , const byteT* pb2P , countT cb2P , const flagsT flagsP , handleC* const phWroteP /*U::, countT** ppcpIdAptP*/ )
+   |            \ 6720.600c5063    countT grabC::ungrabF( tinS& tinP , const flagsT flagsP )
+   |             \ cd11.67010053    countT thirdC::dosPriorityIF( tinS& tinP , const countT idP )
+   |             / cd11.67010053    countT thirdC::dosPriorityIF( tinS& tinP , const countT idP )
+   |             \ cd11.67010053    countT thirdC::dosPriorityIF( tinS& tinP , const countT idP )
+   |             / cd11.67010053    countT thirdC::dosPriorityIF( tinS& tinP , const countT idP )
+   |             \ 8710.600fe063    voidT baseGrabC::unregisterF( tinS& tinP )
+   |             / 8710.600fe063    voidT baseGrabC::unregisterF( tinS& tinP )
+   |            / 6720.600c5063    countT grabC::ungrabF( tinS& tinP , const flagsT flagsP )
+   |            \ 6730.500bf063    countT booksC::writeF( tinS& tinP , const byteT* pb1P , countT cb1P , const byteT* pb2P , countT cb2P , const flagsT flagsP , handleC* const phWroteP /*U::, countT** ppcpIdAptP*/ )
+   |             \ 3830.500bf063    countT booksC::writeF( tinS& tinP , const byteT* pb1P , countT cb1P , const byteT* pb2P , countT cb2P , const flagsT flagsP , handleC* const phWroteP /*U::, countT** ppcpIdAptP*/ )
+   |             / 3830.500bf063    countT booksC::writeF( tinS& tinP , const byteT* pb1P , countT cb1P , const byteT* pb2P , countT cb2P , const flagsT flagsP , handleC* const phWroteP /*U::, countT** ppcpIdAptP*/ )
+   |            / 6730.500bf063    countT booksC::writeF( tinS& tinP , const byteT* pb1P , countT cb1P , const byteT* pb2P , countT cb2P , const flagsT flagsP , handleC* const phWroteP /*U::, countT** ppcpIdAptP*/ )
+   |            \ b210.500fe063    voidT baseGrabC::registerDoneF( tinS& tinP , const countT idLineP , const countT idiFileP )
+   |            / b210.500fe063    voidT baseGrabC::registerDoneF( tinS& tinP , const countT idLineP , const countT idiFileP )
+   |            \ 2510.500c5063    boolT grabC::grabF( tinS& tinP , const countT idLineP , const countT idiFileP , const byteT* const pbBitsP , const flagsT flagsP )
+   |             \ cd11.67010053    countT thirdC::dosPriorityIF( tinS& tinP , const countT idP )
+   |             / cd11.67010053    countT thirdC::dosPriorityIF( tinS& tinP , const countT idP )
+   |             \ cd11.67010053    countT thirdC::dosPriorityIF( tinS& tinP , const countT idP )
+   |             / cd11.67010053    countT thirdC::dosPriorityIF( tinS& tinP , const countT idP )
+   |             \ 8a00.400fe063    voidT baseGrabC::registerBegunF( tinS& tinP , const countT idLineP , const countT idiFileP , const flagsT flagsP )
+   |             / 8a00.400fe063    voidT baseGrabC::registerBegunF( tinS& tinP , const countT idLineP , const countT idiFileP , const flagsT flagsP )
+   |            / 2510.500c5063    boolT grabC::grabF( tinS& tinP , const countT idLineP , const countT idiFileP , const byteT* const pbBitsP , const flagsT flagsP )
+   |           / 7330.500bf063    countT booksC::writeF( tinS& tinP , const byteT* pb1P , countT cb1P , const byteT* pb2P , countT cb2P , const flagsT flagsP , handleC* const phWroteP /*U::, countT** ppcpIdAptP*/ )
+   |          / 4230.500bf063    countT booksC::writeF( tinS& tinP , const byteT* pb1P , countT cb1P , const byteT* pb2P , countT cb2P , const flagsT flagsP , handleC* const phWroteP /*U::, countT** ppcpIdAptP*/ )
+   |          \ 1212.66020063    voidT etherC::osTimeSubtractF( tinS& tinP , countT& time11P , sCountT& time12P , const countT time21P , const sCountT time22P )
+   |           \ 2720.70010063    voidT thirdC::osTimeSubtractF( tinS& tinP , countT& timeA1P , sCountT& timeA2P , const countT timeB1P , const sCountT timeB2P )
+   |           / 2720.70010063    voidT thirdC::osTimeSubtractF( tinS& tinP , countT& timeA1P , sCountT& timeA2P , const countT timeB1P , const sCountT timeB2P )
+   |          / 1212.66020063    voidT etherC::osTimeSubtractF( tinS& tinP , countT& time11P , sCountT& time12P , const countT time21P , const sCountT time22P )
+   |          \ 1212.66020063    voidT etherC::osTimeSubtractF( tinS& tinP , countT& time11P , sCountT& time12P , const countT time21P , const sCountT time22P )
+   |           \ 2720.70010063    voidT thirdC::osTimeSubtractF( tinS& tinP , countT& timeA1P , sCountT& timeA2P , const countT timeB1P , const sCountT timeB2P )
+   |           / 2720.70010063    voidT thirdC::osTimeSubtractF( tinS& tinP , countT& timeA1P , sCountT& timeA2P , const countT timeB1P , const sCountT timeB2P )
+   |          / 1212.66020063    voidT etherC::osTimeSubtractF( tinS& tinP , countT& time11P , sCountT& time12P , const countT time21P , const sCountT time22P )
+   |          \ 9472.b7020063    voidT etherC::osTimeNowF( tinS& tinP , countT& time1P , sCountT& time2P , boolT fRawP )
+   |           \ 5431.56010063    voidT thirdC::osTimeNowF( tinS& tinP , countT& time1P , sCountT& time2P , const boolT fDoNotUseTimeAtBootP )
+   |            \ 9001.26010053    voidT thirdC::osTimeAddIF( tinS& tinP , countT& timeA1P , sCountT& timeA2P , const countT timeB1P , const sCountT timeB2P )
+   |            / 9001.26010053    voidT thirdC::osTimeAddIF( tinS& tinP , countT& timeA1P , sCountT& timeA2P , const countT timeB1P , const sCountT timeB2P )
+   |            \ b831.76010063    voidT thirdC::dosQuerySysInfoTimeSinceBootF( tinS& tinP , countT& time1P , sCountT& time2P )
+   |             \ a311.96010053    voidT thirdC::timeFromMsIF( tinS& tinP , countT& time1P , sCountT& time2P , const countT msP )
+   |             / a311.96010053    voidT thirdC::timeFromMsIF( tinS& tinP , countT& time1P , sCountT& time2P , const countT msP )
+   |            / b831.76010063    voidT thirdC::dosQuerySysInfoTimeSinceBootF( tinS& tinP , countT& time1P , sCountT& time2P )
+   |           / 5431.56010063    voidT thirdC::osTimeNowF( tinS& tinP , countT& time1P , sCountT& time2P , const boolT fDoNotUseTimeAtBootP )
+   |          / 9472.b7020063    voidT etherC::osTimeNowF( tinS& tinP , countT& time1P , sCountT& time2P , boolT fRawP )
+   |          \ ac03.d9020063    NEWdELtYPEeTHER( strokeS )
+   |           \ 1a10.5001e063    voidT slotsC::operator ()( tinS& tinP , byteT*& pbP )
+   |            \ 4a50.7000e063    voidT sexC::operator ()( tinS& tinP , byteT*& pbP )
+   |            / 4a50.7000e063    voidT sexC::operator ()( tinS& tinP , byteT*& pbP )
+   |           / 1a10.5001e063    voidT slotsC::operator ()( tinS& tinP , byteT*& pbP )
+   |          / ac03.d9020063    NEWdELtYPEeTHER( strokeS )
+   |          \ ac03.d9020063    NEWdELtYPEeTHER( strokeS )
+   |           \ 1a10.5001e063    voidT slotsC::operator ()( tinS& tinP , byteT*& pbP )
+   |            \ 4a50.7000e063    voidT sexC::operator ()( tinS& tinP , byteT*& pbP )
+   |            / 4a50.7000e063    voidT sexC::operator ()( tinS& tinP , byteT*& pbP )
+   |           / 1a10.5001e063    voidT slotsC::operator ()( tinS& tinP , byteT*& pbP )
+   |          / ac03.d9020063    NEWdELtYPEeTHER( strokeS )
+   |          \ ac03.d9020063    NEWdELtYPEeTHER( strokeS )
+   |          / ac03.d9020063    NEWdELtYPEeTHER( strokeS )
+   |          \ ac03.d9020063    NEWdELtYPEeTHER( strokeS )
+   |          / ac03.d9020063    NEWdELtYPEeTHER( strokeS )
+   |          \ ac03.d9020063    NEWdELtYPEeTHER( strokeS )
+   |           \ 1a10.5001e063    voidT slotsC::operator ()( tinS& tinP , byteT*& pbP )
+   |            \ 4a50.7000e063    voidT sexC::operator ()( tinS& tinP , byteT*& pbP )
+   |            / 4a50.7000e063    voidT sexC::operator ()( tinS& tinP , byteT*& pbP )
+   |           / 1a10.5001e063    voidT slotsC::operator ()( tinS& tinP , byteT*& pbP )
+   |          / ac03.d9020063    NEWdELtYPEeTHER( strokeS )
+   |          \ ac03.d9020063    NEWdELtYPEeTHER( strokeS )
+   |           \ 1a10.5001e063    voidT slotsC::operator ()( tinS& tinP , byteT*& pbP )
+   |            \ 4a50.7000e063    voidT sexC::operator ()( tinS& tinP , byteT*& pbP )
+   |            / 4a50.7000e063    voidT sexC::operator ()( tinS& tinP , byteT*& pbP )
+   |           / 1a10.5001e063    voidT slotsC::operator ()( tinS& tinP , byteT*& pbP )
+   |          / ac03.d9020063    NEWdELtYPEeTHER( strokeS )
+   |          \ a0c4.ae020063    NEWdELtYPEeTHER( count01T )
+   |          / a0c4.ae020063    NEWdELtYPEeTHER( count01T )
+   |          \ c703.b9020063    NEWdELtYPEeTHER( byteT )
+   |          / c703.b9020063    NEWdELtYPEeTHER( byteT )
+   |          \ ac03.d9020063    NEWdELtYPEeTHER( strokeS )
+   |           \ 1a10.5001e063    voidT slotsC::operator ()( tinS& tinP , byteT*& pbP )
+   |            \ 4a50.7000e063    voidT sexC::operator ()( tinS& tinP , byteT*& pbP )
+   |            / 4a50.7000e063    voidT sexC::operator ()( tinS& tinP , byteT*& pbP )
+   |           / 1a10.5001e063    voidT slotsC::operator ()( tinS& tinP , byteT*& pbP )
+   |          / ac03.d9020063    NEWdELtYPEeTHER( strokeS )
+   |          \ ac03.d9020063    NEWdELtYPEeTHER( strokeS )
+   |          / ac03.d9020063    NEWdELtYPEeTHER( strokeS )
+   |          \ b560.b1040063    voidT textC::loadVTextValueIfF( tinS& tinP )
+   |          / b560.b1040063    voidT textC::loadVTextValueIfF( tinS& tinP )
+   |          \ 9730.4002e063    voidT poolC::newF( tinS& tinP , const countT idLineP , const countT idiFileP , byteT*& pbP , const countT cbP , const flagsT flagsP )
+   |           \ 1930.4002e063    voidT poolC::newF( tinS& tinP , const countT idLineP , const countT idiFileP , byteT*& pbP , const countT cbP , const flagsT flagsP )
+   |            \ 0a30.4002e063    voidT poolC::newF( tinS& tinP , const countT idLineP , const countT idiFileP , byteT*& pbP , const countT cbP , const flagsT flagsP )
+   |             \ ce30.0101e063    byteT* slotsC::newF( tinS& tinP , const countT idLineP , const countT idiFileP , const flagsT flagsP )
+   |              \ 8f40.6000e063    byteT* sexC::newF( tinS& tinP , const countT idLineP , const countT idiFileP )
+   |              / 8f40.6000e063    byteT* sexC::newF( tinS& tinP , const countT idLineP , const countT idiFileP )
+   |             / ce30.0101e063    byteT* slotsC::newF( tinS& tinP , const countT idLineP , const countT idiFileP , const flagsT flagsP )
+   |            / 0a30.4002e063    voidT poolC::newF( tinS& tinP , const countT idLineP , const countT idiFileP , byteT*& pbP , const countT cbP , const flagsT flagsP )
+   |           / 1930.4002e063    voidT poolC::newF( tinS& tinP , const countT idLineP , const countT idiFileP , byteT*& pbP , const countT cbP , const flagsT flagsP )
+   |          / 9730.4002e063    voidT poolC::newF( tinS& tinP , const countT idLineP , const countT idiFileP , byteT*& pbP , const countT cbP , const flagsT flagsP )
+   |         / fc20.20070063    boxC::~boxC( voidT )
+   |         \ 2340.50070063    voidT boxC::getF( tinS& tinP , byteT*& pbP , countT& cbP , const flagsT flagsP , const osTextT* const postBodyP , countT costBodyP )
+   |          \ 1650.21020063    voidT etherC::fileReadF( tinS& tinP , byteT* const pbP , countT& cbP , const handleC& handleP , boolT fStillHungryIsOkP )
+   |           \ 2e71.1d010053    voidT thirdC::dosReadIF( tinS& tinP , byteT* const pbP , countT& cbP , const handleC& handleP , boolT fStillHungryIsOkP )
+   |           / 2e71.1d010053    voidT thirdC::dosReadIF( tinS& tinP , byteT* const pbP , countT& cbP , const handleC& handleP , boolT fStillHungryIsOkP )
+   |          / 1650.21020063    voidT etherC::fileReadF( tinS& tinP , byteT* const pbP , countT& cbP , const handleC& handleP , boolT fStillHungryIsOkP )
+   |          \ c703.b9020063    NEWdELtYPEeTHER( byteT )
+   |           \ 9730.4002e063    voidT poolC::newF( tinS& tinP , const countT idLineP , const countT idiFileP , byteT*& pbP , const countT cbP , const flagsT flagsP )
+   |            \ 1930.4002e063    voidT poolC::newF( tinS& tinP , const countT idLineP , const countT idiFileP , byteT*& pbP , const countT cbP , const flagsT flagsP )
+   |             \ 0a30.4002e063    voidT poolC::newF( tinS& tinP , const countT idLineP , const countT idiFileP , byteT*& pbP , const countT cbP , const flagsT flagsP )
+   |              \ ce30.0101e063    byteT* slotsC::newF( tinS& tinP , const countT idLineP , const countT idiFileP , const flagsT flagsP )
+   |               \ 6720.600c5063    countT grabC::ungrabF( tinS& tinP , const flagsT flagsP )
+   |                \ cd11.67010053    countT thirdC::dosPriorityIF( tinS& tinP , const countT idP )
+   |                / cd11.67010053    countT thirdC::dosPriorityIF( tinS& tinP , const countT idP )
+   |                \ cd11.67010053    countT thirdC::dosPriorityIF( tinS& tinP , const countT idP )
+   |                / cd11.67010053    countT thirdC::dosPriorityIF( tinS& tinP , const countT idP )
+   |                \ 8710.600fe063    voidT baseGrabC::unregisterF( tinS& tinP )
+   |                / 8710.600fe063    voidT baseGrabC::unregisterF( tinS& tinP )
+   |               / 6720.600c5063    countT grabC::ungrabF( tinS& tinP , const flagsT flagsP )
+   |               \ 8f40.6000e063    byteT* sexC::newF( tinS& tinP , const countT idLineP , const countT idiFileP )
+   |               / 8f40.6000e063    byteT* sexC::newF( tinS& tinP , const countT idLineP , const countT idiFileP )
+   |               \ 9910.3000e063    sexC::sexC( tinS& tinP , const countT idLineCtP , const countT idiFileCtP , const byteT* const pbBitsCtP , const countT idLineNewP , const countT idiFileNewP , const osTextT* const postNameP , const countT expCbSlotP , const countT expSlotsP , const flagsT flagsP , const countT idStateSpaceP , countT idMemorySpaceP , poolC* const pPoolContainsMeP ) :
+   |                \ 4a91.3e010053    voidT thirdC::dosTellMonitorIF( tinS& tinP , const tellC& tellP , const countT idBooksP )
+   |                 \ 4230.500bf063    countT booksC::writeF( tinS& tinP , const byteT* pb1P , countT cb1P , const byteT* pb2P , countT cb2P , const flagsT flagsP , handleC* const phWroteP /*U::, countT** ppcpIdAptP*/ )
+   |                  \ 7330.500bf063    countT booksC::writeF( tinS& tinP , const byteT* pb1P , countT cb1P , const byteT* pb2P , countT cb2P , const flagsT flagsP , handleC* const phWroteP /*U::, countT** ppcpIdAptP*/ )
+   |                   \ 6720.600c5063    countT grabC::ungrabF( tinS& tinP , const flagsT flagsP )
+   |                    \ cd11.67010053    countT thirdC::dosPriorityIF( tinS& tinP , const countT idP )
+   |                    / cd11.67010053    countT thirdC::dosPriorityIF( tinS& tinP , const countT idP )
+   |                    \ cd11.67010053    countT thirdC::dosPriorityIF( tinS& tinP , const countT idP )
+   |                    / cd11.67010053    countT thirdC::dosPriorityIF( tinS& tinP , const countT idP )
+   |                    \ 8710.600fe063    voidT baseGrabC::unregisterF( tinS& tinP )
+   |                    / 8710.600fe063    voidT baseGrabC::unregisterF( tinS& tinP )
+   |                   / 6720.600c5063    countT grabC::ungrabF( tinS& tinP , const flagsT flagsP )
+   |                   \ 6730.500bf063    countT booksC::writeF( tinS& tinP , const byteT* pb1P , countT cb1P , const byteT* pb2P , countT cb2P , const flagsT flagsP , handleC* const phWroteP /*U::, countT** ppcpIdAptP*/ )
+   |                    \ 3830.500bf063    countT booksC::writeF( tinS& tinP , const byteT* pb1P , countT cb1P , const byteT* pb2P , countT cb2P , const flagsT flagsP , handleC* const phWroteP /*U::, countT** ppcpIdAptP*/ )
+   |                    / 3830.500bf063    countT booksC::writeF( tinS& tinP , const byteT* pb1P , countT cb1P , const byteT* pb2P , countT cb2P , const flagsT flagsP , handleC* const phWroteP /*U::, countT** ppcpIdAptP*/ )
+   |                   / 6730.500bf063    countT booksC::writeF( tinS& tinP , const byteT* pb1P , countT cb1P , const byteT* pb2P , countT cb2P , const flagsT flagsP , handleC* const phWroteP /*U::, countT** ppcpIdAptP*/ )
+   |                   \ b210.500fe063    voidT baseGrabC::registerDoneF( tinS& tinP , const countT idLineP , const countT idiFileP )
+   |                   / b210.500fe063    voidT baseGrabC::registerDoneF( tinS& tinP , const countT idLineP , const countT idiFileP )
+   |                   \ 2510.500c5063    boolT grabC::grabF( tinS& tinP , const countT idLineP , const countT idiFileP , const byteT* const pbBitsP , const flagsT flagsP )
+   |                    \ cd11.67010053    countT thirdC::dosPriorityIF( tinS& tinP , const countT idP )
+   |                    / cd11.67010053    countT thirdC::dosPriorityIF( tinS& tinP , const countT idP )
+   |                    \ cd11.67010053    countT thirdC::dosPriorityIF( tinS& tinP , const countT idP )
+   |                    / cd11.67010053    countT thirdC::dosPriorityIF( tinS& tinP , const countT idP )
+   |                    \ 8a00.400fe063    voidT baseGrabC::registerBegunF( tinS& tinP , const countT idLineP , const countT idiFileP , const flagsT flagsP )
+   |                    / 8a00.400fe063    voidT baseGrabC::registerBegunF( tinS& tinP , const countT idLineP , const countT idiFileP , const flagsT flagsP )
+   |                   / 2510.500c5063    boolT grabC::grabF( tinS& tinP , const countT idLineP , const countT idiFileP , const byteT* const pbBitsP , const flagsT flagsP )
+   |                  / 7330.500bf063    countT booksC::writeF( tinS& tinP , const byteT* pb1P , countT cb1P , const byteT* pb2P , countT cb2P , const flagsT flagsP , handleC* const phWroteP /*U::, countT** ppcpIdAptP*/ )
+   |                 / 4230.500bf063    countT booksC::writeF( tinS& tinP , const byteT* pb1P , countT cb1P , const byteT* pb2P , countT cb2P , const flagsT flagsP , handleC* const phWroteP /*U::, countT** ppcpIdAptP*/ )
+   |                / 4a91.3e010053    voidT thirdC::dosTellMonitorIF( tinS& tinP , const tellC& tellP , const countT idBooksP )
+   |                \ e720.e0010053    osTextT* thirdC::c_strcpyIF( tinS& tinP , osTextT* const post1P  , const osTextT* const post2P )
+   |                / e720.e0010053    osTextT* thirdC::c_strcpyIF( tinS& tinP , osTextT* const post1P  , const osTextT* const post2P )
+   |                \ a300.2004e063    grabitC::~grabitC( voidT )
+   |                 \ cd11.67010053    countT thirdC::dosPriorityIF( tinS& tinP , const countT idP )
+   |                 / cd11.67010053    countT thirdC::dosPriorityIF( tinS& tinP , const countT idP )
+   |                / a300.2004e063    grabitC::~grabitC( voidT )
+   |                \ 0940.3000e063    sexC::sexC( tinS& tinP , const countT idLineCtP , const countT idiFileCtP , const byteT* const pbBitsCtP , const countT idLineNewP , const countT idiFileNewP , const osTextT* const postNameP , const countT expCbSlotP , const countT expSlotsP , const flagsT flagsP , const countT idStateSpaceP , countT idMemorySpaceP , poolC* const pPoolContainsMeP ) :
+   |                 \ f820.7004e063    voidT grabitC::ungrabF( tinS& tinP )
+   |                  \ 8710.600fe063    voidT baseGrabC::unregisterF( tinS& tinP )
+   |                  / 8710.600fe063    voidT baseGrabC::unregisterF( tinS& tinP )
+   |                 / f820.7004e063    voidT grabitC::ungrabF( tinS& tinP )
+   |                / 0940.3000e063    sexC::sexC( tinS& tinP , const countT idLineCtP , const countT idiFileCtP , const byteT* const pbBitsCtP , const countT idLineNewP , const countT idiFileNewP , const osTextT* const postNameP , const countT expCbSlotP , const countT expSlotsP , const flagsT flagsP , const countT idStateSpaceP , countT idMemorySpaceP , poolC* const pPoolContainsMeP ) :
+   |                \ e720.e0010053    osTextT* thirdC::c_strcpyIF( tinS& tinP , osTextT* const post1P  , const osTextT* const post2P )
+   |                / e720.e0010053    osTextT* thirdC::c_strcpyIF( tinS& tinP , osTextT* const post1P  , const osTextT* const post2P )
+   |                \ 9d10.6004e063    voidT grabitC::grabF( tinS& tinP , const countT idLineP , const countT idiFileP , const byteT* const pbBitsP )
+   |                 \ 3620.6004e063    voidT grabitC::grabF( tinS& tinP , const countT idLineP , const countT idiFileP , const byteT* const pbBitsP )
+   |                  \ b210.500fe063    voidT baseGrabC::registerDoneF( tinS& tinP , const countT idLineP , const countT idiFileP )
+   |                  / b210.500fe063    voidT baseGrabC::registerDoneF( tinS& tinP , const countT idLineP , const countT idiFileP )
+   |                 / 3620.6004e063    voidT grabitC::grabF( tinS& tinP , const countT idLineP , const countT idiFileP , const byteT* const pbBitsP )
+   |                 \ 6f10.6004e063    voidT grabitC::grabF( tinS& tinP , const countT idLineP , const countT idiFileP , const byteT* const pbBitsP )
+   |                  \ 1420.6004e063    voidT grabitC::grabF( tinS& tinP , const countT idLineP , const countT idiFileP , const byteT* const pbBitsP )
+   |                  / 1420.6004e063    voidT grabitC::grabF( tinS& tinP , const countT idLineP , const countT idiFileP , const byteT* const pbBitsP )
+   |                  \ 8320.6004e063    voidT grabitC::grabF( tinS& tinP , const countT idLineP , const countT idiFileP , const byteT* const pbBitsP )
+   |                  / 8320.6004e063    voidT grabitC::grabF( tinS& tinP , const countT idLineP , const countT idiFileP , const byteT* const pbBitsP )
+   |                  \ 7120.6004e063    voidT grabitC::grabF( tinS& tinP , const countT idLineP , const countT idiFileP , const byteT* const pbBitsP )
+   |                  / 7120.6004e063    voidT grabitC::grabF( tinS& tinP , const countT idLineP , const countT idiFileP , const byteT* const pbBitsP )
+   |                  \ a020.6004e063    voidT grabitC::grabF( tinS& tinP , const countT idLineP , const countT idiFileP , const byteT* const pbBitsP )
+   |                   \ 8a00.400fe063    voidT baseGrabC::registerBegunF( tinS& tinP , const countT idLineP , const countT idiFileP , const flagsT flagsP )
+   |                   / 8a00.400fe063    voidT baseGrabC::registerBegunF( tinS& tinP , const countT idLineP , const countT idiFileP , const flagsT flagsP )
+   |                  / a020.6004e063    voidT grabitC::grabF( tinS& tinP , const countT idLineP , const countT idiFileP , const byteT* const pbBitsP )
+   |                 / 6f10.6004e063    voidT grabitC::grabF( tinS& tinP , const countT idLineP , const countT idiFileP , const byteT* const pbBitsP )
+   |                 \ 2f10.6004e063    voidT grabitC::grabF( tinS& tinP , const countT idLineP , const countT idiFileP , const byteT* const pbBitsP )
+   |                 / 2f10.6004e063    voidT grabitC::grabF( tinS& tinP , const countT idLineP , const countT idiFileP , const byteT* const pbBitsP )
+   |                / 9d10.6004e063    voidT grabitC::grabF( tinS& tinP , const countT idLineP , const countT idiFileP , const byteT* const pbBitsP )
+   |                \ 0900.3004e063    grabitC::grabitC( tinS& tinP , const countT idLineCtP , const countT idiFileCtP , const byteT* const pbBitsCtP , byteT*    pbP             , const countT  ifcIdBitP , grabitC& grabitNUP , countT* const pcKeyP , countT* const pcGrabberOsTidP , countT* const pcGrabberRecurseP , const flagsT flagsP , const countT msNapP , const countT idGrabLayerP ) :
+   |                 \ cd11.67010053    countT thirdC::dosPriorityIF( tinS& tinP , const countT idP )
+   |                 / cd11.67010053    countT thirdC::dosPriorityIF( tinS& tinP , const countT idP )
+   |                / 0900.3004e063    grabitC::grabitC( tinS& tinP , const countT idLineCtP , const countT idiFileCtP , const byteT* const pbBitsCtP , byteT*    pbP             , const countT  ifcIdBitP , grabitC& grabitNUP , countT* const pcKeyP , countT* const pcGrabberOsTidP , countT* const pcGrabberRecurseP , const flagsT flagsP , const countT msNapP , const countT idGrabLayerP ) :
+   |                \ 3530.21010053    osTextT* thirdC::c_strstrIF( tinS& tinP , const osTextT* const postBigP , const osTextT* const postSmallP )
+   |                / 3530.21010053    osTextT* thirdC::c_strstrIF( tinS& tinP , const osTextT* const postBigP , const osTextT* const postSmallP )
+   |                \ ea30.400e3063    voidT napkinC::formattingIsDoneF( tinS& tinP )
+   |                 \ 4a91.3e010053    voidT thirdC::dosTellMonitorIF( tinS& tinP , const tellC& tellP , const countT idBooksP )
+   |                  \ 4230.500bf063    countT booksC::writeF( tinS& tinP , const byteT* pb1P , countT cb1P , const byteT* pb2P , countT cb2P , const flagsT flagsP , handleC* const phWroteP /*U::, countT** ppcpIdAptP*/ )
+   |                   \ 7330.500bf063    countT booksC::writeF( tinS& tinP , const byteT* pb1P , countT cb1P , const byteT* pb2P , countT cb2P , const flagsT flagsP , handleC* const phWroteP /*U::, countT** ppcpIdAptP*/ )
+   |                    \ 6720.600c5063    countT grabC::ungrabF( tinS& tinP , const flagsT flagsP )
+   |                     \ cd11.67010053    countT thirdC::dosPriorityIF( tinS& tinP , const countT idP )
+   |                     / cd11.67010053    countT thirdC::dosPriorityIF( tinS& tinP , const countT idP )
+   |                     \ cd11.67010053    countT thirdC::dosPriorityIF( tinS& tinP , const countT idP )
+   |                     / cd11.67010053    countT thirdC::dosPriorityIF( tinS& tinP , const countT idP )
+   |                     \ 8710.600fe063    voidT baseGrabC::unregisterF( tinS& tinP )
+   |                     / 8710.600fe063    voidT baseGrabC::unregisterF( tinS& tinP )
+   |                    / 6720.600c5063    countT grabC::ungrabF( tinS& tinP , const flagsT flagsP )
+   |                    \ 6730.500bf063    countT booksC::writeF( tinS& tinP , const byteT* pb1P , countT cb1P , const byteT* pb2P , countT cb2P , const flagsT flagsP , handleC* const phWroteP /*U::, countT** ppcpIdAptP*/ )
+   |                     \ 3830.500bf063    countT booksC::writeF( tinS& tinP , const byteT* pb1P , countT cb1P , const byteT* pb2P , countT cb2P , const flagsT flagsP , handleC* const phWroteP /*U::, countT** ppcpIdAptP*/ )
+   |                     / 3830.500bf063    countT booksC::writeF( tinS& tinP , const byteT* pb1P , countT cb1P , const byteT* pb2P , countT cb2P , const flagsT flagsP , handleC* const phWroteP /*U::, countT** ppcpIdAptP*/ )
+   |                    / 6730.500bf063    countT booksC::writeF( tinS& tinP , const byteT* pb1P , countT cb1P , const byteT* pb2P , countT cb2P , const flagsT flagsP , handleC* const phWroteP /*U::, countT** ppcpIdAptP*/ )
+   |                    \ b210.500fe063    voidT baseGrabC::registerDoneF( tinS& tinP , const countT idLineP , const countT idiFileP )
+   |                    / b210.500fe063    voidT baseGrabC::registerDoneF( tinS& tinP , const countT idLineP , const countT idiFileP )
+   |                    \ 2510.500c5063    boolT grabC::grabF( tinS& tinP , const countT idLineP , const countT idiFileP , const byteT* const pbBitsP , const flagsT flagsP )
+   |                     \ cd11.67010053    countT thirdC::dosPriorityIF( tinS& tinP , const countT idP )
+   |                     / cd11.67010053    countT thirdC::dosPriorityIF( tinS& tinP , const countT idP )
+   |                     \ cd11.67010053    countT thirdC::dosPriorityIF( tinS& tinP , const countT idP )
+   |                     / cd11.67010053    countT thirdC::dosPriorityIF( tinS& tinP , const countT idP )
+   |                     \ 8a00.400fe063    voidT baseGrabC::registerBegunF( tinS& tinP , const countT idLineP , const countT idiFileP , const flagsT flagsP )
+   |                     / 8a00.400fe063    voidT baseGrabC::registerBegunF( tinS& tinP , const countT idLineP , const countT idiFileP , const flagsT flagsP )
+   |                    / 2510.500c5063    boolT grabC::grabF( tinS& tinP , const countT idLineP , const countT idiFileP , const byteT* const pbBitsP , const flagsT flagsP )
+   |                   / 7330.500bf063    countT booksC::writeF( tinS& tinP , const byteT* pb1P , countT cb1P , const byteT* pb2P , countT cb2P , const flagsT flagsP , handleC* const phWroteP /*U::, countT** ppcpIdAptP*/ )
+   |                  / 4230.500bf063    countT booksC::writeF( tinS& tinP , const byteT* pb1P , countT cb1P , const byteT* pb2P , countT cb2P , const flagsT flagsP , handleC* const phWroteP /*U::, countT** ppcpIdAptP*/ )
+   |                 / 4a91.3e010053    voidT thirdC::dosTellMonitorIF( tinS& tinP , const tellC& tellP , const countT idBooksP )
+   |                 \ cd11.67010053    countT thirdC::dosPriorityIF( tinS& tinP , const countT idP )
+   |                 / cd11.67010053    countT thirdC::dosPriorityIF( tinS& tinP , const countT idP )
+   |                 \ 0c10.50080063    countT batonC::ungrabF( tinS& tinP , const flagsT flagsP )
+   |                  \ 6720.600c5063    countT grabC::ungrabF( tinS& tinP , const flagsT flagsP )
+   |                   \ cd11.67010053    countT thirdC::dosPriorityIF( tinS& tinP , const countT idP )
+   |                   / cd11.67010053    countT thirdC::dosPriorityIF( tinS& tinP , const countT idP )
+   |                   \ cd11.67010053    countT thirdC::dosPriorityIF( tinS& tinP , const countT idP )
+   |                   / cd11.67010053    countT thirdC::dosPriorityIF( tinS& tinP , const countT idP )
+   |                   \ 8710.600fe063    voidT baseGrabC::unregisterF( tinS& tinP )
+   |                   / 8710.600fe063    voidT baseGrabC::unregisterF( tinS& tinP )
+   |                  / 6720.600c5063    countT grabC::ungrabF( tinS& tinP , const flagsT flagsP )
+   |                 / 0c10.50080063    countT batonC::ungrabF( tinS& tinP , const flagsT flagsP )
+   |                / ea30.400e3063    voidT napkinC::formattingIsDoneF( tinS& tinP )
+   |                \ e720.e0010053    osTextT* thirdC::c_strcpyIF( tinS& tinP , osTextT* const post1P  , const osTextT* const post2P )
+   |                / e720.e0010053    osTextT* thirdC::c_strcpyIF( tinS& tinP , osTextT* const post1P  , const osTextT* const post2P )
+   |                \ 8e00.300e3063    napkinC::napkinC( tinS& tinP , const countT idLineCtP , const countT idiFileCtP , const byteT* const pbBitsCtP , const osTextT* const postP , const handleC* const phFileP , countT cbP , const countT idHowP , const flagsT flagsP , countT cTriesP , countT idMemorySpaceP )
+   |                 \ cfa1.9e010053    voidT thirdC::dosOpenSharedMemIF( tinS& tinP , handleC& handleP , flagsT& flagsResultP , const osTextT* const postP , const handleC* phFileP , const countT cbP , const countT idHowP , const countT idMemorySpaceP , const flagsT flagsP )
+   |                  \ 62e0.b5010053    voidT thirdC::dosAllocSharedMemIF( tinS& tinP , handleC& handleP , const osTextT* const postP , const handleC* phFileP , const countT cbP , const countT idMemorySpaceP , const flagsT flagsP )
+   |                   \ ae00.50035063    voidT handleC::closeIfF( voidT )
+   |                   / ae00.50035063    voidT handleC::closeIfF( voidT )
+   |                   \ d140.71010053    voidT thirdC::c_zReplaceIF( tinS& tinP , osTextT* const postP , const osTextT ostOldP , const osTextT ostNewP )
+   |                   / d140.71010053    voidT thirdC::c_zReplaceIF( tinS& tinP , osTextT* const postP , const osTextT ostOldP , const osTextT ostNewP )
+   |                  / 62e0.b5010053    voidT thirdC::dosAllocSharedMemIF( tinS& tinP , handleC& handleP , const osTextT* const postP , const handleC* phFileP , const countT cbP , const countT idMemorySpaceP , const flagsT flagsP )
+   |                  \ 9020.c0010053    osTextT* thirdC::c_strchrIF( tinS& tinP , const osTextT* const postP , const osTextT ostP )
+   |                  / 9020.c0010053    osTextT* thirdC::c_strchrIF( tinS& tinP , const osTextT* const postP , const osTextT ostP )
+   |                  \ 22f0.16010053    voidT thirdC::dosGetSharedMemIF( tinS& tinP , handleC& handleP , const osTextT* const postP , const countT idMemorySpaceP , const flagsT flagsP )
+   |                   \ d140.71010053    voidT thirdC::c_zReplaceIF( tinS& tinP , osTextT* const postP , const osTextT ostOldP , const osTextT ostNewP )
+   |                   / d140.71010053    voidT thirdC::c_zReplaceIF( tinS& tinP , osTextT* const postP , const osTextT ostOldP , const osTextT ostNewP )
+   |                   \ 3530.21010053    osTextT* thirdC::c_strstrIF( tinS& tinP , const osTextT* const postBigP , const osTextT* const postSmallP )
+   |                   / 3530.21010053    osTextT* thirdC::c_strstrIF( tinS& tinP , const osTextT* const postBigP , const osTextT* const postSmallP )
+   |                  / 22f0.16010053    voidT thirdC::dosGetSharedMemIF( tinS& tinP , handleC& handleP , const osTextT* const postP , const countT idMemorySpaceP , const flagsT flagsP )
+   |                  \ 9020.c0010053    osTextT* thirdC::c_strchrIF( tinS& tinP , const osTextT* const postP , const osTextT ostP )
+   |                  / 9020.c0010053    osTextT* thirdC::c_strchrIF( tinS& tinP , const osTextT* const postP , const osTextT ostP )
+   |                  \ d140.71010053    voidT thirdC::c_zReplaceIF( tinS& tinP , osTextT* const postP , const osTextT ostOldP , const osTextT ostNewP )
+   |                  / d140.71010053    voidT thirdC::c_zReplaceIF( tinS& tinP , osTextT* const postP , const osTextT ostOldP , const osTextT ostNewP )
+   |                 / cfa1.9e010053    voidT thirdC::dosOpenSharedMemIF( tinS& tinP , handleC& handleP , flagsT& flagsResultP , const osTextT* const postP , const handleC* phFileP , const countT cbP , const countT idHowP , const countT idMemorySpaceP , const flagsT flagsP )
+   |                 \ 9020.c0010053    osTextT* thirdC::c_strchrIF( tinS& tinP , const osTextT* const postP , const osTextT ostP )
+   |                 / 9020.c0010053    osTextT* thirdC::c_strchrIF( tinS& tinP , const osTextT* const postP , const osTextT ostP )
+   |                 \ 3710.40080063    boolT batonC::grabF( tinS& tinP , const countT idLineP , const countT idiFileP , const byteT* const pbBitsP , const flagsT flagsP )
+   |                  \ b210.500fe063    voidT baseGrabC::registerDoneF( tinS& tinP , const countT idLineP , const countT idiFileP )
+   |                  / b210.500fe063    voidT baseGrabC::registerDoneF( tinS& tinP , const countT idLineP , const countT idiFileP )
+   |  
+   | idLine: 4630
+   | idiFile: 20070063
+   | idSubType: 20070063
+   | idType: d470dddd
+   | idLineNote: 0000
+   | idiFileNote: 0000000
+   |  
+   | Probable defect location: IdeaFarm (tm) Cell 15600015/15600015.
+   |  
+   | Try this woth:
+   | Use the Services icon to stop the IdeaFarm driver.
+   | Reboot if necessary.  Start the driver.
+   |  
+   | Please always report to www.ideafarm.com that this information appeared,
+   | so that the quality of this software can be improved for you and also for others.
+   | 
+  listing
+ playcraft
+ changed: ?
+!job B: piss: grunt
+
+
+
+
+
+
+
+
+
+
+
+
+   | 
+   | //
+   | // Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+   | //
+   | // This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+   | // Respecting the rights of other people is an important part of empowering one another.
+   | //
+   | 
+   | Subject: IPDOS (tm) Exception Event
+   | 
+   | IdeaFarm (tm) Piggyback Distributed Operating System
+   | http://ideafarm.com
+   | Wo'O Ideafarm
+   |  
+   | An ACCESSvIOLATION (9540dddd) exception occured while executing thread
+   | tmcHttpServerF at fcd7ac1 (offset from in: 1bacd0ff)
+   | codes [-8,7]: 00009854cfb8d4cf 0fff109e00000000
+   | POOP: 0
+   | bCleanFailed: 0
+   | tinP.pAdamGlobal1->flagsAdamState: aa10000e
+   | tinP.pAdamGlobal1->idLineBlammo: 0
+   | tinP.pAdamGlobal1->idiFileBlammo: 0
+   | tinP.pAdamGlobal1->idLineBlammoCt: 0
+   | tinP.pAdamGlobal1->idiFileBlammoCt: 0
+   | tinP.pAdamGlobal1->idBlammo: 0
+   | processGlobal1I.idLineBlammo: 0
+   | processGlobal1I.idiFileBlammo: 0
+   | processGlobal1I.idLineBlammoCt: 0
+   | processGlobal1I.idiFileBlammoCt: 0
+   | processGlobal1I.idBlammo: 0
+   | cGrabbed: 1
+   | tinP.cGrabitC_set: 0
+   | tinP.cGrabitC_reset: 0
+   | tinP.cGrabitC_registered: 0
+   | tinP.cGrabitC_unregistered: 0
+   | brcLath: 0
+   | idLine_brcLath: 0
+   | idiFile_brcLath: 0
+   | U::debug [tinSnap.monitor.idWhat1]: 4340dddd
+   | idWhat1: GOiNoUTfRAMED
+   | idWhat2: 5a063
+   | postTell: "preparing to compile the reply"
+   | postTellWait: ""
+   | postTellIf: ""
+   | etherC::pcPhaseLowI[1]: 5
+   | etherC::pcPhaseLowI[2]: 2
+   | etherC::pcPhaseLowI[3]: 0
+   | etherC::pcPhaseLowI[4]: 2
+   | etherC::pcPhaseLowI[5]: 2
+   | etherC::pcPhaseLowI[6]: 2
+   | etherC::pcPhaseLowI[7]: 2
+   | etherC::pcPhaseLowI[8]: 2
+   | etherC::pcPhaseLowI[9]: 2
+   | etherC::pcPhaseLowI[a]: 2
+   | etherC::pcPhaseLowI[b]: 2
+   | etherC::pcPhaseLowI[c]: 2
+   | etherC::pcPhaseLowI[d]: 2
+   | etherC::pcPhaseLowI[e]: 2
+   | etherC::pcPhaseLowI[f]: ffffffff
+   | etherC::pcPhaseLowI[01]: ffffffff
+   | processGlobal1I.pcUtility[0]: 91cdffff
+   | processGlobal1I.pcUtility[1]: acabffff
+   | processGlobal1I.pcUtility[2]: 7bd0d74
+   | processGlobal1I.pcUtility[3]: db17d74
+   | processGlobal1I.pcUtility[4]: b3f9d74
+   | processGlobal1I.pcUtility[5]: d460e74
+   | processGlobal1I.pcUtility[6]: 0
+   | processGlobal1I.pcUtility[7]: 0
+   | processGlobal1I.pcUtility[8]: 0
+   | processGlobal1I.pcUtility[9]: 0
+   | processGlobal1I.pcUtility[a]: 0
+   | processGlobal1I.pcUtility[b]: 0
+   | processGlobal1I.pcUtility[c]: 0
+   | processGlobal1I.pcUtility[d]: 0
+   | processGlobal1I.pcUtility[e]: 0
+   | processGlobal1I.pcUtility[f]: 0
+   | etherC::pcUtilityI[0]: 0
+   | etherC::pcUtilityI[1]: 0
+   | etherC::pcUtilityI[2]: 0
+   | etherC::pcUtilityI[3]: 0
+   | etherC::pcUtilityI[4]: 0
+   | etherC::pcUtilityI[5]: 0
+   | etherC::pcUtilityI[6]: 0
+   | etherC::pcUtilityI[7]: 0
+   | etherC::pcUtilityI[8]: 0
+   | etherC::pcUtilityI[9]: 0
+   | etherC::pcUtilityI[a]: 0
+   | etherC::pcUtilityI[b]: 0
+   | etherC::pcUtilityI[c]: 0
+   | etherC::pcUtilityI[d]: 0
+   | etherC::pcUtilityI[e]: 0
+   | etherC::pcUtilityI[f]: 0
+   | tinP.pcUtility[0]: 0
+   | tinP.pcUtility[1]: 0
+   | tinP.pcUtility[2]: 0
+   | tinP.pcUtility[3]: 0
+   | tinP.pcUtility[4]: 0
+   | tinP.pcUtility[5]: 0
+   | tinP.pcUtility[6]: 0
+   | tinP.pcUtility[7]: 0
+   | tinP.pcUtility[8]: 0
+   | tinP.pcUtility[9]: 0
+   | tinP.pcUtility[a]: 0
+   | tinP.pcUtility[b]: 0
+   | tinP.pcUtility[c]: 0
+   | tinP.pcUtility[d]: 0
+   | tinP.pcUtility[e]: 0
+   | tinP.pcUtility[f]: 0
+   | tinP.pPanLifiRecurseGrabbedLevel[0](pandle,idLineGrab,idiFileGrab,cRecurse): 86231bf a1c2 a005a063 0
+   | tinP.pPanLifiRecurseGrabbedLevel[5](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[a](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[f](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[41](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[91](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[e1](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[32](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[82](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[d2](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[23](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[73](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[c3](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[14](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[64](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[b4](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[05](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[55](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[a5](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[f5](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[46](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[96](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[e6](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[37](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[87](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[d7](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[28](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[78](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[c8](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[19](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[69](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[b9](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[0a](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[5a](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[aa](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[fa](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[4b](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[9b](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[eb](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[3c](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[8c](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[dc](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[2d](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[7d](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[cd](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[1e](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[6e](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[be](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[0f](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[5f](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[af](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[ff](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[401](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[901](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[e01](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[311](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[811](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[d11](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[221](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[721](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[c21](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[131](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[631](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[b31](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pPanLifiRecurseGrabbedLevel[041](pandle,idLineGrab,idiFileGrab,cRecurse): 0 0 0 0
+   | tinP.pAdamGlobal1->_thirdC_.cAllKidThreads: d
+   | tinP.cKidThreads: 0
+   | cAllOrphanThreadsI: 0
+   | cDllLoaded: 1
+   | dll load history: d:\ideafarm.home.101\ephemeral\domains\com\ideafarm\city\park\exedll\1\hover\ideafarm.00001176.ipdos-wd
+   | idThread: e51
+   | base os user name: "WoIdeafarm"
+   | processGlobal1I.idHome: 101
+   | processGlobal1I.idAdamRoot: b7500015
+   | pAdamGlobal1->idAdam: b7500015
+   | idPhaseProcess: PROLOGaLLgLOBALScONSTRUCTED
+   | idPhaseAdamI: DLLwORKING1
+   | idPhase1: WORKING
+   | idPhase2: 0
+   | idPhase3: 0
+   | idLineMile: fe10
+   | idiFileMile: 0
+   | bFixed: 0
+   | cFixed: 0
+   | cNest: 9
+   |  
+   | Call Nest:
+   |  
+   | e13bcb2  | 3'th: 32c2.a005a063    voidT httpServerC::getReplyF( tinS& tinP , httpReplySrefC*& prP , const strokeS* const psttUrlP )
+   | e13bcb2  | 5'th: f1c2.a005a063    voidT httpServerC::getReplyF( tinS& tinP , httpReplySrefC*& prP , const strokeS* const psttUrlP )
+   | e13bcb2  | 2'th: 91c2.a005a063    voidT httpServerC::getReplyF( tinS& tinP , httpReplySrefC*& prP , const strokeS* const psttUrlP )
+   | e13bcb2  | 1'th: 31c2.a005a063    voidT httpServerC::getReplyF( tinS& tinP , httpReplySrefC*& prP , const strokeS* const psttUrlP )
+   | e13bcb2  | 571'th: 8662.b5000033    TASKdRIVENsERVER( tmcHttpServerF )
+   | e13bcb2  | 52'th: 6e32.b5000033    TASKdRIVENsERVER( tmcHttpServerF )
+   | e13bcb2  | 91'th: 4e32.b5000033    TASKdRIVENsERVER( tmcHttpServerF )
+   | e13bcb2  | 1'th: 4e32.b5000033    TASKdRIVENsERVER( tmcHttpServerF )
+   | e13bcb2  | 2'th: 2960.d0000033    countT __export threadLocalStorageF( const countT idTypeP , kidFT pThreadWorkF , countT cArgP , countT cHowP , const osTextT** ppostHowP , countT hWindowingClientIP , countT hPreviousWindowingClientP , osTextT* postP , countT idCmdShowP )
+   | 
+   |  
+   | Execution Steps:
+   |  
+   |         / 32c2.a005a063    voidT httpServerC::getReplyF( tinS& tinP , httpReplySrefC*& prP , const strokeS* const psttUrlP )
+   |         \ c010.30051063    switchC::operator countT&( voidT )
+   |          \ 0c10.50080063    countT batonC::ungrabF( tinS& tinP , const flagsT flagsP )
+   |           \ 6720.600c5063    countT grabC::ungrabF( tinS& tinP , const flagsT flagsP )
+   |            \ 8710.600fe063    voidT baseGrabC::unregisterF( tinS& tinP )
+   |            / 8710.600fe063    voidT baseGrabC::unregisterF( tinS& tinP )
+   |           / 6720.600c5063    countT grabC::ungrabF( tinS& tinP , const flagsT flagsP )
+   |          / 0c10.50080063    countT batonC::ungrabF( tinS& tinP , const flagsT flagsP )
+   |          \ 9b30.b0021063    countT& stackC::operator [] ( countT idP )
+   |           \ 0c10.50080063    countT batonC::ungrabF( tinS& tinP , const flagsT flagsP )
+   |            \ 6720.600c5063    countT grabC::ungrabF( tinS& tinP , const flagsT flagsP )
+   |             \ cd11.67010053    countT thirdC::dosPriorityIF( tinS& tinP , const countT idP )
+   |             / cd11.67010053    countT thirdC::dosPriorityIF( tinS& tinP , const countT idP )
+   |             \ cd11.67010053    countT thirdC::dosPriorityIF( tinS& tinP , const countT idP )
+   |             / cd11.67010053    countT thirdC::dosPriorityIF( tinS& tinP , const countT idP )
+   |             \ 8710.600fe063    voidT baseGrabC::unregisterF( tinS& tinP )
+   |             / 8710.600fe063    voidT baseGrabC::unregisterF( tinS& tinP )
+   |            / 6720.600c5063    countT grabC::ungrabF( tinS& tinP , const flagsT flagsP )
+   |           / 0c10.50080063    countT batonC::ungrabF( tinS& tinP , const flagsT flagsP )
+   |           \ f1e1.e6021063    voidT stackC::adjustRefsF( tinS& tinP , countT idSlotTargetP , const countT idActionP , plateS* ppNewP )
+   |            \ 0c10.50080063    countT batonC::ungrabF( tinS& tinP , const flagsT flagsP )
+   |             \ 6720.600c5063    countT grabC::ungrabF( tinS& tinP , const flagsT flagsP )
+   |              \ 8710.600fe063    voidT baseGrabC::unregisterF( tinS& tinP )
+   |              / 8710.600fe063    voidT baseGrabC::unregisterF( tinS& tinP )
+   |             / 6720.600c5063    countT grabC::ungrabF( tinS& tinP , const flagsT flagsP )
+   |            / 0c10.50080063    countT batonC::ungrabF( tinS& tinP , const flagsT flagsP )
+   |           / f1e1.e6021063    voidT stackC::adjustRefsF( tinS& tinP , countT idSlotTargetP , const countT idActionP , plateS* ppNewP )
+   |           \ 3710.40080063    boolT batonC::grabF( tinS& tinP , const countT idLineP , const countT idiFileP , const byteT* const pbBitsP , const flagsT flagsP )
+   |            \ b210.500fe063    voidT baseGrabC::registerDoneF( tinS& tinP , const countT idLineP , const countT idiFileP )
+   |            / b210.500fe063    voidT baseGrabC::registerDoneF( tinS& tinP , const countT idLineP , const countT idiFileP )
+   |            \ 2510.500c5063    boolT grabC::grabF( tinS& tinP , const countT idLineP , const countT idiFileP , const byteT* const pbBitsP , const flagsT flagsP )
+   |             \ 8a00.400fe063    voidT baseGrabC::registerBegunF( tinS& tinP , const countT idLineP , const countT idiFileP , const flagsT flagsP )
+   |             / 8a00.400fe063    voidT baseGrabC::registerBegunF( tinS& tinP , const countT idLineP , const countT idiFileP , const flagsT flagsP )
+   |            / 2510.500c5063    boolT grabC::grabF( tinS& tinP , const countT idLineP , const countT idiFileP , const byteT* const pbBitsP , const flagsT flagsP )
+   |           / 3710.40080063    boolT batonC::grabF( tinS& tinP , const countT idLineP , const countT idiFileP , const byteT* const pbBitsP , const flagsT flagsP )
+   |           \ 06a1.06021063    plateS* stackC::pPlateF( tinS& tinP , countT& idP )
+   |            \ 0c10.50080063    countT batonC::ungrabF( tinS& tinP , const flagsT flagsP )
+   |             \ 6720.600c5063    countT grabC::ungrabF( tinS& tinP , const flagsT flagsP )
+   |              \ 8710.600fe063    voidT baseGrabC::unregisterF( tinS& tinP )
+   |              / 8710.600fe063    voidT baseGrabC::unregisterF( tinS& tinP )
+   |             / 6720.600c5063    countT grabC::ungrabF( tinS& tinP , const flagsT flagsP )
+   |            / 0c10.50080063    countT batonC::ungrabF( tinS& tinP , const flagsT flagsP )
+   |           / 06a1.06021063    plateS* stackC::pPlateF( tinS& tinP , countT& idP )
+   |           \ 3710.40080063    boolT batonC::grabF( tinS& tinP , const countT idLineP , const countT idiFileP , const byteT* const pbBitsP , const flagsT flagsP )
+   |            \ b210.500fe063    voidT baseGrabC::registerDoneF( tinS& tinP , const countT idLineP , const countT idiFileP )
+   |            / b210.500fe063    voidT baseGrabC::registerDoneF( tinS& tinP , const countT idLineP , const countT idiFileP )
+   |            \ 2510.500c5063    boolT grabC::grabF( tinS& tinP , const countT idLineP , const countT idiFileP , const byteT* const pbBitsP , const flagsT flagsP )
+   |             \ 8a00.400fe063    voidT baseGrabC::registerBegunF( tinS& tinP , const countT idLineP , const countT idiFileP , const flagsT flagsP )
+   |             / 8a00.400fe063    voidT baseGrabC::registerBegunF( tinS& tinP , const countT idLineP , const countT idiFileP , const flagsT flagsP )
+   |            / 2510.500c5063    boolT grabC::grabF( tinS& tinP , const countT idLineP , const countT idiFileP , const byteT* const pbBitsP , const flagsT flagsP )
+   |           / 3710.40080063    boolT batonC::grabF( tinS& tinP , const countT idLineP , const countT idiFileP , const byteT* const pbBitsP , const flagsT flagsP )
+   |          / 9b30.b0021063    countT& stackC::operator [] ( countT idP )
+   |          \ 3710.40080063    boolT batonC::grabF( tinS& tinP , const countT idLineP , const countT idiFileP , const byteT* const pbBitsP , const flagsT flagsP )
+   |           \ b210.500fe063    voidT baseGrabC::registerDoneF( tinS& tinP , const countT idLineP , const countT idiFileP )
+   |           / b210.500fe063    voidT baseGrabC::registerDoneF( tinS& tinP , const countT idLineP , const countT idiFileP )
+   |           \ 2510.500c5063    boolT grabC::grabF( tinS& tinP , const countT idLineP , const countT idiFileP , const byteT* const pbBitsP , const flagsT flagsP )
+   |            \ cd11.67010053    countT thirdC::dosPriorityIF( tinS& tinP , const countT idP )
+   |            / cd11.67010053    countT thirdC::dosPriorityIF( tinS& tinP , const countT idP )
+   |            \ cd11.67010053    countT thirdC::dosPriorityIF( tinS& tinP , const countT idP )
+   |            / cd11.67010053    countT thirdC::dosPriorityIF( tinS& tinP , const countT idP )
+   |            \ 8a00.400fe063    voidT baseGrabC::registerBegunF( tinS& tinP , const countT idLineP , const countT idiFileP , const flagsT flagsP )
+   |            / 8a00.400fe063    voidT baseGrabC::registerBegunF( tinS& tinP , const countT idLineP , const countT idiFileP , const flagsT flagsP )
+   |           / 2510.500c5063    boolT grabC::grabF( tinS& tinP , const countT idLineP , const countT idiFileP , const byteT* const pbBitsP , const flagsT flagsP )
+   |          / 3710.40080063    boolT batonC::grabF( tinS& tinP , const countT idLineP , const countT idiFileP , const byteT* const pbBitsP , const flagsT flagsP )
+   |          \ 1910.40021063    stackC::operator countT ( voidT ) const
+   |          / 1910.40021063    stackC::operator countT ( voidT ) const
+   |          \ 1a10.5001e063    voidT slotsC::operator ()( tinS& tinP , byteT*& pbP )
+   |           \ 4a50.7000e063    voidT sexC::operator ()( tinS& tinP , byteT*& pbP )
+   |           / 4a50.7000e063    voidT sexC::operator ()( tinS& tinP , byteT*& pbP )
+   |          / 1a10.5001e063    voidT slotsC::operator ()( tinS& tinP , byteT*& pbP )
+   |          \ 6621.f3021063    voidT stackC::sinkF( tinS& tinP , countT& idSlotP , const byteT* const pbP , const flagsT flagsP , ifc4FT pSubtractFP , const countT subtractionParmP )
+   |           \ 0c10.50080063    countT batonC::ungrabF( tinS& tinP , const flagsT flagsP )
+   |            \ 6720.600c5063    countT grabC::ungrabF( tinS& tinP , const flagsT flagsP )
+   |             \ cd11.67010053    countT thirdC::dosPriorityIF( tinS& tinP , const countT idP )
+   |             / cd11.67010053    countT thirdC::dosPriorityIF( tinS& tinP , const countT idP )
+   |             \ cd11.67010053    countT thirdC::dosPriorityIF( tinS& tinP , const countT idP )
+   |             / cd11.67010053    countT thirdC::dosPriorityIF( tinS& tinP , const countT idP )
+   |             \ 8710.600fe063    voidT baseGrabC::unregisterF( tinS& tinP )
+   |             / 8710.600fe063    voidT baseGrabC::unregisterF( tinS& tinP )
+   |            / 6720.600c5063    countT grabC::ungrabF( tinS& tinP , const flagsT flagsP )
+   |           / 0c10.50080063    countT batonC::ungrabF( tinS& tinP , const flagsT flagsP )
+   |           \ 1240.c0021063    voidT stackC::sinkF( tinS& tinP , countT& idSlotP , const countT valueP , const flagsT flagsP , ifc4FT pSubtractFP , const countT subtractionParmP )
+   |            \ 3702.87021063    voidT stackC::sinkPrivateF( tinS& tinP , countT& idSlotP , const countT valueP , plateS*& ppValueP , const flagsT flagsP , ifc4FT pSubtractFP , const countT subtractionParmP )
+   |             \ 0c10.50080063    countT batonC::ungrabF( tinS& tinP , const flagsT flagsP )
+   |              \ 6720.600c5063    countT grabC::ungrabF( tinS& tinP , const flagsT flagsP )
+   |               \ 8710.600fe063    voidT baseGrabC::unregisterF( tinS& tinP )
+   |               / 8710.600fe063    voidT baseGrabC::unregisterF( tinS& tinP )
+   |              / 6720.600c5063    countT grabC::ungrabF( tinS& tinP , const flagsT flagsP )
+   |             / 0c10.50080063    countT batonC::ungrabF( tinS& tinP , const flagsT flagsP )
+   |             \ 9e91.f5021063    boolT stackC::newTabsIfF( tinS& tinP , plateS* ppNewDelP , const boolT bDelP )
+   |              \ 0c10.50080063    countT batonC::ungrabF( tinS& tinP , const flagsT flagsP )
+   |               \ 6720.600c5063    countT grabC::ungrabF( tinS& tinP , const flagsT flagsP )
+   |                \ 8710.600fe063    voidT baseGrabC::unregisterF( tinS& tinP )
+   |                / 8710.600fe063    voidT baseGrabC::unregisterF( tinS& tinP )
+   |               / 6720.600c5063    countT grabC::ungrabF( tinS& tinP , const flagsT flagsP )
+   |              / 0c10.50080063    countT batonC::ungrabF( tinS& tinP , const flagsT flagsP )
+   |             / 9e91.f5021063    boolT stackC::newTabsIfF( tinS& tinP , plateS* ppNewDelP , const boolT bDelP )
+   |             \ 3710.40080063    boolT batonC::grabF( tinS& tinP , const countT idLineP , const countT idiFileP , const byteT* const pbBitsP , const flagsT flagsP )
+   |              \ b210.500fe063    voidT baseGrabC::registerDoneF( tinS& tinP , const countT idLineP , const countT idiFileP )
+   |              / b210.500fe063    voidT baseGrabC::registerDoneF( tinS& tinP , const countT idLineP , const countT idiFileP )
+   |              \ 2510.500c5063    boolT grabC::grabF( tinS& tinP , const countT idLineP , const countT idiFileP , const byteT* const pbBitsP , const flagsT flagsP )
+   |               \ 8a00.400fe063    voidT baseGrabC::registerBegunF( tinS& tinP , const countT idLineP , const countT idiFileP , const flagsT flagsP )
+   |               / 8a00.400fe063    voidT baseGrabC::registerBegunF( tinS& tinP , const countT idLineP , const countT idiFileP , const flagsT flagsP )
+   |              / 2510.500c5063    boolT grabC::grabF( tinS& tinP , const countT idLineP , const countT idiFileP , const byteT* const pbBitsP , const flagsT flagsP )
+   |             / 3710.40080063    boolT batonC::grabF( tinS& tinP , const countT idLineP , const countT idiFileP , const byteT* const pbBitsP , const flagsT flagsP )
+   |             \ f1e1.e6021063    voidT stackC::adjustRefsF( tinS& tinP , countT idSlotTargetP , const countT idActionP , plateS* ppNewP )
+   |              \ 0c10.50080063    countT batonC::ungrabF( tinS& tinP , const flagsT flagsP )
+   |               \ 6720.600c5063    countT grabC::ungrabF( tinS& tinP , const flagsT flagsP )
+   |                \ 8710.600fe063    voidT baseGrabC::unregisterF( tinS& tinP )
+   |                / 8710.600fe063    voidT baseGrabC::unregisterF( tinS& tinP )
+   |               / 6720.600c5063    countT grabC::ungrabF( tinS& tinP , const flagsT flagsP )
+   |              / 0c10.50080063    countT batonC::ungrabF( tinS& tinP , const flagsT flagsP )
+   |             / f1e1.e6021063    voidT stackC::adjustRefsF( tinS& tinP , countT idSlotTargetP , const countT idActionP , plateS* ppNewP )
+   |             \ 3710.40080063    boolT batonC::grabF( tinS& tinP , const countT idLineP , const countT idiFileP , const byteT* const pbBitsP , const flagsT flagsP )
+   |              \ b210.500fe063    voidT baseGrabC::registerDoneF( tinS& tinP , const countT idLineP , const countT idiFileP )
+   |              / b210.500fe063    voidT baseGrabC::registerDoneF( tinS& tinP , const countT idLineP , const countT idiFileP )
+   |              \ 2510.500c5063    boolT grabC::grabF( tinS& tinP , const countT idLineP , const countT idiFileP , const byteT* const pbBitsP , const flagsT flagsP )
+   |               \ 8a00.400fe063    voidT baseGrabC::registerBegunF( tinS& tinP , const countT idLineP , const countT idiFileP , const flagsT flagsP )
+   |               / 8a00.400fe063    voidT baseGrabC::registerBegunF( tinS& tinP , const countT idLineP , const countT idiFileP , const flagsT flagsP )
+   |              / 2510.500c5063    boolT grabC::grabF( tinS& tinP , const countT idLineP , const countT idiFileP , const byteT* const pbBitsP , const flagsT flagsP )
+   |             / 3710.40080063    boolT batonC::grabF( tinS& tinP , const countT idLineP , const countT idiFileP , const byteT* const pbBitsP , const flagsT flagsP )
+   |             \ 3ab0.72021063    voidT stackC::newPlateF( tinS& tinP , plateS*& ppNewP , const countT valueP )
+   |              \ 0c10.50080063    countT batonC::ungrabF( tinS& tinP , const flagsT flagsP )
+   |               \ 6720.600c5063    countT grabC::ungrabF( tinS& tinP , const flagsT flagsP )
+   |                \ 8710.600fe063    voidT baseGrabC::unregisterF( tinS& tinP )
+   |                / 8710.600fe063    voidT baseGrabC::unregisterF( tinS& tinP )
+   |               / 6720.600c5063    countT grabC::ungrabF( tinS& tinP , const flagsT flagsP )
+   |              / 0c10.50080063    countT batonC::ungrabF( tinS& tinP , const flagsT flagsP )
+   |              \ 9730.4002e063    voidT poolC::newF( tinS& tinP , const countT idLineP , const countT idiFileP , byteT*& pbP , const countT cbP , const flagsT flagsP )
+   |               \ 1930.4002e063    voidT poolC::newF( tinS& tinP , const countT idLineP , const countT idiFileP , byteT*& pbP , const countT cbP , const flagsT flagsP )
+   |                \ 0a30.4002e063    voidT poolC::newF( tinS& tinP , const countT idLineP , const countT idiFileP , byteT*& pbP , const countT cbP , const flagsT flagsP )
+   |                 \ ce30.0101e063    byteT* slotsC::newF( tinS& tinP , const countT idLineP , const countT idiFileP , const flagsT flagsP )
+   |                  \ 8f40.6000e063    byteT* sexC::newF( tinS& tinP , const countT idLineP , const countT idiFileP )
+   |                  / 8f40.6000e063    byteT* sexC::newF( tinS& tinP , const countT idLineP , const countT idiFileP )
+   |                 / ce30.0101e063    byteT* slotsC::newF( tinS& tinP , const countT idLineP , const countT idiFileP , const flagsT flagsP )
+   |                / 0a30.4002e063    voidT poolC::newF( tinS& tinP , const countT idLineP , const countT idiFileP , byteT*& pbP , const countT cbP , const flagsT flagsP )
+   |               / 1930.4002e063    voidT poolC::newF( tinS& tinP , const countT idLineP , const countT idiFileP , byteT*& pbP , const countT cbP , const flagsT flagsP )
+   |              / 9730.4002e063    voidT poolC::newF( tinS& tinP , const countT idLineP , const countT idiFileP , byteT*& pbP , const countT cbP , const flagsT flagsP )
+   |             / 3ab0.72021063    voidT stackC::newPlateF( tinS& tinP , plateS*& ppNewP , const countT valueP )
+   |             \ 3710.40080063    boolT batonC::grabF( tinS& tinP , const countT idLineP , const countT idiFileP , const byteT* const pbBitsP , const flagsT flagsP )
+   |              \ b210.500fe063    voidT baseGrabC::registerDoneF( tinS& tinP , const countT idLineP , const countT idiFileP )
+   |              / b210.500fe063    voidT baseGrabC::registerDoneF( tinS& tinP , const countT idLineP , const countT idiFileP )
+   |              \ 2510.500c5063    boolT grabC::grabF( tinS& tinP , const countT idLineP , const countT idiFileP , const byteT* const pbBitsP , const flagsT flagsP )
+   |               \ 8a00.400fe063    voidT baseGrabC::registerBegunF( tinS& tinP , const countT idLineP , const countT idiFileP , const flagsT flagsP )
+   |               / 8a00.400fe063    voidT baseGrabC::registerBegunF( tinS& tinP , const countT idLineP , const countT idiFileP , const flagsT flagsP )
+   |              / 2510.500c5063    boolT grabC::grabF( tinS& tinP , const countT idLineP , const countT idiFileP , const byteT* const pbBitsP , const flagsT flagsP )
+   |             / 3710.40080063    boolT batonC::grabF( tinS& tinP , const countT idLineP , const countT idiFileP , const byteT* const pbBitsP , const flagsT flagsP )
+   |             \ e3c5.6d000033    countT subtractLB_strokeS_ptr_F( tinS& tinP , countT& pEther , countT& c1P , countT& c2P , countT& c3P )
+   |              \ 4561.a4020063    sCountT etherC::strCompareF( tinS& tinP , const strokeS* const pstt1P , const strokeS* const pstt2P , const countT csMaxP )
+   |              / 4561.a4020063    sCountT etherC::strCompareF( tinS& tinP , const strokeS* const pstt1P , const strokeS* const pstt2P , const countT csMaxP )
+   |             / e3c5.6d000033    countT subtractLB_strokeS_ptr_F( tinS& tinP , countT& pEther , countT& c1P , countT& c2P , countT& c3P )
+   |             \ e3c5.6d000033    countT subtractLB_strokeS_ptr_F( tinS& tinP , countT& pEther , countT& c1P , countT& c2P , countT& c3P )
+   |              \ 4561.a4020063    sCountT etherC::strCompareF( tinS& tinP , const strokeS* const pstt1P , const strokeS* const pstt2P , const countT csMaxP )
+   |              / 4561.a4020063    sCountT etherC::strCompareF( tinS& tinP , const strokeS* const pstt1P , const strokeS* const pstt2P , const countT csMaxP )
+   |             / e3c5.6d000033    countT subtractLB_strokeS_ptr_F( tinS& tinP , countT& pEther , countT& c1P , countT& c2P , countT& c3P )
+   |             \ e3c5.6d000033    countT subtractLB_strokeS_ptr_F( tinS& tinP , countT& pEther , countT& c1P , countT& c2P , countT& c3P )
+   |              \ 4561.a4020063    sCountT etherC::strCompareF( tinS& tinP , const strokeS* const pstt1P , const strokeS* const pstt2P , const countT csMaxP )
+   |              / 4561.a4020063    sCountT etherC::strCompareF( tinS& tinP , const strokeS* const pstt1P , const strokeS* const pstt2P , const countT csMaxP )
+   |             / e3c5.6d000033    countT subtractLB_strokeS_ptr_F( tinS& tinP , countT& pEther , countT& c1P , countT& c2P , countT& c3P )
+   |             \ e3c5.6d000033    countT subtractLB_strokeS_ptr_F( tinS& tinP , countT& pEther , countT& c1P , countT& c2P , countT& c3P )
+   |              \ 4561.a4020063    sCountT etherC::strCompareF( tinS& tinP , const strokeS* const pstt1P , const strokeS* const pstt2P , const countT csMaxP )
+   |              / 4561.a4020063    sCountT etherC::strCompareF( tinS& tinP , const strokeS* const pstt1P , const strokeS* const pstt2P , const countT csMaxP )
+   |             / e3c5.6d000033    countT subtractLB_strokeS_ptr_F( tinS& tinP , countT& pEther , countT& c1P , countT& c2P , countT& c3P )
+   |             \ e3c5.6d000033    countT subtractLB_strokeS_ptr_F( tinS& tinP , countT& pEther , countT& c1P , countT& c2P , countT& c3P )
+   |              \ 4561.a4020063    sCountT etherC::strCompareF( tinS& tinP , const strokeS* const pstt1P , const strokeS* const pstt2P , const countT csMaxP )
+   |              / 4561.a4020063    sCountT etherC::strCompareF( tinS& tinP , const strokeS* const pstt1P , const strokeS* const pstt2P , const countT csMaxP )
+   |             / e3c5.6d000033    countT subtractLB_strokeS_ptr_F( tinS& tinP , countT& pEther , countT& c1P , countT& c2P , countT& c3P )
+   |            / 3702.87021063    voidT stackC::sinkPrivateF( tinS& tinP , countT& idSlotP , const countT valueP , plateS*& ppValueP , const flagsT flagsP , ifc4FT pSubtractFP , const countT subtractionParmP )
+   |            \ 3710.40080063    boolT batonC::grabF( tinS& tinP , const countT idLineP , const countT idiFileP , const byteT* const pbBitsP , const flagsT flagsP )
+   |             \ b210.500fe063    voidT baseGrabC::registerDoneF( tinS& tinP , const countT idLineP , const countT idiFileP )
+   |             / b210.500fe063    voidT baseGrabC::registerDoneF( tinS& tinP , const countT idLineP , const countT idiFileP )
+   |             \ 2510.500c5063    boolT grabC::grabF( tinS& tinP , const countT idLineP , const countT idiFileP , const byteT* const pbBitsP , const flagsT flagsP )
+   |              \ 8a00.400fe063    voidT baseGrabC::registerBegunF( tinS& tinP , const countT idLineP , const countT idiFileP , const flagsT flagsP )
+   |              / 8a00.400fe063    voidT baseGrabC::registerBegunF( tinS& tinP , const countT idLineP , const countT idiFileP , const flagsT flagsP )
+   |             / 2510.500c5063    boolT grabC::grabF( tinS& tinP , const countT idLineP , const countT idiFileP , const byteT* const pbBitsP , const flagsT flagsP )
+   |            / 3710.40080063    boolT batonC::grabF( tinS& tinP , const countT idLineP , const countT idiFileP , const byteT* const pbBitsP , const flagsT flagsP )
+   |           / 1240.c0021063    voidT stackC::sinkF( tinS& tinP , countT& idSlotP , const countT valueP , const flagsT flagsP , ifc4FT pSubtractFP , const countT subtractionParmP )
+   |          / 6621.f3021063    voidT stackC::sinkF( tinS& tinP , countT& idSlotP , const byteT* const pbP , const flagsT flagsP , ifc4FT pSubtractFP , const countT subtractionParmP )
+   |          \ 3710.40080063    boolT batonC::grabF( tinS& tinP , const countT idLineP , const countT idiFileP , const byteT* const pbBitsP , const flagsT flagsP )
+   |           \ b210.500fe063    voidT baseGrabC::registerDoneF( tinS& tinP , const countT idLineP , const countT idiFileP )
+   |           / b210.500fe063    voidT baseGrabC::registerDoneF( tinS& tinP , const countT idLineP , const countT idiFileP )
+   |           \ 2510.500c5063    boolT grabC::grabF( tinS& tinP , const countT idLineP , const countT idiFileP , const byteT* const pbBitsP , const flagsT flagsP )
+   |            \ cd11.67010053    countT thirdC::dosPriorityIF( tinS& tinP , const countT idP )
+   |            / cd11.67010053    countT thirdC::dosPriorityIF( tinS& tinP , const countT idP )
+   |            \ cd11.67010053    countT thirdC::dosPriorityIF( tinS& tinP , const countT idP )
+   |            / cd11.67010053    countT thirdC::dosPriorityIF( tinS& tinP , const countT idP )
+   |            \ 8a00.400fe063    voidT baseGrabC::registerBegunF( tinS& tinP , const countT idLineP , const countT idiFileP , const flagsT flagsP )
+   |            / 8a00.400fe063    voidT baseGrabC::registerBegunF( tinS& tinP , const countT idLineP , const countT idiFileP , const flagsT flagsP )
+   |           / 2510.500c5063    boolT grabC::grabF( tinS& tinP , const countT idLineP , const countT idiFileP , const byteT* const pbBitsP , const flagsT flagsP )
+   |          / 3710.40080063    boolT batonC::grabF( tinS& tinP , const countT idLineP , const countT idiFileP , const byteT* const pbBitsP , const flagsT flagsP )
+   |          \ 8bd1.a5020063    voidT etherC::strMakeF( tinS& tinP , strokeS*& psttOutP , const strokeS* const psttInP , const countT csttExtraP )
+   |           \ 9730.4002e063    voidT poolC::newF( tinS& tinP , const countT idLineP , const countT idiFileP , byteT*& pbP , const countT cbP , const flagsT flagsP )
+   |            \ 1930.4002e063    voidT poolC::newF( tinS& tinP , const countT idLineP , const countT idiFileP , byteT*& pbP , const countT cbP , const flagsT flagsP )
+   |             \ 0a30.4002e063    voidT poolC::newF( tinS& tinP , const countT idLineP , const countT idiFileP , byteT*& pbP , const countT cbP , const flagsT flagsP )
+   |              \ ce30.0101e063    byteT* slotsC::newF( tinS& tinP , const countT idLineP , const countT idiFileP , const flagsT flagsP )
+   |               \ 8f40.6000e063    byteT* sexC::newF( tinS& tinP , const countT idLineP , const countT idiFileP )
+   |               / 8f40.6000e063    byteT* sexC::newF( tinS& tinP , const countT idLineP , const countT idiFileP )
+   |              / ce30.0101e063    byteT* slotsC::newF( tinS& tinP , const countT idLineP , const countT idiFileP , const flagsT flagsP )
+   |             / 0a30.4002e063    voidT poolC::newF( tinS& tinP , const countT idLineP , const countT idiFileP , byteT*& pbP , const countT cbP , const flagsT flagsP )
+   |            / 1930.4002e063    voidT poolC::newF( tinS& tinP , const countT idLineP , const countT idiFileP , byteT*& pbP , const countT cbP , const flagsT flagsP )
+   |           / 9730.4002e063    voidT poolC::newF( tinS& tinP , const countT idLineP , const countT idiFileP , byteT*& pbP , const countT cbP , const flagsT flagsP )
+   |          / 8bd1.a5020063    voidT etherC::strMakeF( tinS& tinP , strokeS*& psttOutP , const strokeS* const psttInP , const countT csttExtraP )
+   |          \ 9730.4002e063    voidT poolC::newF( tinS& tinP , const countT idLineP , const countT idiFileP , byteT*& pbP , const countT cbP , const flagsT flagsP )
+   |           \ 1930.4002e063    voidT poolC::newF( tinS& tinP , const countT idLineP , const countT idiFileP , byteT*& pbP , const countT cbP , const flagsT flagsP )
+   |            \ 0a30.4002e063    voidT poolC::newF( tinS& tinP , const countT idLineP , const countT idiFileP , byteT*& pbP , const countT cbP , const flagsT flagsP )
+   |             \ ce30.0101e063    byteT* slotsC::newF( tinS& tinP , const countT idLineP , const countT idiFileP , const flagsT flagsP )
+   |              \ 8f40.6000e063    byteT* sexC::newF( tinS& tinP , const countT idLineP , const countT idiFileP )
+   |              / 8f40.6000e063    byteT* sexC::newF( tinS& tinP , const countT idLineP , const countT idiFileP )
+   |             / ce30.0101e063    byteT* slotsC::newF( tinS& tinP , const countT idLineP , const countT idiFileP , const flagsT flagsP )
+   |            / 0a30.4002e063    voidT poolC::newF( tinS& tinP , const countT idLineP , const countT idiFileP , byteT*& pbP , const countT cbP , const flagsT flagsP )
+   |           / 1930.4002e063    voidT poolC::newF( tinS& tinP , const countT idLineP , const countT idiFileP , byteT*& pbP , const countT cbP , const flagsT flagsP )
+   |          / 9730.4002e063    voidT poolC::newF( tinS& tinP , const countT idLineP , const countT idiFileP , byteT*& pbP , const countT cbP , const flagsT flagsP )
+   |          \ 6621.f3021063    voidT stackC::sinkF( tinS& tinP , countT& idSlotP , const byteT* const pbP , const flagsT flagsP , ifc4FT pSubtractFP , const countT subtractionParmP )
+   |           \ 0c10.50080063    countT batonC::ungrabF( tinS& tinP , const flagsT flagsP )
+   |            \ 6720.600c5063    countT grabC::ungrabF( tinS& tinP , const flagsT flagsP )
+   |             \ cd11.67010053    countT thirdC::dosPriorityIF( tinS& tinP , const countT idP )
+   |             / cd11.67010053    countT thirdC::dosPriorityIF( tinS& tinP , const countT idP )
+   |             \ cd11.67010053    countT thirdC::dosPriorityIF( tinS& tinP , const countT idP )
+   |             / cd11.67010053    countT thirdC::dosPriorityIF( tinS& tinP , const countT idP )
+   |             \ 8710.600fe063    voidT baseGrabC::unregisterF( tinS& tinP )
+   |             / 8710.600fe063    voidT baseGrabC::unregisterF( tinS& tinP )
+   |            / 6720.600c5063    countT grabC::ungrabF( tinS& tinP , const flagsT flagsP )
+   |           / 0c10.50080063    countT batonC::ungrabF( tinS& tinP , const flagsT flagsP )
+   |           \ 1240.c0021063    voidT stackC::sinkF( tinS& tinP , countT& idSlotP , const countT valueP , const flagsT flagsP , ifc4FT pSubtractFP , const countT subtractionParmP )
+   |            \ 3702.87021063    voidT stackC::sinkPrivateF( tinS& tinP , countT& idSlotP , const countT valueP , plateS*& ppValueP , const flagsT flagsP , ifc4FT pSubtractFP , const countT subtractionParmP )
+   |             \ 0c10.50080063    countT batonC::ungrabF( tinS& tinP , const flagsT flagsP )
+   |              \ 6720.600c5063    countT grabC::ungrabF( tinS& tinP , const flagsT flagsP )
+   |               \ 8710.600fe063    voidT baseGrabC::unregisterF( tinS& tinP )
+   |               / 8710.600fe063    voidT baseGrabC::unregisterF( tinS& tinP )
+   |              / 6720.600c5063    countT grabC::ungrabF( tinS& tinP , const flagsT flagsP )
+   |             / 0c10.50080063    countT batonC::ungrabF( tinS& tinP , const flagsT flagsP )
+   |             \ e3c5.6d000033    countT subtractLB_strokeS_ptr_F( tinS& tinP , countT& pEther , countT& c1P , countT& c2P , countT& c3P )
+   |              \ 4561.a4020063    sCountT etherC::strCompareF( tinS& tinP , const strokeS* const pstt1P , const strokeS* const pstt2P , const countT csMaxP )
+   |              / 4561.a4020063    sCountT etherC::strCompareF( tinS& tinP , const strokeS* const pstt1P , const strokeS* const pstt2P , const countT csMaxP )
+   |             / e3c5.6d000033    countT subtractLB_strokeS_ptr_F( tinS& tinP , countT& pEther , countT& c1P , countT& c2P , countT& c3P )
+   |             \ e3c5.6d000033    countT subtractLB_strokeS_ptr_F( tinS& tinP , countT& pEther , countT& c1P , countT& c2P , countT& c3P )
+   |              \ 4561.a4020063    sCountT etherC::strCompareF( tinS& tinP , const strokeS* const pstt1P , const strokeS* const pstt2P , const countT csMaxP )
+   |              / 4561.a4020063    sCountT etherC::strCompareF( tinS& tinP , const strokeS* const pstt1P , const strokeS* const pstt2P , const countT csMaxP )
+   |             / e3c5.6d000033    countT subtractLB_strokeS_ptr_F( tinS& tinP , countT& pEther , countT& c1P , countT& c2P , countT& c3P )
+   |             \ e3c5.6d000033    countT subtractLB_strokeS_ptr_F( tinS& tinP , countT& pEther , countT& c1P , countT& c2P , countT& c3P )
+   |              \ 4561.a4020063    sCountT etherC::strCompareF( tinS& tinP , const strokeS* const pstt1P , const strokeS* const pstt2P , const countT csMaxP )
+   |              / 4561.a4020063    sCountT etherC::strCompareF( tinS& tinP , const strokeS* const pstt1P , const strokeS* const pstt2P , const countT csMaxP )
+   |             / e3c5.6d000033    countT subtractLB_strokeS_ptr_F( tinS& tinP , countT& pEther , countT& c1P , countT& c2P , countT& c3P )
+   |             \ e3c5.6d000033    countT subtractLB_strokeS_ptr_F( tinS& tinP , countT& pEther , countT& c1P , countT& c2P , countT& c3P )
+   |              \ 4561.a4020063    sCountT etherC::strCompareF( tinS& tinP , const strokeS* const pstt1P , const strokeS* const pstt2P , const countT csMaxP )
+   |              / 4561.a4020063    sCountT etherC::strCompareF( tinS& tinP , const strokeS* const pstt1P , const strokeS* const pstt2P , const countT csMaxP )
+   |             / e3c5.6d000033    countT subtractLB_strokeS_ptr_F( tinS& tinP , countT& pEther , countT& c1P , countT& c2P , countT& c3P )
+   |             \ e3c5.6d000033    countT subtractLB_strokeS_ptr_F( tinS& tinP , countT& pEther , countT& c1P , countT& c2P , countT& c3P )
+   |              \ 4561.a4020063    sCountT etherC::strCompareF( tinS& tinP , const strokeS* const pstt1P , const strokeS* const pstt2P , const countT csMaxP )
+   |              / 4561.a4020063    sCountT etherC::strCompareF( tinS& tinP , const strokeS* const pstt1P , const strokeS* const pstt2P , const countT csMaxP )
+   |             / e3c5.6d000033    countT subtractLB_strokeS_ptr_F( tinS& tinP , countT& pEther , countT& c1P , countT& c2P , countT& c3P )
+   |             \ e3c5.6d000033    countT subtractLB_strokeS_ptr_F( tinS& tinP , countT& pEther , countT& c1P , countT& c2P , countT& c3P )
+   |              \ 4561.a4020063    sCountT etherC::strCompareF( tinS& tinP , const strokeS* const pstt1P , const strokeS* const pstt2P , const countT csMaxP )
+   |              / 4561.a4020063    sCountT etherC::strCompareF( tinS& tinP , const strokeS* const pstt1P , const strokeS* const pstt2P , const countT csMaxP )
+   |             / e3c5.6d000033    countT subtractLB_strokeS_ptr_F( tinS& tinP , countT& pEther , countT& c1P , countT& c2P , countT& c3P )
+   |             \ e3c5.6d000033    countT subtractLB_strokeS_ptr_F( tinS& tinP , countT& pEther , countT& c1P , countT& c2P , countT& c3P )
+   |  
+   | bWrite: 1
+   | pvTarget: 0
+   |  
+   | Probable defect location: IdeaFarm (tm) Cell b7500015/b7500015.
+   |  
+   | Try this woth:
+   | Use the Services icon to stop the IdeaFarm driver.
+   | Reboot if necessary.  Start the driver.
+   |  
+   | Please always report to www.ideafarm.com that this information appeared,
+   | so that the quality of this software can be improved for you and also for others.
+   | 
+  listing
+ playcraft
+ changed: ?
+!job B: http died
+
+
+
+
+
+
+
+
+
+   let's search all ps zip files
+   i could just recode this
+   conj: i've somehow lost the code
+  think
+   no code refers to d:\tmp\certbot.challenge 
+  see
+   | 
+   | # renew_before_expiry = 30 days
+   | version = 1.5.0
+   | archive_dir = C:\Certbot\archive\ideafarm.com
+   | cert = C:\Certbot\live\ideafarm.com\cert.pem
+   | privkey = C:\Certbot\live\ideafarm.com\privkey.pem
+   | chain = C:\Certbot\live\ideafarm.com\chain.pem
+   | fullchain = C:\Certbot\live\ideafarm.com\fullchain.pem
+   | 
+   | # Options used in the renewal process
+   | [renewalparams]
+   | account = bbbb2ae0a2d0e3e323c32df6f33aec10
+   | authenticator = webroot
+   | server = https://acme-v02.api.letsencrypt.org/directory
+   | webroot_path = d:\tmp\certbot.challenge,
+   | post_hook = certbot.renew.after.bat
+   | [[webroot_map]]
+   | 
+  listing (config file)
+   | 
+   |   Domain: archive.ideafarm.com
+   |    Type:   unauthorized
+   |    Detail: Invalid response from
+   |    http://archive.ideafarm.com/.well-known/acme-challenge/QASsWwoZJP9EnxKr1f3CgFGItQYdYFWHyplAGPBk2m4
+   |    [38.111.147.106]: "<HEAD>\r\n<TITLE>IdeaFarm (tm): Requested Page
+   |    Was Not Found</TITLE>\r\n<META NAME=\"DESCRIPTION\" CONTENT=\"The
+   |    page that you requeste"
+   | 
+  listing
+  think
+ playcraft
+ changed: ?
+!job B: certificate renewal failed
+
+
 
 
    http dies about wo per day
