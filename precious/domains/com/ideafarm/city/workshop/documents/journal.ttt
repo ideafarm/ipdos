@@ -10454,49 +10454,18 @@ I have other business to attend to today and tomorrow, but plan to continue to w
 
 
 
-
-
-
-
-   let's search all ps zip files
-   i could just recode this
-   conj: i've somehow lost the code
-  think
-   no code refers to d:\tmp\certbot.challenge 
-  see
+   4745_
+  look
    | 
-   | # renew_before_expiry = 30 days
-   | version = 1.5.0
-   | archive_dir = C:\Certbot\archive\ideafarm.com
-   | cert = C:\Certbot\live\ideafarm.com\cert.pem
-   | privkey = C:\Certbot\live\ideafarm.com\privkey.pem
-   | chain = C:\Certbot\live\ideafarm.com\chain.pem
-   | fullchain = C:\Certbot\live\ideafarm.com\fullchain.pem
-   | 
-   | # Options used in the renewal process
-   | [renewalparams]
-   | account = bbbb2ae0a2d0e3e323c32df6f33aec10
-   | authenticator = webroot
-   | server = https://acme-v02.api.letsencrypt.org/directory
-   | webroot_path = d:\tmp\certbot.challenge,
-   | post_hook = certbot.renew.after.bat
-   | [[webroot_map]]
-   | 
-  listing (config file)
-   | 
-   |   Domain: archive.ideafarm.com
-   |    Type:   unauthorized
-   |    Detail: Invalid response from
-   |    http://archive.ideafarm.com/.well-known/acme-challenge/QASsWwoZJP9EnxKr1f3CgFGItQYdYFWHyplAGPBk2m4
-   |    [38.111.147.106]: "<HEAD>\r\n<TITLE>IdeaFarm (tm): Requested Page
-   |    Was Not Found</TITLE>\r\n<META NAME=\"DESCRIPTION\" CONTENT=\"The
-   |    page that you requeste"
+   | 000b41c4.16676432 ! 00000000.00288f0a @ 00000000.000002ea # c        $ a        % tm_httpServerC_F | openSsl_getContextIF / exception caught
+   | 000b41c4.16676432 ! 00000000.00288f0a @ 00000000.00000000 # c        $ a        % tm_httpServerC_F | gruntF ( ) at 5474(1a110053) idTypeP:d470dddd idSubTypeP:ffffffff
+   | 000b41c4.16676495 ! 00000000.00288f6d @ 00000000.00000063 # c        $ a        % tm_httpServerC_F | ifcDrivenServerF / could not ct listener socket
    | 
   listing
-  think
  playcraft
  changed: ?
-!job B: certificate renewal failed
+!job B: factory7 http service usually fails
+
 
 
 
@@ -10551,6 +10520,47 @@ I have other business to attend to today and tomorrow, but plan to continue to w
 =========================================================================================================================================================
 
 
+   cool ; it works!
+   found the code and recovered it
+   let's search all ps zip files
+   i could just recode this
+   conj: i've somehow lost the code
+  think
+   no code refers to d:\tmp\certbot.challenge 
+  see
+   | 
+   | # renew_before_expiry = 30 days
+   | version = 1.5.0
+   | archive_dir = C:\Certbot\archive\ideafarm.com
+   | cert = C:\Certbot\live\ideafarm.com\cert.pem
+   | privkey = C:\Certbot\live\ideafarm.com\privkey.pem
+   | chain = C:\Certbot\live\ideafarm.com\chain.pem
+   | fullchain = C:\Certbot\live\ideafarm.com\fullchain.pem
+   | 
+   | # Options used in the renewal process
+   | [renewalparams]
+   | account = bbbb2ae0a2d0e3e323c32df6f33aec10
+   | authenticator = webroot
+   | server = https://acme-v02.api.letsencrypt.org/directory
+   | webroot_path = d:\tmp\certbot.challenge,
+   | post_hook = certbot.renew.after.bat
+   | [[webroot_map]]
+   | 
+  listing (config file)
+   | 
+   |   Domain: archive.ideafarm.com
+   |    Type:   unauthorized
+   |    Detail: Invalid response from
+   |    http://archive.ideafarm.com/.well-known/acme-challenge/QASsWwoZJP9EnxKr1f3CgFGItQYdYFWHyplAGPBk2m4
+   |    [38.111.147.106]: "<HEAD>\r\n<TITLE>IdeaFarm (tm): Requested Page
+   |    Was Not Found</TITLE>\r\n<META NAME=\"DESCRIPTION\" CONTENT=\"The
+   |    page that you requeste"
+   | 
+  listing
+  think
+ playcraft
+ changed: ?
+!job B: certificate renewal failed
   nawwh
   look
  playcraft
