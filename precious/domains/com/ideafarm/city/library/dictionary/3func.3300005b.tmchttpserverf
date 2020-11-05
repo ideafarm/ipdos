@@ -128,7 +128,7 @@ DONEdRIVENsERVER( tmcHttpServerF )
 
                             pzCache->pushF( tinP , psttn , postsReply , costo , maxAge , 1 ) ; // "1": "LENGTH PREFIXED, SO NEED TO USE POSTS( pb )"
                             countT maxAge = bDeadman1 || bDeadman2 ? maxAgeDeadman : bTalkBody ? maxAgeMsNotFileTalkBody : maxAgeMsNotFileNotTalkBody ;
-                            boolT bTalkBody = psttName && !etThread.strCompareF( tinP , tSlashTalkBody , psttName ) ;
+                            boolT bTalkBody = !etThread.strCompareF( tinP , tSlashTalkBody , psttName ) ;
 
                             countT costo = COSTS( postsReply ) ;
                             etThread.strMakeF( tinP , psttn , tNameCache ) ; ___( psttn ) ;
@@ -688,7 +688,6 @@ DONEdRIVENsERVER( tmcHttpServerF )
                                                 etThread.strCompareF( tinP , psttName , T("/header/idea/slideshow.regrets.html") )
                                                 etThread.strCompareF( tinP , psttName , T("/header/idea/slideshow.tellin.it.html") )    &&
                                                 etThread.strCompareF( tinP , psttName , T("/"                          ) )              &&
-                                                psttName                                                                                &&
                                                 idHeadFlavor == ifcIDhEADfLAVOR_VERBOSE                                            &&
                                             (
                                             if
@@ -823,7 +822,6 @@ DONEdRIVENsERVER( tmcHttpServerF )
                                                 etThread.strCompareF( tinP , psttName , T("/header/idea/slideshow.regrets.html") )
                                                 etThread.strCompareF( tinP , psttName , T("/header/idea/slideshow.tellin.it.html") )    &&
                                                 etThread.strCompareF( tinP , psttName , T("/"                          ) )              &&
-                                                psttName                                                                                &&
                                             (
                                             if
                                             ZE( countT , idBannerAd ) ;
@@ -941,12 +939,8 @@ DONEdRIVENsERVER( tmcHttpServerF )
                     }
                         session.privilegesF( tinP , flSESSIONpRIVILEGE_HIDEiMAGEaDS | flSESSIONpRIVILEGE_HIDEaDlINKS ) ;
                         )
-                            )
-                                !etThread.strCompareF( tinP , psttName , T("/robots.txt") )
-                                !etThread.strCompareF( tinP , psttName , T("/nobot/noads.html") ) ||
-                            (
-                            &&
-                            psttName
+                            !etThread.strCompareF( tinP , psttName , T("/robots.txt") )
+                            !etThread.strCompareF( tinP , psttName , T("/nobot/noads.html") ) ||
                         (
                         if
                         TELL( "maybe changing privileges to hide ads" ) ;
@@ -1031,7 +1025,7 @@ DONEdRIVENsERVER( tmcHttpServerF )
                     //{
                     //if( bDebug )
                     //const boolT bDebug = 1 ;
-                    //const boolT bDebug = psttName && !etThread.strCompareF( tinP , psttName , T("/nobot/action/myaccount.html") ) ;
+                    //const boolT bDebug = !etThread.strCompareF( tinP , psttName , T("/nobot/action/myaccount.html") ) ;
 
                     etThread.traceF( tinP , TF3(meP.idPortF(tinP),flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,9)+T(nnPeerP)+T("    preparing nonfile response") , flTRACE_FORCEnOsILENCE , idTraceDivert ) ;
                 {
@@ -1125,7 +1119,6 @@ DONEdRIVENsERVER( tmcHttpServerF )
                             etThread.strConvertToLowerCaseF( tinP , psttLower , psttName ) ; ___( psttLower ) ;
                             ZE( strokeS* , psttLower ) ;
                         {
-                        if( psttName )
                         TN( tContentType , "" ) ;
 
                         boolT bCacheThis = !pcLoHi[ 1 ] && pcLoHi[ 0 ] <= cbWindow ;
@@ -1320,15 +1313,13 @@ DONEdRIVENsERVER( tmcHttpServerF )
             etThread.traceF( tinP , TF3(meP.idPortF(tinP),flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,9)+T(nnPeerP)+T("    request:    \"")+T(psttName)+T("\"")+(psttQueryKV?T("    ")+T(psttQueryKV):T("")) , bDeadman1 || bDeadman2 ? flTRACE_HOMEeCHO | flTRACE_FORCEnOsILENCE | flTRACE_ECHOoNLY : flTRACE_FORCEnOsILENCE , idTraceDivert ) ;
 
             ;
-                            : ifcIDtRACEdIVERT_6
-                            ? ifcIDtRACEdIVERT_5
-                        : !bFileArchive
-                        ? ifcIDtRACEdIVERT_4
-                    : !etThread.strCompareF( tinP , psttName , tSlash )
-                    ? ifcIDtRACEdIVERT_3
-                : !etThread.strCompareF( tinP , psttName , tSlashDeadman1 )
-                ? ifcIDtRACEdIVERT_2
-            const countT idTraceDivert = !psttName
+                        : ifcIDtRACEdIVERT_6
+                        ? ifcIDtRACEdIVERT_5
+                    : !bFileArchive
+                    ? ifcIDtRACEdIVERT_4
+                : !etThread.strCompareF( tinP , psttName , tSlash )
+                ? ifcIDtRACEdIVERT_3
+            const countT idTraceDivert = !etThread.strCompareF( tinP , psttName , tSlashDeadman1 )
             //CS:CODEsYNC: 3300005b 3600212d
 
             }
@@ -1356,7 +1347,7 @@ DONEdRIVENsERVER( tmcHttpServerF )
                 // "2013/!ideafarm."
                 //  yyyy
             {
-            if( !bDeadman1 && !bDeadman2 && psttName && psttName->idAdam )
+            if( !bDeadman1 && !bDeadman2 && psttName->idAdam )
             ZE( boolT , bFileArchive ) ;
             ZE( boolT , bFileChallenge ) ;
 
@@ -1367,7 +1358,7 @@ DONEdRIVENsERVER( tmcHttpServerF )
                 etThread.strConvertToLowerCaseF( tinP , psttLower , psttName ) ; ___( psttLower ) ;
                 ZE( strokeS* , psttLower ) ;
             {
-            if( !bDeadman1 && !bDeadman2 && psttName )
+            if( !bDeadman1 && !bDeadman2 )
             ZE( boolT , bFavIcon ) ;
 
             }
@@ -1437,8 +1428,8 @@ DONEdRIVENsERVER( tmcHttpServerF )
                 {
                 if( bDeadman1 || bDeadman2 )
 
-                bDeadman2 = psttName && !etThread.strCompareF( tinP , psttName  , tSlashDeadman2 ) ;
-                bDeadman1 = psttName && !etThread.strCompareF( tinP , psttName  , tSlashDeadman1 ) ;
+                bDeadman2 = !etThread.strCompareF( tinP , psttName  , tSlashDeadman2 ) ;
+                bDeadman1 = !etThread.strCompareF( tinP , psttName  , tSlashDeadman1 ) ;
             {
             TN( tNameCache , psttName ) ;
             ZE( countT , idDesireOld ) ;
@@ -1454,12 +1445,11 @@ DONEdRIVENsERVER( tmcHttpServerF )
 
             if( ++ cRequests == 0x10 ) bClose = 1 ;     // ATTACK PREVENTION (IN CONJUNCTION WITH CONNECTION RATE LIMIT)
 
-            }
-                __NZ( psttName->idCaste - sc_PREFIXlENGTH ) ;  //U::20201021@1217: TO FIND A BUG: NULL CASTE DETECTED WITHIN getReplyF
-                __Z(  psttName->idCaste                   ) ;  //U::20201021@1217: TO FIND A BUG: NULL CASTE DETECTED WITHIN getReplyF
-            {
-            if( psttName )
+            __NZ( psttName->idCaste - sc_PREFIXlENGTH ) ;  //U::20201021@1217: TO FIND A BUG: NULL CASTE DETECTED WITHIN getReplyF
+            __Z(  psttName->idCaste                   ) ;  //U::20201021@1217: TO FIND A BUG: NULL CASTE DETECTED WITHIN getReplyF
             TESTsCRATCH //U::TO FIND A BUG
+
+            if( bFail ) break ;
 
             ___( postBody ) ;
             ___( psttAgent ) ;

@@ -14,12 +14,18 @@
             *prP = REF( httpReplyS , *prP ).overrideF( tinP ) ;
         {
         else
-        if( !bFound ) PUSE( tinP , *(byteT**)&prP ) ;
+        }
+            if( prP ) { BLAMMO ; } //U::TO FIND A BUG
+            PUSE( tinP , *(byteT**)&prP ) ;
+            if( !prP ) { BLAMMO ; } //U::TO FIND A BUG
+        {
+        if( !bFound )
         
         swReply.ungrabF( tinP ) ;
         }
             }
                 new( 0 , tinP , (byteT*)prP , sizeof( httpReplySrefC ) ) httpReplySrefC( reply ) ;
+                if( !prP ) { BLAMMO ; } //U::TO FIND A BUG
                 _IO_
             {
 
@@ -34,9 +40,19 @@
     {
     if( !POOP )
 
+    if( !prP ) { BLAMMO ; } //U::TO FIND A BUG
     __Z( prP ) ;
     PUSE.newF( tinP , LF , *(byteT**)&prP , sizeof( httpReplySrefC ) ) ; ___( prP ) ;
     _IO_
+
+    }
+        if( POOP ) return ;
+        __Z( psttUrlP ) ;
+        if( prP ) { BLAMMO ; } //U::TO FIND A BUG
+        __NZ( prP ) ;
+        if( POOP ) return ;
+    {
+    IFbEcAREFUL
 {
 /*1*/voidT httpServerC::getReplyF( tinS& tinP , httpReplySrefC*& prP , const strokeS* const psttUrlP )/*1*/
 /**/

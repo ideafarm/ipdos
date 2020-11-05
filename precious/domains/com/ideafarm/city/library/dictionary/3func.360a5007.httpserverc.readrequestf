@@ -192,6 +192,7 @@
 
                 TN( tUrlOld , "" ) ; tUrlOld = T(psttNameP)+T("?")+T(psttQueryKVP) ;
             {
+            if( !bFailP )
 
             }
                 ether.delF( tinP , psttw ) ;
@@ -203,7 +204,8 @@
                 psttNameP = 0 ;
                 strokeS* psttw = psttNameP ;
             {
-            if( psttNameP && ether.strIdF( tinP , sttQuest , psttNameP ) ) // HTTP/1.0 KEYvALUE PAIRS
+            else if( ether.strIdF( tinP , sttQuest , psttNameP ) ) // HTTP/1.0 KEYvALUE PAIRS
+            if( !psttNameP ) bFailP = 1 ;
             strokeS sttQuest( '?' ) ;
         
             ether.strWordF( tinP , psttNameP , psttl , sttq , sttb , 2 ) ; ___( psttNameP ) ;
@@ -266,7 +268,7 @@
         ZE( strokeS* , psttl ) ;
         TESTsCRATCH //U:: TO FIND A BUG
     {
-    while( !ether && !POOP ) //READ THE HEADER LINES
+    while( !ether && !POOP && !bFailP ) //READ THE HEADER LINES
     //LOGrAW( "http request:\r\n" DASH127 "\r\n" ) ;
     TN( tKeyConnection    , "connection"     ) ;
     TN( tKeyUserAgent     , "user-agent"     ) ;
