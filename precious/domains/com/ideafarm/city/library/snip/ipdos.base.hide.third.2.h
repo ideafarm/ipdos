@@ -38799,7 +38799,6 @@ the only function of this object is to edit tinS::grabPseudo so that the monitor
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.refCounterC : 1snip.15000116.crefc END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.refC : 1snip.15000118.refc BEGIN
 
-
 //
 // Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
@@ -38814,42 +38813,42 @@ the only function of this object is to edit tinS::grabPseudo so that the monitor
 {
     protected :
 
-    refCounterC* pzbr ;
+    refCounterC* pzRefCounter ;
 
     NEWdELcLASSpROTOS
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34001.refC.NEWdELcLASSb!||
 
-    inline refC( refCounterC& brP ) :
-    pzbr( &brP )
+    inline refC( refCounterC& refCounterP ) :
+    pzRefCounter( &refCounterP )
     {
-        ++ *pzbr ;
+        ++ *pzRefCounter ;
     }
 
     inline refC( const refC& refP ) :
-    pzbr( refP.pzbr )
+    pzRefCounter( refP.pzRefCounter )
     {
-        ++ *pzbr ;
+        ++ *pzRefCounter ;
     }
 
     inline countT decF( voidT ) const
     {
-        return pzbr->decF() ;
+        return pzRefCounter->decF() ;
     }
 
     public :
 
-    inline voidT operator =( refCounterC& brP )
+    inline voidT operator =( refCounterC& refCounterP )
     {
-        -- *pzbr ;
-        pzbr = &brP ;
-        ++ *pzbr ;
+        -- *pzRefCounter ;
+        pzRefCounter = &refCounterP ;
+        ++ *pzRefCounter ;
     }
 
     inline voidT operator =( const refC& refP )
     {
-        -- *pzbr ;
-        pzbr = refP.pzbr ;
-        ++ *pzbr ;
+        -- *pzRefCounter ;
+        pzRefCounter = refP.pzRefCounter ;
+        ++ *pzRefCounter ;
     }
 }
 ;
