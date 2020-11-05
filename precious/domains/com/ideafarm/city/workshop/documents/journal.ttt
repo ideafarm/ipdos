@@ -9973,28 +9973,6 @@ I have other business to attend to today and tomorrow, but plan to continue to w
 
 
 
-   edit to eliminate baseRefC
-   rename
-  next                                                  choice(this column)
-    refC     ->    referenceC           refererC        refC
-    cRefC    ->    referenceCounterC    refereeC        refCounterC
-   rename
-  think
-   a refC instance is a pointer to a reference counter that ensures that the counter contains the number of pointers to it
-   a cRefC instance is simply a countT object that is protected from nonatomic access and access not needed for a reference counter
-   baseRefC can be ignored since it provides no semantics
-  think
-   refC    : this contains a pointer to a baseRefC instance ; ct'or and copy ct'or but no dt'or (provides decF() in lieu of dt'or) ; this is BUTT UGLY
-   baseRefC: this contains a cRefC instance and is a useless wrapper that provides no additional functionality
-   cRefC   : this is an initialized and protected countT value that only allows atomic incrementing / decrementing; also provides waitF( tinP )
-  see
-   alt: use names that indicate the distinctions
-   alt: use digits 1 2 3 in otherwise similar names
-   these classes are involved in the getReplyF bug
-  think
- playcraft
- objective: glass walls (code readability)
-!job C: rename cRefC refC baseRefC
 
 
 
@@ -10086,6 +10064,28 @@ I have other business to attend to today and tomorrow, but plan to continue to w
 =========================================================================================================================================================
 
 
+   edit to eliminate baseRefC
+   rename
+  next                                                  choice(this column)
+    refC     ->    referenceC           refererC        refC
+    cRefC    ->    referenceCounterC    refereeC        refCounterC
+   rename
+  think
+   a refC instance is a pointer to a reference counter that ensures that the counter contains the number of pointers to it
+   a cRefC instance is simply a countT object that is protected from nonatomic access and access not needed for a reference counter
+   baseRefC can be ignored since it provides no semantics
+  think
+   refC    : this contains a pointer to a baseRefC instance ; ct'or and copy ct'or but no dt'or (provides decF() in lieu of dt'or) ; this is BUTT UGLY
+   baseRefC: this contains a cRefC instance and is a useless wrapper that provides no additional functionality
+   cRefC   : this is an initialized and protected countT value that only allows atomic incrementing / decrementing; also provides waitF( tinP )
+  see
+   alt: use names that indicate the distinctions
+   alt: use digits 1 2 3 in otherwise similar names
+   these classes are involved in the getReplyF bug
+  think
+ playcraft
+ objective: glass walls (code readability)
+!job C: rename cRefC refC baseRefC
    this might be the cause of the write to 0 exception
    cool ; found wo
   think

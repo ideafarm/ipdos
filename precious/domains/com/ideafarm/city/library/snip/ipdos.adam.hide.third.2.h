@@ -39316,7 +39316,6 @@ base class to make a derived class of objects easily contained by a stackC objec
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.httpReplyS : 1snip.150000bd.httpreplys END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.httpReplySrefC : 1snip.15000119.httpreplysrefc BEGIN
 
-
 //
 // Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
@@ -39339,7 +39338,7 @@ base class to make a derived class of objects easily contained by a stackC objec
     {
         if( 1 == decF() )
         {
-            httpReplyS* phr = (httpReplyS*)pzbr ;
+            httpReplyS* phr = (httpReplyS*)pzRefCounter ;
             TINSL
             DEL( phr ) ;
         }
@@ -39359,7 +39358,7 @@ base class to make a derived class of objects easily contained by a stackC objec
 
     inline operator httpReplyS&( voidT )
     {
-        return *(httpReplyS*)pzbr ;
+        return *(httpReplyS*)pzRefCounter ;
     }
 }
 ;
@@ -42346,7 +42345,6 @@ parameters
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.bucketDetailC : 1snip.1500010d.bucketdetailc END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.pbRefC : 1snip.1500011a.pbrefc BEGIN
 
-
 //
 // Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
@@ -42369,7 +42367,7 @@ parameters
     {
         if( 1 == decF() )
         {
-            byteT* pbr = (byteT*)pzbr ;
+            byteT* pbr = (byteT*)pzRefCounter ;
             TINSL
             PUSE( tinP , pbr ) ;
         }
@@ -42389,7 +42387,7 @@ parameters
 
     inline operator byteT*( voidT ) const
     {
-        return (byteT*)( pzbr + 1 ) ;
+        return (byteT*)( pzRefCounter + 1 ) ;
     }
 }
 ;
