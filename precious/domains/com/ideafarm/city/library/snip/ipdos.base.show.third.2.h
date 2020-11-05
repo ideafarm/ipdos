@@ -38742,7 +38742,7 @@ the only function of this object is to edit tinS::grabPseudo so that the monitor
 //
 
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.threadC : 1snip.150000b6.threadc END
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.cRefC : 1snip.15000116.crefc BEGIN
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.refCounterC : 1snip.15000116.crefc BEGIN
 
 
 //
@@ -38755,13 +38755,13 @@ the only function of this object is to edit tinS::grabPseudo so that the monitor
 /*
 */
 
-/*1*/class _export cRefC/*1*/
+/*1*/class _export refCounterC/*1*/
 {
     countT cRef ;
 
     public :
 
-    inline cRefC( voidT ) :
+    inline refCounterC( voidT ) :
     cRef( 0 )
     {
     }
@@ -38784,6 +38784,7 @@ the only function of this object is to edit tinS::grabPseudo so that the monitor
             }
         }
     }
+    friend class httpReplyS ;
 }
 ;
 
@@ -38795,45 +38796,7 @@ the only function of this object is to edit tinS::grabPseudo so that the monitor
 // Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
 
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.cRefC : 1snip.15000116.crefc END
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.baseRefC : 1snip.15000117.baserefc BEGIN
-
-
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-// Respecting the rights of other people is an important part of empowering one another.
-//
-
-/*
-*/
-
-/*1*/class _export baseRefC/*1*/
-{
-    protected :
-
-    cRefC  cRef ;
-
-    public :
-
-    inline voidT operator ++( voidT ) { ++ cRef ; }
-    inline voidT operator --( voidT ) { -- cRef ; }
-
-    inline countT incF( voidT ) { return cRef.incF() ; }
-    inline countT decF( voidT ) { return cRef.decF() ; }
-}
-;
-
-
-//
-// Respecting the rights of other people is an important part of empowering one another.
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.baseRefC : 1snip.15000117.baserefc END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.refCounterC : 1snip.15000116.crefc END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.refC : 1snip.15000118.refc BEGIN
 
 
@@ -38851,12 +38814,12 @@ the only function of this object is to edit tinS::grabPseudo so that the monitor
 {
     protected :
 
-    baseRefC* pzbr ;
+    refCounterC* pzbr ;
 
     NEWdELcLASSpROTOS
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34001.refC.NEWdELcLASSb!||
 
-    inline refC( baseRefC& brP ) :
+    inline refC( refCounterC& brP ) :
     pzbr( &brP )
     {
         ++ *pzbr ;
@@ -38875,7 +38838,7 @@ the only function of this object is to edit tinS::grabPseudo so that the monitor
 
     public :
 
-    inline voidT operator =( baseRefC& brP )
+    inline voidT operator =( refCounterC& brP )
     {
         -- *pzbr ;
         pzbr = &brP ;
@@ -39308,7 +39271,7 @@ base class to make a derived class of objects easily contained by a stackC objec
 /*
 */
 /**/
-/*1*/struct httpReplyS : public baseRefC/*1*/
+/*1*/struct httpReplyS : public refCounterC/*1*/
 {
     private :
     httpReplySrefC**        ppRefOverride ;
@@ -42413,8 +42376,8 @@ parameters
         }
     }
 
-    inline pbRefC( byteT* const pbP ) : // pbP MUST POINT TO A VALID baseRefC IMAGE
-    refC( *(baseRefC*)pbP )
+    inline pbRefC( byteT* const pbP ) : // pbP MUST POINT TO A VALID refCounterC IMAGE
+    refC( *(refCounterC*)pbP )
     {
     }
 

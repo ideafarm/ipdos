@@ -327,8 +327,7 @@ class   /*ff*/jotC/*ff*/                        ; /*ff*//**//*ff*/
 struct  /*ff*/monitorS/*ff*/                    ; /*ff*//**//*ff*/
 struct  /*ff*/fireGroupS/*ff*/                  ; /*ff*//**//*ff*/
 struct  /*ff*/doC/*ff*/                         ; /*ff*//**//*ff*/
-class   /*ff*/cRefC/*ff*/                       ; /*ff*//**//*ff*/
-class   /*ff*/baseRefC/*ff*/                    ; /*ff*//**//*ff*/
+class   /*ff*/refCounterC/*ff*/                       ; /*ff*//**//*ff*/
 class   /*ff*/refC/*ff*/                        ; /*ff*//**//*ff*/
 class   /*ff*/httpReplySrefC/*ff*/              ; /*ff*//**//*ff*/
 class   /*ff*/pbRefC/*ff*/                      ; /*ff*//**//*ff*/
@@ -37538,7 +37537,7 @@ obsoleted by coding style standard: use osTextT strings for name elements so tha
 */
 /*1*//*REF(classP,refP)*//*1*/
 
-#define REF(classP,refP) ( *(classP*)&(baseRefC&)refP )
+#define REF(classP,refP) ( *(classP*)&(refCounterC&)refP )
 
 
 //
