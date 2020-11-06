@@ -38,7 +38,8 @@
     {
     if( pbP )
 
-    if( processGlobal0I.pbHeap < pbP && pbP < processGlobal0I.pbHeapEnd ) processGlobal3I.heap.delF( tinP , pbP ) ;
+    if( processGlobal0I.pbHeap <= pbP && pbP < processGlobal0I.pbHeapEnd ) processGlobal3I.heap.delF( tinP , pbP ) ;
+    //20201106@1436: WITHOUT ANALYSIS, CHANGED "< pbP" to "<= pbP"
 
     if( F(guts.flagsCt) & flPOOLc_READoNLY ) { BLAMMO ; }
 

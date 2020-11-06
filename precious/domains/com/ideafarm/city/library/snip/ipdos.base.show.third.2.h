@@ -1,3 +1,34 @@
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004e4.flbook0c BEGIN
+
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+/*
+*/
+/**/
+/*1*//*flBOOK0c*//*1*/
+
+/*3*/
+#define flBOOK0c_DOnOTiNITIALIZEdATA                          0xe00001ef
+#define flBOOK0c_RESETcREFoNcT                                0xe00002ef
+#define flBOOK0c_PRIORbOOKnOTcONTINUEDhERE                    0xe00004ef
+/*3*/
+#define flBOOK0c_null    0xe00000ef
+
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004e4.flbook0c END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004e5.jpointer BEGIN
 
 
@@ -38742,7 +38773,7 @@ the only function of this object is to edit tinS::grabPseudo so that the monitor
 //
 
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.threadC : 1snip.150000b6.threadc END
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.refCounterC : 1snip.15000116.crefc BEGIN
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.refCounterC : 1snip.15000116.refCounterC BEGIN
 
 
 //
@@ -38784,6 +38815,7 @@ the only function of this object is to edit tinS::grabPseudo so that the monitor
             }
         }
     }
+
     friend class httpReplyS ;
 }
 ;
@@ -38796,8 +38828,9 @@ the only function of this object is to edit tinS::grabPseudo so that the monitor
 // Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
 
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.refCounterC : 1snip.15000116.crefc END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.refCounterC : 1snip.15000116.refCounterC END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.refC : 1snip.15000118.refc BEGIN
+
 
 //
 // Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
@@ -39315,6 +39348,7 @@ base class to make a derived class of objects easily contained by a stackC objec
 
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.httpReplyS : 1snip.150000bd.httpreplys END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.httpReplySrefC : 1snip.15000119.httpreplysrefc BEGIN
+
 
 //
 // Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
@@ -42345,6 +42379,7 @@ parameters
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.bucketDetailC : 1snip.1500010d.bucketdetailc END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.pbRefC : 1snip.1500011a.pbrefc BEGIN
 
+
 //
 // Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
@@ -44078,7 +44113,8 @@ VARIABLEcLASSdEF( countC , countT )
 //
 
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.directionS : 1snip.15000156.directions END
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.inOutFrameC : 1snip.15000159.inoutframec BEGIN
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.tellInfoAppInOutFrameS : 1snip.15000188.tellinfoappinoutframes BEGIN
+
 
 //
 // Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
@@ -44108,6 +44144,8 @@ VARIABLEcLASSdEF( countC , countT )
 // Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
 
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.tellInfoAppInOutFrameS : 1snip.15000188.tellinfoappinoutframes END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.inOutFrameC : 1snip.15000159.inoutframec BEGIN
 
 
 //
