@@ -8,8 +8,12 @@
 
 
 }
-    psg->grabot.grabF( tinP , idLineP , idiFileP , pbBitsP ) ;
-    backGrabUniverseC* psg = (backGrabUniverseC*)handle.cNoteF() ;
+    THREADmODE4rESTORE
+    }
+        psg->grabot.grabF( tinP , idLineP , idiFileP , pbBitsP ) ;
+        backGrabUniverseC* psg = (backGrabUniverseC*)handle.cNoteF() ;
+    {
+    THREADmODE4oN( flTHREADmODE4_QUIETiNoUTfRAMEc )
 
     if( tinP.idDesire != ifcTHREADpRIORITY_SPINLOCK ) { BLAMMO ; }
 {

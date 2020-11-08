@@ -8,18 +8,22 @@
 
 
 }
-    if( pNew ) hP.osF( ifcIDtYPEhANDLE_LINKED , (countT)pNew ) ;
-    hP.closeIfF() ;
-    if( pNew ) pNew->grabF( tinP , TAG( TAGiDnULL ) ) ;
+    THREADmODE4rESTORE
+    }
+        if( pNew ) hP.osF( ifcIDtYPEhANDLE_LINKED , (countT)pNew ) ;
+        hP.closeIfF() ;
+        if( pNew ) pNew->grabF( tinP , TAG( TAGiDnULL ) ) ;
 
-    if(  pNew && getNegAM( pNew->finger ) != FINGERnEG_LINKEDc ) { BLAMMO ; }
-    linkedC* pNew = pOld->pKid ;
+        if(  pNew && getNegAM( pNew->finger ) != FINGERnEG_LINKEDc ) { BLAMMO ; }
+        linkedC* pNew = pOld->pKid ;
 
-    if(  pOld && getNegAM( pOld->finger ) != FINGERnEG_LINKEDc ) { BLAMMO ; }
-    if( !pOld                                                  ) { BLAMMO ; }
-    linkedC* pOld = (linkedC*)hP.osF( ifcIDtYPEhANDLE_LINKED ) ;
+        if(  pOld && getNegAM( pOld->finger ) != FINGERnEG_LINKEDc ) { BLAMMO ; }
+        if( !pOld                                                  ) { BLAMMO ; }
+        linkedC* pOld = (linkedC*)hP.osF( ifcIDtYPEhANDLE_LINKED ) ;
 
-    _IO_
+        _IO_
+    {
+    THREADmODE4oN( flTHREADmODE4_QUIETiNoUTfRAMEc )
 {
 /*1*/voidT linkedC::nextIF( tinS& tinP , handleC& hP )/*1*/
 
