@@ -9389,18 +9389,20 @@ I have other business to attend to today and tomorrow, but plan to continue to w
 
 
 
-   next: do this
-   appr: console trace
-   pending: run this overnight
-   when console trace is enabled, system runs but ADAM hangs trying to get masterOldC constructed
+
+
+
+
+
+
+  !subjob C: command line option to suppress all app telemetry
+   but a better way would be to be able to use a command line option to suppress all app telemetry
+   the simplest way to to this is to have the adam read its own app telemetry
+   this is quick and dirty to assist in speed optimization of app telemetry
   think
-   this is at will at command line so console tracing is indicated
-   when not running in wdw, process explorer reports suspended with only wo thread
-   cnr if disable app telemetry
-  see
  playcraft
- changed: enabled telemetry
-!job B: app telemetry: osMakeHoverFileF hangs at trace "O"
+ objective: glass walls to see which LF's account for the most app telemetry
+!job C: simple reporter for app telemetry generated in the application memory space
 
 
 
@@ -9411,6 +9413,68 @@ I have other business to attend to today and tomorrow, but plan to continue to w
 
 
 
+
+
+
+
+
+
+
+
+  look
+   choice: alt: just define a new modeprocess1 flag
+   alt: processGlobal1S::flagsModeProcess0    flMODEpROCESS0_
+  think
+   | 
+   | /*3*/
+   | #define flMODEpROCESS2_GRABoNLYwO                      /*fl*/
+   | #define flMODEpROCESS2_CHECKtINuTILITYeLEMENTS         /*fl*/
+   | #define flMODEpROCESS2_DOnOTdISPLAYtHIRDpARTYaDS       /*fl*/
+   | #define flMODEpROCESS2_DOnOThIREaDAMS                  /*fl*/
+   | #define flMODEpROCESS2_ENABLEsECURITYsHUTDOWN          /*fl*/
+   | #define flMODEpROCESS2_DEBUG                           /*fl*/
+   | #define flMODEpROCESS2_IDhOSTsEARCH                    /*fl*/
+   | #define flMODEpROCESS2_HIDEwITHiCON                    /*fl*/
+   | #define flMODEpROCESS2_NOsYSTEMtHREADS                 /*fl*/
+   | #define flMODEpROCESS2_NOsYNCHRONOUStELLS              /*fl*/
+   | #define flMODEpROCESS2_SUPPRESStELLS                   /*fl*/
+   | #define flMODEpROCESS2_FAILtELLS                       /*fl*/
+   | /*3*/
+   | 
+   | /*3*/
+   | #define flMODEpROCESS1_SIMULATEoFFLINE                 /*fl*/
+   | #define flMODEpROCESS1_SERVICE                         /*fl*/
+   | #define flMODEpROCESS1_DRIVER                          /*fl*/
+   | #define flMODEpROCESS1_JOT                             /*fl*/
+   | #define flMODEpROCESS1_LAUNCHmINIMIZED                 /*fl*/
+   | #define flMODEpROCESS1_IGNOREfIREbYoPERATOR            /*fl*/
+   | #define flMODEpROCESS1_QUITaTsHUTDOWN                  /*fl*/
+   | #define flMODEpROCESS1_QUITaTlOGOFF                    /*fl*/
+   | /*3*/
+   | 
+  listing
+   | 
+   |     sCountFromPostC         /*P3*/ /*CT:50*/ scfp_idAdam ;
+   |     cryC                                     cry306 ;
+   |     sCountFromPostC         /*P3*/ /*CT:50*/ scfp_idAdamRoot ;
+   |     sCountFromPostC         /*P3*/ /*CT:50*/ scfp_idAdamRootOld ;
+   |     cryC                                     cry305 ;
+   |     parameterC              /*P3*/ /*CT:40*/ pPostIdAdamRoot ; //MUST BE AFTER !idHome IS COMPLETELY OBEYED SO THAT THE FLAG BIT fliIDhOME_HOMELESS THAT I SET IS NOT OVERRIDDEN
+   |     cryC                                     cry304 ;
+   |     sCountFromPostC         /*P3*/ /*CT:30*/ scfp_idHome ;
+   |     cryC                                     cry303 ;
+   |     parameterC              /*P3*/ /*CT:20*/ pPostIdHome ;
+   |     cryC                                     cry302 ;
+   |     sCountFromPostC                          scfp_idNumaNode ;
+   |     parameterC                               pPostIdNumaNode ;
+   | 
+  listing (early members of processGlobal3S)
+   conj: i already have very early code that inspects the command line: yup
+   this, of course, must be done very very early
+  think
+ playcraft
+ objective: elegance
+!subjob C: command line option to suppress all app telemetry
 
 
 
@@ -9477,6 +9541,19 @@ I have other business to attend to today and tomorrow, but plan to continue to w
 =========================================================================================================================================================
 
 
+  cool ; found wo
+   do this
+   appr: console trace
+   pending: run this overnight
+   when console trace is enabled, system runs but ADAM hangs trying to get masterOldC constructed
+  think
+   this is at will at command line so console tracing is indicated
+   when not running in wdw, process explorer reports suspended with only wo thread
+   cnr if disable app telemetry
+  see
+ playcraft
+ changed: enabled telemetry
+!job B: app telemetry: osMakeHoverFileF hangs at trace "O"
      that doesn't even sound like correct code
     for example, why do i need to register the pool before finishing the formatting?
    study: what am i doing while formatting the napkins, and why do i need to do it?

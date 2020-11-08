@@ -8752,6 +8752,7 @@ it is illegal to refer to this symbol in the definition of an adam
 #define flMODEpROCESS1_DRIVER                          0xe0002018
 #define flMODEpROCESS1_SERVICE                         0xe0004018
 #define flMODEpROCESS1_SIMULATEoFFLINE                 0xe0008018
+#define flMODEpROCESS1_QUIETiNoUTfRAMEc                0xe0010018
 /*3*/
 #define flMODEpROCESS1_null    0xe0000018
 

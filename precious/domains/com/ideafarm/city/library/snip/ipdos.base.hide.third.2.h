@@ -37904,6 +37904,8 @@ the only function of this object is to edit tinS::grabPseudo so that the monitor
 
     parameterC( osTextT* postToP , countT costaToP , const osTextT* postKeyP = 0 ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34001.parameterC.parameterC!||
+    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34004.parameterC.parameterC!||
+    parameterC( const osTextT* postKeyP ) ;
 }
 ;
 
@@ -40264,6 +40266,7 @@ base class to make a derived class of objects easily contained by a stackC objec
 
     cryC                                     cry301 ;
     const timeS                              timeBaseBuilt ;
+    parameterC                               pQuietInOut ;
     parameterC                               pPostIdNumaNode ;
     sCountFromPostC                          scfp_idNumaNode ;
     cryC                                     cry302 ;
