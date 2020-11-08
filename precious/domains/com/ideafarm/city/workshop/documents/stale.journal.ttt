@@ -9349,6 +9349,47 @@ I have other business to attend to today and tomorrow, but plan to continue to w
 
 
 
+   annotate the list to indicate who uses each layer
+  look
+   bksTelemetry* do not use poolC
+   conj: booksC needs poolC only if it is going to use poolC
+   what does booksC need higher than itself?
+  think
+   | 
+   | /*3*/
+   | #define ifcIDgRABlAYER_1SKIN                        0xdddd0b44
+   | #define ifcIDgRABlAYER_2OUTER                       0xdddd0b45
+   | #define ifcIDgRABlAYER_3MIDDLE                      0xdddd0b46
+   | #define ifcIDgRABlAYER_4INNER                       0xdddd0b47
+   | #define ifcIDgRABlAYER_5BONE                        0xdddd0b48
+   | #define ifcIDgRABlAYER_6BONE                        0xdddd0b49
+   | #define ifcIDgRABlAYER_7BASEmISC1                   0xdddd0b4a
+   | #define ifcIDgRABlAYER_7BASEmISC2                   0xdddd0b4b
+   | #define ifcIDgRABlAYER_7BASEmISC3                   0xdddd0b4c
+   | #define ifcIDgRABlAYER_7BASEmISC4                   0xdddd0b4d
+   | #define ifcIDgRABlAYER_8POOL1cT                     0xdddd0b4e
+   | #define ifcIDgRABlAYER_8POOL2cT                     0xdddd0b4f
+   | #define ifcIDgRABlAYER_8POOL3dT                     0xdddd0b50
+   | #define ifcIDgRABlAYER_8POOL4dT                     0xdddd0b51
+   | #define ifcIDgRABlAYER_8POOL5nEW                    0xdddd0b52
+   | #define ifcIDgRABlAYER_9BOOKSc                      0xdddd0b53     booksC::grabBookNow
+   | #define ifcIDgRABlAYER_aGRABuNIVERSEc               0xdddd0b54     processGlobal4S::bUniverse    processGlobal3S::grabUniverse    napkinC::pbUniverseOverride
+   | #define ifcIDgRABlAYER_bPOOLlAYER1                  0xdddd0b55     poolC::poolC: grabitC while registering pool name (conj: not needed)
+   | #define ifcIDgRABlAYER_bPOOLlAYER2                  0xdddd0b56     poolC::poolC: grabitC while registering pool name (these oo can be combined to a single layer)
+   | #define ifcIDgRABlAYER_bPOOLlAYER3                  0xdddd0b57     poolC::poolC: grabitC while registering pool name
+   | #define ifcIDgRABlAYER_cBASEmISC1                   0xdddd0b58     not used
+   | #define ifcIDgRABlAYER_cBASEmISC2                   0xdddd0b59     not used
+   | #define ifcIDgRABlAYER_cBASEmISC3                   0xdddd0b5a     not used
+   | #define ifcIDgRABlAYER_cBASEmISC4                   0xdddd0b5b     adamGlobal1::_thirdC_.pSwFileOpen
+   | #define ifcIDgRABlAYER_dLINKEDc                     0xdddd0b5c     processGlobal3S::_handleC_linked_sm
+   | #define ifcIDgRABlAYER_eHEAP                        0xdddd0b5d     heapC::grabMe
+   | #define ifcIDgRABlAYER_fLEAF                        0xdddd0b5e     processGlobal3S::_thirdC_grab_flagsProcessState_
+   | /*3*/
+   | 
+  listing
+ playcraft
+ objective: glass walls
+!job C: reorder grab layers so that telemetry can be emitted practicallyeverywhere
 
 
 
@@ -9357,51 +9398,99 @@ I have other business to attend to today and tomorrow, but plan to continue to w
 
 
    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-     that doesn't even sound like correct code
-    for example, why do i need to register the pool before finishing the formatting?
-   study: what am i doing while formatting the napkins, and why do i need to do it?
-   i now need to do this so that i can move grabUniverse to near the top of the grab layers so that books can be used everywhere
-   i need to do this anyway because it is bad code style to hold grabUniverse while doing lots of work including grabbing other things
+  set up dut adam
+    con: not elegant
+    pro: easier
+   alt: use flTHREADmODE3_POOLaLLOCATEfROMhEAP
   think
+   develop the dut adam incrementally so that at the end it is a comprehensive test for booksC
+   do this incrementally, beginning with creating a good dut adam
+   divide and conquer
+   it seems overwhelming, partly because i am still sick
+  think
+   detect and eliminate all remaining use of poolC
+   eliminate all use of textC
+   use heap to eliminate the kludged heap in writeF
+   use heap for pcpIdBookMin pcpIdBookMax
+   use heap for all allocations in ct'or
+  tentative plan
+   this will take a strong or oo
+   i will need a dut and an plan to incrementally eliminate the use of poolC
+   this will be a significant project
+  think
+    del postNameShort postBookNameScratch pbBookBack pbFlagsiBookBackCt pcpIdBookScratch1 pcpIdBookScratchMin pcpIdBookScratchMax ppcpIdBook
+   ~booksC
+    new psttFindLike
+    textC
+    new each element of ppcpIdBook
+    new postNameShort postBookNameScratch pbBookBack pbFlagsiBookBackCt pcpIdBookScratch1 pcpIdBookScratchMin pcpIdBookScratchMax ppcpIdBook
+   booksC
+    kludges its own heap to avoid using poolC
+   writeF
+    new bookC
+    textC
+   readF
+    new bookC
+    new pcpIdLook
+    textC staqC
+   cbEachBookF
+     conj: the pool flavor can produce arbitrary length, while the other flavor is limited to length wo
+    study this code, which has oo flavors
+    new pcpIdBookThis pcpIdBookMaxP pcpIdBookMinP
+   idBookMinMaxF
+    delete pcpIdBookMin pcpIdBookMax
+   setPcpIdBookWantF setF
+  list the ways that poolC is used
+  snap precious
+   verify that pSwFileOpen is not used
+   eliminate any limits to pool identifier string of counts
+   eliminate zombie bytes
+   eliminate multiple execution paths (always use heap for everything
+   eliminate the use of poolC
+  wish
  playcraft
- objective: be able to move grabUniverse grab layer up to near top
-!job C: poolC::poolC: edit to avoid grabbing anything before calling formattingIsDoneF
+ objective: raise grab layer for booksC::grabBookNow so that telemetry can be emitted practically everywhere
+!job C: booksC: eliminate the use of poolC by using processGlobal3S::heap
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -9475,116 +9564,6 @@ I have other business to attend to today and tomorrow, but plan to continue to w
 =========================================================================================================================================================
 =========================================================================================================================================================
 
-
-   i need to study poolC ct'or, which should not be doing a lot of work including grabbing stuff before it calls formattingIsDoneF
-   yeah; this code won't work
-   it will fail when a new bookC must be ct'd
-   this isn't going to work
-  think
- playcraft
- changed: reordered without adequate study
-!job C: grabuniverse must be higher than books
-  cool ; it works!
-   annotate the list to indicate who uses each layer
-  look
-   bksTelemetry* do not use poolC
-   conj: booksC needs poolC only if it is going to use poolC
-   what does booksC need higher than itself?
-  think
-   | 
-   | /*3*/
-   | #define ifcIDgRABlAYER_1SKIN                        0xdddd0b44
-   | #define ifcIDgRABlAYER_2OUTER                       0xdddd0b45
-   | #define ifcIDgRABlAYER_3MIDDLE                      0xdddd0b46
-   | #define ifcIDgRABlAYER_4INNER                       0xdddd0b47
-   | #define ifcIDgRABlAYER_5BONE                        0xdddd0b48
-   | #define ifcIDgRABlAYER_6BONE                        0xdddd0b49
-   | #define ifcIDgRABlAYER_7BASEmISC1                   0xdddd0b4a
-   | #define ifcIDgRABlAYER_7BASEmISC2                   0xdddd0b4b
-   | #define ifcIDgRABlAYER_7BASEmISC3                   0xdddd0b4c
-   | #define ifcIDgRABlAYER_7BASEmISC4                   0xdddd0b4d
-   | #define ifcIDgRABlAYER_8POOL1cT                     0xdddd0b4e
-   | #define ifcIDgRABlAYER_8POOL2cT                     0xdddd0b4f
-   | #define ifcIDgRABlAYER_8POOL3dT                     0xdddd0b50
-   | #define ifcIDgRABlAYER_8POOL4dT                     0xdddd0b51
-   | #define ifcIDgRABlAYER_8POOL5nEW                    0xdddd0b52
-   | #define ifcIDgRABlAYER_9BOOKSc                      0xdddd0b53     booksC::grabBookNow
-   | #define ifcIDgRABlAYER_aGRABuNIVERSEc               0xdddd0b54     processGlobal4S::bUniverse    processGlobal3S::grabUniverse    napkinC::pbUniverseOverride
-   | #define ifcIDgRABlAYER_bPOOLlAYER1                  0xdddd0b55     poolC::poolC: grabitC while registering pool name (conj: not needed)
-   | #define ifcIDgRABlAYER_bPOOLlAYER2                  0xdddd0b56     poolC::poolC: grabitC while registering pool name (these oo can be combined to a single layer)
-   | #define ifcIDgRABlAYER_bPOOLlAYER3                  0xdddd0b57     poolC::poolC: grabitC while registering pool name
-   | #define ifcIDgRABlAYER_cBASEmISC1                   0xdddd0b58     not used
-   | #define ifcIDgRABlAYER_cBASEmISC2                   0xdddd0b59     not used
-   | #define ifcIDgRABlAYER_cBASEmISC3                   0xdddd0b5a     not used
-   | #define ifcIDgRABlAYER_cBASEmISC4                   0xdddd0b5b     adamGlobal1::_thirdC_.pSwFileOpen
-   | #define ifcIDgRABlAYER_dLINKEDc                     0xdddd0b5c     processGlobal3S::_handleC_linked_sm
-   | #define ifcIDgRABlAYER_eHEAP                        0xdddd0b5d     heapC::grabMe
-   | #define ifcIDgRABlAYER_fLEAF                        0xdddd0b5e     processGlobal3S::_thirdC_grab_flagsProcessState_
-   | /*3*/
-   | 
-  listing
- playcraft
- objective: glass walls
-!job C: reorder grab layers so that telemetry can be emitted practicallyeverywhere
-  cool ; it works!
-   decision: let's just try it!
-   the immediate goal is to move books to a high grab layer so that app telemetry can be emitted everywhere
-   i can always resume this job if it doesn't work
-   just using flTHREADmODE3_POOLaLLOCATEfROMhEAP would cut the Gordian Knot on this job
-  think
-  set up dut adam
-    con: not elegant
-    pro: easier
-   alt: use flTHREADmODE3_POOLaLLOCATEfROMhEAP
-  think
-   develop the dut adam incrementally so that at the end it is a comprehensive test for booksC
-   do this incrementally, beginning with creating a good dut adam
-   divide and conquer
-   it seems overwhelming, partly because i am still sick
-  think
-   detect and eliminate all remaining use of poolC
-   eliminate all use of textC
-   use heap to eliminate the kludged heap in writeF
-   use heap for pcpIdBookMin pcpIdBookMax
-   use heap for all allocations in ct'or
-  tentative plan
-   this will take a strong or oo
-   i will need a dut and an plan to incrementally eliminate the use of poolC
-   this will be a significant project
-  think
-    del postNameShort postBookNameScratch pbBookBack pbFlagsiBookBackCt pcpIdBookScratch1 pcpIdBookScratchMin pcpIdBookScratchMax ppcpIdBook
-   ~booksC
-    new psttFindLike
-    textC
-    new each element of ppcpIdBook
-    new postNameShort postBookNameScratch pbBookBack pbFlagsiBookBackCt pcpIdBookScratch1 pcpIdBookScratchMin pcpIdBookScratchMax ppcpIdBook
-   booksC
-    kludges its own heap to avoid using poolC
-   writeF
-    new bookC
-    textC
-   readF
-    new bookC
-    new pcpIdLook
-    textC staqC
-   cbEachBookF
-     conj: the pool flavor can produce arbitrary length, while the other flavor is limited to length wo
-    study this code, which has oo flavors
-    new pcpIdBookThis pcpIdBookMaxP pcpIdBookMinP
-   idBookMinMaxF
-    delete pcpIdBookMin pcpIdBookMax
-   setPcpIdBookWantF setF
-  list the ways that poolC is used
-  snap precious
-   verify that pSwFileOpen is not used
-   eliminate any limits to pool identifier string of counts
-   eliminate zombie bytes
-   eliminate multiple execution paths (always use heap for everything
-   eliminate the use of poolC
-  wish
- playcraft
- objective: raise grab layer for booksC::grabBookNow so that telemetry can be emitted practically everywhere
-!job C: booksC: eliminate the use of poolC by using processGlobal3S::heap
    i will squeeze until i find this bitch!
    decision: do that
    i can define a macro that blammos if the specified pointer is registered as untagged

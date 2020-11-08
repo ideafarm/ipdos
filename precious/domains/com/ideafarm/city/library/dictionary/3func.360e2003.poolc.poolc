@@ -280,24 +280,11 @@
         //CONoUTrAW( guts.postName ) ;
         //CONoUTrAW( " poolC/+:  " ) ;
     
-        napGuts.formattingIsDoneF( tinP ) ; //MUST BE DONE AFTER napFace IS FULLY CT SO THAT tinP.idDesire IS UNWOUND CORRECTLY
-        new( 0 , tinP , &napGuts ) guts_poolC_S( tinP , idLineCtP , idiFileCtP , pbBitsCtP , postNameP , flagsP , idStateSpaceP , expCbSlotMinP , expCbSlotMaxP , idMemorySpaceP ) ;
-    
         puseC puse( tinP , ifcIDpOOL_NONE ) ;
     {
 
     // ---------------------------------------------------------------------------------------------------------------------------------------------------------------
     // EARLY CONSTRUCT ALL slotsC INSTANCES THAT I WANT
-    // ---------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-    }
-        ((face_poolC_S*)(byteT*)napFace)->cRef = 1 ;
-        CONoUTrAW3( " resetting poolC cRef to 1 from " , ((face_poolC_S*)(byteT*)napFace)->cRef , "\r\n" ) ;
-    {
-    if( F(flagsP) & flPOOLc_RESETcrEF && ((face_poolC_S*)(byteT*)napFace)->cRef != 1 ) //A:ASSUME: I AM NOT RACING WITH ANOTHER PROCESS TO ctFaceF()
-
-    // ---------------------------------------------------------------------------------------------------------------------------------------------------------------
-    // MAYBE RESET cRef
     // ---------------------------------------------------------------------------------------------------------------------------------------------------------------
 
     }
@@ -368,6 +355,23 @@
 
     // ---------------------------------------------------------------------------------------------------------------------------------------------------------------
     // CREATE AND FORMAT REGISTRATION RECORD OR WAIT UNTIL ANOTHER poolC INSTANCE HAS DONE SO
+    // ---------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+    napGuts.formattingIsDoneF( tinP ) ; //MUST BE DONE AFTER napFace IS FULLY CT SO THAT tinP.idDesire IS UNWOUND CORRECTLY
+    new( 0 , tinP , &napGuts ) guts_poolC_S( tinP , idLineCtP , idiFileCtP , pbBitsCtP , postNameP , flagsP , idStateSpaceP , expCbSlotMinP , expCbSlotMaxP , idMemorySpaceP ) ;
+    
+    // ---------------------------------------------------------------------------------------------------------------------------------------------------------------
+    // FORMAT napGuts
+    // ---------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+    }
+        ((face_poolC_S*)(byteT*)napFace)->cRef = 1 ;
+        CONoUTrAW3( " resetting poolC cRef to 1 from " , ((face_poolC_S*)(byteT*)napFace)->cRef , "\r\n" ) ;
+    {
+    if( F(flagsP) & flPOOLc_RESETcrEF && ((face_poolC_S*)(byteT*)napFace)->cRef != 1 ) //A:ASSUME: I AM NOT RACING WITH ANOTHER PROCESS TO ctFaceF()
+
+    // ---------------------------------------------------------------------------------------------------------------------------------------------------------------
+    // MAYBE RESET cRef
     // ---------------------------------------------------------------------------------------------------------------------------------------------------------------
 
     //20170830@2027: ctFaceF WAS CALLED HERE.  MOVED TO EARLIER TO AVOID RECURSIVELY GRABBING GRABuNIVERSE
