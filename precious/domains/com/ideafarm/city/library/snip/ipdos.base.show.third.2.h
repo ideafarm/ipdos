@@ -26445,6 +26445,7 @@ it is illegal to refer to this symbol in the definition of an adam
 
  const countT         osTidCt ;
  const countT         idDesireCtSave ;
+ flagsT               flThreadMode4Save ;
  flagsT               flagsState ;
  const handleC* const phFile ;
  osTextT              postName[ COSTnAPKINnAMEmAX + 1 ] ;

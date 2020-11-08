@@ -356,7 +356,7 @@
             {
             else
             }
-                THREADmODE4oFF0( flTHREADmODE4_QUIETiNoUTfRAMEc )
+                THREADmODE4rESTORE0( flThreadMode4Save )
                 pzbUniverseUse->ungrabF( tinP ) ;
             {
             if( !( F(flagsCt) & flNAPKINc_DOnOTsERIALIZEcT ) )
@@ -377,7 +377,7 @@
                 THREADmODE3oFF( flTHREADmODE3_SUPPRESStRACING )
 
                 }
-                    THREADmODE4oFF0( flTHREADmODE4_QUIETiNoUTfRAMEc )
+                    THREADmODE4rESTORE0( flThreadMode4Save )
                     pzbUniverseUse->ungrabF( tinP ) ;           //U::BUG: napGuts IS FULLY CT WITHOUT EVER UNGRABBING THIS
                 {
                 if( !( F(flagsCt) & flNAPKINc_DOnOTsERIALIZEcT ) )          //20201030@1142: BUG?: CONJ: SHOULD NOT BE UNGRABBING HERE (MUST REMAIN GRABBED UNTIL formattingIsDoneF IS CALLED)
@@ -402,7 +402,7 @@
 
         THREADmODE3oFF( flTHREADmODE3_SUPPRESStRACING )
         }
-            THREADmODE4oFF0( flTHREADmODE4_QUIETiNoUTfRAMEc )
+            THREADmODE4rESTORE0( flThreadMode4Save )
             pzbUniverseUse->ungrabF( tinP ) ;
         {
         if( !( F(flagsCt) & flNAPKINc_DOnOTsERIALIZEcT ) )
@@ -450,7 +450,7 @@
                         THREADmODE3oFF( flTHREADmODE3_SUPPRESStRACING )
 
                         }
-                            THREADmODE4oFF0( flTHREADmODE4_QUIETiNoUTfRAMEc )
+                            THREADmODE4rESTORE0( flThreadMode4Save )
                             pzbUniverseUse->ungrabF( tinP ) ;
                         {
                         if( !( F(flagsCt) & flNAPKINc_DOnOTsERIALIZEcT ) )
@@ -497,6 +497,7 @@
                     }
                         pzbUniverseUse->grabF( tinP , TAG( TAGiDnULL ) ) ;
                         THREADmODE4oN0( flTHREADmODE4_QUIETiNoUTfRAMEc )
+                        THREADmODE4sAVE0( flThreadMode4Save )
                     {
                     if( !( F(flagsCt) & flNAPKINc_DOnOTsERIALIZEcT ) )
                     THREADmODE3oN( flTHREADmODE3_SUPPRESStRACING )
@@ -674,6 +675,7 @@
 {
 phFile( phFileP )
 flagsState( F(flagsP) & flNAPKINc_DOnOTcOMMIT ? flNAPKINcsTATE_NOTyETcOMMITTED : flNAPKINcsTATE_null ) ,
+flThreadMode4Save( flTHREADmODE4_null ) ,
 idDesireCtSave( thirdC::dosPriorityIF( tinP ) ) ,
 osTidCt( tinP.osTid ) ,
 pzbUniverseUse( &processGlobal4I.bUniverse ) ,
