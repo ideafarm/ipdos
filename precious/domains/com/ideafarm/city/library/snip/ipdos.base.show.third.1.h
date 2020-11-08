@@ -1,42 +1,4 @@
 
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-// Respecting the rights of other people is an important part of empowering one another.
-//
-
-/*
-*/
-/**/
-/*1*//*BLAMMOiFnOTtAGGED(pbP)*//*1*/
-
-
-    #define BLAMMOiFnOTtAGGED(pbP)                                                                                                                                          \
-                                                                                                                                                                            \
-        {                                                                                                                                                                   \
-            byteT* _pbx = (byteT*)(pbP) ;                                                                                                                                   \
-            if( _pbx && (  (byteT*)_pbx < processGlobal0S::_processGlobal0I_IF().pbHeap || (byteT*)_pbx >= processGlobal0S::_processGlobal0I_IF().pbHeapEnd ) )             \
-            {                                                                                                                                                               \
-                for( countT offr = 0 ; offr < sizeof tinP.ppbNewUntagged / sizeof tinP.ppbNewUntagged[ 0 ] ; offr ++ )                                                      \
-                {                                                                                                                                                           \
-                    if( tinP.ppbNewUntagged[ offr ] == _pbx )                                                                                                               \
-                    {                                                                                                                                                       \
-                        BLAMMO ;                                                                                                                                            \
-                    }                                                                                                                                                       \
-                }                                                                                                                                                           \
-            }                                                                                                                                                               \
-        }
-
-
-//
-// Respecting the rights of other people is an important part of empowering one another.
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-
-
 // IPDOS (tm) <> IdeaFarm (tm) Piggyback Distributed Operating System
 
 // For build environment info, see file "\ideafarm.work\backed.up.never\txt\readme.first.ipdos.build.environment.txt"
@@ -45207,3 +45169,79 @@ arguments
 //
 
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004e3.fltrace END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004e4.flbook0c BEGIN
+
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+/*
+*/
+/**/
+/*1*//*flBOOK0c*//*1*/
+
+/*3*/
+#define flBOOK0c_DOnOTiNITIALIZEdATA                          0xe00001ef
+#define flBOOK0c_RESETcREFoNcT                                0xe00002ef
+#define flBOOK0c_PRIORbOOKnOTcONTINUEDhERE                    0xe00004ef
+/*3*/
+#define flBOOK0c_null    0xe00000ef
+
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004e4.flbook0c END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004e5.jpointer BEGIN
+
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+/*
+these are special values for any pointer
+
+*/
+/**/
+
+//A:ASSUME: THE HIGH ORDER BIT IS ALWAYS SET IN THESE VALUES SO THAT THEY CAN NEVER BE MISTAKEN FOR MEMORY ADDRESSES
+// MEMORY ADDRESSES WITH THE HIGH ORDER BIT SET ARE ASSUMED TO BE RESERVED FOR SYSTEM USE, AS THEY ARE FOR win32 ON i386 CPUS
+//ANY CODE THAT MIGHT RECEIVE A POINTER CONTAINING WO OF THESE VALUES MUST USE THE J MACRO TO OBTAIN THE MEMORY ADDRESS THAT IT IS TO USE
+//IOW, ANY CODE THAT MIGHT RECEIVE A JpOINTER MUST BE "JpOINTER AWARE"
+
+/*1*//*JpOINTER*//*1*/
+
+/*3*/
+#define JpOINTER_1                                                                                 0xddddf01d
+#define JpOINTER_2                                                                                 0xddddf01e
+#define JpOINTER_3                                                                                 0xddddf01f
+#define JpOINTER_4                                                                                 0xddddf020
+#define JpOINTER_5                                                                                 0xddddf021
+#define JpOINTER_6                                                                                 0xddddf022
+#define JpOINTER_7                                                                                 0xddddf023
+#define JpOINTER_8                                                                                 0xddddf024
+/*3*/
+#define JpOINTER_min     0xddddf01d
+#define JpOINTER_max     0xddddf024
+
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004e5.jpointer END
