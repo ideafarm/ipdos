@@ -5085,9 +5085,10 @@ use this rather than _ to avoid the overhead of _
 
 /*3*/
 #define ifcIDtYPEtELLaPP_NOOP                                           0xdddd0c0a
+#define ifcIDtYPEtELLaPP_INoUT                                          0xdddd0c0b
 /*3*/
 #define ifcIDtYPEtELLaPP_min     0xdddd0c0a
-#define ifcIDtYPEtELLaPP_max     0xdddd0c0a                                                               
+#define ifcIDtYPEtELLaPP_max     0xdddd0c0b
 
 
 //

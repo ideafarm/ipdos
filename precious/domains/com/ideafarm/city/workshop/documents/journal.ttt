@@ -9395,6 +9395,22 @@ I have other business to attend to today and tomorrow, but plan to continue to w
 
 
 
+
+   next: read the telemetry payload and trace it
+   ok, adam 8 is reading telemetry and seeing the expected idTypeTell
+  see
+   8 will be the reporter
+   7 will be the dut
+  plan
+   and don't forget that i am sick; more reason to stop working and have some fun
+   but the task at the moment is to savor this milestone, go for a bike ride, and recapture the mental state of a student at UCLA who has just completed a homework assignment
+   the next programming tasks will be easy and fun, and will reveal a great mystery!
+   it will also be easy to add process phase to the data so the report can be total and by phase
+   it will be easy to write a reporter
+   i now have the ability to see exactly where in the code i am spending time
+   this is a huge milestone
+   this is a good point to suspend work and go have some fun
+  think
   !subjob C: command line option to suppress all app telemetry
    but a better way would be to be able to use a command line option to suppress all app telemetry
    the simplest way to to this is to have the adam read its own app telemetry
@@ -9420,61 +9436,6 @@ I have other business to attend to today and tomorrow, but plan to continue to w
 
 
 
-
-  look
-   choice: alt: just define a new modeprocess1 flag
-   alt: processGlobal1S::flagsModeProcess0    flMODEpROCESS0_
-  think
-   | 
-   | /*3*/
-   | #define flMODEpROCESS2_GRABoNLYwO                      /*fl*/
-   | #define flMODEpROCESS2_CHECKtINuTILITYeLEMENTS         /*fl*/
-   | #define flMODEpROCESS2_DOnOTdISPLAYtHIRDpARTYaDS       /*fl*/
-   | #define flMODEpROCESS2_DOnOThIREaDAMS                  /*fl*/
-   | #define flMODEpROCESS2_ENABLEsECURITYsHUTDOWN          /*fl*/
-   | #define flMODEpROCESS2_DEBUG                           /*fl*/
-   | #define flMODEpROCESS2_IDhOSTsEARCH                    /*fl*/
-   | #define flMODEpROCESS2_HIDEwITHiCON                    /*fl*/
-   | #define flMODEpROCESS2_NOsYSTEMtHREADS                 /*fl*/
-   | #define flMODEpROCESS2_NOsYNCHRONOUStELLS              /*fl*/
-   | #define flMODEpROCESS2_SUPPRESStELLS                   /*fl*/
-   | #define flMODEpROCESS2_FAILtELLS                       /*fl*/
-   | /*3*/
-   | 
-   | /*3*/
-   | #define flMODEpROCESS1_SIMULATEoFFLINE                 /*fl*/
-   | #define flMODEpROCESS1_SERVICE                         /*fl*/
-   | #define flMODEpROCESS1_DRIVER                          /*fl*/
-   | #define flMODEpROCESS1_JOT                             /*fl*/
-   | #define flMODEpROCESS1_LAUNCHmINIMIZED                 /*fl*/
-   | #define flMODEpROCESS1_IGNOREfIREbYoPERATOR            /*fl*/
-   | #define flMODEpROCESS1_QUITaTsHUTDOWN                  /*fl*/
-   | #define flMODEpROCESS1_QUITaTlOGOFF                    /*fl*/
-   | /*3*/
-   | 
-  listing
-   | 
-   |     sCountFromPostC         /*P3*/ /*CT:50*/ scfp_idAdam ;
-   |     cryC                                     cry306 ;
-   |     sCountFromPostC         /*P3*/ /*CT:50*/ scfp_idAdamRoot ;
-   |     sCountFromPostC         /*P3*/ /*CT:50*/ scfp_idAdamRootOld ;
-   |     cryC                                     cry305 ;
-   |     parameterC              /*P3*/ /*CT:40*/ pPostIdAdamRoot ; //MUST BE AFTER !idHome IS COMPLETELY OBEYED SO THAT THE FLAG BIT fliIDhOME_HOMELESS THAT I SET IS NOT OVERRIDDEN
-   |     cryC                                     cry304 ;
-   |     sCountFromPostC         /*P3*/ /*CT:30*/ scfp_idHome ;
-   |     cryC                                     cry303 ;
-   |     parameterC              /*P3*/ /*CT:20*/ pPostIdHome ;
-   |     cryC                                     cry302 ;
-   |     sCountFromPostC                          scfp_idNumaNode ;
-   |     parameterC                               pPostIdNumaNode ;
-   | 
-  listing (early members of processGlobal3S)
-   conj: i already have very early code that inspects the command line: yup
-   this, of course, must be done very very early
-  think
- playcraft
- objective: elegance
-!subjob C: command line option to suppress all app telemetry
 
 
 
@@ -9541,6 +9502,61 @@ I have other business to attend to today and tomorrow, but plan to continue to w
 =========================================================================================================================================================
 
 
+  cool ; it works!
+  look
+   choice: alt: just define a new modeprocess1 flag
+   alt: processGlobal1S::flagsModeProcess0    flMODEpROCESS0_
+  think
+   | 
+   | /*3*/
+   | #define flMODEpROCESS2_GRABoNLYwO                      /*fl*/
+   | #define flMODEpROCESS2_CHECKtINuTILITYeLEMENTS         /*fl*/
+   | #define flMODEpROCESS2_DOnOTdISPLAYtHIRDpARTYaDS       /*fl*/
+   | #define flMODEpROCESS2_DOnOThIREaDAMS                  /*fl*/
+   | #define flMODEpROCESS2_ENABLEsECURITYsHUTDOWN          /*fl*/
+   | #define flMODEpROCESS2_DEBUG                           /*fl*/
+   | #define flMODEpROCESS2_IDhOSTsEARCH                    /*fl*/
+   | #define flMODEpROCESS2_HIDEwITHiCON                    /*fl*/
+   | #define flMODEpROCESS2_NOsYSTEMtHREADS                 /*fl*/
+   | #define flMODEpROCESS2_NOsYNCHRONOUStELLS              /*fl*/
+   | #define flMODEpROCESS2_SUPPRESStELLS                   /*fl*/
+   | #define flMODEpROCESS2_FAILtELLS                       /*fl*/
+   | /*3*/
+   | 
+   | /*3*/
+   | #define flMODEpROCESS1_SIMULATEoFFLINE                 /*fl*/
+   | #define flMODEpROCESS1_SERVICE                         /*fl*/
+   | #define flMODEpROCESS1_DRIVER                          /*fl*/
+   | #define flMODEpROCESS1_JOT                             /*fl*/
+   | #define flMODEpROCESS1_LAUNCHmINIMIZED                 /*fl*/
+   | #define flMODEpROCESS1_IGNOREfIREbYoPERATOR            /*fl*/
+   | #define flMODEpROCESS1_QUITaTsHUTDOWN                  /*fl*/
+   | #define flMODEpROCESS1_QUITaTlOGOFF                    /*fl*/
+   | /*3*/
+   | 
+  listing
+   | 
+   |     sCountFromPostC         /*P3*/ /*CT:50*/ scfp_idAdam ;
+   |     cryC                                     cry306 ;
+   |     sCountFromPostC         /*P3*/ /*CT:50*/ scfp_idAdamRoot ;
+   |     sCountFromPostC         /*P3*/ /*CT:50*/ scfp_idAdamRootOld ;
+   |     cryC                                     cry305 ;
+   |     parameterC              /*P3*/ /*CT:40*/ pPostIdAdamRoot ; //MUST BE AFTER !idHome IS COMPLETELY OBEYED SO THAT THE FLAG BIT fliIDhOME_HOMELESS THAT I SET IS NOT OVERRIDDEN
+   |     cryC                                     cry304 ;
+   |     sCountFromPostC         /*P3*/ /*CT:30*/ scfp_idHome ;
+   |     cryC                                     cry303 ;
+   |     parameterC              /*P3*/ /*CT:20*/ pPostIdHome ;
+   |     cryC                                     cry302 ;
+   |     sCountFromPostC                          scfp_idNumaNode ;
+   |     parameterC                               pPostIdNumaNode ;
+   | 
+  listing (early members of processGlobal3S)
+   conj: i already have very early code that inspects the command line: yup
+   this, of course, must be done very very early
+  think
+ playcraft
+ objective: elegance
+!subjob C: command line option to suppress all app telemetry
   cool ; found wo
    do this
    appr: console trace
