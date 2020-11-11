@@ -44085,7 +44085,6 @@ VARIABLEcLASSdEF( countC , countT )
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.directionS : 1snip.15000156.directions END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.tellInfoAppInOutFrameS : 1snip.15000188.tellinfoappinoutframes BEGIN
 
-
 //
 // Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
@@ -44103,6 +44102,11 @@ VARIABLEcLASSdEF( countC , countT )
     count04T cCpuCycles2    ;
     count04T cCpuCycles3    ;
     count04T cCpuCycles4    ;
+
+    count04T cTime1         ;
+    count04T cTime2         ;
+    count04T cTime3         ;
+    count04T cTime4         ;
 }
 ;
 
