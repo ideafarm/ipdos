@@ -9392,11 +9392,22 @@ I have other business to attend to today and tomorrow, but plan to continue to w
 
 
 
-
-
-
-   next: trace out the LF so can see who is gen most of them
-
+   11dc_        4572_9
+  look
+    67010053    cd11
+   this accounts for almost all of them:
+  see
+   trace out the LF so can see who is gen most of them
+   a reporter adam can monitor in real time and present real time updated report
+   these data are probably usable, and are easy to read
+  see
+   this would be unlikely but possible   
+   the only exception will be when a task switch occurs after the cTime4 value is obtained but before it is written, with another thread getting in there and querying its cTime4 and writing it
+   they should almost always be monotonic
+  think
+   the time4 values appear to be monotonic
+   it works, tracing out time and cycles
+  see
   !subjob B: adam 7 stops
     BOOL QueryPerformanceCounter( LARGE_INTEGER *lpPerformanceCount );
    add the other metric to the tell record
@@ -9434,17 +9445,121 @@ I have other business to attend to today and tomorrow, but plan to continue to w
 
 
 
-   conj: the book is filled and is not handling new book correctly: 
-   nawwh: set up dut (use kernel monitor minute reports to identify what is deadlocking)
-   conj: this is at will, during termination (after tracing spins)
+
+
+
+
+
+      
+      when the root dispenses a new idSerial by patching it into an "dispensed block", all recipient nodes update their idSerialLath
+      the root aggregates to receive its answer
+      at each level, aggregation occurs
+      the leaf nodes answer with what they have
+      root explodes query "what is idSerialLath?"
+     query (by root)
+     initially, the initial root explodes 0
+    conj: a simple protocol can handle this
+    this is a pure application of the bang relay system
+    there is no need for block ordering
+   approach: subjob the design of a database that efficiently maintains the state of the lath idSerial dispensed
+   think of idSerial as a database application in itself
+   each dying root must ensure that all nodes know the highest idSerial that it has dispensed
+   the key is to fully exploit oo power explosion
+  think
+     the nack reports do not cause any action; they are merely reported
+      if not, then that node implodes a nack exception and takes no further action
+     when each node receives the "idSerial used", it verifies that it has a copy of that block
+     when the root receives this "idSerial used", it explodes it
+      if the creating node does not timely receive the update, it repeats its creating recipe
+     when the creating node receives the update, it implodes "idSerial used"
+     each receiving node updates its stale image
+     the root node explodes the block
+     each receiving node updates its stale image
+     creator node implodes the new block
+    alt: storage of a new block is synchronous    
+   issue: the node that has the true highest idSerial might be temporarily offline during this inquiry
+  think  
+    the root node does the same aggregation to determine the highest idSerial used
+    each nonleaf node aggregates the oo values that it receives with its own, and then implodes the highest of the 3
+    each leaf node implodes its highest idSerial
+    when a new dispenser (root node) initializes, it bangs a request for every node to implode its highest idSerial
+   recipe
+   the key to dispensing a globally unique idSerial is to ensure that each value is dispensed (and used) exactly wo time)
+  think
+   recipe for dispensing globally unique idSerial
+   the key to dispensing a globally unique idSerial is to ensure that it is wo plus the highest idSerial received by any node
+   the key to ordering the data is to be able to dispense a globally unique idSerial
+  think
+    synchronously store to my stale union image
+   the recipe for a store is as follows
+    synchronously query that stale union image
+    asynchronously maintain a stale union image
+   the recipe for a query is as follows
+  think
+   any calculated union is incomplete
+   at any point in time, the state of the dataset is the union of all copies
+   the salient feature of a distributed dataset is that each copy is incomplete
+  think
+   the full database is defined to be the union of all incomplete sets
+   at any point in time, each node is assumed to contain an incomplete set of blocks
+   the database consists of blocks that are ordered "in the small" but not "in the large"
+   abandon the idea of linear appended data
+  think 
+   drop request for idSerial
+  recipe
+   framing the problem as dispensing globally unique idSerial values is promising
+   i would rather do that if i can find a way
+   i do not really need to preserve order
+  think
+   pf/ how to dispense globally unique idSerial values
+  think 
+    IPDOS (tm) home drops a request for a globally unique idSerial
+   recipe
+   lets drop that spec
+   by validated i mean that there is a mechanism to detect that a home is executing a changed file
+   the approach uses validated IPDOS (tm) homes
+   instinct: this can be solved with bang relay
+   i want a simple solution to distributed immutable ordered storage
   think
  playcraft
- changed: added queryperformancecounter
-!subjob B: adam 7 stops
+ objective: simple, elegant solution to immutable storage
+!job C: muse: blockchain that eliminates proof of work
 
 
 
 
+
+
+  look
+   |
+   |     17f6    4002e063    d73       37d_     893_9       poolC::newF( tinS& tinP , const countT idLineP , const countT idiFileP , byteT*& pbP , const countT cbP , const flagsT flagsP )
+   |     1488    d9020063    ac03
+   |     13d0    6000e063    8f4
+   |     13cb    7000e063    4a5
+   |     13cb    4002e063    593
+   |     13cb    4002e063    4a3
+   |     13cb    0101e063    ce3
+   |     13c9    b1040063    e56
+   |     133d    5001e063    1a1
+   |      fbe    50035063    ae
+   |
+  listing
+ playcraft
+ objective: speed
+!job C: suppress _IO_ for the most talkative LF
+
+
+
+
+
+
+  next: do further testing before releasing this code into production
+   conj: 8 hangs wad wac: yup
+   while using 7 and 8 to eliminate the _IO_ that was generating almost all of the telemetry, i saw 7 and/or 8 hang
+  think
+ playcraft
+ objective: confidence
+!job A: test app telemetry using adam 7 and adam 8
 
 
 
@@ -9511,6 +9626,16 @@ I have other business to attend to today and tomorrow, but plan to continue to w
 =========================================================================================================================================================
 
 
+  cool ; found wo
+   stopped in ct of new bookC
+  see
+   conj: the book is filled and is not handling new book correctly: yup
+   nawwh: set up dut (use kernel monitor minute reports to identify what is deadlocking)
+   conj: this is at will, during termination (after tracing spins)
+  think
+ playcraft
+ changed: added queryperformancecounter
+!subjob B: adam 7 stops
    | 
    |    8HCF399:  2019 Chevrolet Malibu
    | 

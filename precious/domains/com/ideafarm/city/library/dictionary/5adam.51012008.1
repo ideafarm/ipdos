@@ -10,14 +10,23 @@
 REST
 
 }
+    etThread.traceF( tinP , TF3((countT)swTally,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FOREIGN,8)+tb4+TF3(pczFL[0],flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,8)+tb4+TF2(pczFL[1],flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
+    pczFL = (countT*)swTally.leverF( tinP , idf ) ;
+{
+for( countT idf = 1 ; idf <= cFlavors ; idf ++ )
+countT cFlavors = swTally.cFlavorsF( tinP ) ;
+
+}
     //etThread.traceF( tinP , T("tmEatTelemetrySysF / 6") ) ;
     }
         //CONoUTrAW( "." ) ;
         ++ s ; etThread.osSleepF( tinP , TOCK >> 2 ) ;
         TELL( "napping for a quarter tock" )
-    
+
         if( bQuitEating ) break ;
         }
+            //if( idCycle == TUCK << 4 ) bQuitEating = 1 ;
+    
             bBookHead = !bBookHead ;
     
             }
@@ -34,11 +43,19 @@ REST
                                 break ;
 
                                 }
-                                    etThread.traceF( tinP , tSay ) ;
+                                    swTally ++ ;
+                                    pczLever[ 1 ] = told.idLineTalking ;
+                                    pczLever[ 0 ] = told.idiFileTalking ;
 
-
+                                    etThread.traceF( tinP , tSay , flTRACE_NOpREFIX ) ;
 
                                     ;
+#endif
+
+
+                                        +tb4+TF3(told.idiFileTalking,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,8)+tb4+TF2(told.idLineTalking,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)
+
+#else
 
                                         +tDot+TF3(((countT*)&note.cCpuCycles4)[1],flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE,8)
                                         +tb4 +TF3(((countT*)&note.cCpuCycles4)[0],flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE,8)
@@ -47,10 +64,22 @@ REST
                                         +tDot+TF3(((countT*)&note.cCpuCycles2)[1],flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE,8)
                                         +tb4 +TF3(((countT*)&note.cCpuCycles2)[0],flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE,8)
                                         +tDot+TF3(((countT*)&note.cCpuCycles1)[1],flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE,8)
-                                        +tb4 +TF3(((countT*)&note.cCpuCycles1)[0],flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE,8)
-                                        +TF2(idCycle,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)
+                                        +tb8 +TF3(((countT*)&note.cCpuCycles1)[0],flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE,8)
 
-                                    TN( tSay , "" ) ; tSay = tSay1
+                                        +tDot+TF3(((countT*)&note.cTime4)[1],flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE,8)
+                                        +tb4 +TF3(((countT*)&note.cTime4)[0],flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE,8)
+                                        +tDot+TF3(((countT*)&note.cTime3)[1],flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE,8)
+                                        +tb4 +TF3(((countT*)&note.cTime3)[0],flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE,8)
+                                        +tDot+TF3(((countT*)&note.cTime2)[1],flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE,8)
+                                        +tb4 +TF3(((countT*)&note.cTime2)[0],flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE,8)
+                                        +tDot+TF3(((countT*)&note.cTime1)[1],flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE,8)
+                                        +tb4 +TF3(((countT*)&note.cTime1)[0],flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE,8)
+
+#if defined( NEVERdEFINED )
+
+                                        +TF3(idCycle,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,8)
+
+                                    TN( tSay , "" ) ; tSay = tn
 
                                     tellInfoAppInOutFrameS& note = *(tellInfoAppInOutFrameS*)pbNote ;
                                 {
@@ -170,6 +199,7 @@ REST
             else
             }
                 break ;
+                bQuitEating = 1 ;       //U:: REMOVE THIS LINE IN PRODUCTION WHEN I RUN TO REPORT REAL TIME
                 hRead = hReadSave ;
                 cbi = cbiSave ;
                 TELL( "readF returned null" )
@@ -214,8 +244,14 @@ booksC bksTelemetryApp( tinP , TAG( TAGiDnULL ) , "bksTelemetryApp" , ifcIDsTATE
 ZE( boolT , bQuitEating ) ;
 
 TN( tSay1 , "INoUT [idCycle,cCpuCycles1,cCpuCycles2,cCpuCycles3,cCpuCycles4]:    " ) ;
-TN( tDot , "." ) ;
-TN( tb4 , "    " ) ;
+TN( tDot  , "." ) ;
+TN( tb8   , "        " ) ;
+TN( tb4   , "    " ) ;
+TN( tn    , "" ) ;
+
+switchC swTally( tinP , etThread , TAG( TAGiDnULL ) , flSTACKc_DOnOTsERIALIZE , pczFL ) ;
+const countT* pczFL = pczLever ;
+countT  pczLever[ 3 ] = { 0 , 0 , 0 } ;
 
 TODO
 
