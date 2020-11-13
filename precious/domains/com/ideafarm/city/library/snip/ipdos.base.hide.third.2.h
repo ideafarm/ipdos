@@ -1,78 +1,3 @@
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004e5.jpointer BEGIN
-
-
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-// Respecting the rights of other people is an important part of empowering one another.
-//
-
-/*
-these are special values for any pointer
-
-*/
-/**/
-
-//A:ASSUME: THE HIGH ORDER BIT IS ALWAYS SET IN THESE VALUES SO THAT THEY CAN NEVER BE MISTAKEN FOR MEMORY ADDRESSES
-// MEMORY ADDRESSES WITH THE HIGH ORDER BIT SET ARE ASSUMED TO BE RESERVED FOR SYSTEM USE, AS THEY ARE FOR win32 ON i386 CPUS
-//ANY CODE THAT MIGHT RECEIVE A POINTER CONTAINING WO OF THESE VALUES MUST USE THE J MACRO TO OBTAIN THE MEMORY ADDRESS THAT IT IS TO USE
-//IOW, ANY CODE THAT MIGHT RECEIVE A JpOINTER MUST BE "JpOINTER AWARE"
-
-/*1*//*JpOINTER*//*1*/
-
-/*3*/
-#define JpOINTER_1                                                                                 0xddddf01d
-#define JpOINTER_2                                                                                 0xddddf01e
-#define JpOINTER_3                                                                                 0xddddf01f
-#define JpOINTER_4                                                                                 0xddddf020
-#define JpOINTER_5                                                                                 0xddddf021
-#define JpOINTER_6                                                                                 0xddddf022
-#define JpOINTER_7                                                                                 0xddddf023
-#define JpOINTER_8                                                                                 0xddddf024
-/*3*/
-#define JpOINTER_min     0xddddf01d
-#define JpOINTER_max     0xddddf024
-
-
-//
-// Respecting the rights of other people is an important part of empowering one another.
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004e5.jpointer END
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004e6.j BEGIN
-
-
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-// Respecting the rights of other people is an important part of empowering one another.
-//
-
-/*
-the use of this macro makes code "jPointer aware"
-a jPointer is any pointer that might contain either a memory address or wo of the special jPointer constants
-this macro detects an invalid jPointer value and, if valid, evaluates to the (const byteT*) value that is to be used
-*/
-/**/
-
-/*1*//*J(idJotP)*//*1*/
-
-#define J(idJotP) ( !( (countT)(idJotP) & BM_HIGH ) ? (byteT*)(idJotP) : (byteT*)( *tinP.ppJot[ ( (countT)(idJotP) & ~BM_HIGH ) >> sizeof( countT ) * SB - 4 ] )[ (countT)(idJotP) ] )
-
-
-//
-// Respecting the rights of other people is an important part of empowering one another.
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004e6.j END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004e7.flbookscselect BEGIN
 
 
@@ -5131,9 +5056,10 @@ use this rather than _ to avoid the overhead of _
 /*3*/
 #define ifcIDtYPEtELLaPP_NOOP                                           0xdddd0c0a
 #define ifcIDtYPEtELLaPP_INoUT                                          0xdddd0c0b
+#define ifcIDtYPEtELLaPP_INoUTtINdT                                     0xdddd0c0c
 /*3*/
 #define ifcIDtYPEtELLaPP_min     0xdddd0c0a
-#define ifcIDtYPEtELLaPP_max     0xdddd0c0b
+#define ifcIDtYPEtELLaPP_max     0xdddd0c0c                                                               
 
 
 //
@@ -5160,11 +5086,11 @@ use this rather than _ to avoid the overhead of _
 /*1*//**//*1*/
 
 /*3*/
-#define ifcIDbOOKStELL_SYS                                           0xdddd0c0b
-#define ifcIDbOOKStELL_APP                                           0xdddd0c0c
+#define ifcIDbOOKStELL_SYS                                           0xdddd0c0c
+#define ifcIDbOOKStELL_APP                                           0xdddd0c0d
 /*3*/
-#define ifcIDbOOKStELL_min     0xdddd0c0b
-#define ifcIDbOOKStELL_max     0xdddd0c0c                                                               
+#define ifcIDbOOKStELL_min     0xdddd0c0c
+#define ifcIDbOOKStELL_max     0xdddd0c0d                                                               
 
 
 //
@@ -5690,6 +5616,54 @@ after i return, that countT object will contain 1
 //
 
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200587.BLAMMOiFnOTtAGGED END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200588.conoutcallnestsafe BEGIN
+
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+/*
+*/
+/**/
+/*1*//*CONoUTcALLnESTsAFE(postP)*//*1*/
+
+#define CONoUTcALLnESTsAFE(postP)                                                                               \
+                                                                                                                \
+    {                                                                                                           \
+        CONoUTrAW( postP ": call nest:" ) ;                                                                     \
+        const countT ccNest = sizeof tinP.monitor.pLFnest / sizeof tinP.monitor.pLFnest[ 0 ] ;                  \
+        countT pcNest[ ccNest + 1 ] ;                                                                           \
+        tinP.get_pLFnest_F( tinP , pcNest , ccNest + 1 ) ;                                                      \
+                                                                                                                \
+        countT* pcc = pcNest ;                                                                                  \
+        countT* pce = pcNest + ccNest ;                                                                         \
+        ZE( boolT , bFile ) ;                                                                                   \
+                                                                                                                \
+        while( pcc < pce && *pcc )                                                                              \
+        {                                                                                                       \
+            OStEXT(   ostoLine , TUCK << 1 ) ;                                                                  \
+            OStEXTA(  ostoLine , bFile ? "  " : "\r\n  " ) ;                                                    \
+            OStEXTC(  ostoLine , *pcc , 0 ) ;                                                                   \
+            CONoUTrAW( ostoLine ) ;                                                                             \
+            pcc ++ ;                                                                                            \
+            bFile = !bFile ;                                                                                    \
+        }                                                                                                       \
+        CONoUTrAW( "\r\n" ) ;                                                                                   \
+    }
+
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200588.conoutcallnestsafe END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.thirdParties : 1snip.15000014.thirdparties BEGIN
 
 
@@ -27715,6 +27689,7 @@ it is illegal to modify any member other than pc Utility in the definition of an
  countT                 cSpins4 ;
  bookMarkS              pBookMark[ TUCK ] ;    // USED BY pageC TO REGISTER A PENDING SMART POINTER ; INCREASE THE NUMBER OF ELEMENTS TO SUPPORT MORE SIMULTANEOUS pageC INSTANCES; 20180606: 01->TUCK WITHOUT ANALYSIS TO WORK AROUND PRODUCTION EXHAUSTION
  countT                 cNestInOutTelemetry ;
+ count04T               cCpuCyclesWriteInOutTelemetry ;
 
  //ASSUME: FIELDS BEFORE HERE CAN BE COPIED AND RESET (SEE THE CT/DT OF processGlobal4I.tinVeryEarlyLateMain AND THE MAIN THREAD'S tinS, IN POOLoLD)
  /* suffix begin (not sloshed (copied) from tinS to tinS) */
@@ -37950,9 +37925,10 @@ the only function of this object is to edit tinS::grabPseudo so that the monitor
     public :
 
     parameterC( osTextT* postToP , countT costaToP , const osTextT* postKeyP = 0 ) ;
-    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34001.parameterC.parameterC!||
-    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34004.parameterC.parameterC!||
+    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34003.parameterC.parameterC!||
     parameterC( const osTextT* postKeyP ) ;
+    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34004.parameterC.parameterC!||
+
 }
 ;
 
@@ -40348,6 +40324,7 @@ base class to make a derived class of objects easily contained by a stackC objec
     doC                                      do2 ;
     booksC                                   bksTelemetrySys ;
     booksC                                   bksTelemetryApp ;
+    doC                                      do3 ;
     booksC                                   bksTraceHomeEcho ;
     booksC                                   bksTrace ;
 
@@ -44131,6 +44108,7 @@ VARIABLEcLASSdEF( countC , countT )
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.directionS : 1snip.15000156.directions END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.tellInfoAppInOutFrameS : 1snip.15000188.tellinfoappinoutframes BEGIN
 
+
 //
 // Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
@@ -44167,6 +44145,37 @@ VARIABLEcLASSdEF( countC , countT )
 //
 
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.tellInfoAppInOutFrameS : 1snip.15000188.tellinfoappinoutframes END
+
+
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+/*
+*/
+/**/
+
+/*1*/struct _export tellInfoAppInOutFrameTinDtS/*1*/
+{
+    countT   idThreadReporting ;
+    count04T cCpuCyclesWriteInOutTelemetry ;
+}
+;
+
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+
+
+
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.inOutFrameC : 1snip.15000159.inoutframec BEGIN
 
 

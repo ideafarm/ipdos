@@ -28,6 +28,7 @@ sourceC& source = sourceC::sourceIF() ;
 mapCTC& mapFileTitle = processGlobal3S::_processGlobal3I_IF().mapFileTitle ;
 
 etThread.traceF( tinP , tSayWorkPerWatch , flTRACE_NOpREFIX ) ;
+etThread.traceF( tinP , tSayBook    , flTRACE_NOpREFIX ) ;
 etThread.traceF( tinP , tSayCtDt    , flTRACE_NOpREFIX ) ;
 etThread.traceF( tinP , tSayDt      , flTRACE_NOpREFIX ) ;
 etThread.traceF( tinP , tSayInNet   , flTRACE_NOpREFIX ) ;
@@ -38,6 +39,11 @@ etThread.traceF( tinP , tSayCt      , flTRACE_NOpREFIX ) ;
     +tDot+TF3(((countT*)&cCpuCyclesWorkPerWatch)[1],flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE,8)
     TF3(((countT*)&cCpuCyclesWorkPerWatch)[0],flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE,8)
 TN( tSayWorkPerWatch , "cCpuCyclesWorkPerWatch: " ) ; tSayWorkPerWatch +=
+
+;
+    +tDot+TF3(((countT*)&cCpuCyclesBook)[1],flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE,8)
+    TF3(((countT*)&cCpuCyclesBook)[0],flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE,8)
+TN( tSayBook         , "cCpuCyclesBook        : " ) ; tSayBook +=
 
 ;
     +tDot+TF3(((countT*)&cCpuCyclesCtDt)[1],flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE,8)
@@ -64,7 +70,8 @@ TN( tSayInGross      , "cCpuCyclesInGross     : " ) ; tSayInGross +=
     TF3(((countT*)&cCpuCyclesCt)[0],flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE,8)
 TN( tSayCt           , "cCpuCyclesCt          : " ) ; tSayCt +=
 
-count04T cCpuCyclesWorkPerWatch = !cCpuCyclesCtDt ? 0 : cCpuCyclesInNet / cCpuCyclesCtDt ;
+count04T cCpuCyclesWorkPerWatch = !cCpuCyclesWatch ? 0 : cCpuCyclesInNet / cCpuCyclesWatch ;
+count04T cCpuCyclesWatch = cCpuCyclesCtDt + cCpuCyclesBook ;
 count04T cCpuCyclesCtDt = cCpuCyclesCt + cCpuCyclesDt ;
 
 }
@@ -98,19 +105,19 @@ count04T cCpuCyclesCtDt = cCpuCyclesCt + cCpuCyclesDt ;
                                     pczLever[ 1 ] = told.idLineTalking ;
                                     pczLever[ 0 ] = told.idiFileTalking ;
 
-                                    //if( cCpuCyclesDt < was ) { BLAMMO ; }
+                                    if( cCpuCyclesDt < was ) { BLAMMO ; }
                                     cCpuCyclesDt += deltaCpuCyclesDt ;
                                     was = cCpuCyclesDt ;
 
-                                    //if( cCpuCyclesInNet < was ) { BLAMMO ; }
+                                    if( cCpuCyclesInNet < was ) { BLAMMO ; }
                                     cCpuCyclesInNet += deltaCpuCyclesIn - deltaCpuCyclesDup ;
                                     was = cCpuCyclesInNet ;
 
-                                    //if( cCpuCyclesInGross < was ) { BLAMMO ; }
+                                    if( cCpuCyclesInGross < was ) { BLAMMO ; }
                                     cCpuCyclesInGross += deltaCpuCyclesIn ;
                                     was = cCpuCyclesInGross ;
 
-                                    //if( cCpuCyclesCt < was ) { BLAMMO ; }
+                                    if( cCpuCyclesCt < was ) { BLAMMO ; }
                                     cCpuCyclesCt += deltaCpuCyclesCt ;
                                     count04T was = cCpuCyclesCt ;
 
@@ -170,6 +177,33 @@ count04T cCpuCyclesCtDt = cCpuCyclesCt + cCpuCyclesDt ;
                                 TELL( "INoUT" )
                             {
                             case ifcIDtYPEtELLaPP_INoUT :
+                            }
+                                break ;
+
+                                }
+                                    if( cCpuCyclesBook < was ) { BLAMMO ; }
+                                    cCpuCyclesBook += note.cCpuCyclesWriteInOutTelemetry ;
+                                    count04T was = cCpuCyclesBook ;
+
+                                    etThread.traceF( tinP , tSay , flTRACE_NOpREFIX ) ;
+
+                                    ;
+
+                                        +tDot+TF3(((countT*)&note.cCpuCyclesWriteInOutTelemetry)[1],flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE,8)
+                                        +tb4 +TF3(((countT*)&note.cCpuCyclesWriteInOutTelemetry)[0],flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE,8)
+
+                                        +tb4+TF3(note.idThreadReporting,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,8)
+                                        +tb4+TF3(told.idThread,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,8)
+                                        +tb4+TF3(idCycle,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,8)
+
+                                    TN( tSay , "" ) ; tSay = T(" [idCycle,idThread,cCpuCyclesWriteInOutTelemetry]:    ")
+
+                                    tellInfoAppInOutFrameTinDtS& note = *(tellInfoAppInOutFrameTinDtS*)pbNote ;
+                                {
+                                if( told.cbNote == sizeof( tellInfoAppInOutFrameTinDtS ) )
+                                TELL( "INoUTtINdT" )
+                            {
+                            case ifcIDtYPEtELLaPP_INoUTtINdT :
                         {
                         switch( told.idType )
 
@@ -321,6 +355,7 @@ count04T cCpuCyclesCtDt = cCpuCyclesCt + cCpuCyclesDt ;
     TELL( "preparing to eat" )
 {
 if( !(const poopC&)bksTelemetryApp )
+ZE( count04T , cCpuCyclesBook    ) ;
 ZE( count04T , cCpuCyclesDt      ) ;
 ZE( count04T , cCpuCyclesInNet   ) ;
 ZE( count04T , cCpuCyclesInGross ) ;
