@@ -1,3 +1,48 @@
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004e5.jpointer BEGIN
+
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+/*
+these are special values for any pointer
+
+*/
+/**/
+
+//A:ASSUME: THE HIGH ORDER BIT IS ALWAYS SET IN THESE VALUES SO THAT THEY CAN NEVER BE MISTAKEN FOR MEMORY ADDRESSES
+// MEMORY ADDRESSES WITH THE HIGH ORDER BIT SET ARE ASSUMED TO BE RESERVED FOR SYSTEM USE, AS THEY ARE FOR win32 ON i386 CPUS
+//ANY CODE THAT MIGHT RECEIVE A POINTER CONTAINING WO OF THESE VALUES MUST USE THE J MACRO TO OBTAIN THE MEMORY ADDRESS THAT IT IS TO USE
+//IOW, ANY CODE THAT MIGHT RECEIVE A JpOINTER MUST BE "JpOINTER AWARE"
+
+/*1*//*JpOINTER*//*1*/
+
+/*3*/
+#define JpOINTER_1                                                                                 0xddddf01d
+#define JpOINTER_2                                                                                 0xddddf01e
+#define JpOINTER_3                                                                                 0xddddf01f
+#define JpOINTER_4                                                                                 0xddddf020
+#define JpOINTER_5                                                                                 0xddddf021
+#define JpOINTER_6                                                                                 0xddddf022
+#define JpOINTER_7                                                                                 0xddddf023
+#define JpOINTER_8                                                                                 0xddddf024
+/*3*/
+#define JpOINTER_min     0xddddf01d
+#define JpOINTER_max     0xddddf024
+
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004e5.jpointer END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004e6.j BEGIN
 
 
@@ -27669,6 +27714,7 @@ it is illegal to modify any member other than pc Utility in the definition of an
  countT                 cSpins3 ;
  countT                 cSpins4 ;
  bookMarkS              pBookMark[ TUCK ] ;    // USED BY pageC TO REGISTER A PENDING SMART POINTER ; INCREASE THE NUMBER OF ELEMENTS TO SUPPORT MORE SIMULTANEOUS pageC INSTANCES; 20180606: 01->TUCK WITHOUT ANALYSIS TO WORK AROUND PRODUCTION EXHAUSTION
+ countT                 cNestInOutTelemetry ;
 
  //ASSUME: FIELDS BEFORE HERE CAN BE COPIED AND RESET (SEE THE CT/DT OF processGlobal4I.tinVeryEarlyLateMain AND THE MAIN THREAD'S tinS, IN POOLoLD)
  /* suffix begin (not sloshed (copied) from tinS to tinS) */
@@ -44107,6 +44153,8 @@ VARIABLEcLASSdEF( countC , countT )
     count04T cTime2         ;
     count04T cTime3         ;
     count04T cTime4         ;
+
+    countT   cDadLevels     ;
 }
 ;
 

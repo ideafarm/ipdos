@@ -9530,23 +9530,635 @@ I have other business to attend to today and tomorrow, but plan to continue to w
 
 
 
-  look
-   |
-   |     17f6    4002e063    d73       37d_     893_9       poolC::newF( tinS& tinP , const countT idLineP , const countT idiFileP , byteT*& pbP , const countT cbP , const flagsT flagsP )
-   |     1488    d9020063    ac03
-   |     13d0    6000e063    8f4
-   |     13cb    7000e063    4a5
-   |     13cb    4002e063    593
-   |     13cb    4002e063    4a3
-   |     13cb    0101e063    ce3
-   |     13c9    b1040063    e56
-   |     133d    5001e063    1a1
-   |      fbe    50035063    ae
-   |
+
+
+
+
+
+
+
+
+
+
+   anyone can install IPDOS
+    4: leaves (paid installations of IPDOS (tm) on personal computers that cannot accept connections
+    3: untrusted clusters (paid installations of IPDOS (tm) on server clusters or personal computers with static IPv4)
+    2: trusted clusters (by contract, with performance bond)
+    1: the root cluster (IDEAFARM.COM)
+   visualize 3 security grades of servers clusters
+  think
+     with a very large number of clusters, there would be additional power explosion layers
+     the root node of each cluster would comprise layer 1 of the overall system, i.e. each local root would implode to a single master root over the WAN
+    conj: it would be efficient to configure each cluster to have a single root node serving the remaining nodes in that cluster
+     a cluster is a group of servers that are physically proximate and connected on the same subnet, i.e. are on a LAN with each other
+    assume C clusters of S servers each
+   topic: distributed server clusters
+  think
+   the common sense observation here is that the optimal design for any foreseeable number of servers is to use wo root and the remainder at layer 1
+   the root node does the most work, so its optimal power base will be lower than either of the other optimal power bases
+   the work done by the highest nonleaf level is less, so optimal power base will be higer at that level than at lower levels
+   if each level 1 node accepts 8 leaf connections, then the capacity is 8*8 = 64
+   max leaf capacity will be by using 1 root node and 8 nodes at level 1
+  think
+   3            4
+   2            2
+   1            1
+   #layers      2**(L-1)
+   for base == 2
+  study
+   so the question is, how many leaves can 9 servers accommodate, as a function of the base of the power explosion?
+   wo issue is that homes without full connectivity, i.e. that cannot accept connections, such as a laptop using a WIFI, must be leaves
+   my work to date has focused on oo power explosion
+  think
+ playcraft
+ objective: investigate leaf capacity
+!job C: study bang relay mathematics
+
+
+
+
+   
+
+
+
+
+
+
+
+
+
+
+
+  !subjob C: scratch adam 8: capture total cpu cycles consumed between 3 and 2 (between ct and dt)
+  !subjob C: scratch adam 8: capture total cpu cycles consumed by inOutFrameC processing
+   before doing that, let's report the cpu cycles consumed by each
+   conj: i can dramatically increase speed by eliminating redundant pool new / del instances
+  think
+   pool new/del accounts for most of the _IO_ instances
+  see
+   | 
+   |     17f6    4002e063    d73    voidT poolC::newF( tinS& tinP , const countT idLineP , const countT idiFileP , byteT*& pbP , const countT cbP , const flagsT flagsP )
+   |     1488    d9020063    ac03    NEWdELtYPEeTHER( strokeS )
+   |     13d0    6000e063    8f4    byteT* sexC::newF( tinS& tinP , const countT idLineP , const countT idiFileP )
+   |     13cb    7000e063    4a5    voidT sexC::operator ()( tinS& tinP , byteT*& pbP )
+   |     13cb    4002e063    593    voidT poolC::newF( tinS& tinP , const countT idLineP , const countT idiFileP , byteT*& pbP , const countT cbP , const flagsT flagsP )
+   |     13cb    4002e063    4a3    voidT poolC::newF( tinS& tinP , const countT idLineP , const countT idiFileP , byteT*& pbP , const countT cbP , const flagsT flagsP )
+   |     13cb    0101e063    ce3    byteT* slotsC::newF( tinS& tinP , const countT idLineP , const countT idiFileP , const flagsT flagsP )
+   |     13c9    b1040063    e56    voidT textC::loadVTextValueIfF( tinS& tinP )
+   |     133d    5001e063    1a1    voidT slotsC::operator ()( tinS& tinP , byteT*& pbP )
+   | 
+   |      f94    50035063    ae    voidT handleC::closeIfF( voidT )
+   | 
+   |      912    b9020063    c703    NEWdELtYPEeTHER( byteT )
+   |      8e3    20035063    83    handleC::~handleC( voidT )
+   |      82c    ae020063    a0c4    NEWdELtYPEeTHER( count01T )
+   | 
+   |      75d    f4020063    7d81    voidT etherC::strFuseF( tinS& tinP , strokeS*& psttOutP , const strokeS* const psttInP , soulC* pSoulP , grabC* pGrabP , const strokeS sttEscapeP , const strokeS* psttDelimiterPairsP , const countT csttMaxDelimiterP , const countT csttExtraP )
+   |      647    26010053    9001    voidT thirdC::osTimeAddIF( tinS& tinP , countT& timeA1P , sCountT& timeA2P , const countT timeB1P , const sCountT timeB2P )
+   |      5f7    96010053    a311    voidT thirdC::timeFromMsIF( tinS& tinP , countT& time1P , sCountT& time2P , const countT msP )
+   |      57c    46010053    b801    voidT thirdC::osTimeFromOldTimeIF( tinS& tinP , countT& time1P , sCountT& time2P , sCountT yP , countT mP , countT dP , countT hhP , countT mmP , countT ssP , countT msP , const flagsT flagsP )
+   |      537    62110053    0232    voidT thirdC::handleCloseIF( handleC& handleP )
+   |      4ed    500fe063    b21    voidT baseGrabC::registerDoneF( tinS& tinP , const countT idLineP , const countT idiFileP )
+   |      4ed    400fe063    8a    voidT baseGrabC::registerBegunF( tinS& tinP , const countT idLineP , const countT idiFileP , const flagsT flagsP )
+   |      4e7    600fe063    871    voidT baseGrabC::unregisterF( tinS& tinP )
+   |      4bf    72010053    b07    countT thirdC::dosQuerySysInfoMaxPathLengthIF( tinS& tinP )
+   |      4a3    a5020063    8bd1    voidT etherC::strMakeF( tinS& tinP , strokeS*& psttOutP , const strokeS* const psttInP , const countT csttExtraP )
+   |      487    500c5063    251    boolT grabC::grabF( tinS& tinP , const countT idLineP , const countT idiFileP , const byteT* const pbBitsP , const flagsT flagsP )
+   |      481    600c5063    672    countT grabC::ungrabF( tinS& tinP , const flagsT flagsP )
+   |      45c    21010053    353    osTextT* thirdC::c_strstrIF( tinS& tinP , const osTextT* const postBigP , const osTextT* const postSmallP )
+   |      3bc    11010053    d13    osTextT* thirdC::c_strrchrIF( tinS& tinP , const osTextT* const postP , const osTextT ostP )
+   |      3ba    50080063    0c1    countT batonC::ungrabF( tinS& tinP , const flagsT flagsP )
+   |      3ba    40080063    371    boolT batonC::grabF( tinS& tinP , const countT idLineP , const countT idiFileP , const byteT* const pbBitsP , const flagsT flagsP )
+   |      35a    25020063    86a1    countT etherC::strIdF( tinS& tinP , countT& idFirstP , strokeS& sttQuoteP , const strokeS& sttSmallP , const strokeS* psttBigP , const countT idLastP , sCountT idP )
+   |      2c0    62110053    c842    voidT thirdC::handleCloseIF( handleC& handleP )
+   |      28b    15020063    b1a1    countT etherC::strIdF( tinS& tinP , const strokeS& sttSmallP , const strokeS* psttBigP , sCountT idP )
+   |      252    e0010053    e72    osTextT* thirdC::c_strcpyIF( tinS& tinP , osTextT* const post1P  , const osTextT* const post2P )
+   |      24b    68110053    b914    voidT thirdC::dosFindFileOrDirSimpleIF( tinS& tinP , osTextT* const postP , const countT costaP , handleC& handleP , const osTextT* const postLikeP , const flagsT flagsP )
+   |      24b    68110053    ad14    voidT thirdC::dosFindFileOrDirSimpleIF( tinS& tinP , osTextT* const postP , const countT costaP , handleC& handleP , const osTextT* const postLikeP , const flagsT flagsP )
+   |      24b    68110053    6914    voidT thirdC::dosFindFileOrDirSimpleIF( tinS& tinP , osTextT* const postP , const countT costaP , handleC& handleP , const osTextT* const postLikeP , const flagsT flagsP )
+   |      24b    68110053    4714    voidT thirdC::dosFindFileOrDirSimpleIF( tinS& tinP , osTextT* const postP , const countT costaP , handleC& handleP , const osTextT* const postLikeP , const flagsT flagsP )
+   |      24b    68110053    3e14    voidT thirdC::dosFindFileOrDirSimpleIF( tinS& tinP , osTextT* const postP , const countT costaP , handleC& handleP , const osTextT* const postLikeP , const flagsT flagsP )
+   |      24b    68110053    1d14    voidT thirdC::dosFindFileOrDirSimpleIF( tinS& tinP , osTextT* const postP , const countT costaP , handleC& handleP , const osTextT* const postLikeP , const flagsT flagsP )
+   |      247    d1010063    7f3    boolT thirdC::dosFindFileOrDirPrivateF( tinS& tinP , infoFileS*& pInfoFileP , handleC& handleP , const osTextT* const postLikeP )
+   |      246    20040063    99    textC::textC( tinS& tinP , const countT idLineCtP , const countT idiFileCtP , const byteT* const pbBitsCtP , const flagsT flagsP , const strokeS* const psttP , const countT csP , const strokeS sttPadP , const boolT fLeadingP )
+   |      200    62110053    c742    voidT thirdC::handleCloseIF( handleC& handleP )
+   |      1ec    60040063    981    textC::textC( TPpARAM , const countT idLineCtP , const countT idiFileCtP , const byteT* const pbBitsCtP , const flagsT flagsP , const countT csP , const strokeS sttPadP , const boolT fLeadingP )
+   |      1ea    7c010063    ec92    voidT thirdC::dosFindFileOrDirF( tinS& tinP , infoFileS*& pInfoFileP , handleC& handleP , const osTextT* const postLikeP )
+   |      1ea    68110053    7024    voidT thirdC::dosFindFileOrDirSimpleIF( tinS& tinP , osTextT* const postP , const countT costaP , handleC& handleP , const osTextT* const postLikeP , const flagsT flagsP )
+   |      1d3    b4010053    73b    flagsT thirdC::fileAttrIfFromOsIF( tinS& tinP , flagsT osfP )
+   |      1d3    100f1063    b4    infoFileS::infoFileS( tinS& tinP )
+   |      130    05020063    0a91    voidT etherC::strFuseF( tinS& tinP , strokeS*& psttOutP , const strokeS sttInP , const countT csttExtraP , const boolT fLeadingP )
+   |      116    70040063    bc1    countT textC::csF( tinS& tinP )
+   |      114    50040063    631    textC textC::operator +( TPpARAM )
+   |      10b    51010053    6e3    countT thirdC::msFromTimeIF( tinS& tinP , const countT time1P , const sCountT time2P )
+   |      10b    03010053    148    voidT thirdC::dosSleepIF( tinS& tinP , const countT timeP , const countT timeNapP )
+   |       e9    b0010053    5d1    osTextT* thirdC::c_strcatIF( tinS& tinP , osTextT* const post1P  , const osTextT* const post2P )
+   |       e5    21040063    284    textC& textC::operator =( TPpARAM )
+   |       dc    95020063    16d1    countT etherC::strMakeF( tinS& tinP , osTextT*& postP , const strokeS* const psttP , const countT costExtraP , const flagsT flagsP , const countT cbPrefixExtraP )
+   |       d8    b0040063    ec2    textC textC::operator +( const strokeS& sP )
+   |       cf    c5020063    47e1    boolT etherC::strSubstringF( tinS& tinP , strokeS*& psttP , countT& idFirstP , strokeS& sttQuoteP , const strokeS& sttSmallP , const strokeS* psttBigP , const countT csttExtraP )
+   |       c4    e6021063    f1e1    voidT stackC::adjustRefsF( tinS& tinP , countT idSlotTargetP , const countT idActionP , plateS* ppNewP )
+   |       bf    40021063    191    stackC::operator countT ( voidT ) const
+   |       bc    35020063    7da1    countT etherC::strIdF( tinS& tinP , stackC* const pstMatchP , const flagsT flagsMatchP , countT& idFirstP , strokeS& sttQuoteP , const strokeS* psttSmallP , const strokeS* psttBigP , const countT idLastP , sCountT idP )
+   |       b3    b5020063    c0e1    voidT etherC::strSubstringF( tinS& tinP , strokeS*& psttP , countT& idFirstP , countT& idLastP , const strokeS* psttBigP , const countT csttExtraP )
+   |       b0    2004e063    a3    grabitC::~grabitC( voidT )
+   |       ab    3004e063    09    grabitC::grabitC( tinS& tinP , const countT idLineCtP , const countT idiFileCtP , const byteT* const pbBitsCtP , byteT*    pbP             , const countT  ifcIdBitP , grabitC& grabitNUP , countT* const pcKeyP , countT* const pcGrabberOsTidP , countT* const pcGrabberRecurseP , const flagsT flagsP , const countT msNapP , const countT idGrabLayerP ) :
+   |       a6    a4020063    4561    sCountT etherC::strCompareF( tinS& tinP , const strokeS* const pstt1P , const strokeS* const pstt2P , const countT csMaxP )
+   |       a4    500bf063    6f2    countT booksC::writeF( tinS& tinP , const byteT* pb1P , countT cb1P , const byteT* pb2P , countT cb2P , const flagsT flagsP , handleC* const phWroteP /*U::, countT** ppcpIdAptP*/ )
+   |       a4    500bf063    533    countT booksC::writeF( tinS& tinP , const byteT* pb1P , countT cb1P , const byteT* pb2P , countT cb2P , const flagsT flagsP , handleC* const phWroteP /*U::, countT** ppcpIdAptP*/ )
+   |       a4    500bf063    3e2    countT booksC::writeF( tinS& tinP , const byteT* pb1P , countT cb1P , const byteT* pb2P , countT cb2P , const flagsT flagsP , handleC* const phWroteP /*U::, countT** ppcpIdAptP*/ )
+   |       a4    500bf063    243    countT booksC::writeF( tinS& tinP , const byteT* pb1P , countT cb1P , const byteT* pb2P , countT cb2P , const flagsT flagsP , handleC* const phWroteP /*U::, countT** ppcpIdAptP*/ )
+   |       a0    3e010053    4a91    voidT thirdC::dosTellMonitorIF( tinS& tinP , const tellC& tellP , const countT idBooksP )
+   |       9c    c9020063    3a03    NEWdELtYPEeTHER( countT )
+   |       9c    1101e063    394    countT slotsC::deleteTopSexF( tinS& tinP )
+   |       96    31040063    6b4    textC& textC::operator +=( TPpARAM )
+   |       7f    20080063    701    batonC::~batonC( voidT )
+   |       7f    10080063    85    batonC::batonC( tinS& tinP , const countT idLineCtP , const countT idiFileCtP , const byteT* const pbBitsCtP , const osTextT* const postP , const countT idGrabLayerP , const flagsT flagsP , byteT* const pbZombieP , const countT cbZombieP , const countT idMemorySpaceP )
+   |       7b    76010063    b831    voidT thirdC::dosQuerySysInfoTimeSinceBootF( tinS& tinP , countT& time1P , sCountT& time2P )
+   |       7b    56010063    5431    voidT thirdC::osTimeNowF( tinS& tinP , countT& time1P , sCountT& time2P , const boolT fDoNotUseTimeAtBootP )
+   |       7a    f5021063    9e91    boolT stackC::newTabsIfF( tinS& tinP , plateS* ppNewDelP , const boolT bDelP )
+   |       66    7004e063    f82    voidT grabitC::ungrabF( tinS& tinP )
+   |       66    6004e063    a02    voidT grabitC::grabF( tinS& tinP , const countT idLineP , const countT idiFileP , const byteT* const pbBitsP )
+   |       66    6004e063    9d1    voidT grabitC::grabF( tinS& tinP , const countT idLineP , const countT idiFileP , const byteT* const pbBitsP )
+   |       66    6004e063    832    voidT grabitC::grabF( tinS& tinP , const countT idLineP , const countT idiFileP , const byteT* const pbBitsP )
+   |       66    6004e063    712    voidT grabitC::grabF( tinS& tinP , const countT idLineP , const countT idiFileP , const byteT* const pbBitsP )
+   |       66    6004e063    6f1    voidT grabitC::grabF( tinS& tinP , const countT idLineP , const countT idiFileP , const byteT* const pbBitsP )
+   |       66    6004e063    362    voidT grabitC::grabF( tinS& tinP , const countT idLineP , const countT idiFileP , const byteT* const pbBitsP )
+   |       66    6004e063    2f1    voidT grabitC::grabF( tinS& tinP , const countT idLineP , const countT idiFileP , const byteT* const pbBitsP )
+   |       66    6004e063    142    voidT grabitC::grabF( tinS& tinP , const countT idLineP , const countT idiFileP , const byteT* const pbBitsP )
+   |       63    70010063    272    voidT thirdC::osTimeSubtractF( tinS& tinP , countT& timeA1P , sCountT& timeA2P , const countT timeB1P , const sCountT timeB2P )
+   |       62    c3021063    d711    voidT stackC::ctF( tinS& tinP , soulC* pSoulP )
+   |       62    10021063    8b    stackC::stackC( tinS& tinP , thirdC& thirdP , const countT idLineCtP , const countT idiFileCtP , const byteT* const pbBitsCtP , const flagsT flagsP , const countT idTypeP , const countT idGrabLayerP , countT* pLeverLathRefP , const osTextT* const postFileP , cbFT pCbFP , const osTextT* const postNameP , batonC* const pBatonP )
+   |       61    68110053    5f14    voidT thirdC::dosFindFileOrDirSimpleIF( tinS& tinP , osTextT* const postP , const countT costaP , handleC& handleP , const osTextT* const postLikeP , const flagsT flagsP )
+   |       5f    75021063    8e71    voidT stackC::purgeF( tinS& tinP , countT cPlatesRetainP )
+   |       5f    20021063    651    stackC::~stackC( voidT )
+   |       5f    20021063    221    stackC::~stackC( voidT )
+   |       54    45020063    07b1    countT etherC::strIdAnyF( tinS& tinP , stackC* const pstMatchP , const flagsT flagsMatchP , countT& idFirstP , strokeS& sttQuoteP , const strokeS* psttSmallP , const strokeS* psttBigP , const countT idLastP , sCountT idP , const flagsT flagsP )
+   |       50    f8020063    a5d2    voidT etherC::sleepStartF( tinS& tinP )
+   |       50    09020063    88d2    voidT etherC::sleepEndF( tinS& tinP )
+   |       44    f2020063    7601    voidT etherC::memSetF( tinS& tinP , byteT* const pbP , const countT cbP , const byteT valueP )
+   |       41    c0021063    124    voidT stackC::sinkF( tinS& tinP , countT& idSlotP , const countT valueP , const flagsT flagsP , ifc4FT pSubtractFP , const countT subtractionParmP )
+   |       41    87021063    3702    voidT stackC::sinkPrivateF( tinS& tinP , countT& idSlotP , const countT valueP , plateS*& ppValueP , const flagsT flagsP , ifc4FT pSubtractFP , const countT subtractionParmP )
+   |       3c    72021063    3ab    voidT stackC::newPlateF( tinS& tinP , plateS*& ppNewP , const countT valueP )
+   |       3c    71010053    d14    voidT thirdC::c_zReplaceIF( tinS& tinP , osTextT* const postP , const osTextT ostOldP , const osTextT ostNewP )
+   |       3a    3d000033    d8b5    countT subtractLB_countT_F( tinS& tinP , countT& pEther , countT& c1P , countT& c2P , countT& c3P )
+   |       33    c8010053    e241    voidT thirdC::c_itoaIF( tinS& tinP , osTextT* const postP , const countT costP , sCountT valueP , countT radixP )
+   |       33    06021063    06a1    plateS* stackC::pPlateF( tinS& tinP , countT& idP )
+   |       32    200c0163    a3    grabotC::~grabotC( voidT )
+   |       30    62110053    4d32    voidT thirdC::handleCloseIF( handleC& handleP )
+   |       30    600e3063    034    voidT napkinC::flushF( tinS& tinP )
+   |       30    500e3063    df3    boolT napkinC::dieF( tinS& tinP )
+   |       30    200e3063    e3    napkinC::~napkinC( voidT )
+   |       2d    400e3063    0b3    voidT napkinC::formattingIsDoneF( tinS& tinP )
+   |       2d    31051063    765    switchC::switchC( tinS& tinP , thirdC& thirdP , const countT idLineCtP , const countT idiFileCtP , const byteT* const pbBitsCtP , const flagsT flagsP , countT& cLeverP , countT* pLeverLathRefP , const countT cbDataP , const countT idGrabLayerP , const osTextT* const postNameP )
+   |       2d    300c0163    57    grabotC::grabotC( tinS& tinP , const countT idLineCtP , const countT idiFileCtP , const byteT* const pbBitsCtP , flagsT flagsP , const countT msNapP , const countT idGrabLayerP ) :
+   |       2c    f1020063    0da    voidT etherC::diskMapFileNameF( tinS& tinP , strokeS*& psttP , const strokeS* const psttRawP )
+   |       2a    ea020063    ad63    countT etherC::strIdAnyF( tinS& tinP , countT& idFirstP , strokeS& sttQuoteP , const strokeS sttSmallP , const strokeS* psttBigP , sCountT idP )
+   |       2a    50021063    ec1    stackC& stackC::operator << ( const countT valueP )
+   |       2a    100e0063    25    osFileNameC::osFileNameC( tinS& tinP , thirdC& thirdP , const osTextT* const postP )
+   |       2a    01021063    c65    countT& stackC::downF( tinS& tinP , handleC& handleP )
+   |       29    200e0063    6b    osFileNameC::~osFileNameC( voidT )
+   |       28    33120063    9326    countT etherC::strReplaceF( tinS& tinP , strokeS*& psttNewBigP , const strokeS* const psttOldBigP , const countT idTypeP , const countT csttExtraP , const flagsT flagsP )
+   |       27    f3021063    6621    voidT stackC::sinkF( tinS& tinP , countT& idSlotP , const byteT* const pbP , const flagsT flagsP , ifc4FT pSubtractFP , const countT subtractionParmP )
+   |       26    fe120063    bf3c    voidT etherC::diskFindFileOrDirF( tinS& tinP , infoFileS*& pInfoP , handleC& handleP , const strokeS* const psttPathP , const patternC* pPatternP , const flagsT flagsP )
+   |       25    7a020063    3b43    voidT etherC::strFuseSeparateF( tinS& tinP , strokeS*& psttOutP , const strokeS* const psttInP , countT csttPrefixNullsP , countT csttSuffixNullsP , soulC* pSoulP , grabC* pGrabP , const countT csttExtraP )
+   |       25    0f120063    5b4c    voidT etherC::diskFindFileOrDirF( tinS& tinP , strokeS*& psttNameP , handleC& handleP , const strokeS* const psttPathP , const patternC* pPatternP )
+   |       22    b0021063    9b3    countT& stackC::operator [] ( countT idP )
+   |       1f    52021063    6fa    countT stackC::ungrabF( tinS& tinP , const flagsT flagsP )
+   |       1f    42021063    bca    voidT stackC::grabF( tinS& tinP , const countT idLineP , const countT idiFileP , const byteT* const pbBitsP )
+   |       1e    30051063    c01    switchC::operator countT&( voidT )
+   |       1e    1f120063    105c    countT etherC::diskFindFileOrDirF( tinS& tinP , strokeS*& pstt1FoundP , const strokeS* const psttPathP , const patternC* pPatternP , soulC* pSoulP , grabC* pGrabP , const countT csttExtraP , const countT cMaxP )
+   |       1d    80021063    4b2    stackC& stackC::operator >> ( countT& valueP )
+   |       1d    42010063    9d6    voidT thirdC::dosQueryFSInfoF( tinS& tinP , infoDisk1S*& pInfoDisk1P , const osTextT* const postDriveNameP , countT cTriesP )
+   |       1d    20012063    76    infoDisk1S::infoDisk1S( tinS& tinP , thirdC& thirdP )
+   |       1d    12020063    99b    voidT etherC::diskInfoF( tinS& tinP , infoDiskS*& pInfoDiskP , const strokeS* const psttDriveNameP , const countT cTriesP )
+   |       1d    10030063    34    infoDiskS::infoDiskS( tinS& tinP , thirdC& thirdP )
+   |       1c    da020063    d563    voidT etherC::strWordF( tinS& tinP , strokeS*& psttP , const strokeS* const psttBigP , strokeS& sttQuoteP , const strokeS sttDelimiterP , const sCountT idP , const countT csttExtraP )
+   |       1c    90021063    833    stackC& stackC::operator >> ( strokeS*& psttP )
+   |       1c    60021063    832    stackC& stackC::operator << ( const strokeS* const psttP )
+   |       19    27010063    eb51    voidT thirdC::thirdTestF( tinS& tinP )
+   |       19    200ff063    75    voidT tinArgS::clearF( tinS& tinP , boolT bAllP )
+   |       18    6a120063    7898    countT etherC::strBisectF( tinS& tinP , strokeS*& psttPart1P , strokeS*& psttPart2P , const strokeS* const psttBigP , const strokeS* const psttDelimiterP , const countT idP , const flagsT flagsP , const countT csttExtraP )
+   |       18    62110053    a642    voidT thirdC::handleCloseIF( handleC& handleP )
+   |       17    e4020063    9d71    voidT etherC::strFromF( tinS& tinP , strokeS*& psttP , const sCountT valueP , const flagsT flagsFormatP , const countT csP , const countT radixP , const countT csttExtraP )
+   |       15    f4110053    d043    countT thirdC::osHandleCloneIF( tinS& tinP , countT& noteP , const countT oshP , const countT idTypeP , const countT oshProcessToP , const countT oshProcessFromP )
+   |       14    f1063063    b68    soulC& soulC::operator >>( strokeS*& psttP )
+   |       14    e1063063    238    soulC& soulC::operator <<( const strokeS* const psttP )
+   |       14    d0063063    8e3    soulC& soulC::shiftRightF( tinS& tinP , byteT*& pbP , countT& cbP , const countT idTypeVerifyP )
+   |       14    d0040063    e53    textC::textC( tinS& tinP , const countT idLineCtP , const countT idiFileCtP , const byteT* const pbBitsCtP , const flagsT flagsP , const countT valueP , const flagsT flagsFormatP , const countT csP , const countT radixP )
+   |       14    bd020063    6074    voidT etherC::strFromF( tinS& tinP , strokeS*& psttP , const countT valueP , const flagsT flagsFormatP , const countT csP , const countT radixP , const countT csttExtraP )
+   |       14    a0063063    042    soulC& soulC::shiftLeftF( tinS& tinP , const countT idTypeShiftP , const byteT* pbP , countT cbP , const flagsT flagsItemP , const flagsT flagsModeP , const countT* const pcIncludeP , const countT* const pcExcludeP )
+   |       14    87020063    3162    voidT etherC::strReverseF( tinS& tinP , strokeS*& psttP , const strokeS* psttOldP , const strokeS* const psttDelimiterP , soulC* pSoulP , grabC* pGrabP , const countT csttExtraP )
+   |       14    65063063    c301    voidT soulC::ctF( tinS& tinP , const byteT* const pbBitsCtP , const osTextT* const postNameJotP , const osTextT* const postNameP )
+   |       14    51063063    bf5    voidT soulC::removeAllF( tinS& tinP )
+   |       14    4c120063    b8fa     voidT etherC::strFuseF( tinS& tinP , soulC& soulP , const strokeS* const psttInP , grabC* pGrabP , const strokeS sttEscapeP , const strokeS* psttDelimiterPairsP , const countT csttMaxDelimiterP )
+   |       14    30063063    d7    soulC::soulC( tinS& tinP , const countT idLineCtP , const countT idiFileCtP , const byteT* const pbBitsCtP , const flagsT flagsP , const osTextT* const postNameJotP , const countT cbJotDataBookP , const osTextT* const postNameP )
+   |       14    20063063    83    soulC::~soulC( voidT )
+   |       13    fd020063    4584    strokeS*& etherC::ether_pstt1_processParametersI_F( tinS& tinP )
+   |       12    4006e053    f4    flagsT listC::openIF( tinS& tinP , handleC& hListP , const countT* const pczNameP , const flagsT flagsP , const countT idGrabLayerP )
+   |       12    2000e063    f3    sexC::~sexC( voidT )
+   |       11    f006e053    404    flagsT listC::deleteIF( tinS& tinP , const countT* const pczNameP , const flagsT flagsP , const countT idGrabLayerP )
+   |       11    a4021063    3251    voidT stackC::extractF( byteT* const pbP , tinS& tinP , countT idP )
+   |       11    6006e053    091    flagsT listC::walkIF( tinS& tinP , countT* const pczNameP , const flagsT flagsP , const countT idGrabLayerP )
+   |       10    bc010053    4571    countT thirdC::c_strlenIF( tinS& tinP , const countT* const pczP )
+   |       10    3000e063    991    sexC::sexC( tinS& tinP , const countT idLineCtP , const countT idiFileCtP , const byteT* const pbBitsCtP , const countT idLineNewP , const countT idiFileNewP , const osTextT* const postNameP , const countT expCbSlotP , const countT expSlotsP , const flagsT flagsP , const countT idStateSpaceP , countT idMemorySpaceP , poolC* const pPoolContainsMeP ) :
+   |       10    3000e063    094    sexC::sexC( tinS& tinP , const countT idLineCtP , const countT idiFileCtP , const byteT* const pbBitsCtP , const countT idLineNewP , const countT idiFileNewP , const osTextT* const postNameP , const countT expCbSlotP , const countT expSlotsP , const flagsT flagsP , const countT idStateSpaceP , countT idMemorySpaceP , poolC* const pPoolContainsMeP ) :
+   |        f    200d0063    69    ifFileNameC::~ifFileNameC( voidT )
+   |        f    2001e063    93    slotsC::~slotsC( voidT )
+   |        f    100d0063    d4    ifFileNameC::ifFileNameC( tinS& tinP , thirdC& thirdP , const osTextT* const postP )
+   |        e    ae120063    edfb    countT etherC::strIdOptimizedClosureF( tinS& tinP , stackC* const pstMatchP , const flagsT flagsMatchP , countT& idFirstP , strokeS& sttQuoteP , const strokeS* psttSmallP , const strokeS* psttBigP , const flagsT flagsP , const flagsT* pFlagsOverrideP , const countT* pcMinOverrideP , const countT* pcMaxOverrideP , const countT idLastP , sCountT idP )
+   |        e    ae120063    6ffb    countT etherC::strIdOptimizedClosureF( tinS& tinP , stackC* const pstMatchP , const flagsT flagsMatchP , countT& idFirstP , strokeS& sttQuoteP , const strokeS* psttSmallP , const strokeS* psttBigP , const flagsT flagsP , const flagsT* pFlagsOverrideP , const countT* pcMinOverrideP , const countT* pcMaxOverrideP , const countT idLastP , sCountT idP )
+   |        e    ae120063    2ffb    countT etherC::strIdOptimizedClosureF( tinS& tinP , stackC* const pstMatchP , const flagsT flagsMatchP , countT& idFirstP , strokeS& sttQuoteP , const strokeS* psttSmallP , const strokeS* psttBigP , const flagsT flagsP , const flagsT* pFlagsOverrideP , const countT* pcMinOverrideP , const countT* pcMaxOverrideP , const countT idLastP , sCountT idP )
+   |        e    ae120063    020c    countT etherC::strIdOptimizedClosureF( tinS& tinP , stackC* const pstMatchP , const flagsT flagsMatchP , countT& idFirstP , strokeS& sttQuoteP , const strokeS* psttSmallP , const strokeS* psttBigP , const flagsT flagsP , const flagsT* pFlagsOverrideP , const countT* pcMinOverrideP , const countT* pcMaxOverrideP , const countT idLastP , sCountT idP )
+   |        e    20093063    e9    thirdInitC::thirdInitC( tinS& tinP , countT c_pP )
+   |        e    20010063    e51    thirdC::~thirdC( voidT )
+   |        e    17010063    7851    voidT thirdC::spacerSetF( tinS& tinP )
+   |        e    100c3063    d3    psttOldC::psttOldC( tinS& tinP , etherC& ether , const strokeS* const psttP )
+   |        e    10010063    fd    thirdC::thirdC( tinS& tinP , const countT idLineCtP , const countT idiFileCtP , const byteT* const pbBitsCtP , const flagsT flagsModeP , const flagsT flagsWatchP )
+   |        e    0c020063    7ac3    countT etherC::strCLinesF( tinS& tinP , const strokeS* const psttP , const strokeS* const psttEndP , const boolT bAnyP )
+   |        d    f0021063    415    countT stackC::extractF( tinS& tinP , const countT idP )
+   |        d    b7020063    9472    voidT etherC::osTimeNowF( tinS& tinP , countT& time1P , sCountT& time2P , boolT fRawP )
+   |        d    99020063    7ef2    voidT etherC::spacerSetF( tinS& tinP )
+   |        d    62021063    83b    countT stackC::operator () ( const countT cP , ifc4FT pSubtractFP , const countT subtractionParmP )
+   |        d    4002e063    ba3    voidT poolC::newF( tinS& tinP , const countT idLineP , const countT idiFileP , byteT*& pbP , const countT cbP , const flagsT flagsP )
+   |        d    4002e063    7a3    voidT poolC::newF( tinS& tinP , const countT idLineP , const countT idiFileP , byteT*& pbP , const countT cbP , const flagsT flagsP )
+   |        d    3001e063    ba    slotsC::slotsC( tinS& tinP , const countT idLineCtP , const countT idiFileCtP , const byteT* const pbBitsCtP , const countT idLineNewP , const countT idiFileNewP , const osTextT* const postNameP , const countT poolC_cBitsExpCbSlotP , const countT expCbSlotP , const flagsT flagsP , const countT idStateSpaceP , countT idMemorySpaceP , poolC* const pPoolContainsMeP ) :
+   |        d    100f2063    83    etherInitC::~etherInitC( voidT )
+   |        d    10020063    66    etherC::etherC( tinS& tinP , const countT idLineCtP , const countT idiFileCtP , const byteT* const pbBitsCtP , const flagsT flagsModeP , const flagsT flagsWatchP , const osTextT* const postNameP )
+   |        c    a9020063    1303    voidT etherC::etherTestF( tinS& tinP )
+   |        c    58110053    5214    voidT thirdC::dosCreateDirIF( tinS& tinP , const osTextT* const postP )
+   |        c    20020063    ea    etherC::~etherC( voidT )
+   |        9    bb010053    5561    countT thirdC::dosPriorityProcessIF( tinS& tinP )
+   |        8    50051063    822    countT switchC::cFlavorsF( tinS& tinP )
+   |        7    a1020063    1a8    countT etherC::diskChooseSiteF( tinS& tinP , strokeS*& psttP , const strokeS* const psttKeyP , const strokeS* const psttPathP )
+   |        7    a0035063    7c1    voidT handleC::operator =( const handleC& oshP )
+   |        7    500c5063    fc1    boolT grabC::grabF( tinS& tinP , const countT idLineP , const countT idiFileP , const byteT* const pbBitsP , const flagsT flagsP )
+   |        7    500c5063    de1    boolT grabC::grabF( tinS& tinP , const countT idLineP , const countT idiFileP , const byteT* const pbBitsP , const flagsT flagsP )
+   |        7    300e3063    9e    napkinC::napkinC( tinS& tinP , const countT idLineCtP , const countT idiFileCtP , const byteT* const pbBitsCtP , const osTextT* const postP , const handleC* const phFileP , countT cbP , const countT idHowP , const flagsT flagsP , countT cTriesP , countT idMemorySpaceP )
+   |        7    15110053    ea43    voidT thirdC::dosSuspendThreadIF( tinS& tinP )
+   |        7    05110053    3643    voidT thirdC::dosResumeThreadIF( tinS& tinP , handleC& hP , const boolT bRetryP )
+   |        7    01035063    2e2    handleC::handleC( const handleC& oshP , const osTextT* const postNameP ) :
+   |        6    30090063    98    signC::signC( tinS& tinP , const countT idLineCtP , const countT idiFileCtP , const byteT* const pbBitsCtP , const osTextT* const postP , const countT idGroupP , byteT* const pbForNapkinP )
+   |        6    20090063    e3    signC::~signC( voidT )
+   |        5    66020063    1212    voidT etherC::osTimeSubtractF( tinS& tinP , countT& time11P , sCountT& time12P , const countT time21P , const sCountT time22P )
+   |        5    5a020063    b043    countT etherC::osThreadSwitchingDesireF( tinS& tinP , const countT idP )
+   |        5    46020063    b802    voidT etherC::osSleepF( tinS& tinP , const countT timeP , const countT timeGrainP , const flagsT flagsP )
+   |        4    fd010053    7591    voidT thirdC::dosCloseThreadResourcesIF( tinS& tinP )
+   |        4    e7010053    4b21    osTextT thirdC::osIdIF( tinS& tinP , const boolT bFileP )
+   |        4    40051063    3f1    switchC& switchC::operator =( const countT cP )
+   |        4    31010053    783    voidT thirdC::c_strlwrIF( tinS& tinP , osTextT* postP )
+   |        4    2b020063    af73    countT etherC::diskFileExistsF( tinS& tinP , const strokeS* const psttLikeP )
+   |        4    10051063    05    voidT switchC::freeF( tinS& tinP )
+   |        3    f7020063    2982    voidT etherC::ifcDatumF( tinS& tinP , const flagsT flags1P , const flagsT flags2P , countT amountP , const countT* const pcResourceIdP , const byteT* const pbP , const countT cbP )
+   |        3    f4010053    12c    countT thirdC::openShareOsFromIfIF( tinS& tinP , countT ifcP )
+   |        3    f0051063    d54    voidT switchC::ungrabF( tinS& tinP )
+   |        3    e4010053    9eb    countT thirdC::openAccessOsFromIfIF( tinS& tinP , countT ifcP )
+   |        3    e0051063    334    voidT switchC::grabF( tinS& tinP , const countT idLineP , const countT idiFileP , const byteT* const pbBitsP )
+   |        3    d4010053    dab    countT thirdC::openHowOsFromIfIF( tinS& tinP , countT ifcP )
+   |        3    d0000033    296    countT __export threadLocalStorageF( const countT idTypeP , kidFT pThreadWorkF , countT cArgP , countT cHowP , const osTextT** ppostHowP , countT hWindowingClientIP , countT hPreviousWindowingClientP , osTextT* postP , countT idCmdShowP )
+   |        3    cd010063    1cc2    voidT thirdC::osThreadF( tinS& tinP , countT& tidP , voidT* const tmFP , signC* const pSgnDoneP , const flagsT flagsP , const countT cbStackP , const countT c1P , const countT c2P , const countT c3P , const countT c4P , const countT c5P , const countT c6P , const countT c7P , const countT c8P )
+   |        3    c0010053    902    osTextT* thirdC::c_strchrIF( tinS& tinP , const osTextT* const postP , const osTextT ostP )
+   |        3    b00e2053    4c    windowOldC* windowOldC::getRefIF( tinS& tinP , const countT idWindowP )
+   |        3    a4010053    9ea    flagsT thirdC::fileAttrOsFromIfIF( tinS& tinP , flagsT iffP )
+   |        3    90040063    c42    textC::textC( tinS& tinP , const countT idLineCtP , const countT idiFileCtP , const byteT* const pbBitsCtP , const flagsT flagsP , const sCountT valueP , const flagsT flagsFormatP , const countT csP , const countT radixP )
+   |        3    82020063    e8d    voidT etherC::ifcDatumF( tinS& tinP , const flagsT flags1P , const flagsT flags2P , countT amountP , const countT* const pcResourceIdP , const countT idLineP , const voidT* const pbFileP , const byteT* const pbP , const countT cbP )
+   |        3    56020063    de02    voidT etherC::osThreadF( tinS& tinP , countT& tidP , voidT* const tmFP , signC* const pSgnDoneP , const flagsT flagsP , const countT cbStackP , const countT c1P , const countT c2P , const countT c3P , const countT c4P , const countT c5P , const countT c6P , const countT c7P , const countT c8P )
+   |        3    50010053    4d    countT thirdC::c_atoiIF( tinS& tinP , const osTextT* const postP )
+   |        3    300da063    f9    countT sourceC::idFileImmutableF( tinS& tinP , const countT idFileP ) const
+   |        3    2003e063    83    fileC::~fileC( voidT )
+   |        3    15010053    fbc    voidT thirdC::c_beginthreadIF( tinS& tinP , countT& tidP , voidT* const tmFP , voidT* pvP , const countT cbStackP , const flagsT flagsP )
+   |        3    100c0063    f6    taskS::taskS( tinS& tinP , voidT* const tmFP , signC* pSgnDoneP , const countT cbStackP , const flagsT flagsP , countT c1P , countT c2P , countT c3P , countT c4P , countT c5P , countT c6P , countT c7P , countT c8P , countT c9P , countT caP , countT cbP , countT ccP , countT cdP , countT ceP , countT cfP , countT c01P )
+   |        3    05010053    b5c    countT thirdC::openDetailsOsFromIfIF( tinS& tinP , countT iffP )
+   |        2    e1020063    b8a    boolT etherC::diskMakeDirStupidlyF( tinS& tinP , const strokeS* const psttP )
+   |        2    c1020063    8a9    boolT etherC::diskMakeDirF( tinS& tinP , const strokeS* const psttP )
+   |        2    bf010053    cbd1    voidT thirdC::dosGetCurrentDirIF( tinS& tinP , osTextT* const postP , countT& costaP )
+   |        2    a1010063    243    boolT thirdC::dosCreateDirF( tinS& tinP , const osTextT* const postP )
+   |        2    80000033    973    TASK( tmWatchF )
+   |        2    68110053    f714    voidT thirdC::dosFindFileOrDirSimpleIF( tinS& tinP , osTextT* const postP , const countT costaP , handleC& handleP , const osTextT* const postLikeP , const flagsT flagsP )
+   |        2    62110053    0a32    voidT thirdC::handleCloseIF( handleC& handleP )
+   |        2    6003e063    5f    countT fileC::idOpenResultF( tinS& tinP  )
+   |        2    55000033    b022    TASK( tmKillSocketF )
+   |        2    54000033    78e1    TASK( tmTimeNowF )
+   |        2    50090063    711    voidT signC::giveF( tinS& tinP , const countT idModeP , const countT time1P , const sCountT time2P )
+   |        2    40090063    5b    voidT signC::waitF( tinS& tinP , const flagsT flagsP )
+   |        2    3003e063    b6    voidT fileC::ctF( tinS& tinP , const osTextT* const postP , const countT idAccessP , const countT idShareP , const flagsT flagsDetailsP , const countT idHowP , const flagsT flagsAttributeP , const countT cTriesP )
+   |        2    02010053    fa5    voidT thirdC::dosOpenIF( tinS& tinP , etherC* pEtherP , handleC& handleP , countT& idResultP , const osTextT* const postP , const countT idAccessP , const countT idShareP , const flagsT flagsDetailsP , const countT idHowP , const flagsT flagsAttributeP , const countT cbP , countT cTriesP )
+   |        1    f0110053    8ef1    voidT thirdC::thirdImpotenceHandlerIF( tinS& tinP , const ifcImpotenceHandlerFT pifcImpotenceHandlerFIP , const countT ifcImpotenceHandlerArgIP )
+   |        1    e1051063    c88    voidT switchC::freeNullsF( tinS& tinP , const countT offcP )
+   |        1    e002e063    595    voidT poolC::ctFaceF( tinS& tinP , const countT idLineCtP , const countT idiFileCtP , const byteT* const pbBitsCtP , const countT idStateSpaceP )
+   |        1    e0000033    b17    countT mainThreadWorkF( const countT idTypeP , countT cHowP , const osTextT** ppostHowP , countT hWindowingClientIP , countT hPreviousWindowingClientP , osTextT* postP , countT idCmdShowP )
+   |        1    e0000033    417    countT mainThreadWorkF( const countT idTypeP , countT cHowP , const osTextT** ppostHowP , countT hWindowingClientIP , countT hPreviousWindowingClientP , osTextT* postP , countT idCmdShowP )
+   |        1    d8010063    c5a1    boolT thirdC::winSetTitleF( tinS& tinP , const osTextT* const postP , const handleC& hWindowP )
+   |        1    d4110053    8533    voidT thirdC::osSetupExceptionHandlingIF( tinS& tinP )
+   |        1    d2000033    a401    countT __export threadLocalStorageNoTlsF( const countT idTypeP , kidFT pThreadWorkF , countT cArgP , countT cHowP , const osTextT** ppostHowP , countT hWindowingClientIP , countT hPreviousWindowingClientP , osTextT* postP , countT idCmdShowP )
+   |        1    d2000033    4501    countT __export threadLocalStorageNoTlsF( const countT idTypeP , kidFT pThreadWorkF , countT cArgP , countT cHowP , const osTextT** ppostHowP , countT hWindowingClientIP , countT hPreviousWindowingClientP , osTextT* postP , countT idCmdShowP )
+   |        1    c4110053    5e13    TASK0PROTO( tmHeartF ) // NOTE THAT THIS S A RAW THREAD; IT HAS NO THREAD LOCAL STORAGE SO CANNOT CALL pTinF
+   |        1    b5010053    62e    voidT thirdC::dosAllocSharedMemIF( tinS& tinP , handleC& handleP , const osTextT* const postP , const handleC* phFileP , const countT cbP , const countT idMemorySpaceP , const flagsT flagsP )
+   |        1    b00bf063    d17    voidT booksC::setBookNameIdF( tinS& tinP , const flagsT flagsP , const countT* const pcpIdBookWantP , const boolT* pbQuitP )
+   |        1    aa110053    0894    voidT thirdC::s_shutdown1IF( tinS& tinP )
+   |        1    9e010053    cfa1    voidT thirdC::dosOpenSharedMemIF( tinS& tinP , handleC& handleP , flagsT& flagsResultP , const osTextT* const postP , const handleC* phFileP , const countT cbP , const countT idHowP , const countT idMemorySpaceP , const flagsT flagsP )
+   |        1    99110053    3164    voidT thirdC::dosFlushFileBuffersIF( tinS& tinP , const handleC& handleP )
+   |        1    9006e053    732    countT listC::dictionaryQueryFromTextIF( tinS& tinP , const osTextT* const postP , const flagsT flagsP , const countT idGrabLayerP )
+   |        1    88110053    f724    countT thirdC::diskFindHomeIF( tinS& tinP , osTextT* const postP , const countT costaP , const osTextT* postKeyP )
+   |        1    86010063    8c31    voidT thirdC::dosQuerySysInfoTimeSince1960sDecadeF( tinS& tinP , countT& time1P , sCountT& time2P )
+   |        1    8003e063    f31    fileC::operator const handleC*( voidT )
+   |        1    7f010063    4103    voidT thirdC::dosGetCurrentDirF( tinS& tinP , osTextT*& postP )
+   |        1    7a010053    a061    voidT thirdC::dosPushConsoleHandlerIF( tinS& tinP , handleC& handleP , voidT* pConsoleHandlerFP )
+   |        1    70120063    2f35    voidT etherC::etherScanProcessParametersF( tinS& tinP )
+   |        1    7003e063    a11    fileC::operator const handleC&( voidT )
+   |        1    70021015    91    
+   |        1    62110053    9452    voidT thirdC::handleCloseIF( handleC& handleP )
+   |        1    62110053    5f42    voidT thirdC::handleCloseIF( handleC& handleP )
+   |        1    62110053    4932    voidT thirdC::handleCloseIF( handleC& handleP )
+   |        1    62010063    6e7    voidT thirdC::dosQueryProcAddrF( tinS& tinP , voidT*& pvP , const handleC& handleP , const osTextT* const postP )
+   |        1    56000033    e0e2    countT adamMainF( tinS& tinP , const countT idTypeP , countT cHowP , const osTextT** ppostHowP , countT hWindowingClientIP , countT hPreviousWindowingClientP , const osTextT* postP , countT idCmdShowP )
+   |        1    56000033    dce2    countT adamMainF( tinS& tinP , const countT idTypeP , countT cHowP , const osTextT** ppostHowP , countT hWindowingClientIP , countT hPreviousWindowingClientP , const osTextT* postP , countT idCmdShowP )
+   |        1    56000033    dae2    countT adamMainF( tinS& tinP , const countT idTypeP , countT cHowP , const osTextT** ppostHowP , countT hWindowingClientIP , countT hPreviousWindowingClientP , const osTextT* postP , countT idCmdShowP )
+   |        1    56000033    d1d2    countT adamMainF( tinS& tinP , const countT idTypeP , countT cHowP , const osTextT** ppostHowP , countT hWindowingClientIP , countT hPreviousWindowingClientP , const osTextT* postP , countT idCmdShowP )
+   |        1    56000033    cee2    countT adamMainF( tinS& tinP , const countT idTypeP , countT cHowP , const osTextT** ppostHowP , countT hWindowingClientIP , countT hPreviousWindowingClientP , const osTextT* postP , countT idCmdShowP )
+   |        1    56000033    c3e2    countT adamMainF( tinS& tinP , const countT idTypeP , countT cHowP , const osTextT** ppostHowP , countT hWindowingClientIP , countT hPreviousWindowingClientP , const osTextT* postP , countT idCmdShowP )
+   |        1    56000033    bfe2    countT adamMainF( tinS& tinP , const countT idTypeP , countT cHowP , const osTextT** ppostHowP , countT hWindowingClientIP , countT hPreviousWindowingClientP , const osTextT* postP , countT idCmdShowP )
+   |        1    56000033    acc2    countT adamMainF( tinS& tinP , const countT idTypeP , countT cHowP , const osTextT** ppostHowP , countT hWindowingClientIP , countT hPreviousWindowingClientP , const osTextT* postP , countT idCmdShowP )
+   |        1    56000033    a1e2    countT adamMainF( tinS& tinP , const countT idTypeP , countT cHowP , const osTextT** ppostHowP , countT hWindowingClientIP , countT hPreviousWindowingClientP , const osTextT* postP , countT idCmdShowP )
+   |        1    56000033    93d2    countT adamMainF( tinS& tinP , const countT idTypeP , countT cHowP , const osTextT** ppostHowP , countT hWindowingClientIP , countT hPreviousWindowingClientP , const osTextT* postP , countT idCmdShowP )
+   |        1    56000033    85e2    countT adamMainF( tinS& tinP , const countT idTypeP , countT cHowP , const osTextT** ppostHowP , countT hWindowingClientIP , countT hPreviousWindowingClientP , const osTextT* postP , countT idCmdShowP )
+   |        1    56000033    61e2    countT adamMainF( tinS& tinP , const countT idTypeP , countT cHowP , const osTextT** ppostHowP , countT hWindowingClientIP , countT hPreviousWindowingClientP , const osTextT* postP , countT idCmdShowP )
+   |        1    56000033    4ee2    countT adamMainF( tinS& tinP , const countT idTypeP , countT cHowP , const osTextT** ppostHowP , countT hWindowingClientIP , countT hPreviousWindowingClientP , const osTextT* postP , countT idCmdShowP )
+   |        1    56000033    39e2    countT adamMainF( tinS& tinP , const countT idTypeP , countT cHowP , const osTextT** ppostHowP , countT hWindowingClientIP , countT hPreviousWindowingClientP , const osTextT* postP , countT idCmdShowP )
+   |        1    56000033    05c2    countT adamMainF( tinS& tinP , const countT idTypeP , countT cHowP , const osTextT** ppostHowP , countT hWindowingClientIP , countT hPreviousWindowingClientP , const osTextT* postP , countT idCmdShowP )
+   |        1    54010053    4d9    voidT thirdC::dosErrorMsgBox_offIF( tinS& tinP )
+   |        1    53020063    5121    voidT etherC::strResizeF( tinS& tinP , strokeS*& psttP , const countT csP , strokeS sttP , const boolT fLeadingP , const countT csttExtraP )
+   |        1    51051063    526    switchC::switchC( tinS& tinP , thirdC& thirdP , const countT idLineCtP , const countT idiFileCtP , const byteT* const pbBitsCtP , const flagsT flagsP , const countT*& pczLeverP , countT* pLeverLathRefP , const countT cbDataP , const countT idGrabLayerP , const osTextT* const postNameP )
+   |        1    500af063    691    voidT bookC::ctFileF( tinS& tinP , const osTextT* const postNameP , const countT idStateSpaceP , countT idMemorySpaceP )
+   |        1    5003e063    bc    fileC::fileC( tinS& tinP , const strokeS* const psttP , const countT idAccessP , const countT idShareP , const flagsT flagsDetailsP , const countT idHowP , const flagsT flagsAttributeP , const flagsT flagsP , const countT cTriesP , const osTextT* const postZipP ) :
+   |        1    4003e063    e9    fileC::fileC( tinS& tinP , const osTextT* const postP , const countT idAccessP , const countT idShareP , const flagsT flagsDetailsP , const countT idHowP , const flagsT flagsAttributeP , const flagsT flagsP , const countT cTriesP , const osTextT* const postZipP ) :
+   |        1    32020063    91c    voidT etherC::dllEntryF( tinS& tinP , mainFT& pMainFP , const handleC& handleP , const strokeS* psttP )
+   |        1    32010053    5c6    voidT thirdC::dosQueryFileInfoIF( tinS& tinP , infoFileS*& pInfoFileP , const handleC& handleP )
+   |        1    310bf063    faa    voidT booksC::setPcpIdBookWantF( tinS& tinP , const flagsT flagsP , const countT* const pcpIdBookWantP , const boolT* pbQuitP )
+   |        1    300bf063    8d1    booksC::booksC( tinS& tinP , const countT idLineCtP , const countT idiFileCtP , const byteT* const pbBitsCtP , const osTextT* const postP , const countT idStateSpaceP , const flagsT flagsP , const countT cbP , const countT cKeepInactiveP , const byteT bFillP , byteT* const pbBooksNoPuseBackP , const countT cbBooksNoPuseBackP , const countT idMemorySpaceP , const boolT* pbQuitP ) :
+   |        1    300af063    dd    bookC::bookC( tinS& tinP , const countT idLineCtP , const countT idiFileCtP , const byteT* const pbBitsCtP , const osTextT* const postP , const countT idStateSpaceP , const flagsT flagsP , countT cbP , const byteT bFillP , const countT idMemorySpaceP ) :
+   |        1    300af063    cc    bookC::bookC( tinS& tinP , const countT idLineCtP , const countT idiFileCtP , const byteT* const pbBitsCtP , const osTextT* const postP , const countT idStateSpaceP , const flagsT flagsP , countT cbP , const byteT bFillP , const countT idMemorySpaceP ) :
+   |        1    3002e063    8c1    poolC::poolC( tinS& tinP , const countT idLineCtP , const countT idiFileCtP , const byteT* const pbBitsCtP , const osTextT* const postNameP , const flagsT flagsP , const countT idStateSpaceP , const countT expCbSlotMinP , const countT expCbSlotMaxP , const countT* pczHintPreallocationP , countT idMemorySpaceP ) :
+   |        1    23120063    4f16    voidT etherC::diskGetHoverF( tinS& tinP , strokeS*& psttP )
+   |        1    22020063    4eb    voidT etherC::dllEntryF( tinS& tinP , voidT*& pvP , const handleC& handleP , const strokeS* psttP )
+   |        1    210bf063    369    voidT booksC::idBookMinMaxF( tinS& tinP , countT*& pcpIdBookMinP , countT*& pcpIdBookMaxP , const flagsT flagsP , const boolT* pbQuitP )
+   |        1    21051063    805    switchC::switchC( thirdC& thirdP , tinS& tinP , const countT idLineCtP , const countT idiFileCtP , const byteT* const pbBitsCtP , const flagsT flagsP , countT* pLeverLathRefP , const countT cbDataP , const countT idGrabLayerP , const osTextT* const postNameP )
+   |        1    20120063    8435    boolT etherC::winSetTitleF( tinS& tinP , const strokeS* const psttP , const handleC& hWindowP )
+   |        1    200bf063    8e    booksC::~booksC( voidT )
+   |        1    200af063    83    bookC::~bookC( voidT )
+   |        1    200a0063    86    mainS::~mainS( voidT )
+   |        1    2009f063    b4    book0C::book0C( tinS& tinP , byteT* const pbP , const countT cbP , const flagsT flagsP , const byteT bFillP ) :
+   |        1    2009f063    14    book0C::book0C( tinS& tinP , byteT* const pbP , const countT cbP , const flagsT flagsP , const byteT bFillP ) :
+   |        1    2002e063    95    poolC::~poolC( voidT )
+   |        1    2002e063    83    poolC::~poolC( voidT )
+   |        1    2002e063    56    poolC::~poolC( voidT )
+   |        1    14110053    7103    countT thirdC::osOpenHandleCritSecIF( tinS& tinP )
+   |        1    100a0063    34    mainS::mainS( tinS& tinP , etherC& etherP , etherC& etThreadP , handleC& hDllP , strokeS* psttDirectivesP ) :
+   |        1    10080043    4c    NEWdELcLASS (all invocations)
+   |        1    10080043    3c    NEWdELcLASS (all invocations)
+   |        1    10061063    24    switchStackC::~switchStackC( voidT )
+   |        1    0d010063    a1b2    voidT thirdC::thirdLaunchLateThreadsF( tinS& tinP )
+   |        1    04120063    0f96    countT etherC::strIdF( tinS& tinP , const strokeS* const psttSmallP , const strokeS* psttBigP , sCountT idP )
+   |        1    04021063    a921    stackC& stackC::operator >> ( byteT*& pbP )
+   |        1    0206e053    f57    boolT listC::isIndexedIF( tinS& tinP , const countT idGrabLayerP )
+   |        1    02020063    d4b    countT etherC::diskIdF( tinS& tinP , const strokeS* const psttDriveNameP )
+   | 
+  listing
+  set up dut
+ playcraft
+ objective: speed , glass walls
+!job C: tune app telemetry for most efficient reporting on pool new del
+
+
+
+
+
+
+
+
+!subjob C: scratch adam 8: capture total cpu cycles consumed between 3 and 2 (between ct and dt)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  !subjob B: net cycles is even more negative now!
+  !subjob B: net cycles is negative for dut
+     for this to be done by the reporter, telemetry must include the cNest value
+     io2 should subtract each of its 3 totals from in accumulator N times, where N is the number of parent levels (1)
+     io1's in is gross ; it contains all of io2's totals
+    analysis
+     inOutFrameC #1 dt
+      inOutFrameC #2 dt
+       app code #2
+      inOutFrameC #2 ct
+      app code #1
+     inOutFrameC #1 ct
+    execution
+   problem: oo levels
+  study
+   the observation of In is gross; it contains nested Ct Dt and In
+   so accumulations of Ct and Dt make sense, but the accumulation of In is nonsense since the same cycles are accumulated multiple times
+   the basic problem is that all cycles Ct In Dt are included within In for each and every parent level
+  think
+   | 
+   | cCpuCyclesCt  :         3b912062.00000000
+   | cCpuCyclesIn  :         3d4ecc35.94100000
+   | cCpuCyclesDt  :         d3cb3912.00000000
+   | cCpuCyclesCtDt:         0f5d5974.00000000
+   | cCpuCyclesWorkPerWatch: 99400000.00000000
+   | 
+  listing
+   i must put on my mathematician hat for this
+   something like that
+    subtract the overcount from the In accumulator
+    multiply that by how many nest levels are above me to get the overcount
+    calculate the CtDt cost
+   recipe
+   the nesting level can be used to eliminate the overcounting
+  think
+      _IO_
+     _IO_
+    _IO_
+   listing
+   what is the correct way to accumulate
+  think
+   but this overstates because all ct+dt is also within each containing in
+   in / ct+dt is over 1000_9
+  think
+   i just want a single total for the ct'or and for the dt'or
+  think
+ playcraft
+ objective: glass walls
+!subjob C: scratch adam 8: capture total cpu cycles consumed by inOutFrameC processing
+
+
+
+
+
+
+
+
+
+
+
+
+  next: add code to accumulate the total cycle cost of writing the app telemetry
+   conj: it does not include the cycles used to write the app telemetry out: yup
+   that is too good
+  think
+   that is slightly worse than one percent
+   the inOutFrameC overhead is 1 watch cycle for 56_ (86_9) work cycles
+   the net number is now reasonable (not negative)
+  see
+   | 
+   | cCpuCyclesCt          : bed89512.00000000
+   | cCpuCyclesInGross     : f67d9da1.ef000000
+   | cCpuCyclesInNet       : caf983c4.51000000
+   | cCpuCyclesDt          : 1df0c5d1.00000000
+   | cCpuCyclesCtDt        : cbd95be3.00000000
+   | cCpuCyclesWorkPerWatch: 65000000.00000000
+   | 
+  listing (for production dut 7)
+   | 
+   | 1           3           70021015    52        72c00000.00000000    30ebc044.60000000    da910000.00000000        30ebc044.60000000
+   | 2           2           70021015    32        21c00000.00000000    945d4244.60000000    85b00000.00000000        945d4244.60000000
+   | 3           1           70021015    12        13c00000.00000000    cf3ef244.60000000    91b00000.00000000        cf3ef244.60000000
+   | 4           0           70021015    f1        8cc00000.00000000    fa36e344.60000000    05510000.00000000        00000000.00000000
+   | cCpuCyclesCt          : 23130000.00000000
+   | cCpuCyclesInGross     : 7fadf901.91000000
+   | cCpuCyclesInNet       : fa36e344.60000000
+   | cCpuCyclesDt          : e6540000.00000000
+   | cCpuCyclesCtDt        : 0a670000.00000000
+   | cCpuCyclesWorkPerWatch: e068d000.00000000
+   |        1    70021015    f1    
+   |        1    70021015    12    
+   |        1    70021015    32    
+   |        1    70021015    52    
+   | 
+  listing
+   | 
+   | 1           2           70021015    52        42230000.00000000    2b9f4af4.60000000    55a10000.00000000        463f94f9.c0000000
+   | 2           1           70021015    32        9f610000.00000000    d6c24bf4.60000000    feb00000.00000000        d6c24bf4.60000000
+   | 3           0           70021015    12        b9710000.00000000    cee0cbf4.60000000    afa00000.00000000        00000000.00000000
+   | cCpuCyclesCt          : 8b060000.00000000
+   | cCpuCyclesInGross     : b05351fe.21000000
+   | cCpuCyclesInNet       : a3517100.00000000
+   | cCpuCyclesDt          : e3130000.00000000
+   | cCpuCyclesCtDt        : 6f190000.00000000
+   | cCpuCyclesWorkPerWatch: 82000000.00000000
+   |        1    70021015    12    
+   |        1    70021015    32    
+   |        1    70021015    52    
+   | 
+  listing
+   the multiplier should be either 0 or 1
+   i know what it is
+  think
+   | 
+   | 1           3           70021015    52        8ea00000.00000000    d3848054.60000000    67910000.00000000        7b8d81fc.21000000
+   | 2           2           70021015    32        2a330000.00000000    8e421154.60000000    bea00000.00000000        0d9422a8.c0000000
+   | 3           1           70021015    12        d7610000.00000000    0cdb7154.60000000    31b00000.00000000        0cdb7154.60000000
+   | 4           0           70021015    f1        71710000.00000000    a6d2e154.60000000    6da00000.00000000        00000000.00000000
+   | cCpuCyclesCt          : e1c60000.00000000
+   | cCpuCyclesInGross     : f485f441.91000000
+   | cCpuCyclesInNet       : 8087cf57.3fffffff
+   | cCpuCyclesDt          : a4a30000.00000000
+   | cCpuCyclesCtDt        : 866a0000.00000000
+   | cCpuCyclesWorkPerWatch: 0753804d.4d981000
+   |        1    70021015    f1    
+   |        1    70021015    12    
+   |        1    70021015    32    
+   |        1    70021015    52    
+   | 
+  listing
+   | 
+   | 1           1           70021015    12        bda00000.00000000    01bc7334.60000000    29b10000.00000000        01bc7334.60000000
+   | 2           0           70021015    f1        8bc00000.00000000    4ebf3434.60000000    9ca00000.00000000        00000000.00000000
+   | cCpuCyclesCt          : 39710000.00000000
+   | cCpuCyclesInGross     : 4f6cb768.c0000000
+   | cCpuCyclesInNet       : 4ebf3434.60000000
+   | cCpuCyclesDt          : b5620000.00000000
+   | cCpuCyclesCtDt        : eed30000.00000000
+   | cCpuCyclesWorkPerWatch: 373e9100.00000000
+   |        1    70021015    f1    
+   |        1    70021015    12    
+   | 
+  listing
+   | 
+   | cCpuCyclesCt          : 39710000.00000000
+   | cCpuCyclesInGross     : 4f6cb768.c0000000
+   | cCpuCyclesInNet       : 4ebf3434.60000000
+   | cCpuCyclesDt          : b5620000.00000000
+   | cCpuCyclesCtDt        : eed30000.00000000
+   | cCpuCyclesWorkPerWatch: 373e9100.00000000
+   |        1    70021015    f1    
+   |        1    70021015    12    
+   | 
+  listing 
+  set up simplest possible dut that sameo's
+  try not multiplying: nawwh
+   the negative net value means that the total of what i am subtracting exceeds gross
+   conj: this happens because of task switches that are not correctly accounted for by Windows
+  think
+   | 
+   | cCpuCyclesCt          : 9b856402.00000000
+   | cCpuCyclesInGross     : a4af135b.cf000000
+   | cCpuCyclesInNet       : 972c3e14.83c2b38e
+   | cCpuCyclesDt          : 5e30c3c1.00000000
+   | cCpuCyclesCtDt        : e9c528c3.00000000
+   | cCpuCyclesWorkPerWatch: 5c1a386d.30000000
+   | 
   listing
  playcraft
- objective: speed
-!job C: suppress _IO_ for the most talkative LF
+ changed: i subtract less
+!subjob B: net cycles is even more negative now!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -9628,6 +10240,234 @@ I have other business to attend to today and tomorrow, but plan to continue to w
 =========================================================================================================================================================
 
 
+  cool ; found wo
+   | 
+   | 1           1           70021015    02        21210000.00000000    e4b00000.00000000    99c00000.00000000        9f920000.00000000    e4b00000.00000000
+   | 2           0           70021015    e1        8e210000.00000000    fd7df000.00000000    50e10000.00000000        cc800100.00000000    00000000.00000000
+   | 
+   | cCpuCyclesCt          : af420000.00000000
+   | cCpuCyclesInGross     : d23ef000.00000000
+   | cCpuCyclesInNet       : fd7df000.00000000
+   | cCpuCyclesDt          : e9a20000.00000000
+   | cCpuCyclesCtDt        : 89f40000.00000000
+   | cCpuCyclesWorkPerWatch: 23000000.00000000
+   | 
+  listing
+    we know that in(0) brackets in(1)(ct,in,dt)
+    inNet should be in(0)  41d58
+   think
+  hand calculation
+   |                                                    ct                  in                  dt                        all                dup
+   | 1           1           70021015    02        d7010000.00000000    ff010000.00000000    aab00000.00000000        62d20000.00000000    62d20000.00000000
+   | 2           0           70021015    e1        f6210000.00000000    41d58000.00000000    dcf00000.00000000        05f78000.00000000    00000000.00000000
+   | 
+   | cCpuCyclesCt          : ce220000.00000000
+   | cCpuCyclesInGross     : 31e68000.00000000
+   | cCpuCyclesInNet       : de048000.00000000
+   | cCpuCyclesDt          : 77b10000.00000000
+   | cCpuCyclesCtDt        : 36e30000.00000000
+   | cCpuCyclesWorkPerWatch: 12000000.00000000
+   | 
+  listing
+   | 
+   | 1           2           70021015    22        41110000.00000000    1ca00000.00000000    ccb00000.00000000        1a720000.00000000    24f40000.00000000
+   | 2           1           70021015    02        4e010000.00000000    36908000.00000000    1bf00000.00000000        8f928000.00000000    8f928000.00000000
+   | 3           0           70021015    e1        c6310000.00000000    1c9df000.00000000    11f00000.00000000        e3cff000.00000000    00000000.00000000
+   | 
+   | cCpuCyclesCt          : 46530000.00000000
+   | cCpuCyclesInGross     : 5ede7100.00000000
+   | cCpuCyclesInNet       : ba47f000.00000000
+   | cCpuCyclesDt          : e8a20000.00000000
+   | cCpuCyclesCtDt        : 2ff50000.00000000
+   | cCpuCyclesWorkPerWatch: 92000000.00000000
+   | 
+  listing
+   net is positive
+  see
+   | 
+   | 1           1           70021015    02        66020000.00000000    15610000.00000000    0b610000.00000000        76d40000.00000000    76d40000.00000000
+   | 2           0           70021015    e1        06220000.00000000    eae4e000.00000000    cac10000.00000000        abd8e000.00000000    00000000.00000000
+   | cCpuCyclesCt          : 6c240000.00000000
+   | cCpuCyclesInGross     : ff46e000.00000000
+   | cCpuCyclesInNet       : 8971e000.00000000
+   | cCpuCyclesDt          : c5330000.00000000
+   | cCpuCyclesCtDt        : 22670000.00000000
+   | cCpuCyclesWorkPerWatch: e1000000.00000000
+   | 
+  listing
+  set up an easier dut
+   |                                                   ct                    in                   dt                      all                 dup
+   | 1           5           400fe063    8a         67910000.00000000    9f610000.00000000    f5310000.00000000        ec340000.00000000    60351000.00000000
+   | 2           4           500c5063    251        db810000.00000000    15dbc000.00000000    4d110000.00000000        2e7ec000.00000000    88f93300.00000000
+   | 3           4           500fe063    d21        9b810000.00000000    eb110000.00000000    56f00000.00000000        cd930000.00000000    077e0000.00000000
+   | 4           5           500bf063    243        4d110000.00000000    ab1f6000.00000000    86320000.00000000        6f627000.00000000    ec2c3200.00000000
+   | 
+   | 5           4           500bf063    533        9a410000.00000000    5be11100.00000000    41510000.00000000        27841100.00000000    8c125400.00000000
+   | 6           5           600fe063    a71        06910000.00000000    a2110000.00000000    bee00000.00000000        57930000.00000000    94f11000.00000000
+   | 7           4           600c5063    672        4aa10000.00000000    ff92b000.00000000    58110000.00000000        8265b000.00000000    0a85d200.00000000
+   | 8           3           500bf063    6f2        21910000.00000000    e8843500.00000000    49810000.00000000        43a73500.00000000    c9e6af00.00000000
+   | 
+   | 9           2           500bf063    3e2        b7810000.00000000    b2ebd500.00000000    18810000.00000000        72fed500.00000000    e4edbb00.00000000
+   | a           1           3e010053    4a91       68910000.00000000    63198600.00000000    10a10000.00000000        db4c8600.00000000    db4c8600.00000000
+   | b           0           400e3063    8b3        4b720000.00000000    e73e3700.00000000    79410000.00000000        9cf14700.00000000    00000000.00000000
+   | 
+   | cCpuCyclesCt          : 43811000.00000000
+   | cCpuCyclesInGross     : d0dadb10.00000000
+   | cCpuCyclesInNet       : 9e461def.ffffffff
+   | cCpuCyclesDt          : 13de0000.00000000
+   | cCpuCyclesCtDt        : 56502000.00000000
+   | cCpuCyclesWorkPerWatch: bb885895.aae70000
+   | 
+  listing
+   | 
+   | 
+   |                                                          ct: 43811_             in                   dt
+   | 
+   | 1           5           400fe063    8a         67910000.00000000    9f610000.00000000    f5310000.00000000
+   | 2           4           500c5063    251        db810000.00000000    15dbc000.00000000    4d110000.00000000
+   | 3           4           500fe063    d21        9b810000.00000000    eb110000.00000000    56f00000.00000000
+   | 4           5           500bf063    243        4d110000.00000000    ab1f6000.00000000    86320000.00000000
+   | 
+   | 5           4           500bf063    533        9a410000.00000000    5be11100.00000000    41510000.00000000
+   | 6           5           600fe063    a71        06910000.00000000    a2110000.00000000    bee00000.00000000
+   | 7           4           600c5063    672        4aa10000.00000000    ff92b000.00000000    58110000.00000000
+   | 8           3           500bf063    6f2        21910000.00000000    e8843500.00000000    49810000.00000000
+   | 
+   | 9           2           500bf063    3e2        b7810000.00000000    b2ebd500.00000000    18810000.00000000
+   | a           1           3e010053    4a91       68910000.00000000    63198600.00000000    10a10000.00000000
+   | b           0           400e3063    8b3        4b720000.00000000    e73e3700.00000000    79410000.00000000
+   | 
+   | cCpuCyclesCt          : 43811000.00000000
+   | cCpuCyclesInGross     : d0dadb10.00000000
+   | cCpuCyclesInNet       : 9e461def.ffffffff
+   | cCpuCyclesDt          : 13de0000.00000000
+   | cCpuCyclesCtDt        : 56502000.00000000
+   | cCpuCyclesWorkPerWatch: bb885895.aae70000
+   | 
+  listing
+   net cycles is calculated to be negative (this is wrong)
+   the root _IO_ is emitting
+   cDadLevels looks reasonable
+   b emissions
+  see
+   | 
+   | 1           5           400fe063    8a        272bbec5.00000000    8ebcbec5.00000000    1e2ebec5.00000000    046fbec5.00000000
+   | 2           4           500c5063    251        ab87aec5.00000000    7719aec5.00000000    8ce47fc5.00000000    c9067fc5.00000000
+   | 3           4           500fe063    d21        b42010d5.00000000    40b110d5.00000000    2cc210d5.00000000    72c310d5.00000000
+   | 4           5           500bf063    243        1f7fd0d5.00000000    5c90e0d5.00000000    f7bf41d5.00000000    7ee151d5.00000000
+   | 5           4           500bf063    533        cb24d0d5.00000000    5675d0d5.00000000    a167e1d5.00000000    e2b8e1d5.00000000
+   | 6           5           600fe063    a71        3d43a2d5.00000000    33e4a2d5.00000000    d5f5a2d5.00000000    84e6a2d5.00000000
+   | 7           4           600c5063    672        9fdd82d5.00000000    d98f82d5.00000000    c92243d5.00000000    124343d5.00000000
+   | 8           3           500bf063    6f2        93e29ec5.00000000    b4749ec5.00000000    9df8c3d5.00000000    d68ac3d5.00000000
+   | 9           2           500bf063    3e2        60108ec5.00000000    18918ec5.00000000    ca7d54d5.00000000    d20f54d5.00000000
+   | a           1           3e010053    4a91        5ccb6ec5.00000000    b46d6ec5.00000000    1876f4d5.00000000    2818f4d5.00000000
+   | b           0           400e3063    8b3        38974ec5.00000000    731a4ec5.00000000    5b4885d5.00000000    c49985d5.00000000
+   | cCpuCyclesCt          : 43811000.00000000
+   | cCpuCyclesInGross     : d0dadb10.00000000
+   | cCpuCyclesInNet       : 9e461def.ffffffff
+   | cCpuCyclesDt          : 13de0000.00000000
+   | cCpuCyclesCtDt        : 56502000.00000000
+   | cCpuCyclesWorkPerWatch: bb885895.aae70000
+   |        1    3e010053    4a91    voidT thirdC::dosTellMonitorIF( tinS& tinP , const tellC& tellP , const countT idBooksP )
+   |        1    400e3063    8b3    voidT napkinC::formattingIsDoneF( tinS& tinP )
+   |        1    500c5063    251    boolT grabC::grabF( tinS& tinP , const countT idLineP , const countT idiFileP , const byteT* const pbBitsP , const flagsT flagsP )
+   |        1    600c5063    672    countT grabC::ungrabF( tinS& tinP , const flagsT flagsP )
+   |        1    400fe063    8a    voidT baseGrabC::registerBegunF( tinS& tinP , const countT idLineP , const countT idiFileP , const flagsT flagsP )
+   |        1    500fe063    d21    voidT baseGrabC::registerDoneF( tinS& tinP , const countT idLineP , const countT idiFileP )
+   |        1    600fe063    a71    voidT baseGrabC::unregisterF( tinS& tinP )
+   |        1    500bf063    3e2    countT booksC::writeF( tinS& tinP , const byteT* pb1P , countT cb1P , const byteT* pb2P , countT cb2P , const flagsT flagsP , handleC* const phWroteP /*U::, countT** ppcpIdAptP*/ )
+   |        1    500bf063    6f2    countT booksC::writeF( tinS& tinP , const byteT* pb1P , countT cb1P , const byteT* pb2P , countT cb2P , const flagsT flagsP , handleC* const phWroteP /*U::, countT** ppcpIdAptP*/ )
+   |        1    500bf063    533    countT booksC::writeF( tinS& tinP , const byteT* pb1P , countT cb1P , const byteT* pb2P , countT cb2P , const flagsT flagsP , handleC* const phWroteP /*U::, countT** ppcpIdAptP*/ )
+   |        1    500bf063    243    countT booksC::writeF( tinS& tinP , const byteT* pb1P , countT cb1P , const byteT* pb2P , countT cb2P , const flagsT flagsP , handleC* const phWroteP /*U::, countT** ppcpIdAptP*/ )
+   | 
+  listing
+ playcraft
+ changed: new code
+!subjob B: net cycles is negative for dut
+  cool ; found wo
+   | 
+   | nonmonotonic grabbing: call nest:
+   |   8a  400fe063         a8_     168_9       /*1*/voidT baseGrabC::registerBegunF( tinS& tinP , const countT idLineP , const countT idiFileP , const flagsT flagsP )/*1*/
+   |   251  500c5063        152_    338_9       /*1*/boolT grabC::grabF( tinS& tinP , const countT idLineP , const countT idiFileP , const byteT* const pbBitsP , const flagsT flagsP )/*1*/
+   |   6f2  500bf063        2f6_    758_9       /*1*/countT booksC::writeF( tinS& tinP , const byteT* pb1P , countT cb1P , const byteT* pb2P , countT cb2P , const flagsT flagsP , handleC* const phWroteP /*U::, countT** ppcpIdAptP*/ )/*1*/
+   |   3e2  500bf063        2e3_    739_9       /*1*/countT booksC::writeF( tinS& tinP , const byteT* pb1P , countT cb1P , const byteT* pb2P , countT cb2P , const flagsT flagsP , handleC* const phWroteP /*U::, countT** ppcpIdAptP*/ )/*1*/
+   |   4a91  3e010053       19a4_   6564_9      /*1*/voidT thirdC::dosTellMonitorIF( tinS& tinP , const tellC& tellP , const countT idBooksP )/*1*/
+   |   85  10080063         58_     88_9        /*1*/batonC::batonC( tinS& tinP , const countT idLineCtP , const countT idiFileCtP , const byteT* const pbBitsCtP , const osTextT* const postP , const countT idGrabLayerP , const flagsT flagsP , byteT* const pbZombieP , const countT cbZombieP , const countT idMemorySpaceP )/*1*/ :
+   | 
+   | 
+   | cryC ++++ [vv,cInNest]: 500fe063 0
+   | cryC ++++ [vv,cInNest]: 7004e063 0
+   | cryC ++++ [vv,cInNest]: 600fe063 0
+   | cryC ++++ [vv,cInNest]: 2004e063 0
+   | cryC ++++ [vv,cInNest]: 300e3063 0
+   | cryC ++++ [vv,cInNest]: 40080063 0
+   | cryC ++++ [vv,cInNest]: 500c5063 0
+   | cryC ++++ [vv,cInNest]: 400fe063 0
+   | cryC ++++ [vv,cInNest]: 500fe063 0
+   | cryC ++++ [vv,cInNest]: c0010053 0
+   | cryC ++++ [vv,cInNest]: 9e010053 0
+   | cryC ++++ [vv,cInNest]: 71010053 0
+   | cryC ++++ [vv,cInNest]: c0010053 0
+   | cryC ++++ [vv,cInNest]: 16010053 0
+   | cryC ++++ [vv,cInNest]: 21010053 0
+   | cryC ++++ [vv,cInNest]: 71010053 0
+   | cryC ++++ [vv,cInNest]: c0010053 0 3func.3500100c.thirdc.c_strchrif
+   | cryC ++++ [vv,cInNest]: b5010053 0 3func.3500105b.thirdc.dosallocsharedmemif 
+   | cryC ++++ [vv,cInNest]: 71010053 0 3func.35001017.thirdc.c_zreplaceif
+   | cryC ++++ [vv,cInNest]: 50035063 0 3func.36053005.handlec.closeiff
+   | cryC ++++ [vv,cInNest]: 3e010053 0 3func.350010e3.thirdc.dostellmonitorif
+   | cryC ++++ [vv,cInNest]: 500bf063 0 3func.360fb005.booksc.writef
+   | cryC ++++ [vv,cInNest]: 500bf063 0 3func.360fb005.booksc.writef
+   | cryC ++++ [vv,cInNest]: 500c5063 0 3func.3605c005.grabc.grabf 
+   | cryC ++++ [vv,cInNest]: 400fe063 0 3func.360ef004.basegrabc.registerbegunf
+   | 
+   | [idAdam]: f0400015
+   | ! error: nonmonotonic grabbing (grab layer decrease attempted [bOnlyWo,lifi,idGrabLayer,lifiHe,idGrabLayerHe]: 0
+   |  ME: 300e3063(da2) a5b0dddd ;
+   |  HE: 300e3063(891) b5b0dddd
+   | cryC ++++ [vv,cInNest]: c2110053 0
+   |   
+   | 
+   | cryC ++++ [vv,cInNest]: 400fe063 0
+   | 
+   | [idAdam]: 02600015
+   | ! error: nonmonotonic grabbing (grab layer decrease attempted [bOnlyWo,lifi,idGrabLayer,lifiHe,idGrabLayerHe]: 0
+   |  ME: 300e3063(da2) a5b0dddd ;
+   |  HE: 300e3063(891) b5b0dddd
+   | cryC ++++ [vv,cInNest]: c2110053 0
+   | 
+   | 
+   | #define ifcIDgRABlAYER_bBOOKSc                      0xdddd0b5a
+   | #define ifcIDgRABlAYER_cGRABuNIVERSEc               0xdddd0b5b
+   | 
+   | 
+   | ! error: nonmonotonic grabbing (grab layer decrease attempted [bOnlyWo,lifi,idGrabLayer,lifiHe,idGrabLayerHe]: 0
+   |  ME: 300e3063(da2) a5b0dddd ;
+   |  HE: 300e3063(891) b5b0dddd     see:  i have universe and am grabbing booksc (i am emitting telemetry while having grabuniverse)
+   | 
+  listing
+ playcraft
+ changed: app telemetry
+!job B: nonmono grabbing
+   nawwh
+  think
+  look
+   |
+   |     17f6    4002e063    d73       37d_     893_9       poolC::newF( tinS& tinP , const countT idLineP , const countT idiFileP , byteT*& pbP , const countT cbP , const flagsT flagsP )
+   |     1488    d9020063    ac03       30ca_   12490_9     /*1*/NEWdELtYPEeTHER( strokeS )/*1*/
+   |     13d0    6000e063    8f4
+   |     13cb    7000e063    4a5
+   |     13cb    4002e063    593
+   |     13cb    4002e063    4a3
+   |     13cb    0101e063    ce3
+   |     13c9    b1040063    e56
+   |     133d    5001e063    1a1
+   |      fbe    50035063    ae
+   |
+  listing
+ playcraft
+ objective: speed
+!job C: suppress _IO_ for the most talkative LF
   cool ; it works!
    just append " , ifcIDmEMORYsPACE_APPLICATION"
   see

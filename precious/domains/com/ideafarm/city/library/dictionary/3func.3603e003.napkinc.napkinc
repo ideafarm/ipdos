@@ -670,7 +670,15 @@
     else            thirdC::c_memsetIF( tinP , (byteT*)pbBitsCt , sizeof pbBitsCt ) ;
     if( pbBitsCtP ) thirdC::c_memcpyIF( tinP , (byteT*)pbBitsCt , (byteT*)pbBitsCtP , sizeof pbBitsCt ) ;
 
-    _IO_ // EARLY SO THAT napkinC BEHAVIOR CANNOT BE AFFECTED BY FOREIGN IMPOTENCE
+    THREADmODE4rESTORE0( flagsSave4 ) ;
+    _IO_                                                         // EARLY SO THAT napkinC BEHAVIOR CANNOT BE AFFECTED BY FOREIGN IMPOTENCE      U::20201112@1927: THIS COMMENT MAKES NO SENSE
+    THREADmODE4oN0( flTHREADmODE4_QUIETiNoUTfRAMEc ) ;
+    THREADmODE4sAVE0( flagsSave4 ) ;
+    ZE( flagsT , flagsSave4 ) ;
+    // THE EFFECT OF THIS CODE IS THAT MY _IO_ NEVER EMITS TELEMETRY
+    // inOutFrameC TELEMETRY BEHAVIOR IS DETERMINED BY THE STATE OF THE FLAG DURING CT, EVEN THOUGH EMISSION OCCURS DURING DT
+    // THIS IS NEEDED BECAUSE NORMALLY I SET flTHREADmODE4_QUIETiNoUTfRAMEc SINCE I GRAB THE UNIVERSE AND EXIT WITH IT STILL GRABBED (TO BE UNGRABBED BY formattingIsDoneF)
+
     SCOOP
 {
 phFile( phFileP )
