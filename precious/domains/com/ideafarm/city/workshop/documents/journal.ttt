@@ -11340,12 +11340,6 @@ I have other business to attend to today and tomorrow, but plan to continue to w
 
 
 
-   the LF's in each group seem generally to be related to each other
-   code works, but i have no confidence that numbers are correct, because there are many groups of LF with exactly the same net consumption
-  see
- playcraft
- objective: confidence
-!subjob A: do more testing for cpu telemetry
 
 
 
@@ -11383,6 +11377,26 @@ I have other business to attend to today and tomorrow, but plan to continue to w
 
 
 
+  !subjob C: the reporter logic implicitly assumes that all emissions are from the same thread
+  !subjob B: dut: cpu consumption reported wrong: with 4 identical levels, reports 0 consumption for all but outermost level
+   the LF's in each group seem generally to be related to each other
+   code works, but i have no confidence that numbers are correct, because there are many groups of LF with exactly the same net consumption
+  see
+ playcraft
+ objective: confidence
+!subjob A: do more testing for cpu telemetry
+
+
+
+
+
+
+
+
+  the calculation of cyclesInNet assumes that it is handling a stream of emissions from a single thread
+ playcraft
+ changed: new code
+!subjob C: the reporter logic implicitly assumes that all emissions are from the same thread
 
 
 
@@ -11392,8 +11406,78 @@ I have other business to attend to today and tomorrow, but plan to continue to w
 
 
 
+   next: edit the code for readabilty and traceability ; then step through to see why it is wrongo
+  think
+   with 4 layers, wrongo
+   with 2 layers, aok
+  see
+  use an array to play with this concept
+   kiss: just use a fixed capacity array ; this is a reporter program that can easily be edited if i need a larger array
+  think
+   when i rise to N, just accumulate it into in(N)
+   conj: when i fall to N, the value in(N+1) must be subtracted (and then zeroed) to report in(N), and the values for in(N+2...) should all be 0
+   the approach to take is to remember the lath in(N) for each N
+  think
+   the level can both rise and fall
+   conj: i will always see them in that order, although i might see multiple dt at same level: nope
+   in the current dut, i see the innermost woth and the outermost lath
+   i see them in the order in which inOutFrameC instances are dt
+   i do not see emissions in execution order
+  think
+    this is confusing
+    when fall to N, subtract in(N+1) to report in(N)
+    when rise to N, add current in to the accumulator for N
+   next: maintain a switchC of accumulated in values
+  play
+    when nest level falls to N, subtract in(N+1) to report in(N) and then reset in(N+1)
+    i need an accumulator for each nest level
+    nest level rises and falls
+   think
+    if next is lower nest level then subtract lath in from in
+    remember lath in value and nest level
+   recipe
+   the current dut does all work in the innermost of 4 levels
+  think
+  look (trace the calculation intermediate values)
+ playcraft
+ changed: dut
+!subjob B: dut: cpu consumption reported wrong: with 4 identical levels, reports 0 consumption for all but outermost level
 
 
+
+
+
+
+   dt'or can then report its in cycles directly to its dad
+   inOutFrameC can use a linked list
+  think
+    dt1: accumulates its in cycles into in[1] ; reports and resets in[2]
+     dt2: accumulates its in cycles into in[2] ; reports and resets in[3]
+      dt3b: accumulates its in cycles into in[3]
+      ct3b
+      dt3a: accumulates its in cycles into in[3]
+      ct3a
+     ct2
+    ct1
+   event list
+   pf/ how can ct'or and dt'or assist with the calculation of net cycles
+  think
+   synchronously, i can also use the ct'or if needed
+   the nature of the study is to acquire a mastery familiarity with the ordering of processing
+   what i am about to do is a mathematical study
+    the level can increase by an arbitrary amount but can only decrease by 0 or 1
+   the key is to exploit the fact that inOutFrameC destruction is single step ordered
+  think
+   conj: the cost of these calculations is trivial compared with the cost of writing to booksC
+   this dramatically simplifies the reporter, because the reporter does not need to separate streams by thread
+   the idea here is to calculate cpuCyclesIn and cpuCyclesInNet synchronously within inOutFrameC ct/dt
+   so the record is necessarily incomplete
+   this is necessary because writing to booksC cannot be done at some times, e.g. when univese has been grabbed
+   reporter has trouble calculating cpuCyclesInNet because some inOutFrameC instances do not emit telemetry
+  think
+ playcraft
+ objective: glass walls
+!job C: feasibility: tinS: keep track of kid cpu cycles
 
 
 
