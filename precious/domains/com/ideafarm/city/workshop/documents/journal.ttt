@@ -9972,32 +9972,286 @@ I have other business to attend to today and tomorrow, but plan to continue to w
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  !subjob C: inOutFrameC: double entry bookkeeping audit system for cpu cycles telemetry
+    i.e. the total cpu cycles elapsed in "in" should equal the sum of all cycles recorded therein
+   conj: there is a double entry bookkeeping equality that i can check within each dt'or: 
+  think
+   try creating a dut that trips this audit code
+  play
+   kid accumulators total more than the elapsed cycle delta
+  see
+   whenever accumulate, test against current cycle count
+   1: accumulator for dCpuCyclesKidInNet
+   0: cycle count at start
+   tinS:: add some count04T utility array
+   i know the current cycle count and the true delta elapsed within my in
+  think
+   | 
+   |     count04T dCpuCyclesKidBook  ; set                                   stale
+   |     count04T dCpuCyclesKidDt    ; set                                   stale
+   |     count04T dCpuCyclesKidInNet ; set (this is the value to validate)   stale
+   |     count04T dCpuCyclesKidCt    ; set                                   stale
+   | 
+   |     count04T dCpuCyclesDt       ; undefined                             undefined
+   |     count04T dCpuCyclesInNet    ; undefined                             undefined
+   |     count04T dCpuCyclesIn       ; set                                   undefined
+   |     count04T dCpuCyclesCt       ; set                                   set
+   | 
+   |     count04T cCpuCycles4        ; undefined                             undefined
+   |     count04T cCpuCycles3        ; set                                   undefined
+   |     count04T cCpuCycles2        ; set                                   set
+   |     count04T cCpuCycles1        ; set                                   set
+   |                                   //STATE AT DT ENTRY                   STATE OF ANCESTORS
+  listing
+   whenever enter dt, can walk down the list, totalling everything to see if the result is impossibly high
+   i can audit this
+  think
+   conj: dCpuCyclesKidInNet is counting the same cycle multiple times
+    dCpuCyclesKidInNet is impossibly large (slightly)
+   see
+  play  
+ playcraft
+ changed: new code
+!job B: dCpuCyclesInNet is negative
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   next: play with this idea
+  play
+   the accumulated value should equal each ancestor's cpuInGross at its own dt
+   this means that whenever an instance notes a delta cpu, it would accumulate that delta in each of its ancestors
+   the instance would have to have an audit cpu accumulator that would be accumulated during the activities of its kids
+   this check would be done in dt and would cover the life of the instance
+   that should equal the total cpu cycles that i just registered
+   i should be able to walk down the chain to calculate the amount of cpu cycles that have been registered
+   there should be an equality relationship that can be checked at various points in the code
+   the current code appears to be accumulating slightly impossibly high value for dCpuCyclesKidInNet
+  think
+ playcraft
+ objective: correct function
+!subjob C: inOutFrameC: double entry bookkeeping audit system for cpu cycles telemetry
+
+
+
+
+
+
+    with a Biden / Harris presidency, there will be no "school choice" and no reform of the educational system, which sucks for all and sucks especially for Black Americans
+   Black America is the real loser in this election
+   this whole drama can be viewed as a crash course in citizenship and in civics for a young generation that has not been prepared well
+   the "Come Eat With Us" sign is making it peaceful in Oakland and in Alameda
+   with a Biden win, the probability of war between Taiwan and China is greatly increased, and the U.S. will get involved
+   the election litigation will make the stock market too risky for weeks or even months
+   there is now no money stress, except where to park my cash to get an ROI
+   i am still suffering from no access to a shower, pneumonia, and election stress
+   there is wo known and unexplained bug
+   http service is stable although not completely bug free yet
+   this stressful election is almost over
+   i am sick and recovering
+  see
+   http dies about wo per day
+   the server is attacked by DOS that is effective
+   deadman is no longer failing, except after http dies
+  see
+   stay on top of email and legal procedure reactively
+   "summer vacation" mentally
+   speak with sign
+   minimal bug fixing to respond to software failures
+   no project work
+  policy
+   thrust: recover health, speak "Come Eat With Us" from now to election
+   minimal legal work
+   focus: burn-in test of factory3-5, knowing that each factory3-5 is an spf that will cause all service to fail
+   can wait: enhancement: file object like slabC that can be seen by all homes on all local factories (needed for cloaking of netBIOS files)
+   can wait: enhancing code to support cloaking for netBIOS files
+   can wait: fixing code in dosFindFileOrDirPrivateF to correctly handle netBIOS files
+   can wait: glass walls: consolidated trace facility (to see why http service is sometimes slow)
+   no software development until servers are known to be rock solid
+  plan
+   shutting down a factory3-5 brings down the web site
+   as long as factory3-5 are running, service is stable
+  think
+   this isn't really bad, but it is not ideal
+   no, but such a person can approve topics pending from subscribers
+   issue: with ?loggedin=yes, anyone can post anonymously and then certify their own posts
+  think
+    while that is being achieved, rock solid publication of the archive is within short term reach
+    done: after that is achieved, optimization for speed and scalability is within short term reach
+    done (qualified): server hardware and software rock solid stability is within short term reach
+    focus: i suffer from ptsd but full recovery is within short term reach
+   the stylized facts are
+   the overall objective is to get the right work done in the right order while restoring full mental and physical health
+  think
+ playcraft
+ objective: correct priorities for work flow
+!job A: executive overview
+
+!thrust: debug until all factories run without failure
+
+=========================================================================================================================================================
+=========================================================================================================================================================
+=========================================================================================================================================================
+=========================================================================================================================================================
+====- DONE: BELOW -======================================================================================================================================
+=========================================================================================================================================================
+=========================================================================================================================================================
+=========================================================================================================================================================
+=========================================================================================================================================================
+
+  play
+   conj: count04T arithmetic is trivially inexpensive, although not atomic
+   this is not a problem for the stateless data (ct in dt), but prevents the reporter from calculating inNet, which is the datum of most interest
+   the problem with that is that emission of app telemetry is sometimes suppressed, so the data is incomplete
+   the former approach was to report raw times and let the reporting program do all calculating
+  think
+ playcraft
+ objective: simplify emission and reporting of app telemetry
+!job C: inOutFrameC: calculate ct in dt cpu cycles
+ nawwh
 !subjob C: scratch adam 8: capture total cpu cycles consumed between 3 and 2 (between ct and dt)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  nawwh
   !subjob C: report cpu cycle consumption grand total and pertuck values by LF
   !subjob C: report cpu cycle consumption by LF
   !subjob C: capture cycles used to write app telemetry
@@ -10050,38 +10304,7 @@ I have other business to attend to today and tomorrow, but plan to continue to w
  playcraft
  objective: glass walls
 !subjob C: scratch adam 8: capture total cpu cycles consumed by inOutFrameC processing
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  nawwh
    the universe here is process overhead, i.e. execution start to finish of an adam that does nothing
     1/3 of net cpu is expended newing and deleting pool drops
    the big picture here is that poolC operations are expensive but do not dominate execution
@@ -10749,22 +10972,7 @@ I have other business to attend to today and tomorrow, but plan to continue to w
  playcraft
  objective: glass walls
 !subjob C: report cpu cycle consumption grand total and pertuck values by LF
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  nawwh
   !subjob A: do more testing for cpu telemetry
    | 
    | 
@@ -11329,54 +11537,13 @@ I have other business to attend to today and tomorrow, but plan to continue to w
  playcraft
  objective: confidence
 !subjob A: investigate why 4 of the top LF have exactly the same consumption of net cpu cycles
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  nawwh
    what i really want is cpu consumption (In) by LF
    the current code reports call tallies by LF
   think
  playcraft
  objective: glass walls
 !subjob C: report cpu cycle consumption by LF
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   !subjob C: the reporter logic implicitly assumes that all emissions are from the same thread
   !subjob B: dut: cpu consumption reported wrong: with 4 identical levels, reports 0 consumption for all but outermost level
    the LF's in each group seem generally to be related to each other
@@ -11385,27 +11552,12 @@ I have other business to attend to today and tomorrow, but plan to continue to w
  playcraft
  objective: confidence
 !subjob A: do more testing for cpu telemetry
-
-
-
-
-
-
-
-
+  nawwh
   the calculation of cyclesInNet assumes that it is handling a stream of emissions from a single thread
  playcraft
  changed: new code
 !subjob C: the reporter logic implicitly assumes that all emissions are from the same thread
-
-
-
-
-
-
-
-
-
+  nawwh
    next: edit the code for readabilty and traceability ; then step through to see why it is wrongo
   think
    with 4 layers, wrongo
@@ -11442,12 +11594,7 @@ I have other business to attend to today and tomorrow, but plan to continue to w
  playcraft
  changed: dut
 !subjob B: dut: cpu consumption reported wrong: with 4 identical levels, reports 0 consumption for all but outermost level
-
-
-
-
-
-
+  nawwh
    dt'or can then report its in cycles directly to its dad
    inOutFrameC can use a linked list
   think
@@ -11478,73 +11625,6 @@ I have other business to attend to today and tomorrow, but plan to continue to w
  playcraft
  objective: glass walls
 !job C: feasibility: tinS: keep track of kid cpu cycles
-
-
-
-
-    with a Biden / Harris presidency, there will be no "school choice" and no reform of the educational system, which sucks for all and sucks especially for Black Americans
-   Black America is the real loser in this election
-   this whole drama can be viewed as a crash course in citizenship and in civics for a young generation that has not been prepared well
-   the "Come Eat With Us" sign is making it peaceful in Oakland and in Alameda
-   with a Biden win, the probability of war between Taiwan and China is greatly increased, and the U.S. will get involved
-   the election litigation will make the stock market too risky for weeks or even months
-   there is now no money stress, except where to park my cash to get an ROI
-   i am still suffering from no access to a shower, pneumonia, and election stress
-   there is wo known and unexplained bug
-   http service is stable although not completely bug free yet
-   this stressful election is almost over
-   i am sick and recovering
-  see
-   http dies about wo per day
-   the server is attacked by DOS that is effective
-   deadman is no longer failing, except after http dies
-  see
-   stay on top of email and legal procedure reactively
-   "summer vacation" mentally
-   speak with sign
-   minimal bug fixing to respond to software failures
-   no project work
-  policy
-   thrust: recover health, speak "Come Eat With Us" from now to election
-   minimal legal work
-   focus: burn-in test of factory3-5, knowing that each factory3-5 is an spf that will cause all service to fail
-   can wait: enhancement: file object like slabC that can be seen by all homes on all local factories (needed for cloaking of netBIOS files)
-   can wait: enhancing code to support cloaking for netBIOS files
-   can wait: fixing code in dosFindFileOrDirPrivateF to correctly handle netBIOS files
-   can wait: glass walls: consolidated trace facility (to see why http service is sometimes slow)
-   no software development until servers are known to be rock solid
-  plan
-   shutting down a factory3-5 brings down the web site
-   as long as factory3-5 are running, service is stable
-  think
-   this isn't really bad, but it is not ideal
-   no, but such a person can approve topics pending from subscribers
-   issue: with ?loggedin=yes, anyone can post anonymously and then certify their own posts
-  think
-    while that is being achieved, rock solid publication of the archive is within short term reach
-    done: after that is achieved, optimization for speed and scalability is within short term reach
-    done (qualified): server hardware and software rock solid stability is within short term reach
-    focus: i suffer from ptsd but full recovery is within short term reach
-   the stylized facts are
-   the overall objective is to get the right work done in the right order while restoring full mental and physical health
-  think
- playcraft
- objective: correct priorities for work flow
-!job A: executive overview
-
-!thrust: debug until all factories run without failure
-
-=========================================================================================================================================================
-=========================================================================================================================================================
-=========================================================================================================================================================
-=========================================================================================================================================================
-====- DONE: BELOW -======================================================================================================================================
-=========================================================================================================================================================
-=========================================================================================================================================================
-=========================================================================================================================================================
-=========================================================================================================================================================
-
-
   cool ; it works!
    | 
    | /*1*/struct _export tellInfoAppInOutFrameTinDtS/*1*/

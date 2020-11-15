@@ -27590,6 +27590,7 @@ it is illegal to modify any member other than pc Utility in the definition of an
  countT                 idiFile_brcLath ;
  countT                 idBlammo ;
  countT                 pcUtility[ CCuTILITY ] ;
+ count04T               pcUtility04[ 4 ] ;
  flagsT                 flagsThreadMode1 ;
  flagsT                 flagsThreadMode2 ;
  flagsT                 flagsThreadMode3 ;
@@ -27690,6 +27691,7 @@ it is illegal to modify any member other than pc Utility in the definition of an
  bookMarkS              pBookMark[ TUCK ] ;    // USED BY pageC TO REGISTER A PENDING SMART POINTER ; INCREASE THE NUMBER OF ELEMENTS TO SUPPORT MORE SIMULTANEOUS pageC INSTANCES; 20180606: 01->TUCK WITHOUT ANALYSIS TO WORK AROUND PRODUCTION EXHAUSTION
  countT                 cNestInOutTelemetry ;
  count04T               cCpuCyclesWriteInOutTelemetry ;
+ inOutFrameC*           pInOutFrame ;
 
  //ASSUME: FIELDS BEFORE HERE CAN BE COPIED AND RESET (SEE THE CT/DT OF processGlobal4I.tinVeryEarlyLateMain AND THE MAIN THREAD'S tinS, IN POOLoLD)
  /* suffix begin (not sloshed (copied) from tinS to tinS) */
@@ -44108,7 +44110,6 @@ VARIABLEcLASSdEF( countC , countT )
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.directionS : 1snip.15000156.directions END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.tellInfoAppInOutFrameS : 1snip.15000188.tellinfoappinoutframes BEGIN
 
-
 //
 // Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
@@ -44122,17 +44123,35 @@ VARIABLEcLASSdEF( countC , countT )
 
 /*1*/struct _export tellInfoAppInOutFrameS/*1*/
 {
-    count04T cCpuCycles1    ;
-    count04T cCpuCycles2    ;
-    count04T cCpuCycles3    ;
-    count04T cCpuCycles4    ;
+    countT   cDadLevels         ;
 
-    count04T cTime1         ;
-    count04T cTime2         ;
-    count04T cTime3         ;
-    count04T cTime4         ;
+    count04T cCpuCycles1        ;
+    count04T cCpuCycles2        ;
+    count04T cCpuCycles3        ;
+    count04T cCpuCycles4        ;
 
-    countT   cDadLevels     ;
+    count04T dCpuCyclesCt       ;   // "d": "DELTA" (I.E. "CHANGE IN")
+    count04T dCpuCyclesIn       ;
+    count04T dCpuCyclesInNet    ;
+    count04T dCpuCyclesDt       ;
+
+    count04T dCpuCyclesKidCt    ;
+    count04T dCpuCyclesKidInNet ;
+    count04T dCpuCyclesKidDt    ;
+    count04T dCpuCyclesKidBook  ;
+
+    count04T cTime1             ;
+    count04T cTime2             ;
+    count04T cTime3             ;
+    count04T cTime4             ;
+
+    inline tellInfoAppInOutFrameS( voidT ) :
+    dCpuCyclesKidCt(    0 ) ,  //THESE MUST BE INITIALIZED SINCE THEY ARE ACCUMULATORS
+    dCpuCyclesKidInNet( 0 ) ,  //THESE MUST BE INITIALIZED SINCE THEY ARE ACCUMULATORS
+    dCpuCyclesKidDt(    0 ) ,  //THESE MUST BE INITIALIZED SINCE THEY ARE ACCUMULATORS
+    dCpuCyclesKidBook(  0 )    //THESE MUST BE INITIALIZED SINCE THEY ARE ACCUMULATORS
+    {}
+    
 }
 ;
 
@@ -44193,6 +44212,7 @@ VARIABLEcLASSdEF( countC , countT )
 
 /*1*/class _export inOutFrameC/*1*/
 {
+    inOutFrameC*            pDad                      ;
     tinS&                   tinCt                     ;
     const countT            idLineCt                  ;
     const countT            idiFileCt                 ;

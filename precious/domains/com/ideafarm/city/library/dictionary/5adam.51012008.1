@@ -150,7 +150,7 @@ count04T cCpuCyclesCtDt = cCpuCyclesCt + cCpuCyclesDt ;
                                 break ;
 
                                 }
-                                    *(count04T*)&(countT&)swCpu += deltaCpuCyclesInNet ;
+                                    *(count04T*)&(countT&)swCpu += note.dCpuCyclesInNet ;
 
                                     swTally ++ ;
 
@@ -158,107 +158,22 @@ count04T cCpuCyclesCtDt = cCpuCyclesCt + cCpuCyclesDt ;
                                     pczLever[ 0 ] = told.idiFileTalking ;
 
                                     if( cCpuCyclesDt < was ) { BLAMMO ; }
-                                    cCpuCyclesDt += deltaCpuCyclesDt ;
+                                    cCpuCyclesDt += note.dCpuCyclesDt ;
                                     was = cCpuCyclesDt ;
 
-                                    }
-                                        BLAMMO ;
-                                    {
-                                    if( pcCpuCyclesByLevel[ note.cDadLevels ] < was )
-                                    pcCpuCyclesByLevel[ note.cDadLevels ] += deltaCpuCyclesIn ;
-                                    was = pcCpuCyclesByLevel[ note.cDadLevels ] ;
-
-                                    }
-                                        countT foo = 2 ;
-                                    {
-                                    if( idIn == 0x00 )
-                                    countT idIn = 1 + incv02AM( idInLath ) ;
-                                    static countT idInLath ;
-
                                     if( cCpuCyclesInNet < was ) { BLAMMO ; }
-                                    cCpuCyclesInNet += deltaCpuCyclesInNet ;
+                                    cCpuCyclesInNet += note.dCpuCyclesInNet ;
                                     was = cCpuCyclesInNet ;
 
-                                    //}
-                                    //    etThread.traceF( tinP , tSay , flTRACE_NOpREFIX ) ;
-                                    //
-                                    //    ;
-                                    //
-                                    //        +tDot+TF3(((countT*)&deltaCpuCyclesInNet)[1],flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE,8)
-                                    //        +tb4 +TF3(((countT*)&deltaCpuCyclesInNet)[0],flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE,8)
-                                    //
-                                    //    TN( tSay , "deltaInNet:" ) ; tSay += tn
-                                    //{
-
-                                    static count04T deltaCpuCyclesInNet ; deltaCpuCyclesInNet = deltaCpuCyclesIn - deltaCpuCyclesDup ;
-
                                     if( cCpuCyclesInGross < was ) { BLAMMO ; }
-                                    cCpuCyclesInGross += deltaCpuCyclesIn ;
+                                    cCpuCyclesInGross += note.dCpuCyclesIn ;
                                     was = cCpuCyclesInGross ;
 
                                     if( cCpuCyclesCt < was ) { BLAMMO ; }
-                                    cCpuCyclesCt += deltaCpuCyclesCt ;
+                                    cCpuCyclesCt += note.dCpuCyclesCt ;
                                     static count04T was ; was = cCpuCyclesCt ;
 
-                                    cDadLevelsLath = note.cDadLevels ;
-
-                                    }
-                                        //BLAMMO ;
-                                        //etThread.traceF( tinP , T("error: unexpectedly large fall in cDadLevels") ) ;
-                                    {
-                                    else if( cDadLevelsLath > note.cDadLevels )
-                                    }
-                                        //BLAMMO ;
-                                        //etThread.traceF( tinP , T("error: unexpectedly large rise in cDadLevels") ) ;
-                                    {
-                                    else if( cDadLevelsLath < note.cDadLevels )
-                                    }
-                                    {
-                                    else if( cDadLevelsLath == note.cDadLevels - 1 )
-                                    }
-                                    {
-                                    else if( cDadLevelsLath == note.cDadLevels )
-                                    }
-                                        //etThread.traceF( tinP , tSay , flTRACE_NOpREFIX ) ;
-                                        //
-                                        //;
-                                        //
-                                        //    +tDot+TF3(((countT*)&deltaCpuCyclesDup)[1],flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE,8)
-                                        //    +tb4 +TF3(((countT*)&deltaCpuCyclesDup)[0],flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE,8)
-                                        //
-                                        //TN( tSay , "Dup:" ) ; tSay += tn
-
-                                                            pcCpuCyclesByLevel[ cDadLevelsLath ] = 0 ;
-                                        deltaCpuCyclesDup = pcCpuCyclesByLevel[ cDadLevelsLath ] ;
-
-                                        }
-                                            pcCpuCyclesByLevel[ cDadLevelsLath ] = deltaCpuCyclesIn ;
-
-                                            etThread.traceF( tinP , tSay ) ;
-
-                                            ;
-                                                +tb4+TF3(told.idiFileTalking,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,8)+tb4+TF2(told.idLineTalking,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)
-                                                TF2(note.cDadLevels,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)
-
-                                            TN( tSay , "bug: patching" ) ; tSay +=
-                                        {
-                                        if( deltaCpuCyclesIn < pcCpuCyclesByLevel[ cDadLevelsLath ] )
-                                    {
-                                    if( cDadLevelsLath == note.cDadLevels + 1 )
-                                    static count04T deltaCpuCyclesDup ; deltaCpuCyclesDup = 0 ;
-
 #endif
-                                    }
-                                        etThread.traceF( tinP , tSay , flTRACE_NOpREFIX ) ;
-                                        }
-                                            ;
-                                                +tDot+TF3(((countT*)&pcCpuCyclesByLevel[offi])[1],flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE,8)
-                                                +tb4 +TF3(((countT*)&pcCpuCyclesByLevel[offi])[0],flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE,8)
-                                            tSay += tn
-                                        {
-                                        for( countT offi = 0 ; offi < /*sizeof pcCpuCyclesByLevel / sizeof pcCpuCyclesByLevel[ 0 ]*/ 8 ; offi ++ )
-                                        TN( tSay , "accumulated cycles by level: " ) ;
-                                    {
 #if defined( NEVERdEFINED )
 
 #endif
@@ -267,13 +182,15 @@ count04T cCpuCyclesCtDt = cCpuCyclesCt + cCpuCyclesDt ;
 
                                     ;
 
-                                        //+tDot+TF3(((countT*)&deltaCpuCyclesDt)[1],flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE,8)
-                                        //+tb4 +TF3(((countT*)&deltaCpuCyclesDt)[0],flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE,8)
-                                        +tDot+TF3(((countT*)&deltaCpuCyclesIn)[1],flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE,8)
-                                        +tb4 +TF3(((countT*)&deltaCpuCyclesIn)[0],flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE,8)
-                                        //+tDot+TF3(((countT*)&deltaCpuCyclesCt)[1],flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE,8)
-                                        //+tb4 +TF3(((countT*)&deltaCpuCyclesCt)[0],flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE,8)
-                                        +tb8 +T(/*"Ct In Dt:"*/"In:")
+                                        +tDot+TF3(((countT*)&note.dCpuCyclesDt)[1],flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE,8)
+                                        +tb4 +TF3(((countT*)&note.dCpuCyclesDt)[0],flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE,8)
+                                        +tDot+TF3(((countT*)&note.dCpuCyclesInNet)[1],flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE,8)
+                                        +tb4 +TF3(((countT*)&note.dCpuCyclesInNet)[0],flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE,8)
+                                        +tDot+TF3(((countT*)&note.dCpuCyclesIn)[1],flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE,8)
+                                        +tb4 +TF3(((countT*)&note.dCpuCyclesIn)[0],flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE,8)
+                                        +tDot+TF3(((countT*)&note.dCpuCyclesCt)[1],flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE,8)
+                                        +tb4 +TF3(((countT*)&note.dCpuCyclesCt)[0],flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE,8)
+                                        +tb8 +T("Ct In InNet Dt:")
 
                                         +tDot+TF3(((countT*)&note.cCpuCycles4)[1],flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE,8)
                                         +tb4 +TF3(((countT*)&note.cCpuCycles4)[0],flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE,8)
@@ -302,10 +219,6 @@ count04T cCpuCyclesCtDt = cCpuCyclesCt + cCpuCyclesDt ;
                                     TN( tSay , "" ) ; tSay = tn
 
 #if defined( NEVERdEFINED )
-
-                                    static count04T deltaCpuCyclesDt ; deltaCpuCyclesDt = note.cCpuCycles4 - note.cCpuCycles3 ;
-                                    static count04T deltaCpuCyclesIn ; deltaCpuCyclesIn = note.cCpuCycles3 - note.cCpuCycles2 ;
-                                    static count04T deltaCpuCyclesCt ; deltaCpuCyclesCt = note.cCpuCycles2 - note.cCpuCycles1 ;
 
                                     tellInfoAppInOutFrameS& note = *(tellInfoAppInOutFrameS*)pbNote ;
                                 {
@@ -492,8 +405,6 @@ count04T cCpuCyclesCtDt = cCpuCyclesCt + cCpuCyclesDt ;
     TELL( "preparing to eat" )
 {
 if( !(const poopC&)bksTelemetryApp )
-static countT   cDadLevelsLath ;
-static count04T pcCpuCyclesByLevel[ 0x10 ] ;
 static ZE( count04T , cCpuCyclesBook    ) ;
 static ZE( count04T , cCpuCyclesDt      ) ;
 static ZE( count04T , cCpuCyclesInNet   ) ;

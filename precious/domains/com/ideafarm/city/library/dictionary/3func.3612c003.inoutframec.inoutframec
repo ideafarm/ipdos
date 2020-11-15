@@ -8,6 +8,8 @@
 
 
 }
+    if( pDad ) pDad->say.dCpuCyclesKidCt += say.dCpuCyclesCt ;
+    say.dCpuCyclesCt = say.cCpuCycles2 - say.cCpuCycles1 ;
     QueryThreadCycleTime( (HANDLE)(-2) ,  (ULONG64*)&say.cCpuCycles2 ) ;
     QueryPerformanceCounter( (LARGE_INTEGER*)&say.cTime2 ) ;
 
@@ -174,6 +176,8 @@
     say.cDadLevels = tinP.cNestInOutTelemetry ++ ;
 
     //cryC cry( idiFileP ) ;
+
+    tinP.pInOutFrame = this ;
 {
 //INTENTIONALLY UNINITIALIZED FOR SPEED: say.cCpuCycles4
 //INTENTIONALLY UNINITIALIZED FOR SPEED: say.cCpuCycles3
@@ -187,7 +191,7 @@
 idWhat2Save( tinP.monitor.idWhat2 )
 idWhat1Save( tinP.monitor.idWhat1 ) ,
 ) ,
-    ( processGlobal1I.idAdamRoot == ifcIDaDAM_SCRATCH07 /*&& tinP.pcUtility[ 0 ]*/ && !( F(tinP.flagsThreadMode4) & flTHREADmODE4_QUIETiNoUTfRAMEc ) && !( F(processGlobal1I._thirdC_flagsModeProcess1) & flMODEpROCESS1_QUIETiNoUTfRAMEc ) ? flINoUTfRAMEc_APPtELEMETRY : flINoUTfRAMEc_null )
+    ( processGlobal1I.idAdamRoot == ifcIDaDAM_SCRATCH1f /*&& tinP.pcUtility[ 0 ]*/ && !( F(tinP.flagsThreadMode4) & flTHREADmODE4_QUIETiNoUTfRAMEc ) && !( F(processGlobal1I._thirdC_flagsModeProcess1) & flMODEpROCESS1_QUIETiNoUTfRAMEc ) ? flINoUTfRAMEc_APPtELEMETRY : flINoUTfRAMEc_null )
     |
     ( F(tinP.flagsThreadMode3) & flTHREADmODE3_INoUT                                                                                                                                                             ? flINoUTfRAMEc_TRACE        : flINoUTfRAMEc_null )
 (
@@ -196,6 +200,7 @@ idFileRankCt( idFileRankP ) ,
 idiFileCt( idiFileP ) ,
 idLineCt( idLineP ) ,
 tinCt( tinP ) ,
+pDad( tinP.pInOutFrame ) ,
 /*1*/inOutFrameC::inOutFrameC( tinS& tinP , const countT idLineP , const countT idiFileP , const countT idFileRankP , const boolT bClassP ) :/*1*/
 
 /* ASSUME: 02 BITS PER countT */

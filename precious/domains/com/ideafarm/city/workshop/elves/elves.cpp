@@ -2301,7 +2301,7 @@ void elf_obey_C::liveF( void )
                     strcat( postCmd , " !idHome 10000008 !noTells" ) ;
                 #endif
 
-                if( bDebug )                   strcat( postCmd , " !debug" ) ;
+                if( bDebug )                   strcat( postCmd , " !debug !noSystemThreads" ) ; //U::!noSystemThreads MAKES IT EASIER TO USE WDW
                 else if( bNumaIsAvailableF() ) strcat( postCmd , " !idNumaNode 2" ) ;
 
                 //20160419@1858: KERNELmONITOR REQUIRES SYSTEM THREADS FOR QUIT QUALITY

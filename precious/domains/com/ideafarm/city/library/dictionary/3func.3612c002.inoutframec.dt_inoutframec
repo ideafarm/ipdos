@@ -7,8 +7,11 @@
 //
 
 }
+    tinP.pInOutFrame = pDad ;
+
     }
-        tinP.cCpuCyclesWriteInOutTelemetry += deltaCpuCycles5 ;
+        if( pDad ) pDad->say.dCpuCyclesKidBook        += deltaCpuCycles5 ;
+                   tinP.cCpuCyclesWriteInOutTelemetry += deltaCpuCycles5 ;
         deltaCpuCycles5 -= say.cCpuCycles4 ;
         QueryThreadCycleTime( (HANDLE)(-2) ,  (ULONG64*)&deltaCpuCycles5 ) ;
         count04T deltaCpuCycles5 ;  //INTENTIONALLY UNINITIALIZED FOR SPEED
@@ -47,6 +50,8 @@
 
     tinP.cNestInOutTelemetry -- ;
 
+    if( pDad ) pDad->say.dCpuCyclesKidDt += say.dCpuCyclesDt ;
+    say.dCpuCyclesDt = say.cCpuCycles4 - say.cCpuCycles3 ;
     QueryThreadCycleTime( (HANDLE)(-2) ,  (ULONG64*)&say.cCpuCycles4 ) ;
     QueryPerformanceCounter( (LARGE_INTEGER*)&say.cTime4 ) ;
 
@@ -150,8 +155,28 @@
 
 #if defined( NEVERdEFINED )
 
+    if( pDad ) pDad->say.dCpuCyclesKidInNet += say.dCpuCyclesInNet ;
+    say.dCpuCyclesInNet = say.dCpuCyclesIn - say.dCpuCyclesKidCt - say.dCpuCyclesKidInNet - say.dCpuCyclesKidDt - say.dCpuCyclesKidBook ;
+
+    }
+        BLAMMO ;
+    {
+    if( say.dCpuCyclesIn < say.dCpuCyclesKidCt + say.dCpuCyclesKidInNet + say.dCpuCyclesKidDt + say.dCpuCyclesKidBook ) //U:: TO FIND A BUG
+
+    }
+        }
+            BLAMMO ;
+        {
+        if( tinP.pcUtility04[ 0 ] + tinP.pcUtility04[ 1 ] > say.cCpuCycles3 )
+
+        tinP.pcUtility04[ 1 ] += say.dCpuCyclesKidCt + say.dCpuCyclesKidInNet + say.dCpuCyclesKidDt + say.dCpuCyclesKidBook ;
+        CONoUTrAW3( "[say.cDadLevels]:    " , say.cDadLevels , "\r\n" ) ;
+    {
+    if( tinP.pcUtility04[ 0 ] )
+
     tinS& tinP = tinCt ; _MILE  _
 
+    say.dCpuCyclesIn = say.cCpuCycles3 - say.cCpuCycles2 ;
     QueryThreadCycleTime( (HANDLE)(-2) ,  (ULONG64*)&say.cCpuCycles3 ) ;
     QueryPerformanceCounter( (LARGE_INTEGER*)&say.cTime3 ) ;
 {
