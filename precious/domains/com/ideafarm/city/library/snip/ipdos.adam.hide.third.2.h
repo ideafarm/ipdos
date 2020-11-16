@@ -44180,16 +44180,18 @@ VARIABLEcLASSdEF( countC , countT )
 
 /*1*/struct _export inOutFrameAuditS/*1*/
 {
-    count04T dCpuCyclesAuditKidBetweenOrIn ;
-    count04T dCpuCyclesAuditKidCt          ;
-    count04T dCpuCyclesAuditKidDt          ;
-    count04T dCpuCyclesAuditKidBook        ;
+    count04T dCpuCyclesAuditKidBetween ;
+    count04T dCpuCyclesAuditKidCt      ;
+    count04T dCpuCyclesAuditKidIn      ;
+    count04T dCpuCyclesAuditKidDt      ;
+    count04T dCpuCyclesAuditKidBook    ;
 
     inline inOutFrameAuditS( voidT ) :
-    dCpuCyclesAuditKidBetweenOrIn( 0 ) ,  //THESE MUST BE INITIALIZED SINCE THEY ARE ACCUMULATORS
-    dCpuCyclesAuditKidCt(          0 ) ,  //THESE MUST BE INITIALIZED SINCE THEY ARE ACCUMULATORS
-    dCpuCyclesAuditKidDt(          0 ) ,  //THESE MUST BE INITIALIZED SINCE THEY ARE ACCUMULATORS
-    dCpuCyclesAuditKidBook(        0 )    //THESE MUST BE INITIALIZED SINCE THEY ARE ACCUMULATORS
+    dCpuCyclesAuditKidBetween( 0 ) ,  //THESE MUST BE INITIALIZED SINCE THEY ARE ACCUMULATORS
+    dCpuCyclesAuditKidCt(      0 ) ,  //THESE MUST BE INITIALIZED SINCE THEY ARE ACCUMULATORS
+    dCpuCyclesAuditKidIn(      0 ) ,  //THESE MUST BE INITIALIZED SINCE THEY ARE ACCUMULATORS
+    dCpuCyclesAuditKidDt(      0 ) ,  //THESE MUST BE INITIALIZED SINCE THEY ARE ACCUMULATORS
+    dCpuCyclesAuditKidBook(    0 )    //THESE MUST BE INITIALIZED SINCE THEY ARE ACCUMULATORS
     {}
 }
 ;
@@ -44201,6 +44203,7 @@ VARIABLEcLASSdEF( countC , countT )
 //
 // Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
+
 
 
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.inOutFrameC : 1snip.15000159.inoutframec BEGIN

@@ -233,6 +233,10 @@
 
         CONoUTrAW( ostoSay ) ;
         OStEXTAK( ostoSay , "\r\n" ) ;
+        OStEXTCF( ostoSay , ((countT*)&dInNet)[0] , '0' ) ;
+        OStEXTAK( ostoSay , "." ) ;
+        OStEXTCF( ostoSay , ((countT*)&dInNet)[1] , '0' ) ;
+        OStEXTAK( ostoSay , "\r\n          dInNet:    " ) ;
         OStEXTCF( ostoSay , ((countT*)&say.dCpuCyclesIn)[0] , '0' ) ;
         OStEXTAK( ostoSay , "." ) ;
         OStEXTCF( ostoSay , ((countT*)&say.dCpuCyclesIn)[1] , '0' ) ;
@@ -243,12 +247,15 @@
         OStEXTAK( ostoSay ,     "    dAuditTotal :    " ) ;
         OStEXT( ostoSay , TUCK ) ;
 
+        count04T dInNet = deltaIn - ( dAuditTotal - audit.dCpuCyclesAuditKidBetween ) ;
+
         ;
 
             + audit.dCpuCyclesAuditKidBook
             + audit.dCpuCyclesAuditKidDt
+            + audit.dCpuCyclesAuditKidIn
             + audit.dCpuCyclesAuditKidCt
-              audit.dCpuCyclesAuditKidBetweenOrIn
+              audit.dCpuCyclesAuditKidBetween
 
         count04T dAuditTotal =
 
@@ -258,12 +265,10 @@
 
     say.dCpuCyclesIn = say.cCpuCycles3 - say.cCpuCycles2 ;
 
-    ;
-        : say.cCpuCycles3 - tinP.cCpuCycles2Or5Lath
-        ? deltaIn
-    audit.dCpuCyclesAuditKidBetweenOrIn += tinP.cCpuCycles2Or5Lath == say.cCpuCycles2
+    else                                             audit.dCpuCyclesAuditKidBetween += say.cCpuCycles3 - tinP.cCpuCycles2Or5Lath ;
+    if( tinP.cCpuCycles2Or5Lath == say.cCpuCycles2 ) audit.dCpuCyclesAuditKidBetween += deltaIn ;
 
-    if( pDad                                       ) pDad->audit.dCpuCyclesAuditKidBetweenOrIn += deltaIn ;
+    if( pDad ) pDad->audit.dCpuCyclesAuditKidIn += deltaIn ;
     count04T deltaIn = say.cCpuCycles3 - say.cCpuCycles2 ;
     QueryThreadCycleTime( (HANDLE)(-2) ,  (ULONG64*)&say.cCpuCycles3 ) ;
     QueryPerformanceCounter( (LARGE_INTEGER*)&say.cTime3 ) ;
