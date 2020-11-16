@@ -45279,3 +45279,34 @@ this macro detects an invalid jPointer value and, if valid, evaluates to the (co
 //
 
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004e6.j END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004e7.flbookscselect BEGIN
+
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+/*
+*/
+/**/
+/*1*//*flBOOKScsELECT*//*1*/
+
+/*3*/
+#define flBOOKScsELECT_WOTH                          0xe00001f0
+#define flBOOKScsELECT_LATH                          0xe00002f0
+#define flBOOKScsELECT_PURGE                         0xe00004f0
+/*3*/
+#define flBOOKScsELECT_null    0xe00000f0
+
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004e7.flbookscselect END

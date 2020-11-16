@@ -1,34 +1,3 @@
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004e7.flbookscselect BEGIN
-
-
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-// Respecting the rights of other people is an important part of empowering one another.
-//
-
-/*
-*/
-/**/
-/*1*//*flBOOKScsELECT*//*1*/
-
-/*3*/
-#define flBOOKScsELECT_WOTH                          0xe00001f0
-#define flBOOKScsELECT_LATH                          0xe00002f0
-#define flBOOKScsELECT_PURGE                         0xe00004f0
-/*3*/
-#define flBOOKScsELECT_null    0xe00000f0
-
-
-//
-// Respecting the rights of other people is an important part of empowering one another.
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004e7.flbookscselect END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004e8.flbookscread BEGIN
 
 
@@ -27512,7 +27481,6 @@ struct bookMarkOldS
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.bookMarkS : 1snip.1500016e.bookmarks END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.tinS : 1snip.15000026.tins BEGIN
 
-
 //
 // Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
@@ -27568,6 +27536,10 @@ it is illegal to modify any member other than pc Utility in the definition of an
 
  public :
 
+ countT                 cNestInOutTelemetry ;
+ count04T               cCpuCyclesWriteInOutTelemetry ;
+ inOutFrameC*           pInOutFrame ;                       //THIS AND POSSIBLY ITS ACCOMPANYING MEMBERS MUST BE EARLY SINCE _IO_ IS USED DURING CT OF tinS
+ count04T               cCpuCycles2Or5Lath ;
  etherC*       /*o  8*/ pEther ;       // USED IF !0.              FOR USE BY STATIC thirdC FUNCTIONS, GLOBAL FUNCTIONS, AND OBJECTS SUCH AS strokeS THAT DO NOT CARRY THEIR OWN REFERENCES.  ADDED LATE.
  countT        /*o 01*/ osTid ;   // MUST BE AFTER pEther.  
  countT        /*o 41*/ osPid ;   // MUST BE AFTER pEther. OFFSET IS HARDCODED IN 0d0000c.grabSleepF
@@ -27689,9 +27661,6 @@ it is illegal to modify any member other than pc Utility in the definition of an
  countT                 cSpins3 ;
  countT                 cSpins4 ;
  bookMarkS              pBookMark[ TUCK ] ;    // USED BY pageC TO REGISTER A PENDING SMART POINTER ; INCREASE THE NUMBER OF ELEMENTS TO SUPPORT MORE SIMULTANEOUS pageC INSTANCES; 20180606: 01->TUCK WITHOUT ANALYSIS TO WORK AROUND PRODUCTION EXHAUSTION
- countT                 cNestInOutTelemetry ;
- count04T               cCpuCyclesWriteInOutTelemetry ;
- inOutFrameC*           pInOutFrame ;
 
  //ASSUME: FIELDS BEFORE HERE CAN BE COPIED AND RESET (SEE THE CT/DT OF processGlobal4I.tinVeryEarlyLateMain AND THE MAIN THREAD'S tinS, IN POOLoLD)
  /* suffix begin (not sloshed (copied) from tinS to tinS) */
@@ -44130,11 +44099,13 @@ VARIABLEcLASSdEF( countC , countT )
     count04T cCpuCycles3        ;
     count04T cCpuCycles4        ;
 
+    count04T dCpuCyclesB4       ;
     count04T dCpuCyclesCt       ;   // "d": "DELTA" (I.E. "CHANGE IN")
     count04T dCpuCyclesIn       ;
     count04T dCpuCyclesInNet    ;
     count04T dCpuCyclesDt       ;
 
+    count04T dCpuCyclesKidB4    ;
     count04T dCpuCyclesKidCt    ;
     count04T dCpuCyclesKidInNet ;
     count04T dCpuCyclesKidDt    ;
@@ -44146,6 +44117,7 @@ VARIABLEcLASSdEF( countC , countT )
     count04T cTime4             ;
 
     inline tellInfoAppInOutFrameS( voidT ) :
+    dCpuCyclesKidB4(    0 ) ,  //THESE MUST BE INITIALIZED SINCE THEY ARE ACCUMULATORS
     dCpuCyclesKidCt(    0 ) ,  //THESE MUST BE INITIALIZED SINCE THEY ARE ACCUMULATORS
     dCpuCyclesKidInNet( 0 ) ,  //THESE MUST BE INITIALIZED SINCE THEY ARE ACCUMULATORS
     dCpuCyclesKidDt(    0 ) ,  //THESE MUST BE INITIALIZED SINCE THEY ARE ACCUMULATORS
@@ -44195,6 +44167,42 @@ VARIABLEcLASSdEF( countC , countT )
 
 
 
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+/*
+*/
+/**/
+
+/*1*/struct _export inOutFrameAuditS/*1*/
+{
+    count04T dCpuCyclesAuditKidBetweenOrIn ;
+    count04T dCpuCyclesAuditKidCt          ;
+    count04T dCpuCyclesAuditKidDt          ;
+    count04T dCpuCyclesAuditKidBook        ;
+
+    inline inOutFrameAuditS( voidT ) :
+    dCpuCyclesAuditKidBetweenOrIn( 0 ) ,  //THESE MUST BE INITIALIZED SINCE THEY ARE ACCUMULATORS
+    dCpuCyclesAuditKidCt(          0 ) ,  //THESE MUST BE INITIALIZED SINCE THEY ARE ACCUMULATORS
+    dCpuCyclesAuditKidDt(          0 ) ,  //THESE MUST BE INITIALIZED SINCE THEY ARE ACCUMULATORS
+    dCpuCyclesAuditKidBook(        0 )    //THESE MUST BE INITIALIZED SINCE THEY ARE ACCUMULATORS
+    {}
+}
+;
+
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+
+
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.inOutFrameC : 1snip.15000159.inoutframec BEGIN
 
 
@@ -44217,6 +44225,7 @@ VARIABLEcLASSdEF( countC , countT )
     const countT            idLineCt                  ;
     const countT            idiFileCt                 ;
     tellInfoAppInOutFrameS  say                       ;
+    inOutFrameAuditS        audit                     ;
     const countT            idFileRankCt              ;
     const flagsT            flagsCt                   ;
     countT                  idFileNestSave            ;

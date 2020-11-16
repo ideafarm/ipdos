@@ -9,13 +9,16 @@
 }
     tinP.pInOutFrame = pDad ;
 
-    }
-        if( pDad ) pDad->say.dCpuCyclesKidBook        += deltaCpuCycles5 ;
-                   tinP.cCpuCyclesWriteInOutTelemetry += deltaCpuCycles5 ;
-        deltaCpuCycles5 -= say.cCpuCycles4 ;
-        QueryThreadCycleTime( (HANDLE)(-2) ,  (ULONG64*)&deltaCpuCycles5 ) ;
-        count04T deltaCpuCycles5 ;  //INTENTIONALLY UNINITIALIZED FOR SPEED
+    if( pDad ) pDad->say.dCpuCyclesKidBook        += deltaCpuCycles5 ;
+               tinP.cCpuCyclesWriteInOutTelemetry += deltaCpuCycles5 ;
 
+    if( pDad ) pDad->audit.dCpuCyclesAuditKidBook += deltaCpuCycles5 ;
+    deltaCpuCycles5 -= say.cCpuCycles4 ;
+    tinP.cCpuCycles2Or5Lath = deltaCpuCycles5 ; //NOT DELTA YET
+    QueryThreadCycleTime( (HANDLE)(-2) ,  (ULONG64*)&deltaCpuCycles5 ) ;
+    count04T deltaCpuCycles5 ;  //INTENTIONALLY UNINITIALIZED FOR SPEED
+
+    }
         //CONoUTrAW3( "---- [cDadLevels]: " , say.cDadLevels , "\r\n" ) ; //U::
 
         THREADmODE4rESTORE
@@ -50,8 +53,41 @@
 
     tinP.cNestInOutTelemetry -- ;
 
+    //}
+    //    tinP.pcUtility[ 0 ] -- ;
+    //
+    //    CONoUTrAW( ostoSay ) ;
+    //    OStEXTAK( ostoSay , "\r\n" ) ;
+    //    OStEXTCF( ostoSay , ((countT*)&dCpuCyclesRptTotal)[0] , '0' ) ;
+    //    OStEXTAK( ostoSay , "." ) ;
+    //    OStEXTCF( ostoSay , ((countT*)&dCpuCyclesRptTotal)[1] , '0' ) ;
+    //    OStEXTAK( ostoSay , "dCpuCyclesRptTotal: " ) ;
+    //    OStEXT( ostoSay , TUCK ) ;
+    //
+    //    count04T dCpuCyclesRptTotal = pDad->say.dCpuCyclesKidCt + pDad->say.dCpuCyclesKidInNet + pDad->say.dCpuCyclesKidDt ;
+    //
+    //    tinP.pcUtility[ 0 ] ++ ;
+    //{
+    //if( pDad && processGlobal1I.idAdamRoot == ifcIDaDAM_SCRATCH07 && tinP.pcUtility[ 0 ] == 1 )
+
     if( pDad ) pDad->say.dCpuCyclesKidDt += say.dCpuCyclesDt ;
     say.dCpuCyclesDt = say.cCpuCycles4 - say.cCpuCycles3 ;
+
+    //}
+    //    tinP.pcUtility[ 0 ] -- ;
+    //
+    //    CONoUTrAW( ostoSay ) ;
+    //    OStEXTAK( ostoSay , "\r\n" ) ;
+    //    OStEXTCF( ostoSay , ((countT*)&say.cCpuCycles4)[0] , '0' ) ;
+    //    OStEXTAK( ostoSay , "." ) ;
+    //    OStEXTCF( ostoSay , ((countT*)&say.cCpuCycles4)[1] , '0' ) ;
+    //    OStEXT( ostoSay , TUCK ) ;
+    //
+    //    tinP.pcUtility[ 0 ] ++ ;
+    //{
+    //if( processGlobal1I.idAdamRoot == ifcIDaDAM_SCRATCH07 && tinP.pcUtility[ 0 ] == 1 )
+
+    if( pDad ) pDad->audit.dCpuCyclesAuditKidDt += say.cCpuCycles4 - say.cCpuCycles3 ;
     QueryThreadCycleTime( (HANDLE)(-2) ,  (ULONG64*)&say.cCpuCycles4 ) ;
     QueryPerformanceCounter( (LARGE_INTEGER*)&say.cTime4 ) ;
 
@@ -174,11 +210,65 @@
     {
     if( tinP.pcUtility04[ 0 ] )
 
-    tinS& tinP = tinCt ; _MILE  _
+    //}
+    //    tinP.pcUtility[ 0 ] -- ;
+    //
+    //    CONoUTrAW( ostoSay ) ;
+    //    OStEXTAK( ostoSay , "\r\n" ) ;
+    //    OStEXTCF( ostoSay , ((countT*)&say.dCpuCyclesIn)[0] , '0' ) ;
+    //    OStEXTAK( ostoSay , "." ) ;
+    //    OStEXTCF( ostoSay , ((countT*)&say.dCpuCyclesIn)[1] , '0' ) ;
+    //    OStEXTAK( ostoSay , "    dCpuCyclesIn:    " ) ;
+    //    OStEXTCF( ostoSay , ((countT*)&say.cCpuCycles3)[0] , '0' ) ;
+    //    OStEXTAK( ostoSay , "." ) ;
+    //    OStEXTCF( ostoSay , ((countT*)&say.cCpuCycles3)[1] , '0' ) ;
+    //    OStEXT( ostoSay , TUCK ) ;
+    //
+    //    tinP.pcUtility[ 0 ] ++ ;
+    //{
+    //if( processGlobal1I.idAdamRoot == ifcIDaDAM_SCRATCH07 && tinP.pcUtility[ 0 ] == 1 )
+
+    }
+        tinP.pcUtility[ 0 ] -- ;
+
+        CONoUTrAW( ostoSay ) ;
+        OStEXTAK( ostoSay , "\r\n" ) ;
+        OStEXTCF( ostoSay , ((countT*)&say.dCpuCyclesIn)[0] , '0' ) ;
+        OStEXTAK( ostoSay , "." ) ;
+        OStEXTCF( ostoSay , ((countT*)&say.dCpuCyclesIn)[1] , '0' ) ;
+        OStEXTAK( ostoSay , "\r\n    dCpuCyclesIn:    " ) ;
+        OStEXTCF( ostoSay , ((countT*)&dAuditTotal)[0] , '0' ) ;
+        OStEXTAK( ostoSay , "." ) ;
+        OStEXTCF( ostoSay , ((countT*)&dAuditTotal)[1] , '0' ) ;
+        OStEXTAK( ostoSay ,     "    dAuditTotal :    " ) ;
+        OStEXT( ostoSay , TUCK ) ;
+
+        ;
+
+            + audit.dCpuCyclesAuditKidBook
+            + audit.dCpuCyclesAuditKidDt
+            + audit.dCpuCyclesAuditKidCt
+              audit.dCpuCyclesAuditKidBetweenOrIn
+
+        count04T dAuditTotal =
+
+        tinP.pcUtility[ 0 ] ++ ;
+    {
+    if( tinP.pcUtility[ 0 ] )
 
     say.dCpuCyclesIn = say.cCpuCycles3 - say.cCpuCycles2 ;
+
+    ;
+        : say.cCpuCycles3 - tinP.cCpuCycles2Or5Lath
+        ? deltaIn
+    audit.dCpuCyclesAuditKidBetweenOrIn += tinP.cCpuCycles2Or5Lath == say.cCpuCycles2
+
+    if( pDad                                       ) pDad->audit.dCpuCyclesAuditKidBetweenOrIn += deltaIn ;
+    count04T deltaIn = say.cCpuCycles3 - say.cCpuCycles2 ;
     QueryThreadCycleTime( (HANDLE)(-2) ,  (ULONG64*)&say.cCpuCycles3 ) ;
     QueryPerformanceCounter( (LARGE_INTEGER*)&say.cTime3 ) ;
+
+    tinS& tinP = tinCt ; _MILE  _
 {
 /*1*/inOutFrameC::~inOutFrameC( voidT )/*1*/
 

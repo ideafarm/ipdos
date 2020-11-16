@@ -10,6 +10,23 @@
 }
     if( pDad ) pDad->say.dCpuCyclesKidCt += say.dCpuCyclesCt ;
     say.dCpuCyclesCt = say.cCpuCycles2 - say.cCpuCycles1 ;
+
+    //}
+    //    tinP.pcUtility[ 0 ] -- ;
+    //
+    //    CONoUTrAW( ostoSay ) ;
+    //    OStEXTAK( ostoSay , "\r\n" ) ;
+    //    OStEXTCF( ostoSay , ((countT*)&say.cCpuCycles2)[0] , '0' ) ;
+    //    OStEXTAK( ostoSay , "." ) ;
+    //    OStEXTCF( ostoSay , ((countT*)&say.cCpuCycles2)[1] , '0' ) ;
+    //    OStEXT( ostoSay , TUCK ) ;
+    //
+    //    tinP.pcUtility[ 0 ] ++ ;
+    //{
+    //if( processGlobal1I.idAdamRoot == ifcIDaDAM_SCRATCH07 && tinP.pcUtility[ 0 ] == 1 )
+
+    tinP.cCpuCycles2Or5Lath = say.cCpuCycles2 ;
+    if( pDad ) pDad->audit.dCpuCyclesAuditKidCt += say.cCpuCycles2 - say.cCpuCycles1 ;
     QueryThreadCycleTime( (HANDLE)(-2) ,  (ULONG64*)&say.cCpuCycles2 ) ;
     QueryPerformanceCounter( (LARGE_INTEGER*)&say.cTime2 ) ;
 
@@ -170,6 +187,27 @@
 
 #if defined( NEVERdEFINED )
 
+    //}
+    //    tinP.pcUtility[ 0 ] -- ;
+    //
+    //    CONoUTrAW( ostoSay ) ;
+    //    OStEXTAK( ostoSay , "\r\n" ) ;
+    //    OStEXTCF( ostoSay , ((countT*)&say.dCpuCyclesB4)[0] , '0' ) ;
+    //    OStEXTAK( ostoSay , "." ) ;
+    //    OStEXTCF( ostoSay , ((countT*)&say.dCpuCyclesB4)[1] , '0' ) ;
+    //    OStEXTAK( ostoSay , "    dCpuCyclesB4:    " ) ;
+    //    OStEXTCF( ostoSay , ((countT*)&say.cCpuCycles1)[0] , '0' ) ;
+    //    OStEXTAK( ostoSay , "." ) ;
+    //    OStEXTCF( ostoSay , ((countT*)&say.cCpuCycles1)[1] , '0' ) ;
+    //    OStEXT( ostoSay , TUCK ) ;
+    //
+    //    tinP.pcUtility[ 0 ] ++ ;
+    //{
+    //if( processGlobal1I.idAdamRoot == ifcIDaDAM_SCRATCH07 && tinP.pcUtility[ 0 ] == 1 )
+
+    say.dCpuCyclesB4 = !pDad ? 0 : say.cCpuCycles1 - tinP.cCpuCycles2Or5Lath ;
+
+    if( pDad ) pDad->audit.dCpuCyclesAuditKidBetweenOrIn += say.cCpuCycles1 - tinP.cCpuCycles2Or5Lath ;
     QueryThreadCycleTime( (HANDLE)(-2) ,  (ULONG64*)&say.cCpuCycles1 ) ;
     QueryPerformanceCounter( (LARGE_INTEGER*)&say.cTime1 ) ;
 
