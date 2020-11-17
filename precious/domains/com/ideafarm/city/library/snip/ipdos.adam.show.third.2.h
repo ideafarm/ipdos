@@ -27536,7 +27536,6 @@ it is illegal to modify any member other than pc Utility in the definition of an
 
  public :
 
- countT                 cNestInOutTelemetry ;
  count04T               cCpuCyclesWriteInOutTelemetry ;
  inOutFrameC*           pInOutFrame ;                       //THIS AND POSSIBLY ITS ACCOMPANYING MEMBERS MUST BE EARLY SINCE _IO_ IS USED DURING CT OF tinS
  count04T               cCpuCycles2Or5Lath ;
@@ -44092,37 +44091,21 @@ VARIABLEcLASSdEF( countC , countT )
 
 /*1*/struct _export tellInfoAppInOutFrameS/*1*/
 {
-    countT   cDadLevels         ;
-
     count04T cCpuCycles1        ;
     count04T cCpuCycles2        ;
     count04T cCpuCycles3        ;
     count04T cCpuCycles4        ;
 
-    count04T dCpuCyclesB4       ;
-    count04T dCpuCyclesCt       ;   // "d": "DELTA" (I.E. "CHANGE IN")
+    count04T dCpuCyclesB4       ;   // "d": "DELTA" (I.E. "CHANGE IN")
+    count04T dCpuCyclesCt       ;
     count04T dCpuCyclesIn       ;
     count04T dCpuCyclesInNet    ;
     count04T dCpuCyclesDt       ;
-
-    count04T dCpuCyclesKidB4    ;
-    count04T dCpuCyclesKidCt    ;
-    count04T dCpuCyclesKidInNet ;
-    count04T dCpuCyclesKidDt    ;
-    count04T dCpuCyclesKidBook  ;
 
     count04T cTime1             ;
     count04T cTime2             ;
     count04T cTime3             ;
     count04T cTime4             ;
-
-    inline tellInfoAppInOutFrameS( voidT ) :
-    dCpuCyclesKidB4(    0 ) ,  //THESE MUST BE INITIALIZED SINCE THEY ARE ACCUMULATORS
-    dCpuCyclesKidCt(    0 ) ,  //THESE MUST BE INITIALIZED SINCE THEY ARE ACCUMULATORS
-    dCpuCyclesKidInNet( 0 ) ,  //THESE MUST BE INITIALIZED SINCE THEY ARE ACCUMULATORS
-    dCpuCyclesKidDt(    0 ) ,  //THESE MUST BE INITIALIZED SINCE THEY ARE ACCUMULATORS
-    dCpuCyclesKidBook(  0 )    //THESE MUST BE INITIALIZED SINCE THEY ARE ACCUMULATORS
-    {}
     
 }
 ;

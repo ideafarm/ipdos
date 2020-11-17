@@ -64,6 +64,7 @@
                                 if( tinP.monitor.idThread == 1 && !( ++ processGlobal1I.pcPhaseLow[ tinP.monitor.idThread ] ) ) { BLAMMO ; }
                                 ADAMpHASE( ifcIDpHASEaDAM_EXEePILOGaDAMmAINe ) ;
                                 }
+                                    // tinP IS DESTROYED HERE (BY etherC DT'OR)
                                     ADAMpHASE( ifcIDpHASEaDAM_EXEePILOGaDAMmAINd ) ;
                                     }
                                         TELL( "main: destroying ether" ) ;
@@ -581,15 +582,16 @@
                                         cryC cry08( TOCK + 0x08 ) ;
                                         TELL( "constructing etThread" ) ;
                                         ADAMpHASE( ifcIDpHASEaDAM_EXEpROLOGaDAMmAINe ) ;
+                                        _IO_
                                     {
                                     if( !ether )
 
                                     tinP.pEther = &ether ;
-                                    _IO_
         
                                     ADAMpHASE( ifcIDpHASEaDAM_EXEpROLOGaDAMmAINd ) ;
                                     cryC cry07( TOCK + 0x07 ) ;
 
+                                    _IO_        // MUST BE CT AFTER ether BECAUSE DT OF ether WILL DESTROY THE CURRENT tinP
                                     TELL( "constructed ether" ) ;
                                     etherC ether( tinP , TAG( TAGiDnULL ) , flTHIRDmODE_TINoWNER | flTHIRDmODE_QUITTER /* | flTHIRDmODE_CHECKpOOLoLD */ ) ; //DEBUGGING: TURN ON flTHIRDmODE_CHECKpOOLoLD HERE
                                     TELL( "constructing ether" ) ;
@@ -610,10 +612,11 @@
                                     ___( &tinP ) ;                                          /*HERE*/
                                     TELL( "main: setting up" ) ;
                                     ADAMpHASE( ifcIDpHASEaDAM_EXEpROLOGaDAMmAINb ) ;
+                                    //_IO_  CANNOT DO THIS HERE, BECAUSE DT'OR FOR ether WILL DESTROY THE CURRENT tinP
                                     TINSL
                                 {
                                 if( bTinOk )
-                                _IO_
+                                //_IO_    CANNOT CT HERE, BECAUSE tinP CURRENTLY REFERENCES THE PRIOR tinS
 
                                 ADAMpHASE( ifcIDpHASEaDAM_EXEpROLOGaDAMmAINa ) ;
                                 cryC cry05( TOCK + 0x05 ) ;
@@ -657,6 +660,7 @@
                                 {
                                 if( idTypeP == ifcIDtYPEtLS_WINDOW )
                                 ADAMpHASE( ifcIDpHASEaDAM_EXEpROLOGaDAMmAIN8 ) ;
+                                _IO_
                             {
                             if( !POOP )
                             ZE( boolT , bServiceManagerHiredMe ) ; // 1 IFF THE O.S. SUPPORTS "SERVICES" AND I AM THE INSTANCE BEING STARTED BY THE SERVICE MANAGER; WILL BE 0 IF I AM THE IDEAFARM DRIVER ON AN OS THAT DOES NOT SUPPORT "SERVICES"
