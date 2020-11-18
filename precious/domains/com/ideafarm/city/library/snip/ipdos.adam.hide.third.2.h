@@ -1,3 +1,34 @@
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004e7.flbookscselect BEGIN
+
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+/*
+*/
+/**/
+/*1*//*flBOOKScsELECT*//*1*/
+
+/*3*/
+#define flBOOKScsELECT_WOTH                          0xe00001f0
+#define flBOOKScsELECT_LATH                          0xe00002f0
+#define flBOOKScsELECT_PURGE                         0xe00004f0
+/*3*/
+#define flBOOKScsELECT_null    0xe00000f0
+
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004e7.flbookscselect END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004e8.flbookscread BEGIN
 
 
@@ -27537,6 +27568,7 @@ it is illegal to modify any member other than pc Utility in the definition of an
 
  public :
 
+ countT                 cTellsWriteInOutTelemetry ;
  count04T               cCpuCyclesWriteInOutTelemetry ;
  inOutFrameC*           pInOutFrame ;                       //THIS AND POSSIBLY ITS ACCOMPANYING MEMBERS MUST BE EARLY SINCE _IO_ IS USED DURING CT OF tinS
  count04T               cCpuCycles2Or5Lath ;
@@ -44126,6 +44158,7 @@ VARIABLEcLASSdEF( countC , countT )
 /*1*/struct _export tellInfoAppInOutFrameTinDtS/*1*/
 {
     countT   idThreadReporting ;
+    countT   cTells ;
     count04T cCpuCyclesWriteInOutTelemetry ;
 }
 ;

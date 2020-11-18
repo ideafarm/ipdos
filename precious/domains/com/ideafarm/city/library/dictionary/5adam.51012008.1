@@ -77,17 +77,24 @@ sourceC& source = sourceC::sourceIF() ;
 mapCTC& mapFileTitle = processGlobal3S::_processGlobal3I_IF().mapFileTitle ;
 
 etThread.traceF( tinP , tSayWorkPerWatch , flTRACE_NOpREFIX ) ;
+etThread.traceF( tinP , tSayBookPer , flTRACE_NOpREFIX ) ;
 etThread.traceF( tinP , tSayBook    , flTRACE_NOpREFIX ) ;
 etThread.traceF( tinP , tSayCtDt    , flTRACE_NOpREFIX ) ;
 etThread.traceF( tinP , tSayDt      , flTRACE_NOpREFIX ) ;
 etThread.traceF( tinP , tSayInNet   , flTRACE_NOpREFIX ) ;
-etThread.traceF( tinP , tSayInGross , flTRACE_NOpREFIX ) ;
+//MEANINGLESS: etThread.traceF( tinP , tSayInGross , flTRACE_NOpREFIX ) ;
 etThread.traceF( tinP , tSayCt      , flTRACE_NOpREFIX ) ;
+etThread.traceF( tinP , T("cBook:    ")+TF2(cBook,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) , flTRACE_NOpREFIX ) ;
 
 ;
     +tDot+TF3(((countT*)&cCpuCyclesWorkPerWatch)[1],flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE,8)
     TF3(((countT*)&cCpuCyclesWorkPerWatch)[0],flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE,8)
 TN( tSayWorkPerWatch , "cCpuCyclesWorkPerWatch: " ) ; tSayWorkPerWatch +=
+
+;
+    +tDot+TF3(((countT*)&cCpuCyclesBookPer)[1],flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE,8)
+    TF3(((countT*)&cCpuCyclesBookPer)[0],flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE,8)
+TN( tSayBookPer      , "cCpuCyclesBookPer     : " ) ; tSayBookPer +=
 
 ;
     +tDot+TF3(((countT*)&cCpuCyclesBook)[1],flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE,8)
@@ -122,6 +129,8 @@ TN( tSayCt           , "cCpuCyclesCt          : " ) ; tSayCt +=
 count04T cCpuCyclesWorkPerWatch = !cCpuCyclesWatch ? 0 : cCpuCyclesInNet / cCpuCyclesWatch ;
 count04T cCpuCyclesWatch = cCpuCyclesCtDt + cCpuCyclesBook ;
 count04T cCpuCyclesCtDt = cCpuCyclesCt + cCpuCyclesDt ;
+
+count04T cCpuCyclesBookPer = !cBook ? 0 : cCpuCyclesBook / cBook ;
 
 }
     //etThread.traceF( tinP , T("tmEatTelemetrySysF / 6") ) ;
@@ -234,6 +243,7 @@ count04T cCpuCyclesCtDt = cCpuCyclesCt + cCpuCyclesDt ;
                                     if( cCpuCyclesBook < was ) { BLAMMO ; }
                                     cCpuCyclesBook += note.cCpuCyclesWriteInOutTelemetry ;
                                     count04T was = cCpuCyclesBook ;
+                                    cBook += note.cTells ;
 
                                     //etThread.traceF( tinP , tSay , flTRACE_NOpREFIX ) ;
                                     //
@@ -405,6 +415,7 @@ count04T cCpuCyclesCtDt = cCpuCyclesCt + cCpuCyclesDt ;
     TELL( "preparing to eat" )
 {
 if( !(const poopC&)bksTelemetryApp )
+ZE( countT , cBook ) ;
 static ZE( count04T , cCpuCyclesBook    ) ;
 static ZE( count04T , cCpuCyclesDt      ) ;
 static ZE( count04T , cCpuCyclesInNet   ) ;
