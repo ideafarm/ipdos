@@ -64,6 +64,7 @@
 "diskWalkCBFT" , "diskWalkCBFT" ,
 "diskWalkCopyCBFT" , "diskWalkCopyCBFT" ,
 "diskWalkSearchCBFT" , "diskWalkSearchCBFT" ,
+"inOutFrameC" , "inOutFrameC" ,
 "cacheC" , "cacheC" ,
 "cachedS" , "cachedS" ,
 "diskFindHandleS" , "diskFindHandleS" ,
