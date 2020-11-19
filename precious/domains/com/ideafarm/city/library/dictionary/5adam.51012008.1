@@ -159,82 +159,104 @@ count04T cCpuCyclesBookPer = !cBook ? 0 : cCpuCyclesBook / cBook ;
                                 break ;
 
                                 }
-                                    *(count04T*)&(countT&)swCpu += note.dCpuCyclesInNet ;
+                                    }
+                                        *(count04T*)&(countT&)swCpu += note.dCpuCyclesInNet ;
 
-                                    swTally ++ ;
+                                        swTally ++ ;
 
-                                    pczLever[ 1 ] = told.idLineTalking ;
-                                    pczLever[ 0 ] = told.idiFileTalking ;
+                                        pczLever[ 1 ] = told.idLineTalking ;
+                                        pczLever[ 0 ] = told.idiFileTalking ;
 
-                                    if( cCpuCyclesDt < was ) { BLAMMO ; }
-                                    cCpuCyclesDt += note.dCpuCyclesDt ;
-                                    was = cCpuCyclesDt ;
+                                        if( cCpuCyclesDt < was ) { BLAMMO ; }
+                                        cCpuCyclesDt += note.dCpuCyclesDt ;
+                                        was = cCpuCyclesDt ;
 
-                                    if( cCpuCyclesInNet < was ) { BLAMMO ; }
-                                    cCpuCyclesInNet += note.dCpuCyclesInNet ;
-                                    was = cCpuCyclesInNet ;
+                                        if( cCpuCyclesInNet < was ) { BLAMMO ; }
+                                        cCpuCyclesInNet += note.dCpuCyclesInNet ;
+                                        was = cCpuCyclesInNet ;
 
-                                    if( cCpuCyclesInGross < was ) { BLAMMO ; }
-                                    cCpuCyclesInGross += note.dCpuCyclesIn ;
-                                    was = cCpuCyclesInGross ;
+                                        if( cCpuCyclesInGross < was ) { BLAMMO ; }
+                                        cCpuCyclesInGross += note.dCpuCyclesIn ;
+                                        was = cCpuCyclesInGross ;
 
-                                    if( cCpuCyclesCt < was ) { BLAMMO ; }
-                                    cCpuCyclesCt += note.dCpuCyclesCt ;
-                                    static count04T was ; was = cCpuCyclesCt ;
+                                        if( cCpuCyclesCt < was ) { BLAMMO ; }
+                                        cCpuCyclesCt += note.dCpuCyclesCt ;
+                                        static count04T was ; was = cCpuCyclesCt ;
 
 #endif
 #if defined( NEVERdEFINED )
 
 #endif
 
-                                    etThread.traceF( tinP , tSay , flTRACE_NOpREFIX ) ;
+                                        etThread.traceF( tinP , tSay , flTRACE_NOpREFIX ) ;
 
-                                    ;
+                                        ;
 
-                                        +tDot+TF3(((countT*)&note.dCpuCyclesDt)[1],flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE,8)
-                                        +tb4 +TF3(((countT*)&note.dCpuCyclesDt)[0],flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE,8)
-                                        +tDot+TF3(((countT*)&note.dCpuCyclesInNet)[1],flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE,8)
-                                        +tb4 +TF3(((countT*)&note.dCpuCyclesInNet)[0],flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE,8)
-                                        +tDot+TF3(((countT*)&note.dCpuCyclesIn)[1],flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE,8)
-                                        +tb4 +TF3(((countT*)&note.dCpuCyclesIn)[0],flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE,8)
-                                        +tDot+TF3(((countT*)&note.dCpuCyclesCt)[1],flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE,8)
-                                        +tb4 +TF3(((countT*)&note.dCpuCyclesCt)[0],flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE,8)
-                                        +tb8 +T("Ct In InNet Dt:")
+                                            +tDot+TF3(((countT*)&note.dCpuCyclesDt)[1],flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE,8)
+                                            +tb4 +TF3(((countT*)&note.dCpuCyclesDt)[0],flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE,8)
+                                            +tDot+TF3(((countT*)&note.dCpuCyclesInNet)[1],flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE,8)
+                                            +tb4 +TF3(((countT*)&note.dCpuCyclesInNet)[0],flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE,8)
+                                            +tDot+TF3(((countT*)&note.dCpuCyclesIn)[1],flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE,8)
+                                            +tb4 +TF3(((countT*)&note.dCpuCyclesIn)[0],flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE,8)
+                                            +tDot+TF3(((countT*)&note.dCpuCyclesCt)[1],flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE,8)
+                                            +tb4 +TF3(((countT*)&note.dCpuCyclesCt)[0],flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE,8)
+                                            +tb8 +T("Ct In InNet Dt:")
 
-                                        +tDot+TF3(((countT*)&note.cCpuCycles4)[1],flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE,8)
-                                        +tb4 +TF3(((countT*)&note.cCpuCycles4)[0],flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE,8)
-                                        +tDot+TF3(((countT*)&note.cCpuCycles3)[1],flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE,8)
-                                        +tb4 +TF3(((countT*)&note.cCpuCycles3)[0],flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE,8)
-                                        +tDot+TF3(((countT*)&note.cCpuCycles2)[1],flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE,8)
-                                        +tb4 +TF3(((countT*)&note.cCpuCycles2)[0],flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE,8)
-                                        +tDot+TF3(((countT*)&note.cCpuCycles1)[1],flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE,8)
-                                        +tb4 +TF3(((countT*)&note.cCpuCycles1)[0],flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE,8)
-                                        +tb8 +T("1 2 3 4:")
+                                            +tDot+TF3(((countT*)&note.cCpuCycles4)[1],flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE,8)
+                                            +tb4 +TF3(((countT*)&note.cCpuCycles4)[0],flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE,8)
+                                            +tDot+TF3(((countT*)&note.cCpuCycles3)[1],flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE,8)
+                                            +tb4 +TF3(((countT*)&note.cCpuCycles3)[0],flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE,8)
+                                            +tDot+TF3(((countT*)&note.cCpuCycles2)[1],flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE,8)
+                                            +tb4 +TF3(((countT*)&note.cCpuCycles2)[0],flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE,8)
+                                            +tDot+TF3(((countT*)&note.cCpuCycles1)[1],flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE,8)
+                                            +tb4 +TF3(((countT*)&note.cCpuCycles1)[0],flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE,8)
+                                            +tb8 +T("1 2 3 4:")
 
-                                        +tDot+TF3(((countT*)&note.cTime4)[1],flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE,8)
-                                        +tb4 +TF3(((countT*)&note.cTime4)[0],flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE,8)
-                                        +tDot+TF3(((countT*)&note.cTime3)[1],flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE,8)
-                                        +tb4 +TF3(((countT*)&note.cTime3)[0],flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE,8)
-                                        +tDot+TF3(((countT*)&note.cTime2)[1],flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE,8)
-                                        +tb4 +TF3(((countT*)&note.cTime2)[0],flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE,8)
-                                        +tDot+TF3(((countT*)&note.cTime1)[1],flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE,8)
-                                        +tb4 +TF3(((countT*)&note.cTime1)[0],flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE,8)
+                                            +tDot+TF3(((countT*)&note.cTime4)[1],flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE,8)
+                                            +tb4 +TF3(((countT*)&note.cTime4)[0],flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE,8)
+                                            +tDot+TF3(((countT*)&note.cTime3)[1],flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE,8)
+                                            +tb4 +TF3(((countT*)&note.cTime3)[0],flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE,8)
+                                            +tDot+TF3(((countT*)&note.cTime2)[1],flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE,8)
+                                            +tb4 +TF3(((countT*)&note.cTime2)[0],flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE,8)
+                                            +tDot+TF3(((countT*)&note.cTime1)[1],flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE,8)
+                                            +tb4 +TF3(((countT*)&note.cTime1)[0],flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE,8)
 
-                                        +tb4+TF3(told.idiFileTalking,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,8)+tb4+TF2(told.idLineTalking,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)
-                                        +tb4+TF3(note.cDadLevels,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,8)
-                                        +tb4+TF3(told.idThread,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,8)
-                                        +TF3(idCycle,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,8)
+                                            +tb4+TF3(told.idiFileTalking,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,8)+tb4+TF2(told.idLineTalking,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)
+                                            +tb4+TF3(note.cDadLevels,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,8)
+                                            +tb4+TF3(told.idThread,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,8)
+                                            +TF3(idCycle,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,8)
 
-                                    TN( tSay , "" ) ; tSay = tn
+                                        TN( tSay , "" ) ; tSay = tn
 
 #if defined( NEVERdEFINED )
 
-                                    tellInfoAppInOutFrameS& note = *(tellInfoAppInOutFrameS*)pbNote ;
+                                        tellInfoAppInOutFrameS& note = pPackets[ offi ] ;
+                                    {
+                                    for( countT offi = 0 ; offi < cPackets ; offi ++ )
                                 {
-                                if( told.cbNote == sizeof( tellInfoAppInOutFrameS ) && told.idThread == 1 )         //U:: MY CALCULATION OF cpuCyclesInNet IMPLICITLY ASSUMES THAT THE INPUT IS A STREAM FROM A SINGLE THREAD
+                                if( told.cbNote == cbExpected )
+
+                                ;
+                                    :                               sizeof( tellInfoAppInOutFrameS )
+                                    ? sizeof( countT ) + cPackets * sizeof( tellInfoAppInOutFrameS )
+                                static countT cbExpected = bArray
+
+                                ;
+                                    : (tellInfoAppInOutFrameS*)  pbNote
+                                    ? (tellInfoAppInOutFrameS*)( pbNote + sizeof( countT ) )
+                                static tellInfoAppInOutFrameS* pPackets = bArray
+
+                                ;
+                                    : 1
+                                    ? *(countT*)pbNote
+                                static countT cPackets = bArray
+
+                                CONoUTrAW( bArray ? "A" : "." ) ;
+                                static boolT bArray = told.idType == ifcIDtYPEtELLaPP_INoUTtINdTaRRAY ;
 
                                 TELL( "INoUT" )
                             {
+                            case ifcIDtYPEtELLaPP_INoUTtINdTaRRAY :
                             case ifcIDtYPEtELLaPP_INoUT :
                             }
                                 break ;

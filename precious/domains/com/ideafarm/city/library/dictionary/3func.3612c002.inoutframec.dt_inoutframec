@@ -26,7 +26,43 @@
         TELLaPPc3LIFI( ifcIDtYPEtELLaPP_INoUT , (byteT*)&say , sizeof say , idLineCt , idiFileCt )
         THREADmODE4oN( flTHREADmODE4_QUIETiNoUTfRAMEc ) ;
     {
-    if( F(flagsCt) & flINoUTfRAMEc_APPtELEMETRY )
+    if( !bDone && F(flagsCt) & flINoUTfRAMEc_APPtELEMETRY )
+
+#endif
+    }
+        }
+            bDone = 1 ;
+            pPending[ cPending ++ ] = say ;
+        {
+        if( cPending < CmAXpENDINGiNoUTfRAMEpACKETS )
+
+        }
+            }
+                cPending = 0 ;
+
+                THREADmODE4rESTORE
+                }
+                    thirdC::dosTellMonitorIF( tinP , tell , ifcIDbOOKStELL_APP ) ;
+                    tellC tell( tinP , idLineCt , idiFileCt , 0 , ifcIDtYPEtELLaPP_INoUTtINdTaRRAY , tinP.pbPendingInOutFramePackets , sizeof( countT ) + cPending * sizeof( tellInfoAppInOutFrameS ) ) ;
+                {
+                THREADmODE4oN( flTHREADmODE4_QUIETiNoUTfRAMEc ) ;
+            {
+            if( cPending >= cMax * 7 / 8 )  // 1/8 OF THE CAPACITY IS USED TO ACCUMULATE WHEN I CANNOT EMIT TELEMETRY
+            if( cPending >  cMax         ) { BLAMMO ; }
+
+            ;
+                : ( CBtELLmAX - sizeof( countT ) ) / sizeof( tellInfoAppInOutFrameS )
+                ? CmAXpENDINGiNoUTfRAMEpACKETS
+            countT cMax = tinP.pPoolUse
+        {
+        if( F(flagsCt) & flINoUTfRAMEc_APPtELEMETRY )        // EMIT THE PENDING PACKETS IF I CAN
+
+        tellInfoAppInOutFrameS* pPending = (tellInfoAppInOutFrameS*)( tinP.pbPendingInOutFramePackets + sizeof( countT ) ) ;
+        countT&                 cPending =                *(countT*)  tinP.pbPendingInOutFramePackets                      ;
+    {
+    if( tinP.pbPendingInOutFramePackets )
+#if defined( NEVERdEFINED )
+    ZE( boolT , bDone ) ;
 
     say.dCpuCyclesDt = say.cCpuCycles4 - say.cCpuCycles3 ;
 
@@ -167,7 +203,7 @@
 
         count04T dAuditTotal =
     {
-    if( F(flagsCt) & flINoUTfRAMEc_APPtELEMETRY )
+    //if( F(flagsCt) & flINoUTfRAMEc_APPtELEMETRY )
 
     say.dCpuCyclesIn = say.cCpuCycles3 - say.cCpuCycles2 ;
 

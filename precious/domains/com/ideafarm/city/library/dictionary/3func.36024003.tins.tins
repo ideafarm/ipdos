@@ -8,12 +8,21 @@
 
 
 }
-    if( this == &tinSelfOrElderP && monitor.idThread != 1 ) flagsThreadMode4 &= ~( F(flTHREADmODE4_QUIETiNoUTfRAMEc) ) ;
+    if( this == &tinSelfOrElderP && monitor.idThread > 3 ) flagsThreadMode4 &= ~( F(flTHREADmODE4_QUIETiNoUTfRAMEc) ) ;
 
     }
         //SAYnAME( " tinS/-\r\n" )
     
         }
+            }
+                }
+                    *(countT*)pbPendingInOutFramePackets = 0 ;
+                    pbPendingInOutFramePackets = processGlobal3I.heap.newF( tinP , LF , sizeof( countT ) + CmAXpENDINGiNoUTfRAMEpACKETS * sizeof( tellInfoAppInOutFrameS ) ) ;
+                {
+                if( !pbPendingInOutFramePackets )
+            {
+            if( monitor.idThread > 3 ) // FOR THREAD 1, SEE do3; THREAD 2 3 ARE tinHeart AND tinBreak
+
             if( idTinNamed == ifcIDtINnAMED_tinBreakI ) thirdC::c_strncpyIF( tinP , postTell , "refusalsToClose:0    logoffsSeen:0" , sizeof postTell ) ; //CODEsYNC: 12f0006 10200cc
             thirdC::c_strncpyIF( tinP , postTell , "tinS::tinS: i am now registered" , sizeof postTell ) ;
             }
@@ -262,6 +271,7 @@ zap_pPanLifiRecurseGrabbedLevel_( (byteT*)pPanLifiRecurseGrabbedLevel , sizeof p
 msSleepWhenGrabbing( 0x40 + ( osTid & 0x1f ) << 3 ) ,
 grabPseudo( tinSelfOrElderP , idLineCtP , idiFileCtP , 0 , flGRABc_tINSoBJECT | flGRABc_DISABLED | flGRABc_PSEUDO ) ,
 pEther( 0 ) ,
+pbPendingInOutFramePackets( 0 ) ,
 cCpuCycles2Or5Lath( 0 ) ,
 pInOutFrame( 0 ) ,
 cTellsWriteInOutTelemetry( 0 ) ,

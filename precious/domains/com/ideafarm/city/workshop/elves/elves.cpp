@@ -5401,7 +5401,7 @@ void tmAbortF( void* pnuP )
     while( elfC::cElvesIF() > 1 ) Sleep( 0x100 ) ;
     SetConsoleTitle( "" ) ;
     ether.sayF( 0 , postTHANKyOU , flSAY_NOwRAP ) ;
-    Sleep( 8000 ) ;
+    Sleep( 1000 ) ;
 
     TOUCH( pnuP )
 }
@@ -5473,7 +5473,7 @@ int main( int cArgP , char* ppostArgP[] , char* ppostEnvP[] )
 
     SetConsoleTitle( "" ) ;
     ether.sayF( 0 , postTHANKyOU , flSAY_NOwRAP ) ;
-    Sleep( 2000 ) ;
+    Sleep( 1000 ) ;
 
     if( cArgP && ppostArgP && ppostEnvP ) ;
     return 0 ;

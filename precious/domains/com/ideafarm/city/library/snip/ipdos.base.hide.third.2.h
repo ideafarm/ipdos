@@ -5057,9 +5057,10 @@ use this rather than _ to avoid the overhead of _
 #define ifcIDtYPEtELLaPP_NOOP                                           0xdddd0c0b
 #define ifcIDtYPEtELLaPP_INoUT                                          0xdddd0c0c
 #define ifcIDtYPEtELLaPP_INoUTtINdT                                     0xdddd0c0d
+#define ifcIDtYPEtELLaPP_INoUTtINdTaRRAY                                0xdddd0c0e
 /*3*/
 #define ifcIDtYPEtELLaPP_min     0xdddd0c0b
-#define ifcIDtYPEtELLaPP_max     0xdddd0c0d                                                               
+#define ifcIDtYPEtELLaPP_max     0xdddd0c0e                                                               
 
 
 //
@@ -27572,6 +27573,7 @@ it is illegal to modify any member other than pc Utility in the definition of an
  count04T               cCpuCyclesWriteInOutTelemetry ;
  inOutFrameC*           pInOutFrame ;                       //THIS AND POSSIBLY ITS ACCOMPANYING MEMBERS MUST BE EARLY SINCE _IO_ IS USED DURING CT OF tinS
  count04T               cCpuCycles2Or5Lath ;
+ byteT*                  pbPendingInOutFramePackets ;
  etherC*       /*o  8*/ pEther ;       // USED IF !0.              FOR USE BY STATIC thirdC FUNCTIONS, GLOBAL FUNCTIONS, AND OBJECTS SUCH AS strokeS THAT DO NOT CARRY THEIR OWN REFERENCES.  ADDED LATE.
  countT        /*o 01*/ osTid ;   // MUST BE AFTER pEther.  
  countT        /*o 41*/ osPid ;   // MUST BE AFTER pEther. OFFSET IS HARDCODED IN 0d0000c.grabSleepF
