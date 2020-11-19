@@ -10,7 +10,7 @@
 }
     }
         BLAMMO ;
-
+    
         etRock.traceF( tinP , T("napkinC::napkinC: traced  pool tallies; now calling BLAMMO") ) ;
         etRock.tracePoolTalliesF( tinP ) ;
         etRock.traceF( tinP , T("napkinC::napkinC: tracing pool tallies") ) ;
@@ -185,11 +185,10 @@
     {
     else if( this == &processGlobal4I._marketC_napGoodRegistry )
     }
-
         ph->grabSuperRandom.flags &= ~( F(flGRABc_DISABLED) ) ;
         ph->grabTimeUnique.flags  &= ~( F(flGRABc_DISABLED) ) ;
         homeS* ph = (homeS*)(byteT*)processGlobal3I.napHome ;
-
+    
         }
             formattingIsDoneF( tinP ) ;
             for( countT ogw = 0 ; ogw < processGlobal1I._grabC_cgw ; ogw ++ ) new( 0 , tinP , (byteT*)( processGlobal1I._grabC_pgw + ogw ) , sizeof( grabWantS ) ) grabWantS( tinP ) ;
@@ -219,9 +218,11 @@
         processGlobal3I.bksTraceHomeEcho.grabBookNow.formatF( tinP , flGRABc_NOTjEALOUS | flGRABc_SNEAKYlOVER | flGRABc_SHARElAYER , TAG( TAGiDnULL ) , ifcIDgRABlAYER_bBOOKSc ) ; // flGRABc_SHARElAYER: NEEDED BECAUSE booksC::writeF CAN CALL ITSELF RECURSIVELY DUE TO TELEMETRY WHEN CHANGING bookC INSTANCES
         THREADmODE4oFF0( flTHREADmODE4_QUIETiNoUTfRAMEc )       // SEE INITIALIZATION OF tinS::flagsThreadMode4.  THIS LINE IS INTENDED TO ONLY AFFECT THREAD 1 BY ENABLING APP TELEMETRY ONCE bksTelemetryApp IS COMPLETELY FORMATTED.
         processGlobal3I.bksTelemetryApp.grabBookNow.formatF(     tinP , flGRABc_NOTjEALOUS | flGRABc_SNEAKYlOVER | flGRABc_SHARElAYER , TAG( TAGiDnULL ) , ifcIDgRABlAYER_bBOOKSc ) ;
+        tinP.pcUtility[ 0 ] -- ; //U:: TO FIND A BUG
         processGlobal3I.bksTelemetrySys.grabBookNow.formatF(     tinP , flGRABc_NOTjEALOUS | flGRABc_SNEAKYlOVER | flGRABc_SHARElAYER , TAG( TAGiDnULL ) , ifcIDgRABlAYER_bBOOKSc ) ; //20170820@1239: MOVED OUT OF IF BLOCK WITHOUT ANALYSIS (IF AND ELSE DIFFERED IN THAT IF SPECIFIED LAYER WHILE ELSE DID NOT)
+        tinP.pcUtility[ 0 ] ++ ; //U:: TO FIND A BUG
         //CS:CODEsYNC: 360fb003 3603e003
-
+    
         //20200610@2149: "not jealous" MIGHT NO LONGER BE NEEDED ON SOME OF THE FOLLOWING, NOW THAT heapC::grabMe HAS BEEN MADE A SNEAKY LOVER
 
         //20200520@1322: bksTrace.grabBookNow: ADDED flGRABc_NOTjEALOUS BECAUSE OBSERVED A THREAD HOLDING grabBookNow WHILE IN booksC::writeF AND THEN ATTEMPTING TO GRAB *pSwsRecycle WHILE CALLING GETfROMrECYCLER5 WITHIN TASKdRIVENsERVER
@@ -652,6 +653,7 @@
     }
         if( POOP ) BLAMMO ;
         __( idMemorySpaceP && !( F(tinP.flagsThreadMode3) & flTHREADmODE3_ALLOWeXPLICITmEMORYsPACE ) && thirdC::third_idPhaseAdam_IF( tinP ) >= ifcIDpHASEaDAM_EXEpROLOGaDAMmAIN1 && thirdC::third_idPhaseAdam_IF( tinP ) < ifcIDpHASEaDAM_EXEePILOGaDAMmAINa1 ) ;
+        if( POOP ) BLAMMO ; //U:: TO FIND A BUG
         __( F(tinP.flagsThreadMode3) & flTHREADmODE3_SUPPRESStRACING ) ;  // I USE THIS FLAG IN A WAY THAT DOES NOT SUPPORT RECURSION (I AND formattingIsDoneF RESET THE FLAG RATHER THAN USE RESTORE)
         if( POOP ) BLAMMO ; //U:: TO FIND A BUG
         FV(flNAPKINc,flagsCt)
@@ -680,6 +682,7 @@
     // THIS IS NEEDED BECAUSE NORMALLY I SET flTHREADmODE4_QUIETiNoUTfRAMEc SINCE I GRAB THE UNIVERSE AND EXIT WITH IT STILL GRABBED (TO BE UNGRABBED BY formattingIsDoneF)
 
     SCOOP
+
 {
 phFile( phFileP )
 flagsState( F(flagsP) & flNAPKINc_DOnOTcOMMIT ? flNAPKINcsTATE_NOTyETcOMMITTED : flNAPKINcsTATE_null ) ,

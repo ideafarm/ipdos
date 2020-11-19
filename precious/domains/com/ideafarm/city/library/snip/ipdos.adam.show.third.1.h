@@ -7081,7 +7081,7 @@ to use this, the object must be of a class that provides operator byteT* which r
 
 /*1*//*IFbEcAREFUL*//*1*/
 
-#define IFbEcAREFUL _IO1_(1) if( tinP.pAdamGlobal1->_thirdC_.bCareful )
+#define IFbEcAREFUL if( tinP.pAdamGlobal1->_thirdC_.bCareful )
 
 
 //
