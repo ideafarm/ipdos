@@ -7,6 +7,19 @@
 //
 
 }
+    }
+        { bDebugIsSet = 0 ; CONoUTrAW5( "~inOutFrameC RESET [idIn,pEther]" , idIn , " " , processGlobal4I.tinVeryEarlyLateMain.pEther , "\r\n" ) ; }
+        else if(  bDebugIsSet && !processGlobal4I.tinVeryEarlyLateMain.pEther )
+        { bDebugIsSet = 1 ; CONoUTrAW5( "~inOutFrameC set   [idIn,pEther]" , idIn , " " , processGlobal4I.tinVeryEarlyLateMain.pEther , "\r\n" ) ; }
+        if(      !bDebugIsSet &&  processGlobal4I.tinVeryEarlyLateMain.pEther )
+
+        countT idIn = 1 + incv02AM( idInLath ) ;
+        static countT idInLath ;
+    {
+    if( processGlobal1I.idAdamRoot == ifcIDaDAM_SCRATCH07 )
+    //CS:DUPLICATE: 3612c002 3612c003
+    //U:: TO FIND A BUG
+
     tinP.pInOutFrame = pDad ;
 
     }
@@ -28,6 +41,11 @@
             THREADmODE4rESTORE
             TELLaPPc3LIFI( ifcIDtYPEtELLaPP_INoUT , (byteT*)&say , sizeof say , idLineCt , idiFileCt )
             THREADmODE4oN( flTHREADmODE4_INoUTfRAMEdEFERwRITINGaPPtELEMETRY ) ;
+
+            }
+                CONoUTrAW5( "tell singleton [LF]:    " , idLineCt , " " , idiFileCt , "\r\n" ) ;
+            {
+            if( processGlobal1I.idAdamRoot == ifcIDaDAM_SCRATCH07 )    //U:: TO FIND A BUG
         {
         if( !bDone && !( F(flagsCt) & flINoUTfRAMEc_DEFERwRITINGaPPtELEMETRY ) )
 
@@ -35,6 +53,11 @@
             }
                 bDone = 1 ;
                 pPending[ cPending ++ ] = say ;
+
+                //}
+                //    CONoUTrAW7( "tell to pending [LF,cPending(before)]:    " , idLineCt , " " , idiFileCt , "        " , cPending , "\r\n" ) ;
+                //{
+                //if( processGlobal1I.idAdamRoot == ifcIDaDAM_SCRATCH07 )    //U:: TO FIND A BUG
             {
             if( cPending < CmAXpENDINGiNoUTfRAMEpACKETS )
 
@@ -48,9 +71,41 @@
                         tellC tell( tinP , idLineCt , idiFileCt , 0 , ifcIDtYPEtELLaPP_INoUTaRRAY , tinP.pbPendingInOutFramePackets , sizeof( countT ) + cPending * sizeof( tellInfoAppInOutFrameS ) ) ;
                     {
                     THREADmODE4oN( flTHREADmODE4_INoUTfRAMEdEFERwRITINGaPPtELEMETRY ) ;
+
+                    }
+                        CONoUTrAW7( "tell [LF,cPending]:    " , idLineCt , " " , idiFileCt , "         " , cPending , "\r\n" ) ;
+                    {
+                    if( processGlobal1I.idAdamRoot == ifcIDaDAM_SCRATCH07 )    //U:: TO FIND A BUG
                 {
-                if( cPending >= cMax * 7 / 8 )  // 1/8 OF THE CAPACITY IS USED TO ACCUMULATE WHEN I CANNOT EMIT TELEMETRY
-                if( cPending >  cMax         ) { BLAMMO ; }
+                else if( cPending >= cMax * 7 / 8 )  // 1/8 OF THE CAPACITY IS USED TO ACCUMULATE WHEN I CANNOT EMIT TELEMETRY
+                }
+                    while( cRemain ) ;
+                    }
+                        pbc += cbSay - sizeof( countT ) ;   // THIS WILL CAUSE THE LAST countT IN THE RANGE JUST WRITTEN TO BE USED AS cPendingPatch FOR THE NEXT WRITE
+
+                        THREADmODE4rESTORE
+                        }
+                            thirdC::dosTellMonitorIF( tinP , tell , ifcIDbOOKStELL_APP ) ;
+                            tellC tell( tinP , idLineCt , idiFileCt , 0 , ifcIDtYPEtELLaPP_INoUTaRRAY , pbc , cbSay ) ;
+                        {
+                        THREADmODE4oN( flTHREADmODE4_INoUTfRAMEdEFERwRITINGaPPtELEMETRY ) ;
+
+                        }
+                            CONoUTrAW9( "tell [LF,cPendingPatch,cRemain]:    " , idLineCt , " " , idiFileCt , "        " , cPendingPatch , " " , cRemain , "\r\n" ) ;
+                        {
+                        if( processGlobal1I.idAdamRoot == ifcIDaDAM_SCRATCH07 )    //U:: TO FIND A BUG
+
+                        countT cbSay = sizeof( countT ) + cPendingPatch * sizeof( tellInfoAppInOutFrameS ) ;
+                        cRemain -= cPendingPatch ;
+                        if( cPendingPatch > cMax ) cPendingPatch = cMax ;
+                        cPendingPatch = cRemain ;
+                        countT& cPendingPatch = *(countT*)pbc ;             // THIS CLOBBERS THE LAST countT IN THE DATA WRITTEN IN THE LATH ITERATION
+                    {
+                    do
+                    byteT* pbc = tinP.pbPendingInOutFramePackets ;
+                    countT cRemain = cPending ;
+                {
+                if( cPending > cMax )
 
                 ;
                     : ( CBtELLmAX - sizeof( countT ) ) / sizeof( tellInfoAppInOutFrameS )
@@ -223,9 +278,24 @@
     {
     if( !( F(flagsCt) & flINoUTfRAMEc_DOnOTcOLLECTaPPtELEMETRY ) )
 
+    }
+        { bDebugIsSet = 0 ; CONoUTrAW5( "~inOutFrameC RESET [idIn,pEther]" , idIn , " " , processGlobal4I.tinVeryEarlyLateMain.pEther , "\r\n" ) ; }
+        else if(  bDebugIsSet && !processGlobal4I.tinVeryEarlyLateMain.pEther )
+        { bDebugIsSet = 1 ; CONoUTrAW5( "~inOutFrameC set   [idIn,pEther]" , idIn , " " , processGlobal4I.tinVeryEarlyLateMain.pEther , "\r\n" ) ; }
+        if(      !bDebugIsSet &&  processGlobal4I.tinVeryEarlyLateMain.pEther )
+
+        countT idIn = 1 + incv02AM( idInLath ) ;
+        static countT idInLath ;
+    {
+    if( processGlobal1I.idAdamRoot == ifcIDaDAM_SCRATCH07 )
+    //CS:DUPLICATE: 3612c002 3612c003
+    //U:: TO FIND A BUG
+
     tinS& tinP = tinCt ; _MILE  _
 {
 /*1*/inOutFrameC::~inOutFrameC( voidT )/*1*/
+
+boolT bDebugIsSet ;
 
 /**/
 

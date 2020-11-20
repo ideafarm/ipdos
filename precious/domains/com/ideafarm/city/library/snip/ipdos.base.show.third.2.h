@@ -33911,7 +33911,7 @@ ipMe is used to support synchronicity
 /**/
     byteT           pbZombieDflt[ sizeof( tellS ) + CBtELLmAX ] ;
     byteT*          pbData ;
-    const boolT     bDelete_pbData_ ;
+    boolT     bDelete_pbData_ ;
     const  countT   ebp ;
     tinS*           pTin ; //FOR MY DESTRUCTOR
 

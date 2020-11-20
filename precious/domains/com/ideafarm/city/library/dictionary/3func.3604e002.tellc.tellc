@@ -37,17 +37,12 @@
         if( bDelete_pbData_ ) { ___( pbData ) ; }
         }
             ;
-                    : ( PUSE.newF( tinP , LF , pbFromPool , sizeof( tellS ) + cbP ) , pbFromPool )
+                    : ( bDelete_pbData_ = 1 , PUSE.newF( tinP , LF , pbFromPool , sizeof( tellS ) + cbP ) , pbFromPool )
                     ? pbZombieDflt
-                : !pPool
+                : !tinP.pPoolUse
                 ? pbZombieP
             pbData = pbZombieP
             ZE( byteT* , pbFromPool ) ;
-
-            ;
-                : 0
-                ? tinP.pAdamGlobal1->pPoolAdamTemp
-            poolC* pPool = tinP.pAdamGlobal1
         {
     {
     POOPIE
@@ -57,7 +52,7 @@
 pTin( &tinP ) //FOR MY DESTRUCTOR
 pbData( 0 ) ,
 ebp( ebpP ) ,
-bDelete_pbData_( !pbZombieP && tinP.pAdamGlobal1->pPoolAdamTemp ) ,
+bDelete_pbData_( 0 ) ,
 /*1*/tellC::tellC( tinS& tinP , const countT idLineCtP , const countT idiFileCtP , const byteT* const pbBitsCtP , const countT idTypeP , const byteT* const pbP , const countT cbP , byteT* const pbZombieP , const countT cbZombieP , const boolT bSynchP , const countT ebpP ) :/*1*/
 
 //ASSUME: poolOldWork IS GUARANTEED TO EXIST BEFORE ANY CHILD THREADS ARE LAUNCHED AND TO CONTINUE TO EXIST UNTIL AFTER ALL CHILD THREADS END
