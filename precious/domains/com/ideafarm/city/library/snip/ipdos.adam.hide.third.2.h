@@ -5057,7 +5057,7 @@ use this rather than _ to avoid the overhead of _
 #define ifcIDtYPEtELLaPP_NOOP                                           0xdddd0c0b
 #define ifcIDtYPEtELLaPP_INoUT                                          0xdddd0c0c
 #define ifcIDtYPEtELLaPP_INoUTtINdT                                     0xdddd0c0d
-#define ifcIDtYPEtELLaPP_INoUTtINdTaRRAY                                0xdddd0c0e
+#define ifcIDtYPEtELLaPP_INoUTaRRAY                                0xdddd0c0e
 /*3*/
 #define ifcIDtYPEtELLaPP_min     0xdddd0c0b
 #define ifcIDtYPEtELLaPP_max     0xdddd0c0e                                                               
@@ -5372,7 +5372,9 @@ after i return, that countT object will contain 1
 /*1*//*flTHREADmODE4*//*1*/
 
 /*3*/
-#define flTHREADmODE4_QUIETiNoUTfRAMEc                                0xe0000110
+#define flTHREADmODE4_INoUTfRAMEdEFERwRITINGaPPtELEMETRY                                0xe0000110
+#define flTHREADmODE4_INoUTfRAMEdOnOTcOLLECTaPPtELEMETRY                                0xe0000210
+#define flTHREADmODE4_INoUTfRAMErEGISTERcALLnEST                                        0xe0000410
 /*3*/
 #define flTHREADmODE4_null    0xe0000010
 
@@ -44127,6 +44129,9 @@ VARIABLEcLASSdEF( countC , countT )
 
 /*1*/struct _export tellInfoAppInOutFrameS/*1*/
 {
+    countT   idLineInOut        ;
+    countT   idiFileInOut       ;
+
     count04T cCpuCycles1        ;
     count04T cCpuCycles2        ;
     count04T cCpuCycles3        ;

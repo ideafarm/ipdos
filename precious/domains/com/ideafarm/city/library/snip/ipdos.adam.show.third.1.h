@@ -8796,7 +8796,7 @@ it is illegal to refer to this symbol in the definition of an adam
 #define flMODEpROCESS1_DRIVER                          0xe0002018
 #define flMODEpROCESS1_SERVICE                         0xe0004018
 #define flMODEpROCESS1_SIMULATEoFFLINE                 0xe0008018
-#define flMODEpROCESS1_QUIETiNoUTfRAMEc                0xe0010018
+#define flMODEpROCESS1_INoUTfRAMEdOnOTcOLLECTaPPtELEMETRY                0xe0010018
 /*3*/
 #define flMODEpROCESS1_null    0xe0000018
 
@@ -39253,7 +39253,6 @@ args
 #define flTHREADmODE3_EXCEPTIONcLEANUPdELETIONiNpROGRESS        0xe00004c8
 #define flTHREADmODE3_EXCEPTIONrEPORTINGiNpROGRESS              0xe00008c8
 #define flTHREADmODE3_ALLOWwRITEABLEpOINTERgET                  0xe00010c8
-#define flTHREADmODE3_INoUT                                     0xe00020c8
 #define flTHREADmODE3_DOnOTvERIFYpOOLdROPtAGGING                0xe00040c8
 #define flTHREADmODE3_DOnOTmAKEsEXiNpOOL                        0xe00080c8
 #define flTHREADmODE3_DOnOTrEGISTERpAGEc                        0xe00100c8
@@ -44908,8 +44907,9 @@ arguments
 /*1*//*flINoUTfRAMEc*//*1*/
 
 /*3*/
-#define flINoUTfRAMEc_TRACE             0xe00001ec
-#define flINoUTfRAMEc_APPtELEMETRY      0xe00002ec
+#define flINoUTfRAMEc_REGISTERcALLnEST                         0xe00001ec
+#define flINoUTfRAMEc_DEFERwRITINGaPPtELEMETRY      0xe00002ec
+#define flINoUTfRAMEc_DOnOTcOLLECTaPPtELEMETRY           0xe00004ec
 /*3*/
 #define flINoUTfRAMEc_null    0xe00000ec
 

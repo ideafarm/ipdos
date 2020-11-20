@@ -8,12 +8,15 @@
 
 
 }
-    say.dCpuCyclesCt = say.cCpuCycles2 - say.cCpuCycles1 ;
+    }
+        say.dCpuCyclesCt = say.cCpuCycles2 - say.cCpuCycles1 ;
 
-    tinP.cCpuCycles2Or5Lath = say.cCpuCycles2 ;
-    if( pDad ) pDad->audit.dCpuCyclesAuditKidCt += say.cCpuCycles2 - say.cCpuCycles1 ;
-    QueryThreadCycleTime( (HANDLE)(-2) ,  (ULONG64*)&say.cCpuCycles2 ) ;
-    QueryPerformanceCounter( (LARGE_INTEGER*)&say.cTime2 ) ;
+        tinP.cCpuCycles2Or5Lath = say.cCpuCycles2 ;
+        if( pDad ) pDad->audit.dCpuCyclesAuditKidCt += say.cCpuCycles2 - say.cCpuCycles1 ;
+        QueryThreadCycleTime( (HANDLE)(-2) ,  (ULONG64*)&say.cCpuCycles2 ) ;
+        QueryPerformanceCounter( (LARGE_INTEGER*)&say.cTime2 ) ;
+    {
+    if( !( F(flagsCt) & flINoUTfRAMEc_DOnOTcOLLECTaPPtELEMETRY ) )
 
 //#endif
 
@@ -147,7 +150,7 @@
         if( F(tinP.flagsThreadMode1) & flTHREADmODE1_UPDATEtIN && !( tinP.monitor.idDirty % 2 ) )
         _MILE
     {
-    if( F(flagsCt) & flINoUTfRAMEc_TRACE )
+    if( F(flagsCt) & flINoUTfRAMEc_REGISTERcALLnEST )
     processGlobal1I.pcUtility[ 2 ] ++ ; //U::TO FIND A BUG
     processGlobal1I.pcUtility[ 0 ] ++ ; //U::TO FIND A BUG
     tinP.monitor.idWhat1 = ifcIDwHAT_GOiNoUTcT ;_
@@ -172,13 +175,19 @@
 
 //#if defined( NEVERdEFINED )
 
-    say.dCpuCyclesB4 = !pDad ? 0 : say.cCpuCycles1 - tinP.cCpuCycles2Or5Lath ;
+    }
+        say.dCpuCyclesB4 = !pDad ? 0 : say.cCpuCycles1 - tinP.cCpuCycles2Or5Lath ;
 
-    if( pDad ) pDad->audit.dCpuCyclesAuditKidBetween += say.cCpuCycles1 - tinP.cCpuCycles2Or5Lath ;
-    QueryThreadCycleTime( (HANDLE)(-2) ,  (ULONG64*)&say.cCpuCycles1 ) ;
-    QueryPerformanceCounter( (LARGE_INTEGER*)&say.cTime1 ) ;
+        if( pDad ) pDad->audit.dCpuCyclesAuditKidBetween += say.cCpuCycles1 - tinP.cCpuCycles2Or5Lath ;
+        QueryThreadCycleTime( (HANDLE)(-2) ,  (ULONG64*)&say.cCpuCycles1 ) ;
+        QueryPerformanceCounter( (LARGE_INTEGER*)&say.cTime1 ) ;
+    {
+    if( !( F(flagsCt) & flINoUTfRAMEc_DOnOTcOLLECTaPPtELEMETRY ) )
 
     //cryC cry( idiFileP ) ;
+
+    say.idiFileInOut = idiFileP ;
+    say.idLineInOut  = idLineP ;
 
     tinP.pInOutFrame = this ;
 {
@@ -194,9 +203,24 @@
 idWhat2Save( tinP.monitor.idWhat2 )
 idWhat1Save( tinP.monitor.idWhat1 ) ,
 ) ,
-    ( tinP.pcUtility[ 0 ] && processGlobal1I.idAdamRoot == ifcIDaDAM_SCRATCH07 && !( F(tinP.flagsThreadMode4) & flTHREADmODE4_QUIETiNoUTfRAMEc ) && !( F(processGlobal1I._thirdC_flagsModeProcess1) & flMODEpROCESS1_QUIETiNoUTfRAMEc ) ? flINoUTfRAMEc_APPtELEMETRY : flINoUTfRAMEc_null )
+    )
+            : flINoUTfRAMEc_null
+            ? flINoUTfRAMEc_DOnOTcOLLECTaPPtELEMETRY
+        || processGlobal1I.idAdamRoot != ifcIDaDAM_SCRATCH07
+        || !tinP.pcUtility[ 0 ]
+        || F(processGlobal1I._thirdC_flagsModeProcess1) & flMODEpROCESS1_INoUTfRAMEdOnOTcOLLECTaPPtELEMETRY
+           F(tinP.flagsThreadMode4) & flTHREADmODE4_INoUTfRAMEdOnOTcOLLECTaPPtELEMETRY
+    (
     |
-    ( F(tinP.flagsThreadMode3) & flTHREADmODE3_INoUT                                                                                                                                                             ? flINoUTfRAMEc_TRACE        : flINoUTfRAMEc_null )
+    )
+        : flINoUTfRAMEc_null
+        ? flINoUTfRAMEc_DEFERwRITINGaPPtELEMETRY
+    ( F(tinP.flagsThreadMode4) & flTHREADmODE4_INoUTfRAMEdEFERwRITINGaPPtELEMETRY
+    |
+    )
+        : flINoUTfRAMEc_null
+        ? flINoUTfRAMEc_REGISTERcALLnEST
+    ( F(tinP.flagsThreadMode4) & flTHREADmODE4_INoUTfRAMErEGISTERcALLnEST
 (
 flagsCt
 idFileRankCt( idFileRankP ) ,

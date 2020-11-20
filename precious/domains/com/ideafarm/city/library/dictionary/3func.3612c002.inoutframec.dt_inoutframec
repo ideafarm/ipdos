@@ -10,65 +10,70 @@
     tinP.pInOutFrame = pDad ;
 
     }
-        tinP.cCpuCyclesWriteInOutTelemetry += deltaCpuCycles5 ;
-        tinP.cTellsWriteInOutTelemetry ++ ;
-    {
-    if( F(flagsCt) & flINoUTfRAMEc_APPtELEMETRY )
-
-    if( pDad ) pDad->audit.dCpuCyclesAuditKidBook += deltaCpuCycles5 ;
-    deltaCpuCycles5 -= say.cCpuCycles4 ;
-    tinP.cCpuCycles2Or5Lath = deltaCpuCycles5 ; //NOT DELTA YET
-    QueryThreadCycleTime( (HANDLE)(-2) ,  (ULONG64*)&deltaCpuCycles5 ) ;
-    count04T deltaCpuCycles5 ;  //INTENTIONALLY UNINITIALIZED FOR SPEED
-
-    }
         THREADmODE4rESTORE
-        TELLaPPc3LIFI( ifcIDtYPEtELLaPP_INoUT , (byteT*)&say , sizeof say , idLineCt , idiFileCt )
-        THREADmODE4oN( flTHREADmODE4_QUIETiNoUTfRAMEc ) ;
-    {
-    if( !bDone && F(flagsCt) & flINoUTfRAMEc_APPtELEMETRY )
 
-#endif
-    }
         }
-            bDone = 1 ;
-            pPending[ cPending ++ ] = say ;
+            tinP.cCpuCyclesWriteInOutTelemetry += deltaCpuCycles5 ;
+            tinP.cTellsWriteInOutTelemetry ++ ;
         {
-        if( cPending < CmAXpENDINGiNoUTfRAMEpACKETS )
+        if( !( F(flagsCt) & flINoUTfRAMEc_DEFERwRITINGaPPtELEMETRY ) )
+
+        if( pDad ) pDad->audit.dCpuCyclesAuditKidBook += deltaCpuCycles5 ;
+        deltaCpuCycles5 -= say.cCpuCycles4 ;
+        tinP.cCpuCycles2Or5Lath = deltaCpuCycles5 ; //NOT DELTA YET
+        QueryThreadCycleTime( (HANDLE)(-2) ,  (ULONG64*)&deltaCpuCycles5 ) ;
+        count04T deltaCpuCycles5 ;  //INTENTIONALLY UNINITIALIZED FOR SPEED
+
+        }
+            THREADmODE4rESTORE
+            TELLaPPc3LIFI( ifcIDtYPEtELLaPP_INoUT , (byteT*)&say , sizeof say , idLineCt , idiFileCt )
+            THREADmODE4oN( flTHREADmODE4_INoUTfRAMEdEFERwRITINGaPPtELEMETRY ) ;
+        {
+        if( !bDone && !( F(flagsCt) & flINoUTfRAMEc_DEFERwRITINGaPPtELEMETRY ) )
 
         }
             }
-                cPending = 0 ;
-
-                THREADmODE4rESTORE
-                }
-                    thirdC::dosTellMonitorIF( tinP , tell , ifcIDbOOKStELL_APP ) ;
-                    tellC tell( tinP , idLineCt , idiFileCt , 0 , ifcIDtYPEtELLaPP_INoUTtINdTaRRAY , tinP.pbPendingInOutFramePackets , sizeof( countT ) + cPending * sizeof( tellInfoAppInOutFrameS ) ) ;
-                {
-                THREADmODE4oN( flTHREADmODE4_QUIETiNoUTfRAMEc ) ;
+                bDone = 1 ;
+                pPending[ cPending ++ ] = say ;
             {
-            if( cPending >= cMax * 7 / 8 )  // 1/8 OF THE CAPACITY IS USED TO ACCUMULATE WHEN I CANNOT EMIT TELEMETRY
-            if( cPending >  cMax         ) { BLAMMO ; }
+            if( cPending < CmAXpENDINGiNoUTfRAMEpACKETS )
 
-            ;
-                : ( CBtELLmAX - sizeof( countT ) ) / sizeof( tellInfoAppInOutFrameS )
-                ? CmAXpENDINGiNoUTfRAMEpACKETS
-            countT cMax = tinP.pPoolUse
+            }
+                }
+                    cPending = 0 ;
+
+                    THREADmODE4rESTORE
+                    }
+                        thirdC::dosTellMonitorIF( tinP , tell , ifcIDbOOKStELL_APP ) ;
+                        tellC tell( tinP , idLineCt , idiFileCt , 0 , ifcIDtYPEtELLaPP_INoUTaRRAY , tinP.pbPendingInOutFramePackets , sizeof( countT ) + cPending * sizeof( tellInfoAppInOutFrameS ) ) ;
+                    {
+                    THREADmODE4oN( flTHREADmODE4_INoUTfRAMEdEFERwRITINGaPPtELEMETRY ) ;
+                {
+                if( cPending >= cMax * 7 / 8 )  // 1/8 OF THE CAPACITY IS USED TO ACCUMULATE WHEN I CANNOT EMIT TELEMETRY
+                if( cPending >  cMax         ) { BLAMMO ; }
+
+                ;
+                    : ( CBtELLmAX - sizeof( countT ) ) / sizeof( tellInfoAppInOutFrameS )
+                    ? CmAXpENDINGiNoUTfRAMEpACKETS
+                countT cMax = tinP.pPoolUse
+            {
+            if( !( F(flagsCt) & flINoUTfRAMEc_DEFERwRITINGaPPtELEMETRY ) )        // EMIT THE PENDING PACKETS IF I CAN
+
+            tellInfoAppInOutFrameS* pPending = (tellInfoAppInOutFrameS*)( tinP.pbPendingInOutFramePackets + sizeof( countT ) ) ;
+            countT&                 cPending =                *(countT*)  tinP.pbPendingInOutFramePackets                      ;
         {
-        if( F(flagsCt) & flINoUTfRAMEc_APPtELEMETRY )        // EMIT THE PENDING PACKETS IF I CAN
+        if( tinP.pbPendingInOutFramePackets )
+        ZE( boolT , bDone ) ;
 
-        tellInfoAppInOutFrameS* pPending = (tellInfoAppInOutFrameS*)( tinP.pbPendingInOutFramePackets + sizeof( countT ) ) ;
-        countT&                 cPending =                *(countT*)  tinP.pbPendingInOutFramePackets                      ;
+        THREADmODE4oN( flTHREADmODE4_INoUTfRAMEdOnOTcOLLECTaPPtELEMETRY )
+
+        say.dCpuCyclesDt = say.cCpuCycles4 - say.cCpuCycles3 ;
+
+        if( pDad ) pDad->audit.dCpuCyclesAuditKidDt += say.cCpuCycles4 - say.cCpuCycles3 ;
+        QueryThreadCycleTime( (HANDLE)(-2) ,  (ULONG64*)&say.cCpuCycles4 ) ;
+        QueryPerformanceCounter( (LARGE_INTEGER*)&say.cTime4 ) ;
     {
-    if( tinP.pbPendingInOutFramePackets )
-#if defined( NEVERdEFINED )
-    ZE( boolT , bDone ) ;
-
-    say.dCpuCyclesDt = say.cCpuCycles4 - say.cCpuCycles3 ;
-
-    if( pDad ) pDad->audit.dCpuCyclesAuditKidDt += say.cCpuCycles4 - say.cCpuCycles3 ;
-    QueryThreadCycleTime( (HANDLE)(-2) ,  (ULONG64*)&say.cCpuCycles4 ) ;
-    QueryPerformanceCounter( (LARGE_INTEGER*)&say.cTime4 ) ;
+    if( !( F(flagsCt) & flINoUTfRAMEc_DOnOTcOLLECTaPPtELEMETRY ) )
 
 //#endif
 
@@ -160,7 +165,7 @@
         //{
         //if( tinP.pcWatchedByInOut && *tinP.pcWatchedByInOut != tinP.valueExpectedByInOut )
     {
-    if( F(flagsCt) & flINoUTfRAMEc_TRACE )
+    if( F(flagsCt) & flINoUTfRAMEc_REGISTERcALLnEST )
 
     processGlobal1I.pcUtility[ 4 ] ++ ; //U::TO FIND A BUG
     processGlobal1I.pcUtility[ 1 ] ++ ; //U::TO FIND A BUG
@@ -172,48 +177,51 @@
 
     }
         }
-            BLAMMO ;
-            CONoUTrAW( ostoSay ) ;
-            OStEXTAK( ostoSay , "\r\n" ) ;
-            OStEXTCF( ostoSay , ((countT*)&say.dCpuCyclesInNet)[0] , '0' ) ;
-            OStEXTAK( ostoSay , "." ) ;
-            OStEXTCF( ostoSay , ((countT*)&say.dCpuCyclesInNet)[1] , '0' ) ;
-            OStEXTAK( ostoSay , "\r\n dCpuCyclesInNet:    " ) ;
-            OStEXTCF( ostoSay , ((countT*)&say.dCpuCyclesIn)[0] , '0' ) ;
-            OStEXTAK( ostoSay , "." ) ;
-            OStEXTCF( ostoSay , ((countT*)&say.dCpuCyclesIn)[1] , '0' ) ;
-            OStEXTAK( ostoSay , "\r\n    dCpuCyclesIn:    " ) ;
-            OStEXTCF( ostoSay , ((countT*)&dAuditTotal)[0] , '0' ) ;
-            OStEXTAK( ostoSay , "." ) ;
-            OStEXTCF( ostoSay , ((countT*)&dAuditTotal)[1] , '0' ) ;
-            OStEXTAK( ostoSay ,     "    dAuditTotal :    " ) ;
-            OStEXT( ostoSay , TUCK ) ;
+            }
+                BLAMMO ;
+                CONoUTrAW( ostoSay ) ;
+                OStEXTAK( ostoSay , "\r\n" ) ;
+                OStEXTCF( ostoSay , ((countT*)&say.dCpuCyclesInNet)[0] , '0' ) ;
+                OStEXTAK( ostoSay , "." ) ;
+                OStEXTCF( ostoSay , ((countT*)&say.dCpuCyclesInNet)[1] , '0' ) ;
+                OStEXTAK( ostoSay , "\r\n dCpuCyclesInNet:    " ) ;
+                OStEXTCF( ostoSay , ((countT*)&say.dCpuCyclesIn)[0] , '0' ) ;
+                OStEXTAK( ostoSay , "." ) ;
+                OStEXTCF( ostoSay , ((countT*)&say.dCpuCyclesIn)[1] , '0' ) ;
+                OStEXTAK( ostoSay , "\r\n    dCpuCyclesIn:    " ) ;
+                OStEXTCF( ostoSay , ((countT*)&dAuditTotal)[0] , '0' ) ;
+                OStEXTAK( ostoSay , "." ) ;
+                OStEXTCF( ostoSay , ((countT*)&dAuditTotal)[1] , '0' ) ;
+                OStEXTAK( ostoSay ,     "    dAuditTotal :    " ) ;
+                OStEXT( ostoSay , TUCK ) ;
+            {
+            if( dAuditTotal != say.dCpuCyclesIn )
+
+            say.dCpuCyclesInNet = deltaIn - ( dAuditTotal - audit.dCpuCyclesAuditKidBetween ) ;
+
+            ;
+
+                + audit.dCpuCyclesAuditKidBook
+                + audit.dCpuCyclesAuditKidDt
+                + audit.dCpuCyclesAuditKidIn
+                + audit.dCpuCyclesAuditKidCt
+                  audit.dCpuCyclesAuditKidBetween
+
+            count04T dAuditTotal =
         {
-        if( dAuditTotal != say.dCpuCyclesIn )
+        //if( !( F(flagsCt) & flINoUTfRAMEc_DEFERwRITINGaPPtELEMETRY ) )
 
-        say.dCpuCyclesInNet = deltaIn - ( dAuditTotal - audit.dCpuCyclesAuditKidBetween ) ;
+        say.dCpuCyclesIn = say.cCpuCycles3 - say.cCpuCycles2 ;
 
-        ;
+        else                                             audit.dCpuCyclesAuditKidBetween += say.cCpuCycles3 - tinP.cCpuCycles2Or5Lath ;
+        if( tinP.cCpuCycles2Or5Lath == say.cCpuCycles2 ) audit.dCpuCyclesAuditKidBetween += deltaIn ;
 
-            + audit.dCpuCyclesAuditKidBook
-            + audit.dCpuCyclesAuditKidDt
-            + audit.dCpuCyclesAuditKidIn
-            + audit.dCpuCyclesAuditKidCt
-              audit.dCpuCyclesAuditKidBetween
-
-        count04T dAuditTotal =
+        if( pDad ) pDad->audit.dCpuCyclesAuditKidIn += deltaIn ;
+        count04T deltaIn = say.cCpuCycles3 - say.cCpuCycles2 ;
+        QueryThreadCycleTime( (HANDLE)(-2) ,  (ULONG64*)&say.cCpuCycles3 ) ;
+        QueryPerformanceCounter( (LARGE_INTEGER*)&say.cTime3 ) ;
     {
-    //if( F(flagsCt) & flINoUTfRAMEc_APPtELEMETRY )
-
-    say.dCpuCyclesIn = say.cCpuCycles3 - say.cCpuCycles2 ;
-
-    else                                             audit.dCpuCyclesAuditKidBetween += say.cCpuCycles3 - tinP.cCpuCycles2Or5Lath ;
-    if( tinP.cCpuCycles2Or5Lath == say.cCpuCycles2 ) audit.dCpuCyclesAuditKidBetween += deltaIn ;
-
-    if( pDad ) pDad->audit.dCpuCyclesAuditKidIn += deltaIn ;
-    count04T deltaIn = say.cCpuCycles3 - say.cCpuCycles2 ;
-    QueryThreadCycleTime( (HANDLE)(-2) ,  (ULONG64*)&say.cCpuCycles3 ) ;
-    QueryPerformanceCounter( (LARGE_INTEGER*)&say.cTime3 ) ;
+    if( !( F(flagsCt) & flINoUTfRAMEc_DOnOTcOLLECTaPPtELEMETRY ) )
 
     tinS& tinP = tinCt ; _MILE  _
 {

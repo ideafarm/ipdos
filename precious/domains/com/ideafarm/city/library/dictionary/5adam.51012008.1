@@ -164,8 +164,8 @@ count04T cCpuCyclesBookPer = !cBook ? 0 : cCpuCyclesBook / cBook ;
 
                                         swTally ++ ;
 
-                                        pczLever[ 1 ] = told.idLineTalking ;
-                                        pczLever[ 0 ] = told.idiFileTalking ;
+                                        pczLever[ 1 ] = note.idLineInOut ;
+                                        pczLever[ 0 ] = note.idiFileInOut ;
 
                                         if( cCpuCyclesDt < was ) { BLAMMO ; }
                                         cCpuCyclesDt += note.dCpuCyclesDt ;
@@ -181,7 +181,7 @@ count04T cCpuCyclesBookPer = !cBook ? 0 : cCpuCyclesBook / cBook ;
 
                                         if( cCpuCyclesCt < was ) { BLAMMO ; }
                                         cCpuCyclesCt += note.dCpuCyclesCt ;
-                                        static count04T was ; was = cCpuCyclesCt ;
+                                        /*static*/ count04T was ; was = cCpuCyclesCt ;
 
 #endif
 #if defined( NEVERdEFINED )
@@ -239,29 +239,33 @@ count04T cCpuCyclesBookPer = !cBook ? 0 : cCpuCyclesBook / cBook ;
                                 ;
                                     :                               sizeof( tellInfoAppInOutFrameS )
                                     ? sizeof( countT ) + cPackets * sizeof( tellInfoAppInOutFrameS )
-                                static countT cbExpected = bArray
+                                /*static*/ countT cbExpected = bArray
 
                                 ;
                                     : (tellInfoAppInOutFrameS*)  pbNote
                                     ? (tellInfoAppInOutFrameS*)( pbNote + sizeof( countT ) )
-                                static tellInfoAppInOutFrameS* pPackets = bArray
+                                /*static*/ tellInfoAppInOutFrameS* pPackets = bArray
+
+                                etThread.traceF( tinP , T(bArray?"INoUTaRRAY    ":"INoUT    ")+(bArray?TF2(cPackets,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED):T("")) ) ;
 
                                 ;
                                     : 1
                                     ? *(countT*)pbNote
-                                static countT cPackets = bArray
+                                /*static*/ countT cPackets = bArray
 
-                                CONoUTrAW( bArray ? "A" : "." ) ;
-                                static boolT bArray = told.idType == ifcIDtYPEtELLaPP_INoUTtINdTaRRAY ;
+                                //CONoUTrAW( bArray ? "A" : "." ) ;
+                                /*static*/ boolT bArray = told.idType == ifcIDtYPEtELLaPP_INoUTaRRAY ;
 
                                 TELL( "INoUT" )
                             {
-                            case ifcIDtYPEtELLaPP_INoUTtINdTaRRAY :
+                            case ifcIDtYPEtELLaPP_INoUTaRRAY :
                             case ifcIDtYPEtELLaPP_INoUT :
                             }
                                 break ;
 
                                 }
+                                    etThread.traceF( tinP , T("INoUTtINdT") ) ;
+
                                     if( cCpuCyclesBook < was ) { BLAMMO ; }
                                     cCpuCyclesBook += note.cCpuCyclesWriteInOutTelemetry ;
                                     count04T was = cCpuCyclesBook ;
@@ -438,11 +442,11 @@ count04T cCpuCyclesBookPer = !cBook ? 0 : cCpuCyclesBook / cBook ;
 {
 if( !(const poopC&)bksTelemetryApp )
 ZE( countT , cBook ) ;
-static ZE( count04T , cCpuCyclesBook    ) ;
-static ZE( count04T , cCpuCyclesDt      ) ;
-static ZE( count04T , cCpuCyclesInNet   ) ;
-static ZE( count04T , cCpuCyclesInGross ) ;
-static ZE( count04T , cCpuCyclesCt      ) ;
+/*static*/ ZE( count04T , cCpuCyclesBook    ) ;
+/*static*/ ZE( count04T , cCpuCyclesDt      ) ;
+/*static*/ ZE( count04T , cCpuCyclesInNet   ) ;
+/*static*/ ZE( count04T , cCpuCyclesInGross ) ;
+/*static*/ ZE( count04T , cCpuCyclesCt      ) ;
 
 // "static" STORAGE IS USED ONLY TO FACILITATE DEBUGGING WITH wdw, WHICH OFTEN REFUSES TO DISPLAY WATCH VALUES FOR AUTOMATIC (STACK) STORAGE
 
@@ -457,7 +461,7 @@ TN( tn    , "" ) ;
 
 switchC swCpu(   tinP , etThread , TAG( TAGiDnULL ) , flSTACKc_DOnOTsERIALIZE , pczFL , 0 , sizeof( count04T ) ) ;
 switchC swTally( tinP , etThread , TAG( TAGiDnULL ) , flSTACKc_DOnOTsERIALIZE , pczFL ) ;
-static const countT* pczFL = pczLever ;
+/*static*/ const countT* pczFL = pczLever ;
 countT  pczLever[ 3 ] = { 0 , 0 , 0 } ;
 
 TODO
