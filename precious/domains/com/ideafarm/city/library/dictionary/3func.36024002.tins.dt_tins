@@ -26,7 +26,7 @@
         dtTellCopyDoneF( (countT)this ) ;
 
         }
-            TELLaPPc3LIFI( ifcIDtYPEtELLaPP_INoUTtINdT , (byteT*)&info , sizeof info , ifcLINE , DDNUMB ) ;
+            //U:: ENABLE IN PRODUCTION:  TELLaPPc3LIFI( ifcIDtYPEtELLaPP_INoUTtINdT , (byteT*)&info , sizeof info , ifcLINE , DDNUMB ) ;
             THREADmODE4oN0( flTHREADmODE4_INoUTfRAMEdEFERwRITINGaPPtELEMETRY ) ;
 
                                                  cCpuCyclesWriteInOutTelemetry = 0 ;
@@ -41,14 +41,16 @@
                 }
                     cPending = 0 ;
 
-                    }
-                        thirdC::dosTellMonitorIF( tinP , tell , ifcIDbOOKStELL_APP ) ;
-                        tellC tell( tinP , LF , 0 , ifcIDtYPEtELLaPP_INoUTaRRAY , tinP.pbPendingInOutFramePackets , sizeof( countT ) + cPending * sizeof( tellInfoAppInOutFrameS ) ) ;
-                    {
+                    //}
+                    //    thirdC::dosTellMonitorIF( tinP , tell , ifcIDbOOKStELL_APP ) ;
+                    //    tellC tell( tinP , LF , 0 , ifcIDtYPEtELLaPP_INoUTaRRAY , tinP.pbPendingInOutFramePackets , sizeof( countT ) + cPending * sizeof( tellInfoAppInOutFrameS ) ) ;
+                    //{
+                    //U:: ENABLE IN PRODUCTION (DISABLED TO FIND A BUG)
 
                     }
-                        cPending = CmAXpENDINGiNoUTfRAMEpACKETS ;
-                        LOGrAW5( "~doC warning: [cPending,cMax]: " , cPending , " " , CmAXpENDINGiNoUTfRAMEpACKETS , " ; some telemetry will be discarded\r\n" ) ;
+                        BLAMMO ;
+                        LOGrAW5(    "~tinS error: [cPending,cMax]: " , cPending , " " , CmAXpENDINGiNoUTfRAMEpACKETS , "\r\n" ) ;
+                        CONoUTrAW5( "~tinS error: [cPending,cMax]: " , cPending , " " , CmAXpENDINGiNoUTfRAMEpACKETS , "\r\n" ) ;
                     {
                     if( cPending > CmAXpENDINGiNoUTfRAMEpACKETS )
 
