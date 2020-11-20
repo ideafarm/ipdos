@@ -33909,9 +33909,8 @@ ipMe is used to support synchronicity
 /*1*/class _export tellC /*1*/
 {
 /**/
-    byteT           pbZombieDflt[ sizeof( tellS ) + CBtELLmAX ] ;
     byteT*          pbData ;
-    boolT     bDelete_pbData_ ;
+    const boolT     bUseHeap ;
     const  countT   ebp ;
     tinS*           pTin ; //FOR MY DESTRUCTOR
 

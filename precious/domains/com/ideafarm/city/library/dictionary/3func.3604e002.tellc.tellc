@@ -25,21 +25,18 @@
         //tellS& head = *(tellS*)pbData ;
         new( 0 , tinP , pbData , sizeof( tellS ) ) tellS( tinP , idLineCtP , idiFileCtP , pbBitsCtP , idTypeP , cbd ) ;
     
-        countT cbd = pbData == pbZombieDflt && cbP > CBtELLmAX ? CBtELLmAX : cbP ;
+        countT cbd = cbP ;
     
-        if( pbData == pbZombieDflt && sizeof pbZombieDflt < sizeof( tellS ) + cbP ) BLAMMO
         if( pbData == pbZombieP    && cbZombieP           < sizeof( tellS ) + cbP ) BLAMMO
         if( !pbData ) BLAMMO
         if( !pbP != !cbP ) BLAMMO
     
-        if( !pbData ) pbData = pbZombieDflt ; // pbData WILL BE NULL IF poolOldWork IS IMPOTENT
-    
-        if( bDelete_pbData_ ) { ___( pbData ) ; }
+        if( !bUseHeap ) { ___( pbData ) ; }
         }
             ;
-                    : ( bDelete_pbData_ = 1 , PUSE.newF( tinP , LF , pbFromPool , sizeof( tellS ) + cbP ) , pbFromPool )
-                    ? pbZombieDflt
-                : !tinP.pPoolUse
+                    : ( PUSE.newF( tinP , LF , pbFromPool , sizeof( tellS ) + cbP ) , pbFromPool )
+                    ? processGlobal3I.heap.newF( tinP , LF , sizeof( tellS ) + cbP )
+                : bUseHeap
                 ? pbZombieP
             pbData = pbZombieP
             ZE( byteT* , pbFromPool ) ;
@@ -52,7 +49,7 @@
 pTin( &tinP ) //FOR MY DESTRUCTOR
 pbData( 0 ) ,
 ebp( ebpP ) ,
-bDelete_pbData_( 0 ) ,
+bUseHeap( /*!tinP.pPoolUse*/ 1 ) ,
 /*1*/tellC::tellC( tinS& tinP , const countT idLineCtP , const countT idiFileCtP , const byteT* const pbBitsCtP , const countT idTypeP , const byteT* const pbP , const countT cbP , byteT* const pbZombieP , const countT cbZombieP , const boolT bSynchP , const countT ebpP ) :/*1*/
 
 //ASSUME: poolOldWork IS GUARANTEED TO EXIST BEFORE ANY CHILD THREADS ARE LAUNCHED AND TO CONTINUE TO EXIST UNTIL AFTER ALL CHILD THREADS END
@@ -60,13 +57,11 @@ bDelete_pbData_( 0 ) ,
 /**/
 */
  bSynchP
-  if i need to use pbZombieP then must be >= sizeof( tellS ) + cbP
-  can be 0
+  if pbZombieP then must be >= sizeof( tellS ) + cbP
+  if !pbZombieP then can be 0
  cbZombieP
-   in that case cbP must be <= CBtELLmAX
-  not specified and poolOldWork does not exist then i will use pbZombieDflt
-  will be used if specified
-  should be 0 even if there is no poolC, unless cbP > CBtELLmAX
+  if 0 then *tinP.pPoolUse or processGlobal3I.heap will be used
+  for speed, specify bytes on the thread stack if cbP is known at compile time
   can be 0
  pbZombieP
   for maximum speed, avoid calculating string lengths at run time
