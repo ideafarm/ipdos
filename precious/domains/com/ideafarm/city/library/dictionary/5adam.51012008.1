@@ -84,7 +84,8 @@ etThread.traceF( tinP , tSayDt      , flTRACE_NOpREFIX ) ;
 etThread.traceF( tinP , tSayInNet   , flTRACE_NOpREFIX ) ;
 //MEANINGLESS: etThread.traceF( tinP , tSayInGross , flTRACE_NOpREFIX ) ;
 etThread.traceF( tinP , tSayCt      , flTRACE_NOpREFIX ) ;
-etThread.traceF( tinP , T("cBook:    ")+TF2(cBook,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) , flTRACE_NOpREFIX ) ;
+etThread.traceF( tinP , T("cBook            :    ")+TF2(cBook,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) , flTRACE_NOpREFIX ) ;
+etThread.traceF( tinP , T("cArrayPacketsMax :    ")+TF2(cArrayPacketsMax ,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) , flTRACE_NOpREFIX ) ;
 
 ;
     +tDot+TF3(((countT*)&cCpuCyclesWorkPerWatch)[1],flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE,8)
@@ -247,6 +248,13 @@ count04T cCpuCyclesBookPer = !cBook ? 0 : cCpuCyclesBook / cBook ;
                                 /*static*/ tellInfoAppInOutFrameS* pPackets = bArray
 
                                 //etThread.traceF( tinP , T(bArray?"INoUTaRRAY    ":"INoUT    ")+(bArray?TF2(cPackets,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED):T("")) ) ;
+
+                                if( bArray && cArrayPacketsMax < cPackets ) cArrayPacketsMax = cPackets ;
+
+                                }
+                                    countT foo = 2 ;
+                                {
+                                if( !cPackets )         //U:: TO FIND A BUG
 
                                 ;
                                     : 1
@@ -441,6 +449,7 @@ count04T cCpuCyclesBookPer = !cBook ? 0 : cCpuCyclesBook / cBook ;
     TELL( "preparing to eat" )
 {
 if( !(const poopC&)bksTelemetryApp )
+ZE( countT , cArrayPacketsMax ) ;
 ZE( countT , cBook ) ;
 /*static*/ ZE( count04T , cCpuCyclesBook    ) ;
 /*static*/ ZE( count04T , cCpuCyclesDt      ) ;

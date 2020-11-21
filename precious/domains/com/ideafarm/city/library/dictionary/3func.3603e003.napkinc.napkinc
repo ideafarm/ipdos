@@ -499,6 +499,7 @@
                         pzbUniverseUse->grabF( tinP , TAG( TAGiDnULL ) ) ;
                         THREADmODE4oN0( flTHREADmODE4_INoUTfRAMEdEFERwRITINGaPPtELEMETRY )
                         THREADmODE4sAVE0( flThreadMode4Save )
+                        tinP.flushPendingInOutFrameTelemetryIfF() ;
                     {
                     if( !( F(flagsCt) & flNAPKINc_DOnOTsERIALIZEcT ) )
                     THREADmODE3oN( flTHREADmODE3_SUPPRESStRACING )
@@ -677,6 +678,7 @@
     THREADmODE4oN0( flTHREADmODE4_INoUTfRAMEdEFERwRITINGaPPtELEMETRY ) ;
     THREADmODE4sAVE0( flagsSave4 ) ;
     ZE( flagsT , flagsSave4 ) ;
+    tinP.flushPendingInOutFrameTelemetryIfF() ;
     // THE EFFECT OF THIS CODE IS THAT MY _IO_ NEVER EMITS TELEMETRY
     // inOutFrameC TELEMETRY BEHAVIOR IS DETERMINED BY THE STATE OF THE FLAG DURING CT, EVEN THOUGH EMISSION OCCURS DURING DT
     // THIS IS NEEDED BECAUSE NORMALLY I SET flTHREADmODE4_INoUTfRAMEdEFERwRITINGaPPtELEMETRY SINCE I GRAB THE UNIVERSE AND EXIT WITH IT STILL GRABBED (TO BE UNGRABBED BY formattingIsDoneF)

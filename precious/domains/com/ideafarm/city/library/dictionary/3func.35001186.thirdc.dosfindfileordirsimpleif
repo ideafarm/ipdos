@@ -19,7 +19,6 @@
             countT costPrefix = postEnd - postLikeP + 1 ;
             postEnd = c_strrchrIF( tinP , postLikeP , '\\' ) ;
             ZE( osTextT* , postEnd ) ;
-            _IO_
         {
         if( !POOP && fFound )
 
@@ -37,7 +36,6 @@
 
                     handleP.closeIfF() ;
                     fFound = 0 ;
-                    _IO_
                 {
                 if( bosFailSave )
 
@@ -46,7 +44,6 @@
                     brcLathSave = tinP.brcLath ;
                     bosFailSave = tinP.bosFail ;
                     BOS( WHATsfr , BOSoK , FindNextFile( (HANDLE)pOsh->hFind.osF( ifcIDtYPEhANDLE_FILEfINDbASE ) , &info ) )
-                    _IO_
                 {
                 else
                 }
@@ -55,7 +52,6 @@
                     brcLathSave = tinP.brcLath ;
                     bosFailSave = tinP.bosFail ;
                     BOS( WHATsfr , BOShANDLE , FindFirstFile( postLikeP , &info ) )
-                    _IO_
                 {
                 if( bWoth )
                 ZE( countT , brcLathSave ) ;
@@ -64,7 +60,6 @@
 
             #elif defined( __NT__ )
             #ifdef __OS2__
-            _IO_
         {
 
         c_memsetIF( tinP , (byteT*)&info , sizeof info ) ;
@@ -73,7 +68,6 @@
         #elif defined( __NT__ )
         #ifdef __OS2__
         ZE( boolT , fFound ) ;
-        _IO_
     {
     else
     }
@@ -91,14 +85,12 @@
             posti[ costi ] = 0 ;
             countT rc = thirdC::s_readIF( tinP , posti , costi , pOsh->hSockCloak ) ;
             osTextT* posti = processGlobal3I.heap.newF( tinP , LF , costi + 1 ) ;
-            _IO_
         {
         else
         if( !costi || costi > TUCK << 2 ) handleP.closeIfF() ;
 
         countT rc = thirdC::s_readIF( tinP , (byteT*)&costi , sizeof costi , pOsh->hSockCloak ) ;
         ZE( countT , costi ) ;
-        _IO_
     {
     if( bCloaked )
 
@@ -120,19 +112,16 @@
             thirdC::s_connectIF( tinP , countTC() , pOsh->hSockCloak , homeS::homeIF().idPortCloak ) ;
 
             thirdC::s_socketIF( tinP , pOsh->hSockCloak , ifcSOCKETtYPE_STREAM ) ;
-            _IO_
         {
         if( bCloaked )
 
         }
             handleP.osF( ifcIDtYPEhANDLE_FILEfIND , (countT)pOsh ) ;
             pOsh = new( 0 , tinP , pba , cba ) diskFindHandleS( tinP ) ;
-            _IO_
         {
         if( pba )
         byteT* pba = processGlobal3I.heap.newF( tinP , LF , cba ) ;
         countT cba = sizeof( diskFindHandleS ) ;
-        _IO_
     {
     else
     if( ~handleP ) pOsh = (diskFindHandleS*)handleP.osF( ifcIDtYPEhANDLE_FILEfIND ) ;
@@ -155,7 +144,6 @@
 
         SCOOP
         poopC poop ;
-        _IO_
     {
     //CS:CODEsYNC: PSEUDODUPLICATE CODE 3600101d 35001186
     if( !( F(flagsP) & flDOSfINDfILEoRdIR_DOnOTtESTwATER ) )

@@ -10,7 +10,7 @@
 }
     //CONoUTrAW( T("bookC::ctFileNameIF [tP]: \"")+tP+T("\"\r\n") ) ;
 
-    tP = T("///ideafarm/ephemeral/backed.up.daily/domains/com/ideafarm/ipdos/memorySpaces/")+T(thirdC::postUserNameIF())+T("/")+TF3(idMemorySpaceP,flFORMAT_UNSIGNED|flFORMAT_NObIGITvALUES|flFORMAT_FOREIGN|flFORMAT_FILLzE,8)+T("/stateSpaces/" )+TF2(idStateSpaceP,flFORMAT_UNSIGNED|flFORMAT_NObIGITvALUES)+T("/")+T(postNameP)+T(".bookC") ;
+    tP = T("///ideafarm/ephemeral/backed.up.daily/domains/com/ideafarm/ipdos/memorySpaces/")+T(thirdC::postUserNameIF())+T("/")+TF3(idMemorySpaceP?idMemorySpaceP:tinP.pAdamGlobal1->idMemorySpace,flFORMAT_UNSIGNED|flFORMAT_NObIGITvALUES|flFORMAT_FOREIGN|flFORMAT_FILLzE,8)+T("/stateSpaces/" )+TF2(idStateSpaceP,flFORMAT_UNSIGNED|flFORMAT_NObIGITvALUES)+T("/")+T(postNameP)+T(".bookC") ;
     //CS:CODEsYNC: 2340004 2340005
     _IO_
 
@@ -21,7 +21,6 @@
         if( POOP ) return ;
         __( idMemorySpaceP && !( F(tinP.flagsThreadMode3) & flTHREADmODE3_ALLOWeXPLICITmEMORYsPACE ) && thirdC::third_idPhaseAdam_IF( tinP ) >= ifcIDpHASEaDAM_EXEpROLOGaDAMmAIN1 && thirdC::third_idPhaseAdam_IF( tinP ) < ifcIDpHASEaDAM_EXEePILOGaDAMmAINa1 ) ;
         __( tP.csF( tinP ) ) ;
-        __Z( idMemorySpaceP ) ;
         __Z( idStateSpaceP ) ;
         __Z( postNameP ) ;
         if( POOP ) return ;

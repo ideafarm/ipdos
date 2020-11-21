@@ -15,7 +15,10 @@
 
             }
                 *(countT*)tinP.pbPendingInOutFramePackets = 0 ;
-                tinP.pbPendingInOutFramePackets = processGlobal3I.heap.newF( tinP , LF , sizeof( countT ) + CmAXpENDINGiNoUTfRAMEpACKETS * sizeof( tellInfoAppInOutFrameS ) ) ;
+                tinP.pbPendingInOutFramePackets = processGlobal3I.heap.newF( tinP , LF , cbaPending ) ;
+
+                CONoUTrAW5( "doC(3): [cbaPending,% of heap]:    " , cbaPending , "    " , ( cbaPending * TUCK ) / CBhEAP , "\r\n" ) ;
+                countT cbaPending = sizeof( countT ) + CmAXpENDINGiNoUTfRAMEpACKETS * sizeof( tellInfoAppInOutFrameS ) ;
             {
             if( !tinP.pbPendingInOutFramePackets )
 

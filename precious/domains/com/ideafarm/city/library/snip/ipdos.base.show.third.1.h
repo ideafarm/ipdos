@@ -1,5 +1,7 @@
 
-#define CmAXpENDINGiNoUTfRAMEpACKETS TUCK
+#define CBhEAP ( TICK >> 0 )
+
+#define CmAXpENDINGiNoUTfRAMEpACKETS ( TUCK << 3 )
 
 //
 // Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
@@ -44905,9 +44907,9 @@ arguments
 /*1*//*flINoUTfRAMEc*//*1*/
 
 /*3*/
-#define flINoUTfRAMEc_REGISTERcALLnEST                         0xe00001ec
-#define flINoUTfRAMEc_DEFERwRITINGaPPtELEMETRY      0xe00002ec
-#define flINoUTfRAMEc_DOnOTcOLLECTaPPtELEMETRY           0xe00004ec
+#define flINoUTfRAMEc_REGISTERcALLnEST                          0xe00001ec
+#define flINoUTfRAMEc_DEFERwRITINGaPPtELEMETRY                  0xe00002ec
+#define flINoUTfRAMEc_DOnOTcOLLECTaPPtELEMETRY                  0xe00004ec
 /*3*/
 #define flINoUTfRAMEc_null    0xe00000ec
 

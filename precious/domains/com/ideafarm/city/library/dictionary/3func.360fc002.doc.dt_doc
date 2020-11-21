@@ -12,7 +12,7 @@
         }
             break ;
 
-            //U:: ENABLE IN PRODUCTION: TELLaPPc3LIFI( ifcIDtYPEtELLaPP_INoUTtINdT , (byteT*)&info , sizeof info , ifcLINE , DDNUMB ) ;
+            TELLaPPc3LIFI( ifcIDtYPEtELLaPP_INoUTtINdT , (byteT*)&info , sizeof info , ifcLINE , DDNUMB ) ;
             THREADmODE4oN0( flTHREADmODE4_INoUTfRAMEdOnOTcOLLECTaPPtELEMETRY ) ;
 
                                                  tinP.cCpuCyclesWriteInOutTelemetry = 0 ;
@@ -30,11 +30,10 @@
                 }
                     cPending = 0 ;
 
-                    //}
-                    //    thirdC::dosTellMonitorIF( tinP , tell , ifcIDbOOKStELL_APP ) ;
-                    //    tellC tell( tinP , LF , 0 , ifcIDtYPEtELLaPP_INoUTaRRAY , tinP.pbPendingInOutFramePackets , sizeof( countT ) + cPending * sizeof( tellInfoAppInOutFrameS ) ) ;
-                    //{
-                    //U:: ENABLE IN PRODUCTION (DISABLED TO FIND A BUG)
+                    }
+                        thirdC::dosTellMonitorIF( tinP , tell , ifcIDbOOKStELL_APP ) ;
+                        tellC tell( tinP , LF , 0 , ifcIDtYPEtELLaPP_INoUTaRRAY , tinP.pbPendingInOutFramePackets , sizeof( countT ) + cPending * sizeof( tellInfoAppInOutFrameS ) ) ;
+                    {
 
                     }
                         BLAMMO ;
@@ -49,7 +48,7 @@
 
                 countT& cPending = *(countT*)tinP.pbPendingInOutFramePackets ;
 
-                THREADmODE4oN( flTHREADmODE4_INoUTfRAMEdOnOTcOLLECTaPPtELEMETRY ) ;
+                THREADmODE4oN( flTHREADmODE4_INoUTfRAMEdOnOTcOLLECTaPPtELEMETRY | flTHREADmODE4_DOnOTfLUSHpENDING ) ;
             {
             if( tinP.pbPendingInOutFramePackets )
             //PSEUDOdUPLICATEcODE 360fc002 33000065

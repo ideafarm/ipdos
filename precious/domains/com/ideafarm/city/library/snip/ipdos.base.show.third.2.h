@@ -5372,9 +5372,10 @@ after i return, that countT object will contain 1
 /*1*//*flTHREADmODE4*//*1*/
 
 /*3*/
-#define flTHREADmODE4_INoUTfRAMEdEFERwRITINGaPPtELEMETRY                                0xe0000110
-#define flTHREADmODE4_INoUTfRAMEdOnOTcOLLECTaPPtELEMETRY                                0xe0000210
-#define flTHREADmODE4_INoUTfRAMErEGISTERcALLnEST                                        0xe0000410
+#define flTHREADmODE4_INoUTfRAMErEGISTERcALLnEST                                        0xe0000110
+#define flTHREADmODE4_INoUTfRAMEdEFERwRITINGaPPtELEMETRY                                0xe0000210
+#define flTHREADmODE4_INoUTfRAMEdOnOTcOLLECTaPPtELEMETRY                                0xe0000410
+#define flTHREADmODE4_DOnOTfLUSHpENDING                                                 0xe0000810
 /*3*/
 #define flTHREADmODE4_null    0xe0000010
 
@@ -27766,6 +27767,7 @@ it is illegal to modify any member other than pc Utility in the definition of an
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400a.tinS.deregisterIfF!||
  voidT unwatchedF( voidT ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34013.tinS.unwatchedF!||
+ voidT flushPendingInOutFrameTelemetryIfF( voidT ) ;
 
 /*tls*/
  byteT* tlsNewF( const countT cbP , const osTextT* const postNameP = 0 , const osTextT* const postGroupP = 0 ) ;

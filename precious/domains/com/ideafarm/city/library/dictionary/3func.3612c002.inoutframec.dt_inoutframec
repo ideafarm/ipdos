@@ -30,11 +30,12 @@
 
         }
             }
-                // BLAMMO ; // ENABLE IN PRODUCTION
+                BLAMMO ;
                 bDone = 1 ;
                 pPending[ cPending ++ ] = say ;
                 cPending = 0 ;
-                CONoUTrAW3( "~inOutFrameC: error 3: cPending reset (data discarded) [cPending]:    " , cPending , "\r\n" ) ;
+                LOGrAW3(    "~inOutFrameC: error 3: no more room in pending buffer [cPending]:    " , cPending , "\r\n" ) ;
+                CONoUTrAW3( "~inOutFrameC: error 3: no more room in pending buffer [cPending]:    " , cPending , "\r\n" ) ;
             {
             else
             }
@@ -58,7 +59,7 @@
                         thirdC::dosTellMonitorIF( tinP , tell , ifcIDbOOKStELL_APP ) ;
                         tellC tell( tinP , idLineCt , idiFileCt , 0 , ifcIDtYPEtELLaPP_INoUTaRRAY , tinP.pbPendingInOutFramePackets , sizeof( countT ) + cPending * sizeof( tellInfoAppInOutFrameS ) ) ;
                     {
-                    THREADmODE4oN( flTHREADmODE4_INoUTfRAMEdEFERwRITINGaPPtELEMETRY ) ;
+                    THREADmODE4oN( flTHREADmODE4_INoUTfRAMEdOnOTcOLLECTaPPtELEMETRY | flTHREADmODE4_DOnOTfLUSHpENDING ) ;
                 {
                 else if( cPending >= CmAXpENDINGiNoUTfRAMEpACKETS * 7 / 8 )  // 1/8 OF THE CAPACITY IS USED TO ACCUMULATE WHEN I CANNOT EMIT TELEMETRY
                 }
@@ -76,7 +77,7 @@
         if( tinP.pbPendingInOutFramePackets )
         ZE( boolT , bDone ) ;
 
-        THREADmODE4oN( flTHREADmODE4_INoUTfRAMEdOnOTcOLLECTaPPtELEMETRY )
+        THREADmODE4oN( flTHREADmODE4_INoUTfRAMEdOnOTcOLLECTaPPtELEMETRY | flTHREADmODE4_DOnOTfLUSHpENDING ) ;
 
         say.dCpuCyclesDt = say.cCpuCycles4 - say.cCpuCycles3 ;
 
