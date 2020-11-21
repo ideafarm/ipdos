@@ -1,49 +1,4 @@
 
-#define CBhEAP ( TICK >> 0 )
-
-#define CmAXpENDINGiNoUTfRAMEpACKETS ( TUCK << 3 )
-
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-// Respecting the rights of other people is an important part of empowering one another.
-//
-
-/*
-\<A HREF=\"5.00100c7.1.0.html\"\>definition\</A\>
-it is illegal to refer to this symbol in the definition of an adam
-*/
-/**/
-/*1*//*_IO1_(idP)*//*1*/
-
-//FOR PRODUCTION, USE "!defined" IN THE NEXT LINE, TO AVOID OVERHEAD OF CT/DT inOutFrameC
-
-//20141212@0943: ENABLED FULL INOUT TRACING FOR INITIAL RELEASE OF IPDOS BUNDLE AS CLOUDFILE ADMINISTRATION TOOL
-
-//20160523@2009: DISABLED TO GET MOST RAPID EXECUTION TO COLLECT FAILURE HISTORY FOR SERVER
-//20160525@0921: ENABLED TO MAXIMIZE GLASS WALLS
-//20201008@1520: DISABLED TO INVESTIGATE SLOOOOW EXECUTION
-
-#if defined( NEVERdEFINED )
-
-    #define _IO1_(idP)
-
-#else
-
-    #define _IO1_(idP) inOutFrameC _inOutFrame##idP( tinP , LF , IDFILE , BiFCcLASS ) ;
-
-#endif
-
-
-//
-// Respecting the rights of other people is an important part of empowering one another.
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-
-
 // IPDOS (tm) <> IdeaFarm (tm) Piggyback Distributed Operating System
 
 // For build environment info, see file "\ideafarm.work\backed.up.never\txt\readme.first.ipdos.build.environment.txt"
@@ -7086,6 +7041,9 @@ to use this, the object must be of a class that provides operator byteT* which r
 /*1*//*IFbEcAREFUL*//*1*/
 
 #define IFbEcAREFUL if( tinP.pAdamGlobal1->_thirdC_.bCareful )
+
+//U:: THIS FAILS BECAUSE SOME FUNCTIONS MUST NOT CT _IO_
+//U:: #define IFbEcAREFUL _IO1_(1) if( tinP.pAdamGlobal1->_thirdC_.bCareful )
 
 
 //
@@ -14883,34 +14841,6 @@ arguments
 //
 
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200170.ifcidtypetellsys END
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200171.cbtellmax BEGIN
-
-
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-// Respecting the rights of other people is an important part of empowering one another.
-//
-
-/*
-\<A HREF=\"5.0010210.1.0.html\"\>definition\</A\>
-*/
-/**/
-
-
-//002 IS TOO SMALL; ifcIDtYPEtELLsYS_LOG HAS EXCEEDED THIS WHEN THERE IS NO POOLoLD (SO THE DEFAULT ZOMBIE IS USED)
-
-
-
-//
-// Respecting the rights of other people is an important part of empowering one another.
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200171.cbtellmax END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200172.blammo BEGIN
 
 
@@ -39253,6 +39183,7 @@ args
 #define flTHREADmODE3_EXCEPTIONcLEANUPdELETIONiNpROGRESS        0xe00004c8
 #define flTHREADmODE3_EXCEPTIONrEPORTINGiNpROGRESS              0xe00008c8
 #define flTHREADmODE3_ALLOWwRITEABLEpOINTERgET                  0xe00010c8
+#define flTHREADmODE4_INoUTfRAMErEGISTERcALLnEST                0xe00020c8
 #define flTHREADmODE3_DOnOTvERIFYpOOLdROPtAGGING                0xe00040c8
 #define flTHREADmODE3_DOnOTmAKEsEXiNpOOL                        0xe00080c8
 #define flTHREADmODE3_DOnOTrEGISTERpAGEc                        0xe00100c8
@@ -44906,10 +44837,12 @@ arguments
 /**/
 /*1*//*flINoUTfRAMEc*//*1*/
 
+// flINoUTfRAMEc_DOnOTcOLLECTaPPtELEMETRY IS ONLY USED FOR DEBUGGING ; IT SHOULD NOT BE USED IN PRODUCTION
+
 /*3*/
-#define flINoUTfRAMEc_REGISTERcALLnEST                          0xe00001ec
-#define flINoUTfRAMEc_DEFERwRITINGaPPtELEMETRY                  0xe00002ec
-#define flINoUTfRAMEc_DOnOTcOLLECTaPPtELEMETRY                  0xe00004ec
+#define flINoUTfRAMEc_REGISTERcALLnEST         0xe00001ec
+#define flINoUTfRAMEc_DEFERwRITINGaPPtELEMETRY 0xe00002ec
+#define flINoUTfRAMEc_DOnOTcOLLECTaPPtELEMETRY 0xe00004ec
 /*3*/
 #define flINoUTfRAMEc_null    0xe00000ec
 
@@ -45324,3 +45257,94 @@ this macro detects an invalid jPointer value and, if valid, evaluates to the (co
 //
 
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004e6.j END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004e7.flbookscselect BEGIN
+
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+/*
+*/
+/**/
+/*1*//*flBOOKScsELECT*//*1*/
+
+/*3*/
+#define flBOOKScsELECT_WOTH                          0xe00001f0
+#define flBOOKScsELECT_LATH                          0xe00002f0
+#define flBOOKScsELECT_PURGE                         0xe00004f0
+/*3*/
+#define flBOOKScsELECT_null    0xe00000f0
+
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004e7.flbookscselect END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004e8.flbookscread BEGIN
+
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+/*
+*/
+/**/
+/*1*//*flBOOKScrEAD*//*1*/
+
+/*3*/
+#define flBOOKScrEAD_CURRENTbOOKoNLY                                          0xe00001f1
+#define flBOOKScrEAD_STILLhUNGRYiSoK                                          0xe00002f1
+#define flBOOKScrEAD_INCREMENTrEFERENCEcOUNTiF                                0xe00004f1
+/*3*/
+#define flBOOKScrEAD_null    0xe00000f1
+
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004e8.flbookscread END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004e9.fljotcwrite BEGIN
+
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+/*
+*/
+/**/
+/*1*//*flJOTcwRITE*//*1*/
+
+/*3*/
+#define flJOTcwRITE_SETrEMAINING                                          0xe00001f2
+/*3*/
+#define flJOTcwRITE_null    0xe00000f2
+
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004e9.fljotcwrite END

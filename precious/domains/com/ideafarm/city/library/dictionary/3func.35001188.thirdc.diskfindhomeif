@@ -12,187 +12,205 @@
 
     __( !postP[ 0 ] ) ;
 
-    #endif
     }
-        }
-            thirdC::c_strcpyIF( tinP , postP , ostoHome ) ;
+        #endif
 
-            OStEXTC(  ostoHome , etherC::ifc_idHomeIdisk_IF() , 0 ) ;
-            OStEXTAK( ostoHome , ".home." ) ;
-            OStEXTA(  ostoHome , postKeyP ) ;
-            OStEXTAK( ostoHome , ":\\" ) ;
-            OStEXTA(  ostoHome , postDrive ) ;
-            OStEXT(   ostoHome , TUCK << 2 ) ;
+            }
+                CONoUTrAW( "\r\n" ) ;
+                CONoUTrAW( postP ) ;
+                CONoUTrAW( "        " ) ;
+                CONoUTrAW( postKeyP ) ;
+                CONoUTrAW( "dFH: " ) ;
+            {
+            if( processGlobal1I.idAdamRoot == ifcIDaDAM_SCRATCH07 )
 
-            //CONoUTrAW( "\"\r\n" ) ;
-            //CONoUTrAW( postDrive ) ;
-            //CONoUTrAW( "10201cf diskFindHomeIF: found \"" ) ;
+            if( bIdeafarm ) thirdC::c_strncpyIF( tinP , home.postHome , postP , sizeof home.postHome ) ;
 
-            osTextT postDrive[] = { ostDriveMax , 0 } ;
-            cbFree = cbMaxLow ;
-        {
-        if( ostDriveMax )
-
-        }
             }
                 }
+                    thirdC::c_strcpyIF( tinP , postP , ostoHome ) ;
+
+                    OStEXTC(  ostoHome , etherC::ifc_idHomeIdisk_IF() , 0 ) ;
+                    OStEXTAK( ostoHome , ".home." ) ;
+                    OStEXTA(  ostoHome , postKeyP ) ;
+                    OStEXTAK( ostoHome , ":\\" ) ;
+                    OStEXTA(  ostoHome , postDrive ) ;
+                    OStEXT(   ostoHome , TUCK << 2 ) ;
+
+                    //CONoUTrAW( "\"\r\n" ) ;
+                    //CONoUTrAW( postDrive ) ;
+                    //CONoUTrAW( "10201cf diskFindHomeIF: found \"" ) ;
+
+                    osTextT postDrive[] = { ostDriveMax , 0 } ;
+                    cbFree = cbMaxLow ;
+                {
+                if( ostDriveMax )
+
+                }
                     }
-                        ostDriveMax = postRoot[ 0 ] ;
-                        cbMaxHigh = pcpA[ 2 ] ;
-                        cbMaxLow  = pcpA[ 1 ] ;
-                    {
-                    if( cbMaxHigh < pcpA[ 2 ] || ( cbMaxHigh == pcpA[ 2 ] && cbMaxLow < pcpA[ 1 ] ) )
-
-                    //CONoUTrAW5( "\" has [" , pcpA[ 1 ] , "," , pcpA[ 2 ] , "] bytes free\r\n" ) ;
-                    //CONoUTrAW( postRoot ) ;
-                    //CONoUTrAW( "10201cf diskFindHomeIF: drive \"" ) ;
-
-                    }
-                        pcpA[ 2 ] = pcpSum[ 2 ] ;
-                        pcpA[ 1 ] = pcpSum[ 1 ] ;
-
                         }
                             }
-                                exp ++ ;
-                                pci[ offi ] >>= 1 ;
+                                ostDriveMax = postRoot[ 0 ] ;
+                                cbMaxHigh = pcpA[ 2 ] ;
+                                cbMaxLow  = pcpA[ 1 ] ;
+                            {
+                            if( cbMaxHigh < pcpA[ 2 ] || ( cbMaxHigh == pcpA[ 2 ] && cbMaxLow < pcpA[ 1 ] ) )
+
+                            //CONoUTrAW5( "\" has [" , pcpA[ 1 ] , "," , pcpA[ 2 ] , "] bytes free\r\n" ) ;
+                            //CONoUTrAW( postRoot ) ;
+                            //CONoUTrAW( "10201cf diskFindHomeIF: drive \"" ) ;
+
+                            }
+                                pcpA[ 2 ] = pcpSum[ 2 ] ;
+                                pcpA[ 1 ] = pcpSum[ 1 ] ;
 
                                 }
-                                    addF( tinP , pTo , pcpSum , pcpTerm , 0 ) ;
-                                    countT* pTo = pcpSum ;
-
                                     }
-                                        pcpTerm[ 1 ] <<= 1 ;
-                                        else                                          pcpTerm[ 2 ] <<= 1 ;
-                                        if( pcpTerm[ 1 ] & BM_HIGH && !pcpTerm[ 2 ] ) pcpTerm[ 2 ] = 1 ;
+                                        exp ++ ;
+                                        pci[ offi ] >>= 1 ;
+
+                                        }
+                                            addF( tinP , pTo , pcpSum , pcpTerm , 0 ) ;
+                                            countT* pTo = pcpSum ;
+
+                                            }
+                                                pcpTerm[ 1 ] <<= 1 ;
+                                                else                                          pcpTerm[ 2 ] <<= 1 ;
+                                                if( pcpTerm[ 1 ] & BM_HIGH && !pcpTerm[ 2 ] ) pcpTerm[ 2 ] = 1 ;
+                                            {
+                                            while( cToDo -- )
+                                            countT cToDo = exp ;
+                                            countT pcpTerm[ 3 ] = { 2 , pcpA[ 1 ] , pcpA[ 2 ] } ;
+                                        {
+                                        if( pci[ offi ] & 1 )
                                     {
-                                    while( cToDo -- )
-                                    countT cToDo = exp ;
-                                    countT pcpTerm[ 3 ] = { 2 , pcpA[ 1 ] , pcpA[ 2 ] } ;
+                                    while( pci[ offi ] )
+                                    ZE( countT , exp ) ;
                                 {
-                                if( pci[ offi ] & 1 )
+                                countT pcpSum[ 3 ] = { 2 , 0 , 0 } ;
+
+                                // ALL SUCH LEFT SHIFT RESULTS ARE TO BE ADDED TOGETHER TO GET THE RESULT
+                                // EACH BIT SET IN THE OO'TH MULTIPLICAND SPECIFIES A LEFT SHIFT TO WO'TH OPERAND
+                                // pcpA = pcpA * pci[ offi ]
+                                //
+                                // RECIPE
                             {
-                            while( pci[ offi ] )
-                            ZE( countT , exp ) ;
+                            for( countT offi = 2 ; offi <= 3 ; offi ++ )
+                            countT pcpA[ 3 ] = { 2 , pci[ 1 ] , 0 } ;
+                            // BIT BY BIT MULTIPLICATION
                         {
-                        countT pcpSum[ 3 ] = { 2 , 0 , 0 } ;
+                        else
+                        if( POOP ) { POOPR ; }
 
-                        // ALL SUCH LEFT SHIFT RESULTS ARE TO BE ADDED TOGETHER TO GET THE RESULT
-                        // EACH BIT SET IN THE OO'TH MULTIPLICAND SPECIFIES A LEFT SHIFT TO WO'TH OPERAND
-                        // pcpA = pcpA * pci[ offi ]
-                        //
-                        // RECIPE
+                        //CONoUTrAW7( "[cFreeClusters,cSectorsPerCluster,cBytesPerSector]: " , pci[ 1 ] , " " , pci[ 2 ] , " " , pci[ 3 ] , "\r\n" ) ;
+
+                        BOS( WHATsfr , BOSoK , GetDiskFreeSpace( postRoot , (ULONG*)&pci[ 2 ] , (ULONG*)&pci[ 3 ] , (ULONG*)&pci[ 1 ] , (ULONG*)&pci[ 0 ] ) )
+                        countT pci[ 4 ] = { 0 , 0 , 0 , 0 } ; // cClusters , cFreeClusters , cSectorsPerCluster , cBytesPerSector ) ;
                     {
-                    for( countT offi = 2 ; offi <= 3 ; offi ++ )
-                    countT pcpA[ 3 ] = { 2 , pci[ 1 ] , 0 } ;
-                    // BIT BY BIT MULTIPLICATION
+                    if( DRIVE_FIXED == idType )
+
+                    countT idType = tinP.brcRaw ;
+            
+                    BOSpOOP
+                    BOS( WHATgbo , BOSoK , GetDriveType( postRoot ) )
                 {
-                else
-                if( POOP ) { POOPR ; }
-
-                //CONoUTrAW7( "[cFreeClusters,cSectorsPerCluster,cBytesPerSector]: " , pci[ 1 ] , " " , pci[ 2 ] , " " , pci[ 3 ] , "\r\n" ) ;
-
-                BOS( WHATsfr , BOSoK , GetDiskFreeSpace( postRoot , (ULONG*)&pci[ 2 ] , (ULONG*)&pci[ 3 ] , (ULONG*)&pci[ 1 ] , (ULONG*)&pci[ 0 ] ) )
-                countT pci[ 4 ] = { 0 , 0 , 0 , 0 } ; // cClusters , cFreeClusters , cSectorsPerCluster , cBytesPerSector ) ;
+                for( postRoot[ 0 ] = 'c' ; postRoot[ 0 ] <= 'z' ; postRoot[ 0 ] ++ ) //U:: 2011.10.24: c->z (RATHER THAN z->c) SO THAT PERMANENT DRIVES WILL BE FOUND BEFORE UNMOUNTABLE EXTERNAL DRIVES USED FOR BACKUP VIA XCOPY
+                osTextT postRoot[] = ".:\\" ;
+                ZE( countT  , cbMaxHigh ) ;
+                ZE( countT  , cbMaxLow ) ;
+                ZE( osTextT , ostDriveMax ) ;
+                POOPIE
             {
-            if( DRIVE_FIXED == idType )
+            if( !postP[ 0 ] )
 
-            countT idType = tinP.brcRaw ;
-    
-            BOSpOOP
-            BOS( WHATgbo , BOSoK , GetDriveType( postRoot ) )
-        {
-        for( postRoot[ 0 ] = 'c' ; postRoot[ 0 ] <= 'z' ; postRoot[ 0 ] ++ ) //U:: 2011.10.24: c->z (RATHER THAN z->c) SO THAT PERMANENT DRIVES WILL BE FOUND BEFORE UNMOUNTABLE EXTERNAL DRIVES USED FOR BACKUP VIA XCOPY
-        osTextT postRoot[] = ".:\\" ;
-        ZE( countT  , cbMaxHigh ) ;
-        ZE( countT  , cbMaxLow ) ;
-        ZE( osTextT , ostDriveMax ) ;
-        POOPIE
+            //U::SEARCH FOR: T("///?/")+T(psttKeyP)+T(".home.")+TF1(idHomeDisk)+T("/")
+
+            }
+                thirdC::dosFindFileOrDirSimpleIF( tinP , postP , costaP , hFind , postLike ) ;
+                handleC hFind( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_FILEfIND ) ;
+
+                if( DRIVE_FIXED != tinP.brcRaw ) continue ;
+
+                BOSpOOP
+                BOS( WHATgbo , BOSoK , GetDriveType( postRoot ) )
+
+                postRoot[ 0 ] = postLike[ 0 ] ;
+                osTextT postRoot[] = ".:\\" ;
+            {
+            for( postLike[ 0 ] = 'c' ; !postP[ 0 ] && postLike[ 0 ] <= 'z' ; postLike[ 0 ] ++ ) //U:: 2011.10.24: c->z (RATHER THAN z->c) SO THAT PERMANENT DRIVES WILL BE FOUND BEFORE UNMOUNTABLE EXTERNAL DRIVES USED FOR BACKUP VIA XCOPY
+
+            }
+                thirdC::c_strcpyIF( tinP , postLike , ostoLike ) ;
+
+                OStEXTC(  ostoLike , etherC::ifc_idHomeIdisk_IF() , 0 ) ;
+                OStEXTAK( ostoLike , ".home." ) ;
+                OStEXTA(  ostoLike , postKeyP ) ;
+                OStEXTAK( ostoLike , "?:\\" ) ;
+                OStEXT(   ostoLike , TUCK << 2 ) ;
+            {
+            osTextT postLike[ TUCK ] ;
+
+            }
+                //A: }
+                //A:     else cbFree = cFreeClusters * cSectorsPerCluster * cBytesPerSector ; //U::THIS CAN OVERFLOW
+                //A:     }
+                //A:         postP[ 0 ] = 0 ;
+                //A:         POOPR
+                //A:     {
+                //A:     if( POOP )
+                //A: 
+                //A:     BOS( WHATsfr , BOSoK , GetDiskFreeSpace( postRoot , (ULONG*)&cSectorsPerCluster , (ULONG*)&cBytesPerSector , (ULONG*)&cFreeClusters , (ULONG*)&cClusters ) )
+                //A:     ZE( countT , cClusters ) ;
+                //A:     ZE( countT , cFreeClusters ) ;
+                //A:     ZE( countT , cBytesPerSector ) ;
+                //A:     ZE( countT , cSectorsPerCluster ) ;
+                //A:     const osTextT postRoot[] = { postP[ 0 ] , ':' , '\\' , 0 } ;
+                //A: 
+                //A:     thirdC::c_zReplaceIF( tinP , postP , '/' , '\\' ) ;
+                //A:     postP[ costv - 3 ] = 0 ;
+                //A:     thirdC::c_memcpyIF( tinP , postP + 2 , postP + 4 , costv - 3 ) ;
+                //A:     postP[ 1 ] = ':' ;
+                //A:     postP[ 0 ] = postP[ 3 ] ;
+                //A: {
+                //A: else
+                //A: }
+                //A:     postP[ 0 ] = 0 ;
+                //A:     POOPR
+                //A: {
+                //A: if( POOP )
+                //A: 
+                //A: __( postP[ costv - 1 ] - '/' ) ;
+                //A: __( !postP[ 5 ] ) ;
+                //A: __( postP[ 4 ] - '/' ) ;
+                //A: __( postP[ 3 ] < 'a' || postP[ 3 ] > 'z' ) ;
+                //A: __( postP[ 2 ] - '/' ) ;
+                //A: __( postP[ 1 ] - '/' ) ;
+                //A: __( postP[ 0 ] - '/' ) ;
+                //A: costv = thirdC::c_strlenIF( tinP , postP ) ;
+                //A: thirdC::dosReadIF( tinP , postP , costv , ostoSetting ) ;
+                //A: countT costv = costaP ;
+                //A: thirdC::c_memsetIF( tinP , postP , costaP ) ;
+                //A: POOPIE
+                //A: 
+                //A: countT  costValue = sizeof postValue ;
+                //A: osTextT postValue[ 0x100 ] ;
+                //A: 
+                //A: OStEXTA(  ostoSetting , postKeyP ) ;
+                //A: OStEXTAK( ostoSetting , ".setting.keyValue." ) ;
+                //A: OStEXTC(  ostoSetting , etherC::ifc_idHomeIdisk_IF() , 0 ) ;
+                //A: OStEXTAK( ostoSetting , "\\ideafarm." ) ;
+                //A: OStEXT(   ostoSetting , TUCK << 2 ) ;
+                //A: 20141129@2022: DISABLED WITHOUT ANALYSIS TO AVOID A SLEEP BLAMMO DURING CRAFTWORK OF OTHER CODE ; THIS CODE IS OBSOLETE ANYWAY SINCE IT DOES NOT QUERY THE SETTINGS bitTreeC
+                //A: COMMENTING THIS OUT BREAKS THE SYNCH BETWEEN ME AND diskChooseSiteF
+            {
+
+        #if defined( __NT__ )
     {
-    if( !postP[ 0 ] )
+    else
+    if( bIdeafarm && home.postHome[ 0 ] ) thirdC::c_strncpyIF( tinP , postP , home.postHome , costaP ) ;
 
-    //U::SEARCH FOR: T("///?/")+T(psttKeyP)+T(".home.")+TF1(idHomeDisk)+T("/")
-
-    }
-        thirdC::dosFindFileOrDirSimpleIF( tinP , postP , costaP , hFind , postLike ) ;
-        handleC hFind( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_FILEfIND ) ;
-
-        if( DRIVE_FIXED != tinP.brcRaw ) continue ;
-
-        BOSpOOP
-        BOS( WHATgbo , BOSoK , GetDriveType( postRoot ) )
-
-        postRoot[ 0 ] = postLike[ 0 ] ;
-        osTextT postRoot[] = ".:\\" ;
-    {
-    for( postLike[ 0 ] = 'c' ; !postP[ 0 ] && postLike[ 0 ] <= 'z' ; postLike[ 0 ] ++ ) //U:: 2011.10.24: c->z (RATHER THAN z->c) SO THAT PERMANENT DRIVES WILL BE FOUND BEFORE UNMOUNTABLE EXTERNAL DRIVES USED FOR BACKUP VIA XCOPY
-
-    }
-        thirdC::c_strcpyIF( tinP , postLike , ostoLike ) ;
-
-        OStEXTC(  ostoLike , etherC::ifc_idHomeIdisk_IF() , 0 ) ;
-        OStEXTAK( ostoLike , ".home." ) ;
-        OStEXTA(  ostoLike , postKeyP ) ;
-        OStEXTAK( ostoLike , "?:\\" ) ;
-        OStEXT(   ostoLike , TUCK << 2 ) ;
-    {
-    osTextT postLike[ TUCK ] ;
-
-    }
-        //A: }
-        //A:     else cbFree = cFreeClusters * cSectorsPerCluster * cBytesPerSector ; //U::THIS CAN OVERFLOW
-        //A:     }
-        //A:         postP[ 0 ] = 0 ;
-        //A:         POOPR
-        //A:     {
-        //A:     if( POOP )
-        //A: 
-        //A:     BOS( WHATsfr , BOSoK , GetDiskFreeSpace( postRoot , (ULONG*)&cSectorsPerCluster , (ULONG*)&cBytesPerSector , (ULONG*)&cFreeClusters , (ULONG*)&cClusters ) )
-        //A:     ZE( countT , cClusters ) ;
-        //A:     ZE( countT , cFreeClusters ) ;
-        //A:     ZE( countT , cBytesPerSector ) ;
-        //A:     ZE( countT , cSectorsPerCluster ) ;
-        //A:     const osTextT postRoot[] = { postP[ 0 ] , ':' , '\\' , 0 } ;
-        //A: 
-        //A:     thirdC::c_zReplaceIF( tinP , postP , '/' , '\\' ) ;
-        //A:     postP[ costv - 3 ] = 0 ;
-        //A:     thirdC::c_memcpyIF( tinP , postP + 2 , postP + 4 , costv - 3 ) ;
-        //A:     postP[ 1 ] = ':' ;
-        //A:     postP[ 0 ] = postP[ 3 ] ;
-        //A: {
-        //A: else
-        //A: }
-        //A:     postP[ 0 ] = 0 ;
-        //A:     POOPR
-        //A: {
-        //A: if( POOP )
-        //A: 
-        //A: __( postP[ costv - 1 ] - '/' ) ;
-        //A: __( !postP[ 5 ] ) ;
-        //A: __( postP[ 4 ] - '/' ) ;
-        //A: __( postP[ 3 ] < 'a' || postP[ 3 ] > 'z' ) ;
-        //A: __( postP[ 2 ] - '/' ) ;
-        //A: __( postP[ 1 ] - '/' ) ;
-        //A: __( postP[ 0 ] - '/' ) ;
-        //A: costv = thirdC::c_strlenIF( tinP , postP ) ;
-        //A: thirdC::dosReadIF( tinP , postP , costv , ostoSetting ) ;
-        //A: countT costv = costaP ;
-        //A: thirdC::c_memsetIF( tinP , postP , costaP ) ;
-        //A: POOPIE
-        //A: 
-        //A: countT  costValue = sizeof postValue ;
-        //A: osTextT postValue[ 0x100 ] ;
-        //A: 
-        //A: OStEXTA(  ostoSetting , postKeyP ) ;
-        //A: OStEXTAK( ostoSetting , ".setting.keyValue." ) ;
-        //A: OStEXTC(  ostoSetting , etherC::ifc_idHomeIdisk_IF() , 0 ) ;
-        //A: OStEXTAK( ostoSetting , "\\ideafarm." ) ;
-        //A: OStEXT(   ostoSetting , TUCK << 2 ) ;
-        //A: 20141129@2022: DISABLED WITHOUT ANALYSIS TO AVOID A SLEEP BLAMMO DURING CRAFTWORK OF OTHER CODE ; THIS CODE IS OBSOLETE ANYWAY SINCE IT DOES NOT QUERY THE SETTINGS bitTreeC
-        //A: COMMENTING THIS OUT BREAKS THE SYNCH BETWEEN ME AND diskChooseSiteF
-    {
-
-    #if defined( __NT__ )
-
+    boolT bIdeafarm = !thirdC::c_strcmpIF( tinP , postKeyP , "ideafarm" ) ;
+    homeS& home = homeS::homeIF() ;
     postP[ 0 ] = 0 ;
     ZE( countT , cbFree ) ;
 

@@ -1,94 +1,3 @@
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004e7.flbookscselect BEGIN
-
-
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-// Respecting the rights of other people is an important part of empowering one another.
-//
-
-/*
-*/
-/**/
-/*1*//*flBOOKScsELECT*//*1*/
-
-/*3*/
-#define flBOOKScsELECT_WOTH                          0xe00001f0
-#define flBOOKScsELECT_LATH                          0xe00002f0
-#define flBOOKScsELECT_PURGE                         0xe00004f0
-/*3*/
-#define flBOOKScsELECT_null    0xe00000f0
-
-
-//
-// Respecting the rights of other people is an important part of empowering one another.
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004e7.flbookscselect END
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004e8.flbookscread BEGIN
-
-
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-// Respecting the rights of other people is an important part of empowering one another.
-//
-
-/*
-*/
-/**/
-/*1*//*flBOOKScrEAD*//*1*/
-
-/*3*/
-#define flBOOKScrEAD_CURRENTbOOKoNLY                                          0xe00001f1
-#define flBOOKScrEAD_STILLhUNGRYiSoK                                          0xe00002f1
-#define flBOOKScrEAD_INCREMENTrEFERENCEcOUNTiF                                0xe00004f1
-/*3*/
-#define flBOOKScrEAD_null    0xe00000f1
-
-
-//
-// Respecting the rights of other people is an important part of empowering one another.
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004e8.flbookscread END
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004e9.fljotcwrite BEGIN
-
-
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-// Respecting the rights of other people is an important part of empowering one another.
-//
-
-/*
-*/
-/**/
-/*1*//*flJOTcwRITE*//*1*/
-
-/*3*/
-#define flJOTcwRITE_SETrEMAINING                                          0xe00001f2
-/*3*/
-#define flJOTcwRITE_null    0xe00000f2
-
-
-//
-// Respecting the rights of other people is an important part of empowering one another.
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004e9.fljotcwrite END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004ea.cslotsjotregistry BEGIN
 
 
@@ -5056,8 +4965,8 @@ use this rather than _ to avoid the overhead of _
 /*3*/
 #define ifcIDtYPEtELLaPP_NOOP                                           0xdddd0c0b
 #define ifcIDtYPEtELLaPP_INoUT                                          0xdddd0c0c
-#define ifcIDtYPEtELLaPP_INoUTtINdT                                     0xdddd0c0d
-#define ifcIDtYPEtELLaPP_INoUTaRRAY                                0xdddd0c0e
+#define ifcIDtYPEtELLaPP_INoUTaRRAY                                     0xdddd0c0d
+#define ifcIDtYPEtELLaPP_INoUTtINdT                                     0xdddd0c0e
 /*3*/
 #define ifcIDtYPEtELLaPP_min     0xdddd0c0b
 #define ifcIDtYPEtELLaPP_max     0xdddd0c0e                                                               
@@ -5087,11 +4996,11 @@ use this rather than _ to avoid the overhead of _
 /*1*//**//*1*/
 
 /*3*/
-#define ifcIDbOOKStELL_SYS                                           0xdddd0c0e
-#define ifcIDbOOKStELL_APP                                           0xdddd0c0f
+#define ifcIDbOOKStELL_SYS                                           0xdddd0c0f
+#define ifcIDbOOKStELL_APP                                           0xdddd0c10
 /*3*/
-#define ifcIDbOOKStELL_min     0xdddd0c0e
-#define ifcIDbOOKStELL_max     0xdddd0c0f                                                               
+#define ifcIDbOOKStELL_min     0xdddd0c0f
+#define ifcIDbOOKStELL_max     0xdddd0c10                                                               
 
 
 //
@@ -5304,8 +5213,8 @@ after i return, that countT object will contain 1
 #define TELLaPPc3LIFI(idTypeP,pbP,cbP,idLineP,idiFileP)                                                                 \
                                                                                                                         \
     {                                                                                                                   \
-        byteT pbZombie[ sizeof( tellS ) + cbP ] ;                                                                       \
-        tellC tell( tinP , idLineP , idiFileP , 0 , idTypeP , pbP , cbP , pbZombie , sizeof pbZombie ) ;                \
+        byteT pbZombie[ sizeof( tellS ) + (cbP) ] ;                                                                     \
+        tellC tell( tinP , (idLineP) , (idiFileP) , 0 , (idTypeP) , (pbP) , (cbP) , pbZombie , sizeof pbZombie ) ;      \
         thirdC::dosTellMonitorIF( tinP , tell , ifcIDbOOKStELL_APP ) ;                                                  \
     }
 
@@ -5372,10 +5281,9 @@ after i return, that countT object will contain 1
 /*1*//*flTHREADmODE4*//*1*/
 
 /*3*/
-#define flTHREADmODE4_INoUTfRAMErEGISTERcALLnEST                                        0xe0000110
-#define flTHREADmODE4_INoUTfRAMEdEFERwRITINGaPPtELEMETRY                                0xe0000210
-#define flTHREADmODE4_INoUTfRAMEdOnOTcOLLECTaPPtELEMETRY                                0xe0000410
-#define flTHREADmODE4_DOnOTfLUSHpENDING                                                 0xe0000810
+#define flTHREADmODE4_INoUTfRAMEdEFERwRITINGaPPtELEMETRY                                0xe0000110
+#define flTHREADmODE4_INoUTfRAMEdOnOTcOLLECTaPPtELEMETRY                                0xe0000210
+#define flTHREADmODE4_DOnOTfLUSHpENDING                                                 0xe0000410
 /*3*/
 #define flTHREADmODE4_null    0xe0000010
 
@@ -5668,6 +5576,107 @@ after i return, that countT object will contain 1
 //
 
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200588.conoutcallnestsafe END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200589._io1_ BEGIN
+
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+/*
+\<A HREF=\"5.00100c7.1.0.html\"\>definition\</A\>
+it is illegal to refer to this symbol in the definition of an adam
+*/
+/**/
+/*1*//*_IO1_(idP)*//*1*/
+
+//FOR PRODUCTION, USE "!defined" IN THE NEXT LINE, TO AVOID OVERHEAD OF CT/DT inOutFrameC
+
+//20141212@0943: ENABLED FULL INOUT TRACING FOR INITIAL RELEASE OF IPDOS BUNDLE AS CLOUDFILE ADMINISTRATION TOOL
+
+//20160523@2009: DISABLED TO GET MOST RAPID EXECUTION TO COLLECT FAILURE HISTORY FOR SERVER
+//20160525@0921: ENABLED TO MAXIMIZE GLASS WALLS
+//20201008@1520: DISABLED TO INVESTIGATE SLOOOOW EXECUTION
+
+#if defined( NEVERdEFINED )
+
+    #define _IO1_(idP)
+
+#else
+
+    #define _IO1_(idP) inOutFrameC _inOutFrame##idP( tinP , LF , IDFILE , BiFCcLASS ) ;
+
+#endif
+
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200589._io1_ END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.1120058a.CmAXpENDINGiNoUTfRAMEpACKETS BEGIN
+
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+/*
+*/
+/**/
+/*1*//*CmAXpENDINGiNoUTfRAMEpACKETS*//*1*/
+
+//20201120@1558: TUCK << 2 IS TOO SMALL -> TUCK << 3
+
+#define CmAXpENDINGiNoUTfRAMEpACKETS ( TUCK << 3 )
+
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.1120058a.CmAXpENDINGiNoUTfRAMEpACKETS END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.1120058b.CBhEAP BEGIN
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+/*
+*/
+/**/
+/*1*//*CBhEAP*//*1*/
+
+
+//20200525@1250: HALVED TO "TICK >> 1" WITHOUT ANALYSIS (OCCASIONALLY HALVE THIS UNTIL SEE A FAILURE)
+//20201120@1507: DOUBLED TO "TICK >> 0" BECAUSE AM NOW ALLOCATING A LARGE BUFFER FOR EACH THREAD
+
+#define CBhEAP ( TICK >> 0 )
+
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.1120058b.CBhEAP END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.thirdParties : 1snip.15000014.thirdparties BEGIN
 
 
@@ -17318,7 +17327,7 @@ examples
 
 /*1*/class _export heapC/*1*/
 {
-    byteT   pbHeap[ TICK >> 1 ] ;   //20200525@1250: HALVED TO "TICK >> 1" WITHOUT ANALYSIS (OCCASIONALLY HALVE THIS UNTIL SEE A FAILURE)
+    byteT   pbHeap[ CBhEAP ] ;
     grabitC grabMe ;
     countT  cNew ;
     countT  cDel ;
@@ -27020,6 +27029,7 @@ code may use setIfZeAM on *(countT*)this
     osTextT             postIdHomeGlobal[ COSTiDhOMEgLOBALmAX + 1 ] ;
     countT              idStepSoil ;
     countT              pcTallyIn[ CCtALLYiN ] ;
+    osTextT             postHome[ 0x1a ] ;              // "d:\ideafarm.home.12345678"
 
     NEWdELcLASSpROTOS
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34001.homeS.NEWdELcLASSb!||
@@ -27544,187 +27554,186 @@ it is illegal to modify any member other than pc Utility in the definition of an
 /**/
 
 /* face 1 */
- countT         /*o  0*/ fingerprint ; // MUST BE CONTIGUOUS AND AT THE BEGINNING OF ME SO THAT MONITOR CAN READ THIS PAIR EFFICIENTLY
- countT         /*o  4*/ idSerial ;    // MUST BE CONTIGUOUS AND AT THE BEGINNING OF ME SO THAT MONITOR CAN READ THIS PAIR EFFICIENTLY
- topC                    top_pTinMainI_ ;
+ countT         /*o  0*/  fingerprint ; // MUST BE CONTIGUOUS AND AT THE BEGINNING OF ME SO THAT MONITOR CAN READ THIS PAIR EFFICIENTLY
+ countT         /*o  4*/  idSerial ;    // MUST BE CONTIGUOUS AND AT THE BEGINNING OF ME SO THAT MONITOR CAN READ THIS PAIR EFFICIENTLY
+ topC                     top_pTinMainI_ ;
 
  private :
 
- poopC                  poop ; //MUST BE CT EARLY, BEFORE POOP MACRO IS INVOKED DURING tinS CONSTRUCTION
+ poopC                   poop ; //MUST BE CT EARLY, BEFORE POOP MACRO IS INVOKED DURING tinS CONSTRUCTION
 
  public :
 
- const poopC*           pPoop ; //INITIALIZED TO &poop BEFORE poop IS CONSTRUCTED (THIS IS OK)
+ const poopC*            pPoop ; //INITIALIZED TO &poop BEFORE poop IS CONSTRUCTED (THIS IS OK)
 
 
 /* face 2 */
- scoopC*                pScoopEtThread ;
- scoopC*                pScoops ;
+ scoopC*                 pScoopEtThread ;
+ scoopC*                 pScoops ;
 
-                        #define CBtINpREFIX ( 2 * sizeof( countT ) + sizeof( topC ) + sizeof( poopC ) + sizeof( poopC* ) + 2 * sizeof( scoopC* ) )
-                        //CODEsYNCH: 003002a 12f0002 12f0006
-                        //END OF PREFIX: MEMBERS BEFORE THIS LINE ARE NOT SLOSHED (FROM/TO pTinOld)
+                         #define CBtINpREFIX ( 2 * sizeof( countT ) + sizeof( topC ) + sizeof( poopC ) + sizeof( poopC* ) + 2 * sizeof( scoopC* ) )
+                         //CODEsYNCH: 003002a 12f0002 12f0006
+                         //END OF PREFIX: MEMBERS BEFORE THIS LINE ARE NOT SLOSHED (FROM/TO pTinOld)
 
  private :
 
- countT                 idDesire ;              //MUST BE EARLY BECAUSE dosPriorityIF CAN BE (WHEN DEBUGGING) CALLED IN inOutFrameC CT/DT, AND BEFORE ANY SUCH CALLS idDesire MUST BE INITIALIZED
- countT                 idDesireProcess ;
+ countT                  idDesire ;              //MUST BE EARLY BECAUSE dosPriorityIF CAN BE (WHEN DEBUGGING) CALLED IN inOutFrameC CT/DT, AND BEFORE ANY SUCH CALLS idDesire MUST BE INITIALIZED
+ countT                  idDesireProcess ;
 
  public :
 
- countT                 cTellsWriteInOutTelemetry ;
- count04T               cCpuCyclesWriteInOutTelemetry ;
- inOutFrameC*           pInOutFrame ;                       //THIS AND POSSIBLY ITS ACCOMPANYING MEMBERS MUST BE EARLY SINCE _IO_ IS USED DURING CT OF tinS
- count04T               cCpuCycles2Or5Lath ;
+ countT                  cTellsWriteInOutTelemetry ;
+ count04T                cCpuCyclesWriteInOutTelemetry ;
+ inOutFrameC*            pInOutFrame ;                       //THIS AND POSSIBLY ITS ACCOMPANYING MEMBERS MUST BE EARLY SINCE _IO_ IS USED DURING CT OF tinS
+ count04T                cCpuCycles2Or5Lath ;
  byteT*                  pbPendingInOutFramePackets ;
- etherC*       /*o  8*/ pEther ;       // USED IF !0.              FOR USE BY STATIC thirdC FUNCTIONS, GLOBAL FUNCTIONS, AND OBJECTS SUCH AS strokeS THAT DO NOT CARRY THEIR OWN REFERENCES.  ADDED LATE.
- countT        /*o 01*/ osTid ;   // MUST BE AFTER pEther.  
- countT        /*o 41*/ osPid ;   // MUST BE AFTER pEther. OFFSET IS HARDCODED IN 0d0000c.grabSleepF
- adamGlobal1S*          pAdamGlobal1 ;
- adamGlobal2S*          pAdamGlobal2 ;
- adamGlobal3S*          pAdamGlobal3 ;
- adamGlobal4S*          pAdamGlobal4 ;
- adamGlobal5S*          pAdamGlobal5 ;
- adamGlobal6S*          pAdamGlobal6 ;
- countT                 time1 ;
- sCountT                time2 ;
- countT                 idiTask ;
- countT                 idlTask ;
- countT                 brcRaw ;
- measure04T             brcm04Raw ;
- boolT                  bosFail ;  // PASS/FAIL RESULT OF LATH BOS CALL
- countT                 brcQuery ; // LATH RETURN VALUE QUERIED BECAUSE bosFail WAS SET ON THIS THREAD
- countT                 brcLath ;  // LATH NONZE RETURN CODE FROM A BOS (BASE OPERATING SYSTEM, E.G. WIN32) CALL ON THIS THREAD
- countT                 idLine_brcLath ;
- countT                 idiFile_brcLath ;
- countT                 idBlammo ;
- countT                 pcUtility[ CCuTILITY ] ;
- count04T               pcUtility04[ 4 ] ;
- flagsT                 flagsThreadMode1 ;
- flagsT                 flagsThreadMode2 ;
- flagsT                 flagsThreadMode3 ;
- flagsT                 flagsThreadMode4 ;
- countT                 cKidThreads ;
- monitorS               monitor ;
+ etherC*       /*o  8*/  pEther ;       // USED IF !0.              FOR USE BY STATIC thirdC FUNCTIONS, GLOBAL FUNCTIONS, AND OBJECTS SUCH AS strokeS THAT DO NOT CARRY THEIR OWN REFERENCES.  ADDED LATE.
+ countT        /*o 01*/  osTid ;   // MUST BE AFTER pEther.  
+ countT        /*o 41*/  osPid ;   // MUST BE AFTER pEther. OFFSET IS HARDCODED IN 0d0000c.grabSleepF
+ adamGlobal1S*           pAdamGlobal1 ;
+ adamGlobal2S*           pAdamGlobal2 ;
+ adamGlobal3S*           pAdamGlobal3 ;
+ adamGlobal4S*           pAdamGlobal4 ;
+ adamGlobal5S*           pAdamGlobal5 ;
+ adamGlobal6S*           pAdamGlobal6 ;
+ countT                  time1 ;
+ sCountT                 time2 ;
+ countT                  idiTask ;
+ countT                  idlTask ;
+ countT                  brcRaw ;
+ measure04T              brcm04Raw ;
+ boolT                   bosFail ;  // PASS/FAIL RESULT OF LATH BOS CALL
+ countT                  brcQuery ; // LATH RETURN VALUE QUERIED BECAUSE bosFail WAS SET ON THIS THREAD
+ countT                  brcLath ;  // LATH NONZE RETURN CODE FROM A BOS (BASE OPERATING SYSTEM, E.G. WIN32) CALL ON THIS THREAD
+ countT                  idLine_brcLath ;
+ countT                  idiFile_brcLath ;
+ countT                  idBlammo ;
+ countT                  pcUtility[ CCuTILITY ] ;
+ count04T                pcUtility04[ 4 ] ;
+ flagsT                  flagsThreadMode1 ;
+ flagsT                  flagsThreadMode2 ;
+ flagsT                  flagsThreadMode3 ;
+ flagsT                  flagsThreadMode4 ;
+ countT                  cKidThreads ;
+ monitorS                monitor ;
 
-                        //CS:CODEsYNC: 003004f 003002a
- flagsT                 pFlagsThreadLevelMode[ 1 + OFFsLOTtINnESTmAX ] ;
- countT                 pLFstep[ ( 1 + OFFsLOTtINsTEPmAX ) << 1 ] ;
- countT                 pIdInNest[     1 + OFFsLOTtINnESTmAX ] ;
- countT                 pEIPInNest[     1 + OFFsLOTtINnESTmAX ] ;
- countT                 pIdProgressNest[ 1 + OFFsLOTtINnESTmAX ] ;
+                         //CS:CODEsYNC: 003004f 003002a
+ flagsT                  pFlagsThreadLevelMode[ 1 + OFFsLOTtINnESTmAX ] ;
+ countT                  pLFstep[ ( 1 + OFFsLOTtINsTEPmAX ) << 1 ] ;
+ countT                  pIdInNest[     1 + OFFsLOTtINnESTmAX ] ;
+ countT                  pEIPInNest[     1 + OFFsLOTtINnESTmAX ] ;
+ countT                  pIdProgressNest[ 1 + OFFsLOTtINnESTmAX ] ;
 
-                        //CODEsYNC: 2e40104 003002a
- countT                 cRain ;
- countT                 cManna ;
- countT                 idPhase1 ; //THIS IS ADJACENT TO pLFnest SO THAT MONITOR CAN GET BOTH WITH A SINGLE MEMORY READ
- countT                 idPhase2 ; //THIS IS ADJACENT TO pLFnest SO THAT MONITOR CAN GET BOTH WITH A SINGLE MEMORY READ
- countT                 idPhase3 ; //THIS IS ADJACENT TO pLFnest SO THAT MONITOR CAN GET BOTH WITH A SINGLE MEMORY READ
+                         //CODEsYNC: 2e40104 003002a
+ countT                  cRain ;
+ countT                  cManna ;
+ countT                  idPhase1 ; //THIS IS ADJACENT TO pLFnest SO THAT MONITOR CAN GET BOTH WITH A SINGLE MEMORY READ
+ countT                  idPhase2 ; //THIS IS ADJACENT TO pLFnest SO THAT MONITOR CAN GET BOTH WITH A SINGLE MEMORY READ
+ countT                  idPhase3 ; //THIS IS ADJACENT TO pLFnest SO THAT MONITOR CAN GET BOTH WITH A SINGLE MEMORY READ
 
- osTextT                postPad1[ sizeof( countT ) - 1 ] ;
- osTextT                postTell[ COSTmAXtELL + 1 ] ;
- osTextT                postTellWait[ COSTmAXtELL + 1 ] ;
- osTextT                postTellIf[ COSTmAXtELL + 1 ] ;
- osTextT                postThreadName[ COSTmAXtHREADnAME + 1 ] ;
- osTextT                postPad2[ sizeof( countT ) - 1 ] ;
- count4S                c4Tell ;
- tinTallyS              tally ;
- strokeModeS            strokeMode ;
- const countT*          pcQuit ;
- countT                 msSleepWhenGrabbing ;
- countT                 pPanLifiRecurseGrabbedLevel[ ( 1 + OFFgRABBEDmAX ) * 5 ] ; // [pandle,idLineGrab,idiFileGrab,cRecurse,idGrabLevel]  (A PANDLE IS A POINTER THAT IS BEING USED AS A HANDLE)
- zapC                   zap_pPanLifiRecurseGrabbedLevel_ ;
- countT                 cGrabitC_set ;
- countT                 cGrabitC_reset ;
- countT                 cGrabitC_registered ;
- countT                 cGrabitC_unregistered ;
+ osTextT                 postPad1[ sizeof( countT ) - 1 ] ;
+ osTextT                 postTell[ COSTmAXtELL + 1 ] ;
+ osTextT                 postTellWait[ COSTmAXtELL + 1 ] ;
+ osTextT                 postTellIf[ COSTmAXtELL + 1 ] ;
+ osTextT                 postThreadName[ COSTmAXtHREADnAME + 1 ] ;
+ osTextT                 postPad2[ sizeof( countT ) - 1 ] ;
+ count4S                 c4Tell ;
+ tinTallyS               tally ;
+ strokeModeS             strokeMode ;
+ const countT*           pcQuit ;
+ countT                  msSleepWhenGrabbing ;
+ countT                  pPanLifiRecurseGrabbedLevel[ ( 1 + OFFgRABBEDmAX ) * 5 ] ; // [pandle,idLineGrab,idiFileGrab,cRecurse,idGrabLevel]  (A PANDLE IS A POINTER THAT IS BEING USED AS A HANDLE)
+ zapC                    zap_pPanLifiRecurseGrabbedLevel_ ;
+ countT                  cGrabitC_set ;
+ countT                  cGrabitC_reset ;
+ countT                  cGrabitC_registered ;
+ countT                  cGrabitC_unregistered ;
 
- etherC*                pEtText ;       // USED IF !0
- etherC*                pEtScratch ;
- restartC*              pRestart ;
- ranUniC                ranUni ;
- countT                 cYield ;
- countT                 idLineMile ;
- countT                 idiFileMile ;
- countT                 idLineMileDad ;
- countT                 idiFileMileDad ;
- osTextT*               postRptExceptionLath ;
- tellInfoSysExceptionS*    pTieLath ;
- const countT*          pczl_pSwsRecycle ;
- switchStackC*          pSwsRecycle ;
- countT                 odoSockCbRead  ;
- countT                 odoSockCbWrite ;
- poolC*                 pPoolUse ;
- adamC*                 pAdam ;
- book0C*                pBk0TelemetrySysScratch ;
- book0C*                pBk0TelemetryAppScratch ;
- book0C*                pBk0TraceScratch ;
- tinArgS                ta ;
- const byteT*           ppbNewUntagged[ CmAXuNTAGGED ] ;
- countT                 pcLevelUntagged[ CmAXuNTAGGED ] ;
- cleanC*                pClean ;
- const byteT*           ppbGrabitRecurse[ CmAXgRABITrECURSEiNtINs ] ;
- countT                 pcGrabitOsTid[    CmAXgRABITrECURSEiNtINs ] ;
- countT                 pcGrabitRecurse[  CmAXgRABITrECURSEiNtINs ] ;
-
+ etherC*                 pEtText ;       // USED IF !0
+ etherC*                 pEtScratch ;
+ restartC*               pRestart ;
+ ranUniC                 ranUni ;
+ countT                  cYield ;
+ countT                  idLineMile ;
+ countT                  idiFileMile ;
+ countT                  idLineMileDad ;
+ countT                  idiFileMileDad ;
+ osTextT*                postRptExceptionLath ;
+ tellInfoSysExceptionS*  pTieLath ;
+ const countT*           pczl_pSwsRecycle ;
+ switchStackC*           pSwsRecycle ;
+ countT                  odoSockCbRead  ;
+ countT                  odoSockCbWrite ;
+ poolC*                  pPoolUse ;
+ adamC*                  pAdam ;
+ book0C*                 pBk0TelemetrySysScratch ;
+ book0C*                 pBk0TelemetryAppScratch ;
+ book0C*                 pBk0TraceScratch ;
+ tinArgS                 ta ;
+ const byteT*            ppbNewUntagged[ CmAXuNTAGGED ] ;
+ countT                  pcLevelUntagged[ CmAXuNTAGGED ] ;
+ cleanC*                 pClean ;
+ const byteT*            ppbGrabitRecurse[ CmAXgRABITrECURSEiNtINs ] ;
+ countT                  pcGrabitOsTid[    CmAXgRABITrECURSEiNtINs ] ;
+ countT                  pcGrabitRecurse[  CmAXgRABITrECURSEiNtINs ] ;
 
  private :
 
- byteT* const           pbTls ; //MUST BE BEFORE grabC OBJECTS AND OTHERS WHOSE CONSTRUCTORS CALL TAG OR TAGoR MACROS; THIS STORAGE IS NOT INITIALIZED
- const countT           cbTls ; //MUST BE BEFORE grabC OBJECTS AND OTHERS WHOSE CONSTRUCTORS CALL TAG OR TAGoR MACROS
+ byteT* const            pbTls ; //MUST BE BEFORE grabC OBJECTS AND OTHERS WHOSE CONSTRUCTORS CALL TAG OR TAGoR MACROS; THIS STORAGE IS NOT INITIALIZED
+ const countT            cbTls ; //MUST BE BEFORE grabC OBJECTS AND OTHERS WHOSE CONSTRUCTORS CALL TAG OR TAGoR MACROS
  public :
- countT*                pcExitsWhere ; //EXISTS SO CODE IN ADAM DEF CAN SEE THIS GLOBALS ARRAY
- countT                 ccExitsWhere ; //EXISTS SO CODE IN ADAM DEF CAN SEE THIS GLOBALS ARRAY
- countT                 cArmTrace_soulC ; //APP CODE CAN SET THIS: 0:DISARMED; -1:traceF WILL BE CALLED FOR ALL SUBSEQUENT soulC NEW'D OR RETRIEVED FROM RECYCLING; N:COUNTDOWN TO THE NEW/RETRIEVED INSTANCE TO CALL traceF FOR
- flagsT                 flagsTrace_soulC ; //FLAGS MUST INCLUDE flTRACEsOULc_ON AND MUST NOT SPECIFY flTRACEsOULc_PURGE
- countT                 cTls ;
+ countT*                 pcExitsWhere ; //EXISTS SO CODE IN ADAM DEF CAN SEE THIS GLOBALS ARRAY
+ countT                  ccExitsWhere ; //EXISTS SO CODE IN ADAM DEF CAN SEE THIS GLOBALS ARRAY
+ countT                  cArmTrace_soulC ; //APP CODE CAN SET THIS: 0:DISARMED; -1:traceF WILL BE CALLED FOR ALL SUBSEQUENT soulC NEW'D OR RETRIEVED FROM RECYCLING; N:COUNTDOWN TO THE NEW/RETRIEVED INSTANCE TO CALL traceF FOR
+ flagsT                  flagsTrace_soulC ; //FLAGS MUST INCLUDE flTRACEsOULc_ON AND MUST NOT SPECIFY flTRACEsOULc_PURGE
+ countT                  cTls ;
 
  public :
 
- countT*                pcWatchedByInOut ;
- countT                 valueExpectedByInOut ;
- timeS                  timeTraceWoth ;
- timeS                  timeTraceLath ;
- countT                 cPoolDropCt ;
- countT                 cPoolDropDt ;
- flagsT                 fliSexCtPendingExpCbSlot ;
- flagsT                 fliSexCtPendingExpSlots ;
- barryC*                pBarryUtility ;                     // NOT REFERENCED BY tinS OR BY IPDOS SYSTEM CODE ; AVAILABLE FOR USE BY APPLICATION CODE
- sexC*                  pSexLifoConstructing ;              // USED BY sexC TO DETECT RECURSIVE CYCLING DURING CT
- byteT*                 pbRecursiveParameters ;             // PROTOCOL: (1) CODE MUST VERIFY THAT THIS IS NULL BEFORE SETTING IT.  (2) THE CODE THAT SETS THIS MUST ALSO RESET IT SO THAT OTHER CODE CAN USE IT.  USE THIS TO PASS PARAMETERS RECURSIVELY TO AVOID USING THE THREAD STACK
- boolT                  bSuppressInOutTrace ;               // INCREMENTED WHEN CALL trace WITHIN inOutFrameC::*inOutFrameC
- countT                 cSpins1 ;
- countT                 cSpins2 ;
- countT                 cSpins3 ;
- countT                 cSpins4 ;
- bookMarkS              pBookMark[ TUCK ] ;    // USED BY pageC TO REGISTER A PENDING SMART POINTER ; INCREASE THE NUMBER OF ELEMENTS TO SUPPORT MORE SIMULTANEOUS pageC INSTANCES; 20180606: 01->TUCK WITHOUT ANALYSIS TO WORK AROUND PRODUCTION EXHAUSTION
+ countT*                 pcWatchedByInOut ;
+ countT                  valueExpectedByInOut ;
+ timeS                   timeTraceWoth ;
+ timeS                   timeTraceLath ;
+ countT                  cPoolDropCt ;
+ countT                  cPoolDropDt ;
+ flagsT                  fliSexCtPendingExpCbSlot ;
+ flagsT                  fliSexCtPendingExpSlots ;
+ barryC*                 pBarryUtility ;                     // NOT REFERENCED BY tinS OR BY IPDOS SYSTEM CODE ; AVAILABLE FOR USE BY APPLICATION CODE
+ sexC*                   pSexLifoConstructing ;              // USED BY sexC TO DETECT RECURSIVE CYCLING DURING CT
+ byteT*                  pbRecursiveParameters ;             // PROTOCOL: (1) CODE MUST VERIFY THAT THIS IS NULL BEFORE SETTING IT.  (2) THE CODE THAT SETS THIS MUST ALSO RESET IT SO THAT OTHER CODE CAN USE IT.  USE THIS TO PASS PARAMETERS RECURSIVELY TO AVOID USING THE THREAD STACK
+ boolT                   bSuppressInOutTrace ;               // INCREMENTED WHEN CALL trace WITHIN inOutFrameC::*inOutFrameC
+ countT                  cSpins1 ;
+ countT                  cSpins2 ;
+ countT                  cSpins3 ;
+ countT                  cSpins4 ;
+ bookMarkS               pBookMark[ TUCK ] ;    // USED BY pageC TO REGISTER A PENDING SMART POINTER ; INCREASE THE NUMBER OF ELEMENTS TO SUPPORT MORE SIMULTANEOUS pageC INSTANCES; 20180606: 01->TUCK WITHOUT ANALYSIS TO WORK AROUND PRODUCTION EXHAUSTION
 
  //ASSUME: FIELDS BEFORE HERE CAN BE COPIED AND RESET (SEE THE CT/DT OF processGlobal4I.tinVeryEarlyLateMain AND THE MAIN THREAD'S tinS, IN POOLoLD)
  /* suffix begin (not sloshed (copied) from tinS to tinS) */
 
- jotC*                  ppJot[ CsLOTSjOTrEGISTRY ] ;        /*J*/      // THIS IS HERE SO THAT flTHREADlAUNCH_INHERITjOTrEGISTRATIONS CAN BE SUPPORTED
+ jotC*                   ppJot[ CsLOTSjOTrEGISTRY ] ;        /*J*/      // THIS IS HERE SO THAT flTHREADlAUNCH_INHERITjOTrEGISTRATIONS CAN BE SUPPORTED
 
- const countT           idTin ;                             /*C*/
- const countT           idTinNamed ;                        /*C*/
+ const countT            idTin ;                             /*C*/
+ const countT            idTinNamed ;                        /*C*/
 
  private :
 
- tinS* const            pTinOld ;                           /*B*/
- grabC                  grabPseudo   ;                      /*A*/       // MUST BE CONSTRUCTED LATE ENOUGH THAT I CAN BE USED TO REGISTER IT WITH THE MONITOR 6a40104; I AM USED TO INFORM THE MONITOR THAT THE THREAD IS IN A SLEEP LOOP OR IS OTHERWISE STOPPED (E.G. IS IN A BLOCKING OS CALL)
- // countT              cGrab_pTinKid ;                     /*C*/
- // countT              idDesire_cGrab_pTinKid ;            /*C*/
- // tinS* const         pTinDad ;                           /*B*/
- // tinS*               pTinBro ;                           /*B*/
- // tinS*               pTinKid ;                           /*B*/
- // tinS*               ppTinKid[ ClOWtHREADS ] ;           /*B*/ //U::TEMPORARY, TO DEBUG PROBLEM WITH pTinKid pTinBro LIST
+ tinS* const             pTinOld ;                           /*B*/
+ grabC                   grabPseudo   ;                      /*A*/       // MUST BE CONSTRUCTED LATE ENOUGH THAT I CAN BE USED TO REGISTER IT WITH THE MONITOR 6a40104; I AM USED TO INFORM THE MONITOR THAT THE THREAD IS IN A SLEEP LOOP OR IS OTHERWISE STOPPED (E.G. IS IN A BLOCKING OS CALL)
+ // countT               cGrab_pTinKid ;                     /*C*/
+ // countT               idDesire_cGrab_pTinKid ;            /*C*/
+ // tinS* const          pTinDad ;                           /*B*/
+ // tinS*                pTinBro ;                           /*B*/
+ // tinS*                pTinKid ;                           /*B*/
+ // tinS*                ppTinKid[ ClOWtHREADS ] ;           /*B*/ //U::TEMPORARY, TO DEBUG PROBLEM WITH pTinKid pTinBro LIST
 
  public :
 
- flagsT                 flags ;                             /*D*/
- const countT           idLineCt ;                          /*C*/
- const countT           idiFileCt ;                         /*C*/
- const byteT            pbBitsCt[ CBbITScT ] ;              /*E*/
- signC*                 pSgnUtility ;                       /*F*/
+ flagsT                  flags ;                             /*D*/
+ const countT            idLineCt ;                          /*C*/
+ const countT            idiFileCt ;                         /*C*/
+ const byteT             pbBitsCt[ CBbITScT ] ;              /*E*/
+ signC*                  pSgnUtility ;                       /*F*/
  /* suffix end (not sloshed (copied) from tinS to tinS) */
 
  #define CBtINsUFFIX ( /*J*/ sizeof ppJot + /*A*/1 * sizeof( grabC ) + /*B*/( 1 /*+ 3 + ClOWtHREADS*/ ) * sizeof( tinS* ) + /*C*/4 * sizeof( countT ) + /*D*/sizeof( flagsT ) + /*E*/CBbITScT + /*F*/sizeof( signC* ) )
@@ -27768,6 +27777,7 @@ it is illegal to modify any member other than pc Utility in the definition of an
  voidT unwatchedF( voidT ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34013.tinS.unwatchedF!||
  voidT flushPendingInOutFrameTelemetryIfF( voidT ) ;
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.36024014.tins.flushPendingInOutFrameTelemetryIfF!||
 
 /*tls*/
  byteT* tlsNewF( const countT cbP , const osTextT* const postNameP = 0 , const osTextT* const postGroupP = 0 ) ;
@@ -33911,10 +33921,10 @@ ipMe is used to support synchronicity
 /*1*/class _export tellC /*1*/
 {
 /**/
-    byteT*          pbData ;
-    const boolT     bUseHeap ;
-    const  countT   ebp ;
-    tinS*           pTin ; //FOR MY DESTRUCTOR
+    byteT*       pbData ;
+    const boolT  bUseHeap ;
+    const countT ebp ;
+    tinS*        pTin ; //FOR MY DESTRUCTOR
 
     public :
 
@@ -44153,6 +44163,17 @@ VARIABLEcLASSdEF( countC , countT )
 
 
 //
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.tellInfoAppInOutFrameS : 1snip.15000188.tellinfoappinoutframes END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.tellInfoAppInOutFrameTinDtS : 1snip.15000189.tellInfoAppInOutFrameTinDtS BEGIN
+
+
+//
 // Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
 // This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
@@ -44179,15 +44200,7 @@ VARIABLEcLASSdEF( countC , countT )
 // Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
 
-
-//
-// Respecting the rights of other people is an important part of empowering one another.
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.tellInfoAppInOutFrameS : 1snip.15000188.tellinfoappinoutframes END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.tellInfoAppInOutFrameTinDtS : 1snip.15000189.tellInfoAppInOutFrameTinDtS END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.inOutFrameAuditS : 1snip.1500018a.inOutFrameAuditS BEGIN
 
 
