@@ -17263,7 +17263,7 @@ examples
     countT       idDesire ;
     const countT msNap ;
 
-    voidT ctCheckF( voidT ) ;
+    //voidT ctCheckF( voidT ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34010.grabitC.ctCheckF!||
 
     public :

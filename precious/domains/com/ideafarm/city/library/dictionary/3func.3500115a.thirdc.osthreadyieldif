@@ -9,8 +9,8 @@
 
 }
     //OSsLEEPf( 250 ) ; //U:: ms -> 250 TO FIND A BUG
-    //Sleep( ms ) ;   // THIS LINE IS THE ONLY LINE ALLOWED TO CALL Sleep EXPLICITLY (I.E. NOT USING THE MACRO OSsLEEPf)
-    Sleep( 0 ) ;   // U:: TO FIND A BUG
+    Sleep( ms ) ;   // THIS LINE IS THE ONLY LINE ALLOWED TO CALL Sleep EXPLICITLY (I.E. NOT USING THE MACRO OSsLEEPf)
+    //Sleep( 0 ) ;   //TO FIND A BUG
 
     //etherC::etRockIF( tinP ).traceF( tinP , (strokeS*)(const osTextT*)ostoSay2 , flTRACE_PARAMETERiSoStEXT ) ;
     //OStEXTC(  ostoSay2 , tinP.pAdamGlobal1->cSpins4 , '0' ) ;
@@ -35,35 +35,35 @@
     //OStEXTAK( ostoSay2 , "yield after  local global [idAdam,cYieldHighWater,l.cSpins1,l.cSpins2,l.cSpins3,l.cSpins4,g.cSpins1,g.cSpins2,g.cSpins3,g.cSpins4]:    " ) ;
     //OStEXT(   ostoSay2 , TUCK ) ;
 
-    //U::J: }
-    //U::J:     }
-    //U::J:         }
-    //U::J:             }
-    //U::J:                 else              LOGrAW( "\r\nWARNING: osThreadYieldIF: global spin overflow\r\n") ;
-    //U::J:                 if( tinP.pEther ) etherC::etRockIF( tinP ).traceF( tinP , T("osThreadYieldIF: global spin overflow") ) ;
-    //U::J:             {
-    //U::J:             if( !( 1 + incv02AM( tinP.pAdamGlobal1->cSpins4 ) ) )
-    //U::J:         {
-    //U::J:         if( !( 1 + incv02AM( tinP.pAdamGlobal1->cSpins3 ) ) )
-    //U::J:     {
-    //U::J:     if( !( 1 + incv02AM( tinP.pAdamGlobal1->cSpins2 ) ) )
-    //U::J: {
-    //U::J: if( !( 1 + incv02AM( tinP.pAdamGlobal1->cSpins1 ) ) )
+    }
+        }
+            }
+                }
+                    else              LOGrAW( "\r\nWARNING: osThreadYieldIF: global spin overflow\r\n") ;
+                    if( tinP.pEther ) etherC::etRockIF( tinP ).traceF( tinP , T("osThreadYieldIF: global spin overflow") ) ;
+                {
+                if( !( 1 + incv02AM( tinP.pAdamGlobal1->cSpins4 ) ) )
+            {
+            if( !( 1 + incv02AM( tinP.pAdamGlobal1->cSpins3 ) ) )
+        {
+        if( !( 1 + incv02AM( tinP.pAdamGlobal1->cSpins2 ) ) )
+    {
+    if( !( 1 + incv02AM( tinP.pAdamGlobal1->cSpins1 ) ) )
 
-    //U::J: }
-    //U::J:     }
-    //U::J:         }
-    //U::J:             }
-    //U::J:                 else              LOGrAW( "\r\nWARNING: osThreadYieldIF: thread spin overflow\r\n") ;
-    //U::J:                 if( tinP.pEther ) etherC::etRockIF( tinP ).traceF( tinP , T("osThreadYieldIF: thread spin overflow") ) ;
-    //U::J:             {
-    //U::J:             if( !( ++ tinP.cSpins4 ) )
-    //U::J:         {
-    //U::J:         if( !( ++ tinP.cSpins3 ) )
-    //U::J:     {
-    //U::J:     if( !( ++ tinP.cSpins2 ) )
-    //U::J: {
-    //U::J: if( !( ++ tinP.cSpins1 ) )
+    }
+        }
+            }
+                }
+                    else              LOGrAW( "\r\nWARNING: osThreadYieldIF: thread spin overflow\r\n") ;
+                    if( tinP.pEther ) etherC::etRockIF( tinP ).traceF( tinP , T("osThreadYieldIF: thread spin overflow") ) ;
+                {
+                if( !( ++ tinP.cSpins4 ) )
+            {
+            if( !( ++ tinP.cSpins3 ) )
+        {
+        if( !( ++ tinP.cSpins2 ) )
+    {
+    if( !( ++ tinP.cSpins1 ) )
 
     //etherC::etRockIF( tinP ).traceF( tinP , (strokeS*)(const osTextT*)ostoSay1 , flTRACE_PARAMETERiSoStEXT ) ;
     //OStEXTC(  ostoSay1 , tinP.pAdamGlobal1->cSpins4 , '0' ) ;
@@ -89,10 +89,16 @@
     //OStEXT(   ostoSay1 , TUCK ) ;
 
     ;
-        : 250
-        ? 0
-    countT ms = ++ idInLath % ( TUCK >> 4 )
+                : 0                             // USUALLY
+                ? 1                             // SOMETIMES
+            : !( idInLath % 4 )
+            ? 50                                // RARELY
+        : !( ++ idInLath % 0x10 )
+        ? msP                                   // IF OVERRIDE
+    countT ms = msP
     static countT idInLath ;
+
+    //20201121@1823: WAS: 0 EXCEPT 250_9 EVERY 01'TH.  NOW: MORE FREQUENT BUT SHORTER NAPS
 
     // BOSnOvALUE( if( ms ) WHATsn else WHATsy , OS sLEEPf( ms ) )
     // 
@@ -155,6 +161,8 @@
     //20140101@1107: DISABLE THIS TIME BOMB FOR SERVER RELIABILITY: if( - 1 == incv02AM( tinP.pAdamGlobal1->cYieldHighWater ) ) { BLAMMO ; }
 
     if( tinP.idDesire != ifcTHREADpRIORITY_SPINLOCK ) { BLAMMO ; }
+
+    _IO_
 {
 /*1*/voidT thirdC::osThreadYieldIF( tinS& tinP , const countT idLineNoteP , const countT idiFileNoteP , const byteT* const pbBitsNoteP , const countT msP )/*1*/
 

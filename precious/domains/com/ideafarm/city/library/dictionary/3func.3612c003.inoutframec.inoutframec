@@ -198,14 +198,17 @@ idWhat2Save( tinP.monitor.idWhat2 )
 idWhat1Save( tinP.monitor.idWhat1 ) ,
 ) ,
     )
-            : flINoUTfRAMEc_null                              //ENABLE IN PRODUCTION
-            //: flINoUTfRAMEc_DOnOTcOLLECTaPPtELEMETRY        //REMOVE IN PRODUCTION
+                : flINoUTfRAMEc_null                                //TO ENABLE  GENERALLY
+                //: flINoUTfRAMEc_DOnOTcOLLECTaPPtELEMETRY          //TO DISABLE GENERALLY
+                ? flINoUTfRAMEc_null
+            : processGlobal1I.idAdamRoot == ifcIDaDAM_SCRATCH07      //THIS LINE ENABLES TELEMETRY FOR THE NULL ADAM DUT
             ? flINoUTfRAMEc_DOnOTcOLLECTaPPtELEMETRY
+        )
           || processGlobal1I.idAdamRoot == ifcIDaDAM_SCRATCH08      //THIS LINE DISABLES TELEMETRY FOR THE REPORTER
-        //|| !tinP.pcUtility[ 0 ]
           || F(processGlobal1I._thirdC_flagsModeProcess1) & flMODEpROCESS1_INoUTfRAMEdOnOTcOLLECTaPPtELEMETRY
              F(tinP.flagsThreadMode4) & flTHREADmODE4_INoUTfRAMEdOnOTcOLLECTaPPtELEMETRY
-    (
+        (
+    (           // flINoUTfRAMEc_DOnOTcOLLECTaPPtELEMETRY IS ALWAYS SET EXCEPT FOR ifcIDaDAM_SCRATCH08
     |
     )
         : flINoUTfRAMEc_null

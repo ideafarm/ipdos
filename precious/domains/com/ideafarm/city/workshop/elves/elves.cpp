@@ -2301,7 +2301,7 @@ void elf_obey_C::liveF( void )
                     strcat( postCmd , " !idHome 10000008 !noTells" ) ;
                 #endif
 
-                if( bDebug )                   strcat( postCmd , " !debug !noSystemThreads" ) ; //U::!noSystemThreads MAKES IT EASIER TO USE WDW
+                if( bDebug )                  ; //  strcat( postCmd , " !debug !noSystemThreads" ) ; //!noSystemThreads MAKES IT EASIER TO USE WDW
                 else if( bNumaIsAvailableF() ) strcat( postCmd , " !idNumaNode 2" ) ;
 
                 //20160419@1858: KERNELmONITOR REQUIRES SYSTEM THREADS FOR QUIT QUALITY
@@ -2662,6 +2662,7 @@ void elf_obey_C::liveF( void )
                     " file \\ideafarm.home.1\\ephemeral\\domains\\com\\ideafarm\\city\\workshop\\3object\\2*.obj"
                     " file \\ideafarm.home.1\\ephemeral\\domains\\com\\ideafarm\\city\\workshop\\3object\\3*.obj"
                     " library \\ideafarm.home.1\\precious\\domains\\com\\ideafarm\\city\\workshop\\watcom\\lib386\\nt\\shlwapi.lib"
+                    " library \\ideafarm.home.1\\precious\\domains\\com\\ideafarm\\city\\workshop\\watcom\\lib386\\nt\\winmm.lib"
                     " library \\ideafarm.home.1\\precious\\domains\\com\\ideafarm\\city\\workshop\\watcom\\lib386\\nt\\wsock32.lib"
                     " library \\ideafarm.home.1\\precious\\domains\\com\\ideafarm\\city\\workshop\\watcom\\lib386\\nt\\winmm.lib"
                     " library \\ideafarm.home.1\\precious\\domains\\com\\ideafarm\\city\\workshop\\watcom\\lib386\\nt\\advapi32.lib"
@@ -3655,8 +3656,9 @@ void elf_obey_C::compileF( const char* postGroupP , int bPauseP )
 
 
 
-            !strcmp( postGroupP , "36085" ) ||      // scoopC: U:: TO FIND A BUG (20160623@1614: REMOVE THIS IN PRODUCTION AFTER FINDING BUG)
-            !strcmp( postGroupP , "360fb" ) ||      // booksC: U:: TO FIND A BUG (20160623@1614: REMOVE THIS IN PRODUCTION AFTER FINDING BUG)
+            !strcmp( postGroupP , "360e4" ) ||      // grabitC: U:: TO FIND A BUG (20160623@1614: REMOVE THIS IN PRODUCTION AFTER FINDING BUG)
+            !strcmp( postGroupP , "36085" ) ||      // scoopC:  U:: TO FIND A BUG (20160623@1614: REMOVE THIS IN PRODUCTION AFTER FINDING BUG)
+            !strcmp( postGroupP , "360fb" ) ||      // booksC:  U:: TO FIND A BUG (20160623@1614: REMOVE THIS IN PRODUCTION AFTER FINDING BUG)
 
 
 
