@@ -56,6 +56,9 @@ _thirdC_grab_flagsProcessState_( tinVeryVeryEarlyLateMain , TAGnOtIN( TAGiDnULL 
 _grabC_napGrabWant( tinVeryVeryEarlyLateMain , TAGnOtIN( TAGiDnULL ) , "napGrabWant" , 0 , sizeof( grabWantS ) * TOCK , ifcOPENsHAREDmEMORYhOW_nCeO , flNAPKINc_DOnOTsERIALIZEcT ) , //CODEsYNC: 0a00001 0a00001 0a00001 0a00001
 _thirdC_hWindowingClient( tinVeryVeryEarlyLateMain , TAGnOtIN( TAGiDnULL ) , ifcIDtYPEhANDLE_WINDOWINGcLIENT ) ,
 
+
+
+
 bksWords(                                                                                                           tinVeryVeryEarlyLateMain   , TAGnOtIN( TAGiDnULL ) , "bksWords"         , ifcIDsTATEsPACE_MULTIPLEaDAMS , flBOOKSc_DOnOTsERIALIZEnAPKINS | flBOOKSc_WRITER | flBOOKSc_DOnOTuSEpUSE | flBOOKSc_DOnOTrEGISTERfILE | flBOOKSc_USEgRABuNIVERSEoVERRIDE | flBOOKSc_CYCLE                          , TOCK                                       , 0 , 0 , pbBooksNoPuseFootWords         , sizeof pbBooksNoPuseFootWords         ) ,
 bksWord(                                                                                                            tinVeryVeryEarlyLateMain   , TAGnOtIN( TAGiDnULL ) , "bksWord"          , ifcIDsTATEsPACE_MULTIPLEaDAMS , flBOOKSc_DOnOTsERIALIZEnAPKINS | flBOOKSc_WRITER | flBOOKSc_DOnOTuSEpUSE | flBOOKSc_DOnOTrEGISTERfILE | flBOOKSc_USEgRABuNIVERSEoVERRIDE | flBOOKSc_CYCLE                          , TOCK                                       , 0 , 0 , pbBooksNoPuseFootWord          , sizeof pbBooksNoPuseFootWord          ) ,
 bkTraceLoop(                                                                                                        tinVeryVeryEarlyLateMain   , TAGnOtIN( TAGiDnULL ) , "bkTraceLoop"      , ifcIDsTATEsPACE_MULTIPLEaDAMS , flBOOKc_DOnOTsERIALIZEnAPKIN   | flBOOKc_WRITER  | flBOOKc_DOnOTuSEpUSE  | flBOOKc_DOnOTrEGISTERfILE  | flBOOKc_USEgRABuNIVERSEoVERRIDE  | flBOOKc_PRIORbOOKnOTcONTINUEDhERE       , TICK >> 2                                                                                                                   ) ,
@@ -82,6 +85,13 @@ bksTraceHomeEcho(                                                               
 do3( ifcIDdO_ENABLEiNoUTfRAMEaPPtELEMETRY ) ,
 bksTelemetryApp(                                                                                                    tinVeryVeryEarlyLateMain   , TAGnOtIN( TAGiDnULL ) , "bksTelemetryApp"  , ifcIDsTATEsPACE_MULTIPLEaDAMS , flBOOKSc_DOnOTsERIALIZEnAPKINS | flBOOKSc_WRITER | flBOOKSc_DOnOTuSEpUSE | flBOOKSc_DOnOTrEGISTERfILE | flBOOKSc_USEgRABuNIVERSEoVERRIDE /*(SO tmEatTelemetryAppF CAN SERIALIZE)*/ , TICK << 1 /*MUST BE TUCK << 2 OR GREATER*/ , 0 , 0 , pbBooksNoPuseFootTelemetryApp , sizeof pbBooksNoPuseFootTelemetryApp ) ,
 bksTelemetrySys(  ( tinVeryVeryEarlyLateMain.flagsThreadMode4 |= flTHREADmODE4_INoUTfRAMEdEFERwRITINGaPPtELEMETRY , tinVeryVeryEarlyLateMain ) , TAGnOtIN( TAGiDnULL ) , "bksTelemetrySys"  , ifcIDsTATEsPACE_MULTIPLEaDAMS , flBOOKSc_DOnOTsERIALIZEnAPKINS | flBOOKSc_WRITER | flBOOKSc_DOnOTuSEpUSE | flBOOKSc_DOnOTrEGISTERfILE | flBOOKSc_USEgRABuNIVERSEoVERRIDE /*(SO tmEatTelemetrySysF CAN SERIALIZE)*/ , TICK << 1 /*MUST BE TUCK << 2 OR GREATER*/ , 0 , 0 , pbBooksNoPuseFootTelemetrySys , sizeof pbBooksNoPuseFootTelemetrySys ) ,
+
+// THIS PRESUMPTION, EVEN IF TRUE, IS INSUFFICIENT, BECAUSE bookC INSTANCES WILL BE CT'D LATER IN PROCESS LIFE, AND THESE MUST BE SERIALIZED
+// THE CODE WAS WRITTEN PRESUMING THAT PROCESSES WILL LOAD SERIALLY
+// ALL OF THESE booksC INSTANCES ARE CT'D WITH flBOOKSc_DOnOTsERIALIZEnAPKINS BECAUSE grabWantS NAPKIN IS NOT YET CT'D AND WILL BE DT'D BEFORE THESE ARE DT'D
+//202011222@1927:
+
+
 //bksTelemetrySys(     tinVeryVeryEarlyLateMain , TAGnOtIN( TAGiDnULL ) , "bksTelemetrySys"     , ifcIDsTATEsPACE_MULTIPLEaDAMS , flBOOKSc_DOnOTsERIALIZEnAPKINS | flBOOKSc_WRITER | flBOOKSc_DOnOTuSEpUSE | flBOOKSc_DOnOTrEGISTERfILE | flBOOKSc_USEgRABuNIVERSEoVERRIDE /*(SO tmEatTelemetryF CAN SERIALIZE)*/ , TOCK << 1 /*MUST BE TUCK << 2 OR GREATER*/ , 0 , 0 , pbBooksNoPuseFootTelemetry     , sizeof pbBooksNoPuseFootTelemetry     ) ,
 //20161203@0806: DOUBLED SIZE OF bksTelemetrySys (TO FIND A BUG) AND QUARTERED bksTrace (TO CONSERVE ADDRESS SPACE)
 do2( ifcIDdO_SETUPsOCKETS ) ,

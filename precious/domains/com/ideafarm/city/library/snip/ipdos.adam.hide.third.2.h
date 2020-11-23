@@ -26482,6 +26482,7 @@ it is illegal to refer to this symbol in the definition of an adam
  flagsT               flagsState ;
  const handleC* const phFile ;
  osTextT              postName[ COSTnAPKINnAMEmAX + 1 ] ;
+ const countT         idMemorySpace ;                       // CODE DOES NOT USE THIS ; IT IS RETAINED FROM CONSTRUCTION ONLY TO AID DEBUGGING CODE
 
  public :
 
@@ -40240,7 +40241,6 @@ base class to make a derived class of objects easily contained by a stackC objec
 
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.doC : 1snip.15000115.doc END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.processGlobal3S : 1snip.150000e2.processglobal3s BEGIN
-
 
 //
 // Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.

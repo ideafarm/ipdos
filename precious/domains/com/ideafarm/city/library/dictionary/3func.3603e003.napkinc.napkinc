@@ -367,10 +367,12 @@
                 OStEXTAK( ostoSay , "\r\n" ) ;
                 OStEXTA(  ostoSay , postName ) ;
                 OStEXTAK( ostoSay , "    " ) ;
+                OStEXTC(  ostoSay , idMemorySpaceP ? idMemorySpaceP : tinP.pAdamGlobal1->idMemorySpace , '0' ) ;
+                OStEXTAK( ostoSay , "    " ) ;
                 OStEXTC(  ostoSay , tinP.pAdamGlobal1->idAdam , '0' ) ;
                 OStEXTAK( ostoSay , "    " ) ;
                 OStEXTC(  ostoSay , ((napkinHeaderS*)pbNapkin)->cRef , '0' ) ;
-                OStEXTAK( ostoSay , "napkinC: ++++ [cRef after ++++    ,idAdam,postP]:    " ) ;
+                OStEXTAK( ostoSay , "napkinC 3: ++++ [cRef after ++++    ,idAdam,postP]:    " ) ;
                 OStEXT(   ostoSay , TUCK ) ;
                 //U:: TO FIND A BUG
 
@@ -387,10 +389,12 @@
                     OStEXTAK( ostoSay , "\r\n" ) ;
                     OStEXTA(  ostoSay , postName ) ;
                     OStEXTAK( ostoSay , "    " ) ;
+                    OStEXTC(  ostoSay , idMemorySpaceP ? idMemorySpaceP : tinP.pAdamGlobal1->idMemorySpace , '0' ) ;
+                    OStEXTAK( ostoSay , "    " ) ;
                     OStEXTC(  ostoSay , tinP.pAdamGlobal1->idAdam , '0' ) ;
                     OStEXTAK( ostoSay , "    " ) ;
                     OStEXTC(  ostoSay , ((napkinHeaderS*)pbNapkin)->cRef , '0' ) ;
-                    OStEXTAK( ostoSay , "napkinC: ++++ [cRef BEFORE ++++ !!!,idAdam,postP]:    " ) ;
+                    OStEXTAK( ostoSay , "napkinC 2: ++++ [cRef BEFORE ++++ !!!,idAdam,postP]:    " ) ;
                     OStEXT(   ostoSay , TUCK ) ;
                     //U:: TO FIND A BUG
                 {
@@ -418,10 +422,12 @@
                 OStEXTAK( ostoSay , "\r\n" ) ;
                 OStEXTA(  ostoSay , postName ) ;
                 OStEXTAK( ostoSay , "    " ) ;
+                OStEXTC(  ostoSay , idMemorySpaceP ? idMemorySpaceP : tinP.pAdamGlobal1->idMemorySpace , '0' ) ;
+                OStEXTAK( ostoSay , "    " ) ;
                 OStEXTC(  ostoSay , tinP.pAdamGlobal1->idAdam , '0' ) ;
                 OStEXTAK( ostoSay , "    " ) ;
                 OStEXTC(  ostoSay , ((napkinHeaderS*)pbNapkin)->cRef , '0' ) ;
-                OStEXTAK( ostoSay , "napkinC: +**+ [cRef after set to 1,idAdam,postP]:    " ) ;
+                OStEXTAK( ostoSay , "napkinC 1: +**+ [cRef after set to 1,idAdam,postP]:    " ) ;
                 OStEXT(   ostoSay , TUCK ) ;
                 //U:: TO FIND A BUG
 
@@ -724,9 +730,9 @@
     // THIS IS NEEDED BECAUSE NORMALLY I SET flTHREADmODE4_INoUTfRAMEdEFERwRITINGaPPtELEMETRY SINCE I GRAB THE UNIVERSE AND EXIT WITH IT STILL GRABBED (TO BE UNGRABBED BY formattingIsDoneF)
 
     SCOOP
-
 {
-phFile( phFileP )
+idMemorySpace( idMemorySpaceP ? idMemorySpaceP : tinP.pAdamGlobal1->idMemorySpace )
+phFile( phFileP ) ,
 flagsState( F(flagsP) & flNAPKINc_DOnOTcOMMIT ? flNAPKINcsTATE_NOTyETcOMMITTED : flNAPKINcsTATE_null ) ,
 flThreadMode4Save( flTHREADmODE4_null ) ,
 idDesireCtSave( thirdC::dosPriorityIF( tinP ) ) ,
