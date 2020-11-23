@@ -363,16 +363,45 @@
             if( !( F(flagsCt) & flNAPKINc_DOnOTsERIALIZEcT ) )
 
             }
+                LOGrAW(   ostoSay ) ;
+                OStEXTAK( ostoSay , "\r\n" ) ;
+                OStEXTA(  ostoSay , postName ) ;
+                OStEXTAK( ostoSay , "    " ) ;
+                OStEXTC(  ostoSay , tinP.pAdamGlobal1->idAdam , '0' ) ;
+                OStEXTAK( ostoSay , "    " ) ;
+                OStEXTC(  ostoSay , ((napkinHeaderS*)pbNapkin)->cRef , '0' ) ;
+                OStEXTAK( ostoSay , "napkinC: ++++ [cRef after ++++    ,idAdam,postP]:    " ) ;
+                OStEXT(   ostoSay , TUCK ) ;
+                //U:: TO FIND A BUG
+
                 inc02AM( ((napkinHeaderS*)pbNapkin)->cRef ) ;
 
-                if( (sCountT)((napkinHeaderS*)pbNapkin)->cRef < 0 ) { BLAMMO ; } //IT MIGHT BE 0, BUT IT SURE AS HELL BETTER NOT BE NEGATIVE!
+                }
+                    BLAMMO ;
+                    tinP.pcUtility[ 3 ] = ((napkinHeaderS*)pbNapkin)->cRef ;
+                    tinP.pcUtility[ 2 ] = ((napkinHeaderS*)pbNapkin)->cRef ;
+                    tinP.pcUtility[ 1 ] = ((napkinHeaderS*)pbNapkin)->cRef ;
+                    tinP.pcUtility[ 0 ] = ((napkinHeaderS*)pbNapkin)->cRef ;
+
+                    LOGrAW(   ostoSay ) ;
+                    OStEXTAK( ostoSay , "\r\n" ) ;
+                    OStEXTA(  ostoSay , postName ) ;
+                    OStEXTAK( ostoSay , "    " ) ;
+                    OStEXTC(  ostoSay , tinP.pAdamGlobal1->idAdam , '0' ) ;
+                    OStEXTAK( ostoSay , "    " ) ;
+                    OStEXTC(  ostoSay , ((napkinHeaderS*)pbNapkin)->cRef , '0' ) ;
+                    OStEXTAK( ostoSay , "napkinC: ++++ [cRef BEFORE ++++ !!!,idAdam,postP]:    " ) ;
+                    OStEXT(   ostoSay , TUCK ) ;
+                    //U:: TO FIND A BUG
+                {
+                if( (sCountT)((napkinHeaderS*)pbNapkin)->cRef < 0 )  //IT MIGHT BE 0, BUT IT SURE AS HELL BETTER NOT BE NEGATIVE!
 
                 //if( !((napkinHeaderS*)pbNapkin)->cRef       ) { BLAMMO ; }
                 //CANNOT TEST FOR THIS BECAUSE RACE; ANOTHER THREAD MIGHT HAVE JUST DEC BUT NOT YET CLOSED HANDLE: 
             {
             if( !( F(flagsCt) & flNAPKINc_DOnOTcOMMIT ) )
         {
-        else
+        else                                                                                // THE SHARED MEMORY ALREADY EXISTED
         }
             }
                 THREADmODE3oFF( flTHREADmODE3_SUPPRESStRACING )
@@ -385,13 +414,24 @@
             {
             else
             }
+                LOGrAW(   ostoSay ) ;
+                OStEXTAK( ostoSay , "\r\n" ) ;
+                OStEXTA(  ostoSay , postName ) ;
+                OStEXTAK( ostoSay , "    " ) ;
+                OStEXTC(  ostoSay , tinP.pAdamGlobal1->idAdam , '0' ) ;
+                OStEXTAK( ostoSay , "    " ) ;
+                OStEXTC(  ostoSay , ((napkinHeaderS*)pbNapkin)->cRef , '0' ) ;
+                OStEXTAK( ostoSay , "napkinC: +**+ [cRef after set to 1,idAdam,postP]:    " ) ;
+                OStEXT(   ostoSay , TUCK ) ;
+                //U:: TO FIND A BUG
+
                 ((napkinHeaderS*)pbNapkin)->bFormatted = 0   ;
                 ((napkinHeaderS*)pbNapkin)->cRef       = 1   ;
                 ((napkinHeaderS*)pbNapkin)->cbData     = cbP ;
             {
             if( !( F(flagsCt) & flNAPKINc_DOnOTcOMMIT ) )
         {
-        if( !( F(flagsSharedMemory) & flOPENsHAREDmEMORYrESULT_ALREADYeXISTED ) )
+        if( !( F(flagsSharedMemory) & flOPENsHAREDmEMORYrESULT_ALREADYeXISTED ) )           // I CREATED THE SHARED MEMORY
         //CS:CODEsYNC: 3603e003 3603e007
 
         bDataAreaFormatted = 0 ;
