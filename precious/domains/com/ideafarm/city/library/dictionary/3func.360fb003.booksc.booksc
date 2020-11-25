@@ -24,13 +24,35 @@
     //if( tinP.pEther ) tinP.pEther->trace F( tinP , TF3((countT)this,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE,8)+T(": ")+T(postNameShort)+T(": ")+T("ct - [offBookBackNow,CbOOKsLOTS]:    ")+TF2(offBookBackNow,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+TF2(CbOOKsLOTS,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ; //U:: TO FIND A BUG
 
     }
-        else if( this == &processGlobal3I.bksWords        ) processGlobal1I.flCt |= flCTdTg_bksWords        ;
-        else if( this == &processGlobal3I.bksWord         ) processGlobal1I.flCt |= flCTdTg_bksWord         ;
-        else if( this == &processGlobal3I.bksTelemetryApp ) processGlobal1I.flCt |= flCTdTg_bksTelemetryApp ;
-             if( this == &processGlobal3I.bksTelemetrySys ) processGlobal1I.flCt |= flCTdTg_bksTelemetrySys ;
+        else if( this == &processGlobal3I.bksWords ) processGlobal1I.flCt |= flCTdTg_bksWords        ;
+        else if( this == &processGlobal3I.bksWord  ) processGlobal1I.flCt |= flCTdTg_bksWord         ;
+        }
+            processGlobal3I.bkTelemetryAppEarlyLate.purgeF( tinP ) ;
+            writeF( tinP , pbi , cbi , 0 , 0 , flBOOKScwRITE_null , 0 ) ;               //A:ASSUME: THE APP TELEMETRY FROM THESE CALLS ARE BUFFERED DURING THIS OPERATION
+            CONoUTrAW3( "booksC: pouring early application telemetry [cbi]:    " , cbi , "\r\n" ) ;
+            processGlobal3I.bkTelemetryAppEarlyLate.readF( tinP , pbi , cbi , offi ) ;  //A:ASSUME: THE APP TELEMETRY FROM THESE CALLS ARE BUFFERED DURING THIS OPERATION
+            ZE( countT , offi ) ;                                                       //U::THIS MUST BE ENFORCED, E.G. WITH A "MUST BUFFER" THREADMODE FLAG
+            countT cbi = - 1 ;
+            ZE( const byteT* , pbi  ) ;
+
+            processGlobal1I.flCt |= flCTdTg_bksTelemetryApp ;
+        {
+        else if( this == &processGlobal3I.bksTelemetryApp )
+        }
+            processGlobal3I.bkTelemetrySysEarlyLate.purgeF( tinP ) ;
+            writeF( tinP , pbi , cbi , 0 , 0 , flBOOKScwRITE_null , 0 ) ;
+            CONoUTrAW3( "booksC: pouring early system telemetry [cbi]:    " , cbi , "\r\n" ) ;
+            processGlobal3I.bkTelemetrySysEarlyLate.readF( tinP , pbi , cbi , offi ) ;
+            ZE( countT , offi ) ;
+            countT cbi = - 1 ;
+            ZE( const byteT* , pbi  ) ;
+
+            processGlobal1I.flCt |= flCTdTg_bksTelemetrySys ;
+        {
+        if( this == &processGlobal3I.bksTelemetrySys )
     
         if( PCPiDbOOKnOW[ 0 ] == 1 && PCPiDbOOKnOW[ 1 ] == 1 ) ((bookHeadS&)BOOKnOW).flags |= flBOOKhEADs_PRIORbOOKnOTcONTINUEDhERE ;
-    
+
         NEWbOOK2sETfLAG
         new( 0 , tinP , PBbOOKbACKnOW , SIZEOF_bookC ) bookC( tinP , idLineCtP , idiFileCtP , pbBitsCtP , postBookNameScratch , idStateSpace , flagsCtBook , F(flagsCtBook) & flBOOKc_WRITER ? cbBodyNew : 0 , bFill , idMemorySpace ) ;
         NEWbOOK1bLAMMOiFcT

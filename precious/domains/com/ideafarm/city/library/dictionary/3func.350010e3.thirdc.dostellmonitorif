@@ -39,61 +39,53 @@
             THREADmODE2rESTORE
 
             }
-                if(  bWroteLath ) { CONoUTrAW( "dosTellMonitorIF aaaaaghhh! 2\r\n" ) ; BLAMMO ; }
-                if( !bWroteAll  ) { CONoUTrAW( "dosTellMonitorIF aaaaaghhh! 1\r\n" ) ; BLAMMO ; }
-                boolT bWroteAll  =  !( F(flagsResult) & flBOOK0cwRITErESULT_COULDnOTwRITEaLL ) ;
-                boolT bWroteLath = !!( F(flagsResult) & flBOOK0cwRITErESULT_WROTElATHbYTE    ) ;
-
-                bkUse.writeF( tinP , flagsResult , tellP , cb1 , 0 , cb2 , flBOOK0cwRITE_ALLoRnONE | flBOOK0cwRITE_ELSEfILLtOeND | flBOOK0cwRITE_HEADfINGER1 | flBOOK0cwRITE_HEADiDfORMAT | flBOOK0cwRITE_HEADcBdATA | flBOOK0cwRITE_HEADfINGER2 | flBOOK0cwRITE_TAILfINGER | flBOOK0cwRITE_FLUSHbOOKhEADoNcHANGE | flBOOK0cwRITE_FLUSHb4tAIL | flBOOK0cwRITE_FLUSHaTpAGE ) ; //THESE FLAGS OPTIMIZE FOR DATA INTEGRITY AND WILL PRODUCE 1 DISK WRITE FOR EACH TELEMETRY EVENT PLUS A DISK WRITE AT THE END OF EACH PAGE
-
-                ZE( countT , cb2 ) ;
-                countT cb1 = tellP ;
-                ZE( flagsT , flagsResult ) ;
-
-                ;
-                    : processGlobal3I.bkTelemetryAppEarlyLate
-                    ? processGlobal3I.bkTelemetrySysEarlyLate
-                bookC& bkUse = idBooksP == ifcIDbOOKStELL_SYS
-
+                default : { BLAMMO ; break ; }
                 }
+                    break ;
+
                     }
-                        countT foo = 2 ;
+                        if(  bWroteLath ) { CONoUTrAW( "dosTellMonitorIF aaaaaghhh! 2\r\n" ) ; BLAMMO ; }
+                        if( !bWroteAll  ) { CONoUTrAW( "dosTellMonitorIF aaaaaghhh! 1\r\n" ) ; BLAMMO ; }
+                        boolT bWroteAll  =  !( F(flagsResult) & flBOOK0cwRITErESULT_COULDnOTwRITEaLL ) ;
+                        boolT bWroteLath = !!( F(flagsResult) & flBOOK0cwRITErESULT_WROTElATHbYTE    ) ;
+
+                        processGlobal3I.bkTelemetryAppEarlyLate.writeF( tinP , flagsResult , tellP , cb1 , 0 , cb2 , flBOOK0cwRITE_ALLoRnONE | flBOOK0cwRITE_ELSEfILLtOeND | flBOOK0cwRITE_HEADfINGER1 | flBOOK0cwRITE_HEADiDfORMAT | flBOOK0cwRITE_HEADcBdATA | flBOOK0cwRITE_HEADfINGER2 | flBOOK0cwRITE_TAILfINGER | flBOOK0cwRITE_FLUSHbOOKhEADoNcHANGE | flBOOK0cwRITE_FLUSHb4tAIL | flBOOK0cwRITE_FLUSHaTpAGE ) ; //THESE FLAGS OPTIMIZE FOR DATA INTEGRITY AND WILL PRODUCE 1 DISK WRITE FOR EACH TELEMETRY EVENT PLUS A DISK WRITE AT THE END OF EACH PAGE
+
+                        ZE( countT , cb2 ) ;
+                        countT cb1 = tellP ;
+                        ZE( flagsT , flagsResult ) ;
                     {
-                    if( idBooksP == ifcIDbOOKStELL_SYS )
-
-                    CONoUTrAW( idBooksP == ifcIDbOOKStELL_APP ? "a" : "s" ) ;
+                    else
+                    }
+                        processGlobal3I.bksTelemetryApp.writeF( tinP , tellP , tellP , 0 , 0 , flBOOKScwRITE_ALLoRnONE | flBOOKScwRITE_ELSEfILLtOeND | flBOOKScwRITE_HEADfINGER1 | flBOOKScwRITE_HEADiDfORMAT | flBOOKScwRITE_HEADcBdATA | flBOOKScwRITE_HEADfINGER2 | flBOOKScwRITE_TAILfINGER | flBOOKScwRITE_FLUSHbOOKhEADoNcHANGE | flBOOKScwRITE_FLUSHb4tAIL | flBOOKScwRITE_FLUSHaTpAGE ) ; //THESE FLAGS OPTIMIZE FOR DATA INTEGRITY AND WILL PRODUCE 1 DISK WRITE FOR EACH TELEMETRY EVENT PLUS A DISK WRITE AT THE END OF EACH PAGE
+                    {
+                    if( F(processGlobal1I.flCt) & flCTdTg_bksTelemetryApp && !( F(processGlobal1I.flDt) & flCTdTg_bksTelemetryApp ) )
                 {
-                if( processGlobal1I.idAdamRoot == ifcIDaDAM_SCRATCH07 )
-            {
-            else
-            }
-                bksUse.writeF( tinP , tellP , tellP , 0 , 0 , flBOOKScwRITE_ALLoRnONE | flBOOKScwRITE_ELSEfILLtOeND | flBOOKScwRITE_HEADfINGER1 | flBOOKScwRITE_HEADiDfORMAT | flBOOKScwRITE_HEADcBdATA | flBOOKScwRITE_HEADfINGER2 | flBOOKScwRITE_TAILfINGER | flBOOKScwRITE_FLUSHbOOKhEADoNcHANGE | flBOOKScwRITE_FLUSHb4tAIL | flBOOKScwRITE_FLUSHaTpAGE ) ; //THESE FLAGS OPTIMIZE FOR DATA INTEGRITY AND WILL PRODUCE 1 DISK WRITE FOR EACH TELEMETRY EVENT PLUS A DISK WRITE AT THE END OF EACH PAGE
-
-                ;
-                    : processGlobal3I.bksTelemetryApp
-                    ? processGlobal3I.bksTelemetrySys
-                booksC& bksUse = idBooksP == ifcIDbOOKStELL_SYS
-
+                case ifcIDbOOKStELL_APP :
                 }
-                    }
-                        countT foo = 2 ;
-                    {
-                    if( idBooksP == ifcIDbOOKStELL_SYS )
+                    break ;
 
-                    CONoUTrAW( idBooksP == ifcIDbOOKStELL_APP ? "A" : "S" ) ;
+                    }
+                        if(  bWroteLath ) { CONoUTrAW( "dosTellMonitorIF aaaaaghhh! 2\r\n" ) ; BLAMMO ; }
+                        if( !bWroteAll  ) { CONoUTrAW( "dosTellMonitorIF aaaaaghhh! 1\r\n" ) ; BLAMMO ; }
+                        boolT bWroteAll  =  !( F(flagsResult) & flBOOK0cwRITErESULT_COULDnOTwRITEaLL ) ;
+                        boolT bWroteLath = !!( F(flagsResult) & flBOOK0cwRITErESULT_WROTElATHbYTE    ) ;
+
+                        processGlobal3I.bkTelemetrySysEarlyLate.writeF( tinP , flagsResult , tellP , cb1 , 0 , cb2 , flBOOK0cwRITE_ALLoRnONE | flBOOK0cwRITE_ELSEfILLtOeND | flBOOK0cwRITE_HEADfINGER1 | flBOOK0cwRITE_HEADiDfORMAT | flBOOK0cwRITE_HEADcBdATA | flBOOK0cwRITE_HEADfINGER2 | flBOOK0cwRITE_TAILfINGER | flBOOK0cwRITE_FLUSHbOOKhEADoNcHANGE | flBOOK0cwRITE_FLUSHb4tAIL | flBOOK0cwRITE_FLUSHaTpAGE ) ; //THESE FLAGS OPTIMIZE FOR DATA INTEGRITY AND WILL PRODUCE 1 DISK WRITE FOR EACH TELEMETRY EVENT PLUS A DISK WRITE AT THE END OF EACH PAGE
+
+                        ZE( countT , cb2 ) ;
+                        countT cb1 = tellP ;
+                        ZE( flagsT , flagsResult ) ;
+                    {
+                    else
+                    }
+                        processGlobal3I.bksTelemetrySys.writeF( tinP , tellP , tellP , 0 , 0 , flBOOKScwRITE_ALLoRnONE | flBOOKScwRITE_ELSEfILLtOeND | flBOOKScwRITE_HEADfINGER1 | flBOOKScwRITE_HEADiDfORMAT | flBOOKScwRITE_HEADcBdATA | flBOOKScwRITE_HEADfINGER2 | flBOOKScwRITE_TAILfINGER | flBOOKScwRITE_FLUSHbOOKhEADoNcHANGE | flBOOKScwRITE_FLUSHb4tAIL | flBOOKScwRITE_FLUSHaTpAGE ) ; //THESE FLAGS OPTIMIZE FOR DATA INTEGRITY AND WILL PRODUCE 1 DISK WRITE FOR EACH TELEMETRY EVENT PLUS A DISK WRITE AT THE END OF EACH PAGE
+                    {
+                    if( F(processGlobal1I.flCt) & flCTdTg_bksTelemetrySys && !( F(processGlobal1I.flDt) & flCTdTg_bksTelemetrySys ) )
                 {
-                if( processGlobal1I.idAdamRoot == ifcIDaDAM_SCRATCH07 )
+                case ifcIDbOOKStELL_SYS :
             {
-            )
-                !( F(processGlobal1I.flDt) & flCTdTg_bksTelemetryApp )
-                &&
-                !( F(processGlobal1I.flDt) & flCTdTg_bksTelemetrySys )
-                &&
-                F(processGlobal1I.flCt) & flCTdTg_bksTelemetryApp
-                &&
-                F(processGlobal1I.flCt) & flCTdTg_bksTelemetrySys
-            (
-            if
+            switch( idBooksP )
 
 
             //}
