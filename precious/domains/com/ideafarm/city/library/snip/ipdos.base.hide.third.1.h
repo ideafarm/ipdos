@@ -29078,7 +29078,7 @@ can be used for sCountC as well as measureT and sCountT and countT
 
 /*1*//*NEWdELcLASS(idP,classP)*//*1*/
 
-#define NEWdELcLASS(idP,classP)  NEWdELcLASS0( classP , classDefinedInAdamDefinition##idP , sizeof( classP ) )
+#define NEWdELcLASS(idP,classP)  NEWdELcLASS0( classP , classDefinedInAdamDefinition##idP , sizeof( classP ) , processGlobal3S::_processGlobal3I_IF() )
 
 
 //
@@ -29643,7 +29643,7 @@ can be used for sCountC as well as measureT and sCountT and countT
 
 #if defined( ENABLEdROPnOTES )
 
-    #define NEWdELcLASS0(classP,typeP,cbSizeP)                                                                                                  \
+    #define NEWdELcLASS0(classP,typeP,cbSizeP,processGlobal3IP)                                                                                 \
                                                                                                                                                 \
         voidT classP::operator delete( voidT* pvP )                                                                                             \
         {                                                                                                                                       \
@@ -29672,7 +29672,7 @@ can be used for sCountC as well as measureT and sCountT and countT
             ZE( voidT* , pvn ) ;                                                                                                                \
                                                                                                                                                 \
             if( tinP.pPoolUse ) { PUSE.newF( tinP , LF , *(byteT**)&pvn , ( cbaFoot + cbP ) ) ; /*APP CODE MUST TAG: ___( pvn ) ;*/ }           \
-            else                *(byteT**)&pvn = processGlobal3I.heap.newF( tinP , LF , ( cbaFoot + cbP ) ) ;                                   \
+            else                *(byteT**)&pvn = (processGlobal3IP).heap.newF( tinP , LF , ( cbaFoot + cbP ) ) ;                                   \
                                                                                                                                                 \
             POSTPONEtEST( pvn ) ;                                                                                                               \
             dropNoteS* pNote = PUSE.pDropNoteF( tinP , (byteT*)pvn ) ;                                                                          \
@@ -29757,7 +29757,7 @@ can be used for sCountC as well as measureT and sCountT and countT
 
 #else
 
-    #define NEWdELcLASS0(classP,typeP,cbSizeP)                                                                                                  \
+    #define NEWdELcLASS0(classP,typeP,cbSizeP,processGlobal3IP)                                                                                 \
                                                                                                                                                 \
         voidT classP::operator delete( voidT* pvP )                                                                                             \
         {                                                                                                                                       \
@@ -29786,7 +29786,7 @@ can be used for sCountC as well as measureT and sCountT and countT
             ZE( voidT* , pvn ) ;                                                                                                                \
                                                                                                                                                 \
             if( tinP.pPoolUse ) { PUSE.newF( tinP , LF , *(byteT**)&pvn , ( cbaFoot + cbP ) ) ; /*APP CODE MUST TAG: ___( pvn ) ;*/ }           \
-            else                *(byteT**)&pvn = processGlobal3I.heap.newF( tinP , LF , ( cbaFoot + cbP ) ) ;                                   \
+            else                *(byteT**)&pvn = (processGlobal3IP).heap.newF( tinP , LF , ( cbaFoot + cbP ) ) ;                                   \
                                                                                                                                                 \
             POSTPONEtEST( pvn ) ;                                                                                                               \
             __Z( pvn ) ;                                                                                                                        \
@@ -29898,7 +29898,7 @@ can be used for sCountC as well as measureT and sCountT and countT
 
 /*1*//*NEWdELcLASSb(classP)*//*1*/
 
-#define NEWdELcLASSb(classP)  NEWdELcLASS0( classP , classP , sizeof( classP ) )
+#define NEWdELcLASSb(classP)  NEWdELcLASS0( classP , classP , sizeof( classP ) , processGlobal3I )
 
 
 //
@@ -32997,7 +32997,7 @@ plateC& fooC::operator +=( plateC& plateP )                                     
 
 /*1*//*NEWdELcLASSbSIZED(classP)*//*1*/
 
-#define NEWdELcLASSbSIZED(classP)  NEWdELcLASS0( classP , classP , SIZEOF_##classP )
+#define NEWdELcLASSbSIZED(classP)  NEWdELcLASS0( classP , classP , SIZEOF_##classP , processGlobal3I )
 
 
 //

@@ -92,7 +92,7 @@
             __Z( pvn ) ;                                                                                                                        \
             POSTPONEtEST( pvn ) ;                                                                                                               \
                                                                                                                                                 \
-            else                *(byteT**)&pvn = processGlobal3I.heap.newF( tinP , LF , ( cbaFoot + cbP ) ) ;                                   \
+            else                *(byteT**)&pvn = (processGlobal3IP).heap.newF( tinP , LF , ( cbaFoot + cbP ) ) ;                                \
             if( tinP.pPoolUse ) { PUSE.newF( tinP , LF , *(byteT**)&pvn , ( cbaFoot + cbP ) ) ; /*APP CODE MUST TAG: ___( pvn ) ;*/ }           \
                                                                                                                                                 \
             ZE( voidT* , pvn ) ;                                                                                                                \
@@ -121,7 +121,7 @@
         {                                                                                                                                       \
         voidT classP::operator delete( voidT* pvP )                                                                                             \
                                                                                                                                                 \
-    #define NEWdELcLASS0(classP,typeP,cbSizeP)                                                                                                  \
+    #define NEWdELcLASS0(classP,typeP,cbSizeP,processGlobal3IP)                                                                                 \
 
 #else
 
@@ -206,7 +206,7 @@
             dropNoteS* pNote = PUSE.pDropNoteF( tinP , (byteT*)pvn ) ;                                                                          \
             POSTPONEtEST( pvn ) ;                                                                                                               \
                                                                                                                                                 \
-            else                *(byteT**)&pvn = processGlobal3I.heap.newF( tinP , LF , ( cbaFoot + cbP ) ) ;                                   \
+            else                *(byteT**)&pvn = (processGlobal3IP).heap.newF( tinP , LF , ( cbaFoot + cbP ) ) ;                                \
             if( tinP.pPoolUse ) { PUSE.newF( tinP , LF , *(byteT**)&pvn , ( cbaFoot + cbP ) ) ; /*APP CODE MUST TAG: ___( pvn ) ;*/ }           \
                                                                                                                                                 \
             ZE( voidT* , pvn ) ;                                                                                                                \
@@ -235,13 +235,13 @@
         {                                                                                                                                       \
         voidT classP::operator delete( voidT* pvP )                                                                                             \
                                                                                                                                                 \
-    #define NEWdELcLASS0(classP,typeP,cbSizeP)                                                                                                  \
+    #define NEWdELcLASS0(classP,typeP,cbSizeP,processGlobal3IP)                                                                                 \
 
 #if defined( ENABLEdROPnOTES )
 
 // INOUT IS NOT USED, TO AVOID BLOWING STACK DURING INOUT TRACING
 
-/*1*//*NEWdELcLASS0(classP,typeP,cbSizeP)*//*1*/
+/*1*//*NEWdELcLASS0(classP,typeP,cbSizeP,processGlobal3IP)*//*1*/
 
 /**/
 */
