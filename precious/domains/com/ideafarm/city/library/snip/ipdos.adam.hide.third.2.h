@@ -5666,7 +5666,7 @@ it is illegal to refer to this symbol in the definition of an adam
 //20200525@1250: HALVED TO "TICK >> 1" WITHOUT ANALYSIS (OCCASIONALLY HALVE THIS UNTIL SEE A FAILURE)
 //20201120@1507: DOUBLED TO "TICK >> 0" BECAUSE AM NOW ALLOCATING A LARGE BUFFER FOR EACH THREAD
 
-#define CBhEAP ( TICK >> 0 )
+#define CBhEAP ( TICK << 1 )
 
 
 //
