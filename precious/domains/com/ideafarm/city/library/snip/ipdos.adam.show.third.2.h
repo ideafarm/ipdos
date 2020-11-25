@@ -39693,6 +39693,7 @@ base class to make a derived class of objects easily contained by a stackC objec
     flagsT              flagsCt ;
     byteT               pbFile[   SIZEOF_fileC   ] ;
     byteT               pbNapkin[ SIZEOF_napkinC ] ;
+    byteT*              pbFromHeap ;
 
     voidT ctFileF( tinS& tinP , const osTextT* const postNameP , const countT idStateSpaceP , countT idMemorySpaceP ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34005.bookC.ctFileIF!||

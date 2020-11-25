@@ -36999,6 +36999,7 @@ obsoleted by coding style standard: use osTextT strings for name elements so tha
 #define flBOOKc_DOnOTsERIALIZEnAPKIN            0xe00800b6
 #define flBOOKc_RESETcREFoNcT                   0xe01000b6
 #define flBOOKc_PRIORbOOKnOTcONTINUEDhERE       0xe02000b6
+#define flBOOKc_USEhEAPnOTnAPKIN                0xe04000b6
 /*3*/
 #define flBOOKc_null    0xe00000b6
 
