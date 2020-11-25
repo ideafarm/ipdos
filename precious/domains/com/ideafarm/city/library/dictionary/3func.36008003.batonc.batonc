@@ -43,11 +43,18 @@
             pGrabA->grabNotes.osPidCt = dosGetInfoBlocksIdProcessIF( tinP ) ;
             pGrabA->grabNotes.osTidCt = dosGetInfoBlocksIdThreadIF() ;
     
-            else               grabA.formatF( tinP , TAGoR( TAGiDnULL , idLineCtP , idiFileCtP , pbBitsCtP ) , flagsGrab , idGrabLayerP ) ;
-            if( pGrabInPool ) pGrabA = pGrabInPool ;
+            else                    grabA.formatF( tinP , TAGoR( TAGiDnULL , idLineCtP , idiFileCtP , pbBitsCtP ) , flagsGrab , idGrabLayerP ) ;
+            if( pGrabInPoolOrHeap ) pGrabA = pGrabInPoolOrHeap ;
     
-            if( tinP.pAdamGlobal1->pPoolAdamTemp ) { pGrabInPool = new( 0 , tinP , LF ) grabAnnotatedS( tinP , TAGoR( TAGiDnULL , idLineCtP , idiFileCtP , pbBitsCtP ) , flagsGrab , idGrabLayerP ) ; ___BITScT( pGrabInPool , 0xdd8 ) ; } //U::LEAKS
-            ZE( grabAnnotatedS* , pGrabInPool ) ;
+            }
+                pGrabInPoolOrHeap = new( 0 , tinP , pbGrabInHeap , cba ) grabAnnotatedS( tinP , TAGoR( TAGiDnULL , idLineCtP , idiFileCtP , pbBitsCtP ) , flagsGrab , idGrabLayerP ) ;
+                if( !pbGrabInHeap ) { BLAMMO ; }
+                byteT* pbGrabInHeap = processGlobal3I.heap.newF( tinP , LF , cba ) ;
+                countT cba = sizeof( grabAnnotatedS ) ;
+            {
+            else
+            if( tinP.pAdamGlobal1->pPoolAdamTemp ) { pGrabInPoolOrHeap = new( 0 , tinP , LF ) grabAnnotatedS( tinP , TAGoR( TAGiDnULL , idLineCtP , idiFileCtP , pbBitsCtP ) , flagsGrab , idGrabLayerP ) ; ___BITScT( pGrabInPoolOrHeap , 0xdd8 ) ; } //U::LEAKS
+            ZE( grabAnnotatedS* , pGrabInPoolOrHeap ) ;
         {
         else
         }
@@ -134,7 +141,6 @@
                 FV( flBATONc , flagsP ) ;
                 __( thirdC::c_strlenIF( tinP , postP ) > COSTnAPKINnAMEmAX - ostoPrefix.costF() ) ;
                 __( !postP[ 0 ] ) ;
-                __( !pbZombieP && !tinP.pAdamGlobal1->pPoolAdamTemp ) ;
             {
             if( postP )
             if( POOP ) BLAMMO ;

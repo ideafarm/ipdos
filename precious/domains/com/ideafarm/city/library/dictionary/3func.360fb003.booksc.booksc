@@ -29,7 +29,7 @@
         }
             THREADmODE4rESTORE
             processGlobal3I.bkTelemetryAppEarlyLate.purgeF( tinP ) ;
-            writeF( tinP , pbi , cbi , 0 , 0 , flBOOKScwRITE_null , 0 ) ;
+            writeF( tinP , pbi , cbi , 0 , 0 , flBOOKScwRITE_ALLoRnONE | flBOOKScwRITE_ELSEfILLtOeND , 0 ) ;
             CONoUTrAW3( "booksC: pouring early application telemetry [cbi]:    " , cbi , "\r\n" ) ;
             processGlobal3I.bkTelemetryAppEarlyLate.readF( tinP , pbi , cbi , offi ) ;      //U:: THIS STUDY IS LOW PRIORITY BECAUSE THE PENDING BUFFER DOES NOT YET EXIST AND 0 TELEMETRY IS POURED
             THREADmODE4oN( flTHREADmODE4_DOnOTfLUSHpENDINGaPPtELEMETRY ) ;                  //U:: WARRANTS FURTHER STUDY AND CRAFTWORK ; THE GOAL IS TO PREVENT OUT OF ORDER APP TELEMETRY DO TO APP TELEMETRY GENERATED DURING THIS POUR OPERATION
@@ -42,7 +42,7 @@
         else if( this == &processGlobal3I.bksTelemetryApp )
         }
             processGlobal3I.bkTelemetrySysEarlyLate.purgeF( tinP ) ;
-            writeF( tinP , pbi , cbi , 0 , 0 , flBOOKScwRITE_null , 0 ) ;
+            writeF( tinP , pbi , cbi , 0 , 0 , flBOOKScwRITE_ALLoRnONE | flBOOKScwRITE_ELSEfILLtOeND , 0 ) ;
             CONoUTrAW3( "booksC: pouring early system telemetry [cbi]:    " , cbi , "\r\n" ) ;
             processGlobal3I.bkTelemetrySysEarlyLate.readF( tinP , pbi , cbi , offi ) ;
             ZE( countT , offi ) ;
@@ -159,35 +159,7 @@ bFill( bFillP )
 psttFindLike( 0 ) ,
 ppcpIdBook( 0 ) ,
 cKeepInactive( cKeepInactiveP ) ,
-) ,
-    , ifcIDgRABlAYER_bBOOKSc
-        : flGRABc_NOTjEALOUS | flGRABc_SHARElAYER                    // flGRABc_SHARElAYER: NEEDED BECAUSE booksC::writeF CAN CALL ITSELF RECURSIVELY DUE TO TELEMETRY WHEN CHANGING bookC INSTANCES
-        ? flGRABc_DISABLED | flGRABc_EXPLICITfORMATTING
-    || this == &processGlobal3I.bksWords                             // U:: 20191111@1056: CONJ: flGRABc_SHARElAYER IS ONLY NEEDED FOR bksTelemetrySys
-    || this == &processGlobal3I.bksWord                              // U:: 20191111@1056: CONJ: flGRABc_NOTjEAULOUS IS NOT NEEDED
-    || this == &processGlobal3I.bksTraceDivert10
-    || this == &processGlobal3I.bksTraceDivert0f
-    || this == &processGlobal3I.bksTraceDivert0e
-    || this == &processGlobal3I.bksTraceDivert0d
-    || this == &processGlobal3I.bksTraceDivert0c
-    || this == &processGlobal3I.bksTraceDivert0b
-    || this == &processGlobal3I.bksTraceDivert0a
-    || this == &processGlobal3I.bksTraceDivert09
-    || this == &processGlobal3I.bksTraceDivert08
-    || this == &processGlobal3I.bksTraceDivert07
-    || this == &processGlobal3I.bksTraceDivert06
-    || this == &processGlobal3I.bksTraceDivert05
-    || this == &processGlobal3I.bksTraceDivert04
-    || this == &processGlobal3I.bksTraceDivert03
-    || this == &processGlobal3I.bksTraceDivert02
-    || this == &processGlobal3I.bksTraceDivert01
-    || this == &processGlobal3I.bksTrace
-    || this == &processGlobal3I.bksTraceHomeEcho
-    || this == &processGlobal3I.bksTelemetryApp
-       this == &processGlobal3I.bksTelemetrySys                        //CS:CODEsYNC: 360fb003 3603e003
-    tinP , idLineCtP , idiFileCtP , pbBitsCtP ,
-(
-grabBookNow
+grabBookNow( tinP , idLineCtP , idiFileCtP , pbBitsCtP , flGRABc_NOTjEALOUS | flGRABc_SNEAKYlOVER | flGRABc_SHARElAYER , ifcIDgRABlAYER_bBOOKSc ) , // flGRABc_SHARElAYER: NEEDED BECAUSE booksC::writeF CAN CALL ITSELF RECURSIVELY DUE TO TELEMETRY WHEN CHANGING bookC INSTANCES
 idMemorySpace( idMemorySpaceP ) ,
 idStateSpace( idStateSpaceP ) ,
 cbBodyNew( cbP ) ,

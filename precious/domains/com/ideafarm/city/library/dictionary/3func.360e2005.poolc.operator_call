@@ -35,13 +35,17 @@
         countT offs = guts.expCbSlotMin + ( dropHeader & mask ) ;
         countT mask = ( 1 << guts.cBitsExpCbSlot ) - 1 ;
         countT& dropHeader = ((countT*)pbP)[ - 1 ] ;
+
+        if( c_this && F(guts.flagsCt) & flPOOLc_READoNLY ) { BLAMMO ; }
+
+        countT c_this = (countT)this ;
     {
     if( pbP )
 
     if( processGlobal0I.pbHeap <= pbP && pbP < processGlobal0I.pbHeapEnd ) processGlobal3I.heap.delF( tinP , pbP ) ;
     //20201106@1436: WITHOUT ANALYSIS, CHANGED "< pbP" to "<= pbP"
 
-    if( F(guts.flagsCt) & flPOOLc_READoNLY ) { BLAMMO ; }
+    //I CAN BE CALLED WHEN this IS NULL, AND I MUST BEHAVE OK
 
     //_IO_
     //SPEED OPTIMIZATION: THIS _IO_ WOULD HAVE THE #5 HIGHEST FREQUENCY OF CALLS

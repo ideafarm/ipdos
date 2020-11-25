@@ -91,8 +91,10 @@
             if( cbaFoot )                                                                                                                       \
             __Z( pvn ) ;                                                                                                                        \
             POSTPONEtEST( pvn ) ;                                                                                                               \
-            PUSE.newF( tinP , LF , *(byteT**)&pvn , ( cbaFoot + cbP ) ) ; /*APP CODE MUST TAG: ___( pvn ) ;*/                                   \
-            if( !tinP.pPoolUse ) { BLAMMOiD( 0xe ) ; }                                                                                          \
+                                                                                                                                                \
+            else                *(byteT**)&pvn = processGlobal3I.heap.newF( tinP , LF , ( cbaFoot + cbP ) ) ;                                   \
+            if( tinP.pPoolUse ) { PUSE.newF( tinP , LF , *(byteT**)&pvn , ( cbaFoot + cbP ) ) ; /*APP CODE MUST TAG: ___( pvn ) ;*/ }           \
+                                                                                                                                                \
             ZE( voidT* , pvn ) ;                                                                                                                \
             countT cbaFoot = cbFootP ? cbFootP + 2 * sizeof( countT ) : 0 ;                                                                     \
             /*_IO_*/                                                                                                                            \
@@ -109,7 +111,6 @@
         }                                                                                                                                       \
             }                                                                                                                                   \
                 PUSE( tinP , *(byteT**)&pvP ) ;                                                                                                 \
-                if( !tinP.pPoolUse ) { BLAMMOiD( 0xd ) ; }                                                                                      \
             {                                                                                                                                   \
             if( pvP && !( F(tinP.flagsThreadMode2) & flTHREADmODE2_DOnOTcaLLdELif ) )                                                           \
                                                                                                                                                 \
@@ -204,7 +205,10 @@
             if( pNote )                                                                                                                         \
             dropNoteS* pNote = PUSE.pDropNoteF( tinP , (byteT*)pvn ) ;                                                                          \
             POSTPONEtEST( pvn ) ;                                                                                                               \
-            PUSE.newF( tinP , LF , *(byteT**)&pvn , ( cbaFoot + cbP ) ) ; /*APP CODE MUST TAG: ___( pvn ) ;*/                                   \
+                                                                                                                                                \
+            else                *(byteT**)&pvn = processGlobal3I.heap.newF( tinP , LF , ( cbaFoot + cbP ) ) ;                                   \
+            if( tinP.pPoolUse ) { PUSE.newF( tinP , LF , *(byteT**)&pvn , ( cbaFoot + cbP ) ) ; /*APP CODE MUST TAG: ___( pvn ) ;*/ }           \
+                                                                                                                                                \
             ZE( voidT* , pvn ) ;                                                                                                                \
             countT cbaFoot = cbFootP ? cbFootP + 2 * sizeof( countT ) : 0 ;                                                                     \
             /*_IO_*/                                                                                                                            \
@@ -221,7 +225,6 @@
         }                                                                                                                                       \
             }                                                                                                                                   \
                 PUSE( tinP , *(byteT**)&pvP ) ;                                                                                                 \
-                if( !tinP.pPoolUse ) { BLAMMOiD( 0x2 ) ; }                                                                                      \
             {                                                                                                                                   \
             if( pvP && !( F(tinP.flagsThreadMode2) & flTHREADmODE2_DOnOTcaLLdELif ) )                                                           \
                                                                                                                                                 \

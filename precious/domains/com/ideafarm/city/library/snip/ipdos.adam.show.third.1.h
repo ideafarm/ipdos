@@ -29626,7 +29626,6 @@ can be used for sCountC as well as measureT and sCountT and countT
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200322.posthtmlfoot END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200323.newdelclass0 BEGIN
 
-
 //
 // Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
@@ -29655,7 +29654,6 @@ can be used for sCountC as well as measureT and sCountT and countT
                                                                                                                                                 \
             if( pvP && !( F(tinP.flagsThreadMode2) & flTHREADmODE2_DOnOTcaLLdELif ) )                                                           \
             {                                                                                                                                   \
-                if( !tinP.pPoolUse ) { BLAMMOiD( 0x2 ) ; }                                                                                      \
                 PUSE( tinP , *(byteT**)&pvP ) ;                                                                                                 \
             }                                                                                                                                   \
         }                                                                                                                                       \
@@ -29672,7 +29670,10 @@ can be used for sCountC as well as measureT and sCountT and countT
             /*_IO_*/                                                                                                                            \
             countT cbaFoot = cbFootP ? cbFootP + 2 * sizeof( countT ) : 0 ;                                                                     \
             ZE( voidT* , pvn ) ;                                                                                                                \
-            PUSE.newF( tinP , LF , *(byteT**)&pvn , ( cbaFoot + cbP ) ) ; /*APP CODE MUST TAG: ___( pvn ) ;*/                                   \
+                                                                                                                                                \
+            if( tinP.pPoolUse ) { PUSE.newF( tinP , LF , *(byteT**)&pvn , ( cbaFoot + cbP ) ) ; /*APP CODE MUST TAG: ___( pvn ) ;*/ }           \
+            else                *(byteT**)&pvn = processGlobal3I.heap.newF( tinP , LF , ( cbaFoot + cbP ) ) ;                                   \
+                                                                                                                                                \
             POSTPONEtEST( pvn ) ;                                                                                                               \
             dropNoteS* pNote = PUSE.pDropNoteF( tinP , (byteT*)pvn ) ;                                                                          \
             if( pNote )                                                                                                                         \
@@ -29767,7 +29768,6 @@ can be used for sCountC as well as measureT and sCountT and countT
                                                                                                                                                 \
             if( pvP && !( F(tinP.flagsThreadMode2) & flTHREADmODE2_DOnOTcaLLdELif ) )                                                           \
             {                                                                                                                                   \
-                if( !tinP.pPoolUse ) { BLAMMOiD( 0xd ) ; }                                                                                      \
                 PUSE( tinP , *(byteT**)&pvP ) ;                                                                                                 \
             }                                                                                                                                   \
         }                                                                                                                                       \
@@ -29784,8 +29784,10 @@ can be used for sCountC as well as measureT and sCountT and countT
             /*_IO_*/                                                                                                                            \
             countT cbaFoot = cbFootP ? cbFootP + 2 * sizeof( countT ) : 0 ;                                                                     \
             ZE( voidT* , pvn ) ;                                                                                                                \
-            if( !tinP.pPoolUse ) { BLAMMOiD( 0xe ) ; }                                                                                          \
-            PUSE.newF( tinP , LF , *(byteT**)&pvn , ( cbaFoot + cbP ) ) ; /*APP CODE MUST TAG: ___( pvn ) ;*/                                   \
+                                                                                                                                                \
+            if( tinP.pPoolUse ) { PUSE.newF( tinP , LF , *(byteT**)&pvn , ( cbaFoot + cbP ) ) ; /*APP CODE MUST TAG: ___( pvn ) ;*/ }           \
+            else                *(byteT**)&pvn = processGlobal3I.heap.newF( tinP , LF , ( cbaFoot + cbP ) ) ;                                   \
+                                                                                                                                                \
             POSTPONEtEST( pvn ) ;                                                                                                               \
             __Z( pvn ) ;                                                                                                                        \
             if( cbaFoot )                                                                                                                       \

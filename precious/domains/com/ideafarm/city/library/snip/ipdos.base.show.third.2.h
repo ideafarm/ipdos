@@ -5283,7 +5283,7 @@ after i return, that countT object will contain 1
 /*3*/
 #define flTHREADmODE4_INoUTfRAMEdEFERwRITINGaPPtELEMETRY                                0xe0000110
 #define flTHREADmODE4_INoUTfRAMEdOnOTcOLLECTaPPtELEMETRY                                0xe0000210
-#define flTHREADmODE4_DOnOTfLUSHpENDING                                                 0xe0000410
+#define flTHREADmODE4_DOnOTfLUSHpENDINGaPPtELEMETRY                                                 0xe0000410
 /*3*/
 #define flTHREADmODE4_null    0xe0000010
 
@@ -40343,6 +40343,7 @@ base class to make a derived class of objects easily contained by a stackC objec
     napkinC                 /*P3*/ /*CT:71*/ napHome ;
     cryC                                     cry30f ;
     doC                                      do2 ;
+    napkinC                 /*P3*/ /*CT:a1*/ _grabC_napGrabWant ; //CODEsYNC: 0a00001 0a00001 0a00001 0a00001
     doC                                      do3 ;
     booksC                                   bksTelemetrySys ;
     booksC                                   bksTelemetryApp ;
@@ -40387,7 +40388,6 @@ base class to make a derived class of objects easily contained by a stackC objec
     booksC                                   bksWord ;
     booksC                                   bksWords ;
     cryC                                     cry321 ;
-    napkinC                 /*P3*/ /*CT:a1*/ _grabC_napGrabWant ; //CODEsYNC: 0a00001 0a00001 0a00001 0a00001
     cryC                                     cry322 ;
     grabC                   /*P3*/ /*CT:d1*/ _thirdC_grab_flagsProcessState_ ;
     cryC                                     cry323 ;
