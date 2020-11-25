@@ -82,7 +82,6 @@ bksTraceDivert01(                                                               
 
 bksTrace(                                                                                                           tinVeryVeryEarlyLateMain   , TAGnOtIN( TAGiDnULL ) , "bksTrace"         , ifcIDsTATEsPACE_MULTIPLEaDAMS , flBOOKSc_DOnOTsERIALIZEnAPKINS | flBOOKSc_WRITER | flBOOKSc_DOnOTuSEpUSE | flBOOKSc_DOnOTrEGISTERfILE | flBOOKSc_USEgRABuNIVERSEoVERRIDE                                           , TICK >> 2                                  , 0 , 0 , pbBooksNoPuseFootTrace         , sizeof pbBooksNoPuseFootTrace         ) ,
 bksTraceHomeEcho(                                                                                                   tinVeryVeryEarlyLateMain   , TAGnOtIN( TAGiDnULL ) , "bksTraceHomeEcho" , ifcIDsTATEsPACE_MULTIPLEaDAMS , flBOOKSc_DOnOTsERIALIZEnAPKINS | flBOOKSc_WRITER | flBOOKSc_DOnOTuSEpUSE | flBOOKSc_DOnOTrEGISTERfILE | flBOOKSc_USEgRABuNIVERSEoVERRIDE                                           , TOCK << 2                                  , 0 , 0 , pbBooksNoPuseFootTraceHomeEcho , sizeof pbBooksNoPuseFootTraceHomeEcho ) ,
-do3( ifcIDdO_POURtELEMETRYfROMeARLYlATEbOOK ) ,
 bksTelemetryApp(                                                                                                    tinVeryVeryEarlyLateMain   , TAGnOtIN( TAGiDnULL ) , "bksTelemetryApp"  , ifcIDsTATEsPACE_MULTIPLEaDAMS , flBOOKSc_DOnOTsERIALIZEnAPKINS | flBOOKSc_WRITER | flBOOKSc_DOnOTuSEpUSE | flBOOKSc_DOnOTrEGISTERfILE | flBOOKSc_USEgRABuNIVERSEoVERRIDE /*(SO tmEatTelemetryAppF CAN SERIALIZE)*/ , TICK << 1 /*MUST BE TUCK << 2 OR GREATER*/ , 0 , 0 , pbBooksNoPuseFootTelemetryApp , sizeof pbBooksNoPuseFootTelemetryApp ) ,
 bksTelemetrySys(  ( tinVeryVeryEarlyLateMain.flagsThreadMode4 |= flTHREADmODE4_INoUTfRAMEdEFERwRITINGaPPtELEMETRY , tinVeryVeryEarlyLateMain ) , TAGnOtIN( TAGiDnULL ) , "bksTelemetrySys"  , ifcIDsTATEsPACE_MULTIPLEaDAMS , flBOOKSc_DOnOTsERIALIZEnAPKINS | flBOOKSc_WRITER | flBOOKSc_DOnOTuSEpUSE | flBOOKSc_DOnOTrEGISTERfILE | flBOOKSc_USEgRABuNIVERSEoVERRIDE /*(SO tmEatTelemetrySysF CAN SERIALIZE)*/ , TICK << 1 /*MUST BE TUCK << 2 OR GREATER*/ , 0 , 0 , pbBooksNoPuseFootTelemetrySys , sizeof pbBooksNoPuseFootTelemetrySys ) ,
 
@@ -94,8 +93,8 @@ bksTelemetrySys(  ( tinVeryVeryEarlyLateMain.flagsThreadMode4 |= flTHREADmODE4_I
 
 //bksTelemetrySys(     tinVeryVeryEarlyLateMain , TAGnOtIN( TAGiDnULL ) , "bksTelemetrySys"     , ifcIDsTATEsPACE_MULTIPLEaDAMS , flBOOKSc_DOnOTsERIALIZEnAPKINS | flBOOKSc_WRITER | flBOOKSc_DOnOTuSEpUSE | flBOOKSc_DOnOTrEGISTERfILE | flBOOKSc_USEgRABuNIVERSEoVERRIDE /*(SO tmEatTelemetryF CAN SERIALIZE)*/ , TOCK << 1 /*MUST BE TUCK << 2 OR GREATER*/ , 0 , 0 , pbBooksNoPuseFootTelemetry     , sizeof pbBooksNoPuseFootTelemetry     ) ,
 //20161203@0806: DOUBLED SIZE OF bksTelemetrySys (TO FIND A BUG) AND QUARTERED bksTrace (TO CONSERVE ADDRESS SPACE)
-do2( ifcIDdO_SETUPsOCKETS ) ,
-do1( ifcIDdO_REGISTERrOOTaDAMhEART ) ,
+do3( ifcIDdO_SETUPsOCKETS ) ,
+do2( ifcIDdO_REGISTERrOOTaDAMhEART ) ,
 napHome(    tinVeryVeryEarlyLateMain , TAGnOtIN( TAGiDnULL ) , "napHome"    , 0 , sizeof( homeS ) , ifcOPENsHAREDmEMORYhOW_nCeO , flNAPKINc_DOnOTsERIALIZEcT | flNAPKINc_ALLmEMORYsPACES                                           ) ,
 napSlab(    tinVeryVeryEarlyLateMain , TAGnOtIN( TAGiDnULL ) , "napSlab"    , 0 , sizeof( slabS ) , ifcOPENsHAREDmEMORYhOW_nCeO , flNAPKINc_DOnOTsERIALIZEcT | flNAPKINc_ALLmEMORYsPACES | flNAPKINc_ALLhOMES | flNAPKINc_ALLuSERS ) ,
 mapIdPhaseProcess( pMap61 , sizeof pMap61 / sizeof pMap61[ 0 ] ) ,
@@ -122,6 +121,7 @@ mapProcessPhase  ( pMap2  , sizeof pMap2  / sizeof pMap2 [ 0 ] ) ,
 mapPopClientWork ( pMap1  , sizeof pMap1  / sizeof pMap1 [ 0 ] ) ,
 grabUniverse( tinVeryVeryEarlyLateMain , ifcIDgRABlAYER_cGRABuNIVERSEc ) ,
 _handleC_linked_sm(       tinVeryVeryEarlyLateMain , TAGnOtIN( TAGiDnULL ) , ifcIDtYPEhANDLE_SHAREDmEMORY , ifcIDgRABlAYER_dLINKEDc ) ,
+do1( ifcIDdO_ALLOCATEaPPtELEMETRYpENDINGbUFFER ) ,
 bkTelemetryAppEarlyLate( tinVeryVeryEarlyLateMain , LF , (byteT*)0 , 0 , 0 , flBOOKc_WRITER | flBOOKc_USEhEAPnOTnAPKIN , TOCK , 0 , 0 ) ,
 bkTelemetrySysEarlyLate( tinVeryVeryEarlyLateMain , LF , (byteT*)0 , 0 , 0 , flBOOKc_WRITER | flBOOKc_USEhEAPnOTnAPKIN , TOCK , 0 , 0 ) ,
 heap( tinVeryVeryEarlyLateMain ) ,

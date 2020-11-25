@@ -27,11 +27,13 @@
         else if( this == &processGlobal3I.bksWords ) processGlobal1I.flCt |= flCTdTg_bksWords        ;
         else if( this == &processGlobal3I.bksWord  ) processGlobal1I.flCt |= flCTdTg_bksWord         ;
         }
+            THREADmODE4rESTORE
             processGlobal3I.bkTelemetryAppEarlyLate.purgeF( tinP ) ;
-            writeF( tinP , pbi , cbi , 0 , 0 , flBOOKScwRITE_null , 0 ) ;               //A:ASSUME: THE APP TELEMETRY FROM THESE CALLS ARE BUFFERED DURING THIS OPERATION
+            writeF( tinP , pbi , cbi , 0 , 0 , flBOOKScwRITE_null , 0 ) ;
             CONoUTrAW3( "booksC: pouring early application telemetry [cbi]:    " , cbi , "\r\n" ) ;
-            processGlobal3I.bkTelemetryAppEarlyLate.readF( tinP , pbi , cbi , offi ) ;  //A:ASSUME: THE APP TELEMETRY FROM THESE CALLS ARE BUFFERED DURING THIS OPERATION
-            ZE( countT , offi ) ;                                                       //U::THIS MUST BE ENFORCED, E.G. WITH A "MUST BUFFER" THREADMODE FLAG
+            processGlobal3I.bkTelemetryAppEarlyLate.readF( tinP , pbi , cbi , offi ) ;      //U:: THIS STUDY IS LOW PRIORITY BECAUSE THE PENDING BUFFER DOES NOT YET EXIST AND 0 TELEMETRY IS POURED
+            THREADmODE4oN( flTHREADmODE4_DOnOTfLUSHpENDINGaPPtELEMETRY ) ;                  //U:: WARRANTS FURTHER STUDY AND CRAFTWORK ; THE GOAL IS TO PREVENT OUT OF ORDER APP TELEMETRY DO TO APP TELEMETRY GENERATED DURING THIS POUR OPERATION
+            ZE( countT , offi ) ;
             countT cbi = - 1 ;
             ZE( const byteT* , pbi  ) ;
 

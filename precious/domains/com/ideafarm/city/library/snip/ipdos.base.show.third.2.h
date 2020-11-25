@@ -5637,7 +5637,7 @@ it is illegal to refer to this symbol in the definition of an adam
 
 //20201120@1558: TUCK << 2 IS TOO SMALL -> TUCK << 3
 
-#define CmAXpENDINGiNoUTfRAMEpACKETS ( TUCK << 3 )
+#define CmAXpENDINGiNoUTfRAMEpACKETS ( TUCK << 5 )
 
 
 //
@@ -40331,6 +40331,7 @@ base class to make a derived class of objects easily contained by a stackC objec
     heapC                                    heap ;                     // SIMPLE HEAP USED WHEN poolC CANNOT BE USED (E.G. TO AVOID NONMONOTONIC GRABBING)
     bookC                                    bkTelemetrySysEarlyLate ;
     bookC                                    bkTelemetryAppEarlyLate ;
+    doC                                      do1 ;
     cryC                                     cry30a ;
     linkedC                                  _handleC_linked_sm ;
     cryC                                     cry30b ;
@@ -40341,11 +40342,10 @@ base class to make a derived class of objects easily contained by a stackC objec
     cryC                                     cry30e ;
     napkinC                 /*P3*/ /*CT:71*/ napHome ;
     cryC                                     cry30f ;
-    doC                                      do1 ;
     doC                                      do2 ;
+    doC                                      do3 ;
     booksC                                   bksTelemetrySys ;
     booksC                                   bksTelemetryApp ;
-    doC                                      do3 ;
     booksC                                   bksTraceHomeEcho ;
     booksC                                   bksTrace ;
 

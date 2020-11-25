@@ -37323,7 +37323,7 @@ obsoleted by coding style standard: use osTextT strings for name elements so tha
 /*3*/
 #define ifcIDdO_REGISTERrOOTaDAMhEART                  0xdddd0b42
 #define ifcIDdO_SETUPsOCKETS                           0xdddd0b43
-#define ifcIDdO_POURtELEMETRYfROMeARLYlATEbOOK           0xdddd0b44
+#define ifcIDdO_ALLOCATEaPPtELEMETRYpENDINGbUFFER      0xdddd0b44
 /*3*/
 #define ifcIDdO_min     0xdddd0b42
 #define ifcIDdO_max     0xdddd0b44
