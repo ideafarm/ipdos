@@ -40329,6 +40329,8 @@ base class to make a derived class of objects easily contained by a stackC objec
     cryC                                     cry309 ;
     tinS                    /*P3*/ /*CT:80*/ tinVeryVeryEarlyLateMain ; // MUST BE CT AFTER tinP.pAdamGlobal1->pPoolHomeTemp AND BEFORE ANY GLOBALS THAT USE IT SUCH AS A grabC OBJECT
     heapC                                    heap ;                     // SIMPLE HEAP USED WHEN poolC CANNOT BE USED (E.G. TO AVOID NONMONOTONIC GRABBING)
+    bookC                                    bkTelemetrySysEarlyLate ;
+    bookC                                    bkTelemetryAppEarlyLate ;
     cryC                                     cry30a ;
     linkedC                                  _handleC_linked_sm ;
     cryC                                     cry30b ;
