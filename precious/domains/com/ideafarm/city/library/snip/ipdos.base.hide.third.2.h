@@ -45146,3 +45146,56 @@ i am nonconformant in that all of my member function definitions are in a single
 //
 
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.cacheC : 1snip.15000187.cacheC END
+
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+/*
+*/
+/**/
+
+/*1*/struct _export taskDrivenServerParamsS/*1*/
+{
+    countT     idSession ;
+    socketC*   pso ;
+    batonC&    b_lever_idSession ;
+    countT&    lever_idSession ;
+    switchC&   sw_pso ;
+    countT&    cSession ;
+    countT     cArg ;
+    nicNameC&  lever_nnPeer ;
+    switchC&   sw_cSessionWithPeer ;
+    sessionsC& sessions ;
+    nicNameC   nnPeer ;
+
+    NEWdELcLASSpROTOS
+
+    inline taskDrivenServerParamsS( countT idSessionP , socketC* psoP , batonC& b_lever_idSessionP , countT& lever_idSessionP , switchC& sw_psoP , countT& cSessionP , countT cArgP , nicNameC& lever_nnPeerP , switchC& sw_cSessionWithPeerP , sessionsC& sessionsP , nicNameC& nnPeerP ) :
+    idSession( idSessionP ) ,
+    pso( psoP ) ,
+    b_lever_idSession( b_lever_idSessionP ) ,
+    lever_idSession( lever_idSessionP ) ,
+    sw_pso( sw_psoP ) ,
+    cSession( cSessionP ) ,
+    cArg( cArgP ) ,
+    lever_nnPeer( lever_nnPeerP ) ,
+    sw_cSessionWithPeer( sw_cSessionWithPeerP ) ,
+    sessions( sessionsP ) ,
+    nnPeer( nnPeerP )
+    {}
+}
+;
+
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+

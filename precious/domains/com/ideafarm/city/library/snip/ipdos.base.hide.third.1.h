@@ -8099,9 +8099,10 @@ it is illegal to refer to this symbol in the definition of an adam
 #define ifciDtYPEdROPnOTE_diskFindHandleS                               0xdddd042c
 #define ifciDtYPEdROPnOTE_cachedS                                       0xdddd042d
 #define ifciDtYPEdROPnOTE_cacheC                                        0xdddd042e
+#define ifciDtYPEdROPnOTE_taskDrivenServerParamsS                       0xdddd042f
 /*3*/
 #define ifciDtYPEdROPnOTE_min     0xdddd0337
-#define ifciDtYPEdROPnOTE_max     0xdddd042e
+#define ifciDtYPEdROPnOTE_max     0xdddd042f
 
 
 //
@@ -8906,7 +8907,6 @@ it is illegal to refer to this symbol in the definition of an adam
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112000d1.fldrivenyouarefired END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112000d2.taskdrivenserver BEGIN
 
-
 //
 // Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
@@ -8948,7 +8948,9 @@ pso not 0 is guaranteed for code between me and DONEdRIVENsERVER
         nicNameC&  lever_nnPeerP         =  *(nicNameC*)pc8tp1->c7 ;                                                                                        \
         switchC&   sw_cSessionWithPeerP  =   *(switchC*)pc8tp1->c8 ;                                                                                        \
         sessionsC& sessionsP             = *(sessionsC*)pc8tp2->c1 ;                                                                                        \
-        nicNameC&  nnPeerP               = *(nicNameC*)&pc8tp2->c2 ;                                                                                        \
+        nicNameC&  nnPeerP               = *(nicNameC*)&pc8tp2->c3 ;                                                                                        \
+                                                                                                                                                            \
+        taskDrivenServerParamsS& jobP = *(taskDrivenServerParamsS*)pc8tp2->c2 ;                                                                             \
                                                                                                                                                             \
         b_lever.grabF( tinP , TAG( TAGiDnULL ) ) ;                                                                                                          \
         lever = ids ;                                                                                                                                       \
@@ -8998,7 +9000,6 @@ pso not 0 is guaranteed for code between me and DONEdRIVENsERVER
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112000d2.taskdrivenserver END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112000d3.donedrivenserver BEGIN
 
-
 //
 // Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
@@ -9040,6 +9041,9 @@ see adam.0140104 for an example
         etThread.delF( tinP , pc8tp1 ) ;                                                                                                                \
         etThread.delF( tinP , pc8tp2 ) ;                                                                                                                \
         etThread.delF( tinP , pc8tp ) ;                                                                                                                 \
+                                                                                                                                                        \
+        taskDrivenServerParamsS* pDoomed = &jobP ;                                                                                                      \
+        DEL( pDoomed ) ;                                                                                                                                \
                                                                                                                                                         \
         etThread.traceF( tinP , T("DONEdRIVENsERVER [cSession]:    ")+TF2(cSession,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;                        \
         dec02AM( cSession ) ;                                                                                                                           \

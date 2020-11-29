@@ -14,14 +14,16 @@
 
         if( !POOP ) handleP.osF( ifcIDtYPEhANDLE_openSslContext , (countT)pContext ) ;
 
-
         __( ec ) ;
         }
-            etherC::etTextIF( tinP ).traceF( tinP , T("[postPemPrivateKeyP]:  ")+T(postPemPrivateKeyP) ) ;
-            etherC::etTextIF( tinP ).traceF( tinP , T("[postPemCertificatesP]:  ")+T(postPemCertificatesP) ) ;
-            etherC::etTextIF( tinP ).traceF( tinP , T("openSsl_getContextIF / exception caught") ) ;
+            if( ec & 8 ) etherC::etTextIF( tinP ).traceF( tinP , T("openSsl_getContextIF / could not read private key [postPemPrivateKeyP]:    ")+T(postPemPrivateKeyP)   ) ;
+            if( ec & 4 ) etherC::etTextIF( tinP ).traceF( tinP , T("openSsl_getContextIF / could not read certificate [postPemCertificatesP]:  ")+T(postPemCertificatesP) ) ;
+            if( ec & 2 ) etherC::etTextIF( tinP ).traceF( tinP , T("openSsl_getContextIF / could not obtain context") ) ;
+            if( ec & 1 ) etherC::etTextIF( tinP ).traceF( tinP , T("openSsl_getContextIF / exception caught") ) ;
+            //CS:CODEsYNC: 350011a1 30000003
         {
-        if( ec )
+        else
+        if( !ec ) etherC::etTextIF( tinP ).traceF( tinP , T("openSsl_getContextIF / aok") ) ;
 
         SSL_CTX* pContext = c_openSsl_getContextIF( &ec , processGlobal1I.openSsl_pContextF , processGlobal1I.openSsl_pMethodF , processGlobal1I.openSsl_pPemFileCertF , processGlobal1I.openSsl_pPemFileKeyF , processGlobal1I.openSsl_pCurvesF , postPemCertificatesP , postPemPrivateKeyP ) ;
         ZE( countT , ec ) ;

@@ -16,16 +16,18 @@
     _except( EXCEPTION_EXECUTE_HANDLER )
     }
         }
-            *pEcP |= - 1 + (*pPemFileKeyFP)(  pContext , postPemPrivateKeyP   , SSL_FILETYPE_PEM ) ;
-            *pEcP |= - 1 + (*pPemFileCertFP)( pContext , postPemCertificatesP ) ;
+            if( - 1 + (*pPemFileKeyFP)(  pContext , postPemPrivateKeyP   , SSL_FILETYPE_PEM ) ) *pEcP |= 8 ;
+            if( - 1 + (*pPemFileCertFP)( pContext , postPemCertificatesP                    ) ) *pEcP |= 4 ;
         {
         if( postPemCertificatesP && postPemPrivateKeyP && *postPemCertificatesP && *postPemPrivateKeyP )
 
         //*pEcP |= - 1 + (*pCurvesFP)( pContext , 1 ) ;
 
+        if( !pContext ) *pEcP |= 2 ;
         pContext = (*pContextFP)( (*pMethodFP)() ) ;
     {
     _try
+    //CS:CODEsYNC: 350011a1 30000003
 
     *pEcP = 0 ;
     unsigned rcDebug = 0 ;

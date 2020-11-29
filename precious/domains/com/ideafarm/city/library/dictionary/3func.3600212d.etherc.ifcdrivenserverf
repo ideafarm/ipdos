@@ -140,7 +140,8 @@
                                     //traceF( tinP , T(nnPeer)+T("    ifcDrivenServerF / launching server thread for this client") , flTRACE_null , ifcIDtRACEdIVERT_7 ) ;
                                     TELL( "server: launching server thread for this client" )
 
-                                    memCopyF( tinP , (byteT*)&pc8tp_tm2->c2 , (byteT*)&nnPeer , sizeof nnPeer ) ;
+                                    memCopyF( tinP , (byteT*)&pc8tp_tm2->c3 , (byteT*)&nnPeer , sizeof nnPeer ) ;  //U:: BUTT UGLY
+                                    pc8tp_tm2->c2 = (countT)pJob ;
                                     pc8tp_tm2->c1 = (countT)&sessions ;
                                     pc8tp_tm1->c8 = (countT)&sw_cSessionWithPeer ;
                                     pc8tp_tm1->c7 = (countT)&lever_nnPeer ;
@@ -155,6 +156,9 @@
                                     pc8tp_tm->c1 = (countT)pc8tp_tm1 ;
                                 {
                                 if( pc8tp_tm && pc8tp_tm1 && pc8tp_tm2 )
+
+                                taskDrivenServerParamsS* pJob = new( 0 , tinP , LF ) taskDrivenServerParamsS( idSessionLath , pso , b_lever_idSession , lever_idSession , sw_pso , cSession , info2P.cArg , lever_nnPeer , sw_cSessionWithPeer , sessions , nnPeer ) ; ___( pJob ) ;
+
                                 newF( tinP , LF , pc8tp_tm2 ) ; ___( pc8tp_tm2 ) ;
                                 newF( tinP , LF , pc8tp_tm1 ) ; ___( pc8tp_tm1 ) ;
                                 newF( tinP , LF , pc8tp_tm ) ; ___( pc8tp_tm ) ;
