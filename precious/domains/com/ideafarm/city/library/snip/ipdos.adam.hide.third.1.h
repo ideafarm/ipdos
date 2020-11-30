@@ -8932,9 +8932,10 @@ pso not 0 is guaranteed for code between me and DONEdRIVENsERVER
 #define TASKdRIVENsERVER(taskFP)                                                                                                                            \
                                                                                                                                                             \
     TASK( taskFP )                                                                                                                                          \
-    if( pTaskP && pTaskP->c1 )                                                                                                                              \
+    if( pTaskP && pTaskP->c1 && pTaskP->c2 )                                                                                                                \
     {                                                                                                                                                       \
-        taskDrivenServerParamsS& jobP = *(taskDrivenServerParamsS*)pTaskP->c1 ;                                                                             \
+        stackC&                  stJobP =                  *(stackC*)pTaskP->c1 ;                                                                           \
+        taskDrivenServerParamsS& jobP   = *(taskDrivenServerParamsS*)pTaskP->c2 ;                                                                           \
                                                                                                                                                             \
         TESTsCRATCH ;                                                                                                                                       \
         TELL( "TASKdRIVENsERVER: setting up" )                                                                                                              \

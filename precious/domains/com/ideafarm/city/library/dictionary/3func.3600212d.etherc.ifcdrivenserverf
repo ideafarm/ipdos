@@ -136,13 +136,18 @@
                                     {
                                     if( POOP )
 
-                                    ZE( countT , tid ) ; tinP.pEtScratch->osThreadF( tinP , tid , info1P.tmF , 0 , flTHREADlAUNCH_SHOWpONY , 0 , (countT)pJob ) ;
+                                    ZE( countT , tid ) ; tinP.pEtScratch->osThreadF( tinP , tid , info1P.tmF , 0 , flTHREADlAUNCH_SHOWpONY , 0 , (countT)&stJobs , (countT)pJob ) ;
                                     //traceF( tinP , T(nnPeer)+T("    ifcDrivenServerF / launching server thread for this client") , flTRACE_null , ifcIDtRACEdIVERT_7 ) ;
                                     TELL( "server: launching server thread for this client" )
                                 {
                                 if( pJob )
 
                                 taskDrivenServerParamsS* pJob = new( 0 , tinP , LF ) taskDrivenServerParamsS( idSessionLath , pso , b_lever_idSession , lever_idSession , sw_pso , cSession , info2P.cArg , lever_nnPeer , sw_cSessionWithPeer , sessions , nnPeer ) ; ___( pJob ) ;
+
+                                stJobs.ungrabF( tinP ) ;
+                                new( 0 , tinP , (byteT*)&stJobs[ 1 ] , sizeof( taskDrivenServerParamsS ) ) taskDrivenServerParamsS( idSessionLath , pso , b_lever_idSession , lever_idSession , sw_pso , cSession , info2P.cArg , lever_nnPeer , sw_cSessionWithPeer , sessions , nnPeer ) ;
+                                stJobs << (byteT*)0 ;
+                                stJobs.grabF( tinP , TAG( TAGiDnULL ) ) ;
 
                                 if( !POOP ) inc02AM( cSession ) ;
                                 //if( 0x401043a == processGlobal1I.idAdamRoot ) ifcSayIF( T("about to launch service thread: third is ")+T(third?"IMPOTENT":"potent") , flSAY_APPEND | flSAY_LOG ) ;
@@ -466,6 +471,8 @@
     IFsCRATCH
     ZE( nicNameC* , pNicNameMe ) ;
     ZE( countT , cNicNameMe ) ;
+
+    stackC stJobs( tinP , third , TAG( TAGiDnULL ) , flSTACKc_FIFO | flSTACKc_BLOB , sizeof( taskDrivenServerParamsS ) , ifcIDgRABlAYER_7BASEmISC1 ) ;
 
     switchC sw_cSessionWithPeer( tinP , *this , TAG( TAGiDnULL ) , flSTACKc_FIFO , lever_nnPeer ) ;
     nicNameC lever_nnPeer ;

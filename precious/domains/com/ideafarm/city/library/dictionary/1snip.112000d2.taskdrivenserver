@@ -47,9 +47,10 @@
         TELL( "TASKdRIVENsERVER: setting up" )                                                                                                              \
         TESTsCRATCH ;                                                                                                                                       \
                                                                                                                                                             \
-        taskDrivenServerParamsS& jobP = *(taskDrivenServerParamsS*)pTaskP->c1 ;                                                                             \
+        taskDrivenServerParamsS& jobP   = *(taskDrivenServerParamsS*)pTaskP->c2 ;                                                                           \
+        stackC&                  stJobP =                  *(stackC*)pTaskP->c1 ;                                                                           \
     {                                                                                                                                                       \
-    if( pTaskP && pTaskP->c1 )                                                                                                                              \
+    if( pTaskP && pTaskP->c1 && pTaskP->c2 )                                                                                                                \
     TASK( taskFP )                                                                                                                                          \
                                                                                                                                                             \
 #define TASKdRIVENsERVER(taskFP)                                                                                                                            \
