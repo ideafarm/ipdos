@@ -1,37 +1,3 @@
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004ea.cslotsjotregistry BEGIN
-
-
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-// Respecting the rights of other people is an important part of empowering one another.
-//
-
-/*
-this value imposes a capacity limit on the amount of directory nesting that cloudC can support
-*/
-
-/**/
-
-//CS:CODEsYNC: 110004ea 110004eb 110004ec 110004ed 110004ee
-//SYNC ERRORS CAN CAUSE ARRAY INDEX OUT OF BOUNDS
-
-/*1*//*CsLOTSjOTrEGISTRY*//*1*/
-
-//20180619@1503: DOUBLED TO (TUCK>>1) TO ACCOMMODATE DEEP NESTING FOR THE ZLIB DIRECTORY TREE IN PRECIOUS
-
-#define CsLOTSjOTrEGISTRY ( TUCK >> 1 )
-
-
-//
-// Respecting the rights of other people is an important part of empowering one another.
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004ea.cslotsjotregistry END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004eb.jarg BEGIN
 
 

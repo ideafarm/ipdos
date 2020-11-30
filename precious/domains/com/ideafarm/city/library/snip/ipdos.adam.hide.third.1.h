@@ -8934,34 +8934,21 @@ pso not 0 is guaranteed for code between me and DONEdRIVENsERVER
     TASK( taskFP )                                                                                                                                          \
     if( pTaskP && pTaskP->c1 )                                                                                                                              \
     {                                                                                                                                                       \
+        taskDrivenServerParamsS& jobP = *(taskDrivenServerParamsS*)pTaskP->c1 ;                                                                             \
+                                                                                                                                                            \
         TESTsCRATCH ;                                                                                                                                       \
         TELL( "TASKdRIVENsERVER: setting up" )                                                                                                              \
-        count8S*   pc8tp                 =    (count8S*)pTaskP->c1 ;                                                                                        \
-        count8S*   pc8tp1                =     (count8S*)pc8tp->c1 ;                                                                                        \
-        count8S*   pc8tp2                =     (count8S*)pc8tp->c2 ;                                                                                        \
-        countT     ids                   =              pc8tp1->c1 ;                                                                                        \
-        batonC&    b_lever               =    *(batonC*)pc8tp1->c2 ;                                                                                        \
-        countT&    lever                 =    *(countT*)pc8tp1->c3 ;                                                                                        \
-        switchC&   sw_pso                =   *(switchC*)pc8tp1->c4 ;                                                                                        \
-        countT&    cSession              =    *(countT*)pc8tp1->c5 ;                                                                                        \
-        countT     cArg                  =              pc8tp1->c6 ;                                                                                        \
-        nicNameC&  lever_nnPeerP         =  *(nicNameC*)pc8tp1->c7 ;                                                                                        \
-        switchC&   sw_cSessionWithPeerP  =   *(switchC*)pc8tp1->c8 ;                                                                                        \
-        sessionsC& sessionsP             = *(sessionsC*)pc8tp2->c1 ;                                                                                        \
-        nicNameC&  nnPeerP               = *(nicNameC*)&pc8tp2->c3 ;                                                                                        \
                                                                                                                                                             \
-        taskDrivenServerParamsS& jobP = *(taskDrivenServerParamsS*)pc8tp2->c2 ;                                                                             \
-                                                                                                                                                            \
-        b_lever.grabF( tinP , TAG( TAGiDnULL ) ) ;                                                                                                          \
-        lever = ids ;                                                                                                                                       \
-        socketC*& psoP = (socketC*&)(countT&)sw_pso ;                                                                                                       \
-        b_lever.ungrabF( tinP ) ;                                                                                                                           \
+        jobP.b_lever_idSession.grabF( tinP , TAG( TAGiDnULL ) ) ;                                                                                           \
+        jobP.lever_idSession = jobP.idSession ;                                                                                                             \
+        socketC*& psoP = (socketC*&)(countT&)jobP.sw_pso ;                                                                                                  \
+        jobP.b_lever_idSession.ungrabF( tinP ) ;                                                                                                            \
         __Z( psoP ) ;                                                                                                                                       \
                                                                                                                                                             \
-        sessionC& sessionP = sessionsP.registerConnectionF( tinP , nnPeerP , /*psttPeerP*/T("notQueried") ) ;                                               \
+        sessionC& sessionP = jobP.sessions.registerConnectionF( tinP , jobP.nnPeer , /*psttPeerP*/T("notQueried") ) ;                                       \
         if( !etThread )                                                                                                                                     \
         {                                                                                                                                                   \
-            etThread.traceF( tinP , T("TASKdRIVENsERVER [cSession]:    ")+TF2(cSession,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;                        \
+            etThread.traceF( tinP , T("TASKdRIVENsERVER [cSession]:    ")+TF2(jobP.cSession,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;                   \
             psoP->etherF( tinP , *tinP.pEtScratch ) ;                                                                                                       \
                                                                                                                                                             \
             ZE( countT , idPortMeP ) ;                                                                                                                      \
@@ -9023,30 +9010,27 @@ see adam.0140104 for an example
                 while( tinP.cKidThreads ) { ++ s ; thirdC::dosSleepRawIF( tinP , 250 ) ; }                                                              \
             }                                                                                                                                           \
                                                                                                                                                         \
-            b_lever.grabF( tinP , TAG( TAGiDnULL ) ) ;                                                                                                  \
+            jobP.b_lever_idSession.grabF( tinP , TAG( TAGiDnULL ) ) ;                                                                                   \
             DEL( psoP ) ;                                                                                                                               \
-            lever = ids ;                                                                                                                               \
-            if( (countT)&psoP == (countT)&(countT&)sw_pso ) sw_pso.freeF( tinP ) ;                                                                      \
-            else                                           __1                                                                                          \
-            b_lever.ungrabF( tinP ) ;                                                                                                                   \
+            jobP.lever_idSession = jobP.idSession ;                                                                                                     \
+            if( (countT)&psoP == (countT)&(countT&)jobP.sw_pso ) jobP.sw_pso.freeF( tinP ) ;                                                            \
+            else                                                 __1                                                                                    \
+            jobP.b_lever_idSession.ungrabF( tinP ) ;                                                                                                    \
         }                                                                                                                                               \
                                                                                                                                                         \
-        sessionsP.unregisterConnectionF( tinP , nnPeerP ) ;                                                                                             \
-        sw_cSessionWithPeerP.grabF( tinP , TAG( TAGiDnULL ) ) ;                                                                                         \
-        lever_nnPeerP = nnPeerP ;                                                                                                                       \
-        -- sw_cSessionWithPeerP ;                                                                                                                       \
-        sw_cSessionWithPeerP.ungrabF( tinP ) ;                                                                                                          \
+        jobP.sessions.unregisterConnectionF( tinP , jobP.nnPeer ) ;                                                                                     \
+        jobP.sw_cSessionWithPeer.grabF( tinP , TAG( TAGiDnULL ) ) ;                                                                                     \
+        jobP.lever_nnPeer = jobP.nnPeer ;                                                                                                               \
+        -- jobP.sw_cSessionWithPeer ;                                                                                                                   \
+        jobP.sw_cSessionWithPeer.ungrabF( tinP ) ;                                                                                                      \
                                                                                                                                                         \
         /*etThread.delF( tinP , psttPeerP ) ;*/                                                                                                         \
-        etThread.delF( tinP , pc8tp1 ) ;                                                                                                                \
-        etThread.delF( tinP , pc8tp2 ) ;                                                                                                                \
-        etThread.delF( tinP , pc8tp ) ;                                                                                                                 \
+                                                                                                                                                        \
+        etThread.traceF( tinP , T("DONEdRIVENsERVER [cSession]:    ")+TF2(jobP.cSession,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;                   \
                                                                                                                                                         \
         taskDrivenServerParamsS* pDoomed = &jobP ;                                                                                                      \
+        dec02AM( jobP.cSession ) ;                                                                                                                      \
         DEL( pDoomed ) ;                                                                                                                                \
-                                                                                                                                                        \
-        etThread.traceF( tinP , T("DONEdRIVENsERVER [cSession]:    ")+TF2(cSession,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;                        \
-        dec02AM( cSession ) ;                                                                                                                           \
     }                                                                                                                                                   \
     DONE( taskFP )
 
@@ -45355,3 +45339,37 @@ this macro detects an invalid jPointer value and, if valid, evaluates to the (co
 //
 
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004e9.fljotcwrite END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004ea.cslotsjotregistry BEGIN
+
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+/*
+this value imposes a capacity limit on the amount of directory nesting that cloudC can support
+*/
+
+/**/
+
+//CS:CODEsYNC: 110004ea 110004eb 110004ec 110004ed 110004ee
+//SYNC ERRORS CAN CAUSE ARRAY INDEX OUT OF BOUNDS
+
+/*1*//*CsLOTSjOTrEGISTRY*//*1*/
+
+//20180619@1503: DOUBLED TO (TUCK>>1) TO ACCOMMODATE DEEP NESTING FOR THE ZLIB DIRECTORY TREE IN PRECIOUS
+
+#define CsLOTSjOTrEGISTRY ( TUCK >> 1 )
+
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004ea.cslotsjotregistry END

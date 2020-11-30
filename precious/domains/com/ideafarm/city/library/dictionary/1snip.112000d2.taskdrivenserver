@@ -33,34 +33,21 @@
             ZE( countT , idPortMeP ) ;                                                                                                                      \
                                                                                                                                                             \
             psoP->etherF( tinP , *tinP.pEtScratch ) ;                                                                                                       \
-            etThread.traceF( tinP , T("TASKdRIVENsERVER [cSession]:    ")+TF2(cSession,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;                        \
+            etThread.traceF( tinP , T("TASKdRIVENsERVER [cSession]:    ")+TF2(jobP.cSession,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;                   \
         {                                                                                                                                                   \
         if( !etThread )                                                                                                                                     \
-        sessionC& sessionP = sessionsP.registerConnectionF( tinP , nnPeerP , /*psttPeerP*/T("notQueried") ) ;                                               \
+        sessionC& sessionP = jobP.sessions.registerConnectionF( tinP , jobP.nnPeer , /*psttPeerP*/T("notQueried") ) ;                                       \
                                                                                                                                                             \
         __Z( psoP ) ;                                                                                                                                       \
-        b_lever.ungrabF( tinP ) ;                                                                                                                           \
-        socketC*& psoP = (socketC*&)(countT&)sw_pso ;                                                                                                       \
-        lever = ids ;                                                                                                                                       \
-        b_lever.grabF( tinP , TAG( TAGiDnULL ) ) ;                                                                                                          \
+        jobP.b_lever_idSession.ungrabF( tinP ) ;                                                                                                            \
+        socketC*& psoP = (socketC*&)(countT&)jobP.sw_pso ;                                                                                                  \
+        jobP.lever_idSession = jobP.idSession ;                                                                                                             \
+        jobP.b_lever_idSession.grabF( tinP , TAG( TAGiDnULL ) ) ;                                                                                           \
                                                                                                                                                             \
-        taskDrivenServerParamsS& jobP = *(taskDrivenServerParamsS*)pc8tp2->c2 ;                                                                             \
-                                                                                                                                                            \
-        nicNameC&  nnPeerP               = *(nicNameC*)&pc8tp2->c3 ;                                                                                        \
-        sessionsC& sessionsP             = *(sessionsC*)pc8tp2->c1 ;                                                                                        \
-        switchC&   sw_cSessionWithPeerP  =   *(switchC*)pc8tp1->c8 ;                                                                                        \
-        nicNameC&  lever_nnPeerP         =  *(nicNameC*)pc8tp1->c7 ;                                                                                        \
-        countT     cArg                  =              pc8tp1->c6 ;                                                                                        \
-        countT&    cSession              =    *(countT*)pc8tp1->c5 ;                                                                                        \
-        switchC&   sw_pso                =   *(switchC*)pc8tp1->c4 ;                                                                                        \
-        countT&    lever                 =    *(countT*)pc8tp1->c3 ;                                                                                        \
-        batonC&    b_lever               =    *(batonC*)pc8tp1->c2 ;                                                                                        \
-        countT     ids                   =              pc8tp1->c1 ;                                                                                        \
-        count8S*   pc8tp2                =     (count8S*)pc8tp->c2 ;                                                                                        \
-        count8S*   pc8tp1                =     (count8S*)pc8tp->c1 ;                                                                                        \
-        count8S*   pc8tp                 =    (count8S*)pTaskP->c1 ;                                                                                        \
         TELL( "TASKdRIVENsERVER: setting up" )                                                                                                              \
         TESTsCRATCH ;                                                                                                                                       \
+                                                                                                                                                            \
+        taskDrivenServerParamsS& jobP = *(taskDrivenServerParamsS*)pTaskP->c1 ;                                                                             \
     {                                                                                                                                                       \
     if( pTaskP && pTaskP->c1 )                                                                                                                              \
     TASK( taskFP )                                                                                                                                          \

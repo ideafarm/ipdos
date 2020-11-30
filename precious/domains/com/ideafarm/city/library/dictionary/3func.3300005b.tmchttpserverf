@@ -62,7 +62,7 @@ DONEdRIVENsERVER( tmcHttpServerF )
     //    +T("\r\n")
     //    +TF2(cHamburgersThisSession,flFORMAT_NObIGITvALUES)
     //    +T(" total:")
-    //    +TF2(nnPeerP.pcId[0],flFORMAT_NObIGITvALUES)
+    //    +TF2(jobP.nnPeer.pcId[0],flFORMAT_NObIGITvALUES)
     //    +T("| http 05 session peer:")
     //    TT(timeA1,timeA2)
     //
@@ -74,7 +74,7 @@ DONEdRIVENsERVER( tmcHttpServerF )
     TELL( "tmcHttpServerF: cleaning up (part 1)" ) ;
 
     }
-        if( idEscaped ) (*pHttpRawCommandServerCBFP)( tinP , etThread , bQuitP , cArgAppP , *psoP , time1idleTimeoutReadP , time1idleTimeoutWriteP , sessionsP , nnPeerP , idEscaped ) ;
+        if( idEscaped ) (*pHttpRawCommandServerCBFP)( tinP , etThread , bQuitP , cArgAppP , *psoP , time1idleTimeoutReadP , time1idleTimeoutWriteP , jobP.sessions , jobP.nnPeer , idEscaped ) ;
         TELL( "maybe calling raw command server" ) ;
 
         //LOGrAW( T("------------------------- E N D   O F   S E S S I O N -------------------------------------------------------\r\n") ) ;
@@ -82,7 +82,7 @@ DONEdRIVENsERVER( tmcHttpServerF )
         }
             if( bClose ) break ;
 
-            etThread.traceF( tinP , T("accumulated time pending [nnPeer,time]:    ")+T(nnPeerP)+T("    ")+TT(timeTotalPending1,timeTotalPending2) , flTRACE_FORCEnOsILENCE , idTraceDivert ) ;
+            etThread.traceF( tinP , T("accumulated time pending [nnPeer,time]:    ")+T(jobP.nnPeer)+T("    ")+TT(timeTotalPending1,timeTotalPending2) , flTRACE_FORCEnOsILENCE , idTraceDivert ) ;
             etThread.osTimeAddF(      tinP , timeTotalPending1 , timeTotalPending2 , timeElapsed1 , timeElapsed2 ) ;
             etThread.osTimeSubtractF( tinP , timeElapsed1 , timeElapsed2 , timeStart1 , timeStart2 ) ;
             etThread.osTimeNowF(      tinP , timeElapsed1 , timeElapsed2 ) ;
@@ -97,7 +97,7 @@ DONEdRIVENsERVER( tmcHttpServerF )
             etThread.delF( tinP , psttQueryKV ) ;
             }
                 }
-                    etThread.traceF( tinP , TF3(meP.idPortF(tinP),flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,9)+T(nnPeerP)+T("    nonfile response has been written") , flTRACE_FORCEnOsILENCE , idTraceDivert ) ;
+                    etThread.traceF( tinP , TF3(meP.idPortF(tinP),flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,9)+T(jobP.nnPeer)+T("    nonfile response has been written") , flTRACE_FORCEnOsILENCE , idTraceDivert ) ;
 
                     etThread.delF( tinP , psttKVReport ) ;
                     pswKV->freeNullsF( tinP ) ;
@@ -139,7 +139,7 @@ DONEdRIVENsERVER( tmcHttpServerF )
                         }
                             }
                                 bClose = 1 ;
-                                etThread.traceF( tinP , T("tmcHttpServerF: could not write to socket 109 [nnPeer]:    ")+T(nnPeerP) , flTRACE_FORCEnOsILENCE , idTraceDivert ) ;
+                                etThread.traceF( tinP , T("tmcHttpServerF: could not write to socket 109 [nnPeer]:    ")+T(jobP.nnPeer) , flTRACE_FORCEnOsILENCE , idTraceDivert ) ;
                                 POOPRqUIET
                             {
                             if( POOP )
@@ -610,7 +610,7 @@ DONEdRIVENsERVER( tmcHttpServerF )
                                                 etThread.strMakeF( tinP , prPostsMugShot , idAccCommission
         
                                                 idAccCommission      = session.getIdAccountCommissionF( tinP ) ; //MUST BE DONE AFTER DYNAMIC CONTENT CALL HAS BEEN MADE
-                                                sessionC& session = sessionsP( tinP , nnPeerP ) ;
+                                                sessionC& session = jobP.sessions( tinP , jobP.nnPeer ) ;
                                                 ZE( countT , idAccCommission ) ;
                                             {
 
@@ -641,7 +641,7 @@ DONEdRIVENsERVER( tmcHttpServerF )
                                             ZE( boolT , bAllowBigHead ) ;
             
                                             }
-                                                (*REPLY.pCBF)( tinP , etThread , bQuitP , meP , cArgAppP , REPLY , *pStkBodyDynamic , psttKVReport , *pswKV , psttLeverKV , sessionsP , nnPeerP , psttName , psttQueryKV , psttAgent , postBody ) ;
+                                                (*REPLY.pCBF)( tinP , etThread , bQuitP , meP , cArgAppP , REPLY , *pStkBodyDynamic , psttKVReport , *pswKV , psttLeverKV , jobP.sessions , jobP.nnPeer , psttName , psttQueryKV , psttAgent , postBody ) ;
                                                 TELL( T(psttName) ) ;
                                                 _IO_
                                             {
@@ -692,7 +692,7 @@ DONEdRIVENsERVER( tmcHttpServerF )
                                             (
                                             if
                                             ZE( countT , idBannerAd ) ;
-                                            sessionC& session = sessionsP( tinP , nnPeerP ) ;
+                                            sessionC& session = jobP.sessions( tinP , jobP.nnPeer ) ;
                                             TELL( "ifcIDfORMhTTPrEPLY_BIGhEAD" ) ;
                                             TESTsCRATCH //U::TO FIND A BUG
                                         {
@@ -710,7 +710,7 @@ DONEdRIVENsERVER( tmcHttpServerF )
                                             //THESE WERE REMOVED IN 2019. 20200729@1734: ENABLED WITHOUT ANALYSIS
                             
                                             }
-                                                (*REPLY.pCBF)( tinP , etThread , bQuitP , meP , cArgAppP , REPLY , *pStkBody , psttKVReport , *pswKV , psttLeverKV , sessionsP , nnPeerP , psttName , psttQueryKV , psttAgent , postBody ) ;
+                                                (*REPLY.pCBF)( tinP , etThread , bQuitP , meP , cArgAppP , REPLY , *pStkBody , psttKVReport , *pswKV , psttLeverKV , jobP.sessions , jobP.nnPeer , psttName , psttQueryKV , psttAgent , postBody ) ;
                                                 _IO_
                                             {
                                             if( REPLY.pCBF )
@@ -815,7 +815,7 @@ DONEdRIVENsERVER( tmcHttpServerF )
                                                     const countT cAd = 8 ; //CS:CODEsYNC: 1d20003 0b5000d
                                                     countT idAd = session.dispenseIdF( tinP , 1 ) ;
             
-                                                    sessionC& session = sessionsP( tinP , nnPeerP ) ;
+                                                    sessionC& session = jobP.sessions( tinP , jobP.nnPeer ) ;
                                                 {
                                             {
                                             )
@@ -832,7 +832,7 @@ DONEdRIVENsERVER( tmcHttpServerF )
                                             break ;
 
                                             }
-                                                (*REPLY.pCBF)( tinP , etThread , bQuitP , meP , cArgAppP , REPLY , *pStkBody , psttKVReport , *pswKV , psttLeverKV , sessionsP , nnPeerP , psttName , psttQueryKV , psttAgent , postBody ) ;
+                                                (*REPLY.pCBF)( tinP , etThread , bQuitP , meP , cArgAppP , REPLY , *pStkBody , psttKVReport , *pswKV , psttLeverKV , jobP.sessions , jobP.nnPeer , psttName , psttQueryKV , psttAgent , postBody ) ;
                                                 _IO_
                                             {
                                             if( REPLY.pCBF )
@@ -931,7 +931,7 @@ DONEdRIVENsERVER( tmcHttpServerF )
                     ZE( stackC* , pStkBody ) ; //EVERYTHING AFTER THE HTTP HEADER AND ITS TRAILING "\r\n\r\n"
                     TELL( "getting recycled items" ) ;
 
-                    (*pHttpEatKeyValuePairsCBFP)( tinP , etThread , bQuitP , psttKVReport , 0 /*DISABLED TO PREVENT ATTACK: T("///ideafarm/ephemeral/backed.up.daily/domains/com/ideafarm/")+TF1(ifcIDaDAM_ROOTfORMdATAeATER)+T("/in/form") */ , *pswKV , psttLeverKV , sessionsP , nnPeerP , psttName , psttQueryKV , psttAgent , postBody ) ;
+                    (*pHttpEatKeyValuePairsCBFP)( tinP , etThread , bQuitP , psttKVReport , 0 /*DISABLED TO PREVENT ATTACK: T("///ideafarm/ephemeral/backed.up.daily/domains/com/ideafarm/")+TF1(ifcIDaDAM_ROOTfORMdATAeATER)+T("/in/form") */ , *pswKV , psttLeverKV , jobP.sessions , jobP.nnPeer , psttName , psttQueryKV , psttAgent , postBody ) ;
                     ZE( strokeS* , psttKVReport ) ;
                     TELL( "calling keyvalue eater" ) ;
 
@@ -957,7 +957,7 @@ DONEdRIVENsERVER( tmcHttpServerF )
                         }
                             }
                                 }
-                                    //if( nnMe != nnPeerP && nnPeerP != nnLocal ) etThread.boxPutF( tinP , T("///ideafarm/ephemeral/domains/com/ideafarm/ipdos/attackers/")+T(nnPeerP) ) ; 
+                                    //if( nnMe != jobP.nnPeer && jobP.nnPeer != nnLocal ) etThread.boxPutF( tinP , T("///ideafarm/ephemeral/domains/com/ideafarm/ipdos/attackers/")+T(jobP.nnPeer) ) ; 
                                     //nicNameC nnLocal( NICnAMElOCAL ) ;
                                     //nicNameC nnMe = socketC::nicNameIF( tinP , etThread ) ;
                                 {
@@ -997,7 +997,7 @@ DONEdRIVENsERVER( tmcHttpServerF )
                         //POPUPcOUNT( "idHeadFlavorOverride before: " , idHeadFlavorOverride ) ;
                         idHeadFlavorOverride = session.getIdHeadFlavorOverrideF( tinP ) ;
                         session.touchF( tinP , psttName ) ;    
-                        sessionC& session = sessionsP( tinP , nnPeerP ) ;
+                        sessionC& session = jobP.sessions( tinP , jobP.nnPeer ) ;
                         TELL( "getting idHeadFlavorOverride" ) ;
                     {
                     ZE( countT , idHeadFlavorOverride ) ;
@@ -1027,11 +1027,11 @@ DONEdRIVENsERVER( tmcHttpServerF )
                     //const boolT bDebug = 1 ;
                     //const boolT bDebug = !etThread.strCompareF( tinP , psttName , T("/nobot/action/myaccount.html") ) ;
 
-                    etThread.traceF( tinP , TF3(meP.idPortF(tinP),flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,9)+T(nnPeerP)+T("    preparing nonfile response") , flTRACE_FORCEnOsILENCE , idTraceDivert ) ;
+                    etThread.traceF( tinP , TF3(meP.idPortF(tinP),flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,9)+T(jobP.nnPeer)+T("    preparing nonfile response") , flTRACE_FORCEnOsILENCE , idTraceDivert ) ;
                 {
                 else
                 }
-                    if( bClose ) etThread.traceF( tinP , TF3(meP.idPortF(tinP),flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,9)+T(nnPeerP)+T("    closing connection") , flTRACE_FORCEnOsILENCE , idTraceDivert ) ;
+                    if( bClose ) etThread.traceF( tinP , TF3(meP.idPortF(tinP),flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,9)+T(jobP.nnPeer)+T("    closing connection") , flTRACE_FORCEnOsILENCE , idTraceDivert ) ;
 
                     }
                         DEL( pFW ) ;
@@ -1063,7 +1063,7 @@ DONEdRIVENsERVER( tmcHttpServerF )
                                 {
                                 if( bCacheThis )
 
-                                etThread.traceF( tinP , TF3(meP.idPortF(tinP),flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,9)+T(nnPeerP)+T("    wrote   file window [cbw]:    ")+TF2(cbw,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) , flTRACE_FORCEnOsILENCE , idTraceDivert ) ;
+                                etThread.traceF( tinP , TF3(meP.idPortF(tinP),flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,9)+T(jobP.nnPeer)+T("    wrote   file window [cbw]:    ")+TF2(cbw,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) , flTRACE_FORCEnOsILENCE , idTraceDivert ) ;
 
                                 }
                                     }
@@ -1077,12 +1077,12 @@ DONEdRIVENsERVER( tmcHttpServerF )
                                 {
                                 IFsCRATCH
 
-                                etThread.traceF( tinP , TF3(meP.idPortF(tinP),flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,9)+T(nnPeerP)+T("    writing file window [cbw]:    ")+TF2(cbw,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) , flTRACE_FORCEnOsILENCE , idTraceDivert ) ;
+                                etThread.traceF( tinP , TF3(meP.idPortF(tinP),flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,9)+T(jobP.nnPeer)+T("    writing file window [cbw]:    ")+TF2(cbw,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) , flTRACE_FORCEnOsILENCE , idTraceDivert ) ;
                             {
                             else
                             }
                                 break ;
-                                etThread.traceF( tinP , TF3(meP.idPortF(tinP),flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,9)+T(nnPeerP)+T("    all file windows have been written") , flTRACE_FORCEnOsILENCE , idTraceDivert ) ;
+                                etThread.traceF( tinP , TF3(meP.idPortF(tinP),flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,9)+T(jobP.nnPeer)+T("    all file windows have been written") , flTRACE_FORCEnOsILENCE , idTraceDivert ) ;
                             {
                             if( !pbw || !cbw )
 
@@ -1127,7 +1127,7 @@ DONEdRIVENsERVER( tmcHttpServerF )
 
                         sCountC cbBody( tinP , etThread , pcLoHi , SC << 1 ) ;
                         countT pcLoHi[] = { pFW->cbFileLoF() , pFW->cbFileHiF() } ;
-                        etThread.traceF( tinP , TF3(meP.idPortF(tinP),flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,9)+T(nnPeerP)+T("    serving file [cbFileLo,cbFileHi]:    ")+TF3(pFW->cbFileLoF(),flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,9)+TF3(pFW->cbFileHiF(),flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,9) ) ;
+                        etThread.traceF( tinP , TF3(meP.idPortF(tinP),flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,9)+T(jobP.nnPeer)+T("    serving file [cbFileLo,cbFileHi]:    ")+TF3(pFW->cbFileLoF(),flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,9)+TF3(pFW->cbFileHiF(),flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,9) ) ;
                     {
                     else
                     }
@@ -1147,7 +1147,7 @@ DONEdRIVENsERVER( tmcHttpServerF )
                         TN( tBody , "The page (or other resource) that you requested does not exist here.\r\n\r\nIf you think that this is our error, please let us know.\r\n" ) ;
 
                         }
-                            etThread.traceF( tinP , TF3(meP.idPortF(tinP),flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,9)+T(nnPeerP)+T("    error: could not open file:    ")+*pptFileIn[offf] , flTRACE_FORCEnOsILENCE , idTraceDivert ) ;
+                            etThread.traceF( tinP , TF3(meP.idPortF(tinP),flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,9)+T(jobP.nnPeer)+T("    error: could not open file:    ")+*pptFileIn[offf] , flTRACE_FORCEnOsILENCE , idTraceDivert ) ;
                         {
                         for( countT offf = 0 ; offf < sizeof pptFileIn / sizeof pptFileIn[ 0 ] ; offf ++ )
                     {
@@ -1168,7 +1168,7 @@ DONEdRIVENsERVER( tmcHttpServerF )
                             SCOOPS
                         {
                         IFsCRATCH
-                        etThread.traceF( tinP , TF3(meP.idPortF(tinP),flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,9)+T(nnPeerP)+T("    attempting to open file:    ")+*pptFileIn[offf] , flTRACE_FORCEnOsILENCE , idTraceDivert ) ;
+                        etThread.traceF( tinP , TF3(meP.idPortF(tinP),flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,9)+T(jobP.nnPeer)+T("    attempting to open file:    ")+*pptFileIn[offf] , flTRACE_FORCEnOsILENCE , idTraceDivert ) ;
                     {
                     for( countT offf = 0 ; offf < sizeof pptFileIn / sizeof pptFileIn[ 0 ] ; offf ++ )
 
@@ -1224,7 +1224,7 @@ DONEdRIVENsERVER( tmcHttpServerF )
                 {
                 else if( bFileChallenge )
                 }
-                    if( bClose ) etThread.traceF( tinP , TF3(meP.idPortF(tinP),flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,9)+T(nnPeerP)+T("    closing connection") , flTRACE_FORCEnOsILENCE , idTraceDivert ) ;
+                    if( bClose ) etThread.traceF( tinP , TF3(meP.idPortF(tinP),flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,9)+T(jobP.nnPeer)+T("    closing connection") , flTRACE_FORCEnOsILENCE , idTraceDivert ) ;
 
                     etThread.delF( tinP , pbIcon ) ;
 
@@ -1279,7 +1279,7 @@ DONEdRIVENsERVER( tmcHttpServerF )
                 }
                     }
                         bClose = 1 ;
-                        if( bDeadman1 || bDeadman2 ) etThread.traceF( tinP , T("tmcHttpServerF: could not write to socket 96 [nnPeer]:    ")+T(nnPeerP) , flTRACE_HOMEeCHO | flTRACE_FORCEnOsILENCE , idTraceDivert ) ;
+                        if( bDeadman1 || bDeadman2 ) etThread.traceF( tinP , T("tmcHttpServerF: could not write to socket 96 [nnPeer]:    ")+T(jobP.nnPeer) , flTRACE_HOMEeCHO | flTRACE_FORCEnOsILENCE , idTraceDivert ) ;
                         POOPRqUIET
                     {
                     else
@@ -1310,7 +1310,7 @@ DONEdRIVENsERVER( tmcHttpServerF )
             ZE( cachedS* , pzCached ) ;
             TESTsCRATCH //U::TO FIND A BUG
 
-            etThread.traceF( tinP , TF3(meP.idPortF(tinP),flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,9)+T(nnPeerP)+T("    request:    \"")+T(psttName)+T("\"")+(psttQueryKV?T("    ")+T(psttQueryKV):T("")) , bDeadman1 || bDeadman2 ? flTRACE_HOMEeCHO | flTRACE_FORCEnOsILENCE | flTRACE_ECHOoNLY : flTRACE_FORCEnOsILENCE , idTraceDivert ) ;
+            etThread.traceF( tinP , TF3(meP.idPortF(tinP),flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,9)+T(jobP.nnPeer)+T("    request:    \"")+T(psttName)+T("\"")+(psttQueryKV?T("    ")+T(psttQueryKV):T("")) , bDeadman1 || bDeadman2 ? flTRACE_HOMEeCHO | flTRACE_FORCEnOsILENCE | flTRACE_ECHOoNLY : flTRACE_FORCEnOsILENCE , idTraceDivert ) ;
 
             ;
                         : ifcIDtRACEdIVERT_6
@@ -1388,24 +1388,24 @@ DONEdRIVENsERVER( tmcHttpServerF )
                 //boolT bWhite  = etThread.diskFileExistsF( tinP , tListWhite  ) ;
                 //boolT bHuman  = etThread.diskFileExistsF( tinP , tListHuman  ) ;
                 //
-                //tListWhite += T("////factory6/d/ideafarm.home.101/ephemeral/domains/com/ideafarm/ipdos/attackers/white/")+T(nnPeerP) ;
-                //tListWhite += T("////factory4/d/ideafarm.home.101/ephemeral/domains/com/ideafarm/ipdos/attackers/white/")+T(nnPeerP) ;
-                //tListWhite += T("////factory2/d/ideafarm.home.101/ephemeral/domains/com/ideafarm/ipdos/attackers/white/")+T(nnPeerP) ;
+                //tListWhite += T("////factory6/d/ideafarm.home.101/ephemeral/domains/com/ideafarm/ipdos/attackers/white/")+T(jobP.nnPeer) ;
+                //tListWhite += T("////factory4/d/ideafarm.home.101/ephemeral/domains/com/ideafarm/ipdos/attackers/white/")+T(jobP.nnPeer) ;
+                //tListWhite += T("////factory2/d/ideafarm.home.101/ephemeral/domains/com/ideafarm/ipdos/attackers/white/")+T(jobP.nnPeer) ;
                 //TlIST( tListWhite ) ;
                 //
-                //tListBlock += T("////factory6/d/ideafarm.home.101/ephemeral/domains/com/ideafarm/ipdos/attackers/block/")+T(nnPeerP) ;
-                //tListBlock += T("////factory4/d/ideafarm.home.101/ephemeral/domains/com/ideafarm/ipdos/attackers/block/")+T(nnPeerP) ;
-                //tListBlock += T("////factory2/d/ideafarm.home.101/ephemeral/domains/com/ideafarm/ipdos/attackers/block/")+T(nnPeerP) ;
+                //tListBlock += T("////factory6/d/ideafarm.home.101/ephemeral/domains/com/ideafarm/ipdos/attackers/block/")+T(jobP.nnPeer) ;
+                //tListBlock += T("////factory4/d/ideafarm.home.101/ephemeral/domains/com/ideafarm/ipdos/attackers/block/")+T(jobP.nnPeer) ;
+                //tListBlock += T("////factory2/d/ideafarm.home.101/ephemeral/domains/com/ideafarm/ipdos/attackers/block/")+T(jobP.nnPeer) ;
                 //TlIST( tListBlock ) ;
                 //
-                //tListAllowWoMore += T("////factory6/d/ideafarm.home.101/ephemeral/domains/com/ideafarm/ipdos/attackers/allowWoMore/")+T(nnPeerP) ;
-                //tListAllowWoMore += T("////factory4/d/ideafarm.home.101/ephemeral/domains/com/ideafarm/ipdos/attackers/allowWoMore/")+T(nnPeerP) ;
-                //tListAllowWoMore += T("////factory2/d/ideafarm.home.101/ephemeral/domains/com/ideafarm/ipdos/attackers/allowWoMore/")+T(nnPeerP) ;
+                //tListAllowWoMore += T("////factory6/d/ideafarm.home.101/ephemeral/domains/com/ideafarm/ipdos/attackers/allowWoMore/")+T(jobP.nnPeer) ;
+                //tListAllowWoMore += T("////factory4/d/ideafarm.home.101/ephemeral/domains/com/ideafarm/ipdos/attackers/allowWoMore/")+T(jobP.nnPeer) ;
+                //tListAllowWoMore += T("////factory2/d/ideafarm.home.101/ephemeral/domains/com/ideafarm/ipdos/attackers/allowWoMore/")+T(jobP.nnPeer) ;
                 //TlIST( tListAllowWoMore ) ;
                 //
-                //tListHuman += T("////factory6/d/ideafarm.home.101/ephemeral/domains/com/ideafarm/ipdos/attackers/human/")+T(nnPeerP) ;
-                //tListHuman += T("////factory4/d/ideafarm.home.101/ephemeral/domains/com/ideafarm/ipdos/attackers/human/")+T(nnPeerP) ;
-                //tListHuman += T("////factory2/d/ideafarm.home.101/ephemeral/domains/com/ideafarm/ipdos/attackers/human/")+T(nnPeerP) ;
+                //tListHuman += T("////factory6/d/ideafarm.home.101/ephemeral/domains/com/ideafarm/ipdos/attackers/human/")+T(jobP.nnPeer) ;
+                //tListHuman += T("////factory4/d/ideafarm.home.101/ephemeral/domains/com/ideafarm/ipdos/attackers/human/")+T(jobP.nnPeer) ;
+                //tListHuman += T("////factory2/d/ideafarm.home.101/ephemeral/domains/com/ideafarm/ipdos/attackers/human/")+T(jobP.nnPeer) ;
                 //TlIST( tListHuman ) ;
             {
             if( bFail )
@@ -1523,7 +1523,7 @@ DONEdRIVENsERVER( tmcHttpServerF )
     ZE( boolT , bOsFire ) ;
 
     if( !pHttpEatKeyValuePairsCBFP ) pHttpEatKeyValuePairsCBFP = httpEatKeyValuePairsDefaultCBF ;
-    HTTPsYSpARAMS( cArg )
+    HTTPsYSpARAMS( jobP.cArg )
 
     //tinP.pAdamGlobal1->pEtThreadMain->etherTestF( tinP ) ; //U:: TO FIND A BUG
 
@@ -1536,7 +1536,7 @@ DONEdRIVENsERVER( tmcHttpServerF )
 
     TESTsCRATCH //U:: TO FIND A BUG
 {
-if( cArg )
+if( jobP.cArg )
 _IO_
 TELL( "preparing for work" ) ;
 /*1*/TASKdRIVENsERVER( tmcHttpServerF )/*1*/
