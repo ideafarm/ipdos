@@ -11969,9 +11969,10 @@ TASK0PROTO( tmAdamMainF ) ;
 
 /*
 */
-/*1*//*tmcHttpServerF*//*1*/
+/*1*//*tmcHttpServerWoJobF*//*1*/
 
-TASK0PROTO( tmcHttpServerF ) ;
+TASK0PROTO( tmcHttpServerWoJobF ) ;
+TASK0PROTO( tmcHttpServerWorkerF ) ;
 
 
 //
@@ -31829,6 +31830,7 @@ examples
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.341c0.etherC.etherSoilF!||
  count04T etherDispenseSerialNumberF( tinS& tinP , const strokeS* const psttFileP ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.360021f5.etherc.etherDispenseSerialNumberF!||
+ voidT etherDoHttpJobF( tinS& tinP , taskDrivenServerParamsS& jobP , socketC*& psoP , sessionC& sessionP , countT idPortMeP , nicNameC nnMeP ) ;
 
 /* commands: birth , death of objects of other classes */
  voidT poolDelF( tinS& tinP , voidT* const pvP ) ;
@@ -37202,7 +37204,6 @@ the only function of this object is to edit tinS::grabPseudo so that the monitor
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.serverInfo1S : 1snip.15000056.serverinfo1s END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.serverInfo2S : 1snip.15000057.serverinfo2s BEGIN
 
-
 //
 // Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
@@ -37225,6 +37226,7 @@ the only function of this object is to edit tinS::grabPseudo so that the monitor
     countT               cSessionMax ;
     const countT         cArg ;
     countT               time1grace ;
+    countT               cWorkers ;     // -1: 1 PER CPU; -2: 2 PER CPU; ...
     const boolT          bState ;
     const countT         cbdVarying ;
     translateStateFT     translateStateF ;
@@ -37235,7 +37237,7 @@ the only function of this object is to edit tinS::grabPseudo so that the monitor
 
     ~serverInfo2S( voidT ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34001.serverInfo2S.dt_serverInfo2S!||
-    serverInfo2S( const countT idPortHintP = 0 , const countT flagsSocketP = flSOCKETc_null , const strokeS* const psttNameP = 0 , countT cSessionMaxP = 0 , const countT cArgP = 0 , countT time1graceP = 0 , const boolT bStateP = 1 , const countT cbdVaryingP = 0 , translateStateFT translateStateFP = 0 , const strokeS* const psttSuffixP = 0 , stateFT stateBeginFP = 0 , stateFT stateEndFP = 0 , sessionsC* const pSessionsP = 0 ) ;
+    serverInfo2S( const countT idPortHintP = 0 , const countT flagsSocketP = flSOCKETc_null , const strokeS* const psttNameP = 0 , countT cSessionMaxP = 0 , const countT cArgP = 0 , countT time1graceP = 0 , countT cWorkersP = 0 , const boolT bStateP = 1 , const countT cbdVaryingP = 0 , translateStateFT translateStateFP = 0 , const strokeS* const psttSuffixP = 0 , stateFT stateBeginFP = 0 , stateFT stateEndFP = 0 , sessionsC* const pSessionsP = 0 ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34002.serverInfo2S.serverInfo2S!||
 
 /**/
@@ -39126,7 +39128,7 @@ the only function of this object is to edit tinS::grabPseudo so that the monitor
     inline strokeS*& psttLeverUrlF( voidT ) { return psttLeverUrl ; }
     inline switchC&  swMapUrlF( voidT ) { return swMapUrl ; }
 
-    friend TASKpROTO( tmcHttpServerF ) ;
+    friend voidT etherC::etherDoHttpJobF( tinS& tinP , taskDrivenServerParamsS& jobP , socketC*& psoP , sessionC& sessionP , countT idPortMeP , nicNameC nnMeP ) ;
     friend TASKpROTO( tm_httpServerC_F ) ;
     friend TASKpROTO( tmHttpCacheF ) ;
     friend voidT loginCBF( tinS& tinP , etherC& etThread , const boolT& bQuitP , httpServerC& meP , countT& cArgP , httpReplyS& replyP , stackC& stBodyP , const strokeS* const psttKVReportP , switchC& swKVP , strokeS*& psttLeverKVP , sessionsC& sessionsP , nicNameC& nnPeerP , const strokeS* const psttNameP , const strokeS* const psttQueryKVP , const strokeS* const psttPeerAgentP , const osTextT* const postBodyP ) ; //U::idPort
@@ -45113,7 +45115,6 @@ i am nonconformant in that all of my member function definitions are in a single
 
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.cacheC : 1snip.15000187.cacheC END
 
-
 //
 // Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
@@ -45128,7 +45129,6 @@ i am nonconformant in that all of my member function definitions are in a single
 /*1*/struct _export taskDrivenServerParamsS/*1*/
 {
     countT     idSession ;
-    socketC*   pso ;
     batonC&    b_lever_idSession ;
     countT&    lever_idSession ;
     switchC&   sw_pso ;
@@ -45140,20 +45140,8 @@ i am nonconformant in that all of my member function definitions are in a single
     nicNameC   nnPeer ;
 
     NEWdELcLASSpROTOS
-
-    inline taskDrivenServerParamsS( countT idSessionP , socketC* psoP , batonC& b_lever_idSessionP , countT& lever_idSessionP , switchC& sw_psoP , countT& cSessionP , countT cArgP , nicNameC& lever_nnPeerP , switchC& sw_cSessionWithPeerP , sessionsC& sessionsP , nicNameC& nnPeerP ) :
-    idSession( idSessionP ) ,
-    pso( psoP ) ,
-    b_lever_idSession( b_lever_idSessionP ) ,
-    lever_idSession( lever_idSessionP ) ,
-    sw_pso( sw_psoP ) ,
-    cSession( cSessionP ) ,
-    cArg( cArgP ) ,
-    lever_nnPeer( lever_nnPeerP ) ,
-    sw_cSessionWithPeer( sw_cSessionWithPeerP ) ,
-    sessions( sessionsP ) ,
-    nnPeer( nnPeerP )
-    {}
+    taskDrivenServerParamsS( countT idSessionP , batonC& b_lever_idSessionP , countT& lever_idSessionP , switchC& sw_psoP , countT& cSessionP , countT cArgP , nicNameC& lever_nnPeerP , switchC& sw_cSessionWithPeerP , sessionsC& sessionsP , nicNameC& nnPeerP ) ;
+    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.36149003.taskDrivenServerParamsS.taskDrivenServerParamsS!||
 }
 ;
 

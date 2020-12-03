@@ -23,8 +23,9 @@ TELL( "cleaned up" ) ;
         i1.time1idleTimeoutWrite = i1.time1idleTimeoutRead = SOCKETtIMEOUTdEFAULTwAN ; //RAW COMMAND SERVERS MUST REPLACE THIS WITH A LARGER VALUE; THIS VALUE ASSUMES WEB BROWSER ONLY NEEDS TO BURST ALL IMAGES FOR A PAGE AND WILL DO SO IMMEDIATELY
         //20190904@1529: RETIRED i1.time1idleTimeoutWrite = i1.time1idleTimeoutRead = TOCK * 0x40 ; //RAW COMMAND SERVERS MUST REPLACE THIS WITH A LARGER VALUE; THIS VALUE ASSUMES WEB BROWSER ONLY NEEDS TO BURST ALL IMAGES FOR A PAGE AND WILL DO SO IMMEDIATELY
         etThread.delF( tinP , psttName ) ;
-        serverInfo2S i2( idPortP , flagsSocketP , psttName , 0 , cArgSys , 0 , /*1U::bState SET TO ZE PROVISIONALLY SO DOOR AND PANIC DOOR CAN BE SERVED BY SAME PROCESS TO MAKE DEVELOPMENT OF THE INTERFACES EASIER; SET TO 1 WHEN THESE DOORS ARE SERVED BY SEPARATE PROCESSES, AS CALLED FOR IN THE DESIGN*/0 , 0 , 0 , 0 , 0 , 0 , &meP.sessions ) ;
-        serverInfo1S i1( 0 , 0 , bHandedOff , sgnIdPortReplaced , tmcHttpServerF , countTC() , bQuitP , time1idleTimeoutRead , time1idleTimeoutWrite ) ;
+        serverInfo2S i2( idPortP , flagsSocketP , psttName , 0 , cArgSys , 0 , - 1 , /*1U::bState SET TO ZE PROVISIONALLY SO DOOR AND PANIC DOOR CAN BE SERVED BY SAME PROCESS TO MAKE DEVELOPMENT OF THE INTERFACES EASIER; SET TO 1 WHEN THESE DOORS ARE SERVED BY SEPARATE PROCESSES, AS CALLED FOR IN THE DESIGN*/0 , 0 , 0 , 0 , 0 , 0 , &meP.sessions ) ;
+
+        serverInfo1S i1( 0 , 0 , bHandedOff , sgnIdPortReplaced , /*tmcHttpServerWoJobF*/ tmcHttpServerWorkerF , countTC() , bQuitP , time1idleTimeoutRead , time1idleTimeoutWrite ) ;
         signC sgnIdPortReplaced( tinP , TAG( TAGiDnULL ) ) ;
         ZE( boolT , bHandedOff ) ;
         TELL( "constructing serverInfoS parameters" ) ;

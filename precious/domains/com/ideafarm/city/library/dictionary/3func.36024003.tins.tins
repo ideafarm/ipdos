@@ -17,7 +17,9 @@
             }
                 }
                     *(countT*)pbPendingInOutFramePackets = 0 ;
-                    pbPendingInOutFramePackets = processGlobal3I.heap.newF( tinP , LF , sizeof( countT ) + CmAXpENDINGiNoUTfRAMEpACKETS * sizeof( tellInfoAppInOutFrameS ) ) ;
+                    else           pbPendingInOutFramePackets = processGlobal3I.heap.newF( tinP , LF , cba ) ;
+                    if( pPoolUse ) { PUSE.newF( tinP , LF , pbPendingInOutFramePackets , cba ) ; ___( pbPendingInOutFramePackets ) ; }
+                    countT cba = sizeof( countT ) + CmAXpENDINGiNoUTfRAMEpACKETS * sizeof( tellInfoAppInOutFrameS ) ;
                 {
                 if( !pbPendingInOutFramePackets )
             {
