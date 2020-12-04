@@ -138,8 +138,8 @@
 0xdddd03c0 , "adamGlobal4S" ,
 0xdddd03c1 , "adamGlobal5S" ,
 0xdddd03c2 , "adamGlobal6S" ,
-0xdddd03c3 , "grabUniverseC" ,
-0xdddd03c4 , "backGrabUniverseC" ,
+0xdddd03c3 , "grabMemorySpaceC" ,
+0xdddd03c4 , "backGrabMemorySpaceC" ,
 0xdddd03c5 , "homeS" ,
 0xdddd03c6 , "marketC" ,
 0xdddd03c7 , "adamC" ,
@@ -245,4 +245,5 @@
 0xdddd042b , "fileNameC" ,
 0xdddd042c , "diskFindHandleS" ,
 0xdddd042d , "cachedS" ,
-0xdddd042e , "cacheC"
+0xdddd042e , "cacheC" ,
+0xdddd042f , "taskDrivenServerParamsS"

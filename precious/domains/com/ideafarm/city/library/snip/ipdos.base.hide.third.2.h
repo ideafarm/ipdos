@@ -1,95 +1,3 @@
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004eb.jarg BEGIN
-
-
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-// Respecting the rights of other people is an important part of empowering one another.
-//
-
-/*
-*/
-/**/
-/*1*//*JaRG1-8*//*1*/
-
-//CS:CODEsYNC: 110004ea 110004eb 110004ec 110004ed 110004ee
-//SYNC ERRORS CAN CAUSE ARRAY INDEX OUT OF BOUNDS
-
-#define JaRG1  tinP , _idSlotJotRegistry1
-#define JaRG2  tinP , _idSlotJotRegistry2
-#define JaRG3  tinP , _idSlotJotRegistry3
-#define JaRG4  tinP , _idSlotJotRegistry4
-#define JaRG5  tinP , _idSlotJotRegistry5
-#define JaRG6  tinP , _idSlotJotRegistry6
-#define JaRG7  tinP , _idSlotJotRegistry7
-#define JaRG8  tinP , _idSlotJotRegistry8
-#define JaRG9  tinP , _idSlotJotRegistry9
-#define JaRGa  tinP , _idSlotJotRegistrya
-#define JaRGb  tinP , _idSlotJotRegistryb
-#define JaRGc  tinP , _idSlotJotRegistryc
-#define JaRGd  tinP , _idSlotJotRegistryd
-#define JaRGe  tinP , _idSlotJotRegistrye
-#define JaRGf  tinP , _idSlotJotRegistryf
-#define JaRG01 tinP , _idSlotJotRegistry01
-#define JaRG11 tinP , _idSlotJotRegistry11
-#define JaRG21 tinP , _idSlotJotRegistry21
-#define JaRG31 tinP , _idSlotJotRegistry31
-#define JaRG41 tinP , _idSlotJotRegistry41
-#define JaRG51 tinP , _idSlotJotRegistry51
-#define JaRG61 tinP , _idSlotJotRegistry61
-#define JaRG71 tinP , _idSlotJotRegistry71
-#define JaRG81 tinP , _idSlotJotRegistry81
-#define JaRG91 tinP , _idSlotJotRegistry91
-#define JaRGa1 tinP , _idSlotJotRegistrya1
-#define JaRGb1 tinP , _idSlotJotRegistryb1
-#define JaRGc1 tinP , _idSlotJotRegistryc1
-#define JaRGd1 tinP , _idSlotJotRegistryd1
-#define JaRGe1 tinP , _idSlotJotRegistrye1
-#define JaRGf1 tinP , _idSlotJotRegistryf1
-#define JaRG02 tinP , _idSlotJotRegistry02
-#define JaRG12 tinP , _idSlotJotRegistry12
-#define JaRG22 tinP , _idSlotJotRegistry22
-#define JaRG32 tinP , _idSlotJotRegistry32
-#define JaRG42 tinP , _idSlotJotRegistry42
-#define JaRG52 tinP , _idSlotJotRegistry52
-#define JaRG62 tinP , _idSlotJotRegistry62
-#define JaRG72 tinP , _idSlotJotRegistry72
-#define JaRG82 tinP , _idSlotJotRegistry82
-#define JaRG92 tinP , _idSlotJotRegistry92
-#define JaRGa2 tinP , _idSlotJotRegistrya2
-#define JaRGb2 tinP , _idSlotJotRegistryb2
-#define JaRGc2 tinP , _idSlotJotRegistryc2
-#define JaRGd2 tinP , _idSlotJotRegistryd2
-#define JaRGe2 tinP , _idSlotJotRegistrye2
-#define JaRGf2 tinP , _idSlotJotRegistryf2
-#define JaRG03 tinP , _idSlotJotRegistry03
-#define JaRG13 tinP , _idSlotJotRegistry13
-#define JaRG23 tinP , _idSlotJotRegistry23
-#define JaRG33 tinP , _idSlotJotRegistry33
-#define JaRG43 tinP , _idSlotJotRegistry43
-#define JaRG53 tinP , _idSlotJotRegistry53
-#define JaRG63 tinP , _idSlotJotRegistry63
-#define JaRG73 tinP , _idSlotJotRegistry73
-#define JaRG83 tinP , _idSlotJotRegistry83
-#define JaRG93 tinP , _idSlotJotRegistry93
-#define JaRGa3 tinP , _idSlotJotRegistrya3
-#define JaRGb3 tinP , _idSlotJotRegistryb3
-#define JaRGc3 tinP , _idSlotJotRegistryc3
-#define JaRGd3 tinP , _idSlotJotRegistryd3
-#define JaRGe3 tinP , _idSlotJotRegistrye3
-#define JaRGf3 tinP , _idSlotJotRegistryf3
-#define JaRG04 tinP , _idSlotJotRegistry04
-
-
-//
-// Respecting the rights of other people is an important part of empowering one another.
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004eb.jarg END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004ec.jkey BEGIN
 
 
@@ -298,73 +206,73 @@ else the reference to it that is kept within the jotC instance will become a zom
 //SYNC ERRORS CAN CAUSE ARRAY INDEX OUT OF BOUNDS
 
 /*3*/
-#define JrEQUEST_1                           0xdddd0b76
-#define JrEQUEST_2                           0xdddd0b77
-#define JrEQUEST_3                           0xdddd0b78
-#define JrEQUEST_4                           0xdddd0b79
-#define JrEQUEST_5                           0xdddd0b7a
-#define JrEQUEST_6                           0xdddd0b7b
-#define JrEQUEST_7                           0xdddd0b7c
-#define JrEQUEST_8                           0xdddd0b7d
-#define JrEQUEST_9                           0xdddd0b7e
-#define JrEQUEST_a                           0xdddd0b7f
-#define JrEQUEST_b                           0xdddd0b80
-#define JrEQUEST_c                           0xdddd0b81
-#define JrEQUEST_d                           0xdddd0b82
-#define JrEQUEST_e                           0xdddd0b83
-#define JrEQUEST_f                           0xdddd0b84
-#define JrEQUEST_01                          0xdddd0b85
-#define JrEQUEST_11                          0xdddd0b86
-#define JrEQUEST_21                          0xdddd0b87
-#define JrEQUEST_31                          0xdddd0b88
-#define JrEQUEST_41                          0xdddd0b89
-#define JrEQUEST_51                          0xdddd0b8a
-#define JrEQUEST_61                          0xdddd0b8b
-#define JrEQUEST_71                          0xdddd0b8c
-#define JrEQUEST_81                          0xdddd0b8d
-#define JrEQUEST_91                          0xdddd0b8e
-#define JrEQUEST_a1                          0xdddd0b8f
-#define JrEQUEST_b1                          0xdddd0b90
-#define JrEQUEST_c1                          0xdddd0b91
-#define JrEQUEST_d1                          0xdddd0b92
-#define JrEQUEST_e1                          0xdddd0b93
-#define JrEQUEST_f1                          0xdddd0b94
-#define JrEQUEST_02                          0xdddd0b95
-#define JrEQUEST_12                          0xdddd0b96
-#define JrEQUEST_22                          0xdddd0b97
-#define JrEQUEST_32                          0xdddd0b98
-#define JrEQUEST_42                          0xdddd0b99
-#define JrEQUEST_52                          0xdddd0b9a
-#define JrEQUEST_62                          0xdddd0b9b
-#define JrEQUEST_72                          0xdddd0b9c
-#define JrEQUEST_82                          0xdddd0b9d
-#define JrEQUEST_92                          0xdddd0b9e
-#define JrEQUEST_a2                          0xdddd0b9f
-#define JrEQUEST_b2                          0xdddd0ba0
-#define JrEQUEST_c2                          0xdddd0ba1
-#define JrEQUEST_d2                          0xdddd0ba2
-#define JrEQUEST_e2                          0xdddd0ba3
-#define JrEQUEST_f2                          0xdddd0ba4
-#define JrEQUEST_03                          0xdddd0ba5
-#define JrEQUEST_13                          0xdddd0ba6
-#define JrEQUEST_23                          0xdddd0ba7
-#define JrEQUEST_33                          0xdddd0ba8
-#define JrEQUEST_43                          0xdddd0ba9
-#define JrEQUEST_53                          0xdddd0baa
-#define JrEQUEST_63                          0xdddd0bab
-#define JrEQUEST_73                          0xdddd0bac
-#define JrEQUEST_83                          0xdddd0bad
-#define JrEQUEST_93                          0xdddd0bae
-#define JrEQUEST_a3                          0xdddd0baf
-#define JrEQUEST_b3                          0xdddd0bb0
-#define JrEQUEST_c3                          0xdddd0bb1
-#define JrEQUEST_d3                          0xdddd0bb2
-#define JrEQUEST_e3                          0xdddd0bb3
-#define JrEQUEST_f3                          0xdddd0bb4
-#define JrEQUEST_04                          0xdddd0bb5
+#define JrEQUEST_1                           0xdddd0b77
+#define JrEQUEST_2                           0xdddd0b78
+#define JrEQUEST_3                           0xdddd0b79
+#define JrEQUEST_4                           0xdddd0b7a
+#define JrEQUEST_5                           0xdddd0b7b
+#define JrEQUEST_6                           0xdddd0b7c
+#define JrEQUEST_7                           0xdddd0b7d
+#define JrEQUEST_8                           0xdddd0b7e
+#define JrEQUEST_9                           0xdddd0b7f
+#define JrEQUEST_a                           0xdddd0b80
+#define JrEQUEST_b                           0xdddd0b81
+#define JrEQUEST_c                           0xdddd0b82
+#define JrEQUEST_d                           0xdddd0b83
+#define JrEQUEST_e                           0xdddd0b84
+#define JrEQUEST_f                           0xdddd0b85
+#define JrEQUEST_01                          0xdddd0b86
+#define JrEQUEST_11                          0xdddd0b87
+#define JrEQUEST_21                          0xdddd0b88
+#define JrEQUEST_31                          0xdddd0b89
+#define JrEQUEST_41                          0xdddd0b8a
+#define JrEQUEST_51                          0xdddd0b8b
+#define JrEQUEST_61                          0xdddd0b8c
+#define JrEQUEST_71                          0xdddd0b8d
+#define JrEQUEST_81                          0xdddd0b8e
+#define JrEQUEST_91                          0xdddd0b8f
+#define JrEQUEST_a1                          0xdddd0b90
+#define JrEQUEST_b1                          0xdddd0b91
+#define JrEQUEST_c1                          0xdddd0b92
+#define JrEQUEST_d1                          0xdddd0b93
+#define JrEQUEST_e1                          0xdddd0b94
+#define JrEQUEST_f1                          0xdddd0b95
+#define JrEQUEST_02                          0xdddd0b96
+#define JrEQUEST_12                          0xdddd0b97
+#define JrEQUEST_22                          0xdddd0b98
+#define JrEQUEST_32                          0xdddd0b99
+#define JrEQUEST_42                          0xdddd0b9a
+#define JrEQUEST_52                          0xdddd0b9b
+#define JrEQUEST_62                          0xdddd0b9c
+#define JrEQUEST_72                          0xdddd0b9d
+#define JrEQUEST_82                          0xdddd0b9e
+#define JrEQUEST_92                          0xdddd0b9f
+#define JrEQUEST_a2                          0xdddd0ba0
+#define JrEQUEST_b2                          0xdddd0ba1
+#define JrEQUEST_c2                          0xdddd0ba2
+#define JrEQUEST_d2                          0xdddd0ba3
+#define JrEQUEST_e2                          0xdddd0ba4
+#define JrEQUEST_f2                          0xdddd0ba5
+#define JrEQUEST_03                          0xdddd0ba6
+#define JrEQUEST_13                          0xdddd0ba7
+#define JrEQUEST_23                          0xdddd0ba8
+#define JrEQUEST_33                          0xdddd0ba9
+#define JrEQUEST_43                          0xdddd0baa
+#define JrEQUEST_53                          0xdddd0bab
+#define JrEQUEST_63                          0xdddd0bac
+#define JrEQUEST_73                          0xdddd0bad
+#define JrEQUEST_83                          0xdddd0bae
+#define JrEQUEST_93                          0xdddd0baf
+#define JrEQUEST_a3                          0xdddd0bb0
+#define JrEQUEST_b3                          0xdddd0bb1
+#define JrEQUEST_c3                          0xdddd0bb2
+#define JrEQUEST_d3                          0xdddd0bb3
+#define JrEQUEST_e3                          0xdddd0bb4
+#define JrEQUEST_f3                          0xdddd0bb5
+#define JrEQUEST_04                          0xdddd0bb6
 /*3*/
-#define JrEQUEST_min     0xdddd0b76
-#define JrEQUEST_max     0xdddd0bb5
+#define JrEQUEST_min     0xdddd0b77
+#define JrEQUEST_max     0xdddd0bb6
 
 
 //
@@ -560,11 +468,11 @@ a jPointer is also considered null if it contains one of the special values [JrE
 /*1*//*ifcIDsEXclATHnEWdEL*//*1*/
 
 /*3*/
-#define ifcIDsEXclATHnEWdEL_NEW           0xdddd0bb6
-#define ifcIDsEXclATHnEWdEL_DEL           0xdddd0bb7
+#define ifcIDsEXclATHnEWdEL_NEW           0xdddd0bb7
+#define ifcIDsEXclATHnEWdEL_DEL           0xdddd0bb8
 /*3*/
-#define ifcIDsEXclATHnEWdEL_min     0xdddd0bb6
-#define ifcIDsEXclATHnEWdEL_max     0xdddd0bb7
+#define ifcIDsEXclATHnEWdEL_min     0xdddd0bb7
+#define ifcIDsEXclATHnEWdEL_max     0xdddd0bb8
 
 
 //
@@ -710,10 +618,10 @@ a jPointer is also considered null if it contains one of the special values [JrE
 /*1*//*ifcIDsEXaRRAY*//*1*/
 
 /*3*/
-#define ifcIDsEXaRRAY_BEINGcONSTRUCTED           0xdddd0bb8
+#define ifcIDsEXaRRAY_BEINGcONSTRUCTED           0xdddd0bb9
 /*3*/
-#define ifcIDsEXaRRAY_min     0xdddd0bb8
-#define ifcIDsEXaRRAY_max     0xdddd0bb8
+#define ifcIDsEXaRRAY_min     0xdddd0bb9
+#define ifcIDsEXaRRAY_max     0xdddd0bb9
 
 
 //
@@ -1154,21 +1062,21 @@ i do not verify that the naked idJot value is valid
 /*1*//*ifcIDmODEpUTfILE*//*1*/
 
 /*3*/
-#define ifcIDmODEpUTfILE_ROOT         0xdddd0bb9
-#define ifcIDmODEpUTfILE_PAID         0xdddd0bba
-#define ifcIDmODEpUTfILE_TUTORIALS    0xdddd0bbb
-#define ifcIDmODEpUTfILE_HOOKS        0xdddd0bbc
-#define ifcIDmODEpUTfILE_ESSAYS       0xdddd0bbd
-#define ifcIDmODEpUTfILE_ARCHIVE      0xdddd0bbe
-#define ifcIDmODEpUTfILE_WO           0xdddd0bbf
-#define ifcIDmODEpUTfILE_NEWS         0xdddd0bc0
-#define ifcIDmODEpUTfILE_BUNDLE       0xdddd0bc1
-#define ifcIDmODEpUTfILE_PAY          0xdddd0bc2
-#define ifcIDmODEpUTfILE_IPDOS        0xdddd0bc3
-#define ifcIDmODEpUTfILE_OTHER        0xdddd0bc4
+#define ifcIDmODEpUTfILE_ROOT         0xdddd0bba
+#define ifcIDmODEpUTfILE_PAID         0xdddd0bbb
+#define ifcIDmODEpUTfILE_TUTORIALS    0xdddd0bbc
+#define ifcIDmODEpUTfILE_HOOKS        0xdddd0bbd
+#define ifcIDmODEpUTfILE_ESSAYS       0xdddd0bbe
+#define ifcIDmODEpUTfILE_ARCHIVE      0xdddd0bbf
+#define ifcIDmODEpUTfILE_WO           0xdddd0bc0
+#define ifcIDmODEpUTfILE_NEWS         0xdddd0bc1
+#define ifcIDmODEpUTfILE_BUNDLE       0xdddd0bc2
+#define ifcIDmODEpUTfILE_PAY          0xdddd0bc3
+#define ifcIDmODEpUTfILE_IPDOS        0xdddd0bc4
+#define ifcIDmODEpUTfILE_OTHER        0xdddd0bc5
 /*3*/
-#define ifcIDmODEpUTfILE_min     0xdddd0bb9
-#define ifcIDmODEpUTfILE_max     0xdddd0bc4
+#define ifcIDmODEpUTfILE_min     0xdddd0bba
+#define ifcIDmODEpUTfILE_max     0xdddd0bc5
 
 
 //
@@ -1333,11 +1241,11 @@ parameters
 /*1*//*ifcIDcLOUD*//*1*/
 
 /*3*/
-#define ifcIDcLOUD_RACKSPACE           0xdddd0bc5
-#define ifcIDcLOUD_GOOGLE              0xdddd0bc6
+#define ifcIDcLOUD_RACKSPACE           0xdddd0bc6
+#define ifcIDcLOUD_GOOGLE              0xdddd0bc7
 /*3*/
-#define ifcIDcLOUD_min     0xdddd0bc5
-#define ifcIDcLOUD_max     0xdddd0bc6
+#define ifcIDcLOUD_min     0xdddd0bc6
+#define ifcIDcLOUD_max     0xdddd0bc7
 
 
 //
@@ -1749,12 +1657,12 @@ parameters
 /*1*//*ifcIDdOcLOUDiFdIFFER*//*1*/
 
 /*3*/
-#define ifcIDdOcLOUDiFdIFFER_NOTHING    0xdddd0bc7
-#define ifcIDdOcLOUDiFdIFFER_REPORT     0xdddd0bc8
-#define ifcIDdOcLOUDiFdIFFER_REPLACE    0xdddd0bc9
+#define ifcIDdOcLOUDiFdIFFER_NOTHING    0xdddd0bc8
+#define ifcIDdOcLOUDiFdIFFER_REPORT     0xdddd0bc9
+#define ifcIDdOcLOUDiFdIFFER_REPLACE    0xdddd0bca
 /*3*/
-#define ifcIDdOcLOUDiFdIFFER_min     0xdddd0bc7
-#define ifcIDdOcLOUDiFdIFFER_max     0xdddd0bc9
+#define ifcIDdOcLOUDiFdIFFER_min     0xdddd0bc8
+#define ifcIDdOcLOUDiFdIFFER_max     0xdddd0bca
 
 
 //
@@ -1863,11 +1771,11 @@ parameters
 /*1*//*ifcIDmODEsOCKETS*//*1*/
 
 /*3*/
-#define ifcIDmODEsOCKETS_NOTeNCRYPTED  0xdddd0bca
-#define ifcIDmODEsOCKETS_ENCRYPTED     0xdddd0bcb
+#define ifcIDmODEsOCKETS_NOTeNCRYPTED  0xdddd0bcb
+#define ifcIDmODEsOCKETS_ENCRYPTED     0xdddd0bcc
 /*3*/
-#define ifcIDmODEsOCKETS_min     0xdddd0bca
-#define ifcIDmODEsOCKETS_max     0xdddd0bcb
+#define ifcIDmODEsOCKETS_min     0xdddd0bcb
+#define ifcIDmODEsOCKETS_max     0xdddd0bcc
 
 
 //
@@ -2484,41 +2392,41 @@ use this rather than _ to avoid the overhead of _
 //CS:CODEsYNC: WO CONSTANT IS NEEDED FOR EACH BIT IN A countT OBJECT (WHICH IS CURRENTLY OF SIZE count02T)
 
 /*3*/
-#define ifcIDgRABITbIT_00     0xdddd0bcc
-#define ifcIDgRABITbIT_10     0xdddd0bcd
-#define ifcIDgRABITbIT_20     0xdddd0bce
-#define ifcIDgRABITbIT_30     0xdddd0bcf
-#define ifcIDgRABITbIT_40     0xdddd0bd0
-#define ifcIDgRABITbIT_50     0xdddd0bd1
-#define ifcIDgRABITbIT_60     0xdddd0bd2
-#define ifcIDgRABITbIT_70     0xdddd0bd3
-#define ifcIDgRABITbIT_80     0xdddd0bd4
-#define ifcIDgRABITbIT_90     0xdddd0bd5
-#define ifcIDgRABITbIT_a0     0xdddd0bd6
-#define ifcIDgRABITbIT_b0     0xdddd0bd7
-#define ifcIDgRABITbIT_c0     0xdddd0bd8
-#define ifcIDgRABITbIT_d0     0xdddd0bd9
-#define ifcIDgRABITbIT_e0     0xdddd0bda
-#define ifcIDgRABITbIT_f0     0xdddd0bdb
-#define ifcIDgRABITbIT_01     0xdddd0bdc
-#define ifcIDgRABITbIT_11     0xdddd0bdd
-#define ifcIDgRABITbIT_21     0xdddd0bde
-#define ifcIDgRABITbIT_31     0xdddd0bdf
-#define ifcIDgRABITbIT_41     0xdddd0be0
-#define ifcIDgRABITbIT_51     0xdddd0be1
-#define ifcIDgRABITbIT_61     0xdddd0be2
-#define ifcIDgRABITbIT_71     0xdddd0be3
-#define ifcIDgRABITbIT_81     0xdddd0be4
-#define ifcIDgRABITbIT_91     0xdddd0be5
-#define ifcIDgRABITbIT_a1     0xdddd0be6
-#define ifcIDgRABITbIT_b1     0xdddd0be7
-#define ifcIDgRABITbIT_c1     0xdddd0be8
-#define ifcIDgRABITbIT_d1     0xdddd0be9
-#define ifcIDgRABITbIT_e1     0xdddd0bea
-#define ifcIDgRABITbIT_f1     0xdddd0beb
+#define ifcIDgRABITbIT_00     0xdddd0bcd
+#define ifcIDgRABITbIT_10     0xdddd0bce
+#define ifcIDgRABITbIT_20     0xdddd0bcf
+#define ifcIDgRABITbIT_30     0xdddd0bd0
+#define ifcIDgRABITbIT_40     0xdddd0bd1
+#define ifcIDgRABITbIT_50     0xdddd0bd2
+#define ifcIDgRABITbIT_60     0xdddd0bd3
+#define ifcIDgRABITbIT_70     0xdddd0bd4
+#define ifcIDgRABITbIT_80     0xdddd0bd5
+#define ifcIDgRABITbIT_90     0xdddd0bd6
+#define ifcIDgRABITbIT_a0     0xdddd0bd7
+#define ifcIDgRABITbIT_b0     0xdddd0bd8
+#define ifcIDgRABITbIT_c0     0xdddd0bd9
+#define ifcIDgRABITbIT_d0     0xdddd0bda
+#define ifcIDgRABITbIT_e0     0xdddd0bdb
+#define ifcIDgRABITbIT_f0     0xdddd0bdc
+#define ifcIDgRABITbIT_01     0xdddd0bdd
+#define ifcIDgRABITbIT_11     0xdddd0bde
+#define ifcIDgRABITbIT_21     0xdddd0bdf
+#define ifcIDgRABITbIT_31     0xdddd0be0
+#define ifcIDgRABITbIT_41     0xdddd0be1
+#define ifcIDgRABITbIT_51     0xdddd0be2
+#define ifcIDgRABITbIT_61     0xdddd0be3
+#define ifcIDgRABITbIT_71     0xdddd0be4
+#define ifcIDgRABITbIT_81     0xdddd0be5
+#define ifcIDgRABITbIT_91     0xdddd0be6
+#define ifcIDgRABITbIT_a1     0xdddd0be7
+#define ifcIDgRABITbIT_b1     0xdddd0be8
+#define ifcIDgRABITbIT_c1     0xdddd0be9
+#define ifcIDgRABITbIT_d1     0xdddd0bea
+#define ifcIDgRABITbIT_e1     0xdddd0beb
+#define ifcIDgRABITbIT_f1     0xdddd0bec
 /*3*/
-#define ifcIDgRABITbIT_min     0xdddd0bcc
-#define ifcIDgRABITbIT_max     0xdddd0beb
+#define ifcIDgRABITbIT_min     0xdddd0bcd
+#define ifcIDgRABITbIT_max     0xdddd0bec
 
 
 //
@@ -2545,12 +2453,12 @@ use this rather than _ to avoid the overhead of _
 /*1*//*ifcIDeMAILrEGISTRATIONrEQUESTsTATUS*//*1*/
 
 /*3*/
-#define ifcIDeMAILrEGISTRATIONrEQUESTsTATUS_BOTwRONGsCHEME              0xdddd0bec
-#define ifcIDeMAILrEGISTRATIONrEQUESTsTATUS_BOTwRONGiMAGE               0xdddd0bed
-#define ifcIDeMAILrEGISTRATIONrEQUESTsTATUS_HUMANnOpRIORpENDING         0xdddd0bee
+#define ifcIDeMAILrEGISTRATIONrEQUESTsTATUS_BOTwRONGsCHEME              0xdddd0bed
+#define ifcIDeMAILrEGISTRATIONrEQUESTsTATUS_BOTwRONGiMAGE               0xdddd0bee
+#define ifcIDeMAILrEGISTRATIONrEQUESTsTATUS_HUMANnOpRIORpENDING         0xdddd0bef
 /*3*/
-#define ifcIDeMAILrEGISTRATIONrEQUESTsTATUS_min     0xdddd0bec
-#define ifcIDeMAILrEGISTRATIONrEQUESTsTATUS_max     0xdddd0bee
+#define ifcIDeMAILrEGISTRATIONrEQUESTsTATUS_min     0xdddd0bed
+#define ifcIDeMAILrEGISTRATIONrEQUESTsTATUS_max     0xdddd0bef
 
 
 //
@@ -3005,25 +2913,25 @@ use this rather than _ to avoid the overhead of _
 /*1*//*ifcIDtRACEdIVERT*//*1*/
 
 /*3*/
-#define ifcIDtRACEdIVERT_1              0xdddd0bef
-#define ifcIDtRACEdIVERT_2              0xdddd0bf0
-#define ifcIDtRACEdIVERT_3              0xdddd0bf1
-#define ifcIDtRACEdIVERT_4              0xdddd0bf2
-#define ifcIDtRACEdIVERT_5              0xdddd0bf3
-#define ifcIDtRACEdIVERT_6              0xdddd0bf4
-#define ifcIDtRACEdIVERT_7              0xdddd0bf5
-#define ifcIDtRACEdIVERT_8              0xdddd0bf6
-#define ifcIDtRACEdIVERT_9              0xdddd0bf7
-#define ifcIDtRACEdIVERT_a              0xdddd0bf8
-#define ifcIDtRACEdIVERT_b              0xdddd0bf9
-#define ifcIDtRACEdIVERT_c              0xdddd0bfa
-#define ifcIDtRACEdIVERT_d              0xdddd0bfb
-#define ifcIDtRACEdIVERT_e              0xdddd0bfc
-#define ifcIDtRACEdIVERT_f              0xdddd0bfd
-#define ifcIDtRACEdIVERT_10             0xdddd0bfe
+#define ifcIDtRACEdIVERT_1              0xdddd0bf0
+#define ifcIDtRACEdIVERT_2              0xdddd0bf1
+#define ifcIDtRACEdIVERT_3              0xdddd0bf2
+#define ifcIDtRACEdIVERT_4              0xdddd0bf3
+#define ifcIDtRACEdIVERT_5              0xdddd0bf4
+#define ifcIDtRACEdIVERT_6              0xdddd0bf5
+#define ifcIDtRACEdIVERT_7              0xdddd0bf6
+#define ifcIDtRACEdIVERT_8              0xdddd0bf7
+#define ifcIDtRACEdIVERT_9              0xdddd0bf8
+#define ifcIDtRACEdIVERT_a              0xdddd0bf9
+#define ifcIDtRACEdIVERT_b              0xdddd0bfa
+#define ifcIDtRACEdIVERT_c              0xdddd0bfb
+#define ifcIDtRACEdIVERT_d              0xdddd0bfc
+#define ifcIDtRACEdIVERT_e              0xdddd0bfd
+#define ifcIDtRACEdIVERT_f              0xdddd0bfe
+#define ifcIDtRACEdIVERT_10             0xdddd0bff
 /*3*/
-#define ifcIDtRACEdIVERT_min     0xdddd0bef
-#define ifcIDtRACEdIVERT_max     0xdddd0bfe
+#define ifcIDtRACEdIVERT_min     0xdddd0bf0
+#define ifcIDtRACEdIVERT_max     0xdddd0bff
 
 
 //
@@ -3142,11 +3050,11 @@ use this rather than _ to avoid the overhead of _
 /**/
 
 /*3*/
-#define ifcIDcMDcLOAK_QUERYfOLDERcONTENTS               0xdddd0bff
-#define ifcIDcMDcLOAK_QUERYaLLlOCKEDfOLDERScONTENTS     0xdddd0c00
+#define ifcIDcMDcLOAK_QUERYfOLDERcONTENTS               0xdddd0c00
+#define ifcIDcMDcLOAK_QUERYaLLlOCKEDfOLDERScONTENTS     0xdddd0c01
 /*3*/
-#define ifcIDcMDcLOAK_min     0xdddd0bff
-#define ifcIDcMDcLOAK_max     0xdddd0c00
+#define ifcIDcMDcLOAK_min     0xdddd0c00
+#define ifcIDcMDcLOAK_max     0xdddd0c01
 
 
 //
@@ -3173,11 +3081,11 @@ use this rather than _ to avoid the overhead of _
 /**/
 
 /*3*/
-#define ifcIDrEPLYcLOAK_FOLDERcONTENTS            0xdddd0c01
-#define ifcIDrEPLYcLOAK_ALLlOCKEDfOLDERScONTENTS  0xdddd0c02
+#define ifcIDrEPLYcLOAK_FOLDERcONTENTS            0xdddd0c02
+#define ifcIDrEPLYcLOAK_ALLlOCKEDfOLDERScONTENTS  0xdddd0c03
 /*3*/
-#define ifcIDrEPLYcLOAK_min     0xdddd0c01
-#define ifcIDrEPLYcLOAK_max     0xdddd0c02
+#define ifcIDrEPLYcLOAK_min     0xdddd0c02
+#define ifcIDrEPLYcLOAK_max     0xdddd0c03
 
 
 //
@@ -3269,13 +3177,13 @@ use this rather than _ to avoid the overhead of _
 /*1*//*ifcIDtYPEpATTERN*//*1*/
 
 /*3*/
-#define ifcIDtYPEpATTERN_NATIVE                          0xdddd0c03
-#define ifcIDtYPEpATTERN_FOREIGNwILDCARDmICROSOFT        0xdddd0c04
-#define ifcIDtYPEpATTERN_FOREIGNwILDCARDsTRICT           0xdddd0c05
-#define ifcIDtYPEpATTERN_FOREIGNuNIXrEGULAReXPRESSION    0xdddd0c06
+#define ifcIDtYPEpATTERN_NATIVE                          0xdddd0c04
+#define ifcIDtYPEpATTERN_FOREIGNwILDCARDmICROSOFT        0xdddd0c05
+#define ifcIDtYPEpATTERN_FOREIGNwILDCARDsTRICT           0xdddd0c06
+#define ifcIDtYPEpATTERN_FOREIGNuNIXrEGULAReXPRESSION    0xdddd0c07
 /*3*/
-#define ifcIDtYPEpATTERN_min     0xdddd0c03
-#define ifcIDtYPEpATTERN_max     0xdddd0c06
+#define ifcIDtYPEpATTERN_min     0xdddd0c04
+#define ifcIDtYPEpATTERN_max     0xdddd0c07
 
 //
 // Respecting the rights of other people is an important part of empowering one another.
@@ -3420,11 +3328,11 @@ use this rather than _ to avoid the overhead of _
 /*1*//*ifcIDtYPEcLOAKcONNECTION*//*1*/
 
 /*3*/
-#define ifcIDtYPEcLOAKcONNECTION_SIMPLE                          0xdddd0c07
-#define ifcIDtYPEcLOAKcONNECTION_SOULFUL                         0xdddd0c08
+#define ifcIDtYPEcLOAKcONNECTION_SIMPLE                          0xdddd0c08
+#define ifcIDtYPEcLOAKcONNECTION_SOULFUL                         0xdddd0c09
 /*3*/
-#define ifcIDtYPEcLOAKcONNECTION_min     0xdddd0c07
-#define ifcIDtYPEcLOAKcONNECTION_max     0xdddd0c08
+#define ifcIDtYPEcLOAKcONNECTION_min     0xdddd0c08
+#define ifcIDtYPEcLOAKcONNECTION_max     0xdddd0c09
 
 //
 // Respecting the rights of other people is an important part of empowering one another.
@@ -3451,11 +3359,11 @@ use this rather than _ to avoid the overhead of _
 /*1*//*ifcIDtYPEtINaRGiNuSE*//*1*/
 
 /*3*/
-#define ifcIDtYPEtINaRGiNuSE_LIST                          0xdddd0c09
-#define ifcIDtYPEtINaRGiNuSE_PATTERN                       0xdddd0c0a
+#define ifcIDtYPEtINaRGiNuSE_LIST                          0xdddd0c0a
+#define ifcIDtYPEtINaRGiNuSE_PATTERN                       0xdddd0c0b
 /*3*/
-#define ifcIDtYPEtINaRGiNuSE_min     0xdddd0c09
-#define ifcIDtYPEtINaRGiNuSE_max     0xdddd0c0a
+#define ifcIDtYPEtINaRGiNuSE_min     0xdddd0c0a
+#define ifcIDtYPEtINaRGiNuSE_max     0xdddd0c0b
 
 //
 // Respecting the rights of other people is an important part of empowering one another.
@@ -4929,13 +4837,13 @@ use this rather than _ to avoid the overhead of _
 /*1*//*ifcIDtYPEtELLaPP*//*1*/
 
 /*3*/
-#define ifcIDtYPEtELLaPP_NOOP                                           0xdddd0c0b
-#define ifcIDtYPEtELLaPP_INoUT                                          0xdddd0c0c
-#define ifcIDtYPEtELLaPP_INoUTaRRAY                                     0xdddd0c0d
-#define ifcIDtYPEtELLaPP_INoUTtINdT                                     0xdddd0c0e
+#define ifcIDtYPEtELLaPP_NOOP                                           0xdddd0c0c
+#define ifcIDtYPEtELLaPP_INoUT                                          0xdddd0c0d
+#define ifcIDtYPEtELLaPP_INoUTaRRAY                                     0xdddd0c0e
+#define ifcIDtYPEtELLaPP_INoUTtINdT                                     0xdddd0c0f
 /*3*/
-#define ifcIDtYPEtELLaPP_min     0xdddd0c0b
-#define ifcIDtYPEtELLaPP_max     0xdddd0c0e                                                               
+#define ifcIDtYPEtELLaPP_min     0xdddd0c0c
+#define ifcIDtYPEtELLaPP_max     0xdddd0c0f                                                               
 
 
 //
@@ -4962,11 +4870,11 @@ use this rather than _ to avoid the overhead of _
 /*1*//**//*1*/
 
 /*3*/
-#define ifcIDbOOKStELL_SYS                                           0xdddd0c0f
-#define ifcIDbOOKStELL_APP                                           0xdddd0c10
+#define ifcIDbOOKStELL_SYS                                           0xdddd0c10
+#define ifcIDbOOKStELL_APP                                           0xdddd0c11
 /*3*/
-#define ifcIDbOOKStELL_min     0xdddd0c0f
-#define ifcIDbOOKStELL_max     0xdddd0c10                                                               
+#define ifcIDbOOKStELL_min     0xdddd0c10
+#define ifcIDbOOKStELL_max     0xdddd0c11                                                               
 
 
 //
@@ -5249,7 +5157,7 @@ after i return, that countT object will contain 1
 /*3*/
 #define flTHREADmODE4_INoUTfRAMEdEFERwRITINGaPPtELEMETRY                                0xe0000110
 #define flTHREADmODE4_INoUTfRAMEdOnOTcOLLECTaPPtELEMETRY                                0xe0000210
-#define flTHREADmODE4_DOnOTfLUSHpENDINGaPPtELEMETRY                                                 0xe0000410
+#define flTHREADmODE4_DOnOTfLUSHpENDINGaPPtELEMETRY                                     0xe0000410
 /*3*/
 #define flTHREADmODE4_null    0xe0000010
 
@@ -5602,6 +5510,7 @@ it is illegal to refer to this symbol in the definition of an adam
 /*1*//*CmAXpENDINGiNoUTfRAMEpACKETS*//*1*/
 
 //20201120@1558: TUCK << 2 IS TOO SMALL -> TUCK << 3
+//20201124@1951: TUCK << 3 -> TUCK << 5 (AFTER MODIFYING CODE TO EMIT APP TELEMETRY EARLIER)
 
 #define CmAXpENDINGiNoUTfRAMEpACKETS ( TUCK << 5 )
 
@@ -5631,6 +5540,7 @@ it is illegal to refer to this symbol in the definition of an adam
 
 //20200525@1250: HALVED TO "TICK >> 1" WITHOUT ANALYSIS (OCCASIONALLY HALVE THIS UNTIL SEE A FAILURE)
 //20201120@1507: DOUBLED TO "TICK >> 0" BECAUSE AM NOW ALLOCATING A LARGE BUFFER FOR EACH THREAD
+//20201125@1310: DOUBLED TO "TICK << 1" IN RESPONSE TO HEAP ALLOCATION FAILURE FOR KERNEL MONITOR tmReportF
 
 #define CBhEAP ( TICK << 1 )
 
@@ -11957,7 +11867,7 @@ TASK0PROTO( tmAdamMainF ) ;
 //
 
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.17*.* : 1snip.17000088.subtractf END
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.17*.* : 1snip.17000089.tmchttpserverf BEGIN
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.17*.* : 1snip.17000089.tmchttpserverwojobf BEGIN
 
 
 //
@@ -11972,7 +11882,6 @@ TASK0PROTO( tmAdamMainF ) ;
 /*1*//*tmcHttpServerWoJobF*//*1*/
 
 TASK0PROTO( tmcHttpServerWoJobF ) ;
-TASK0PROTO( tmcHttpServerWorkerF ) ;
 
 
 //
@@ -11982,7 +11891,7 @@ TASK0PROTO( tmcHttpServerWorkerF ) ;
 // Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
 
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.17*.* : 1snip.17000089.tmchttpserverf END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.17*.* : 1snip.17000089.tmchttpserverwojobf END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.17*.* : 1snip.1700008a.listwalkchattercbf BEGIN
 
 
@@ -15998,6 +15907,31 @@ TASK0PROTO( tmRelayBlowTeatF ) ;
 //
 
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.17*.* : 1snip.17000129.noteFromSnailMailerCBF END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.17*.* : 1snip.1700022a.tmchttpserverworkerf BEGIN
+
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+/*
+*/
+/*1*//*tmcHttpServerWorkerF*//*1*/
+
+TASK0PROTO( tmcHttpServerWorkerF ) ;
+
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.17*.* : 1snip.1700022a.tmchttpserverworkerf END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.pauseC : 1snip.15000096.pausec BEGIN
 
 
@@ -18488,105 +18422,6 @@ examples
 //
 
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.fileOpenS : 1snip.1500005d.fileopens END
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.backGrabMemorySpaceC : 1snip.15000060.backgrabuniversec BEGIN
-
-
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-// Respecting the rights of other people is an important part of empowering one another.
-//
-
-/*
-\<A HREF=\"5.15000060.1.0.html\"\>definition\</A\>
-it is illegal to refer to this symbol anywhere except in grabMemorySpaceC definitions
- use grabC
- motive: make all grabbing (except that needed to construct and format napkinC objects) visible to the monitor
-*/
-/**/
-
-/*1*/class _export backGrabMemorySpaceC/*1*/
-{
-    countT  finger1 ;
-    countT  cRef ;
-    grabotC grabot ;
-    countT  finger2 ;
-
-    NEWdELcLASSpROTOS
-    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34001.backGrabMemorySpaceC.NEWdELcLASSb!||
-    ~backGrabMemorySpaceC( voidT ) ;
-    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34002.backGrabMemorySpaceC.dt_backGrabMemorySpaceC!||
-    backGrabMemorySpaceC( tinS& tinP , const countT idGroupP = ifcIDgRABlAYER_7BASEmISC1 ) ;
-    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34003.backGrabMemorySpaceC.backGrabMemorySpaceC!||
-
-    friend class grabMemorySpaceC ;
-}
-;
-
-
-//
-// Respecting the rights of other people is an important part of empowering one another.
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.backGrabMemorySpaceC : 1snip.15000060.backgrabuniversec END
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.grabMemorySpaceC : 1snip.15000061.grabuniversec BEGIN
-
-
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-// Respecting the rights of other people is an important part of empowering one another.
-//
-
-/*
-\<A HREF=\"5.15000061.1.0.html\"\>definition\</A\>
-examples
- simplest
-  \<A HREF=\"5.7e00104.1.1.0.html\"\>7e00104:  WAKEsHOW( "example.simplest.snip.15000061.grabMemorySpaceC" )\</A\>
-it is illegal to refer to this symbol anywhere except in napkinC definitions
- use grabC
- motive: make all grabbing (except that needed to construct and format napkinC objects) visible to the monitor
-*/
-/**/
-
-/*1*/class _export grabMemorySpaceC/*1*/
-{
-    grabitC      grabitx ;  //U::20180124@1933: WHY MUST I USE grabitC RATHER THAN grabC? THIS SHOULD NOT BE A SPINLOCK BECAUSE ALLOCATION OF SHARED MEMORY CAN INVOLVE DISK I/O FOR PAGING
-    handleC      handle ;
-
- NEWdELcLASSpROTOS
- //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34001.grabMemorySpaceC.NEWdELcLASSb!||
- ~grabMemorySpaceC( voidT ) ;
- //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34002.grabMemorySpaceC.dt_grabMemorySpaceC!||
- grabMemorySpaceC( tinS& tinP , const countT idGroupP = ifcIDgRABlAYER_7BASEmISC1 , const countT idMemorySpaceP = 0 ) ;
- //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34003.grabMemorySpaceC.grabMemorySpaceC!||
-
- public :
-
- voidT grabF( tinS& tinP , const countT idLineP , const countT idiFileP , const byteT* const pbBitsP ) ;
- //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34004.grabMemorySpaceC.grabF!||
- voidT ungrabF( tinS& tinP ) ;
- //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34005.grabMemorySpaceC.ungrabF!||
-
- friend class processGlobal3S ;
- friend class napkinC ;
-}
-;
-
-
-//
-// Respecting the rights of other people is an important part of empowering one another.
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.grabMemorySpaceC : 1snip.15000061.grabuniversec END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.postOldC : 1snip.1500003f.postoldc BEGIN
 
 
@@ -26996,8 +26831,8 @@ code may use setIfZeAM on *(countT*)this
     countT              fliGrab ;
     byteT               pb_pPoolReg[ CpOOLrEGISTRATIONSmAX * sizeof( poolRegistrationS ) ] ;
     osTextT             postIdHomeGlobal[ COSTiDhOMEgLOBALmAX + 1 ] ;
-    countT              idStepSoil ;
-    countT              pcTallyIn[ CCtALLYiN ] ;
+    countT              idStepSoil ;                    //  0              1
+    countT              pcTallyIn[ CCtALLYiN ] ;        //  123456789abcdef0123456789a
     osTextT             postHome[ 0x1a ] ;              // "d:\ideafarm.home.12345678"
 
     NEWdELcLASSpROTOS
@@ -31832,6 +31667,7 @@ examples
  count04T etherDispenseSerialNumberF( tinS& tinP , const strokeS* const psttFileP ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.360021f5.etherc.etherDispenseSerialNumberF!||
  voidT etherDoHttpJobF( tinS& tinP , taskDrivenServerParamsS& jobP , socketC*& psoP , sessionC& sessionP , countT idPortMeP , nicNameC nnMeP ) ;
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.360021f7.etherc.etherDoHttpJobF!||
 
 /* commands: birth , death of objects of other classes */
  voidT poolDelF( tinS& tinP , voidT* const pvP ) ;
@@ -37205,6 +37041,7 @@ the only function of this object is to edit tinS::grabPseudo so that the monitor
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.serverInfo1S : 1snip.15000056.serverinfo1s END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.serverInfo2S : 1snip.15000057.serverinfo2s BEGIN
 
+
 //
 // Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
@@ -40210,7 +40047,104 @@ base class to make a derived class of objects easily contained by a stackC objec
 //
 
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.doC : 1snip.15000115.doc END
+
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+/*
+\<A HREF=\"5.15000060.1.0.html\"\>definition\</A\>
+it is illegal to refer to this symbol anywhere except in grabMemorySpaceC definitions
+ use grabC
+ motive: make all grabbing (except that needed to construct and format napkinC objects) visible to the monitor
+*/
+/**/
+
+/*1*/class _export backGrabMemorySpaceC/*1*/
+{
+    countT  finger1 ;
+    countT  cRef ;
+    grabotC grabot ;
+    countT  finger2 ;
+
+    NEWdELcLASSpROTOS
+    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34001.backGrabMemorySpaceC.NEWdELcLASSb!||
+    ~backGrabMemorySpaceC( voidT ) ;
+    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34002.backGrabMemorySpaceC.dt_backGrabMemorySpaceC!||
+    backGrabMemorySpaceC( tinS& tinP , const countT idGroupP = ifcIDgRABlAYER_7BASEmISC1 ) ;
+    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34003.backGrabMemorySpaceC.backGrabMemorySpaceC!||
+
+    friend class grabMemorySpaceC ;
+}
+;
+
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+
+
+
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+/*
+\<A HREF=\"5.15000061.1.0.html\"\>definition\</A\>
+examples
+ simplest
+  \<A HREF=\"5.7e00104.1.1.0.html\"\>7e00104:  WAKEsHOW( "example.simplest.snip.15000061.grabMemorySpaceC" )\</A\>
+it is illegal to refer to this symbol anywhere except in napkinC definitions
+ use grabC
+ motive: make all grabbing (except that needed to construct and format napkinC objects) visible to the monitor
+*/
+/**/
+
+/*1*/class _export grabMemorySpaceC/*1*/
+{
+    grabitC      grabitx ;  //U::20180124@1933: WHY MUST I USE grabitC RATHER THAN grabC? THIS SHOULD NOT BE A SPINLOCK BECAUSE ALLOCATION OF SHARED MEMORY CAN INVOLVE DISK I/O FOR PAGING
+    handleC      handle ;
+
+ NEWdELcLASSpROTOS
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34001.grabMemorySpaceC.NEWdELcLASSb!||
+ ~grabMemorySpaceC( voidT ) ;
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34002.grabMemorySpaceC.dt_grabMemorySpaceC!||
+ grabMemorySpaceC( tinS& tinP , const countT idGroupP = ifcIDgRABlAYER_7BASEmISC1 , const countT idMemorySpaceP = 0 ) ;
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34003.grabMemorySpaceC.grabMemorySpaceC!||
+
+ public :
+
+ voidT grabF( tinS& tinP , const countT idLineP , const countT idiFileP , const byteT* const pbBitsP ) ;
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34004.grabMemorySpaceC.grabF!||
+ voidT ungrabF( tinS& tinP ) ;
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34005.grabMemorySpaceC.ungrabF!||
+
+ friend class processGlobal3S ;
+ friend class napkinC ;
+}
+;
+
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.processGlobal3S : 1snip.150000e2.processglobal3s BEGIN
+
 
 //
 // Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
@@ -45115,6 +45049,8 @@ i am nonconformant in that all of my member function definitions are in a single
 //
 
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.cacheC : 1snip.15000187.cacheC END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.taskDrivenServerParamsS : 1snip.1500018b.taskDrivenServerParamsS BEGIN
+
 
 //
 // Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
@@ -45154,3 +45090,4 @@ i am nonconformant in that all of my member function definitions are in a single
 // Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
 
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.taskDrivenServerParamsS : 1snip.1500018b.taskDrivenServerParamsS END
