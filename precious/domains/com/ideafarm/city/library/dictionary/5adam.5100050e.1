@@ -143,7 +143,7 @@ DONE( tmGetIdHomeF )
         }
             ether.osSleepF( tinP , bPaid ? TICK << 7 : TOCK << 4 ) ;
             sleepC s( tinP , TAG( TAGiDnULL ) ) ;
-            //etThread.traceF( tinP , T(bPaid?"home privileges check / napping for 01 tick before checking again":"home privileges check / napping for 01 tock before checking again") ) ;
+            etThread.traceF( tinP , T(bPaid?"home privileges check / napping for 01 tick before checking again":"home privileges check / napping for 01 tock before checking again") ) ;
 
             }
                 }
@@ -228,6 +228,7 @@ DONE( tmGetIdHomeF )
             }
                 }
                     ether.ifcHireF( tinP , T("HOMEfLAGS") , ifcIDaDAM_PISS , T("!ignoreFireByOperator") , flHIRE_DISPLAYaUTO , nicNameC() ) ; //MUST HIRE PISS EVEN IF NO PAID PRIVILEGES IN ORDER TO ALLOW USER TO UPDATE SETTINGS
+                    etThread.traceF( tinP , T("hiring PISS") ) ;
                     bPissHired = 1 ;
                 {
                 if( !bPissHired )
@@ -245,7 +246,7 @@ DONE( tmGetIdHomeF )
                 etThread.traceF( tinP , T("home privileges check / this is IDcOMPUTER_IPDOSmASTERcRAFTWORK so has paid privileges") ) ;
             {
             if( idComputer == IDcOMPUTER_IPDOSmASTERcRAFTWORK )
-            //etThread.traceF( tinP , T("[idComputer,idComputerCraftwork]:    ")+TF2(idComputer,flFORMAT_NObIGITvALUES|flFORMAT_FILLzE|flFORMAT_FOREIGN)+tb4+TF2(IDcOMPUTER_IPDOSmASTERcRAFTWORK,flFORMAT_NObIGITvALUES|flFORMAT_FILLzE|flFORMAT_FOREIGN) ) ;
+            etThread.traceF( tinP , T("[idComputer,idComputerCraftwork]:    ")+TF2(idComputer,flFORMAT_NObIGITvALUES|flFORMAT_FILLzE|flFORMAT_FOREIGN)+tb4+TF2(IDcOMPUTER_IPDOSmASTERcRAFTWORK,flFORMAT_NObIGITvALUES|flFORMAT_FILLzE|flFORMAT_FOREIGN) ) ;
             countT idComputer = etThread.diskIdF( tinP , T("///c") ) ;
 
             ZE( boolT , bPaid ) ;

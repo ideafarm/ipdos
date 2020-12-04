@@ -1313,14 +1313,16 @@
                 //traceF( tinP , TF3(meP.idPortF(tinP),flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,9)+T(jobP.nnPeer)+T("    request:    \"")+T(psttName)+T("\"")+(psttQueryKV?T("    ")+T(psttQueryKV):T("")) , bDeadman1 || bDeadman2 ? flTRACE_HOMEeCHO | flTRACE_FORCEnOsILENCE | flTRACE_ECHOoNLY : flTRACE_FORCEnOsILENCE , idTraceDivert ) ;
 
                 ;
-                            : ifcIDtRACEdIVERT_6
+                                : ifcIDtRACEdIVERT_7
+                                ? ifcIDtRACEdIVERT_6
+                            : !bFileArchive
                             ? ifcIDtRACEdIVERT_5
-                        : !bFileArchive
+                        : !strCompareF( tinP , psttName , tSlash )
                         ? ifcIDtRACEdIVERT_4
-                    : !strCompareF( tinP , psttName , tSlash )
+                    : !strCompareF( tinP , psttName , tSlashDeadman2 )
                     ? ifcIDtRACEdIVERT_3
                 const countT idTraceDivert = !strCompareF( tinP , psttName , tSlashDeadman1 )
-                //CS:CODEsYNC: 3300005b 3600212d
+                //CS:CODEsYNC: 360021f7 3600212d
 
                 }
                     bFileArchive   = 1 == strIdF( tinP , tPattern          , psttName ) ;
@@ -1364,6 +1366,7 @@
                 }
                     break ;
 
+                    traceF( tinP , T("etherDoHttpJobF / error: readRequestF failed") , flTRACE_null , ifcIDtRACEdIVERT_7 ) ;
                     traceF( tinP , T("etherDoHttpJobF / error: readRequestF failed") , flTRACE_null , ifcIDtRACEdIVERT_6 ) ;
                     traceF( tinP , T("etherDoHttpJobF / error: readRequestF failed") , flTRACE_null , ifcIDtRACEdIVERT_5 ) ;
                     traceF( tinP , T("etherDoHttpJobF / error: readRequestF failed") , flTRACE_null , ifcIDtRACEdIVERT_4 ) ;
@@ -1501,6 +1504,7 @@ bClose = 1 ; //U:: TO FIND A BUG
         {
         else
         }
+            traceF( tinP , T("etherDoHttpJobF / error: recycler failure") , flTRACE_null , ifcIDtRACEdIVERT_7 ) ;
             traceF( tinP , T("etherDoHttpJobF / error: recycler failure") , flTRACE_null , ifcIDtRACEdIVERT_6 ) ;
             traceF( tinP , T("etherDoHttpJobF / error: recycler failure") , flTRACE_null , ifcIDtRACEdIVERT_5 ) ;
             traceF( tinP , T("etherDoHttpJobF / error: recycler failure") , flTRACE_null , ifcIDtRACEdIVERT_4 ) ;
@@ -1529,6 +1533,7 @@ bClose = 1 ; //U:: TO FIND A BUG
 
         //tinP.pAdamGlobal1->pEtThreadMain->etherTestF( tinP ) ; //U:: TO FIND A BUG
 
+        //traceF( tinP , T("etherDoHttpJobF / ++++ ") , flTRACE_null , ifcIDtRACEdIVERT_7 ) ;
         //traceF( tinP , T("etherDoHttpJobF / ++++ ") , flTRACE_null , ifcIDtRACEdIVERT_6 ) ;
         //traceF( tinP , T("etherDoHttpJobF / ++++ ") , flTRACE_null , ifcIDtRACEdIVERT_5 ) ;
         //traceF( tinP , T("etherDoHttpJobF / ++++ ") , flTRACE_null , ifcIDtRACEdIVERT_4 ) ;
