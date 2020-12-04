@@ -12,7 +12,7 @@
 #define SIZEOF_bookC           ( sizeof( bookC               ) )
 #define SIZEOF_etherC          ( sizeof( etherC              ) )
 #define SIZEOF_fileC           ( sizeof( fileC               ) )
-#define SIZEOF_grabUniverseC   ( sizeof( grabUniverseC       ) )
+#define SIZEOF_grabMemorySpaceC   ( sizeof( grabMemorySpaceC       ) )
 #define SIZEOF_handleC         ( sizeof( handleC             ) )
 #define SIZEOF_lexC            ( sizeof( lexC                ) )
 #define SIZEOF_napkinC         ( sizeof( napkinC             ) )
@@ -147,8 +147,8 @@ struct /*ff*/serverInfo2S/*ff*/                 ; /*ff*//**//*ff*/
 class  /*ff*/setThirdC/*ff*/                    ; /*ff*//**//*ff*/
 struct /*ff*/sharedMemInfoS/*ff*/               ; /*ff*//**//*ff*/
 class  /*ff*/signC/*ff*/                        ; /*ff*//*f*//*ff*/
-class  /*ff*/grabUniverseC/*ff*/                ; /*ff*//**//*ff*/
-class  /*ff*/backGrabUniverseC/*ff*/            ; /*ff*//**//*ff*/
+class  /*ff*/grabMemorySpaceC/*ff*/                ; /*ff*//**//*ff*/
+class  /*ff*/backGrabMemorySpaceC/*ff*/            ; /*ff*//**//*ff*/
 class  /*ff*/sleepC/*ff*/                       ; /*ff*//**//*ff*/
 class  /*ff*/socketC/*ff*/                      ; /*ff*//*g*//*ff*/
 class  /*ff*/soulC/*ff*/                        ; /*ff*//*h*//*ff*/
@@ -7992,8 +7992,8 @@ it is illegal to refer to this symbol in the definition of an adam
 #define ifciDtYPEdROPnOTE_adamGlobal4S                                  0xdddd03c0
 #define ifciDtYPEdROPnOTE_adamGlobal5S                                  0xdddd03c1
 #define ifciDtYPEdROPnOTE_adamGlobal6S                                  0xdddd03c2
-#define ifciDtYPEdROPnOTE_grabUniverseC                                 0xdddd03c3
-#define ifciDtYPEdROPnOTE_backGrabUniverseC                             0xdddd03c4
+#define ifciDtYPEdROPnOTE_grabMemorySpaceC                                 0xdddd03c3
+#define ifciDtYPEdROPnOTE_backGrabMemorySpaceC                             0xdddd03c4
 #define ifciDtYPEdROPnOTE_homeS                                         0xdddd03c5
 #define ifciDtYPEdROPnOTE_marketC                                       0xdddd03c6
 #define ifciDtYPEdROPnOTE_adamC                                         0xdddd03c7
@@ -9912,8 +9912,8 @@ flHIRE_SHOW
 #define FINGERnEG_BLAMMO                                ((countT)-(sCountT)0xcccc000b)
 #define FINGERnEG_BASEgRABc                             ((countT)-(sCountT)0xcccc000c)
 #define FINGERnEG_BASEgRABczOMBIE                       ((countT)-(sCountT)0xcccc000d)
-#define FINGERnEG_BACKgRABuNIVERSEc1                    ((countT)-(sCountT)0xcccc000e)
-#define FINGERnEG_BACKgRABuNIVERSEc2                    ((countT)-(sCountT)0xcccc000f)
+#define FINGERnEG_BACKgRABmEMORYsPACEc1                    ((countT)-(sCountT)0xcccc000e)
+#define FINGERnEG_BACKgRABmEMORYsPACEc2                    ((countT)-(sCountT)0xcccc000f)
 #define FINGERnEG_NAPfIREcELLmONITOR                    ((countT)-(sCountT)0xcccc0010)
 #define FINGERnEG_CYRCLEoLDwRITE                        ((countT)-(sCountT)0xcccc0011)
 #define FINGERnEG_CYRCLEoLDwRITEeND                     ((countT)-(sCountT)0xcccc0012)
@@ -14600,7 +14600,7 @@ can be used anywhere
 #define flNAPKINc_ALLmEMORYsPACES             0xe000043e
 #define flNAPKINc_PAGEaLIGNdATA               0xe000083e
 #define flNAPKINc_READoNLY                    0xe000103e
-#define flNAPKINc_USEgRABuNIVERSEoVERRIDE     0xe000203e
+#define flNAPKINc_USEgRABmEMORYsPACEoVERRIDE     0xe000203e
 #define flNAPKINc_LOCK                        0xe000403e
 #define flNAPKINc_DOnOTcOMMIT                 0xe000803e
 #define flNAPKINc_DOnOTsERIALIZEcT            0xe001003e
@@ -32227,7 +32227,7 @@ plateC& fooC::operator +=( plateC& plateP )                                     
  friend countT tmRptMainF_workF( countT argP ) ;                                                                                                                                                                                                          \
  friend countT workInnerF( countT argP ) ;                                                                                                                                                                                                                \
  friend class thugC ; /*idDesire*/                                                                                                                                                                                                                        \
- friend class grabUniverseC ; /*idDesire*/                                                                                                                                                                                                                \
+ friend class grabMemorySpaceC ; /*idDesire*/                                                                                                                                                                                                                \
  friend class napkinC ; /*idDesire*/                                                                                                                                                                                                                      \
  friend voidT grabF( tinS& tinP , const countT idLineP , const countT idiFileP , const byteT* const pbBitsP , boolT& bGrabbedP , countT& idDesireGrabberP ) ; /*idDesire*/                                                                                \
  friend class poopC ; /*poop*/                                                                                                                                                                                                                            \
@@ -36985,7 +36985,7 @@ obsoleted by coding style standard: use osTextT strings for name elements so tha
 #define flBOOKc_NOsTATEsPACE                    0xe00020b6
 #define flBOOKc_FILEiScONSTRUCTED               0xe00040b6
 #define flBOOKc_DOnOTrEGISTERfILE               0xe00080b6
-#define flBOOKc_USEgRABuNIVERSEoVERRIDE         0xe00100b6
+#define flBOOKc_USEgRABmEMORYsPACEoVERRIDE         0xe00100b6
 #define flBOOKc_DOnOTiNITIALIZEdATA             0xe00200b6
 #define flBOOKc_LOCK                            0xe00400b6
 #define flBOOKc_DOnOTsERIALIZEnAPKIN            0xe00800b6
@@ -37072,7 +37072,7 @@ obsoleted by coding style standard: use osTextT strings for name elements so tha
 #define flBOOKSc_PURGEoNcT                          0xe00020b8
 #define flBOOKSc_PURGEoNdT                          0xe00040b8
 #define flBOOKSc_DOnOTrEGISTERfILE                  0xe00080b8
-#define flBOOKSc_USEgRABuNIVERSEoVERRIDE            0xe00100b8
+#define flBOOKSc_USEgRABmEMORYsPACEoVERRIDE            0xe00100b8
 #define flBOOKSc_DOnOTiNITIALIZEdATA                0xe00200b8
 #define flBOOKSc_LOCK                               0xe00400b8
 #define flBOOKSc_CYCLE                              0xe00800b8
@@ -39449,7 +39449,7 @@ obsolete: ordering begins with "outer" (low) and ends with "inner" (high)
 #define ifcIDgRABlAYER_aBASEmISC3                   0xdddd0b59
 #define ifcIDgRABlAYER_aBASEmISC4                   0xdddd0b5a
 #define ifcIDgRABlAYER_bBOOKSc                      0xdddd0b5b
-#define ifcIDgRABlAYER_cGRABuNIVERSEc               0xdddd0b5c
+#define ifcIDgRABlAYER_cGRABmEMORYsPACEc               0xdddd0b5c
 #define ifcIDgRABlAYER_dLINKEDc                     0xdddd0b5d
 #define ifcIDgRABlAYER_eHEAP                        0xdddd0b5e
 #define ifcIDgRABlAYER_fLEAF                        0xdddd0b5f

@@ -224,15 +224,15 @@
 
         }
             }
-                new( 0 , tinP , (byteT*)&processGlobal4I.bUniverse , sizeof processGlobal4I.bUniverse ) batonC( tinP , TAG( TAGiDnULL ) , "bUniverse" , ifcIDgRABlAYER_cGRABuNIVERSEc | flBATONc_NOTjEALOUS , flBATONc_DOnOTsERIALIZEnAPKIN ) ;
+                new( 0 , tinP , (byteT*)&processGlobal4I.bMemorySpace , sizeof processGlobal4I.bMemorySpace ) batonC( tinP , TAG( TAGiDnULL ) , "bMemorySpace" , ifcIDgRABlAYER_cGRABmEMORYsPACEc | flBATONc_NOTjEALOUS , flBATONc_DOnOTsERIALIZEnAPKIN ) ;
                 DELzOMBIE( pbu ) ;
-                batonC* pbu = &processGlobal4I.bUniverse ;
+                batonC* pbu = &processGlobal4I.bMemorySpace ;
             {
             if( !( F(flagsCt) & flNAPKINc_DOnOTsERIALIZEcT ) )
 
-            new( 0 , tinP , (byteT*)&processGlobal3I.grabUniverse , sizeof processGlobal3I.grabUniverse ) grabUniverseC( tinP , ifcIDgRABlAYER_cGRABuNIVERSEc ) ;
+            new( 0 , tinP , (byteT*)&processGlobal3I.grabMemorySpace , sizeof processGlobal3I.grabMemorySpace ) grabMemorySpaceC( tinP , ifcIDgRABlAYER_cGRABmEMORYsPACEc ) ;
             DELzOMBIE( pgu ) ;
-            grabUniverseC* pgu = &processGlobal3I.grabUniverse ;
+            grabMemorySpaceC* pgu = &processGlobal3I.grabMemorySpace ;
         {
         if( bMemorySpaceChanged )
 
@@ -320,7 +320,7 @@
             else
             }
                 THREADmODE4rESTORE0( flThreadMode4Save )
-                pzbUniverseUse->ungrabF( tinP ) ;
+                pzbMemorySpaceUse->ungrabF( tinP ) ;
             {
             if( !( F(flagsCt) & flNAPKINc_DOnOTsERIALIZEcT ) )
 
@@ -374,7 +374,7 @@
 
                 }
                     THREADmODE4rESTORE0( flThreadMode4Save )
-                    pzbUniverseUse->ungrabF( tinP ) ;           //U::BUG: napGuts IS FULLY CT WITHOUT EVER UNGRABBING THIS
+                    pzbMemorySpaceUse->ungrabF( tinP ) ;           //U::BUG: napGuts IS FULLY CT WITHOUT EVER UNGRABBING THIS
                 {
                 if( !( F(flagsCt) & flNAPKINc_DOnOTsERIALIZEcT ) )          //20201030@1142: BUG?: CONJ: SHOULD NOT BE UNGRABBING HERE (MUST REMAIN GRABBED UNTIL formattingIsDoneF IS CALLED)
             {
@@ -412,7 +412,7 @@
         THREADmODE3oFF( flTHREADmODE3_SUPPRESStRACING )
         }
             THREADmODE4rESTORE0( flThreadMode4Save )
-            pzbUniverseUse->ungrabF( tinP ) ;
+            pzbMemorySpaceUse->ungrabF( tinP ) ;
         {
         if( !( F(flagsCt) & flNAPKINc_DOnOTsERIALIZEcT ) )
 
@@ -460,7 +460,7 @@
 
                         }
                             THREADmODE4rESTORE0( flThreadMode4Save )
-                            pzbUniverseUse->ungrabF( tinP ) ;
+                            pzbMemorySpaceUse->ungrabF( tinP ) ;
                         {
                         if( !( F(flagsCt) & flNAPKINc_DOnOTsERIALIZEcT ) )
 
@@ -504,7 +504,7 @@
                     thirdC::dosOpenSharedMemIF( tinP , hNapkin , (flagsT&)flagsSharedMemory , postName , phFileP , cbP ? cbaHeader + cbP : 0 , idHowP , idMemorySpaceP , flagsOpen | flOPENsHAREDmEMORY_DOnOTsERIALIZE ) ;
 
                     }
-                        pzbUniverseUse->grabF( tinP , TAG( TAGiDnULL ) ) ;
+                        pzbMemorySpaceUse->grabF( tinP , TAG( TAGiDnULL ) ) ;
                         THREADmODE4oN0( flTHREADmODE4_INoUTfRAMEdEFERwRITINGaPPtELEMETRY )
                         THREADmODE4sAVE0( flThreadMode4Save )
                         tinP.flushPendingInOutFrameTelemetryIfF() ;
@@ -544,9 +544,9 @@
     thirdC::dosPriorityIF( tinP , ifcTHREADpRIORITY_SPINLOCK ) ;
 
     }
-        if( !POOP ) pzbUniverseUse = pbUniverseOverride ;
-        __Z( pbUniverseOverride ) ;
-        pbUniverseOverride = new( 0 , tinP , pbz_bUniverseOverride , sizeof pbz_bUniverseOverride ) batonC( tinP , TAG( TAGiDnULL ) , "bUniverse" , ifcIDgRABlAYER_cGRABuNIVERSEc , flBATONc_DOnOTsERIALIZEnAPKIN | flBATONc_NOTjEALOUS , 0 , 0 , idMemorySpaceP ) ;
+        if( !POOP ) pzbMemorySpaceUse = pbMemorySpaceOverride ;
+        __Z( pbMemorySpaceOverride ) ;
+        pbMemorySpaceOverride = new( 0 , tinP , pbz_bMemorySpaceOverride , sizeof pbz_bMemorySpaceOverride ) batonC( tinP , TAG( TAGiDnULL ) , "bMemorySpace" , ifcIDgRABlAYER_cGRABmEMORYsPACEc , flBATONc_DOnOTsERIALIZEnAPKIN | flBATONc_NOTjEALOUS , 0 , 0 , idMemorySpaceP ) ;
 
         //}
         //    countT foo = 2 ;
@@ -558,7 +558,7 @@
     {
     )
         )
-            F(flagsCt) & flNAPKINc_USEgRABuNIVERSEoVERRIDE
+            F(flagsCt) & flNAPKINc_USEgRABmEMORYsPACEoVERRIDE
             ||
             ( idMemorySpaceP && idMemorySpaceP != tinP.pAdamGlobal1->idMemorySpace )
         (
@@ -697,7 +697,7 @@
     tinP.flushPendingInOutFrameTelemetryIfF() ;
     // THE EFFECT OF THIS CODE IS THAT MY _IO_ NEVER EMITS TELEMETRY
     // inOutFrameC TELEMETRY BEHAVIOR IS DETERMINED BY THE STATE OF THE FLAG DURING CT, EVEN THOUGH EMISSION OCCURS DURING DT
-    // THIS IS NEEDED BECAUSE NORMALLY I SET flTHREADmODE4_INoUTfRAMEdEFERwRITINGaPPtELEMETRY SINCE I GRAB THE UNIVERSE AND EXIT WITH IT STILL GRABBED (TO BE UNGRABBED BY formattingIsDoneF)
+    // THIS IS NEEDED BECAUSE NORMALLY I SET flTHREADmODE4_INoUTfRAMEdEFERwRITINGaPPtELEMETRY SINCE I GRAB THE MEMORY SPACE AND EXIT WITH IT STILL GRABBED (TO BE UNGRABBED BY formattingIsDoneF)
 
     SCOOP
 {
@@ -707,8 +707,8 @@ flagsState( F(flagsP) & flNAPKINc_DOnOTcOMMIT ? flNAPKINcsTATE_NOTyETcOMMITTED :
 flThreadMode4Save( flTHREADmODE4_null ) ,
 idDesireCtSave( thirdC::dosPriorityIF( tinP ) ) ,
 osTidCt( tinP.osTid ) ,
-pzbUniverseUse( &processGlobal4I.bUniverse ) ,
-pbUniverseOverride( 0 ) ,
+pzbMemorySpaceUse( &processGlobal4I.bMemorySpace ) ,
+pbMemorySpaceOverride( 0 ) ,
 bDataAreaFormatted( 1 ) , // SO IMPOTENCE TEST IN DESTRUCTOR WILL NOT TRIGGER IMPOTENCE
 flagsSharedMemory( 0 ) ,
 cbData( cbP ) ,

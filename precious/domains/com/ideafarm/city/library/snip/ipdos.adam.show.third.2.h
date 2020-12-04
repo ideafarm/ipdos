@@ -18488,7 +18488,7 @@ examples
 //
 
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.fileOpenS : 1snip.1500005d.fileopens END
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.backGrabUniverseC : 1snip.15000060.backgrabuniversec BEGIN
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.backGrabMemorySpaceC : 1snip.15000060.backgrabuniversec BEGIN
 
 
 //
@@ -18500,13 +18500,13 @@ examples
 
 /*
 \<A HREF=\"5.15000060.1.0.html\"\>definition\</A\>
-it is illegal to refer to this symbol anywhere except in grabUniverseC definitions
+it is illegal to refer to this symbol anywhere except in grabMemorySpaceC definitions
  use grabC
  motive: make all grabbing (except that needed to construct and format napkinC objects) visible to the monitor
 */
 /**/
 
-/*1*/class _export backGrabUniverseC/*1*/
+/*1*/class _export backGrabMemorySpaceC/*1*/
 {
     countT  finger1 ;
     countT  cRef ;
@@ -18514,13 +18514,13 @@ it is illegal to refer to this symbol anywhere except in grabUniverseC definitio
     countT  finger2 ;
 
     NEWdELcLASSpROTOS
-    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34001.backGrabUniverseC.NEWdELcLASSb!||
-    ~backGrabUniverseC( voidT ) ;
-    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34002.backGrabUniverseC.dt_backGrabUniverseC!||
-    backGrabUniverseC( tinS& tinP , const countT idGroupP = ifcIDgRABlAYER_7BASEmISC1 ) ;
-    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34003.backGrabUniverseC.backGrabUniverseC!||
+    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34001.backGrabMemorySpaceC.NEWdELcLASSb!||
+    ~backGrabMemorySpaceC( voidT ) ;
+    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34002.backGrabMemorySpaceC.dt_backGrabMemorySpaceC!||
+    backGrabMemorySpaceC( tinS& tinP , const countT idGroupP = ifcIDgRABlAYER_7BASEmISC1 ) ;
+    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34003.backGrabMemorySpaceC.backGrabMemorySpaceC!||
 
-    friend class grabUniverseC ;
+    friend class grabMemorySpaceC ;
 }
 ;
 
@@ -18532,8 +18532,8 @@ it is illegal to refer to this symbol anywhere except in grabUniverseC definitio
 // Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
 
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.backGrabUniverseC : 1snip.15000060.backgrabuniversec END
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.grabUniverseC : 1snip.15000061.grabuniversec BEGIN
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.backGrabMemorySpaceC : 1snip.15000060.backgrabuniversec END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.grabMemorySpaceC : 1snip.15000061.grabuniversec BEGIN
 
 
 //
@@ -18547,31 +18547,31 @@ it is illegal to refer to this symbol anywhere except in grabUniverseC definitio
 \<A HREF=\"5.15000061.1.0.html\"\>definition\</A\>
 examples
  simplest
-  \<A HREF=\"5.7e00104.1.1.0.html\"\>7e00104:  WAKEsHOW( "example.simplest.snip.15000061.grabUniverseC" )\</A\>
+  \<A HREF=\"5.7e00104.1.1.0.html\"\>7e00104:  WAKEsHOW( "example.simplest.snip.15000061.grabMemorySpaceC" )\</A\>
 it is illegal to refer to this symbol anywhere except in napkinC definitions
  use grabC
  motive: make all grabbing (except that needed to construct and format napkinC objects) visible to the monitor
 */
 /**/
 
-/*1*/class _export grabUniverseC/*1*/
+/*1*/class _export grabMemorySpaceC/*1*/
 {
     grabitC      grabitx ;  //U::20180124@1933: WHY MUST I USE grabitC RATHER THAN grabC? THIS SHOULD NOT BE A SPINLOCK BECAUSE ALLOCATION OF SHARED MEMORY CAN INVOLVE DISK I/O FOR PAGING
     handleC      handle ;
 
  NEWdELcLASSpROTOS
- //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34001.grabUniverseC.NEWdELcLASSb!||
- ~grabUniverseC( voidT ) ;
- //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34002.grabUniverseC.dt_grabUniverseC!||
- grabUniverseC( tinS& tinP , const countT idGroupP = ifcIDgRABlAYER_7BASEmISC1 , const countT idMemorySpaceP = 0 ) ;
- //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34003.grabUniverseC.grabUniverseC!||
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34001.grabMemorySpaceC.NEWdELcLASSb!||
+ ~grabMemorySpaceC( voidT ) ;
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34002.grabMemorySpaceC.dt_grabMemorySpaceC!||
+ grabMemorySpaceC( tinS& tinP , const countT idGroupP = ifcIDgRABlAYER_7BASEmISC1 , const countT idMemorySpaceP = 0 ) ;
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34003.grabMemorySpaceC.grabMemorySpaceC!||
 
  public :
 
  voidT grabF( tinS& tinP , const countT idLineP , const countT idiFileP , const byteT* const pbBitsP ) ;
- //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34004.grabUniverseC.grabF!||
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34004.grabMemorySpaceC.grabF!||
  voidT ungrabF( tinS& tinP ) ;
- //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34005.grabUniverseC.ungrabF!||
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34005.grabMemorySpaceC.ungrabF!||
 
  friend class processGlobal3S ;
  friend class napkinC ;
@@ -18586,7 +18586,7 @@ it is illegal to refer to this symbol anywhere except in napkinC definitions
 // Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
 
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.grabUniverseC : 1snip.15000061.grabuniversec END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.grabMemorySpaceC : 1snip.15000061.grabuniversec END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.postOldC : 1snip.1500003f.postoldc BEGIN
 
 
@@ -26439,9 +26439,9 @@ it is illegal to refer to this symbol in the definition of an adam
  byteT*               pbNapkin ;
  const countT         cbData ;
  boolT                bDataAreaFormatted ;
- byteT                pbz_bUniverseOverride[ SIZEOF_batonC ] ;
- batonC*              pbUniverseOverride ;
- batonC*              pzbUniverseUse ;
+ byteT                pbz_bMemorySpaceOverride[ SIZEOF_batonC ] ;
+ batonC*              pbMemorySpaceOverride ;
+ batonC*              pzbMemorySpaceUse ;
 
  const countT         osTidCt ;
  const countT         idDesireCtSave ;
@@ -39800,7 +39800,7 @@ base class to make a derived class of objects easily contained by a stackC objec
     tinS*                           pTinDadService ;
     byteT                           pb_bNapkinCt[         CBzOMBIEbATONc ] ;
     byteT                           pb_bBeep[             CBzOMBIEbATONc ] ;
-    byteT                           pb_bUniverse[         CBzOMBIEbATONc ] ;
+    byteT                           pb_bMemorySpace[         CBzOMBIEbATONc ] ;
     byteT                           pb_bLog[              CBzOMBIEbATONc ] ;
     byteT                           pb_bOsCall[           CBzOMBIEbATONc ] ;
     byteT                           pb_bOsCallIMonitor[   CBzOMBIEbATONc ] ;
@@ -40304,7 +40304,7 @@ base class to make a derived class of objects easily contained by a stackC objec
     cryC                                     cry30a ;
     linkedC                                  _handleC_linked_sm ;
     cryC                                     cry30b ;
-    grabUniverseC                            grabUniverse ;
+    grabMemorySpaceC                            grabMemorySpace ;
     cryC                                     cry30c ;
     napkinC                                  napSlab ;
     cryC                                     cry30d ;
@@ -40424,7 +40424,7 @@ base class to make a derived class of objects easily contained by a stackC objec
     processGlobalBeginC     /*P4*/ /*CT:22*/ processGloBegin ;
     tinS                    /*P4*/ /*CT:32*/ tinVeryEarlyLateMain ;  // MUST BE CT AFTER tinP.pAdamGlobal1->pPoolHomeTemp AND BEFORE ANY GLOBALS THAT USE IT SUCH AS A grabC OBJECT
     ranUniC                 /*P4*/ /*CT:42*/ _thugC_ru ;
-    batonC                                   bUniverse ;
+    batonC                                   bMemorySpace ;
     napkinC                                  _marketC_napGoodRegistry ;
     batonC                  /*P4*/ /*CT:62*/ _thirdC_bBeep ;
     batonC                  /*P4*/ /*CT:92*/ _etherC_bLog ;
