@@ -104,7 +104,8 @@ DONE( tmWatch05Deadman2F )
             }
                 etThread.delF( tinP , pNicName ) ;
                 }
-                    home.idPortWatchHttp = 0 ;
+                    home.idPortWatchHttpDeadman2 = 0 ;
+                    etThread.traceF( tinP , T("deadman2:  socket destroyed ; resetting [home.idPortWatchHttpDeadman2]:    ")+TF2(home.idPortWatchHttpDeadman2,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) , flTRACE_HOMEeCHO | flTRACE_FORCEnOsILENCE , ifcIDtRACEdIVERT_1 ) ;
                     }
                         }
                             }
@@ -192,8 +193,8 @@ DONE( tmWatch05Deadman2F )
                         if( POOP )
 
                         sGet.connectF( tinP , 0x50 , pNicName[ 0 ] , 1 ) ;
-                        etThread.traceF( tinP , T("deadman2:  connecting") , flTRACE_HOMEeCHO | flTRACE_FORCEnOsILENCE , ifcIDtRACEdIVERT_1 ) ;
-                        home.idPortWatchHttp = sGet.bindF( tinP ) ;
+                        etThread.traceF( tinP , T("deadman2:  connecting [home.idPortWatchHttpDeadman2]:    ")+TF2(home.idPortWatchHttpDeadman2,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) , flTRACE_HOMEeCHO | flTRACE_FORCEnOsILENCE , ifcIDtRACEdIVERT_1 ) ;
+                        home.idPortWatchHttpDeadman2 = sGet.bindF( tinP ) ;
                         socketC sGet( tinP , *tinP.pEtScratch , TAG( TAGiDnULL ) ) ;
                     {
                 {
@@ -270,7 +271,8 @@ DONE( tmWatch05Deadman1F )
             }
                 etThread.delF( tinP , pNicName ) ;
                 }
-                    home.idPortWatchHttp = 0 ;
+                    home.idPortWatchHttpDeadman1 = 0 ;
+                    etThread.traceF( tinP , T("deadman1:  my socket is dt'd ; resetting from [home.idPortWatchHttpDeadman1]:    ")+TF2(home.idPortWatchHttpDeadman1,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) , flTRACE_HOMEeCHO | flTRACE_FORCEnOsILENCE , ifcIDtRACEdIVERT_1 ) ;
                     }
                         }
                             }
@@ -358,8 +360,8 @@ DONE( tmWatch05Deadman1F )
                         if( POOP )
 
                         sGet.connectF( tinP , 0x50 , pNicName[ 0 ] , 1 ) ;
-                        etThread.traceF( tinP , T("deadman1:  connecting") , flTRACE_HOMEeCHO | flTRACE_FORCEnOsILENCE , ifcIDtRACEdIVERT_1 ) ;
-                        home.idPortWatchHttp = sGet.bindF( tinP ) ;
+                        etThread.traceF( tinP , T("deadman1:  connecting [home.idPortWatchHttpDeadman1]:    ")+TF2(home.idPortWatchHttpDeadman1,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) , flTRACE_HOMEeCHO | flTRACE_FORCEnOsILENCE , ifcIDtRACEdIVERT_1 ) ;
+                        home.idPortWatchHttpDeadman1 = sGet.bindF( tinP ) ;
                         socketC sGet( tinP , *tinP.pEtScratch , TAG( TAGiDnULL ) ) ;
                     {
                 {

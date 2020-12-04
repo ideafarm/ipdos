@@ -26973,7 +26973,8 @@ code may use setIfZeAM on *(countT*)this
     countT              idPortListServerIdAccountDescription ; //SET AND MAINTAINED BY ifcIDaDAM_LISTsERVERiDaCCOUNTdESCRIPTION
     countT              idPortListMoneyBuckets ; // SET AND MAINTAINED BY ifcIDaDAM_LISTsERVERmONEYbUCKETS
     countT              idPortCloak ; // SET AND MAINTAINED BY ifcIDaDAM_CLOAK
-    countT              idPortWatchHttp ; // SET AND MAINTAINED BY ifcIDaDAM_WATCH
+    countT              idPortWatchHttpDeadman1 ; // SET AND MAINTAINED BY ifcIDaDAM_WATCH
+    countT              idPortWatchHttpDeadman2 ; // SET AND MAINTAINED BY ifcIDaDAM_WATCH
     idPortTimeC         idptRelay ; //SET AND MAINTAINED BY b150104 (U::THIS COMMENT PROBABLY IDENTIFIES THE WRONG ADAM)
     countT              idRank ;
     idPortC             idpTeat ;
