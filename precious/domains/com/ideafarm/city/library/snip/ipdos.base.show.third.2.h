@@ -27487,8 +27487,10 @@ it is illegal to modify any member other than pc Utility in the definition of an
 
  countT                  cTellsWriteInOutTelemetry ;
  count04T                cCpuCyclesWriteInOutTelemetry ;
+ count04T                cTimeWriteInOutTelemetry ;
  inOutFrameC*            pInOutFrame ;                       //THIS AND POSSIBLY ITS ACCOMPANYING MEMBERS MUST BE EARLY SINCE _IO_ IS USED DURING CT OF tinS
  count04T                cCpuCycles2Or5Lath ;
+ count04T                cTime2Or5Lath ;
  byteT*                  pbPendingInOutFramePackets ;
  etherC*       /*o  8*/  pEther ;       // USED IF !0.              FOR USE BY STATIC thirdC FUNCTIONS, GLOBAL FUNCTIONS, AND OBJECTS SUCH AS strokeS THAT DO NOT CARRY THEIR OWN REFERENCES.  ADDED LATE.
  countT        /*o 01*/  osTid ;   // MUST BE AFTER pEther.  
@@ -38969,7 +38971,6 @@ the only function of this object is to edit tinS::grabPseudo so that the monitor
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.sessionsC : 1snip.150000ba.sessionsc END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.httpServerC : 1snip.150000b7.httpserverc BEGIN
 
-
 //
 // Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
@@ -38983,6 +38984,7 @@ the only function of this object is to edit tinS::grabPseudo so that the monitor
 /*1*/class _export httpServerC/*1*/
 {
     etherC&          ether ;
+    textC            tNetBiosMe ;
     const countT     idPort ;
     count8S          c8tp1 ;
     count8S          c8tp2 ;
@@ -39009,6 +39011,8 @@ the only function of this object is to edit tinS::grabPseudo so that the monitor
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34014.httpServerC.storeSnipPrivateF!||
 
     public :
+
+    inline operator textC&( voidT ) { return tNetBiosMe ; }
 
     /* construction and initialization */
     ~httpServerC( voidT ) ;
@@ -44035,7 +44039,6 @@ VARIABLEcLASSdEF( countC , countT )
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.directionS : 1snip.15000156.directions END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.tellInfoAppInOutFrameS : 1snip.15000188.tellinfoappinoutframes BEGIN
 
-
 //
 // Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
@@ -44067,6 +44070,12 @@ VARIABLEcLASSdEF( countC , countT )
     count04T cTime2             ;
     count04T cTime3             ;
     count04T cTime4             ;
+
+    count04T dTimeB4            ;
+    count04T dTimeCt            ;
+    count04T dTimeIn            ;
+    count04T dTimeInNet         ;
+    count04T dTimeDt            ;
 }
 ;
 
@@ -44110,7 +44119,7 @@ VARIABLEcLASSdEF( countC , countT )
 //
 
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.tellInfoAppInOutFrameTinDtS : 1snip.15000189.tellInfoAppInOutFrameTinDtS END
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.inOutFrameAuditS : 1snip.1500018a.inOutFrameAuditS BEGIN
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.inOutFrameAuditCpuCyclesS : 1snip.1500018a.inOutFrameAuditCpuCyclesS BEGIN
 
 
 //
@@ -44124,7 +44133,7 @@ VARIABLEcLASSdEF( countC , countT )
 */
 /**/
 
-/*1*/struct _export inOutFrameAuditS/*1*/
+/*1*/struct _export inOutFrameAuditCpuCyclesS/*1*/
 {
     count04T dCpuCyclesAuditKidBetween ;
     count04T dCpuCyclesAuditKidCt      ;
@@ -44132,7 +44141,7 @@ VARIABLEcLASSdEF( countC , countT )
     count04T dCpuCyclesAuditKidDt      ;
     count04T dCpuCyclesAuditKidBook    ;
 
-    inline inOutFrameAuditS( voidT ) :
+    inline inOutFrameAuditCpuCyclesS( voidT ) :
     dCpuCyclesAuditKidBetween( 0 ) ,  //THESE MUST BE INITIALIZED SINCE THEY ARE ACCUMULATORS
     dCpuCyclesAuditKidCt(      0 ) ,  //THESE MUST BE INITIALIZED SINCE THEY ARE ACCUMULATORS
     dCpuCyclesAuditKidIn(      0 ) ,  //THESE MUST BE INITIALIZED SINCE THEY ARE ACCUMULATORS
@@ -44150,9 +44159,46 @@ VARIABLEcLASSdEF( countC , countT )
 // Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
 
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.inOutFrameAuditS : 1snip.1500018a.inOutFrameAuditS END
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.inOutFrameC : 1snip.15000159.inoutframec BEGIN
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.inOutFrameAuditCpuCyclesS : 1snip.1500018a.inOutFrameAuditCpuCyclesS END
 
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+/*
+*/
+/**/
+
+/*1*/struct _export inOutFrameAuditTimeS/*1*/
+{
+    count04T dTimeAuditKidBetween ;
+    count04T dTimeAuditKidCt      ;
+    count04T dTimeAuditKidIn      ;
+    count04T dTimeAuditKidDt      ;
+    count04T dTimeAuditKidBook    ;
+
+    inline inOutFrameAuditTimeS( voidT ) :
+    dTimeAuditKidBetween( 0 ) ,  //THESE MUST BE INITIALIZED SINCE THEY ARE ACCUMULATORS
+    dTimeAuditKidCt(      0 ) ,  //THESE MUST BE INITIALIZED SINCE THEY ARE ACCUMULATORS
+    dTimeAuditKidIn(      0 ) ,  //THESE MUST BE INITIALIZED SINCE THEY ARE ACCUMULATORS
+    dTimeAuditKidDt(      0 ) ,  //THESE MUST BE INITIALIZED SINCE THEY ARE ACCUMULATORS
+    dTimeAuditKidBook(    0 )    //THESE MUST BE INITIALIZED SINCE THEY ARE ACCUMULATORS
+    {}
+}
+;
+
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.inOutFrameC : 1snip.15000159.inoutframec BEGIN
 
 //
 // Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
@@ -44168,21 +44214,22 @@ VARIABLEcLASSdEF( countC , countT )
 
 /*1*/class _export inOutFrameC/*1*/
 {
-    inOutFrameC* const      pDad                      ;
-    tinS&                   tinCt                     ;
-    const countT            idLineCt                  ;
-    const countT            idiFileCt                 ;
-    inOutFrameAuditS        audit                     ;
-    tellInfoAppInOutFrameS  say                       ;
-    const countT            idFileRankCt              ;
-    const flagsT            flagsCt                   ;
-    countT                  idFileNestSave            ;
-    countT                  idLineNestSave            ;
-    countT                  eipInNestSave             ;
-    countT                  idProgressNestSave        ;
-    flagsT                  pFlagsThreadLevelModeSave ;
-    const countT            idWhat1Save               ;
-    const countT            idWhat2Save               ;
+    inOutFrameC* const        pDad                      ;
+    tinS&                     tinCt                     ;
+    const countT              idLineCt                  ;
+    const countT              idiFileCt                 ;
+    inOutFrameAuditCpuCyclesS auditCpuCycles            ;
+    inOutFrameAuditTimeS      auditTime                 ;
+    tellInfoAppInOutFrameS    say                       ;
+    const countT              idFileRankCt              ;
+    const flagsT              flagsCt                   ;
+    countT                    idFileNestSave            ;
+    countT                    idLineNestSave            ;
+    countT                    eipInNestSave             ;
+    countT                    idProgressNestSave        ;
+    flagsT                    pFlagsThreadLevelModeSave ;
+    const countT              idWhat1Save               ;
+    const countT              idWhat2Save               ;
 
     public :
 

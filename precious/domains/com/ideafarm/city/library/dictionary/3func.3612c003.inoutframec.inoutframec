@@ -9,10 +9,18 @@
 
 }
     }
+        say.dTimeCt      = say.cTime2      - say.cTime1      ;
         say.dCpuCyclesCt = say.cCpuCycles2 - say.cCpuCycles1 ;
 
+        tinP.cTime2Or5Lath      = say.cTime2      ;
         tinP.cCpuCycles2Or5Lath = say.cCpuCycles2 ;
-        if( pDad ) pDad->audit.dCpuCyclesAuditKidCt += say.cCpuCycles2 - say.cCpuCycles1 ;
+
+        }
+            pDad->auditTime.dTimeAuditKidCt           += say.cTime2      - say.cTime1      ;
+            pDad->auditCpuCycles.dCpuCyclesAuditKidCt += say.cCpuCycles2 - say.cCpuCycles1 ;
+        {
+        if( pDad )
+
         QueryThreadCycleTime( (HANDLE)(-2) ,  (ULONG64*)&say.cCpuCycles2 ) ;
         QueryPerformanceCounter( (LARGE_INTEGER*)&say.cTime2 ) ;
     {
@@ -172,9 +180,14 @@
     {
 
     }
+        say.dTimeB4      = !pDad ? 0 : say.cTime1      - tinP.cTime2Or5Lath      ;
         say.dCpuCyclesB4 = !pDad ? 0 : say.cCpuCycles1 - tinP.cCpuCycles2Or5Lath ;
 
-        if( pDad ) pDad->audit.dCpuCyclesAuditKidBetween += say.cCpuCycles1 - tinP.cCpuCycles2Or5Lath ;
+        }
+            pDad->auditTime     .dTimeAuditKidBetween      += say.cTime1      - tinP.cTime2Or5Lath      ;
+            pDad->auditCpuCycles.dCpuCyclesAuditKidBetween += say.cCpuCycles1 - tinP.cCpuCycles2Or5Lath ;
+        {
+        if( pDad )
         QueryThreadCycleTime( (HANDLE)(-2) ,  (ULONG64*)&say.cCpuCycles1 ) ;
         QueryPerformanceCounter( (LARGE_INTEGER*)&say.cTime1 ) ;
     {

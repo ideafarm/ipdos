@@ -14,6 +14,15 @@
         ct3F( tinP ) ;
         ct2F( tinP ) ;
         ct1F( tinP ) ;
+
+        ether.traceF( tinP , T("httpServerC [tNetBiosMe,idPort]:    \"")+tNetBiosMe+T("\"    ")+TF2(idPort,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
+        }
+            ether.delF( tinP , psttHost ) ;
+            else            tNetBiosMe = T(psttHost) ;
+            if( !psttHost ) ether.traceF( tinP , T("error: reverse DNS lookup on myself failed") ) ;
+            ether.sockPsttHostF( tinP , psttHost ) ; ___( psttHost ) ;
+            ZE( strokeS* , psttHost ) ;
+        {
     {
     if( !POOP )
     _IO_
@@ -39,6 +48,7 @@ c8tp( (countT)&c8tp1 , (countT)&c8tp2 ) ,
 c8tp2( (countT)arg2P.pHttpRawCommandServerCBF , (countT)(strokeS*)psttOldC( tinP , arg1P.ether , arg1P.psttName ) ) ,
 c8tp1( (countT)this , arg1P.flagsSocket , arg1P.idPort , (countT)&arg1P.cArgApp , (countT)arg2P.pHttpLoadContentStaticF , (countT)arg2P.pHttpLoadContentDynamicF , (countT)arg2P.pHttpEatKeyValuePairsCBF , (countT)arg2P.pHttpFreshenCacheCBF ) ,
 idPort( arg1P.idPort ) ,
+tNetBiosMe( tinP , TAG( TAGiDnULL ) , flTEXTc_null , "" ) ,
 ether( arg1P.ether ) ,
 /*1*/httpServerC::httpServerC( tinS& tinP , httpServerC_arg1S& arg1P , httpServerC_arg2S& arg2P , cacheC* pCacheP ) :/*1*/
 

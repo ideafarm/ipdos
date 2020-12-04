@@ -12,13 +12,25 @@
     }
         THREADmODE4rESTORE
 
+        tinP.cTimeWriteInOutTelemetry      += deltaTime5      ;
         tinP.cCpuCyclesWriteInOutTelemetry += deltaCpuCycles5 ;
         tinP.cTellsWriteInOutTelemetry ++ ;
 
-        if( pDad ) pDad->audit.dCpuCyclesAuditKidBook += deltaCpuCycles5 ;
+        }
+            pDad->auditTime     .dTimeAuditKidBook      += deltaTime5      ;
+            pDad->auditCpuCycles.dCpuCyclesAuditKidBook += deltaCpuCycles5 ;
+        {
+        if( pDad )
+
+        deltaTime5      -= say.cTime4      ;
         deltaCpuCycles5 -= say.cCpuCycles4 ;
+
+        tinP.cTime2Or5Lath      = deltaTime5      ; //NOT DELTA YET
         tinP.cCpuCycles2Or5Lath = deltaCpuCycles5 ; //NOT DELTA YET
+
         QueryThreadCycleTime( (HANDLE)(-2) ,  (ULONG64*)&deltaCpuCycles5 ) ;
+        QueryPerformanceCounter( (LARGE_INTEGER*)&deltaTime5 ) ;
+        count04T deltaTime5      ;  //INTENTIONALLY UNINITIALIZED FOR SPEED
         count04T deltaCpuCycles5 ;  //INTENTIONALLY UNINITIALIZED FOR SPEED
 
         }
@@ -79,9 +91,15 @@
 
         THREADmODE4oN( flTHREADmODE4_INoUTfRAMEdOnOTcOLLECTaPPtELEMETRY | flTHREADmODE4_DOnOTfLUSHpENDINGaPPtELEMETRY ) ;
 
+        say.dTimeDt      = say.cTime4      - say.cTime3      ;
         say.dCpuCyclesDt = say.cCpuCycles4 - say.cCpuCycles3 ;
 
-        if( pDad ) pDad->audit.dCpuCyclesAuditKidDt += say.cCpuCycles4 - say.cCpuCycles3 ;
+        }
+            pDad->auditTime     .dTimeAuditKidDt      += say.cTime4      - say.cTime3      ;
+            pDad->auditCpuCycles.dCpuCyclesAuditKidDt += say.cCpuCycles4 - say.cCpuCycles3 ;
+        {
+        if( pDad )
+
         QueryThreadCycleTime( (HANDLE)(-2) ,  (ULONG64*)&say.cCpuCycles4 ) ;
         QueryPerformanceCounter( (LARGE_INTEGER*)&say.cTime4 ) ;
     {
@@ -178,7 +196,42 @@
 
     }
         }
-            say.dCpuCyclesInNet = deltaIn - ( dAuditTotal - audit.dCpuCyclesAuditKidBetween ) ;
+            say.dTimeInNet = deltaTimeIn - ( dAuditTimeTotal - auditTime.dTimeAuditKidBetween ) ;
+
+            }
+                BLAMMO ;
+                LOGrAW( ostoSay ) ;
+                CONoUTrAW( ostoSay ) ;
+                OStEXTAK( ostoSay , "\r\n" ) ;
+                OStEXTCF( ostoSay , ((countT*)&say.dTimeInNet)[0] , '0' ) ;
+                OStEXTAK( ostoSay , "." ) ;
+                OStEXTCF( ostoSay , ((countT*)&say.dTimeInNet)[1] , '0' ) ;
+                OStEXTAK( ostoSay , "\r\n dTimeInNet:    " ) ;
+                OStEXTCF( ostoSay , ((countT*)&say.dTimeIn)[0] , '0' ) ;
+                OStEXTAK( ostoSay , "." ) ;
+                OStEXTCF( ostoSay , ((countT*)&say.dTimeIn)[1] , '0' ) ;
+                OStEXTAK( ostoSay , "\r\n    dTimeIn:    " ) ;
+                OStEXTCF( ostoSay , ((countT*)&dAuditTimeTotal)[0] , '0' ) ;
+                OStEXTAK( ostoSay , "." ) ;
+                OStEXTCF( ostoSay , ((countT*)&dAuditTimeTotal)[1] , '0' ) ;
+                OStEXTAK( ostoSay ,     "~inOutFrameC error: auditTime failure:    dAuditTimeTotal :    " ) ;
+                OStEXT( ostoSay , TUCK ) ;
+            {
+            if( dAuditTimeTotal != say.dTimeIn )
+
+            ;
+
+                + auditTime.dTimeAuditKidBook
+                + auditTime.dTimeAuditKidDt
+                + auditTime.dTimeAuditKidIn
+                + auditTime.dTimeAuditKidCt
+                  auditTime.dTimeAuditKidBetween
+
+            count04T dAuditTimeTotal =
+        {
+
+        }
+            say.dCpuCyclesInNet = deltaCpuCyclesIn - ( dAuditCpuCyclesTotal - auditCpuCycles.dCpuCyclesAuditKidBetween ) ;
 
             }
                 BLAMMO ;
@@ -193,34 +246,47 @@
                 OStEXTAK( ostoSay , "." ) ;
                 OStEXTCF( ostoSay , ((countT*)&say.dCpuCyclesIn)[1] , '0' ) ;
                 OStEXTAK( ostoSay , "\r\n    dCpuCyclesIn:    " ) ;
-                OStEXTCF( ostoSay , ((countT*)&dAuditTotal)[0] , '0' ) ;
+                OStEXTCF( ostoSay , ((countT*)&dAuditCpuCyclesTotal)[0] , '0' ) ;
                 OStEXTAK( ostoSay , "." ) ;
-                OStEXTCF( ostoSay , ((countT*)&dAuditTotal)[1] , '0' ) ;
-                OStEXTAK( ostoSay ,     "~inOutFrameC error: audit failure:    dAuditTotal :    " ) ;
+                OStEXTCF( ostoSay , ((countT*)&dAuditCpuCyclesTotal)[1] , '0' ) ;
+                OStEXTAK( ostoSay ,     "~inOutFrameC error: auditCpuCycles failure:    dAuditCpuCyclesTotal :    " ) ;
                 OStEXT( ostoSay , TUCK ) ;
             {
-            if( dAuditTotal != say.dCpuCyclesIn )
+            if( dAuditCpuCyclesTotal != say.dCpuCyclesIn )
 
             ;
 
-                + audit.dCpuCyclesAuditKidBook
-                + audit.dCpuCyclesAuditKidDt
-                + audit.dCpuCyclesAuditKidIn
-                + audit.dCpuCyclesAuditKidCt
-                  audit.dCpuCyclesAuditKidBetween
+                + auditCpuCycles.dCpuCyclesAuditKidBook
+                + auditCpuCycles.dCpuCyclesAuditKidDt
+                + auditCpuCycles.dCpuCyclesAuditKidIn
+                + auditCpuCycles.dCpuCyclesAuditKidCt
+                  auditCpuCycles.dCpuCyclesAuditKidBetween
 
-            count04T dAuditTotal =
+            count04T dAuditCpuCyclesTotal =
         {
 
+        say.dTimeIn      = say.cTime3      - say.cTime2      ;
         say.dCpuCyclesIn = say.cCpuCycles3 - say.cCpuCycles2 ;
 
         ;
-            : say.cCpuCycles3 - tinP.cCpuCycles2Or5Lath
-            ? deltaIn
-        audit.dCpuCyclesAuditKidBetween += tinP.cCpuCycles2Or5Lath == say.cCpuCycles2
+            : say.cTime3 - tinP.cTime2Or5Lath
+            ? deltaTimeIn
+        auditTime.dTimeAuditKidBetween += tinP.cTime2Or5Lath == say.cTime2
 
-        if( pDad ) pDad->audit.dCpuCyclesAuditKidIn += deltaIn ;
-        count04T deltaIn = say.cCpuCycles3 - say.cCpuCycles2 ;
+        ;
+            : say.cCpuCycles3 - tinP.cCpuCycles2Or5Lath
+            ? deltaCpuCyclesIn
+        auditCpuCycles.dCpuCyclesAuditKidBetween += tinP.cCpuCycles2Or5Lath == say.cCpuCycles2
+
+        }
+            pDad->auditTime     .dTimeAuditKidIn      += deltaTimeIn      ;
+            pDad->auditCpuCycles.dCpuCyclesAuditKidIn += deltaCpuCyclesIn ;
+        {
+        if( pDad )
+
+        count04T deltaTimeIn      = say.cTime3      - say.cTime2      ;
+        count04T deltaCpuCyclesIn = say.cCpuCycles3 - say.cCpuCycles2 ;
+
         QueryThreadCycleTime( (HANDLE)(-2) ,  (ULONG64*)&say.cCpuCycles3 ) ;
         QueryPerformanceCounter( (LARGE_INTEGER*)&say.cTime3 ) ;
     {
