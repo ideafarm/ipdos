@@ -18422,6 +18422,105 @@ examples
 //
 
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.fileOpenS : 1snip.1500005d.fileopens END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.backGrabMemorySpaceC : 1snip.15000060.backGrabMemorySpaceC BEGIN
+
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+/*
+\<A HREF=\"5.15000060.1.0.html\"\>definition\</A\>
+it is illegal to refer to this symbol anywhere except in grabMemorySpaceC definitions
+ use grabC
+ motive: make all grabbing (except that needed to construct and format napkinC objects) visible to the monitor
+*/
+/**/
+
+/*1*/class _export backGrabMemorySpaceC/*1*/
+{
+    countT  finger1 ;
+    countT  cRef ;
+    grabotC grabot ;
+    countT  finger2 ;
+
+    NEWdELcLASSpROTOS
+    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34001.backGrabMemorySpaceC.NEWdELcLASSb!||
+    ~backGrabMemorySpaceC( voidT ) ;
+    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34002.backGrabMemorySpaceC.dt_backGrabMemorySpaceC!||
+    backGrabMemorySpaceC( tinS& tinP , const countT idGroupP = ifcIDgRABlAYER_7BASEmISC1 ) ;
+    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34003.backGrabMemorySpaceC.backGrabMemorySpaceC!||
+
+    friend class grabMemorySpaceC ;
+}
+;
+
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.backGrabMemorySpaceC : 1snip.15000060.backGrabMemorySpaceC END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.grabMemorySpaceC : 1snip.15000061.grabMemorySpaceC BEGIN
+
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+/*
+\<A HREF=\"5.15000061.1.0.html\"\>definition\</A\>
+examples
+ simplest
+  \<A HREF=\"5.7e00104.1.1.0.html\"\>7e00104:  WAKEsHOW( "example.simplest.snip.15000061.grabMemorySpaceC" )\</A\>
+it is illegal to refer to this symbol anywhere except in napkinC definitions
+ use grabC
+ motive: make all grabbing (except that needed to construct and format napkinC objects) visible to the monitor
+*/
+/**/
+
+/*1*/class _export grabMemorySpaceC/*1*/
+{
+    grabitC      grabitx ;  //U::20180124@1933: WHY MUST I USE grabitC RATHER THAN grabC? THIS SHOULD NOT BE A SPINLOCK BECAUSE ALLOCATION OF SHARED MEMORY CAN INVOLVE DISK I/O FOR PAGING
+    handleC      handle ;
+
+ NEWdELcLASSpROTOS
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34001.grabMemorySpaceC.NEWdELcLASSb!||
+ ~grabMemorySpaceC( voidT ) ;
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34002.grabMemorySpaceC.dt_grabMemorySpaceC!||
+ grabMemorySpaceC( tinS& tinP , const countT idGroupP = ifcIDgRABlAYER_7BASEmISC1 , const countT idMemorySpaceP = 0 ) ;
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34003.grabMemorySpaceC.grabMemorySpaceC!||
+
+ public :
+
+ voidT grabF( tinS& tinP , const countT idLineP , const countT idiFileP , const byteT* const pbBitsP ) ;
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34004.grabMemorySpaceC.grabF!||
+ voidT ungrabF( tinS& tinP ) ;
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34005.grabMemorySpaceC.ungrabF!||
+
+ friend class processGlobal3S ;
+ friend class napkinC ;
+}
+;
+
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.grabMemorySpaceC : 1snip.15000061.grabMemorySpaceC END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.postOldC : 1snip.1500003f.postoldc BEGIN
 
 
@@ -40047,102 +40146,6 @@ base class to make a derived class of objects easily contained by a stackC objec
 //
 
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.doC : 1snip.15000115.doc END
-
-
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-// Respecting the rights of other people is an important part of empowering one another.
-//
-
-/*
-\<A HREF=\"5.15000060.1.0.html\"\>definition\</A\>
-it is illegal to refer to this symbol anywhere except in grabMemorySpaceC definitions
- use grabC
- motive: make all grabbing (except that needed to construct and format napkinC objects) visible to the monitor
-*/
-/**/
-
-/*1*/class _export backGrabMemorySpaceC/*1*/
-{
-    countT  finger1 ;
-    countT  cRef ;
-    grabotC grabot ;
-    countT  finger2 ;
-
-    NEWdELcLASSpROTOS
-    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34001.backGrabMemorySpaceC.NEWdELcLASSb!||
-    ~backGrabMemorySpaceC( voidT ) ;
-    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34002.backGrabMemorySpaceC.dt_backGrabMemorySpaceC!||
-    backGrabMemorySpaceC( tinS& tinP , const countT idGroupP = ifcIDgRABlAYER_7BASEmISC1 ) ;
-    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34003.backGrabMemorySpaceC.backGrabMemorySpaceC!||
-
-    friend class grabMemorySpaceC ;
-}
-;
-
-
-//
-// Respecting the rights of other people is an important part of empowering one another.
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-
-
-
-
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-// Respecting the rights of other people is an important part of empowering one another.
-//
-
-/*
-\<A HREF=\"5.15000061.1.0.html\"\>definition\</A\>
-examples
- simplest
-  \<A HREF=\"5.7e00104.1.1.0.html\"\>7e00104:  WAKEsHOW( "example.simplest.snip.15000061.grabMemorySpaceC" )\</A\>
-it is illegal to refer to this symbol anywhere except in napkinC definitions
- use grabC
- motive: make all grabbing (except that needed to construct and format napkinC objects) visible to the monitor
-*/
-/**/
-
-/*1*/class _export grabMemorySpaceC/*1*/
-{
-    grabitC      grabitx ;  //U::20180124@1933: WHY MUST I USE grabitC RATHER THAN grabC? THIS SHOULD NOT BE A SPINLOCK BECAUSE ALLOCATION OF SHARED MEMORY CAN INVOLVE DISK I/O FOR PAGING
-    handleC      handle ;
-
- NEWdELcLASSpROTOS
- //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34001.grabMemorySpaceC.NEWdELcLASSb!||
- ~grabMemorySpaceC( voidT ) ;
- //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34002.grabMemorySpaceC.dt_grabMemorySpaceC!||
- grabMemorySpaceC( tinS& tinP , const countT idGroupP = ifcIDgRABlAYER_7BASEmISC1 , const countT idMemorySpaceP = 0 ) ;
- //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34003.grabMemorySpaceC.grabMemorySpaceC!||
-
- public :
-
- voidT grabF( tinS& tinP , const countT idLineP , const countT idiFileP , const byteT* const pbBitsP ) ;
- //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34004.grabMemorySpaceC.grabF!||
- voidT ungrabF( tinS& tinP ) ;
- //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34005.grabMemorySpaceC.ungrabF!||
-
- friend class processGlobal3S ;
- friend class napkinC ;
-}
-;
-
-
-//
-// Respecting the rights of other people is an important part of empowering one another.
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.processGlobal3S : 1snip.150000e2.processglobal3s BEGIN
 
 

@@ -1,32 +1,4 @@
 
-voidT diskFilePourF_4P4P4P_GF( tinS& tinP , etherC& etherP , soulC& slP , const strokeS* const _psttNameP )
-{
-    countT idArgNext = 1 ;
-    ZE( byteT* , pbFieldNext ) ;
-    ZE( countT , idTypeNext ) ;
-    ZE( flagsT , flagsNext ) ;
-    ZE( countT , cbFieldNext ) ;
-
-    SOIXLoLDtESTeMPTY( 0xdddd8017 , etherC )
-    SOIXLoLDtESTtYPE( 0xdddd8017 , etherC )
-    ZE( strokeS* , psttHostP ) ;
-    if( !POOP ) { slP >> psttHostP ; ___( psttHostP ) ; idArgNext ++ ; }
-
-    SOIXLoLDtESTeMPTY( 0xdddd8017 , etherC )
-    SOIXLoLDtESTtYPE( 0xdddd8017 , etherC )
-    ZE( strokeS* , pstt1RemoteP ) ;
-    if( !POOP ) { slP >> pstt1RemoteP ; ___( pstt1RemoteP ) ; idArgNext ++ ; }
-
-    SOIXLoLDtESTeMPTY( 0xdddd8017 , etherC )
-    SOIXLoLDtESTtYPE( 0xdddd8017 , etherC )
-    ZE( strokeS* , pstt1LocalP ) ;
-    if( !POOP ) { slP >> pstt1LocalP ; ___( pstt1LocalP ) ; idArgNext ++ ; }
-    if( !POOP ) etherP.diskFilePourF( tinP , psttHostP , pstt1RemoteP , pstt1LocalP ) ;
-    etherP.delF( tinP , pstt1LocalP ) ;
-    etherP.delF( tinP , pstt1RemoteP ) ;
-    etherP.delF( tinP , psttHostP ) ;
-}
-
 voidT diskFileQueryAttrF_4P_GF( tinS& tinP , etherC& etherP , soulC& slP , const strokeS* const _psttNameP )
 {
     countT idArgNext = 1 ;
@@ -2043,4 +2015,27 @@ voidT osDriverF_3_GF( tinS& tinP , etherC& etherP , soulC& slP , const strokeS* 
     ZE( countT , idAdamP ) ;
     if( !POOP ) { slP >> idAdamP ; idArgNext ++ ; }
     if( !POOP ) etherP.osDriverF( tinP , idAdamP ) ;
+}
+
+voidT osDriverNameFromMasterF_4P3_GF( tinS& tinP , etherC& etherP , soulC& slP , const strokeS* const _psttNameP )
+{
+    countT idArgNext = 1 ;
+    ZE( byteT* , pbFieldNext ) ;
+    ZE( countT , idTypeNext ) ;
+    ZE( flagsT , flagsNext ) ;
+    ZE( countT , cbFieldNext ) ;
+
+    SOIXLoLDtESTeMPTY( 0xdddd8017 , etherC )
+    SOIXLoLDtESTtYPE( 0xdddd8017 , etherC )
+    ZE( strokeS* , psttP ) ;
+    if( !POOP ) { slP >> psttP ; ___( psttP ) ; idArgNext ++ ; }
+
+   SOIXLoLDtESTeMPTY( 0xdddd8003 , etherC )
+   SOIXLoLDtESTtYPE( 0xdddd8003 , etherC )
+    ZE( countT , idAdamP ) ;
+    if( !POOP ) { slP >> idAdamP ; idArgNext ++ ; }
+    if( !POOP ) etherP.osDriverNameFromMasterF( tinP , psttP , idAdamP ) ;
+
+    if( !POOP ) slP << psttP ;
+    etherP.delF( tinP , psttP ) ;
 }

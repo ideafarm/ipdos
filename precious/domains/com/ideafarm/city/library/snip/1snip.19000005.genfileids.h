@@ -1539,8 +1539,8 @@
 0x1500005d , 0x00000603 ,   // 1snip.1500005d.fileopens
 0x1500005e , 0x00000604 ,   // 1snip.1500005e.hoodc
 0x1500005f , 0x00000605 ,   // 1snip.1500005f.thugc
-0x15000060 , 0x00000606 ,   // 1snip.15000060.backGrabSharedMemoryc
-0x15000061 , 0x00000607 ,   // 1snip.15000061.grabSharedMemoryc
+0x15000060 , 0x00000606 ,   // 1snip.15000060.backGrabMemorySpaceC
+0x15000061 , 0x00000607 ,   // 1snip.15000061.grabMemorySpaceC
 0x15000062 , 0x00000608 ,   // 1snip.15000062.tlsstackframes
 0x15000063 , 0x00000609 ,   // 1snip.15000063.querytimeremainings
 0x15000064 , 0x0000060a ,   // 1snip.15000064.firealls
@@ -3575,6 +3575,7 @@
 0x360021f4 , 0x00000df7 ,   // 3func.360021f4.etherc.openssl_peekf
 0x360021f5 , 0x00000df8 ,   // 3func.360021f5.etherc.etherDispenseSerialNumberF
 0x360021f6 , 0x00000df9 ,   // 3func.360021f6.etherc.osTimeToOldTimeMsF
+0x360021f7 , 0x00000dfa ,   // 3func.360021f7.etherc.etherDoHttpJobF
 0x36003001 , 0x00000dfb ,   // 3func.36003001.infodisks.infodisks
 0x36003002 , 0x00000dfc ,   // 3func.36003002.infodisks.dt_infodisks
 0x36003003 , 0x00000dfd ,   // 3func.36003003.infodisks.operator_shiftleft
@@ -4529,10 +4530,10 @@
 0x36056008 , 0x000011b2 ,   // 3func.36056008.thugc.operator_bytet_ptr
 0x36056009 , 0x000011b3 ,   // 3func.36056009.thugc.pdadf
 0x3605600a , 0x000011b4 ,   // 3func.3605600a.thugc.pkidf
-0x36057002 , 0x000011b5 ,   // 3func.36057002.grabSharedMemoryc.dt_grabSharedMemoryc
-0x36057003 , 0x000011b6 ,   // 3func.36057003.grabSharedMemoryc.grabSharedMemoryc
-0x36057004 , 0x000011b7 ,   // 3func.36057004.grabSharedMemoryc.grabf
-0x36057005 , 0x000011b8 ,   // 3func.36057005.grabSharedMemoryc.ungrabf
+0x36057002 , 0x000011b5 ,   // 3func.36057002.grabMemorySpaceC.dt_grabMemorySpaceC
+0x36057003 , 0x000011b6 ,   // 3func.36057003.grabMemorySpaceC.grabMemorySpaceC
+0x36057004 , 0x000011b7 ,   // 3func.36057004.grabMemorySpaceC.grabf
+0x36057005 , 0x000011b8 ,   // 3func.36057005.grabMemorySpaceC.ungrabf
 0x36058001 , 0x000011b9 ,   // 3func.36058001.tlsstackframes.dt_tlsstackframes
 0x36058002 , 0x000011ba ,   // 3func.36058002.tlsstackframes.tlsstackframes
 0x36059002 , 0x000011bb ,   // 3func.36059002.homes.dt_homes
@@ -5019,8 +5020,8 @@
 0x360d0003 , 0x0000139c ,   // 3func.360d0003.processglobal7s.processglobal7s
 0x360d1002 , 0x0000139d ,   // 3func.360d1002.adamglobal6s.adamglobal6s
 0x360d1002 , 0x0000139e ,   // 3func.360d1002.adamglobal6s.dt_adamglobal6s
-0x360d2002 , 0x0000139f ,   // 3func.360d2002.backGrabSharedMemoryc.dt_backGrabSharedMemoryc
-0x360d2003 , 0x000013a0 ,   // 3func.360d2003.backGrabSharedMemoryc.backGrabSharedMemoryc
+0x360d2002 , 0x0000139f ,   // 3func.360d2002.backGrabMemorySpaceC.dt_backGrabMemorySpaceC
+0x360d2003 , 0x000013a0 ,   // 3func.360d2003.backGrabMemorySpaceC.backGrabMemorySpaceC
 0x360d3002 , 0x000013a1 ,   // 3func.360d3002.marketc.dt_marketc
 0x360d3003 , 0x000013a2 ,   // 3func.360d3003.marketc.marketc
 0x360d3004 , 0x000013a3 ,   // 3func.360d3004.marketc.adjustpricef

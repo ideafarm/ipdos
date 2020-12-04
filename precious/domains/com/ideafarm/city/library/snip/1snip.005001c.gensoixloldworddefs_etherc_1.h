@@ -1713,3 +1713,31 @@ voidT diskMoveFileOrDirUniqueF_4P4P3_GF( tinS& tinP , etherC& etherP , soulC& sl
     if( !POOP ) slP << psttNewP ;
     etherP.delF( tinP , psttNewP ) ;
 }
+
+voidT diskFilePourF_4P4P4P_GF( tinS& tinP , etherC& etherP , soulC& slP , const strokeS* const _psttNameP )
+{
+    countT idArgNext = 1 ;
+    ZE( byteT* , pbFieldNext ) ;
+    ZE( countT , idTypeNext ) ;
+    ZE( flagsT , flagsNext ) ;
+    ZE( countT , cbFieldNext ) ;
+
+    SOIXLoLDtESTeMPTY( 0xdddd8017 , etherC )
+    SOIXLoLDtESTtYPE( 0xdddd8017 , etherC )
+    ZE( strokeS* , psttHostP ) ;
+    if( !POOP ) { slP >> psttHostP ; ___( psttHostP ) ; idArgNext ++ ; }
+
+    SOIXLoLDtESTeMPTY( 0xdddd8017 , etherC )
+    SOIXLoLDtESTtYPE( 0xdddd8017 , etherC )
+    ZE( strokeS* , pstt1RemoteP ) ;
+    if( !POOP ) { slP >> pstt1RemoteP ; ___( pstt1RemoteP ) ; idArgNext ++ ; }
+
+    SOIXLoLDtESTeMPTY( 0xdddd8017 , etherC )
+    SOIXLoLDtESTtYPE( 0xdddd8017 , etherC )
+    ZE( strokeS* , pstt1LocalP ) ;
+    if( !POOP ) { slP >> pstt1LocalP ; ___( pstt1LocalP ) ; idArgNext ++ ; }
+    if( !POOP ) etherP.diskFilePourF( tinP , psttHostP , pstt1RemoteP , pstt1LocalP ) ;
+    etherP.delF( tinP , pstt1LocalP ) ;
+    etherP.delF( tinP , pstt1RemoteP ) ;
+    etherP.delF( tinP , psttHostP ) ;
+}
