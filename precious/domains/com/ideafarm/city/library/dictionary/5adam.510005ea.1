@@ -16,26 +16,29 @@ if( POOP ) { CONoUTrAW( "loafing with POOP in my pants\r\n" ) ; }
 }
     #endif
 
-        }
-            if( POOP ) { CONoUTrAW3( "" , cDo , " [cDo after]: called osThreadF and it POOPED\r\n" ) ; }
-            etThread.osThreadF( tinP , countTC() , tmWatch05Deadman1F , 0 , flTHREADlAUNCH_null , TOCK >> 3 ) ;
-            CONoUTrAW3( "" , cDo , " [cDo after]: calling osThreadF\r\n" ) ;
-        {
-        while( cDo -- )
-
-        if( cDo ) etThread.osThreadF( TaRG1( tmWatch05TallyF ) ) ;
-
-        countT cDo = CgORILLAS ;
-
-    #else
-
         etThread.osThreadF( TaRG1( tmWatch05TallyF ) ) ;
         etThread.osThreadF( TaRG1( tmWatch05Deadman2F ) ) ;
         etThread.osThreadF( TaRG1( tmWatch05Deadman1F ) ) ;
 
-    #if !defined( CgORILLAS )
+    #else
 
-    etThread.osThreadF( TaRG1( tmWatchFileF    ) ) ;
+        while( cDo -- ) etThread.osThreadF( tinP , countTC() , tmWatch05Deadman1F , 0 , flTHREADlAUNCH_null , TOCK >> 3 ) ;
+
+        if( cDo ) etThread.osThreadF( TaRG1( tmWatch05TallyF ) ) ;
+
+        countT cDo = CgORILLAS2 ;
+
+    #elif defined( CgORILLAS2 )
+
+        while( cDo -- ) etThread.osThreadF( tinP , countTC() , tmWatch05Deadman1F , 0 , flTHREADlAUNCH_null , TOCK >> 3 ) ;
+
+        if( cDo ) etThread.osThreadF( TaRG1( tmWatch05TallyF ) ) ;
+
+        countT cDo = CgORILLAS1 ;
+
+    #if defined( CgORILLAS1 )
+
+    etThread.osThreadF( TaRG1( tmWatchFileF ) ) ;
 
     ether.traceF( tinP , T("WATCH: launching watch threads") ) ;
 {
@@ -88,7 +91,7 @@ DONE( tmWatch05Deadman2F )
                 sleepC s( tinP , TAG( TAGiDnULL ) ) ;
             {
     
-        #if !defined( CgORILLAS )
+        #if !defined( CgORILLAS2 )
 
         }
             }
@@ -233,7 +236,7 @@ DONE( tmWatch05Deadman2F )
 
     #endif
         etThread.osThreadSwitchingDesireF( tinP , ifcTHREADpRIORITY_RUDE ) ;
-    #if !defined( CgORILLAS )
+    #if !defined( CgORILLAS2 )
 
     boolT bSandbox = etherC::ifc_idHomeI_IF() & fliIDhOME_HOMELESS ;
 
@@ -255,7 +258,7 @@ DONE( tmWatch05Deadman1F )
                 sleepC s( tinP , TAG( TAGiDnULL ) ) ;
             {
     
-        #if !defined( CgORILLAS )
+        #if !defined( CgORILLAS1 )
 
         }
             }
@@ -400,7 +403,7 @@ DONE( tmWatch05Deadman1F )
 
     #endif
         etThread.osThreadSwitchingDesireF( tinP , ifcTHREADpRIORITY_RUDE ) ;
-    #if !defined( CgORILLAS )
+    #if !defined( CgORILLAS1 )
 
     boolT bSandbox = etherC::ifc_idHomeI_IF() & fliIDhOME_HOMELESS ;
 
@@ -607,13 +610,14 @@ countT cDone2 ;
 countT cDone1 ;
 
 // 352_9 THREADS OBSERVED AS A MAXIMUM
-//#define CgORILLAS              ( CsESSIONmAXdFLTiFCdRIVENsERVER >> 4 )
-//AOK BUT SLOW: #define CgORILLAS              CsESSIONmAXdFLTiFCdRIVENsERVER
-//#define CgORILLAS              ( TUCK >> 1 )
-//AOK: #define CgORILLAS              0x10
-//#define CgORILLAS              0x4
-//#define CgORILLAS              0x3
-// NORMALLY CgORILLAS IS NOT DEFINED; DEFINE IT TO DO GORILLA TESTING
+//#define CgORILLAS1              ( CsESSIONmAXdFLTiFCdRIVENsERVER >> 4 )
+//AOK BUT SLOW: #define CgORILLAS1              CsESSIONmAXdFLTiFCdRIVENsERVER
+//#define CgORILLAS1              ( TUCK >> 1 )
+//AOK: #define CgORILLAS1              0x10
+//B: 20201206@429: #define CgORILLAS1              0x10
+//#define CgORILLAS1              0x4
+//#define CgORILLAS1              0x3
+// NORMALLY CgORILLAS1 IS NOT DEFINED; DEFINE IT TO DO GORILLA TESTING
 
 #define INSPECTIONpERIODfILE ( TICK >> 2 )
 
