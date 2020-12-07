@@ -140,56 +140,56 @@
                         for(;;)
                         sleepC s( tinP , TAG( TAGiDnULL ) ) ;
                         THREADmODE1oN( flTHREADmODE1_ALLOWsTOPwHILEgRABBING )
-                        thirdC::dosPriorityIF( tinP , idDesireSave ) ;
-                        _IO_
-                    {
-                    if( !bRegistered )
-
-                    inc02AM( stat.cCollisionsNew ) ;
-                    inc02AM( stat.cCollisions ) ;
+    /*S*/               thirdC::dosPriorityIF( tinP , idDesireSave ) ;
+    /*S*/               _IO_
+    /*S*/           {
+    /*S*/           if( !bRegistered )
+    /*S*/
+    /*S*/           inc02AM( stat.cCollisionsNew ) ;
+    /*S*/           inc02AM( stat.cCollisions ) ;
         
                     }
                         }
                             break ;
                             }
                                 bRegistered = 1 ;
-                                thirdC::dosPriorityIF( tinP , idDesireSave ) ;
-        
-                                processGlobal1I._grabC_pgw[ ogw ].bDirty = 0 ;
-                                processGlobal1I._grabC_pgw[ ogw ].idThread = tinP.monitor.idThread ;
-                                processGlobal1I._grabC_pgw[ ogw ].osPid = tinP.osPid ;
-                                processGlobal1I._grabC_pgw[ ogw ].idGrabber = idGrabberMe ; // SCANNER LOOKS FOR THESE OO VALUES
-                                processGlobal1I._grabC_pgw[ ogw ].idGrab = idMe ;           // SCANNER LOOKS FOR THESE OO VALUES
-                                processGlobal1I._grabC_pgw[ ogw ].flags = F(tinP.flagsThreadMode2) & flTHREADmODE2_CHATTERgRABwANTfREEZES ? flGRABwANT_CHATTERrESUME : flGRABwANT_null ;
-                            {
-                            else
-                            }
-                                processGlobal1I._grabC_pgw[ ogw ].osTid = 0 ;
-                                //LOGrAWtID( "i could not clone a thread handle to myself" ) ; //U:: USED TO BLAMMO HERE; TO MAKE SERVER RELIABLE, I NOW JUST ABANDON SLOTTING
-                                CONoUTrAW( "i could not clone a thread handle to myself\r\n" ) ; //U:: USED TO BLAMMO HERE; TO MAKE SERVER RELIABLE, I NOW JUST ABANDON SLOTTING
-                            {
-                            if( !processGlobal1I._grabC_pgw[ ogw ].hThread )
-                            processGlobal1I._grabC_pgw[ ogw ].hThread.osF( ifcIDtYPEhANDLE_THREAD , (countT)osh ) ;
-
-                            countT osh = thirdC::osHandleCloneIF( tinP , note , oshtMe , ifcIDtYPEhANDLE_THREAD , oshpMe , oshpMe ) ;
-
-                            countT oshtMe = thirdC::osOpenThreadIF() ;
-                            ZE( countT , note ) ;
-                            countT oshpMe = hProcessMe.osF( ifcIDtYPEhANDLE_PROCESS ) ;
-                            hProcessMe.osF( ifcIDtYPEhANDLE_PROCESS , thirdC::osOpenProcessIF() ) ;
-                            handleC hProcessMe( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_PROCESS ) ;
-    
-                            if( !processGlobal1I._grabC_pgw[ ogw ].bDirty    ) { BLAMMO ; }
-                            if(  processGlobal1I._grabC_pgw[ ogw ].idGrabber ) { BLAMMO ; }
-                            if(  processGlobal1I._grabC_pgw[ ogw ].idGrab    ) { BLAMMO ; }
-                        {
-                        if( !setIfZeAM( processGlobal1I._grabC_pgw[ ogw ].osTid , osTidMe ) ) //ASSUME: IF !osTid THEN THE SLOT IS FREE (I.E. osTid IS THE LATH TO BE ZEED)
-                    {
-                    if( F(flags) & flGRABc_ISsIGN || !( F(tinP.pAdamGlobal1->_thirdC_.flagsModeAdam1) & flADAMmODE1_LOGdEADLOCKS ) ) for( ogw = 0 ; ogw < processGlobal1I._grabC_cgw ; ogw ++ )
-                    ZE( countT , ogw ) ;
-                    ZE( boolT , bRegistered ) ;
-                {
-                else
+    /*S*/                       thirdC::dosPriorityIF( tinP , idDesireSave ) ;
+    /*S*/    
+    /*S*/                       processGlobal1I._grabC_pgw[ ogw ].bDirty = 0 ;
+    /*S*/                       processGlobal1I._grabC_pgw[ ogw ].idThread = tinP.monitor.idThread ;
+    /*S*/                       processGlobal1I._grabC_pgw[ ogw ].osPid = tinP.osPid ;
+    /*S*/                       processGlobal1I._grabC_pgw[ ogw ].idGrabber = idGrabberMe ; // SCANNER LOOKS FOR THESE OO VALUES
+    /*S*/                       processGlobal1I._grabC_pgw[ ogw ].idGrab = idMe ;           // SCANNER LOOKS FOR THESE OO VALUES
+    /*S*/                       processGlobal1I._grabC_pgw[ ogw ].flags = F(tinP.flagsThreadMode2) & flTHREADmODE2_CHATTERgRABwANTfREEZES ? flGRABwANT_CHATTERrESUME : flGRABwANT_null ;
+    /*S*/                   {
+    /*S*/                   else
+    /*S*/                   }
+    /*S*/                       processGlobal1I._grabC_pgw[ ogw ].osTid = 0 ;
+    /*S*/                       //LOGrAWtID( "i could not clone a thread handle to myself" ) ; //U:: USED TO BLAMMO HERE; TO MAKE SERVER RELIABLE, I NOW JUST ABANDON SLOTTING
+    /*S*/                       //CONoUTrAW( "i could not clone a thread handle to myself\r\n" ) ; //U:: USED TO BLAMMO HERE; TO MAKE SERVER RELIABLE, I NOW JUST ABANDON REGISTERING
+    /*S*/                   {
+    /*S*/                   if( !processGlobal1I._grabC_pgw[ ogw ].hThread )
+    /*S*/                   processGlobal1I._grabC_pgw[ ogw ].hThread.osF( ifcIDtYPEhANDLE_THREAD , (countT)osh ) ;
+    /*S*/
+    /*S*/                   countT osh = thirdC::osHandleCloneIF( tinP , note , oshtMe , ifcIDtYPEhANDLE_THREAD , oshpMe , oshpMe ) ;
+    /*S*/
+    /*S*/                   countT oshtMe = thirdC::osOpenThreadIF() ;
+    /*S*/                   ZE( countT , note ) ;
+    /*S*/                   countT oshpMe = hProcessMe.osF( ifcIDtYPEhANDLE_PROCESS ) ;
+    /*S*/                   hProcessMe.osF( ifcIDtYPEhANDLE_PROCESS , thirdC::osOpenProcessIF() ) ;
+    /*S*/                   handleC hProcessMe( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_PROCESS ) ;
+    /*S*/
+    /*S*/                   if( !processGlobal1I._grabC_pgw[ ogw ].bDirty    ) { BLAMMO ; }
+    /*S*/                   if(  processGlobal1I._grabC_pgw[ ogw ].idGrabber ) { BLAMMO ; }
+    /*S*/                   if(  processGlobal1I._grabC_pgw[ ogw ].idGrab    ) { BLAMMO ; }
+    /*S*/               {
+    /*S*/               if( !setIfZeAM( processGlobal1I._grabC_pgw[ ogw ].osTid , osTidMe ) ) //ASSUME: IF !osTid THEN THE SLOT IS FREE (I.E. osTid IS THE LATH TO BE ZEED)
+    /*S*/           {
+    /*S*/           if( F(flags) & flGRABc_ISsIGN || !( F(tinP.pAdamGlobal1->_thirdC_.flagsModeAdam1) & flADAMmODE1_LOGdEADLOCKS ) ) for( ogw = 0 ; ogw < processGlobal1I._grabC_cgw ; ogw ++ )
+    /*S*/           ZE( countT , ogw ) ;
+    /*S*/           ZE( boolT , bRegistered ) ;
+    /*S*/       {
+    /*S*/       else
                 }
                     inc02AM( stat.cAcquisitions ) ;
                     else        osTid = osTidMe ;
@@ -206,13 +206,13 @@
                     idiFileGrabber     = idiFileP ; //SINCE THESE VALUES ARE RETAINED WHEN NOT GRABBED, THE MONITOR CAN SEE WHICH GRAB LINES ARE CURRENTLY ACTIVE
                     idLineGrabber      = idLineP ; //THESE ARE INFORMATORY ONLY; THEY ARE NOT RESET; THEY ARE OVERWRITTEN HERE
 
-                    thirdC::dosPriorityIF( tinP , idDesireSave ) ;
-                {
-                if( idGrabberOk == idGrabberMe )
-    
-                countT idGrabberMe = 1 + incv02AM( idGrabberHigh ) ;
-
-                thirdC::dosPriorityIF( tinP , ifcTHREADpRIORITY_SPINLOCK ) ;
+    /*S*/           thirdC::dosPriorityIF( tinP , idDesireSave ) ;
+    /*S*/       {
+    /*S*/       if( idGrabberOk == idGrabberMe )
+    /*S*/
+    /*S*/       countT idGrabberMe = 1 + incv02AM( idGrabberHigh ) ;
+    /*S*/
+    /*S*/       thirdC::dosPriorityIF( tinP , ifcTHREADpRIORITY_SPINLOCK ) ;
 
                 // TRYING TO KISS ME WITH THE SPIN PREVENTING ME FROM REGISTERING MYSELF 
                 // BUT IF I PUT IT THERE, THAT CREATES A RACE CONDITION: AFTER OBTAINING idGrabberMe BUT BEFORE REGISTERING MYSELF, A RUDE THREAD MIGHT YIELD SPIN
