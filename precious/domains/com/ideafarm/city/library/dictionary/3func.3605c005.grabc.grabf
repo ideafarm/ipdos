@@ -67,10 +67,13 @@
         if( bDebugTrace ) tinP.pEther->traceF( tinP , T("U:: grabC::grabF / 2") , flTRACE_HOMEeCHO | flTRACE_FORCEnOsILENCE , ifcIDtRACEdIVERT_3 ) ; //U:: TO FIND A BUG
 
         }
+            if( bDebugTrace ) tinP.pEther->traceF( tinP , T("U:: grabC::grabF / 3") , flTRACE_HOMEeCHO | flTRACE_FORCEnOsILENCE , ifcIDtRACEdIVERT_3 ) ; //U:: TO FIND A BUG
             }
+                if( bDebugTrace ) tinP.pEther->traceF( tinP , T("U:: grabC::grabF / 4") , flTRACE_HOMEeCHO | flTRACE_FORCEnOsILENCE , ifcIDtRACEdIVERT_3 ) ; //U:: TO FIND A BUG
                 }
                     inc02AM( stat.cAcquisitions ) ;
                     }
+                        if( bDebugTrace ) tinP.pEther->traceF( tinP , T("U:: grabC::grabF / 5") , flTRACE_HOMEeCHO | flTRACE_FORCEnOsILENCE , ifcIDtRACEdIVERT_3 ) ; //U:: TO FIND A BUG
                         else                             osTid = osTidMe ;
                         if( osTid )                      { BLAMMO ; }
                         else                             idDesireGrabber  = tinP.idDesire ;
@@ -104,7 +107,9 @@
                         {
                         if( F(processGlobal1I._grabC_pgw[ogw].flags) & flGRABwANT_CHATTERrESUME )
 
+                        if( bDebugTrace ) tinP.pEther->traceF( tinP , T("U:: grabC::grabF / 6") , flTRACE_HOMEeCHO | flTRACE_FORCEnOsILENCE , ifcIDtRACEdIVERT_3 ) ; //U:: TO FIND A BUG
                         thirdC::dosSuspendThreadIF( tinP ) ;
+                        if( bDebugTrace ) tinP.pEther->traceF( tinP , T("U:: grabC::grabF / 7") , flTRACE_HOMEeCHO | flTRACE_FORCEnOsILENCE , ifcIDtRACEdIVERT_3 ) ; //U:: TO FIND A BUG
 
                         }
                             thirdC::dosWriteStdOutIF( ostoBuf ) ;
@@ -117,10 +122,12 @@
                         {
                         if( F(processGlobal1I._grabC_pgw[ogw].flags) & flGRABwANT_CHATTERrESUME )
                         _IO_
+                        if( bDebugTrace ) tinP.pEther->traceF( tinP , T("U:: grabC::grabF / 8") , flTRACE_HOMEeCHO | flTRACE_FORCEnOsILENCE , ifcIDtRACEdIVERT_3 ) ; //U:: TO FIND A BUG
                     {
                     else
                     }
                         THREADmODE1rESTORE
+                        if( bDebugTrace ) tinP.pEther->traceF( tinP , T("U:: grabC::grabF / 9") , flTRACE_HOMEeCHO | flTRACE_FORCEnOsILENCE , ifcIDtRACEdIVERT_3 ) ; //U:: TO FIND A BUG
                         }
                             }
                                 break ;
@@ -140,6 +147,7 @@
                         for(;;)
                         sleepC s( tinP , TAG( TAGiDnULL ) ) ;
                         THREADmODE1oN( flTHREADmODE1_ALLOWsTOPwHILEgRABBING )
+                        if( bDebugTrace ) tinP.pEther->traceF( tinP , T("U:: grabC::grabF / a") , flTRACE_HOMEeCHO | flTRACE_FORCEnOsILENCE , ifcIDtRACEdIVERT_3 ) ; //U:: TO FIND A BUG
     /*S*/               thirdC::dosPriorityIF( tinP , idDesireSave ) ;
     /*S*/               _IO_
     /*S*/           {
@@ -153,6 +161,7 @@
                             break ;
                             }
                                 bRegistered = 1 ;
+                                if( bDebugTrace ) tinP.pEther->traceF( tinP , T("U:: grabC::grabF / b") , flTRACE_HOMEeCHO | flTRACE_FORCEnOsILENCE , ifcIDtRACEdIVERT_3 ) ; //U:: TO FIND A BUG
     /*S*/                       thirdC::dosPriorityIF( tinP , idDesireSave ) ;
     /*S*/    
     /*S*/                       processGlobal1I._grabC_pgw[ ogw ].bDirty = 0 ;
@@ -206,6 +215,7 @@
                     idiFileGrabber     = idiFileP ; //SINCE THESE VALUES ARE RETAINED WHEN NOT GRABBED, THE MONITOR CAN SEE WHICH GRAB LINES ARE CURRENTLY ACTIVE
                     idLineGrabber      = idLineP ; //THESE ARE INFORMATORY ONLY; THEY ARE NOT RESET; THEY ARE OVERWRITTEN HERE
 
+                    if( bDebugTrace ) tinP.pEther->traceF( tinP , T("U:: grabC::grabF / c") , flTRACE_HOMEeCHO | flTRACE_FORCEnOsILENCE , ifcIDtRACEdIVERT_3 ) ; //U:: TO FIND A BUG
     /*S*/           thirdC::dosPriorityIF( tinP , idDesireSave ) ;
     /*S*/       {
     /*S*/       if( idGrabberOk == idGrabberMe )
@@ -213,6 +223,7 @@
     /*S*/       countT idGrabberMe = 1 + incv02AM( idGrabberHigh ) ;
     /*S*/
     /*S*/       thirdC::dosPriorityIF( tinP , ifcTHREADpRIORITY_SPINLOCK ) ;
+                if( bDebugTrace ) tinP.pEther->traceF( tinP , T("U:: grabC::grabF / d") , flTRACE_HOMEeCHO | flTRACE_FORCEnOsILENCE , ifcIDtRACEdIVERT_3 ) ; //U:: TO FIND A BUG
 
                 // TRYING TO KISS ME WITH THE SPIN PREVENTING ME FROM REGISTERING MYSELF 
                 // BUT IF I PUT IT THERE, THAT CREATES A RACE CONDITION: AFTER OBTAINING idGrabberMe BUT BEFORE REGISTERING MYSELF, A RUDE THREAD MIGHT YIELD SPIN
@@ -222,20 +233,19 @@
                 // THIS MIGHT BE DONE BY INSPECTING idGrabberHigh AND SETTING SPINLOCK IF IT LOOKS LIKE I WILL PROBABLY NEED IT
                 //U:: EDIT THIS CODE SO THAT THE RACE IS AVOIDED WHILE ONLY CHANGING PRIORITY WHEN I NEED TO REGISTER
 
-                if( bDebugTrace ) tinP.pEther->traceF( tinP , T("U:: grabC::grabF / f.2") , flTRACE_HOMEeCHO | flTRACE_FORCEnOsILENCE , ifcIDtRACEdIVERT_3 ) ; //U:: TO FIND A BUG
                 const countT idDesireSave = thirdC::dosPriorityIF( tinP ) ;
 
-                if( bDebugTrace ) tinP.pEther->traceF( tinP , T("U:: grabC::grabF / f") , flTRACE_HOMEeCHO | flTRACE_FORCEnOsILENCE , ifcIDtRACEdIVERT_3 ) ; //U:: TO FIND A BUG
+                if( bDebugTrace ) tinP.pEther->traceF( tinP , T("U:: grabC::grabF / e") , flTRACE_HOMEeCHO | flTRACE_FORCEnOsILENCE , ifcIDtRACEdIVERT_3 ) ; //U:: TO FIND A BUG
                 registerBegunF( tinP , idLineP , idiFileP ) ;
-                if( bDebugTrace ) tinP.pEther->traceF( tinP , T("U:: grabC::grabF / g") , flTRACE_HOMEeCHO | flTRACE_FORCEnOsILENCE , ifcIDtRACEdIVERT_3 ) ; //U:: TO FIND A BUG
+                if( bDebugTrace ) tinP.pEther->traceF( tinP , T("U:: grabC::grabF / f") , flTRACE_HOMEeCHO | flTRACE_FORCEnOsILENCE , ifcIDtRACEdIVERT_3 ) ; //U:: TO FIND A BUG
             {
             else
             }
                 if( cGrabbed == - 1 ) { BLAMMO ; }
                 inc02AM( cGrabbed ) ;
-                if( bDebugTrace ) tinP.pEther->traceF( tinP , T("U:: grabC::grabF / h") , flTRACE_HOMEeCHO | flTRACE_FORCEnOsILENCE , ifcIDtRACEdIVERT_3 ) ; //U:: TO FIND A BUG
+                if( bDebugTrace ) tinP.pEther->traceF( tinP , T("U:: grabC::grabF / g") , flTRACE_HOMEeCHO | flTRACE_FORCEnOsILENCE , ifcIDtRACEdIVERT_3 ) ; //U:: TO FIND A BUG
                 registerBegunF( tinP , idLineP , idiFileP , flBASEgRABcrEGISTERbEGUN_RECURSING ) ;
-                if( bDebugTrace ) tinP.pEther->traceF( tinP , T("U:: grabC::grabF / i") , flTRACE_HOMEeCHO | flTRACE_FORCEnOsILENCE , ifcIDtRACEdIVERT_3 ) ; //U:: TO FIND A BUG
+                if( bDebugTrace ) tinP.pEther->traceF( tinP , T("U:: grabC::grabF / h") , flTRACE_HOMEeCHO | flTRACE_FORCEnOsILENCE , ifcIDtRACEdIVERT_3 ) ; //U:: TO FIND A BUG
             {
             if( osTid == osTidMe && !( F(flags) & flGRABc_DISABLErECURSION ) )
         
@@ -247,23 +257,23 @@
             if( F(flags) & flGRABc_DISABLED ) { BLAMMO ; }
     
             _IO_
-            if( bDebugTrace ) tinP.pEther->traceF( tinP , T("U:: grabC::grabF / j") , flTRACE_HOMEeCHO | flTRACE_FORCEnOsILENCE , ifcIDtRACEdIVERT_3 ) ; //U:: TO FIND A BUG
+            if( bDebugTrace ) tinP.pEther->traceF( tinP , T("U:: grabC::grabF / i") , flTRACE_HOMEeCHO | flTRACE_FORCEnOsILENCE , ifcIDtRACEdIVERT_3 ) ; //U:: TO FIND A BUG
         {
         else
         }
             cGrabbed ++ ;
 
-            if( bDebugTrace ) tinP.pEther->traceF( tinP , T("U:: grabC::grabF / k") , flTRACE_HOMEeCHO | flTRACE_FORCEnOsILENCE , ifcIDtRACEdIVERT_3 ) ; //U:: TO FIND A BUG
+            if( bDebugTrace ) tinP.pEther->traceF( tinP , T("U:: grabC::grabF / j") , flTRACE_HOMEeCHO | flTRACE_FORCEnOsILENCE , ifcIDtRACEdIVERT_3 ) ; //U:: TO FIND A BUG
             registerBegunF( tinP , idLineP , idiFileP ) ;
-            if( bDebugTrace ) tinP.pEther->traceF( tinP , T("U:: grabC::grabF / l") , flTRACE_HOMEeCHO | flTRACE_FORCEnOsILENCE , ifcIDtRACEdIVERT_3 ) ; //U:: TO FIND A BUG
+            if( bDebugTrace ) tinP.pEther->traceF( tinP , T("U:: grabC::grabF / k") , flTRACE_HOMEeCHO | flTRACE_FORCEnOsILENCE , ifcIDtRACEdIVERT_3 ) ; //U:: TO FIND A BUG
         {
         if( this == &tinP.grabPseudo )
-        if( bDebugTrace ) tinP.pEther->traceF( tinP , T("U:: grabC::grabF / m") , flTRACE_HOMEeCHO | flTRACE_FORCEnOsILENCE , ifcIDtRACEdIVERT_3 ) ; //U:: TO FIND A BUG
+        if( bDebugTrace ) tinP.pEther->traceF( tinP , T("U:: grabC::grabF / l") , flTRACE_HOMEeCHO | flTRACE_FORCEnOsILENCE , ifcIDtRACEdIVERT_3 ) ; //U:: TO FIND A BUG
     {
     if( bGrabbed )
 
     }
-        if( bDebugTrace ) tinP.pEther->traceF( tinP , T("U:: grabC::grabF / n") , flTRACE_HOMEeCHO | flTRACE_FORCEnOsILENCE , ifcIDtRACEdIVERT_3 ) ; //U:: TO FIND A BUG
+        if( bDebugTrace ) tinP.pEther->traceF( tinP , T("U:: grabC::grabF / m") , flTRACE_HOMEeCHO | flTRACE_FORCEnOsILENCE , ifcIDtRACEdIVERT_3 ) ; //U:: TO FIND A BUG
         }
             }
                 }
@@ -290,13 +300,13 @@
             for(;;)
         {
         if( F(flagsP) & flGRABcGRABf_CLEARkISSbANK )
-        if( bDebugTrace ) tinP.pEther->traceF( tinP , T("U:: grabC::grabF / o") , flTRACE_HOMEeCHO | flTRACE_FORCEnOsILENCE , ifcIDtRACEdIVERT_3 ) ; //U:: TO FIND A BUG
+        if( bDebugTrace ) tinP.pEther->traceF( tinP , T("U:: grabC::grabF / n") , flTRACE_HOMEeCHO | flTRACE_FORCEnOsILENCE , ifcIDtRACEdIVERT_3 ) ; //U:: TO FIND A BUG
     {
     if( F(flagsP) & flGRABcGRABf_WITHDRAWkISSiF )
     boolT bGrabbed = 1 ;
 
     }
-        if( bDebugTrace ) tinP.pEther->traceF( tinP , T("U:: grabC::grabF / p") , flTRACE_HOMEeCHO | flTRACE_FORCEnOsILENCE , ifcIDtRACEdIVERT_3 ) ; //U:: TO FIND A BUG
+        if( bDebugTrace ) tinP.pEther->traceF( tinP , T("U:: grabC::grabF / o") , flTRACE_HOMEeCHO | flTRACE_FORCEnOsILENCE , ifcIDtRACEdIVERT_3 ) ; //U:: TO FIND A BUG
         thirdC::dosPriorityIF( tinP , idDesireSave ) ;
         tinP.cYield = 0 ;
         while( osTidLock ) thirdC::osThreadYieldIF( tinP , TAG( TAGiDnULL ) ) ;
@@ -305,7 +315,7 @@
 
         thirdC::dosPriorityIF( tinP , ifcTHREADpRIORITY_SPINLOCK ) ;
         const countT idDesireSave = thirdC::dosPriorityIF( tinP ) ;
-        if( bDebugTrace ) tinP.pEther->traceF( tinP , T("U:: grabC::grabF / q") , flTRACE_HOMEeCHO | flTRACE_FORCEnOsILENCE , ifcIDtRACEdIVERT_3 ) ; //U:: TO FIND A BUG
+        if( bDebugTrace ) tinP.pEther->traceF( tinP , T("U:: grabC::grabF / p") , flTRACE_HOMEeCHO | flTRACE_FORCEnOsILENCE , ifcIDtRACEdIVERT_3 ) ; //U:: TO FIND A BUG
     {
     if( osTidLock && osTidLock != tinP.osTid ) //NO OTHER THREAD GETS TO BEGIN THE GRAB RECIPE UNTIL THE LOCKER DOES HIS THANG (USUALLY GRABBING)
 
@@ -350,7 +360,7 @@
     //{
     //if( tinP.pAdamGlobal1->idAdam == 0x4010501 )
     //ZE( countT , idInDebug ) ;
-    if( bDebugTrace ) tinP.pEther->traceF( tinP , T("U:: grabC::grabF / r") , flTRACE_HOMEeCHO | flTRACE_FORCEnOsILENCE , ifcIDtRACEdIVERT_3 ) ; //U:: TO FIND A BUG
+    if( bDebugTrace ) tinP.pEther->traceF( tinP , T("U:: grabC::grabF / q") , flTRACE_HOMEeCHO | flTRACE_FORCEnOsILENCE , ifcIDtRACEdIVERT_3 ) ; //U:: TO FIND A BUG
 
     }
         //}
@@ -374,7 +384,7 @@
     SCOOP
 
     }
-        tinP.pEther->traceF( tinP , T("U:: grabC::grabF / s") , flTRACE_HOMEeCHO | flTRACE_FORCEnOsILENCE , ifcIDtRACEdIVERT_3 ) ; //U:: TO FIND A BUG
+        tinP.pEther->traceF( tinP , T("U:: grabC::grabF / r") , flTRACE_HOMEeCHO | flTRACE_FORCEnOsILENCE , ifcIDtRACEdIVERT_3 ) ; //U:: TO FIND A BUG
         tinP.pcUtility[ 0 ] = 0 ;  //U:: TO FIND A BUG
     {
     if( bDebugTrace )
