@@ -222,7 +222,7 @@
     /*S*/
     /*S*/       countT idGrabberMe = 1 + incv02AM( idGrabberHigh ) ;
     /*S*/
-    /*S*/       thirdC::dosPriorityIF( tinP , ifcTHREADpRIORITY_SPINLOCK ) ;
+    /*S*/       const countT idDesireSave = thirdC::dosPriorityIF( tinP , ifcTHREADpRIORITY_SPINLOCK ) ;
                 if( bDebugTrace ) tinP.pEther->traceF( tinP , T("U:: grabC::grabF / d") , flTRACE_HOMEeCHO | flTRACE_FORCEnOsILENCE , ifcIDtRACEdIVERT_3 ) ; //U:: TO FIND A BUG
 
                 // TRYING TO KISS ME WITH THE SPIN PREVENTING ME FROM REGISTERING MYSELF 
@@ -232,8 +232,6 @@
                 // DON'T DO THIS UNTIL KNOW THAT CHANGING THREAD PRIORITY IS TOO EXPENSIVE TO JUST ALWAYS DO IT OO TIMES HERE
                 // THIS MIGHT BE DONE BY INSPECTING idGrabberHigh AND SETTING SPINLOCK IF IT LOOKS LIKE I WILL PROBABLY NEED IT
                 //U:: EDIT THIS CODE SO THAT THE RACE IS AVOIDED WHILE ONLY CHANGING PRIORITY WHEN I NEED TO REGISTER
-
-                const countT idDesireSave = thirdC::dosPriorityIF( tinP ) ;
 
                 if( bDebugTrace ) tinP.pEther->traceF( tinP , T("U:: grabC::grabF / e") , flTRACE_HOMEeCHO | flTRACE_FORCEnOsILENCE , ifcIDtRACEdIVERT_3 ) ; //U:: TO FIND A BUG
                 registerBegunF( tinP , idLineP , idiFileP ) ;
@@ -313,8 +311,7 @@
         tinP.cYield = 0 ;
         ZE( countT , idCycle ) ;
 
-        thirdC::dosPriorityIF( tinP , ifcTHREADpRIORITY_SPINLOCK ) ;
-        const countT idDesireSave = thirdC::dosPriorityIF( tinP ) ;
+        const countT idDesireSave = thirdC::dosPriorityIF( tinP , ifcTHREADpRIORITY_SPINLOCK ) ;
         if( bDebugTrace ) tinP.pEther->traceF( tinP , T("U:: grabC::grabF / p") , flTRACE_HOMEeCHO | flTRACE_FORCEnOsILENCE , ifcIDtRACEdIVERT_3 ) ; //U:: TO FIND A BUG
     {
     if( osTidLock && osTidLock != tinP.osTid ) //NO OTHER THREAD GETS TO BEGIN THE GRAB RECIPE UNTIL THE LOCKER DOES HIS THANG (USUALLY GRABBING)
