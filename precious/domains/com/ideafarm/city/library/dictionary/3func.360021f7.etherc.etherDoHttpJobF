@@ -1276,45 +1276,39 @@
                 {
                 else
                 }
-                    delF( tinP , pbCopy ) ;
                     }
                         }
-                            }
-                                bClose = 1 ;
-                                if( bDeadman1 || bDeadman2 ) traceF( tinP , T("etherDoHttpJobF: could not write to socket 96 [nnPeer]:    ")+T(jobP.nnPeer) , flTRACE_HOMEeCHO | flTRACE_FORCEnOsILENCE , idTraceDivert ) ;
-                                POOPRqUIET
-                            {
-                            else
-                            }
-                                //traceF( tinP , T("etherDoHttpJobF: wrote reply from cache") , flTRACE_HOMEeCHO | flTRACE_FORCEnOsILENCE , idTraceDivert ) ;
-                            {
-                            if( !POOP )
-                            psoP->writeF( tinP , pbCopy , cbCopy ) ;
-                            SCOOPS
+                            bClose = 1 ;
+                            if( bDeadman1 || bDeadman2 ) traceF( tinP , T("etherDoHttpJobF: could not write to socket 96 [nnPeer]:    ")+T(jobP.nnPeer) , flTRACE_HOMEeCHO | flTRACE_FORCEnOsILENCE , idTraceDivert ) ;
+                            POOPRqUIET
                         {
-                        IFsCRATCH
-                        TELL( "writing reply" ) ;
-
-                        pzCache->ungrabF( tinP ) ;
-                        memCopyF( tinP , pbCopy , pbzFrom , cbCopy ) ;
+                        else
+                        }
+                            //traceF( tinP , T("etherDoHttpJobF: wrote reply from cache") , flTRACE_HOMEeCHO | flTRACE_FORCEnOsILENCE , idTraceDivert ) ;
+                        {
+                        if( !POOP )
+                        psoP->writeF( tinP , pbzBlob , cbzBlob ) ;
+                        SCOOPS
                     {
-                    if( !POOP )
+                    IFsCRATCH
+                    TELL( "writing reply" ) ;
 
-                    __Z( pbCopy ) ;
-                    newF( tinP , LF , pbCopy , cbCopy ) ; ___( pbCopy ) ;
-                    ZE( byteT* , pbCopy ) ;
-
-                    ;
-                        :        pzCached->pbBlob
-                        ? POSTS( pzCached->pbBlob )
-                    const byteT* pbzFrom = bPrefixed
+                    pzCache->ungrabF( tinP ) ;
 
                     ;
-                        :        pzCached->cbBlob
-                        ? COSTS( pzCached->pbBlob )
-                    countT cbCopy = bPrefixed
+                        :        bytesBlob
+                        ? POSTS( bytesBlob )
+                    const byteT* pbzBlob = bPrefixed
+
+                    ;
+                        : pzCached->cbBlob
+                        ? COSTS( bytesBlob )
+                    countT cbzBlob = bPrefixed
 
                     boolT bPrefixed = pzCached->cArg ;
+
+                    PrEF( bytesC , bytesBlob , ptr_pbBlob ) ;
+                    POINTERc ptr_pbBlob = *pzCached->pPtr_pbBlob ;
                 {
                 if( pzCached )
 

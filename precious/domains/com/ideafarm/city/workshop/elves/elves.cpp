@@ -2957,6 +2957,7 @@ void elf_obey_C::liveF( void )
                     "1snip.15*.taskDrivenServerParamsS"         ,
                     "1snip.15*.cacheC"                          ,
                     "1snip.15*.cachedS"                         ,
+                    "1snip.15*.bytesC"                          ,
                     "1snip.15*.diskFindHandleS"                 ,
                     "1snip.15*.fileNameC"                       ,
                     "1snip.15*.patternC"                        ,

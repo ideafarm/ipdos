@@ -8101,9 +8101,10 @@ it is illegal to refer to this symbol in the definition of an adam
 #define ifciDtYPEdROPnOTE_cachedS                                       0xdddd042d
 #define ifciDtYPEdROPnOTE_cacheC                                        0xdddd042e
 #define ifciDtYPEdROPnOTE_taskDrivenServerParamsS                       0xdddd042f
+#define ifciDtYPEdROPnOTE_bytesC                                        0xdddd0430
 /*3*/
 #define ifciDtYPEdROPnOTE_min     0xdddd0337
-#define ifciDtYPEdROPnOTE_max     0xdddd042f
+#define ifciDtYPEdROPnOTE_max     0xdddd0430
 
 
 //

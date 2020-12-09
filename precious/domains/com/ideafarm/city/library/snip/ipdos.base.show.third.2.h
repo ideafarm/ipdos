@@ -45014,7 +45014,6 @@ i am nonconformant in that all of my member function definitions are in a single
 
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.diskFindHandleS : 1snip.15000185.diskFindHandleS END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.cachedS : 1snip.15000186.cachedS BEGIN
-
 //
 // Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
@@ -45034,7 +45033,7 @@ i am nonconformant in that all of my member function definitions are in a single
     const countT         osTimeToLiveMs ;
     const strokeS* const psttName       ;
     const countT         cbBlob         ;
-    const byteT* const   pbBlob         ;
+    POINTERc*            pPtr_pbBlob    ;
     const countT         cArg           ;
 
     NEWdELcLASSpROTOS
@@ -45147,3 +45146,36 @@ i am nonconformant in that all of my member function definitions are in a single
 //
 
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.taskDrivenServerParamsS : 1snip.1500018b.taskDrivenServerParamsS END
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+/*
+*/
+/**/
+
+/*1*/class _export bytesC/*1*/
+{
+    byteT* pbInPool ;
+
+    public :
+
+    NEWdELcLASSpROTOS
+    inline ~bytesC( voidT ) { TINSL ; PUSE( tinP , pbInPool ) ; }
+    inline bytesC( byteT*& pbInPoolP ) : pbInPool( pbInPoolP ) { pbInPoolP = 0 ; }
+    inline operator byteT*( voidT ) const { return pbInPool ; }
+}
+;
+
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+
