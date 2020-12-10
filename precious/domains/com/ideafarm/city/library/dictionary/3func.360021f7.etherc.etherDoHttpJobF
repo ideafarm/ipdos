@@ -87,8 +87,8 @@
                 delF( tinP , psttName    ) ;
                 delF( tinP , psttQueryKV ) ;
 
-                else                         traceF( tinP , T("accumulated time pending [nnPeer,time]:    "        )                   +T(jobP.nnPeer)+T("    ")+TT(timeTotalPending1,timeTotalPending2) , flTRACE_FORCEnOsILENCE , idTraceDivert ) ;
-                if( bDeadman1 || bDeadman2 ) traceF( tinP , T("accumulated time pending [idCycle,nnPeer,time]:    ")+T(psttQueryKV)+tb4+T(jobP.nnPeer)+T("    ")+TT(timeTotalPending1,timeTotalPending2) , flTRACE_FORCEnOsILENCE , idTraceDivert ) ;
+                else                         traceF( tinP , T("accumulated time pending [nnPeer,time]:    "        )                   +T(jobP.nnPeer)+tb4+TT(timeTotalPending1,timeTotalPending2)+tb4+T(psttName) , flTRACE_FORCEnOsILENCE , idTraceDivert ) ;
+                if( bDeadman1 || bDeadman2 ) traceF( tinP , T("accumulated time pending [idCycle,nnPeer,time]:    ")+T(psttQueryKV)+tb4+T(jobP.nnPeer)+tb4+TT(timeTotalPending1,timeTotalPending2)+tb4+T(psttName) , flTRACE_FORCEnOsILENCE , idTraceDivert ) ;
                 osTimeAddF(      tinP , timeTotalPending1 , timeTotalPending2 , timeElapsed1 , timeElapsed2 ) ;
                 osTimeSubtractF( tinP , timeElapsed1 , timeElapsed2 , timeStart1 , timeStart2 ) ;
                 osTimeNowF(      tinP , timeElapsed1 , timeElapsed2 ) ;
@@ -1378,7 +1378,7 @@
                 TESTsCRATCH //U::TO FIND A BUG
                 /*if( bDeadman1 )*/ traceF( tinP , T("U:: etherDoHttpJobF / N") , flTRACE_HOMEeCHO | flTRACE_FORCEnOsILENCE , idTraceDivert ) ;
 
-                //traceF( tinP , TF3(meP.idPortF(tinP),flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,9)+T(jobP.nnPeer)+T("    request:    \"")+T(psttName)+T("\"")+(psttQueryKV?T("    ")+T(psttQueryKV):T("")) , bDeadman1 || bDeadman2 ? flTRACE_HOMEeCHO | flTRACE_FORCEnOsILENCE | flTRACE_ECHOoNLY : flTRACE_FORCEnOsILENCE , idTraceDivert ) ;
+                //traceF( tinP , TF3(meP.idPortF(tinP),flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,9)+T(jobP.nnPeer)+T("    request:    \"")+T(psttName)+T("\"")+(psttQueryKV?tb4+T(psttQueryKV):T("")) , bDeadman1 || bDeadman2 ? flTRACE_HOMEeCHO | flTRACE_FORCEnOsILENCE | flTRACE_ECHOoNLY : flTRACE_FORCEnOsILENCE , idTraceDivert ) ;
                 /*if( bDeadman1 )*/ traceF( tinP , T("U:: etherDoHttpJobF / O") , flTRACE_HOMEeCHO | flTRACE_FORCEnOsILENCE , idTraceDivert ) ;
 
                 ;
