@@ -87,8 +87,8 @@
                 delF( tinP , psttName    ) ;
                 delF( tinP , psttQueryKV ) ;
 
-                else                         traceF( tinP , T("accumulated time pending [nnPeer,time]:    "        )                   +T(jobP.nnPeer)+tb4+TT(timeTotalPending1,timeTotalPending2)+tb4+T(psttName) , flTRACE_FORCEnOsILENCE , idTraceDivert ) ;
-                if( bDeadman1 || bDeadman2 ) traceF( tinP , T("accumulated time pending [idCycle,nnPeer,time]:    ")+T(psttQueryKV)+tb4+T(jobP.nnPeer)+tb4+TT(timeTotalPending1,timeTotalPending2)+tb4+T(psttName) , flTRACE_FORCEnOsILENCE , idTraceDivert ) ;
+                else                         traceF( tinP , T("accumulated time pending [nnPeer,time]:    "        )                   +T(jobP.nnPeer)+tb4+TT(timeTotalPending1,timeTotalPending2)+T(timeTotalPending1>TOCK?"    ********":"") , flTRACE_FORCEnOsILENCE , idTraceDivert ) ;
+                if( bDeadman1 || bDeadman2 ) traceF( tinP , T("accumulated time pending [idCycle,nnPeer,time]:    ")+T(psttQueryKV)+tb4+T(jobP.nnPeer)+tb4+TT(timeTotalPending1,timeTotalPending2)+T(timeTotalPending1>TOCK?"    ********":"") , flTRACE_FORCEnOsILENCE , idTraceDivert ) ;
                 osTimeAddF(      tinP , timeTotalPending1 , timeTotalPending2 , timeElapsed1 , timeElapsed2 ) ;
                 osTimeSubtractF( tinP , timeElapsed1 , timeElapsed2 , timeStart1 , timeStart2 ) ;
                 osTimeNowF(      tinP , timeElapsed1 , timeElapsed2 ) ;
@@ -1379,7 +1379,7 @@
                 /*if( bDeadman1 )*/ traceF( tinP , T("U:: etherDoHttpJobF / N") , flTRACE_HOMEeCHO | flTRACE_FORCEnOsILENCE , idTraceDivert ) ;
 
                 //traceF( tinP , TF3(meP.idPortF(tinP),flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,9)+T(jobP.nnPeer)+T("    request:    \"")+T(psttName)+T("\"")+(psttQueryKV?tb4+T(psttQueryKV):T("")) , bDeadman1 || bDeadman2 ? flTRACE_HOMEeCHO | flTRACE_FORCEnOsILENCE | flTRACE_ECHOoNLY : flTRACE_FORCEnOsILENCE , idTraceDivert ) ;
-                /*if( bDeadman1 )*/ traceF( tinP , T("U:: etherDoHttpJobF / O") , flTRACE_HOMEeCHO | flTRACE_FORCEnOsILENCE , idTraceDivert ) ;
+                /*if( bDeadman1 )*/ traceF( tinP , T("U:: etherDoHttpJobF / O    ")+TT(timeElRead1,timeElRead2)+tb4+T(psttName) , flTRACE_HOMEeCHO | flTRACE_FORCEnOsILENCE , idTraceDivert ) ;
 
                 ;
                                 : ifcIDtRACEdIVERT_7
@@ -1485,6 +1485,10 @@
 
                 //if( bDeadman1 || bDeadman2 ) traceF( tinP , T(psttName)+T(!bClose?"        connection will be kept open":"        CONNECTION WILL BE CLOSED") , flTRACE_HOMEeCHO | flTRACE_FORCEnOsILENCE | flTRACE_ECHOoNLY ) ;
 
+                osTimeSubtractF( tinP , timeElRead1 , timeElRead2 , timeRead1 , timeRead2 ) ;
+                sCountT timeElRead2 = timeStart2 ;
+                countT  timeElRead1 = timeStart1 ;
+
                 osTimeNowF( tinP , timeStart1 , timeStart2 ) ;
                 ZE( sCountT , timeStart2 ) ;
                 ZE( countT  , timeStart1 ) ;
@@ -1515,7 +1519,8 @@
                 // RUDE   : SERVING DEADMAN
                 // SCHEDULING PRIORITY
 
-                if( ++ cRequests == 0x10 ) bClose = 1 ;     // ATTACK PREVENTION (IN CONJUNCTION WITH CONNECTION RATE LIMIT)
+                //if( ++ cRequests == 0x10 ) bClose = 1 ;     // ATTACK PREVENTION (IN CONJUNCTION WITH CONNECTION RATE LIMIT)
+                //U:: COMMENTED OUT TO FIND A BUG
 
                 __NZ( psttName->idCaste - sc_PREFIXlENGTH ) ;  //U::20201021@1217: TO FIND A BUG: NULL CASTE DETECTED WITHIN getReplyF
                 __Z(  psttName->idCaste                   ) ;  //U::20201021@1217: TO FIND A BUG: NULL CASTE DETECTED WITHIN getReplyF
@@ -1536,6 +1541,10 @@
                 ZE( strokeS* , psttName ) ;
                 TELL( "reading a request" ) ;
                 TESTsCRATCH //U:: TO FIND A BUG
+
+                osTimeNowF( tinP , timeRead1 , timeRead2 ) ;
+                ZE( sCountT , timeRead2 ) ;
+                ZE( countT  , timeRead1 ) ;
             {
             while( !third && !POOP )
             TESTsCRATCH //U:: TO FIND A BUG

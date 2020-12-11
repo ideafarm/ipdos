@@ -9,6 +9,7 @@
 
 }
     return ostEscaped ;
+    //pEther->traceF( tinP , T(psttP)+T(" !!!! DONE") , flTRACE_null , ifcIDtRACEdIVERT_7 ) ; //U:: TO FIND A BUG
 
     dec02AM( cFunctionsPending ) ;
     }
@@ -27,6 +28,7 @@
         if( !ostEscaped && !psttP ) { pEther->strMakeF( tinP , psttP , T("") ) ; ___( psttP ) ; }
         }
             }
+                //pEther->traceF( tinP , T(psttP) , flTRACE_null , ifcIDtRACEdIVERT_7 ) ; //U:: TO FIND A BUG
                 pEther->strFuseF( tinP , psttP , psttIn , 0 , 0 , strokeS() , 0 , 0 ,/*U::SOUL?*/ csttEstimateP ) ; ___( psttP ) ;
                 psttIn[ CSpREFIX ] = bIn ;
             {
@@ -41,6 +43,7 @@
             {
             else if( bIn == '\r' )
             if( bIn == '\n' ) break ;
+            //pEther->traceF( tinP , T("readWoLineF / 0") , flTRACE_null , ifcIDtRACEdIVERT_7 ) ; //U:: TO FIND A BUG
     
             }
                 if( ostEscaped ) break ;
@@ -57,20 +60,32 @@
                 bLookForEscape = 0 ;
             {
             if( bLookForEscape )
+
+            }
+                pEther->traceF( tinP , T("readWoLineF / 1") , flTRACE_null , ifcIDtRACEdIVERT_7 ) ; //U:: TO FIND A BUG
+                bWoth = 0 ;
+            {
+            if( bWoth )
     
             readF( tinP , &bIn , 1 ) ;
     
             if( !psttP[ 2 ].idAdam ) break ; //csttExtra (see s*.GETpREFIX)
+            if( bWoth ) pEther->traceF( tinP , T("readWoLineF / 2") , flTRACE_null , ifcIDtRACEdIVERT_7 ) ; //U:: TO FIND A BUG
         {
         if( psttP ) while( !*pEther )
+        boolT bWoth = 1 ; //U:: TO FIND A BUG
+        pEther->traceF( tinP , T("readWoLineF / 3") , flTRACE_null , ifcIDtRACEdIVERT_7 ) ; //U:: TO FIND A BUG
         pEther->strMakeF( tinP , psttP , 0 , csttEstimateP ) ; ___( psttP ) ;
+        pEther->traceF( tinP , T("readWoLineF / 4") , flTRACE_null , ifcIDtRACEdIVERT_7 ) ; //U:: TO FIND A BUG
         boolT bLookForEscape = !!postEscapeP ;
         psttIn[ CSpREFIX ] = 0 ;
         SETpREFIX( psttIn , 1 , 0 ) ;
         strokeS psttIn[ CSpREFIX + 1 ] ;
         ZE( byteT , bIn ) ;
         _IO_
+        pEther->traceF( tinP , T("readWoLineF / 5") , flTRACE_null , ifcIDtRACEdIVERT_7 ) ; //U:: TO FIND A BUG
         bRead.grabF( tinP , TAG( TAGiDnULL ) ) ;
+        pEther->traceF( tinP , T("readWoLineF / 6") , flTRACE_null , ifcIDtRACEdIVERT_7 ) ; //U:: TO FIND A BUG
     
         const countT _odoSockCbWriteOpen = tinP.odoSockCbWrite ;
         const countT _odoSockCbReadOpen  = tinP.odoSockCbRead  ;
@@ -94,6 +109,7 @@
     {
     ZE( osTextT , ostEscaped ) ;
     inc02AM( cFunctionsPending ) ;
+    pEther->traceF( tinP , T("readWoLineF / 7") , flTRACE_null , ifcIDtRACEdIVERT_7 ) ; //U:: TO FIND A BUG
 {
 /*1*/osTextT socketC::readWoLineF( tinS& tinP , strokeS*& psttP , const countT csttEstimateP , const osTextT* const postEscapeP )/*1*/
 
