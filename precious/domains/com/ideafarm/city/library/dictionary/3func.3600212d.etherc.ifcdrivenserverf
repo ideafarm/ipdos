@@ -146,7 +146,7 @@
                                     {
                                     if( pJob )
 
-                                    taskDrivenServerParamsS* pJob = new( 0 , tinP , LF ) taskDrivenServerParamsS( idSessionLath , b_lever_idSession , lever_idSession , sw_pso , cSession , info2P.cArg , lever_nnPeer , sw_cSessionWithPeer , sessions , nnPeer ) ; ___( pJob ) ;
+                                    taskDrivenServerParamsS* pJob = new( 0 , tinP , LF ) taskDrivenServerParamsS( idSessionLath , b_lever_idSession , lever_idSession , sw_pso , cSession , info2P.cArg , lever_nnPeer , sw_cSessionWithPeer , sessions , nnPeer , timeAccepted1 , timeAccepted2 , timeJobCreated1 , timeJobCreated2 ) ; ___( pJob ) ;
                                 {
                                 else
                                 }
@@ -163,7 +163,7 @@
                                     //traceF( tinP , T("ifcDrivenServerF pushed a job [jobCopy[2]]:    ")+TF2(((countT*)&jobCopy)[2],flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
                                     //taskDrivenServerParamsS jobCopy = *(taskDrivenServerParamsS*)&(countT&)stJob[ - 1 ] ; //U:: TO FIND A BUG
 
-                                    new( 0 , tinP , (byteT*)&(countT&)stJob[ - 1 ] , sizeof( taskDrivenServerParamsS ) ) taskDrivenServerParamsS( idSessionLath , b_lever_idSession , lever_idSession , sw_pso , cSession , info2P.cArg , lever_nnPeer , sw_cSessionWithPeer , sessions , nnPeer ) ;
+                                    new( 0 , tinP , (byteT*)&(countT&)stJob[ - 1 ] , sizeof( taskDrivenServerParamsS ) ) taskDrivenServerParamsS( idSessionLath , b_lever_idSession , lever_idSession , sw_pso , cSession , info2P.cArg , lever_nnPeer , sw_cSessionWithPeer , sessions , nnPeer , timeAccepted1 , timeAccepted2 , timeJobCreated1 , timeJobCreated2 ) ;
                                     stJob << (byteT*)0 ;
                                     stJob.grabF( tinP , TAG( TAGiDnULL ) ) ;
 
@@ -171,6 +171,10 @@
                                     //taskDrivenServerParamsS fooDebug1( idSessionLath , pso , b_lever_idSession , lever_idSession , sw_pso , cSession , info2P.cArg , lever_nnPeer , sw_cSessionWithPeer , sessions , nnPeer ) ;
                                 {
                                 if( cWorkersSave )
+
+                                osTimeNowF( tinP , timeJobCreated1 , timeJobCreated2 ) ;
+                                ZE( sCountT , timeJobCreated2 ) ;
+                                ZE( countT  , timeJobCreated1 ) ;
 
                                 if( !POOP ) inc02AM( cSession ) ;
                                 //if( 0x401043a == processGlobal1I.idAdamRoot ) ifcSayIF( T("about to launch service thread: third is ")+T(third?"IMPOTENT":"potent") , flSAY_APPEND | flSAY_LOG ) ;
@@ -349,12 +353,16 @@
                                 if( POOP )
                                 idPortWatchHttpDeadman2Snap = home.idPortWatchHttpDeadman2 ;
                                 idPortWatchHttpDeadman1Snap = home.idPortWatchHttpDeadman1 ;
+
+                                osTimeNowF( tinP , timeAccepted1 , timeAccepted2 ) ;
                                 psoListen->acceptF( tinP , pso , idpPeer , nnPeer , bRefuse ) ; //IF ALL SESSIONS END WHILE BLOCKED HERE, WILL STILL REFUSE WO SESSION; THIS CAN BE FIXED BY FRESHING bRefuse AT END OF EACH SESSION THREAD IN DONEtMsERVER
                                 SCOOPS
                             {
                             IFsCRATCH
                             ZE( countT , idPortWatchHttpDeadman2Snap ) ;
                             ZE( countT , idPortWatchHttpDeadman1Snap ) ;
+                            ZE( sCountT , timeAccepted2 ) ;
+                            ZE( countT  , timeAccepted1 ) ;
 
                             //traceF( tinP , T("ifcDrivenServerF / waiting for a client to connect") , flTRACE_null , ifcIDtRACEdIVERT_7 ) ;
                             TELL( "server: waiting for a client to connect" )

@@ -268,7 +268,7 @@ DONE( tmWatch05Deadman1F )
             {
             else
             }
-                etThread.traceF( tinP , T("deadman1:  NOT received") , flTRACE_HOMEeCHO | flTRACE_FORCEnOsILENCE , ifcIDtRACEdIVERT_1 ) ;
+                etThread.traceF( tinP , T("deadman1:  NOT received") , flTRACE_HOMEeCHOdEADMAN1 | flTRACE_FORCEnOsILENCE , ifcIDtRACEdIVERT_1 ) ;
             {
             if( bFail )
 
@@ -276,7 +276,7 @@ DONE( tmWatch05Deadman1F )
                 etThread.delF( tinP , pNicName ) ;
                 }
                     home.idPortWatchHttpDeadman1 = 0 ;
-                    //etThread.traceF( tinP , T("deadman1:  my socket is dt'd ; resetting from [home.idPortWatchHttpDeadman1]:    ")+TF2(home.idPortWatchHttpDeadman1,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) , flTRACE_HOMEeCHO | flTRACE_FORCEnOsILENCE , ifcIDtRACEdIVERT_1 ) ;
+                    //etThread.traceF( tinP , T("deadman1:  my socket is dt'd ; resetting from [home.idPortWatchHttpDeadman1]:    ")+TF2(home.idPortWatchHttpDeadman1,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) , flTRACE_HOMEeCHOdEADMAN1 | flTRACE_FORCEnOsILENCE , ifcIDtRACEdIVERT_1 ) ;
                     }
                         }
                             }
@@ -284,14 +284,14 @@ DONE( tmWatch05Deadman1F )
                                     }
                                         else bFail = 0 ;
                                         }
-                                            etThread.traceF( tinP , T("deadman1:  error: unexpected trademark") , flTRACE_HOMEeCHO | flTRACE_FORCEnOsILENCE , ifcIDtRACEdIVERT_1 ) ;
+                                            etThread.traceF( tinP , T("deadman1:  error: unexpected trademark") , flTRACE_HOMEeCHOdEADMAN1 | flTRACE_FORCEnOsILENCE , ifcIDtRACEdIVERT_1 ) ;
                                             POOPR
                                         {
                                         if( POOP )
 
                                         __NZ( etThread.strCompareF( tinP , T(postTM) , tTM ) ) ;
 
-                                        etThread.traceF( tinP , T("deadman1:  received [timeE1|timeE2,postTM]:    ")+TT(timeE1,timeE2)+T("    \"")+T(postTM)+T("\"") , flTRACE_HOMEeCHO | flTRACE_FORCEnOsILENCE , ifcIDtRACEdIVERT_1 ) ;
+                                        etThread.traceF( tinP , T("deadman1:  received [idCycle,timeE1|timeE2,postTM]:    ")+tIdCycle+tb4+TT(timeE1,timeE2)+T("    \"")+T(postTM)+T("\"") , flTRACE_HOMEeCHOdEADMAN1 | flTRACE_FORCEnOsILENCE , ifcIDtRACEdIVERT_1 ) ;
 
                                         etThread.osTimeSubtractF( tinP , timeE1 , timeE2 , timeA1 , timeA2 ) ;
                                         etThread.osTimeNowF( tinP , timeE1 , timeE2 ) ;
@@ -300,7 +300,7 @@ DONE( tmWatch05Deadman1F )
                                     {
                                     else
                                     }
-                                        etThread.traceF( tinP , T("deadman1:  error: could not read reply") , flTRACE_HOMEeCHO | flTRACE_FORCEnOsILENCE , ifcIDtRACEdIVERT_1 ) ;
+                                        etThread.traceF( tinP , T("deadman1:  error: could not read reply") , flTRACE_HOMEeCHOdEADMAN1 | flTRACE_FORCEnOsILENCE , ifcIDtRACEdIVERT_1 ) ;
                                         POOPR
                                     {
                                     if( POOP )
@@ -329,26 +329,26 @@ DONE( tmWatch05Deadman1F )
                                 {
                                 else
                                 }
-                                    etThread.traceF( tinP , T("deadman1:  error: could not write request") , flTRACE_HOMEeCHO | flTRACE_FORCEnOsILENCE , ifcIDtRACEdIVERT_1 ) ;
+                                    etThread.traceF( tinP , T("deadman1:  error: could not write request") , flTRACE_HOMEeCHOdEADMAN1 | flTRACE_FORCEnOsILENCE , ifcIDtRACEdIVERT_1 ) ;
                                     POOPR
                                 {
                                 if( POOP )
 
-                                etThread.traceF( tinP , T("deadman1:  wrote   request") , flTRACE_HOMEeCHO | flTRACE_FORCEnOsILENCE , ifcIDtRACEdIVERT_1 ) ;
+                                etThread.traceF( tinP , T("deadman1:  wrote   request ")+tIdCycle , flTRACE_HOMEeCHOdEADMAN1 | flTRACE_FORCEnOsILENCE , ifcIDtRACEdIVERT_1 ) ;
                                 sGet.writeF( tinP , (osTextT*)tRequest ) ;
-                                etThread.traceF( tinP , T("deadman1:  writing request") , flTRACE_HOMEeCHO | flTRACE_FORCEnOsILENCE , ifcIDtRACEdIVERT_1 ) ;
+                                etThread.traceF( tinP , T("deadman1:  writing request ")+tIdCycle , flTRACE_HOMEeCHOdEADMAN1 | flTRACE_FORCEnOsILENCE , ifcIDtRACEdIVERT_1 ) ;
 
                                 etThread.osTimeNowF( tinP , timeA1 , timeA2 ) ;
                                 ZE( sCountT , timeA2 ) ;
                                 ZE( countT  , timeA1 ) ;
 
-                                TN( tRequest , "" ) ; tRequest = T("GET /deadman1?idCycle=")+TF2(idCycle,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T(" HTTP/1.1\r\nHost: ideafarm.com\r\n\r\n") ;
+                                TN( tRequest , "" ) ; tRequest = T("GET /deadman1?idCycle=")+tIdCycle+T(" HTTP/1.1\r\nHost: ideafarm.com\r\n\r\n") ;
 
                                 //etThread.traceF( tinP , T("deadman1:  [idpMeBound,idpMe,nnMe]:    ")+TF2(idpMeBound,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+TF2(idpMe,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+T(nnMe) ) ;
                             {
                             else
                             }
-                                etThread.traceF( tinP , T("deadman1:  error: could not get my connection endpoint name") , flTRACE_HOMEeCHO | flTRACE_FORCEnOsILENCE , ifcIDtRACEdIVERT_1 ) ;
+                                etThread.traceF( tinP , T("deadman1:  error: could not get my connection endpoint name") , flTRACE_HOMEeCHOdEADMAN1 | flTRACE_FORCEnOsILENCE , ifcIDtRACEdIVERT_1 ) ;
                                 POOPR
                             {
                             if( POOP )
@@ -359,20 +359,20 @@ DONE( tmWatch05Deadman1F )
                         {
                         else
                         }
-                            etThread.traceF( tinP , T("deadman1:  error: could not connect") , flTRACE_HOMEeCHO | flTRACE_FORCEnOsILENCE , ifcIDtRACEdIVERT_1 ) ;
+                            etThread.traceF( tinP , T("deadman1:  error: could not connect") , flTRACE_HOMEeCHOdEADMAN1 | flTRACE_FORCEnOsILENCE , ifcIDtRACEdIVERT_1 ) ;
                             POOPR
                         {
                         if( POOP )
 
                         sGet.connectF( tinP , 0x50 , pNicName[ 0 ] , 1 ) ;
-                        etThread.traceF( tinP , T("deadman1:  connecting [home.idPortWatchHttpDeadman1]:    ")+TF2(home.idPortWatchHttpDeadman1,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) , flTRACE_HOMEeCHO | flTRACE_FORCEnOsILENCE , ifcIDtRACEdIVERT_1 ) ;
+                        etThread.traceF( tinP , T("deadman1:  connecting [home.idPortWatchHttpDeadman1]:    ")+TF2(home.idPortWatchHttpDeadman1,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) , flTRACE_HOMEeCHOdEADMAN1 | flTRACE_FORCEnOsILENCE , ifcIDtRACEdIVERT_1 ) ;
                         home.idPortWatchHttpDeadman1 = sGet.bindF( tinP ) ;
                         socketC sGet( tinP , *tinP.pEtScratch , TAG( TAGiDnULL ) ) ;
                     {
                 {
                 else
                 }
-                    etThread.traceF( tinP , T("deadman1:  error: could not obtain nicName array") , flTRACE_HOMEeCHO | flTRACE_FORCEnOsILENCE , ifcIDtRACEdIVERT_1 ) ;
+                    etThread.traceF( tinP , T("deadman1:  error: could not obtain nicName array") , flTRACE_HOMEeCHOdEADMAN1 | flTRACE_FORCEnOsILENCE , ifcIDtRACEdIVERT_1 ) ;
                     POOPR ;
                 {
                 if( POOP )
@@ -389,15 +389,17 @@ DONE( tmWatch05Deadman1F )
             IFsCRATCH
             boolT bFail = 1 ;
 
-            //etThread.traceF( tinP , T("deadman1:  http watch cycle begun [idCycle]:    ")+TF2(idCycle,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) , flTRACE_HOMEeCHO | flTRACE_FORCEnOsILENCE , ifcIDtRACEdIVERT_1 ) ;
+            //etThread.traceF( tinP , T("deadman1:  http watch cycle begun [idCycle]:    ")+TF2(idCycle,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) , flTRACE_HOMEeCHOdEADMAN1 | flTRACE_FORCEnOsILENCE , ifcIDtRACEdIVERT_1 ) ;
         {
         if( bSandbox || F(home.flagsAdams) & flHOMEsaDAMS_ROOThTTPsERVER )
     
         //CONoUTrAW5( "cycle " , idCycle , " on thread " , tinP.monitor.idThread , ": querying...\r\n") ;
     
+        TN( tIdCycle , "" ) ; tIdCycle = TF2(idCycle,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ;
         idCycle ++ ;
     {
     while( !etThread && !ether )
+    TN( tb4 , "    " ) ;
     TN( tTM , "IdeaFarm (tm)" ) ;
     homeS& home = homeS::homeIF() ;
     ZE( countT , idCycle ) ;

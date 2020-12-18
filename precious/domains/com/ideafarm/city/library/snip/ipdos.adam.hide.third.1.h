@@ -1,4 +1,6 @@
 
+#define TTF(time1P,time2P) textC( time1P , time2P , tinP , TAG( TAGiDnULL ) , flTEXTc_null , 0 , 0 , S1C('.') , 0 , ifcIDfORMATtIME_NUMERIC , flFORMAT_FOREIGN )
+
 // IPDOS (tm) <> IdeaFarm (tm) Piggyback Distributed Operating System
 
 // For build environment info, see file "\ideafarm.work\backed.up.never\txt\readme.first.ipdos.build.environment.txt"
@@ -45135,9 +45137,10 @@ arguments
 #define flTRACE_NOtELL            0xe00020ee
 #define flTRACE_LOOP              0xe00040ee
 #define flTRACE_HOMEeCHO          0xe00080ee
-#define flTRACE_ECHOoNLY          0xe00100ee
-#define flTRACE_FORCEdIVERT       0xe00200ee
-#define flTRACE_FORCEnOsILENCE    0xe00400ee
+#define flTRACE_HOMEeCHOdEADMAN1  0xe00100ee
+#define flTRACE_ECHOoNLY          0xe00200ee
+#define flTRACE_FORCEdIVERT       0xe00400ee
+#define flTRACE_FORCEnOsILENCE    0xe00800ee
 /*3*/
 #define flTRACE_null    0xe00000ee
 

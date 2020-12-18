@@ -50,21 +50,22 @@ if not exist \%1\ephemeral\backed.up.daily\domains\com\ideafarm\ipdos\memorySpac
 
 cd           \%1\ephemeral\backed.up.daily\domains\com\ideafarm\ipdos\memorySpaces\%xx%\00000%2\stateSpaces\ffffefff
 
-if exist bkstelemetrysys.*       del bkstelemetrysys.*
-if exist bkstelemetryapp.*       del bkstelemetryapp.*
-if exist bkstrace.*              del bkstrace.*
-if exist bksTraceDivert??.*      del bksTraceDivert??.*
-if exist bksTraceHomeEcho.*      del bksTraceHomeEcho.*
-if exist bktraceloop.*           del bktraceloop.*
-if exist bksword.*               del bksword.*
-if exist bkswords.*              del bkswords.*
+if exist bkstelemetrysys.*               del bkstelemetrysys.*
+if exist bkstelemetryapp.*               del bkstelemetryapp.*
+if exist bkstrace.*                      del bkstrace.*
+if exist bksTraceDivert??.*              del bksTraceDivert??.*
+if exist bksTraceHomeEcho.*              del bksTraceHomeEcho.*
+if exist bksTraceHomeEchoDeadman1.*      del bksTraceHomeEchoDeadman1.*
+if exist bktraceloop.*                   del bktraceloop.*
+if exist bksword.*                       del bksword.*
+if exist bkswords.*                      del bkswords.*
 
-if exist log*                    del log*
-if exist walk*                   del walk*
-if exist kv.cloud*               del kv.cloud*
-if exist survey1.*               del survey1.*
+if exist log*                            del log*
+if exist walk*                           del walk*
+if exist kv.cloud*                       del kv.cloud*
+if exist survey1.*                       del survey1.*
 
-if exist kernel.minute.reports.* del kernel.minute.reports.*
+if exist kernel.minute.reports.*         del kernel.minute.reports.*
 
 :FIN1
 cd \tmp\desk

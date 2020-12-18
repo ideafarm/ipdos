@@ -45,6 +45,7 @@ DONE( tmcHttpServerWorkerF )
                             jobP.b_lever_idSession.grabF( tinP , TAG( TAGiDnULL ) ) ;                                                                                   \
 
                             etThread.etherDoHttpJobF( tinP , jobP , psoP , sessionP , idPortMeP , nnMeP ) ;
+                            etThread.osTimeNowF( tinP , jobP.timeDoJob1 , jobP.timeDoJob2 ) ;
 
                             _IO_
                         {
@@ -100,6 +101,8 @@ DONE( tmcHttpServerWorkerF )
 
                     TELL( "TASKdRIVENsERVER: setting up" )
                     TESTsCRATCH ;
+
+                    etThread.osTimeNowF( tinP , jobP.timeJobPopped1 , jobP.timeJobPopped2 ) ;
 
                     //CONoUTrAW3( "tmcHttpServerWorkerF [&jobP.b_lever_idSession]:    " , &jobP.b_lever_idSession , "\r\n" ) ;
                     taskDrivenServerParamsS& jobP = *(taskDrivenServerParamsS*)_pbaJob ;

@@ -40195,6 +40195,7 @@ base class to make a derived class of objects easily contained by a stackC objec
     byteT pbBooksNoPuseFootTelemetrySys[  CBbOOKScnOpUSEbACK ] ;
     byteT pbBooksNoPuseFootTelemetryApp[  CBbOOKScnOpUSEbACK ] ;
     byteT pbBooksNoPuseFootTraceHomeEcho[ CBbOOKScnOpUSEbACK ] ;
+    byteT pbBooksNoPuseFootTraceHomeEchoDeadman1[ CBbOOKScnOpUSEbACK ] ;
     byteT pbBooksNoPuseFootTrace[         CBbOOKScnOpUSEbACK ] ;
     byteT pbBooksNoPuseFootTraceDivert01[ CBbOOKScnOpUSEbACK ] ;
     byteT pbBooksNoPuseFootTraceDivert02[ CBbOOKScnOpUSEbACK ] ;
@@ -40259,6 +40260,7 @@ base class to make a derived class of objects easily contained by a stackC objec
     booksC                                   bksTelemetrySys ;
     booksC                                   bksTelemetryApp ;
     booksC                                   bksTraceHomeEcho ;
+    booksC                                   bksTraceHomeEchoDeadman1 ;
     booksC                                   bksTrace ;
 
     cryC                                     cry310 ;
@@ -45106,7 +45108,6 @@ i am nonconformant in that all of my member function definitions are in a single
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.cacheC : 1snip.15000187.cacheC END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.taskDrivenServerParamsS : 1snip.1500018b.taskDrivenServerParamsS BEGIN
 
-
 //
 // Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
@@ -45130,9 +45131,17 @@ i am nonconformant in that all of my member function definitions are in a single
     switchC&   sw_cSessionWithPeer ;
     sessionsC& sessions ;
     nicNameC   nnPeer ;
+    countT     timeAccepted1 ;
+    sCountT    timeAccepted2 ;
+    countT     timeJobCreated1 ;
+    sCountT    timeJobCreated2 ;
+    countT     timeJobPopped1 ;
+    sCountT    timeJobPopped2 ;
+    countT     timeDoJob1 ;
+    sCountT    timeDoJob2 ;
 
     NEWdELcLASSpROTOS
-    taskDrivenServerParamsS( countT idSessionP , batonC& b_lever_idSessionP , countT& lever_idSessionP , switchC& sw_psoP , countT& cSessionP , countT cArgP , nicNameC& lever_nnPeerP , switchC& sw_cSessionWithPeerP , sessionsC& sessionsP , nicNameC& nnPeerP ) ;
+    taskDrivenServerParamsS( countT idSessionP , batonC& b_lever_idSessionP , countT& lever_idSessionP , switchC& sw_psoP , countT& cSessionP , countT cArgP , nicNameC& lever_nnPeerP , switchC& sw_cSessionWithPeerP , sessionsC& sessionsP , nicNameC& nnPeerP , countT timeAccepted1P , sCountT timeAccepted2P , countT timeJobCreated1P , sCountT timeJobCreated2P ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.36149003.taskDrivenServerParamsS.taskDrivenServerParamsS!||
 }
 ;
