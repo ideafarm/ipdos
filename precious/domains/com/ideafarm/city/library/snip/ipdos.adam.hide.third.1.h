@@ -391,7 +391,7 @@ struct  /*ff*/diskFindHandleS/*ff*/             ; /*ff*//**//*ff*/
 struct  /*ff*/cachedS/*ff*/                     ; /*ff*//**//*ff*/
 class   /*ff*/cacheC/*ff*/                      ; /*ff*//**//*ff*/
 class   /*ff*/inOutFrameC/*ff*/                 ; /*ff*//**//*ff*/
-struct  /*ff*/taskDrivenServerParamsS/*ff*/     ; /*ff*//**//*ff*/
+struct  /*ff*/taskDrivenServerJobS/*ff*/     ; /*ff*//**//*ff*/
 
 //INCLUDE GENERATED SNIPPETS HERE
 
@@ -8102,7 +8102,7 @@ it is illegal to refer to this symbol in the definition of an adam
 #define ifciDtYPEdROPnOTE_diskFindHandleS                               0xdddd042c
 #define ifciDtYPEdROPnOTE_cachedS                                       0xdddd042d
 #define ifciDtYPEdROPnOTE_cacheC                                        0xdddd042e
-#define ifciDtYPEdROPnOTE_taskDrivenServerParamsS                       0xdddd042f
+#define ifciDtYPEdROPnOTE_taskDrivenServerJobS                       0xdddd042f
 #define ifciDtYPEdROPnOTE_bytesC                                        0xdddd0430
 /*3*/
 #define ifciDtYPEdROPnOTE_min     0xdddd0337
@@ -8940,7 +8940,7 @@ pso not 0 is guaranteed for code between me and DONEdRIVENsERVER
     if( pTaskP && pTaskP->c1 && pTaskP->c2 )                                                                                                                \
     {                                                                                                                                                       \
         stackC&                  stJobP =                  *(stackC*)pTaskP->c1 ;                                                                           \
-        taskDrivenServerParamsS& jobP   = *(taskDrivenServerParamsS*)pTaskP->c2 ;                                                                           \
+        taskDrivenServerJobS& jobP   = *(taskDrivenServerJobS*)pTaskP->c2 ;                                                                           \
                                                                                                                                                             \
         TESTsCRATCH ;                                                                                                                                       \
         TELL( "TASKdRIVENsERVER: setting up" )                                                                                                              \
@@ -9035,7 +9035,7 @@ see adam.0140104 for an example
                                                                                                                                                         \
         etThread.traceF( tinP , T("DONEdRIVENsERVER [cSession]:    ")+TF2(jobP.cSession,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;                   \
                                                                                                                                                         \
-        taskDrivenServerParamsS* pDoomed = &jobP ;                                                                                                      \
+        taskDrivenServerJobS* pDoomed = &jobP ;                                                                                                      \
         dec02AM( jobP.cSession ) ;                                                                                                                      \
         DEL( pDoomed ) ;                                                                                                                                \
     }                                                                                                                                                   \

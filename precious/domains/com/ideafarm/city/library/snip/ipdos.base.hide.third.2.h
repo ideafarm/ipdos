@@ -31767,7 +31767,7 @@ examples
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.341c0.etherC.etherSoilF!||
  count04T etherDispenseSerialNumberF( tinS& tinP , const strokeS* const psttFileP ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.360021f5.etherc.etherDispenseSerialNumberF!||
- voidT etherDoHttpJobF( tinS& tinP , taskDrivenServerParamsS& jobP , socketC*& psoP , sessionC& sessionP , countT idPortMeP , nicNameC nnMeP ) ;
+ voidT etherDoHttpJobF( tinS& tinP , taskDrivenServerJobS& jobP , socketC*& psoP , sessionC& sessionP , countT idPortMeP , nicNameC nnMeP ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.360021f7.etherc.etherDoHttpJobF!||
 
 /* commands: birth , death of objects of other classes */
@@ -39070,7 +39070,7 @@ the only function of this object is to edit tinS::grabPseudo so that the monitor
     inline strokeS*& psttLeverUrlF( voidT ) { return psttLeverUrl ; }
     inline switchC&  swMapUrlF( voidT ) { return swMapUrl ; }
 
-    friend voidT etherC::etherDoHttpJobF( tinS& tinP , taskDrivenServerParamsS& jobP , socketC*& psoP , sessionC& sessionP , countT idPortMeP , nicNameC nnMeP ) ;
+    friend voidT etherC::etherDoHttpJobF( tinS& tinP , taskDrivenServerJobS& jobP , socketC*& psoP , sessionC& sessionP , countT idPortMeP , nicNameC nnMeP ) ;
     friend TASKpROTO( tm_httpServerC_F ) ;
     friend TASKpROTO( tmHttpCacheF ) ;
     friend voidT loginCBF( tinS& tinP , etherC& etThread , const boolT& bQuitP , httpServerC& meP , countT& cArgP , httpReplyS& replyP , stackC& stBodyP , const strokeS* const psttKVReportP , switchC& swKVP , strokeS*& psttLeverKVP , sessionsC& sessionsP , nicNameC& nnPeerP , const strokeS* const psttNameP , const strokeS* const psttQueryKVP , const strokeS* const psttPeerAgentP , const osTextT* const postBodyP ) ; //U::idPort
@@ -45106,7 +45106,7 @@ i am nonconformant in that all of my member function definitions are in a single
 //
 
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.cacheC : 1snip.15000187.cacheC END
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.taskDrivenServerParamsS : 1snip.1500018b.taskDrivenServerParamsS BEGIN
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.taskDrivenServerJobS : 1snip.1500018b.taskDrivenServerJobS BEGIN
 
 //
 // Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
@@ -45119,7 +45119,7 @@ i am nonconformant in that all of my member function definitions are in a single
 */
 /**/
 
-/*1*/struct _export taskDrivenServerParamsS/*1*/
+/*1*/struct _export taskDrivenServerJobS/*1*/
 {
     countT     idSession ;
     batonC&    b_lever_idSession ;
@@ -45141,8 +45141,8 @@ i am nonconformant in that all of my member function definitions are in a single
     sCountT    timeDoJob2 ;
 
     NEWdELcLASSpROTOS
-    taskDrivenServerParamsS( countT idSessionP , batonC& b_lever_idSessionP , countT& lever_idSessionP , switchC& sw_psoP , countT& cSessionP , countT cArgP , nicNameC& lever_nnPeerP , switchC& sw_cSessionWithPeerP , sessionsC& sessionsP , nicNameC& nnPeerP , countT timeAccepted1P , sCountT timeAccepted2P , countT timeJobCreated1P , sCountT timeJobCreated2P ) ;
-    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.36149003.taskDrivenServerParamsS.taskDrivenServerParamsS!||
+    taskDrivenServerJobS( countT idSessionP , batonC& b_lever_idSessionP , countT& lever_idSessionP , switchC& sw_psoP , countT& cSessionP , countT cArgP , nicNameC& lever_nnPeerP , switchC& sw_cSessionWithPeerP , sessionsC& sessionsP , nicNameC& nnPeerP , countT timeAccepted1P , sCountT timeAccepted2P , countT timeJobCreated1P , sCountT timeJobCreated2P ) ;
+    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.36149003.taskDrivenServerJobS.taskDrivenServerJobS!||
 }
 ;
 
@@ -45154,7 +45154,7 @@ i am nonconformant in that all of my member function definitions are in a single
 // Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
 
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.taskDrivenServerParamsS : 1snip.1500018b.taskDrivenServerParamsS END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.taskDrivenServerJobS : 1snip.1500018b.taskDrivenServerJobS END
 
 //
 // Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
