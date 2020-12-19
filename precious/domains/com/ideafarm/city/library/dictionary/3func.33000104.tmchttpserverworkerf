@@ -24,7 +24,7 @@ DONE( tmcHttpServerWorkerF )
                     }
                         DELzOMBIE( pDoomed ) ;
                         dec02AM( jobP.cSession ) ;
-                        taskDrivenServerParamsS* pDoomed = &jobP ;
+                        taskDrivenServerJobS* pDoomed = &jobP ;
 
                         //etThread.traceF( tinP , T("DONE [cSession]:    ")+TF2(jobP.cSession,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
 
@@ -105,7 +105,7 @@ DONE( tmcHttpServerWorkerF )
                     etThread.osTimeNowF( tinP , jobP.timeJobPopped1 , jobP.timeJobPopped2 ) ;
 
                     //CONoUTrAW3( "tmcHttpServerWorkerF [&jobP.b_lever_idSession]:    " , &jobP.b_lever_idSession , "\r\n" ) ;
-                    taskDrivenServerParamsS& jobP = *(taskDrivenServerParamsS*)_pbaJob ;
+                    taskDrivenServerJobS& jobP = *(taskDrivenServerJobS*)_pbaJob ;
                 {
                 if( pbJob )
 
@@ -113,10 +113,10 @@ DONE( tmcHttpServerWorkerF )
 
                 stJobP >> pbJob ;
                 byteT* pbJob = _pbaJob ;
-                byteT _pbaJob[ sizeof( taskDrivenServerParamsS ) ] ;
+                byteT _pbaJob[ sizeof( taskDrivenServerJobS ) ] ;
 
                 //etThread.traceF( tinP , T("tmcHttpServerWorkerF popping a job [jobCopy[2]]:    ")+TF2(((countT*)&jobCopy)[2],flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
-                //taskDrivenServerParamsS jobCopy = *(taskDrivenServerParamsS*)&(countT&)stJobP[ 1 ] ; //U:: TO FIND A BUG
+                //taskDrivenServerJobS jobCopy = *(taskDrivenServerJobS*)&(countT&)stJobP[ 1 ] ; //U:: TO FIND A BUG
             {
             while( stJobP )
 
