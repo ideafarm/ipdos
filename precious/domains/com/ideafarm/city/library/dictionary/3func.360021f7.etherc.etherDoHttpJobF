@@ -97,11 +97,14 @@
 
                 if( idDesireOld ) osThreadSwitchingDesireF( tinP , idDesireOld ) ;
                 if( bDeadman1 ) traceF( tinP , T("U:: etherDoHttpJobF / 0") , flTRACE_HOMEeCHOdEADMAN1 | flTRACE_FORCEnOsILENCE | flTRACE_ECHOoNLY ) ;
+                                traceF( tinP , T("U:: etherDoHttpJobF / 0") , flTRACE_FORCEnOsILENCE , idTraceDivert ) ;
 
                 }
                     if( bDeadman1 ) traceF( tinP , T("U:: etherDoHttpJobF / 1") , flTRACE_HOMEeCHOdEADMAN1 | flTRACE_FORCEnOsILENCE | flTRACE_ECHOoNLY ) ;
+                                    traceF( tinP , T("U:: etherDoHttpJobF / 1") , flTRACE_FORCEnOsILENCE , idTraceDivert ) ;
                     }
                         if( bDeadman1 ) traceF( tinP , T("U:: etherDoHttpJobF / 2") , flTRACE_HOMEeCHOdEADMAN1 | flTRACE_FORCEnOsILENCE | flTRACE_ECHOoNLY ) ;
+                                        traceF( tinP , T("U:: etherDoHttpJobF / 2") , flTRACE_FORCEnOsILENCE , idTraceDivert ) ;
                         //traceF( tinP , TF3(meP.idPortF(tinP),flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,9)+T(jobP.nnPeer)+T("    nonfile response has been written") , flTRACE_FORCEnOsILENCE , idTraceDivert ) ;
 
                         delF( tinP , psttKVReport ) ;
@@ -116,18 +119,22 @@
                         countT cFlavors = pswKV->cFlavorsF( tinP ) ;
                         TELL( "cleaning up 4" ) ;
                         if( bDeadman1 ) traceF( tinP , T("U:: etherDoHttpJobF / 3") , flTRACE_HOMEeCHOdEADMAN1 | flTRACE_FORCEnOsILENCE | flTRACE_ECHOoNLY ) ;
+                                        traceF( tinP , T("U:: etherDoHttpJobF / 3") , flTRACE_FORCEnOsILENCE , idTraceDivert ) ;
 
                         (*this)( tinP , pStkBodyDynamic ) ;
                         (*this)( tinP , pStkBody ) ;
                         if( bDeadman1 ) traceF( tinP , T("U:: etherDoHttpJobF / 4") , flTRACE_HOMEeCHOdEADMAN1 | flTRACE_FORCEnOsILENCE | flTRACE_ECHOoNLY ) ;
+                                        traceF( tinP , T("U:: etherDoHttpJobF / 4") , flTRACE_FORCEnOsILENCE , idTraceDivert ) ;
                         }
                             if( bDeadman1 ) traceF( tinP , T("U:: etherDoHttpJobF / 5") , flTRACE_HOMEeCHOdEADMAN1 | flTRACE_FORCEnOsILENCE | flTRACE_ECHOoNLY ) ;
+                                            traceF( tinP , T("U:: etherDoHttpJobF / 5") , flTRACE_FORCEnOsILENCE , idTraceDivert ) ;
                             meP.swReply.ungrabF( tinP ) ;
                             ++ *pswTally ;
                             psttLeverUrlTally = psttName ;
                             meP.swReply.grabF( tinP , TAG( TAGiDnULL ) ) ;
                             TELL( "tallying" ) ;
                             if( bDeadman1 ) traceF( tinP , T("U:: etherDoHttpJobF / 6") , flTRACE_HOMEeCHOdEADMAN1 | flTRACE_FORCEnOsILENCE | flTRACE_ECHOoNLY ) ;
+                                            traceF( tinP , T("U:: etherDoHttpJobF / 6") , flTRACE_FORCEnOsILENCE , idTraceDivert ) ;
 
                             else delF( tinP , postsReply ) ;
                             }
@@ -145,6 +152,7 @@
                             {
                             if( pzCache && !bQuery )
                             if( bDeadman1 ) traceF( tinP , T("U:: etherDoHttpJobF / 7") , flTRACE_HOMEeCHOdEADMAN1 | flTRACE_FORCEnOsILENCE | flTRACE_ECHOoNLY ) ;
+                                            traceF( tinP , T("U:: etherDoHttpJobF / 7") , flTRACE_FORCEnOsILENCE , idTraceDivert ) ;
 
                             }
                                 }
@@ -159,6 +167,7 @@
                             IFsCRATCH
                             TELL( "writing reply" ) ;
                             if( bDeadman1 ) traceF( tinP , T("U:: etherDoHttpJobF / 8") , flTRACE_HOMEeCHOdEADMAN1 | flTRACE_FORCEnOsILENCE | flTRACE_ECHOoNLY ) ;
+                                            traceF( tinP , T("U:: etherDoHttpJobF / 8") , flTRACE_FORCEnOsILENCE , idTraceDivert ) ;
 
                             //}
                             //    LOGrAW( "\"\r\n" ) ;
@@ -170,6 +179,7 @@
 
                             }
                                 if( bDeadman1 ) traceF( tinP , T("U:: etherDoHttpJobF / 9") , flTRACE_HOMEeCHOdEADMAN1 | flTRACE_FORCEnOsILENCE | flTRACE_ECHOoNLY ) ;
+                                                traceF( tinP , T("U:: etherDoHttpJobF / 9") , flTRACE_FORCEnOsILENCE , idTraceDivert ) ;
                                 }
                                     pStkBody->extractF( 0 , tinP , 1 ) ;
                                     DELzOMBIE( prPosts ) ;
@@ -178,6 +188,7 @@
                                 while( !POOP && *pStkBody )
                                 TELL( "cleaning up 3" ) ;
                                 if( bDeadman1 ) traceF( tinP , T("U:: etherDoHttpJobF / a") , flTRACE_HOMEeCHOdEADMAN1 | flTRACE_FORCEnOsILENCE | flTRACE_ECHOoNLY ) ;
+                                                traceF( tinP , T("U:: etherDoHttpJobF / a") , flTRACE_FORCEnOsILENCE , idTraceDivert ) ;
 
                                 DEL( prPostsMugShot         ) ;
                                 DEL( prPostsBarBrown        ) ;
@@ -190,10 +201,12 @@
                                 DEL( prPostsIdPort1         ) ;
                                 DEL( prPostsPort            ) ;
                                 if( bDeadman1 ) traceF( tinP , T("U:: etherDoHttpJobF / b") , flTRACE_HOMEeCHOdEADMAN1 | flTRACE_FORCEnOsILENCE | flTRACE_ECHOoNLY ) ;
+                                                traceF( tinP , T("U:: etherDoHttpJobF / b") , flTRACE_FORCEnOsILENCE , idTraceDivert ) ;
 
                                 DEL( pRefReply ) ;
                                 bOsFire = F(REPLY.flagsHttpReply) & flHTTPrEPLY_OSfIRE ;
                                 if( bDeadman1 ) traceF( tinP , T("U:: etherDoHttpJobF / c") , flTRACE_HOMEeCHOdEADMAN1 | flTRACE_FORCEnOsILENCE | flTRACE_ECHOoNLY ) ;
+                                                traceF( tinP , T("U:: etherDoHttpJobF / c") , flTRACE_FORCEnOsILENCE , idTraceDivert ) ;
 
                                 DEL( prPostsCostBody ) ;
                                 DEL( prPostsHttpLocation ) ;
@@ -259,6 +272,7 @@
                                 {
                                 TELL( "building postsReply" ) ;
                                 if( bDeadman1 ) traceF( tinP , T("U:: etherDoHttpJobF / d") , flTRACE_HOMEeCHOdEADMAN1 | flTRACE_FORCEnOsILENCE | flTRACE_ECHOoNLY ) ;
+                                                traceF( tinP , T("U:: etherDoHttpJobF / d") , flTRACE_FORCEnOsILENCE , idTraceDivert ) ;
 
                                 }
                                     strMakeF( tinP , prPostsCostBody , TF4(costBody,flFORMAT_NObASE|flFORMAT_FOREIGN,0,0xa) , 0 , flSTRmAKE_PREFIXlENGTH ) ; ___( prPostsCostBody ) ;
@@ -278,6 +292,7 @@
                                 ZE( pbRefC* , prPostsCostBody ) ;
                                 TELL( "getting prPostsCostBody" ) ;
                                 if( bDeadman1 ) traceF( tinP , T("U:: etherDoHttpJobF / e") , flTRACE_HOMEeCHOdEADMAN1 | flTRACE_FORCEnOsILENCE | flTRACE_ECHOoNLY ) ;
+                                                traceF( tinP , T("U:: etherDoHttpJobF / e") , flTRACE_FORCEnOsILENCE , idTraceDivert ) ;
 
                                 }
                                     PUSHK( prPostsHttpLocation ) ;
@@ -292,6 +307,7 @@
                                 if( REPLY.idSnipHttpPrefix == ifcIDsNIPpREDEFINED_HTTPfAILmOVEDtEMP )
                                 ZE( pbRefC* , prPostsHttpLocation ) ;
                                 if( bDeadman1 ) traceF( tinP , T("U:: etherDoHttpJobF / f") , flTRACE_HOMEeCHOdEADMAN1 | flTRACE_FORCEnOsILENCE | flTRACE_ECHOoNLY ) ;
+                                                traceF( tinP , T("U:: etherDoHttpJobF / f") , flTRACE_FORCEnOsILENCE , idTraceDivert ) ;
 
                                 }
                                     }
@@ -303,6 +319,7 @@
                                         break ;
 
                                         if( bDeadman1 ) traceF( tinP , T("U:: etherDoHttpJobF / g") , flTRACE_HOMEeCHOdEADMAN1 | flTRACE_FORCEnOsILENCE | flTRACE_ECHOoNLY ) ;
+                                                        traceF( tinP , T("U:: etherDoHttpJobF / g") , flTRACE_FORCEnOsILENCE , idTraceDivert ) ;
                                         }
                                             }
                                                 break ;
@@ -313,6 +330,7 @@
                                                 break ;
 
                                                 if( bDeadman1 ) traceF( tinP , T("U:: etherDoHttpJobF / h") , flTRACE_HOMEeCHOdEADMAN1 | flTRACE_FORCEnOsILENCE | flTRACE_ECHOoNLY ) ;
+                                                                traceF( tinP , T("U:: etherDoHttpJobF / h") , flTRACE_FORCEnOsILENCE , idTraceDivert ) ;
                                                 DEL( prPostsLathPeanut ) ;
 
                                                 PUSHsNIP( meP , ifcIDsNIPpREDEFINED_FOOT3        ) ;
@@ -716,6 +734,7 @@
                                                 TELL( "ifcIDfORMhTTPrEPLY_BIGhEAD" ) ;
                                                 TESTsCRATCH //U::TO FIND A BUG
                                                 if( bDeadman1 ) traceF( tinP , T("U:: etherDoHttpJobF / i") , flTRACE_HOMEeCHOdEADMAN1 | flTRACE_FORCEnOsILENCE | flTRACE_ECHOoNLY ) ;
+                                                                traceF( tinP , T("U:: etherDoHttpJobF / i") , flTRACE_FORCEnOsILENCE , idTraceDivert ) ;
                                             {
                                             case ifcIDfORMhTTPrEPLY_BIGhEAD :
                                             case ifcIDfORMhTTPrEPLY_PINhEAD :
@@ -727,6 +746,7 @@
                                                 break ;
 
                                                 if( bDeadman1 ) traceF( tinP , T("U:: etherDoHttpJobF / j") , flTRACE_HOMEeCHOdEADMAN1 | flTRACE_FORCEnOsILENCE | flTRACE_ECHOoNLY ) ;
+                                                                traceF( tinP , T("U:: etherDoHttpJobF / j") , flTRACE_FORCEnOsILENCE , idTraceDivert ) ;
                                                 PUSHsNIP( meP , ifcIDsNIPpREDEFINED_FOOT3        ) ;
                                                 PUSHsNIP( meP , !sessionP.getIdAccountCommissionF( tinP ) ? ifcIDsNIPpREDEFINED_FOOT1 : ifcIDsNIPpREDEFINED_FOOT2 ) ;
                                                 //THESE WERE REMOVED IN 2019. 20200729@1734: ENABLED WITHOUT ANALYSIS
@@ -849,12 +869,14 @@
                                                 ZE( countT , idBannerAd ) ;
                                                 TELL( "ifcIDfORMhTTPrEPLY_FULLcUSTOM" ) ;
                                                 if( bDeadman1 ) traceF( tinP , T("U:: etherDoHttpJobF / k") , flTRACE_HOMEeCHOdEADMAN1 | flTRACE_FORCEnOsILENCE | flTRACE_ECHOoNLY ) ;
+                                                                traceF( tinP , T("U:: etherDoHttpJobF / k") , flTRACE_FORCEnOsILENCE , idTraceDivert ) ;
                                             {
                                             case ifcIDfORMhTTPrEPLY_FULLcUSTOM :
                                             }
                                                 break ;
 
                                                 if( bDeadman1 ) traceF( tinP , T("U:: etherDoHttpJobF / l") , flTRACE_HOMEeCHOdEADMAN1 | flTRACE_FORCEnOsILENCE | flTRACE_ECHOoNLY ) ;
+                                                                traceF( tinP , T("U:: etherDoHttpJobF / l") , flTRACE_FORCEnOsILENCE , idTraceDivert ) ;
                                                 }
                                                     (*REPLY.pCBF)( tinP , *this , bQuitP , meP , cArgAppP , REPLY , *pStkBody , psttKVReport , *pswKV , psttLeverKV , jobP.sessions , jobP.nnPeer , psttName , psttQueryKV , psttAgent , postBody ) ;
                                                     _IO_
@@ -870,12 +892,14 @@
                                                 ZE( countT , idPortMe ) ;
                                                 TELL( "ifcIDfORMhTTPrEPLY_RAW" ) ;
                                                 if( bDeadman1 ) traceF( tinP , T("U:: etherDoHttpJobF / m") , flTRACE_HOMEeCHOdEADMAN1 | flTRACE_FORCEnOsILENCE | flTRACE_ECHOoNLY ) ;
+                                                                traceF( tinP , T("U:: etherDoHttpJobF / m") , flTRACE_FORCEnOsILENCE , idTraceDivert ) ;
                                             {
                                             case ifcIDfORMhTTPrEPLY_RAW :
                                         {
                                         switch( REPLY.idForm )
                                         TESTsCRATCH //U::TO FIND A BUG
                                         if( bDeadman1 ) traceF( tinP , T("U:: etherDoHttpJobF / n") , flTRACE_HOMEeCHOdEADMAN1 | flTRACE_FORCEnOsILENCE | flTRACE_ECHOoNLY ) ;
+                                                        traceF( tinP , T("U:: etherDoHttpJobF / n") , flTRACE_FORCEnOsILENCE , idTraceDivert ) ;
                                     {
                                     case ifcIDsNIPpREDEFINED_HTTPfAILmOVEDtEMP :
                                     case ifcIDsNIPpREDEFINED_HTTPfAILmOVED :
@@ -939,6 +963,7 @@
                             TELL( "preparing to compile the reply" ) ;
                             TESTsCRATCH //U::TO FIND A BUG
                             if( bDeadman1 ) traceF( tinP , T("U:: etherDoHttpJobF / o") , flTRACE_HOMEeCHOdEADMAN1 | flTRACE_FORCEnOsILENCE | flTRACE_ECHOoNLY ) ;
+                                            traceF( tinP , T("U:: etherDoHttpJobF / o") , flTRACE_FORCEnOsILENCE , idTraceDivert ) ;
                         {
                         else
                         }
@@ -951,20 +976,24 @@
                         if( !pStkBody || !pStkBodyDynamic )
                         TESTsCRATCH //U::TO FIND A BUG
                         if( bDeadman1 ) traceF( tinP , T("U:: etherDoHttpJobF / p") , flTRACE_HOMEeCHOdEADMAN1 | flTRACE_FORCEnOsILENCE | flTRACE_ECHOoNLY ) ;
+                                        traceF( tinP , T("U:: etherDoHttpJobF / p") , flTRACE_FORCEnOsILENCE , idTraceDivert ) ;
 
                         (*this)( tinP , pStkBodyDynamic , TAG( TAGiDnULL ) , flSTACKc_BLOB | flSTACKc_ALLOWzE | flSTACKc_FIFO | flSTACKc_DOnOTsERIALIZE | flSTACKc_ALLOWmULTIPLEuNSERIALIZED | flSTACKc_XRAY , sizeof( pbRefC ) ) ;
                         ZE( stackC* , pStkBodyDynamic ) ;
                         if( bDeadman1 ) traceF( tinP , T("U:: etherDoHttpJobF / q") , flTRACE_HOMEeCHOdEADMAN1 | flTRACE_FORCEnOsILENCE | flTRACE_ECHOoNLY ) ;
+                                        traceF( tinP , T("U:: etherDoHttpJobF / q") , flTRACE_FORCEnOsILENCE , idTraceDivert ) ;
 
                         (*this)( tinP , pStkBody , TAG( TAGiDnULL ) , flSTACKc_BLOB | flSTACKc_ALLOWzE | flSTACKc_FIFO | flSTACKc_DOnOTsERIALIZE | flSTACKc_ALLOWmULTIPLEuNSERIALIZED | flSTACKc_XRAY , sizeof( pbRefC ) ) ;
                         ZE( stackC* , pStkBody ) ; //EVERYTHING AFTER THE HTTP HEADER AND ITS TRAILING "\r\n\r\n"
                         TELL( "getting recycled items" ) ;
                         if( bDeadman1 ) traceF( tinP , T("U:: etherDoHttpJobF / r") , flTRACE_HOMEeCHOdEADMAN1 | flTRACE_FORCEnOsILENCE | flTRACE_ECHOoNLY ) ;
+                                        traceF( tinP , T("U:: etherDoHttpJobF / r") , flTRACE_FORCEnOsILENCE , idTraceDivert ) ;
 
                         (*pHttpEatKeyValuePairsCBFP)( tinP , *this , bQuitP , psttKVReport , 0 /*DISABLED TO PREVENT ATTACK: T("///ideafarm/ephemeral/backed.up.daily/domains/com/ideafarm/")+TF1(ifcIDaDAM_ROOTfORMdATAeATER)+T("/in/form") */ , *pswKV , psttLeverKV , jobP.sessions , jobP.nnPeer , psttName , psttQueryKV , psttAgent , postBody ) ;
                         ZE( strokeS* , psttKVReport ) ;
                         TELL( "calling keyvalue eater" ) ;
                         if( bDeadman1 ) traceF( tinP , T("U:: etherDoHttpJobF / s") , flTRACE_HOMEeCHOdEADMAN1 | flTRACE_FORCEnOsILENCE | flTRACE_ECHOoNLY ) ;
+                                        traceF( tinP , T("U:: etherDoHttpJobF / s") , flTRACE_FORCEnOsILENCE , idTraceDivert ) ;
 
                         TESTsCRATCH //U::TO FIND A BUG
                         }
@@ -1034,6 +1063,7 @@
                         ZE( countT , idHeadFlavorOverride ) ;
                         TESTsCRATCH //U::TO FIND A BUG
                         if( bDeadman1 ) traceF( tinP , T("U:: etherDoHttpJobF / t") , flTRACE_HOMEeCHOdEADMAN1 | flTRACE_FORCEnOsILENCE | flTRACE_ECHOoNLY ) ;
+                                        traceF( tinP , T("U:: etherDoHttpJobF / t") , flTRACE_FORCEnOsILENCE , idTraceDivert ) ;
 
                         //}
                         //    if( tSay.csF( tinP ) ) { POPUP( tSay ) ; }
@@ -1064,6 +1094,7 @@
                     else
                     }
                         if( bDeadman1 ) traceF( tinP , T("U:: etherDoHttpJobF / u") , flTRACE_HOMEeCHOdEADMAN1 | flTRACE_FORCEnOsILENCE | flTRACE_ECHOoNLY ) ;
+                                        traceF( tinP , T("U:: etherDoHttpJobF / u") , flTRACE_FORCEnOsILENCE , idTraceDivert ) ;
                         //if( bClose ) traceF( tinP , TF3(meP.idPortF(tinP),flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,9)+T(jobP.nnPeer)+T("    closing connection") , flTRACE_FORCEnOsILENCE , idTraceDivert ) ;
 
                         }
@@ -1186,6 +1217,7 @@
                         {
                         if( !pFW )
                         if( bDeadman1 ) traceF( tinP , T("U:: etherDoHttpJobF / v") , flTRACE_HOMEeCHOdEADMAN1 | flTRACE_FORCEnOsILENCE | flTRACE_ECHOoNLY ) ;
+                                        traceF( tinP , T("U:: etherDoHttpJobF / v") , flTRACE_FORCEnOsILENCE , idTraceDivert ) ;
 
                         }
                             }
@@ -1206,6 +1238,7 @@
                         {
                         for( countT offf = 0 ; offf < sizeof pptFileIn / sizeof pptFileIn[ 0 ] ; offf ++ )
                         if( bDeadman1 ) traceF( tinP , T("U:: etherDoHttpJobF / w") , flTRACE_HOMEeCHOdEADMAN1 | flTRACE_FORCEnOsILENCE | flTRACE_ECHOoNLY ) ;
+                                        traceF( tinP , T("U:: etherDoHttpJobF / w") , flTRACE_FORCEnOsILENCE , idTraceDivert ) ;
 
                         } ;
                             &tFileIn9z ,
@@ -1222,10 +1255,12 @@
 
                         ZE( fileWindowsC* , pFW ) ;
                         if( bDeadman1 ) traceF( tinP , T("U:: etherDoHttpJobF / x") , flTRACE_HOMEeCHOdEADMAN1 | flTRACE_FORCEnOsILENCE | flTRACE_ECHOoNLY ) ;
+                                        traceF( tinP , T("U:: etherDoHttpJobF / x") , flTRACE_FORCEnOsILENCE , idTraceDivert ) ;
                     {
                     else if( bFileArchive )
                     }
                         if( bDeadman1 ) traceF( tinP , T("U:: etherDoHttpJobF / y") , flTRACE_HOMEeCHOdEADMAN1 | flTRACE_FORCEnOsILENCE | flTRACE_ECHOoNLY ) ;
+                                        traceF( tinP , T("U:: etherDoHttpJobF / y") , flTRACE_FORCEnOsILENCE , idTraceDivert ) ;
                         delF( tinP , pbIn ) ;
                         }
                             }
@@ -1256,6 +1291,7 @@
                         ZE( countT , cbIn ) ;
                         ZE( byteT* , pbIn ) ;
                         if( bDeadman1 ) traceF( tinP , T("U:: etherDoHttpJobF / z") , flTRACE_HOMEeCHOdEADMAN1 | flTRACE_FORCEnOsILENCE | flTRACE_ECHOoNLY ) ;
+                                        traceF( tinP , T("U:: etherDoHttpJobF / z") , flTRACE_FORCEnOsILENCE , idTraceDivert ) ;
 
                         TN( tFileIn , "" ) ; tFileIn = T("////factory1/d/tmp/certbot.challenge")+T(psttName) ;
                         //                               "////factory1/d/tmp/certbot.challenge/.well-known/acme-challenge
@@ -1263,6 +1299,7 @@
                     else if( bFileChallenge )
                     }
                         if( bDeadman1 ) traceF( tinP , T("U:: etherDoHttpJobF / A") , flTRACE_HOMEeCHOdEADMAN1 | flTRACE_FORCEnOsILENCE | flTRACE_ECHOoNLY ) ;
+                                        traceF( tinP , T("U:: etherDoHttpJobF / A") , flTRACE_FORCEnOsILENCE , idTraceDivert ) ;
                         //if( bClose ) traceF( tinP , TF3(meP.idPortF(tinP),flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,9)+T(jobP.nnPeer)+T("    closing connection") , flTRACE_FORCEnOsILENCE , idTraceDivert ) ;
 
                         delF( tinP , pbIcon ) ;
@@ -1288,6 +1325,7 @@
                         {
                         if( pzCache && !bQuery )
                         if( bDeadman1 ) traceF( tinP , T("U:: etherDoHttpJobF / B") , flTRACE_HOMEeCHOdEADMAN1 | flTRACE_FORCEnOsILENCE | flTRACE_ECHOoNLY ) ;
+                                        traceF( tinP , T("U:: etherDoHttpJobF / B") , flTRACE_FORCEnOsILENCE , idTraceDivert ) ;
 
                         }
                             }
@@ -1302,6 +1340,7 @@
                         {
                         IFsCRATCH
                         if( bDeadman1 ) traceF( tinP , T("U:: etherDoHttpJobF / C") , flTRACE_HOMEeCHOdEADMAN1 | flTRACE_FORCEnOsILENCE | flTRACE_ECHOoNLY ) ;
+                                        traceF( tinP , T("U:: etherDoHttpJobF / C") , flTRACE_FORCEnOsILENCE , idTraceDivert ) ;
 
                         TN( tReply , "" ) ; tReply = T("HTTP/1.1 200 OK\r\nServer: IPDOS (tm) IdeaFarm (tm) Piggyback Distributed Operating System (tm)\r\nContent-Type: image/x-icon\r\nContent-Length: ")+TF4(cbIcon,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FOREIGN|flFORMAT_NObASE,0,0xa)+T("\r\n\r\n") ;
 
@@ -1309,15 +1348,18 @@
                         ZE( countT , cbIcon ) ;
                         ZE( byteT* , pbIcon ) ;
                         if( bDeadman1 ) traceF( tinP , T("U:: etherDoHttpJobF / D") , flTRACE_HOMEeCHOdEADMAN1 | flTRACE_FORCEnOsILENCE | flTRACE_ECHOoNLY ) ;
+                                        traceF( tinP , T("U:: etherDoHttpJobF / D") , flTRACE_FORCEnOsILENCE , idTraceDivert ) ;
                     {
                     if( bFavIcon )
                     if( bDeadman1 ) traceF( tinP , T("U:: etherDoHttpJobF / E") , flTRACE_HOMEeCHOdEADMAN1 | flTRACE_FORCEnOsILENCE | flTRACE_ECHOoNLY ) ;
+                                    traceF( tinP , T("U:: etherDoHttpJobF / E") , flTRACE_FORCEnOsILENCE , idTraceDivert ) ;
 
                     TESTsCRATCH //U::TO FIND A BUG
                 {
                 else
                 }
                     if( bDeadman1 ) traceF( tinP , T("U:: etherDoHttpJobF / F") , flTRACE_HOMEeCHOdEADMAN1 | flTRACE_FORCEnOsILENCE | flTRACE_ECHOoNLY ) ;
+                                    traceF( tinP , T("U:: etherDoHttpJobF / F") , flTRACE_FORCEnOsILENCE , idTraceDivert ) ;
                     }
                         }
                             bClose = 1 ;
@@ -1352,34 +1394,49 @@
                     PrEF( bytesC , bytesBlob , ptr_pbBlob ) ;
                     POINTERc ptr_pbBlob = *pzCached->pPtr_pbBlob ;
                     if( bDeadman1 ) traceF( tinP , T("U:: etherDoHttpJobF / G") , flTRACE_HOMEeCHOdEADMAN1 | flTRACE_FORCEnOsILENCE | flTRACE_ECHOoNLY ) ;
+                                    traceF( tinP , T("U:: etherDoHttpJobF / G") , flTRACE_FORCEnOsILENCE , idTraceDivert ) ;
                 {
                 if( pzCached )
                 if( bDeadman1 ) traceF( tinP , T("U:: etherDoHttpJobF / H") , flTRACE_HOMEeCHOdEADMAN1 | flTRACE_FORCEnOsILENCE | flTRACE_ECHOoNLY ) ;
+                                traceF( tinP , T("U:: etherDoHttpJobF / H") , flTRACE_FORCEnOsILENCE , idTraceDivert ) ;
 
                 }
                     if( bDeadman1 ) traceF( tinP , T("U:: etherDoHttpJobF / I") , flTRACE_HOMEeCHOdEADMAN1 | flTRACE_FORCEnOsILENCE | flTRACE_ECHOoNLY ) ;
+                                    traceF( tinP , T("U:: etherDoHttpJobF / I") , flTRACE_FORCEnOsILENCE , idTraceDivert ) ;
                     }
                         //traceF( tinP , T("NOT found in cache:    ")+tNameCache , bDeadman1 || bDeadman2 ? flTRACE_HOMEeCHO | flTRACE_FORCEnOsILENCE : flTRACE_FORCEnOsILENCE , idTraceDivert ) ;
                         if( bDeadman1 ) traceF( tinP , T("U:: etherDoHttpJobF / J") , flTRACE_HOMEeCHOdEADMAN1 | flTRACE_FORCEnOsILENCE | flTRACE_ECHOoNLY ) ;
+                                        traceF( tinP , T("U:: etherDoHttpJobF / J") , flTRACE_FORCEnOsILENCE , idTraceDivert ) ;
                         pzCache->ungrabF( tinP ) ;
                         if( bDeadman1 ) traceF( tinP , T("U:: etherDoHttpJobF / K") , flTRACE_HOMEeCHOdEADMAN1 | flTRACE_FORCEnOsILENCE | flTRACE_ECHOoNLY ) ;
+                                        traceF( tinP , T("U:: etherDoHttpJobF / K") , flTRACE_FORCEnOsILENCE , idTraceDivert ) ;
                     {
                     else
                     if( pzCached ) ; // traceF( tinP , T("found in cache:    ")+tNameCache , bDeadman1 || bDeadman2 ? flTRACE_HOMEeCHO | flTRACE_FORCEnOsILENCE : flTRACE_FORCEnOsILENCE , idTraceDivert ) ;
                     pzCached = (*pzCache)( tinP , tNameCache ) ;
                     if( bDeadman1 ) traceF( tinP , T("U:: etherDoHttpJobF / L") , flTRACE_HOMEeCHOdEADMAN1 | flTRACE_FORCEnOsILENCE | flTRACE_ECHOoNLY ) ;
+                                    traceF( tinP , T("U:: etherDoHttpJobF / L") , flTRACE_FORCEnOsILENCE , idTraceDivert ) ;
                     //tinP.pcUtility[ 0 ] -- ; //U:: TO FIND A BUG
                     pzCache->grabF( tinP , TAG( TAGiDnULL ) ) ;
                     //tinP.pcUtility[ 0 ] ++ ; //U:: TO FIND A BUG
                     if( bDeadman1 ) traceF( tinP , T("U:: etherDoHttpJobF / M") , flTRACE_HOMEeCHOdEADMAN1 | flTRACE_FORCEnOsILENCE | flTRACE_ECHOoNLY ) ;
+                                    traceF( tinP , T("U:: etherDoHttpJobF / M") , flTRACE_FORCEnOsILENCE , idTraceDivert ) ;
                 {
                 if( pzCache && !bQuery )
                 ZE( cachedS* , pzCached ) ;
                 TESTsCRATCH //U::TO FIND A BUG
                 if( bDeadman1 ) traceF( tinP , T("U:: etherDoHttpJobF / N") , flTRACE_HOMEeCHOdEADMAN1 | flTRACE_FORCEnOsILENCE | flTRACE_ECHOoNLY ) ;
+                                traceF( tinP , T("U:: etherDoHttpJobF / N") , flTRACE_FORCEnOsILENCE , idTraceDivert ) ;
 
                 //traceF( tinP , TF3(meP.idPortF(tinP),flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,9)+T(jobP.nnPeer)+T("    request:    \"")+T(psttName)+T("\"")+(psttQueryKV?tb4+T(psttQueryKV):T("")) , bDeadman1 || bDeadman2 ? flTRACE_HOMEeCHO | flTRACE_FORCEnOsILENCE | flTRACE_ECHOoNLY : flTRACE_FORCEnOsILENCE , idTraceDivert ) ;
                 if( bDeadman1 ) traceF( tinP , T("U:: etherDoHttpJobF / O    ")+TT(timeElRead1,timeElRead2)+tb4+T(psttName) , flTRACE_HOMEeCHOdEADMAN1 | flTRACE_FORCEnOsILENCE | flTRACE_ECHOoNLY ) ;
+                                traceF( tinP , T("U:: etherDoHttpJobF / O    ")+TT(timeElRead1,timeElRead2)+tb4+T(psttName) , flTRACE_FORCEnOsILENCE , idTraceDivert ) ;
+
+                traceF( tinP , T("reading began [timeRead]      :    ")+TTF(timeRead1,timeRead2)                      +tb4+T("reading began") , flTRACE_FORCEnOsILENCE , idTraceDivert ) ;
+                traceF( tinP , T("do job        [timeDoJob]     :    ")+TTF(jobP.timeDoJob1,jobP.timeDoJob2)          +tb4+T("do job")        , flTRACE_FORCEnOsILENCE , idTraceDivert ) ;
+                traceF( tinP , T("job popped    [timeJobPopped] :    ")+TTF(jobP.timeJobPopped1,jobP.timeJobPopped2)  +tb4+T("job popped")    , flTRACE_FORCEnOsILENCE , idTraceDivert ) ;
+                traceF( tinP , T("job created   [timeJobCreated]:    ")+TTF(jobP.timeJobCreated1,jobP.timeJobCreated2)+tb4+T("job created")   , flTRACE_FORCEnOsILENCE , idTraceDivert ) ;
+                traceF( tinP , T("accepted      [timeAccepted]  :    ")+TTF(jobP.timeAccepted1,jobP.timeAccepted2)    +tb4+T("accepted")      , flTRACE_FORCEnOsILENCE , idTraceDivert ) ;
 
                 ;
                                 : ifcIDtRACEdIVERT_7
