@@ -40196,6 +40196,7 @@ base class to make a derived class of objects easily contained by a stackC objec
     byteT pbBooksNoPuseFootTelemetryApp[  CBbOOKScnOpUSEbACK ] ;
     byteT pbBooksNoPuseFootTraceHomeEcho[ CBbOOKScnOpUSEbACK ] ;
     byteT pbBooksNoPuseFootTraceHomeEchoDeadman1[ CBbOOKScnOpUSEbACK ] ;
+    byteT pbBooksNoPuseFootTraceHomeEchoGorillaHome[ CBbOOKScnOpUSEbACK ] ;
     byteT pbBooksNoPuseFootTrace[         CBbOOKScnOpUSEbACK ] ;
     byteT pbBooksNoPuseFootTraceDivert01[ CBbOOKScnOpUSEbACK ] ;
     byteT pbBooksNoPuseFootTraceDivert02[ CBbOOKScnOpUSEbACK ] ;
@@ -40261,6 +40262,7 @@ base class to make a derived class of objects easily contained by a stackC objec
     booksC                                   bksTelemetryApp ;
     booksC                                   bksTraceHomeEcho ;
     booksC                                   bksTraceHomeEchoDeadman1 ;
+    booksC                                   bksTraceHomeEchoGorillaHome ;
     booksC                                   bksTrace ;
 
     cryC                                     cry310 ;
