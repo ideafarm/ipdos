@@ -56,6 +56,7 @@ if exist bkstrace.*                      del bkstrace.*
 if exist bksTraceDivert??.*              del bksTraceDivert??.*
 if exist bksTraceHomeEcho.*              del bksTraceHomeEcho.*
 if exist bksTraceHomeEchoDeadman1.*      del bksTraceHomeEchoDeadman1.*
+if exist bksTraceHomeEchoGorillaHome.*   del bksTraceHomeEchoGorillaHome.*
 if exist bktraceloop.*                   del bktraceloop.*
 if exist bksword.*                       del bksword.*
 if exist bkswords.*                      del bkswords.*

@@ -27,10 +27,11 @@ paint dialog active standout button bright white on cyan
 display all /close
 display status
 display toolbar /fixed 0
+display watch /close 4905,8515,5094,1183
 display file /close 0,0,9999,9997
 display functions /close 3510,2639,2286,4433
 display log /close 0,0,5589,3146
-display memory /close 2061,65,2709,9659
+display memory /close 2061,65,7632,9659
 display stack /close 8010,4992,1989,5005
 display variable /close 0,3575,3123,1534
 display thread /open 3672,2249,4986,6773
@@ -39,9 +40,8 @@ display locals /open 0,5538,4455,4446
 display register /open 2286,5759,5940,1950
 display assembly /open 0,0,8136,9997
 display modules /open 8064,0,1935,9997
-display watch /open 4905,0,5094,9698
 display calls /open 0,3640,9855,4745
-display source /open 0,0,4734,9763
+display source /open 0,0,9999,9334
 font all {-13 0 0 0 400 0 0 0 0 1 2 1 49 "Courier"}
 font assembly {-13 0 0 0 400 0 0 0 0 1 1 1 1 "Courier"}
 font break {-13 0 0 0 400 0 0 0 0 1 1 1 1 "Courier"}
@@ -94,6 +94,9 @@ set types {
   }
   struct bookC { isstruct book0C hex 
    field pbBody { string }
+  }
+  struct infoFileS { 
+   field cbUsed { decimal }
   }
 }
 set macro source v {

@@ -247,6 +247,8 @@
                 {
                 if( !pSControl )
 
+                if( bConnected ) break ;
+
                 }
                     tinP.pEtScratch->delF( tinP , pNicName ) ;
 
@@ -259,6 +261,7 @@
                             else
                             }
                                 break ;
+                                bConnected = 1 ;
                                 pSControl->etherF( tinP , ether ) ;
                                 //ether.traceF( tinP , T("boxC::boxC / http / connected [nn]: ")+T(pNicName[offi]) ) ;
                             {
@@ -289,6 +292,7 @@
                 {
                 IFsCRATCH
                 ZE( countT , cNicName ) ;
+                ZE( boolT , bConnected ) ;
             {
             do
             countT cDo = cOpenTries ;
