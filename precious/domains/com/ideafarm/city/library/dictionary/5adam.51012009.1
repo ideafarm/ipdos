@@ -9,33 +9,73 @@
 
 REST                                  
 
-DEL( pInfo ) ;
-
 }
     }
-        etThread.fileWriteF( tinP , fiOut , pbTock , cbNow ) ;
-        etThread.fileReadF( tinP , pbTock , cbNow , fiIn , 0 ) ;
-
-        cbToDo -= cbNow ;
-        countT cbNow = cbToDo < TOCK ? cbToDo : TOCK ;
-
-        CONoUTrAW( "." ) ;
+        ++ s ; ether.osSleepF( tinP , TOCK >> 2 ) ;
+        sleepC s( tinP , TAG( TAGiDnULL ) ) ;
     {
-    while( cbToDo )
-    countT cbToDo = pInfo->cbUsed ;
-    static byteT pbTock[ TOCK ] ;
+    while( !ether && cDone < cWorkers )
 
-    fileC fiOut( tinP , "g:\\sources\\install.wim" , ifcOPENaCCESS_W , 0 , flOPENdETAILS_LOCsEQ , ifcOPENhOW_nCeR , flFILEaTTR_null , flFILEc_null , 1 ) ;
+    sgnGo.giveF( tinP ) ;
+    etThread.traceF( tinP , T("master:  go!") , flTRACE_HOMEeCHOgORILLAhOME | flTRACE_ECHOoNLY | flTRACE_FORCEnOsILENCE ) ;
+
+    cDone = 0 ;
+    idCycle ++ ;
 {
-if( pInfo )
-tinP.pEther->diskFileQueryF( tinP , pInfo , fiIn ) ; ___( pInfo ) ;
-static ZE( infoFileS* , pInfo ) ;
+while( !ether )
 
-fileC fiIn( tinP , "h:\\sources\\install.wim" , ifcOPENaCCESS_R , 0 , flOPENdETAILS_LOCsEQ , ifcOPENhOW_nFeO , flFILEaTTR_null , flFILEc_null , 1 ) ;
+}
+    ++ s ; ether.osSleepF( tinP , TOCK >> 0 ) ;
+    sleepC s( tinP , TAG( TAGiDnULL ) ) ;
+{
+
+while( cDo -- ) etThread.osThreadF( TaRG1( tmWorkerF ) , (countT)&sgnGo , (countT)&tName , (countT)&idCycle , (countT)&cDone ) ;
+countT cDo = cWorkers ;
+const countT cWorkers = 0x20 ;
+
+ZE( countT , cDone ) ;
+ZE( countT , idCycle ) ;
+TN( tName , "38.111.147.106//http/home.6.html" ) ;
+
+signC sgnGo( tinP , TAG( TAGiDnULL ) ) ;
 
 TODO                                  
 
-/*1*/WAKEsHOWtEXT( "scratch.9." )/*1*/
+DONE( tmWorkerF )
+}
+
+    }
+        inc02AM( cDoneP ) ;
+
+        etThread.traceF( tinP , T("worker:  received [idCycle,timeE]:    ")+TF2(idCycleP,flFORMAT_UNSIGNED|flFORMAT_NObIGITvALUES)+tb4+TT(timeE1,timeE2) , flTRACE_HOMEeCHOgORILLAhOME | flTRACE_ECHOoNLY | flTRACE_FORCEnOsILENCE ) ;
+        etThread.osTimeSubtractF( tinP , timeE1 , timeE2 , timeA1 , timeA2 ) ;
+
+        etThread.delF( tinP , pbIn ) ;
+        etThread.osTimeNowF( tinP , timeE1 , timeE2 ) ;
+        etThread.boxGetShadowF( tinP , pbIn , cbIn , tNameP ) ; ___( pbIn ) ;
+        ZE( countT , cbIn ) ;
+        ZE( byteT* , pbIn ) ;
+
+        etThread.osTimeNowF( tinP , timeA1 , timeA2 ) ;
+        sgnGoP.waitF( tinP ) ;
+
+        ZE( sCountT , timeE2 ) ;
+        ZE( countT  , timeE1 ) ;
+        ZE( sCountT , timeA2 ) ;
+        ZE( countT  , timeA1 ) ;
+    {
+    while( !ether )
+    TN( tb4 , "    " ) ;
+
+    countT& cDoneP   = *(countT*)pTaskP->c4 ;
+    countT& idCycleP = *(countT*)pTaskP->c3 ;
+    textC&  tNameP   =  *(textC*)pTaskP->c2 ;
+    signC&  sgnGoP   =  *(signC*)pTaskP->c1 ;
+{
+if( pTaskP && pTaskP->c1 && pTaskP->c2 && pTaskP->c3 && pTaskP->c4 )
+TASK( tmWorkerF )
+
+/*1*/WAKEsHOWtEXT( "example.other.boxC.http" )/*1*/
 /**/
 */
 this is where you document how to use this program, writing from the bottom up, using IdeaFarm (tm) Knowledge Tree indenting

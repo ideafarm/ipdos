@@ -23,7 +23,10 @@ if( POOP ) { CONoUTrAW( "loafing with POOP in my pants\r\n" ) ; }
         {
         if( !bSandbox )
 
-        etThread.osThreadF( TaRG1( tmWatch05GorillaHomeF ) ) ;
+        //while( cDo -- ) etThread.osThreadF( TaRG1( tmWatch05GorillaHomeF ) , (countT)&sgnGo ) ;
+        //countT cDo = 0x10 ;
+
+        //etThread.osThreadF( TaRG1( tmWatch05GorillaHomeMasterF ) , (countT)&sgnGo ) ;
 
     #else
 
@@ -52,6 +55,8 @@ else
     ether.traceF( tinP , T("WATCH: doing nothing since i am global impotent") ) ;
 {
 if( ether )
+
+signC sgnGo( tinP , TAG( TAGiDnULL ) ) ;
 
 //etThread.loafIF( tinP ) ; //TO FIND A BUG
 
@@ -91,11 +96,6 @@ DONE( tmWatch05GorillaHomeF )
 }
     TELL( "terminating" ) ;
     }
-        }
-            ++ s ; ether.osSleepF( tinP , TOCK ) ;
-            sleepC s( tinP , TAG( TAGiDnULL ) ) ;
-        {
-
         etThread.traceF( tinP , T("gorillaHome:  received [timeE1|timeE2]:    ")+TT(timeE1,timeE2) , flTRACE_HOMEeCHOgORILLAhOME | flTRACE_ECHOoNLY | flTRACE_FORCEnOsILENCE ) ;
         etThread.osTimeSubtractF( tinP , timeE1 , timeE2 , timeA1 , timeA2 ) ;
         etThread.osTimeNowF( tinP , timeE1 , timeE2 ) ;
@@ -112,7 +112,7 @@ DONE( tmWatch05GorillaHomeF )
                             }
                                 }
                                     etThread.traceF( tinP , T("gorillaHome:  error: unexpected reply") , flTRACE_HOMEeCHO | flTRACE_FORCEnOsILENCE , ifcIDtRACEdIVERT_1 ) ;
-                                    POOPR
+                                    POOPRqUIET
                                 {
                                 if( POOP )
 
@@ -128,7 +128,7 @@ DONE( tmWatch05GorillaHomeF )
                             else
                             }
                                 etThread.traceF( tinP , T("gorillaHome:  error: could not read reply") , flTRACE_HOMEeCHO | flTRACE_FORCEnOsILENCE , ifcIDtRACEdIVERT_1 ) ;
-                                POOPR
+                                POOPRqUIET
                             {
                             if( POOP )
 
@@ -157,13 +157,13 @@ DONE( tmWatch05GorillaHomeF )
                         else
                         }
                             etThread.traceF( tinP , T("gorillaHome:  error: could not write request") , flTRACE_HOMEeCHOgORILLAhOME | flTRACE_ECHOoNLY | flTRACE_FORCEnOsILENCE ) ;
-                            POOPR
+                            POOPRqUIET
                         {
                         if( POOP )
 
-                        etThread.traceF( tinP , T("gorillaHome:  wrote   request ") , flTRACE_HOMEeCHOgORILLAhOME | flTRACE_ECHOoNLY | flTRACE_FORCEnOsILENCE ) ;
+                        //etThread.traceF( tinP , T("gorillaHome:  wrote   request ") , flTRACE_HOMEeCHOgORILLAhOME | flTRACE_ECHOoNLY | flTRACE_FORCEnOsILENCE ) ;
                         sGet.writeF( tinP , (osTextT*)tRequest ) ;
-                        etThread.traceF( tinP , T("gorillaHome:  writing request ") , flTRACE_HOMEeCHOgORILLAhOME | flTRACE_ECHOoNLY | flTRACE_FORCEnOsILENCE ) ;
+                        //etThread.traceF( tinP , T("gorillaHome:  writing request ") , flTRACE_HOMEeCHOgORILLAhOME | flTRACE_ECHOoNLY | flTRACE_FORCEnOsILENCE ) ;
 
                         etThread.osTimeNowF( tinP , timeA1 , timeA2 ) ;
                         ZE( sCountT , timeA2 ) ;
@@ -176,7 +176,7 @@ DONE( tmWatch05GorillaHomeF )
                     else
                     }
                         etThread.traceF( tinP , T("gorillaHome:  error: could not get my connection endpoint name") , flTRACE_HOMEeCHOgORILLAhOME | flTRACE_ECHOoNLY | flTRACE_FORCEnOsILENCE ) ;
-                        POOPR
+                        POOPRqUIET
                     {
                     if( POOP )
 
@@ -187,12 +187,15 @@ DONE( tmWatch05GorillaHomeF )
                 else
                 }
                     etThread.traceF( tinP , T("gorillaHome:  error: could not connect") , flTRACE_HOMEeCHOgORILLAhOME | flTRACE_ECHOoNLY | flTRACE_FORCEnOsILENCE ) ;
-                    POOPR
+                    POOPRqUIET
                 {
                 if( POOP )
 
                 sGet.connectF( tinP , 0x50 , pNicName[ 0 ] , 1 ) ;
-                etThread.traceF( tinP , T("gorillaHome:  connecting:    ") , flTRACE_HOMEeCHOgORILLAhOME | flTRACE_ECHOoNLY | flTRACE_FORCEnOsILENCE ) ;
+
+                sgnGo.waitF( tinP ) ;
+
+                //etThread.traceF( tinP , T("gorillaHome:  connecting:    ") , flTRACE_HOMEeCHOgORILLAhOME | flTRACE_ECHOoNLY | flTRACE_FORCEnOsILENCE ) ;
                 home.idPortWatchHttpDeadman1 = sGet.bindF( tinP ) ;
                 socketC sGet( tinP , *tinP.pEtScratch , TAG( TAGiDnULL ) ) ;
 
@@ -211,7 +214,7 @@ DONE( tmWatch05GorillaHomeF )
             }
                 }
                     etThread.traceF( tinP , T("gorillaHome:  not received") , flTRACE_HOMEeCHOgORILLAhOME | flTRACE_ECHOoNLY | flTRACE_FORCEnOsILENCE ) ;
-                    POOPR
+                    POOPRqUIET
                 {
                 if( POOP )
 
@@ -237,9 +240,29 @@ DONE( tmWatch05GorillaHomeF )
     TN( tNameHome , "38.111.147.101//http//home.1.html" ) ;
     TN( tb4 , "    " ) ;
     homeS& home = homeS::homeIF() ;
+
+    signC& sgnGo = *(signC*)pTaskP->c1 ;
 {
-if( pTaskP )
+if( pTaskP && pTaskP->c1 )
 TASK( tmWatch05GorillaHomeF )
+
+DONE( tmWatch05GorillaHomeMasterF )
+}
+    }
+        }
+            ++ s ; ether.osSleepF( tinP , TOCK << 4 ) ;
+            sleepC s( tinP , TAG( TAGiDnULL ) ) ;
+        {
+
+        sgnGo.giveF( tinP ) ;
+        etThread.traceF( tinP , T("gorillaHome:  go!") , flTRACE_HOMEeCHOgORILLAhOME | flTRACE_ECHOoNLY | flTRACE_FORCEnOsILENCE ) ;
+    {
+    while( !ether )
+
+    signC& sgnGo = *(signC*)pTaskP->c1 ;
+{
+if( pTaskP && pTaskP->c1 )
+TASK( tmWatch05GorillaHomeMasterF )
 
 DONE( tmWatch05Deadman2F )
 }
