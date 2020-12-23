@@ -27,6 +27,7 @@ paint dialog active standout button bright white on cyan
 display all /close
 display status
 display toolbar /fixed 0
+display calls /close 0,3640,9855,4745
 display file /close 0,0,9999,9997
 display functions /close 3510,2639,2286,4433
 display log /close 0,0,5589,3146
@@ -36,12 +37,11 @@ display variable /close 0,3575,3123,1534
 display thread /open 3672,2249,4986,6773
 display break /open 0,1144,5175,3510
 display locals /open 0,5538,4455,4446
+display modules /open 8064,0,1935,9997
+display source /open 0,0,9999,9334
+display watch /open 4905,5850,5094,3822
 display register /open 2286,5759,5940,1950
 display assembly /open 0,0,8136,9997
-display modules /open 8064,0,1935,9997
-display watch /open 4905,8060,5094,1638
-display calls /open 0,3640,9855,4745
-display source /open 0,0,9999,9334
 font all {-13 0 0 0 400 0 0 0 0 1 2 1 49 "Courier"}
 font assembly {-13 0 0 0 400 0 0 0 0 1 1 1 1 "Courier"}
 font break {-13 0 0 0 400 0 0 0 0 1 1 1 1 "Courier"}
@@ -97,6 +97,9 @@ set types {
   }
   struct infoFileS { 
    field cbUsed { decimal }
+  }
+  struct poopC { 
+   field idLineGrunt { decimal }
   }
 }
 set macro source v {

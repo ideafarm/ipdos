@@ -4492,7 +4492,6 @@ use this rather than _ to avoid the overhead of _
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.1120056b.ETHERlIST2bEFOREoPTIONALbREAK END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.1120056c.ETHERlIST3aFTERoPTIONALbREAK BEGIN
 
-
 //
 // Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
@@ -4511,12 +4510,9 @@ use this rather than _ to avoid the overhead of _
                 }                                                                                                                   \
                 else                                                                                                                \
                 {                                                                                                                   \
+                    POOPRqUIET                                                                                                      \
                     if( !_pScoop ) break ;                                                                                          \
-                    else                                                                                                            \
-                    {                                                                                                               \
-                        POOPRqUIET                                                                                                  \
-                        DEL( _pScoop ) ;                                                                                            \
-                    }                                                                                                               \
+                    else           DEL( _pScoop ) ;                                                                                 \
                 }                                                                                                                   \
             }                                                                                                                       \
         }                                                                                                                           \

@@ -234,16 +234,16 @@
             while( bNoQuitEarly || ( cDo && -- cDo ) ) ;
             }
                 }
-                    ++ s ; ether.osSleepF( tinP ) ; //U::20190903@2353: CALLING THIS WHEN ether IS IMPOTENT
-                    ether.traceF( tinP , T("boxC::boxC / http / after trying all ip addresses, napping for a wink [cNicName]: ")+TF2(cNicName,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
-
                     }
-                        ether.traceF( tinP , tSay ) ;
-                        else           tSay = T("boxC::boxC / http / could not obtain a dns list [psttHost]: ")+T(psttHost) ;
-                        if( cNicName ) tSay = T("boxC::boxC / http / no hosts responded [cNicName]: ")+TF2(cNicName,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ;
-                        TN( tSay , "" ) ;
+                        ++ s ; ether.osSleepF( tinP ) ; //U::20190903@2353: CALLING THIS WHEN ether IS IMPOTENT
+                        ether.traceF( tinP , T("boxC::boxC / http / after trying all ip addresses, napping for a wink [cNicName]: ")+TF2(cNicName,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
                     {
-                    if( cDo == 1 )
+                    if( bNoQuitEarly || cDo > 1 )
+
+                    ether.traceF( tinP , tSay ) ;
+                    else           tSay = T("boxC::boxC / http / could not obtain a dns list [psttHost]: ")+T(psttHost) ;
+                    if( cNicName ) tSay = T("boxC::boxC / http / no hosts responded [cNicName]: ")+TF2(cNicName,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ;
+                    TN( tSay , "" ) ;
                 {
                 if( !pSControl )
 
@@ -256,7 +256,7 @@
                         }
                             }
                                 DEL( pSControl ) ;
-                                POOPR
+                                POOPRqUIET
                             {
                             else
                             }
@@ -281,7 +281,7 @@
                         for( countT offi = 0 ; offi < cNicName ; offi ++ )
                     {
                     else
-                    if( POOP ) { POOPR ; }
+                    if( POOP ) { POOPRqUIET ; }
 
                     __Z( cNicName ) ;
                     __Z( pNicName ) ;
