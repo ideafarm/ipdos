@@ -267,12 +267,13 @@
             while( !ether && ( bNoQuitEarly || ( cTries && -- cTries ) ) ) ; // thirdC::thPrimeIF( tinP ) IS NOT CHECKED HERE BECAUSE IT WOULD HANG IF I AM CALLED DURING TERMINATION, AFTER thPrimeIF HAS BEEN DESTROYED
             }
                 }
-                    ++ s ; ether.osSleepF( tinP ) ;
-                    ether.traceF( tinP , T("boxC::getF / napping for a wink") ) ;
+                    }
+                        ++ s ; ether.osSleepF( tinP ) ;
+                        ether.traceF( tinP , T("boxC::getF / napping for a wink") ) ;
+                    {
+                    if( bNoQuitEarly || cTries > 1 )
 
-if( pSControl ) break ; //U:: TO FIND A BUG 20201221@1833
-
-                    if( POOP ) POOPR
+                    if( POOP ) POOPRqUIET
 
                     }
                         pSControl->connectF( tinP , /*port 80*/idPort , hidIfo , cOpenTries ) ;
@@ -290,7 +291,7 @@ if( pSControl ) break ; //U:: TO FIND A BUG 20201221@1833
 
                     pSControl->etherF( tinP , etSave ) ;
 
-                    POOPR
+                    POOPRqUIET
                 {
                 else
                 }
