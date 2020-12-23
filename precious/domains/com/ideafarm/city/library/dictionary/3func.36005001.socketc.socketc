@@ -47,8 +47,10 @@
     
         if( F(flags) & flSOCKETc_CRYPTfOREIGNsSL ) etherP.openSsl_getContextF( tinP , hSslContext , psttPemCertificatesP , psttPemPrivateKeyP ) ;
 
-        if( idleTimeAllowedWrite && idleTimeAllowedWrite != SOCKETtIMEOUTdEFAULTwAN && idleTimeAllowedRead  != SOCKETtIMEOUTdEFAULTlAN ) pEther->traceF( tinP , T("socketC / unusual parameter value [this,idleTimeAllowedWrite]: ")+TF2((countT)this,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+TF2(idleTimeAllowedWrite,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
-        if( idleTimeAllowedRead  && idleTimeAllowedRead  != SOCKETtIMEOUTdEFAULTwAN && idleTimeAllowedRead  != SOCKETtIMEOUTdEFAULTlAN ) pEther->traceF( tinP , T("socketC / unusual parameter value [this,idleTimeAllowedRead ]: ")+TF2((countT)this,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+TF2(idleTimeAllowedRead ,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
+            pEther->traceF( tinP , T("socketC / unusual parameter value [this,idleTimeAllowedWrite]: ")+TF2((countT)this,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+TF2(idleTimeAllowedWrite,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
+        if( idleTimeAllowedWrite && idleTimeAllowedWrite != SOCKETtIMEOUTdEFAULTwAN && idleTimeAllowedRead  != SOCKETtIMEOUTdEFAULTlAN )
+            pEther->traceF( tinP , T("socketC / unusual parameter value [this,idleTimeAllowedRead ]: ")+TF2((countT)this,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+TF2(idleTimeAllowedRead ,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
+        if( idleTimeAllowedRead  && idleTimeAllowedRead  != SOCKETtIMEOUTdEFAULTwAN && idleTimeAllowedRead  != SOCKETtIMEOUTdEFAULTlAN )
     
         //if( idleTimeAllowedWrite && idleTimeAllowedWrite != SOCKETtIMEOUTdEFAULTwAN && idleTimeAllowedRead  != SOCKETtIMEOUTdEFAULTlAN ) { BLAMMO ; } 
         //if( idleTimeAllowedRead  && idleTimeAllowedRead  != SOCKETtIMEOUTdEFAULTwAN && idleTimeAllowedRead  != SOCKETtIMEOUTdEFAULTlAN ) { BLAMMO ; }
@@ -107,9 +109,9 @@ psttPemPrivateKey( 0 )
 psttPemCertificates( 0 ) ,
 hSslContext( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_openSslContext ) ,
 pMapPortBind( 0 ) ,
-idleTimeAllowedWrite( pIdleTimeAllowedWriteP ? *pIdleTimeAllowedWriteP : F(flagsP) & flSOCKETc_CRYPTfOREIGNsSL ? SOCKETtIMEOUTdEFAULTwAN : tinP.pAdamGlobal3->_socketC_.alwaysZe ) ,
-idleTimeAllowedRead(  pIdleTimeAllowedReadP  ? *pIdleTimeAllowedReadP  : F(flagsP) & flSOCKETc_CRYPTfOREIGNsSL ? SOCKETtIMEOUTdEFAULTwAN : tinP.pAdamGlobal3->_socketC_.alwaysZe ) ,
-timeAllowedConnected( pTimeAllowedConnectedP ? *pTimeAllowedConnectedP : F(flagsP) & flSOCKETc_CRYPTfOREIGNsSL ? tinP.pAdamGlobal3->_socketC_.alwaysZe   : tinP.pAdamGlobal3->_socketC_.alwaysZe ) , // SSL IS A PIECE OF SHIT: IT CAN PEG CPU FOREVER IN AN INFINITE LOOP ; 20161201@1201: CHANGED FROM TICK TO ZE TO AVOID CANCELING LONG CLOUD TRANSFERS.  HOPEFULLY THE IDLE LIMITS WILL SUFFICE TO KILL SSL PEGGING CPU
+idleTimeAllowedWrite( pIdleTimeAllowedWriteP ? *pIdleTimeAllowedWriteP : F(flagsP) & flSOCKETc_CRYPTfOREIGNsSL ? tinP.pAdamGlobal3->_socketC_.alwaysTimeoutDefaultWan : tinP.pAdamGlobal3->_socketC_.alwaysZe ) ,
+idleTimeAllowedRead(  pIdleTimeAllowedReadP  ? *pIdleTimeAllowedReadP  : F(flagsP) & flSOCKETc_CRYPTfOREIGNsSL ? tinP.pAdamGlobal3->_socketC_.alwaysTimeoutDefaultWan : tinP.pAdamGlobal3->_socketC_.alwaysZe ) ,
+timeAllowedConnected( pTimeAllowedConnectedP ? *pTimeAllowedConnectedP : F(flagsP) & flSOCKETc_CRYPTfOREIGNsSL ? tinP.pAdamGlobal3->_socketC_.alwaysZe                : tinP.pAdamGlobal3->_socketC_.alwaysZe ) , // SSL IS A PIECE OF SHIT: IT CAN PEG CPU FOREVER IN AN INFINITE LOOP ; 20161201@1201: CHANGED FROM TICK TO ZE TO AVOID CANCELING LONG CLOUD TRANSFERS.  HOPEFULLY THE IDLE LIMITS WILL SUFFICE TO KILL SSL PEGGING CPU
 psttName( 0 ) ,
 pczKeyTopSecretPeer( 0 ) ,
 pczKeyTopSecret( 0 ) ,

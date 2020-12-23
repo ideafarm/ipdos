@@ -33141,7 +33141,7 @@ each textC object contains an unmodifiable string of strokes
 /*1*/class ag3_socketC_C/*1*/
 {
     const countT     alwaysZe ;
-    const countT     alwaysTick ;
+    const countT     alwaysTimeoutDefaultWan ;
     grabC            grab ;
     countT           cRef ;
     nicNameC         nnLever ;
