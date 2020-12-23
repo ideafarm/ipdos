@@ -107,8 +107,8 @@ psttPemPrivateKey( 0 )
 psttPemCertificates( 0 ) ,
 hSslContext( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_openSslContext ) ,
 pMapPortBind( 0 ) ,
-idleTimeAllowedWrite( pIdleTimeAllowedWriteP ? *pIdleTimeAllowedWriteP : F(flagsP) & flSOCKETc_CRYPTfOREIGNsSL ? tinP.pAdamGlobal3->_socketC_.alwaysTick : tinP.pAdamGlobal3->_socketC_.alwaysZe ) ,
-idleTimeAllowedRead(  pIdleTimeAllowedReadP  ? *pIdleTimeAllowedReadP  : F(flagsP) & flSOCKETc_CRYPTfOREIGNsSL ? tinP.pAdamGlobal3->_socketC_.alwaysTick : tinP.pAdamGlobal3->_socketC_.alwaysZe ) ,
+idleTimeAllowedWrite( pIdleTimeAllowedWriteP ? *pIdleTimeAllowedWriteP : F(flagsP) & flSOCKETc_CRYPTfOREIGNsSL ? SOCKETtIMEOUTdEFAULTwAN : tinP.pAdamGlobal3->_socketC_.alwaysZe ) ,
+idleTimeAllowedRead(  pIdleTimeAllowedReadP  ? *pIdleTimeAllowedReadP  : F(flagsP) & flSOCKETc_CRYPTfOREIGNsSL ? SOCKETtIMEOUTdEFAULTwAN : tinP.pAdamGlobal3->_socketC_.alwaysZe ) ,
 timeAllowedConnected( pTimeAllowedConnectedP ? *pTimeAllowedConnectedP : F(flagsP) & flSOCKETc_CRYPTfOREIGNsSL ? tinP.pAdamGlobal3->_socketC_.alwaysZe   : tinP.pAdamGlobal3->_socketC_.alwaysZe ) , // SSL IS A PIECE OF SHIT: IT CAN PEG CPU FOREVER IN AN INFINITE LOOP ; 20161201@1201: CHANGED FROM TICK TO ZE TO AVOID CANCELING LONG CLOUD TRANSFERS.  HOPEFULLY THE IDLE LIMITS WILL SUFFICE TO KILL SSL PEGGING CPU
 psttName( 0 ) ,
 pczKeyTopSecretPeer( 0 ) ,

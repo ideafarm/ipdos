@@ -276,7 +276,7 @@
                             if( !POOP ) pSControl->connectF( tinP , idPort , pNicName[ offi ] , 1 ) ;
 
                             __Z( pSControl ) ;
-                            pSControl = new( 0 , tinP , LF ) socketC( tinP , *tinP.pEtScratch , TAG( TAGiDnULL ) ) ; ___( pSControl ) ;
+                            pSControl = new( 0 , tinP , LF ) socketC( tinP , *tinP.pEtScratch , TAG( TAGiDnULL ) , 0 , bHttps ? flSOCKETc_CRYPTfOREIGNsSL : flSOCKETc_null ) ; ___( pSControl ) ;
                         {
                         for( countT offi = 0 ; offi < cNicName ; offi ++ )
                     {
@@ -300,8 +300,10 @@
             boolT bNoQuitEarly = !cOpenTries ;
         {
         if( !POOP )
+
+        const boolT bHttps = !ether.strCompareF( tinP , psttType , T("https") ) ;
     {
-    else if( !ether.strCompareF( tinP , psttType , T("http") ) )
+    else if( !ether.strCompareF( tinP , psttType , T("http") ) ||  !ether.strCompareF( tinP , psttType , T("https") ) )
     }
     {
     else if( !ether.strCompareF( tinP , psttType , T("smtp") ) )
@@ -480,6 +482,7 @@
         else if( !ether.strCompareF( tinP , psttType , T("box.server"       ) ) ) idPort = ifcPORToLD1bOXsERVER     ;
         else if( !ether.strCompareF( tinP , psttType , T("news"             ) ) ) idPort = 119 ;
         else if( !ether.strCompareF( tinP , psttType , T("pop"              ) ) ) idPort = 110 ;
+        else if( !ether.strCompareF( tinP , psttType , T("https"            ) ) ) idPort = 443 ;
         else if( !ether.strCompareF( tinP , psttType , T("http"             ) ) ) idPort =  80 ;
         else if( !ether.strCompareF( tinP , psttType , T("smtp"             ) ) ) idPort =  25 ;
              if( !ether.strCompareF( tinP , psttType , T("ftp"              ) ) ) idPort = ifcPORToLD1fTP ;

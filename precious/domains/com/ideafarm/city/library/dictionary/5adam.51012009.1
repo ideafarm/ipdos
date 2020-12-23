@@ -35,7 +35,7 @@ const countT cWorkers = 0x20 ;
 
 ZE( countT , cDone ) ;
 ZE( countT , idCycle ) ;
-TN( tName , "38.111.147.106//http/home.2.html" ) ;
+TN( tName , "38.111.147.106//https/home.2.html" ) ;
 
 signC sgnGo( tinP , TAG( TAGiDnULL ) ) ;
 
@@ -47,12 +47,23 @@ DONE( tmWorkerF )
     }
         inc02AM( cDoneP ) ;
 
-        etThread.traceF( tinP , T("worker:  received [idCycle,timeE]:    ")+TF2(idCycleP,flFORMAT_UNSIGNED|flFORMAT_NObIGITvALUES)+tb4+TT(timeE1,timeE2) , flTRACE_HOMEeCHOgORILLAhOME | flTRACE_ECHOoNLY | flTRACE_FORCEnOsILENCE ) ;
+        etThread.traceF( tinP , T(bFail?"worker:  FAIL     [idCycle,timeE]:    ":"worker:  received [idCycle,timeE]:    ")+TF2(idCycleP,flFORMAT_UNSIGNED|flFORMAT_NObIGITvALUES)+tb4+TT(timeE1,timeE2) , flTRACE_HOMEeCHOgORILLAhOME | flTRACE_ECHOoNLY | flTRACE_FORCEnOsILENCE ) ;
         etThread.osTimeSubtractF( tinP , timeE1 , timeE2 , timeA1 , timeA2 ) ;
 
         etThread.delF( tinP , pbIn ) ;
         etThread.osTimeNowF( tinP , timeE1 , timeE2 ) ;
-        etThread.boxGetShadowF( tinP , pbIn , cbIn , tNameP , 1 ) ; ___( pbIn ) ;
+
+        }
+            }
+                bFail = 1 ;
+                POOPRqUIET
+            {
+            if( POOP )
+            tinP.pEtScratch->boxGetShadowF( tinP , pbIn , cbIn , tNameP , 1 ) ; ___( pbIn ) ;
+            SCOOPS
+        {
+        IFsCRATCH
+        ZE( boolT , bFail ) ;
         ZE( countT , cbIn ) ;
         ZE( byteT* , pbIn ) ;
 
