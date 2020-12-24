@@ -5153,7 +5153,8 @@ after i return, that countT object will contain 1
 /*3*/
 #define flTHREADmODE4_INoUTfRAMEdEFERwRITINGaPPtELEMETRY                                0xe0000110
 #define flTHREADmODE4_INoUTfRAMEdOnOTcOLLECTaPPtELEMETRY                                0xe0000210
-#define flTHREADmODE4_DOnOTfLUSHpENDINGaPPtELEMETRY                                     0xe0000410
+#define flTHREADmODE4_INoUTfRAMEfORCEcOLLECTaPPtELEMETRY                                0xe0000410
+#define flTHREADmODE4_DOnOTfLUSHpENDINGaPPtELEMETRY                                     0xe0000810
 /*3*/
 #define flTHREADmODE4_null    0xe0000010
 
@@ -33808,7 +33809,6 @@ ipMe is used to support synchronicity
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.tellS : 1snip.15000058.tells END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.tellC : 1snip.15000053.tellc BEGIN
 
-
 //
 // Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
@@ -33825,7 +33825,8 @@ ipMe is used to support synchronicity
 {
 /**/
     byteT*       pbData ;
-    const boolT  bUseHeap ;
+    const boolT  bUseZombie ;
+    const boolT  bUsePool ;
     const countT ebp ;
     tinS*        pTin ; //FOR MY DESTRUCTOR
 

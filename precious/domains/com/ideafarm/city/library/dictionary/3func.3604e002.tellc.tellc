@@ -31,14 +31,14 @@
         if( !pbData ) BLAMMO
         if( !pbP != !cbP ) BLAMMO
     
-        if( !bUseHeap ) { ___( pbData ) ; }
+        if( bUsePool ) { ___( pbData ) ; }
         }
             ;
-                    : ( PUSE.newF( tinP , LF , pbFromPool , sizeof( tellS ) + cbP ) , pbFromPool )
-                    ? processGlobal3I.heap.newF( tinP , LF , sizeof( tellS ) + cbP )
-                : bUseHeap
+                    : processGlobal3I.heap.newF( tinP , LF , sizeof( tellS ) + cbP )
+                    ? ( PUSE.newF( tinP , LF , pbFromPool , sizeof( tellS ) + cbP ) , pbFromPool )
+                : bUsePool
                 ? pbZombieP
-            pbData = pbZombieP
+            pbData = bUseZombie
             ZE( byteT* , pbFromPool ) ;
         {
     {
@@ -49,7 +49,8 @@
 pTin( &tinP ) //FOR MY DESTRUCTOR
 pbData( 0 ) ,
 ebp( ebpP ) ,
-bUseHeap( /*!tinP.pPoolUse*/ 1 ) ,
+bUsePool(    !pbZombieP && tinP.pPoolUse ) ,
+bUseZombie( !!pbZombieP ) ,
 /*1*/tellC::tellC( tinS& tinP , const countT idLineCtP , const countT idiFileCtP , const byteT* const pbBitsCtP , const countT idTypeP , const byteT* const pbP , const countT cbP , byteT* const pbZombieP , const countT cbZombieP , const boolT bSynchP , const countT ebpP ) :/*1*/
 
 //ASSUME: poolOldWork IS GUARANTEED TO EXIST BEFORE ANY CHILD THREADS ARE LAUNCHED AND TO CONTINUE TO EXIST UNTIL AFTER ALL CHILD THREADS END

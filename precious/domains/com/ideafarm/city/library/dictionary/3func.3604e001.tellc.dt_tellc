@@ -8,8 +8,9 @@
 
 
 }
-    else           PUSE( tinP , pbData ) ;
-    if( bUseHeap ) processGlobal3I.heap.delF( tinP , pbData ) ;
+    else                   PUSE( tinP , pbData ) ;
+    else if( !bUsePool   ) processGlobal3I.heap.delF( tinP , pbData ) ;
+         if(  bUseZombie ) ;
 
     POOPIE
     tinS& tinP = *pTin ; //DO IT THIS WAY SO CAN TELL ON CT/DT OF tinEarlyLate
