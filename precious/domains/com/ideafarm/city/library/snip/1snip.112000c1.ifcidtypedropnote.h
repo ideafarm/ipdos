@@ -246,4 +246,5 @@
 0xdddd042c , "diskFindHandleS" ,
 0xdddd042d , "cachedS" ,
 0xdddd042e , "cacheC" ,
-0xdddd042f , "taskDrivenServerParamsS"
+0xdddd042f , "taskDrivenServerJobS" ,
+0xdddd0430 , "bytesC"
