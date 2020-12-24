@@ -183,8 +183,8 @@
 
         }
             }
+                THREADmODE3rESTORE
                 THREADmODE1rESTORE ;
-
                 }
                     NEWbOOK2sETfLAG
                     new( 0 , tinP , PBbOOKbACKnOW , SIZEOF_bookC ) bookC( tinP , TAG( TAGiDnULL ) , tName , idStateSpace , flagsCtBook & ~( F(flBOOKSc_WRITER) ) , 0 , bFill , idMemorySpace ) ; // A:ASSUME: CALLER ALWAYS WANTS TO READ THE NEW BOOK ; TO SUPPORT A WRITER, A FLAG CAN BE DEFINED TO CHANGE THIS BEHAVIOR
@@ -201,6 +201,7 @@
                     cbToDo = 0 ;
                 {
                 if( F(flagsP) & flBOOKScrEAD_STILLhUNGRYiSoK && !bookC::bFileExistsIF( tinP , *tinP.pEther , tName , idStateSpace , idMemorySpace ) )
+                THREADmODE3oN( flTHREADmODE3_ALLOWeXPLICITmEMORYsPACE )
 
                 //20181107@1116: THIS BUG WAS WORKED AROUND BY EDITING OTHER CODE SO THAT THIS CODE ISN'T EXERCIZED.  THIS CODE IS INCORRECT.  CORRECT CODE WILL AVOID DELETING A bookC AND THEN ATTEMPTING TO UNDO THAT DELETION
                 //U:: BUG: THIS WILL CREATE A ZOMBIE POINTER TO book0C; REWRITE TO AVOID DELETING THE BOOK
