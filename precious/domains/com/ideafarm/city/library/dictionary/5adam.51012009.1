@@ -13,7 +13,7 @@ sgnGo.giveF( tinP ) ;
 }
     }
         //etThread.traceF( tinP , T("napped  [cDone]:    ")+TF2(cDone,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED ) ) ;
-        ++ s ; ether.osSleepF( tinP , TOCK >> 2 ) ;
+        ++ s ; ether.osSleepF( tinP , TOCK >>6 ) ;
         sleepC s( tinP , TAG( TAGiDnULL ) ) ;
         //etThread.traceF( tinP , T("napping [cDone]:    ")+TF2(cDone,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED ) ) ;
     {
@@ -34,7 +34,7 @@ while( !ether )
 
 while( cDo -- ) etThread.osThreadF( TaRG1( tmWorkerF ) , (countT)&sgnGo , (countT)&tName , (countT)&idCycle , (countT)&cDone ) ;
 countT cDo = cWorkers ;
-const countT cWorkers = 0x1 ;
+const countT cWorkers = 0x8 ;
 
 ZE( countT , cDone ) ;
 ZE( countT , idCycle ) ;
@@ -54,6 +54,9 @@ etThread.traceF( tinP , T("tmWorkerF ending") ) ;
         etThread.osTimeSubtractF( tinP , timeE1 , timeE2 , timeA1 , timeA2 ) ;
 
         etThread.delF( tinP , pbIn ) ;
+        //CONoUTrAW( "\r\n" USCORE127 "\r\n" ) ;
+        //CONoUTrAW( pbIn ) ;
+        //CONoUTrAW( "\r\n" USCORE127 "\r\n" ) ;
         etThread.osTimeNowF( tinP , timeE1 , timeE2 ) ;
 
         }

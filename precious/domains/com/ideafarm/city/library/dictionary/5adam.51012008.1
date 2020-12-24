@@ -20,8 +20,52 @@ etThread.traceF( tinP , T("ok") ) ;
             ;
 
                 +tb4+TF2(perTuck,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FOREIGN)+T(" %")
+                +tDot+TF3(((countT*)&cTimeNet)[0],flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE|flFORMAT_FOREIGN,8)
+                +TF3(((countT*)&cTimeNet)[1],flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE|flFORMAT_FOREIGN,8)
+                T("T    ")
+
+            TN( tSay , "" ) ; tSay =
+
+            countT perTuck = (countT)( TUCK * cTimeNet / cTimeNetGrandTotal ) ;
+
+            }
+                if( postTitle ) postTitle += sizeof( countT ) ;
+                if( idFile ) postTitle = mapFileTitle( idFile ) ;
+                countT idFile = source.idFileRankF( tinP , pczFL[ 0 ] ) ;
+            {
+            if( pczFL[ 0 ] )
+            ZE( const osTextT* , postTitle ) ;
+        {
+        else
+        }
+            if( cTimeNetGrandTotal < was ) { BLAMMO ; }
+            cTimeNetGrandTotal += cTimeNet ;
+            count04T was = cTimeNetGrandTotal ;
+        {
+        if( idPass == 1 )
+
+        count04T& cTimeNet = *(count04T*)&(countT&)swTime ;
+
+        pczFL = (countT*)swTime.leverF( tinP , idf ) ;
+    {
+    for( countT idf = 1 ; idf <= cFlavors ; idf ++ )
+    countT cFlavors = swTime.cFlavorsF( tinP ) ;
+{
+for( countT idPass = 1 ; idPass <= 2 ; idPass ++ )
+ZE( count04T , cTimeNetGrandTotal ) ;
+etThread.traceF( tinP , T("net wall time consumption") ) ;
+
+}
+    }
+        }
+            etThread.traceF( tinP , tSay+tb4+TF3(pczFL[0],flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,8)+tb4+TF2(pczFL[1],flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+T(postTitle) , flTRACE_NOpREFIX ) ;
+
+            ;
+
+                +tb4+TF2(perTuck,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FOREIGN)+T(" %")
                 +tDot+TF3(((countT*)&cCpuNet)[0],flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE|flFORMAT_FOREIGN,8)
-                TF3(((countT*)&cCpuNet)[1],flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE|flFORMAT_FOREIGN,8)
+                +TF3(((countT*)&cCpuNet)[1],flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE|flFORMAT_FOREIGN,8)
+                T("C    ")
 
             TN( tSay , "" ) ; tSay =
 
@@ -161,8 +205,8 @@ count04T cCpuCyclesBookPer = !cBook ? 0 : cCpuCyclesBook / cBook ;
 
                                 }
                                     }
-                                        *(count04T*)&(countT&)swCpu += note.dCpuCyclesInNet ;
-
+                                        *(count04T*)&(countT&)swTime += note.dTimeInNet      ;
+                                        *(count04T*)&(countT&)swCpu  += note.dCpuCyclesInNet ;
                                         swTally ++ ;
 
                                         pczLever[ 1 ] = note.idLineInOut ;
@@ -470,6 +514,7 @@ TN( tb8   , "        " ) ;
 TN( tb4   , "    " ) ;
 TN( tn    , "" ) ;
 
+switchC swTime(  tinP , etThread , TAG( TAGiDnULL ) , flSTACKc_DOnOTsERIALIZE , pczFL , 0 , sizeof( count04T ) ) ;
 switchC swCpu(   tinP , etThread , TAG( TAGiDnULL ) , flSTACKc_DOnOTsERIALIZE , pczFL , 0 , sizeof( count04T ) ) ;
 switchC swTally( tinP , etThread , TAG( TAGiDnULL ) , flSTACKc_DOnOTsERIALIZE , pczFL ) ;
 /*static*/ const countT* pczFL = pczLever ;
