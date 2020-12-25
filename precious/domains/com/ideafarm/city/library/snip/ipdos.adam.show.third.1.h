@@ -11764,7 +11764,6 @@ if ifcIDtYPEjOBcOURSE_NAMED is used then this value must be followed immediately
 //CODEsYNCH: 0050014 00101a1 (ifcIDaDAM_KERNEL2MONITOR)
 
 /*3*/
-#define ifcIDaDAM_TOOLiNoUTfRAMEctELEMETRYrEPORTER                     0x510007a1
 #define ifcIDaDAMoLD_BASELINErOOT                                      0x51000000
 #define ifcIDaDAM_ROOTfTPsERVER                                        0x5100034e
 #define ifcIDaDAM_PATCHaLLmASTERS                                      0x51000359
@@ -11844,6 +11843,7 @@ if ifcIDtYPEjOBcOURSE_NAMED is used then this value must be followed immediately
 #define ifcIDaDAM_ROOThEAL                                             0x5100075e
 #define ifcIDaDAM_CLOAK                                                0x51000767
 #define ifcIDaDAM_TOOLwHITElISTuPDATER                                 0x51000793
+#define ifcIDaDAM_TOOLiNoUTfRAMEctELEMETRYrEPORTER                     0x510007a1
 #define ifcIDaDAM_STARTER1                                             0x51001001
 #define ifcIDaDAM_STARTER2                                             0x51001002
 #define ifcIDaDAM_STARTER3                                             0x51001003

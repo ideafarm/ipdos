@@ -3578,6 +3578,7 @@
 0x00000dfa , "\0\0\0\0countT etherC::openSsl_peekF( tinS& tinP , byteT* const pbP , const countT cbP , const handleC& hWrapperP )" ,
 0x00000dfb , "\0\0\0\0count04T etherC::etherDispenseSerialNumberF( tinS& tinP , const strokeS* const psttFileP )" ,
 0x00000dfc , "\0\0\0\0countT etherC::osTimeToOldTimeMsF( tinS& tinP , countT time1P , sCountT time2P )" ,
+0x00000dfd , "\0\0\0\0voidT etherC::etherDoHttpJobF( tinS& tinP , taskDrivenServerJobS& jobP , socketC*& psoP , sessionC& sessionP , countT idPortMeP , nicNameC nnMeP )" ,
 0x00000dfe , "\0\0\0\0infoDiskS::infoDiskS( tinS& tinP , thirdC& thirdP )" ,
 0x00000dff , "\0\0\0\0infoDiskS::~infoDiskS( voidT )" ,
 0x00000e00 , "\0\0\0\0infoDiskS& infoDiskS::operator<<( infoDisk1S& infoDisk1P )" ,
