@@ -77,11 +77,11 @@
                         else                             osTid = osTidMe ;
                         if( osTid )                      { BLAMMO ; }
                         else                             idDesireGrabber  = tinP.idDesire ;
-                        if( idDesireGrabber )            { BLAMMO ; }
+                        if( idDesireGrabber )            { tinP.pcUtility[ 0xf ] = idDesireGrabber ; BLAMMO ; }
                         if( cGrabbed == - 1 )            { BLAMMO ; }
                         inc02AM( cGrabbed ) ;
-                        if( cGrabbed )                   { BLAMMO ; }
-                        if( idGrabberOk != idGrabberMe ) { BLAMMO ; }
+                        if( cGrabbed )                   { tinP.pcUtility[ 0xf ] = cGrabbed ; BLAMMO ; }
+                        if( idGrabberOk != idGrabberMe ) { tinP.pcUtility[ 0xf ] = idGrabberOk ; tinP.pcUtility[ 0xe ] = idGrabberMe ; BLAMMO ; }
                         stat.cCollisionsNew = 0 ; //U:MIGHT OVERWRITE A FEW COLLISIONS THAT SHOULD BE COUNTED AS NEW (I.E. SINCE INCREMENTING idGrabberOk)
             
                         processGlobal1I._grabC_pgw[ ogw ].osTid = 0 ; //MUST BE ZEED LATH; NOTE THAT bDirty IS NOT RESET

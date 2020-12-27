@@ -284,13 +284,13 @@
             //CONoUTrAW( "\r\n" USCORE127 "\r\n" ) ;
             }
                 }
-                    //CONoUTrAW( postc ) ;
+                    //CONoUTrAW( postcWas ) ;
 
                     costHead += delta ;
 
                     }
                         *poste = 0 ;
-                        delta = poste - postc ;
+                        delta = poste - postcWas ;
                         bEnd = 1 ;
                     {
                     if( poste )
@@ -298,6 +298,8 @@
                     costRemain   -= delta ;
                     postc        += delta ;
                     costHeadPlus += delta ;
+
+                    osTextT* postcWas = postc ;
 
                     osTextT* poste = thirdC::c_strstrIF( tinP , postc , "\r\n\r\n" ) ;
                 {
