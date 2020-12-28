@@ -144,8 +144,7 @@
                                 //traceF( tinP , T("etherDoHttpJobF: cached this reply [maxAge]:    ")+TF2(maxAge,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) , flTRACE_FORCEnOsILENCE , idTraceDivert ) ;
 
                                 pzCache->pushF( tinP , psttn , postsReply , costo , maxAge , 1 ) ; // "1": "LENGTH PREFIXED, SO NEED TO USE POSTS( pb )"
-                                countT maxAge = bDeadman1 || bDeadman2 ? maxAgeDeadman : bTalkBody ? maxAgeMsNotFileTalkBody : maxAgeMsNotFileNotTalkBody ;
-                                boolT bTalkBody = !strCompareF( tinP , tSlashTalkBody , psttName ) ;
+                                countT maxAge = bDeadman1 || bDeadman2 ? maxAgeDeadman : /*U:: bTalkBody ? maxAgeMsNotFileTalkBody :*/ maxAgeMsNotFileNotTalkBody ;
 
                                 countT costo = COSTS( postsReply ) ;
                                 strMakeF( tinP , psttn , tNameCache ) ; ___( psttn ) ;
@@ -168,8 +167,7 @@
                             IFsCRATCH
                             TELL( "writing reply" ) ;
                             if( bDeadman1 ) traceF( tinP , T("U:: etherDoHttpJobF / 8") , flTRACE_HOMEeCHOdEADMAN1 | flTRACE_FORCEnOsILENCE | flTRACE_ECHOoNLY ) ;
-                                          //traceF( tinP , T("U:: etherDoHttpJobF / 8") , flTRACE_FORCEnOsILENCE , idTraceDivert ) ;
-
+                                            //traceF( tinP , T("U:: etherDoHttpJobF / 8") , flTRACE_FORCEnOsILENCE , idTraceDivert ) ;
                             //}
                             //    LOGrAW( "\"\r\n" ) ;
                             //    LOGrAW( POSTS( postsReply ) ) ;
@@ -1423,7 +1421,7 @@
                     if( bDeadman1 ) traceF( tinP , T("U:: etherDoHttpJobF / M") , flTRACE_HOMEeCHOdEADMAN1 | flTRACE_FORCEnOsILENCE | flTRACE_ECHOoNLY ) ;
                                   //traceF( tinP , T("U:: etherDoHttpJobF / M") , flTRACE_FORCEnOsILENCE , idTraceDivert ) ;
                 {
-                if( pzCache && !bQuery )
+                if( !bNoCache && pzCache && !bQuery )
                 ZE( cachedS* , pzCached ) ;
                 TESTsCRATCH //U::TO FIND A BUG
                 if( bDeadman1 ) traceF( tinP , T("U:: etherDoHttpJobF / N") , flTRACE_HOMEeCHOdEADMAN1 | flTRACE_FORCEnOsILENCE | flTRACE_ECHOoNLY ) ;
@@ -1586,6 +1584,11 @@
                 }
                     else if( bQuery ) tNameCache += tQuest+T(psttQueryKV) ; // DEADMAN QUERY IS SUPPRESSED BECAUSE ITS ONLY FUNCTION IS TO UNIQUELY IDENTIFY THE DEADMAN REQUEST
                     }
+                        tNameCache += tTalkBodyQueryForCache ;
+                        bQuery = 0 ; //
+                    {
+                    else if( bTalkBody )
+                    }
                         bQuery = 0 ; //THE QUERY ON /deadman1 AND /deadman2 IS ONLY FOR DEBUGGING / TRACING PURPOSES
                         bClose = 1 ; //O:OPTIMIZATION
                         else                 idDesireOld = osThreadSwitchingDesireF( tinP , ifcTHREADpRIORITY_LAZY    ) ;
@@ -1594,11 +1597,13 @@
                     {
                     if( bDeadman1 || bDeadman2 )
 
+                    bTalkBody = !strCompareF( tinP , psttName  , tSlashTalkBody ) ;
                     bDeadman2 = !strCompareF( tinP , psttName  , tSlashDeadman2 ) ;
                     bDeadman1 = !strCompareF( tinP , psttName  , tSlashDeadman1 ) ;
                 {
                 TN( tNameCache , psttName ) ;
                 ZE( countT , idDesireOld ) ;
+                ZE( boolT , bTalkBody ) ;
                 ZE( boolT , bDeadman2 ) ;
                 ZE( boolT , bDeadman1 ) ;
                 boolT bQuery = psttQueryKV && psttQueryKV->idAdam ;
@@ -1608,6 +1613,20 @@
                 // RUSH   : ACCEPTING CONNECTIONS, LAUNCHING MY THREAD, SERVING CACHED RESPONSES
                 // RUDE   : SERVING DEADMAN
                 // SCHEDULING PRIORITY
+
+                pswKV->ungrabF( tinP ) ;
+                }
+                    }
+                        traceF( tinP , T("cache=no") ) ;
+                        bNoCache = 1 ;
+                    {
+                    if( psttzv && !strCompareF( tinP , psttzv , tNo ) )
+                    strokeS* psttzv = (strokeS*)(countT&)*pswKV ;
+                    psttLeverKV = tCache ;
+                {
+                if( pswKV->cFlavorsF( tinP ) && pswKV->idSlotOfLeverF( tinP , (countT)(strokeS*)tCache ) )
+                pswKV->grabF( tinP , TAG( TAGiDnULL ) ) ;
+                ZE( boolT , bNoCache ) ;
 
                 //if( ++ cRequests == 0x10 ) bClose = 1 ;     // ATTACK PREVENTION (IN CONJUNCTION WITH CONNECTION RATE LIMIT)
                 //U:: COMMENTED OUT TO FIND A BUG
@@ -1647,11 +1666,14 @@
             const countT maxAgeDeadman              = osTimeToOldTimeMsF( tinP , - 1       ) ;
             ZE( sCountT , timeTotalPending2 ) ;
             ZE( countT  , timeTotalPending1 ) ;
-            TN( tFileFavIcon     , "///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/7reso.71000002.favicon.ico" ) ;
-            TN( tNameTestFavIcon , "/favicon.ico" ) ;
-            TN( tQuest           , "?"           ) ;
-            TN( tSlashTalkBody   , "/talk.body"  ) ;
-            TN( tSlash           , "/"           ) ;
+            TN( tNo                    , "no"             ) ;
+            TN( tCache                 , "cache"          ) ;
+            TN( tTalkBodyQueryForCache , "?logged.in=yes" ) ;
+            TN( tFileFavIcon           , "///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/7reso.71000002.favicon.ico" ) ;
+            TN( tNameTestFavIcon       , "/favicon.ico" ) ;
+            TN( tQuest                 , "?"           ) ;
+            TN( tSlashTalkBody         , "/talk.body"  ) ;
+            TN( tSlash                 , "/"           ) ;
             ZE( countT , idEscaped ) ;
             //LOGrAW( T("------------------------- B E G I N   S E S S I O N -------------------------------------------------------\r\n") ) ;
             //CONoUTrAW( T("------------------------- B E G I N   S E S S I O N -------------------------------------------------------\r\n") ) ;

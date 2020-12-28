@@ -275,7 +275,7 @@
             }
                 }
                     bFail = 1 ;
-                    POOPRqUIET
+                    POOPR
                 {
                 if( POOP )
 
@@ -289,7 +289,7 @@
                         {
                         if( bNoQuitEarly || cTries > 1 )
 
-                        if( POOP ) POOPRqUIET
+                        if( POOP ) POOPR
 
                         }
                             pSControl->connectF( tinP , /*port 80*/idPort , hidIfo , cOpenTries ) ;
@@ -307,7 +307,7 @@
 
                         pSControl->etherF( tinP , etSave ) ;
 
-                        POOPRqUIET
+                        POOPR
                     {
                     else
                     }
@@ -376,16 +376,20 @@
                                     }
                                         }
                                             }
-                                                bFail = 1 ;
-                                                ether.delF( tinP , pbP ) ;
-                                                //ether.traceF( tinP , T("getF: could not read socket 175") ) ;
-                                                POOPRqUIET
+                                                }
+                                                    bFail = 1 ;
+                                                    ether.delF( tinP , pbP ) ;
+                                                    ether.traceF( tinP , T("getF: could not read socket 175 [costToDo]:    ")+TF2(costToDo,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
+                                                    POOPR
+                                                {
+                                                if( POOP )
+                                                pSControl->readF( tinP , postc , costToDo ) ;
+                                                SCOOPS
                                             {
-                                            if( POOP )
-                                            pSControl->readF( tinP , postc , costBody - costzBodySome ) ;
-                                            SCOOPS
+                                            IFsCRATCH
                                         {
-                                        IFsCRATCH
+                                        if( costToDo )
+                                        countT costToDo = costBody - costzBodySome ;
 
                                         if( costzBodySome ) { ether.memCopyF( tinP , postc , postzBodySome , costzBodySome ) ; postc += costzBodySome ; }
                                         osTextT* postc = pbP ;
@@ -504,7 +508,7 @@
 
                                     }
                                         *poste = 0 ;
-                                        delta = poste - postc ;
+                                        delta = poste - postcWas ;
                                         bEnd = 1 ;
                                     {
                                     if( poste )
@@ -513,6 +517,7 @@
                                     postc        += delta ;
                                     costHeadPlus += delta ;
 
+                                    osTextT* postcWas = postc ;
                                     osTextT* poste = !bFound ? 0 : postc + offFound ;
 
                                     }
@@ -543,7 +548,7 @@
                                         break ;
                                         bFail = 1 ;
                                         ether.traceF( tinP , T("getF: could not read socket 175") ) ;
-                                        POOPRqUIET
+                                        POOPR
                                     {
                                     if( POOP )
                                     delta = pSControl->readF( tinP , postc , costRemain , flSOCKETcrEAD_JUSToNEmOUTHFUL | flSOCKETcrEAD_STILLhUNGRYiSoK ) ;
