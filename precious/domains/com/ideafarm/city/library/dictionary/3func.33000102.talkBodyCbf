@@ -630,9 +630,14 @@
         etThread.strMakeF( tinP , prPosts , tSay , 0 , flSTRmAKE_PREFIXlENGTH ) ; ___( prPosts ) ;
         ZE( pbRefC* , prPosts ) ;
 
-        TN( tSay , "" ) ; tSay = tTimeForeign ;
+        TN( tSay , "" ) ; tSay = tTimeForeign + tBlankSerial ;
 
         textC tTimeForeign( ifcIDtEXTgEN_TIMEnOWfOREIGN , tinP , TAG( TAGiDnULL ) ) ;
+
+        TN( tBlankSerial , "" ) ; tBlankSerial = T("    ")+TF2(idIn,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ;
+        countT idIn = 1 + incv02AM( idInLath ) ;
+        static countT idInLath ;
+        //U:: TO FIND A BUG
     {
 
     etThread.osTimeNowF( tinP , timeN1 , timeN2 ) ;
