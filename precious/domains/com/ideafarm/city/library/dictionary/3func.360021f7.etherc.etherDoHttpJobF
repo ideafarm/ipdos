@@ -1584,8 +1584,8 @@
                 }
                     else if( bQuery ) tNameCache += tQuest+T(psttQueryKV) ; // DEADMAN QUERY IS SUPPRESSED BECAUSE ITS ONLY FUNCTION IS TO UNIQUELY IDENTIFY THE DEADMAN REQUEST
                     }
-                        tNameCache += tTalkBodyQueryForCache ;
                         bQuery = 0 ; //
+                        tNameCache += bQuery ? tTalkBodyQueryForCacheYes : tTalkBodyQueryForCacheNo ;
                     {
                     else if( bTalkBody )
                     }
@@ -1669,14 +1669,15 @@
             const countT maxAgeDeadman              = osTimeToOldTimeMsF( tinP , - 1       ) ;
             ZE( sCountT , timeTotalPending2 ) ;
             ZE( countT  , timeTotalPending1 ) ;
-            TN( tNo                    , "no"             ) ;
-            TN( tCache                 , "cache"          ) ;
-            TN( tTalkBodyQueryForCache , "?logged.in=yes" ) ;
-            TN( tFileFavIcon           , "///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/7reso.71000002.favicon.ico" ) ;
-            TN( tNameTestFavIcon       , "/favicon.ico" ) ;
-            TN( tQuest                 , "?"           ) ;
-            TN( tSlashTalkBody         , "/talk.body"  ) ;
-            TN( tSlash                 , "/"           ) ;
+            TN( tNo                       , "no"             ) ;
+            TN( tCache                    , "cache"          ) ;
+            TN( tTalkBodyQueryForCacheYes , "?logged.in=yes" ) ;
+            TN( tTalkBodyQueryForCacheNo  , "?logged.in=no" ) ;
+            TN( tFileFavIcon              , "///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/7reso.71000002.favicon.ico" ) ;
+            TN( tNameTestFavIcon          , "/favicon.ico" ) ;
+            TN( tQuest                    , "?"           ) ;
+            TN( tSlashTalkBody            , "/talk.body"  ) ;
+            TN( tSlash                    , "/"           ) ;
             ZE( countT , idEscaped ) ;
             //LOGrAW( T("------------------------- B E G I N   S E S S I O N -------------------------------------------------------\r\n") ) ;
             //CONoUTrAW( T("------------------------- B E G I N   S E S S I O N -------------------------------------------------------\r\n") ) ;
