@@ -39000,7 +39000,6 @@ the only function of this object is to edit tinS::grabPseudo so that the monitor
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.sessionsC : 1snip.150000ba.sessionsc END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.httpServerC : 1snip.150000b7.httpserverc BEGIN
 
-
 //
 // Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
@@ -39033,6 +39032,9 @@ the only function of this object is to edit tinS::grabPseudo so that the monitor
     sessionsC        sessions ;
     cacheC*          pzCache ;
     textC            tListFactory ;
+    ranUniC          ru ;
+    countT           cLeverBadge ;
+    switchC          swNicNameByBadge ;
 
     voidT storeReplyPrivateF( tinS& tinP , storeReplyPrivateF_argS& argP ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400b.httpServerC.storeReplyPrivateF!||
@@ -39096,10 +39098,23 @@ the only function of this object is to edit tinS::grabPseudo so that the monitor
     voidT pushSnipNamedF( tinS& tinP , stackC& stBodyP , const strokeS* const psttNameSnipP ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34016.httpServerC.pushSnipNamedF!||
 
-    inline countT    idPortF( tinS& tinP ) { return idPort ; }
-    inline strokeS*& psttLeverUrlF( voidT ) { return psttLeverUrl ; }
-    inline switchC&  swMapUrlF( voidT ) { return swMapUrl ; }
-    inline textC&    tListFactoryF( voidT ) { return tListFactory ; }
+    inline countT     idPortF( tinS& tinP ) { return idPort ; }
+    inline strokeS*&  psttLeverUrlF( voidT ) { return psttLeverUrl ; }
+    inline switchC&   swMapUrlF( voidT ) { return swMapUrl ; }
+    inline textC&     tListFactoryF( voidT ) { return tListFactory ; }
+    inline measure04T ruF( voidT ) { return ru ; }
+    inline boolT      createBadgeF( tinS& tinP , countT badgeP , nicNameC& nicNameP )
+    {
+        swNicNameByBadge.grabF( tinP , TAG( TAGiDnULL ) ) ;
+        boolT bOk = !swNicNameByBadge.idSlotOfLeverF( tinP , badgeP ) ;
+        if( bOk )
+        {
+            cLeverBadge = badgeP ;
+            *(nicNameC*)&(countT&)swNicNameByBadge = nicNameP ;
+        }
+        swNicNameByBadge.ungrabF( tinP ) ;
+        return bOk ;
+    }
 
     friend voidT etherC::etherDoHttpJobF( tinS& tinP , taskDrivenServerJobS& jobP , socketC*& psoP , sessionC& sessionP , countT idPortMeP , nicNameC nnMeP ) ;
     friend TASKpROTO( tm_httpServerC_F ) ;
