@@ -150,7 +150,7 @@
                                 strMakeF( tinP , psttn , tNameCache ) ; ___( psttn ) ;
                                 ZE( strokeS* , psttn ) ;
                             {
-                            if( pzCache && !bQuery )
+                            if( pzCache && !bQueryAdjusted )
                             if( bDeadman1 ) traceF( tinP , T("U:: etherDoHttpJobF / 7") , flTRACE_HOMEeCHOdEADMAN1 | flTRACE_FORCEnOsILENCE | flTRACE_ECHOoNLY ) ;
                                           //traceF( tinP , T("U:: etherDoHttpJobF / 7") , flTRACE_FORCEnOsILENCE , idTraceDivert ) ;
 
@@ -232,7 +232,7 @@
                                                 memCopyF( tinP , postc , tKV , tKV.csF( tinP ) ) ; postc += tKV.csF( tinP ) ;
                                                 TN( tKV , "?" ) ; tKV += T(psttQueryKV) ;
                                             {
-                                            if( bQuery )
+                                            if( bQueryAdjusted )
 
                                             memCopyF( tinP , postc , POSTS( *prPostsHttpLocation ) , COSTS( *prPostsHttpLocation ) ) ; postc += COSTS( *prPostsHttpLocation ) ;
                                             memCopyF( tinP , postc , postLocationKey               , sizeof postLocationKey - 1    ) ; postc += sizeof postLocationKey - 1    ;
@@ -248,7 +248,7 @@
                                     newF( tinP , LF , postsReply , sizeof( countT ) + costReply + 1 ) ; ___( postsReply ) ;
 
                                     if( bClose ) costReply += sizeof postOldConnectionClose - 1 ;
-                                    if( prPostsHttpLocation ) costReply += sizeof postLocationKey - 1 + COSTS( *prPostsHttpLocation ) + ( bQuery ? 1 + psttQueryKV->idAdam : 0 ) ;
+                                    if( prPostsHttpLocation ) costReply += sizeof postLocationKey - 1 + COSTS( *prPostsHttpLocation ) + ( bQueryAdjusted ? 1 + psttQueryKV->idAdam : 0 ) ;
 
                                     }
                                         strMakeFromOsTextF( tinP , psttQueryKV , "rc=" postREFERRALcHAMPIONiD ) ; ___( psttQueryKV) ;
@@ -1120,7 +1120,7 @@
                                             strMakeF( tinP , psttn , tNameCache ) ; ___( psttn ) ;
                                             ZE( strokeS* , psttn ) ;
                                         {
-                                        if( pzCache && !bQuery )
+                                        if( pzCache && !bQueryAdjusted )
 
                                         bCacheThis = 0 ;
                                     {
@@ -1322,7 +1322,7 @@
                             strMakeF( tinP , psttn , tNameCache ) ; ___( psttn ) ;
                             ZE( strokeS* , psttn ) ;
                         {
-                        if( pzCache && !bQuery )
+                        if( pzCache && !bQueryAdjusted )
                         if( bDeadman1 ) traceF( tinP , T("U:: etherDoHttpJobF / B") , flTRACE_HOMEeCHOdEADMAN1 | flTRACE_FORCEnOsILENCE | flTRACE_ECHOoNLY ) ;
                                       //traceF( tinP , T("U:: etherDoHttpJobF / B") , flTRACE_FORCEnOsILENCE , idTraceDivert ) ;
 
@@ -1421,7 +1421,7 @@
                     if( bDeadman1 ) traceF( tinP , T("U:: etherDoHttpJobF / M") , flTRACE_HOMEeCHOdEADMAN1 | flTRACE_FORCEnOsILENCE | flTRACE_ECHOoNLY ) ;
                                   //traceF( tinP , T("U:: etherDoHttpJobF / M") , flTRACE_FORCEnOsILENCE , idTraceDivert ) ;
                 {
-                if( !bNoCache && pzCache && !bQuery )
+                if( pzCache && ( !bQuery || ( !bNoCache && !bQueryAdjusted ) ) )
                 ZE( cachedS* , pzCached ) ;
                 TESTsCRATCH //U::TO FIND A BUG
                 if( bDeadman1 ) traceF( tinP , T("U:: etherDoHttpJobF / N") , flTRACE_HOMEeCHOdEADMAN1 | flTRACE_FORCEnOsILENCE | flTRACE_ECHOoNLY ) ;
@@ -1582,14 +1582,14 @@
                 ZE( countT  , timeStart1 ) ;
 
                 }
-                    else if( bQuery ) tNameCache += tQuest+T(psttQueryKV) ; // DEADMAN QUERY IS SUPPRESSED BECAUSE ITS ONLY FUNCTION IS TO UNIQUELY IDENTIFY THE DEADMAN REQUEST
+                    else if( bQueryAdjusted ) tNameCache += tQuest+T(psttQueryKV) ; // DEADMAN QUERY IS SUPPRESSED BECAUSE ITS ONLY FUNCTION IS TO UNIQUELY IDENTIFY THE DEADMAN REQUEST
                     }
-                        bQuery = 0 ; //
-                        tNameCache += bQuery ? tTalkBodyQueryForCacheYes : tTalkBodyQueryForCacheNo ;
+                        bQueryAdjusted = 0 ; //
+                        tNameCache += bQueryAdjusted ? tTalkBodyQueryForCacheYes : tTalkBodyQueryForCacheNo ;
                     {
                     else if( bTalkBody )
                     }
-                        bQuery = 0 ; //THE QUERY ON /deadman1 AND /deadman2 IS ONLY FOR DEBUGGING / TRACING PURPOSES
+                        bQueryAdjusted = 0 ; //THE QUERY ON /deadman1 AND /deadman2 IS ONLY FOR DEBUGGING / TRACING PURPOSES
                         bClose = 1 ; //O:OPTIMIZATION
                         else                 idDesireOld = osThreadSwitchingDesireF( tinP , ifcTHREADpRIORITY_LAZY    ) ;
                         else if( bDeadman2 ) idDesireOld = osThreadSwitchingDesireF( tinP , ifcTHREADpRIORITY_LAZIEST ) ;      // DEADMAN2 TESTS ARE TO DETECT THAT I AM OVERWHELMED
@@ -1606,7 +1606,8 @@
                 ZE( boolT , bTalkBody ) ;
                 ZE( boolT , bDeadman2 ) ;
                 ZE( boolT , bDeadman1 ) ;
-                boolT bQuery = psttQueryKV && psttQueryKV->idAdam ;
+                boolT bQueryAdjusted = bQuery ;
+                const boolT bQuery = psttQueryKV && psttQueryKV->idAdam ;
 
                 // LAZY   : CONSTRUCTING AND SERVING NONCACHED RESPONSES
                 // NORMAL : GENERAL SERVER WORKLOAD

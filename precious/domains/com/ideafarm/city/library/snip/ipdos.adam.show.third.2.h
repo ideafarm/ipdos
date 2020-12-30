@@ -39032,6 +39032,7 @@ the only function of this object is to edit tinS::grabPseudo so that the monitor
     threadC*         pThrServe ;
     sessionsC        sessions ;
     cacheC*          pzCache ;
+    textC            tListFactory ;
 
     voidT storeReplyPrivateF( tinS& tinP , storeReplyPrivateF_argS& argP ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400b.httpServerC.storeReplyPrivateF!||
@@ -39098,6 +39099,7 @@ the only function of this object is to edit tinS::grabPseudo so that the monitor
     inline countT    idPortF( tinS& tinP ) { return idPort ; }
     inline strokeS*& psttLeverUrlF( voidT ) { return psttLeverUrl ; }
     inline switchC&  swMapUrlF( voidT ) { return swMapUrl ; }
+    inline textC&    tListFactoryF( voidT ) { return tListFactory ; }
 
     friend voidT etherC::etherDoHttpJobF( tinS& tinP , taskDrivenServerJobS& jobP , socketC*& psoP , sessionC& sessionP , countT idPortMeP , nicNameC nnMeP ) ;
     friend TASKpROTO( tm_httpServerC_F ) ;

@@ -94,7 +94,19 @@
                             case ERROR_PATH_NOT_FOUND :
                             case ERROR_FILE_NOT_FOUND :
                             }
-                                //INTENTIONAL FALLTHROUGH
+                                break ;
+                                handleP.closeIfF() ;
+                                fFound = 0 ;
+                                tinP.bosFail = 0 ;
+                                etherC::etTextIF( tinP ).traceF( tinP , T("thirdC::dosFindFileOrDirPrivateF / ERROR_LOGON_FAILURE [postLike]: ")+T(postLike) ) ;
+                                BOSpOOP
+                            {
+                            case ERROR_LOGON_FAILURE :
+                            }
+                                break ;
+                                handleP.closeIfF() ;
+                                fFound = 0 ;
+                                tinP.bosFail = 0 ;
                                 etherC::etTextIF( tinP ).traceF( tinP , T("thirdC::dosFindFileOrDirPrivateF / ERROR_SHARING_VIOLATION [postLike]: ")+T(postLike) ) ;
                                 BOSpOOP
                             {
@@ -236,8 +248,8 @@
                     //pEtherContainsMe->traceF( tinP , T("dosFindFileOrDirPrivateF / setting bCloaked [postLikeP] (next line):") ) ;
                 {
                 if( pEtherContainsMe )
-                bCloaked = 1 ;
-                POOPRqUIET
+                if( !bNetBios ) bCloaked = 1 ;
+                POOPR
             {
             if( POOP )
 

@@ -1,4 +1,34 @@
 
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+/*
+*/
+/**/
+/*1*//*TlISTlOAD(tListToP,tListPrefixP,tSuffixP)*//*1*/
+
+#define TlISTlOAD(tListToP,tListPrefixP,tSuffixP)           \
+                                                            \
+    {                                                       \
+        FORsTRINGSiN1( (strokeS*)(tListPrefixP) )           \
+        {                                                   \
+            (tListToP) += T(psttc1)+(tSuffixP) ;            \
+        }                                                   \
+    }
+
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+
+
 // IPDOS (tm) <> IdeaFarm (tm) Piggyback Distributed Operating System
 
 // For build environment info, see file "\ideafarm.work\backed.up.never\txt\readme.first.ipdos.build.environment.txt"
