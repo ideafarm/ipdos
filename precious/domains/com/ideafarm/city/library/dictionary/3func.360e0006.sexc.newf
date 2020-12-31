@@ -47,8 +47,8 @@
                         if( !bDone ) bDone = 1 ;
                         BLAMMO ;
 
-                        tinP.pcUtility[ 6 ] = cRegistrationsB ;
-                        tinP.pcUtility[ 5 ] = cRegistrationsA ;
+                        tinP.pcUtility[ 0xa ] = BM_HIGH | cRegistrationsB ;
+                        tinP.pcUtility[ 9   ] = BM_HIGH | cRegistrationsA ;
 
                         #endif
 
@@ -61,7 +61,7 @@
                                 tinP.pcUtility[ 3 ] = BM_HIGH | pImpostor->idLineTagged2  ;
                                 tinP.pcUtility[ 2 ] =           pImpostor->idiFileTagged  ;
                                 tinP.pcUtility[ 1 ] = BM_HIGH | pImpostor->idLineTagged   ;
-                                tinP.pcUtility[ 0 ] =           0x87654321                ;
+                                tinP.pcUtility[ 0 ] =           0x11111111                ;
                             {
                             if( pImpostor )
                             dropNoteS* pImpostor = pDropNoteF( tinP , pbo ) ;
