@@ -25,7 +25,8 @@
 
             TN( tSay , "" ) ; tSay = T(
 
-            TN( tQuery , bSecretIsOK ? "?secretisok=yes" : "?secretisok=no" ) ;
+            if( bSecretIsOK ) tQuery += tBadge ;
+            TN( tQuery , bSecretIsOK ? "?secretisok=yes&badge=" : "?secretisok=no" ) ;
         {
 
         if( !tTopic.csF( tinP ) ) tTopic = T("Open!") ;
@@ -302,6 +303,7 @@
                             "<td valign=\"center\">\r\n"
                         "<tr>\r\n"
                     "<table>\r\n"
+                    "<input id=\"badge\" name=\"badge\" type=\"hidden\" value=\"")+tBadge+T("\"/>\r\n"
                     "<input id=\"secret\" name=\"secret\" type=\"hidden\" value=\"")+tValueSecret+T("\"/>\r\n"
                     "<input id=\"subscriberid\" name=\"subscriberid\" type=\"hidden\" value=\"")+tValueSubscriberId+T("\"/>\r\n"
                     "ideafarm.com/talk\" id=\"proposedtopicform\" method=\"post\" name=\"proposedtopicform\">\r\n"
@@ -403,6 +405,7 @@
                             "<td valign=\"center\">\r\n"
                         "<tr>\r\n"
                     "<table>\r\n"
+                    "<input id=\"badge\" name=\"badge\" type=\"hidden\" value=\"")+tBadge+T("\"/>\r\n"
                     "<input id=\"secret\" name=\"secret\" type=\"hidden\" value=\"")+tValueSecret+T("\"/>\r\n"
                     "<input id=\"subscriberid\" name=\"subscriberid\" type=\"hidden\" value=\"")+tValueSubscriberId+T("\"/>\r\n"
                     "ideafarm.com/talk\" id=\"newpost\" method=\"post\" name=\"mypost\">\r\n"
@@ -1201,6 +1204,7 @@
                                     "</td>\r\n"
                                         "</form>\r\n"
                                             "<input id=\"submit\" name=\"submit\" type=\"submit\" value=\"Certify\"/>\r\n"
+                                            "<input id=\"badge\" name=\"badge\" type=\"hidden\" value=\"")+tBadge+T("\"/>\r\n"
                                             "<input id=\"secret\" name=\"secret\" type=\"hidden\" value=\"")+tValueSecret+T("\"/>\r\n"
                                             "<input id=\"subscriberid\" name=\"subscriberid\" type=\"hidden\" value=\"")+tValueSubscriberId+T("\"/>\r\n"
                                             "<input id=\"filenamespeechanon\" name=\"filenamespeechanon\" type=\"hidden\" value=\"")+T(psttShort)+T("\"/>\r\n"
@@ -1388,6 +1392,7 @@
 
             ) ;
 
+                "<span hidden id=\"hiddenbadge\">")+tBadge+T("</span>\r\n"
                 "<span hidden id=\"hiddensecret\">")+tValueSecret+T("</span>\r\n"
                 "<span hidden id=\"hiddensubscriberid\">")+tValueSubscriberId+T("</span>\r\n"
 
@@ -1600,8 +1605,9 @@
 
         }
             }
-                etThread.traceF( tinP , T("talkCBF / secret is ok [badge]:    ")+TF2(badge,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
+                etThread.traceF( tinP , T("talkCBF / secret is ok [badge]:    ")+tBadge ) ;
                 }
+                    tBadge = TF2(badge,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ;
                     while( !bOk ) ;
                     }
                         bOk = meP.createBadgeF( tinP , badge , nnPeerP ) ;
@@ -1609,8 +1615,8 @@
                     {
                     do
                     ZE( boolT , bOk ) ;
+                    ZE( countT , badge ) ;
                 {
-                ZE( countT , badge ) ;
 
                 // THIS PASSCODE PERMITS etherDoHttpJobF TO SERVE THE CORRECT FLAVOR (LOGGED IN OR NOT) FROM CACHE
                 // GENERATE A RANDOM BADGE THAT WILL BE HONORED ONLY WHEN SUBMITTED BY THE nicNamePeer THAT JUST PRESENTED CREDENTIALS
@@ -1843,6 +1849,7 @@
         TN( tLoginZipUse             , "" ) ;
         TN( tLoginPaypalPayerEmail   , "" ) ;
         TN( tLoginNnPeer             , "" ) ;
+        TN( tBadge                   , "" ) ;
         ZE( boolT , bSecretIsOK ) ;
         //VALIDATE THE SECRET
 

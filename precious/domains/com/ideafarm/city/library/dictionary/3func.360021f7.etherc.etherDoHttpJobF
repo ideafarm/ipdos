@@ -1480,16 +1480,6 @@
                 ZE( boolT , bFileChallenge ) ;
 
                 }
-                    delF( tinP , psttLower ) ;
-                    tNameCache = T(psttLower) ;
-                    bFavIcon = !strCompareF( tinP , psttLower , tNameTestFavIcon ) ;
-                    strConvertToLowerCaseF( tinP , psttLower , psttName ) ; ___( psttLower ) ;
-                    ZE( strokeS* , psttLower ) ;
-                {
-                if( !bDeadman1 && !bDeadman2 )
-                ZE( boolT , bFavIcon ) ;
-
-                }
                     break ;
 
                     traceF( tinP , T("etherDoHttpJobF / error: readRequestF failed") , flTRACE_null , ifcIDtRACEdIVERT_7 ) ;
@@ -1582,20 +1572,32 @@
                 ZE( countT  , timeStart1 ) ;
 
                 }
-                    else if( bQueryAdjusted ) tNameCache += tQuest+T(psttQueryKV) ; // DEADMAN QUERY IS SUPPRESSED BECAUSE ITS ONLY FUNCTION IS TO UNIQUELY IDENTIFY THE DEADMAN REQUEST
                     }
-                        bQueryAdjusted = 0 ; //
-                        tNameCache += bQueryAdjusted ? tTalkBodyQueryForCacheYes : tTalkBodyQueryForCacheNo ;
+                        else if( bQueryAdjusted ) tNameCache += tQuest+T(psttQueryKV) ;
+                        }
+                            bQueryAdjusted = 0 ; //
+                            tNameCache += bQueryAdjusted ? tNameCacheTalkBodySuffixPrivate : tNameCacheTalkBodySuffixPublic ;
+                        {
+                        else if( bTalkBody )
+                        if( bFavIcon ) ;
+
+                        }
+                            delF( tinP , psttLower ) ;
+                            tNameCache = T(psttLower) ;
+                            bFavIcon = !strCompareF( tinP , psttLower , tNameTestFavIcon ) ;
+                            strConvertToLowerCaseF( tinP , psttLower , psttName ) ; ___( psttLower ) ;
+                            ZE( strokeS* , psttLower ) ;
+                        {                                   //CASE IS IGNORED FOR psttName WHEN SETTING tNameCache
                     {
-                    else if( bTalkBody )
+                    else
                     }
-                        bQueryAdjusted = 0 ; //THE QUERY ON /deadman1 AND /deadman2 IS ONLY FOR DEBUGGING / TRACING PURPOSES
+                        bQueryAdjusted = 0 ;
                         bClose = 1 ; //O:OPTIMIZATION
                         else                 idDesireOld = osThreadSwitchingDesireF( tinP , ifcTHREADpRIORITY_LAZY    ) ;
                         else if( bDeadman2 ) idDesireOld = osThreadSwitchingDesireF( tinP , ifcTHREADpRIORITY_LAZIEST ) ;      // DEADMAN2 TESTS ARE TO DETECT THAT I AM OVERWHELMED
                              if( bDeadman1 ) idDesireOld = osThreadSwitchingDesireF( tinP , ifcTHREADpRIORITY_RUDE    ) ;      // DEADMAN1 TESTS ARE TO DETECT THAT I AM DEAD
                     {
-                    if( bDeadman1 || bDeadman2 )
+                    if( bDeadman1 || bDeadman2 )                // DEADMAN QUERY IS SUPPRESSED IN tNameCache BECAUSE ITS ONLY FUNCTION IS TO UNIQUELY IDENTIFY THE DEADMAN REQUEST FOR TRACING / DEBUGGING
 
                     bTalkBody = !strCompareF( tinP , psttName  , tSlashTalkBody ) ;
                     bDeadman2 = !strCompareF( tinP , psttName  , tSlashDeadman2 ) ;
@@ -1603,6 +1605,7 @@
                 {
                 TN( tNameCache , psttName ) ;
                 ZE( countT , idDesireOld ) ;
+                ZE( boolT , bFavIcon ) ;
                 ZE( boolT , bTalkBody ) ;
                 ZE( boolT , bDeadman2 ) ;
                 ZE( boolT , bDeadman1 ) ;
@@ -1620,15 +1623,28 @@
                 pswKV->ungrabF( tinP ) ;
                 }
                     }
-                        traceF( tinP , T("cache=no") ) ;
-                        bNoCache = 1 ;
+                        traceF( tinP , T(bBadgeOk?"badge is ok":"badge is NOT ok") ) ;
+                        bBadgeOk = meP.isBadgeOkF( tinP , badge , jobP.nnPeer ) ;
+                        countT badge = strDigitsToSCountF( tinP , psttzv ) ;
+                        strokeS* psttzv = (strokeS*)(countT&)*pswKV ;
+                        psttLeverKV = tBadge ;
                     {
-                    if( psttzv && !strCompareF( tinP , psttzv , tNo ) )
-                    strokeS* psttzv = (strokeS*)(countT&)*pswKV ;
-                    psttLeverKV = tCache ;
+                    if( pswKV->idSlotOfLeverF( tinP , (countT)(strokeS*)tBadge ) )
+
+                    }
+                        }
+                            traceF( tinP , T("cache=no") ) ;
+                            bNoCache = 1 ;
+                        {
+                        if( psttzv && !strCompareF( tinP , psttzv , tNo ) )
+                        strokeS* psttzv = (strokeS*)(countT&)*pswKV ;
+                        psttLeverKV = tCache ;
+                    {
+                    if( pswKV->idSlotOfLeverF( tinP , (countT)(strokeS*)tCache ) )
                 {
-                if( pswKV->cFlavorsF( tinP ) && pswKV->idSlotOfLeverF( tinP , (countT)(strokeS*)tCache ) )
+                if( pswKV->cFlavorsF( tinP ) )
                 pswKV->grabF( tinP , TAG( TAGiDnULL ) ) ;
+                ZE( boolT , bBadgeOk ) ;
                 ZE( boolT , bNoCache ) ;
 
                 //if( ++ cRequests == 0x10 ) bClose = 1 ;     // ATTACK PREVENTION (IN CONJUNCTION WITH CONNECTION RATE LIMIT)
@@ -1672,15 +1688,16 @@
             const countT maxAgeDeadman              = osTimeToOldTimeMsF( tinP , - 1       ) ;
             ZE( sCountT , timeTotalPending2 ) ;
             ZE( countT  , timeTotalPending1 ) ;
-            TN( tNo                       , "no"             ) ;
-            TN( tCache                    , "cache"          ) ;
-            TN( tTalkBodyQueryForCacheYes , "?logged.in=yes" ) ;
-            TN( tTalkBodyQueryForCacheNo  , "?logged.in=no" ) ;
-            TN( tFileFavIcon              , "///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/7reso.71000002.favicon.ico" ) ;
-            TN( tNameTestFavIcon          , "/favicon.ico" ) ;
-            TN( tQuest                    , "?"           ) ;
-            TN( tSlashTalkBody            , "/talk.body"  ) ;
-            TN( tSlash                    , "/"           ) ;
+            TN( tNo                             , "no"             ) ;
+            TN( tCache                          , "cache"          ) ;
+            TN( tBadge                          , "badge"          ) ;
+            TN( tNameCacheTalkBodySuffixPrivate , ":private" ) ;
+            TN( tNameCacheTalkBodySuffixPublic  , ":public"  ) ;
+            TN( tFileFavIcon                    , "///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/7reso.71000002.favicon.ico" ) ;
+            TN( tNameTestFavIcon                , "/favicon.ico" ) ;
+            TN( tQuest                          , "?"           ) ;
+            TN( tSlashTalkBody                  , "/talk.body"  ) ;
+            TN( tSlash                          , "/"           ) ;
             ZE( countT , idEscaped ) ;
             //LOGrAW( T("------------------------- B E G I N   S E S S I O N -------------------------------------------------------\r\n") ) ;
             //CONoUTrAW( T("------------------------- B E G I N   S E S S I O N -------------------------------------------------------\r\n") ) ;

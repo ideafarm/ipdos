@@ -39103,7 +39103,8 @@ the only function of this object is to edit tinS::grabPseudo so that the monitor
     inline switchC&   swMapUrlF( voidT ) { return swMapUrl ; }
     inline textC&     tListFactoryF( voidT ) { return tListFactory ; }
     inline measure04T ruF( voidT ) { return ru ; }
-    inline boolT      createBadgeF( tinS& tinP , countT badgeP , nicNameC& nicNameP )
+
+    inline boolT createBadgeF( tinS& tinP , countT badgeP , nicNameC& nicNameP )
     {
         swNicNameByBadge.grabF( tinP , TAG( TAGiDnULL ) ) ;
         boolT bOk = !swNicNameByBadge.idSlotOfLeverF( tinP , badgeP ) ;
@@ -39111,6 +39112,19 @@ the only function of this object is to edit tinS::grabPseudo so that the monitor
         {
             cLeverBadge = badgeP ;
             *(nicNameC*)&(countT&)swNicNameByBadge = nicNameP ;
+        }
+        swNicNameByBadge.ungrabF( tinP ) ;
+        return bOk ;
+    }
+
+    inline boolT isBadgeOkF( tinS& tinP , countT badgeP , nicNameC& nicNameP )
+    {
+        swNicNameByBadge.grabF( tinP , TAG( TAGiDnULL ) ) ;
+        boolT bOk = swNicNameByBadge.idSlotOfLeverF( tinP , badgeP ) ;
+        if( bOk )
+        {
+            cLeverBadge = badgeP ;
+            if( nicNameP != *(nicNameC*)&(countT&)swNicNameByBadge ) bOk = 0 ;
         }
         swNicNameByBadge.ungrabF( tinP ) ;
         return bOk ;
