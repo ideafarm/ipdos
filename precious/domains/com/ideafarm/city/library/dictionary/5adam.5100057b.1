@@ -16,7 +16,7 @@ THREADmODE2rESTORE0( flagsSave )
 
     }
         ether.loafIF( tinP ) ;
-        //U::etThread.osThreadF( TaRG1( tmUpdateCacheF ) ) ;
+        etThread.osThreadF( TaRG1( tmUpdateCacheF ) ) ;
         httpServerC serverS( tinP , arg1S , arg2 , &cache ) ;
         httpServerC serverU( tinP , arg1U , arg2 , &cache ) ;
     {
@@ -50,10 +50,10 @@ TODO
 DONE( tmUpdateCacheF )
 }
     }
-        }
-            ++ s ; ether.osSleepF( tinP , TOCK ) ;
-            sleepC s( tinP , TAG( TAGiDnULL ) ) ;
-        {
+        //}
+        //    ++ s ; ether.osSleepF( tinP , TOCK ) ;
+        //    sleepC s( tinP , TAG( TAGiDnULL ) ) ;
+        //{
 
         }
             etThread.delF( tinP , pbIn ) ;
@@ -75,12 +75,12 @@ DONE( tmUpdateCacheF )
     {
     while( !ether )
 
-    textC* ptName[] = { &tNameU1 , &tNameS1 , &tNameU2 , &tNameS2 } ;
+    textC* ptName[] = { &tNameU1 , &tNameU2 , &tNameS1 , &tNameS2 } ;
 
-    TN( tNameS2 , "127.0.0.1//https/talk.body?cache=no&logged.in=yes" ) ;
-    TN( tNameU2 , "127.0.0.1//http/talk.body?cache=no&logged.in=yes" ) ;
-    TN( tNameS1 , "127.0.0.1//https/talk.body?cache=no" ) ;
-    TN( tNameU1 , "127.0.0.1//http/talk.body?cache=no" ) ;
+    TN( tNameS2 , "127.0.0.1//https/talk.body?cachesearch=no&badge=force" ) ;
+    TN( tNameS1 , "127.0.0.1//https/talk.body?cachesearch=no" ) ;
+    TN( tNameU2 , "127.0.0.1//http/talk.body?cachesearch=no&badge=force" ) ;
+    TN( tNameU1 , "127.0.0.1//http/talk.body?cachesearch=no" ) ;
 {
 TASK( tmUpdateCacheF )
 

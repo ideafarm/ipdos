@@ -150,7 +150,7 @@
                                 strMakeF( tinP , psttn , tNameCache ) ; ___( psttn ) ;
                                 ZE( strokeS* , psttn ) ;
                             {
-                            if( pzCache && !bQueryAdjusted )
+                            if( pzCache && !bNoCacheStore )
                             if( bDeadman1 ) traceF( tinP , T("U:: etherDoHttpJobF / 7") , flTRACE_HOMEeCHOdEADMAN1 | flTRACE_FORCEnOsILENCE | flTRACE_ECHOoNLY ) ;
                                           //traceF( tinP , T("U:: etherDoHttpJobF / 7") , flTRACE_FORCEnOsILENCE , idTraceDivert ) ;
 
@@ -232,7 +232,7 @@
                                                 memCopyF( tinP , postc , tKV , tKV.csF( tinP ) ) ; postc += tKV.csF( tinP ) ;
                                                 TN( tKV , "?" ) ; tKV += T(psttQueryKV) ;
                                             {
-                                            if( bQueryAdjusted )
+                                            if( bQuery )
 
                                             memCopyF( tinP , postc , POSTS( *prPostsHttpLocation ) , COSTS( *prPostsHttpLocation ) ) ; postc += COSTS( *prPostsHttpLocation ) ;
                                             memCopyF( tinP , postc , postLocationKey               , sizeof postLocationKey - 1    ) ; postc += sizeof postLocationKey - 1    ;
@@ -248,7 +248,7 @@
                                     newF( tinP , LF , postsReply , sizeof( countT ) + costReply + 1 ) ; ___( postsReply ) ;
 
                                     if( bClose ) costReply += sizeof postOldConnectionClose - 1 ;
-                                    if( prPostsHttpLocation ) costReply += sizeof postLocationKey - 1 + COSTS( *prPostsHttpLocation ) + ( bQueryAdjusted ? 1 + psttQueryKV->idAdam : 0 ) ;
+                                    if( prPostsHttpLocation ) costReply += sizeof postLocationKey - 1 + COSTS( *prPostsHttpLocation ) + ( bQuery ? 1 + psttQueryKV->idAdam : 0 ) ;
 
                                     }
                                         strMakeFromOsTextF( tinP , psttQueryKV , "rc=" postREFERRALcHAMPIONiD ) ; ___( psttQueryKV) ;
@@ -1120,7 +1120,7 @@
                                             strMakeF( tinP , psttn , tNameCache ) ; ___( psttn ) ;
                                             ZE( strokeS* , psttn ) ;
                                         {
-                                        if( pzCache && !bQueryAdjusted )
+                                        if( pzCache && !bNoCacheStore )
 
                                         bCacheThis = 0 ;
                                     {
@@ -1322,7 +1322,7 @@
                             strMakeF( tinP , psttn , tNameCache ) ; ___( psttn ) ;
                             ZE( strokeS* , psttn ) ;
                         {
-                        if( pzCache && !bQueryAdjusted )
+                        if( pzCache && !bNoCacheStore )
                         if( bDeadman1 ) traceF( tinP , T("U:: etherDoHttpJobF / B") , flTRACE_HOMEeCHOdEADMAN1 | flTRACE_FORCEnOsILENCE | flTRACE_ECHOoNLY ) ;
                                       //traceF( tinP , T("U:: etherDoHttpJobF / B") , flTRACE_FORCEnOsILENCE , idTraceDivert ) ;
 
@@ -1394,6 +1394,8 @@
                     POINTERc ptr_pbBlob = *pzCached->pPtr_pbBlob ;
                     if( bDeadman1 ) traceF( tinP , T("U:: etherDoHttpJobF / G") , flTRACE_HOMEeCHOdEADMAN1 | flTRACE_FORCEnOsILENCE | flTRACE_ECHOoNLY ) ;
                                   //traceF( tinP , T("U:: etherDoHttpJobF / G") , flTRACE_FORCEnOsILENCE , idTraceDivert ) ;
+
+                    traceF( tinP , T("found in cache") ) ;
                 {
                 if( pzCached )
                 if( bDeadman1 ) traceF( tinP , T("U:: etherDoHttpJobF / H") , flTRACE_HOMEeCHOdEADMAN1 | flTRACE_FORCEnOsILENCE | flTRACE_ECHOoNLY ) ;
@@ -1420,8 +1422,10 @@
                     //tinP.pcUtility[ 0 ] ++ ; //U:: TO FIND A BUG
                     if( bDeadman1 ) traceF( tinP , T("U:: etherDoHttpJobF / M") , flTRACE_HOMEeCHOdEADMAN1 | flTRACE_FORCEnOsILENCE | flTRACE_ECHOoNLY ) ;
                                   //traceF( tinP , T("U:: etherDoHttpJobF / M") , flTRACE_FORCEnOsILENCE , idTraceDivert ) ;
+
+                    traceF( tinP , T("querying cache") ) ;
                 {
-                if( pzCache && ( !bQuery || ( !bNoCache && !bQueryAdjusted ) ) )
+                if( pzCache && !bNoCacheSearch )
                 ZE( cachedS* , pzCached ) ;
                 TESTsCRATCH //U::TO FIND A BUG
                 if( bDeadman1 ) traceF( tinP , T("U:: etherDoHttpJobF / N") , flTRACE_HOMEeCHOdEADMAN1 | flTRACE_FORCEnOsILENCE | flTRACE_ECHOoNLY ) ;
@@ -1573,12 +1577,8 @@
 
                 }
                     }
-                        else if( bQueryAdjusted ) tNameCache += tQuest+T(psttQueryKV) ;
-                        }
-                            bQueryAdjusted = 0 ; //
-                            tNameCache += bQueryAdjusted ? tNameCacheTalkBodySuffixPrivate : tNameCacheTalkBodySuffixPublic ;
-                        {
-                        else if( bTalkBody )
+                        else if( bQuery    ) tNameCache += tQuest+T(psttQueryKV) ;
+                        else if( bTalkBody ) tNameCache += bBadgeOk ? tNameCacheTalkBodySuffixPrivate : tNameCacheTalkBodySuffixPublic ;
                         if( bFavIcon ) ;
 
                         }
@@ -1591,7 +1591,6 @@
                     {
                     else
                     }
-                        bQueryAdjusted = 0 ;
                         bClose = 1 ; //O:OPTIMIZATION
                         else                 idDesireOld = osThreadSwitchingDesireF( tinP , ifcTHREADpRIORITY_LAZY    ) ;
                         else if( bDeadman2 ) idDesireOld = osThreadSwitchingDesireF( tinP , ifcTHREADpRIORITY_LAZIEST ) ;      // DEADMAN2 TESTS ARE TO DETECT THAT I AM OVERWHELMED
@@ -1609,7 +1608,6 @@
                 ZE( boolT , bTalkBody ) ;
                 ZE( boolT , bDeadman2 ) ;
                 ZE( boolT , bDeadman1 ) ;
-                boolT bQueryAdjusted = bQuery ;
                 const boolT bQuery = psttQueryKV && psttQueryKV->idAdam ;
 
                 // LAZY   : CONSTRUCTING AND SERVING NONCACHED RESPONSES
@@ -1618,14 +1616,20 @@
                 // RUDE   : SERVING DEADMAN
                 // SCHEDULING PRIORITY
 
-                bNoCache = 1 ; //U:: TO FIND A BUG
-
                 pswKV->ungrabF( tinP ) ;
                 }
                     }
                         traceF( tinP , T(bBadgeOk?"badge is ok":"badge is NOT ok") ) ;
-                        bBadgeOk = meP.isBadgeOkF( tinP , badge , jobP.nnPeer ) ;
-                        countT badge = strDigitsToSCountF( tinP , psttzv ) ;
+                        }
+                            bBadgeOk = meP.isBadgeOkF( tinP , badge , jobP.nnPeer ) ;
+                            countT badge = strDigitsToSCountF( tinP , psttzv ) ;
+                        {
+                        else
+                        }
+                            bBadgeOk = 1 ; //U:: DO THIS ONLY IF nnPeer IS ME
+                        {
+                        if( !strCompareF( tinP , psttzv , tBadgeForce ) )
+
                         strokeS* psttzv = (strokeS*)(countT&)*pswKV ;
                         psttLeverKV = tBadge ;
                     {
@@ -1633,19 +1637,20 @@
 
                     }
                         }
-                            traceF( tinP , T("cache=no") ) ;
-                            bNoCache = 1 ;
+                            traceF( tinP , T("i have been told to not search the cache") ) ;
+                            bNoCacheSearch = 1 ;
                         {
                         if( psttzv && !strCompareF( tinP , psttzv , tNo ) )
                         strokeS* psttzv = (strokeS*)(countT&)*pswKV ;
-                        psttLeverKV = tCache ;
+                        psttLeverKV = tCacheSearch ;
                     {
-                    if( pswKV->idSlotOfLeverF( tinP , (countT)(strokeS*)tCache ) )
+                    if( pswKV->idSlotOfLeverF( tinP , (countT)(strokeS*)tCacheSearch ) )
                 {
                 if( pswKV->cFlavorsF( tinP ) )
                 pswKV->grabF( tinP , TAG( TAGiDnULL ) ) ;
                 ZE( boolT , bBadgeOk ) ;
-                ZE( boolT , bNoCache ) ;
+                ZE( boolT , bNoCacheStore  ) ;
+                ZE( boolT , bNoCacheSearch ) ;
 
                 //if( ++ cRequests == 0x10 ) bClose = 1 ;     // ATTACK PREVENTION (IN CONJUNCTION WITH CONNECTION RATE LIMIT)
                 //U:: COMMENTED OUT TO FIND A BUG
@@ -1689,15 +1694,16 @@
             ZE( sCountT , timeTotalPending2 ) ;
             ZE( countT  , timeTotalPending1 ) ;
             TN( tNo                             , "no"             ) ;
-            TN( tCache                          , "cache"          ) ;
+            TN( tCacheSearch                    , "cachesearch"    ) ;
+            TN( tBadgeForce                     , "force"          ) ;
             TN( tBadge                          , "badge"          ) ;
-            TN( tNameCacheTalkBodySuffixPrivate , ":private" ) ;
-            TN( tNameCacheTalkBodySuffixPublic  , ":public"  ) ;
+            TN( tNameCacheTalkBodySuffixPrivate , "(private)"      ) ;
+            TN( tNameCacheTalkBodySuffixPublic  , "(public)"       ) ;
             TN( tFileFavIcon                    , "///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/7reso.71000002.favicon.ico" ) ;
-            TN( tNameTestFavIcon                , "/favicon.ico" ) ;
-            TN( tQuest                          , "?"           ) ;
-            TN( tSlashTalkBody                  , "/talk.body"  ) ;
-            TN( tSlash                          , "/"           ) ;
+            TN( tNameTestFavIcon                , "/favicon.ico"   ) ;
+            TN( tQuest                          , "?"              ) ;
+            TN( tSlashTalkBody                  , "/talk.body"     ) ;
+            TN( tSlash                          , "/"              ) ;
             ZE( countT , idEscaped ) ;
             //LOGrAW( T("------------------------- B E G I N   S E S S I O N -------------------------------------------------------\r\n") ) ;
             //CONoUTrAW( T("------------------------- B E G I N   S E S S I O N -------------------------------------------------------\r\n") ) ;

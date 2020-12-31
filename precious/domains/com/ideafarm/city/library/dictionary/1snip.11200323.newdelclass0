@@ -203,7 +203,7 @@
                 pNote->idType       = ifciDtYPEdROPnOTE_##typeP ;                                                                               \
             {                                                                                                                                   \
             if( pNote )                                                                                                                         \
-            dropNoteS* pNote = PUSE.pDropNoteF( tinP , (byteT*)pvn ) ;                                                                          \
+            dropNoteS* pNote = !tinP.pPoolUse ? 0 : PUSE.pDropNoteF( tinP , (byteT*)pvn ) ;                                                     \
             POSTPONEtEST( pvn ) ;                                                                                                               \
                                                                                                                                                 \
             else                *(byteT**)&pvn = (processGlobal3IP).heap.newF( tinP , LF , ( cbaFoot + cbP ) ) ;                                \

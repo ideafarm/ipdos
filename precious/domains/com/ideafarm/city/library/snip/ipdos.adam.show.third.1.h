@@ -477,7 +477,7 @@ struct  /*ff*/taskDrivenServerJobS/*ff*/     ; /*ff*//**//*ff*/
 /**/
 /*1*//*ENABLEdROPnOTES*//*1*/
 
-//#define ENABLEdROPnOTES
+#define ENABLEdROPnOTES
 
 
 //
@@ -29703,7 +29703,7 @@ can be used for sCountC as well as measureT and sCountT and countT
             else                *(byteT**)&pvn = (processGlobal3IP).heap.newF( tinP , LF , ( cbaFoot + cbP ) ) ;                                \
                                                                                                                                                 \
             POSTPONEtEST( pvn ) ;                                                                                                               \
-            dropNoteS* pNote = PUSE.pDropNoteF( tinP , (byteT*)pvn ) ;                                                                          \
+            dropNoteS* pNote = !tinP.pPoolUse ? 0 : PUSE.pDropNoteF( tinP , (byteT*)pvn ) ;                                                     \
             if( pNote )                                                                                                                         \
             {                                                                                                                                   \
                 pNote->idType       = ifciDtYPEdROPnOTE_##typeP ;                                                                               \
