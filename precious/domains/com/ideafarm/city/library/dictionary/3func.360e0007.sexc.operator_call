@@ -20,6 +20,8 @@
         if( offSlot < pzMetaHead->cSlotsAvoidLo ) { BLAMMO ; }
 
         }
+            thirdC::c_memsetIF( (byteT*)pDoomed , sizeof( dropNoteS ) , 0xdd ) ; //U:: TO FIND A BUG
+
             pDoomed->idThreadDel = tinP.monitor.idThread ;
             //thirdC::c_memsetIF( (byteT*)pDoomed , sizeof( dropNoteS ) , 0 ) ; //SANS tinP USED FOR MAX SPEED; INTENTIONALLY COMMENTED OUT SO THAT SLOTS WHICH ARE NOT CONTINUALLY REUSED CAN BE VISIBLE (SUCH CODE IS CANDIDATE FOR MIGRATION FROM poolC TO jotC)
 

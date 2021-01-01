@@ -13,7 +13,7 @@
             return pvr ;                                                                                                                        \
             voidT* pvr = operator new( cbP , 0 , tinP , pNapkinP ) ;                                                                            \
             if( !pNapkinP ) BLAMMOiD( 0x17 ) ;                                                                                                  \
-            /*_IO_*/                                                                                                                            \
+            _IO_                                                                                                                                \
         {                                                                                                                                       \
         voidT* classP::operator new[]( countT cbP , tinS& tinP , napkinC* const pNapkinP )                                                      \
                                                                                                                                                 \
@@ -23,14 +23,14 @@
             if( tinP.fingerprint ) ;                                                                                                            \
             if( cbZombieP - cbP ) BLAMMOiD( 0x16 ) ;                                                                                            \
             if( !pbZombieP ) BLAMMOiD( 0x15 ) ;                                                                                                 \
-            /*_IO_*/                                                                                                                            \
+            _IO_                                                                                                                                \
         {                                                                                                                                       \
         voidT* classP::operator new[]( countT cbP , tinS& tinP , byteT* pbZombieP , const countT cbZombieP )                                    \
                                                                                                                                                 \
         }                                                                                                                                       \
             return pvr ;                                                                                                                        \
             voidT* pvr = operator new( cbP , 0 , tinP , idLineP , idiFileP ) ;                                                                  \
-            /*_IO_*/                                                                                                                            \
+            _IO_                                                                                                                                \
         {                                                                                                                                       \
         voidT* classP::operator new[]( countT cbP , tinS& tinP , const countT idLineP , const countT idiFileP )                                 \
                                                                                                                                                 \
@@ -51,7 +51,7 @@
                                                                                                                                                 \
             countT cbaFoot = cbFootP ? cbFootP + 2 * sizeof( countT ) : 0 ;                                                                     \
             if( !pNapkinP ) BLAMMOiD( 0x13 ) ;                                                                                                  \
-            /*_IO_*/                                                                                                                            \
+            _IO_                                                                                                                                \
         {                                                                                                                                       \
         voidT* classP::operator new( countT cbP , const countT cbFootP , tinS& tinP , napkinC* const pNapkinP )                                 \
                                                                                                                                                 \
@@ -76,7 +76,7 @@
             if( cbZombieP - ( cbaFoot + cbP ) )   /* DO A FULL BUILD (REFRESH HEADERS) IF THIS HAPPENS */                                       \
             countT cbaFoot = cbFootP ? cbFootP + 2 * sizeof( countT ) : 0 ;                                                                     \
             if( !pbZombieP ) BLAMMOiD( 0x10 ) ;                                                                                                 \
-            /*_IO_*/                                                                                                                            \
+            _IO_                                                                                                                                \
         {                                                                                                                                       \
         voidT* classP::operator new( countT cbP , const countT cbFootP , tinS& tinP , byteT* pbZombieP , const countT cbZombieP )               \
                                                                                                                                                 \
@@ -90,20 +90,22 @@
             {                                                                                                                                   \
             if( cbaFoot )                                                                                                                       \
             __Z( pvn ) ;                                                                                                                        \
-            POSTPONEtEST( pvn ) ;                                                                                                               \
                                                                                                                                                 \
-            else                *(byteT**)&pvn = (processGlobal3IP).heap.newF( tinP , LF , ( cbaFoot + cbP ) ) ;                                \
-            if( tinP.pPoolUse ) { PUSE.newF( tinP , LF , *(byteT**)&pvn , ( cbaFoot + cbP ) ) ; /*APP CODE MUST TAG: ___( pvn ) ;*/ }           \
-                                                                                                                                                \
+            }                                                                                                                                   \
+                ___LF( pvn , idLineP , idiFileP ) ;                                                                                             \
+                PUSE.newF( tinP , LF , *(byteT**)&pvn , ( cbaFoot + cbP ) ) ;                                                                   \
+            {                                                                                                                                   \
+            else                                                                                                                                \
+            if( !tinP.pPoolUse ) *(byteT**)&pvn = (processGlobal3IP).heap.newF( tinP , LF , ( cbaFoot + cbP ) ) ;                               \
             ZE( voidT* , pvn ) ;                                                                                                                \
             countT cbaFoot = cbFootP ? cbFootP + 2 * sizeof( countT ) : 0 ;                                                                     \
-            /*_IO_*/                                                                                                                            \
+            _IO_                                                                                                                                \
         {                                                                                                                                       \
         voidT* classP::operator new( countT cbP , const countT cbFootP , tinS& tinP , const countT idLineP , const countT idiFileP )            \
                                                                                                                                                 \
         }                                                                                                                                       \
             operator delete( pvP ) ;                                                                                                            \
-            /*_IO_*/                                                                                                                            \
+            _IO_                                                                                                                                \
             TINSL                                                                                                                               \
         {                                                                                                                                       \
         voidT classP::operator delete[]( voidT* pvP )                                                                                           \
@@ -116,7 +118,7 @@
                                                                                                                                                 \
             if( idType == ifciDtYPEdROPnOTE_strokeS && ((strokeS*)pvP)->idCaste != sc_cADAM ) { BLAMMOiD( 0xc ) ; }                             \
             countT idType = ifciDtYPEdROPnOTE_##typeP ;                                                                                         \
-            /*_IO_*/                                                                                                                            \
+            _IO_                                                                                                                                \
             TINSL                                                                                                                               \
         {                                                                                                                                       \
         voidT classP::operator delete( voidT* pvP )                                                                                             \
@@ -129,7 +131,7 @@
             return pvr ;                                                                                                                        \
             voidT* pvr = operator new( cbP , 0 , tinP , pNapkinP ) ;                                                                            \
             if( !pNapkinP ) BLAMMOiD( 0xb ) ;                                                                                                   \
-            /*_IO_*/                                                                                                                            \
+            _IO_                                                                                                                                \
         {                                                                                                                                       \
         voidT* classP::operator new[]( countT cbP , tinS& tinP , napkinC* const pNapkinP )                                                      \
                                                                                                                                                 \
@@ -139,14 +141,14 @@
             if( tinP.fingerprint ) ;                                                                                                            \
             if( cbZombieP - cbP ) BLAMMOiD( 0xa ) ;                                                                                             \
             if( !pbZombieP ) BLAMMOiD( 0x9 ) ;                                                                                                  \
-            /*_IO_*/                                                                                                                            \
+            _IO_                                                                                                                                \
         {                                                                                                                                       \
         voidT* classP::operator new[]( countT cbP , tinS& tinP , byteT* pbZombieP , const countT cbZombieP )                                    \
                                                                                                                                                 \
         }                                                                                                                                       \
             return pvr ;                                                                                                                        \
             voidT* pvr = operator new( cbP , 0 , tinP , idLineP , idiFileP ) ;                                                                  \
-            /*_IO_*/                                                                                                                            \
+            _IO_                                                                                                                                \
         {                                                                                                                                       \
         voidT* classP::operator new[]( countT cbP , tinS& tinP , const countT idLineP , const countT idiFileP )                                 \
                                                                                                                                                 \
@@ -167,7 +169,7 @@
                                                                                                                                                 \
             countT cbaFoot = cbFootP ? cbFootP + 2 * sizeof( countT ) : 0 ;                                                                     \
             if( !pNapkinP ) BLAMMOiD( 0x7 ) ;                                                                                                   \
-            /*_IO_*/                                                                                                                            \
+            _IO_                                                                                                                                \
         {                                                                                                                                       \
         voidT* classP::operator new( countT cbP , const countT cbFootP , tinS& tinP , napkinC* const pNapkinP )                                 \
                                                                                                                                                 \
@@ -184,7 +186,7 @@
             if( cbZombieP - ( cbaFoot + cbP ) ) BLAMMOiD( 0x5 ) ;                                                                               \
             countT cbaFoot = cbFootP ? cbFootP + 2 * sizeof( countT ) : 0 ;                                                                     \
             if( !pbZombieP ) BLAMMOiD( 0x4 ) ;                                                                                                  \
-            /*_IO_*/                                                                                                                            \
+            _IO_                                                                                                                                \
         {                                                                                                                                       \
         voidT* classP::operator new( countT cbP , const countT cbFootP , tinS& tinP , byteT* pbZombieP , const countT cbZombieP )               \
                                                                                                                                                 \
@@ -204,20 +206,22 @@
             {                                                                                                                                   \
             if( pNote )                                                                                                                         \
             dropNoteS* pNote = !tinP.pPoolUse ? 0 : PUSE.pDropNoteF( tinP , (byteT*)pvn ) ;                                                     \
-            POSTPONEtEST( pvn ) ;                                                                                                               \
                                                                                                                                                 \
-            else                *(byteT**)&pvn = (processGlobal3IP).heap.newF( tinP , LF , ( cbaFoot + cbP ) ) ;                                \
-            if( tinP.pPoolUse ) { PUSE.newF( tinP , LF , *(byteT**)&pvn , ( cbaFoot + cbP ) ) ; /*APP CODE MUST TAG: ___( pvn ) ;*/ }           \
-                                                                                                                                                \
+            }                                                                                                                                   \
+                ___LF( pvn , idLineP , idiFileP ) ;                                                                                             \
+                PUSE.newF( tinP , LF , *(byteT**)&pvn , ( cbaFoot + cbP ) ) ;                                                                   \
+            {                                                                                                                                   \
+            else                                                                                                                                \
+            if( !tinP.pPoolUse ) *(byteT**)&pvn = (processGlobal3IP).heap.newF( tinP , LF , ( cbaFoot + cbP ) ) ;                               \
             ZE( voidT* , pvn ) ;                                                                                                                \
             countT cbaFoot = cbFootP ? cbFootP + 2 * sizeof( countT ) : 0 ;                                                                     \
-            /*_IO_*/                                                                                                                            \
+            _IO_                                                                                                                                \
         {                                                                                                                                       \
         voidT* classP::operator new( countT cbP , const countT cbFootP , tinS& tinP , const countT idLineP , const countT idiFileP )            \
                                                                                                                                                 \
         }                                                                                                                                       \
             operator delete( pvP ) ;                                                                                                            \
-            /*_IO_*/                                                                                                                            \
+            _IO_                                                                                                                                \
             TINSL                                                                                                                               \
         {                                                                                                                                       \
         voidT classP::operator delete[]( voidT* pvP )                                                                                           \
@@ -230,7 +234,7 @@
                                                                                                                                                 \
             if( idType == ifciDtYPEdROPnOTE_strokeS && ((strokeS*)pvP)->idCaste != sc_cADAM ) { BLAMMOiD( 0x1 ) ; }                             \
             countT idType = ifciDtYPEdROPnOTE_##typeP ;                                                                                         \
-            /*_IO_*/                                                                                                                            \
+            _IO_                                                                                                                                \
             TINSL                                                                                                                               \
         {                                                                                                                                       \
         voidT classP::operator delete( voidT* pvP )                                                                                             \
@@ -240,6 +244,7 @@
 #if defined( ENABLEdROPnOTES )
 
 // INOUT IS NOT USED, TO AVOID BLOWING STACK DURING INOUT TRACING
+//U::I NEED INOUT, SO TRY TO MAKE THIS WORK
 
 /*1*//*NEWdELcLASS0(classP,typeP,cbSizeP,processGlobal3IP)*//*1*/
 

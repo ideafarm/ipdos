@@ -9,6 +9,80 @@
 /*
 */
 /**/
+/*1*//*___LF(pbP,idLineP,idiFileP)*//*1*/
+
+#if defined( ENABLEdROPnOTES )
+
+    #define ___LF(pbP,idLineP,idiFileP)                                                                                                                               \
+                                                                                                                                                                    \
+        {                                                                                                                                                           \
+            byteT* _pbx = (byteT*)(pbP) ;                                                                                                                           \
+            if( _pbx && ( (byteT*)_pbx < processGlobal0S::_processGlobal0I_IF().pbHeap || (byteT*)_pbx >= processGlobal0S::_processGlobal0I_IF().pbHeapEnd ) )      \
+            {                                                                                                                                                       \
+                for( countT offr = 0 ; offr < sizeof tinP.ppbNewUntagged / sizeof tinP.ppbNewUntagged[ 0 ] ; offr ++ )                                              \
+                {                                                                                                                                                   \
+                    if( tinP.ppbNewUntagged[ offr ] == _pbx )                                                                                                       \
+                    {                                                                                                                                               \
+                        tinP.ppbNewUntagged[ offr ] = 0 ;                                                                                                           \
+                        tinP.pcLevelUntagged[ offr ] = 0 ;                                                                                                          \
+                        break ;                                                                                                                                     \
+                    }                                                                                                                                               \
+                }                                                                                                                                                   \
+                                                                                                                                                                    \
+                dropNoteS* pNote = PUSE.pDropNoteF( tinP , _pbx ) ;                                                                                                 \
+                if( pNote )                                                                                                                                         \
+                {                                                                                                                                                   \
+                    static countT _idNewForTagLine ;                                                                                                                \
+                    pNote->idNewForTagLine = 1 + incv02AM( _idNewForTagLine ) ;    /*U::O: incv02AM CAN BE REPLACED WITH ++ FOR SPEED*/                             \
+                    pNote->idLineTagged    = idLineP ;                                                                                                              \
+                    pNote->idiFileTagged   = idiFileP ;                                                                                                             \
+                                                                                                                                                                    \
+                                                                                                                                                                    \
+                }                                                                                                                                                   \
+            }                                                                                                                                                       \
+        }
+
+#else
+
+    #define ___LF(pbP,idLineP,idiFileP)                                                                                                                               \
+                                                                                                                                                                    \
+        {                                                                                                                                                           \
+            byteT* _pbx = (byteT*)(pbP) ;                                                                                                                           \
+            if( _pbx && (  (byteT*)_pbx < processGlobal0S::_processGlobal0I_IF().pbHeap || (byteT*)_pbx >= processGlobal0S::_processGlobal0I_IF().pbHeapEnd ) )     \
+            {                                                                                                                                                       \
+                for( countT offr = 0 ; offr < sizeof tinP.ppbNewUntagged / sizeof tinP.ppbNewUntagged[ 0 ] ; offr ++ )                                              \
+                {                                                                                                                                                   \
+                    if( tinP.ppbNewUntagged[ offr ] == _pbx )                                                                                                       \
+                    {                                                                                                                                               \
+                        tinP.ppbNewUntagged[ offr ] = 0 ;                                                                                                           \
+                        tinP.pcLevelUntagged[ offr ] = 0 ;                                                                                                          \
+                        break ;                                                                                                                                     \
+                    }                                                                                                                                               \
+                }                                                                                                                                                   \
+            }                                                                                                                                                       \
+        }
+
+#endif
+
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+/*
+*/
+/**/
 /*1*//*TlISTlOAD(tListToP,tListPrefixP,tSuffixP)*//*1*/
 
 #define TlISTlOAD(tListToP,tListPrefixP,tSuffixP)           \
@@ -1262,7 +1336,6 @@ using the "new" "d elete" operators results in calling constructors and destruct
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200013.newdeltypeether END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200014.newdeltypethird BEGIN
 
-
 //
 // Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
@@ -1282,6 +1355,7 @@ see the documentation for NEWdELtYPEeTHER
 /*1*//*NEWdELtYPEtHIRD(typeP,idTypeP))*//*1*/
 
 //INOUT NOT USED, TO AVOID BLOWING STACK DURING INOUT TRACE
+//_IO_ NEEDED, SO MAKE THIS WORK (DEBUG INOUT TRACE)
 
 #if defined( ENABLEdROPnOTES )
 
@@ -1289,7 +1363,7 @@ see the documentation for NEWdELtYPEeTHER
                                                                                         \
         voidT thirdC::delF( tinS& tinP , typeP*& pP )                                   \
         {                                                                               \
-            /*_IO_*/                                                                 \
+            _IO_                                                                        \
             countT idType = idTypeP ;                                                   \
             if( idType == ifciDtYPEdROPnOTE_strokeS && pP )                             \
             {                                                                           \
@@ -1312,7 +1386,7 @@ see the documentation for NEWdELtYPEeTHER
                                                                                         \
         voidT thirdC::newF( tinS& tinP , const countT idLineP , const countT idiFileP , typeP*& pP , const countT cP )                 \
         {                                                                               \
-            /*_IO_*/                                                                 \
+            _IO_                                                                        \
             if( !tinP.pPoolUse ) { BLAMMO ; }                                           \
             DROPnOTEdOESnOTwANTmE                                                       \
                                                                                         \
@@ -1351,7 +1425,7 @@ see the documentation for NEWdELtYPEeTHER
                                                                                         \
         voidT thirdC::delF( tinS& tinP , typeP*& pP )                                   \
         {                                                                               \
-            /*_IO_*/                                                                 \
+            _IO_                                                                        \
             countT idType = idTypeP ;                                                   \
             if( idType == ifciDtYPEdROPnOTE_strokeS && pP )                             \
             {                                                                           \
@@ -1374,7 +1448,7 @@ see the documentation for NEWdELtYPEeTHER
                                                                                         \
         voidT thirdC::newF( tinS& tinP , const countT idLineP , const countT idiFileP , typeP*& pP , const countT cP )                 \
         {                                                                               \
-            /*_IO_*/                                                                 \
+            _IO_                                                                        \
             DROPnOTEdOESnOTwANTmE                                                       \
                                                                                         \
             if( ( (countT)(-1) >> 1 ) / NDsIZEoF( typeP ) <= cP ) /*NOT ADDRESSABLE*/   \
@@ -1826,79 +1900,7 @@ use me iff pvP was obtained from operator new
 
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200020.del END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200021.___ BEGIN
-
-
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-// Respecting the rights of other people is an important part of empowering one another.
-//
-
-/*
-*/
-/**/
-/*1*//*___(pbP)*//*1*/
-
-#if defined( ENABLEdROPnOTES )
-
-    #define ___(pbP)                                                                                                                                                        \
-                                                                                                                                                                            \
-        {                                                                                                                                                                   \
-            byteT* _pbx = (byteT*)(pbP) ;                                                                                                                                   \
-            if( _pbx && ( (byteT*)_pbx < processGlobal0S::_processGlobal0I_IF().pbHeap || (byteT*)_pbx >= processGlobal0S::_processGlobal0I_IF().pbHeapEnd ) )              \
-            {                                                                                                                                                               \
-                for( countT offr = 0 ; offr < sizeof tinP.ppbNewUntagged / sizeof tinP.ppbNewUntagged[ 0 ] ; offr ++ )                                                      \
-                {                                                                                                                                                           \
-                    if( tinP.ppbNewUntagged[ offr ] == _pbx )                                                                                                               \
-                    {                                                                                                                                                       \
-                        tinP.ppbNewUntagged[ offr ] = 0 ;                                                                                                                   \
-                        tinP.pcLevelUntagged[ offr ] = 0 ;                                                                                                                  \
-                        break ;                                                                                                                                             \
-                    }                                                                                                                                                       \
-                }                                                                                                                                                           \
-                                                                                                                                                                            \
-                dropNoteS* pNote = PUSE.pDropNoteF( tinP , _pbx ) ;                                                                                                         \
-                if( pNote )                                                                                                                                                 \
-                {                                                                                                                                                           \
-                    static countT _idNewForTagLine ;                                                                                                                        \
-                    pNote->idNewForTagLine = 1 + incv02AM( _idNewForTagLine ) ;    /*U::O: incv02AM CAN BE REPLACED WITH ++ FOR SPEED*/                                     \
-                    pNote->idLineTagged    = ifcLINE ;                                                                                                                      \
-                    pNote->idiFileTagged   = DDNUMB ;                                                                                                                       \
-                }                                                                                                                                                           \
-            }                                                                                                                                                               \
-        }
-
-#else
-
-    #define ___(pbP)                                                                                                                                                        \
-                                                                                                                                                                            \
-        {                                                                                                                                                                   \
-            byteT* _pbx = (byteT*)(pbP) ;                                                                                                                                   \
-            if( _pbx && (  (byteT*)_pbx < processGlobal0S::_processGlobal0I_IF().pbHeap || (byteT*)_pbx >= processGlobal0S::_processGlobal0I_IF().pbHeapEnd ) )             \
-            {                                                                                                                                                               \
-                for( countT offr = 0 ; offr < sizeof tinP.ppbNewUntagged / sizeof tinP.ppbNewUntagged[ 0 ] ; offr ++ )                                                      \
-                {                                                                                                                                                           \
-                    if( tinP.ppbNewUntagged[ offr ] == _pbx )                                                                                                               \
-                    {                                                                                                                                                       \
-                        tinP.ppbNewUntagged[ offr ] = 0 ;                                                                                                                   \
-                        tinP.pcLevelUntagged[ offr ] = 0 ;                                                                                                                  \
-                        break ;                                                                                                                                             \
-                    }                                                                                                                                                       \
-                }                                                                                                                                                           \
-            }                                                                                                                                                               \
-        }
-
-#endif
-
-
-//
-// Respecting the rights of other people is an important part of empowering one another.
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-
+#define ___(pbP) ___LF( (pbP) , ifcLINE , DDNUMB )
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200021.___ END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200022.newdelclassprotos BEGIN
 
@@ -29653,7 +29655,6 @@ can be used for sCountC as well as measureT and sCountT and countT
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200322.posthtmlfoot END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200323.newdelclass0 BEGIN
 
-
 //
 // Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
@@ -29667,6 +29668,7 @@ can be used for sCountC as well as measureT and sCountT and countT
 
 /*1*//*NEWdELcLASS0(classP,typeP,cbSizeP,processGlobal3IP)*//*1*/
 
+//U::I NEED INOUT, SO TRY TO MAKE THIS WORK
 // INOUT IS NOT USED, TO AVOID BLOWING STACK DURING INOUT TRACING
 
 #if defined( ENABLEdROPnOTES )
@@ -29676,7 +29678,7 @@ can be used for sCountC as well as measureT and sCountT and countT
         voidT classP::operator delete( voidT* pvP )                                                                                             \
         {                                                                                                                                       \
             TINSL                                                                                                                               \
-            /*_IO_*/                                                                                                                            \
+            _IO_                                                                                                                                \
             countT idType = ifciDtYPEdROPnOTE_##typeP ;                                                                                         \
             if( idType == ifciDtYPEdROPnOTE_strokeS && ((strokeS*)pvP)->idCaste != sc_cADAM ) { BLAMMOiD( 0x1 ) ; }                             \
                                                                                                                                                 \
@@ -29689,20 +29691,22 @@ can be used for sCountC as well as measureT and sCountT and countT
         voidT classP::operator delete[]( voidT* pvP )                                                                                           \
         {                                                                                                                                       \
             TINSL                                                                                                                               \
-            /*_IO_*/                                                                                                                            \
+            _IO_                                                                                                                                \
             operator delete( pvP ) ;                                                                                                            \
         }                                                                                                                                       \
                                                                                                                                                 \
         voidT* classP::operator new( countT cbP , const countT cbFootP , tinS& tinP , const countT idLineP , const countT idiFileP )            \
         {                                                                                                                                       \
-            /*_IO_*/                                                                                                                            \
+            _IO_                                                                                                                                \
             countT cbaFoot = cbFootP ? cbFootP + 2 * sizeof( countT ) : 0 ;                                                                     \
             ZE( voidT* , pvn ) ;                                                                                                                \
+            if( !tinP.pPoolUse ) *(byteT**)&pvn = (processGlobal3IP).heap.newF( tinP , LF , ( cbaFoot + cbP ) ) ;                               \
+            else                                                                                                                                \
+            {                                                                                                                                   \
+                PUSE.newF( tinP , LF , *(byteT**)&pvn , ( cbaFoot + cbP ) ) ;                                                                   \
+                ___LF( pvn , idLineP , idiFileP ) ;                                                                                             \
+            }                                                                                                                                   \
                                                                                                                                                 \
-            if( tinP.pPoolUse ) { PUSE.newF( tinP , LF , *(byteT**)&pvn , ( cbaFoot + cbP ) ) ; /*APP CODE MUST TAG: ___( pvn ) ;*/ }           \
-            else                *(byteT**)&pvn = (processGlobal3IP).heap.newF( tinP , LF , ( cbaFoot + cbP ) ) ;                                \
-                                                                                                                                                \
-            POSTPONEtEST( pvn ) ;                                                                                                               \
             dropNoteS* pNote = !tinP.pPoolUse ? 0 : PUSE.pDropNoteF( tinP , (byteT*)pvn ) ;                                                     \
             if( pNote )                                                                                                                         \
             {                                                                                                                                   \
@@ -29722,7 +29726,7 @@ can be used for sCountC as well as measureT and sCountT and countT
                                                                                                                                                 \
         voidT* classP::operator new( countT cbP , const countT cbFootP , tinS& tinP , byteT* pbZombieP , const countT cbZombieP )               \
         {                                                                                                                                       \
-            /*_IO_*/                                                                                                                            \
+            _IO_                                                                                                                                \
             if( !pbZombieP ) BLAMMOiD( 0x4 ) ;                                                                                                  \
             countT cbaFoot = cbFootP ? cbFootP + 2 * sizeof( countT ) : 0 ;                                                                     \
             if( cbZombieP - ( cbaFoot + cbP ) ) BLAMMOiD( 0x5 ) ;                                                                               \
@@ -29739,7 +29743,7 @@ can be used for sCountC as well as measureT and sCountT and countT
                                                                                                                                                 \
         voidT* classP::operator new( countT cbP , const countT cbFootP , tinS& tinP , napkinC* const pNapkinP )                                 \
         {                                                                                                                                       \
-            /*_IO_*/                                                                                                                            \
+            _IO_                                                                                                                                \
             if( !pNapkinP ) BLAMMOiD( 0x7 ) ;                                                                                                   \
             countT cbaFoot = cbFootP ? cbFootP + 2 * sizeof( countT ) : 0 ;                                                                     \
                                                                                                                                                 \
@@ -29760,14 +29764,14 @@ can be used for sCountC as well as measureT and sCountT and countT
                                                                                                                                                 \
         voidT* classP::operator new[]( countT cbP , tinS& tinP , const countT idLineP , const countT idiFileP )                                 \
         {                                                                                                                                       \
-            /*_IO_*/                                                                                                                            \
+            _IO_                                                                                                                                \
             voidT* pvr = operator new( cbP , 0 , tinP , idLineP , idiFileP ) ;                                                                  \
             return pvr ;                                                                                                                        \
         }                                                                                                                                       \
                                                                                                                                                 \
         voidT* classP::operator new[]( countT cbP , tinS& tinP , byteT* pbZombieP , const countT cbZombieP )                                    \
         {                                                                                                                                       \
-            /*_IO_*/                                                                                                                            \
+            _IO_                                                                                                                                \
             if( !pbZombieP ) BLAMMOiD( 0x9 ) ;                                                                                                  \
             if( cbZombieP - cbP ) BLAMMOiD( 0xa ) ;                                                                                             \
             if( tinP.fingerprint ) ;                                                                                                            \
@@ -29777,7 +29781,7 @@ can be used for sCountC as well as measureT and sCountT and countT
                                                                                                                                                 \
         voidT* classP::operator new[]( countT cbP , tinS& tinP , napkinC* const pNapkinP )                                                      \
         {                                                                                                                                       \
-            /*_IO_*/                                                                                                                            \
+            _IO_                                                                                                                                \
             if( !pNapkinP ) BLAMMOiD( 0xb ) ;                                                                                                   \
             voidT* pvr = operator new( cbP , 0 , tinP , pNapkinP ) ;                                                                            \
             return pvr ;                                                                                                                        \
@@ -29790,7 +29794,7 @@ can be used for sCountC as well as measureT and sCountT and countT
         voidT classP::operator delete( voidT* pvP )                                                                                             \
         {                                                                                                                                       \
             TINSL                                                                                                                               \
-            /*_IO_*/                                                                                                                            \
+            _IO_                                                                                                                                \
             countT idType = ifciDtYPEdROPnOTE_##typeP ;                                                                                         \
             if( idType == ifciDtYPEdROPnOTE_strokeS && ((strokeS*)pvP)->idCaste != sc_cADAM ) { BLAMMOiD( 0xc ) ; }                             \
                                                                                                                                                 \
@@ -29803,20 +29807,22 @@ can be used for sCountC as well as measureT and sCountT and countT
         voidT classP::operator delete[]( voidT* pvP )                                                                                           \
         {                                                                                                                                       \
             TINSL                                                                                                                               \
-            /*_IO_*/                                                                                                                            \
+            _IO_                                                                                                                                \
             operator delete( pvP ) ;                                                                                                            \
         }                                                                                                                                       \
                                                                                                                                                 \
         voidT* classP::operator new( countT cbP , const countT cbFootP , tinS& tinP , const countT idLineP , const countT idiFileP )            \
         {                                                                                                                                       \
-            /*_IO_*/                                                                                                                            \
+            _IO_                                                                                                                                \
             countT cbaFoot = cbFootP ? cbFootP + 2 * sizeof( countT ) : 0 ;                                                                     \
             ZE( voidT* , pvn ) ;                                                                                                                \
+            if( !tinP.pPoolUse ) *(byteT**)&pvn = (processGlobal3IP).heap.newF( tinP , LF , ( cbaFoot + cbP ) ) ;                               \
+            else                                                                                                                                \
+            {                                                                                                                                   \
+                PUSE.newF( tinP , LF , *(byteT**)&pvn , ( cbaFoot + cbP ) ) ;                                                                   \
+                ___LF( pvn , idLineP , idiFileP ) ;                                                                                             \
+            }                                                                                                                                   \
                                                                                                                                                 \
-            if( tinP.pPoolUse ) { PUSE.newF( tinP , LF , *(byteT**)&pvn , ( cbaFoot + cbP ) ) ; /*APP CODE MUST TAG: ___( pvn ) ;*/ }           \
-            else                *(byteT**)&pvn = (processGlobal3IP).heap.newF( tinP , LF , ( cbaFoot + cbP ) ) ;                                \
-                                                                                                                                                \
-            POSTPONEtEST( pvn ) ;                                                                                                               \
             __Z( pvn ) ;                                                                                                                        \
             if( cbaFoot )                                                                                                                       \
             {                                                                                                                                   \
@@ -29830,7 +29836,7 @@ can be used for sCountC as well as measureT and sCountT and countT
                                                                                                                                                 \
         voidT* classP::operator new( countT cbP , const countT cbFootP , tinS& tinP , byteT* pbZombieP , const countT cbZombieP )               \
         {                                                                                                                                       \
-            /*_IO_*/                                                                                                                            \
+            _IO_                                                                                                                                \
             if( !pbZombieP ) BLAMMOiD( 0x10 ) ;                                                                                                 \
             countT cbaFoot = cbFootP ? cbFootP + 2 * sizeof( countT ) : 0 ;                                                                     \
             if( cbZombieP - ( cbaFoot + cbP ) )   /* DO A FULL BUILD (REFRESH HEADERS) IF THIS HAPPENS */                                       \
@@ -29855,7 +29861,7 @@ can be used for sCountC as well as measureT and sCountT and countT
                                                                                                                                                 \
         voidT* classP::operator new( countT cbP , const countT cbFootP , tinS& tinP , napkinC* const pNapkinP )                                 \
         {                                                                                                                                       \
-            /*_IO_*/                                                                                                                            \
+            _IO_                                                                                                                                \
             if( !pNapkinP ) BLAMMOiD( 0x13 ) ;                                                                                                  \
             countT cbaFoot = cbFootP ? cbFootP + 2 * sizeof( countT ) : 0 ;                                                                     \
                                                                                                                                                 \
@@ -29876,14 +29882,14 @@ can be used for sCountC as well as measureT and sCountT and countT
                                                                                                                                                 \
         voidT* classP::operator new[]( countT cbP , tinS& tinP , const countT idLineP , const countT idiFileP )                                 \
         {                                                                                                                                       \
-            /*_IO_*/                                                                                                                            \
+            _IO_                                                                                                                                \
             voidT* pvr = operator new( cbP , 0 , tinP , idLineP , idiFileP ) ;                                                                  \
             return pvr ;                                                                                                                        \
         }                                                                                                                                       \
                                                                                                                                                 \
         voidT* classP::operator new[]( countT cbP , tinS& tinP , byteT* pbZombieP , const countT cbZombieP )                                    \
         {                                                                                                                                       \
-            /*_IO_*/                                                                                                                            \
+            _IO_                                                                                                                                \
             if( !pbZombieP ) BLAMMOiD( 0x15 ) ;                                                                                                 \
             if( cbZombieP - cbP ) BLAMMOiD( 0x16 ) ;                                                                                            \
             if( tinP.fingerprint ) ;                                                                                                            \
@@ -29893,7 +29899,7 @@ can be used for sCountC as well as measureT and sCountT and countT
                                                                                                                                                 \
         voidT* classP::operator new[]( countT cbP , tinS& tinP , napkinC* const pNapkinP )                                                      \
         {                                                                                                                                       \
-            /*_IO_*/                                                                                                                            \
+            _IO_                                                                                                                                \
             if( !pNapkinP ) BLAMMOiD( 0x17 ) ;                                                                                                  \
             voidT* pvr = operator new( cbP , 0 , tinP , pNapkinP ) ;                                                                            \
             return pvr ;                                                                                                                        \
