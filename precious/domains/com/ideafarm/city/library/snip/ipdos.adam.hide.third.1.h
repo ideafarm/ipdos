@@ -39220,7 +39220,7 @@ args
 #define flTHREADmODE3_EXCEPTIONcLEANUPdELETIONiNpROGRESS        0xe00004c8
 #define flTHREADmODE3_EXCEPTIONrEPORTINGiNpROGRESS              0xe00008c8
 #define flTHREADmODE3_ALLOWwRITEABLEpOINTERgET                  0xe00010c8
-#define flTHREADmODE4_INoUTfRAMErEGISTERcALLnEST                0xe00020c8
+#define flTHREADmODE3_INoUTfRAMErEGISTERcALLnEST                0xe00020c8
 #define flTHREADmODE3_DOnOTvERIFYpOOLdROPtAGGING                0xe00040c8
 #define flTHREADmODE3_DOnOTmAKEsEXiNpOOL                        0xe00080c8
 #define flTHREADmODE3_DOnOTrEGISTERpAGEc                        0xe00100c8

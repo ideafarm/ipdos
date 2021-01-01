@@ -5156,6 +5156,7 @@ after i return, that countT object will contain 1
 #define flTHREADmODE4_INoUTfRAMEdOnOTcOLLECTaPPtELEMETRY                                0xe0000210
 #define flTHREADmODE4_INoUTfRAMEfORCEcOLLECTaPPtELEMETRY                                0xe0000410
 #define flTHREADmODE4_DOnOTfLUSHpENDINGaPPtELEMETRY                                     0xe0000810
+#define flTHREADmODE4_INoUTfRAMEaLLOWuNTAGGEDpOOLdROPS                                  0xe0001010
 /*3*/
 #define flTHREADmODE4_null    0xe0000010
 
