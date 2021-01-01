@@ -78,7 +78,7 @@ TODO
                 "Referer: http://www.gshift.com/\r\n"
                 T("GET /")+T(psttPathCommand)+T(" HTTP/1.0\r\n"
 
-            etThread.strMakeF( tinP , psttRequest ,
+            etThread.strMakeF( tinP , LF , psttRequest ,
 
             cookiesP.soulRfcF( tinP , psttSoulRfc , tBoxAll2 ) ; ___( psttSoulRfc ) ;
             ZE( strokeS* , psttSoulRfc ) ;
@@ -116,7 +116,7 @@ TODO
                 "Referer: http://www.gshift.com/\r\n"
                 T("GET /")+T(psttPathToday)+T(" HTTP/1.0\r\n"
 
-            etThread.strMakeF( tinP , psttRequest ,
+            etThread.strMakeF( tinP , LF , psttRequest ,
 
             cookiesP.soulRfcF( tinP , psttSoulRfc , tBoxAll2 ) ; ___( psttSoulRfc ) ;
             ZE( strokeS* , psttSoulRfc ) ;
@@ -154,7 +154,7 @@ TODO
                 "Referer: http://www.gshift.com/\r\n"
                 T("GET /")+T(psttPathNavbar)+T(" HTTP/1.0\r\n"
 
-            etThread.strMakeF( tinP , psttRequest ,
+            etThread.strMakeF( tinP , LF , psttRequest ,
 
             cookiesP.soulRfcF( tinP , psttSoulRfc , tBoxAll2 ) ; ___( psttSoulRfc ) ;
             ZE( strokeS* , psttSoulRfc ) ;
@@ -206,7 +206,7 @@ TODO
                 "Referer: http://www.gshift.com/\r\n"
                 T("GET ")+T(psttPathDesktop)+T(" HTTP/1.0\r\n"
 
-            etThread.strMakeF( tinP , psttRequest ,
+            etThread.strMakeF( tinP , LF , psttRequest ,
 
             cookiesP.soulRfcF( tinP , psttSoulRfc , tBoxAll2 ) ; ___( psttSoulRfc ) ;
             ZE( strokeS* , psttSoulRfc ) ;
@@ -254,7 +254,7 @@ TODO
                     "Referer: http://user.gshift.com/")+T(psttUrlLoginInterim)+T("\r\n"
                     T("GET ")+T(psttUrlLoginStatusB)+T(" HTTP/1.0\r\n"
 
-                etThread.strMakeF( tinP , psttRequest ,
+                etThread.strMakeF( tinP , LF , psttRequest ,
 
                 cookiesP.soulRfcF( tinP , psttSoulRfc , tBoxAll2 ) ; ___( psttSoulRfc ) ;
                 ZE( strokeS* , psttSoulRfc ) ;
@@ -294,7 +294,7 @@ TODO
                     "Referer: http://user.gshift.com/")+T(psttUrlLoginInterim)+T("\r\n"
                     T("GET ")+T(psttUrlLoginStatusA)+T(" HTTP/1.0\r\n"
 
-                etThread.strMakeF( tinP , psttRequest ,
+                etThread.strMakeF( tinP , LF , psttRequest ,
 
                 cookiesP.soulRfcF( tinP , psttSoulRfc , tBoxAll2 ) ; ___( psttSoulRfc ) ;
                 ZE( strokeS* , psttSoulRfc ) ;
@@ -308,8 +308,8 @@ TODO
             }
                 etThread.delF( tinP , psttN2B ) ;
                 etThread.delF( tinP , psttN2A ) ;
-                etThread.strMakeF( tinP , psttUrlLoginStatusB , T("/Connect.asp?rn="     )+T(psttN2B) ) ; ___( psttUrlLoginStatusB ) ;
-                etThread.strMakeF( tinP , psttUrlLoginStatusA , T("/ConnectTitle.asp?rn=")+T(psttN2A) ) ; ___( psttUrlLoginStatusA ) ;
+                etThread.strMakeF( tinP , LF , psttUrlLoginStatusB , T("/Connect.asp?rn="     )+T(psttN2B) ) ; ___( psttUrlLoginStatusB ) ;
+                etThread.strMakeF( tinP , LF , psttUrlLoginStatusA , T("/ConnectTitle.asp?rn=")+T(psttN2A) ) ; ___( psttUrlLoginStatusA ) ;
                 etThread.delF( tinP , psttBody ) ;
                 etThread.strSubstringF( tinP , psttN2B , idf , sttq , tAfter   , psttBody ) ; ___( psttN2B ) ;
                 etThread.strSubstringF( tinP , psttN2B , idf , sttq , tBeforeB , psttBody ) ; ___( psttN2B ) ; etThread.delF( tinP , psttN2B ) ;
@@ -320,7 +320,7 @@ TODO
                 TN( tAfter  , "\"" ) ;
                 TN( tBeforeB , "<FRAME SRC=\"Connect.asp?rn=" ) ;
                 TN( tBeforeA , "<FRAME SRC=\"ConnectTitle.asp?rn=" ) ;
-                etThread.strMakeF( tinP , psttBody , T(postBody) ) ; ___( psttBody ) ;
+                etThread.strMakeF( tinP , LF , psttBody , T(postBody) ) ; ___( psttBody ) ;
                 ZE( strokeS* , psttBody ) ;
                 ZE( strokeS* , psttN2B ) ;
                 ZE( strokeS* , psttN2A ) ;
@@ -356,7 +356,7 @@ TODO
                     "Referer: http://user.gshift.com/\r\n"
                     T("GET /")+T(psttUrlLoginInterim)+T(" HTTP/1.0\r\n"
 
-                etThread.strMakeF( tinP , psttRequest ,
+                etThread.strMakeF( tinP , LF , psttRequest ,
 
                 cookiesP.soulRfcF( tinP , psttSoulRfc , tBoxAll2 ) ; ___( psttSoulRfc ) ;
                 ZE( strokeS* , psttSoulRfc ) ;
@@ -375,7 +375,7 @@ TODO
     }
         etThread.delF( tinP , psttw ) ;
 
-        etThread.strMakeF( tinP , psttPathDesktop , T("/silibus.asp?rn=")+T(psttw) ) ; ___( psttPathDesktop ) ;
+        etThread.strMakeF( tinP , LF , psttPathDesktop , T("/silibus.asp?rn=")+T(psttw) ) ; ___( psttPathDesktop ) ;
         etThread.strSubstringF( tinP , psttw , idf , idl     , psttUrlLoginInterim ) ; ___( psttw ) ;
         etThread.strSubstringF( tinP , psttw , idf , sttq , tBefore , psttUrlLoginInterim ) ; ___( psttw ) ; etThread.delF( tinP , psttw ) ;
         ZE( strokeS* , psttw ) ;
@@ -419,14 +419,14 @@ TODO
                 "Referer: http://www.gshift.com/\r\n"
                 T("POST /CheckLogin.asp HTTP/1.0\r\n"
 
-            etThread.strMakeF( tinP , psttRequest ,
+            etThread.strMakeF( tinP , LF , psttRequest ,
 
             cookiesP.soulRfcF( tinP , psttSoulRfc , tBoxAll2 ) ; ___( psttSoulRfc ) ;
             ZE( strokeS* , psttSoulRfc ) ;
         {
         ZE( strokeS* , psttRequest ) ;
 
-        etThread.strMakeF( tinP , psttBody , T("Lang=0&n=")+T(psttN)+T("&Email=christrees%40yahoo.com&Password=1111&enter=Login\r\n") ) ; ___( psttBody ) ;
+        etThread.strMakeF( tinP , LF , psttBody , T("Lang=0&n=")+T(psttN)+T("&Email=christrees%40yahoo.com&Password=1111&enter=Login\r\n") ) ; ___( psttBody ) ;
         ZE( strokeS* , psttBody ) ;
     {
     ZE( strokeS* , psttUrlLoginInterim ) ;
@@ -443,7 +443,7 @@ TODO
 
         }
             etThread.delF( tinP , postBody ) ;
-            etThread.strMakeF( tinP , psttBody , T(postBody) ) ; ___( psttBody ) ;
+            etThread.strMakeF( tinP , LF , psttBody , T(postBody) ) ; ___( psttBody ) ;
             }
                 etThread.delF( tinP , psttRedirect ) ;
                 readReplyF( tinP , etThread , stPhrases , postBody , costBody , cookiesP , psttRedirect , sIn , tBoxAll1 ) ; ___( postBody ) ; ___( psttRedirect ) ;
@@ -484,7 +484,7 @@ voidT trialF( tinS& tinP , etherC& etThread , countT& timeAfter1P , sCountT& tim
     etThread.osClipboardWriteF( tinP , psttu ) ;
     etThread.osClipboardGrabF( tinP ) ;
 
-    etThread.strMakeF( tinP , psttu , T("http://user.gshift.com/")+T(psttP) ) ; ___( psttu ) ;
+    etThread.strMakeF( tinP , LF , psttu , T("http://user.gshift.com/")+T(psttP) ) ; ___( psttu ) ;
     ZE( strokeS* , psttu ) ;
 {
 voidT urlToClipboardF( tinS& tinP , etherC& etThread , const strokeS* const psttP )
@@ -509,7 +509,7 @@ voidT urlToClipboardF( tinS& tinP , etherC& etThread , const strokeS* const pstt
     }
         etThread.delF( tinP , psttBody ) ;
         stPhrasesP << postOldC( tinP , etThread , T("BODY BEGIN-------------------\r\n")+T(psttBody)+T("\r\nBODY END---------------------\r\n") ) ;
-        etThread.strMakeF( tinP , psttBody , T(postBodyP) ) ; ___( psttBody ) ;
+        etThread.strMakeF( tinP , LF , psttBody , T(postBodyP) ) ; ___( psttBody ) ;
         ZE( strokeS* , psttBody ) ;
 
         if( postBodyP ) postBodyP[ costBodyP ] = 0 ;
@@ -529,7 +529,7 @@ voidT urlToClipboardF( tinS& tinP , etherC& etThread , const strokeS* const pstt
             etThread.delF( tinP , psttValue ) ;
             etThread.delF( tinP , psttKey ) ;
 
-            else if( !etThread.strCompareF( tinP , tLocation      , psttKey ) ) { etThread.strMakeF( tinP , psttRedirectP , psttValue ) ; ___( psttRedirectP ) ; }
+            else if( !etThread.strCompareF( tinP , tLocation      , psttKey ) ) { etThread.strMakeF( tinP , LF , psttRedirectP , psttValue ) ; ___( psttRedirectP ) ; }
             else if( !etThread.strCompareF( tinP , tSetCookie     , psttKey ) ) cookiesP.updateF( tinP , psttValue , psttBoxAllP ) ;
                  if( !etThread.strCompareF( tinP , tContentLength , psttKey ) ) costBodyP = etThread.strDigitsToSCountF( tinP , psttValue , 0xa , 1 ) ;
 
@@ -588,7 +588,7 @@ voidT readReplyF( tinS& tinP , etherC& etThread , stackC& stPhrasesP , osTextT*&
             cookieC* pCookie = (cookieC*)st_pCookie.downF( tinP , hDown ) ;
         {
         do
-        ether.strMakeF( tinP , psttP , T("") , csttSoul ) ; ___( psttP ) ;
+        ether.strMakeF( tinP , LF , psttP , T("") , csttSoul ) ; ___( psttP ) ;
         TN( tSemic , ";" ) ;
         bWoth = 1 ;
 
@@ -723,7 +723,7 @@ boolT cookieC::bMineF( tinS& tinP , const strokeS* const psttBoxAllP )
                 +(psttPath?T(";$Path=\"")+T(psttPath)+T("\""):T(""))
                 T(psttKey)+T("=\"")+T(psttValue)+T("\"")
 
-            ether.strMakeF( tinP , psttSoulRfc ,
+            ether.strMakeF( tinP , LF , psttSoulRfc ,
         {
         if( timeN2 < 0 || !( time1die || time2die ) )
         ether.osTimeSubtractF( tinP , timeN1 , timeN2 , time1die , time2die ) ;
@@ -791,10 +791,10 @@ boolT cookieC::bReplacesF( tinS& tinP , cookieC& oldCookieP )
                     countT seconds = ether.strDigitsToSCountF( tinP , psttc3 , 0xa , 1 ) ;
                 {
                 case 5 :
-                case 4 : {                                   ether.strMakeF( tinP , psttVersion , psttc3 ) ; ___( psttVersion ) ; break ; }
-                case 3 : {                                   ether.strMakeF( tinP , psttPath    , psttc3 ) ; ___( psttPath    ) ; break ; }
-                case 2 : { ether.delF( tinP , psttDomain ) ; ether.strMakeF( tinP , psttDomain  , psttc3 ) ; ___( psttDomain  ) ; break ; }
-                case 1 : {                                   ether.strMakeF( tinP , psttOldComment , psttc3 ) ; ___( psttOldComment ) ; break ; }
+                case 4 : {                                   ether.strMakeF( tinP , LF , psttVersion , psttc3 ) ; ___( psttVersion ) ; break ; }
+                case 3 : {                                   ether.strMakeF( tinP , LF , psttPath    , psttc3 ) ; ___( psttPath    ) ; break ; }
+                case 2 : { ether.delF( tinP , psttDomain ) ; ether.strMakeF( tinP , LF , psttDomain  , psttc3 ) ; ___( psttDomain  ) ; break ; }
+                case 1 : {                                   ether.strMakeF( tinP , LF , psttOldComment , psttc3 ) ; ___( psttOldComment ) ; break ; }
                 }
                     break ;
                     ether.delF( tinP , psttOldCrumb ) ;
@@ -812,8 +812,8 @@ boolT cookieC::bReplacesF( tinS& tinP , cookieC& oldCookieP )
                 case 0 :
             {
             else switch( idType )
-            else if( !psttValue ) { ether.strMakeF( tinP , psttValue , psttc3 ) ; ___( psttValue ) ; }
-                 if( !psttKey   ) { ether.strMakeF( tinP , psttKey   , psttc3 ) ; ___( psttKey   ) ; }
+            else if( !psttValue ) { ether.strMakeF( tinP , LF , psttValue , psttc3 ) ; ___( psttValue ) ; }
+                 if( !psttKey   ) { ether.strMakeF( tinP , LF , psttKey   , psttc3 ) ; ___( psttKey   ) ; }
         {
         FORsTRINGSiN3( pstt1crumb )
         ZE( countT , idType ) ;

@@ -239,7 +239,7 @@ DONE( tmJobDoerF )
                         }
                             etThread.boxPutF( tinP , tFileLast , (byteT*)&idNew , sizeof idNew ) ;
                             }
-                                etThread.strMakeF( tinP , psttNew , tDict + T("adam.") + T(psttIdi ) ) ; ___( psttNew ) ;
+                                etThread.strMakeF( tinP , LF , psttNew , tDict + T("adam.") + T(psttIdi ) ) ; ___( psttNew ) ;
                                 etThread.strFromF( tinP , psttIdi , idNew , flFORMAT_UNSIGNED | flFORMAT_FILLzE , 7 ) ; ___( psttIdi ) ;
                                 if( bReply ) { textC txt = T(psttPrefix)+T("(redoing step 2 of 4)\r\n") ; sReply.writeF( tinP , (osTextT*)txt ) ; }
                                 idNew = idNewF( tinP , etThread , tFileLast , 1 ) ;
@@ -247,7 +247,7 @@ DONE( tmJobDoerF )
                                 etThread.delF( tinP , psttNew ) ;
                             {
                             if( etThread.diskFileExistsF( tinP , psttNew ) ) // ASSUME: THIS IS THE ONLY INSTANCE OF 4e30104 THAT CAN SEE THE tDict DIRECTORY
-                            etThread.strMakeF( tinP , psttNew , tDict + T("adam.") + T(psttIdi) ) ; ___( psttNew ) ;
+                            etThread.strMakeF( tinP , LF , psttNew , tDict + T("adam.") + T(psttIdi) ) ; ___( psttNew ) ;
                             etThread.strFromF( tinP , psttIdi , idNew , flFORMAT_UNSIGNED | flFORMAT_FILLzE , 7 ) ; ___( psttIdi ) ;
                             if( bReply ) { textC txt = T(psttPrefix)+T("(step 2 of 4)\r\n") ; sReply.writeF( tinP , (osTextT*)txt ) ; }
                             countT idNew = idNewF( tinP , etThread , tFileLast ) ;
@@ -391,30 +391,30 @@ countT idNewF( tinS& tinP , etherC& etThread , const strokeS* const psttFileLast
     etThread.strFromF( tinP , psttParameterP , parameter ) ;
 
     }
-        default                       : { etThread.strMakeF( tinP , psttOldCmd , T(""     ) ) ; ___( psttOldCmd ) ; break ; }
-        case ifcCMDsERVICEwINDOW_qmall : { etThread.strMakeF( tinP , psttOldCmd , T("?mall") ) ; ___( psttOldCmd ) ; break ; }
-        case ifcCMDsERVICEwINDOW_mall  : { etThread.strMakeF( tinP , psttOldCmd , T("mall" ) ) ; ___( psttOldCmd ) ; break ; }
-        case ifcCMDsERVICEwINDOW_qhire : { etThread.strMakeF( tinP , psttOldCmd , T("?hire") ) ; ___( psttOldCmd ) ; break ; }
-        case ifcCMDsERVICEwINDOW_hire  : { etThread.strMakeF( tinP , psttOldCmd , T("hire" ) ) ; ___( psttOldCmd ) ; break ; }
-        case ifcCMDsERVICEwINDOW_qsub  : { etThread.strMakeF( tinP , psttOldCmd , T("?sub" ) ) ; ___( psttOldCmd ) ; break ; }
-        case ifcCMDsERVICEwINDOW_sub   : { etThread.strMakeF( tinP , psttOldCmd , T("sub"  ) ) ; ___( psttOldCmd ) ; break ; }
-        case ifcCMDsERVICEwINDOW_qwho  : { etThread.strMakeF( tinP , psttOldCmd , T("?who" ) ) ; ___( psttOldCmd ) ; break ; }
-        case ifcCMDsERVICEwINDOW_who   : { etThread.strMakeF( tinP , psttOldCmd , T("who"  ) ) ; ___( psttOldCmd ) ; break ; }
-        case ifcCMDsERVICEwINDOW_q7use : { etThread.strMakeF( tinP , psttOldCmd , T("?7use") ) ; ___( psttOldCmd ) ; break ; }
-        case ifcCMDsERVICEwINDOW_7use  : { etThread.strMakeF( tinP , psttOldCmd , T("7use" ) ) ; ___( psttOldCmd ) ; break ; }
-        case ifcCMDsERVICEwINDOW_qtest : { etThread.strMakeF( tinP , psttOldCmd , T("?test") ) ; ___( psttOldCmd ) ; break ; }
-        case ifcCMDsERVICEwINDOW_test  : { etThread.strMakeF( tinP , psttOldCmd , T("test" ) ) ; ___( psttOldCmd ) ; break ; }
-        case ifcCMDsERVICEwINDOW_qgett : { etThread.strMakeF( tinP , psttOldCmd , T("?gett") ) ; ___( psttOldCmd ) ; break ; }
-        case ifcCMDsERVICEwINDOW_gett  : { etThread.strMakeF( tinP , psttOldCmd , T("gett" ) ) ; ___( psttOldCmd ) ; break ; }
-        case ifcCMDsERVICEwINDOW_qmake : { etThread.strMakeF( tinP , psttOldCmd , T("?make") ) ; ___( psttOldCmd ) ; break ; }
-        case ifcCMDsERVICEwINDOW_make  : { etThread.strMakeF( tinP , psttOldCmd , T("make" ) ) ; ___( psttOldCmd ) ; break ; }
-        case ifcCMDsERVICEwINDOW_qput  : { etThread.strMakeF( tinP , psttOldCmd , T("?put" ) ) ; ___( psttOldCmd ) ; break ; }
-        case ifcCMDsERVICEwINDOW_put   : { etThread.strMakeF( tinP , psttOldCmd , T("put"  ) ) ; ___( psttOldCmd ) ; break ; }
-        case ifcCMDsERVICEwINDOW_qget  : { etThread.strMakeF( tinP , psttOldCmd , T("?get" ) ) ; ___( psttOldCmd ) ; break ; }
-        case ifcCMDsERVICEwINDOW_get   : { etThread.strMakeF( tinP , psttOldCmd , T("get"  ) ) ; ___( psttOldCmd ) ; break ; }
-        case ifcCMDsERVICEwINDOW_qnew  : { etThread.strMakeF( tinP , psttOldCmd , T("?new" ) ) ; ___( psttOldCmd ) ; break ; }
-        case ifcCMDsERVICEwINDOW_new   : { etThread.strMakeF( tinP , psttOldCmd , T("new"  ) ) ; ___( psttOldCmd ) ; break ; }
-        case ifcCMDsERVICEwINDOW_q     : { etThread.strMakeF( tinP , psttOldCmd , T("?"    ) ) ; ___( psttOldCmd ) ; break ; }
+        default                       : { etThread.strMakeF( tinP , LF , psttOldCmd , T(""     ) ) ; ___( psttOldCmd ) ; break ; }
+        case ifcCMDsERVICEwINDOW_qmall : { etThread.strMakeF( tinP , LF , psttOldCmd , T("?mall") ) ; ___( psttOldCmd ) ; break ; }
+        case ifcCMDsERVICEwINDOW_mall  : { etThread.strMakeF( tinP , LF , psttOldCmd , T("mall" ) ) ; ___( psttOldCmd ) ; break ; }
+        case ifcCMDsERVICEwINDOW_qhire : { etThread.strMakeF( tinP , LF , psttOldCmd , T("?hire") ) ; ___( psttOldCmd ) ; break ; }
+        case ifcCMDsERVICEwINDOW_hire  : { etThread.strMakeF( tinP , LF , psttOldCmd , T("hire" ) ) ; ___( psttOldCmd ) ; break ; }
+        case ifcCMDsERVICEwINDOW_qsub  : { etThread.strMakeF( tinP , LF , psttOldCmd , T("?sub" ) ) ; ___( psttOldCmd ) ; break ; }
+        case ifcCMDsERVICEwINDOW_sub   : { etThread.strMakeF( tinP , LF , psttOldCmd , T("sub"  ) ) ; ___( psttOldCmd ) ; break ; }
+        case ifcCMDsERVICEwINDOW_qwho  : { etThread.strMakeF( tinP , LF , psttOldCmd , T("?who" ) ) ; ___( psttOldCmd ) ; break ; }
+        case ifcCMDsERVICEwINDOW_who   : { etThread.strMakeF( tinP , LF , psttOldCmd , T("who"  ) ) ; ___( psttOldCmd ) ; break ; }
+        case ifcCMDsERVICEwINDOW_q7use : { etThread.strMakeF( tinP , LF , psttOldCmd , T("?7use") ) ; ___( psttOldCmd ) ; break ; }
+        case ifcCMDsERVICEwINDOW_7use  : { etThread.strMakeF( tinP , LF , psttOldCmd , T("7use" ) ) ; ___( psttOldCmd ) ; break ; }
+        case ifcCMDsERVICEwINDOW_qtest : { etThread.strMakeF( tinP , LF , psttOldCmd , T("?test") ) ; ___( psttOldCmd ) ; break ; }
+        case ifcCMDsERVICEwINDOW_test  : { etThread.strMakeF( tinP , LF , psttOldCmd , T("test" ) ) ; ___( psttOldCmd ) ; break ; }
+        case ifcCMDsERVICEwINDOW_qgett : { etThread.strMakeF( tinP , LF , psttOldCmd , T("?gett") ) ; ___( psttOldCmd ) ; break ; }
+        case ifcCMDsERVICEwINDOW_gett  : { etThread.strMakeF( tinP , LF , psttOldCmd , T("gett" ) ) ; ___( psttOldCmd ) ; break ; }
+        case ifcCMDsERVICEwINDOW_qmake : { etThread.strMakeF( tinP , LF , psttOldCmd , T("?make") ) ; ___( psttOldCmd ) ; break ; }
+        case ifcCMDsERVICEwINDOW_make  : { etThread.strMakeF( tinP , LF , psttOldCmd , T("make" ) ) ; ___( psttOldCmd ) ; break ; }
+        case ifcCMDsERVICEwINDOW_qput  : { etThread.strMakeF( tinP , LF , psttOldCmd , T("?put" ) ) ; ___( psttOldCmd ) ; break ; }
+        case ifcCMDsERVICEwINDOW_put   : { etThread.strMakeF( tinP , LF , psttOldCmd , T("put"  ) ) ; ___( psttOldCmd ) ; break ; }
+        case ifcCMDsERVICEwINDOW_qget  : { etThread.strMakeF( tinP , LF , psttOldCmd , T("?get" ) ) ; ___( psttOldCmd ) ; break ; }
+        case ifcCMDsERVICEwINDOW_get   : { etThread.strMakeF( tinP , LF , psttOldCmd , T("get"  ) ) ; ___( psttOldCmd ) ; break ; }
+        case ifcCMDsERVICEwINDOW_qnew  : { etThread.strMakeF( tinP , LF , psttOldCmd , T("?new" ) ) ; ___( psttOldCmd ) ; break ; }
+        case ifcCMDsERVICEwINDOW_new   : { etThread.strMakeF( tinP , LF , psttOldCmd , T("new"  ) ) ; ___( psttOldCmd ) ; break ; }
+        case ifcCMDsERVICEwINDOW_q     : { etThread.strMakeF( tinP , LF , psttOldCmd , T("?"    ) ) ; ___( psttOldCmd ) ; break ; }
     {
     switch( idCmd )
     ZE( strokeS* , psttOldCmd ) ;
@@ -467,7 +467,7 @@ voidT stringsFromJobF( tinS& tinP , etherC& etThread , strokeS*& psttPrefixP , s
 
     etThread.delF( tinP , post ) ;
     ((thirdC&)etThread).osCompileF( tinP , post ) ;
-    etThread.strMakeF( tinP , post , tIdi ) ;
+    etThread.strMakeF( tinP , LF , post , tIdi ) ;
     hoverC hover1( tinP , etThread , tDir+T("/") ) ;
     etThread.diskMakeDirIfNeededF( tinP , tDirw+T("/") ) ;
     { textC txt = T(psttPrefixP)+T("(step 9 of a)\r\n") ; sReplyP.writeF( tinP , (osTextT*)txt ) ; }
@@ -489,11 +489,11 @@ voidT stringsFromJobF( tinS& tinP , etherC& etThread , strokeS*& psttPrefixP , s
     etThread.boxPutF( tinP , tCpp , post , cost ) ;
     { textC txt = T(psttPrefixP)+T("(step 7 of a)\r\n") ; sReplyP.writeF( tinP , (osTextT*)txt ) ; }
     etThread.delF( tinP , psttAll ) ;
-    cost = etThread.strMakeF( tinP , post , psttAll ) ; ___( post ) ;
+    cost = etThread.strMakeF( tinP , LF , post , psttAll ) ; ___( post ) ;
     { textC txt = T(psttPrefixP)+T("(step 6 of a)\r\n") ; sReplyP.writeF( tinP , (osTextT*)txt ) ; }
 
     etThread.delF( tinP , psttBody ) ;
-    etThread.strMakeF( tinP , psttAll , T("#include \"\\ideafarm.home.1\\precious\\domains\\com\\ideafarm\\city\\library\\snip\\ipdos.h\"\r\n#include \"\\ideafarm.home.1\\ephemeral\\domains\\com\\ideafarm\\city\\workshop\\snip\\1snip.005000a.lines.adam.")+tIdi+T( "\"\r\n//SOURCE: adam.")+tIdi+T(" BEGIN\r\n#define DDNAME \"adam.")+tIdi+T("\"\r\n#define DDNUMB 0x")+tIdiR+T("\r\n")+T(psttBody)+T("\r\n#undef DDNUMB\r\n#undef DDNAME\r\n//SOURCE: adam.")+tIdi+T(" END\r\n") ) ; ___( psttAll ) ;
+    etThread.strMakeF( tinP , LF , psttAll , T("#include \"\\ideafarm.home.1\\precious\\domains\\com\\ideafarm\\city\\library\\snip\\ipdos.h\"\r\n#include \"\\ideafarm.home.1\\ephemeral\\domains\\com\\ideafarm\\city\\workshop\\snip\\1snip.005000a.lines.adam.")+tIdi+T( "\"\r\n//SOURCE: adam.")+tIdi+T(" BEGIN\r\n#define DDNAME \"adam.")+tIdi+T("\"\r\n#define DDNUMB 0x")+tIdiR+T("\r\n")+T(psttBody)+T("\r\n#undef DDNUMB\r\n#undef DDNAME\r\n//SOURCE: adam.")+tIdi+T(" END\r\n") ) ; ___( psttAll ) ;
     ZE( strokeS* , psttAll ) ;
     { textC txt = T(psttPrefixP)+T("(step 5 of a)\r\n") ; sReplyP.writeF( tinP , (osTextT*)txt ) ; }
 
@@ -501,7 +501,7 @@ voidT stringsFromJobF( tinS& tinP , etherC& etThread , strokeS*& psttPrefixP , s
     { textC txt = T(psttPrefixP)+T("(step 4 of a)\r\n") ;sReplyP.writeF( tinP , (osTextT*)txt ) ; }
     cost = 0 ;
     etThread.delF( tinP , post ) ;
-    etThread.strMakeF( tinP , psttBody , T(post) ) ; ___( psttBody ) ;
+    etThread.strMakeF( tinP , LF , psttBody , T(post) ) ; ___( psttBody ) ;
     ZE( strokeS* , psttBody ) ;
     { textC txt = T(psttPrefixP)+T("(step 3 of a)\r\n") ; sReplyP.writeF( tinP , (osTextT*)txt ) ; }
     etThread.boxGetShadowF( tinP , post , cost , tRaw , 1 ) ; ___( post ) ;
@@ -520,7 +520,7 @@ voidT stringsFromJobF( tinS& tinP , etherC& etThread , strokeS*& psttPrefixP , s
         etThread.delF( tinP , psttw ) ;
         tIdiR = T(psttw) ;
         etThread.strReverseF( tinP , psttw ) ; ___( psttw ) ;
-        etThread.strMakeF( tinP , psttw , psttParameterP ) ; ___( psttw ) ;
+        etThread.strMakeF( tinP , LF , psttw , psttParameterP ) ; ___( psttw ) ;
         ZE( strokeS* , psttw ) ;
     {
     TN( tIdiR , "" ) ;

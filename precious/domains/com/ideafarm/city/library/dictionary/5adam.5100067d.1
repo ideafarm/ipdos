@@ -47,7 +47,7 @@ CONoUTrAW( T(psttr) ) ;
 for( countT offSmallBig = 0 ; offSmallBig < cSmallBigComment ; offSmallBig ++ )
 TN( tn , "\r\n" ) ;
 
-etThread.strMakeF( tinP , psttr , 0 , TOCK ) ; ___( psttr ) ;
+etThread.strMakeF( tinP , LF , psttr , 0 , TOCK ) ; ___( psttr ) ;
 ZE( strokeS* , psttr ) ;
 
 }
@@ -236,7 +236,7 @@ ZE( strokeS* , psttr ) ;
         etThread.strFuseF( tinP , psttBig , S1C( ostg ) ) ;
     {
     for( osTextT ostg = 0 ;; ostg ++ )
-    etThread.strMakeF( tinP , psttBig , 0 , TUCK << 1 ) ; ___( psttBig ) ;
+    etThread.strMakeF( tinP , LF , psttBig , 0 , TUCK << 1 ) ; ___( psttBig ) ;
     ZE( strokeS* , psttBig ) ;
 
     ;
@@ -261,7 +261,7 @@ ZE( strokeS* , psttr ) ;
         etThread.strFuseF( tinP , psttBig , S1C( ostg ) ) ;
     {
     for( osTextT ostg = 0xff ;; ostg -- )
-    etThread.strMakeF( tinP , psttBig , 0 , TUCK << 1 ) ; ___( psttBig ) ;
+    etThread.strMakeF( tinP , LF , psttBig , 0 , TUCK << 1 ) ; ___( psttBig ) ;
     ZE( strokeS* , psttBig ) ;
 
     ;
@@ -822,9 +822,9 @@ ZE( countT , cSmallBigComment ) ;
 TODO
 
     cSmallBigComment ++ ;
-    etThread.strMakeF( tinP , ppsttSmallBigComment[ ( cSmallBigComment * 3 ) + 2 ] , T(postCommentP) ) ; ___( ppsttSmallBigComment[ ( cSmallBigComment * 3 ) + 2 ] ) ;  \
-    etThread.strMakeF( tinP , ppsttSmallBigComment[ ( cSmallBigComment * 3 ) + 1 ] , tBig            ) ; ___( ppsttSmallBigComment[ ( cSmallBigComment * 3 ) + 1 ] ) ;  \
-    etThread.strMakeF( tinP , ppsttSmallBigComment[   cSmallBigComment * 3       ] , tSmall          ) ; ___( ppsttSmallBigComment[   cSmallBigComment * 3       ] ) ;  \
+    etThread.strMakeF( tinP , LF , ppsttSmallBigComment[ ( cSmallBigComment * 3 ) + 2 ] , T(postCommentP) ) ; ___( ppsttSmallBigComment[ ( cSmallBigComment * 3 ) + 2 ] ) ;  \
+    etThread.strMakeF( tinP , LF , ppsttSmallBigComment[ ( cSmallBigComment * 3 ) + 1 ] , tBig            ) ; ___( ppsttSmallBigComment[ ( cSmallBigComment * 3 ) + 1 ] ) ;  \
+    etThread.strMakeF( tinP , LF , ppsttSmallBigComment[   cSmallBigComment * 3       ] , tSmall          ) ; ___( ppsttSmallBigComment[   cSmallBigComment * 3       ] ) ;  \
     __( cSmallBigComment * 3 + 2 >= sizeof ppsttSmallBigComment / sizeof ppsttSmallBigComment[ 0 ] ) ;                                                                  \
                                                                                                                                                                         \
     pcIdsDoIdbDo[ ( cSmallBigComment << 1 ) + 1 ] = idbDoP ;                                                                                                            \

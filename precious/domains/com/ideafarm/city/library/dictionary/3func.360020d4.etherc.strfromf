@@ -38,7 +38,7 @@
 
         if( F(flagsFormatP) & flFORMAT_SIGNcOLlEFT ) strFuseF( tinP , psttP , sttSign , 4 + csttExtraP ) ;_WQ
 
-        if( psttBigits ) { strMakeF( tinP , psttP , T("") , psttBigits->idAdam + 4 + csttExtraP ) ; }
+        if( psttBigits ) { strMakeF( tinP , LF , psttP , T("") , psttBigits->idAdam + 4 + csttExtraP ) ; }
 
         }
             __Z( psttBigits ) ;_WQ
@@ -98,7 +98,7 @@
             strokeS s0 = bForeign || bNoBigitValues ? S1C( '0' ) : S2( sscDIGIT | SDBITS( cdBits ) , sc_cALPHABET1 ) ;_WQ
 
             }
-                strMakeF( tinP , psttBigits , 0 , cstta ) ; ___( psttBigits ) ;_WQ
+                strMakeF( tinP , LF , psttBigits , 0 , cstta ) ; ___( psttBigits ) ;_WQ
                 if( csP != - 1 && cstta < csP ) cstta = csP ;_WQ
                 countT cstta = cBigitsMax + bPrependedSign ;_WQ
                 if( !cBigitsMax ) cBigitsMax = 1 ;
@@ -155,7 +155,7 @@
     else
     }
         POSTPONEtEST( psttP ) ;_WQ
-        strMakeF( tinP , psttP , TF4(v4,flags,0,0xa)+tDot+TF4(v3,flags,0,0xa)+tDot+TF4(v2,flags,0,0xa)+tDot+TF4(v1,flags,0,0xa) ) ; // CALLER MUST TAG ___( psttP ) ;_WQ
+        strMakeF( tinP , LF , psttP , TF4(v4,flags,0,0xa)+tDot+TF4(v3,flags,0,0xa)+tDot+TF4(v2,flags,0,0xa)+tDot+TF4(v1,flags,0,0xa) ) ; // CALLER MUST TAG ___( psttP ) ;_WQ
         flagsT flags = flFORMAT_UNSIGNED | flFORMAT_FOREIGN | flFORMAT_NObASE ;_WQ
         TN( tDot , "." ) ;_WQ
         countT v4 = vv & 0xff ; vv >>= 8 ;_WQ

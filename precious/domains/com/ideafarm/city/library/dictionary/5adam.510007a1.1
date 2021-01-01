@@ -17,7 +17,7 @@ etThread.traceF( tinP , T("ok") ) ;
     etThread.boxPutF( tinP , T("///ideafarm/ephemeral/reports/rpt.inOutFrameC.time.ttt") , postRpt , costRpt ) ;
 
     etThread.delF( tinP , psttRpt ) ;
-    countT costRpt = etThread.strMakeF( tinP , postRpt , psttRpt ) ; ___( postRpt ) ;
+    countT costRpt = etThread.strMakeF( tinP , LF , postRpt , psttRpt ) ; ___( postRpt ) ;
     ZE( osTextT* , postRpt ) ;
 
     }
@@ -27,7 +27,7 @@ etThread.traceF( tinP , T("ok") ) ;
         ZE( strokeS* , psttl ) ;
     {
     while( stRpt )
-    etThread.strMakeF( tinP , psttRpt , tRptPrefix , csttRptBody ) ; ___( psttRpt ) ;
+    etThread.strMakeF( tinP , LF , psttRpt , tRptPrefix , csttRptBody ) ; ___( psttRpt ) ;
     TN( tRptPrefix , "{\r\n    IPDOS (tm) IdeaFarm (tm) Piggyback Distributed Operating System\r\n\r\n    inOutFrameC Telemetry Report: Time\r\n\r\n    To generate telemetry for this report, set flTHREADmODE4_INoUTfRAMEfORCEcOLLECTaPPtELEMETRY.\r\n}\r\n" ) ;
     ZE( strokeS* , psttRpt ) ;    
 
@@ -36,7 +36,7 @@ etThread.traceF( tinP , T("ok") ) ;
             }
                 stRpt.sinkF( tinP , countTC() , psttl ) ;
                 csttRptBody += psttl->idAdam ;
-                etThread.strMakeF( tinP , psttl , tSay ) ; ___( psttl ) ;
+                etThread.strMakeF( tinP , LF , psttl , tSay ) ; ___( psttl ) ;
                 ZE( strokeS* , psttl ) ;
 
                 ;
@@ -88,7 +88,7 @@ etThread.traceF( tinP , T("ok") ) ;
     etThread.boxPutF( tinP , T("///ideafarm/ephemeral/reports/rpt.inOutFrameC.cpu.ttt") , postRpt , costRpt ) ;
 
     etThread.delF( tinP , psttRpt ) ;
-    countT costRpt = etThread.strMakeF( tinP , postRpt , psttRpt ) ; ___( postRpt ) ;
+    countT costRpt = etThread.strMakeF( tinP , LF , postRpt , psttRpt ) ; ___( postRpt ) ;
     ZE( osTextT* , postRpt ) ;
 
     }
@@ -98,7 +98,7 @@ etThread.traceF( tinP , T("ok") ) ;
         ZE( strokeS* , psttl ) ;
     {
     while( stRpt )
-    etThread.strMakeF( tinP , psttRpt , tRptPrefix , csttRptBody ) ; ___( psttRpt ) ;
+    etThread.strMakeF( tinP , LF , psttRpt , tRptPrefix , csttRptBody ) ; ___( psttRpt ) ;
     TN( tRptPrefix , "{\r\n    IPDOS (tm) IdeaFarm (tm) Piggyback Distributed Operating System\r\n\r\n    inOutFrameC Telemetry Report: Cpu\r\n\r\n    To generate telemetry for this report, set flTHREADmODE4_INoUTfRAMEfORCEcOLLECTaPPtELEMETRY.\r\n}\r\n" ) ;
     ZE( strokeS* , psttRpt ) ;
 
@@ -107,7 +107,7 @@ etThread.traceF( tinP , T("ok") ) ;
             }
                 stRpt.sinkF( tinP , countTC() , psttl ) ;
                 csttRptBody += psttl->idAdam ;
-                etThread.strMakeF( tinP , psttl , tSay ) ; ___( psttl ) ;
+                etThread.strMakeF( tinP , LF , psttl , tSay ) ; ___( psttl ) ;
                 ZE( strokeS* , psttl ) ;
 
                 ;
@@ -159,7 +159,7 @@ etThread.traceF( tinP , T("ok") ) ;
     etThread.boxPutF( tinP , T("///ideafarm/ephemeral/reports/rpt.inOutFrameC.tally.ttt") , postRpt , costRpt ) ;
 
     etThread.delF( tinP , psttRpt ) ;
-    countT costRpt = etThread.strMakeF( tinP , postRpt , psttRpt ) ; ___( postRpt ) ;
+    countT costRpt = etThread.strMakeF( tinP , LF , postRpt , psttRpt ) ; ___( postRpt ) ;
     ZE( osTextT* , postRpt ) ;
 
     }
@@ -169,7 +169,7 @@ etThread.traceF( tinP , T("ok") ) ;
         ZE( strokeS* , psttl ) ;
     {
     while( stRpt )
-    etThread.strMakeF( tinP , psttRpt , tRptPrefix , csttRptBody ) ; ___( psttRpt ) ;
+    etThread.strMakeF( tinP , LF , psttRpt , tRptPrefix , csttRptBody ) ; ___( psttRpt ) ;
     TN( tRptPrefix , "{\r\n    IPDOS (tm) IdeaFarm (tm) Piggyback Distributed Operating System\r\n\r\n    inOutFrameC Telemetry Report: Tallies\r\n\r\n    To generate telemetry for this report, set flTHREADmODE4_INoUTfRAMEfORCEcOLLECTaPPtELEMETRY.\r\n}\r\n" ) ;
     ZE( strokeS* , psttRpt ) ;    
 
@@ -177,7 +177,7 @@ etThread.traceF( tinP , T("ok") ) ;
         }
             stRpt.sinkF( tinP , countTC() , psttl ) ;
             csttRptBody += psttl->idAdam ;
-            etThread.strMakeF( tinP , psttl , TF3((countT)swTally,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FOREIGN,8)+tb4+TF3(pczFL[0],flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,8)+tb4+TF2(pczFL[1],flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+T(postTitle)+tcr ) ; ___( psttl ) ;
+            etThread.strMakeF( tinP , LF , psttl , TF3((countT)swTally,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FOREIGN,8)+tb4+TF3(pczFL[0],flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,8)+tb4+TF2(pczFL[1],flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+T(postTitle)+tcr ) ; ___( psttl ) ;
             ZE( strokeS* , psttl ) ;
 
             }

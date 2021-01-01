@@ -207,7 +207,7 @@ THREADmODE2rESTORE
             
                                 etThread.strFuseF( tinP , psttr , tn+S2(1,scOld_cPUSHoFFfRAME)+S3(1.0,scOld_mmFRAMEtO,1.0)+S2(0,scOld_POPoFFfRAME) ) ; // FRAME: BRANCH CLIENT AREA
             
-                                etThread.strMakeF( tinP , psttr , 0 , 0x10 * ( ifcIDtYPEtOOL_end - ifcIDtYPEtOOL_begin - 1 ) ) ; ___( psttr ) ;
+                                etThread.strMakeF( tinP , LF , psttr , 0 , 0x10 * ( ifcIDtYPEtOOL_end - ifcIDtYPEtOOL_begin - 1 ) ) ; ___( psttr ) ;
                                 ZE( strokeS* , psttr ) ;
             
                                 for( countT ii = 1 ; ii <= cColsRpt ; ii ++ ) tcrc += tn+S3(-1.0,scOld_mmMOVEpEL,0.0)+S2(0,scOld_MOVEpADlEFT) ;
@@ -289,7 +289,7 @@ THREADmODE2rESTORE
                             else
                             if( bToolTest || bToolTestHire ) etThread.strFuseF( tinP , psttTalk , t2toolTest ) ;
     
-                            etThread.strMakeF( tinP , psttTalk , t1 , 0x10000 ) ; ___( psttTalk ) ;
+                            etThread.strMakeF( tinP , LF , psttTalk , t1 , 0x10000 ) ; ___( psttTalk ) ;
                             ZE( strokeS* , psttTalk ) ;
 
                             }
@@ -337,7 +337,7 @@ THREADmODE2rESTORE
                     
                                 etThread.strFuseF( tinP , psttKEB , S2(0,scOld_POPcOLOR) ) ;
                                 etThread.strFuseF( tinP , psttKEB , tSay ) ;
-                                etThread.strMakeF( tinP , psttKEB , S2(0x00ffff,scOld_cPUSHcOLOR) , 0x100 ) ; ___( psttKEB ) ;
+                                etThread.strMakeF( tinP , LF , psttKEB , S2(0x00ffff,scOld_cPUSHcOLOR) , 0x100 ) ; ___( psttKEB ) ;
                                 ZE( strokeS* , psttKEB ) ;
     
                                 if( pTxtFind->csF( tinP ) ) tSay += T(": \"")+*pTxtFind+T("\"") ;
@@ -365,7 +365,7 @@ THREADmODE2rESTORE
                     
                                 etThread.strFuseF( tinP , psttKEB , S2(0,scOld_POPcOLOR) ) ;
                                 etThread.strFuseF( tinP , psttKEB , T("entry") ) ;
-                                etThread.strMakeF( tinP , psttKEB , S2(0x00ffff,scOld_cPUSHcOLOR) , 0x100 ) ; ___( psttKEB ) ;
+                                etThread.strMakeF( tinP , LF , psttKEB , S2(0x00ffff,scOld_cPUSHcOLOR) , 0x100 ) ; ___( psttKEB ) ;
                                 ZE( strokeS* , psttKEB ) ;
                             {
                             TN( taKeyEater2 , "" ) ;
@@ -390,7 +390,7 @@ THREADmODE2rESTORE
                     
                                 etThread.strFuseF( tinP , psttKEB , S2(0,scOld_POPcOLOR) ) ;
                                 etThread.strFuseF( tinP , psttKEB , /*TF1(idCursor)*/T("climb") ) ;
-                                etThread.strMakeF( tinP , psttKEB , S2(0x00ffff,scOld_cPUSHcOLOR) , 0x100 ) ; ___( psttKEB ) ;
+                                etThread.strMakeF( tinP , LF , psttKEB , S2(0x00ffff,scOld_cPUSHcOLOR) , 0x100 ) ; ___( psttKEB ) ;
                                 ZE( strokeS* , psttKEB ) ;
                             {
                             TN( taKeyEater , "" ) ;
@@ -2211,12 +2211,12 @@ pTxtNull = &tNull ;
 TN( tBlank , " " ) ;
 TN( tNull , "" ) ;
 
-etThread.strMakeF( tinP , psttzOffUp   , tn+S3(8.0,scOld_mmFRAMEcELLS,1.0)                          +T("        ")                          +S2(0,scOld_POPfRAME) ) ; ___( psttzOffUp   ) ;
-etThread.strMakeF( tinP , psttzOffDown , tn+S3(8.0,scOld_mmFRAMEcELLS,1.0)+S2(0x00ff00,scOld_cPUSHcOLOR)+T("    DOWN")+S2(0,scOld_POPcOLOR)+S2(0,scOld_POPfRAME) ) ; ___( psttzOffDown ) ;
-etThread.strMakeF( tinP , psttzOnUp    , tn+S3(8.0,scOld_mmFRAMEcELLS,1.0)+S2(0x00ff00,scOld_cPUSHcOLOR)+T(" ON"     )+S2(0,scOld_POPcOLOR)+S2(0,scOld_POPfRAME) ) ; ___( psttzOnUp    ) ;
-etThread.strMakeF( tinP , psttzOnDown  , tn+S3(8.0,scOld_mmFRAMEcELLS,1.0)+S2(0x00ff00,scOld_cPUSHcOLOR)+T(" ON DOWN")+S2(0,scOld_POPcOLOR)+S2(0,scOld_POPfRAME) ) ; ___( psttzOnDown  ) ;
-etThread.strMakeF( tinP , psttzAbsent  , tn+S3(8.0,scOld_mmFRAMEcELLS,1.0)+S2(0x0000ff,scOld_cPUSHcOLOR)+T(" ABSENT ")+S2(0,scOld_POPcOLOR)+S2(0,scOld_POPfRAME) ) ; ___( psttzAbsent  ) ;
-etThread.strMakeF( tinP , psttzAbsent2 , tn+S3((measure04T)0x3e,scOld_mmFRAMEcELLS,1.0)+S2(0x0000ff,scOld_cPUSHcOLOR)+T("ABSENT")+S2(0,scOld_POPcOLOR)+S2(0,scOld_POPfRAME) ) ; ___( psttzAbsent  ) ;
+etThread.strMakeF( tinP , LF , psttzOffUp   , tn+S3(8.0,scOld_mmFRAMEcELLS,1.0)                          +T("        ")                          +S2(0,scOld_POPfRAME) ) ; ___( psttzOffUp   ) ;
+etThread.strMakeF( tinP , LF , psttzOffDown , tn+S3(8.0,scOld_mmFRAMEcELLS,1.0)+S2(0x00ff00,scOld_cPUSHcOLOR)+T("    DOWN")+S2(0,scOld_POPcOLOR)+S2(0,scOld_POPfRAME) ) ; ___( psttzOffDown ) ;
+etThread.strMakeF( tinP , LF , psttzOnUp    , tn+S3(8.0,scOld_mmFRAMEcELLS,1.0)+S2(0x00ff00,scOld_cPUSHcOLOR)+T(" ON"     )+S2(0,scOld_POPcOLOR)+S2(0,scOld_POPfRAME) ) ; ___( psttzOnUp    ) ;
+etThread.strMakeF( tinP , LF , psttzOnDown  , tn+S3(8.0,scOld_mmFRAMEcELLS,1.0)+S2(0x00ff00,scOld_cPUSHcOLOR)+T(" ON DOWN")+S2(0,scOld_POPcOLOR)+S2(0,scOld_POPfRAME) ) ; ___( psttzOnDown  ) ;
+etThread.strMakeF( tinP , LF , psttzAbsent  , tn+S3(8.0,scOld_mmFRAMEcELLS,1.0)+S2(0x0000ff,scOld_cPUSHcOLOR)+T(" ABSENT ")+S2(0,scOld_POPcOLOR)+S2(0,scOld_POPfRAME) ) ; ___( psttzAbsent  ) ;
+etThread.strMakeF( tinP , LF , psttzAbsent2 , tn+S3((measure04T)0x3e,scOld_mmFRAMEcELLS,1.0)+S2(0x0000ff,scOld_cPUSHcOLOR)+T("ABSENT")+S2(0,scOld_POPcOLOR)+S2(0,scOld_POPfRAME) ) ; ___( psttzAbsent  ) ;
 TN( tn , "" ) ;
 
 }
@@ -2358,7 +2358,7 @@ THREADmODE2rESTORE
                 tinP.pEtScratch->strConvertToLowerCaseF( tinP , psttNameShort ) ;
                 }
                     }
-                        etThread.strMakeF( tinP , psttNameShort , T("rejected") ) ; ___( psttNameShort ) ;
+                        etThread.strMakeF( tinP , LF , psttNameShort , T("rejected") ) ; ___( psttNameShort ) ;
                         etThread.delF( tinP , psttNameShort ) ;
                     {
                     if( !psttNameShort || !psttNameShort->idAdam )
@@ -3396,7 +3396,7 @@ boolT _export saDownArrowCBF( tinS& tinP , etherC& etherP , windowOldC& wP , con
                         etherP.strFuseF( tinP , psttSay , S3(1.0,scOld_mmFRAMEtO,1.0) ) ;
                         etherP.strFuseF( tinP , psttSay , S3(0.0,scOld_mmMOVEtO,0.0) ) ; //TO PREVENT AFFECTING HIGH WATER
 
-                        etherP.strMakeF( tinP , psttSay , 0 , 0x10 + tSay.csF( tinP ) ) ;
+                        etherP.strMakeF( tinP , LF , psttSay , 0 , 0x10 + tSay.csF( tinP ) ) ;
                         ZE( strokeS* , psttSay ) ;
 
                         textC& tSay = idPass == 1 ? *pTxtGuideMemory : *pTxtGuide ;
@@ -3667,7 +3667,7 @@ boolT _export saOLD_kCBF( tinS& tinP , etherC& etherP , windowOldC& wP , const c
                             countT idf = 1 ;
                         {
                         else
-                        if( csOld == 1 ) { etherP.strMakeF( tinP , psttw , T("") ) ; ___( psttw ) ; }
+                        if( csOld == 1 ) { etherP.strMakeF( tinP , LF , psttw , T("") ) ; ___( psttw ) ; }
                         countT csOld = pTxtFind->csF( tinP ) ;
                         ZE( strokeS* , psttw ) ;
                     {
@@ -3737,7 +3737,7 @@ voidT treeFindCBF( tinS& tinP , etherC& etherP , const countT idTypeP , const fl
                                     pData->psttb = psttw ; psttw = 0 ;
                                     etherP.delF( tinP , pData->psttb ) ;
                                     etherP.strFuseF( tinP , psttw , psttn[ CSpREFIX ] ) ;
-                                    etherP.strMakeF( tinP , psttw , pData->psttb , 1 ) ; ___( psttw ) ;
+                                    etherP.strMakeF( tinP , LF , psttw , pData->psttb , 1 ) ; ___( psttw ) ;
                                     ZE( strokeS* , psttw ) ;
                                 {
                                 if( pData )
@@ -3835,7 +3835,7 @@ voidT treeFindCBF( tinS& tinP , etherC& etherP , const countT idTypeP , const fl
                                 countT idf = 1 ;
                             {
                             else
-                            if( pData->psttb->idAdam == 1 ) etherP.strMakeF( tinP , psttw , T("") ) ;
+                            if( pData->psttb->idAdam == 1 ) etherP.strMakeF( tinP , LF , psttw , T("") ) ;
                             ZE( strokeS* , psttw ) ;
                         {
                         if( pData && pData->psttb && pData->psttb->idAdam )
@@ -4994,7 +4994,7 @@ voidT tHollywoodF( tinS& tinP , etherC& etherP , strokeS*& psttP , treeOldC& tre
         S2(0,scOld_WRAPoFF)
         T("")+
     
-    etherP.strMakeF( tinP , pstt3 , 
+    etherP.strMakeF( tinP , LF , pstt3 , 
 
     ) ; ___( psttHighBorder ) ;
 
@@ -5016,7 +5016,7 @@ voidT tHollywoodF( tinS& tinP , etherC& etherP , strokeS*& psttP , treeOldC& tre
         S2(0,scOld_FRAMEdETACH)+
         T("")+
 
-    etherP.strMakeF( tinP , psttHighBorder , 
+    etherP.strMakeF( tinP , LF , psttHighBorder , 
 
     ) ; ___( psttBranchEpilog ) ;
 
@@ -5025,7 +5025,7 @@ voidT tHollywoodF( tinS& tinP , etherC& etherP , strokeS*& psttP , treeOldC& tre
         S2(0,scOld_WRAPoFF)+
         T("")+
 
-    etherP.strMakeF( tinP , psttBranchEpilog , 
+    etherP.strMakeF( tinP , LF , psttBranchEpilog , 
 
     ) ; ___( psttBranchPrologMale ) ;
 
@@ -5044,7 +5044,7 @@ voidT tHollywoodF( tinS& tinP , etherC& etherP , strokeS*& psttP , treeOldC& tre
         S2(0,scOld_FRAMEdETACH)+                       //1
         T("")+
 
-    etherP.strMakeF( tinP , psttBranchPrologMale , 
+    etherP.strMakeF( tinP , LF , psttBranchPrologMale , 
 
     ) ; ___( psttBranchPrologFemale ) ;
 
@@ -5063,7 +5063,7 @@ voidT tHollywoodF( tinS& tinP , etherC& etherP , strokeS*& psttP , treeOldC& tre
         S2(0,scOld_FRAMEdETACH)+                       //1
         T("")+
 
-    etherP.strMakeF( tinP , psttBranchPrologFemale , 
+    etherP.strMakeF( tinP , LF , psttBranchPrologFemale , 
 
     ) ; ___( pstt2 ) ;
 
@@ -5073,7 +5073,7 @@ voidT tHollywoodF( tinS& tinP , etherC& etherP , strokeS*& psttP , treeOldC& tre
         T("")+
         //CLEANUP FOR HINTS
 
-    etherP.strMakeF( tinP , pstt2 , 
+    etherP.strMakeF( tinP , LF , pstt2 , 
 
     ) ; ___( psttUpHint ) ;
 
@@ -5085,7 +5085,7 @@ voidT tHollywoodF( tinS& tinP , etherC& etherP , strokeS*& psttP , treeOldC& tre
         S3(COL3,scOld_mmMOVEtO,ROW7)+
         T("")+
 
-    etherP.strMakeF( tinP , psttUpHint , 
+    etherP.strMakeF( tinP , LF , psttUpHint , 
 
     ) ; ___( pstt1 ) ;
 
@@ -5130,7 +5130,7 @@ voidT tHollywoodF( tinS& tinP , etherC& etherP , strokeS*& psttP , treeOldC& tre
 
         T("")+
 
-    etherP.strMakeF( tinP , pstt1 , 
+    etherP.strMakeF( tinP , LF , pstt1 , 
 {
 pstt3( 0 )
 psttHighBorder( 0 ) ,
@@ -5206,7 +5206,7 @@ voidT tHugeF( tinS& tinP , etherC& etherP , strokeS*& psttP , treeOldC& treeP , 
     //    S2(0,scOld_WRAPoFF)+
     //    T("")+
     //
-    //etherP.strMakeF( tinP , pstt2 , 
+    //etherP.strMakeF( tinP , LF , pstt2 , 
     //THIS IS THE OLD EPILOG; NOW I DON'T DO THIS TO ALLOW STROKE ENTRY TO APPEND STROKES TO MY IMAGE
 
     ) ; ___( pstt3 ) ;
@@ -5214,7 +5214,7 @@ voidT tHugeF( tinS& tinP , etherC& etherP , strokeS*& psttP , treeOldC& treeP , 
         S2(0,scOld_WRAPoFF)
         T("")+
     
-    etherP.strMakeF( tinP , pstt3 , 
+    etherP.strMakeF( tinP , LF , pstt3 , 
 
     ) ; ___( pstt2 ) ;
 
@@ -5239,7 +5239,7 @@ voidT tHugeF( tinS& tinP , etherC& etherP , strokeS*& psttP , treeOldC& treeP , 
         T("")+
         //CLEANUP FOR HINTS
 
-    etherP.strMakeF( tinP , pstt2 , 
+    etherP.strMakeF( tinP , LF , pstt2 , 
 
     ) ; ___( psttOutHint ) ;
 
@@ -5248,7 +5248,7 @@ voidT tHugeF( tinS& tinP , etherC& etherP , strokeS*& psttP , treeOldC& treeP , 
         S3(COL4,scOld_mmMOVEtO,ROW7)+
         T("")+
 
-    etherP.strMakeF( tinP , psttOutHint , 
+    etherP.strMakeF( tinP , LF , psttOutHint , 
 
     ) ; ___( psttInHint ) ;
 
@@ -5257,7 +5257,7 @@ voidT tHugeF( tinS& tinP , etherC& etherP , strokeS*& psttP , treeOldC& treeP , 
         S3(COL4,scOld_mmMOVEtO,ROW7)+
         T("")+
 
-    etherP.strMakeF( tinP , psttInHint , 
+    etherP.strMakeF( tinP , LF , psttInHint , 
 
     ) ; ___( psttRightHint ) ;
 
@@ -5269,7 +5269,7 @@ voidT tHugeF( tinS& tinP , etherC& etherP , strokeS*& psttP , treeOldC& treeP , 
         S3(COL4,scOld_mmMOVEtO,ROW7)+
         T("")+
 
-    etherP.strMakeF( tinP , psttRightHint , 
+    etherP.strMakeF( tinP , LF , psttRightHint , 
 
     ) ; ___( psttLeftHint ) ;
 
@@ -5281,7 +5281,7 @@ voidT tHugeF( tinS& tinP , etherC& etherP , strokeS*& psttP , treeOldC& treeP , 
         S3(COL4,scOld_mmMOVEtO,ROW7)+
         T("")+
 
-    etherP.strMakeF( tinP , psttLeftHint , 
+    etherP.strMakeF( tinP , LF , psttLeftHint , 
 
     ) ; ___( psttUpHint ) ;
 
@@ -5293,7 +5293,7 @@ voidT tHugeF( tinS& tinP , etherC& etherP , strokeS*& psttP , treeOldC& treeP , 
         S3(COL4,scOld_mmMOVEtO,ROW7)+
         T("")+
 
-    etherP.strMakeF( tinP , psttUpHint , 
+    etherP.strMakeF( tinP , LF , psttUpHint , 
 
     ) ; ___( psttDownHint ) ;
 
@@ -5305,7 +5305,7 @@ voidT tHugeF( tinS& tinP , etherC& etherP , strokeS*& psttP , treeOldC& treeP , 
         S3(COL4,scOld_mmMOVEtO,ROW7)+
         T("")+
 
-    etherP.strMakeF( tinP , psttDownHint , 
+    etherP.strMakeF( tinP , LF , psttDownHint , 
 
     ) ; ___( pstt1 ) ;
 
@@ -5326,7 +5326,7 @@ voidT tHugeF( tinS& tinP , etherC& etherP , strokeS*& psttP , treeOldC& treeP , 
 
         T("")+
 
-    etherP.strMakeF( tinP , pstt1 , 
+    etherP.strMakeF( tinP , LF , pstt1 , 
 {
 pstt3( 0 )
 pstt2( 0 ) ,

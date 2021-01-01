@@ -41,7 +41,7 @@
     strokeS sttq( (countT)0 , sc_IGNOREqUOTES ) ;
     countT idf = 1 ;
     POSTPONEtEST( psttP ) ;
-    strMakeF( tinP , psttP , T("") , ( psttOld ? psttOld->idAdam : 0 ) + cEOL * ( psttEnd->idAdam - 1 ) ) ; // CALLER MUST TAG ___( psttP ) ;
+    strMakeF( tinP , LF , psttP , T("") , ( psttOld ? psttOld->idAdam : 0 ) + cEOL * ( psttEnd->idAdam - 1 ) ) ; // CALLER MUST TAG ___( psttP ) ;
 
     countT cEOL = strCLinesF( tinP , psttOld , psttEnd , 1 ) ;
 
@@ -51,14 +51,14 @@
         psttOld = psttP ;
     {
     else
-    if( psttOldP ) { strMakeF( tinP , psttOld , psttOldP ) ; ___( psttOld ) ; }
+    if( psttOldP ) { strMakeF( tinP , LF , psttOld , psttOldP ) ; ___( psttOld ) ; }
     ZE( strokeS* , psttOld ) ;
 
-    else           { strMakeF( tinP , psttEnd , T("\r\n") ) ; ___( psttEnd ) ; }
+    else           { strMakeF( tinP , LF , psttEnd , T("\r\n") ) ; ___( psttEnd ) ; }
     if( psttEndP ) { strFuseF( tinP , psttEnd , psttEndP  ) ; ___( psttEnd ) ; }
     ZE( strokeS* , psttEnd ) ;
 
-    else                 { strMakeF( tinP , psttBlankList , T(" \t\x1a")   ) ; ___( psttBlankList ) ; }
+    else                 { strMakeF( tinP , LF , psttBlankList , T(" \t\x1a")   ) ; ___( psttBlankList ) ; }
     if( psttBlankListP ) { strFuseF( tinP , psttBlankList , psttBlankListP ) ; ___( psttBlankList ) ; }
     ZE( strokeS* , psttBlankList ) ;
 

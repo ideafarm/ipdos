@@ -43,7 +43,7 @@
                 etRock.traceF( tinP , T("cloudC: moved  local container    ")+T(psttLocalContainerP)+T("    to:    ")+T(psttNewUnique) ) ;
                 ether.delF( tinP , psttNewUnique ) ;
                 ether.diskMoveFileOrDirUniqueF( tinP , psttNewUnique , psttLocalContainerP ) ;
-                ether.strMakeF( tinP , psttNewUnique , psttPourLocalAfterContainerP , TUCK ) ; ___( psttNewUnique ) ;       //A:ASSUME: TUCK IS LARGE ENOUGH TO HOLD THE UNIQUE STRING
+                ether.strMakeF( tinP , LF , psttNewUnique , psttPourLocalAfterContainerP , TUCK ) ; ___( psttNewUnique ) ;       //A:ASSUME: TUCK IS LARGE ENOUGH TO HOLD THE UNIQUE STRING
                 ZE( strokeS* , psttNewUnique ) ;
                 etRock.traceF( tinP , T("cloudC: moving local container    ")+T(psttLocalContainerP)+T("    to:    ")+T(psttPourLocalAfterContainerP) ) ;
             {
@@ -778,7 +778,7 @@ TASK( tmFreshenFileF )
                                     {
                                     if( pInfo )
                                     __Z( pInfo ) ;
-                                    if( pInfo && !pInfo->psttIfoName ) { etScratch.strMakeF( tinP , pInfo->psttIfoName , tLong ) ; ___( pInfo->psttIfoName ) ; }
+                                    if( pInfo && !pInfo->psttIfoName ) { etScratch.strMakeF( tinP , LF , pInfo->psttIfoName , tLong ) ; ___( pInfo->psttIfoName ) ; }
 
                                     etScratch.diskFileQueryF( tinP , pInfo , myFile ) ; ___( pInfo ) ;
                                     fileC myFile( tinP , (const strokeS*)tLong , ifcOPENaCCESS_R , ifcOPENsHARE_R , flOPENdETAILS_LOCsEQ , ifcOPENhOW_nFeO , flFILEaTTR_null , flFILEc_null , 1 ) ;
@@ -1368,7 +1368,7 @@ TASK( tmHasherF )
         if( kvP.queryF( tinP , postShort , 0 , costShort * SB ) )
 
         for( countT offr = 0 ; offr < costShort ; offr ++ ) postShort[ offr ] = reverseBitsF( postShort[ offr ] ) ;
-        countT costShort = etherP.strMakeF( tinP , postShort , tPseudoPath+tShort ) ; ___( postShort ) ;
+        countT costShort = etherP.strMakeF( tinP , LF , postShort , tPseudoPath+tShort ) ; ___( postShort ) ;
         ZE( osTextT* , postShort ) ;
                     
         }

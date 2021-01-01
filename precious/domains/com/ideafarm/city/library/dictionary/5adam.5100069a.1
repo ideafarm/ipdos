@@ -30,7 +30,7 @@ REST
         {
         if( etThread.strIdF( tinP , t600 , psttf , 1 ) )
 
-        if( !psttSource ) { etThread.strMakeF( tinP , psttSource , tPath+T(psttf) ) ; ___( psttSource ) ; }
+        if( !psttSource ) { etThread.strMakeF( tinP , LF , psttSource , tPath+T(psttf) ) ; ___( psttSource ) ; }
 
         etThread.traceF( tinP , T("[plate]: ")+T(psttf) ) ;
         swsFileNameSet >> psttf ;
@@ -41,7 +41,7 @@ REST
     etThread.traceF( tinP , T("[cPlates]: ")+TF2(swsFileNameSet,flFORMAT_UNSIGNED|flFORMAT_NObIGITvALUES) ) ;
     etThread.traceF( tinP , T("[lever]: ")+T(psttzLever) ) ;
 
-    if( etThread.diskFileExistsF( tinP , tLong ) ) { etThread.strMakeF( tinP , psttSource , tPath+T(psttzLever) ) ; ___( psttSource ) ; }
+    if( etThread.diskFileExistsF( tinP , tLong ) ) { etThread.strMakeF( tinP , LF , psttSource , tPath+T(psttzLever) ) ; ___( psttSource ) ; }
     ZE( strokeS* , psttSource ) ;
     TN( tLong , "" ) ; tLong = tPath+T(psttzLever) ;
 
@@ -64,7 +64,7 @@ countT cFlavors = swsFileNameSet.cFlavorsF( tinP ) ;
 
         etThread.delF( tinP , psttp1 ) ;
 
-        if( !psttp1Lag ) { etThread.strMakeF( tinP , psttp1Lag , psttp1 ) ; ___( psttp1 ) ; }
+        if( !psttp1Lag ) { etThread.strMakeF( tinP , LF , psttp1Lag , psttp1 ) ; ___( psttp1 ) ; }
 
         etThread.strSubstringF( tinP , psttp1 , idf , idl , psttFileName ) ; ___( psttp1 ) ;
         countT idl = idBeforeLathDot ;
@@ -90,7 +90,7 @@ countT cFlavors = swsFileNameSet.cFlavorsF( tinP ) ;
         idf = idAfter ;
         ZE( strokeS* , psttp2 ) ;
 
-        if( !psttp1Lag ) { etThread.strMakeF( tinP , psttp1Lag , psttp1 ) ; ___( psttp1 ) ; }
+        if( !psttp1Lag ) { etThread.strMakeF( tinP , LF , psttp1Lag , psttp1 ) ; ___( psttp1 ) ; }
 
         etThread.strSubstringF( tinP , psttp1 , idf , idl , psttFileName ) ; ___( psttp1 ) ;
         ZE( strokeS* , psttp1 ) ;

@@ -1396,8 +1396,8 @@ voidT cellC::classShutdown1F( tinS& tinP , countT& idCellLathP , countT& serialL
 
     bEnabled = 1 ;
 
-    if( pEtClass ) { pEtClass->strMakeF( tinP , psttRpt , T(bBase?"///d/ideafarm.rpt.1":"///d/ideafarm.rpt.2") ) ; ___( psttRpt ) ; }
-    if( pEtClass ) { pEtClass->strMakeF( tinP , psttLog , T(bBase?"///d/ideafarm.log.1":"///d/ideafarm.log.2") ) ; ___( psttLog ) ; }
+    if( pEtClass ) { pEtClass->strMakeF( tinP , LF , psttRpt , T(bBase?"///d/ideafarm.rpt.1":"///d/ideafarm.rpt.2") ) ; ___( psttRpt ) ; }
+    if( pEtClass ) { pEtClass->strMakeF( tinP , LF , psttLog , T(bBase?"///d/ideafarm.log.1":"///d/ideafarm.log.2") ) ; ___( psttLog ) ; }
     pWindowTitle   = &windowTitleP ;
     serialLath     = serialLathP ;
     idCellLath     = idCellLathP ;
@@ -1698,7 +1698,7 @@ voidT cellC::classLogF( tinS& tinP , const strokeS* const psttP , const tinS* co
                         if( bLoop || bPseudo )
                         boolT bLoop = lockedWantersRF( tinP , ether , bPseudo , psttrl , stOsTidWanterP , osTidWanter , st_pGrabP , stOsTidWanterInLoopP ) ;
                         boolT bPseudo = F(osTidWanter.c5) & flWANTER_WANTSpSEUDO ? 1 : 0 ;
-                        ether.strMakeF( tinP , psttrl , T("") , 0x10000 ) ; ___( psttrl ) ;
+                        ether.strMakeF( tinP , LF , psttrl , T("") , 0x10000 ) ; ___( psttrl ) ;
                         ZE( strokeS* , psttrl ) ;
                         __( stOsTidWanterP ) ;
                     {
@@ -1709,7 +1709,7 @@ voidT cellC::classLogF( tinS& tinP , const strokeS* const psttP , const tinS* co
                 handleC hDown( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_STACKwALK ) ;
             {
             if( stOsTidAllWanterP )                                                                 // FOR EACH WANTER
-            ether.strMakeF( tinP , psttrLoops , T("") , 0x10000 ) ; ___( psttrLoops ) ;
+            ether.strMakeF( tinP , LF , psttrLoops , T("") , 0x10000 ) ; ___( psttrLoops ) ;
             ZE( strokeS* , psttrLoops ) ;
 
             }
@@ -1802,7 +1802,7 @@ voidT cellC::classLogF( tinS& tinP , const strokeS* const psttP , const tinS* co
         {
     {
     //INSPECT THE GRAB OBJECTS
-    ether.strMakeF( tinP , psttr , T("IdeaFarm " "(tm) Operating System Monitor Report ")+TF1(++idDisplayFresh)+T("\r\n") , 0x100000 ) ; ___( psttr ) ;
+    ether.strMakeF( tinP , LF , psttr , T("IdeaFarm " "(tm) Operating System Monitor Report ")+TF1(++idDisplayFresh)+T("\r\n") , 0x100000 ) ; ___( psttr ) ;
     ZE( strokeS* , psttr ) ;
 
     etherC& ether = *pEtClass ;
@@ -2258,12 +2258,12 @@ i capture event info and place it onto a stack
     }
         }
             }
-                ether.strMakeF( tinP , psttDisplay , T(info.psttDirectivesReplied) ) ; ___( psttDisplay ) ;
+                ether.strMakeF( tinP , LF , psttDisplay , T(info.psttDirectivesReplied) ) ; ___( psttDisplay ) ;
                 if( pPeekF ) (*pPeekF)( &info ) ;
                 peekS info( tinP , ether , T("!display") ) ;
             {
             }
-                ether.strMakeF( tinP , psttTitle , T(info.psttDirectivesReplied) ) ; ___( psttTitle ) ;
+                ether.strMakeF( tinP , LF , psttTitle , T(info.psttDirectivesReplied) ) ; ___( psttTitle ) ;
                 if( pPeekF ) (*pPeekF)( &info ) ;
                 peekS info( tinP , ether , T("!title") ) ;
             {
@@ -2272,7 +2272,7 @@ i capture event info and place it onto a stack
             ZE( peekFT , pPeekF ) ;
         {
         ether.dllOpenF( tinP , hDllAdam , T("///ideafarm/ephemeral/domains/com/ideafarm/city/park/exedll/1/hover/")+TF1(idAdam)+T(".ipdos-wd") ) ;
-        ether.strMakeF( tinP , psttArgs , T(psttArgsP?"!monitored ":"!monitored")+T(psttArgsP) ) ; ___( psttArgs ) ;
+        ether.strMakeF( tinP , LF , psttArgs , T(psttArgsP?"!monitored ":"!monitored")+T(psttArgsP) ) ; ___( psttArgs ) ;
     {
     else if( idAdam )
     if( bSelf ) ; //I AM DOING SELF MONITORING (MONITORING EVENTS ORIGINATING FROM CALLS TO thirdC::DosTellMonitorF BY THE PROCESS THAT CONTAINS ME

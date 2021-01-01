@@ -26,7 +26,7 @@ count8S c8p ;
 dictionary1C dict( tinP , etThread ) ;
 
 }
-    costxNotFound = etThread.strMakeF( tinP , postxNotFound , t0+tnf ) ; ___( postxNotFound ) ;
+    costxNotFound = etThread.strMakeF( tinP , LF , postxNotFound , t0+tnf ) ; ___( postxNotFound ) ;
     textC t0 = T("HTTP/1.0 200 OK\r\nContent-Type: text/html\r\nContent-Length: ")+TF4(tnf.csF(tinP),flFORMAT_FILLzE|flFORMAT_NObASE|flFORMAT_FOREIGN,8,0xa)+T("\r\n\r\n") ;
     TN( tnf , "not found" ) ;
 {
@@ -203,7 +203,7 @@ TRANSLATEsTATEdRIVENsERVER_BEGIN( stateS , 2 )
         etThread.strWordsOldF( tinP , pstt1e , psttBody , sttq , T("&") ) ; ___( pstt1e ) ;
         strokeS sttq( (countT)0 , sc_IGNOREqUOTES ) ;
         ZE( strokeS* , pstt1e ) ;
-        etThread.strMakeF( tinP , psttBody , T(postBody) ) ; ___( psttBody ) ; //ASSUME: psttBody IS OF FORM T("aaaa=1111&bbbb=2222&cccc=3333&dddd=4444")
+        etThread.strMakeF( tinP , LF , psttBody , T(postBody) ) ; ___( psttBody ) ; //ASSUME: psttBody IS OF FORM T("aaaa=1111&bbbb=2222&cccc=3333&dddd=4444")
         ZE( strokeS* , psttBody ) ;
         if( postBody ) postBody[ costBody ] = 0 ;
         sInP.readF( tinP , postBody , costBody ) ;

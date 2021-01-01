@@ -111,7 +111,7 @@ TASKdRIVENsERVER( tmcF )
             sClientP.writeF( tinP , postl , costl ) ;
             sayF( tinP , etThread , stPhrasesP , stPhrasesLogP , T(postl)+tCRLF ) ;
             tinP.zEtScratch->delF( tinP , psttl ) ;
-            countT costl = tinP.zEtScratch->strMakeF( tinP , postl , psttl ) ; ___( postl ) ;
+            countT costl = tinP.zEtScratch->strMakeF( tinP , LF , postl , psttl ) ; ___( postl ) ;
             ZE( osTextT* , postl ) ;
             stHeaderLines >> psttl ;
             ZE( strokeS* , psttl ) ;
@@ -143,7 +143,7 @@ TASKdRIVENsERVER( tmcF )
             sServer.writeF( tinP , postBody , costBody ) ;
             else               sayF( tinP , etThread , stPhrasesP , stPhrasesLogP , psttBody ) ;
             if( bEncodedBody ) sayF( tinP , etThread , stPhrasesP , stPhrasesLogP , tEncoded    ) ;
-            countT costBody = tinP.zEtScratch->strMakeF( tinP , postBody , psttBody ) ; ___( postBody ) ;
+            countT costBody = tinP.zEtScratch->strMakeF( tinP , LF , postBody , psttBody ) ; ___( postBody ) ;
             ZE( osTextT* , postBody ) ;
             sayF( tinP , etThread , stPhrasesP , stPhrasesLogP , T(postSEPARATOR_2B) ) ;
         {
@@ -155,7 +155,7 @@ TASKdRIVENsERVER( tmcF )
             sServer.writeF( tinP , postl , costl ) ;
             sayF( tinP , etThread , stPhrasesP , stPhrasesLogP , T(postl)+tCRLF ) ;
             tinP.zEtScratch->delF( tinP , psttl ) ;
-            countT costl = tinP.zEtScratch->strMakeF( tinP , postl , psttl ) ; ___( postl ) ;
+            countT costl = tinP.zEtScratch->strMakeF( tinP , LF , postl , psttl ) ; ___( postl ) ;
             ZE( osTextT* , postl ) ;
             stHeaderLines >> psttl ;
             ZE( strokeS* , psttl ) ;
@@ -178,7 +178,7 @@ TASKdRIVENsERVER( tmcF )
                 else               sayF( tinP , etThread , stPhrasesP , stPhrasesLogP , psttBody ) ;
                 if( bEncodedBody ) sayF( tinP , etThread , stPhrasesP , stPhrasesLogP , tEncoded ) ;
                 tinP.zEtScratch->delF( tinP , postBody ) ;
-                tinP.zEtScratch->strMakeF( tinP , psttBody , T(postBody) ) ; ___( psttBody ) ;
+                tinP.zEtScratch->strMakeF( tinP , LF , psttBody , T(postBody) ) ; ___( psttBody ) ;
                 if( postBody ) postBody[ costBody ] = 0 ;
             {
             if( !*tinP.zEtScratch )
@@ -373,7 +373,7 @@ voidT sayF( tinS& tinP , etherC& etThread , stackC& stPhrasesP , stackC& stPhras
                 etThread.boxPutUniqueF( tinP , psttu , T("///ideafarm/ephemeral/backed.up.daily/domains/com/ideafarm/")+TF1(DDNUMB)+T("/in/in") , postBody , costBody ) ;
                 ZE( strokeS* , psttu ) ;
 
-                countT costBody = etThread.strMakeF( tinP , postBody , psttBody ) ; ___( postBody ) ;
+                countT costBody = etThread.strMakeF( tinP , LF , postBody , psttBody ) ; ___( postBody ) ;
                 ZE( osTextT* , postBody ) ;
             {
 

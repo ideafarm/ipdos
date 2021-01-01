@@ -32,7 +32,7 @@
         TN( tObjLike , "" ) ; tObjLike = T(psttHome)+T("ephemeral/domains/com/ideafarm/city/workshop/3object/")+tIdiForeign+T(".*.obj") ;
 
         postDescription[ 0 ] = '!' ;
-        strMakeF( tinP , postDescription , T("?ifcExeDllDescBegin !cName ")+tIdi+T(" !idCopy ")+TF3(idCopyLath,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE,8)+T(" !contact http://ideafarm.com IdeaFarm " "(tm) Piggyback Distributed Operating System (c) Wo Of Ideafarm all rights reserved !ifcExeDllDescEnd") ) ; ___( postDescription ) ;
+        strMakeF( tinP , LF , postDescription , T("?ifcExeDllDescBegin !cName ")+tIdi+T(" !idCopy ")+TF3(idCopyLath,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE,8)+T(" !contact http://ideafarm.com IdeaFarm " "(tm) Piggyback Distributed Operating System (c) Wo Of Ideafarm all rights reserved !ifcExeDllDescEnd") ) ; ___( postDescription ) ;
         ZE( osTextT* , postDescription ) ;
 
         }
@@ -101,7 +101,7 @@
                             *ps << idColumn ;
                             *ps << idLine ;
     
-                            if( !psttNote ) { strMakeF( tinP , psttNote , psttl ) ; ___( psttNote ) ; }
+                            if( !psttNote ) { strMakeF( tinP , LF , psttNote , psttl ) ; ___( psttNote ) ; }
                             if( idf2      ) { strSubstringF( tinP , psttNote , idf2 , idl2 , psttl ) ; ___( psttNote ) ; }
                             if( idf2      ) { strIdF( tinP , 0 , flSTRmATCH_null , idf2 , sttq2 , tColon , psttl ) ; }
                             strIdF( tinP , 0 , flSTRmATCH_null , idf2 , sttq2 , tColon , psttl ) ;
@@ -208,7 +208,7 @@
                 }
                     delF( tinP , postp ) ;
                     fileWriteF( tinP , hFile1 , postp , costp ) ;
-                    countT costp = strMakeF( tinP , postp , tTail ) ; ___( postp ) ;
+                    countT costp = strMakeF( tinP , LF , postp , tTail ) ; ___( postp ) ;
                     ZE( osTextT* , postp ) ;
                 {
 
@@ -217,7 +217,7 @@
                     fileWriteF( tinP , hFile1 , postp , costp ) ;
 
                     delF( tinP , psttp ) ;
-                    countT costp = strMakeF( tinP , postp , psttp ) ; ___( postp ) ;
+                    countT costp = strMakeF( tinP , LF , postp , psttp ) ; ___( postp ) ;
                     ZE( osTextT* , postp ) ;
 
                     soulr >> psttp ; ___( psttp ) ;
@@ -231,7 +231,7 @@
                     //LOGrAW( "\r\n-------- END ------------------\r\n" ) ;
                     //LOGrAW( postp ) ;
                     //LOGrAW( "\r\n-------- BEGIN ------------------\r\n" ) ;
-                    countT costp = strMakeF( tinP , postp , tHead ) ; ___( postp ) ;
+                    countT costp = strMakeF( tinP , LF , postp , tHead ) ; ___( postp ) ;
                     ZE( osTextT* , postp ) ;
                 {
 
@@ -285,7 +285,7 @@
                     fileWriteF( tinP , hFile1 , postp , costp ) ;
 
                     delF( tinP , psttp ) ;
-                    countT costp = strMakeF( tinP , postp , psttp ) ; ___( postp ) ;
+                    countT costp = strMakeF( tinP , LF , postp , psttp ) ; ___( postp ) ;
                     ZE( osTextT* , postp ) ;
 
                     soulr >> psttp ; ___( psttp ) ;

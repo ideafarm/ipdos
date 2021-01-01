@@ -136,7 +136,7 @@ DONE( tmServeF )
             }
                 etThread.delF( tinP , postr ) ;
                 pso->writeF( tinP , postr , costr ) ;
-                countT costr = etThread.strMakeF( tinP , postr , T("HTTP/1.0 200\r\nContent-Type: text/html\r\nContent-Length: ")+TF4(tBody.csF(tinP),flFORMAT_NObASE,0,0xa)+T("\r\n\r\n")+tBody ) ; ___( postr ) ;
+                countT costr = etThread.strMakeF( tinP , LF , postr , T("HTTP/1.0 200\r\nContent-Type: text/html\r\nContent-Length: ")+TF4(tBody.csF(tinP),flFORMAT_NObASE,0,0xa)+T("\r\n\r\n")+tBody ) ; ___( postr ) ;
                 ZE( osTextT* , postr ) ;
 
                 ) ;
@@ -160,7 +160,7 @@ DONE( tmServeF )
             break ;
             etThread.delF( tinP , postr ) ;
             pso->writeF( tinP , postr , costr ) ;
-            countT costr = etThread.strMakeF( tinP , postr , T("HTTP/1.0 200\r\nContent-Type: text/html\r\nContent-Length: ")+TF4(tBody.csF(tinP),flFORMAT_NObASE,0,0xa)+T("\r\n\r\n")+tBody ) ; ___( postr ) ;
+            countT costr = etThread.strMakeF( tinP , LF , postr , T("HTTP/1.0 200\r\nContent-Type: text/html\r\nContent-Length: ")+TF4(tBody.csF(tinP),flFORMAT_NObASE,0,0xa)+T("\r\n\r\n")+tBody ) ; ___( postr ) ;
             ZE( osTextT* , postr ) ;
 
             etThread.delF( tinP , psttOrderDetail ) ;
@@ -242,7 +242,7 @@ DONE( tmServeF )
                 handleC handle( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_STACKwALK ) ;
 
                 ZE( countT , cQtyTotal ) ;
-                etThread.strMakeF( tinP , psttOrderDetail , T("Order detail:\r\n\r\n") , cOrders * 0x100 ) ; ___( psttOrderDetail ) ;
+                etThread.strMakeF( tinP , LF , psttOrderDetail , T("Order detail:\r\n\r\n") , cOrders * 0x100 ) ; ___( psttOrderDetail ) ;
             {
             if( stOrders )
             ZE( strokeS* , psttOrderDetail ) ;
@@ -261,7 +261,7 @@ DONE( tmServeF )
             }
                 etThread.delF( tinP , postr ) ;
                 pso->writeF( tinP , postr , costr ) ;
-                countT costr = etThread.strMakeF( tinP , postr , T("HTTP/1.0 200\r\nContent-Type: text/html\r\nContent-Length: ")+TF4(tBody.csF(tinP),flFORMAT_NObASE,0,0xa)+T("\r\n\r\n")+tBody ) ; ___( postr ) ;
+                countT costr = etThread.strMakeF( tinP , LF , postr , T("HTTP/1.0 200\r\nContent-Type: text/html\r\nContent-Length: ")+TF4(tBody.csF(tinP),flFORMAT_NObASE,0,0xa)+T("\r\n\r\n")+tBody ) ; ___( postr ) ;
                 ZE( osTextT* , postr ) ;
 
                 ;

@@ -415,7 +415,7 @@ TELL( "i'm outa here" )
                     sleepC s( tinP , TAG( TAGiDnULL ) ) ;
                 {
                 etThread.delF( tinP , psttBody ) ;
-                countT costBody = etThread.strMakeF( tinP , postBody , psttBody ) ; ___( postBody ) ;
+                countT costBody = etThread.strMakeF( tinP , LF , postBody , psttBody ) ; ___( postBody ) ;
             {
             else
             if( sgnDone_tmWhereF ) etThread.delF( tinP , psttBody ) ;
@@ -452,7 +452,7 @@ TELL( "i'm outa here" )
                         etThread.delF( tinP , psttw ) ;
                         tFileName = T("\\")+T(psttw ) ;
                         etThread.strToFileNameF( tinP , psttw ) ;
-                        etThread.strMakeF( tinP , psttw , T("ideafarm.rpt.monitor.where.gross.thread.")+TF1(c4leverTalliesGrossPhase.c1)+T(".")+TF1(c4leverTalliesGrossPhase.c2)+T(".")+tLifiName+T(".")+TF1(c4leverTalliesGrossPhase.c3)+T(".")+TF1(c4leverTalliesGrossPhase.c4) ) ; ___( psttw ) ;
+                        etThread.strMakeF( tinP , LF , psttw , T("ideafarm.rpt.monitor.where.gross.thread.")+TF1(c4leverTalliesGrossPhase.c1)+T(".")+TF1(c4leverTalliesGrossPhase.c2)+T(".")+tLifiName+T(".")+TF1(c4leverTalliesGrossPhase.c3)+T(".")+TF1(c4leverTalliesGrossPhase.c4) ) ; ___( psttw ) ;
                         ZE( strokeS* , psttw ) ;
                     {
                     TN( tFileName , "" ) ;
@@ -493,7 +493,7 @@ TELL( "i'm outa here" )
                     TELL( "sorting the tally plates by tally value" )
         
                     }
-                        etThread.strMakeF( tinP , psttr , t1g+TT(timeN1,timeN2)+t2+TF1(idReport)+t21+TF1(c4leverTalliesGrossPhase.c1)+tp+TF1(c4leverTalliesGrossPhase.c2)+tb+tLifiName+t22+TF1(c4leverTalliesGrossPhase.c3)+t23+TF1(c4leverTalliesGrossPhase.c4)+tc+t6 , cstte ) ; ___( psttr ) ;
+                        etThread.strMakeF( tinP , LF , psttr , t1g+TT(timeN1,timeN2)+t2+TF1(idReport)+t21+TF1(c4leverTalliesGrossPhase.c1)+tp+TF1(c4leverTalliesGrossPhase.c2)+tb+tLifiName+t22+TF1(c4leverTalliesGrossPhase.c3)+t23+TF1(c4leverTalliesGrossPhase.c4)+tc+t6 , cstte ) ; ___( psttr ) ;
         
                         countT cstte = 0x1000 + t1g.csF( tinP ) + t2.csF( tinP ) + t21.csF( tinP ) + t22.csF( tinP ) + t23.csF( tinP ) + t6.csF( tinP ) + tNotesG.csF( tinP ) + cLines * 0x200 ;
         
@@ -721,7 +721,7 @@ TASK( tmWhereRptF )
                     etThread.delF( tinP , psttw ) ;
                     tFileName = T("\\")+T(psttw ) ;
                     etThread.strToFileNameF( tinP , psttw ) ;
-                    etThread.strMakeF( tinP , psttw , T("ideafarm.rpt.monitor.where.fine.")+T(bAdam?"adam.":(bClass?"class.":"thread."))+(bClass||bAdam?(bClass?T(processGlobal3I.mapAdamClass(c5l.c1)):TF1(c5l.c1)):TF1(c5l.c1)+T(".")+TF1(c5l.c2)+T(".")+tLifiName)+T(".")+TF1(processGlobal3I.mapWhat(bAdam||bClass?c5l.c2:c5l.c3))+T(".")+TF1(bAdam||bClass?c5l.c3:c5l.c4)+T(".")+TF1(bAdam||bClass?c5l.c4:c5l.c5) ) ; ___( psttw ) ;
+                    etThread.strMakeF( tinP , LF , psttw , T("ideafarm.rpt.monitor.where.fine.")+T(bAdam?"adam.":(bClass?"class.":"thread."))+(bClass||bAdam?(bClass?T(processGlobal3I.mapAdamClass(c5l.c1)):TF1(c5l.c1)):TF1(c5l.c1)+T(".")+TF1(c5l.c2)+T(".")+tLifiName)+T(".")+TF1(processGlobal3I.mapWhat(bAdam||bClass?c5l.c2:c5l.c3))+T(".")+TF1(bAdam||bClass?c5l.c3:c5l.c4)+T(".")+TF1(bAdam||bClass?c5l.c4:c5l.c5) ) ; ___( psttw ) ;
                     ZE( strokeS* , psttw ) ;
                 {
                 TN( tFileName , "" ) ;
@@ -859,7 +859,7 @@ TASK( tmWhereRptF )
                 TELL( "sorting the tally 1 plates by tally value" )
     
                 }
-                    etThread.strMakeF( tinP , psttr , t1f+TT(timeN1,timeN2)+t2+TF1(idReportP)+(bAdam?t21b+TF1(c5l.c1):bClass?t21c+TF1(processGlobal3I.mapAdamClass(c5l.c1)):t21+TF1(c5l.c1)+tp+TF1(c5l.c2)+tb+tLifiName)+t225+T(processGlobal3I.mapWhat(bAdam||bClass?c5l.c2:c5l.c3))+t22+TF1(bAdam||bClass?c5l.c3:c5l.c4)+t23+TF1(bAdam||bClass?c5l.c4:c5l.c5)+t3 , cstte ) ; ___( psttr ) ;
+                    etThread.strMakeF( tinP , LF , psttr , t1f+TT(timeN1,timeN2)+t2+TF1(idReportP)+(bAdam?t21b+TF1(c5l.c1):bClass?t21c+TF1(processGlobal3I.mapAdamClass(c5l.c1)):t21+TF1(c5l.c1)+tp+TF1(c5l.c2)+tb+tLifiName)+t225+T(processGlobal3I.mapWhat(bAdam||bClass?c5l.c2:c5l.c3))+t22+TF1(bAdam||bClass?c5l.c3:c5l.c4)+t23+TF1(bAdam||bClass?c5l.c4:c5l.c5)+t3 , cstte ) ; ___( psttr ) ;
                     countT cstte = 0x1000 + t1f.csF( tinP ) + t2.csF( tinP ) + t21.csF( tinP ) + t22.csF( tinP ) + t23.csF( tinP ) + t3.csF( tinP ) + t4.csF( tinP ) + t5.csF( tinP ) + tNotesF.csF( tinP ) + cLines * 0x200 ;
     
                     }
@@ -1403,7 +1403,7 @@ voidT tallyF( tinS& tinP , etherC& etThread , whereTalliesGrossS& wtgP , whereOl
 //    {                                                                                       \
 //    if( pc->pTinKid )                                                                       \
 //    tinS* pc = tinP.pTinDad ;                                                               \
-//    etThread.strMakeF( tinP , psttl , TF1(idP)+T(": ") , 0x1000 ) ; ___( psttl ) ;          \
+//    etThread.strMakeF( tinP , LF , psttl , TF1(idP)+T(": ") , 0x1000 ) ; ___( psttl ) ;          \
 //    ZE( strokeS* , psttl ) ;                                                              \
 //    TN( tb , " " ) ;                                                                        \
 //{                                                                                           \
@@ -1425,7 +1425,7 @@ tinP.idPhase2 = 0 ;
             etThread.delF( tinP , postr ) ;
             etThread.boxPutF( tinP , tFile , postr , costr ) ;
             etThread.delF( tinP , psttr ) ;
-            countT costr = etThread.strMakeF( tinP , postr , psttr ) ; ___( postr ) ;
+            countT costr = etThread.strMakeF( tinP , LF , postr , psttr ) ; ___( postr ) ;
             ZE( osTextT* , postr ) ;
             TELL( "writing the report to disk" )
 
@@ -1608,7 +1608,7 @@ TELL( "i am outa here" )
                     sleepC s( tinP , TAG( TAGiDnULL ) ) ;
                 {
                 etThread.delF( tinP , psttr ) ;
-                countT costr = etThread.strMakeF( tinP , postr , psttr ) ; ___( postr ) ;
+                countT costr = etThread.strMakeF( tinP , LF , postr , psttr ) ; ___( postr ) ;
                 ZE( osTextT* , postr ) ;
                 etThread.strConcatenateF( tinP , psttr , stRpt ) ; ___( psttr ) ;
                 ZE( strokeS* , psttr ) ;
@@ -1735,16 +1735,16 @@ TELL( "i am outa here" )
                                     if( tin.monitor.cInNest )
 
                                     stRpt << psttr5 ; psttr5 = 0 ;
-                                    etThread.strMakeF( tinP , psttr5 , T(tin.postThreadName) ) ; ___( psttr5 ) ;
+                                    etThread.strMakeF( tinP , LF , psttr5 , T(tin.postThreadName) ) ; ___( psttr5 ) ;
 
                                     }
                                         stRpt << psttr5 ; psttr5 = 0 ;
-                                        etThread.strMakeF( tinP , psttr5 , TPS((osTextT*)tw1,8,S1C(':'))+tb ) ;
+                                        etThread.strMakeF( tinP , LF , psttr5 , TPS((osTextT*)tw1,8,S1C(':'))+tb ) ;
                                         TN( tw1 , "" ) ; tw1 = TF2(tin.idThread,flFORMAT_UNSIGNED) ;
                                     {
                                     }
                                         stRpt << psttr5 ; psttr5 = 0 ;
-                                        etThread.strMakeF( tinP , psttr5 , TPS((osTextT*)tw1,8,S1C(':'))+tb ) ;
+                                        etThread.strMakeF( tinP , LF , psttr5 , TPS((osTextT*)tw1,8,S1C(':'))+tb ) ;
                                         TN( tw1 , "" ) ; tw1 = TF2(tin.osPid,flFORMAT_UNSIGNED) ;
                                     {
                                     ZE( strokeS* , psttr5 ) ;
@@ -1954,7 +1954,7 @@ TELL( "i am outa here" )
                         boolT bLoop = wantersF( tinP , etThread , stWanters , &st_psttrLoop , entry , pGrabWantCopy , cGrabWant , stGrabbed , stIdSerialGrabExclude , stChecked , stBadGrabsTmp , stOsTidLoopedTmp , cIndent ) ;
                         }
                             st_psttrLoop << psttw ;
-                            etThread.strMakeF( tinP ,psttw , t6 ) ; ___( psttw ) ;
+                            etThread.strMakeF( tinP , LF ,psttw , t6 ) ; ___( psttw ) ;
                             ZE( strokeS* , psttw ) ;
                         {
                         ZE( countT , cIndent ) ;
@@ -2240,7 +2240,7 @@ TELL( "i am outa here" )
             for( countT off = 0 ; off < CfIREaLLrANKS ; off ++ )
             TELL( "report heartbeats" )
             
-            etThread.strMakeF( tinP , psttr1 , tTitle1+TT(timeN1,timeN2)+tTitle2+TF1(++idReport)+tTitle3 , ( CfIREaLLrANKS + 2 ) * 0x40 ) ; ___( psttr1 ) ;
+            etThread.strMakeF( tinP , LF , psttr1 , tTitle1+TT(timeN1,timeN2)+tTitle2+TF1(++idReport)+tTitle3 , ( CfIREaLLrANKS + 2 ) * 0x40 ) ; ___( psttr1 ) ;
             ZE( strokeS* , psttr1 ) ;
             TELL( "report title" )
         
@@ -2823,7 +2823,7 @@ countT cirLogF( tinS& tinP , etherC& etherP , countT& cParmP , const byteT* cons
 
         }       
             *pSt_psttrP << pstts ;
-            etThread.strMakeF( tinP , pstts , TP("",cIndentP++)+TF1(entryP.idSerial)+t1+T(" grabbed by ")+TF1(osTidHave)+T("\r\n") ) ; ___( pstts ) ;
+            etThread.strMakeF( tinP , LF , pstts , TP("",cIndentP++)+TF1(entryP.idSerial)+t1+T(" grabbed by ")+TF1(osTidHave)+T("\r\n") ) ; ___( pstts ) ;
             ZE( strokeS* , pstts ) ; //"s": "snippet"
         {
         if( pSt_psttrP )
@@ -2841,7 +2841,7 @@ countT cirLogF( tinS& tinP , etherC& etherP , countT& cParmP , const byteT* cons
             
         //}       
         //    *pSt_psttrP << pstts ;
-        //    etThread.strMakeF( tinP , pstts , TP("",cIndentP)+T("grabS grabbed: ")+TF1(entryP.idSerial)+T(" ")+TF1(entryP.osPid)+T(" ")+TF1(entryP.bIda)+T(" ")+TF1(entryP.ip)+T(" ")+TF1(entryP.idLineCt)+T(" ")+TF3(entryP.idiFileCt,flFORMAT_UNSIGNED|flFORMAT_FILLzE,7)+T(" ")+T("\r\n") ) ; ___( pstts ) ;
+        //    etThread.strMakeF( tinP , LF , pstts , TP("",cIndentP)+T("grabS grabbed: ")+TF1(entryP.idSerial)+T(" ")+TF1(entryP.osPid)+T(" ")+TF1(entryP.bIda)+T(" ")+TF1(entryP.ip)+T(" ")+TF1(entryP.idLineCt)+T(" ")+TF3(entryP.idiFileCt,flFORMAT_UNSIGNED|flFORMAT_FILLzE,7)+T(" ")+T("\r\n") ) ; ___( pstts ) ;
         //    ZE( strokeS* , pstts ) ; //"s": "snippet"
         //{
         //if( pSt_psttrP )
@@ -2895,7 +2895,7 @@ boolT wantersF( tinS& tinP , etherC& etThread , stackC& stWantersP , stackC* pSt
              
             }       
                 *pSt_psttrP << pstts ;
-                etThread.strMakeF( tinP , pstts , TP("",cIndentP)+T("wanted by ")+TF1(osTidWantP)+T("\r\n") ) ; ___( pstts ) ;
+                etThread.strMakeF( tinP , LF , pstts , TP("",cIndentP)+T("wanted by ")+TF1(osTidWantP)+T("\r\n") ) ; ___( pstts ) ;
                 ZE( strokeS* , pstts ) ; //"s": "snippet"
             {
             if( pSt_psttrP )
@@ -2905,7 +2905,7 @@ boolT wantersF( tinS& tinP , etherC& etThread , stackC& stWantersP , stackC* pSt
             //pThugMe->ungrabF() ;
             }       
                 *pSt_psttrP << pstts ;
-                etThread.strMakeF( tinP , pstts , TP("",cIndentP)+T("**** LOOP! ****\r\n") ) ; ___( pstts ) ;
+                etThread.strMakeF( tinP , LF , pstts , TP("",cIndentP)+T("**** LOOP! ****\r\n") ) ; ___( pstts ) ;
                 ZE( strokeS* , pstts ) ; //"s": "snippet"
             {
             if( pSt_psttrP )
@@ -2971,7 +2971,7 @@ voidT stampF( tinS& tinP , etherC& etThread , monitorOldS& mP , countT idStepP )
         sleepC s( tinP , TAG( TAGiDnULL ) ) ;
     {
     etThread.delF( tinP , psttl ) ;
-    countT costl = etThread.strMakeF( tinP , postl , psttl ) ; ___( postl ) ;
+    countT costl = etThread.strMakeF( tinP , LF , postl , psttl ) ; ___( postl ) ;
     ZE( osTextT* , postl ) ;
 
     ) ;

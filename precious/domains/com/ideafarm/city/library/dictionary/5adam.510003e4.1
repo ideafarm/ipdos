@@ -107,7 +107,7 @@ voidT rptGroupF( tinS& tinP , etherC& etThread , const strokeS* const psttOutP ,
             etThread.delF( tinP , postReport ) ;
             etThread.boxPutF( tinP , T("///ideafarm/ephemeral/domains/com/ideafarm/gen/html/report.lifeTime.")+TF1(pli->idAdam)+T(".html") , postReport ) ;
             etThread.delF( tinP , psttrLife ) ;
-            etThread.strMakeF( tinP , postReport , psttrLife ) ; ___( postReport ) ;
+            etThread.strMakeF( tinP , LF , postReport , psttrLife ) ; ___( postReport ) ;
             ZE( osTextT* , postReport ) ;
 
             etThread.delF( tinP , psttOldColumns ) ;
@@ -153,7 +153,7 @@ voidT rptLifeF( tinS& tinP , etherC& etThread , stackC& stLifeP )
     etThread.delF( tinP , postr ) ;
     etThread.boxPutF( tinP , T("///ideafarm/ephemeral/domains/com/ideafarm/gen/html/report.rawData.")+T(psttInShort)+T(".html") , postr ) ;
     etThread.delF( tinP , psttr ) ;
-    etThread.strMakeF( tinP , postr , psttr ) ; ___( postr ) ;
+    etThread.strMakeF( tinP , LF , postr , psttr ) ; ___( postr ) ;
     ZE( osTextT* , postr ) ;
 
     etThread.delF( tinP , psttOldColumns ) ;
@@ -202,7 +202,7 @@ voidT rptLifeF( tinS& tinP , etherC& etThread , stackC& stLifeP )
                 if( F(pc3i->c1) & flDATUM1_CLASScOMMENToRCHID      ) { etThread.strFuseF( tinP , psttFlags , T("flDATUM1_CLASScOMMENToRCHID "     ) ) ; ___( psttFlags ) ; }
                 if( F(pc3i->c1) & flDATUM1_CLASScOMMENToNION       ) { etThread.strFuseF( tinP , psttFlags , T("flDATUM1_CLASScOMMENToNION "      ) ) ; ___( psttFlags ) ; }
 
-                etThread.strMakeF( tinP , psttFlags , T("") , 0x1000 ) ; ___( psttFlags ) ;
+                etThread.strMakeF( tinP , LF , psttFlags , T("") , 0x1000 ) ; ___( psttFlags ) ;
                 ZE( strokeS* , psttFlags ) ;
 
             {
@@ -439,7 +439,7 @@ voidT rptLifeF( tinS& tinP , etherC& etThread , stackC& stLifeP )
 
         }
             etThread.delF( tinP , psttw ) ;
-            etThread.strMakeF( tinP , psttArchive , T(psttOutP)+T(psttw) ) ; ___( psttArchive ) ;
+            etThread.strMakeF( tinP , LF , psttArchive , T(psttOutP)+T(psttw) ) ; ___( psttArchive ) ;
             etThread.strSubstringF( tinP , psttw , idf , idl , psttc1 ) ; ___( psttw ) ;
             ZE( countT , idl ) ;
             __Z( idf ) ;
@@ -575,7 +575,7 @@ voidT writeAllSpeedPagesF( tinS& tinP , etherC& etThread , switchStackC& sws_pcR
     etThread.delF( tinP , postr ) ;
     etThread.boxPutF( tinP , T("///ideafarm/ephemeral/domains/com/ideafarm/gen/html/report.speed.menu.html") , postr ) ;
     etThread.delF( tinP , psttr ) ;
-    etThread.strMakeF( tinP , postr , psttr ) ; ___( postr ) ;
+    etThread.strMakeF( tinP , LF , postr , psttr ) ; ___( postr ) ;
     ZE( osTextT* , postr ) ;
 
     etThread.delF( tinP , psttTime ) ;
@@ -589,7 +589,7 @@ voidT writeAllSpeedPagesF( tinS& tinP , etherC& etThread , switchStackC& sws_pcR
             etThread.delF( tinP , postrNode ) ;
             etThread.boxPutF( tinP , T("///ideafarm/ephemeral/domains/com/ideafarm/gen/html/report.speed.")+tIdComputer+T(".html") , postrNode ) ;
             etThread.delF( tinP , psttrNode ) ;
-            etThread.strMakeF( tinP , postrNode , psttrNode ) ; ___( postrNode ) ;
+            etThread.strMakeF( tinP , LF , postrNode , psttrNode ) ; ___( postrNode ) ;
             ZE( osTextT* , postrNode ) ;
 
             etThread.strFuseF( tinP , psttrNode , psttTime ) ; ___( psttrNode ) ;
@@ -689,7 +689,7 @@ voidT rptListOfSpeedPagesF( tinS& tinP , etherC& etThread )
     etThread.delF( tinP , postReport ) ;
     etThread.boxPutF( tinP , T("///ideafarm/ephemeral/domains/com/ideafarm/gen/html/report.speed")+(idComputerP?T(".")+TF3(idComputerP,flFORMAT_UNSIGNED|flFORMAT_FILLzE,8):T(""))+(idPoolClientP?T(".")+TF3(idPoolClientP,flFORMAT_UNSIGNED|flFORMAT_FILLzE,8):T(""))+(psttInP?T(".")+T(psttInP):T(""))+T(".html") , postReport ) ;
     etThread.delF( tinP , psttrSpeed ) ;
-    etThread.strMakeF( tinP , postReport , psttrSpeed ) ; ___( postReport ) ;
+    etThread.strMakeF( tinP , LF , postReport , psttrSpeed ) ; ___( postReport ) ;
     ZE( osTextT* , postReport ) ;
 
     etThread.delF( tinP , psttOldColumns ) ;
@@ -779,7 +779,7 @@ voidT rptListOfSpeedPagesF( tinS& tinP , etherC& etThread )
         strokeS sttq( (countT)0 , sc_IGNOREqUOTES ) ;
     {
     else
-    if( !psttInP ) { etThread.strMakeF( tinP , psttInShort , TF3(idComputerP,flFORMAT_UNSIGNED|flFORMAT_FILLzE,8)+T(".")+TF3(*pcRaceP,flFORMAT_UNSIGNED|flFORMAT_FILLzE,8) ) ; ___( psttInShort ) ; }
+    if( !psttInP ) { etThread.strMakeF( tinP , LF , psttInShort , TF3(idComputerP,flFORMAT_UNSIGNED|flFORMAT_FILLzE,8)+T(".")+TF3(*pcRaceP,flFORMAT_UNSIGNED|flFORMAT_FILLzE,8) ) ; ___( psttInShort ) ; }
     ZE( strokeS* , psttInShort ) ;
 
     if( etThread ) return ;
@@ -790,7 +790,7 @@ voidT rptListOfSpeedPagesF( tinS& tinP , etherC& etThread )
 voidT rptSpeedF( tinS& tinP , etherC& etThread , countT* pcRaceP , countT& cSourceFilesP , const strokeS* const psttInP , countT idComputerP = 0 , countT idPoolClientP = 0 )
 
 }
-    etThread.strMakeF( tinP , psttP , T("\r\nthis report was made at IdeaFarm " "(tm) City time ")+TT(time1,time2)+T("\r\n" postDEFECTfORM postTRIALcLOSE "</PRE></BODY>\r\n") ) ; ___( psttP ) ;
+    etThread.strMakeF( tinP , LF , psttP , T("\r\nthis report was made at IdeaFarm " "(tm) City time ")+TT(time1,time2)+T("\r\n" postDEFECTfORM postTRIALcLOSE "</PRE></BODY>\r\n") ) ; ___( psttP ) ;
     etThread.osTimeNowF( tinP , time1 , time2 ) ;
     ZE( sCountT , time2 ) ;
     ZE( countT , time1 ) ;
@@ -842,7 +842,7 @@ voidT timeBlurbF( tinS& tinP , etherC& etThread , strokeS*& psttP )
 
     ZE( strokeS* , psttw ) ;
 
-    etThread.strMakeF( tinP , psttP , T("") , 0x82 ) ;
+    etThread.strMakeF( tinP , LF , psttP , T("") , 0x82 ) ;
 {
 voidT rawColumnTitlesF( tinS& tinP , etherC& etThread , strokeS*& psttP )
 
@@ -863,7 +863,7 @@ voidT rawColumnTitlesF( tinS& tinP , etherC& etThread , strokeS*& psttP )
 
     ZE( strokeS* , psttw ) ;
 
-    etThread.strMakeF( tinP , psttP , T("") , 0x63 ) ;
+    etThread.strMakeF( tinP , LF , psttP , T("") , 0x63 ) ;
 {
 voidT incomingColumnTitlesF( tinS& tinP , etherC& etThread , strokeS*& psttP )
 
@@ -896,7 +896,7 @@ voidT incomingColumnTitlesF( tinS& tinP , etherC& etThread , strokeS*& psttP )
 
     ZE( strokeS* , psttw ) ;
 
-    etThread.strMakeF( tinP , psttP , T("") , 0x8b ) ;
+    etThread.strMakeF( tinP , LF , psttP , T("") , 0x8b ) ;
 {
 voidT speedColumnTitlesF( tinS& tinP , etherC& etThread , strokeS*& psttP )
 
@@ -917,7 +917,7 @@ voidT speedColumnTitlesF( tinS& tinP , etherC& etThread , strokeS*& psttP )
 
     ZE( strokeS* , psttw ) ;
 
-    etThread.strMakeF( tinP , psttP , T("") , 0x8b ) ;
+    etThread.strMakeF( tinP , LF , psttP , T("") , 0x8b ) ;
 {
 voidT lifeColumnTitlesF( tinS& tinP , etherC& etThread , strokeS*& psttP )
 

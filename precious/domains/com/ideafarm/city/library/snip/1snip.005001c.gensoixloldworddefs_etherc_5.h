@@ -744,7 +744,7 @@ voidT strMakeF_pbRefCP4P37_GF( tinS& tinP , etherC& etherP , soulC& slP , const 
     }
 
     ZE( countT , noName ) ;
-    if( !POOP ) noName = etherP.strMakeF( tinP , prP , psttP , costExtraP , flagsP ) ;
+    if( !POOP ) noName = etherP.strMakeF( tinP , LF , prP , psttP , costExtraP , flagsP ) ;
     etherP.delF( tinP , psttP ) ;
 
     if( !POOP ) slP << prP ;
@@ -844,7 +844,7 @@ voidT strMakeF_2P4P373_GF( tinS& tinP , etherC& etherP , soulC& slP , const stro
     }
 
     ZE( countT , noName ) ;
-    if( !POOP ) noName = etherP.strMakeF( tinP , postP , psttP , costExtraP , flagsP , cbPrefixExtraP ) ;
+    if( !POOP ) noName = etherP.strMakeF( tinP , LF , postP , psttP , costExtraP , flagsP , cbPrefixExtraP ) ;
     etherP.delF( tinP , psttP ) ;
 
     if( !POOP ) slP << postP ;
@@ -913,7 +913,7 @@ voidT strMakeF_4P4P3_GF( tinS& tinP , etherC& etherP , soulC& slP , const stroke
             }
         }
     }
-    if( !POOP ) etherP.strMakeF( tinP , psttOutP , psttInP , csttExtraP ) ;
+    if( !POOP ) etherP.strMakeF( tinP , LF , psttOutP , psttInP , csttExtraP ) ;
     etherP.delF( tinP , psttInP ) ;
 
     if( !POOP ) slP << psttOutP ;

@@ -13,7 +13,7 @@
     }
         }
             while( csPad -- ) strFuseF( tinP , psttP , sttP  , 0 , fLeadingP ) ;
-            if( psttd       ) strMakeF( tinP , psttP , psttd , csPad + csttExtraP ) ;
+            if( psttd       ) strMakeF( tinP , LF , psttP , psttd , csPad + csttExtraP ) ;
         {
         else
         }
@@ -27,7 +27,7 @@
     else if( csP > 0 ) // PADS WITH sttP''S
     }
         }
-            else             strMakeF(      tinP , psttP             , T("") , csttExtraP ) ;
+            else             strMakeF( tinP , LF , psttP , T("") , csttExtraP ) ;
             if( idf <= idl ) strSubstringF( tinP , psttP , idf , idl , psttd , csttExtraP ) ;
             else            while( idl          && psttd[ CSpREFIX - 1 + idl ] == sttP ) idl -- ;
             if( fLeadingP ) while( idf <= csttd && psttd[ CSpREFIX - 1 + idf ] == sttP ) idf ++ ;
@@ -38,10 +38,10 @@
         if( csttd )
     {
     else if( csP == - 1 )
-    if( !csP ) strMakeF( tinP , psttP , T("") , csttExtraP ) ;
+    if( !csP ) strMakeF( tinP , LF , psttP , T("") , csttExtraP ) ;
 
     countT csttd = psttd ? psttd->idAdam : 0 ;
-    if( !psttd && csP ) { strMakeF( tinP , psttP , T("") , csP + csttExtraP ) ; ___( psttP ) ; }
+    if( !psttd && csP ) { strMakeF( tinP , LF , psttP , T("") , csP + csttExtraP ) ; ___( psttP ) ; }
     if( !(countT)sttP ) sttP = S1C(' ') ;
     psttP = 0 ;
     strokeS* psttd = psttP ;

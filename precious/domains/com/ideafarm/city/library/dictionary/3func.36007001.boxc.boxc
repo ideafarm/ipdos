@@ -135,8 +135,8 @@
                 ether.diskMapFileNameF( tinP , psttOldCM , psttOldC ) ; ___( psttOldCM ) ;
                 ether.strFuseF( tinP , psttR , psttName ) ; ___( psttR ) ;
                 ether.strFuseF( tinP , psttOldC , psttName ) ; ___( psttOldC ) ;
-                ether.strMakeF( tinP , psttR , T("///ideafarm/ephemeral/domains/com/ideafarm/tmp/hose/r.") ) ; ___( psttR ) ;
-                ether.strMakeF( tinP , psttOldC , T("///ideafarm/ephemeral/domains/com/ideafarm/tmp/hose/c.") ) ; ___( psttOldC ) ;
+                ether.strMakeF( tinP , LF , psttR , T("///ideafarm/ephemeral/domains/com/ideafarm/tmp/hose/r.") ) ; ___( psttR ) ;
+                ether.strMakeF( tinP , LF , psttOldC , T("///ideafarm/ephemeral/domains/com/ideafarm/tmp/hose/c.") ) ; ___( psttOldC ) ;
                 ZE( strokeS* , psttRM ) ;
                 ZE( strokeS* , psttOldCM ) ;
                 ZE( strokeS* , psttR ) ;
@@ -147,7 +147,7 @@
                 ether.fileHoseCreateF( tinP , handle , pstt ) ;
                 // THE FOLLOWING CALL IS SUPPORTED BY OS2 AND NT BUT -NOT- BY WIN 95
                 ether.strFuseF( tinP , pstt , psttName ) ; ___( pstt ) ;
-                ether.strMakeF( tinP , pstt , T("/hose/") , psttName ? psttName->idAdam : 0 ) ; ___( pstt ) ;
+                ether.strMakeF( tinP , LF , pstt , T("/hose/") , psttName ? psttName->idAdam : 0 ) ; ___( pstt ) ;
                 ZE( strokeS* , pstt ) ;
             #ifdef __OS2__
             fTap = 1 ;
@@ -169,8 +169,8 @@
                 ether.diskMapFileNameF( tinP , psttOldCM , psttOldC ) ; ___( psttOldCM ) ;
                 ether.strFuseF( tinP , psttR , psttName ) ; ___( psttR ) ;
                 ether.strFuseF( tinP , psttOldC , psttName ) ; ___( psttOldC ) ;
-                ether.strMakeF( tinP , psttR , T("///ideafarm/ephemeral/domains/com/ideafarm/tmp/hose/r.") ) ; ___( psttR ) ;
-                ether.strMakeF( tinP , psttOldC , T("///ideafarm/ephemeral/domains/com/ideafarm/tmp/hose/c.") ) ; ___( psttOldC ) ;
+                ether.strMakeF( tinP , LF , psttR , T("///ideafarm/ephemeral/domains/com/ideafarm/tmp/hose/r.") ) ; ___( psttR ) ;
+                ether.strMakeF( tinP , LF , psttOldC , T("///ideafarm/ephemeral/domains/com/ideafarm/tmp/hose/c.") ) ; ___( psttOldC ) ;
                 ZE( strokeS* , psttRM ) ;
                 ZE( strokeS* , psttOldCM ) ;
                 ZE( strokeS* , psttR ) ;
@@ -447,7 +447,7 @@
     countT idOpenHow   = idOpenHowP ;
     countT idAccess = idAccessP ;
 
-    else      { ether.strMakeF( tinP , psttName , T("") ) ; ___( psttName ) ; }
+    else      { ether.strMakeF( tinP , LF , psttName , T("") ) ; ___( psttName ) ; }
     if( idf ) { ether.strSubstringF( tinP , psttName , idf , idLathI , psttAll ) ; ___( psttName ) ; }
 
     }
@@ -490,8 +490,8 @@
     if( !idPort && psttType && (countT)*psttType )
 
     }
-        ether.strMakeF( tinP , psttType , T("fyle") ) ; ___( psttType ) ;
-        ether.strMakeF( tinP , psttHost , T("") ) ; ___( psttHost ) ;
+        ether.strMakeF( tinP , LF , psttType , T("fyle") ) ; ___( psttType ) ;
+        ether.strMakeF( tinP , LF , psttHost , T("") ) ; ___( psttHost ) ;
         ether.delF( tinP , psttType ) ;
         ether.delF( tinP , psttHost ) ;
     {
@@ -518,7 +518,7 @@
     if( !idf )
 
     ether.strSubstringF( tinP , psttHost , idf , sttq , S1C('/') , psttAll ) ; ___( psttHost ) ;
-    ether.strMakeF( tinP , psttAll , psttP ) ; ___( psttAll ) ;
+    ether.strMakeF( tinP , LF , psttAll , psttP ) ; ___( psttAll ) ;
 
     ZE( countT , idLathI ) ;
     strokeS sttq( (countT)0 , sc_IGNOREqUOTES ) ;

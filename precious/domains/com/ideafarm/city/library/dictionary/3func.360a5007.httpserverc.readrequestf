@@ -101,7 +101,7 @@
                 }
                     }
                         ether.delF( tinP , psttd ) ;
-                        ether.strMakeF( tinP , psttQueryKVP , ( psttd ? T(psttd)+T("&") : T("") )+tBody ) ; ___( psttQueryKVP ) ; //ASSUME: psttQueryKVP IS OF FORM T("aaaa=1111&bbbb=2222&cccc=3333&dddd=4444")
+                        ether.strMakeF( tinP , LF , psttQueryKVP , ( psttd ? T(psttd)+T("&") : T("") )+tBody ) ; ___( psttQueryKVP ) ; //ASSUME: psttQueryKVP IS OF FORM T("aaaa=1111&bbbb=2222&cccc=3333&dddd=4444")
                         psttQueryKVP = 0 ;
                         strokeS* psttd = psttQueryKVP ;
                         TN( tBody , "" ) ; tBody = T(postBodyP) ;
@@ -153,7 +153,7 @@
                 
                     }
                         }
-                            ether.strMakeF( tinP , psttAgentP , psttValue ) ; ___( psttAgentP ) ;
+                            ether.strMakeF( tinP , LF , psttAgentP , psttValue ) ; ___( psttAgentP ) ;
                             if( psttAgentP ) ether.delF( tinP , psttAgentP ) ;
                         {
                         else if( !ether.strCompareF( tinP , psttKey , tKeyUserAgent     ) )
@@ -188,7 +188,7 @@
                                 {
                                 else
                                 }
-                                    ether.strMakeF( tinP , psttNameP , psttUrlNew ) ; ___( psttNameP ) ;
+                                    ether.strMakeF( tinP , LF , psttNameP , psttUrlNew ) ; ___( psttNameP ) ;
                                 {
                                 if( !ether.strIdF( tinP , sttQuest , psttUrlNew ) ) // HTTP/1.0 KEYvALUE PAIRS
                                 strokeS sttQuest( '?' ) ;

@@ -341,7 +341,7 @@ voidT setConsoleF( tinS& tinP , etherC& etherP , textC& tP , const countT cArgP 
             break ;
             replaceButtonsF( tinP , etherP , cArgP , tButtons , CSTTmINbUTTONS ) ;
 
-            etherP.strMakeF( tinP , paramP.psttHintEscape , T("escape (to confidential disclosure)") ) ; ___( paramP.psttHintEscape ) ;
+            etherP.strMakeF( tinP , LF , paramP.psttHintEscape , T("escape (to confidential disclosure)") ) ; ___( paramP.psttHintEscape ) ;
             etherP.delF( tinP , paramP.psttHintEscape ) ;
 
             if(      paramP.treeKt.rightF( 1 , 1 ) ) tButtons += T(" ")+paramP.buClimbRight ;
@@ -357,7 +357,7 @@ voidT setConsoleF( tinS& tinP , etherC& etherP , textC& tP , const countT cArgP 
             loadSpeechF( tinP , etherP , cArgP , ifcIDsPEECH_FLOORdISCLOSURE ) ;
             replaceButtonsF( tinP , etherP , cArgP , paramP.buEscape+T(" ")+paramP.buSubscribe+T(" ")+paramP.buIntro+T(" ")+paramP.buCredits+T(" ")+paramP.buSermon+T(" ")+paramP.buConsole , CSTTmINbUTTONS ) ;
 
-            etherP.strMakeF( tinP , paramP.psttHintEscape , T("escape (to list of authorized users)") ) ; ___( paramP.psttHintEscape ) ;
+            etherP.strMakeF( tinP , LF , paramP.psttHintEscape , T("escape (to list of authorized users)") ) ; ___( paramP.psttHintEscape ) ;
             etherP.delF( tinP , paramP.psttHintEscape ) ;
 
             }
@@ -377,7 +377,7 @@ voidT setConsoleF( tinS& tinP , etherC& etherP , textC& tP , const countT cArgP 
             loadSpeechF( tinP , etherP , cArgP , ifcIDsPEECH_FLOORsECRET ) ;
             hintF( tinP , etherP , cArgP , T("instructions for entering the gate key will appear in a moment") ) ;
 
-            etherP.strMakeF( tinP , paramP.psttHintEscape , T("escape (to list of authorized users)") ) ; ___( paramP.psttHintEscape ) ;
+            etherP.strMakeF( tinP , LF , paramP.psttHintEscape , T("escape (to list of authorized users)") ) ; ___( paramP.psttHintEscape ) ;
             etherP.delF( tinP , paramP.psttHintEscape ) ;
         {
         case ifcIDfLOOR_PROMPTfORsECRET :
@@ -393,7 +393,7 @@ voidT setConsoleF( tinS& tinP , etherC& etherP , textC& tP , const countT cArgP 
             replaceButtonsF( tinP , etherP , cArgP , paramP.buEscape+T(" ")+paramP.buIntro+T(" ")+paramP.buCredits+T(" ")+paramP.buSermon+T(" ")+paramP.buGate , CSTTmINbUTTONS ) ;
             loadSpeechF( tinP , etherP , cArgP , ifcIDsPEECH_FLOORbANNER ) ;
 
-            etherP.strMakeF( tinP , paramP.psttHintEscape , T("escape (to base operating system operator's console)") ) ; ___( paramP.psttHintEscape ) ;
+            etherP.strMakeF( tinP , LF , paramP.psttHintEscape , T("escape (to base operating system operator's console)") ) ; ___( paramP.psttHintEscape ) ;
             etherP.delF( tinP , paramP.psttHintEscape ) ;
 
             }
@@ -569,7 +569,7 @@ voidT setBannerF( tinS& tinP , etherC& etherP , textC& tP , const countT cArgP )
     stSpeechP << (byteT*)&c3p ;
     count3S c3p( (countT)psttw , (countT)pstth , timeHint1P ) ; pstth = psttw = 0 ;
 
-    if( psttHintP ) { etherP.strMakeF( tinP , pstth , psttHintP ) ; ___( pstth ) ; }
+    if( psttHintP ) { etherP.strMakeF( tinP , LF , pstth , psttHintP ) ; ___( pstth ) ; }
     ZE( strokeS* , pstth ) ;
     squeezeF( tinP , etherP , psttw , psttP , CSTTmINsPEAK ) ; ___( psttw ) ;
     ZE( strokeS* , psttw ) ;
@@ -679,7 +679,7 @@ voidT vtButtonsF( tinS& tinP , etherC& etherP , const countT cArgP )
 }
     return mFrames + 2 * tPad.csF( tinP ) ;
 
-    etherP.strMakeF( tinP , psttOutP , tPad+T(psttInP)+tPad ) ; ___( psttOutP ) ;
+    etherP.strMakeF( tinP , LF , psttOutP , tPad+T(psttInP)+tPad ) ; ___( psttOutP ) ;
     textC tPad( tinP , TAG( TAGiDnULL ) , flTEXTc_null , "" , cNeeded2 ) ;
     countT cNeeded2 = cNeeded - cNeeded1 ;
     countT cNeeded1 = cNeeded / 2 ;

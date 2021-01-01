@@ -38,7 +38,7 @@
                 if( cTries ) csNeeded += CSpREFIX + psttw3->idAdam + csttPrefixNullsP + csttSuffixNullsP ;
 
                 delF( tinP , psttw2 ) ;_WQ
-                else { strMakeF( tinP , psttw3 , psttw2 ) ; ___( psttw3 ) ; }
+                else { strMakeF( tinP , LF , psttw3 , psttw2 ) ; ___( psttw3 ) ; }
                 }
                     }
                         strSubstringF( tinP , psttw3 , idf3 , idl3 , psttw2 ) ; ___( psttw3 ) ;_WQ
@@ -46,7 +46,7 @@
                         countT idf3 = 2 ;_WQ
                     {
                     else
-                    if( psttw2->idAdam == 2 ) { strMakeF( tinP , psttw3 , T("") ) ; ___( psttw3 ) ; }
+                    if( psttw2->idAdam == 2 ) { strMakeF( tinP , LF , psttw3 , T("") ) ; ___( psttw3 ) ; }
                 {
                 if( sttQuoteP.idCaste != sc_IGNOREqUOTES && psttw2->idAdam > 1 && psttw2[ CSpREFIX ] == sttd && psttw2[ CSpREFIX - 1 + psttw2->idAdam ] == sttd )
                 strokeS sttd = S1C(0x22) ; //0x22 is a double quote
@@ -76,7 +76,7 @@
 
         }
             POSTPONEtEST( pstt1P ) ;_WQ
-            strMakeF( tinP , pstt1P , T("") , csNeeded + csttExtraP ) ; //CALLER MUST TAG ___( pstt1P ) ;_WQ
+            strMakeF( tinP , LF , pstt1P , T("") , csNeeded + csttExtraP ) ; //CALLER MUST TAG ___( pstt1P ) ;_WQ
         {
         if( !cTries )
     {

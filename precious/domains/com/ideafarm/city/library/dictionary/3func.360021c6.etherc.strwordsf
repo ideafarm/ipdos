@@ -48,7 +48,7 @@
                                 }
                                     stqLazy << psttp ; psttp = 0 ;
 
-                                    strMakeF( tinP , psttp , psttc1 ) ; ___( psttp ) ;
+                                    strMakeF( tinP , LF , psttp , psttc1 ) ; ___( psttp ) ;
                                     ZE( strokeS* , psttp ) ;
                                 {
                                 else
@@ -57,7 +57,7 @@
                                         stqLazy << psttp ; psttp = 0 ;
                                         emitLaziesF( tinP , *this , soulOutP , stqLazy , flagsP , tBreak ) ;
 
-                                        strMakeF( tinP , psttp , psttc1 ) ; ___( psttp ) ;
+                                        strMakeF( tinP , LF , psttp , psttc1 ) ; ___( psttp ) ;
                                         ZE( strokeS* , psttp ) ;
                                     {
                                     if( bDelimiters )
@@ -87,7 +87,7 @@
 
                     delF( tinP , psttw2 ) ;
                     }
-                        strMakeF( tinP , psttw3 , psttw2 ) ; ___( psttw3 ) ;
+                        strMakeF( tinP , LF , psttw3 , psttw2 ) ; ___( psttw3 ) ;
                     {
                     else
                     }
@@ -98,7 +98,7 @@
                         {
                         else
                         }
-                            strMakeF( tinP , psttw3 , T("") ) ; ___( psttw3 ) ;
+                            strMakeF( tinP , LF , psttw3 , T("") ) ; ___( psttw3 ) ;
                         {
                         if( psttw2->idAdam == 2 )
                     {
@@ -267,7 +267,7 @@ voidT emitLaziesF( tinS& tinP , etherC& ether , soulC& soulOutP , staqC& stqLazy
         strokeS*& psttl = *(strokeS**)&stqLazyP[ idLazy ] ;
     {
     for( countT idLazy = cLazy ; idLazy ; idLazy -- )
-    ether.strMakeF( tinP , psttLazies , 0 , csttl ) ; ___( psttLazies ) ;
+    ether.strMakeF( tinP , LF , psttLazies , 0 , csttl ) ; ___( psttLazies ) ;
     ZE( strokeS* , psttLazies ) ;
 
     for( countT idLazy = cLazy ; idLazy ; idLazy -- ) csttl += ( (strokeS*)stqLazyP[ idLazy ] )->idAdam ;

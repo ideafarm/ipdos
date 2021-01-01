@@ -32583,15 +32583,15 @@ examples
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.340c0.etherC.strCLinesF!||
  voidT strMakeFromOsTextF( tinS& tinP , strokeS*& psttP , const osTextT* const postP , const countT costP = 0 , const countT csttExtraP = 0 ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34058.etherC.strMakeFromOsTextF!||
- countT strMakeF( tinS& tinP , pbRefC*& prP , const strokeS* const psttP , const countT costExtraP = 0 , const flagsT flagsP = flSTRmAKE_null ) ;
+ countT strMakeF( tinS& tinP , const countT idLineP , const countT idiFileP , pbRefC*& prP , const strokeS* const psttP , const countT costExtraP = 0 , const flagsT flagsP = flSTRmAKE_null ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.341b8.etherC.strMakeF!||
- countT strMakeF( tinS& tinP , osTextT*& postP , const strokeS* const psttP , const countT costExtraP = 0 , const flagsT flagsP = flSTRmAKE_null , const countT cbPrefixExtraP = 0 ) ;
+ countT strMakeF( tinS& tinP , const countT idLineP , const countT idiFileP , osTextT*& postP , const strokeS* const psttP , const countT costExtraP = 0 , const flagsT flagsP = flSTRmAKE_null , const countT cbPrefixExtraP = 0 ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34059.etherC.strMakeF!||
- countT strMakeF( tinS& tinP , unTextT*& puntP , const strokeS* const psttP ) ;
+ countT strMakeF( tinS& tinP , const countT idLineP , const countT idiFileP , unTextT*& puntP , const strokeS* const psttP ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.340eb.etherC.strMakeF!||
- voidT strMakeF( tinS& tinP , strokeS*& psttOutP , const strokeS* const psttInP = 0 , const countT csttExtraP = 0 ) ;
+ voidT strMakeF( tinS& tinP , const countT idLineP , const countT idiFileP , strokeS*& psttOutP , const strokeS* const psttInP = 0 , const countT csttExtraP = 0 ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3405a.etherC.strMakeF!||
- voidT strMakeF( tinS& tinP , strokeS*& psttOutP , const strokeS sttInP , const countT csttExtraP = 0 ) ;
+ voidT strMakeF( tinS& tinP , const countT idLineP , const countT idiFileP , strokeS*& psttOutP , const strokeS sttInP , const countT csttExtraP = 0 ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3418e.etherC.strMakeF!||
  voidT strRemoveBlankLinesF( tinS& tinP , strokeS*& psttP , const strokeS* const psttOldP = 0 , const strokeS* const psttItemDelimiterP = 0 , const strokeS* const psttDoomedListP = 0 ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.340b3.etherC.strRemoveBlankLinesF!||

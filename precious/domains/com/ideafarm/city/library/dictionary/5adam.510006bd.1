@@ -21,7 +21,7 @@ REST
     etThread.delF( tinP , postr ) ;
     pso->writeF( tinP , postr , costr ) ;
     etThread.traceF( tinP , T("\r\n")+T(postr)+T("\r\n") ) ;
-    countT costr = etThread.strMakeF( tinP , postr , T("HTTP/1.1 200\r\nContent-Type: text/html\r\nContent-Length: ")+TF4(tBody.csF(tinP),flFORMAT_NObASE|flFORMAT_FOREIGN|flFORMAT_UNSIGNED,0,0xa)+T("\r\n\r\n")+tBody ) ; ___( postr ) ;
+    countT costr = etThread.strMakeF( tinP , LF , postr , T("HTTP/1.1 200\r\nContent-Type: text/html\r\nContent-Length: ")+TF4(tBody.csF(tinP),flFORMAT_NObASE|flFORMAT_FOREIGN|flFORMAT_UNSIGNED,0,0xa)+T("\r\n\r\n")+tBody ) ; ___( postr ) ;
     ZE( osTextT* , postr ) ;
     TN( tBody , "<pre>test page served over t-mobile from Wo'O Ideafarm\r\n\r\nclient " ) ; tBody += TF1(++idClient) ;
 

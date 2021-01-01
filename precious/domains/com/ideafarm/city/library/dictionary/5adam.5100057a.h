@@ -110,7 +110,7 @@ class datumEmailZipC : public plateC
                                                                                             \
 #define COMPARE(psttP)                                                                      \
 
-    if( datum.psttP ) { ether.strMakeF( tinP , psttP , datum.psttP ) ; ___( psttP ) ; }
+    if( datum.psttP ) { ether.strMakeF( tinP , LF , psttP , datum.psttP ) ; ___( psttP ) ; }
     ether.delF( tinP , psttP ) ;                                                            \
                                                                                             \
 #define SETsTRING(psttP)                                                                    \

@@ -14,11 +14,11 @@
     ether.osTimeAddF( tinP , timeLived1 , timeLived2 , datum.timeLived1 , datum.timeLived2 ) ;
 
     }
-        else { ether.strMakeF( tinP , psttPeer , datum.psttPeer ) ; ___( psttPeer ) ; }
+        else { ether.strMakeF( tinP , LF , psttPeer , datum.psttPeer ) ; ___( psttPeer ) ; }
         }
             }
                 ether.delF( tinP , psttd ) ;
-                ether.strMakeF( tinP , psttPeer , T(psttd)+T(" , ")+T(datum.psttPeer) ) ; ___( psttPeer ) ;
+                ether.strMakeF( tinP , LF , psttPeer , T(psttd)+T(" , ")+T(datum.psttPeer) ) ; ___( psttPeer ) ;
                 strokeS* psttd = psttPeer ; psttPeer = 0 ;
             {
             if( ether.strCompareF( tinP , psttPeer , datum.psttPeer ) )
@@ -43,7 +43,7 @@ plateC& datumSessionC::operator +=( plateC& plateP )
         +tb+TT4(timeLived1,timeLived2,3,5)
         TF3(nnPeer.pcId[0],flFORMAT_NObIGITvALUES|flFORMAT_FILLzE|flFORMAT_UNSIGNED,8)
 
-    ether.strMakeF( tinP , psttRpt ,
+    ether.strMakeF( tinP , LF , psttRpt ,
     TN( tb , " " ) ;
 
     ether.delF( tinP , psttRpt ) ; //U::RECALC ONLY IF STALE
@@ -144,10 +144,10 @@ sCountT datumSessionC::operator -( const plateC& plateP ) const
 }
     return *this ;
 
-    if( datum.psttRpt ) { ether.strMakeF( tinP , psttRpt , datum.psttRpt ) ; ___( psttRpt ) ; }
+    if( datum.psttRpt ) { ether.strMakeF( tinP , LF , psttRpt , datum.psttRpt ) ; ___( psttRpt ) ; }
     ether.delF( tinP , psttRpt ) ;
 
-    if( datum.psttPeer ) { ether.strMakeF( tinP , psttPeer , datum.psttPeer ) ; ___( psttPeer ) ; }
+    if( datum.psttPeer ) { ether.strMakeF( tinP , LF , psttPeer , datum.psttPeer ) ; ___( psttPeer ) ; }
     ether.delF( tinP , psttPeer ) ;
 
     nnPeer          = datum.nnPeer ;

@@ -61,7 +61,7 @@ ZE( osTextT* , postnu ) ;
 stackC stOrders( tinP , ether , TAG( TAGiDnULL ) , flSTACKc_FIFO , ifcSTACKtYPE_PTR_count2S ) ;
 
 }
-    cbThankYou = etThread.strMakeF( tinP , pbThankYou , T("HTTP/1.0 200\r\nContent-Type: text/html\r\nContent-Length: ")+TF4(tBody.csF(tinP),flFORMAT_NObASE,0,0xa)+T("\r\n\r\n")+tBody ) ; ___( pbThankYou ) ;
+    cbThankYou = etThread.strMakeF( tinP , LF , pbThankYou , T("HTTP/1.0 200\r\nContent-Type: text/html\r\nContent-Length: ")+TF4(tBody.csF(tinP),flFORMAT_NObASE,0,0xa)+T("\r\n\r\n")+tBody ) ; ___( pbThankYou ) ;
 
     ) ;
 
@@ -73,7 +73,7 @@ ZE( countT   , cbThankYou ) ;
 ZE( osTextT* , pbThankYou ) ;
 
 }
-    cbForm = etThread.strMakeF( tinP , pbForm , T("HTTP/1.0 200\r\nContent-Type: text/html\r\nContent-Length: ")+TF4(tBody.csF(tinP),flFORMAT_NObASE,0,0xa)+T("\r\n\r\n")+tBody ) ; ___( pbForm ) ;
+    cbForm = etThread.strMakeF( tinP , LF , pbForm , T("HTTP/1.0 200\r\nContent-Type: text/html\r\nContent-Length: ")+TF4(tBody.csF(tinP),flFORMAT_NObASE,0,0xa)+T("\r\n\r\n")+tBody ) ; ___( pbForm ) ;
 
     ) ;
 
@@ -107,7 +107,7 @@ DONE( tmServeF )
             etThread.delF( tinP , postr ) ;
             pso->writeF( tinP , postr , costr ) ;
             etThread.delF( tinP , psttBody ) ;
-            countT costr = etThread.strMakeF( tinP , postr , T("HTTP/1.0 200\r\nContent-Type: text/html\r\nContent-Length: ")+TF4(psttBody->idAdam,flFORMAT_NObASE,0,0xa)+T("\r\n\r\n")+T(psttBody) ) ; ___( postr ) ;
+            countT costr = etThread.strMakeF( tinP , LF , postr , T("HTTP/1.0 200\r\nContent-Type: text/html\r\nContent-Length: ")+TF4(psttBody->idAdam,flFORMAT_NObASE,0,0xa)+T("\r\n\r\n")+T(psttBody) ) ; ___( postr ) ;
             ZE( osTextT* , postr ) ;
 
             }
@@ -151,7 +151,7 @@ DONE( tmServeF )
                 {
                 if( stOrders )
 
-                etThread.strMakeF( tinP , psttBody , tTitle+TF4(cFormsSent,flFORMAT_NObASE,0xc,0xa)+T("    Datek Online order forms displayed by the MediaPlex, Inc. Advertising Network\r\n\r\n")+TF4(cOrdersReceived,flFORMAT_NObASE,0xc,0xa)+T("    Completed Datek Online order forms received by the MediaPlex, Inc. Advertising System\r\n                (This information in these orders has been forwarded on to Datek Online for processing.)\r\n\r\n\r\n\r\nOrder Detail:\r\n\r\n")+TPS("qty",0xc,S1C('-'))+T("    ")+TPS("customerEmail",0x30,S1C('-'))+T("\r\n\r\n") , 0x1000 * (countT)stOrders + 0x1000 ) ; ___( psttBody ) ;
+                etThread.strMakeF( tinP , LF , psttBody , tTitle+TF4(cFormsSent,flFORMAT_NObASE,0xc,0xa)+T("    Datek Online order forms displayed by the MediaPlex, Inc. Advertising Network\r\n\r\n")+TF4(cOrdersReceived,flFORMAT_NObASE,0xc,0xa)+T("    Completed Datek Online order forms received by the MediaPlex, Inc. Advertising System\r\n                (This information in these orders has been forwarded on to Datek Online for processing.)\r\n\r\n\r\n\r\nOrder Detail:\r\n\r\n")+TPS("qty",0xc,S1C('-'))+T("    ")+TPS("customerEmail",0x30,S1C('-'))+T("\r\n\r\n") , 0x1000 * (countT)stOrders + 0x1000 ) ; ___( psttBody ) ;
 
                 stOrders.grabF( tinP , TAG( TAGiDnULL ) ) ;
 

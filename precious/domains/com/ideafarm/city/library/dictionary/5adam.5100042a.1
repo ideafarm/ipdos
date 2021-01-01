@@ -13,7 +13,7 @@ while( stPhrasesLog || tinP.cKidThreads ) etThread.osSleepF( tinP , TOCK ) ;
 }
     etThread.delF( tinP , psttr ) ;
     etThread.boxPutF( tinP , T("ideafarm.com//smtp/" ifcEMAIL_OLDfROM) , postr , costr ) ;
-    countT costr = etThread.strMakeF( tinP , postr , tr ) ; ___( postr ) ;
+    countT costr = etThread.strMakeF( tinP , LF , postr , tr ) ; ___( postr ) ;
     ZE( osTextT* , postr ) ;
 
     tr = tr1+tr2 ;
@@ -91,7 +91,7 @@ DONE( tmLogF )
             }
                 etThread.delF( tinP , postp ) ;
                 thirdC::logIF( tinP , "\\log.ifc.c240104" , 0 , 0 , 0 , (countT)postp , 0 , costp ) ;
-                countT costp = etThread.strMakeF( tinP , postp , psttp ) ; ___( postp ) ;
+                countT costp = etThread.strMakeF( tinP , LF , postp , psttp ) ; ___( postp ) ;
                 ZE( osTextT* , postp ) ;
             {
             if( psttp )
@@ -169,7 +169,7 @@ TRANSLATEsTATEdRIVENsERVER_BEGIN( stateS , 2 )
             sClientP.writeF( tinP , postl , costl ) ;
             sayF( tinP , etThread , stPhrasesP , stPhrasesLogP , T(postl)+tCRLF ) ;
             etThread.delF( tinP , psttl ) ;
-            countT costl = etThread.strMakeF( tinP , postl , psttl ) ; ___( postl ) ;
+            countT costl = etThread.strMakeF( tinP , LF , postl , psttl ) ; ___( postl ) ;
             ZE( osTextT* , postl ) ;
             stHeaderLines >> psttl ;
             ZE( strokeS* , psttl ) ;
@@ -201,7 +201,7 @@ TRANSLATEsTATEdRIVENsERVER_BEGIN( stateS , 2 )
             sServer.writeF( tinP , postBody , costBody ) ;
             else               sayF( tinP , etThread , stPhrasesP , stPhrasesLogP , psttBody ) ;
             if( bEncodedBody ) sayF( tinP , etThread , stPhrasesP , stPhrasesLogP , tEncoded    ) ;
-            countT costBody = etThread.strMakeF( tinP , postBody , psttBody ) ; ___( postBody ) ;
+            countT costBody = etThread.strMakeF( tinP , LF , postBody , psttBody ) ; ___( postBody ) ;
             ZE( osTextT* , postBody ) ;
             sayF( tinP , etThread , stPhrasesP , stPhrasesLogP , T(postSEPARATOR_2B) ) ;
         {
@@ -213,7 +213,7 @@ TRANSLATEsTATEdRIVENsERVER_BEGIN( stateS , 2 )
             sServer.writeF( tinP , postl , costl ) ;
             sayF( tinP , etThread , stPhrasesP , stPhrasesLogP , T(postl)+tCRLF ) ;
             etThread.delF( tinP , psttl ) ;
-            countT costl = etThread.strMakeF( tinP , postl , psttl ) ; ___( postl ) ;
+            countT costl = etThread.strMakeF( tinP , LF , postl , psttl ) ; ___( postl ) ;
             ZE( osTextT* , postl ) ;
             stHeaderLines >> psttl ;
             ZE( strokeS* , psttl ) ;
@@ -236,7 +236,7 @@ TRANSLATEsTATEdRIVENsERVER_BEGIN( stateS , 2 )
                 else               sayF( tinP , etThread , stPhrasesP , stPhrasesLogP , psttBody ) ;
                 if( bEncodedBody ) sayF( tinP , etThread , stPhrasesP , stPhrasesLogP , tEncoded ) ;
                 etThread.delF( tinP , postBody ) ;
-                etThread.strMakeF( tinP , psttBody , T(postBody) ) ; ___( psttBody ) ;
+                etThread.strMakeF( tinP , LF , psttBody , T(postBody) ) ; ___( psttBody ) ;
                 if( postBody ) postBody[ costBody ] = 0 ;
             {
             if( !*tinP.zEtScratch )

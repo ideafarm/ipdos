@@ -56,7 +56,7 @@
             {
             else
             }
-                strMakeF( tinP , psttw2 , T("") ) ; ___( psttw2 ) ;
+                strMakeF( tinP , LF , psttw2 , T("") ) ; ___( psttw2 ) ;
 
                 }
                     csttFromBeginning = psttw->idAdam ;
@@ -91,11 +91,11 @@
     strokeS sttq( (countT)0 , sc_IGNOREqUOTES ) ;
     countT idf = 1 ;
     POSTPONEtEST( psttP ) ;
-    strMakeF( tinP , psttP , T("") , psttOld ? psttOld->idAdam : 0 ) ; // CALLER MUST TAG ___( psttP ) ;
+    strMakeF( tinP , LF , psttP , T("") , psttOld ? psttOld->idAdam : 0 ) ; // CALLER MUST TAG ___( psttP ) ;
 
     }
         delF( tinP , psttd ) ;
-        else       { strMakeF( tinP , psttOld , T("") ) ; ___( psttOld ) ; }
+        else       { strMakeF( tinP , LF , psttOld , T("") ) ; ___( psttOld ) ; }
         if( iddl ) { strSubstringF( tinP , psttOld , idf , iddl , psttd ) ; ___( psttOld ) ; }
         iddl -- ;
         countT idf = 1 ;
@@ -118,10 +118,10 @@
         psttOld = psttP ;
     {
     else
-    if( psttOldP ) { strMakeF( tinP , psttOld , psttOldP ) ; ___( psttOld ) ; }
+    if( psttOldP ) { strMakeF( tinP , LF , psttOld , psttOldP ) ; ___( psttOld ) ; }
     ZE( strokeS* , psttOld ) ;
 
-    else                  { strMakeF( tinP , psttDoomedList , T(psttItemDelimiterP?TbLACKeXCLUDINGnEWlINE:TbLACK) ) ; ___( psttDoomedList ) ; }
+    else                  { strMakeF( tinP , LF , psttDoomedList , T(psttItemDelimiterP?TbLACKeXCLUDINGnEWlINE:TbLACK) ) ; ___( psttDoomedList ) ; }
     if( psttDoomedListP ) { strFuseF( tinP , psttDoomedList , psttDoomedListP                                     ) ; ___( psttDoomedList ) ; }
     ZE( strokeS* , psttDoomedList ) ;
 

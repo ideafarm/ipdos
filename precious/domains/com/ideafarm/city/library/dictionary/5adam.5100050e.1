@@ -345,10 +345,10 @@ if( bApproved )
             psttBuilding = psttUser = psttPassword = psttRemoteHomeRegistry = 0 ;
             etThread.osThreadF( TaRG1( tmWatchIdeafarmF ) , (countT)psttBuilding , (countT)psttUser , (countT)psttPassword , (countT)psttRemoteHomeRegistry ) ;
 
-            etThread.strMakeF( tinP , psttRemoteHomeRegistry , tRemoteHomeRegistry ) ; ___( psttRemoteHomeRegistry ) ;
-            etThread.strMakeF( tinP , psttPassword           , tPassword           ) ; ___( psttPassword           ) ;
-            etThread.strMakeF( tinP , psttUser               , tUser               ) ; ___( psttUser               ) ;
-            etThread.strMakeF( tinP , psttBuilding           , tBuilding           ) ; ___( psttBuilding           ) ;
+            etThread.strMakeF( tinP , LF , psttRemoteHomeRegistry , tRemoteHomeRegistry ) ; ___( psttRemoteHomeRegistry ) ;
+            etThread.strMakeF( tinP , LF , psttPassword           , tPassword           ) ; ___( psttPassword           ) ;
+            etThread.strMakeF( tinP , LF , psttUser               , tUser               ) ; ___( psttUser               ) ;
+            etThread.strMakeF( tinP , LF , psttBuilding           , tBuilding           ) ; ___( psttBuilding           ) ;
             ZE( strokeS* , psttRemoteHomeRegistry ) ;
             ZE( strokeS* , psttPassword ) ;
             ZE( strokeS* , psttUser ) ;
@@ -436,7 +436,7 @@ if( bApproved )
             psttUserName->idAdam                                    +
             psttUserEmail->idAdam                                   +
     
-        etThread.strMakeF( tinP , psttMe , 0 , 
+        etThread.strMakeF( tinP , LF , psttMe , 0 , 
         ZE( strokeS* , psttMe ) ;
 
         thirdC::c_strcpyIF( tinP , home.postIdHomeGlobal , "!registering" ) ;
@@ -623,7 +623,7 @@ voidT secretF( tinS& tinP , etherC& etherP , textC& tUserP , textC& tPasswordP )
         countT idf = 1 ;
     
         tinP.pEtScratch->delF( tinP , pbAll  ) ;
-        tinP.pEtScratch->strMakeF( tinP , psttAll , T(pbAll) ) ; ___( psttAll ) ;
+        tinP.pEtScratch->strMakeF( tinP , LF , psttAll , T(pbAll) ) ; ___( psttAll ) ;
         ZE( strokeS* , psttAll ) ;
     
         tinP.pEtScratch->boxPutF( tinP , T("///d/tmp.ideafarm.txt") , pbAll , cbAll ) ;

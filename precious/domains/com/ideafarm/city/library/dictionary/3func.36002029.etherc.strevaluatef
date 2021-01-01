@@ -51,12 +51,12 @@
                 strReplaceAutomaticallyF( tinP , psttKid ) ;
                 strReverseF( tinP , psttKid , 0 , T("\r\n") ) ;
                 delF( tinP , postKid ) ;
-                strMakeF( tinP , psttKid , T(postKid) ) ;
+                strMakeF( tinP , LF , psttKid , T(postKid) ) ;
                 ZE( strokeS* , psttKid ) ;
                 delF( tinP , psttw ) ;
                 }
                     }
-                        costKid = strMakeF( tinP , postKid , psttw ) ;
+                        costKid = strMakeF( tinP , LF , postKid , psttw ) ;
                         ifcSayIF( T("103002f ERROR: File \"")+T(psttw)+T("\" does not exist") , flSAY_APPEND | flSAY_LOG ) ;
                         POOPR
                     {
@@ -237,12 +237,12 @@
                 // IF A LISTS OF SYMBOLIC CONSTANTS IS FOUND, FORMAT AND APPEND THEM
 
                 delF( tinP , postKid ) ;
-                strMakeF( tinP , psttKid , T(postKid) , costKid * 2 + 0x100 ) ; // 1 EXTRA FOR SYMBOLIC CONSTANTS, 1 EXTRA FOR VISIBLE, 0x100 FOR MISCELLANY
+                strMakeF( tinP , LF , psttKid , T(postKid) , costKid * 2 + 0x100 ) ; // 1 EXTRA FOR SYMBOLIC CONSTANTS, 1 EXTRA FOR VISIBLE, 0x100 FOR MISCELLANY
                 ZE( strokeS* , psttKid ) ;
                 delF( tinP , psttw ) ;
                 }
                     }
-                        costKid = strMakeF( tinP , postKid , psttw ) ;
+                        costKid = strMakeF( tinP , LF , postKid , psttw ) ;
                         ifcSayIF( T("103002f WARNING 1: File \"")+T(psttw)+T("\" does not exist") , flSAY_APPEND | flSAY_LOG ) ;
                         POOPR
                     {
@@ -270,7 +270,7 @@
 
                 }
                     delF( tinP , psttv ) ;
-                    strMakeF( tinP , psttKid , psttv ) ; ___( psttKid ) ;
+                    strMakeF( tinP , LF , psttKid , psttv ) ; ___( psttKid ) ;
                     delF( tinP , psttKid ) ;
                     strReplaceF( tinP , psttv , 0 , T("/" "/" "|" "|") , T("/" "/" "%" "%") ) ; ___( psttv ) ; // ASSUME: NO SOURCE LINES WILL EVER CONTAIN "/" "/" "%" "%"
                     strReplaceF( tinP , psttv , 0 , T("/" "*" "*" "/") , T("/" "@" "@" "/") ) ; ___( psttv ) ; // ASSUME: NO SOURCE LINES WILL EVER CONTAIN "/" "@" "@" "/"
@@ -294,12 +294,12 @@
                 // FORMAT AND APPEND THE SPECIFIED FILE
 
                 delF( tinP , postKid ) ;
-                strMakeF( tinP , psttKid , T(postKid) , costKid * 2 + 0x100 ) ; // 1 EXTRA FOR SYMBOLIC CONSTANTS, 1 EXTRA FOR VISIBLE, 0x100 FOR MISCELLANY
+                strMakeF( tinP , LF , psttKid , T(postKid) , costKid * 2 + 0x100 ) ; // 1 EXTRA FOR SYMBOLIC CONSTANTS, 1 EXTRA FOR VISIBLE, 0x100 FOR MISCELLANY
                 ZE( strokeS* , psttKid ) ;
                 delF( tinP , psttw ) ;
                 }
                     }
-                        costKid = strMakeF( tinP , postKid , psttw ) ;
+                        costKid = strMakeF( tinP , LF , postKid , psttw ) ;
                         ifcSayIF( T("103002f WARNING 1: File \"")+T(psttw)+T("\" does not exist") , flSAY_APPEND | flSAY_LOG ) ;
                         POOPR
                     {

@@ -120,7 +120,7 @@ DONEdRIVENsERVER( tmcF )
                         while( stCodes )
                         TN( tc  , "\r\n" ) ;
 
-                        etThread.strMakeF( tinP , psttn , T("Subject: Your Prepaid Residency Tax Codes\r\n\r\nThank you for purchasing the following block of codes:\r\n\r\n") , stCodes * 0x80 ) ; ___( psttn ) ;
+                        etThread.strMakeF( tinP , LF , psttn , T("Subject: Your Prepaid Residency Tax Codes\r\n\r\nThank you for purchasing the following block of codes:\r\n\r\n") , stCodes * 0x80 ) ; ___( psttn ) ;
                         ZE( strokeS* , psttn ) ;
     
                         }
@@ -349,7 +349,7 @@ DONEdRIVENsERVER( tmcF )
                             if( psttFromIn ) break ;
 
                             tinP.zEtScratch->delF( tinP , psttw ) ;
-                            tinP.zEtScratch->strMakeF( tinP , psttFromName , T("\"")+T(psttw)+T("\" <")+T(psttFromIn)+T(">") ) ; ___( psttFromName ) ;
+                            tinP.zEtScratch->strMakeF( tinP , LF , psttFromName , T("\"")+T(psttw)+T("\" <")+T(psttFromIn)+T(">") ) ; ___( psttFromName ) ;
                             tinP.zEtScratch->strTrimF( tinP , psttw , 0 , T(TbLACKnEWlINE) ) ; ___( psttw ) ;
 
                             tinP.zEtScratch->strSubstringF( tinP , psttw , idf , idl , psttc1 ) ; ___( psttw ) ;
@@ -365,7 +365,7 @@ DONEdRIVENsERVER( tmcF )
                                     }
                                         }
                                             break ;
-                                            tinP.zEtScratch->strMakeF( tinP , psttFromIn , psttc2 ) ; ___( psttFromIn ) ;
+                                            tinP.zEtScratch->strMakeF( tinP , LF , psttFromIn , psttc2 ) ; ___( psttFromIn ) ;
                                         {
                                         if( ++ idw == 2 )
                                     {
@@ -413,7 +413,7 @@ DONEdRIVENsERVER( tmcF )
                     etThread.boxPutUniqueF( tinP , psttu , T("///ideafarm/ephemeral/backed.up.daily/domains/com/ideafarm/")+TF1(DDNUMB)+T("/in/arc/arc") , postBody , costBody ) ;
                     ZE( strokeS* , psttu ) ;
     
-                    countT costBody = etThread.strMakeF( tinP , postBody , psttBody ) ; ___( postBody ) ;
+                    countT costBody = etThread.strMakeF( tinP , LF , postBody , psttBody ) ; ___( postBody ) ;
                     ZE( osTextT* , postBody ) ;
                 {
                 TELL( "writing the received item to an archive file" ) ;
@@ -421,7 +421,7 @@ DONEdRIVENsERVER( tmcF )
             if( !*tinP.zEtScratch )
 
             }
-                etThread.strMakeF( tinP , psttFrom , T("[anonymous]") ) ; ___( psttFrom ) ;
+                etThread.strMakeF( tinP , LF , psttFrom , T("[anonymous]") ) ; ___( psttFrom ) ;
                 etThread.delF( tinP , psttFrom ) ;
             {
             if( psttFrom && !psttFrom->idAdam )
@@ -510,7 +510,7 @@ DONEdRIVENsERVER( tmcF )
                 __( psttw1 && !psttw1->idAdam ) ;                                                         // REJECT ""
     
                 //}
-                //    tinP.zEtScratch->strMakeF( tinP , psttw1 , T("1") ) ; ___( psttw1 ) ;
+                //    tinP.zEtScratch->strMakeF( tinP , LF , psttw1 , T("1") ) ; ___( psttw1 ) ;
                 //    tinP.zEtScratch->delF( tinP , psttw1 ) ;
                 //{
                 //if( !tinP.zEtScratch->strCompareF( tinP , psttw1 , T("wo") ) )

@@ -74,7 +74,7 @@ DONE( tmServeF )
             break ;
             etThread.delF( tinP , postr ) ;
             pso->writeF( tinP , postr , costr ) ;
-            countT costr = etThread.strMakeF( tinP , postr , T("HTTP/1.0 200\r\nContent-Type: text/html\r\nContent-Length: ")+TF4(tBody.csF(tinP),flFORMAT_NObASE,0,0xa)+T("\r\n\r\n")+tBody ) ; ___( postr ) ;
+            countT costr = etThread.strMakeF( tinP , LF , postr , T("HTTP/1.0 200\r\nContent-Type: text/html\r\nContent-Length: ")+TF4(tBody.csF(tinP),flFORMAT_NObASE,0,0xa)+T("\r\n\r\n")+tBody ) ; ___( postr ) ;
             ZE( osTextT* , postr ) ;
             textC tBody = tTitle+TF4(cImages,flFORMAT_NObASE,0xc,0xa)+T("    Impressions (estimate).  This is an estimate of the number of times someone viewed an image in this Datek Campaign.\r\n\r\n")+TF4(cClicks,flFORMAT_NObASE,0xc,0xa)+T("    Clicks.  This is the actual number of times that someone clicked into an image in this Datek Campaign.")+tFooter ;
 

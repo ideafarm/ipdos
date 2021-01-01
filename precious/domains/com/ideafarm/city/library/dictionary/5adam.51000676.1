@@ -14,7 +14,7 @@ REST
     etThread.boxPutF( tinP , tOut , postr , costr ) ;
 
     etThread.delF( tinP , psttr ) ;
-    costr = etThread.strMakeF( tinP , postr , psttr ) ; ___( postr ) ;
+    costr = etThread.strMakeF( tinP , LF , postr , psttr ) ; ___( postr ) ;
 
     etThread.strReplaceF( tinP , psttr , 0 , T("]") , T("\\]") , 0 , flSTRrEPLACE_IGNOREqUOTES ) ;        //    "]"    ->    "\\]"
     etThread.strReplaceF( tinP , psttr , 0 , T("[") , T("\\[") , 0 , flSTRrEPLACE_IGNOREqUOTES ) ;        //    "["    ->    "\\["
@@ -144,7 +144,7 @@ TODO
                                 ZE( countT , hashr ) ;
 
                                 }
-                                    etThread.strMakeF( tinP , psttSubject , T("(No subject)") ) ; ___( psttSubject ) ;
+                                    etThread.strMakeF( tinP , LF , psttSubject , T("(No subject)") ) ; ___( psttSubject ) ;
                                     etThread.delF( tinP , psttSubject ) ;
                                 {
                                 if( !psttSubject || !psttSubject->idAdam )
@@ -198,7 +198,7 @@ TODO
                                     {
                                     for( countT offt = 0 ; offt < sizeof ppostFindNix / sizeof ppostFindNix[ 0 ] ; offt += 2 )
     
-                                    etThread.strMakeF( tinP , postBody , psttBody ) ; ___( postBody ) ;
+                                    etThread.strMakeF( tinP , LF , postBody , psttBody ) ; ___( postBody ) ;
                                     ZE( osTextT* , postBody ) ;
                                 {
                                 if( psttBody )
@@ -220,7 +220,7 @@ TODO
                                 for( countT offt = 0 ; offt < sizeof ppostFind / sizeof ppostFind[ 0 ] ; offt ++ )
 
                                 thirdC::c_strlwrIF( tinP , postHead ) ;
-                                etThread.strMakeF( tinP , postHead , psttHead ) ; ___( postHead ) ;
+                                etThread.strMakeF( tinP , LF , postHead , psttHead ) ; ___( postHead ) ;
                                 ZE( osTextT* , postHead ) ;
                             {
                             ZE( boolT , bWant ) ;
@@ -306,7 +306,7 @@ boolT walkEmailCBF( tinS& tinP , countT& cDirsP , countT& cFilesP , const osText
         strokeS sttq( 0 , sc_IGNOREqUOTES ) ;
 
 
-        etherP.strMakeF( tinP , psttMaybe , 0 , psttP->idAdam ) ; ___( psttMaybe ) ;
+        etherP.strMakeF( tinP , LF , psttMaybe , 0 , psttP->idAdam ) ; ___( psttMaybe ) ;
         ZE( strokeS* , psttMaybe ) ;
     {
     if( psttP && psttP->idAdam )

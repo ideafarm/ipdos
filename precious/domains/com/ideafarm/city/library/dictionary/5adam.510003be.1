@@ -30,7 +30,7 @@ etThread.delF( tinP , postOldCode ) ;
 
                 TN( tNew , "" ) ; tNew = T("0x")+T(psttIdR)+T(" , \"\\0\\0\\0\\0")+T(psttw)+T("\"") ;
                 etThread.strReplaceF( tinP , psttw , 0 , T("\"") , T("\\\"") , 0 , flSTRrEPLACE_IGNOREqUOTES ) ; ___( psttw ) ;
-                if( !psttw ) { etThread.strMakeF( tinP , psttw , T("") ) ; ___( psttw ) ; }
+                if( !psttw ) { etThread.strMakeF( tinP , LF , psttw , T("") ) ; ___( psttw ) ; }
                 
                 if( postOldCode < posto ) { thirdC::c_strcpyIF( tinP , posto , " ,\r\n" ) ; posto += 4 ; }
                 
@@ -85,7 +85,7 @@ etThread.delF( tinP , postOldCode ) ;
                 
                     etThread.strReverseF( tinP , pstta , 0 , T("\r\n") ) ; ___( pstta ) ;
                     etThread.delF( tinP , posta ) ;
-                    etThread.strMakeF( tinP , pstta , T(posta) ) ; ___( pstta ) ;
+                    etThread.strMakeF( tinP , LF , pstta , T(posta) ) ; ___( pstta ) ;
                     ZE( strokeS* , pstta ) ;
                 
                     }

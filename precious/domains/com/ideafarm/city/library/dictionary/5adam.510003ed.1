@@ -46,7 +46,7 @@ etThread.osProcessIdPhaseAdamF( tinP , ifcIDpHASEhANDOFFoLD_SHUTTINGdOWN ) ;
 
                     etThread.boxPutF( tinP , T("ideafarm.com//smtp/" ifcEMAIL_OLDfROM ) , postNotice , costNotice , 1 ) ;
 
-                    countT costNotice = etThread.strMakeF( tinP , postNotice , T("Subject: Your submission was just rejected\r\n\r\nA submission to the IdeaFarm " "(tm) City mailing list from you was just rejected.\r\n\r\nReason:  The Subject line was either blank or missing.\r\n\r\nThe only legal way to submit an item for the mailing list is to use the appropriate entry field on http://www.ideafarm.com .\r\n\r\nYou can also submit an item by sending email to " ifcEMAIL_LISTrECEIVER " .  The body text of such entries is ignored,\r\nand the Subject: line text is sent to all list participants.\r\n\r\nIf you continue to receive this notice, contact " ifcEMAIL_WEBsITEcONTACT "") ) ; ___( postNotice ) ;
+                    countT costNotice = etThread.strMakeF( tinP , LF , postNotice , T("Subject: Your submission was just rejected\r\n\r\nA submission to the IdeaFarm " "(tm) City mailing list from you was just rejected.\r\n\r\nReason:  The Subject line was either blank or missing.\r\n\r\nThe only legal way to submit an item for the mailing list is to use the appropriate entry field on http://www.ideafarm.com .\r\n\r\nYou can also submit an item by sending email to " ifcEMAIL_LISTrECEIVER " .  The body text of such entries is ignored,\r\nand the Subject: line text is sent to all list participants.\r\n\r\nIf you continue to receive this notice, contact " ifcEMAIL_WEBsITEcONTACT "") ) ; ___( postNotice ) ;
                     ZE( osTextT* , postNotice ) ;
 
                     if( psttf ) { etThread.strTrimF( tinP , psttf , 0 , T(TbLACKnEWlINE) ) ; ___( psttf ) ; }
@@ -64,7 +64,7 @@ etThread.osProcessIdPhaseAdamF( tinP , ifcIDpHASEhANDOFFoLD_SHUTTINGdOWN ) ;
                         {
                         FORsTRINGSiN2( pstt1To )
 
-                        countT costChat = etThread.strMakeF( tinP , postOldChat , T("Subject: | ")+T(pstts)+T(" |\r\n\r\nThis one line message (it is in the Subject line) was sent to you because you (or an impostxr who claimed to be you)\r\nsubscribed you to the IdeaFarm (tm) City mailing list.\r\n\r\nIdeaFarm " "(tm) City strongly opposes spam.  If you did not subscribe to this mailing list, please notify " ifcEMAIL_WEBsITEcONTACT " .\r\n\r\nTo unsubscribe, reply to this message and edit the subject line of the reply to contain the word UNSUBSCRIBE,\r\nin capital letters.  Note:  do not reply to this message to contribute to the mailing list.\r\nThe only way to contribute to the maililng list is to enter a\r\nline of text in the appropriate entry field at http://www.ideafarm.com .\r\n\r\nThank you.") ) ; ___( postOldChat ) ;
+                        countT costChat = etThread.strMakeF( tinP , LF , postOldChat , T("Subject: | ")+T(pstts)+T(" |\r\n\r\nThis one line message (it is in the Subject line) was sent to you because you (or an impostxr who claimed to be you)\r\nsubscribed you to the IdeaFarm (tm) City mailing list.\r\n\r\nIdeaFarm " "(tm) City strongly opposes spam.  If you did not subscribe to this mailing list, please notify " ifcEMAIL_WEBsITEcONTACT " .\r\n\r\nTo unsubscribe, reply to this message and edit the subject line of the reply to contain the word UNSUBSCRIBE,\r\nin capital letters.  Note:  do not reply to this message to contribute to the mailing list.\r\nThe only way to contribute to the maililng list is to enter a\r\nline of text in the appropriate entry field at http://www.ideafarm.com .\r\n\r\nThank you.") ) ; ___( postOldChat ) ;
                         ZE( osTextT* , postOldChat ) ;
 
                         }
@@ -72,7 +72,7 @@ etThread.osProcessIdPhaseAdamF( tinP , ifcIDpHASEhANDOFFoLD_SHUTTINGdOWN ) ;
                             etThread.delF( tinP , psttnu ) ;
                             etThread.boxPutUniqueF( tinP , psttnu , tLog , posts , costs ) ;
                             ZE( strokeS* , psttnu ) ;
-                            countT costs = etThread.strMakeF( tinP , posts , pstts ) ; ___( posts ) ;
+                            countT costs = etThread.strMakeF( tinP , LF , posts , pstts ) ; ___( posts ) ;
                             ZE( osTextT* , posts ) ;
                         {
                         etThread.strokeF( tinP , T(pstts)+T("\r\n") ) ;
@@ -85,7 +85,7 @@ etThread.osProcessIdPhaseAdamF( tinP , ifcIDpHASEhANDOFFoLD_SHUTTINGdOWN ) ;
 
                         etThread.boxPutF( tinP , T("ideafarm.com//smtp/" ifcEMAIL_OLDfROM ) , postNotice , costNotice , 1 ) ;
 
-                        countT costNotice = etThread.strMakeF( tinP , postNotice , T("Subject: |unsubscribe: \"")+T(psttf)+T("\"|") ) ; ___( postNotice ) ;
+                        countT costNotice = etThread.strMakeF( tinP , LF , postNotice , T("Subject: |unsubscribe: \"")+T(psttf)+T("\"|") ) ; ___( postNotice ) ;
                         ZE( osTextT* , postNotice ) ;
 
                         }
@@ -93,7 +93,7 @@ etThread.osProcessIdPhaseAdamF( tinP , ifcIDpHASEhANDOFFoLD_SHUTTINGdOWN ) ;
                             etThread.delF( tinP , psttnu ) ;
                             etThread.boxPutUniqueF( tinP , psttnu , tLog , posts , costs ) ;
                             ZE( strokeS* , psttnu ) ;
-                            countT costs = etThread.strMakeF( tinP , posts , T("UNSUBSCRIBE \"")+T(psttf)+T("\"") ) ; ___( posts ) ;
+                            countT costs = etThread.strMakeF( tinP , LF , posts , T("UNSUBSCRIBE \"")+T(psttf)+T("\"") ) ; ___( posts ) ;
                             ZE( osTextT* , posts ) ;
                         {
                         etThread.strokeF( tinP , T("UNSUBSCRIBE: \"")+T(psttf)+T("\"\r\n") ) ;

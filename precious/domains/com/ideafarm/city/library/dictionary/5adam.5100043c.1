@@ -150,7 +150,7 @@ STATE0
                             {
                             do
                             handleC hDown( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_STACKwALK ) ;
-                            etThread.strMakeF( tinP , psttr , T("mailOutToNamed_SMTP_receiver \"")+T(psttServer)+T("\" for ")+TF1((countT)st_psttTo)+T(" recipients:\r\n\r\n") , st_psttTo * ( csttMaxTo + 0x40 ) ) ; ___( psttr ) ;
+                            etThread.strMakeF( tinP , LF , psttr , T("mailOutToNamed_SMTP_receiver \"")+T(psttServer)+T("\" for ")+TF1((countT)st_psttTo)+T(" recipients:\r\n\r\n") , st_psttTo * ( csttMaxTo + 0x40 ) ) ; ___( psttr ) ;
                             ZE( strokeS* , psttr ) ;
                         {
 
@@ -279,7 +279,7 @@ STATE0
                             {
                             for( countT idf = 1 ; idf <= cServers ; idf ++ )
 
-                            etThread.strMakeF( tinP , psttr , T("mailOut from ")+TF1(idAdamFrom)+T(" to ")+TF1(cToNoDuplicates)+T(" recipients at ")+TF1(cDomains)+T(" domains, served by ")+TF1(cServers)+T(" incoming mail receivers:\r\n\r\n")+T(psttBody)+T("\r\n\r\nrecipients:\r\n\r\n") , ( cToNoDuplicates + cServers + cDomains ) * 0x80 ) ; ___( psttr ) ;
+                            etThread.strMakeF( tinP , LF , psttr , T("mailOut from ")+TF1(idAdamFrom)+T(" to ")+TF1(cToNoDuplicates)+T(" recipients at ")+TF1(cDomains)+T(" domains, served by ")+TF1(cServers)+T(" incoming mail receivers:\r\n\r\n")+T(psttBody)+T("\r\n\r\nrecipients:\r\n\r\n") , ( cToNoDuplicates + cServers + cDomains ) * 0x80 ) ; ___( psttr ) ;
                             ZE( strokeS* , psttr ) ;
                             countT cDomains = sws_psttWho.cFlavorsF(tinP) ;
                             countT cServers = sws_psttDomain.cFlavorsF( tinP ) ;
@@ -361,7 +361,7 @@ STATE0
                         etThread.boxPutUniqueF( tinP , psttu , T("///ideafarm/ephemeral/backed.up.daily/domains/com/ideafarm/")+TF1(DDNUMB)+T("/in/ignored/in") , postBody , costBody ) ;
                         ZE( strokeS* , psttu ) ;
 
-                        countT costBody = etThread.strMakeF( tinP , postBody , psttBody ) ; ___( postBody ) ;
+                        countT costBody = etThread.strMakeF( tinP , LF , postBody , psttBody ) ; ___( postBody ) ;
                         ZE( osTextT* , postBody ) ;
                     {
 

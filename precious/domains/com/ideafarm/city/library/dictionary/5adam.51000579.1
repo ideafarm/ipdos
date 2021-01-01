@@ -79,7 +79,7 @@ DONE( tmDoorF )
                                 etThread.delF( tinP , postr ) ;
                                 sCatch.writeF( tinP , idPort , nicName , postr , costr ) ;
                                 etThread.delF( tinP , psttReply ) ;
-                                countT costr = etThread.strMakeF( tinP , postr , psttReply ) ; ___( postr ) ;
+                                countT costr = etThread.strMakeF( tinP , LF , postr , psttReply ) ; ___( postr ) ;
                                 ZE( osTextT* , postr ) ;
                             {
                             if( psttReply )
@@ -148,7 +148,7 @@ TASK( tmDoorF )
                 etThread.delF( tinP , postr ) ;
                 sockP.writeF( tinP , postr , costr ) ;
                 etThread.delF( tinP , psttReply ) ;
-                countT costr = etThread.strMakeF( tinP , postr , psttReply ) ; ___( postr ) ;
+                countT costr = etThread.strMakeF( tinP , LF , postr , psttReply ) ; ___( postr ) ;
                 ZE( osTextT* , postr ) ;
             {
             if( psttReply )
@@ -480,7 +480,7 @@ voidT homeOld20190809CBF( tinS& tinP , etherC& etThread , const boolT& bQuitP , 
                                 tinP.pEtScratch->delF( tinP , psttw ) ;
                                 POOPR
 
-                                tinP.pEtScratch->strMakeF( tinP , psttReplyP , T(bOk?"ok\r\n":"no\r\n") ) ; ___( psttReplyP ) ;
+                                tinP.pEtScratch->strMakeF( tinP , LF , psttReplyP , T(bOk?"ok\r\n":"no\r\n") ) ; ___( psttReplyP ) ;
 
                                 }
                                     else tFile += T("/")+T(psttzw) ;
@@ -498,7 +498,7 @@ voidT homeOld20190809CBF( tinS& tinP , etherC& etThread , const boolT& bQuitP , 
                                         if( POOP ) POOPR
                                         tinP.pEtScratch->delF( tinP , postb ) ;
                                         tinP.pEtScratch->boxPutF( tinP , tFile , postb , costb ) ;
-                                        countT costb = tinP.pEtScratch->strMakeF( tinP , postb , psttzw ) ; ___( postb ) ;
+                                        countT costb = tinP.pEtScratch->strMakeF( tinP , LF , postb , psttzw ) ; ___( postb ) ;
                                         ZE( osTextT* , postb ) ;
                                     {
                                     if( bBody )
@@ -544,16 +544,16 @@ voidT homeOld20190809CBF( tinS& tinP , etherC& etThread , const boolT& bQuitP , 
                                 POOPR
 
                                 }
-                                    else { tinP.pEtScratch->strMakeF( tinP , psttReplyP , T("done.  i will be dying momentarily...\r\n") ) ; ___( psttReplyP ) ; }
+                                    else { tinP.pEtScratch->strMakeF( tinP , LF , psttReplyP , T("done.  i will be dying momentarily...\r\n") ) ; ___( psttReplyP ) ; }
                                     }
-                                        tinP.pEtScratch->strMakeF( tinP , psttReplyP , T("could not fire the os\r\n") ) ; ___( psttReplyP ) ;
+                                        tinP.pEtScratch->strMakeF( tinP , LF , psttReplyP , T("could not fire the os\r\n") ) ; ___( psttReplyP ) ;
                                         POOPR ;
                                     {
                                     if( POOP )
                                     tinP.pEtScratch->osFireF( tinP ) ;
                                 {
                                 else
-                                if( !bPanicP ) { tinP.pEtScratch->strMakeF( tinP , psttReplyP , T("yeah, right.\r\n") ) ; ___( psttReplyP ) ; }
+                                if( !bPanicP ) { tinP.pEtScratch->strMakeF( tinP , LF , psttReplyP , T("yeah, right.\r\n") ) ; ___( psttReplyP ) ; }
                             {
                             else if( !tinP.pEtScratch->strCompareF( tinP , psttw , T("booot") ) ) //U::DO NOT DOCUMENT UNTIL SESSIONS ARE SECURED WITH LOGIN, AND THIS COMMAND IS SECURED
                             }
@@ -562,7 +562,7 @@ voidT homeOld20190809CBF( tinS& tinP , etherC& etThread , const boolT& bQuitP , 
                                 POOPR
 
                                 bQuit = 1 ;
-                                tinP.pEtScratch->strMakeF( tinP , psttReplyP , T("ok. bye.\r\n") ) ; ___( psttReplyP ) ;
+                                tinP.pEtScratch->strMakeF( tinP , LF , psttReplyP , T("ok. bye.\r\n") ) ; ___( psttReplyP ) ;
                             {
                             else if( !tinP.pEtScratch->strCompareF( tinP , psttw , T("bye") ) )
                             }
@@ -577,7 +577,7 @@ voidT homeOld20190809CBF( tinS& tinP , etherC& etThread , const boolT& bQuitP , 
                                     case 5 :
                                     }
                                         break ;
-                                        tinP.pEtScratch->strMakeF( tinP , psttReplyP , T("ok\r\n") ) ; ___( psttReplyP ) ;
+                                        tinP.pEtScratch->strMakeF( tinP , LF , psttReplyP , T("ok\r\n") ) ; ___( psttReplyP ) ;
     
                                         }
                                             }
@@ -598,20 +598,20 @@ voidT homeOld20190809CBF( tinS& tinP , etherC& etThread , const boolT& bQuitP , 
                                     case 4 :
                                     }
                                         break ;
-                                        tinP.pEtScratch->strMakeF( tinP , psttReplyP , T("<pre>")+T(psttzw)+T("</pre>\r\n") ) ; ___( psttReplyP ) ;
+                                        tinP.pEtScratch->strMakeF( tinP , LF , psttReplyP , T("<pre>")+T(psttzw)+T("</pre>\r\n") ) ; ___( psttReplyP ) ;
                                         strokeS* psttzw = psttWordF( tinP , psttw , pSessionP ) ;
                                     {
                                     case 3 :
                                     }
                                         break ;
-                                        tinP.pEtScratch->strMakeF( tinP , psttReplyP , T(nnHome)+T(" ok\r\n") ) ; ___( psttReplyP ) ;
+                                        tinP.pEtScratch->strMakeF( tinP , LF , psttReplyP , T(nnHome)+T(" ok\r\n") ) ; ___( psttReplyP ) ;
                                         nnHome = socketC::nicNameIF( tinP , (*tinP.pEtScratch) , psttzw ) ;
                                         strokeS* psttzw = psttWordF( tinP , psttw , pSessionP ) ;
                                     {
                                     case 2 :
                                     }
                                         break ;
-                                        tinP.pEtScratch->strMakeF( tinP , psttReplyP , T("ok\r\n") ) ; ___( psttReplyP ) ;
+                                        tinP.pEtScratch->strMakeF( tinP , LF , psttReplyP , T("ok\r\n") ) ; ___( psttReplyP ) ;
                                         idPortHome = tinP.pEtScratch->strDigitsToSCountF( tinP , psttzw ) ;
                                         strokeS* psttzw = psttWordF( tinP , psttw , pSessionP ) ;
                                     {
@@ -663,8 +663,8 @@ voidT homeOld20190809CBF( tinS& tinP , etherC& etThread , const boolT& bQuitP , 
         {
         else
         }
-            tinP.pEtScratch->strMakeF( tinP , psttReplyP , T("ok\r\n") ) ; ___( psttReplyP ) ;
-            tinP.pEtScratch->strMakeF( tinP , psttv , psttOldCmdP ) ; ___( psttv ) ;
+            tinP.pEtScratch->strMakeF( tinP , LF , psttReplyP , T("ok\r\n") ) ; ___( psttReplyP ) ;
+            tinP.pEtScratch->strMakeF( tinP , LF , psttv , psttOldCmdP ) ; ___( psttv ) ;
             tinP.pEtScratch->delF( tinP , psttv ) ;
             tinP.pEtScratch->delF( tinP , pSessionP->psttKeyDefPending ) ;
             strokeS*& psttv = *(strokeS**)&(countT&)pSessionP->swStringVariable ;
@@ -793,7 +793,7 @@ strokeS* psttWordF( tinS& tinP , strokeS* const psttP , sessionC* pSessionP = 0 
     sOut << (countT)ifcIDcMDmONITOR_tinS ;
     soulC sOut( tinP , TAG( TAGiDnULL ) ) ;
 
-    etherP.strMakeF( tinP , psttP , tBegin+T("IPDOS (tm) <> IdeaFarm " "(tm) Piggyback Distributed Operating System")+tcr+T("Performance Monitor")+tcr , TOCK ) ; ___( psttP ) ;
+    etherP.strMakeF( tinP , LF , psttP , tBegin+T("IPDOS (tm) <> IdeaFarm " "(tm) Piggyback Distributed Operating System")+tcr+T("Performance Monitor")+tcr , TOCK ) ; ___( psttP ) ;
 
     TN( tEnd   , !( F(flagsP) & flDOORoBEY_FIXEDwIDTHfONT ) ? "" : "</SPAN></PRE>" ) ;
     TN( tBegin , !( F(flagsP) & flDOORoBEY_FIXEDwIDTHfONT ) ? "" : "<PRE><SPAN style=\"font-family:monospace\">" ) ;
@@ -817,7 +817,7 @@ voidT reportF( tinS& tinP , etherC& etherP , strokeS*& psttP , const flagsT flag
 
 }
     etherP.delF( tinP , psttw ) ;
-    etherP.strMakeF( tinP , psttP , T("<span class=\"spaXSmall\"><pre>")+T(psttw)+T("</pre></span>") ) ; ___( psttP ) ;
+    etherP.strMakeF( tinP , LF , psttP , T("<span class=\"spaXSmall\"><pre>")+T(psttw)+T("</pre></span>") ) ; ___( psttP ) ;
     etherP.strClockOldF( tinP , psttw , time1 ) ; ___( psttw ) ;
     ZE( strokeS* , psttw ) ;
     
@@ -828,7 +828,7 @@ voidT clockF( tinS& tinP , etherC& etherP , strokeS*& psttP )
 
 }
     etherP.delF( tinP , psttw ) ;
-    etherP.strMakeF( tinP , psttP , T("<pre>")+T(psttw)+T("</pre>") ) ; ___( psttP ) ;
+    etherP.strMakeF( tinP , LF , psttP , T("<pre>")+T(psttw)+T("</pre>") ) ; ___( psttP ) ;
     etherP.strCalendarF( tinP , psttw , time2 + scDaysOffP ) ; ___( psttw ) ;
     ZE( strokeS* , psttw ) ;
     
@@ -839,7 +839,7 @@ voidT calendarF( tinS& tinP , etherC& etherP , strokeS*& psttP , const sCountT s
 
 }
     }
-        etherP.strMakeF( tinP , psttP , tContent ) ; ___( psttP ) ;
+        etherP.strMakeF( tinP , LF , psttP , tContent ) ; ___( psttP ) ;
         tContent += T("</PRE></SPAN>") ;
         }
             tContent += tpa ;
@@ -998,7 +998,7 @@ voidT image_grabC_F( tinS& tinP , etherC& etherP , byteT*& pbGrabP , socketC& so
         +T("IPDOS (tm) <> IdeaFarm " "(tm) Piggyback Distributed Operating System")+tpa
         tCenterOn
 
-    etherP.strMakeF( tinP , psttP ,
+    etherP.strMakeF( tinP , LF , psttP ,
 
     TN( tListEnd   , !( F(flagsP) & flDOORoBEY_HTML ) ? "" : "</UL>" ) ;
     TN( tListItem  , !( F(flagsP) & flDOORoBEY_HTML ) ? "    " : "<LI>" ) ;

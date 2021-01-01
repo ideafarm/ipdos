@@ -185,7 +185,7 @@ voidT pushDataF( tinS& tinP , etherC& etThread , stackC& stDatumP , const byteT*
                     etThread.strFuseF( tinP , psttl , TF3(((sCountT*)pbd)[off],0,8) ) ; ___( psttl ) ;
                 {
                 for( countT off = 0 ; off < cc ; off ++ )
-                etThread.strMakeF( tinP , psttl , T("") , cc * 0xa ) ; ___( psttl ) ;
+                etThread.strMakeF( tinP , LF , psttl , T("") , cc * 0xa ) ; ___( psttl ) ;
                 countT cc = pHdr->cbd / sizeof( countT ) ;
                 ZE( strokeS* , psttl ) ;
             {
@@ -201,7 +201,7 @@ voidT pushDataF( tinS& tinP , etherC& etThread , stackC& stDatumP , const byteT*
                     etThread.strFuseF( tinP , psttl , TF3(((countT*)pbd)[off],0,8) ) ; ___( psttl ) ;
                 {
                 for( countT off = 0 ; off < cc ; off ++ )
-                etThread.strMakeF( tinP , psttl , T("") , cc * 0xa ) ; ___( psttl ) ;
+                etThread.strMakeF( tinP , LF , psttl , T("") , cc * 0xa ) ; ___( psttl ) ;
                 countT cc = pHdr->cbd / sizeof( countT ) ;
                 ZE( strokeS* , psttl ) ;
             {
@@ -212,7 +212,7 @@ voidT pushDataF( tinS& tinP , etherC& etThread , stackC& stDatumP , const byteT*
 
                 //etThread.strokeF( tinP , T(USCORE79 "\r\n\r\n\"")+T(psttl)+T("\"\r\n" USCORE79 "\r\n\r\n") ) ;
 
-                etThread.strMakeF( tinP , psttl , (strokeS*)pbd ) ; ___( psttl ) ;
+                etThread.strMakeF( tinP , LF , psttl , (strokeS*)pbd ) ; ___( psttl ) ;
                 ZE( strokeS* , psttl ) ;
             {
             else if( F(pHdr->flags2) & flDATUM2_strokeS )
@@ -222,7 +222,7 @@ voidT pushDataF( tinS& tinP , etherC& etThread , stackC& stDatumP , const byteT*
 
                 //etThread.strokeF( tinP , T(USCORE79 "\r\n\r\n\"")+T(psttl)+T("\"\r\n" USCORE79 "\r\n\r\n") ) ;
 
-                etThread.strMakeF( tinP , psttl , T(pbd) ) ; ___( psttl ) ;
+                etThread.strMakeF( tinP , LF , psttl , T(pbd) ) ; ___( psttl ) ;
                 ZE( strokeS* , psttl ) ;
             {
             if( F(pHdr->flags2) & flDATUM2_osTextT )

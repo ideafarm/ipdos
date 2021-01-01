@@ -11,7 +11,7 @@
     }
         etThread.delF( tinP , psttForm ) ;
         }
-            if( tReport.csF( tinP ) ) { etThread.strMakeF( tinP , psttReportP , tReport ) ; ___( psttReportP ) ; }
+            if( tReport.csF( tinP ) ) { etThread.strMakeF( tinP , LF , psttReportP , tReport ) ; ___( psttReportP ) ; }
                                 
             }
                 etThread.delF( tinP , psttFileName ) ;
@@ -30,7 +30,7 @@
                             
             else if(  tinP.pEtScratch->strCompareF( tinP , psttLeverKVP , T("submit") ) ) tReport += T(psttLeverKVP)+T(": \"")+T(psttvTrimmed)+T("\"<BR>\r\n") ;
             }
-                etThread.strMakeF( tinP , psttForm , psttvTrimmed ) ; ___( psttForm ) ;
+                etThread.strMakeF( tinP , LF , psttForm , psttvTrimmed ) ; ___( psttForm ) ;
                 etThread.delF( tinP , psttForm ) ;
                 etThread.traceF( tinP , T("coding error / multiple \"form\" keys received [lag,now]:    ")+T(psttForm)+T("    ")+T(psttvTrimmed) ) ;
                 //U::BUG? WILL THE NEXT LINE ALWAYS COMPLAIN, EVEN IF ONLY WO form LEVER IS SEEN?

@@ -61,7 +61,7 @@ etThread.delF( tinP , psttNameTo   ) ;
     ZE( countT , cbf ) ;
     ZE( byteT* , pbf ) ;
     
-    if( !psttNameTo ) { etThread.strMakeF( tinP , psttNameTo , psttNameFrom ) ; ___( psttNameTo ) ; }
+    if( !psttNameTo ) { etThread.strMakeF( tinP , LF , psttNameTo , psttNameFrom ) ; ___( psttNameTo ) ; }
     
     if( psttNameOn ) nnOn = etThread.sockNicNameF( tinP , psttNameOn ) ;
     nicNameC nnOn ;
@@ -72,9 +72,9 @@ if( psttNameFrom )
     }
         }
             default: { __( idArm ) ; }
-            case 3 : { idArm = 0 ; etThread.delF( tinP , psttNameOn   ) ; etThread.strMakeF( tinP , psttNameOn   , psttc1 ) ; ___( psttNameOn   ) ;  break ; }
-            case 2 : { idArm = 0 ; etThread.delF( tinP , psttNameFrom ) ; etThread.strMakeF( tinP , psttNameFrom , psttc1 ) ; ___( psttNameFrom ) ;  break ; }
-            case 1 : { idArm = 0 ; etThread.delF( tinP , psttNameTo   ) ; etThread.strMakeF( tinP , psttNameTo   , psttc1 ) ; ___( psttNameTo   ) ;  break ; }
+            case 3 : { idArm = 0 ; etThread.delF( tinP , psttNameOn   ) ; etThread.strMakeF( tinP , LF , psttNameOn   , psttc1 ) ; ___( psttNameOn   ) ;  break ; }
+            case 2 : { idArm = 0 ; etThread.delF( tinP , psttNameFrom ) ; etThread.strMakeF( tinP , LF , psttNameFrom , psttc1 ) ; ___( psttNameFrom ) ;  break ; }
+            case 1 : { idArm = 0 ; etThread.delF( tinP , psttNameTo   ) ; etThread.strMakeF( tinP , LF , psttNameTo   , psttc1 ) ; ___( psttNameTo   ) ;  break ; }
             }
                 break ;
                 else if( !etThread.strCompareF( tinP , psttc1 , tOn   ) ) idArm = 3 ;

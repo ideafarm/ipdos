@@ -33,7 +33,7 @@ etThread.osProcessIdPhaseAdamF( tinP , ifcIDpHASEhANDOFFoLD_SHUTTINGdOWN ) ;
             etThread.strokeF( tinP , T("mailed aok.") ) ;
             etThread.boxPutF( tinP , (bHour?tToHourPass:tToTickPass) , postNotice , costNotice , 1 ) ;
             etThread.strokeF( tinP , T(" mailing PASS notice:") ) ;
-            countT costNotice = etThread.strMakeF( tinP , postNotice , T("Subject: UP www.ideafarm.com UP\r\n\r\n")+T(psttr) ) ; ___( postNotice ) ;
+            countT costNotice = etThread.strMakeF( tinP , LF , postNotice , T("Subject: UP www.ideafarm.com UP\r\n\r\n")+T(psttr) ) ; ___( postNotice ) ;
             ZE( osTextT* , postNotice ) ;
         {
         else
@@ -48,7 +48,7 @@ etThread.osProcessIdPhaseAdamF( tinP , ifcIDpHASEhANDOFFoLD_SHUTTINGdOWN ) ;
             etThread.strokeF( tinP , T("mailed aok.") ) ;
             etThread.boxPutF( tinP , (bHour?tToHourFail:tToTickFail) , postNotice , costNotice , 1 ) ;
             etThread.strokeF( tinP , T(" mailing FAIL notice:") ) ;
-            countT costNotice = etThread.strMakeF( tinP , postNotice , T("Subject: DOWN www.ideafarm.com DOWN\r\n\r\n")+T(psttr) ) ; ___( postNotice ) ;
+            countT costNotice = etThread.strMakeF( tinP , LF , postNotice , T("Subject: DOWN www.ideafarm.com DOWN\r\n\r\n")+T(psttr) ) ; ___( postNotice ) ;
             ZE( osTextT* , postNotice ) ;
         {
         if( bFail )
@@ -56,12 +56,12 @@ etThread.osProcessIdPhaseAdamF( tinP , ifcIDpHASEhANDOFFoLD_SHUTTINGdOWN ) ;
         ZE( boolT , bNoNotice ) ;
         boolT bFail = bFail1 && bFail2 && bFail3 ; //U: GET N RELIABLE SERVERS. THEN DECIDE FAIL IF m<N OF THEM FAILED
 
-        countT costr = etThread.strMakeF( tinP , postr , psttr ) ; ___( postr ) ;
+        countT costr = etThread.strMakeF( tinP , LF , postr , psttr ) ; ___( postr ) ;
         ZE( osTextT* , postr ) ;
         etThread.delF( tinP , psttb3 ) ;
         etThread.delF( tinP , psttb2 ) ;
         etThread.delF( tinP , psttb1 ) ;
-        etThread.strMakeF( tinP , psttr , TT(timeB1,timeB2)+T("    IdeaFarm " "(tm) City / Report / Visibility of Root Host\r\nwww.ideafarm.com\r\n" ifcEMAIL_WEBsITEcONTACT "\r\n\r\nHost www.ideafarm.com is visible on the Internet as follows.  The following is a\r\nconcatenation of a current traceroute report from each of three\r\nother hosts on the Internet.\r\n\r\n")+T(psttb1)+T("\r\n\r\n")+T(psttb2)+T("\r\n\r\n")+T(psttb3)+T("\r\n\r\n[END]") ) ; ___( psttr ) ;
+        etThread.strMakeF( tinP , LF , psttr , TT(timeB1,timeB2)+T("    IdeaFarm " "(tm) City / Report / Visibility of Root Host\r\nwww.ideafarm.com\r\n" ifcEMAIL_WEBsITEcONTACT "\r\n\r\nHost www.ideafarm.com is visible on the Internet as follows.  The following is a\r\nconcatenation of a current traceroute report from each of three\r\nother hosts on the Internet.\r\n\r\n")+T(psttb1)+T("\r\n\r\n")+T(psttb2)+T("\r\n\r\n")+T(psttb3)+T("\r\n\r\n[END]") ) ; ___( psttr ) ;
         ZE( strokeS* , psttr ) ;
 
         }
@@ -122,14 +122,14 @@ TODO
     etThread.delF( tinP , psttBody ) ;
 
     }
-        etThread.strMakeF( tinP , psttP , T(psttBoxP)+T("\r\n\r\n")+(bFailP?T("**** FAIL ****"):T("**** PASS ****"))+T("\r\n\r\n")+T(psttBody)+T("\r\n") ) ;
+        etThread.strMakeF( tinP , LF , psttP , T(psttBoxP)+T("\r\n\r\n")+(bFailP?T("**** FAIL ****"):T("**** PASS ****"))+T("\r\n\r\n")+T(psttBody)+T("\r\n") ) ;
         bFailP = !etThread.strIdF( tinP , idf , sttq , T("(209.128.90.230)") , psttBody ) ;
         //sttq = ze ;
         idf = 1 ;
     {
     else
     }
-        etThread.strMakeF( tinP , psttP , T(psttBoxP)+T("\r\n\r\nTraceroute information could not be obtained.\r\n") ) ;
+        etThread.strMakeF( tinP , LF , psttP , T(psttBoxP)+T("\r\n\r\nTraceroute information could not be obtained.\r\n") ) ;
         etThread = 0 ;
     {
     if( etThread || !psttBody || !psttBody->idAdam )
@@ -137,7 +137,7 @@ TODO
     etThread.strReplaceF( tinP , psttBody , 0 , T("\n") , T("\r\n") , 0 , flSTRrEPLACE_IGNOREqUOTES ) ;
 
     etThread.delF( tinP , psttBodyFoot ) ;
-    else            { etThread.strMakeF( tinP , psttBody , psttBodyFoot )                               ; ___( psttBody ) ; }
+    else            { etThread.strMakeF( tinP , LF , psttBody , psttBodyFoot )                               ; ___( psttBody ) ; }
     if( psttFootP ) { etThread.strSubstringF( tinP , psttBody , idf , sttq , psttFootP , psttBodyFoot ) ; ___( psttBody ) ; }
     ZE( strokeS* , psttBody ) ;
     //sttq = ze ;
@@ -155,7 +155,7 @@ TODO
     strokeS sttq( (countT)0 , sc_IGNOREqUOTES ) ;
 
     }
-        etThread.strMakeF( tinP , psttRaw , T(pbi) ) ; ___( psttRaw ) ;    
+        etThread.strMakeF( tinP , LF , psttRaw , T(pbi) ) ; ___( psttRaw ) ;    
         etThread.boxGetShadowF( tinP , pbi , cbi , psttBoxP ) ; ___( pbi ) ;
         ZE( countT , cbi ) ;
         ZE( byteT* , pbi ) ;

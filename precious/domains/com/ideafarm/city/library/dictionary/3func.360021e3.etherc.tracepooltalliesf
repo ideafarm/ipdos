@@ -17,7 +17,7 @@
             for( countT offs = 0 ; offs < 8 ; offs ++ ) strFuseF( tinP , psttr , TF3(pcSort[offs],flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,8)+tb4 ) ;
             stSort >> pcSort ;
             ZE( countT* , pcSort ) ;
-            strMakeF( tinP , psttr , TF3(stSort,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,8)+tb4 , TUCK ) ;
+            strMakeF( tinP , LF , psttr , TF3(stSort,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,8)+tb4 , TUCK ) ;
             ZE( strokeS* , psttr ) ;
         {
         while( stSort )
@@ -37,7 +37,7 @@
             strFuseF( tinP , psttr , T(    "cOwnedPerTuck : ")+TF2( (countT)( (measureT)cOwned * TUCK / (measureT)( cOwned+ cFree ) ),flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tcr+tcr ) ;
             strFuseF( tinP , psttr , T(    "cTotal        : ")+TF2(cOwned+cFree,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tcr ) ;
             strFuseF( tinP , psttr , T(    "cFree         : ")+TF2(cFree,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tcr     ) ;
-            strMakeF( tinP , psttr , T("\r\ncOwned        : ")+TF2(cOwned,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tcr     , TUCK << 2 ) ; ___( psttr ) ;
+            strMakeF( tinP , LF , psttr , T("\r\ncOwned        : ")+TF2(cOwned,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tcr     , TUCK << 2 ) ; ___( psttr ) ;
             ZE( strokeS* , psttr ) ;
         {
         TN( tcr , "\r\n" ) ;

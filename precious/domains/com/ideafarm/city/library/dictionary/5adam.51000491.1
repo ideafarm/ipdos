@@ -68,7 +68,7 @@ TODO
     //U:: 
     //U:: 
     //U:: etThread.strokeF( tinP , T("query: \"")+T(psttq)+T("\"\r\n") ) ;
-    //U:: etThread.strMakeF( tinP , psttq , T(psttEmail)+td+tCid+td+tCid+T(".!hostOk.ideafarm.com") ) ; ___( psttq ) ;
+    //U:: etThread.strMakeF( tinP , LF , psttq , T(psttEmail)+td+tCid+td+tCid+T(".!hostOk.ideafarm.com") ) ; ___( psttq ) ;
     //U:: TNCID ;
     //U:: TN( td , "." ) ;
     //U:: ZE( strokeS* , psttq ) ;
@@ -162,7 +162,7 @@ TASK( tmSetNormalDesireF )
     {
     if( pstta )
 
-    ether.strMakeF( tinP , pstta , tAll ) ; ___( pstta ) ;
+    ether.strMakeF( tinP , LF , pstta , tAll ) ; ___( pstta ) ;
     ZE( strokeS* , pstta ) ;
 
     if( pCmdeeF ) (*pCmdeeF)( tinP , ether , etPrime , tAll , psttOldCmd ) ;
@@ -319,7 +319,7 @@ voidT cmd_timenow_F( tinS& tinP , etherC& etThread , etherC& ether , textC& tAll
     if( !ids )
     stLegalTokens.sinkF( tinP , ids , psttw , flSTACKsINK_UNIQUE ) ;
     ZE( countT , ids ) ;
-    ether.strMakeF( tinP , psttw , psttTokenP ) ;
+    ether.strMakeF( tinP , LF , psttw , psttTokenP ) ;
     ZE( strokeS* , psttw ) ;
 {
 voidT consoleStateC::tokenF( tinS& tinP , const strokeS* const psttTokenP , cmdFT pCmdeeFP , const strokeS* const psttHelpP )
@@ -673,7 +673,7 @@ consoleStateC& consoleStateC::currentStateF( tinS& tinP )
                 if( !ids ) ether.delF( tinP , psttv ) ;
                 stLegalTokens.sinkF( tinP , ids , psttv , flSTACKsINK_UNIQUE ) ;
                 ZE( countT , ids ) ;
-                ether.strMakeF( tinP , psttv , psttw ) ; ___( psttv ) ;
+                ether.strMakeF( tinP , LF , psttv , psttw ) ; ___( psttv ) ;
                 ZE( strokeS* , psttv ) ;
             {
             if( psttw )

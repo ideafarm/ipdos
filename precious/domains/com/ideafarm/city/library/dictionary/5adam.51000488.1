@@ -295,10 +295,10 @@ voidT makePackF( tinS& tinP , etherC& ether , etherC& etThread , stackC& st1P , 
 voidT setupF( tinS& tinP , etherC& etThread , stackC& st1P , stackC& st2P , stackC& st3P , stackC& st4P , boolT bTestP )
 
 }
-    etThread.strMakeF( tinP , psttw , T("///ideafarm/precious/domains/com/ideafarm/city/library/base/")+T(psttOldClassP)+T(".base")   ) ; st4P << psttw ; psttw = 0 ;
-    etThread.strMakeF( tinP , psttw , psttTitle                                                                           ) ; st3P << psttw ; psttw = 0 ;
-    etThread.strMakeF( tinP , psttw , T(WWWiDEAFARMcOM "///ideafarm/ephemeral/domains/com/ideafarm/gen/lake/1.")+T(psttIdP)         ) ; st2P << psttw ; psttw = 0 ;
-    etThread.strMakeF( tinP , psttw , T("///ideafarm/ephemeral/domains/com/ideafarm/gen/lake/packs/1.")+T(psttIdP)                  ) ; st1P << psttw ; psttw = 0 ;
+    etThread.strMakeF( tinP , LF , psttw , T("///ideafarm/precious/domains/com/ideafarm/city/library/base/")+T(psttOldClassP)+T(".base")   ) ; st4P << psttw ; psttw = 0 ;
+    etThread.strMakeF( tinP , LF , psttw , psttTitle                                                                           ) ; st3P << psttw ; psttw = 0 ;
+    etThread.strMakeF( tinP , LF , psttw , T(WWWiDEAFARMcOM "///ideafarm/ephemeral/domains/com/ideafarm/gen/lake/1.")+T(psttIdP)         ) ; st2P << psttw ; psttw = 0 ;
+    etThread.strMakeF( tinP , LF , psttw , T("///ideafarm/ephemeral/domains/com/ideafarm/gen/lake/packs/1.")+T(psttIdP)                  ) ; st1P << psttw ; psttw = 0 ;
 
     ZE( strokeS* , psttw ) ;
 
@@ -460,7 +460,7 @@ voidT testAutoF( tinS& tinP , etherC& etThread , const boolT bTestP )
                 }
                     etThread.delF( tinP , posts ) ;
                     etThread.boxPutF( tinP , tSubjectFile , posts , costs ) ;
-                    countT costs = etThread.strMakeF( tinP , posts , pstts ) ; ___( posts ) ;
+                    countT costs = etThread.strMakeF( tinP , LF , posts , pstts ) ; ___( posts ) ;
                     ZE( osTextT* , posts ) ;
                     etThread.strReverseF( tinP , pstts , 0 , T("\r\n") ) ; ___( pstts ) ;
                 {
@@ -497,7 +497,7 @@ voidT testAutoF( tinS& tinP , etherC& etThread , const boolT bTestP )
                     //OBSOLETE:TN( t1 , "  \\<A HREF=\\\"http://" WWWiDEAFARMcOM "/5." ) ;
 
                     }
-                        if( !psttTitleOfSubject ) { etThread.strMakeF( tinP , psttTitleOfSubject , T("") ) ; ___( psttTitleOfSubject ) ; }
+                        if( !psttTitleOfSubject ) { etThread.strMakeF( tinP , LF , psttTitleOfSubject , T("") ) ; ___( psttTitleOfSubject ) ; }
                         }
                             else if( psttTitleOfSubject )    etThread.delF( tinP , psttTitleOfSubject ) ;
                                  if( idClass == 1 ) break ;
@@ -570,7 +570,7 @@ voidT testAutoF( tinS& tinP , etherC& etThread , const boolT bTestP )
                     }
                         etThread.strReverseF( tinP , pstts , 0 , T("\r\n") ) ; ___( pstts ) ;
                         etThread.delF( tinP , posts ) ;
-                        etThread.strMakeF( tinP , pstts , T(posts) ) ; ___( pstts ) ;
+                        etThread.strMakeF( tinP , LF , pstts , T(posts) ) ; ___( pstts ) ;
 
                         etThread.boxGetShadowF( tinP , posts , costs , tSubjectFile , 1 ) ; ___( posts ) ;
                         ZE( countT   , costs ) ;
@@ -600,7 +600,7 @@ voidT testAutoF( tinS& tinP , etherC& etThread , const boolT bTestP )
                     etThread.delF( tinP , postv ) ;
                     etThread.boxPutF( tinP , psttc1 , postv , costv ) ;
                     etThread.delF( tinP , psttv2 ) ;
-                    countT costv = etThread.strMakeF( tinP , postv , psttv2 ) ; ___( postv ) ;
+                    countT costv = etThread.strMakeF( tinP , LF , postv , psttv2 ) ; ___( postv ) ;
                     ZE( osTextT* , postv ) ;
                     etThread.strReverseF( tinP , psttv2 , psttv , T("\r\n") ) ; ___( psttv2 ) ;
                     ZE( strokeS* , psttv2 ) ;
@@ -661,8 +661,8 @@ voidT testAutoF( tinS& tinP , etherC& etThread , const boolT bTestP )
             }
                 etThread.delF( tinP , postx ) ;
                 etThread.boxPutF( tinP , tKt+tIdi+tKt2 , postx , costx ) ;
-                else        { costx = etThread.strMakeF( tinP , postx , T("/" "/" "|" "|" "!" "k" "t" "|"    )+T(psttc1)+T("!||\r\n")+tIdi+T(":  ")+tTitle+T("\r\n") ) ; ___( postx ) ; }
-                if( bBase ) { costx = etThread.strMakeF( tinP , postx , T("/" "/" "|" "|" "!" "r" "a" "w" "|")+T(psttc1)+T("!||\r\n")+tIdi+T(":  ")+tTitle+T("\r\n") ) ; ___( postx ) ; }
+                else        { costx = etThread.strMakeF( tinP , LF , postx , T("/" "/" "|" "|" "!" "k" "t" "|"    )+T(psttc1)+T("!||\r\n")+tIdi+T(":  ")+tTitle+T("\r\n") ) ; ___( postx ) ; }
+                if( bBase ) { costx = etThread.strMakeF( tinP , LF , postx , T("/" "/" "|" "|" "!" "r" "a" "w" "|")+T(psttc1)+T("!||\r\n")+tIdi+T(":  ")+tTitle+T("\r\n") ) ; ___( postx ) ; }
                 ZE( countT , costx ) ;
                 ZE( osTextT* , postx ) ; // WRITE THE BASE FILE
             {
@@ -670,7 +670,7 @@ voidT testAutoF( tinS& tinP , etherC& etThread , const boolT bTestP )
             }
                 etThread.delF( tinP , psttTitle ) ;
                 tTitle = T(psttTitle) ;
-                if( !psttTitle ) { etThread.strMakeF( tinP , psttTitle , T("") ) ; ___( psttTitle ) ; }
+                if( !psttTitle ) { etThread.strMakeF( tinP , LF , psttTitle , T("") ) ; ___( psttTitle ) ; }
                 }
                     else if( psttTitle )    etThread.delF( tinP , psttTitle ) ;
                          if( idClass == 1 ) break ;
@@ -706,7 +706,7 @@ voidT testAutoF( tinS& tinP , etherC& etThread , const boolT bTestP )
         }
             etThread.delF( tinP , postv ) ;
             etThread.strReverseF( tinP , psttv , 0 , T("\r\n") ) ; ___( psttv ) ;
-            etThread.strMakeF( tinP , psttv , T(postv) ) ; ___( psttv ) ;
+            etThread.strMakeF( tinP , LF , psttv , T(postv) ) ; ___( psttv ) ;
             etThread.boxGetShadowF( tinP , postv , costv , psttc1 , 1 ) ; ___( postv ) ;
             ZE( countT , costv ) ;
             ZE( osTextT* , postv ) ;
@@ -773,9 +773,9 @@ voidT listVisibleDefinitionsF( tinS& tinP , etherC& etThread , const boolT bTest
         etThread.boxPutF( tinP , tBase , posti , costi ) ;
         textC tBase = T("///ideafarm/ephemeral/domains/com/ideafarm/gen/kt/instances.")+T(psttf)+T(".base") ;
         etThread.delF( tinP , psttImage ) ;
-        else costi = etThread.strMakeF( tinP , posti , T("none") ) ; ___( posti ) ;
+        else costi = etThread.strMakeF( tinP , LF , posti , T("none") ) ; ___( posti ) ;
         }
-            costi = etThread.strMakeF( tinP , posti , psttImage ) ; ___( posti ) ;
+            costi = etThread.strMakeF( tinP , LF , posti , psttImage ) ; ___( posti ) ;
             etThread.strReverseF( tinP , psttImage , 0 , T("\r\n") ) ; ___( psttImage ) ;
         {
         if( psttImage ? psttImage->idAdam : 0 )
@@ -791,7 +791,7 @@ voidT listVisibleDefinitionsF( tinS& tinP , etherC& etThread , const boolT bTest
             ZE( strokeS* , psttl ) ;        
         {
         while( stackLine )
-        etThread.strMakeF( tinP , psttImage , T("") , 0x10000 ) ; ___( psttImage ) ;
+        etThread.strMakeF( tinP , LF , psttImage , T("") , 0x10000 ) ; ___( psttImage ) ;
         ZE( strokeS* , psttImage ) ;
         ZE( boolT , bPrior ) ;
 
@@ -845,7 +845,7 @@ voidT listVisibleDefinitionsF( tinS& tinP , etherC& etThread , const boolT bTest
             stackDef << psttd ;
             etThread.strReverseF( tinP , psttd , 0 , T("\r\n") ) ; ___( psttd ) ;
             etThread.delF( tinP , postd ) ;
-            etThread.strMakeF( tinP , psttd , T(postd) ) ; ___( psttd ) ;
+            etThread.strMakeF( tinP , LF , psttd , T(postd) ) ; ___( psttd ) ;
             ZE( strokeS* , psttd ) ;
             etThread.boxGetShadowF( tinP , postd , costd , psttc1 , 1 ) ; ___( postd ) ;
             ZE( countT , costd ) ;
@@ -872,7 +872,7 @@ voidT findFunctionCallInstancesF( tinS& tinP , etherC& etThread , const boolT bT
             etThread.delF( tinP , posti ) ;
             etThread.boxPutF( tinP , psttc1 , posti , costi ) ;
             if( !( cToDo % 0x1000 ) ) etherC::ifcSayIF( TF3(cToDo,0,6)+tc , flSAY_APPEND | flSAY_LOG ) ;
-            costi = etThread.strMakeF( tinP , posti , pstti ) ; ___( posti ) ;
+            costi = etThread.strMakeF( tinP , LF , posti , pstti ) ; ___( posti ) ;
             etThread.strReverseF( tinP , pstti , 0 , T("\r\n") ) ; ___( pstti ) ;
         {
         if( bModified )
@@ -920,7 +920,7 @@ voidT findFunctionCallInstancesF( tinS& tinP , etherC& etThread , const boolT bT
 
         etThread.strReverseF( tinP , pstti , 0 , T("\r\n") ) ; ___( pstti ) ;
         etThread.delF( tinP , posti ) ;
-        etThread.strMakeF( tinP , pstti , T(posti) ) ; ___( pstti ) ;
+        etThread.strMakeF( tinP , LF , pstti , T(posti) ) ; ___( pstti ) ;
         ZE( strokeS* , pstti ) ;
         if( !( cToDo % 0x1000 ) ) etherC::ifcSayIF( TF3(cToDo,0,6)+tc , flSAY_APPEND | flSAY_LOG ) ;
 
@@ -967,7 +967,7 @@ voidT insertInstanceSectionF( tinS& tinP , etherC& etThread , const boolT bTestP
 
         }
             etThread.delF( tinP , postd ) ;
-            etThread.strMakeF( tinP , psttd , T(postd) ) ; ___( psttd ) ;
+            etThread.strMakeF( tinP , LF , psttd , T(postd) ) ; ___( psttd ) ;
             etThread.boxGetShadowF( tinP , postd , costd , psttc1 , 1 ) ; ___( postd ) ;
             ZE( countT , costd ) ;
             ZE( osTextT* , postd ) ;
@@ -1019,7 +1019,7 @@ countT idNextSectionF( tinS& tinP , etherC& etThread , const strokeS* const pstt
     etThread.delF( tinP , postx ) ;
     etThread.boxPutF( tinP , T("///ideafarm/precious/domains/com/ideafarm/city/library/base/symbols.base") , postx , costx ) ;
     etThread.delF( tinP , pstto ) ;
-    countT costx = etThread.strMakeF( tinP , postx , pstto ) ; ___( postx ) ;
+    countT costx = etThread.strMakeF( tinP , LF , postx , pstto ) ; ___( postx ) ;
     ZE( osTextT* , postx ) ;
 
     etThread.strReverseF( tinP , pstto , 0 , T("\r\n") ) ; ___( pstto ) ;
@@ -1043,7 +1043,7 @@ countT idNextSectionF( tinS& tinP , etherC& etThread , const strokeS* const pstt
     TN( t1 , "\r\n//||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/" ) ;
     strokeS sttd2( '.' ) ;
     strokeS sttd1( '/' ) ;
-    etThread.strMakeF( tinP , pstto , T("") , cToDo * 0x400 ) ; ___( pstto ) ;
+    etThread.strMakeF( tinP , LF , pstto , T("") , cToDo * 0x400 ) ; ___( pstto ) ;
     ZE( strokeS* , pstto ) ;
     else         { cToDo = etThread.boxMenuF( tinP , soul1m , T("///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/1snip.0010???.*") ) ; ___( pstt1m ) ; }
     if( bTestP ) { cToDo = etThread.boxMenuF( tinP , soul1m , T("///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/1snip.0010001.*") ) ; ___( pstt1m ) ; }

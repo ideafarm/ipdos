@@ -74,8 +74,8 @@ else
     TELL( "setting up: hiring another instance of myself" )
 
     U:: NO LONGER SUPPORTED: //U::c :thirdC::thirdMonitoredEventHandlerF( tinP , monitoredEventHandlerF , (countT)&bw ) ;
-    //U::c :etThread.strMakeF( tinP , bw.worker.psttDisplay , T("unknown")              ) ; ___( bw.worker.psttDisplay ) ;
-    //U::c :etThread.strMakeF( tinP , bw.worker.psttTitle   , T(MYtITLE ".unmonitored") ) ; ___( bw.worker.psttTitle ) ;
+    //U::c :etThread.strMakeF( tinP , LF , bw.worker.psttDisplay , T("unknown")              ) ; ___( bw.worker.psttDisplay ) ;
+    //U::c :etThread.strMakeF( tinP , LF , bw.worker.psttTitle   , T(MYtITLE ".unmonitored") ) ; ___( bw.worker.psttTitle ) ;
     //U::c :bw.worker.idAdam = DDNUMB ;
     //U::c :bookWoS bw( tinP , etThread , TAG( TAGiDnULL ) , ba , ptm2Dummy , stateBlank ) ;
     //U::c :params_tmMonitorF_2S ptm2Dummy( sgnHiredDummy ) ;
@@ -1595,7 +1595,7 @@ baP.cMonitors -- ;
                     etThread.boxPutF( tinP , tFile , postr , costr ) ;
                     TN( tFile , "" ) ; tFile = T("///ideafarm/ephemeral/domains/com/ideafarm/")+TF1(DDNUMB)+T("/")+T(".logEntry.")+T(info.osPid)+TT(timeN1,timeN2) ;
                     etThread.delF( tinP , psttLog ) ;
-                    countT costr = etThread.strMakeF( tinP , postr , psttLog ) ; ___( postr ) ;
+                    countT costr = etThread.strMakeF( tinP , LF , postr , psttLog ) ; ___( postr ) ;
                     ZE( osTextT* , postr ) ;
 
                     etThread.osTimeNowF( tinP , timeN1 , timeN2 ) ;
@@ -2178,7 +2178,7 @@ countT hanNewDllF( tinS& tinP , bookWoS& bwP , ifcMonitorEventS& infoP )
             etThread.boxPutF( tinP , tFile , postr , costr ) ;
             TN( tFile , "" ) ; tFile = T("///ideafarm/ephemeral/domains/com/ideafarm/")+TF1(DDNUMB)+T("/")+T(bwP.osPid)+T("/reused.postWhereAllNow") ;
             etThread.delF( tinP , psttr ) ;
-            countT costr = etThread.strMakeF( tinP , postr , psttr ) ; ___( postr ) ;
+            countT costr = etThread.strMakeF( tinP , LF , postr , psttr ) ; ___( postr ) ;
             ZE( osTextT* , postr ) ;
         
             reportWhereNowF( tinP , etThread , psttr , bwP.osPid , bwP.ba , infoP ) ; ___( psttr ) ;
@@ -2363,7 +2363,7 @@ countT hanNewDllF( tinS& tinP , bookWoS& bwP , ifcMonitorEventS& infoP )
                     stNakedReplies << psttr ;
                 {
                 if( psttr )
-                etThread.strMakeF( tinP , psttr , psttc1 ) ; ___( psttr ) ;
+                etThread.strMakeF( tinP , LF , psttr , psttc1 ) ; ___( psttr ) ;
                 ZE( strokeS* , psttr ) ;
             {
             FORsTRINGSiN1( pstt1q ) //U:THIS LOOP JUST ECHOES THE QUERY VALUES BACK AS REPLIES.  REPLACE THIS PLACEHOLDER CODE
@@ -2664,8 +2664,8 @@ countT hanNewDllF( tinS& tinP , bookWoS& bwP , ifcMonitorEventS& infoP )
                         {
                         else
                         }
-                            etThread.strMakeF( tinP , worker.psttDisplay , bwP.worker.psttDisplay ) ; ___( worker.psttDisplay ) ;
-                            etThread.strMakeF( tinP , worker.psttTitle , bwP.worker.psttTitle ) ; ___( worker.psttTitle ) ;
+                            etThread.strMakeF( tinP , LF , worker.psttDisplay , bwP.worker.psttDisplay ) ; ___( worker.psttDisplay ) ;
+                            etThread.strMakeF( tinP , LF , worker.psttTitle , bwP.worker.psttTitle ) ; ___( worker.psttTitle ) ;
                             worker.idAdam = bwP.worker.idAdam ;
                             worker.p_bFired = p_bFired ;
                             __( !!worker.p_bFired ) ;
@@ -2947,7 +2947,7 @@ voidT whereAllOnF( tinS& tinP , stackC& st_pTinWhereP , stackC& st_pTinEventOrig
                         {
                         if( !ether )
                         TN( tFile , "" ) ; tFile = T("///ideafarm/ephemeral/domains/com/ideafarm/")+TF1(DDNUMB)+T("/")+TF1(pwt->idProcessOld)+T("/reused.writeWhereInfoF2.eachThread") ;
-                        countT costr = etThread.strMakeF( tinP , postr , psttr ) ; ___( postr ) ;
+                        countT costr = etThread.strMakeF( tinP , LF , postr , psttr ) ; ___( postr ) ;
                         ZE( osTextT* , postr ) ;
                     {
                     else
@@ -2978,7 +2978,7 @@ voidT whereAllOnF( tinS& tinP , stackC& st_pTinWhereP , stackC& st_pTinEventOrig
                     etThread.delF( tinP , postr ) ;
                     etThread.boxPutF( tinP , tFile , postr , costr ) ;
                     TN( tFile , "" ) ; tFile = T("///ideafarm/ephemeral/domains/com/ideafarm/")+TF1(DDNUMB)+T("/")+T(pTinEventP->osPid)+T("/reused.writeWhereInfoF2.woThread") ;
-                    countT costr = etThread.strMakeF( tinP , postr , psttr ) ; ___( postr ) ;
+                    countT costr = etThread.strMakeF( tinP , LF , postr , psttr ) ; ___( postr ) ;
                     ZE( osTextT* , postr ) ;
                 {
                 else
@@ -3015,7 +3015,7 @@ voidT writeWhereInfoF( tinS& tinP , etherC& etThread , etherC& ether , tinS* pTi
             etThread.delF( tinP , postr ) ;
             etThread.boxPutF( tinP , tFile , postr , costr ) ;
             TN( tFile , "" ) ; tFile = T("///ideafarm/ephemeral/domains/com/ideafarm/")+TF1(DDNUMB)+T("/")+T(osPidP)+T("/reused.writeWhereInfoF1") ;
-            countT costr = etThread.strMakeF( tinP , postr , psttr ) ; ___( postr ) ;
+            countT costr = etThread.strMakeF( tinP , LF , postr , psttr ) ; ___( postr ) ;
             ZE( osTextT* , postr ) ;
         {
         else
@@ -3083,7 +3083,7 @@ voidT purgeWhereInfoF( tinS& tinP , tinS* pTinEventP , processWhereInfoS& proces
         etThread.boxPutF( tinP , tFile , postr , costr ) ;
         TN( tFile , "" ) ; tFile = T("///ideafarm/ephemeral/domains/com/ideafarm/")+TF1(DDNUMB)+T("/")+T(infoP.osPid)+T("/reused.hanDelProcess.bAdoptedKid") ;
         etThread.delF( tinP , psttr ) ;
-        countT costr = etThread.strMakeF( tinP , postr , psttr ) ; ___( postr ) ;
+        countT costr = etThread.strMakeF( tinP , LF , postr , psttr ) ; ___( postr ) ;
         ZE( osTextT* , postr ) ;
     
         reportWhereNowF( tinP , etThread , psttr , bwP.osPid , bwP.ba , infoP ) ; ___( psttr ) ;
@@ -3166,7 +3166,7 @@ countT hanNewThreadF( tinS& tinP , bookWoS& bwP , ifcMonitorEventS& infoP )
         etThread.boxPutF( tinP , tFile , postr , costr ) ;
         TN( tFile , "" ) ; tFile = T("///ideafarm/ephemeral/domains/com/ideafarm/")+TF1(DDNUMB)+T("/")+T(infoP.osPid)+T("/reused.hanNewProcess.bAdoptedKid") ;
         etThread.delF( tinP , psttr ) ;
-        countT costr = etThread.strMakeF( tinP , postr , psttr ) ; ___( postr ) ;
+        countT costr = etThread.strMakeF( tinP , LF , postr , psttr ) ; ___( postr ) ;
         ZE( osTextT* , postr ) ;
     
         reportWhereNowF( tinP , etThread , psttr , bwP.osPid , bwP.ba , infoP ) ; ___( psttr ) ;
@@ -3298,7 +3298,7 @@ countT hanExceptionF( tinS& tinP , bookWoS& bwP , ifcMonitorEventS& infoP )
     {
     if( baP.swsIdaTin )
     baP.swsIdaTin.grabF( tinP , TAG( TAGiDnULL ) ) ;
-    etThread.strMakeF( tinP , psttP , T("osPidMonitored: ")+TF4(osPidMonitoredP,flFORMAT_FOREIGN,0,0xa)+T("\r\nosPidEvent: ")+TF4(infoP.osPid,flFORMAT_FOREIGN,0,0xa)+T("\r\nthe current activity of each thread in this process is:\r\n \r\n") , 0x10000 ) ; ___( psttP ) ;
+    etThread.strMakeF( tinP , LF , psttP , T("osPidMonitored: ")+TF4(osPidMonitoredP,flFORMAT_FOREIGN,0,0xa)+T("\r\nosPidEvent: ")+TF4(infoP.osPid,flFORMAT_FOREIGN,0,0xa)+T("\r\nthe current activity of each thread in this process is:\r\n \r\n") , 0x10000 ) ; ___( psttP ) ;
 
     baP.leverOsPid = osPidMonitoredP ;
     baP.bLeverOsPid.grabF( tinP , TAG( TAGiDnULL ) ) ;
@@ -3701,7 +3701,7 @@ voidT logStackFramesF( tinS& tinP , etherC& etThread , stackC& stPhrasesP , swit
             }
                     etThread.strFuseF( tinP , psttl , (offl+off?TF3(pbIdAllocP[offl+off],flFORMAT_UNSIGNED,3):T("   ")) ) ;
                 for( countT off = 0 ; off < CBlINE2 && offl + off <= cRegions ; off ++ )
-                etThread.strMakeF( tinP , psttl , T("") , 0x100 ) ; //U: EXACT ALLOC
+                etThread.strMakeF( tinP , LF , psttl , T("") , 0x100 ) ; //U: EXACT ALLOC
 
                 offlMax = offlMin = offl ;
 
@@ -3734,7 +3734,7 @@ voidT logStackFramesF( tinS& tinP , etherC& etThread , stackC& stPhrasesP , swit
             }
                     etThread.strFuseF( tinP , psttl , TF3(pbIdRegionP[offl+off],flFORMAT_UNSIGNED,3) ) ;
                 for( countT off = 0 ; off < CBlINE2 && offl + off < cPages ; off ++ )
-                etThread.strMakeF( tinP , psttl , T("") , 0x100 ) ; //U: EXACT ALLOC
+                etThread.strMakeF( tinP , LF , psttl , T("") , 0x100 ) ; //U: EXACT ALLOC
 
                 offlMax = offlMin = offl ;
 
@@ -3846,7 +3846,7 @@ voidT logExeDllImageF( tinS& tinP , etherC& etThread , stackC& stPhrasesP , ifcM
 
                 etThread.strFuseF( tinP , psttl , (*(countT*)(pbP+offl+off)?TF3(*(countT*)(pbP+offl+off),flFORMAT_UNSIGNED,8):TP(".",8))+T(" ") ) ;
             for( countT off = 0 ; off < CBlINE && offl + off + sizeof( countT ) <= cbP ; off += sizeof( countT ) )
-            etThread.strMakeF( tinP , psttl , T("") , 0x100 ) ; //U: EXACT ALLOC
+            etThread.strMakeF( tinP , LF , psttl , T("") , 0x100 ) ; //U: EXACT ALLOC
 
             }
                 OStEXTAS( ostox , osti > 0x19 && osti < 0x80 ? osti : ' ' )
@@ -4301,7 +4301,7 @@ voidT processWhereInfoS::flushThreadTalliesF( tinS& tinP , tinS* pTinP )
         "time: ")+TT(timeN1,timeN2)+T("\r\n"
         "report title: process activity report\r\n"
         
-    ether.strMakeF( tinP , psttP , T(
+    ether.strMakeF( tinP , LF , psttP , T(
 
     ether.osTimeNowF( tinP , timeN1 , timeN2 ) ;
     ZE( sCountT , timeN2 ) ;
@@ -4382,7 +4382,7 @@ processWhereInfoS::~processWhereInfoS( voidT )
         "time: ")+TT(timeN1,timeN2)+T("\r\n"
         "report title: single thread activity report\r\n"
         
-    ether.strMakeF( tinP , psttP , T(
+    ether.strMakeF( tinP , LF , psttP , T(
 
     ether.osTimeNowF( tinP , timeN1 , timeN2 ) ;
     ZE( sCountT , timeN2 ) ;
@@ -4609,9 +4609,9 @@ params_tmMonitorF_2S::params_tmMonitorF_2S
                      if( !ether.strCompareF( tinP , worker.psttDisplay , T("none"    ) ) ) idDisplayType = 1 ;
             {
             else if( F(ptm2P.flags) & flHIRE_DISPLAYaUTO     )
-            else if( F(ptm2P.flags) & flHIRE_DISPLAYgRAPHICS ) { idDisplayType = 3 ; if( !worker.psttDisplay ) ether.strMakeF( tinP , worker.psttDisplay , T("graphics") ) ; }
-            else if( F(ptm2P.flags) & flHIRE_DISPLAYtEXT     ) { idDisplayType = 2 ; if( !worker.psttDisplay ) ether.strMakeF( tinP , worker.psttDisplay , T("text"    ) ) ; }
-                 if( F(ptm2P.flags) & flHIRE_DISPLAYnONE     ) { idDisplayType = 1 ; if( !worker.psttDisplay ) ether.strMakeF( tinP , worker.psttDisplay , T("none"    ) ) ; }
+            else if( F(ptm2P.flags) & flHIRE_DISPLAYgRAPHICS ) { idDisplayType = 3 ; if( !worker.psttDisplay ) ether.strMakeF( tinP , LF , worker.psttDisplay , T("graphics") ) ; }
+            else if( F(ptm2P.flags) & flHIRE_DISPLAYtEXT     ) { idDisplayType = 2 ; if( !worker.psttDisplay ) ether.strMakeF( tinP , LF , worker.psttDisplay , T("text"    ) ) ; }
+                 if( F(ptm2P.flags) & flHIRE_DISPLAYnONE     ) { idDisplayType = 1 ; if( !worker.psttDisplay ) ether.strMakeF( tinP , LF , worker.psttDisplay , T("none"    ) ) ; }
         {
         ZE( countT , idDisplayType ) ;
     
@@ -4621,12 +4621,12 @@ params_tmMonitorF_2S::params_tmMonitorF_2S
                 }
                     }
                         }
-                            ether.strMakeF( tinP , worker.psttDisplay , T(info.psttDirectivesReplied) ) ; ___( worker.psttDisplay ) ;
+                            ether.strMakeF( tinP , LF , worker.psttDisplay , T(info.psttDirectivesReplied) ) ; ___( worker.psttDisplay ) ;
                             (*pPeekF)( &info ) ;
                             peekS info( tinP , ether , T("!display") ) ;
                         {
                         }
-                            ether.strMakeF( tinP , worker.psttTitle , T(info.psttDirectivesReplied) ) ; ___( worker.psttTitle ) ;
+                            ether.strMakeF( tinP , LF , worker.psttTitle , T(info.psttDirectivesReplied) ) ; ___( worker.psttTitle ) ;
                             (*pPeekF)( &info ) ;
                             peekS info( tinP , ether , T("!title") ) ;
                         {
@@ -4651,7 +4651,7 @@ params_tmMonitorF_2S::params_tmMonitorF_2S
                 }
                     worker.idAdam = ether.strDigitsToSCountF( tinP , psttDll ) ;
                     ether.strFuseF( tinP , psttArgs , tInsert ) ;
-                    ether.strMakeF( tinP , psttDll , psttc1 ) ; ___( psttDll ) ;
+                    ether.strMakeF( tinP , LF , psttDll , psttc1 ) ; ___( psttDll ) ;
                     bWoth = 0 ;
                 {
                 if( bWoth )
@@ -4665,7 +4665,7 @@ params_tmMonitorF_2S::params_tmMonitorF_2S
             ZE( strokeS* , pstt1w ) ;
             TN( tb , " " ) ;
     
-            ether.strMakeF( tinP , psttArgs , T("") , ptm2P.psttArgs->idAdam + tInsert.csF( tinP ) ) ;
+            ether.strMakeF( tinP , LF , psttArgs , T("") , ptm2P.psttArgs->idAdam + tInsert.csF( tinP ) ) ;
             TN( tInsert , " !monitored !idProcessOld " ) ; tInsert += TF1(idProcessOld) ;
         {
         else

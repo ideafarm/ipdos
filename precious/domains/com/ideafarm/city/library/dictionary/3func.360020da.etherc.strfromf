@@ -40,7 +40,7 @@
     if( F(flagsFormatP) & flFORMAT_SIGNcOLlEFT ) strFuseF( tinP , psttP , sttSign , 4 + csP + csttExtraP ) ;_WQ
 
     }
-        strMakeF( tinP , psttP , T("") , cstta + csttExtraP ) ; //CALLER MUST TAG ___( psttP ) ;_WQ
+        strMakeF( tinP , LF , psttP , T("") , cstta + csttExtraP ) ; //CALLER MUST TAG ___( psttP ) ;_WQ
         if( cstta < csP ) cstta = csP ;_WQ
         countT cstta = psttDigits->idAdam + 4 ;_WQ
     {
@@ -231,7 +231,7 @@
             countT image = *(countT*)&valueP ;_WQ
         {
 
-        strMakeF( tinP , psttDigits , T("") , 0x100 ) ; ___( psttDigits ) ; // MUST ACCOUNT FOR, IN BINARY, MAXIMUM IMPLICIT DIGITS PLUS ALL STORED DIGITS PLUS FORMATTING STROKES
+        strMakeF( tinP , LF , psttDigits , T("") , 0x100 ) ; ___( psttDigits ) ; // MUST ACCOUNT FOR, IN BINARY, MAXIMUM IMPLICIT DIGITS PLUS ALL STORED DIGITS PLUS FORMATTING STROKES
     {
     ZE( strokeS* , psttDigits ) ; // PREPENDED SIGN, DIGITS.  WILL -NOT- CONTAIN: SIGN COLUMNS, RADIX INDICATOR
 

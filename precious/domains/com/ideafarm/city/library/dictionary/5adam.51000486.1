@@ -82,7 +82,7 @@ ZE( countT   , costxHelpExe ) ;
 ZE( osTextT* , postxHelpExe ) ;
 
 }
-    costxLoggedOut = etThread.strMakeF( tinP , postxLoggedOut , t0+tnf ) ; ___( postxLoggedOut ) ;
+    costxLoggedOut = etThread.strMakeF( tinP , LF , postxLoggedOut , t0+tnf ) ; ___( postxLoggedOut ) ;
     textC t0 = T("HTTP/1.1 200 OK\r\nCache-Control: no-cache\r\nPragma: no-cache\r\nContent-Type: text/html\r\nContent-Length: ")+TF4(tnf.csF(tinP),flFORMAT_FILLzE|flFORMAT_NObASE|flFORMAT_FOREIGN,8,0xa)+T("\r\n\r\n") ;
     TN( tnf , "You have been logged out.  If you are a visitor, thank you for visiting us in IdeaFarm " "(tm) City.  While we value the opportunity to exchange goods, services, and money with you, that is not why we want you to visit us.  You are welcome because you are an important part of God's creation, and we want you to enjoy true community when with us.   If you are a resident, please act immediately and decisively if you ever find that any aspect of the operation of the city does not proclaim Jesus's rule for our lives: \"Love God.  Love Neighbor.\"" ) ;
 {
@@ -90,7 +90,7 @@ ZE( countT   , costxLoggedOut ) ;
 ZE( osTextT* , postxLoggedOut ) ;
 
 }
-    costxLoggedIn = etThread.strMakeF( tinP , postxLoggedIn , t0+tnf ) ; ___( postxLoggedIn ) ;
+    costxLoggedIn = etThread.strMakeF( tinP , LF , postxLoggedIn , t0+tnf ) ; ___( postxLoggedIn ) ;
     textC t0 = T("HTTP/1.1 200 OK\r\nCache-Control: no-cache\r\nPragma: no-cache\r\nContent-Type: text/html\r\nContent-Length: ")+TF4(tnf.csF(tinP),flFORMAT_FILLzE|flFORMAT_NObASE|flFORMAT_FOREIGN,8,0xa)+T("\r\n\r\n") ;
     TN( tnf , "You have been logged in.  Please be sure to log out when you are no longer using, or supervising the use of, this computer.  If you have an account with the IdeaFarm " "(tm) City central bank, logging out is important to prevent someone else from spending your money." ) ;
 {
@@ -98,7 +98,7 @@ ZE( countT   , costxLoggedIn ) ;
 ZE( osTextT* , postxLoggedIn ) ;
 
 }
-    costxNotFound = etThread.strMakeF( tinP , postxNotFound , t0+tnf ) ; ___( postxNotFound ) ;
+    costxNotFound = etThread.strMakeF( tinP , LF , postxNotFound , t0+tnf ) ; ___( postxNotFound ) ;
     textC t0 = T("HTTP/1.1 200 OK\r\nCache-Control: no-cache\r\nPragma: no-cache\r\nContent-Type: text/html\r\nContent-Length: ")+TF4(tnf.csF(tinP),flFORMAT_FILLzE|flFORMAT_NObASE|flFORMAT_FOREIGN,8,0xa)+T("\r\n\r\n") ;
     TN( tnf , "The requested page is not currently available, probably because the preceding page that you were viewing just became obsolete.  Please reload the preceding page and then try again." ) ;
 {
@@ -240,7 +240,7 @@ DONEdRIVENsERVER( tmcF )
                                 }
                                     sws_session << (byteT*)ps ;
                                     etThread.osTimeNowF( tinP , ps->timeLogin1 , ps->timeLogin2 ) ;
-                                    etThread.strMakeF( tinP , ps->psttEmail , psttv ) ; ___( ps->psttEmail ) ;
+                                    etThread.strMakeF( tinP , LF , ps->psttEmail , psttv ) ; ___( ps->psttEmail ) ;
                                 {
                                 if( ps )
                                 sessionS* ps = new_sessionS_F( tinP ) ;
@@ -402,7 +402,7 @@ TASKdRIVENsERVER( tmcF )
     if( !*tinP.zEtScratch && psttKV ) // STORE THE KEY/VALUE PAIRS
 
     }
-        etThread.strMakeF( tinP , psttKV , ( psttw ? T(psttw)+T("&") : T("") )+tBody ) ; ___( psttKV ) ; //ASSUME: psttKV IS OF FORM T("aaaa=1111&bbbb=2222&cccc=3333&dddd=4444")
+        etThread.strMakeF( tinP , LF , psttKV , ( psttw ? T(psttw)+T("&") : T("") )+tBody ) ; ___( psttKV ) ; //ASSUME: psttKV IS OF FORM T("aaaa=1111&bbbb=2222&cccc=3333&dddd=4444")
         psttKV = 0 ;
         strokeS* psttw = psttKV ;
         TN( tBody , "" ) ; tBody = T(postBody) ;

@@ -678,9 +678,9 @@ it is illegal to refer to this symbol in the definition of an adam
             etherC& ether = ppp->ether ;                                                                            \
             boolT save = bTlsEarlyLateIF() ;                                                                        \
             bTlsEarlyLateIF() = 0 ;                                                                                 \
-                 if( !ether.strCompareF( tinP , ppp->psttDirectives , T("!title"  ) ) ) { ether.strMakeF( tinP , ppp->psttDirectivesReplied , T(postTitleP  ) ) ; ___( ppp->psttDirectivesReplied ) ; } \
-            else if( !ether.strCompareF( tinP , ppp->psttDirectives , T("!display") ) ) { ether.strMakeF( tinP , ppp->psttDirectivesReplied , T(postDisplayP) ) ; ___( ppp->psttDirectivesReplied ) ; } \
-            else if( !ether.strCompareF( tinP , ppp->psttDirectives , T("!debug"  ) ) ) { ether.strMakeF( tinP , ppp->psttDirectivesReplied , T(postDebugP  ) ) ; ___( ppp->psttDirectivesReplied ) ; } \
+                 if( !ether.strCompareF( tinP , ppp->psttDirectives , T("!title"  ) ) ) { ether.strMakeF( tinP , LF , ppp->psttDirectivesReplied , T(postTitleP  ) ) ; ___( ppp->psttDirectivesReplied ) ; } \
+            else if( !ether.strCompareF( tinP , ppp->psttDirectives , T("!display") ) ) { ether.strMakeF( tinP , LF , ppp->psttDirectivesReplied , T(postDisplayP) ) ; ___( ppp->psttDirectivesReplied ) ; } \
+            else if( !ether.strCompareF( tinP , ppp->psttDirectives , T("!debug"  ) ) ) { ether.strMakeF( tinP , LF , ppp->psttDirectivesReplied , T(postDebugP  ) ) ; ___( ppp->psttDirectivesReplied ) ; } \
             bTlsEarlyLateIF() = save ;                                                                              \
         }                                                                                                           \
     }
@@ -2043,7 +2043,7 @@ it is illegal to refer to this symbol in the definition of an adam
                     if( F( ((thirdC&)etThread).third_flagsModeAdam1I_IF( tinP ) ) & flADAMmODE1_SEEtHREADSaSfILES )         \
                     {                                                                                                       \
                         TN( tDot , "." ) ;                                                                                  \
-                        etThread.strMakeF( tinP , psttThreadFile , T("///ideafarm/ephemeral/tmp/threads/")+TF1(tinP.osPid)+tDot+TF1(DDNUMB)+tDot+T(#taskFP)+tDot+TF1(tinP.monitor.idThread) ) ; ___( psttThreadFile ) ; \
+                        etThread.strMakeF( tinP , LF , psttThreadFile , T("///ideafarm/ephemeral/tmp/threads/")+TF1(tinP.osPid)+tDot+TF1(DDNUMB)+tDot+T(#taskFP)+tDot+TF1(tinP.monitor.idThread) ) ; ___( psttThreadFile ) ; \
                         etThread.boxPutF( tinP , psttThreadFile , "T" ) ;                                                   \
                     }                                                                                                       \
                     if( F(thirdC::third_flagsModeAdam1I_IF(tinP)) & flADAMmODE1_WHEREaLL && !( F(tinP.flagsThreadMode1) & flTHREADmODE1_NOwHERE ) ) etThread.etherWhereF( tinP , ifcIDaCTIONwHERE_WATCH ) ; \
@@ -42789,7 +42789,7 @@ app code MUST delete psttc#idP before using the "continue" or the "break" statem
     FORsTRINGSiNsPANNEDhEAD( soulP , idP )                                                                                                                      \
     {                                                                                                                                                           \
         ZE( strokeS* , psttc##idP ) ;                                                                                                                         \
-        tinP.pEther->strMakeF( tinP , psttc##idP , 0 , _soul##idP * CSTTsOULfUSEdEFAULT ) ; ___( psttc##idP ) ;                                                 \
+        tinP.pEther->strMakeF( tinP , LF , psttc##idP , 0 , _soul##idP * CSTTsOULfUSEdEFAULT ) ; ___( psttc##idP ) ;                                                 \
                                                                                                                                                                 \
         while( _soul##idP )                                                                                                                                     \
         {                                                                                                                                                       \

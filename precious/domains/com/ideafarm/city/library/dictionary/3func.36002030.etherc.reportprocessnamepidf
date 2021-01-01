@@ -8,8 +8,8 @@
 
 
 }
-    strMakeF( tinP , psttSuffixP , T("") ) ; ___( psttSuffixP ) ;
-    strMakeF( tinP , psttPrefixP , T("") ) ; ___( psttPrefixP ) ;
+    strMakeF( tinP , LF , psttSuffixP , T("") ) ; ___( psttSuffixP ) ;
+    strMakeF( tinP , LF , psttPrefixP , T("") ) ; ___( psttPrefixP ) ;
     strFuseF( tinP , psttUniqueP , T(".report.process.name.pid") ) ; ___( psttUniqueP ) ;
     strUniqueF( tinP , psttUniqueP ) ; ___( psttUniqueP ) ;
 
@@ -31,7 +31,7 @@
                     strFuseF( tinP , psttP , T(iffn)+T("\t")+T(psttPid) ) ; ___( psttP ) ;
                     ifFileNameC iffn( tinP , third , postName ) ;
                     delF( tinP , psttName ) ;
-                    strMakeF( tinP , postName , psttName ) ; ___( postName ) ;
+                    strMakeF( tinP , LF , postName , psttName ) ; ___( postName ) ;
                     ZE( osTextT* , postName ) ;
 
                     else         { strFuseF( tinP , psttP , T("\r\n") ) ; ___( psttP ) ; }

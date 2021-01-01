@@ -20,7 +20,7 @@ etThread.strokeF( tinP , T(postReply) ) ;
     etThread.delF( tinP , psttRaw ) ;
     }
         etThread.delF( tinP , psttw ) ;
-        costReply = etThread.strMakeF( tinP , postReply , psttw ) ; ___( postReply ) ;
+        costReply = etThread.strMakeF( tinP , LF , postReply , psttw ) ; ___( postReply ) ;
         etThread.strSubstringF( tinP , psttw , idf , idl , psttRaw ) ; ___( psttw ) ;
         ZE( countT , idl ) ;
         etThread.delF( tinP , psttw ) ;
@@ -30,7 +30,7 @@ etThread.strokeF( tinP , T(postReply) ) ;
         ZE( strokeS* , psttw ) ;
     {
     else
-    if( bOld ) { costReply = etThread.strMakeF( tinP , postReply , psttRaw ) ; ___( postReply ) ; }
+    if( bOld ) { costReply = etThread.strMakeF( tinP , LF , postReply , psttRaw ) ; ___( postReply ) ; }
 
     }
         bOld = !etThread.strIdF( tinP , idfn , sttqn , T("\r\n\r\n") , psttRaw ) ;
@@ -49,7 +49,7 @@ etThread.strokeF( tinP , T(postReply) ) ;
     ZE( boolT , bOld ) ;
 
     etThread.delF( tinP , postRaw ) ;
-    etThread.strMakeF( tinP , psttRaw , T(postRaw) ) ; ___( psttRaw ) ;
+    etThread.strMakeF( tinP , LF , psttRaw , T(postRaw) ) ; ___( psttRaw ) ;
     ZE( strokeS* , psttRaw ) ;
 {
 if( postRaw )
@@ -75,14 +75,14 @@ etThread.faceHearF( tinP , pstth ) ; ___( pstth ) ;
 ZE( strokeS* , pstth ) ;
 etThread.strokeF( tinP , T(postRequest) ) ;
 
-etThread.strMakeF( tinP , postRequest , T("POST /cgi-bin/tophone.cgi HTTP/1.0\r\nContent-Length: ")+TF4(psttb->idAdam,flFORMAT_NObASE,0,10)+T("\r\n\r\n")+T(psttb) ) ; ___( postRequest ) ;
+etThread.strMakeF( tinP , LF , postRequest , T("POST /cgi-bin/tophone.cgi HTTP/1.0\r\nContent-Length: ")+TF4(psttb->idAdam,flFORMAT_NObASE,0,10)+T("\r\n\r\n")+T(psttb) ) ; ___( postRequest ) ;
 
-etThread.strMakeF( tinP , psttb , T("npa_rpn=650&nxx_rpn=533&xxxx_rpn=8096&npa_cbn=650&nxx_cbn=123&xxxx_cbn=4567&message=word1+word2&counter=11&java=no") ) ; ___( psttb ) ;
+etThread.strMakeF( tinP , LF , psttb , T("npa_rpn=650&nxx_rpn=533&xxxx_rpn=8096&npa_cbn=650&nxx_cbn=123&xxxx_cbn=4567&message=word1+word2&counter=11&java=no") ) ; ___( psttb ) ;
 ZE( strokeS* , psttb ) ;
 
 
-//U:G: etThread.strMakeF( tinP , postRequest , T("GET ")+T("/")+T(" HTTP/1.0\r\n\r\n") ) ; ___( postRequest ) ;
-//U:G: etThread.strMakeF( tinP , postRequest , T("GET ")+T("/")+T(" HTTP/1.0\r\n\r\n") ) ; ___( postRequest ) ;
+//U:G: etThread.strMakeF( tinP , LF , postRequest , T("GET ")+T("/")+T(" HTTP/1.0\r\n\r\n") ) ; ___( postRequest ) ;
+//U:G: etThread.strMakeF( tinP , LF , postRequest , T("GET ")+T("/")+T(" HTTP/1.0\r\n\r\n") ) ; ___( postRequest ) ;
 ZE( osTextT* , postRequest ) ;
 
 sock.connectF( tinP , 80 , socketC::nicNameIF( tinP , ether , T("www.messaging.sprintpcs.com") ) ) ;

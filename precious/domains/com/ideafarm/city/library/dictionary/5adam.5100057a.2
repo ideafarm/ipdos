@@ -11,11 +11,11 @@
     return *this ;
 
     }
-        else { ether.strMakeF( tinP , psttEmail , datum.psttEmail ) ; ___( psttEmail ) ; }
+        else { ether.strMakeF( tinP , LF , psttEmail , datum.psttEmail ) ; ___( psttEmail ) ; }
         }
             }
                 ether.delF( tinP , psttd ) ;
-                ether.strMakeF( tinP , psttEmail , T(psttd)+T("\r\n")+T(datum.psttEmail) ) ; ___( psttEmail ) ;
+                ether.strMakeF( tinP , LF , psttEmail , T(psttd)+T("\r\n")+T(datum.psttEmail) ) ; ___( psttEmail ) ;
                 strokeS* psttd = psttEmail ; psttEmail = 0 ;
             {
             if( ether.strCompareF( tinP , psttEmail , datum.psttEmail ) )
@@ -24,7 +24,7 @@
     {
     if( datum.psttEmail )
 
-    if( !psttZip ) { ether.strMakeF( tinP , psttZip , datum.psttZip ) ; ___( psttZip ) ; }
+    if( !psttZip ) { ether.strMakeF( tinP , LF , psttZip , datum.psttZip ) ; ___( psttZip ) ; }
     const datumEmailZipC& datum = *(datumEmailZipC*)&plateP ;
     TINSL
 {
@@ -33,7 +33,7 @@ plateC& datumEmailZipC::operator +=( plateC& plateP )
 }
     return psttRpt ;
 
-    ether.strMakeF( tinP , psttRpt , psttEmail ) ; ___( psttRpt ) ;
+    ether.strMakeF( tinP , LF , psttRpt , psttEmail ) ; ___( psttRpt ) ;
 
     ether.delF( tinP , psttRpt ) ; //U::RECALC ONLY IF STALE
     TINSL

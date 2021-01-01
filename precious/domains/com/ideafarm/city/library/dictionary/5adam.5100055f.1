@@ -43,7 +43,7 @@ etThread.osThreadF( tinP , countTC() , tmWatchPromptF , &sDone_tmWatchPromptF , 
 signC sDone_tmWatchPromptF( tinP , TAG( TAGiDnULL ) ) ;
 
 tcPromptC buPrompt( tinP , etThread , psttValue , T("0>") , &bPrompt , &sPrompt , flTCfEATURE_defaultButton | flTCfEATURE_TABpARTICIPANT | flTCfEATURE_TABhEREsUPPRESSEShOTkEYS ) ;
-etThread.strMakeF( tinP , psttValue , T("default value") ) ; ___( psttValue ) ;
+etThread.strMakeF( tinP , LF , psttValue , T("default value") ) ; ___( psttValue ) ;
 ZE( strokeS* , psttValue ) ;
 signC  sPrompt( tinP , TAG( TAGiDnULL ) ) ;
 batonC bPrompt( tinP , TAG( TAGiDnULL ) ) ;
@@ -60,11 +60,11 @@ DONE( tmWatchPromptF )
 
         buPromptP.freshF( tinP , TF1(++cKeys)+T(">") ) ;
         static countT cKeys ;
-        etThread.strMakeF( tinP , psttValue , T("default value") ) ; ___( psttValue ) ;
+        etThread.strMakeF( tinP , LF , psttValue , T("default value") ) ; ___( psttValue ) ;
         etThread.delF( tinP , psttValue ) ;
 
         buHintP.setF( tinP , T("")+S3((measureT)psttValue->idAdam,scOld_mmFRAMEcELLS,(measureT)1.0)+T(psttValue)+S2(0,scOld_POPfRAME) ) ;
-        if( !psttValue ) { etThread.strMakeF( tinP , psttValue , T("this code expression is never executed") ) ; ___( psttValue ) ; }
+        if( !psttValue ) { etThread.strMakeF( tinP , LF , psttValue , T("this code expression is never executed") ) ; ___( psttValue ) ; }
 
         bPrompt.grabF( tinP , TAG( TAGiDnULL ) ) ;
 

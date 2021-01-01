@@ -1043,7 +1043,7 @@ DONE( tmReportF )
                                     etThread.fileWriteF( tinP , hFile1 , postr , costr ) ;
                                         
                                     etThread.delF( tinP , psttr ) ;
-                                    countT costr = etThread.strMakeF( tinP , postr , psttr ) ; ___( postr ) ;
+                                    countT costr = etThread.strMakeF( tinP , LF , postr , psttr ) ; ___( postr ) ;
                                     ZE( osTextT* , postr ) ;
                                 
                                     sRpt >> psttr ; ___( psttr ) ;
@@ -1143,7 +1143,7 @@ DONE( tmReportF )
                         for( countT offg = 0 ; offg < cbGrainCode && !bQuitMonitorP ; offg ++ )
                         ZE( countT , offRow ) ;
 
-                        etThread.strMakeF( tinP , psttRpt , (const strokeS*)T("\r\n\r\n") , cbGrainCode << 1 ) ; ___( psttRpt ) ;
+                        etThread.strMakeF( tinP , LF , psttRpt , (const strokeS*)T("\r\n\r\n") , cbGrainCode << 1 ) ; ___( psttRpt ) ;
                         ZE( strokeS* , psttRpt ) ;
 
                         byteT* pbzGrainCode = (byteT*)&(countT&)sw_pbzGrainCode ;
@@ -2129,7 +2129,7 @@ DONE( tmcMonitorServerF )
                                     }
                                         stTemp << psttn ;
                                         //etThread.strokeF( tinP , T("entry.postName: \"")+T(entry.postName)+T("\"\r\n") ) ;
-                                        etThread.strMakeF( tinP , psttn , T(entry.postName) ) ; ___( psttn ) ;
+                                        etThread.strMakeF( tinP , LF , psttn , T(entry.postName) ) ; ___( psttn ) ;
                                         ZE( strokeS* , psttn ) ;
                                         poolOldEntryS& entry = *(poolOldEntryS*)&memorySpace.stPool.downF( tinP , hDown ) ;
                                     {

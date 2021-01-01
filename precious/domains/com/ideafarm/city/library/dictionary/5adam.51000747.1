@@ -245,7 +245,7 @@ DONE( tmWorkerF )
                                                 etThread.strFuseF( tinP , psttSay , T("nicName:   ") ) ; etThread.strFuseF( tinP , psttSay , TF2(nnHe,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)    ) ; etThread.strFuseF( tinP , psttSay , wsP.tcr ) ;
                                                 etThread.strFuseF( tinP , psttSay , T("time:      ") ) ; etThread.strFuseF( tinP , psttSay , TT(timeW1,timeW2)                                     ) ; etThread.strFuseF( tinP , psttSay , wsP.tcr ) ;
 
-                                                etThread.strMakeF( tinP , psttSay , wsP.tcrcr , TUCK + csNeeded ) ; ___( psttSay ) ;
+                                                etThread.strMakeF( tinP , LF , psttSay , wsP.tcrcr , TUCK + csNeeded ) ; ___( psttSay ) ;
                                                 ZE( strokeS* , psttSay ) ;
 
                                                 }
@@ -262,7 +262,7 @@ DONE( tmWorkerF )
                                                             countT idf = 1 ;
                                                         {
                                                         else if( ( *pppsttX[ offs ] )->idAdam > TUCK )
-                                                        if( !*pppsttX[ offs ] ) { etThread.strMakeF( tinP , *pppsttX[ offs ] , wsP.tn ) ; ___( *pppsttX[ offs ] ) ; }
+                                                        if( !*pppsttX[ offs ] ) { etThread.strMakeF( tinP , LF , *pppsttX[ offs ] , wsP.tn ) ; ___( *pppsttX[ offs ] ) ; }
                                                     {
                                                     for( countT offs = 0 ; offs < sizeof pppsttX / sizeof pppsttX[ 0 ] ; offs ++ )
                                                     strokeS** pppsttX[] = { &psttMethod , &psttBucket , &psttQuery , &psttProtocol , &psttBrowser } ;                   // TRUNCATE ALL STRINGS TO LENGTH TUCK (TO PROTECT AGAINST ATTACK)

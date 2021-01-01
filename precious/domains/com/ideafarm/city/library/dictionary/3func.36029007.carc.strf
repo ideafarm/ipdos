@@ -65,7 +65,7 @@
     ether.strFuseF( tinP , psttP , psttr21 ) ; ___( psttP ) ;
     ether.strFuseF( tinP , psttP , psttr12 ) ; ___( psttP ) ;
     ether.strFuseF( tinP , psttP , psttr11 ) ; ___( psttP ) ;
-    if( psttr11 && psttr12 && psttr21 && psttr22 && psttr31 && psttr32 && psttr41 && psttr42 && psttr51 && psttr52 ) { ether.strMakeF( tinP , psttP , T("") , psttr11->idAdam + psttr12->idAdam + psttr21->idAdam + psttr22->idAdam + psttr31->idAdam + psttr32->idAdam + psttr41->idAdam + psttr42->idAdam + psttr51->idAdam + psttr52->idAdam ) ; ___( psttP ) ; }
+    if( psttr11 && psttr12 && psttr21 && psttr22 && psttr31 && psttr32 && psttr41 && psttr42 && psttr51 && psttr52 ) { ether.strMakeF( tinP , LF , psttP , T("") , psttr11->idAdam + psttr12->idAdam + psttr21->idAdam + psttr22->idAdam + psttr31->idAdam + psttr32->idAdam + psttr41->idAdam + psttr42->idAdam + psttr51->idAdam + psttr52->idAdam ) ; ___( psttP ) ; }
 
     }
         ) ; ___( psttr52 ) ;
@@ -158,7 +158,7 @@
             for( countT idf = 1 ; idf <= cFlavors ; idf ++ )
 
             }
-                ether.strMakeF( tinP , psttr42 , T("") , csn ) ; ___( psttr42 ) ;
+                ether.strMakeF( tinP , LF , psttr42 , T("") , csn ) ; ___( psttr42 ) ;
                 }
                     csn += 0x20 * ( ccPart + 2 ) ; // (A FEW MORE PER LINE THAN WE REALLY NEED) //U: 0x10
                     countT ccPart = ether.strBodyLengthF( tinP , (countT*)swUsage.leverF( tinP , idf ) ) ;
@@ -167,10 +167,10 @@
                 ZE( countT , csn ) ;
             {
 
-            ether.strMakeF( tinP , psttr41 , T("\r\n\r\nParts Usage:\r\n\r\n")+TPS("cost",0xd,S1C('-'))+T("  ")+TPS("qty",8,S1C('-'))+T("  ")+TPS("type",8,S1C('-'))+T("  ")+TPS("nicNameV4",8,S1C('-'))+T("  ")+TPS("idComp",8,S1C('-'))+T("  ")+TPS("idOwner",7,S1C('-'))+T("  ")+TPS("idPart",0x14,S1C('-'))+T("\r\n") ) ; ___( psttr41 ) ;
+            ether.strMakeF( tinP , LF , psttr41 , T("\r\n\r\nParts Usage:\r\n\r\n")+TPS("cost",0xd,S1C('-'))+T("  ")+TPS("qty",8,S1C('-'))+T("  ")+TPS("type",8,S1C('-'))+T("  ")+TPS("nicNameV4",8,S1C('-'))+T("  ")+TPS("idComp",8,S1C('-'))+T("  ")+TPS("idOwner",7,S1C('-'))+T("  ")+TPS("idPart",0x14,S1C('-'))+T("\r\n") ) ; ___( psttr41 ) ;
         {
         else
-        if( !cFlavors ) { ether.strMakeF( tinP , psttr41 , T("") ) ; ___( psttr41 ) ; ether.strMakeF( tinP , psttr42 , T("") ) ; ___( psttr42 ) ; }
+        if( !cFlavors ) { ether.strMakeF( tinP , LF , psttr41 , T("") ) ; ___( psttr41 ) ; ether.strMakeF( tinP , LF , psttr42 , T("") ) ; ___( psttr42 ) ; }
         const countT cFlavors = swUsage.cFlavorsF( tinP ) ;
     {
     ZE( strokeS* , psttr42 ) ;
@@ -189,7 +189,7 @@
             do
 
             }
-                ether.strMakeF( tinP , psttr32 , T("") , csn ) ; ___( psttr32 ) ;
+                ether.strMakeF( tinP , LF , psttr32 , T("") , csn ) ; ___( psttr32 ) ;
                 while( ~handle ) ;
                 }
                     if( psttl ) { csn += psttl->idAdam + 2 ; }
@@ -200,10 +200,10 @@
             {
 
             handleC handle( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_STACKwALK ) ;
-            ether.strMakeF( tinP , psttr31 , T("\r\n\r\nEvents which did not result in impotence:\r\n\r\n") ) ; ___( psttr31 ) ;
+            ether.strMakeF( tinP , LF , psttr31 , T("\r\n\r\nEvents which did not result in impotence:\r\n\r\n") ) ; ___( psttr31 ) ;
         {
         else
-        if( !stLog ) { ether.strMakeF( tinP , psttr31 , T("") ) ; ___( psttr31 ) ; ether.strMakeF( tinP , psttr32 , T("") ) ; ___( psttr32 ) ; }
+        if( !stLog ) { ether.strMakeF( tinP , LF , psttr31 , T("") ) ; ___( psttr31 ) ; ether.strMakeF( tinP , LF , psttr32 , T("") ) ; ___( psttr32 ) ; }
     {
     ZE( strokeS* , psttr32 ) ;
     ZE( strokeS* , psttr31 ) ;
@@ -218,7 +218,7 @@
             do
 
             }
-                ether.strMakeF( tinP , psttr22 , T("") , csn ) ; ___( psttr22 ) ;
+                ether.strMakeF( tinP , LF , psttr22 , T("") , csn ) ; ___( psttr22 ) ;
                 while( ~handle ) ;
                 }
                     if( psttl ) { csn += psttl->idAdam + 2 ; }
@@ -230,10 +230,10 @@
 
             handleC handle( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_STACKwALK ) ;
 
-            ether.strMakeF( tinP , psttr21 , T("\r\n\r\nImpotence events"":\r\n\r\n") ) ; ___( psttr21 ) ;
+            ether.strMakeF( tinP , LF , psttr21 , T("\r\n\r\nImpotence events"":\r\n\r\n") ) ; ___( psttr21 ) ;
         {
         else
-        if( !stLogImpotence ) { ether.strMakeF( tinP , psttr21 , T("") ) ; ___( psttr21 ) ; ether.strMakeF( tinP , psttr22 , T("") ) ; ___( psttr22 ) ; }
+        if( !stLogImpotence ) { ether.strMakeF( tinP , LF , psttr21 , T("") ) ; ___( psttr21 ) ; ether.strMakeF( tinP , LF , psttr22 , T("") ) ; ___( psttr22 ) ; }
     {
     ZE( strokeS* , psttr22 ) ;
     ZE( strokeS* , psttr21 ) ;

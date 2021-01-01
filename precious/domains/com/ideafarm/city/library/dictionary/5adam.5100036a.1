@@ -23,7 +23,7 @@ etThread.delF( tinP , pstt1mGifs ) ;
         etThread.boxPutF( tinP , tReplies+T("window") , postr , costr ) ;
         }
             etThread.delF( tinP , pbBody ) ;
-            costr = etThread.strMakeF( tinP , postr , T("HTTP/1.0 200\r\nContent-Type: text/html\r\nContent-Length: ")+TF4(cbBody,flFORMAT_NObASE,0,0xa)+T("\r\n\r\n")+T(pbBody) ) ; ___( postr ) ;
+            costr = etThread.strMakeF( tinP , LF , postr , T("HTTP/1.0 200\r\nContent-Type: text/html\r\nContent-Length: ")+TF4(cbBody,flFORMAT_NObASE,0,0xa)+T("\r\n\r\n")+T(pbBody) ) ; ___( postr ) ;
             etThread.boxGetShadowF( tinP , pbBody , cbBody , T("///ideafarm/ephemeral/domains/com/ideafarm/c630104/campaigns/definitions/")+t_idCampaign+T("/window") ) ; ___( pbBody ) ;
             ZE( countT , cbBody ) ;
             ZE( byteT* , pbBody ) ;    
@@ -37,7 +37,7 @@ etThread.delF( tinP , pstt1mGifs ) ;
         etThread.boxPutF( tinP , tReplies+T("face") , postr , costr ) ;
         }
             etThread.delF( tinP , pbBody ) ;
-            costr = etThread.strMakeF( tinP , postr , T("HTTP/1.0 200\r\nContent-Type: text/html\r\nContent-Length: ")+TF4(cbBody,flFORMAT_NObASE,0,0xa)+T("\r\n\r\n")+T(pbBody) ) ; ___( postr ) ;
+            costr = etThread.strMakeF( tinP , LF , postr , T("HTTP/1.0 200\r\nContent-Type: text/html\r\nContent-Length: ")+TF4(cbBody,flFORMAT_NObASE,0,0xa)+T("\r\n\r\n")+T(pbBody) ) ; ___( postr ) ;
             etThread.boxGetShadowF( tinP , pbBody , cbBody , T("///ideafarm/ephemeral/domains/com/ideafarm/c630104/campaigns/definitions/")+t_idCampaign+T("/face") ) ; ___( pbBody ) ;
             ZE( countT , cbBody ) ;
             ZE( byteT* , pbBody ) ;    
@@ -60,7 +60,7 @@ etThread.delF( tinP , pstt1mGifs ) ;
             etThread.newF( tinP , LF , pbr , cbr ) ; ___( pbr ) ;
             cbr = costr + cbImage ;
 
-            countT costr = etThread.strMakeF( tinP , postr , T("HTTP/1.0 200\r\nContent-Type: image/gif\r\nContent-Length: ")+TF4(cbImage,flFORMAT_NObASE,0,0xa)+T("\r\n\r\n") ) ;
+            countT costr = etThread.strMakeF( tinP , LF , postr , T("HTTP/1.0 200\r\nContent-Type: image/gif\r\nContent-Length: ")+TF4(cbImage,flFORMAT_NObASE,0,0xa)+T("\r\n\r\n") ) ;
             ZE( osTextT* , postr ) ;
 
             etThread.boxGetShadowF( tinP , pbImage , cbImage , psttc1 ) ; ___( pbImage ) ;

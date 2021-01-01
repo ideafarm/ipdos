@@ -23,7 +23,7 @@ etThread.osThreadSwitchingDesireF( tinP , idDesireSave ) ;
                     }
                         }
                             etThread.osThreadF( TaRG1( tmObeySoilF ) , (countT)&cFail , (countT)(strokeS*)tPickSoil , (countT)(strokeS*)tBounce , (countT)psttFileName , (countT)posti , costi ) ; psttFileName = 0 ; posti = 0 ;
-                            etThread.strMakeF( tinP , psttFileName , tFileBeingEaten ) ; ___( psttFileName ) ;
+                            etThread.strMakeF( tinP , LF , psttFileName , tFileBeingEaten ) ; ___( psttFileName ) ;
                             ZE( strokeS* , psttFileName ) ;
                         {
                         else
@@ -97,8 +97,8 @@ etThread.osThreadF( TaRG1( tmFixArcNamesF ) ) ; // REDUNDANT, JUST IN CASE A FIL
 }
     etThread.osThreadF( TaRG1( tmRenameF ) , (countT)psttDropIn , (countT)psttNeverDropHere ) ;
 
-    etThread.strMakeF( tinP , psttNeverDropHere , tNeverDropHere ) ; ___( psttNeverDropHere ) ;
-    etThread.strMakeF( tinP , psttDropIn , tDropIn ) ; ___( psttDropIn ) ;
+    etThread.strMakeF( tinP , LF , psttNeverDropHere , tNeverDropHere ) ; ___( psttNeverDropHere ) ;
+    etThread.strMakeF( tinP , LF , psttDropIn , tDropIn ) ; ___( psttDropIn ) ;
     ZE( strokeS* , psttNeverDropHere ) ;
     ZE( strokeS* , psttDropIn ) ;
 {
@@ -217,7 +217,7 @@ etThread.traceF( tinP , T("thread exit") ) ;
             etThread.delF( tinP , psttn ) ;
             tinP.pEtScratch->diskMoveFileOrDirUniqueF( tinP , psttn , psttFileNameP , 1 ) ;                    // MOVE UNIQUE TO ANUS
         
-            etThread.strMakeF( tinP , psttn , tTo , TUCK+tShort.csF( tinP ) ) ; ___( psttn ) ;
+            etThread.strMakeF( tinP , LF , psttn , tTo , TUCK+tShort.csF( tinP ) ) ; ___( psttn ) ;
             ZE( strokeS* , psttn ) ;
         
             POOPR
@@ -235,7 +235,7 @@ etThread.traceF( tinP , T("thread exit") ) ;
                             etThread.fileWriteF( tinP , hFile1 , postr , costr ) ;
                         
                             etThread.delF( tinP , psttr ) ;
-                            countT costr = etThread.strMakeF( tinP , postr , psttr ) ; ___( postr ) ;
+                            countT costr = etThread.strMakeF( tinP , LF , postr , psttr ) ; ___( postr ) ;
                             ZE( osTextT* , postr ) ;
                     
                             soulAsciiOut >> psttr ; ___( psttr ) ;
@@ -260,7 +260,7 @@ etThread.traceF( tinP , T("thread exit") ) ;
                         etThread.fileWriteF( tinP , hFile1 , postr , costr ) ;
                     
                         etThread.delF( tinP , psttr ) ;
-                        countT costr = etThread.strMakeF( tinP , postr , psttr ) ; ___( postr ) ;
+                        countT costr = etThread.strMakeF( tinP , LF , postr , psttr ) ; ___( postr ) ;
                         ZE( osTextT* , postr ) ;
             
                         soulr >> psttr ; ___( psttr ) ;
@@ -303,7 +303,7 @@ etThread.traceF( tinP , T("thread exit") ) ;
                         etThread.fileWriteF( tinP , hFile1 , postr , costr ) ;
                     
                         etThread.delF( tinP , psttr ) ;
-                        countT costr = etThread.strMakeF( tinP , postr , psttr ) ; ___( postr ) ;
+                        countT costr = etThread.strMakeF( tinP , LF , postr , psttr ) ; ___( postr ) ;
                         ZE( osTextT* , postr ) ;
 
                         soulAsciiLint >> psttr ; ___( psttr ) ;
@@ -498,7 +498,7 @@ DONE( tmCleanF )
                                     etThread.delF( tinP , psttn ) ;
                                     tinP.pEtScratch->diskMoveFileOrDirUniqueF( tinP , psttn , psttc1 , 1 ) ;                    // MOVE UNIQUE TO ANUS
         
-                                    etThread.strMakeF( tinP , psttn , tBounce , TUCK+tShort.csF( tinP ) ) ; ___( psttn ) ;
+                                    etThread.strMakeF( tinP , LF , psttn , tBounce , TUCK+tShort.csF( tinP ) ) ; ___( psttn ) ;
                                     ZE( strokeS* , psttn ) ;
         
                                     POOPR

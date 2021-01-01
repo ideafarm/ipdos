@@ -372,13 +372,13 @@
                                                 }
                                                     #endif
 
-                                                        etThread.strMakeF( tinP , psttDll , TF3(tinP.pAdamGlobal1->idAdam,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FOREIGN|flFORMAT_FILLzE,8) ) ; ___( psttDll ) ;
+                                                        etThread.strMakeF( tinP , LF , psttDll , TF3(tinP.pAdamGlobal1->idAdam,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FOREIGN|flFORMAT_FILLzE,8) ) ; ___( psttDll ) ;
 
                                                     #else
 
                                                     }
                                                         break ;
-                                                        etThread.strMakeF( tinP , psttDll , psttc1 ) ; ___( psttDll ) ;
+                                                        etThread.strMakeF( tinP , LF , psttDll , psttc1 ) ; ___( psttDll ) ;
                     
                                                         if( !psttc1->idAdam || psttc1[ CSpREFIX ] == sttExclaim ) break ;
                                                         if( cSkip -- ) continue ;
@@ -469,7 +469,7 @@
                                                     if( idArg )
                                                     ZE( boolT , bOk ) ;
 
-                                                    if( idTypeP == ifcIDtYPEtLS_WINDOW && !psttTitle && ( off ++ ) == 1 ) { etThread.strMakeF( tinP , psttTitle , psttc1 ) ; ___( psttTitle ) ; }
+                                                    if( idTypeP == ifcIDtYPEtLS_WINDOW && !psttTitle && ( off ++ ) == 1 ) { etThread.strMakeF( tinP , LF , psttTitle , psttc1 ) ; ___( psttTitle ) ; }
 
                                                     //etThread.traceF( tinP , T("    [parameter]: ")+T(psttc1) ) ;
                                                 {
@@ -511,7 +511,7 @@
                                                 {
                                                 for( countT off = 0 ; off < cHowP ; off ++ )
 
-                                                etThread.strMakeF( tinP , etThread.ether_pstt1_processParametersI_F( tinP ) , 0 , csttNeeded ) ; ___( etThread.ether_pstt1_processParametersI_F( tinP ) ) ;
+                                                etThread.strMakeF( tinP , LF , etThread.ether_pstt1_processParametersI_F( tinP ) , 0 , csttNeeded ) ; ___( etThread.ether_pstt1_processParametersI_F( tinP ) ) ;
                                                 }
                                                     csttNeeded += 2 * CSpREFIX + tDriver.csF( tinP ) + tMonitor.csF( tinP ) ;
                                                     )
@@ -544,7 +544,7 @@
                                             ADAMpHASE( ifcIDpHASEaDAM_EXEpROLOGaDAMmAIN71 ) ;
 
                                             }
-                                                etThread.strMakeF( tinP , psttTitle , tAdam+t8b+T(postIPDOSsHORTlONG)+( processGlobal1I.idHome==1 ? T("") : T(" (home ")+TF2(processGlobal1I.idHome,flFORMAT_UNSIGNED|flFORMAT_NObIGITvALUES)+T(")") ) ) ; ___( psttTitle ) ;
+                                                etThread.strMakeF( tinP , LF , psttTitle , tAdam+t8b+T(postIPDOSsHORTlONG)+( processGlobal1I.idHome==1 ? T("") : T(" (home ")+TF2(processGlobal1I.idHome,flFORMAT_UNSIGNED|flFORMAT_NObIGITvALUES)+T(")") ) ) ; ___( psttTitle ) ;
 
                                                 TN( t8b , "        " ) ;
                                                 if( !tAdam.csF( tinP ) ) tAdam = TF2(tinP.pAdamGlobal1->idAdam,flFORMAT_UNSIGNED|flFORMAT_NObIGITvALUES) ;

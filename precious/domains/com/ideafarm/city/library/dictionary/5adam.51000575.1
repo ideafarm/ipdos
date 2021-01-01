@@ -798,7 +798,7 @@ DONEdRIVENsERVER( tmcSmtpF )
                                                         //                                                                TN( tOpener , "" ) ; tOpener = T(
                                                         //                                                            {
                                                         //                                            
-                                                        //                                                            etThread.strMakeF( tinP , psttSubEmail , TF4(idSubOfClickee,flFORMAT_UNSIGNED|flFORMAT_NObIGITvALUES|flFORMAT_NObASE,0,36)+tDot+TF4(idAccClickee,flFORMAT_UNSIGNED|flFORMAT_NObIGITvALUES|flFORMAT_NObASE,0,36)+T(".doubleblind.1@ideafarm.com") ) ; ___( psttSubEmail ) ;
+                                                        //                                                            etThread.strMakeF( tinP , LF , psttSubEmail , TF4(idSubOfClickee,flFORMAT_UNSIGNED|flFORMAT_NObIGITvALUES|flFORMAT_NObASE,0,36)+tDot+TF4(idAccClickee,flFORMAT_UNSIGNED|flFORMAT_NObIGITvALUES|flFORMAT_NObASE,0,36)+T(".doubleblind.1@ideafarm.com") ) ; ___( psttSubEmail ) ;
                                                         //                                                            TN( tDot , "." ) ;
                                                         //                                            
                                                         //                                                            ZE( strokeS* , psttSubEmail ) ;
@@ -818,7 +818,7 @@ DONEdRIVENsERVER( tmcSmtpF )
                                                         //                                                                strokeS* psttSep = tSep ;
                                                         //                                                                TN( tSep , " <> " ) ;
                                                         //                                                
-                                                        //                                                                etThread.strMakeF( tinP , psttListEntry , 0 , TOCK ) ; ___( psttListEntry ) ;
+                                                        //                                                                etThread.strMakeF( tinP , LF , psttListEntry , 0 , TOCK ) ; ___( psttListEntry ) ;
                                                         //                                            
                                                         //                                                            {
                                                         //                                                            ZE( strokeS* , psttListEntry ) ;
@@ -832,7 +832,7 @@ DONEdRIVENsERVER( tmcSmtpF )
                                                         //                                                                *newSub.pStkEmailRelay << psttEmailClickee ;
                                                         //                                                
                                                         //                                                                *newSub.pStkEmailPenpalExactOr << psttw ; psttw = 0 ;
-                                                        //                                                                etThread.strMakeF( tinP , psttw , psttFrom ) ; ___( psttw ) ;
+                                                        //                                                                etThread.strMakeF( tinP , LF , psttw , psttFrom ) ; ___( psttw ) ;
                                                         //                                                                ZE( strokeS* , psttw ) ;
                                                         //                                                
                                                         //                                                                subaccountS newSub( tinP , etThread , idAccClickee , idSubOfClickee , TF2(idAccClicker,flFORMAT_UNSIGNED|flFORMAT_NObIGITvALUES) , T("IdeaFarm " "(tm) Directory Clicker") , T("IdeaFarm " "(tm) Directory Clickee") , fliSUBACCOUNTmODE_OWNERcONFIRMED | fliSUBACCOUNTmODE_OWNEDbYdIRECTORYoRhELLO | fliSUBACCOUNTmODE_RELAYrEPLYeNDScONVERSATION ) ;
@@ -1075,7 +1075,7 @@ DONEdRIVENsERVER( tmcSmtpF )
                                                         //                                ZE( countT , idAcc ) ;
                                                         //                            {
                                                         //                            while( *pStkIdAcc )
-                                                        //                            etThread.strMakeF( tinP , psttForm , 0 , TOCK ) ; ___( psttForm ) ;
+                                                        //                            etThread.strMakeF( tinP , LF , psttForm , 0 , TOCK ) ; ___( psttForm ) ;
                                                         //                            
                                                         //                            strokeS* psttCRLF = tcr ;
                                                         //                            TN( tcr    , "\r\n" ) ;
@@ -1477,9 +1477,9 @@ DONEdRIVENsERVER( tmcSmtpF )
                             const countT costa = TOCK * 0x10 ;
                             ZE( osTextT* , posti ) ;
     
-                            tinP.pEtScratch->strMakeF( tinP , psttBodyWothTock , 0 , TOCK ) ; ___( psttBodyWothTock ) ;
-                            tinP.pEtScratch->strMakeF( tinP , psttSoixlOld , 0 , TOCK ) ; ___( psttSoixlOld ) ;
-                            tinP.pEtScratch->strMakeF( tinP , psttHeader , 0 , TOCK ) ; ___( psttHeader ) ;
+                            tinP.pEtScratch->strMakeF( tinP , LF , psttBodyWothTock , 0 , TOCK ) ; ___( psttBodyWothTock ) ;
+                            tinP.pEtScratch->strMakeF( tinP , LF , psttSoixlOld , 0 , TOCK ) ; ___( psttSoixlOld ) ;
+                            tinP.pEtScratch->strMakeF( tinP , LF , psttHeader , 0 , TOCK ) ; ___( psttHeader ) ;
     
                             // CAPACITY CONSTRAINT: LINE MUST BE LESS THAN 01 TOCK; NO LIMIT ON NUMBER OF LINES
                             // APPROACH
@@ -1664,7 +1664,7 @@ DONEdRIVENsERVER( tmcSmtpF )
                             TELL( "parsing an ideafarm.com mail box" ) ;
 
                             //}
-                            //    tinP.pEtScratch->strMakeF( tinP , psttTo , T(ifcEMAIL_HELLO) ) ; ___( psttTo ) ;
+                            //    tinP.pEtScratch->strMakeF( tinP , LF , psttTo , T(ifcEMAIL_HELLO) ) ; ___( psttTo ) ;
                             //    tinP.pEtScratch->delF( tinP , psttTo ) ;
                             //{
                             //if( !tinP.pEtScratch->strCompareF( tinP , psttTo , T("hello@ideafarm.com") ) )
@@ -2024,7 +2024,7 @@ voidT logSmtpF( tinS& tinP , etherC& etThread , textC& tP , const countT idAccou
         tKey = tValue = tNull ;
         swsKeyValuesP << psttValue ; psttValue = 0 ;
         psttzKeyP = tKey ;
-        etherP.strMakeF( tinP , psttValue , tValue ) ; ___( psttValue ) ;
+        etherP.strMakeF( tinP , LF , psttValue , tValue ) ; ___( psttValue ) ;
         ZE( strokeS* , psttValue ) ;
     {
     if( tKey.csF( tinP ) )
@@ -2059,7 +2059,7 @@ voidT logSmtpF( tinS& tinP , etherC& etThread , textC& tP , const countT idAccou
                 tKey = tValue = tNull ;
                 swsKeyValuesP << psttValue ; psttValue = 0 ;
                 psttzKeyP = tKey ;
-                etherP.strMakeF( tinP , psttValue , tValue ) ; ___( psttValue ) ;
+                etherP.strMakeF( tinP , LF , psttValue , tValue ) ; ___( psttValue ) ;
                 ZE( strokeS* , psttValue ) ;
             {
             if( tKey.csF( tinP ) )
@@ -2108,7 +2108,7 @@ voidT parseHeaderF( tinS& tinP , etherC& etherP , flagsT& flErrorP , switchStack
     //else { LOGrAW5( "bValidPenpalEmailF debug [bOkPenpalExactOr,bOkRelay]: " , bOkPenpalExactOr , " " , bOkRelay , "\r\n" ) ; }
     }
         //LOGrAW( T("bValidPenpalEmailF debug (outgoing from relay to penpal) [psttOutToPenpalP]: \"")+T(psttOutToPenpalP)+T("\"\r\n") ) ;
-        etThread.strMakeF( tinP , psttOutToPenpalP , tPenpalToList ) ; ___( psttOutToPenpalP ) ;
+        etThread.strMakeF( tinP , LF , psttOutToPenpalP , tPenpalToList ) ; ___( psttOutToPenpalP ) ;
     {
     if( !POOP && tPenpalToList.csF( tinP ) && !bOkPenpalExactOr && bOkRelay )
     //LOGrAW3( "bValidPenpalEmailF debug [tPenpalToList.csF(tinP)]: " , tPenpalToList.csF( tinP ) , "\r\n" ) ;

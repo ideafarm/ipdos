@@ -521,7 +521,7 @@ REST
                                                 etThread.delF( tinP , psttRelayServer ) ;
                                                 }
                                                     etThread.delF( tinP , psttMxName ) ;
-                                                    else                                                                                                                               { tinP.pEtScratch->strMakeF(     tinP , psttServer , psttRelayServer                   ) ; ___( psttServer ) ; }
+                                                    else                                                                                                                               { tinP.pEtScratch->strMakeF(     tinP , LF , psttServer , psttRelayServer                   ) ; ___( psttServer ) ; }
                                                     if( !psttRelayServer || !psttRelayServer->idAdam || ( psttMxExclude && !tinP.pEtScratch->strCompareF( tinP , psttMxExclude , psttMxName ) ) ) { tinP.pEtScratch->dnsNicNamesF( tinP , psttServer , psttMxName , ifcIDtYPEdNSqUERY_MX ) ; ___( psttServer ) ; }
             
                                                     tinP.pEtScratch->strWordF( tinP , psttMxName , psttr , sttq , strokeS('@') , -1 ) ; ___( psttMxName ) ;
@@ -538,8 +538,8 @@ REST
                                                     //    etThread.delF( tinP , pstt1l ) ;
                                                     //    }
                                                     //        else break ;
-                                                    //        else if( !psttMxExclude   ) { tinP.pEtScratch->strMakeF( tinP , psttMxExclude   , tIfoName ) ; ___( psttMxExclude   ) ; }
-                                                    //             if( !psttRelayServer ) { tinP.pEtScratch->strMakeF( tinP , psttRelayServer , tIfoName ) ; ___( psttRelayServer ) ; }
+                                                    //        else if( !psttMxExclude   ) { tinP.pEtScratch->strMakeF( tinP , LF , psttMxExclude   , tIfoName ) ; ___( psttMxExclude   ) ; }
+                                                    //             if( !psttRelayServer ) { tinP.pEtScratch->strMakeF( tinP , LF , psttRelayServer , tIfoName ) ; ___( psttRelayServer ) ; }
                                                     //    {
                                                     //    FORsTRINGSiN1( pstt1l )
                                                     //    tinP.pEtScratch->strWordsOldF( tinP , pstt1l , psttSetting , sttq , T("\r\n") ) ; ___( pstt1l ) ;
@@ -550,7 +550,7 @@ REST
                                                     //tinP.pEtScratch->boxGetShadow::20141115@1937::MIGRATE:TO:USE:SETTINGS.BIT.TREE::SettingF( tinP , psttSetting , T("///d/ideafarm.home.")+TF1(etherC::ifc_idHomeIdisk_IF())+T(".setting.keyValue.smtprelay") ) ; ___( psttSetting ) ;
                                                     //U:: 20190728@1932:  REWRITE TO USE A SETTING RATHER THAN HARDCODE
 
-                                                    tinP.pEtScratch->strMakeF( tinP , psttRelayServer , psttHost ) ; ___( psttRelayServer ) ;
+                                                    tinP.pEtScratch->strMakeF( tinP , LF , psttRelayServer , psttHost ) ; ___( psttRelayServer ) ;
 
                                                     ZE( strokeS* , psttSetting ) ;
                                                 {
@@ -645,7 +645,7 @@ REST
                                 tinP.pEtScratch->strFuseF( tinP , psttFrToCc , T("<") ) ;
                                 if( csttName ) tinP.pEtScratch->strFuseF( tinP , psttFrToCc , T("\"")+tName+T("\" ") ) ;
                                 tinP.pEtScratch->strFuseF( tinP , psttFrToCc , T("From: ") ) ;
-                                tinP.pEtScratch->strMakeF( tinP , psttFrToCc , 0 , cstta ) ; ___( psttFrToCc ) ;
+                                tinP.pEtScratch->strMakeF( tinP , LF , psttFrToCc , 0 , cstta ) ; ___( psttFrToCc ) ;
             
                                 const countT cstta = csttFrToCc + cFrToCcLines * 0x10 + csttName ; //0x10 IS MORE THAN NEEDED (0xa)
             
@@ -658,7 +658,7 @@ REST
                             textC* pptFrToCc[] = { &tFrToCcOutgoing , &tFrToCcIncoming } ;
 
                             //}
-                            //    tinP.pEtScratch->strMakeF( tinP , psttFrom , T("hello@ideafarm.com") ) ; ___( psttFrom ) ;
+                            //    tinP.pEtScratch->strMakeF( tinP , LF , psttFrom , T("hello@ideafarm.com") ) ; ___( psttFrom ) ;
                             //    tinP.pEtScratch->delF( tinP , psttFrom ) ;
                             //{
                             //if( !tinP.pEtScratch->strCompareF( tinP , psttFrom , T(ifcEMAIL_HELLO) ) )
@@ -847,10 +847,10 @@ REST
                         }
                             }
                                 break ;
-                                etThread.strMakeF( tinP , psttProtocolName , psttc1 ) ; ___( psttProtocolName ) ;
+                                etThread.strMakeF( tinP , LF , psttProtocolName , psttc1 ) ; ___( psttProtocolName ) ;
                             {
                             else
-                            if( !psttHost ) { etThread.strMakeF( tinP , psttHost , psttc1 ) ; ___( psttHost ) ; }
+                            if( !psttHost ) { etThread.strMakeF( tinP , LF , psttHost , psttc1 ) ; ___( psttHost ) ; }
                         {
                         FORsTRINGSiN1( pstt1w )
                         etThread.delF( tinP , psttHost ) ;
@@ -1226,7 +1226,7 @@ TODO
     else if( !etherP.diskFileExistsF( tinP , psttFileBodyP ) )
     }
         }
-            etherP.strMakeF( tinP , psttP , tBody ) ; ___( psttP ) ;
+            etherP.strMakeF( tinP , LF , psttP , tBody ) ; ___( psttP ) ;
             etherP.delF( tinP , psttb ) ;
             TN( tBody , "" ) ; tBody = T(psttb) ;
             etherP.strSubstringF( tinP , psttb , idf , idl , psttFileBodyP ) ; ___( psttb ) ;

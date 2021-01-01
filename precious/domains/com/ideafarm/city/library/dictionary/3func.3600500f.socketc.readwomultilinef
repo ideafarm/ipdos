@@ -22,7 +22,7 @@
     
         if( idleTimeAllowedRead ) FRESHtIMEaTOMIC( *pEther , timeLathRead.time1 , timeLathRead.time2 )
     
-        if( !psttP ) { pEther->strMakeF( tinP , psttP , T("") ) ; ___( psttP ) ; }
+        if( !psttP ) { pEther->strMakeF( tinP , LF , psttP , T("") ) ; ___( psttP ) ; }
     
         pEther->delF( tinP , psttDelimiter ) ;    
         }
@@ -44,8 +44,8 @@
         TN( tCRLF , "\r\n" ) ;
     
         if( !csttEstimateP ) csttEstimateP = 0x100 ;
-        else                 { pEther->strMakeF( tinP , psttDelimiter , T("")          ) ; ___( psttDelimiter ) ; }
-        if( psttDelimiterP ) { pEther->strMakeF( tinP , psttDelimiter , psttDelimiterP ) ; ___( psttDelimiter ) ; }
+        else                 { pEther->strMakeF( tinP , LF , psttDelimiter , T("")          ) ; ___( psttDelimiter ) ; }
+        if( psttDelimiterP ) { pEther->strMakeF( tinP , LF , psttDelimiter , psttDelimiterP ) ; ___( psttDelimiter ) ; }
         ZE( strokeS* , psttDelimiter ) ;
         _IO_
         bRead.grabF( tinP , TAG( TAGiDnULL ) ) ;

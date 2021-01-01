@@ -11,11 +11,11 @@
     return *this ;
 
     }
-        else { ether.strMakeF( tinP , psttOldComment , datum.psttOldComment ) ; ___( psttOldComment ) ; }
+        else { ether.strMakeF( tinP , LF , psttOldComment , datum.psttOldComment ) ; ___( psttOldComment ) ; }
         }
             }
                 ether.delF( tinP , psttd ) ;
-                ether.strMakeF( tinP , psttOldComment , T(psttd)+T("\r\n")+T(datum.psttOldComment) ) ; ___( psttOldComment ) ;
+                ether.strMakeF( tinP , LF , psttOldComment , T(psttd)+T("\r\n")+T(datum.psttOldComment) ) ; ___( psttOldComment ) ;
                 strokeS* psttd = psttOldComment ; psttOldComment = 0 ;
             {
             if( ether.strCompareF( tinP , psttOldComment , datum.psttOldComment ) )
@@ -26,7 +26,7 @@
 
     if( !idAdam ) idAdam = datum.idAdam ;
     if( !idHome ) idHome = datum.idHome ;
-    if( !psttUrl ) { ether.strMakeF( tinP , psttUrl , datum.psttUrl ) ; ___( psttUrl ) ; }
+    if( !psttUrl ) { ether.strMakeF( tinP , LF , psttUrl , datum.psttUrl ) ; ___( psttUrl ) ; }
     const datumPeanutC& datum = *(datumPeanutC*)&plateP ;
     TINSL
 {
@@ -35,7 +35,7 @@ plateC& datumPeanutC::operator +=( plateC& plateP )
 }
     return psttRpt ;
 
-    ether.strMakeF( tinP , psttRpt , TF2(idAdam,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T(": ")+T(psttOldComment) ) ; ___( psttRpt ) ;
+    ether.strMakeF( tinP , LF , psttRpt , TF2(idAdam,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T(": ")+T(psttOldComment) ) ; ___( psttRpt ) ;
 
     ether.delF( tinP , psttRpt ) ; //U::RECALC ONLY IF STALE
     TINSL
@@ -137,13 +137,13 @@ sCountT datumPeanutC::operator -( const plateC& plateP ) const
     idAdam = datum.idAdam ;
     idHome = datum.idHome ;
 
-    if( datum.psttOldComment ) { ether.strMakeF( tinP , psttOldComment , datum.psttOldComment ) ; ___( psttOldComment ) ; }
+    if( datum.psttOldComment ) { ether.strMakeF( tinP , LF , psttOldComment , datum.psttOldComment ) ; ___( psttOldComment ) ; }
     ether.delF( tinP , psttOldComment ) ;
 
-    if( datum.psttUrl ) { ether.strMakeF( tinP , psttUrl , datum.psttUrl ) ; ___( psttUrl ) ; }
+    if( datum.psttUrl ) { ether.strMakeF( tinP , LF , psttUrl , datum.psttUrl ) ; ___( psttUrl ) ; }
     ether.delF( tinP , psttUrl ) ;
 
-    if( datum.psttRpt ) { ether.strMakeF( tinP , psttRpt , datum.psttRpt ) ; ___( psttRpt ) ; }
+    if( datum.psttRpt ) { ether.strMakeF( tinP , LF , psttRpt , datum.psttRpt ) ; ___( psttRpt ) ; }
     ether.delF( tinP , psttRpt ) ;
 
     datumPeanutC& datum = *(datumPeanutC*)&plateP ;
