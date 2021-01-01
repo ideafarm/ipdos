@@ -1398,7 +1398,7 @@ see the documentation for NEWdELtYPEeTHER
             if( !*this )                                                                \
             {                                                                           \
                 countT cba = cP * NDsIZEoF( typeP ) ;                                   \
-                poolNewF( tinP , idLineP , idiFileP , *(byteT**)&pP , cba ) ; /*___( pP ) ; CALLER MUST TAG*/ \
+                poolNewF( tinP , idLineP , idiFileP , *(byteT**)&pP , cba ) ; ___LF( pP , idLineP , idiFileP ) ; \
                 POSTPONEtEST( pP ) ;                                                    \
                 if( pP )                                                                \
                 {                                                                       \
