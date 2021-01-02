@@ -19,16 +19,6 @@
             byteT* _pbx = (byteT*)(pbP) ;                                                                                                                           \
             if( _pbx && ( (byteT*)_pbx < processGlobal0S::_processGlobal0I_IF().pbHeap || (byteT*)_pbx >= processGlobal0S::_processGlobal0I_IF().pbHeapEnd ) )      \
             {                                                                                                                                                       \
-                for( countT offr = 0 ; offr < sizeof tinP.ppbNewUntagged / sizeof tinP.ppbNewUntagged[ 0 ] ; offr ++ )                                              \
-                {                                                                                                                                                   \
-                    if( tinP.ppbNewUntagged[ offr ] == _pbx )                                                                                                       \
-                    {                                                                                                                                               \
-                        tinP.ppbNewUntagged[ offr ] = 0 ;                                                                                                           \
-                        tinP.pcLevelUntagged[ offr ] = 0 ;                                                                                                          \
-                        break ;                                                                                                                                     \
-                    }                                                                                                                                               \
-                }                                                                                                                                                   \
-                                                                                                                                                                    \
                 dropNoteS* pNote = PUSE.pDropNoteF( tinP , _pbx ) ;                                                                                                 \
                 if( pNote )                                                                                                                                         \
                 {                                                                                                                                                   \
@@ -44,23 +34,7 @@
 
 #else
 
-    #define ___LF(pbP,idLineP,idiFileP)                                                                                                                               \
-                                                                                                                                                                    \
-        {                                                                                                                                                           \
-            byteT* _pbx = (byteT*)(pbP) ;                                                                                                                           \
-            if( _pbx && (  (byteT*)_pbx < processGlobal0S::_processGlobal0I_IF().pbHeap || (byteT*)_pbx >= processGlobal0S::_processGlobal0I_IF().pbHeapEnd ) )     \
-            {                                                                                                                                                       \
-                for( countT offr = 0 ; offr < sizeof tinP.ppbNewUntagged / sizeof tinP.ppbNewUntagged[ 0 ] ; offr ++ )                                              \
-                {                                                                                                                                                   \
-                    if( tinP.ppbNewUntagged[ offr ] == _pbx )                                                                                                       \
-                    {                                                                                                                                               \
-                        tinP.ppbNewUntagged[ offr ] = 0 ;                                                                                                           \
-                        tinP.pcLevelUntagged[ offr ] = 0 ;                                                                                                          \
-                        break ;                                                                                                                                     \
-                    }                                                                                                                                               \
-                }                                                                                                                                                   \
-            }                                                                                                                                                       \
-        }
+    #define ___LF(pbP,idLineP,idiFileP)
 
 #endif
 
@@ -1322,7 +1296,6 @@ using the "new" "d elete" operators results in calling constructors and destruct
         _IO_                                                         \
         DROPnOTEdOESnOTwANTmE                                           \
         third.newF( tinP , LF , pP , cP ) ; /*___( pP ) ; */            \
-        POSTPONEtEST( pP ) ;                                            \
     }
 
 
@@ -1399,7 +1372,6 @@ see the documentation for NEWdELtYPEeTHER
             {                                                                           \
                 countT cba = cP * NDsIZEoF( typeP ) ;                                   \
                 poolNewF( tinP , idLineP , idiFileP , *(byteT**)&pP , cba ) ; ___LF( pP , idLineP , idiFileP ) ; \
-                POSTPONEtEST( pP ) ;                                                    \
                 if( pP )                                                                \
                 {                                                                       \
                     dropNoteS* pNote = PUSE.pDropNoteF( tinP , (byteT*)pP ) ;           \
@@ -1460,7 +1432,6 @@ see the documentation for NEWdELtYPEeTHER
             {                                                                           \
                 countT cba = cP * NDsIZEoF( typeP ) ;                                   \
                 poolNewF( tinP , idLineP , idiFileP , *(byteT**)&pP , cba ) ; /*___( pP ) ; CALLER MUST TAG*/ \
-                POSTPONEtEST( pP ) ;                                                    \
                 if( pP )                                                                \
                 {                                                                       \
                     countT idType = idTypeP ;                                           \
@@ -39098,71 +39069,6 @@ args
 //
 
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200426.fllistwalkchatter END
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200427.cmaxuntagged BEGIN
-
-
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-// Respecting the rights of other people is an important part of empowering one another.
-//
-
-/*
-*/
-/**/
-
-/*1*//*CmAXuNTAGGED*//*1*/
-
-//4 IS TOO SMALL
-
-//20131225@1406: 8 IS TOO SMALL FOR listC STUFF
-
-#define CmAXuNTAGGED ( 0x10 )
-
-
-//
-// Respecting the rights of other people is an important part of empowering one another.
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200427.cmaxuntagged END
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200428.alltagged BEGIN
-
-
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-// Respecting the rights of other people is an important part of empowering one another.
-//
-
-/*
-*/
-/**/
-
-/*1*//*ALLtAGGED*//*1*/
-
-#define ALLtAGGED                                                                                                                       \
-                                                                                                                                        \
-    {                                                                                                                                   \
-        for( countT offr = 0 ; !POOP && offr < sizeof tinP.ppbNewUntagged / sizeof tinP.ppbNewUntagged[ 0 ] ; offr ++ )                 \
-        {                                                                                                                               \
-            __( tinP.ppbNewUntagged[ offr ] ) ;                                                                                         \
-        }                                                                                                                               \
-    }
-
-
-//
-// Respecting the rights of other people is an important part of empowering one another.
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200428.alltagged END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200429.ostextc9 BEGIN
 
 
@@ -39221,7 +39127,6 @@ args
 #define flTHREADmODE3_EXCEPTIONrEPORTINGiNpROGRESS              0xe00008c8
 #define flTHREADmODE3_ALLOWwRITEABLEpOINTERgET                  0xe00010c8
 #define flTHREADmODE3_INoUTfRAMErEGISTERcALLnEST                0xe00020c8
-#define flTHREADmODE3_DOnOTvERIFYpOOLdROPtAGGING                0xe00040c8
 #define flTHREADmODE3_DOnOTmAKEsEXiNpOOL                        0xe00080c8
 #define flTHREADmODE3_DOnOTrEGISTERpAGEc                        0xe00100c8
 #define flTHREADmODE3_DEBUG1                                    0xe00200c8
@@ -40035,41 +39940,6 @@ this can be used to zombie new and delete when tinP is not available, e.g. in ro
 //
 
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200443.lograw5f END
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200444.postponetest BEGIN
-
-
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-// Respecting the rights of other people is an important part of empowering one another.
-//
-
-/*
-*/
-/*1*//*POSTPONEtEST(pP)*//*1*/
-/**/
-
-#define POSTPONEtEST(pP)                                                                                                        \
-                                                                                                                                \
-    if( pP ) for( countT offi = 0 ; offi < sizeof tinP.ppbNewUntagged / sizeof tinP.ppbNewUntagged[ 0 ] ; offi ++ )             \
-    {                                                                                                                           \
-        if( (voidT*)tinP.ppbNewUntagged[ offi ] == (voidT*)(pP) )                                                               \
-        {                                                                                                                       \
-            tinP.pcLevelUntagged[ offi ] ++ ;                                                                                   \
-            break ;                                                                                                             \
-        }                                                                                                                       \
-    }
-
-
-//
-// Respecting the rights of other people is an important part of empowering one another.
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200444.postponetest END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200445.nextstring BEGIN
 
 
@@ -40148,16 +40018,6 @@ this can be used to zombie new and delete when tinP is not available, e.g. in ro
             byteT* _pbx = (byteT*)(pbP) ;                                                                                                   \
             if( _pbx )                                                                                                                      \
             {                                                                                                                               \
-                for( countT offr = 0 ; offr < sizeof tinP.ppbNewUntagged / sizeof tinP.ppbNewUntagged[ 0 ] ; offr ++ )                      \
-                {                                                                                                                           \
-                    if( tinP.ppbNewUntagged[ offr ] == _pbx )                                                                               \
-                    {                                                                                                                       \
-                        tinP.ppbNewUntagged[ offr ] = 0 ;                                                                                   \
-                        tinP.pcLevelUntagged[ offr ] = 0 ;                                                                                  \
-                        break ;                                                                                                             \
-                    }                                                                                                                       \
-                }                                                                                                                           \
-                                                                                                                                            \
                 dropNoteS* pNote = PUSE.pDropNoteF( tinP , _pbx ) ;                                                                         \
                 if( pNote )                                                                                                                 \
                 {                                                                                                                           \
@@ -40173,23 +40033,7 @@ this can be used to zombie new and delete when tinP is not available, e.g. in ro
 
 #else
 
-    #define ___CT(pbP)                                                                                                                      \
-                                                                                                                                            \
-        {                                                                                                                                   \
-            byteT* _pbx = (byteT*)(pbP) ;                                                                                                   \
-            if( _pbx )                                                                                                                      \
-            {                                                                                                                               \
-                for( countT offr = 0 ; offr < sizeof tinP.ppbNewUntagged / sizeof tinP.ppbNewUntagged[ 0 ] ; offr ++ )                      \
-                {                                                                                                                           \
-                    if( tinP.ppbNewUntagged[ offr ] == _pbx )                                                                               \
-                    {                                                                                                                       \
-                        tinP.ppbNewUntagged[ offr ] = 0 ;                                                                                   \
-                        tinP.pcLevelUntagged[ offr ] = 0 ;                                                                                  \
-                        break ;                                                                                                             \
-                    }                                                                                                                       \
-                }                                                                                                                           \
-            }                                                                                                                               \
-        }
+    #define ___CT(pbP)
 
 #endif
 
@@ -45513,3 +45357,98 @@ this value imposes a capacity limit on the amount of directory nesting that clou
 //
 
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004eb.jarg END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004ec.jkey BEGIN
+
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+/*
+jotC::jotC requires the use of JaRG1-8, which contains the variable name of wo of the above variables
+this variable must exist for the life of the jotC instance
+else the reference to it that is kept within the jotC instance will become a zombie reference
+*/
+/**/
+/*1*//*JkEY1-8*//*1*/
+
+//CS:CODEsYNC: 110004ea 110004eb 110004ec 110004ed 110004ee
+//SYNC ERRORS CAN CAUSE ARRAY INDEX OUT OF BOUNDS
+
+#define JkEY1  ZE( countT , _idSlotJotRegistry1  ) ;
+#define JkEY2  ZE( countT , _idSlotJotRegistry2  ) ;
+#define JkEY3  ZE( countT , _idSlotJotRegistry3  ) ;
+#define JkEY4  ZE( countT , _idSlotJotRegistry4  ) ;
+#define JkEY5  ZE( countT , _idSlotJotRegistry5  ) ;
+#define JkEY6  ZE( countT , _idSlotJotRegistry6  ) ;
+#define JkEY7  ZE( countT , _idSlotJotRegistry7  ) ;
+#define JkEY8  ZE( countT , _idSlotJotRegistry8  ) ;
+#define JkEY9  ZE( countT , _idSlotJotRegistry9  ) ;
+#define JkEYa  ZE( countT , _idSlotJotRegistrya  ) ;
+#define JkEYb  ZE( countT , _idSlotJotRegistryb  ) ;
+#define JkEYc  ZE( countT , _idSlotJotRegistryc  ) ;
+#define JkEYd  ZE( countT , _idSlotJotRegistryd  ) ;
+#define JkEYe  ZE( countT , _idSlotJotRegistrye  ) ;
+#define JkEYf  ZE( countT , _idSlotJotRegistryf  ) ;
+#define JkEY01 ZE( countT , _idSlotJotRegistry01 ) ;
+#define JkEY11 ZE( countT , _idSlotJotRegistry11 ) ;
+#define JkEY21 ZE( countT , _idSlotJotRegistry21 ) ;
+#define JkEY31 ZE( countT , _idSlotJotRegistry31 ) ;
+#define JkEY41 ZE( countT , _idSlotJotRegistry41 ) ;
+#define JkEY51 ZE( countT , _idSlotJotRegistry51 ) ;
+#define JkEY61 ZE( countT , _idSlotJotRegistry61 ) ;
+#define JkEY71 ZE( countT , _idSlotJotRegistry71 ) ;
+#define JkEY81 ZE( countT , _idSlotJotRegistry81 ) ;
+#define JkEY91 ZE( countT , _idSlotJotRegistry91 ) ;
+#define JkEYa1 ZE( countT , _idSlotJotRegistrya1 ) ;
+#define JkEYb1 ZE( countT , _idSlotJotRegistryb1 ) ;
+#define JkEYc1 ZE( countT , _idSlotJotRegistryc1 ) ;
+#define JkEYd1 ZE( countT , _idSlotJotRegistryd1 ) ;
+#define JkEYe1 ZE( countT , _idSlotJotRegistrye1 ) ;
+#define JkEYf1 ZE( countT , _idSlotJotRegistryf1 ) ;
+#define JkEY02 ZE( countT , _idSlotJotRegistry02 ) ;
+#define JkEY12 ZE( countT , _idSlotJotRegistry12 ) ;
+#define JkEY22 ZE( countT , _idSlotJotRegistry22 ) ;
+#define JkEY32 ZE( countT , _idSlotJotRegistry32 ) ;
+#define JkEY42 ZE( countT , _idSlotJotRegistry42 ) ;
+#define JkEY52 ZE( countT , _idSlotJotRegistry52 ) ;
+#define JkEY62 ZE( countT , _idSlotJotRegistry62 ) ;
+#define JkEY72 ZE( countT , _idSlotJotRegistry72 ) ;
+#define JkEY82 ZE( countT , _idSlotJotRegistry82 ) ;
+#define JkEY92 ZE( countT , _idSlotJotRegistry92 ) ;
+#define JkEYa2 ZE( countT , _idSlotJotRegistrya2 ) ;
+#define JkEYb2 ZE( countT , _idSlotJotRegistryb2 ) ;
+#define JkEYc2 ZE( countT , _idSlotJotRegistryc2 ) ;
+#define JkEYd2 ZE( countT , _idSlotJotRegistryd2 ) ;
+#define JkEYe2 ZE( countT , _idSlotJotRegistrye2 ) ;
+#define JkEYf2 ZE( countT , _idSlotJotRegistryf2 ) ;
+#define JkEY03 ZE( countT , _idSlotJotRegistry03 ) ;
+#define JkEY13 ZE( countT , _idSlotJotRegistry13 ) ;
+#define JkEY23 ZE( countT , _idSlotJotRegistry23 ) ;
+#define JkEY33 ZE( countT , _idSlotJotRegistry33 ) ;
+#define JkEY43 ZE( countT , _idSlotJotRegistry43 ) ;
+#define JkEY53 ZE( countT , _idSlotJotRegistry53 ) ;
+#define JkEY63 ZE( countT , _idSlotJotRegistry63 ) ;
+#define JkEY73 ZE( countT , _idSlotJotRegistry73 ) ;
+#define JkEY83 ZE( countT , _idSlotJotRegistry83 ) ;
+#define JkEY93 ZE( countT , _idSlotJotRegistry93 ) ;
+#define JkEYa3 ZE( countT , _idSlotJotRegistrya3 ) ;
+#define JkEYb3 ZE( countT , _idSlotJotRegistryb3 ) ;
+#define JkEYc3 ZE( countT , _idSlotJotRegistryc3 ) ;
+#define JkEYd3 ZE( countT , _idSlotJotRegistryd3 ) ;
+#define JkEYe3 ZE( countT , _idSlotJotRegistrye3 ) ;
+#define JkEYf3 ZE( countT , _idSlotJotRegistryf3 ) ;
+#define JkEY04 ZE( countT , _idSlotJotRegistry04 ) ;
+
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004ec.jkey END

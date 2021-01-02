@@ -1,98 +1,3 @@
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004ec.jkey BEGIN
-
-
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-// Respecting the rights of other people is an important part of empowering one another.
-//
-
-/*
-jotC::jotC requires the use of JaRG1-8, which contains the variable name of wo of the above variables
-this variable must exist for the life of the jotC instance
-else the reference to it that is kept within the jotC instance will become a zombie reference
-*/
-/**/
-/*1*//*JkEY1-8*//*1*/
-
-//CS:CODEsYNC: 110004ea 110004eb 110004ec 110004ed 110004ee
-//SYNC ERRORS CAN CAUSE ARRAY INDEX OUT OF BOUNDS
-
-#define JkEY1  ZE( countT , _idSlotJotRegistry1  ) ;
-#define JkEY2  ZE( countT , _idSlotJotRegistry2  ) ;
-#define JkEY3  ZE( countT , _idSlotJotRegistry3  ) ;
-#define JkEY4  ZE( countT , _idSlotJotRegistry4  ) ;
-#define JkEY5  ZE( countT , _idSlotJotRegistry5  ) ;
-#define JkEY6  ZE( countT , _idSlotJotRegistry6  ) ;
-#define JkEY7  ZE( countT , _idSlotJotRegistry7  ) ;
-#define JkEY8  ZE( countT , _idSlotJotRegistry8  ) ;
-#define JkEY9  ZE( countT , _idSlotJotRegistry9  ) ;
-#define JkEYa  ZE( countT , _idSlotJotRegistrya  ) ;
-#define JkEYb  ZE( countT , _idSlotJotRegistryb  ) ;
-#define JkEYc  ZE( countT , _idSlotJotRegistryc  ) ;
-#define JkEYd  ZE( countT , _idSlotJotRegistryd  ) ;
-#define JkEYe  ZE( countT , _idSlotJotRegistrye  ) ;
-#define JkEYf  ZE( countT , _idSlotJotRegistryf  ) ;
-#define JkEY01 ZE( countT , _idSlotJotRegistry01 ) ;
-#define JkEY11 ZE( countT , _idSlotJotRegistry11 ) ;
-#define JkEY21 ZE( countT , _idSlotJotRegistry21 ) ;
-#define JkEY31 ZE( countT , _idSlotJotRegistry31 ) ;
-#define JkEY41 ZE( countT , _idSlotJotRegistry41 ) ;
-#define JkEY51 ZE( countT , _idSlotJotRegistry51 ) ;
-#define JkEY61 ZE( countT , _idSlotJotRegistry61 ) ;
-#define JkEY71 ZE( countT , _idSlotJotRegistry71 ) ;
-#define JkEY81 ZE( countT , _idSlotJotRegistry81 ) ;
-#define JkEY91 ZE( countT , _idSlotJotRegistry91 ) ;
-#define JkEYa1 ZE( countT , _idSlotJotRegistrya1 ) ;
-#define JkEYb1 ZE( countT , _idSlotJotRegistryb1 ) ;
-#define JkEYc1 ZE( countT , _idSlotJotRegistryc1 ) ;
-#define JkEYd1 ZE( countT , _idSlotJotRegistryd1 ) ;
-#define JkEYe1 ZE( countT , _idSlotJotRegistrye1 ) ;
-#define JkEYf1 ZE( countT , _idSlotJotRegistryf1 ) ;
-#define JkEY02 ZE( countT , _idSlotJotRegistry02 ) ;
-#define JkEY12 ZE( countT , _idSlotJotRegistry12 ) ;
-#define JkEY22 ZE( countT , _idSlotJotRegistry22 ) ;
-#define JkEY32 ZE( countT , _idSlotJotRegistry32 ) ;
-#define JkEY42 ZE( countT , _idSlotJotRegistry42 ) ;
-#define JkEY52 ZE( countT , _idSlotJotRegistry52 ) ;
-#define JkEY62 ZE( countT , _idSlotJotRegistry62 ) ;
-#define JkEY72 ZE( countT , _idSlotJotRegistry72 ) ;
-#define JkEY82 ZE( countT , _idSlotJotRegistry82 ) ;
-#define JkEY92 ZE( countT , _idSlotJotRegistry92 ) ;
-#define JkEYa2 ZE( countT , _idSlotJotRegistrya2 ) ;
-#define JkEYb2 ZE( countT , _idSlotJotRegistryb2 ) ;
-#define JkEYc2 ZE( countT , _idSlotJotRegistryc2 ) ;
-#define JkEYd2 ZE( countT , _idSlotJotRegistryd2 ) ;
-#define JkEYe2 ZE( countT , _idSlotJotRegistrye2 ) ;
-#define JkEYf2 ZE( countT , _idSlotJotRegistryf2 ) ;
-#define JkEY03 ZE( countT , _idSlotJotRegistry03 ) ;
-#define JkEY13 ZE( countT , _idSlotJotRegistry13 ) ;
-#define JkEY23 ZE( countT , _idSlotJotRegistry23 ) ;
-#define JkEY33 ZE( countT , _idSlotJotRegistry33 ) ;
-#define JkEY43 ZE( countT , _idSlotJotRegistry43 ) ;
-#define JkEY53 ZE( countT , _idSlotJotRegistry53 ) ;
-#define JkEY63 ZE( countT , _idSlotJotRegistry63 ) ;
-#define JkEY73 ZE( countT , _idSlotJotRegistry73 ) ;
-#define JkEY83 ZE( countT , _idSlotJotRegistry83 ) ;
-#define JkEY93 ZE( countT , _idSlotJotRegistry93 ) ;
-#define JkEYa3 ZE( countT , _idSlotJotRegistrya3 ) ;
-#define JkEYb3 ZE( countT , _idSlotJotRegistryb3 ) ;
-#define JkEYc3 ZE( countT , _idSlotJotRegistryc3 ) ;
-#define JkEYd3 ZE( countT , _idSlotJotRegistryd3 ) ;
-#define JkEYe3 ZE( countT , _idSlotJotRegistrye3 ) ;
-#define JkEYf3 ZE( countT , _idSlotJotRegistryf3 ) ;
-#define JkEY04 ZE( countT , _idSlotJotRegistry04 ) ;
-
-
-//
-// Respecting the rights of other people is an important part of empowering one another.
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004ec.jkey END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004ed.jref BEGIN
 
 
@@ -1812,7 +1717,7 @@ parameters
 #define IDcOMPUTER_IPDOSmASTERcRAFTWORKoLD1      IDcOMPUTER_WOiDEAFARMlAPTOP
 #define IDcOMPUTER_IPDOSmASTERcRAFTWORKoLD0      IDcOMPUTER_GOdADDYvps
 
-#define IDcOMPUTER_IPDOSmASTERcRAFTWORK IDcOMPUTER_FACTORY1
+#define IDcOMPUTER_IPDOSmASTERcRAFTWORK IDcOMPUTER_FACTORY2
 
 #define IDcOMPUTER_FACTORY1            0xbe29b623
 #define IDcOMPUTER_FACTORY2            0xe01a30fa
@@ -5156,7 +5061,6 @@ after i return, that countT object will contain 1
 #define flTHREADmODE4_INoUTfRAMEdOnOTcOLLECTaPPtELEMETRY                                0xe0000210
 #define flTHREADmODE4_INoUTfRAMEfORCEcOLLECTaPPtELEMETRY                                0xe0000410
 #define flTHREADmODE4_DOnOTfLUSHpENDINGaPPtELEMETRY                                     0xe0000810
-#define flTHREADmODE4_INoUTfRAMEaLLOWuNTAGGEDpOOLdROPS                                  0xe0001010
 /*3*/
 #define flTHREADmODE4_null    0xe0000010
 
@@ -5360,47 +5264,6 @@ after i return, that countT object will contain 1
 //
 
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200586.threadmode4restore0 END
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200587.BLAMMOiFnOTtAGGED BEGIN
-
-
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-// Respecting the rights of other people is an important part of empowering one another.
-//
-
-/*
-*/
-/**/
-/*1*//*BLAMMOiFnOTtAGGED(pbP)*//*1*/
-
-
-    #define BLAMMOiFnOTtAGGED(pbP)                                                                                                                                          \
-                                                                                                                                                                            \
-        {                                                                                                                                                                   \
-            byteT* _pbx = (byteT*)(pbP) ;                                                                                                                                   \
-            if( _pbx && (  (byteT*)_pbx < processGlobal0S::_processGlobal0I_IF().pbHeap || (byteT*)_pbx >= processGlobal0S::_processGlobal0I_IF().pbHeapEnd ) )             \
-            {                                                                                                                                                               \
-                for( countT offr = 0 ; offr < sizeof tinP.ppbNewUntagged / sizeof tinP.ppbNewUntagged[ 0 ] ; offr ++ )                                                      \
-                {                                                                                                                                                           \
-                    if( tinP.ppbNewUntagged[ offr ] == _pbx )                                                                                                               \
-                    {                                                                                                                                                       \
-                        BLAMMO ;                                                                                                                                            \
-                    }                                                                                                                                                       \
-                }                                                                                                                                                           \
-            }                                                                                                                                                               \
-        }
-
-
-//
-// Respecting the rights of other people is an important part of empowering one another.
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200587.BLAMMOiFnOTtAGGED END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200588.conoutcallnestsafe BEGIN
 
 
@@ -27604,8 +27467,6 @@ it is illegal to modify any member other than pc Utility in the definition of an
  book0C*                 pBk0TelemetryAppScratch ;
  book0C*                 pBk0TraceScratch ;
  tinArgS                 ta ;
- const byteT*            ppbNewUntagged[ CmAXuNTAGGED ] ;
- countT                  pcLevelUntagged[ CmAXuNTAGGED ] ;
  cleanC*                 pClean ;
  const byteT*            ppbGrabitRecurse[ CmAXgRABITrECURSEiNtINs ] ;
  countT                  pcGrabitOsTid[    CmAXgRABITrECURSEiNtINs ] ;

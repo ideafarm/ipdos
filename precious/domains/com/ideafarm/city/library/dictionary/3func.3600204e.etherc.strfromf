@@ -8,7 +8,6 @@
 
 
 }
-    POSTPONEtEST( psttP ) ; // CALLER MUST TAG
     }
         if(    F(flagsFormatP) & flFORMAT_DIGITnAMES     ) { ___( psttP ) ; strReplaceF( tinP , psttP , 0 , ifcIDtYPEsTRrEPLACE_DIGITStOdIGITnAMES , csttExtraP ) ; }
         if( !( F(flagsFormatP) & flFORMAT_FOREIGN      ) ) { ___( psttP ) ; strReverseF( tinP , psttP                                                           ) ; }
@@ -153,7 +152,6 @@
     {
     else
     }
-        POSTPONEtEST( psttP ) ;_WQ
         strMakeF( tinP , LF , psttP , TF4(v4,flags,0,0xa)+tDot+TF4(v3,flags,0,0xa)+tDot+TF4(v2,flags,0,0xa)+tDot+TF4(v1,flags,0,0xa) ) ; // CALLER MUST TAG ___( psttP ) ;_WQ
         flagsT flags = flFORMAT_UNSIGNED | flFORMAT_FOREIGN | flFORMAT_NObASE ;_WQ
         TN( tDot , "." ) ;_WQ
@@ -166,14 +164,12 @@
     else if( F(flagsFormatP) & flFORMAT_DOTTEDdECIMAL )
     }
         strFuseF( tinP , psttP , tSuffix ) ; ___( psttP ) ;_WQ
-        POSTPONEtEST( psttP ) ;_WQ
         strFromF( tinP , psttP , valueP , flFORMAT_UNSIGNED , 0 , 0 , tSuffix.csF( tinP ) + csttExtraP ) ; // CALLER MUST TAG ___( psttP ) ;_WQ
         TN( tSuffix , "@" "ideafarm.com" ) ;_WQ
     {
     else if( F(flagsFormatP) & flFORMAT_CITIZENeMAIL )
     }
         strFuseF( tinP , psttP , tSuffix ) ; ___( psttP ) ;_WQ
-        POSTPONEtEST( psttP ) ;_WQ
         strFromF( tinP , psttP , valueP , flFORMAT_DIGITnAMES | flFORMAT_UNSIGNED , 0 , 0 , tSuffix.csF( tinP ) + csttExtraP ) ; // CALLER MUST TAG ___( psttP ) ;_WQ
         TN( tSuffix , "'O Ideafarm" ) ;_WQ
     {
