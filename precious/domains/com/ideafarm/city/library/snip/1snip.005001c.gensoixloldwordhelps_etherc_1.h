@@ -8666,21 +8666,23 @@
         "IdeaFarm (tm) SOIL (tm) - Sentient Object Interface Language\r\n"
         "\r\n"
         "Class: etherC\r\n"
-        "Author: \"strMakeF_pbRefC@4@37\"\r\n"
+        "Author: \"strMakeF_33pbRefC@4@37\"\r\n"
         "\r\n"
-        "Subject: Command word \"strMakeF_pbRefC@4@37\"\r\n"
+        "Subject: Command word \"strMakeF_33pbRefC@4@37\"\r\n"
         "\r\n"
         "\r\n"
         "Instructions:  Read this file.  It contains simple example code.  To\r\n"
         "manifest that code, drop this file into the Depository.  IOW, this file\r\n"
         "is also an executable SOIL (tm) program.\r\n"
         "\r\n"
-        "Each manifestation of \"strMakeF_pbRefC@4@37\" uses the current stack in this way:\r\n"
+        "Each manifestation of \"strMakeF_33pbRefC@4@37\" uses the current stack in this way:\r\n"
         "\r\n"
-        "    Pop  4:    flagsT           flagsP                          (defaults to flSTRmAKE_null)\r\n"
-        "    Pop  3:    countT           costExtraP                      (defaults to 0)\r\n"
-        "    Pop  2:    strokeS*         psttP\r\n"
-        "    Pop  1:    pbRefC*          prP\r\n"
+        "    Pop  6:    flagsT           flagsP                          (defaults to flSTRmAKE_null)\r\n"
+        "    Pop  5:    countT           costExtraP                      (defaults to 0)\r\n"
+        "    Pop  4:    strokeS*         psttP\r\n"
+        "    Pop  3:    pbRefC*          prP\r\n"
+        "    Pop  2:    countT           idiFileP\r\n"
+        "    Pop  1:    countT           idLineP\r\n"
         "\r\n"
         "    Push 1:    pbRefC*          prP\r\n"
         "    Push 2:    countT           noName\r\n"
@@ -8689,13 +8691,13 @@
         "the Depository:\r\n"
         "\r\n"
         "    . on space\r\n"
-        "    . \"Simple example code for \\\"strMakeF_pbRefC@4@37\\\" is not yet available.  Example code will eventually be presented for every word; this is a universal feature of all IdeaFarm (tm) software products and is enforced by the internal IdeaFarm (tm) development environment.\" POPUP\r\n"
+        "    . \"Simple example code for \\\"strMakeF_33pbRefC@4@37\\\" is not yet available.  Example code will eventually be presented for every word; this is a universal feature of all IdeaFarm (tm) software products and is enforced by the internal IdeaFarm (tm) development environment.\" POPUP\r\n"
         "    . off space\r\n"
 
     ;
 
     TN( tDoc , postDoc ) ;
-    TN( tNameSoixlOld , "strMakeF_pbRefC@4@37" ) ;
+    TN( tNameSoixlOld , "strMakeF_33pbRefC@4@37" ) ;
    _pSwSoixlOldApi->grabF( tinP , TAG( TAGiDnULL ) ) ;
    _psttLeverSoixlOldApi = tNameSoixlOld ;
    if( *_pSwSoixlOldApiDoc ) { BLAMMO ; }
@@ -8713,22 +8715,24 @@
         "IdeaFarm (tm) SOIL (tm) - Sentient Object Interface Language\r\n"
         "\r\n"
         "Class: etherC\r\n"
-        "Author: \"strMakeF_2@4@373\"\r\n"
+        "Author: \"strMakeF_332@4@373\"\r\n"
         "\r\n"
-        "Subject: Command word \"strMakeF_2@4@373\"\r\n"
+        "Subject: Command word \"strMakeF_332@4@373\"\r\n"
         "\r\n"
         "\r\n"
         "Instructions:  Read this file.  It contains simple example code.  To\r\n"
         "manifest that code, drop this file into the Depository.  IOW, this file\r\n"
         "is also an executable SOIL (tm) program.\r\n"
         "\r\n"
-        "Each manifestation of \"strMakeF_2@4@373\" uses the current stack in this way:\r\n"
+        "Each manifestation of \"strMakeF_332@4@373\" uses the current stack in this way:\r\n"
         "\r\n"
-        "    Pop  5:    countT           cbPrefixExtraP                  (defaults to 0)\r\n"
-        "    Pop  4:    flagsT           flagsP                          (defaults to flSTRmAKE_null)\r\n"
-        "    Pop  3:    countT           costExtraP                      (defaults to 0)\r\n"
-        "    Pop  2:    strokeS*         psttP\r\n"
-        "    Pop  1:    osTextT*         postP\r\n"
+        "    Pop  7:    countT           cbPrefixExtraP                  (defaults to 0)\r\n"
+        "    Pop  6:    flagsT           flagsP                          (defaults to flSTRmAKE_null)\r\n"
+        "    Pop  5:    countT           costExtraP                      (defaults to 0)\r\n"
+        "    Pop  4:    strokeS*         psttP\r\n"
+        "    Pop  3:    osTextT*         postP\r\n"
+        "    Pop  2:    countT           idiFileP\r\n"
+        "    Pop  1:    countT           idLineP\r\n"
         "\r\n"
         "    Push 1:    osTextT*         postP\r\n"
         "    Push 2:    countT           noName\r\n"
@@ -8737,13 +8741,13 @@
         "the Depository:\r\n"
         "\r\n"
         "    . on space\r\n"
-        "    . \"Simple example code for \\\"strMakeF_2@4@373\\\" is not yet available.  Example code will eventually be presented for every word; this is a universal feature of all IdeaFarm (tm) software products and is enforced by the internal IdeaFarm (tm) development environment.\" POPUP\r\n"
+        "    . \"Simple example code for \\\"strMakeF_332@4@373\\\" is not yet available.  Example code will eventually be presented for every word; this is a universal feature of all IdeaFarm (tm) software products and is enforced by the internal IdeaFarm (tm) development environment.\" POPUP\r\n"
         "    . off space\r\n"
 
     ;
 
     TN( tDoc , postDoc ) ;
-    TN( tNameSoixlOld , "strMakeF_2@4@373" ) ;
+    TN( tNameSoixlOld , "strMakeF_332@4@373" ) ;
    _pSwSoixlOldApi->grabF( tinP , TAG( TAGiDnULL ) ) ;
    _psttLeverSoixlOldApi = tNameSoixlOld ;
    if( *_pSwSoixlOldApiDoc ) { BLAMMO ; }
@@ -8761,20 +8765,22 @@
         "IdeaFarm (tm) SOIL (tm) - Sentient Object Interface Language\r\n"
         "\r\n"
         "Class: etherC\r\n"
-        "Author: \"strMakeF_4@4@3\"\r\n"
+        "Author: \"strMakeF_334@4@3\"\r\n"
         "\r\n"
-        "Subject: Command word \"strMakeF_4@4@3\"\r\n"
+        "Subject: Command word \"strMakeF_334@4@3\"\r\n"
         "\r\n"
         "\r\n"
         "Instructions:  Read this file.  It contains simple example code.  To\r\n"
         "manifest that code, drop this file into the Depository.  IOW, this file\r\n"
         "is also an executable SOIL (tm) program.\r\n"
         "\r\n"
-        "Each manifestation of \"strMakeF_4@4@3\" uses the current stack in this way:\r\n"
+        "Each manifestation of \"strMakeF_334@4@3\" uses the current stack in this way:\r\n"
         "\r\n"
-        "    Pop  3:    countT           csttExtraP                      (defaults to 0)\r\n"
-        "    Pop  2:    strokeS*         psttInP                         (defaults to 0)\r\n"
-        "    Pop  1:    strokeS*         psttOutP\r\n"
+        "    Pop  5:    countT           csttExtraP                      (defaults to 0)\r\n"
+        "    Pop  4:    strokeS*         psttInP                         (defaults to 0)\r\n"
+        "    Pop  3:    strokeS*         psttOutP\r\n"
+        "    Pop  2:    countT           idiFileP\r\n"
+        "    Pop  1:    countT           idLineP\r\n"
         "\r\n"
         "    Push 1:    strokeS*         psttOutP\r\n"
         "\r\n"
@@ -8782,13 +8788,13 @@
         "the Depository:\r\n"
         "\r\n"
         "    . on space\r\n"
-        "    . \"Simple example code for \\\"strMakeF_4@4@3\\\" is not yet available.  Example code will eventually be presented for every word; this is a universal feature of all IdeaFarm (tm) software products and is enforced by the internal IdeaFarm (tm) development environment.\" POPUP\r\n"
+        "    . \"Simple example code for \\\"strMakeF_334@4@3\\\" is not yet available.  Example code will eventually be presented for every word; this is a universal feature of all IdeaFarm (tm) software products and is enforced by the internal IdeaFarm (tm) development environment.\" POPUP\r\n"
         "    . off space\r\n"
 
     ;
 
     TN( tDoc , postDoc ) ;
-    TN( tNameSoixlOld , "strMakeF_4@4@3" ) ;
+    TN( tNameSoixlOld , "strMakeF_334@4@3" ) ;
    _pSwSoixlOldApi->grabF( tinP , TAG( TAGiDnULL ) ) ;
    _psttLeverSoixlOldApi = tNameSoixlOld ;
    if( *_pSwSoixlOldApiDoc ) { BLAMMO ; }

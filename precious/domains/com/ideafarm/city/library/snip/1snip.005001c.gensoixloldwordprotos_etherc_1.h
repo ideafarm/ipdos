@@ -397,11 +397,11 @@ voidT strCLinesF_4P4P6_GF( tinS& tinP , etherC& etherP , soulC& slP , const stro
 
 voidT strMakeFromOsTextF_4P2P33_GF( tinS& tinP , etherC& etherP , soulC& slP , const strokeS* const _psttNameP ) ;
 
-voidT strMakeF_pbRefCP4P37_GF( tinS& tinP , etherC& etherP , soulC& slP , const strokeS* const _psttNameP ) ;
+voidT strMakeF_33pbRefCP4P37_GF( tinS& tinP , etherC& etherP , soulC& slP , const strokeS* const _psttNameP ) ;
 
-voidT strMakeF_2P4P373_GF( tinS& tinP , etherC& etherP , soulC& slP , const strokeS* const _psttNameP ) ;
+voidT strMakeF_332P4P373_GF( tinS& tinP , etherC& etherP , soulC& slP , const strokeS* const _psttNameP ) ;
 
-voidT strMakeF_4P4P3_GF( tinS& tinP , etherC& etherP , soulC& slP , const strokeS* const _psttNameP ) ;
+voidT strMakeF_334P4P3_GF( tinS& tinP , etherC& etherP , soulC& slP , const strokeS* const _psttNameP ) ;
 
 voidT strRemoveBlankLinesF_4P4P4P4P_GF( tinS& tinP , etherC& etherP , soulC& slP , const strokeS* const _psttNameP ) ;
 

@@ -1,82 +1,4 @@
 
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-// Respecting the rights of other people is an important part of empowering one another.
-//
-
-/*
-*/
-/**/
-/*1*//*___LF(pbP,idLineP,idiFileP)*//*1*/
-
-#if defined( ENABLEdROPnOTES )
-
-    #define ___LF(pbP,idLineP,idiFileP)                                                                                                                               \
-                                                                                                                                                                    \
-        {                                                                                                                                                           \
-            byteT* _pbx = (byteT*)(pbP) ;                                                                                                                           \
-            if( _pbx && ( (byteT*)_pbx < processGlobal0S::_processGlobal0I_IF().pbHeap || (byteT*)_pbx >= processGlobal0S::_processGlobal0I_IF().pbHeapEnd ) )      \
-            {                                                                                                                                                       \
-                dropNoteS* pNote = PUSE.pDropNoteF( tinP , _pbx ) ;                                                                                                 \
-                if( pNote )                                                                                                                                         \
-                {                                                                                                                                                   \
-                    static countT _idNewForTagLine ;                                                                                                                \
-                    pNote->idNewForTagLine = 1 + incv02AM( _idNewForTagLine ) ;    /*U::O: incv02AM CAN BE REPLACED WITH ++ FOR SPEED*/                             \
-                    pNote->idLineTagged    = idLineP ;                                                                                                              \
-                    pNote->idiFileTagged   = idiFileP ;                                                                                                             \
-                                                                                                                                                                    \
-                                                                                                                                                                    \
-                }                                                                                                                                                   \
-            }                                                                                                                                                       \
-        }
-
-#else
-
-    #define ___LF(pbP,idLineP,idiFileP)
-
-#endif
-
-
-//
-// Respecting the rights of other people is an important part of empowering one another.
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-
-
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-// Respecting the rights of other people is an important part of empowering one another.
-//
-
-/*
-*/
-/**/
-/*1*//*TlISTlOAD(tListToP,tListPrefixP,tSuffixP)*//*1*/
-
-#define TlISTlOAD(tListToP,tListPrefixP,tSuffixP)           \
-                                                            \
-    {                                                       \
-        FORsTRINGSiN1( (strokeS*)(tListPrefixP) )           \
-        {                                                   \
-            (tListToP) += T(psttc1)+(tSuffixP) ;            \
-        }                                                   \
-    }
-
-
-//
-// Respecting the rights of other people is an important part of empowering one another.
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-
-
 // IPDOS (tm) <> IdeaFarm (tm) Piggyback Distributed Operating System
 
 // For build environment info, see file "\ideafarm.work\backed.up.never\txt\readme.first.ipdos.build.environment.txt"
@@ -1287,13 +1209,13 @@ using the "new" "d elete" operators results in calling constructors and destruct
                                                                         \
     voidT etherC::delF( tinS& tinP , typeP*& pP )                       \
     {                                                                   \
-        _IO_                                                         \
+        _IO_                                                            \
         third.delF( tinP , pP ) ;                                       \
     }                                                                   \
                                                                         \
     voidT etherC::newF( tinS& tinP , const countT idLineP , const countT idiFileP , typeP*& pP , const countT cP )     \
     {                                                                   \
-        _IO_                                                         \
+        _IO_                                                            \
         DROPnOTEdOESnOTwANTmE                                           \
         third.newF( tinP , LF , pP , cP ) ; /*___( pP ) ; */            \
     }
@@ -1308,6 +1230,7 @@ using the "new" "d elete" operators results in calling constructors and destruct
 
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200013.newdeltypeether END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200014.newdeltypethird BEGIN
+
 
 //
 // Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
@@ -1871,7 +1794,31 @@ use me iff pvP was obtained from operator new
 
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200020.del END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200021.___ BEGIN
+
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+/*
+*/
+/**/
+/*1*//*___(pbP)*//*1*/
+
+
 #define ___(pbP) ___LF( (pbP) , ifcLINE , DDNUMB )
+
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200021.___ END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200022.newdelclassprotos BEGIN
 
@@ -8752,17 +8699,21 @@ it is illegal to refer to this symbol in the definition of an adam
 
 //#define flMODEpROCESS1_etThreadONmainISiMPOTENT
 
+// flMODEpROCESS1_INoUTfRAMEfORCEcOLLECTaPPtELEMETRY IS DEFINED, BUT IT IS ILLEGAL TO USE IT
+// THIS IS BECAUSE CODE MUST BE DEVELOPED SO THAT IT DOES NOT OVERRIDE CODE THAT NECESSARILY SUPPRESSES inOutFrameC APP TELEMETRY
+
+
 /*1*//*flMODEpROCESS1*//*1*/
 /*3*/
-#define flMODEpROCESS1_QUITaTlOGOFF                    0xe0000118
-#define flMODEpROCESS1_QUITaTsHUTDOWN                  0xe0000218
-#define flMODEpROCESS1_IGNOREfIREbYoPERATOR            0xe0000418
-#define flMODEpROCESS1_LAUNCHmINIMIZED                 0xe0000818
-#define flMODEpROCESS1_JOT                             0xe0001018
-#define flMODEpROCESS1_DRIVER                          0xe0002018
-#define flMODEpROCESS1_SERVICE                         0xe0004018
-#define flMODEpROCESS1_SIMULATEoFFLINE                 0xe0008018
-#define flMODEpROCESS1_INoUTfRAMEdOnOTcOLLECTaPPtELEMETRY                0xe0010018
+#define flMODEpROCESS1_QUITaTlOGOFF                             0xe0000118
+#define flMODEpROCESS1_QUITaTsHUTDOWN                           0xe0000218
+#define flMODEpROCESS1_IGNOREfIREbYoPERATOR                     0xe0000418
+#define flMODEpROCESS1_LAUNCHmINIMIZED                          0xe0000818
+#define flMODEpROCESS1_JOT                                      0xe0001018
+#define flMODEpROCESS1_DRIVER                                   0xe0002018
+#define flMODEpROCESS1_SERVICE                                  0xe0004018
+#define flMODEpROCESS1_SIMULATEoFFLINE                          0xe0008018
+#define flMODEpROCESS1_INoUTfRAMEdOnOTcOLLECTaPPtELEMETRY       0xe0010018
 #define flMODEpROCESS1_INoUTfRAMEfORCEcOLLECTaPPtELEMETRY       0xe0020018
 /*3*/
 #define flMODEpROCESS1_null    0xe0000018
@@ -29626,6 +29577,7 @@ can be used for sCountC as well as measureT and sCountT and countT
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200322.posthtmlfoot END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200323.newdelclass0 BEGIN
 
+
 //
 // Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
@@ -39127,19 +39079,19 @@ args
 #define flTHREADmODE3_EXCEPTIONrEPORTINGiNpROGRESS              0xe00008c8
 #define flTHREADmODE3_ALLOWwRITEABLEpOINTERgET                  0xe00010c8
 #define flTHREADmODE3_INoUTfRAMErEGISTERcALLnEST                0xe00020c8
-#define flTHREADmODE3_DOnOTmAKEsEXiNpOOL                        0xe00080c8
-#define flTHREADmODE3_DOnOTrEGISTERpAGEc                        0xe00100c8
-#define flTHREADmODE3_DEBUG1                                    0xe00200c8
-#define flTHREADmODE3_DEBUG2                                    0xe00400c8
-#define flTHREADmODE3_DEBUG3                                    0xe00800c8
-#define flTHREADmODE3_DEBUG4                                    0xe01000c8
-#define flTHREADmODE3_SIMULATEoFFLINE                           0xe02000c8
-#define flTHREADmODE3_SUPPRESStRACING                           0xe04000c8
-#define flTHREADmODE3_GO                                        0xe08000c8
-#define flTHREADmODE3_LOGsPINcALLnEST                           0xe10000c8
-#define flTHREADmODE3_POOLaLLOCATEfROMhEAP                      0xe20000c8
-#define flTHREADmODE3_ALLOWeXPLICITmEMORYsPACE                  0xe40000c8
-#define flTHREADmODE3_REGISTEREDwITHwHERE                       0xe80000c8
+#define flTHREADmODE3_DOnOTmAKEsEXiNpOOL                        0xe00040c8
+#define flTHREADmODE3_DOnOTrEGISTERpAGEc                        0xe00080c8
+#define flTHREADmODE3_DEBUG1                                    0xe00100c8
+#define flTHREADmODE3_DEBUG2                                    0xe00200c8
+#define flTHREADmODE3_DEBUG3                                    0xe00400c8
+#define flTHREADmODE3_DEBUG4                                    0xe00800c8
+#define flTHREADmODE3_SIMULATEoFFLINE                           0xe01000c8
+#define flTHREADmODE3_SUPPRESStRACING                           0xe02000c8
+#define flTHREADmODE3_GO                                        0xe04000c8
+#define flTHREADmODE3_LOGsPINcALLnEST                           0xe08000c8
+#define flTHREADmODE3_POOLaLLOCATEfROMhEAP                      0xe10000c8
+#define flTHREADmODE3_ALLOWeXPLICITmEMORYsPACE                  0xe20000c8
+#define flTHREADmODE3_REGISTEREDwITHwHERE                       0xe40000c8
 /*3*/
 #define flTHREADmODE3_null    0xe00000c8
 
@@ -40012,23 +39964,23 @@ this can be used to zombie new and delete when tinP is not available, e.g. in ro
 
 #if defined( ENABLEdROPnOTES )
 
-    #define ___CT(pbP)                                                                                                                      \
-                                                                                                                                            \
-        {                                                                                                                                   \
-            byteT* _pbx = (byteT*)(pbP) ;                                                                                                   \
-            if( _pbx )                                                                                                                      \
-            {                                                                                                                               \
-                dropNoteS* pNote = PUSE.pDropNoteF( tinP , _pbx ) ;                                                                         \
-                if( pNote )                                                                                                                 \
-                {                                                                                                                           \
-                    static countT _idNewForTagLine ;                                                                                        \
-                    pNote->idNewForTagLine = 1 + incv02AM( _idNewForTagLine ) ;    /*U::O: incv02AM CAN BE REPLACED WITH ++ FOR SPEED*/     \
-                    pNote->idLineTagged    = ifcLINE ;                                                                                      \
-                    pNote->idiFileTagged   = DDNUMB ;                                                                                       \
-                    pNote->idLineTagged2   = idLineCt ;                                                                                     \
-                    pNote->idiFileTagged2  = idiFileCt ;                                                                                    \
-                }                                                                                                                           \
-            }                                                                                                                               \
+    #define ___CT(pbP)                                                                                                                                              \
+                                                                                                                                                                    \
+        {                                                                                                                                                           \
+            byteT* _pbx = (byteT*)(pbP) ;                                                                                                                           \
+            if( _pbx && ( (byteT*)_pbx < processGlobal0S::_processGlobal0I_IF().pbHeap || (byteT*)_pbx >= processGlobal0S::_processGlobal0I_IF().pbHeapEnd ) )      \
+            {                                                                                                                                                       \
+                dropNoteS* pNote = PUSE.pDropNoteF( tinP , _pbx ) ;                                                                                                 \
+                if( pNote )                                                                                                                                         \
+                {                                                                                                                                                   \
+                    static countT _idNewForTagLine ;                                                                                                                \
+                    pNote->idNewForTagLine = 1 + incv02AM( _idNewForTagLine ) ;    /*U::O: incv02AM CAN BE REPLACED WITH ++ FOR SPEED*/                             \
+                    pNote->idLineTagged    = ifcLINE ;                                                                                                              \
+                    pNote->idiFileTagged   = DDNUMB ;                                                                                                               \
+                    pNote->idLineTagged2   = idLineCt ;                                                                                                             \
+                    pNote->idiFileTagged2  = idiFileCt ;                                                                                                            \
+                }                                                                                                                                                   \
+            }                                                                                                                                                       \
         }
 
 #else
@@ -45452,3 +45404,97 @@ else the reference to it that is kept within the jotC instance will become a zom
 //
 
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004ec.jkey END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004ed.jref BEGIN
+
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+/*
+*/
+/**/
+/*1*//*JrEF1-8*//*1*/
+
+//CS:CODEsYNC: 110004ea 110004eb 110004ec 110004ed 110004ee
+//SYNC ERRORS CAN CAUSE ARRAY INDEX OUT OF BOUNDS
+
+#define JrEF(_idSlotJotRegistryP) ( *( !(_idSlotJotRegistryP) ? (jotC*)0 : (_idSlotJotRegistryP) > sizeof tinP.ppJot / sizeof tinP.ppJot[ 0 ] ? (jotC*)0 : tinP.ppJot[ (_idSlotJotRegistryP) - 1 ] ) )
+
+#define JrEF1  JrEF( _idSlotJotRegistry1  )
+#define JrEF2  JrEF( _idSlotJotRegistry2  )
+#define JrEF3  JrEF( _idSlotJotRegistry3  )
+#define JrEF4  JrEF( _idSlotJotRegistry4  )
+#define JrEF5  JrEF( _idSlotJotRegistry5  )
+#define JrEF6  JrEF( _idSlotJotRegistry6  )
+#define JrEF7  JrEF( _idSlotJotRegistry7  )
+#define JrEF8  JrEF( _idSlotJotRegistry8  )
+#define JrEF9  JrEF( _idSlotJotRegistry9  )
+#define JrEFa  JrEF( _idSlotJotRegistrya  )
+#define JrEFb  JrEF( _idSlotJotRegistryb  )
+#define JrEFc  JrEF( _idSlotJotRegistryc  )
+#define JrEFd  JrEF( _idSlotJotRegistryd  )
+#define JrEFe  JrEF( _idSlotJotRegistrye  )
+#define JrEFf  JrEF( _idSlotJotRegistryf  )
+#define JrEF01 JrEF( _idSlotJotRegistry01 )
+#define JrEF11 JrEF( _idSlotJotRegistry11 )
+#define JrEF21 JrEF( _idSlotJotRegistry21 )
+#define JrEF31 JrEF( _idSlotJotRegistry31 )
+#define JrEF41 JrEF( _idSlotJotRegistry41 )
+#define JrEF51 JrEF( _idSlotJotRegistry51 )
+#define JrEF61 JrEF( _idSlotJotRegistry61 )
+#define JrEF71 JrEF( _idSlotJotRegistry71 )
+#define JrEF81 JrEF( _idSlotJotRegistry81 )
+#define JrEF91 JrEF( _idSlotJotRegistry91 )
+#define JrEFa1 JrEF( _idSlotJotRegistrya1 )
+#define JrEFb1 JrEF( _idSlotJotRegistryb1 )
+#define JrEFc1 JrEF( _idSlotJotRegistryc1 )
+#define JrEFd1 JrEF( _idSlotJotRegistryd1 )
+#define JrEFe1 JrEF( _idSlotJotRegistrye1 )
+#define JrEFf1 JrEF( _idSlotJotRegistryf1 )
+#define JrEF02 JrEF( _idSlotJotRegistry02 )
+#define JrEF12 JrEF( _idSlotJotRegistry12 )
+#define JrEF22 JrEF( _idSlotJotRegistry22 )
+#define JrEF32 JrEF( _idSlotJotRegistry32 )
+#define JrEF42 JrEF( _idSlotJotRegistry42 )
+#define JrEF52 JrEF( _idSlotJotRegistry52 )
+#define JrEF62 JrEF( _idSlotJotRegistry62 )
+#define JrEF72 JrEF( _idSlotJotRegistry72 )
+#define JrEF82 JrEF( _idSlotJotRegistry82 )
+#define JrEF92 JrEF( _idSlotJotRegistry92 )
+#define JrEFa2 JrEF( _idSlotJotRegistrya2 )
+#define JrEFb2 JrEF( _idSlotJotRegistryb2 )
+#define JrEFc2 JrEF( _idSlotJotRegistryc2 )
+#define JrEFd2 JrEF( _idSlotJotRegistryd2 )
+#define JrEFe2 JrEF( _idSlotJotRegistrye2 )
+#define JrEFf2 JrEF( _idSlotJotRegistryf2 )
+#define JrEF03 JrEF( _idSlotJotRegistry03 )
+#define JrEF13 JrEF( _idSlotJotRegistry13 )
+#define JrEF23 JrEF( _idSlotJotRegistry23 )
+#define JrEF33 JrEF( _idSlotJotRegistry33 )
+#define JrEF43 JrEF( _idSlotJotRegistry43 )
+#define JrEF53 JrEF( _idSlotJotRegistry53 )
+#define JrEF63 JrEF( _idSlotJotRegistry63 )
+#define JrEF73 JrEF( _idSlotJotRegistry73 )
+#define JrEF83 JrEF( _idSlotJotRegistry83 )
+#define JrEF93 JrEF( _idSlotJotRegistry93 )
+#define JrEFa3 JrEF( _idSlotJotRegistrya3 )
+#define JrEFb3 JrEF( _idSlotJotRegistryb3 )
+#define JrEFc3 JrEF( _idSlotJotRegistryc3 )
+#define JrEFd3 JrEF( _idSlotJotRegistryd3 )
+#define JrEFe3 JrEF( _idSlotJotRegistrye3 )
+#define JrEFf3 JrEF( _idSlotJotRegistryf3 )
+#define JrEF04 JrEF( _idSlotJotRegistry04 )
+
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004ed.jref END

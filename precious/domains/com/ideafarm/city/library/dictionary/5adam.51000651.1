@@ -147,16 +147,18 @@ etThread.osThreadF( TaRG1( tmCleanF ) , (countT)(strokeS*)tBounce , (countT)(str
     //20140415@1204: DISABLED THIS SO WILL CREATE ANY MISSING FOLDERS: if( !etThread.diskFileExistsF( tinP , tBounce ) )
 
     } ;
-        &tPickSoil        // 9
-        &tPickToProcess , // 8
-        &tEatingSoil    , // 7
-        &tDropSoil      , // 6
-        &tDropIn2       , // 5
-        &tDropIn1       , // 4 OPTIONAL: NOT CREATED UNLESS NONE EXIST
-        &tDropIn        , // 3 OPTIONAL: NOT CREATED UNLESS NONE EXIST
-        &tNeverDropHere , // 2
-        &tDropArchive   , // 1
-        &tBounce        , // 0
+        &tPickSoil        // b
+        &tPickToProcess , // a
+        &tEatingSoil    , // 9
+        &tDropSoil      , // 8
+        &tDropIn2       , // 7
+        &tDropIn1       , // 6 OPTIONAL: NOT CREATED UNLESS NONE EXIST
+        &tDropIn        , // 5 OPTIONAL: NOT CREATED UNLESS NONE EXIST
+        &tNeverDropHere , // 4
+        &tDropArchive   , // 3
+        &tBounce        , // 2
+        &tDeskUser      , // 1
+        &tDesk          , // 0
     {
     textC* pptDir[] =
 {
@@ -171,6 +173,7 @@ TN( tNeverDropHere , "///ideafarm/IdeaFarm " "(tm)/" ) ; tNeverDropHere += tUser
 TN( tDropArchive   , "///ideafarm/IdeaFarm " "(tm)/" ) ; tDropArchive   += tUser+T("/Drop Files Here To Archive/"                                                    ) ;
 TN( tBounce        , "///ideafarm/IdeaFarm " "(tm)/" ) ; tBounce        += tUser+T("/Pick Up Rejected Files Here/"                                                   ) ;
 
+TN( tDeskUser     , "///ideafarm/IdeaFarm " "(tm)/"  ) ; tDeskUser += tUser+T("/") ;
 TN( tDesk         , "///ideafarm/IdeaFarm " "(tm)/"  ) ;
 TN( tUser         , thirdC::postUserNameIF() ) ;
 
@@ -195,7 +198,8 @@ TODO
 
 DONE( tmHireF )
 
-ether.ifcHireF( tinP , T("PISS") , ifcIDaDAM_SNAPwORDS , T("!ignoreFireByOperator") , flHIRE_DISPLAYaUTO , nicNameC() ) ; // flHIRE_DISPLAYaUTO CAN BE COMMENTED OUT TO AVOID WDW FOR ROOT CLOUD INSTANCE WHICH IS USUALLY NOT INTERESTING
+if( !bSandbox ) ether.ifcHireF( tinP , T("PISS") , ifcIDaDAM_SNAPwORDS , T("!ignoreFireByOperator") , flHIRE_DISPLAYaUTO , nicNameC() ) ; // flHIRE_DISPLAYaUTO CAN BE COMMENTED OUT TO AVOID WDW FOR ROOT CLOUD INSTANCE WHICH IS USUALLY NOT INTERESTING
+boolT bSandbox = etherC::ifc_idHomeI_IF() & fliIDhOME_HOMELESS ;
 
 }
     ++ s ; ether.osSleepF( tinP , TOCK << 4 ) ;  // ENOUGH TIME SO THAT I WILL BE ABLE TO PROCESS A SETTINGS UPDATE

@@ -1,97 +1,3 @@
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004ed.jref BEGIN
-
-
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-// Respecting the rights of other people is an important part of empowering one another.
-//
-
-/*
-*/
-/**/
-/*1*//*JrEF1-8*//*1*/
-
-//CS:CODEsYNC: 110004ea 110004eb 110004ec 110004ed 110004ee
-//SYNC ERRORS CAN CAUSE ARRAY INDEX OUT OF BOUNDS
-
-#define JrEF(_idSlotJotRegistryP) ( *( !(_idSlotJotRegistryP) ? (jotC*)0 : (_idSlotJotRegistryP) > sizeof tinP.ppJot / sizeof tinP.ppJot[ 0 ] ? (jotC*)0 : tinP.ppJot[ (_idSlotJotRegistryP) - 1 ] ) )
-
-#define JrEF1  JrEF( _idSlotJotRegistry1  )
-#define JrEF2  JrEF( _idSlotJotRegistry2  )
-#define JrEF3  JrEF( _idSlotJotRegistry3  )
-#define JrEF4  JrEF( _idSlotJotRegistry4  )
-#define JrEF5  JrEF( _idSlotJotRegistry5  )
-#define JrEF6  JrEF( _idSlotJotRegistry6  )
-#define JrEF7  JrEF( _idSlotJotRegistry7  )
-#define JrEF8  JrEF( _idSlotJotRegistry8  )
-#define JrEF9  JrEF( _idSlotJotRegistry9  )
-#define JrEFa  JrEF( _idSlotJotRegistrya  )
-#define JrEFb  JrEF( _idSlotJotRegistryb  )
-#define JrEFc  JrEF( _idSlotJotRegistryc  )
-#define JrEFd  JrEF( _idSlotJotRegistryd  )
-#define JrEFe  JrEF( _idSlotJotRegistrye  )
-#define JrEFf  JrEF( _idSlotJotRegistryf  )
-#define JrEF01 JrEF( _idSlotJotRegistry01 )
-#define JrEF11 JrEF( _idSlotJotRegistry11 )
-#define JrEF21 JrEF( _idSlotJotRegistry21 )
-#define JrEF31 JrEF( _idSlotJotRegistry31 )
-#define JrEF41 JrEF( _idSlotJotRegistry41 )
-#define JrEF51 JrEF( _idSlotJotRegistry51 )
-#define JrEF61 JrEF( _idSlotJotRegistry61 )
-#define JrEF71 JrEF( _idSlotJotRegistry71 )
-#define JrEF81 JrEF( _idSlotJotRegistry81 )
-#define JrEF91 JrEF( _idSlotJotRegistry91 )
-#define JrEFa1 JrEF( _idSlotJotRegistrya1 )
-#define JrEFb1 JrEF( _idSlotJotRegistryb1 )
-#define JrEFc1 JrEF( _idSlotJotRegistryc1 )
-#define JrEFd1 JrEF( _idSlotJotRegistryd1 )
-#define JrEFe1 JrEF( _idSlotJotRegistrye1 )
-#define JrEFf1 JrEF( _idSlotJotRegistryf1 )
-#define JrEF02 JrEF( _idSlotJotRegistry02 )
-#define JrEF12 JrEF( _idSlotJotRegistry12 )
-#define JrEF22 JrEF( _idSlotJotRegistry22 )
-#define JrEF32 JrEF( _idSlotJotRegistry32 )
-#define JrEF42 JrEF( _idSlotJotRegistry42 )
-#define JrEF52 JrEF( _idSlotJotRegistry52 )
-#define JrEF62 JrEF( _idSlotJotRegistry62 )
-#define JrEF72 JrEF( _idSlotJotRegistry72 )
-#define JrEF82 JrEF( _idSlotJotRegistry82 )
-#define JrEF92 JrEF( _idSlotJotRegistry92 )
-#define JrEFa2 JrEF( _idSlotJotRegistrya2 )
-#define JrEFb2 JrEF( _idSlotJotRegistryb2 )
-#define JrEFc2 JrEF( _idSlotJotRegistryc2 )
-#define JrEFd2 JrEF( _idSlotJotRegistryd2 )
-#define JrEFe2 JrEF( _idSlotJotRegistrye2 )
-#define JrEFf2 JrEF( _idSlotJotRegistryf2 )
-#define JrEF03 JrEF( _idSlotJotRegistry03 )
-#define JrEF13 JrEF( _idSlotJotRegistry13 )
-#define JrEF23 JrEF( _idSlotJotRegistry23 )
-#define JrEF33 JrEF( _idSlotJotRegistry33 )
-#define JrEF43 JrEF( _idSlotJotRegistry43 )
-#define JrEF53 JrEF( _idSlotJotRegistry53 )
-#define JrEF63 JrEF( _idSlotJotRegistry63 )
-#define JrEF73 JrEF( _idSlotJotRegistry73 )
-#define JrEF83 JrEF( _idSlotJotRegistry83 )
-#define JrEF93 JrEF( _idSlotJotRegistry93 )
-#define JrEFa3 JrEF( _idSlotJotRegistrya3 )
-#define JrEFb3 JrEF( _idSlotJotRegistryb3 )
-#define JrEFc3 JrEF( _idSlotJotRegistryc3 )
-#define JrEFd3 JrEF( _idSlotJotRegistryd3 )
-#define JrEFe3 JrEF( _idSlotJotRegistrye3 )
-#define JrEFf3 JrEF( _idSlotJotRegistryf3 )
-#define JrEF04 JrEF( _idSlotJotRegistry04 )
-
-
-//
-// Respecting the rights of other people is an important part of empowering one another.
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004ed.jref END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004ee.jrequest BEGIN
 
 
@@ -5445,6 +5351,90 @@ examples
 //
 
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.1120058c.ttf END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.1120058d.TlISTlOAD BEGIN
+
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+/*
+*/
+/**/
+/*1*//*TlISTlOAD(tListToP,tListPrefixP,tSuffixP)*//*1*/
+
+#define TlISTlOAD(tListToP,tListPrefixP,tSuffixP)           \
+                                                            \
+    {                                                       \
+        FORsTRINGSiN1( (strokeS*)(tListPrefixP) )           \
+        {                                                   \
+            (tListToP) += T(psttc1)+(tSuffixP) ;            \
+        }                                                   \
+    }
+
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.1120058d.TlISTlOAD END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.1120058e.___LF BEGIN
+
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+/*
+*/
+/**/
+/*1*//*___LF(pbP,idLineP,idiFileP)*//*1*/
+
+#if defined( ENABLEdROPnOTES )
+
+    #define ___LF(pbP,idLineP,idiFileP)                                                                                                                             \
+                                                                                                                                                                    \
+        {                                                                                                                                                           \
+            byteT* _pbx = (byteT*)(pbP) ;                                                                                                                           \
+            if( _pbx && ( (byteT*)_pbx < processGlobal0S::_processGlobal0I_IF().pbHeap || (byteT*)_pbx >= processGlobal0S::_processGlobal0I_IF().pbHeapEnd ) )      \
+            {                                                                                                                                                       \
+                dropNoteS* pNote = PUSE.pDropNoteF( tinP , _pbx ) ;                                                                                                 \
+                if( pNote )                                                                                                                                         \
+                {                                                                                                                                                   \
+                    static countT _idNewForTagLine ;                                                                                                                \
+                    pNote->idNewForTagLine = 1 + incv02AM( _idNewForTagLine ) ;    /*U::O: incv02AM CAN BE REPLACED WITH ++ FOR SPEED*/                             \
+                    pNote->idLineTagged    = idLineP ;                                                                                                              \
+                    pNote->idiFileTagged   = idiFileP ;                                                                                                             \
+                                                                                                                                                                    \
+                                                                                                                                                                    \
+                }                                                                                                                                                   \
+            }                                                                                                                                                       \
+        }
+
+#else
+
+    #define ___LF(pbP,idLineP,idiFileP)
+
+#endif
+
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.1120058e.___LF END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.thirdParties : 1snip.15000014.thirdparties BEGIN
 
 
@@ -15824,6 +15814,224 @@ TASK0PROTO( tmcHttpServerWorkerF ) ;
 //
 
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.17*.* : 1snip.1700022a.tmchttpserverworkerf END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.tellInfoAppInOutFrameS : 1snip.15000188.tellinfoappinoutframes BEGIN
+
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+/*
+*/
+/**/
+
+/*1*/struct _export tellInfoAppInOutFrameS/*1*/
+{
+    countT   idLineInOut        ;
+    countT   idiFileInOut       ;
+
+    count04T cCpuCycles1        ;
+    count04T cCpuCycles2        ;
+    count04T cCpuCycles3        ;
+    count04T cCpuCycles4        ;
+
+    count04T dCpuCyclesB4       ;   // "d": "DELTA" (I.E. "CHANGE IN")
+    count04T dCpuCyclesCt       ;
+    count04T dCpuCyclesIn       ;
+    count04T dCpuCyclesInNet    ;
+    count04T dCpuCyclesDt       ;
+
+    count04T cTime1             ;
+    count04T cTime2             ;
+    count04T cTime3             ;
+    count04T cTime4             ;
+
+    count04T dTimeB4            ;
+    count04T dTimeCt            ;
+    count04T dTimeIn            ;
+    count04T dTimeInNet         ;
+    count04T dTimeDt            ;
+}
+;
+
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.tellInfoAppInOutFrameS : 1snip.15000188.tellinfoappinoutframes END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.tellInfoAppInOutFrameTinDtS : 1snip.15000189.tellInfoAppInOutFrameTinDtS BEGIN
+
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+/*
+*/
+/**/
+
+/*1*/struct _export tellInfoAppInOutFrameTinDtS/*1*/
+{
+    countT   idThreadReporting ;
+    countT   cTells ;
+    count04T cCpuCyclesWriteInOutTelemetry ;
+}
+;
+
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.tellInfoAppInOutFrameTinDtS : 1snip.15000189.tellInfoAppInOutFrameTinDtS END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.inOutFrameAuditCpuCyclesS : 1snip.1500018a.inOutFrameAuditCpuCyclesS BEGIN
+
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+/*
+*/
+/**/
+
+/*1*/struct _export inOutFrameAuditCpuCyclesS/*1*/
+{
+    count04T dCpuCyclesAuditKidBetween ;
+    count04T dCpuCyclesAuditKidCt      ;
+    count04T dCpuCyclesAuditKidIn      ;
+    count04T dCpuCyclesAuditKidDt      ;
+    count04T dCpuCyclesAuditKidBook    ;
+
+    inline inOutFrameAuditCpuCyclesS( voidT ) :
+    dCpuCyclesAuditKidBetween( 0 ) ,  //THESE MUST BE INITIALIZED SINCE THEY ARE ACCUMULATORS
+    dCpuCyclesAuditKidCt(      0 ) ,  //THESE MUST BE INITIALIZED SINCE THEY ARE ACCUMULATORS
+    dCpuCyclesAuditKidIn(      0 ) ,  //THESE MUST BE INITIALIZED SINCE THEY ARE ACCUMULATORS
+    dCpuCyclesAuditKidDt(      0 ) ,  //THESE MUST BE INITIALIZED SINCE THEY ARE ACCUMULATORS
+    dCpuCyclesAuditKidBook(    0 )    //THESE MUST BE INITIALIZED SINCE THEY ARE ACCUMULATORS
+    {}
+}
+;
+
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.inOutFrameAuditCpuCyclesS : 1snip.1500018a.inOutFrameAuditCpuCyclesS END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.inOutFrameAuditTimeS : 1snip.1500018c.inOutFrameAuditTimeS BEGIN
+
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+/*
+*/
+/**/
+
+/*1*/struct _export inOutFrameAuditTimeS/*1*/
+{
+    count04T dTimeAuditKidBetween ;
+    count04T dTimeAuditKidCt      ;
+    count04T dTimeAuditKidIn      ;
+    count04T dTimeAuditKidDt      ;
+    count04T dTimeAuditKidBook    ;
+
+    inline inOutFrameAuditTimeS( voidT ) :
+    dTimeAuditKidBetween( 0 ) ,  //THESE MUST BE INITIALIZED SINCE THEY ARE ACCUMULATORS
+    dTimeAuditKidCt(      0 ) ,  //THESE MUST BE INITIALIZED SINCE THEY ARE ACCUMULATORS
+    dTimeAuditKidIn(      0 ) ,  //THESE MUST BE INITIALIZED SINCE THEY ARE ACCUMULATORS
+    dTimeAuditKidDt(      0 ) ,  //THESE MUST BE INITIALIZED SINCE THEY ARE ACCUMULATORS
+    dTimeAuditKidBook(    0 )    //THESE MUST BE INITIALIZED SINCE THEY ARE ACCUMULATORS
+    {}
+}
+;
+
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.inOutFrameAuditTimeS : 1snip.1500018c.inOutFrameAuditTimeS END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.inOutFrameC : 1snip.15000159.inoutframec BEGIN
+
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+/*
+*/
+
+/**/
+
+/*1*/class _export inOutFrameC/*1*/
+{
+    inOutFrameC* const        pDad                      ;
+    tinS&                     tinCt                     ;
+    const countT              idLineCt                  ;
+    const countT              idiFileCt                 ;
+    inOutFrameAuditCpuCyclesS auditCpuCycles            ;
+    inOutFrameAuditTimeS      auditTime                 ;
+    tellInfoAppInOutFrameS    say                       ;
+    const countT              idFileRankCt              ;
+    const flagsT              flagsCt                   ;
+    countT                    idFileNestSave            ;
+    countT                    idLineNestSave            ;
+    countT                    eipInNestSave             ;
+    countT                    idProgressNestSave        ;
+    flagsT                    pFlagsThreadLevelModeSave ;
+    const countT              idWhat1Save               ;
+    const countT              idWhat2Save               ;
+
+    public :
+
+    NEWdELcLASSpROTOS
+    ~inOutFrameC( voidT ) ;
+    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3612c002.inOutFrameC.dt_inOutFrameC!||
+    inOutFrameC( tinS& tinP , const countT idLineP , const countT idiFileP , const countT idFileRankP , const boolT bClassP ) ;
+    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3612c003.inOutFrameC.inOutFrameC!||
+}
+;
+
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.inOutFrameC : 1snip.15000159.inoutframec END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.pauseC : 1snip.15000096.pausec BEGIN
 
 
@@ -38662,17 +38870,23 @@ the only function of this object is to edit tinS::grabPseudo so that the monitor
     inline refC( refCounterC& refCounterP ) :
     pzRefCounter( &refCounterP )
     {
+        TINSL
+        _IO_
         ++ *pzRefCounter ;
     }
 
     inline refC( const refC& refP ) :
     pzRefCounter( refP.pzRefCounter )
     {
+        TINSL
+        _IO_
         ++ *pzRefCounter ;
     }
 
     inline countT decF( voidT ) const
     {
+        TINSL
+        _IO_
         return pzRefCounter->decF() ;
     }
 
@@ -38680,6 +38894,8 @@ the only function of this object is to edit tinS::grabPseudo so that the monitor
 
     inline voidT operator =( refCounterC& refCounterP )
     {
+        TINSL
+        _IO_
         -- *pzRefCounter ;
         pzRefCounter = &refCounterP ;
         ++ *pzRefCounter ;
@@ -38687,6 +38903,8 @@ the only function of this object is to edit tinS::grabPseudo so that the monitor
 
     inline voidT operator =( const refC& refP )
     {
+        TINSL
+        _IO_
         -- *pzRefCounter ;
         pzRefCounter = refP.pzRefCounter ;
         ++ *pzRefCounter ;
@@ -38861,6 +39079,7 @@ the only function of this object is to edit tinS::grabPseudo so that the monitor
 
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.sessionsC : 1snip.150000ba.sessionsc END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.httpServerC : 1snip.150000b7.httpserverc BEGIN
+
 
 //
 // Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
@@ -39212,6 +39431,8 @@ base class to make a derived class of objects easily contained by a stackC objec
 
     inline ~httpReplySrefC( voidT )
     {
+        TINSL
+        _IO_
         if( 1 == decF() )
         {
             httpReplyS* phr = (httpReplyS*)pzRefCounter ;
@@ -39234,6 +39455,8 @@ base class to make a derived class of objects easily contained by a stackC objec
 
     inline operator httpReplyS&( voidT )
     {
+        TINSL
+        _IO_
         return *(httpReplyS*)pzRefCounter ;
     }
 }
@@ -43964,224 +44187,6 @@ VARIABLEcLASSdEF( countC , countT )
 //
 
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.directionS : 1snip.15000156.directions END
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.tellInfoAppInOutFrameS : 1snip.15000188.tellinfoappinoutframes BEGIN
-
-
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-// Respecting the rights of other people is an important part of empowering one another.
-//
-
-/*
-*/
-/**/
-
-/*1*/struct _export tellInfoAppInOutFrameS/*1*/
-{
-    countT   idLineInOut        ;
-    countT   idiFileInOut       ;
-
-    count04T cCpuCycles1        ;
-    count04T cCpuCycles2        ;
-    count04T cCpuCycles3        ;
-    count04T cCpuCycles4        ;
-
-    count04T dCpuCyclesB4       ;   // "d": "DELTA" (I.E. "CHANGE IN")
-    count04T dCpuCyclesCt       ;
-    count04T dCpuCyclesIn       ;
-    count04T dCpuCyclesInNet    ;
-    count04T dCpuCyclesDt       ;
-
-    count04T cTime1             ;
-    count04T cTime2             ;
-    count04T cTime3             ;
-    count04T cTime4             ;
-
-    count04T dTimeB4            ;
-    count04T dTimeCt            ;
-    count04T dTimeIn            ;
-    count04T dTimeInNet         ;
-    count04T dTimeDt            ;
-}
-;
-
-
-//
-// Respecting the rights of other people is an important part of empowering one another.
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.tellInfoAppInOutFrameS : 1snip.15000188.tellinfoappinoutframes END
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.tellInfoAppInOutFrameTinDtS : 1snip.15000189.tellInfoAppInOutFrameTinDtS BEGIN
-
-
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-// Respecting the rights of other people is an important part of empowering one another.
-//
-
-/*
-*/
-/**/
-
-/*1*/struct _export tellInfoAppInOutFrameTinDtS/*1*/
-{
-    countT   idThreadReporting ;
-    countT   cTells ;
-    count04T cCpuCyclesWriteInOutTelemetry ;
-}
-;
-
-
-//
-// Respecting the rights of other people is an important part of empowering one another.
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.tellInfoAppInOutFrameTinDtS : 1snip.15000189.tellInfoAppInOutFrameTinDtS END
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.inOutFrameAuditCpuCyclesS : 1snip.1500018a.inOutFrameAuditCpuCyclesS BEGIN
-
-
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-// Respecting the rights of other people is an important part of empowering one another.
-//
-
-/*
-*/
-/**/
-
-/*1*/struct _export inOutFrameAuditCpuCyclesS/*1*/
-{
-    count04T dCpuCyclesAuditKidBetween ;
-    count04T dCpuCyclesAuditKidCt      ;
-    count04T dCpuCyclesAuditKidIn      ;
-    count04T dCpuCyclesAuditKidDt      ;
-    count04T dCpuCyclesAuditKidBook    ;
-
-    inline inOutFrameAuditCpuCyclesS( voidT ) :
-    dCpuCyclesAuditKidBetween( 0 ) ,  //THESE MUST BE INITIALIZED SINCE THEY ARE ACCUMULATORS
-    dCpuCyclesAuditKidCt(      0 ) ,  //THESE MUST BE INITIALIZED SINCE THEY ARE ACCUMULATORS
-    dCpuCyclesAuditKidIn(      0 ) ,  //THESE MUST BE INITIALIZED SINCE THEY ARE ACCUMULATORS
-    dCpuCyclesAuditKidDt(      0 ) ,  //THESE MUST BE INITIALIZED SINCE THEY ARE ACCUMULATORS
-    dCpuCyclesAuditKidBook(    0 )    //THESE MUST BE INITIALIZED SINCE THEY ARE ACCUMULATORS
-    {}
-}
-;
-
-
-//
-// Respecting the rights of other people is an important part of empowering one another.
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.inOutFrameAuditCpuCyclesS : 1snip.1500018a.inOutFrameAuditCpuCyclesS END
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.inOutFrameAuditTimeS : 1snip.1500018c.inOutFrameAuditTimeS BEGIN
-
-
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-// Respecting the rights of other people is an important part of empowering one another.
-//
-
-/*
-*/
-/**/
-
-/*1*/struct _export inOutFrameAuditTimeS/*1*/
-{
-    count04T dTimeAuditKidBetween ;
-    count04T dTimeAuditKidCt      ;
-    count04T dTimeAuditKidIn      ;
-    count04T dTimeAuditKidDt      ;
-    count04T dTimeAuditKidBook    ;
-
-    inline inOutFrameAuditTimeS( voidT ) :
-    dTimeAuditKidBetween( 0 ) ,  //THESE MUST BE INITIALIZED SINCE THEY ARE ACCUMULATORS
-    dTimeAuditKidCt(      0 ) ,  //THESE MUST BE INITIALIZED SINCE THEY ARE ACCUMULATORS
-    dTimeAuditKidIn(      0 ) ,  //THESE MUST BE INITIALIZED SINCE THEY ARE ACCUMULATORS
-    dTimeAuditKidDt(      0 ) ,  //THESE MUST BE INITIALIZED SINCE THEY ARE ACCUMULATORS
-    dTimeAuditKidBook(    0 )    //THESE MUST BE INITIALIZED SINCE THEY ARE ACCUMULATORS
-    {}
-}
-;
-
-
-//
-// Respecting the rights of other people is an important part of empowering one another.
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.inOutFrameAuditTimeS : 1snip.1500018c.inOutFrameAuditTimeS END
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.inOutFrameC : 1snip.15000159.inoutframec BEGIN
-
-
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-// Respecting the rights of other people is an important part of empowering one another.
-//
-
-/*
-*/
-
-/**/
-
-/*1*/class _export inOutFrameC/*1*/
-{
-    inOutFrameC* const        pDad                      ;
-    tinS&                     tinCt                     ;
-    const countT              idLineCt                  ;
-    const countT              idiFileCt                 ;
-    inOutFrameAuditCpuCyclesS auditCpuCycles            ;
-    inOutFrameAuditTimeS      auditTime                 ;
-    tellInfoAppInOutFrameS    say                       ;
-    const countT              idFileRankCt              ;
-    const flagsT              flagsCt                   ;
-    countT                    idFileNestSave            ;
-    countT                    idLineNestSave            ;
-    countT                    eipInNestSave             ;
-    countT                    idProgressNestSave        ;
-    flagsT                    pFlagsThreadLevelModeSave ;
-    const countT              idWhat1Save               ;
-    const countT              idWhat2Save               ;
-
-    public :
-
-    NEWdELcLASSpROTOS
-    ~inOutFrameC( voidT ) ;
-    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3612c002.inOutFrameC.dt_inOutFrameC!||
-    inOutFrameC( tinS& tinP , const countT idLineP , const countT idiFileP , const countT idFileRankP , const boolT bClassP ) ;
-    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3612c003.inOutFrameC.inOutFrameC!||
-}
-;
-
-
-//
-// Respecting the rights of other people is an important part of empowering one another.
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
-//
-// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.inOutFrameC : 1snip.15000159.inoutframec END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.rParam_new_S : 1snip.15000173.rparam_new_s BEGIN
 
 

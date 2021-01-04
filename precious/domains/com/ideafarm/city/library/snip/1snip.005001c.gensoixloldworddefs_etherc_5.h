@@ -677,13 +677,23 @@ voidT strMakeFromOsTextF_4P2P33_GF( tinS& tinP , etherC& etherP , soulC& slP , c
     etherP.delF( tinP , psttP ) ;
 }
 
-voidT strMakeF_pbRefCP4P37_GF( tinS& tinP , etherC& etherP , soulC& slP , const strokeS* const _psttNameP )
+voidT strMakeF_33pbRefCP4P37_GF( tinS& tinP , etherC& etherP , soulC& slP , const strokeS* const _psttNameP )
 {
     countT idArgNext = 1 ;
     ZE( byteT* , pbFieldNext ) ;
     ZE( countT , idTypeNext ) ;
     ZE( flagsT , flagsNext ) ;
     ZE( countT , cbFieldNext ) ;
+
+   SOIXLoLDtESTeMPTY( 0xdddd8003 , etherC )
+   SOIXLoLDtESTtYPE( 0xdddd8003 , etherC )
+    ZE( countT , idLineP ) ;
+    if( !POOP ) { slP >> idLineP ; idArgNext ++ ; }
+
+   SOIXLoLDtESTeMPTY( 0xdddd8003 , etherC )
+   SOIXLoLDtESTtYPE( 0xdddd8003 , etherC )
+    ZE( countT , idiFileP ) ;
+    if( !POOP ) { slP >> idiFileP ; idArgNext ++ ; }
 
     SOIXLoLDtESTeMPTY( 0xdddd801c , etherC )
     SOIXLoLDtESTtYPE( 0xdddd801c , etherC )
@@ -744,7 +754,7 @@ voidT strMakeF_pbRefCP4P37_GF( tinS& tinP , etherC& etherP , soulC& slP , const 
     }
 
     ZE( countT , noName ) ;
-    if( !POOP ) noName = etherP.strMakeF( tinP , LF , prP , psttP , costExtraP , flagsP ) ;
+    if( !POOP ) noName = etherP.strMakeF( tinP , idLineP , idiFileP , prP , psttP , costExtraP , flagsP ) ;
     etherP.delF( tinP , psttP ) ;
 
     if( !POOP ) slP << prP ;
@@ -753,13 +763,23 @@ voidT strMakeF_pbRefCP4P37_GF( tinS& tinP , etherC& etherP , soulC& slP , const 
     slP << noName ;
 }
 
-voidT strMakeF_2P4P373_GF( tinS& tinP , etherC& etherP , soulC& slP , const strokeS* const _psttNameP )
+voidT strMakeF_332P4P373_GF( tinS& tinP , etherC& etherP , soulC& slP , const strokeS* const _psttNameP )
 {
     countT idArgNext = 1 ;
     ZE( byteT* , pbFieldNext ) ;
     ZE( countT , idTypeNext ) ;
     ZE( flagsT , flagsNext ) ;
     ZE( countT , cbFieldNext ) ;
+
+   SOIXLoLDtESTeMPTY( 0xdddd8003 , etherC )
+   SOIXLoLDtESTtYPE( 0xdddd8003 , etherC )
+    ZE( countT , idLineP ) ;
+    if( !POOP ) { slP >> idLineP ; idArgNext ++ ; }
+
+   SOIXLoLDtESTeMPTY( 0xdddd8003 , etherC )
+   SOIXLoLDtESTtYPE( 0xdddd8003 , etherC )
+    ZE( countT , idiFileP ) ;
+    if( !POOP ) { slP >> idiFileP ; idArgNext ++ ; }
 
     SOIXLoLDtESTeMPTY( 0x0 , etherC )
     SOIXLoLDtESTtYPE( 0x0 , etherC )
@@ -844,7 +864,7 @@ voidT strMakeF_2P4P373_GF( tinS& tinP , etherC& etherP , soulC& slP , const stro
     }
 
     ZE( countT , noName ) ;
-    if( !POOP ) noName = etherP.strMakeF( tinP , LF , postP , psttP , costExtraP , flagsP , cbPrefixExtraP ) ;
+    if( !POOP ) noName = etherP.strMakeF( tinP , idLineP , idiFileP , postP , psttP , costExtraP , flagsP , cbPrefixExtraP ) ;
     etherP.delF( tinP , psttP ) ;
 
     if( !POOP ) slP << postP ;
@@ -853,13 +873,23 @@ voidT strMakeF_2P4P373_GF( tinS& tinP , etherC& etherP , soulC& slP , const stro
     slP << noName ;
 }
 
-voidT strMakeF_4P4P3_GF( tinS& tinP , etherC& etherP , soulC& slP , const strokeS* const _psttNameP )
+voidT strMakeF_334P4P3_GF( tinS& tinP , etherC& etherP , soulC& slP , const strokeS* const _psttNameP )
 {
     countT idArgNext = 1 ;
     ZE( byteT* , pbFieldNext ) ;
     ZE( countT , idTypeNext ) ;
     ZE( flagsT , flagsNext ) ;
     ZE( countT , cbFieldNext ) ;
+
+   SOIXLoLDtESTeMPTY( 0xdddd8003 , etherC )
+   SOIXLoLDtESTtYPE( 0xdddd8003 , etherC )
+    ZE( countT , idLineP ) ;
+    if( !POOP ) { slP >> idLineP ; idArgNext ++ ; }
+
+   SOIXLoLDtESTeMPTY( 0xdddd8003 , etherC )
+   SOIXLoLDtESTtYPE( 0xdddd8003 , etherC )
+    ZE( countT , idiFileP ) ;
+    if( !POOP ) { slP >> idiFileP ; idArgNext ++ ; }
 
     SOIXLoLDtESTeMPTY( 0xdddd8017 , etherC )
     SOIXLoLDtESTtYPE( 0xdddd8017 , etherC )
@@ -913,7 +943,7 @@ voidT strMakeF_4P4P3_GF( tinS& tinP , etherC& etherP , soulC& slP , const stroke
             }
         }
     }
-    if( !POOP ) etherP.strMakeF( tinP , LF , psttOutP , psttInP , csttExtraP ) ;
+    if( !POOP ) etherP.strMakeF( tinP , idLineP , idiFileP , psttOutP , psttInP , csttExtraP ) ;
     etherP.delF( tinP , psttInP ) ;
 
     if( !POOP ) slP << psttOutP ;
