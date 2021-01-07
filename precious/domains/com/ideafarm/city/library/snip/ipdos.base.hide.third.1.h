@@ -1,6 +1,4 @@
 
-#define postCRAFTWORKfACTORY "factory2"
-
 // IPDOS (tm) <> IdeaFarm (tm) Piggyback Distributed Operating System
 
 // For build environment info, see file "\ideafarm.work\backed.up.never\txt\readme.first.ipdos.build.environment.txt"
@@ -45500,3 +45498,99 @@ else the reference to it that is kept within the jotC instance will become a zom
 //
 
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004ed.jref END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004ee.jrequest BEGIN
+
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+/*
+*/
+/**/
+/*1*//*JrEQUEST*//*1*/
+
+//CS:CODEsYNC: 110004ea 110004eb 110004ec 110004ed 110004ee
+//SYNC ERRORS CAN CAUSE ARRAY INDEX OUT OF BOUNDS
+
+/*3*/
+#define JrEQUEST_1                           0xdddd0b78
+#define JrEQUEST_2                           0xdddd0b79
+#define JrEQUEST_3                           0xdddd0b7a
+#define JrEQUEST_4                           0xdddd0b7b
+#define JrEQUEST_5                           0xdddd0b7c
+#define JrEQUEST_6                           0xdddd0b7d
+#define JrEQUEST_7                           0xdddd0b7e
+#define JrEQUEST_8                           0xdddd0b7f
+#define JrEQUEST_9                           0xdddd0b80
+#define JrEQUEST_a                           0xdddd0b81
+#define JrEQUEST_b                           0xdddd0b82
+#define JrEQUEST_c                           0xdddd0b83
+#define JrEQUEST_d                           0xdddd0b84
+#define JrEQUEST_e                           0xdddd0b85
+#define JrEQUEST_f                           0xdddd0b86
+#define JrEQUEST_01                          0xdddd0b87
+#define JrEQUEST_11                          0xdddd0b88
+#define JrEQUEST_21                          0xdddd0b89
+#define JrEQUEST_31                          0xdddd0b8a
+#define JrEQUEST_41                          0xdddd0b8b
+#define JrEQUEST_51                          0xdddd0b8c
+#define JrEQUEST_61                          0xdddd0b8d
+#define JrEQUEST_71                          0xdddd0b8e
+#define JrEQUEST_81                          0xdddd0b8f
+#define JrEQUEST_91                          0xdddd0b90
+#define JrEQUEST_a1                          0xdddd0b91
+#define JrEQUEST_b1                          0xdddd0b92
+#define JrEQUEST_c1                          0xdddd0b93
+#define JrEQUEST_d1                          0xdddd0b94
+#define JrEQUEST_e1                          0xdddd0b95
+#define JrEQUEST_f1                          0xdddd0b96
+#define JrEQUEST_02                          0xdddd0b97
+#define JrEQUEST_12                          0xdddd0b98
+#define JrEQUEST_22                          0xdddd0b99
+#define JrEQUEST_32                          0xdddd0b9a
+#define JrEQUEST_42                          0xdddd0b9b
+#define JrEQUEST_52                          0xdddd0b9c
+#define JrEQUEST_62                          0xdddd0b9d
+#define JrEQUEST_72                          0xdddd0b9e
+#define JrEQUEST_82                          0xdddd0b9f
+#define JrEQUEST_92                          0xdddd0ba0
+#define JrEQUEST_a2                          0xdddd0ba1
+#define JrEQUEST_b2                          0xdddd0ba2
+#define JrEQUEST_c2                          0xdddd0ba3
+#define JrEQUEST_d2                          0xdddd0ba4
+#define JrEQUEST_e2                          0xdddd0ba5
+#define JrEQUEST_f2                          0xdddd0ba6
+#define JrEQUEST_03                          0xdddd0ba7
+#define JrEQUEST_13                          0xdddd0ba8
+#define JrEQUEST_23                          0xdddd0ba9
+#define JrEQUEST_33                          0xdddd0baa
+#define JrEQUEST_43                          0xdddd0bab
+#define JrEQUEST_53                          0xdddd0bac
+#define JrEQUEST_63                          0xdddd0bad
+#define JrEQUEST_73                          0xdddd0bae
+#define JrEQUEST_83                          0xdddd0baf
+#define JrEQUEST_93                          0xdddd0bb0
+#define JrEQUEST_a3                          0xdddd0bb1
+#define JrEQUEST_b3                          0xdddd0bb2
+#define JrEQUEST_c3                          0xdddd0bb3
+#define JrEQUEST_d3                          0xdddd0bb4
+#define JrEQUEST_e3                          0xdddd0bb5
+#define JrEQUEST_f3                          0xdddd0bb6
+#define JrEQUEST_04                          0xdddd0bb7
+/*3*/
+#define JrEQUEST_min     0xdddd0b78
+#define JrEQUEST_max     0xdddd0bb7
+
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004ee.jrequest END

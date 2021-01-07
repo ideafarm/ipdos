@@ -16,7 +16,8 @@ THREADmODE2rESTORE0( flagsSave )
 
     }
         ether.loafIF( tinP ) ;
-//U::        etThread.osThreadF( TaRG1( tmUpdateCacheF ) ) ;
+        while( cDo -- ) etThread.osThreadF( TaRG1( tmUpdateCacheF ) ) ;
+        countT cDo = CuPDATEtHREADS ;
         httpServerC serverS( tinP , arg1S , arg2 , &cache ) ;
         httpServerC serverU( tinP , arg1U , arg2 , &cache ) ;
     {
@@ -25,9 +26,8 @@ THREADmODE2rESTORE0( flagsSave )
 
     //U:: ENABLE AFTER REWRITE DATABASE SUBSYSTEMS FOR BILLING:: arg2.pHttpFreshenCacheCBF = httpFreshenCacheCBF ;
     httpServerC_arg2S arg2 ;
-static    httpServerC_arg1S arg1S( TAG( TAGiDnULL ) , etThread , cArgApp , ifcIDpORT_HTTPS , flSOCKETc_CRYPTfOREIGNsSL , T("World Wide Web Secured") ) ;
-static    httpServerC_arg1S arg1U( TAG( TAGiDnULL ) , etThread , cArgApp , ifcIDpORT_HTTP  , flSOCKETc_null            , T("World Wide Web") ) ;
-//U::static
+    httpServerC_arg1S arg1S( TAG( TAGiDnULL ) , etThread , cArgApp , ifcIDpORT_HTTPS , flSOCKETc_CRYPTfOREIGNsSL , T("World Wide Web Secured") ) ;
+    httpServerC_arg1S arg1U( TAG( TAGiDnULL ) , etThread , cArgApp , ifcIDpORT_HTTP  , flSOCKETc_null            , T("World Wide Web") ) ;
 
     countT cArgApp = (countT)&c8p ;
     count8S c8p( /*(countT)&pusePeanut*/0 , (countT)&booksSurvey , (countT)&cLeverPassword , (countT)&swsUnconfirmedPeerDeleteEmailZipCountryByPassword ) ;
@@ -51,37 +51,31 @@ TODO
 DONE( tmUpdateCacheF )
 }
     }
-        //}
-        //    ++ s ; ether.osSleepF( tinP , TOCK ) ;
-        //    sleepC s( tinP , TAG( TAGiDnULL ) ) ;
-        //{
-
+        etThread.delF( tinP , pbIn ) ;
         }
-            etThread.delF( tinP , pbIn ) ;
             }
-                }
-                    POOPRqUIET
-                {
-                if( POOP )
-                tinP.pEtScratch->boxGetShadowF( tinP , pbIn , cbIn , tName , 1 ) ; ___( pbIn ) ;
-                SCOOPS
+                POOPRqUIET
             {
-            IFsCRATCH
-            ZE( countT , cbIn ) ;
-            ZE( byteT* , pbIn ) ;
-
-            textC& tName = *ptName[ offn ] ;
+            if( POOP )
+            tinP.pEtScratch->boxGetShadowF( tinP , pbIn , cbIn , tName , 1 ) ; ___( pbIn ) ;
+            SCOOPS
         {
-        for( countT offn = 0 ; offn < sizeof ptName / sizeof ptName[ 0 ] ; offn ++ )
+        IFsCRATCH
+        ZE( countT , cbIn ) ;
+        ZE( byteT* , pbIn ) ;
     {
     while( !ether )
+    textC& tName = *ptName[ ( idIn - 1 ) % CuPDATEtHREADS ] ;
 
-    textC* ptName[] = { &tNameU1 , &tNameU2 , &tNameS1 , &tNameS2 } ;
+    textC* ptName[ CuPDATEtHREADS ] = { &tNameU1 , &tNameU2 , &tNameS1 , &tNameS2 } ;
 
     TN( tNameS2 , "127.0.0.1//https/talk.body?cachesearch=no&badge=force" ) ;
     TN( tNameS1 , "127.0.0.1//https/talk.body?cachesearch=no" ) ;
     TN( tNameU2 , "127.0.0.1//http/talk.body?cachesearch=no&badge=force" ) ;
     TN( tNameU1 , "127.0.0.1//http/talk.body?cachesearch=no" ) ;
+
+    countT idIn = 1 + incv02AM( idInLath ) ;
+    static countT idInLath ;
 {
 TASK( tmUpdateCacheF )
 
@@ -359,6 +353,8 @@ TASK( tmUpdateCacheF )
     _IO_
 {
 voidT httpFreshenCacheCBF( tinS& tinP , etherC& etThread , const boolT& bQuitP , httpServerC& meP , sessionsC& sessionsP , countT& cArgP , const boolT bCleanupP )
+
+#define CuPDATEtHREADS 4
 
 //OBSOLETES c750104, WHICH WAS A QUICK HACK TO GET THE WEB SITE UP
 
