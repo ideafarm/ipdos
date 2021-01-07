@@ -38,7 +38,12 @@
         {
         if( !*this && fFound )
 
-        delF( tinP , postLike ) ;
+        }
+            delF( tinP , postLike ) ;                           //U::20210107@1055: slotsC FAILED TO DELETE THIS
+            tinP.pcUtility[ 1 ] = (countT)postLike ;
+            _IO_
+        {
+
         }
             }
                 }
@@ -279,6 +284,7 @@
 
         if( postLike ) postLike[ costCopy ] = 0 ;
         c_memcpyIF( tinP , postLike , postLikeP , costCopy ) ;
+        tinP.pcUtility[ 0 ] = (countT)postLike ;                           //U::20210107@1055: slotsC FAILED TO DELETE THIS
         newF( tinP , LF , postLike , costCopy + 1 ) ; ___( postLike ) ;
         countT costCopy = costLikeP - ( postLikeP[ costLikeP - 1 ] == '\\' ) ;
         const countT costLikeP = postLikeP ? c_strlenIF( tinP , postLikeP ) : 0 ;
