@@ -686,21 +686,24 @@ DONE( tmWatch05TallyF )
                 }
                     home.flagsUtility |= flHOMEsuTILITY_SNAPsHOT ;
 
-                    etThread.emailFactoryReportF( tinP , tSay ) ;
-                    etThread.traceF( tinP , tSay , flTRACE_HOMEeCHO | flTRACE_FORCEnOsILENCE , ifcIDtRACEdIVERT_1 ) ;
+                    }
+                        etThread.emailFactoryReportF( tinP , tSay ) ;
+                        etThread.traceF( tinP , tSay , flTRACE_HOMEeCHO | flTRACE_FORCEnOsILENCE , ifcIDtRACEdIVERT_1 ) ;
 
-                    ;
+                        ;
 
-                        + T(" (http service failure detected)")
-                        + TF2(cForgive,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)
-                        + T(" | nothing new has been done.  forgiven.  cForgive is now ")
-                        TT(timeN1,timeN2)
+                            + T(" (http service failure detected)")
+                            + TF2(cForgive,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)
+                            + T(" | nothing new has been done.  forgiven.  cForgive is now ")
+                            TT(timeN1,timeN2)
 
-                    TN( tSay , "\r\n" ) ; tSay +=
+                        TN( tSay , "\r\n" ) ; tSay +=
 
-                    etThread.osTimeNowF( tinP , timeN1 , timeN2 ) ;
-                    ZE( sCountT , timeN2 ) ;
-                    ZE( countT , timeN1 ) ;
+                        etThread.osTimeNowF( tinP , timeN1 , timeN2 ) ;
+                        ZE( sCountT , timeN2 ) ;
+                        ZE( countT , timeN1 ) ;
+                    {
+                    if( !( cForgive % 4 ) )
                 {
                 if( cForgive && cForgive -- )                                                                  // ------------ NOTHING NEW HAS BEEN DONE: FORGIVE
             {

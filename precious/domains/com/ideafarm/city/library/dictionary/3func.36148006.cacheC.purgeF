@@ -19,6 +19,7 @@
             while( !POOP && !swsCache.third && ~hDown ) ;
             }
                 }
+                    if( tinP.pEther ) tinP.pEther->traceF( tinP , T("cacheC::purgeF / deleted old item") ) ;
                     swsCache.extractF( 0 , tinP ) ;
                     DELzOMBIE( pCached ) ;
                 {
@@ -31,10 +32,12 @@
         {
         if( swsCache )
 
+        if( tinP.pEther ) tinP.pEther->traceF( tinP , T("cacheC::purgeF [cFlavors,idf,cLeverOsTimeLathReferenced,cRetain]:    ")+TF2(cFlavors,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2(idf,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2(cLeverOsTimeLathReferenced,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2(cRetainP,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
         cLeverOsTimeLathReferenced = swsCache.leverF( tinP , idf ) ;
     {
     for( countT idf = 1 ; idf <= cFlavors ; idf ++ )
     countT cFlavors = swsCache.cFlavorsF( tinP ) ;
+    TN( tb4 , "    " ) ;
 
     grabF( tinP , TAG( TAGiDnULL ) ) ;
 {
