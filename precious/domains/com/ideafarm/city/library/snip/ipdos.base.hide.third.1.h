@@ -329,7 +329,7 @@ struct  /*ff*/fireGroupS/*ff*/                  ; /*ff*//**//*ff*/
 struct  /*ff*/doC/*ff*/                         ; /*ff*//**//*ff*/
 class   /*ff*/refCounterC/*ff*/                 ; /*ff*//**//*ff*/
 class   /*ff*/refC/*ff*/                        ; /*ff*//**//*ff*/
-class   /*ff*/httpReplySrefC/*ff*/              ; /*ff*//**//*ff*/
+class   /*ff*/httpReplyRefC/*ff*/              ; /*ff*//**//*ff*/
 class   /*ff*/pbRefC/*ff*/                      ; /*ff*//**//*ff*/
 struct  /*ff*/storeReplyPrivateF_argS/*ff*/     ; /*ff*//**//*ff*/
 class   /*ff*/blobVSP/*ff*/                     ; /*ff*//**//*ff*/
@@ -7983,7 +7983,7 @@ it is illegal to refer to this symbol in the definition of an adam
 #define ifciDtYPEdROPnOTE_booksC                                        0xdddd03e9
 #define ifciDtYPEdROPnOTE_accountS                                      0xdddd03ea
 #define ifciDtYPEdROPnOTE_refC                                          0xdddd03eb
-#define ifciDtYPEdROPnOTE_httpReplySrefC                                0xdddd03ec
+#define ifciDtYPEdROPnOTE_httpReplyRefC                                0xdddd03ec
 #define ifciDtYPEdROPnOTE_pbRefC                                        0xdddd03ed
 #define ifciDtYPEdROPnOTE_fieldEditParamOutC                            0xdddd03ee
 #define ifciDtYPEdROPnOTE_boolC                                         0xdddd03ef

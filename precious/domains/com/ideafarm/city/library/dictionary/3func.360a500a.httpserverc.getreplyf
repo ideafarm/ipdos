@@ -25,28 +25,30 @@
         }
             }
                 }
-                    new( 0 , tinP , (byteT*)prP , sizeof( httpReplySrefC ) ) httpReplySrefC( reply ) ;
+                    new( 0 , tinP , (byteT*)prP , sizeof( httpReplyRefC ) ) httpReplyRefC( reply ) ;
                     _IO_
                 {
                 if( !prP ) { BLAMMOiD( 0x1234 ) ; } //U::TO FIND A BUG
                 _IO_
             {
 
-            httpReplySrefC& reply = *(httpReplySrefC*)&(countT&)swReply ;       //U::20210107@1148: FAILED DUE TO subtractF COMPLAINT ABOUT idCaste OF pstt1P
+            reply.testF( tinP ) ; //U:: TO FIND A BUG
 
-            tinP.pcUtility[ 6 ] = psttLeverUrl[ 2 ].idCaste ;
-            tinP.pcUtility[ 5 ] = psttLeverUrl[ 2 ].idAdam ;
-            tinP.pcUtility[ 4 ] = psttLeverUrl[ 1 ].idCaste ;
-            tinP.pcUtility[ 3 ] = psttLeverUrl[ 1 ].idAdam ;
-            tinP.pcUtility[ 2 ] = psttLeverUrl[ 0 ].idCaste ;
-            tinP.pcUtility[ 1 ] = psttLeverUrl[ 0 ].idAdam ;
-            tinP.pcUtility[ 0 ] = (countT)psttLeverUrl ;
+            httpReplyRefC& reply = *(httpReplyRefC*)&(countT&)swReply ;       //U::20210107@1148: FAILED DUE TO subtractF COMPLAINT ABOUT idCaste OF pstt1P
+
+            tinP.pcUtility[ 6 ] = psttLeverUrlReply[ 2 ].idCaste ;
+            tinP.pcUtility[ 5 ] = psttLeverUrlReply[ 2 ].idAdam ;
+            tinP.pcUtility[ 4 ] = psttLeverUrlReply[ 1 ].idCaste ;
+            tinP.pcUtility[ 3 ] = psttLeverUrlReply[ 1 ].idAdam ;
+            tinP.pcUtility[ 2 ] = psttLeverUrlReply[ 0 ].idCaste ;
+            tinP.pcUtility[ 1 ] = psttLeverUrlReply[ 0 ].idAdam ;
+            tinP.pcUtility[ 0 ] = (countT)psttLeverUrlReply ;
 
             _IO_
         {        
         if( bFound )
         boolT bFound = swReply.idSlotOfLeverF( tinP , (countT)psttUrlP ) ;
-        psttLeverUrl = (strokeS*)psttUrlP ;
+        psttLeverUrlReply = (strokeS*)psttUrlP ;
         swReply.grabF( tinP , TAG( TAGiDnULL ) ) ;
         _IO_
     {
@@ -54,7 +56,7 @@
 
     if( !prP ) { BLAMMO ; } //U::TO FIND A BUG
     __Z( prP ) ;
-    PUSE.newF( tinP , LF , *(byteT**)&prP , sizeof( httpReplySrefC ) ) ; ___( prP ) ;
+    PUSE.newF( tinP , LF , *(byteT**)&prP , sizeof( httpReplyRefC ) ) ; ___( prP ) ;
     _IO_
 
     }
@@ -66,7 +68,7 @@
     {
     IFbEcAREFUL
 {
-/*1*/voidT httpServerC::getReplyF( tinS& tinP , httpReplySrefC*& prP , const strokeS* const psttUrlP )/*1*/
+/*1*/voidT httpServerC::getReplyF( tinS& tinP , httpReplyRefC*& prP , const strokeS* const psttUrlP )/*1*/
 /**/
 */
 /*

@@ -39031,9 +39031,10 @@ the only function of this object is to edit tinS::grabPseudo so that the monitor
     count8S          c8tp1 ;
     count8S          c8tp2 ;
     count8S          c8tp ;
-    httpReplySrefC* pRefReplyAlert ;
+    httpReplyRefC* pRefReplyAlert ;
     countT           cArgThread ;
-    strokeS*         psttLeverUrl ;
+    strokeS*         psttLeverUrlMap ;
+    strokeS*         psttLeverUrlReply ;
     switchC          swMapUrl ;
     switchC          swReply ;
     countT           cLeverIdSnip ;
@@ -39074,7 +39075,7 @@ the only function of this object is to edit tinS::grabPseudo so that the monitor
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34005.httpServerC.ct3F!||
     voidT ct4F( tinS& tinP ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34006.httpServerC.ct4F!||
-    voidT storeReplyF( tinS& tinP , const countT idFormP , const strokeS* const psttUrlP , httpReplySrefC** ppRefOverrideP , const countT idSnipHttpPrefixP = 0 , const strokeS* const psttsTitleP = 0 , const strokeS* const psttsDescriptionP = 0 , const strokeS* const psttsMetaDescriptionP = 0 , const strokeS* const psttsSloganP = 0 , const strokeS* const psttsPageHelpP = 0 , const strokeS* const psttsKeywordsP = 0 , /*httpDynamicReplyBodyCBFT*/voidT* pCBFP = 0 , const strokeS* const psttP = 0 , const byteT* const pbP = 0 , const countT cbP = 0 , const countT idSnipHttpLocationP = 0 ) ;
+    voidT storeReplyF( tinS& tinP , const countT idFormP , const strokeS* const psttUrlP , httpReplyRefC** ppRefOverrideP , const countT idSnipHttpPrefixP = 0 , const strokeS* const psttsTitleP = 0 , const strokeS* const psttsDescriptionP = 0 , const strokeS* const psttsMetaDescriptionP = 0 , const strokeS* const psttsSloganP = 0 , const strokeS* const psttsPageHelpP = 0 , const strokeS* const psttsKeywordsP = 0 , /*httpDynamicReplyBodyCBFT*/voidT* pCBFP = 0 , const strokeS* const psttP = 0 , const byteT* const pbP = 0 , const countT cbP = 0 , const countT idSnipHttpLocationP = 0 ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34008.httpServerC.storeReplyF!||
     voidT storeSnipF( tinS& tinP , const countT idSnipP , const strokeS* const psttP = 0 ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400d.httpServerC.storeSnipF!||
@@ -39096,7 +39097,7 @@ the only function of this object is to edit tinS::grabPseudo so that the monitor
     /* serve a client */
     osTextT readRequestF( tinS& tinP , boolT& bFailP , strokeS*& psttNameP , strokeS*& psttQueryKVP , switchC& swKVP , strokeS*& psttLeverKVP , strokeS*& psttAgentP , osTextT*& postBodyP , boolT& bCloseP , socketC* psoP , const osTextT* const postEscapeP = 0 ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34007.httpServerC.readRequestF!||
-    voidT getReplyF( tinS& tinP , httpReplySrefC*& prP , const strokeS* const psttUrlP ) ;
+    voidT getReplyF( tinS& tinP , httpReplyRefC*& prP , const strokeS* const psttUrlP ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400a.httpServerC.getReplyF!||
     voidT getSnipF( tinS& tinP , pbRefC*& prP , const countT idSnipP ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34009.httpServerC.getSnipF!||
@@ -39112,7 +39113,8 @@ the only function of this object is to edit tinS::grabPseudo so that the monitor
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34016.httpServerC.pushSnipNamedF!||
 
     inline countT     idPortF( tinS& tinP ) { return idPort ; }
-    inline strokeS*&  psttLeverUrlF( voidT ) { return psttLeverUrl ; }
+    inline strokeS*&  psttLeverUrlMapF( voidT ) { return psttLeverUrlMap ; }
+    inline strokeS*&  psttLeverUrlReplyF( voidT ) { return psttLeverUrlReply ; }
     inline switchC&   swMapUrlF( voidT ) { return swMapUrl ; }
     inline textC&     tListFactoryF( voidT ) { return tListFactory ; }
     inline measure04T ruF( voidT ) { return ru ; }
@@ -39299,7 +39301,7 @@ base class to make a derived class of objects easily contained by a stackC objec
 /*1*/struct httpReplyS : public refCounterC/*1*/
 {
     private :
-    httpReplySrefC**        ppRefOverride ;
+    httpReplyRefC**        ppRefOverride ;
     public :
 
     countT                   cServed ;
@@ -39324,9 +39326,9 @@ base class to make a derived class of objects easily contained by a stackC objec
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34001.httpReplyS.NEWdELcLASSb!||
     ~httpReplyS( voidT ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.1d8000.httpReplyS.dt_httpReplyS!||
-    httpReplyS( httpReplySrefC** ppRefOverrideP , const countT idFormP , pbRefC*& prPostBodyP , voidT* pCBFP , const countT idSnipHttpPrefixP , pbRefC*& prPostUrlP , pbRefC*& prPostTitleP , pbRefC*& prPostDescriptionP , pbRefC*& prPostMetaDescriptionP , pbRefC*& prPostSloganP , pbRefC*& prPostPageHelpP , pbRefC*& prPostKeywordsP , const countT idSnipHttpLocationP = 0 ) ;
+    httpReplyS( httpReplyRefC** ppRefOverrideP , const countT idFormP , pbRefC*& prPostBodyP , voidT* pCBFP , const countT idSnipHttpPrefixP , pbRefC*& prPostUrlP , pbRefC*& prPostTitleP , pbRefC*& prPostDescriptionP , pbRefC*& prPostMetaDescriptionP , pbRefC*& prPostSloganP , pbRefC*& prPostPageHelpP , pbRefC*& prPostKeywordsP , const countT idSnipHttpLocationP = 0 ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34003.httpReplyS.httpReplyS!||
-    httpReplySrefC overrideF( tinS& tinP ) ;
+    httpReplyRefC overrideF( tinS& tinP ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34004.httpReplyS.overrideF!||
 }
 ;
@@ -39340,7 +39342,7 @@ base class to make a derived class of objects easily contained by a stackC objec
 //
 
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.httpReplyS : 1snip.150000bd.httpreplys END
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.httpReplySrefC : 1snip.15000119.httpreplysrefc BEGIN
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.httpReplyRefC : 1snip.15000119.httpreplysrefc BEGIN
 
 
 //
@@ -39354,14 +39356,14 @@ base class to make a derived class of objects easily contained by a stackC objec
 */
 /**/
 
-/*1*/class _export httpReplySrefC : public refC/*1*/
+/*1*/class _export httpReplyRefC : public refC/*1*/
 {
     public :
 
     NEWdELcLASSpROTOS
-    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34001.httpReplySrefC.NEWdELcLASSb!||
+    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34001.httpReplyRefC.NEWdELcLASSb!||
 
-    inline ~httpReplySrefC( voidT )
+    inline ~httpReplyRefC( voidT )
     {
         TINSL
         _IO_
@@ -39373,12 +39375,12 @@ base class to make a derived class of objects easily contained by a stackC objec
         }
     }
 
-    inline httpReplySrefC( httpReplyS& oP ) :
+    inline httpReplyRefC( httpReplyS& oP ) :
     refC( oP )
     {
     }
 
-    inline httpReplySrefC( const httpReplySrefC& refP ) :
+    inline httpReplyRefC( const httpReplyRefC& refP ) :
     refC( refP )
     {
     }
@@ -39391,6 +39393,16 @@ base class to make a derived class of objects easily contained by a stackC objec
         _IO_
         return *(httpReplyS*)pzRefCounter ;
     }
+
+    inline voidT testF( tinS& tinP ) const                     //U:: TO FIND A BUG
+    {
+        _IO_
+        if( !pzRefCounter )
+        {
+            _IO_
+            BLAMMOiD( 0xeeddeedd ) ;
+        }
+    }
 }
 ;
 
@@ -39402,7 +39414,7 @@ base class to make a derived class of objects easily contained by a stackC objec
 // Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
 
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.httpReplySrefC : 1snip.15000119.httpreplysrefc END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.httpReplyRefC : 1snip.15000119.httpreplysrefc END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.dictionaryFileTitleS : 1snip.150000c0.dictionaryfiletitles BEGIN
 
 
@@ -42460,7 +42472,7 @@ parameters
 {
     countT                      idForm ;
     const strokeS*              psttUrl ;
-    httpReplySrefC**           ppRefOverride ;
+    httpReplyRefC**           ppRefOverride ;
     countT                      idSnipHttpPrefix ;
     pbRefC**                   pprPostTitle ;
     pbRefC**                   pprPostDescription ;

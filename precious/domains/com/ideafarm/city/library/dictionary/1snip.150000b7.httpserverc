@@ -43,7 +43,8 @@
     inline measure04T ruF( voidT ) { return ru ; }
     inline textC&     tListFactoryF( voidT ) { return tListFactory ; }
     inline switchC&   swMapUrlF( voidT ) { return swMapUrl ; }
-    inline strokeS*&  psttLeverUrlF( voidT ) { return psttLeverUrl ; }
+    inline strokeS*&  psttLeverUrlReplyF( voidT ) { return psttLeverUrlReply ; }
+    inline strokeS*&  psttLeverUrlMapF( voidT ) { return psttLeverUrlMap ; }
     inline countT     idPortF( tinS& tinP ) { return idPort ; }
 
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34016.httpServerC.pushSnipNamedF!||
@@ -59,7 +60,7 @@
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34009.httpServerC.getSnipF!||
     voidT getSnipF( tinS& tinP , pbRefC*& prP , const countT idSnipP ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400a.httpServerC.getReplyF!||
-    voidT getReplyF( tinS& tinP , httpReplySrefC*& prP , const strokeS* const psttUrlP ) ;
+    voidT getReplyF( tinS& tinP , httpReplyRefC*& prP , const strokeS* const psttUrlP ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34007.httpServerC.readRequestF!||
     osTextT readRequestF( tinS& tinP , boolT& bFailP , strokeS*& psttNameP , strokeS*& psttQueryKVP , switchC& swKVP , strokeS*& psttLeverKVP , strokeS*& psttAgentP , osTextT*& postBodyP , boolT& bCloseP , socketC* psoP , const osTextT* const postEscapeP = 0 ) ;
     /* serve a client */
@@ -81,7 +82,7 @@
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400d.httpServerC.storeSnipF!||
     voidT storeSnipF( tinS& tinP , const countT idSnipP , const strokeS* const psttP = 0 ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34008.httpServerC.storeReplyF!||
-    voidT storeReplyF( tinS& tinP , const countT idFormP , const strokeS* const psttUrlP , httpReplySrefC** ppRefOverrideP , const countT idSnipHttpPrefixP = 0 , const strokeS* const psttsTitleP = 0 , const strokeS* const psttsDescriptionP = 0 , const strokeS* const psttsMetaDescriptionP = 0 , const strokeS* const psttsSloganP = 0 , const strokeS* const psttsPageHelpP = 0 , const strokeS* const psttsKeywordsP = 0 , /*httpDynamicReplyBodyCBFT*/voidT* pCBFP = 0 , const strokeS* const psttP = 0 , const byteT* const pbP = 0 , const countT cbP = 0 , const countT idSnipHttpLocationP = 0 ) ;
+    voidT storeReplyF( tinS& tinP , const countT idFormP , const strokeS* const psttUrlP , httpReplyRefC** ppRefOverrideP , const countT idSnipHttpPrefixP = 0 , const strokeS* const psttsTitleP = 0 , const strokeS* const psttsDescriptionP = 0 , const strokeS* const psttsMetaDescriptionP = 0 , const strokeS* const psttsSloganP = 0 , const strokeS* const psttsPageHelpP = 0 , const strokeS* const psttsKeywordsP = 0 , /*httpDynamicReplyBodyCBFT*/voidT* pCBFP = 0 , const strokeS* const psttP = 0 , const byteT* const pbP = 0 , const countT cbP = 0 , const countT idSnipHttpLocationP = 0 ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34006.httpServerC.ct4F!||
     voidT ct4F( tinS& tinP ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34005.httpServerC.ct3F!||
@@ -122,9 +123,10 @@
     countT           cLeverIdSnip ;
     switchC          swReply ;
     switchC          swMapUrl ;
-    strokeS*         psttLeverUrl ;
+    strokeS*         psttLeverUrlReply ;
+    strokeS*         psttLeverUrlMap ;
     countT           cArgThread ;
-    httpReplySrefC* pRefReplyAlert ;
+    httpReplyRefC* pRefReplyAlert ;
     count8S          c8tp ;
     count8S          c8tp2 ;
     count8S          c8tp1 ;
