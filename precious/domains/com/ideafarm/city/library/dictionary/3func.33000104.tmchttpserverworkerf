@@ -29,7 +29,7 @@ DONE( tmcHttpServerWorkerF )
                     jobP.sessions.unregisterConnectionF( tinP , jobP.nnPeer ) ;
 
                     }
-                        jobP.b_lever_idSession.ungrabF( tinP ) ;
+                        jobP.sw_pso.ungrabF( tinP ) ;
                         }
                             else                                                 __1
                             if( (countT)&psoP == (countT)&(countT&)jobP.sw_pso ) jobP.sw_pso.freeF( tinP ) ;
@@ -44,7 +44,7 @@ DONE( tmcHttpServerWorkerF )
                             _IO_
                         {
                         }
-                            jobP.b_lever_idSession.grabF( tinP , TAG( TAGiDnULL ) ) ;
+                            jobP.sw_pso.grabF( tinP , TAG( TAGiDnULL ) ) ;
                             _IO_
                         {
 
@@ -89,7 +89,7 @@ DONE( tmcHttpServerWorkerF )
                 __Z( psoP ) ;
                 //etThread.traceF( tinP , T("U:: tmcHttpServerWorkerF / after ungrab") ) ;
 
-                jobP.b_lever_idSession.ungrabF( tinP ) ;
+                jobP.sw_pso.ungrabF( tinP ) ;
                 socketC*& psoP = (socketC*&)(countT&)jobP.sw_pso ;
                 jobP.lever_idSession = jobP.idSession ;
 
@@ -98,11 +98,10 @@ DONE( tmcHttpServerWorkerF )
                 //tinP.pcUtility[ 2 ] = 0 ;
                 //tinP.pcUtility[ 3 ] = 0 ;
 
-                jobP.b_lever_idSession.grabF( tinP , TAG( TAGiDnULL ) ) ;
+                jobP.sw_pso.grabF( tinP , TAG( TAGiDnULL ) ) ;
 
                 //tinP.pcUtility[ 3 ] = ((countT*)&jobCopy)[ 2 ] ;
                 //tinP.pcUtility[ 2 ] = ((countT*)&jobP)[ 2 ] ;
-                //tinP.pcUtility[ 1 ] = (countT)&jobP.b_lever_idSession ;
                 //tinP.pcUtility[ 0 ] = 0x12345678 ;
                 //etThread.traceF( tinP , T("U:: tmcHttpServerWorkerF / before grabbing") ) ;
 
@@ -111,7 +110,6 @@ DONE( tmcHttpServerWorkerF )
 
                 etThread.osTimeNowF( tinP , jobP.timeJobPopped1 , jobP.timeJobPopped2 ) ;
 
-                //CONoUTrAW3( "tmcHttpServerWorkerF [&jobP.b_lever_idSession]:    " , &jobP.b_lever_idSession , "\r\n" ) ;
                 taskDrivenServerJobS& jobP = *(taskDrivenServerJobS*)_pbaJob ;
             {
             if( pbJob )

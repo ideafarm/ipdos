@@ -8898,10 +8898,10 @@ pso not 0 is guaranteed for code between me and DONEdRIVENsERVER
         TESTsCRATCH ;                                                                                                                                       \
         TELL( "TASKdRIVENsERVER: setting up" )                                                                                                              \
                                                                                                                                                             \
-        jobP.b_lever_idSession.grabF( tinP , TAG( TAGiDnULL ) ) ;                                                                                           \
+        jobP.sw_pso.grabF( tinP , TAG( TAGiDnULL ) ) ;                                                                                           \
         jobP.lever_idSession = jobP.idSession ;                                                                                                             \
         socketC*& psoP = (socketC*&)(countT&)jobP.sw_pso ;                                                                                                  \
-        jobP.b_lever_idSession.ungrabF( tinP ) ;                                                                                                            \
+        jobP.sw_pso.ungrabF( tinP ) ;                                                                                                            \
         __Z( psoP ) ;                                                                                                                                       \
                                                                                                                                                             \
         sessionC& sessionP = jobP.sessions.registerConnectionF( tinP , jobP.nnPeer , /*psttPeerP*/T("notQueried") ) ;                                       \
@@ -8970,12 +8970,12 @@ see adam.0140104 for an example
                 while( tinP.cKidThreads ) { ++ s ; thirdC::dosSleepRawIF( tinP , 250 ) ; }                                                              \
             }                                                                                                                                           \
                                                                                                                                                         \
-            jobP.b_lever_idSession.grabF( tinP , TAG( TAGiDnULL ) ) ;                                                                                   \
+            jobP.sw_pso.grabF( tinP , TAG( TAGiDnULL ) ) ;                                                                                   \
             DEL( psoP ) ;                                                                                                                               \
             jobP.lever_idSession = jobP.idSession ;                                                                                                     \
             if( (countT)&psoP == (countT)&(countT&)jobP.sw_pso ) jobP.sw_pso.freeF( tinP ) ;                                                            \
             else                                                 __1                                                                                    \
-            jobP.b_lever_idSession.ungrabF( tinP ) ;                                                                                                    \
+            jobP.sw_pso.ungrabF( tinP ) ;                                                                                                    \
         }                                                                                                                                               \
                                                                                                                                                         \
         jobP.sessions.unregisterConnectionF( tinP , jobP.nnPeer ) ;                                                                                     \

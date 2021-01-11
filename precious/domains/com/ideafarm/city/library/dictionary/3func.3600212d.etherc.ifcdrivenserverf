@@ -22,7 +22,7 @@
             {
             TELL( "server: final wait (forever) for all sessions to end" )
 
-            b_lever_idSession.ungrabF( tinP ) ;
+            sw_pso.ungrabF( tinP ) ;
             }
                 }
                     }
@@ -43,7 +43,7 @@
                 for( countT idf = 1 ; idf <= cFlavors ; idf ++ )
                 countT cFlavors = sw_pso.cFlavorsF( tinP ) ;
             {
-            b_lever_idSession.grabF( tinP , TAG( TAGiDnULL ) ) ;
+            sw_pso.grabF( tinP , TAG( TAGiDnULL ) ) ;
 
             }
                 }
@@ -148,29 +148,26 @@
                                         {
                                         if( pJob )
 
-                                        taskDrivenServerJobS* pJob = new( 0 , tinP , LF ) taskDrivenServerJobS( idSessionLath , b_lever_idSession , lever_idSession , sw_pso , cSession , info2P.cArg , lever_nnPeer , sw_cSessionWithPeer , sessions , nnPeer , timeAccepted1 , timeAccepted2 , timeJobCreated1 , timeJobCreated2 ) ; ___( pJob ) ;
+                                        taskDrivenServerJobS* pJob = new( 0 , tinP , LF ) taskDrivenServerJobS( idSessionLath , lever_idSession , sw_pso , cSession , info2P.cArg , lever_nnPeer , sw_cSessionWithPeer , sessions , nnPeer , timeAccepted1 , timeAccepted2 , timeJobCreated1 , timeJobCreated2 ) ; ___( pJob ) ;
                                     {
                                     else
                                     }
                                         stJob.ungrabF( tinP ) ;
 
-                                        //CONoUTrAW3( "ifcDrivenServerF [&jobMe.b_lever_idSession]:    " , &jobMe.b_lever_idSession , "\r\n" ) ;
                                         //taskDrivenServerJobS& jobMe = *(taskDrivenServerJobS*)&(countT&)stJob[ 1 ] ; //U:: TO FIND A BUG
 
-                                        //CONoUTrAW3( "ifcDrivenServerF [&fooDebug2.b_lever_idSession]:    " , &fooDebug2.b_lever_idSession , "\r\n" ) ;
                                         //taskDrivenServerJobS& fooDebug2 = *(taskDrivenServerJobS*)pbTop ;
-                                        //new( 0 , tinP , pbTop , sizeof( taskDrivenServerJobS ) ) taskDrivenServerJobS( idSessionLath , pso , b_lever_idSession , lever_idSession , sw_pso , cSession , info2P.cArg , lever_nnPeer , sw_cSessionWithPeer , sessions , nnPeer ) ;
+                                        //new( 0 , tinP , pbTop , sizeof( taskDrivenServerJobS ) ) taskDrivenServerJobS( idSessionLath , pso , lever_idSession , sw_pso , cSession , info2P.cArg , lever_nnPeer , sw_cSessionWithPeer , sessions , nnPeer ) ;
                                         //byteT* pbTop = (byteT*)&(countT&)stJob[ 1 ] ;
 
                                         //traceF( tinP , T("ifcDrivenServerF pushed a job [jobCopy[2]]:    ")+TF2(((countT*)&jobCopy)[2],flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
                                         //taskDrivenServerJobS jobCopy = *(taskDrivenServerJobS*)&(countT&)stJob[ - 1 ] ; //U:: TO FIND A BUG
 
-                                        new( 0 , tinP , (byteT*)&(countT&)stJob[ - 1 ] , sizeof( taskDrivenServerJobS ) ) taskDrivenServerJobS( idSessionLath , b_lever_idSession , lever_idSession , sw_pso , cSession , info2P.cArg , lever_nnPeer , sw_cSessionWithPeer , sessions , nnPeer , timeAccepted1 , timeAccepted2 , timeJobCreated1 , timeJobCreated2 ) ;
+                                        new( 0 , tinP , (byteT*)&(countT&)stJob[ - 1 ] , sizeof( taskDrivenServerJobS ) ) taskDrivenServerJobS( idSessionLath , lever_idSession , sw_pso , cSession , info2P.cArg , lever_nnPeer , sw_cSessionWithPeer , sessions , nnPeer , timeAccepted1 , timeAccepted2 , timeJobCreated1 , timeJobCreated2 ) ;
                                         stJob << (byteT*)0 ;
                                         stJob.grabF( tinP , TAG( TAGiDnULL ) ) ;
 
-                                        //CONoUTrAW3( "ifcDrivenServerF [&fooDebug1.b_lever_idSession]:    " , &fooDebug1.b_lever_idSession , "\r\n" ) ;
-                                        //taskDrivenServerJobS fooDebug1( idSessionLath , pso , b_lever_idSession , lever_idSession , sw_pso , cSession , info2P.cArg , lever_nnPeer , sw_cSessionWithPeer , sessions , nnPeer ) ;
+                                        //taskDrivenServerJobS fooDebug1( idSessionLath , pso , lever_idSession , sw_pso , cSession , info2P.cArg , lever_nnPeer , sw_cSessionWithPeer , sessions , nnPeer ) ;
                                     {
                                     if( cWorkersSave )
 
@@ -187,10 +184,10 @@
                                     if( sw_cSessionWithPeer.cFlavorsF( tinP ) > TUCK ) sw_cSessionWithPeer.freeAllF( tinP ) ;
                                     sw_cSessionWithPeer.grabF( tinP , TAG( TAGiDnULL ) ) ;
 
-                                    b_lever_idSession.ungrabF( tinP ) ;
+                                    sw_pso.ungrabF( tinP ) ;
                                     sw_pso = (countT)pso ;
                                     lever_idSession = ++ idSessionLath ;
-                                    b_lever_idSession.grabF( tinP , TAG( TAGiDnULL ) ) ;
+                                    sw_pso.grabF( tinP , TAG( TAGiDnULL ) ) ;
                                     TELL( "server: preparing to serve the accepted socket" )
                                     //traceF( tinP , T(nnPeer)+T("    ifcDrivenServerF / preparing to serve this client") , flTRACE_null , ifcIDtRACEdIVERT_7 ) ;
                                 {
@@ -545,7 +542,6 @@
         switchC sw_pso( tinP , *this , TAG( TAGiDnULL ) , flSTACKc_FIFO , lever_idSession ) ;
         ZE( countT , lever_idSession ) ;
 
-        batonC b_lever_idSession( tinP , TAG( TAGiDnULL ) , 0 , ifcIDgRABlAYER_7BASEmISC1 , flBATONc_NOTjEALOUS ) ; //20190730@1433: ADDED flBATONc_NOTjEALOUS
         ZE( countT , cSession ) ;
 
         //traceF( tinP , T("ifcDrivenServerF [cSessionMax]:    ")+TF2(info2P.cSessionMax,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;

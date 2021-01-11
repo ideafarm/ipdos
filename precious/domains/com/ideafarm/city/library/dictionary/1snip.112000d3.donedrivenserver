@@ -11,7 +11,7 @@
     }                                                                                                                                                   \
         DEL( pDoomed ) ;                                                                                                                                \
         dec02AM( jobP.cSession ) ;                                                                                                                      \
-        taskDrivenServerJobS* pDoomed = &jobP ;                                                                                                      \
+        taskDrivenServerJobS* pDoomed = &jobP ;                                                                                                         \
                                                                                                                                                         \
         etThread.traceF( tinP , T("DONEdRIVENsERVER [cSession]:    ")+TF2(jobP.cSession,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;                   \
                                                                                                                                                         \
@@ -24,12 +24,12 @@
         jobP.sessions.unregisterConnectionF( tinP , jobP.nnPeer ) ;                                                                                     \
                                                                                                                                                         \
         }                                                                                                                                               \
-            jobP.b_lever_idSession.ungrabF( tinP ) ;                                                                                                    \
+            jobP.sw_pso.ungrabF( tinP ) ;                                                                                                               \
             else                                                 __1                                                                                    \
             if( (countT)&psoP == (countT)&(countT&)jobP.sw_pso ) jobP.sw_pso.freeF( tinP ) ;                                                            \
             jobP.lever_idSession = jobP.idSession ;                                                                                                     \
             DEL( psoP ) ;                                                                                                                               \
-            jobP.b_lever_idSession.grabF( tinP , TAG( TAGiDnULL ) ) ;                                                                                   \
+            jobP.sw_pso.grabF( tinP , TAG( TAGiDnULL ) ) ;                                                                                              \
                                                                                                                                                         \
             }                                                                                                                                           \
                 while( tinP.cKidThreads ) { ++ s ; thirdC::dosSleepRawIF( tinP , 250 ) ; }                                                              \

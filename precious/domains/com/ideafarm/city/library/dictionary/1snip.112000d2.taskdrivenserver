@@ -39,15 +39,15 @@
         sessionC& sessionP = jobP.sessions.registerConnectionF( tinP , jobP.nnPeer , /*psttPeerP*/T("notQueried") ) ;                                       \
                                                                                                                                                             \
         __Z( psoP ) ;                                                                                                                                       \
-        jobP.b_lever_idSession.ungrabF( tinP ) ;                                                                                                            \
+        jobP.sw_pso.ungrabF( tinP ) ;                                                                                                                       \
         socketC*& psoP = (socketC*&)(countT&)jobP.sw_pso ;                                                                                                  \
         jobP.lever_idSession = jobP.idSession ;                                                                                                             \
-        jobP.b_lever_idSession.grabF( tinP , TAG( TAGiDnULL ) ) ;                                                                                           \
+        jobP.sw_pso.grabF( tinP , TAG( TAGiDnULL ) ) ;                                                                                                      \
                                                                                                                                                             \
         TELL( "TASKdRIVENsERVER: setting up" )                                                                                                              \
         TESTsCRATCH ;                                                                                                                                       \
                                                                                                                                                             \
-        taskDrivenServerJobS& jobP   = *(taskDrivenServerJobS*)pTaskP->c2 ;                                                                           \
+        taskDrivenServerJobS& jobP   = *(taskDrivenServerJobS*)pTaskP->c2 ;                                                                                 \
         stackC&                  stJobP =                  *(stackC*)pTaskP->c1 ;                                                                           \
     {                                                                                                                                                       \
     if( pTaskP && pTaskP->c1 && pTaskP->c2 )                                                                                                                \

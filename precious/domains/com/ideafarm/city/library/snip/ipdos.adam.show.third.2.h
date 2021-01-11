@@ -45033,7 +45033,6 @@ i am nonconformant in that all of my member function definitions are in a single
 /*1*/struct _export taskDrivenServerJobS/*1*/
 {
     countT     idSession ;
-    batonC&    b_lever_idSession ;
     countT&    lever_idSession ;
     switchC&   sw_pso ;
     countT&    cSession ;
@@ -45052,7 +45051,7 @@ i am nonconformant in that all of my member function definitions are in a single
     sCountT    timeDoJob2 ;
 
     NEWdELcLASSpROTOS
-    taskDrivenServerJobS( countT idSessionP , batonC& b_lever_idSessionP , countT& lever_idSessionP , switchC& sw_psoP , countT& cSessionP , countT cArgP , nicNameC& lever_nnPeerP , switchC& sw_cSessionWithPeerP , sessionsC& sessionsP , nicNameC& nnPeerP , countT timeAccepted1P , sCountT timeAccepted2P , countT timeJobCreated1P , sCountT timeJobCreated2P ) ;
+    taskDrivenServerJobS( countT idSessionP , countT& lever_idSessionP , switchC& sw_psoP , countT& cSessionP , countT cArgP , nicNameC& lever_nnPeerP , switchC& sw_cSessionWithPeerP , sessionsC& sessionsP , nicNameC& nnPeerP , countT timeAccepted1P , sCountT timeAccepted2P , countT timeJobCreated1P , sCountT timeJobCreated2P ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.36149003.taskDrivenServerJobS.taskDrivenServerJobS!||
 }
 ;
