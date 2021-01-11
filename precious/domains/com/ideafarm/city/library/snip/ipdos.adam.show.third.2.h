@@ -39342,7 +39342,7 @@ base class to make a derived class of objects easily contained by a stackC objec
 //
 
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.httpReplyS : 1snip.150000bd.httpreplys END
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.httpReplyRefC : 1snip.15000119.httpreplysrefc BEGIN
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.httpReplySrefC : 1snip.15000119.httpreplysrefc BEGIN
 
 
 //
@@ -39414,7 +39414,7 @@ base class to make a derived class of objects easily contained by a stackC objec
 // Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
 
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.httpReplyRefC : 1snip.15000119.httpreplysrefc END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.httpReplySrefC : 1snip.15000119.httpreplysrefc END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.dictionaryFileTitleS : 1snip.150000c0.dictionaryfiletitles BEGIN
 
 

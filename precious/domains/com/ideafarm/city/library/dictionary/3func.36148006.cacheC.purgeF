@@ -19,27 +19,41 @@
             while( !POOP && !swsCache.third && ~hDown ) ;
             }
                 }
-                    if( tinP.pEther ) tinP.pEther->traceF( tinP , T("cacheC::purgeF / deleted old item") ) ;
-                    swsCache.extractF( 0 , tinP ) ;
-                    DELzOMBIE( pCached ) ;
+                    }
+                        swsCache.extractF( 0 , tinP ) ;
+                        _IO_
+                    {
+                    }
+                        DELzOMBIE( pCached ) ;
+                        _IO_
+                    {
+                    if( tinP.pEther ) tinP.pEther->traceF( tinP , T("cacheC::purgeF / deleting old item [name]:    ")+T(pCached->psttName) ) ;
                 {
                 else
-                if( cRetainP && cRetainP -- ) ;
+                }
+                    if( tinP.pEther ) tinP.pEther->traceF( tinP , T("cacheC::purgeF / retaining item [name]:    ")+T(pCached->psttName) ) ;
+                {
+                if( cRetainP && cRetainP -- )
                 cachedS* pCached = (cachedS*)&(countT&)swsCache.downF( tinP , hDown ) ;
+                _IO_
             {
             do
             handleC hDown( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_STACKwALK ) ;
+            _IO_
         {
         if( swsCache )
 
         if( tinP.pEther ) tinP.pEther->traceF( tinP , T("cacheC::purgeF [cFlavors,idf,cLeverOsTimeLathReferenced,cRetain]:    ")+TF2(cFlavors,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2(idf,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2(cLeverOsTimeLathReferenced,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2(cRetainP,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
         cLeverOsTimeLathReferenced = swsCache.leverF( tinP , idf ) ;
+        _IO_
     {
     for( countT idf = 1 ; idf <= cFlavors ; idf ++ )
     countT cFlavors = swsCache.cFlavorsF( tinP ) ;
     TN( tb4 , "    " ) ;
 
     grabF( tinP , TAG( TAGiDnULL ) ) ;
+
+    _IO_
 {
 /*1*/voidT cacheC::purgeF( tinS& tinP , countT cRetainP )/*1*/
 
