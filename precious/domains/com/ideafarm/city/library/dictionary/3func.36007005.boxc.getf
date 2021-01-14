@@ -92,6 +92,7 @@
                 countT cb1 = sizeof cbP ;
                 ZE( boolT , fStupidClient ) ;
             #ifdef __OS2__
+            _IO_
         {
         else if( !ether.strCompareF( tinP , psttType , T("tap") ) )
         }
@@ -149,7 +150,10 @@
 
                 ether.fileReadF( tinP , pbP , cbP , handle ) ;
                 }
-                    ether.delF( tinP , psttMapped ) ;
+                    }
+                        ether.delF( tinP , psttMapped ) ;
+                        _IO_
+                    {
                     ether.fileOpenF( tinP , handle , flagsResult , psttMapped , ifcOPENaCCESS_WR , 0 , flOPENdETAILS_FAIL | flOPENdETAILS_LOCsEQ , ifcOPENhOW_nFeO , 0 , 0 , cOpenTries ) ;
                     ether.diskMakeDirIfNeededF( tinP , psttMapped ) ;
                     ZE( countT , flagsResult ) ;
@@ -157,6 +161,7 @@
                     ZE( strokeS* , psttMapped ) ;
                 {
                 if( !handle )
+                _IO_
             {
             if( cbP )
             if( pbP ) pbP[ cbP ] = 0 ;
@@ -165,6 +170,7 @@
         {
         if( psttType && !psttType->idAdam )
         __NZ( cbP ) ;
+        _IO_
     {
     else if( !psttHost->idAdam )
     }
@@ -184,12 +190,16 @@
 
         soulo << psttName ;
         soulC soulo( tinP , TAG( TAGiDnULL ) , flSOUL_null , ifcIDcMDsESSION_GETfYLE ) ;
+        _IO_
     {
     else if( !ether.strCompareF( tinP , psttType , T("fyle") ) )
     }
         }
             }
-                ether.delF( tinP , pstti ) ;
+                }
+                    ether.delF( tinP , pstti ) ;
+                    _IO_
+                {
                 cbP = ether.strMakeF( tinP , LF , pbP , pstti ) ; ___( pbP ) ;
                 pSControl->readWoMultilineF( tinP , pstti , T(".") , 0x10000 ) ; ___( pbP ) ; //U: csttEstimateP
                 ZE( strokeS* , pstti ) ;
@@ -203,19 +213,27 @@
             infoBoxGetPutS info( tinP , ether , *pSControl ) ;
 
             __( cbP ) ;
+            _IO_
         {
         else
         }
             }
-                ether.delF( tinP , pstti ) ;
+                }
+                    ether.delF( tinP , pstti ) ;
+                    _IO_
+                {
                 cbP = ether.strMakeF( tinP , LF , pbP , pstti ) ; ___( pbP ) ;
                 pSControl->readWoMultilineF( tinP , pstti , T(".") , 0x10000 ) ; ___( pbP ) ; //U: csttEstimateP
                 ZE( strokeS* , pstti ) ;
+                _IO_
             {
             if( !POOP )
             //U: info.fZombie = 0 ;
             verifyReplyF( tinP , 220 ) ;
-            ether.delF( tinP , psttIdWanted ) ;
+            }
+                ether.delF( tinP , psttIdWanted ) ;
+                _IO_
+            {
             { textC txt = T("article ")+T(psttIdWanted)+T("\r\n") ; pSControl->writeF( tinP , (osTextT*)txt ) ; }
 
             //U:{ ZE( countT , tnu ) ; ether.osThreadF( tinP , tnu , tmBoxGetPutDeadmanF , 0 , flTHREADlAUNCH_null , 0 , (countT)&info ) ; }
@@ -226,28 +244,42 @@
                 cbP = 0 ;
                 __Z( idWanted ) ;
                 sCountT idWanted = cbP ;
+                _IO_
             {
             ZE( strokeS* , psttIdWanted ) ;
+            _IO_
         {
         if( psttName && psttName->idAdam )
+        _IO_
     {
     else if( !ether.strCompareF( tinP , psttType , T("news") ) && pSControl )
     }
         }
-            ether.delF( tinP , pstti ) ;
+            }
+                ether.delF( tinP , pstti ) ;
+                _IO_
+            {
             cbP = ether.strMakeF( tinP , LF , pbP , pstti ) ; ___( pbP ) ;
             pSControl->readWoMultilineF( tinP , pstti , T(".") , 0x10000 ) ; ___( pbP ) ; //U: csttEstimateP
             ZE( strokeS* , pstti ) ;
+            _IO_
         {
         if( !POOP )
 
         //U: info.fZombie = 0 ;
         verifyReplyF( tinP ) ;
-        ether.delF( tinP , psttIdWanted ) ;
+        }
+            ether.delF( tinP , psttIdWanted ) ;
+            _IO_
+        {
         else { textC txt = T("retr ") + T(psttIdWanted) + T("\r\n") ; pSControl->writeF( tinP , (osTextT*)txt ) ; }
         }
-            ether.delF( tinP , psttTop ) ;
+            }
+                ether.delF( tinP , psttTop ) ;
+                _IO_
+            {
             { textC txt = T("top ") + T(psttIdWanted) + T(" ") + T(psttTop) + T("\r\n") ; pSControl->writeF( tinP , (osTextT*)txt ) ; }
+            _IO_
         {
         if( psttTop )
         //U:{ ZE( countT , tnu ) ; ether.osThreadF( tinP , tnu , tmBoxGetPutDeadmanF , 0 , flTHREADlAUNCH_null , 0 , (countT)&info ) ; }
@@ -266,6 +298,7 @@
         {
         ZE( strokeS* , psttTop ) ;
         ZE( strokeS* , psttIdWanted ) ;
+        _IO_
     {
     else if( !ether.strCompareF( tinP , psttType , T("pop") ) && pSControl )
     }
@@ -308,6 +341,7 @@
                         pSControl->etherF( tinP , etSave ) ;
 
                         POOPR
+                        _IO_
                     {
                     else
                     }
@@ -401,16 +435,29 @@
                                 cbP = costBody ;
                             {
                             if( costBody )
+                            _IO_
                         {
                         if( !bFail )
 
                         }
-                            ether.delF( tinP , pstt1Line ) ;
                             }
-                                ether.delF( tinP , psttl ) ;
+                                ether.delF( tinP , pstt1Line ) ;
+                                _IO_
+                            {
+                            }
                                 }
-                                    ether.delF( tinP , psttValue ) ;
-                                    ether.delF( tinP , psttKey ) ;
+                                    ether.delF( tinP , psttl ) ;
+                                    _IO_
+                                {
+                                }
+                                    }
+                                        ether.delF( tinP , psttValue ) ;
+                                        _IO_
+                                    {
+                                    }
+                                        ether.delF( tinP , psttKey ) ;
+                                        _IO_
+                                    {
                                 
                                     }
                                         }
@@ -437,7 +484,10 @@
                                 else  // HEADER LINE ASSUMED TO BE OF THE FORM, FOR EXAMPLE,  "Content-Length:1234"
                                 }
                                     }
-                                        ether.delF( tinP , pstt1w ) ;
+                                        }
+                                            ether.delF( tinP , pstt1w ) ;
+                                            _IO_
+                                        {
                                         }
                                             break ;
                                             if( ether.strCompareF( tinP , psttc1 , t200 ) && ether.strCompareF( tinP , psttc1 , t307 ) ) { __1 } ;
@@ -462,6 +512,7 @@
 
                                 ether.strConvertToLowerCaseF( tinP , psttl , psttc1 ) ; ___( psttl ) ;
                                 ZE( strokeS* , psttl ) ;
+                                _IO_
                             {
                             FORsTRINGSiN1( pstt1Line )
                             boolT bWoth = 1 ;
@@ -471,6 +522,7 @@
                                 strokeS sttq( 0 , sc_IGNOREqUOTES ) ;
                             {
                             ZE( strokeS* , pstt1Line ) ;
+                            _IO_
                         {
                         ZE( boolT , bLengthSet ) ;
                         ZE( boolT , bChunked ) ;
@@ -490,6 +542,7 @@
                         if( costHeadPlus - costHead > 4 )
                         ZE( countT   , costzBodySome ) ;
                         ZE( osTextT* , postzBodySome ) ;
+                        _IO_
                     {
                     if( !bFail )
 
@@ -538,6 +591,7 @@
                                     countT offMax = delta - 4 ;
                                     ZE( countT , offFound ) ;
                                     ZE( boolT , bFound ) ;
+                                    _IO_
                                 {
                                 else
                                 if( !delta ) break ;
@@ -557,6 +611,7 @@
                                 IFsCRATCH
                                 ZE( countT , delta ) ;
                                 TESTsCRATCH //U:: TO FIND A BUG
+                                _IO_
                             {
                             while( !bEnd && costRemain )
                             ZE( boolT , bEnd ) ;
@@ -566,11 +621,13 @@
 
                             //ether.memSetF( tinP , postHeadPlus , costaHeadPlus ) ;
                             TESTsCRATCH //U:: TO FIND A BUG
+                            _IO_
                         {
                         if( postHeadPlus )
                         ether.newF( tinP , LF , postHeadPlus , costaHeadPlus ) ; ___( postHeadPlus ) ;
                         const countT costaHeadPlus = TOCK >> 2 ;
                         TESTsCRATCH //U:: TO FIND A BUG
+                        _IO_
                     {
                     ZE( boolT    , bFail        ) ;
                     ZE( countT   , costHead     ) ;
@@ -597,6 +654,7 @@
 
                     pSControl->etherF( tinP , *tinP.pEtScratch ) ;
                     TESTsCRATCH //U:: TO FIND A BUG
+                    _IO_
                 {
                 do
                 sleepC s( tinP , TAG( TAGiDnULL ) ) ;
@@ -614,6 +672,7 @@
 
             ZE( boolT , bFail ) ;
             boolT bNoQuitEarly = !cOpenTries ;
+            _IO_
         {
         if( !POOP )
 
@@ -625,6 +684,7 @@
         __( cbP ) ;
         __Z( pSControl ) ;
         //THREADmODE4oN( flTHREADmODE4_INoUTfRAMEfORCEcOLLECTaPPtELEMETRY )
+        _IO_
     {
     else if( ( !ether.strCompareF( tinP , psttType , T("http") ) || !ether.strCompareF( tinP , psttType , T("https") ) ) )
     }
@@ -640,6 +700,7 @@
                 ether.newF( tinP , LF , pbP , cbFile + 1 ) ; ___( pbP ) ;
             {
             if( cbFile ) //THIS WILL HANG FOREVER IF THE REMOTE HOST FAILS TO SEND ENOUGH BYTES
+            _IO_
         {
         if( !POOP )
 
@@ -655,7 +716,10 @@
         { textC txt = T("retr ")+T(psttName)+T("\r\n") ; pSControl->writeF( tinP , (osTextT*)txt ) ; }
 
         verifyReplyF( tinP , 200 ) ;
-        ether.delF( tinP , pstthp ) ;
+        }
+            ether.delF( tinP , pstthp ) ;
+            _IO_
+        {
         { textC txt = T("port ")+T(pstthp)+T("\r\n") ; pSControl->writeF( tinP , (osTextT*)txt ) ; }
         ether.strFromIdPortNicNameF( tinP , pstthp , idPort , nicName ) ; ___( pstthp ) ;
         ZE( strokeS* , pstthp ) ;
@@ -670,10 +734,14 @@
         //U: info.fZombie = 0 ;
         }
             __( rc != 213 && rc != 211 ) ;
-            ether.delF( tinP , psttReply ) ;
+            }
+                ether.delF( tinP , psttReply ) ;
+                _IO_
+            {
             cbFile = cbFileF( tinP , psttReply ) ;
             countT rc = pSControl->readWoReplyF( tinP , psttReply ) ; ___( psttReply ) ;
             ZE( strokeS* , psttReply ) ;
+            _IO_
         {
         if( !POOP )
         ZE( sCountT , cbFile ) ;
@@ -683,6 +751,7 @@
 
         //U:{ ZE( countT , tnu ) ; ether.osThreadF( tinP , tnu , tmBoxGetPutDeadmanF , 0 , flTHREADlAUNCH_null , 0 , (countT)&info ) ; }
         infoBoxGetPutS info( tinP , ether , *pSControl ) ;
+        _IO_
     {
     else if( !ether.strCompareF( tinP , psttType , T("ftp") ) && pSControl )
     }
@@ -699,6 +768,7 @@
 
         //U:{ ZE( countT , tnu ) ; ether.osThreadF( tinP , tnu , tmBoxGetPutDeadmanF , 0 , flTHREADlAUNCH_null , 0 , (countT)&info ) ; }
         infoBoxGetPutS info( tinP , ether , *pSControl ) ;
+        _IO_
     {
     else if( !ether.strCompareF( tinP , psttHost , T(WWWiDEAFARMcOM) ) && !ether.strCompareF( tinP , psttType , T("dispatcher") ) && pSControl )
     }
@@ -715,6 +785,7 @@
 
         //U:{ ZE( countT , tnu ) ; ether.osThreadF( tinP , tnu , tmBoxGetPutDeadmanF , 0 , flTHREADlAUNCH_null , 0 , (countT)&info ) ; }
         infoBoxGetPutS info( tinP , ether , *pSControl ) ;
+        _IO_
     {
     else if( !ether.strCompareF( tinP , psttHost , T(WWWiDEAFARMcOM) ) && !ether.strCompareF( tinP , psttType , T("time") ) && pSControl )
     }
@@ -739,6 +810,7 @@
                 cbP = cbAll ;
             {
             if( !!ether.strIdF( tinP , idf , sttq , S1C(' ') , psttName ) )
+            _IO_
         {
         if( !POOP )
         }
@@ -755,6 +827,7 @@
 
         //U:{ ZE( countT , tnu ) ; ether.osThreadF( tinP , tnu , tmBoxGetPutDeadmanF , 0 , flTHREADlAUNCH_null , 0 , (countT)&info ) ; }
         infoBoxGetPutS info( tinP , ether , *pSControl ) ;
+        _IO_
     {
     if( !ether.strCompareF( tinP , psttType , T("box.server") ) || !ether.strCompareF( tinP , psttType , T("box.server.adam") ) || !ether.strCompareF( tinP , psttType , T("box.server.deputy") ) && pSControl )
     // GET THE BACKING FILE BYTES
