@@ -322,7 +322,11 @@
                         {
                         if( bNoQuitEarly || cTries > 1 )
 
-                        if( POOP ) POOPR
+                        }
+                            ether.traceF( tinP , T("boxC::getF / could not replace socket and connect") ) ;
+                            POOPRqUIET
+                        {
+                        if( POOP )
 
                         }
                             pSControl->connectF( tinP , /*port 80*/idPort , hidIfo , cOpenTries ) ;
@@ -340,7 +344,7 @@
 
                         pSControl->etherF( tinP , etSave ) ;
 
-                        POOPR
+                        POOPRqUIET
                         _IO_
                     {
                     else
@@ -348,7 +352,7 @@
                         break ;
                         pSControl->etherF( tinP , etSave ) ;
                     {
-                    if( !POOP )
+                    if( !POOP && !bFail )
 
                     ether.delF( tinP , postHeadPlus ) ;
                     }
@@ -602,7 +606,7 @@
                                         break ;
                                         bFail = 1 ;
                                         ether.traceF( tinP , T("getF: could not read socket 175") ) ;
-                                        POOPR
+                                        POOPRqUIET
                                     {
                                     if( POOP )
                                     delta = pSControl->readF( tinP , postc , costRemain , flSOCKETcrEAD_JUSToNEmOUTHFUL | flSOCKETcrEAD_STILLhUNGRYiSoK ) ;
@@ -629,13 +633,20 @@
                         TESTsCRATCH //U:: TO FIND A BUG
                         _IO_
                     {
-                    ZE( boolT    , bFail        ) ;
+                    if( !bFail )
                     ZE( countT   , costHead     ) ;
                     ZE( countT   , costHeadPlus ) ;
                     ZE( osTextT* , postHeadPlus ) ;
                     TESTsCRATCH //U:: TO FIND A BUG
 
                     }
+                        }
+                            bFail = 1 ;
+                            ether.traceF( tinP , T("getF: could not write socket 640") ) ;
+                            POOPRqUIET
+                        {
+                        if( POOP )
+
                         //etherC::etRockIF( tinP ).traceF( tinP , tRequest ) ;
                         pSControl->writeF( tinP , (osTextT*)tRequest ) ;
 
