@@ -2516,7 +2516,7 @@ use this rather than _ to avoid the overhead of _
 /**/
 /*1*//*SOCKETtIMEOUTdEFAULTwAN*//*1*/
 
-#define SOCKETtIMEOUTdEFAULTwAN ( TICK >> 3 )
+#define SOCKETtIMEOUTdEFAULTwAN ( TICK >> 2 )
 
 
 //
@@ -2541,7 +2541,7 @@ use this rather than _ to avoid the overhead of _
 /**/
 /*1*//*SOCKETtIMEOUTdEFAULTlAN*//*1*/
 
-#define SOCKETtIMEOUTdEFAULTlAN ( TOCK >> 3 )
+#define SOCKETtIMEOUTdEFAULTlAN ( TOCK << 2 )
 
 
 //
@@ -17156,6 +17156,8 @@ examples
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34002.countTC.operator_countT_ref!||
  operator byteT*&( voidT ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34003.countTC.operator_voidT_ptr_ref!||
+
+ inline operator countT*( voidT ) { return &cValue ; }
 }
 ;
 
