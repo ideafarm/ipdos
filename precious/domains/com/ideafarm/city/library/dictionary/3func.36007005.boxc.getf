@@ -337,8 +337,8 @@
                         pSControl->etherF( tinP , *tinP.pEtScratch ) ;
 
                         __Z( pSControl ) ;
-                        pSControl = new( 0 , tinP , LF ) socketC( tinP , ether , TAG( TAGiDnULL ) ) ; ___( pSControl ) ;
-                        //DUPLICATEcODE: 36007001 36007005
+                        pSControl = new( 0 , tinP , LF ) socketC( tinP , ether , TAG( TAGiDnULL ) , 0 , bHttps ? flSOCKETc_CRYPTfOREIGNsSL : flSOCKETc_null , countTC( timeAllowed1 ) , countTC( timeAllowed1 ) , countTC( timeAllowed1 ) ) ; ___( pSControl ) ;
+                        //PSEUDOdUPLICATEcODE: 36007001 36007005
 
                         DEL( pSControl ) ;
 
@@ -695,6 +695,9 @@
         __( cbP ) ;
         __Z( pSControl ) ;
         //THREADmODE4oN( flTHREADmODE4_INoUTfRAMEfORCEcOLLECTaPPtELEMETRY )
+
+        const boolT bHttps = !ether.strCompareF( tinP , psttType , T("https") ) ;
+
         _IO_
     {
     else if( ( !ether.strCompareF( tinP , psttType , T("http") ) || !ether.strCompareF( tinP , psttType , T("https") ) ) )

@@ -54,10 +54,11 @@ DONE( tmUpdateCacheF )
         etThread.delF( tinP , pbIn ) ;
         }
             }
+                etThread.traceF( tinP , T("boxGetShadowF failed") ) ;
                 POOPRqUIET
             {
-            if( POOP )
-            tinP.pEtScratch->boxGetShadowF( tinP , pbIn , cbIn , tName , 1 ) ; ___( pbIn ) ;
+            if( POOP )                                                                                                 //U:: boxC: SUPPORT SEPARATE TIMEOUT VALUES FOR READ/WRITE/CONNECTED, AND ONLY SUPPORT time1 NOT time2
+            tinP.pEtScratch->boxGetShadowF( tinP , pbIn , cbIn , tName , 1 , SOCKETtIMEOUTdEFAULTwAN ) ; ___( pbIn ) ; // SOCKETtIMEOUTdEFAULTwAN IS USED TO GIVE TIME TO RECOMPILE AND YET AVOID TRACE COMPLAINING FOR UNUSUAL TIMEOUT VALUE
             SCOOPS
         {
         IFsCRATCH

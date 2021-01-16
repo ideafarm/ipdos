@@ -25240,6 +25240,8 @@ examples
     byteT*      pbNapkin ;
     countT      cOpenTries ; 
     const flagsT flagsOpenDetails ; //ADDED LATER; ONLY EDITED CODE FOR DISK FILES TO USE IT; HACKED IT IN; SHOULD BE POLISHED BY MAKING THE HARDCODED FLAGS PARAMETER DEFAULTS
+    const countT  timeAllowed1 ;
+    const sCountT timeAllowed2 ;
 
     countT      cbFileF( tinS& tinP ) ;
                 //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34003.boxC.cbFileF!||
@@ -25263,7 +25265,7 @@ examples
 /* birth , death */
  NEWdELcLASSpROTOS
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34015.boxC.NEWdELcLASS!||
- boxC( tinS& tinP , etherC& etherP , const strokeS* const psttP = 0 , const countT idAccessP = 0 , const countT idOpenHowP = 0 , const countT idShareP = 0 , const countT cOpenTriesP = 0 , countT time1P = 0 , const sCountT time2P = 0 , const flagsT flagsOpenDetailsP = flOPENdETAILS_null ) ;
+ boxC( tinS& tinP , etherC& etherP , const strokeS* const psttP = 0 , const countT idAccessP = 0 , const countT idOpenHowP = 0 , const countT idShareP = 0 , const countT cOpenTriesP = 0 , countT timeAllowed1P = 0 , const sCountT timeAllowed2P = 0 , const flagsT flagsOpenDetailsP = flOPENdETAILS_null ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34001.boxC.boxC!||
  ~boxC( voidT ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34002.boxC.dt_boxC!||
