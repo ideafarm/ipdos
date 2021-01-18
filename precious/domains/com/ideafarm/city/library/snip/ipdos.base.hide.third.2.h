@@ -18714,6 +18714,7 @@ it is illegal to refer to this symbol anywhere except in napkinC definitions
 
 /*inline*/
  inline countT ccF( voidT ) const { return pcId[ 3 ] ? 4 : pcId[ 2 ] ? 3 : pcId[ 1 ] ? 2 : 1 ; }
+ inline boolT  isLoopbackF( voidT ) const { return !pcId[ 3 ] && !pcId[ 2 ] && !pcId[ 1 ] && pcId[ 0 ] == 0x7f000001 ; }
 
 /**/
 }

@@ -17,7 +17,7 @@ THREADmODE2rESTORE0( flagsSave )
     }
         ether.loafIF( tinP ) ;
         while( cDo -- ) etThread.osThreadF( TaRG1( tmUpdateCacheF ) ) ;
-        countT cDo = CuPDATEtHREADS ;
+        countT cDo = 2 ;                                                // CS:CODEsYNC: 5100057b 5100057b
         httpServerC serverS( tinP , arg1S , arg2 , &cache ) ;
         httpServerC serverU( tinP , arg1U , arg2 , &cache ) ;
     {
@@ -66,12 +66,12 @@ DONE( tmUpdateCacheF )
         ZE( byteT* , pbIn ) ;
     {
     while( !ether )
-    textC& tName = *ptName[ ( idIn - 1 ) % CuPDATEtHREADS ] ;
+    textC& tName = *ptName[ ( idIn - 1 ) % ( sizeof ptName / sizeof ptName[ 0 ] ) ] ;
 
-    textC* ptName[ CuPDATEtHREADS ] = { &tNameU1 , &tNameU2 , &tNameS1 , &tNameS2 } ;
+    textC* ptName[] = { &tNameU1 , &tNameU2 /*, &tNameS1 , &tNameS2*/ } ;  // CS:CODEsYNC: 5100057b 5100057b
 
-    TN( tNameS2 , "127.0.0.1//https/talk.body?cachesearch=no&badge=force" ) ;
-    TN( tNameS1 , "127.0.0.1//https/talk.body?cachesearch=no" ) ;
+    //TN( tNameS2 , "127.0.0.1//https/talk.body?cachesearch=no&badge=force" ) ;
+    //TN( tNameS1 , "127.0.0.1//https/talk.body?cachesearch=no" ) ;
     TN( tNameU2 , "127.0.0.1//http/talk.body?cachesearch=no&badge=force" ) ;
     TN( tNameU1 , "127.0.0.1//http/talk.body?cachesearch=no" ) ;
 
@@ -354,8 +354,6 @@ TASK( tmUpdateCacheF )
     _IO_
 {
 voidT httpFreshenCacheCBF( tinS& tinP , etherC& etThread , const boolT& bQuitP , httpServerC& meP , sessionsC& sessionsP , countT& cArgP , const boolT bCleanupP )
-
-#define CuPDATEtHREADS 4
 
 //OBSOLETES c750104, WHICH WAS A QUICK HACK TO GET THE WEB SITE UP
 

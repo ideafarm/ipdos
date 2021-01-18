@@ -59,10 +59,22 @@
                     ZE( countT , oTab ) ;
                 {
                 if( ppTab && pcTabIdSlot )
-                third.c_memsetIF( tinP , (byteT*)pcTabIdSlot , cTabs * sizeof( countT ) ) ;
-                third.c_memsetIF( tinP , (byteT*)ppTab         , cTabs * sizeof( countT ) ) ;
-                third.newF( tinP , LF , pcTabIdSlot     , cTabs ) ; ___CT( pcTabIdSlot ) ;
-                third.newF( tinP , LF , *(countT**)&ppTab , cTabs ) ; ___CT( ppTab ) ;
+                }
+                    third.c_memsetIF( tinP , (byteT*)pcTabIdSlot , cTabs * sizeof( countT ) ) ;
+                    _IO_
+                {
+                }
+                    third.c_memsetIF( tinP , (byteT*)ppTab         , cTabs * sizeof( countT ) ) ;
+                    _IO_
+                {
+                }
+                    third.newF( tinP , LF , pcTabIdSlot     , cTabs ) ; ___CT( pcTabIdSlot ) ;
+                    _IO_
+                {
+                }
+                    third.newF( tinP , LF , *(countT**)&ppTab , cTabs ) ; ___CT( ppTab ) ;
+                    _IO_
+                {
             {
             if( cTabs )
             third.delF( tinP , pcTabIdSlot ) ;

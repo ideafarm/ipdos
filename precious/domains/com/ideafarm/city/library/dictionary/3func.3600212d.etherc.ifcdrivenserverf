@@ -318,6 +318,7 @@
                                 if( bHeIsSpoofingMe )
 
                                 else                           traceF( tinP , T("ifcDrivenServerF / accepted from a host other than me [nnPeer]:    ")+T(nnPeer)                                                                                                                                                                                                                                                    , flTRACE_HOMEeCHOdEADMAN1 | flTRACE_FORCEnOsILENCE | flTRACE_ECHOoNLY ) ;
+                                else if(  bLoopback          ) traceF( tinP , T("ifcDrivenServerF / accepted from loopback")                                                                                                                                                                                                                                                                                        , flTRACE_HOMEeCHOdEADMAN1 | flTRACE_FORCEnOsILENCE | flTRACE_ECHOoNLY ) ;
                                 else if(  bHeIsMe            ) traceF( tinP , T("ifcDrivenServerF / accepted from me host")                                                                                                                                                                                                                                                                                         , flTRACE_HOMEeCHOdEADMAN1 | flTRACE_FORCEnOsILENCE | flTRACE_ECHOoNLY ) ;
                                 else if(  bHeIsWatchDeadman2 ) traceF( tinP , T("ifcDrivenServerF / accepted from watch deadman2")                                                                                                                                                                                                                                                                                  , flTRACE_HOMEeCHOdEADMAN1 | flTRACE_FORCEnOsILENCE | flTRACE_ECHOoNLY ) ;
                                 else if(  bHeIsWatchDeadman1 ) traceF( tinP , T("ifcDrivenServerF / accepted from watch deadman1")                                                                                                                                                                                                                                                                                  , flTRACE_HOMEeCHOdEADMAN1 | flTRACE_FORCEnOsILENCE | flTRACE_ECHOoNLY ) ;
@@ -330,16 +331,15 @@
 
                                 }
                                     }
-                                        }
-                                            break ;
-                                            bHeIsMe = 1 ;
-                                        {
-                                        if( pNicNameMe[ offMe ] == nnPeer )
+                                        break ;
+                                        bHeIsMe = 1 ;
                                     {
-                                    for( countT offMe = 0 ; offMe < cNicNameMe ; offMe ++ )
+                                    if( pNicNameMe[ offMe ] == nnPeer )
                                 {
-                                if( info1P.idPort == 0x50 )
+                                for( countT offMe = 0 ; offMe < cNicNameMe ; offMe ++ )
                                 ZE( boolT , bHeIsMe ) ;
+
+                                boolT bLoopback = nnPeer.isLoopbackF() ;
 
                                 }
                                     }

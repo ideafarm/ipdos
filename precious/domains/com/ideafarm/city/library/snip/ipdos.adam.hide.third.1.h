@@ -1231,7 +1231,6 @@ using the "new" "d elete" operators results in calling constructors and destruct
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200013.newdeltypeether END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200014.newdeltypethird BEGIN
 
-
 //
 // Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
@@ -1263,10 +1262,12 @@ see the documentation for NEWdELtYPEeTHER
             countT idType = idTypeP ;                                                   \
             if( idType == ifciDtYPEdROPnOTE_strokeS && pP )                             \
             {                                                                           \
+                _IO_                                                                    \
                 const countT csttw = ((strokeS*)pP)->idAdam ;                           \
                 const countT offe = CSpREFIX + csttw ;                                  \
                 for( countT off = CSpREFIX ; off < offe ; off ++ )                      \
                 {                                                                       \
+                    _IO_                                                                \
                     if( ((strokeS*)pP)[ off ].idCaste == sc_cADAM )                     \
                     {                                                                   \
                         strokeS* pstta = ((strokeS*)pP) + off ;                         \
@@ -1293,10 +1294,12 @@ see the documentation for NEWdELtYPEeTHER
                                                                                         \
             if( !*this )                                                                \
             {                                                                           \
+                _IO_                                                                    \
                 countT cba = cP * NDsIZEoF( typeP ) ;                                   \
                 poolNewF( tinP , idLineP , idiFileP , *(byteT**)&pP , cba ) ; ___LF( pP , idLineP , idiFileP ) ; \
                 if( pP )                                                                \
                 {                                                                       \
+                    _IO_                                                                \
                     dropNoteS* pNote = PUSE.pDropNoteF( tinP , (byteT*)pP ) ;           \
                     if( pNote )                                                         \
                     {                                                                   \
