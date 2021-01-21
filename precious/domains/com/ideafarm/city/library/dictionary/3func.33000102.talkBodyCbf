@@ -635,13 +635,24 @@
         etThread.strMakeF( tinP , LF , prPosts , tSay , 0 , flSTRmAKE_PREFIXlENGTH ) ; ___( prPosts ) ;
         ZE( pbRefC* , prPosts ) ;
 
-        TN( tSay , "" ) ; tSay = tTimeForeign + tBlankSerial ;
+        TN( tSay , "" ) ; tSay = tTimeForeign + tSuffix ;
 
         textC tTimeForeign( ifcIDtEXTgEN_TIMEnOWfOREIGN , tinP , TAG( TAGiDnULL ) ) ;
 
-        TN( tBlankSerial , "" ) ; tBlankSerial = T("    ")+TF2(idIn,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ;
+        TN( tSuffix , "" ) ; tSuffix = tb4+tHost+tb4+TF2(idIn,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ;   //U:: THIS IS FOR DEBUGGING ; REMOVE AFTER DEVELOPMENT
+        TN( tb4 , "    " ) ;
         countT idIn = 1 + incv02AM( idInLath ) ;
         static countT idInLath ;
+
+        }
+            if( !tHost.csF( tinP ) ) tHost = T("factories") ;
+            etThread.delF( tinP , psttHost ) ;
+            else            tHost = T(psttHost) ;
+            if( !psttHost ) etThread.traceF( tinP , T("error: reverse DNS lookup on myself failed") ) ;
+            etThread.sockPsttHostF( tinP , psttHost ) ; ___( psttHost ) ;
+            ZE( strokeS* , psttHost ) ;
+        {
+        TN( tHost , "" ) ;
     {
 
     etThread.osTimeNowF( tinP , timeN1 , timeN2 ) ;
