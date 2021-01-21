@@ -15,15 +15,17 @@
             delF( tinP , postShorter ) ;
 
             }
+                __( bFail ) ;   // BOSpOOP IS NOT USED BECAUSE THE traceF CALLS RESET ERROR INFO
+
                 }
-                    BOSpOOP
                     TELL( postP ) ;
                     if( tinP.pEther ) tinP.pEther->traceF( tinP , T("dosCreateDirF / UNK FAIL: [postShorter,brcQuery]:    ")+T(postShorter)+T("    ")+TF2(tinP.brcQuery,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ; //U::
+                    bFail = 1 ;
                 {
                 else
                 }
-                    BOSpOOP
                     if( tinP.pEther ) tinP.pEther->traceF( tinP , T("dosCreateDirF / ERROR_LOGON_FAILURE: [postShorter]:    ")+T(postShorter) ) ; //U::
+                    bFail = 1 ;
                 {
                 else if( tinP.brcQuery == ERROR_LOGON_FAILURE )
                 }
@@ -49,6 +51,7 @@
                     //if( tinP.pEther ) tinP.pEther->traceF( tinP , T("dosCreateDirF / ACCESS DENIED: [postShorter]:    ")+T(postShorter) ) ;
                 {
                 if( tinP.brcQuery == ERROR_ACCESS_DENIED )
+                ZE( boolT , bFail ) ;
             {
             if( tinP.bosFail )
 
