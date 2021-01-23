@@ -11,21 +11,51 @@
     }
         }
             pEtRock->traceF( tinP , (strokeS*)(const osTextT*)ostoSay , flTRACE_PARAMETERiSoStEXT ) ;
+            OStEXTA(  ostoSay , pzMetaHead->postName ) ;
+            OStEXTAK( ostoSay , "    " ) ;
             OStEXTC(  ostoSay , pbDataEnd , '0' ) ;
             OStEXTAK( ostoSay , "    " ) ;
             OStEXTC(  ostoSay , pbSlot , 0 ) ;
             OStEXTAK( ostoSay , "    " ) ;
             OStEXTC(  ostoSay , pbData , 0 ) ;
-            OStEXTAK( ostoSay , "sexC::operator (): out of range [pbData,pbSlot,pbDataEnd]:    " ) ;
-            OStEXT(   ostoSay , TUCK << 1 ) ;
+            OStEXTAK( ostoSay , "    " ) ;
+            OStEXTC(  ostoSay , pzMetaHead->expSlots , 0 ) ;
+            OStEXTAK( ostoSay , "    " ) ;
+            OStEXTC(  ostoSay , pzMetaHead->expCbSlot , 0 ) ;
+            OStEXTAK( ostoSay , "sexC::operator (): out of range [expCbSlot,expSlots,pbData,pbSlot,pbDataEnd]:    " ) ;
+            OStEXT(   ostoSay , TUCK << 2 ) ;
         {
-        if( pEtRock )
+        if( pEtRock && pzMetaHead )
         etherC* pEtRock = &etherC::etRockIF( tinP ) ;
 
         _IO_
     {
     else
     }
+        }
+            }
+                pEtRock->traceF( tinP , (strokeS*)(const osTextT*)ostoSay , flTRACE_PARAMETERiSoStEXT ) ;
+                OStEXTA(  ostoSay , pzMetaHead->postName ) ;
+                OStEXTAK( ostoSay , "    " ) ;
+                OStEXTC(  ostoSay , pbDataEnd , '0' ) ;
+                OStEXTAK( ostoSay , "    " ) ;
+                OStEXTC(  ostoSay , pbSlot , 0 ) ;
+                OStEXTAK( ostoSay , "    " ) ;
+                OStEXTC(  ostoSay , pbData , 0 ) ;
+                OStEXTAK( ostoSay , "    " ) ;
+                OStEXTC(  ostoSay , pzMetaHead->expSlots , 0 ) ;
+                OStEXTAK( ostoSay , "    " ) ;
+                OStEXTC(  ostoSay , pzMetaHead->expCbSlot , 0 ) ;
+                OStEXTAK( ostoSay , "sexC::operator (): success! [expCbSlot,expSlots,pbData,pbSlot,pbDataEnd]:    " ) ;
+                OStEXT(   ostoSay , TUCK << 2 ) ;
+            {
+            if( pEtRock && pzMetaHead )
+            etherC* pEtRock = &etherC::etRockIF( tinP ) ;
+
+            _IO_
+        {
+        if( F(tinP.flagsThreadMode3) & flTHREADmODE3_POOLdELtRYhARDERaNDtRACE )
+
         idLathNewDel = ifcIDsEXclATHnEWdEL_DEL ; // INTENTIONAL RACE
 
         tinP.cPoolDropDt ++ ;
