@@ -25,31 +25,42 @@
 
 }
     }
+        if( pbP ) { BLAMMO ; }
+
         }
+            if( !pbP && offs - offsTry ) { BLAMMOiD( offs - offsTry ) ; }
+
             }
                 pEtRock->traceF( tinP , (strokeS*)(const osTextT*)ostoSay , flTRACE_PARAMETERiSoStEXT ) ;
 
-                if( bDeleted ) { OStEXTC(  ostoSay , offsTry , 0 ) ; }
-                OStEXTA( ostoSay , bDeleted ? "poolC::operator (): trying harder succeeded [offsTry]:    " : "poolC::operator (): trying harder failed" ) ;
-                OStEXT( ostoSay , TUCK << 0 ) ;
+                }
+                    OStEXTC(  ostoSay , offsTry , 0 ) ;
+                    OStEXTAK( ostoSay , "    " ) ;
+                {
+                if( !pbP )
+                OStEXTC(  ostoSay , offs , 0 ) ;
+                OStEXTAK( ostoSay , "    " ) ;
+                OStEXTC(  ostoSay , mask , 0 ) ;
+                OStEXTAK( ostoSay , "    " ) ;
+                OStEXTC(  ostoSay , dropHeader , '0' ) ;
+                OStEXTAK( ostoSay , "    " ) ;
+                OStEXTC(  ostoSay , guts.expCbSlotMin , 0 ) ;
+                OStEXTAK( ostoSay , "    " ) ;
+                OStEXTC(  ostoSay , guts.cBitsExpCbSlot , 0 ) ;
+                OStEXTA( ostoSay , !pbP ? "poolC::operator (): trying harder succeeded [cBitsExpCbSlot,expCbSlotMin,dropHeader,mask,offs,offsTry]:    " : "poolC::operator (): trying harder failed [cBitsExpCbSlot,expCbSlotMin,dropHeader,mask,offs]:    " ) ;
+                OStEXT( ostoSay , TUCK << 1 ) ;
             {
             if( pEtRock )
 
             }
                 }
-                    }
-                        break ;
-                        bDeleted = 1 ;
-                    {
-                    if( !pbP )
-
+                    if( !pbP ) break ;
                     (*guts.ppSlots[ offsTry ])( tinP , pbP ) ;
                 {
                 if( guts.ppSlots[ offsTry ] )
             {
             for( offsTry = 0 ; offsTry < CsLOTsIZESmAX ; offsTry ++ )
             ZE( countT , offsTry ) ;
-            ZE( boolT , bDeleted ) ;
 
             }
                 pEtRock->traceF( tinP , (strokeS*)(const osTextT*)ostoSay , flTRACE_PARAMETERiSoStEXT ) ;
@@ -62,22 +73,18 @@
         {
         else
         }
-            if( pbP ) { BLAMMO ; }
             (*guts.ppSlots[ offs ])( tinP , pbP ) ;
 
             //if( offs == 0x18 ) etherC::etRockIF( tinP ).traceF( tinP , T("-------- DELETE") ) ; //U::20140808@1936: TO FIND A BUG
-
             if( !guts.ppSlots[ offs ] ) { BLAMMO ; }
-
-            countT offs = guts.expCbSlotMin + ( dropHeader & mask ) ;
-            countT mask = ( 1 << guts.cBitsExpCbSlot ) - 1 ;
-            countT& dropHeader = ((countT*)pbP)[ - 1 ] ;
-
             if( c_this && F(guts.flagsCt) & flPOOLc_READoNLY ) { BLAMMO ; }
-
             countT c_this = (countT)this ;
         {
         if( !( F(tinP.flagsThreadMode3) & flTHREADmODE3_POOLdELtRYhARDERaNDtRACE ) )
+
+        countT offs = guts.expCbSlotMin + ( dropHeader & mask ) ;
+        countT mask = ( 1 << guts.cBitsExpCbSlot ) - 1 ;
+        countT& dropHeader = ((countT*)pbP)[ - 1 ] ;
     {
     if( pbP )
 
