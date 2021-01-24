@@ -17091,6 +17091,7 @@ members
 /**/
 
 /* face */
+ countT     dropHeaderCopy ;
  countT     idNewLath ;
  countT     idDelLath ;
  countT     idType ;

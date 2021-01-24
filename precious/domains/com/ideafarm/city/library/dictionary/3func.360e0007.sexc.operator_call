@@ -89,12 +89,20 @@
         }
             }
                 pEtRock->traceF( tinP , (strokeS*)(const osTextT*)ostoSay , flTRACE_PARAMETERiSoStEXT ) ;
+                }
+                    OStEXTC(  ostoSay , pDropNote->dropHeaderCopy , '0' ) ;
+                    OStEXTAK( ostoSay , "    " ) ;
+                {
+                if( pDropNote )
                 OStEXTC(  ostoSay , dropHeader , '0' ) ;
                 OStEXTAK( ostoSay , "    " ) ;
                 OStEXTC(  ostoSay , offSlot , '0' ) ;
-                OStEXTA(  ostoSay , "sexC::operator (): trying harder is in effect and i will delete this drop [offSlot,dropHeader]:    " ) ;
+                OStEXTA(  ostoSay , pDropNote ?  "sexC::operator (): trying harder is in effect and i will delete this drop [offSlot,dropHeader,dropHeaderCopy]:    " : "sexC::operator (): trying harder is in effect and i will delete this drop [offSlot,dropHeader]:    " ) ;
                 OStEXT( ostoSay , TUCK << 0 ) ;
                 countT& dropHeader = *(countT*)pbSlot ;
+
+                if( pzMetaNote ) pDropNote = pzMetaNote + offSlot ;
+                ZE( dropNoteS* , pDropNote ) ;
             {
             if( pEtRock )
             etherC* pEtRock = &etherC::etRockIF( tinP ) ;

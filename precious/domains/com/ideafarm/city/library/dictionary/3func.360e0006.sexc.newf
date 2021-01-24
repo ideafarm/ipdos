@@ -30,7 +30,9 @@
                 pMyNote->idLineTagged  = tinP.monitor.pLFnest[ ( ( tinP.monitor.cInNest & OFFsLOTtINnESTmAX ) << 1 )     ] ;
                 //USE THIS TO INVESTIGATE LEAKS THAT REPORT AS aaaaaaaa(aaaaaaaa) I.E. WERE NEVER TAGGED
 
-                thirdC::c_memsetIF( tinP , (byteT*)pMyNote + 2 * sizeof( countT ) , sizeof( dropNoteS ) - 2 * sizeof( countT ) , FILLbYTE_SEXc ) ;
+                pMyNote->dropHeaderCopy = ((countT*)pbo)[ - 1 ] ;
+
+                thirdC::c_memsetIF( tinP , (byteT*)pMyNote + 3 * sizeof( countT ) , sizeof( dropNoteS ) - 3 * sizeof( countT ) , FILLbYTE_SEXc ) ;
 
                 dropNoteS* pMyNote = pzMetaNote + offFound ;
             {
