@@ -1231,6 +1231,7 @@ using the "new" "d elete" operators results in calling constructors and destruct
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200013.newdeltypeether END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200014.newdeltypethird BEGIN
 
+
 //
 // Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
@@ -8896,15 +8897,15 @@ pso not 0 is guaranteed for code between me and DONEdRIVENsERVER
     if( pTaskP && pTaskP->c1 && pTaskP->c2 )                                                                                                                \
     {                                                                                                                                                       \
         stackC&                  stJobP =                  *(stackC*)pTaskP->c1 ;                                                                           \
-        taskDrivenServerJobS& jobP   = *(taskDrivenServerJobS*)pTaskP->c2 ;                                                                           \
+        taskDrivenServerJobS& jobP   = *(taskDrivenServerJobS*)pTaskP->c2 ;                                                                                 \
                                                                                                                                                             \
         TESTsCRATCH ;                                                                                                                                       \
         TELL( "TASKdRIVENsERVER: setting up" )                                                                                                              \
                                                                                                                                                             \
-        jobP.sw_pso.grabF( tinP , TAG( TAGiDnULL ) ) ;                                                                                           \
+        jobP.sw_pso.grabF( tinP , TAG( TAGiDnULL ) ) ;                                                                                                      \
         jobP.lever_idSession = jobP.idSession ;                                                                                                             \
         socketC*& psoP = (socketC*&)(countT&)jobP.sw_pso ;                                                                                                  \
-        jobP.sw_pso.ungrabF( tinP ) ;                                                                                                            \
+        jobP.sw_pso.ungrabF( tinP ) ;                                                                                                                       \
         __Z( psoP ) ;                                                                                                                                       \
                                                                                                                                                             \
         sessionC& sessionP = jobP.sessions.registerConnectionF( tinP , jobP.nnPeer , /*psttPeerP*/T("notQueried") ) ;                                       \
@@ -8973,12 +8974,12 @@ see adam.0140104 for an example
                 while( tinP.cKidThreads ) { ++ s ; thirdC::dosSleepRawIF( tinP , 250 ) ; }                                                              \
             }                                                                                                                                           \
                                                                                                                                                         \
-            jobP.sw_pso.grabF( tinP , TAG( TAGiDnULL ) ) ;                                                                                   \
+            jobP.sw_pso.grabF( tinP , TAG( TAGiDnULL ) ) ;                                                                                              \
             DEL( psoP ) ;                                                                                                                               \
             jobP.lever_idSession = jobP.idSession ;                                                                                                     \
             if( (countT)&psoP == (countT)&(countT&)jobP.sw_pso ) jobP.sw_pso.freeF( tinP ) ;                                                            \
             else                                                 __1                                                                                    \
-            jobP.sw_pso.ungrabF( tinP ) ;                                                                                                    \
+            jobP.sw_pso.ungrabF( tinP ) ;                                                                                                               \
         }                                                                                                                                               \
                                                                                                                                                         \
         jobP.sessions.unregisterConnectionF( tinP , jobP.nnPeer ) ;                                                                                     \
@@ -8991,7 +8992,7 @@ see adam.0140104 for an example
                                                                                                                                                         \
         etThread.traceF( tinP , T("DONEdRIVENsERVER [cSession]:    ")+TF2(jobP.cSession,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;                   \
                                                                                                                                                         \
-        taskDrivenServerJobS* pDoomed = &jobP ;                                                                                                      \
+        taskDrivenServerJobS* pDoomed = &jobP ;                                                                                                         \
         dec02AM( jobP.cSession ) ;                                                                                                                      \
         DEL( pDoomed ) ;                                                                                                                                \
     }                                                                                                                                                   \
@@ -9957,9 +9958,16 @@ flHIRE_SHOW
 #define FINGERnEG_WOtABLEsAIDaNON                       ((countT)-(sCountT)0xcccc005f)
 #define FINGERnEG_WOtABLEsAIDtOPIC                      ((countT)-(sCountT)0xcccc0060)
 #define FINGERnEG_WOtABLEnEWtOPICcERTIFIED              ((countT)-(sCountT)0xcccc0061)
+#define FINGERnEG_dropNoteSsexC1                        ((countT)-(sCountT)0xcccc0062)
+#define FINGERnEG_dropNoteSsexC2                        ((countT)-(sCountT)0xcccc0063)
+#define FINGERnEG_dropNoteSslotsC1                      ((countT)-(sCountT)0xcccc0064)
+#define FINGERnEG_dropNoteSslotsC2                      ((countT)-(sCountT)0xcccc0065)
+#define FINGERnEG_dropNoteSpoolC1                       ((countT)-(sCountT)0xcccc0066)
+#define FINGERnEG_dropNoteSpoolC2                       ((countT)-(sCountT)0xcccc0067)
+#define FINGERnEG_dropNoteSdeleted                      ((countT)-(sCountT)0xcccc0068)
 /*3*/
 #define FINGERnEG_min     0xcccc0001
-#define FINGERnEG_max     0xcccc0061
+#define FINGERnEG_max     0xcccc0068
 
 
 //

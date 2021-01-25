@@ -114,12 +114,19 @@
                         break ;
                         inc02AM( pcTallyOut[ offs ] ) ;
 
-                        if( pDropNote ) pDropNote->dropHeaderCopy = dropHeader ;
-                        dropNoteS* pDropNote = ppSex[ offs ]->pDropNoteF( tinP , pbo ) ;
+                        }
+                            putNegAM( pDropNote->finger , FINGERnEG_dropNoteSslotsC2 ) ;
+                            pDropNote->dropHeaderCopy = dropHeader ;
+                        {
+                        if( pDropNote )
 
                         dropHeader = dropHeader << CbITSeXPsLOTS | ( offs - expSlotsMin ) ;
                         BLAMMOiFcANNOTsHIFTlEFT( dropHeader , CbITSeXPsLOTS ) ;
                         countT& dropHeader = ((countT*)pbo)[ - 1 ] ;
+
+                        if( pDropNote ) putNegAM( pDropNote->finger , FINGERnEG_dropNoteSslotsC1 ) ;
+
+                        dropNoteS* pDropNote = ppSex[ offs ]->pDropNoteF( tinP , pbo ) ;
                     {
                     if( pbo )
 

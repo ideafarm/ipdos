@@ -4871,6 +4871,7 @@ after i return, that countT object will contain 1
 #define flTHREADmODE4_INoUTfRAMEdOnOTcOLLECTaPPtELEMETRY                                0xe0000210
 #define flTHREADmODE4_INoUTfRAMEfORCEcOLLECTaPPtELEMETRY                                0xe0000410
 #define flTHREADmODE4_DOnOTfLUSHpENDINGaPPtELEMETRY                                     0xe0000810
+#define flTHREADmODE4_DOnOTtESTdROPhEADERS                                              0xe0001010
 /*3*/
 #define flTHREADmODE4_null    0xe0000010
 
@@ -5367,6 +5368,53 @@ examples
 //
 
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.1120058f.postCRAFTWORKfACTORY END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200590.___CHK BEGIN
+
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+/*
+*/
+/**/
+/*1*//*___CHK(pbP)*//*1*/
+
+#if defined( ENABLEdROPnOTES )
+
+    #define ___CHK(pbP)                                                                                                                                             \
+                                                                                                                                                                    \
+        {                                                                                                                                                           \
+            byteT* _pbx = (byteT*)(pbP) ;                                                                                                                           \
+            if( _pbx && ( (byteT*)_pbx < processGlobal0S::_processGlobal0I_IF().pbHeap || (byteT*)_pbx >= processGlobal0S::_processGlobal0I_IF().pbHeapEnd ) )      \
+            {                                                                                                                                                       \
+                dropNoteS* pNote = PUSE.pDropNoteF( tinP , _pbx ) ;                                                                                                 \
+                if( pNote )                                                                                                                                         \
+                {                                                                                                                                                   \
+                    countT& dropHeader = ((countT*)_pbx)[ - 1 ] ;                                                                                                   \
+                    if( dropHeader - pNote->dropHeaderCopy ) { BLAMMOiD( dropHeader - pNote->dropHeaderCopy ) ; }                                                   \
+                }                                                                                                                                                   \
+            }                                                                                                                                                       \
+        }
+
+#else
+
+    #define ___CHK(pbP)
+
+#endif
+
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200590.___CHK END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.thirdParties : 1snip.15000014.thirdparties BEGIN
 
 
@@ -17091,6 +17139,7 @@ members
 /**/
 
 /* face */
+ countT     finger ;
  countT     dropHeaderCopy ;
  countT     idNewLath ;
  countT     idDelLath ;
@@ -25211,37 +25260,37 @@ examples
 
 /*1*/class _export boxC/*1*/
 {
-    etherC&     ether ;
-    const poopC& poop ;
-    boolT       fTap ;
-    handleC     handle ;
-    handleC     hAliasIn ; // USED TO SAVE AND RESTORE THE OLD DEVICES ASSOCIATED WITH THE FILE HANDLES FOR STD IN, STD OUT, STD ERROR
-    handleC     hAliasError ; // "
-    handleC     hAliasOut ; // "
-    handleC     hHoseCommand ; // USED ON WIN 95 TO EMULATE NAMED PIPES
-    batonC*     pBatHPC ; // "
-    handleC     hHoseReply ; // "
-    signC*      pSgnHoseFinished ; // "
-    batonC*     pBatHPR ; // "
-    signC*      pSgnTapFinished ; // "
-    signC*      pSgnTapReady ; // "
-    batonC*     pBatHose ; // "
-    batonC*     pBatTap ; // "
-    boxC*       pHoseProcessIn ;
-    boxC*       pHoseProcessOut ;
-    boxC*       pHoseProcessError ;
-    countT      pid ; // THE PID OF THIS PROCESS, IF IT IS A PROCESS BOX
-    strokeS*    psttAll ;
-    strokeS*    psttHost ;
-    countT      idPort ;
-    strokeS*    psttType ;
-    strokeS*    psttUser ;
-    strokeS*    psttPass ;
-    strokeS*    psttName ;
-    socketC*    pSControl ;
-    byteT*      pbNapkin ;
-    countT      cOpenTries ; 
-    const flagsT flagsOpenDetails ; //ADDED LATER; ONLY EDITED CODE FOR DISK FILES TO USE IT; HACKED IT IN; SHOULD BE POLISHED BY MAKING THE HARDCODED FLAGS PARAMETER DEFAULTS
+    etherC&       ether ;
+    const poopC&  poop ;
+    boolT         fTap ;
+    handleC       handle ;
+    handleC       hAliasIn ; // USED TO SAVE AND RESTORE THE OLD DEVICES ASSOCIATED WITH THE FILE HANDLES FOR STD IN, STD OUT, STD ERROR
+    handleC       hAliasError ; // "
+    handleC       hAliasOut ; // "
+    handleC       hHoseCommand ; // USED ON WIN 95 TO EMULATE NAMED PIPES
+    batonC*       pBatHPC ; // "
+    handleC       hHoseReply ; // "
+    signC*        pSgnHoseFinished ; // "
+    batonC*       pBatHPR ; // "
+    signC*        pSgnTapFinished ; // "
+    signC*        pSgnTapReady ; // "
+    batonC*       pBatHose ; // "
+    batonC*       pBatTap ; // "
+    boxC*         pHoseProcessIn ;
+    boxC*         pHoseProcessOut ;
+    boxC*         pHoseProcessError ;
+    countT        pid ; // THE PID OF THIS PROCESS, IF IT IS A PROCESS BOX
+    strokeS*      psttAll ;
+    strokeS*      psttHost ;
+    countT        idPort ;
+    strokeS*      psttType ;
+    strokeS*      psttUser ;
+    strokeS*      psttPass ;
+    strokeS*      psttName ;
+    socketC*      pSControl ;
+    byteT*        pbNapkin ;
+    countT        cOpenTries ; 
+    const flagsT  flagsOpenDetails ; //ADDED LATER; ONLY EDITED CODE FOR DISK FILES TO USE IT; HACKED IT IN; SHOULD BE POLISHED BY MAKING THE HARDCODED FLAGS PARAMETER DEFAULTS
     const countT  timeAllowed1 ;
     const sCountT timeAllowed2 ;
 
@@ -29700,6 +29749,8 @@ applications should avoid using thirdC objects
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34011.sexC.flushF!||
     voidT glassF( tinS& tinP , strokeS*& psttP ) const ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.360e0012.sexC.glassF!||
+    voidT testDropHeadersF( tinS& tinP ) ;
+    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.360e0012.sexc.testDropHeadersF!||
 
     inline countT idLathNewDelF(  voidT ) const { return idLathNewDel ; }
     inline flagsT flagsStateF(    voidT ) const { return flagsState   ; }
@@ -29789,7 +29840,9 @@ applications should avoid using thirdC objects
     countT deleteTopSexF( tinS& tinP ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.360e1011.slotsC.deleteTopSexF!||
     voidT makeSexF( tinS& tinP , const countT expSlotsP ) ;
-    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.360e1012.slotsc.makeSexF3func.360e1012.slotsc.makeSexF!||
+    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.360e1012.slotsc.makeSexF!||
+    voidT testDropHeadersF( tinS& tinP ) ;
+    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.360e1013.slotsc.testDropHeadersF!||
 }
 ;
 
@@ -30511,6 +30564,8 @@ listC must be the wo'th base class of any class derived from it
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.360e201a.poolC.deleteEmptiesIfF!||
     static voidT deleteEmptiesIfIF( tinS& tinP ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.350e201b.poolC.deleteEmptiesIfIF!||
+    voidT testDropHeadersF( tinS& tinP ) ;
+    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.360e201b.poolc.testDropHeadersF!||
 
     friend class datum_countT_C ;
     friend class listing_listingVSP_C ;

@@ -32,14 +32,26 @@
                 {
                 if( !pbP && !( F(flagsP) & flPOOLcnEW_DOnOTbLOCK ) )
 
-                if( pDropNote ) pDropNote->dropHeaderCopy = dropHeader ;
-                dropNoteS* pDropNote = guts.ppSlots[ offs ]->pDropNoteF( tinP , pbP ) ;
+                THREADmODE4rESTORE
+
+                }
+                    putNegAM( pDropNote->finger , FINGERnEG_dropNoteSpoolC2 ) ;
+                    pDropNote->dropHeaderCopy = dropHeader ;
+                {
+                if( pDropNote )
 
                 dropHeader = dropHeader << guts.cBitsExpCbSlot | offs - guts.expCbSlotMin ;
+
                 BLAMMOiFcANNOTsHIFTlEFT( dropHeader , guts.cBitsExpCbSlot ) ;
                 countT& dropHeader = ((countT*)pbP)[ - 1 ] ;
 
+                if( pDropNote ) putNegAM( pDropNote->finger , FINGERnEG_dropNoteSpoolC1 ) ;
+
+                dropNoteS* pDropNote = guts.ppSlots[ offs ]->pDropNoteF( tinP , pbP ) ;
+
                 pbP = guts.ppSlots[ offs ]->newF( tinP , idLineP , idiFileP , flagsSlots ) ;
+
+                THREADmODE4oN( flTHREADmODE4_DOnOTtESTdROPhEADERS )
 
                 //if( offs == 0x18 ) etherC::etRockIF( tinP ).traceF( tinP , T("++++++++ new") ) ; //U::20140808@1936: TO FIND A BUG
 

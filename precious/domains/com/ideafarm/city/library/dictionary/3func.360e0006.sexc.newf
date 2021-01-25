@@ -17,6 +17,8 @@
             idLathNewDel = ifcIDsEXclATHnEWdEL_NEW ; // INTENTIONAL RACE
 
             }
+                putNegAM( pMyNote->finger , FINGERnEG_dropNoteSsexC2 ) ;
+
                 pMyNote->flagsMonitor = flOLDlEAKmONITOR_null ;
                 pMyNote->idThreadDel = 0 ;
                 pMyNote->idThreadNew = tinP.monitor.idThread ;
@@ -31,8 +33,9 @@
                 //USE THIS TO INVESTIGATE LEAKS THAT REPORT AS aaaaaaaa(aaaaaaaa) I.E. WERE NEVER TAGGED
 
                 pMyNote->dropHeaderCopy = ((countT*)pbo)[ - 1 ] ;
+                thirdC::c_memsetIF( tinP , (byteT*)pMyNote + 4 * sizeof( countT ) , sizeof( dropNoteS ) - 4 * sizeof( countT ) , FILLbYTE_SEXc ) ;
 
-                thirdC::c_memsetIF( tinP , (byteT*)pMyNote + 3 * sizeof( countT ) , sizeof( dropNoteS ) - 3 * sizeof( countT ) , FILLbYTE_SEXc ) ;
+                putNegAM( pMyNote->finger , FINGERnEG_dropNoteSsexC1 ) ;
 
                 dropNoteS* pMyNote = pzMetaNote + offFound ;
             {
