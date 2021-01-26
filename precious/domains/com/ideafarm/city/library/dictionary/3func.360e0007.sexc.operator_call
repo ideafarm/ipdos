@@ -94,15 +94,45 @@
             }
                 pEtRock->traceF( tinP , (strokeS*)(const osTextT*)ostoSay , flTRACE_PARAMETERiSoStEXT ) ;
                 }
+                    OStEXTC(  ostoSay , pDropNote->idNewForTagLine , 0 ) ;
+                    OStEXTAK( ostoSay , "    " ) ;
+                    OStEXTC(  ostoSay , pDropNote->idThreadDel , 0 ) ;
+                    OStEXTAK( ostoSay , "    " ) ;
+                    OStEXTC(  ostoSay , pDropNote->idThreadNew , 0 ) ;
+                    OStEXTAK( ostoSay , "    " ) ;
+                    OStEXTC(  ostoSay , pDropNote->flagsMonitor , 0 ) ;
+                    OStEXTAK( ostoSay , "    " ) ;
+                    OStEXTC(  ostoSay , pDropNote->idiFileTagged2 , 0 ) ;
+                    OStEXTAK( ostoSay , "    " ) ;
+                    OStEXTC(  ostoSay , pDropNote->idLineTagged2 , 0 ) ;
+                    OStEXTAK( ostoSay , "    " ) ;
+                    OStEXTC(  ostoSay , pDropNote->idiFileTagged , 0 ) ;
+                    OStEXTAK( ostoSay , "    " ) ;
+                    OStEXTC(  ostoSay , pDropNote->idLineTagged , 0 ) ;
+                    OStEXTAK( ostoSay , "    " ) ;
+                    OStEXTC(  ostoSay , pDropNote->idAdam , 0 ) ;
+                    OStEXTAK( ostoSay , "    " ) ;
+                    OStEXTC(  ostoSay , pDropNote->cbUsedReally , 0 ) ;
+                    OStEXTAK( ostoSay , "    " ) ;
+                    OStEXTC(  ostoSay , pDropNote->cbRequested , 0 ) ;
+                    OStEXTAK( ostoSay , "    " ) ;
+                    OStEXTC(  ostoSay , pDropNote->idType , 0 ) ;
+                    OStEXTAK( ostoSay , "    " ) ;
+                    OStEXTC(  ostoSay , pDropNote->idDelLath , 0 ) ;
+                    OStEXTAK( ostoSay , "    " ) ;
+                    OStEXTC(  ostoSay , pDropNote->idNewLath , 0 ) ;
+                    OStEXTAK( ostoSay , "    " ) ;
                     OStEXTC(  ostoSay , pDropNote->dropHeaderCopy , '0' ) ;
+                    OStEXTAK( ostoSay , "    " ) ;
+                    OStEXTC(  ostoSay , pDropNote->finger , 0 ) ;
                     OStEXTAK( ostoSay , "    " ) ;
                 {
                 if( pDropNote )
                 OStEXTC(  ostoSay , dropHeader , '0' ) ;
                 OStEXTAK( ostoSay , "    " ) ;
                 OStEXTC(  ostoSay , offSlot , '0' ) ;
-                OStEXTA(  ostoSay , pDropNote ?  "sexC::operator (): trying harder is in effect and i will delete this drop [offSlot,dropHeader,dropHeaderCopy]:    " : "sexC::operator (): trying harder is in effect and i will delete this drop [offSlot,dropHeader]:    " ) ;
-                OStEXT( ostoSay , TUCK << 0 ) ;
+                OStEXTA(  ostoSay , pDropNote ?  "sexC::operator (): trying harder is in effect and i will delete this drop [offSlot,dropHeader,dropNote]:    " : "sexC::operator (): trying harder is in effect and i will delete this drop [offSlot,dropHeader]:    " ) ;
+                OStEXT( ostoSay , TUCK << 2 ) ;
                 countT& dropHeader = *(countT*)pbSlot ;
 
                 if( pzMetaNote ) pDropNote = pzMetaNote + offSlot ;
