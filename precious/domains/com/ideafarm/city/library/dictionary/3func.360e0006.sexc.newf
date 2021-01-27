@@ -25,7 +25,13 @@
                 thirdC::c_memcpyIF( tinP , (byteT*)&pMyNote->cNest , (byteT*)&tinP.monitor.cInNest , sizeof pMyNote->cNest + sizeof pMyNote->pLFnest + sizeof pMyNote->pFlagsThreadLevelMode ) ;
                 pMyNote->idAdam    = tinP.pAdamGlobal1->idAdam ;
 
-                inc02AM( pMyNote->idNewLath ) ;
+                }
+                    BLAMMO ;
+                    tinP.pcUtility[ 1 ] = pMyNote->idDelLath ;
+                    tinP.pcUtility[ 0 ] = idNewLathWas       ;
+                {
+                if( pMyNote->idDelLath != idNewLathWas )
+                countT idNewLathWas = incv02AM( pMyNote->idNewLath ) ;
 
                 if( !pMyNote->idLineTagged || !pMyNote->idiFileTagged ) { BLAMMO ; }
                 pMyNote->idiFileTagged = tinP.monitor.pLFnest[ ( ( tinP.monitor.cInNest & OFFsLOTtINnESTmAX ) << 1 ) + 1 ] ;
@@ -33,7 +39,7 @@
                 //USE THIS TO INVESTIGATE LEAKS THAT REPORT AS aaaaaaaa(aaaaaaaa) I.E. WERE NEVER TAGGED
 
                 pMyNote->dropHeaderCopy = ((countT*)pbo)[ - 1 ] ;
-                thirdC::c_memsetIF( tinP , (byteT*)pMyNote + 4 * sizeof( countT ) , sizeof( dropNoteS ) - 4 * sizeof( countT ) , FILLbYTE_SEXc ) ;
+                thirdC::c_memsetIF( tinP , (byteT*)pMyNote + 4 * sizeof( countT ) , sizeof( dropNoteS ) - 4 * sizeof( countT ) , 0 ) ; //CS:CODEsYNC: 1500003c 360e0006: MEMBERS BELOW ME ARE NOT INITIALIZED BY sexC::newF
 
                 putNegAM( pMyNote->finger , FINGERnEG_dropNoteSsexC1 ) ;
 
@@ -54,7 +60,7 @@
             else
             if( !pzMetaNote ) ((countT*)pbo)[ - 1 ] = /*U::offFound*/offFoundTellTale ; // DROP HEADER VALUE.  IF I AM CALLED BY poolC THEN VALUE WILL CONTAIN idApt, WHICH WILL BE USED TO IDENTIFY *this SO THAT THE DROP CAN BE DELETED WITHOUT SEARCHING FOR THE CORRECT sexC INSTANCE
 
-            countT offFoundTellTale = 0xf ;   //U:: TO FIND A BUG
+            countT offFoundTellTale = 0x7 ;   //U:: TO FIND A BUG
 
             pbo = pbData + cbSlot * offFound + CBsEXdROPhEADER ;
             const countT cbSlot = CBsEXdROPhEADER + ( 1 << pzMetaHead->expCbSlot ) ;

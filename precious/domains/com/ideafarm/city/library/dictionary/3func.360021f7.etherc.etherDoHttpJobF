@@ -55,6 +55,7 @@
             TN( tcr , "\r\n" ) ;
             TN( t2 , "    " ) ;
             TN( t1 , ": " ) ;
+            _IO_
         {
         ZE( boolT , bDeadman ) ;
 
@@ -112,12 +113,15 @@
                         pswKV->freeNullsF( tinP ) ;
                         TELL( "cleaning up 5" ) ;
                         }
-                            delF( tinP , psttv ) ;
-                            strokeS*& psttv = *(strokeS**)&(countT&)*pswKV ;
-                            psttLeverKV = (strokeS*)pswKV->leverF( tinP , idf ) ;
+                            }
+                                delF( tinP , psttv ) ;                                  //U::               psttLeverKV->idCaste: 0xddddf001 + 0xff524d75: 0xdd303d76
+                                strokeS*& psttv = *(strokeS**)&(countT&)*pswKV ;        //U::20210126@1850: psttLeverKV->idCaste - sc_PREFIXlENGTH: 57d425ff
+                                psttLeverKV = (strokeS*)pswKV->leverF( tinP , idf ) ;
+                            {
+                            for( countT idf = 1 ; idf <= cFlavors ; idf ++ )
+                            countT cFlavors = pswKV->cFlavorsF( tinP ) ;            //U:: BUG: pswKV ACCESS IS NOT SERIALIZED IN SEVERAL PLACES; CONJ: ONLY USED BY THIS THREAD SO SHOULD NOT NEED SERIALIZATION: 
+                            _IO_
                         {
-                        for( countT idf = 1 ; idf <= cFlavors ; idf ++ )
-                        countT cFlavors = pswKV->cFlavorsF( tinP ) ;
                         TELL( "cleaning up 4" ) ;
                         if( bDeadman1 ) traceF( tinP , T("U:: etherDoHttpJobF / 3") , flTRACE_HOMEeCHOdEADMAN1 | flTRACE_FORCEnOsILENCE | flTRACE_ECHOoNLY ) ;
                                       //traceF( tinP , T("U:: etherDoHttpJobF / 3") , flTRACE_FORCEnOsILENCE , idTraceDivert ) ;
@@ -1051,6 +1055,7 @@
                                 countT cFlavors = pswKV->cFlavorsF( tinP ) ;
 
                                 TN( tKeyHeadFlavor , "headflavor" ) ;
+                                _IO_
                             {
 
                             //POPUPcOUNT( "idHeadFlavorOverride before: " , idHeadFlavorOverride ) ;
@@ -1076,6 +1081,7 @@
                         //    countT cFlavors = pswKV->cFlavorsF( tinP ) ;
                         //
                         //    TN( tSay , "" ) ;
+                        //    _IO_
                         //{
                         //COMMENT OUT IN PRODUCTION: USED TO SEE KEYVALUES SUBMITTED USING FORMS
 
@@ -1765,11 +1771,11 @@
         TN( tSlashDeadman1    , "/deadman1" ) ;
         TN( tb4 , "    " ) ;
 
-        (*this)( tinP , pswTally , TAG( TAGiDnULL ) , flSTACKc_DOnOTsERIALIZE | flSTACKc_ALLOWmULTIPLEuNSERIALIZED , psttLeverUrlTally ) ; ___( pswTally ) ;
+        (*this)( tinP , pswTally , TAG( TAGiDnULL ) , flSTACKc_DOnOTsERIALIZE /*U:: SHOULD NOT NEED: | flSTACKc_ALLOWmULTIPLEuNSERIALIZED , psttLeverUrlTally ) ; ___( pswTally ) ;
         ZE( switchC* , pswTally ) ;
         ZE( strokeS* , psttLeverUrlTally ) ;
 
-        (*this)( tinP , pswKV , TAG( TAGiDnULL ) , flSTACKc_DOnOTsERIALIZE | flSTACKc_ALLOWmULTIPLEuNSERIALIZED , psttLeverKV ) ; ___( pswKV ) ;
+        (*this)( tinP , pswKV , TAG( TAGiDnULL ) , flSTACKc_DOnOTsERIALIZE /*U:: SHOULD NOT NEED: | flSTACKc_ALLOWmULTIPLEuNSERIALIZED*/ , psttLeverKV ) ; ___( pswKV ) ;
         ZE( switchC* , pswKV ) ;
         ZE( strokeS* , psttLeverKV ) ;
 
