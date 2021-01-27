@@ -33,10 +33,9 @@
         {
         if( !bDeadman ) //VISITORS CAN CONCEAL THEIR VISIT BY ASKING FOR DEADMAN URL
 
-        { _IO_ (*this)( tinP , pswTally ) ; }
         }
             }
-                //else tLog += t2+TF2(*pswTally,flFORMAT_NObIGITvALUES)+t1+T(psttLeverUrlTally)+tcr ;
+                //else tLog += t2+TF2(swTally,flFORMAT_NObIGITvALUES)+t1+T(psttLeverUrlTally)+tcr ;
                 bDeadman = 1 ;
                 )
                     )
@@ -48,10 +47,10 @@
                     psttLeverUrlTally
                 (
                 if
-                psttLeverUrlTally = (strokeS*)pswTally->leverF( tinP , idf ) ;
+                psttLeverUrlTally = (strokeS*)swTally.leverF( tinP , idf ) ;
             {
             for( countT idf = 1 ; idf <= cFlavors ; idf ++ )
-            countT cFlavors = pswTally->cFlavorsF( tinP ) ;
+            countT cFlavors = swTally.cFlavorsF( tinP ) ;
             TN( tcr , "\r\n" ) ;
             TN( t2 , "    " ) ;
             TN( t1 , ": " ) ;
@@ -72,7 +71,6 @@
         osTimeNowF( tinP , timeA1 , timeA2 ) ;
         ZE( sCountT , timeA2 ) ;
         ZE( countT , timeA1 ) ;
-        { _IO_ (*this)( tinP , pswKV ) ; }
         TELL( "etherDoHttpJobF: cleaning up (part 1)" ) ;
 
         }
@@ -110,16 +108,16 @@
                         //traceF( tinP , TF3(meP.idPortF(tinP),flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,9)+T(jobP.nnPeer)+T("    nonfile response has been written") , flTRACE_FORCEnOsILENCE , idTraceDivert ) ;
 
                         delF( tinP , psttKVReport ) ;
-                        pswKV->freeNullsF( tinP ) ;
+                        swKV.freeNullsF( tinP ) ;
                         TELL( "cleaning up 5" ) ;
                         }
                             }
                                 delF( tinP , psttv ) ;                                  //U::               psttLeverKV->idCaste: 0xddddf001 + 0xff524d75: 0xdd303d76
-                                strokeS*& psttv = *(strokeS**)&(countT&)*pswKV ;        //U::20210126@1850: psttLeverKV->idCaste - sc_PREFIXlENGTH: 57d425ff
-                                psttLeverKV = (strokeS*)pswKV->leverF( tinP , idf ) ;
+                                strokeS*& psttv = *(strokeS**)&(countT&)swKV ;        //U::20210126@1850: psttLeverKV->idCaste - sc_PREFIXlENGTH: 57d425ff
+                                psttLeverKV = (strokeS*)swKV.leverF( tinP , idf ) ;
                             {
                             for( countT idf = 1 ; idf <= cFlavors ; idf ++ )
-                            countT cFlavors = pswKV->cFlavorsF( tinP ) ;            //U:: BUG: pswKV ACCESS IS NOT SERIALIZED IN SEVERAL PLACES; CONJ: ONLY USED BY THIS THREAD SO SHOULD NOT NEED SERIALIZATION: 
+                            countT cFlavors = swKV.cFlavorsF( tinP ) ;            //U:: BUG: swKV ACCESS IS NOT SERIALIZED IN SEVERAL PLACES; CONJ: ONLY USED BY THIS THREAD SO SHOULD NOT NEED SERIALIZATION: 
                             _IO_
                         {
                         TELL( "cleaning up 4" ) ;
@@ -134,7 +132,7 @@
                             if( bDeadman1 ) traceF( tinP , T("U:: etherDoHttpJobF / 5") , flTRACE_HOMEeCHOdEADMAN1 | flTRACE_FORCEnOsILENCE | flTRACE_ECHOoNLY ) ;
                                           //traceF( tinP , T("U:: etherDoHttpJobF / 5") , flTRACE_FORCEnOsILENCE , idTraceDivert ) ;
                             meP.swReply.ungrabF( tinP ) ;
-                            ++ *pswTally ;
+                            ++ swTally ;
                             psttLeverUrlTally = psttName ;
                             meP.swReply.grabF( tinP , TAG( TAGiDnULL ) ) ;
                             TELL( "tallying" ) ;
@@ -682,7 +680,7 @@
                                                 ZE( boolT , bAllowBigHead ) ;
 
                                                 }
-                                                    (*REPLY.pCBF)( tinP , *this , bQuitP , meP , cArgAppP , REPLY , *pStkBodyDynamic , psttKVReport , *pswKV , psttLeverKV , jobP.sessions , jobP.nnPeer , psttName , psttQueryKV , psttAgent , postBody ) ;
+                                                    (*REPLY.pCBF)( tinP , *this , bQuitP , meP , cArgAppP , REPLY , *pStkBodyDynamic , psttKVReport , swKV , psttLeverKV , jobP.sessions , jobP.nnPeer , psttName , psttQueryKV , psttAgent , postBody ) ;
                                                     TELL( T(psttName) ) ;
                                                     _IO_
                                                 {
@@ -755,7 +753,7 @@
                                                 //THESE WERE REMOVED IN 2019. 20200729@1734: ENABLED WITHOUT ANALYSIS
 
                                                 }
-                                                    (*REPLY.pCBF)( tinP , *this , bQuitP , meP , cArgAppP , REPLY , *pStkBody , psttKVReport , *pswKV , psttLeverKV , jobP.sessions , jobP.nnPeer , psttName , psttQueryKV , psttAgent , postBody ) ;
+                                                    (*REPLY.pCBF)( tinP , *this , bQuitP , meP , cArgAppP , REPLY , *pStkBody , psttKVReport , swKV , psttLeverKV , jobP.sessions , jobP.nnPeer , psttName , psttQueryKV , psttAgent , postBody ) ;
                                                     _IO_
                                                 {
                                                 if( REPLY.pCBF )
@@ -881,7 +879,7 @@
                                                 if( bDeadman1 ) traceF( tinP , T("U:: etherDoHttpJobF / l") , flTRACE_HOMEeCHOdEADMAN1 | flTRACE_FORCEnOsILENCE | flTRACE_ECHOoNLY ) ;
                                                               //traceF( tinP , T("U:: etherDoHttpJobF / l") , flTRACE_FORCEnOsILENCE , idTraceDivert ) ;
                                                 }
-                                                    (*REPLY.pCBF)( tinP , *this , bQuitP , meP , cArgAppP , REPLY , *pStkBody , psttKVReport , *pswKV , psttLeverKV , jobP.sessions , jobP.nnPeer , psttName , psttQueryKV , psttAgent , postBody ) ;
+                                                    (*REPLY.pCBF)( tinP , *this , bQuitP , meP , cArgAppP , REPLY , *pStkBody , psttKVReport , swKV , psttLeverKV , jobP.sessions , jobP.nnPeer , psttName , psttQueryKV , psttAgent , postBody ) ;
                                                     _IO_
                                                 {
                                                 if( REPLY.pCBF )
@@ -992,7 +990,7 @@
                         if( bDeadman1 ) traceF( tinP , T("U:: etherDoHttpJobF / r") , flTRACE_HOMEeCHOdEADMAN1 | flTRACE_FORCEnOsILENCE | flTRACE_ECHOoNLY ) ;
                                       //traceF( tinP , T("U:: etherDoHttpJobF / r") , flTRACE_FORCEnOsILENCE , idTraceDivert ) ;
 
-                        (*pHttpEatKeyValuePairsCBFP)( tinP , *this , bQuitP , psttKVReport , 0 /*DISABLED TO PREVENT ATTACK: T("///ideafarm/ephemeral/backed.up.daily/domains/com/ideafarm/")+TF1(ifcIDaDAM_ROOTfORMdATAeATER)+T("/in/form") */ , *pswKV , psttLeverKV , jobP.sessions , jobP.nnPeer , psttName , psttQueryKV , psttAgent , postBody ) ;
+                        (*pHttpEatKeyValuePairsCBFP)( tinP , *this , bQuitP , psttKVReport , 0 /*DISABLED TO PREVENT ATTACK: T("///ideafarm/ephemeral/backed.up.daily/domains/com/ideafarm/")+TF1(ifcIDaDAM_ROOTfORMdATAeATER)+T("/in/form") */ , swKV , psttLeverKV , jobP.sessions , jobP.nnPeer , psttName , psttQueryKV , psttAgent , postBody ) ;
                         ZE( strokeS* , psttKVReport ) ;
                         TELL( "calling keyvalue eater" ) ;
                         if( bDeadman1 ) traceF( tinP , T("U:: etherDoHttpJobF / s") , flTRACE_HOMEeCHOdEADMAN1 | flTRACE_FORCEnOsILENCE | flTRACE_ECHOoNLY ) ;
@@ -1046,13 +1044,13 @@
                                                  if( !strCompareF( tinP , psttv , T("verbose") ) ) idHeadFlavorOverride = ifcIDhEADfLAVOR_VERBOSE ;
                                         {
                                         if( psttv )
-                                        strokeS* psttv = *(strokeS**)&(countT&)*pswKV ;
+                                        strokeS* psttv = *(strokeS**)&(countT&)swKV ;
                                     {
                                     if( !strCompareF( tinP , psttLeverKV , tKeyHeadFlavor ) )
-                                    psttLeverKV = (strokeS*)pswKV->leverF( tinP , idf ) ;
+                                    psttLeverKV = (strokeS*)swKV.leverF( tinP , idf ) ;
                                 {
                                 for( countT idf = 1 ; idf <= cFlavors ; idf ++ )
-                                countT cFlavors = pswKV->cFlavorsF( tinP ) ;
+                                countT cFlavors = swKV.cFlavorsF( tinP ) ;
 
                                 TN( tKeyHeadFlavor , "headflavor" ) ;
                                 _IO_
@@ -1074,11 +1072,11 @@
                         //    }
                         //        tSay += T("[")+T(psttLeverKV)+T("]: \"")+T(zsttv)+T("\"\r\n") ;
                         //
-                        //        strokeS*& zsttv = *(strokeS**)&(countT&)*pswKV ;
-                        //        psttLeverKV = (strokeS*)pswKV->leverF( tinP , idf ) ;
+                        //        strokeS*& zsttv = *(strokeS**)&(countT&)swKV ;
+                        //        psttLeverKV = (strokeS*)swKV.leverF( tinP , idf ) ;
                         //    {
                         //    for( countT idf = 1 ; idf <= cFlavors ; idf ++ )
-                        //    countT cFlavors = pswKV->cFlavorsF( tinP ) ;
+                        //    countT cFlavors = swKV.cFlavorsF( tinP ) ;
                         //
                         //    TN( tSay , "" ) ;
                         //    _IO_
@@ -1639,7 +1637,6 @@
 
                 bBadgeOk = 1 ; //U:: WORKAROUND BECAUSE @ IS SERVED BY MULTIPLE FACTORIES, YET BADGE PAIRS ARE NOT YET PROPOGATED TO ALL FACTORIES
 
-                pswKV->ungrabF( tinP ) ;
                 }
                     }
                         traceF( tinP , T(bBadgeOk?"badge is ok":"badge is NOT ok") ) ;
@@ -1653,11 +1650,11 @@
                         {
                         if( !strCompareF( tinP , psttzv , tBadgeForce ) )
 
-                        strokeS* psttzv = (strokeS*)(countT&)*pswKV ;
+                        strokeS* psttzv = (strokeS*)(countT&)swKV ;
                         psttLeverKV = tBadge ;
                         _IO_
                     {
-                    if( pswKV->idSlotOfLeverF( tinP , (countT)(strokeS*)tBadge ) )
+                    if( swKV.idSlotOfLeverF( tinP , (countT)(strokeS*)tBadge ) )
 
                     }
                         }
@@ -1665,15 +1662,14 @@
                             bNoCacheSearch = 1 ;
                         {
                         if( psttzv && !strCompareF( tinP , psttzv , tNo ) )
-                        strokeS* psttzv = (strokeS*)(countT&)*pswKV ;
+                        strokeS* psttzv = (strokeS*)(countT&)swKV ;
                         psttLeverKV = tCacheSearch ;
                         _IO_
                     {
-                    if( pswKV->idSlotOfLeverF( tinP , (countT)(strokeS*)tCacheSearch ) )
+                    if( swKV.idSlotOfLeverF( tinP , (countT)(strokeS*)tCacheSearch ) )
                     _IO_
                 {
-                if( pswKV->cFlavorsF( tinP ) )
-                pswKV->grabF( tinP , TAG( TAGiDnULL ) ) ;
+                if( swKV.cFlavorsF( tinP ) )
                 ZE( boolT , bBadgeOk ) ;
                 ZE( boolT , bNoCacheStore  ) ;
                 ZE( boolT , bNoCacheSearch ) ;
@@ -1698,7 +1694,7 @@
                 ___( psttLeverKV ) ;
                 ___( psttName ) ;
                 }
-                    idEscaped = meP.readRequestF( tinP , bFail , psttName , psttQueryKV , *pswKV , psttLeverKV , psttAgent , postBody , bClose , psoP , pHttpRawCommandServerCBFP ? "!@" : 0 ) ;
+                    idEscaped = meP.readRequestF( tinP , bFail , psttName , psttQueryKV , swKV , psttLeverKV , psttAgent , postBody , bClose , psoP , pHttpRawCommandServerCBFP ? "!@" : 0 ) ;
                     _IO_
                 {
                 //traceF( tinP , T("etherDoHttpJobF / calling readRequestF") , flTRACE_HOMEeCHO | flTRACE_FORCEnOsILENCE | flTRACE_ECHOoNLY ) ;
@@ -1755,28 +1751,14 @@
             count8S& c8P = *(count8S*)cArgAppP ;
             _IO_
         {
-        else
-        }
-            traceF( tinP , T("etherDoHttpJobF / error: recycler failure") , flTRACE_null , ifcIDtRACEdIVERT_7 ) ;
-            traceF( tinP , T("etherDoHttpJobF / error: recycler failure") , flTRACE_null , ifcIDtRACEdIVERT_6 ) ;
-            traceF( tinP , T("etherDoHttpJobF / error: recycler failure") , flTRACE_null , ifcIDtRACEdIVERT_5 ) ;
-            traceF( tinP , T("etherDoHttpJobF / error: recycler failure") , flTRACE_null , ifcIDtRACEdIVERT_4 ) ;
-            traceF( tinP , T("etherDoHttpJobF / error: recycler failure") , flTRACE_null , ifcIDtRACEdIVERT_3 ) ;
-            traceF( tinP , T("etherDoHttpJobF / error: recycler failure") , flTRACE_FORCEnOsILENCE , ifcIDtRACEdIVERT_2 ) ;
-            //CS:CODEsYNC: 3300005b 3600212d
-            _IO_
-        {
-        if( !pswKV || !pswTally )
         TN( tSlashDeadman2    , "/deadman2" ) ;
         TN( tSlashDeadman1    , "/deadman1" ) ;
         TN( tb4 , "    " ) ;
 
-        (*this)( tinP , pswTally , TAG( TAGiDnULL ) , flSTACKc_DOnOTsERIALIZE /*U:: SHOULD NOT NEED: | flSTACKc_ALLOWmULTIPLEuNSERIALIZED*/ , psttLeverUrlTally ) ; ___( pswTally ) ;
-        ZE( switchC* , pswTally ) ;
+        switchC swTally( tinP , third , TAG( TAGiDnULL ) , flSTACKc_DOnOTsERIALIZE , psttLeverUrlTally ) ;
         ZE( strokeS* , psttLeverUrlTally ) ;
 
-        (*this)( tinP , pswKV , TAG( TAGiDnULL ) , flSTACKc_DOnOTsERIALIZE /*U:: SHOULD NOT NEED: | flSTACKc_ALLOWmULTIPLEuNSERIALIZED*/ , psttLeverKV ) ; ___( pswKV ) ;
-        ZE( switchC* , pswKV ) ;
+        switchC swKV( tinP , third , TAG( TAGiDnULL ) , flSTACKc_DOnOTsERIALIZE , psttLeverKV ) ;
         ZE( strokeS* , psttLeverKV ) ;
 
         ZE( countT , cHamburgersThisSession ) ;
