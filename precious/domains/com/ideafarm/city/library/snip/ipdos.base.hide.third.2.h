@@ -17143,7 +17143,8 @@ members
  countT     dropHeaderCopy ;
  countT     idNewLath ;
  countT     idDelLath ;
- countT     idType ;
+
+ countT     idType ;            //CS:CODEsYNC: 1500003c 360e0006: MEMBERS BELOW ME ARE NOT INITIALIZED BY sexC::newF
  countT     cbRequested ;
  countT     cbUsedReally ;
  countT     idAdam ;        //CS:CODEsYNC: 003004f 2190006: idAdam MUST BE BEFORE idiFileTagged
