@@ -47,7 +47,7 @@
             {
             if( pzMetaNote )
 
-            if( F(flagsCt) & fliSEXc_MAPPEDtOdISK ) thirdC::c_memsetIF( pbo , cbSlot - CBsEXdROPhEADER , 0 ) ; //TO SHRINK SIZE OF COMPRESSED DISK IMAGE; SANS tinP USED FOR MAX SPEED     20180611@1452: EDITED TO AVOID WIPING THE DROP HEADER (WITHOUT ANALYSIS)
+            if( F(flagsCt) & fliSEXc_MAPPEDtOdISK ) thirdC::c_memsetIF( pbo , cbSlot - ( CBsEXdROPsEPARATOR + CBsEXdROPhEADER ) , 0 ) ; //TO SHRINK SIZE OF COMPRESSED DISK IMAGE; SANS tinP USED FOR MAX SPEED     20180611@1452: EDITED TO AVOID WIPING THE DROP HEADER (WITHOUT ANALYSIS)
 
             tinP.cPoolDropCt ++ ;
 
@@ -62,8 +62,8 @@
 
             countT offFoundTellTale = 0x7 ;   //U:: TO FIND A BUG
 
-            pbo = pbData + cbSlot * offFound + CBsEXdROPhEADER ;
-            const countT cbSlot = CBsEXdROPhEADER + ( 1 << pzMetaHead->expCbSlot ) ;
+            pbo = pbData + cbSlot * offFound + ( CBsEXdROPsEPARATOR + CBsEXdROPhEADER ) ;
+            const countT cbSlot = ( CBsEXdROPsEPARATOR + CBsEXdROPhEADER ) + ( 1 << pzMetaHead->expCbSlot ) ;
     
             if( offFound < pzMetaHead->cSlotsAvoidLo ) { BLAMMO ; } //U:: IN ALL 3*.sexC.*, REMOVE ALL OF THESE TESTS ONCE HAVE CONFIDENCE THAT CODE IS CORRECT
 

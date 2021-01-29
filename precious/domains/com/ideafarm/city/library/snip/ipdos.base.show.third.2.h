@@ -29719,6 +29719,7 @@ applications should avoid using thirdC objects
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400f.sexC.ctFileNamesIF!||
     voidT ctFilesF( tinS& tinP , const osTextT* const postNameP , const countT expCbSlotP , const countT expSlotsP , const countT idStateSpaceP ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400d.sexC.ctFilesF!||
+    voidT formatDataBlobF( tinS& tinP ) ;
 
     public :
 

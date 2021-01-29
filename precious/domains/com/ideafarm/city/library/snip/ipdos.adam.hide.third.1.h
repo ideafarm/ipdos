@@ -1,4 +1,6 @@
 
+#define CBsEXdROPsEPARATOR ( sizeof( countT ) )
+
 // IPDOS (tm) <> IdeaFarm (tm) Piggyback Distributed Operating System
 
 // For build environment info, see file "\ideafarm.work\backed.up.never\txt\readme.first.ipdos.build.environment.txt"
@@ -9965,9 +9967,11 @@ flHIRE_SHOW
 #define FINGERnEG_dropNoteSpoolC1                       ((countT)-(sCountT)0xcccc0066)
 #define FINGERnEG_dropNoteSpoolC2                       ((countT)-(sCountT)0xcccc0067)
 #define FINGERnEG_dropNoteSdeleted                      ((countT)-(sCountT)0xcccc0068)
+#define FINGERnEG_dropSeparator                         ((countT)-(sCountT)0xcccc0069)
+#define FINGERnEG_dropHeaderInitialize                  ((countT)-(sCountT)0xcccc006a)
 /*3*/
 #define FINGERnEG_min     0xcccc0001
-#define FINGERnEG_max     0xcccc0068
+#define FINGERnEG_max     0xcccc006a
 
 
 //

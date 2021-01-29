@@ -26,18 +26,10 @@
                         tinP.pcUtility[ 0 ] = dropHeader ;
                     {
                     if( getNegAM( pzMetaNote[ offs ].finger ) == FINGERnEG_dropNoteSpoolC2 && dropHeader - pzMetaNote[ offs ].dropHeaderCopy )
-                    countT& dropHeader = *(countT*)( pbData + offs * cbSlot ) ;
+                    countT& dropHeader = *(countT*)( pbData + offs * cbGross ) ;
                 {
                 if( bOwned )
 
-                continue ;
-                )
-                    offs >= offSlotsUseableEnd 
-                    ||
-                    offs <  offSlotsUseableBegin
-                (
-                if
-            
                 }
                     mask = 1 ;
                     pbo ++ ;
@@ -46,14 +38,14 @@
                 mask <<= 1 ;
                 boolT bOwned = *pbo & mask ;
             {
-            for( countT offs = 0 ; offs < cSlots ; offs ++ )
+            for( countT offs = offSlotsUseableBegin ; offs < offSlotsUseableEnd ; offs ++ )
 
             byteT mask = 1 ;
             byteT* pbo = pbzMetaBitsOwned ;
             const countT offSlotsUseableEnd   = cSlots - pzMetaHead->cSlotsAvoidHi ;
             const countT offSlotsUseableBegin =          pzMetaHead->cSlotsAvoidLo ;
-            const countT cSlots = 1 << pzMetaHead->expSlots ;
-            const countT cbSlot = 1 << pzMetaHead->expCbSlot ;
+            const countT cSlots               = 1 << pzMetaHead->expSlots ;
+            const countT cbGross              = ( CBsEXdROPsEPARATOR + CBsEXdROPhEADER ) + ( 1 << pzMetaHead->expCbSlot ) ;
         {
         if( pzMetaNote )
 

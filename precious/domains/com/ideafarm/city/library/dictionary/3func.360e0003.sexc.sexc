@@ -147,6 +147,12 @@
             // DEBUGGING CHATTER
             //------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+            formatDataBlobF( tinP ) ; //NO ACTION IS NEEDED HERE TO PRESERVE STATE WHEN STATE FILE IS USED, SINCE THE FORMATTING INFORMATION IS ONLY USED TO DETECT MEMORY CORRUPTION SO NEED NOT BE SAVED AS STATE
+
+            //------------------------------------------------------------------------------------------------------------------------------------------------------------
+            // FORMAT pbData: ORIGINALLY, pbData WAS NOT FORMATTED.  FORMATTING WAS ADDED (20210128@1831) ONLY SO THAT MEMORY CORRUPTION CAN BE DETECTED.  THE FORMATTING INFORMATION IS NOT NEEDED FOR ANY OTHER PURPOSE.
+            //------------------------------------------------------------------------------------------------------------------------------------------------------------
+
             }
                 }
                     if( F(flagsState) & flSEXcsTATE_USINGnAPfORmETA && !( F(((napkinC*)pb_napMeta)->flagsSharedMemory) & flOPENsHAREDmEMORYrESULT_ALREADYeXISTED ) ) ((napkinC*)pb_napMeta)->formattingIsDoneF( tinP ) ;
@@ -209,9 +215,9 @@
                         //CONoUTrAWd( "[expCbSlot,expSlots,bSmallSlots,USINGnAPfORdATA,cSlotsAvoidLo,cSlotsAvoidHi]: " , expCbSlotP , " " , expSlotsP , " " , bSmallSlots , " " , !!( F(flagsState) & flSEXcsTATE_USINGnAPfORdATA ) , " " , pzMetaHead->cSlotsAvoidLo , " " , pzMetaHead->cSlotsAvoidHi , "\r\n" ) ; //U:: TO FIND A BUG
 
                         }
-                            *(countT*)&pzMetaHead->cSlotsAvoidHi = 1 + ( sizeof( countT        ) - 2 ) / cbSlot ; // HEADROOM: sizeof( countT ) - 1 (ALWAYS 1 NOW THAT DROPhEADER IS USED; THIS LINE IS CODED GENERALLY TO WORK EVEN IF !CBsEXdROPhEADER)
+                            *(countT*)&pzMetaHead->cSlotsAvoidHi = 1 + ( sizeof( countT        ) - 2 ) / cbSlot ; // HEADROOM: sizeof( countT ) - 1 (ALWAYS 1 NOW THAT DROPhEADER IS USED; THIS LINE IS CODED GENERALLY TO WORK EVEN IF !( CBsEXdROPsEPARATOR + CBsEXdROPhEADER ))
                             *(countT*)&pzMetaHead->cSlotsAvoidLo = 1 + ( sizeof( napkinHeaderS ) - 1 ) / cbSlot ; // SOME PART OF NAPKIN HEADER IS UNDER THIS MANY SLOTS
-                            countT cbSlot = CBsEXdROPhEADER + ( 1 << expCbSlotP ) ;
+                            countT cbSlot = ( CBsEXdROPsEPARATOR + CBsEXdROPhEADER ) + ( 1 << expCbSlotP ) ;
                         {
                         if( F(flagsState) & flSEXcsTATE_USINGnAPfORdATA && bSmallSlots )
 
@@ -242,12 +248,6 @@
 
             //------------------------------------------------------------------------------------------------------------------------------------------------------------
             // FORMAT pbMeta
-            //------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-            //DATA IS NOT INITIALIZED, SO NO ACTION IS NEEDED HERE TO PRESERVE STATE WHEN STATE FILE IS USED
-
-            //------------------------------------------------------------------------------------------------------------------------------------------------------------
-            // FORMAT pbData
             //------------------------------------------------------------------------------------------------------------------------------------------------------------
 
             __( !pbData ) ; //REDUNDANT BECAUSE ctNap???F WILL FAIL
@@ -444,7 +444,7 @@
         if( !pbData && pPoolContainsMe )
         //CS: CODEsYNC: PSEUDODUPLICATE: 360e0003 360e0003
 
-        pbDataEnd = !pbData ? 0 : pbData + ( CBsEXdROPhEADER + ( 1 << expCbSlotP ) ) * ( 1 << expSlotsP ) ;
+        pbDataEnd = !pbData ? 0 : pbData + ( ( CBsEXdROPsEPARATOR + CBsEXdROPhEADER ) + ( 1 << expCbSlotP ) ) * ( 1 << expSlotsP ) ;
 
         }
             }
@@ -776,7 +776,7 @@
         
     countT cbaDataNapkin =
     countT cbaDataPool   = cbaDataNeeded ;
-    countT cbaDataNeeded = ( 1 << expSlotsP ) * ( CBsEXdROPhEADER + ( 1 << expCbSlotP ) ) ;
+    countT cbaDataNeeded = ( 1 << expSlotsP ) * ( ( CBsEXdROPsEPARATOR + CBsEXdROPhEADER ) + ( 1 << expCbSlotP ) ) ;
     /*FOR SMALL expCbSlotP, SLOTS AT BOTTOM ARE UNUSEABLE; SEE sexHeadS::cSlotsAvoidLo*/
 
     if( F(flagsCt) & fliSEXc_NOTES ) cbaMeta += sizeof( dropNoteS ) << expSlotsP ;
@@ -785,7 +785,7 @@
 
     //CONoUTrAW7( "sexC [bSmallSlots,expCbSlotP,expSlotsP]: " , bSmallSlots , " " , expCbSlotP , " " , expSlotsP , "\r\n" ) ;
 
-    boolT bSmallSlots = CBsEXdROPhEADER + ( 1 << expCbSlotP ) < ( 1 << thirdC::os_expCbAllocationGrain_IF( tinP ) ) ; // FOR SMALL SLOT SIZES, pbData WILL POINT TO THE napkinHeaderS CONTROL STRUCTURE, WHICH IS WHY THE LOW SLOTS MUST BE MARKED AS UNAVAILABLE
+    boolT bSmallSlots = ( CBsEXdROPsEPARATOR + CBsEXdROPhEADER ) + ( 1 << expCbSlotP ) < ( 1 << thirdC::os_expCbAllocationGrain_IF( tinP ) ) ; // FOR SMALL SLOT SIZES, pbData WILL POINT TO THE napkinHeaderS CONTROL STRUCTURE, WHICH IS WHY THE LOW SLOTS MUST BE MARKED AS UNAVAILABLE
 
     //CONoUTrAW3( "[expGrain]: " , thirdC::os_expCbAllocationGrain_IF( tinP ) , "\r\n" ) ;
 
