@@ -52,13 +52,13 @@
             tinP.cPoolDropCt ++ ;
 
             }
-                ((countT*)pbo)[ - 1 ] = /*U::offFound*/offFoundTellTale ; // DROP HEADER VALUE.  IF I AM CALLED BY poolC THEN VALUE WILL CONTAIN idApt, WHICH WILL BE USED TO IDENTIFY *this SO THAT THE DROP CAN BE DELETED WITHOUT SEARCHING FOR THE CORRECT sexC INSTANCE
-
-                if( pMyNote->dropHeaderCopy && pMyNote->dropHeaderCopy == ((countT*)pbo)[ - 1 ] ) { BLAMMO ; }    //THIS IS TO DETECT THE OVERWRITING OF A VALID dropHeader VALUE ; NOTE THAT I HAVE NOT YET INITIALIZED *pMyNote, SO MIGHT GET SPURIOUS BLAMMO HERE (U:: TO FIND A BUG; REMOVE THIS OR FIX IT FOR PRODUCTION)
-                dropNoteS* pMyNote = pzMetaNote + offFound ;
+                }
+                    BLAMMO ;
+                    tinP.pcUtility[ 0 ] = was ;
+                {
+                if( getNegAM( was ) != FINGERnEG_dropHeaderInitialize )
+                countT was = setIfEqualsAM( ((countT*)pbo)[ - 1 ] , /*U::offFound*/offFoundTellTale , getNegAM( FINGERnEG_dropHeaderInitialize ) ) ;        // DROP HEADER VALUE.  IF I AM CALLED BY poolC THEN VALUE WILL CONTAIN idApt, WHICH WILL BE USED TO IDENTIFY *this SO THAT THE DROP CAN BE DELETED WITHOUT SEARCHING FOR THE CORRECT sexC INSTANCE
             {
-            else
-            if( !pzMetaNote ) ((countT*)pbo)[ - 1 ] = /*U::offFound*/offFoundTellTale ; // DROP HEADER VALUE.  IF I AM CALLED BY poolC THEN VALUE WILL CONTAIN idApt, WHICH WILL BE USED TO IDENTIFY *this SO THAT THE DROP CAN BE DELETED WITHOUT SEARCHING FOR THE CORRECT sexC INSTANCE
 
             countT offFoundTellTale = 0x7 ;   //U:: TO FIND A BUG
 
