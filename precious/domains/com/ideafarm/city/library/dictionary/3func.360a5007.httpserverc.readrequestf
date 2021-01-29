@@ -88,12 +88,14 @@
                     ZE( strokeS* , psttk ) ;
                     strokeS sttq( (countT)0 , sc_IGNOREqUOTES ) ;
                     countT idf = 1 ;
+                    _IO_
                 {
                 FORsTRINGSiN1( pstt1e )
                 strokeS sttEq( '=' ) ;
                 ether.strWordsOldF( tinP , pstt1e , psttQueryKVP , sttq , T("&") ) ; ___( pstt1e ) ;
                 strokeS sttq( (countT)0 , sc_IGNOREqUOTES ) ;
                 ZE( strokeS* , pstt1e ) ;
+                _IO_
             {
             if( !bFailP && !POOP && psttQueryKVP ) // STORE THE KEY/VALUE PAIRS
 
@@ -110,6 +112,7 @@
                         //LOGrAW( T("raw body:\r\n--------\r\n")+T(postBodyP)+T("\r\n--------\r\n") ) ; //U::
 
                         if( postBodyP ) postBodyP[ costBody ] = 0 ;
+                        _IO_
                     {
                     if( !bFailP )
 
@@ -133,10 +136,20 @@
 
                         if( costzBodySome ) { ether.memCopyF( tinP , postc , postzBodySome , costzBodySome ) ; postc += costzBodySome ; }
                         osTextT* postc = postBodyP ;
+                        _IO_
                     {
+                    _IO_
                 {
                 if( postBodyP )
                 ether.newF( tinP , LF , postBodyP , costBody + 1 ) ; ___( postBodyP ) ;
+
+                }
+                    costBody = costzBodySome ;
+                    ether.traceF( tinP , T("readRequestF / apparent memory corruption attack (incorrect content length declaration) / costBody < costzBodySome [costBody,costzBodySome]:    ")+TF2(costBody,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2(costzBodySome,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
+                {
+                if( costBody < costzBodySome )
+
+                _IO_
             {
             if( costBody )
             TESTsCRATCH //U:: TO FIND A BUG
@@ -245,7 +258,7 @@
                                 if( !ether.strCompareF( tinP , psttc1 , T("http/1.0") ) || !ether.strCompareF( tinP , psttc1 , T("HTTP/1.0") ) )
                             {
                             if( BlATHsTRING1 )
-                            //ether.traceF( tinP , T("    ")+T(psttc1) ) ;
+                            //ether.traceF( tinP , tb4+T(psttc1) ) ;
                         {
                         FORsTRINGSiN1( pstt1w )
                         ether.strWordsOldF( tinP , pstt1w , psttc1 , sttq , T(" ") ) ; ___( pstt1w ) ;
@@ -265,6 +278,7 @@
             {
             ZE( strokeS* , pstt1Line ) ;
         {
+        TN( tb4 , "    " ) ;
         TN( tKeyConnection    , "connection"     ) ;
         TN( tKeyUserAgent     , "user-agent"     ) ;
         TN( tKeyContentLength , "content-length" ) ;
