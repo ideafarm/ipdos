@@ -491,7 +491,7 @@ TELL( "cleaning up 0" )
                                                 memorySpace.grab.grabF( tinP , TAG( TAGiDnULL ) ) ;
                                                 ZE( countT , ids ) ;
                         
-                                                sexEntryS entry( tinP , note.osPid , note.postName , note.expCbSlot , note.expSlots , note.pSex , note.idLineCt , note.idiFileCt ) ;
+                                                sexEntryS entry( tinP , note.osPid , note.postName , note.expCbDrop , note.expSlots , note.pSex , note.idLineCt , note.idiFileCt ) ;
                                             {
                                             tellInfoSysSexS& note = *(tellInfoSysSexS*)pbNote ;
                                         {
@@ -513,7 +513,7 @@ TELL( "cleaning up 0" )
                                                 countT pczLeverAdamMe[] = { told.idAdamRoot ? told.idAdamRoot : - 1 , told.idAdam ? told.idAdam : - 1 , note.osPid , 0 } ;
                                                 memorySpace.grab.grabF( tinP , TAG( TAGiDnULL ) ) ;
                 
-                                                sexEntryS entry( tinP , note.osPid , note.postName , note.expCbSlot , note.expSlots , note.pSex , note.idLineCt , note.idiFileCt ) ;
+                                                sexEntryS entry( tinP , note.osPid , note.postName , note.expCbDrop , note.expSlots , note.pSex , note.idLineCt , note.idiFileCt ) ;
                                             {
             
                                             tellInfoSysSexS& note = *(tellInfoSysSexS*)pbNote ;
@@ -1584,8 +1584,8 @@ DONE( tmReportF )
                                             }
                                                 PUSE( tinP , pbCopyMetaBitsOwned ) ;
                                                 }
-                                                    //etThread.traceF( tinP , T("from meta head [osPid,expCbSlot,expSlots,cSlotsAvoidLo,cSlotsAvoidHi,postName]:    ")+TF2(entry.osPid,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+TF3(pCopyMetaHead->expCbSlot,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,2)+T("    ")+TF3(pCopyMetaHead->expSlots,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,2)+T("    ")+TF3(pCopyMetaHead->cSlotsAvoidLo,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,2)+T("    ")+TF3(pCopyMetaHead->cSlotsAvoidHi,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,2)+T("    ")+T(pCopyMetaHead->postName) ) ;
-                                                    //etThread.traceF( tinP , T("[osPid,expCbSlot,expSlots,postName]:    ")+TF2(entry.osPid,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+TF2(entry.expCbSlot,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+TF2(entry.expSlots,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+T(entry.postName) ) ;
+                                                    //etThread.traceF( tinP , T("from meta head [osPid,expCbDrop,expSlots,cSlotsAvoidLo,cSlotsAvoidHi,postName]:    ")+TF2(entry.osPid,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+TF3(pCopyMetaHead->expCbDrop,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,2)+T("    ")+TF3(pCopyMetaHead->expSlots,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,2)+T("    ")+TF3(pCopyMetaHead->cSlotsAvoidLo,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,2)+T("    ")+TF3(pCopyMetaHead->cSlotsAvoidHi,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,2)+T("    ")+T(pCopyMetaHead->postName) ) ;
+                                                    //etThread.traceF( tinP , T("[osPid,expCbDrop,expSlots,postName]:    ")+TF2(entry.osPid,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+TF2(entry.expCbDrop,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+TF2(entry.expSlots,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+T(entry.postName) ) ;
 
                                                     }
                                                         }
@@ -1610,7 +1610,7 @@ DONE( tmReportF )
                                                         {
                                                         if( pCopySex->pbData < pCopySex->pbDataEnd && (countT)pCopySex->pbDataEnd < cbGrainSpace )
 
-                                                        sRptSex << (strokeS*)( TF3(cOwned,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,9)+TF3(pCopyMetaHead->expCbSlot,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,9)+TF3(pCopyMetaHead->expSlots,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,9)+TF3(pCopySex->flagsState,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,9)+TF3(pCopyMetaHead->cSlotsAvoidLo,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,9)+TF3(pCopyMetaHead->cSlotsAvoidHi,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,9)+TF3((countT)pCopySex->pbData,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE|flFORMAT_FOREIGN,8)+T(" ")+TF3((countT)pCopySex->pbDataEnd,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE|flFORMAT_FOREIGN,8)+T(" ")+T(pCopyMetaHead->postName)+tcr ) ;
+                                                        sRptSex << (strokeS*)( TF3(cOwned,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,9)+TF3(pCopyMetaHead->expCbDrop,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,9)+TF3(pCopyMetaHead->expSlots,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,9)+TF3(pCopySex->flagsState,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,9)+TF3(pCopyMetaHead->cSlotsAvoidLo,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,9)+TF3(pCopyMetaHead->cSlotsAvoidHi,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED,9)+TF3((countT)pCopySex->pbData,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE|flFORMAT_FOREIGN,8)+T(" ")+TF3((countT)pCopySex->pbDataEnd,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE|flFORMAT_FOREIGN,8)+T(" ")+T(pCopyMetaHead->postName)+tcr ) ;
 
                                                         }
                                                             if( !bIgnoreLo && !bIgnoreHi && pbCopyMetaBitsOwned[ offb / SB ] & mask ) cOwned ++ ;

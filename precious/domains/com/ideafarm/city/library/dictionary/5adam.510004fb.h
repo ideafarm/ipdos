@@ -58,14 +58,14 @@ struct telemetryBookHeadS
 
 ;
 }
-    sexEntryS( tinS& tinP , const countT osPidP , const osTextT* const postNameP , const countT expCbSlotP , const countT expSlotsP , sexC* pSexP , const countT idLineCtP , const countT idiFileCtP ) ;
+    sexEntryS( tinS& tinP , const countT osPidP , const osTextT* const postNameP , const countT expCbDropP , const countT expSlotsP , sexC* pSexP , const countT idLineCtP , const countT idiFileCtP ) ;
 
     countT  idiFileCt ;
     countT  idLineCt ;
     byteT*  pbCopy ;
     sexC*   pSex ;
     countT  expSlots ;
-    countT  expCbSlot ;
+    countT  expCbDrop ;
     osTextT postName[ COSTpOOLnAMEmAX ] ;
     countT  osPid ;
 {

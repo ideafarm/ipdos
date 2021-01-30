@@ -100,7 +100,7 @@
                     guts.ppSlots[ offs ]->makeSexF( tinP , expSlotsWanted ) ;
 
                     }
-                        guts.ppSlots[ offs ] = new( 0 , tinP , guts.pbza + offs * sizeof( slotsC ) , sizeof( slotsC ) ) slotsC( tinP , TAG( TAGiDnULL ) , LF , ostoName , guts.cBitsExpCbSlot , offs , flagsc , guts.idStateSpace , guts.idMemorySpace , this ) ;
+                        guts.ppSlots[ offs ] = new( 0 , tinP , guts.pbza + offs * sizeof( slotsC ) , sizeof( slotsC ) ) slotsC( tinP , TAG( TAGiDnULL ) , LF , ostoName , guts.cBitsExpCbDrop , offs , flagsc , guts.idStateSpace , guts.idMemorySpace , this ) ;
         
                         if( F(guts.flagsCt) & flPOOLc_NOTES    ) flagsc |= flSLOTSc_NOTES    ;
                         if( F(guts.flagsCt) & flPOOLc_READoNLY ) flagsc |= flSLOTSc_READoNLY ;
@@ -118,12 +118,12 @@
                     OStEXTA(  ostoName , ostoNameGroup ) ;
                     OStEXT(   ostoName , TUCK << 2 )
 
-                    countT offs = expCbSlotWanted ;
+                    countT offs = expCbDropWanted ;
                 {
-                if( guts.expCbSlotMin <= expCbSlotWanted && expCbSlotWanted <= guts.expCbSlotMax )
+                if( guts.expCbDropMin <= expCbDropWanted && expCbDropWanted <= guts.expCbDropMax )
 
                 countT expSlotsWanted  = *pczHintPreallocationP >> SB & ( 1 << SB ) - 1 ;
-                countT expCbSlotWanted = *pczHintPreallocationP       & ( 1 << SB ) - 1 ;
+                countT expCbDropWanted = *pczHintPreallocationP       & ( 1 << SB ) - 1 ;
                 boolT  bAll            = *pczHintPreallocationP       & BM_HIGH2        ;           //U:: OBEY THIS
             {
             for( ; *pczHintPreallocationP ; pczHintPreallocationP ++ )
@@ -131,7 +131,7 @@
         if( pczHintPreallocationP )
     
         // ---------------------------------------------------------------------------------------------------------------------------------------------------------------
-        // EARLY CONSTRUCT THE slotsC INSTANCE FOR EACH HINT expCbSlot
+        // EARLY CONSTRUCT THE slotsC INSTANCE FOR EACH HINT expCbDrop
         // ---------------------------------------------------------------------------------------------------------------------------------------------------------------
 
         }
@@ -141,7 +141,7 @@
                     }
                         if( !( F(guts.flagsCt) & ( flPOOLc_MAKEaLL | flPOOLc_KEEPeMPTIES ) ) && !*guts.ppSlots[ offs ] ) { DELzOMBIE( guts.ppSlots[ offs ] ) ; }
         
-                        guts.ppSlots[ offs ] = new( 0 , tinP , guts.pbza + offs * sizeof( slotsC ) , sizeof( slotsC ) ) slotsC( tinP , TAG( TAGiDnULL ) , LF , ostoName , guts.cBitsExpCbSlot , expCbSlot , flagsc , guts.idStateSpace , guts.idMemorySpace , this ) ;
+                        guts.ppSlots[ offs ] = new( 0 , tinP , guts.pbza + offs * sizeof( slotsC ) , sizeof( slotsC ) ) slotsC( tinP , TAG( TAGiDnULL ) , LF , ostoName , guts.cBitsExpCbDrop , expCbDrop , flagsc , guts.idStateSpace , guts.idMemorySpace , this ) ;
         
                         if( F(guts.flagsCt) & flPOOLc_NOTES    ) flagsc |= flSLOTSc_NOTES    ;
                         if( F(guts.flagsCt) & flPOOLc_READoNLY ) flagsc |= flSLOTSc_READoNLY ;
@@ -151,7 +151,7 @@
                     if( guts.ppSlots[ offs ] ) { BLAMMO ; }
                     guts.pGrabNewElt[ offs ].grabF( tinP , TAG( TAGiDnULL ) ) ;
     
-                    const countT expCbSlot   = offs ;
+                    const countT expCbDrop   = offs ;
     
                     //CONoUTrAW( "\r\n" ) ;
                     //CONoUTrAW( ostoName ) ;
@@ -163,12 +163,12 @@
                 {
                 if( bBrowse || bitsStateExists >> offs & 1 )
             {
-            for( countT offs = guts.expCbSlotMin ; offs <= guts.expCbSlotMax ; offs ++ )
+            for( countT offs = guts.expCbDropMin ; offs <= guts.expCbDropMax ; offs ++ )
         {
         if( bBrowse || bitsStateExists )
     
         // ---------------------------------------------------------------------------------------------------------------------------------------------------------------
-        // EARLY CONSTRUCT THE slotsC INSTANCE FOR EACH expCbSlot THAT I WANT
+        // EARLY CONSTRUCT THE slotsC INSTANCE FOR EACH expCbDrop THAT I WANT
         // ---------------------------------------------------------------------------------------------------------------------------------------------------------------
 
         }
@@ -267,7 +267,7 @@
         ZE( countT , bitsStateExists ) ;
     
         // ---------------------------------------------------------------------------------------------------------------------------------------------------------------
-        // FOR PERSISTENT INSTANCES, FOR EACH expCbSlot, SET A BIT IF A BACKING FILE EXISTS
+        // FOR PERSISTENT INSTANCES, FOR EACH expCbDrop, SET A BIT IF A BACKING FILE EXISTS
         // ---------------------------------------------------------------------------------------------------------------------------------------------------------------
 
         boolT bBrowse =  F(guts.flagsCt) & flPOOLc_BROWSE ;
@@ -358,7 +358,7 @@
     // ---------------------------------------------------------------------------------------------------------------------------------------------------------------
 
     napGuts.formattingIsDoneF( tinP ) ; //MUST BE DONE AFTER napFace IS FULLY CT SO THAT tinP.idDesire IS UNWOUND CORRECTLY
-    new( 0 , tinP , &napGuts ) guts_poolC_S( tinP , idLineCtP , idiFileCtP , pbBitsCtP , postNameP , flagsP , idStateSpaceP , expCbSlotMinP , expCbSlotMaxP , idMemorySpaceP ) ;
+    new( 0 , tinP , &napGuts ) guts_poolC_S( tinP , idLineCtP , idiFileCtP , pbBitsCtP , postNameP , flagsP , idStateSpaceP , expCbDropMinP , expCbDropMaxP , idMemorySpaceP ) ;
     
     // ---------------------------------------------------------------------------------------------------------------------------------------------------------------
     // FORMAT napGuts
@@ -510,7 +510,7 @@ napFace
     tinP , idLineCtP , idiFileCtP , pbBitsCtP ,
 (
 batPoolCt
-/*1*/poolC::poolC( tinS& tinP , const countT idLineCtP , const countT idiFileCtP , const byteT* const pbBitsCtP , const osTextT* const postNameP , const flagsT flagsP , const countT idStateSpaceP , const countT expCbSlotMinP , const countT expCbSlotMaxP , const countT* pczHintPreallocationP , countT idMemorySpaceP ) :/*1*/
+/*1*/poolC::poolC( tinS& tinP , const countT idLineCtP , const countT idiFileCtP , const byteT* const pbBitsCtP , const osTextT* const postNameP , const flagsT flagsP , const countT idStateSpaceP , const countT expCbDropMinP , const countT expCbDropMaxP , const countT* pczHintPreallocationP , countT idMemorySpaceP ) :/*1*/
 
 }
     putNegAM( *(countT*)&finger , FINGERnEG_POOLcfACE ) ;
@@ -533,25 +533,25 @@ poolC::face_poolC_S::face_poolC_S( tinS& tinP , const countT idLineCtP , const c
 )
                     : 5
                     ? 4
-                : expCbSlotMax - expCbSlotMin <= 0xf
+                : expCbDropMax - expCbDropMin <= 0xf
                 ? 3
-            : expCbSlotMax - expCbSlotMin <= 7
+            : expCbDropMax - expCbDropMin <= 7
             ? 2
-        : expCbSlotMax - expCbSlotMin == 3
-        ? expCbSlotMax - expCbSlotMin
-    expCbSlotMax - expCbSlotMin <= 2
+        : expCbDropMax - expCbDropMin == 3
+        ? expCbDropMax - expCbDropMin
+    expCbDropMax - expCbDropMin <= 2
 (
-cBitsExpCbSlot
-expCbSlotMax( expCbSlotMaxP != - 1 ? expCbSlotMaxP : sizeof ppSlots / sizeof ppSlots[ 0 ] - 1 ) ,
-expCbSlotMin( expCbSlotMinP != - 1 ? expCbSlotMinP : 0                                        ) ,
+cBitsExpCbDrop
+expCbDropMax( expCbDropMaxP != - 1 ? expCbDropMaxP : sizeof ppSlots / sizeof ppSlots[ 0 ] - 1 ) ,
+expCbDropMin( expCbDropMinP != - 1 ? expCbDropMinP : 0                                        ) ,
 pGrabNewElt( (grabC*)pbzaGrab ) ,
 idMemorySpace( idMemorySpaceP ) ,
 idStateSpace( idStateSpaceP ) ,
 flagsCt( flagsP ) ,
-poolC::guts_poolC_S::guts_poolC_S( tinS& tinP , const countT idLineCtP , const countT idiFileCtP , const byteT* const pbBitsCtP , const osTextT* const postNameP , const flagsT flagsP , const countT idStateSpaceP , const countT expCbSlotMinP , const countT expCbSlotMaxP , countT idMemorySpaceP ) :
+poolC::guts_poolC_S::guts_poolC_S( tinS& tinP , const countT idLineCtP , const countT idiFileCtP , const byteT* const pbBitsCtP , const osTextT* const postNameP , const flagsT flagsP , const countT idStateSpaceP , const countT expCbDropMinP , const countT expCbDropMaxP , countT idMemorySpaceP ) :
 
 //     | 
-//     | f1 (impossible) f1                  5              (expCbSlot f1 IS IMPOSSIBLE BECAUSE THE LOWEST ALLOCATION GRAIN IS NOT AVAILABLE AND THE RUNNING PROGRAM'S FOOTPRINT OCCUPIES PART OF THE REMAINDER OF THE LOWER HALF OF THE FULL ADDRESS SPACE (THE UPPER HALF IS NOT ACCESSIBLE TO APPLICATION CODE)
+//     | f1 (impossible) f1                  5              (expCbDrop f1 IS IMPOSSIBLE BECAUSE THE LOWEST ALLOCATION GRAIN IS NOT AVAILABLE AND THE RUNNING PROGRAM'S FOOTPRINT OCCUPIES PART OF THE REMAINDER OF THE LOWER HALF OF THE FULL ADDRESS SPACE (THE UPPER HALF IS NOT ACCESSIBLE TO APPLICATION CODE)
 //     | e1              e1                  5
 //     | d1              d1                  5
 //     | c1              c1                  5
@@ -586,7 +586,7 @@ poolC::guts_poolC_S::guts_poolC_S( tinS& tinP , const countT idLineCtP , const c
 //     | 
 //     | EXPmAX-EXPmIN   HIGHESToFFSET       BITSnEEDED
 //     | 
-//  cBitsExpCbSlot IS SET ACCORDING TO THIS TABLE
+//  cBitsExpCbDrop IS SET ACCORDING TO THIS TABLE
 
 
 /**/

@@ -116,9 +116,9 @@ idLineCt( idLineCtP ) ,
 pbCopy( 0 ) ,
 pSex( pSexP ) ,
 expSlots( expSlotsP ) ,
-expCbSlot( expCbSlotP ) ,
+expCbDrop( expCbDropP ) ,
 osPid( osPidP ) ,
-sexEntryS::sexEntryS( tinS& tinP , const countT osPidP , const osTextT* const postNameP , const countT expCbSlotP , const countT expSlotsP , sexC* pSexP , const countT idLineCtP , const countT idiFileCtP ) :
+sexEntryS::sexEntryS( tinS& tinP , const countT osPidP , const osTextT* const postNameP , const countT expCbDropP , const countT expSlotsP , sexC* pSexP , const countT idLineCtP , const countT idiFileCtP ) :
 
 }
     _IO_    TELLsYSlIFInAME( "processGlobal3EntryS::processGlobal3EntryS" )
@@ -222,8 +222,8 @@ countT subtract_tinEntryS_F( tinS& tinP , countT& pEther , countT& c1P , countT&
     return sgn ;
     //}
     //    ether.traceF( tinP , T("subtract_sexEntryS_F B   [sgn]                              :    ")+TF2(sgn,flFORMAT_NObIGITvALUES) ) ;
-    //    ether.traceF( tinP , T("subtract_sexEntryS_F B 2 [osPid,expCbSlot,expSlots,postName]:    ")+TF2(pe2->osPid,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+TF2(pe2->expCbSlot,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+TF2(pe2->expSlots,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+T(pe2->postName) ) ;
-    //    ether.traceF( tinP , T("subtract_sexEntryS_F B 1 [osPid,expCbSlot,expSlots,postName]:    ")+TF2(pe1->osPid,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+TF2(pe1->expCbSlot,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+TF2(pe1->expSlots,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+T(pe1->postName) ) ;
+    //    ether.traceF( tinP , T("subtract_sexEntryS_F B 2 [osPid,expCbDrop,expSlots,postName]:    ")+TF2(pe2->osPid,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+TF2(pe2->expCbDrop,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+TF2(pe2->expSlots,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+T(pe2->postName) ) ;
+    //    ether.traceF( tinP , T("subtract_sexEntryS_F B 1 [osPid,expCbDrop,expSlots,postName]:    ")+TF2(pe1->osPid,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+TF2(pe1->expCbDrop,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+TF2(pe1->expSlots,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+T(pe1->postName) ) ;
     //    etherC& ether = *(etherC*)pEther ;
     //{
     //if( pEther )
@@ -234,8 +234,8 @@ countT subtract_tinEntryS_F( tinS& tinP , countT& pEther , countT& c1P , countT&
             else if( pe1->pSex      > pe2->pSex      ) sgn =   1 ;
             else if( pe1->expSlots  < pe2->expSlots  ) sgn = - 1 ;
             else if( pe1->expSlots  > pe2->expSlots  ) sgn =   1 ;
-            else if( pe1->expCbSlot < pe2->expCbSlot ) sgn = - 1 ;
-            else if( pe1->expCbSlot > pe2->expCbSlot ) sgn =   1 ;
+            else if( pe1->expCbDrop < pe2->expCbDrop ) sgn = - 1 ;
+            else if( pe1->expCbDrop > pe2->expCbDrop ) sgn =   1 ;
             else if( pe1->osPid     < pe2->osPid     ) sgn = - 1 ;
                  if( pe1->osPid     > pe2->osPid     ) sgn =   1 ;
         {
@@ -246,8 +246,8 @@ countT subtract_tinEntryS_F( tinS& tinP , countT& pEther , countT& c1P , countT&
     ZE( sCountT , sgn ) ;
 
     //}
-    //    ether.traceF( tinP , T("subtract_sexEntryS_F A 2 [osPid,expCbSlot,expSlots,postName]:    ")+TF2(pe2->osPid,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+TF2(pe2->expCbSlot,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+TF2(pe2->expSlots,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+T(pe2->postName) ) ;
-    //    ether.traceF( tinP , T("subtract_sexEntryS_F A 1 [osPid,expCbSlot,expSlots,postName]:    ")+TF2(pe1->osPid,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+TF2(pe1->expCbSlot,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+TF2(pe1->expSlots,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+T(pe1->postName) ) ;
+    //    ether.traceF( tinP , T("subtract_sexEntryS_F A 2 [osPid,expCbDrop,expSlots,postName]:    ")+TF2(pe2->osPid,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+TF2(pe2->expCbDrop,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+TF2(pe2->expSlots,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+T(pe2->postName) ) ;
+    //    ether.traceF( tinP , T("subtract_sexEntryS_F A 1 [osPid,expCbDrop,expSlots,postName]:    ")+TF2(pe1->osPid,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+TF2(pe1->expCbDrop,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+TF2(pe1->expSlots,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+T(pe1->postName) ) ;
     //    etherC& ether = *(etherC*)pEther ;
     //{
     //if( pEther )
@@ -293,8 +293,8 @@ countT subtract_processGlobal3EntryS_F( tinS& tinP , countT& pEther , countT& c1
     return sgn ;
     //}
     //    ether.traceF( tinP , T("subtract_napkinEntryS_F B   [sgn]                              :    ")+TF2(sgn,flFORMAT_NObIGITvALUES) ) ;
-    //    ether.traceF( tinP , T("subtract_napkinEntryS_F B 2 [osPid,expCbSlot,expSlots,postName]:    ")+TF2(pe2->osPid,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+TF2(pe2->expCbSlot,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+TF2(pe2->expSlots,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+T(pe2->postName) ) ;
-    //    ether.traceF( tinP , T("subtract_napkinEntryS_F B 1 [osPid,expCbSlot,expSlots,postName]:    ")+TF2(pe1->osPid,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+TF2(pe1->expCbSlot,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+TF2(pe1->expSlots,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+T(pe1->postName) ) ;
+    //    ether.traceF( tinP , T("subtract_napkinEntryS_F B 2 [osPid,expCbDrop,expSlots,postName]:    ")+TF2(pe2->osPid,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+TF2(pe2->expCbDrop,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+TF2(pe2->expSlots,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+T(pe2->postName) ) ;
+    //    ether.traceF( tinP , T("subtract_napkinEntryS_F B 1 [osPid,expCbDrop,expSlots,postName]:    ")+TF2(pe1->osPid,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+TF2(pe1->expCbDrop,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+TF2(pe1->expSlots,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+T(pe1->postName) ) ;
     //    etherC& ether = *(etherC*)pEther ;
     //{
     //if( pEther )
@@ -315,8 +315,8 @@ countT subtract_processGlobal3EntryS_F( tinS& tinP , countT& pEther , countT& c1
     ZE( sCountT , sgn ) ;
 
     //}
-    //    ether.traceF( tinP , T("subtract_napkinEntryS_F A 2 [osPid,expCbSlot,expSlots,postName]:    ")+TF2(pe2->osPid,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+TF2(pe2->expCbSlot,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+TF2(pe2->expSlots,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+T(pe2->postName) ) ;
-    //    ether.traceF( tinP , T("subtract_napkinEntryS_F A 1 [osPid,expCbSlot,expSlots,postName]:    ")+TF2(pe1->osPid,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+TF2(pe1->expCbSlot,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+TF2(pe1->expSlots,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+T(pe1->postName) ) ;
+    //    ether.traceF( tinP , T("subtract_napkinEntryS_F A 2 [osPid,expCbDrop,expSlots,postName]:    ")+TF2(pe2->osPid,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+TF2(pe2->expCbDrop,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+TF2(pe2->expSlots,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+T(pe2->postName) ) ;
+    //    ether.traceF( tinP , T("subtract_napkinEntryS_F A 1 [osPid,expCbDrop,expSlots,postName]:    ")+TF2(pe1->osPid,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+TF2(pe1->expCbDrop,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+TF2(pe1->expSlots,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+T(pe1->postName) ) ;
     //    etherC& ether = *(etherC*)pEther ;
     //{
     //if( pEther )

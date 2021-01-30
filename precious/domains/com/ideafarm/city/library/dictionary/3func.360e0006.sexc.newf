@@ -8,9 +8,9 @@
 
 
 }
-    return pbo ;
+    return pbDrop ;
 
-    ___LF( pbo , idLineP , idiFileP ) ;
+    ___LF( pbDrop , idLineP , idiFileP ) ;
 
     }
         }
@@ -38,7 +38,7 @@
                 pMyNote->idLineTagged  = tinP.monitor.pLFnest[ ( ( tinP.monitor.cInNest & OFFsLOTtINnESTmAX ) << 1 )     ] ;
                 //USE THIS TO INVESTIGATE LEAKS THAT REPORT AS aaaaaaaa(aaaaaaaa) I.E. WERE NEVER TAGGED
 
-                pMyNote->dropHeaderCopy = ((countT*)pbo)[ - 1 ] ;
+                pMyNote->dropHeaderCopy = ((countT*)pbDrop)[ - 1 ] ;
                 thirdC::c_memsetIF( tinP , (byteT*)pMyNote + 4 * sizeof( countT ) , sizeof( dropNoteS ) - 4 * sizeof( countT ) , 0 ) ; //CS:CODEsYNC: 1500003c 360e0006: MEMBERS BELOW ME ARE NOT INITIALIZED BY sexC::newF
 
                 putNegAM( pMyNote->finger , FINGERnEG_dropNoteSsexC1 ) ;
@@ -47,7 +47,7 @@
             {
             if( pzMetaNote )
 
-            if( F(flagsCt) & fliSEXc_MAPPEDtOdISK ) thirdC::c_memsetIF( pbo , cbSlot - ( CBsEXdROPsEPARATOR + CBsEXdROPhEADER ) , 0 ) ; //TO SHRINK SIZE OF COMPRESSED DISK IMAGE; SANS tinP USED FOR MAX SPEED     20180611@1452: EDITED TO AVOID WIPING THE DROP HEADER (WITHOUT ANALYSIS)
+            if( F(flagsCt) & fliSEXc_MAPPEDtOdISK ) thirdC::c_memsetIF( pbDrop , cbSlot - ( CBsEXdROPsEPARATOR + CBsEXdROPhEADER ) , 0 ) ; //TO SHRINK SIZE OF COMPRESSED DISK IMAGE; SANS tinP USED FOR MAX SPEED     20180611@1452: EDITED TO AVOID WIPING THE DROP HEADER (WITHOUT ANALYSIS)
 
             tinP.cPoolDropCt ++ ;
 
@@ -57,13 +57,14 @@
                     tinP.pcUtility[ 0 ] = was ;
                 {
                 if( getNegAM( was ) != FINGERnEG_dropHeaderInitialize )
-                countT was = setIfEqualsAM( ((countT*)pbo)[ - 1 ] , /*U::offFound*/offFoundTellTale , getNegAM( FINGERnEG_dropHeaderInitialize ) ) ;        // DROP HEADER VALUE.  IF I AM CALLED BY poolC THEN VALUE WILL CONTAIN idApt, WHICH WILL BE USED TO IDENTIFY *this SO THAT THE DROP CAN BE DELETED WITHOUT SEARCHING FOR THE CORRECT sexC INSTANCE
+                countT was = setIfEqualsAM( ((countT*)pbDrop)[ - 1 ] , offFound , getNegAM( FINGERnEG_dropHeaderInitialize ) ) ;
+                // IOW, THE NEXT LINE CAN SET dropHeader TO ANY SUFFICIENTLY SMALL VALUE.  (A VALUE THAT IS TOO LARGE WILL CAUSE SHIFT LEFT TO FAIL IN slotsC::newF poolC:newF)
+                // 20210130@1202: offFound IS NOT USED TO DELETE THE DROP OR FOR ANY OTHER PURPOSE.  IT CAN BE ELIMINATED FROM dropHeader IN ORDER TO SIMPLIFY LAYOUT, ADD A CHECKSUM, OR ADD OTHER INFORMATION
+                // DROP HEADER VALUE.  IF I AM CALLED BY poolC THEN VALUE WILL CONTAIN idApt, WHICH WILL BE USED TO IDENTIFY *this SO THAT THE DROP CAN BE DELETED WITHOUT SEARCHING FOR THE CORRECT sexC INSTANCE
             {
 
-            countT offFoundTellTale = 0x7 ;   //U:: TO FIND A BUG
-
-            pbo = pbData + cbSlot * offFound + ( CBsEXdROPsEPARATOR + CBsEXdROPhEADER ) ;
-            const countT cbSlot = ( CBsEXdROPsEPARATOR + CBsEXdROPhEADER ) + ( 1 << pzMetaHead->expCbSlot ) ;
+            pbDrop = pbData + cbSlot * offFound + ( CBsEXdROPsEPARATOR + CBsEXdROPhEADER ) ;
+            const countT cbSlot = ( CBsEXdROPsEPARATOR + CBsEXdROPhEADER ) + ( 1 << pzMetaHead->expCbDrop ) ;
     
             if( offFound < pzMetaHead->cSlotsAvoidLo ) { BLAMMO ; } //U:: IN ALL 3*.sexC.*, REMOVE ALL OF THESE TESTS ONCE HAVE CONFIDENCE THAT CODE IS CORRECT
 
@@ -143,7 +144,7 @@
 
         if( F(flagsCt) & fliSEXc_READoNLY ) { BLAMMO ; }
     {
-    ZE( byteT* , pbo ) ;
+    ZE( byteT* , pbDrop ) ;
 
     //}
     //    BLAMMO ;

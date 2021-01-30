@@ -45,7 +45,7 @@
                 {
                 if( pSexNew && (const poopC&)*pSexNew ) // *pSexNew CT FAILED, EITHER BECAUSE IT DETECTED THAT IT CT'D ITSELF RECURSIVELY OR BECAUSE INSUFFICIENT CONTIGUOUS MEMORY IS AVAILABLE
 
-                sexC* pSexNew = new( 0 , tinP , pbzaUse , sizeof( sexC ) ) sexC( tinP , TAG( TAGiDnULL ) , idLineP , idiFileP , ostoName , expCbSlot , offs , flagsc , idStateSpace , idMemorySpace , pPoolContainsMe ) ;
+                sexC* pSexNew = new( 0 , tinP , pbzaUse , sizeof( sexC ) ) sexC( tinP , TAG( TAGiDnULL ) , idLineP , idiFileP , ostoName , expCbDrop , offs , flagsc , idStateSpace , idMemorySpace , pPoolContainsMe ) ;
 
                 if( pbzaUse == (byteT*)ppSex[ offs ] ) { BLAMMO ; }
                 byteT* pbzaUse = ( !bNested ? pbza1 : pbza2 ) + offs * sizeof( sexC ) ;
@@ -56,9 +56,9 @@
                 OStEXT(   ostoName , TUCK << 2 )
 
                 boolT bNest2 = !!( tinP.fliSexCtPendingExpSlots  & maskExpSlots  ) ;
-                boolT bNest1 = !!( tinP.fliSexCtPendingExpCbSlot & maskExpCbSlot ) ;
+                boolT bNest1 = !!( tinP.fliSexCtPendingExpCbDrop & maskExpCbDrop ) ;
                 const flagsT maskExpSlots  = 1 << offs      ;
-                const flagsT maskExpCbSlot = 1 << expCbSlot ;
+                const flagsT maskExpCbDrop = 1 << expCbDrop ;
 
                 //if( bNested > 1 ) { BLAMMO ; }
                 //countT bNested = pGrabNewElt[ offs ].cGrabbedF() - 1 ;

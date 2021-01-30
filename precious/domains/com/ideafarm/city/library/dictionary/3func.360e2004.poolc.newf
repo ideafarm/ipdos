@@ -40,9 +40,9 @@
                 {
                 if( pDropNote )
 
-                dropHeader = dropHeader << guts.cBitsExpCbSlot | offs - guts.expCbSlotMin ;
+                dropHeader = dropHeader << guts.cBitsExpCbDrop | offs - guts.expCbDropMin ;
 
-                BLAMMOiFcANNOTsHIFTlEFT( dropHeader , guts.cBitsExpCbSlot ) ;
+                BLAMMOiFcANNOTsHIFTlEFT( dropHeader , guts.cBitsExpCbDrop ) ;
 
                 countT& dropHeader = ((countT*)pbP)[ - 1 ] ;
 
@@ -64,7 +64,7 @@
                     guts.pGrabNewElt[ offs ].ungrabF( tinP ) ;
                     }
                         THREADmODE1rESTORE
-                        guts.ppSlots[ offs ] = new( 0 , tinP , guts.pbza + offs * sizeof( slotsC ) , sizeof( slotsC ) ) slotsC( tinP , TAG( TAGiDnULL ) , idLineP , idiFileP , ostoName , guts.cBitsExpCbSlot , offs , flagsc , guts.idStateSpace , guts.idMemorySpace , this ) ;
+                        guts.ppSlots[ offs ] = new( 0 , tinP , guts.pbza + offs * sizeof( slotsC ) , sizeof( slotsC ) ) slotsC( tinP , TAG( TAGiDnULL ) , idLineP , idiFileP , ostoName , guts.cBitsExpCbDrop , offs , flagsc , guts.idStateSpace , guts.idMemorySpace , this ) ;
                         THREADmODE1oN( flTHREADmODE1_ALLOWsTOPwHILEgRABBING )
                 
                         if( F(guts.flagsCt) & flPOOLc_NOTES    ) flagsc |= flSLOTSc_NOTES    ;
@@ -82,7 +82,7 @@
                 {
                 if( !guts.ppSlots[ offs ] )
             {
-            if( cbuMax && offs <= guts.expCbSlotMax )
+            if( cbuMax && offs <= guts.expCbDropMax )
 
             }
                 cbuMax <<= 1 ;
@@ -90,7 +90,7 @@
             {
             while( cbuMax && cbP > cbuMax )
             countT cbuMax = 1 << offs ;
-            countT offs = guts.expCbSlotMin ;
+            countT offs = guts.expCbDropMin ;
 
             if( F(tinP.flagsThreadMode2) & flTHREADmODE2_DISALLOWpUSE ) { BLAMMO ; }
             if( this != tinP.pAdamGlobal1->pPoolAdamTemp && !( F(tinP.flagsThreadMode2) & flTHREADmODE2_ALLOWnEWdROPnOTiNaDAMtEMP ) ) { BLAMMO ; }

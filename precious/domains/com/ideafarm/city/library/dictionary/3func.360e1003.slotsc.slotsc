@@ -43,7 +43,7 @@
                             if( POOP )
         
                             THREADmODE1rESTORE
-                            sexC* pSexNew = new( 0 , tinP , pbza1 + offs * sizeof( sexC ) , sizeof( sexC ) ) sexC( tinP , TAG( TAGiDnULL ) , idLineNewP , idiFileNewP , ostoName , expCbSlot , offs , flagsc , idStateSpace , idMemorySpace , pPoolContainsMe ) ;
+                            sexC* pSexNew = new( 0 , tinP , pbza1 + offs * sizeof( sexC ) , sizeof( sexC ) ) sexC( tinP , TAG( TAGiDnULL ) , idLineNewP , idiFileNewP , ostoName , expCbDrop , offs , flagsc , idStateSpace , idMemorySpace , pPoolContainsMe ) ;
                             THREADmODE1oN( flTHREADmODE1_ALLOWsTOPwHILEgRABBING )
 
                             SCOOPS
@@ -173,7 +173,7 @@
         }
             countT foo = 2 ;
         {
-        if( expCbSlot == 0xc )
+        if( expCbDrop == 0xc )
 
         thirdC::c_memsetIF( tinP , (byteT*)pcTallyOut , sizeof pcTallyOut ) ;
         thirdC::c_memsetIF( tinP , (byteT*)pcTallyIn  , sizeof pcTallyIn  ) ;
@@ -194,19 +194,19 @@ cBitsExpSlots
 ) ,
                 : 0
                 ? 2
-            : expCbSlot == 0x12                                 // THESE ARE OPTIMIZATIONS TO REDUCE ADDRESS SPACE FRAGMENTATION ; sexC OF THESE SIZES WOULD BE CT DURING SETUP OF EVERY ADAM ANYWAY
+            : expCbDrop == 0x12                                 // THESE ARE OPTIMIZATIONS TO REDUCE ADDRESS SPACE FRAGMENTATION ; sexC OF THESE SIZES WOULD BE CT DURING SETUP OF EVERY ADAM ANYWAY
             ? 3
-        : expCbSlot == 0x11                                     // THESE ARE OPTIMIZATIONS TO REDUCE ADDRESS SPACE FRAGMENTATION ; sexC OF THESE SIZES WOULD BE CT DURING SETUP OF EVERY ADAM ANYWAY
-        ? thirdC::os_expCbAllocationGrain_IF( tinP ) - expCbSlot
-    thirdC::os_expCbAllocationGrain_IF( tinP ) > expCbSlot
+        : expCbDrop == 0x11                                     // THESE ARE OPTIMIZATIONS TO REDUCE ADDRESS SPACE FRAGMENTATION ; sexC OF THESE SIZES WOULD BE CT DURING SETUP OF EVERY ADAM ANYWAY
+        ? thirdC::os_expCbAllocationGrain_IF( tinP ) - expCbDrop
+    thirdC::os_expCbAllocationGrain_IF( tinP ) > expCbDrop
 (
 expSlotsMin
-expCbSlot( expCbSlotP ) ,
-poolC_cBitsExpCbSlot( poolC_cBitsExpCbSlotP ) ,
+expCbDrop( expCbDropP ) ,
+poolC_cBitsExpCbDrop( poolC_cBitsExpCbDropP ) ,
 idMemorySpace( idMemorySpaceP ) ,
 idStateSpace( idStateSpaceP ) ,
 flagsCt( flagsP ) ,
-/*1*/slotsC::slotsC( tinS& tinP , const countT idLineCtP , const countT idiFileCtP , const byteT* const pbBitsCtP , const countT idLineNewP , const countT idiFileNewP , const osTextT* const postNameP , const countT poolC_cBitsExpCbSlotP , const countT expCbSlotP , const flagsT flagsP , const countT idStateSpaceP , countT idMemorySpaceP , poolC* const pPoolContainsMeP ) :/*1*/
+/*1*/slotsC::slotsC( tinS& tinP , const countT idLineCtP , const countT idiFileCtP , const byteT* const pbBitsCtP , const countT idLineNewP , const countT idiFileNewP , const osTextT* const postNameP , const countT poolC_cBitsExpCbDropP , const countT expCbDropP , const flagsT flagsP , const countT idStateSpaceP , countT idMemorySpaceP , poolC* const pPoolContainsMeP ) :/*1*/
 
 //     | 
 //     | f1             0                       0               0               0 --------------------------------- 0
@@ -242,7 +242,7 @@ flagsCt( flagsP ) ,
 //     | 1              e1                      f               e1              f                                   4
 //     | 0              f1                      01              f1              f                                   4
 //     | 
-//     | expCbSlot      expSlotsAddressable     expSlotsMin     expSlotsMax     expSlotsAddressable-expSlotsMin     cBitsNeeded
+//     | expCbDrop      expSlotsAddressable     expSlotsMin     expSlotsMax     expSlotsAddressable-expSlotsMin     cBitsNeeded
 //     | 
 //  cBitsExpSlots IS SET ACCORDING TO THIS TABLE
 

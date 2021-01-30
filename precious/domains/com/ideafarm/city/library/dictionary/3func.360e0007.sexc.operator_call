@@ -21,8 +21,8 @@
             OStEXTAK( ostoSay , "    " ) ;
             OStEXTC(  ostoSay , pzMetaHead->expSlots , 0 ) ;
             OStEXTAK( ostoSay , "    " ) ;
-            OStEXTC(  ostoSay , pzMetaHead->expCbSlot , 0 ) ;
-            OStEXTAK( ostoSay , "sexC::operator (): out of range [expCbSlot,expSlots,pbData,pbSlot,pbDataEnd]:    " ) ;
+            OStEXTC(  ostoSay , pzMetaHead->expCbDrop , 0 ) ;
+            OStEXTAK( ostoSay , "sexC::operator (): out of range [expCbDrop,expSlots,pbData,pbSlot,pbDataEnd]:    " ) ;
             OStEXT(   ostoSay , TUCK << 2 ) ;
         {
         if( pEtRock && pzMetaHead )
@@ -45,8 +45,8 @@
                 OStEXTAK( ostoSay , "    " ) ;
                 OStEXTC(  ostoSay , pzMetaHead->expSlots , 0 ) ;
                 OStEXTAK( ostoSay , "    " ) ;
-                OStEXTC(  ostoSay , pzMetaHead->expCbSlot , 0 ) ;
-                OStEXTAK( ostoSay , "sexC::operator (): success! [expCbSlot,expSlots,pbData,pbSlot,pbDataEnd]:    " ) ;
+                OStEXTC(  ostoSay , pzMetaHead->expCbDrop , 0 ) ;
+                OStEXTAK( ostoSay , "sexC::operator (): success! [expCbDrop,expSlots,pbData,pbSlot,pbDataEnd]:    " ) ;
                 OStEXT(   ostoSay , TUCK << 2 ) ;
             {
             if( pEtRock && pzMetaHead )
@@ -62,7 +62,7 @@
 
         if( !btrAM( pbzMetaBitsOwned , offSlot ) ) { BLAMMO ; } //BLAMMO IS USED RATHER THAN __() TO AVOID NEEDING TO CALL TINSL, FOR MAX SPEED ; 20210111@2031: THIS COMMENT IS OBSOLETE SINCE I NOW HAVE tinPPPPPPPPPPPPPPPPPPPPPPPPP
 
-        if( F(flagsCt) & fliSEXc_MAPPEDtOdISK ) thirdC::c_memsetIF( pbv , 1 << pzMetaHead->expCbSlot , 0 ) ; //TO SHRINK SIZE OF COMPRESSED DISK IMAGE; SANS tinP USED FOR MAX SPEED
+        if( F(flagsCt) & fliSEXc_MAPPEDtOdISK ) thirdC::c_memsetIF( pbSlot , 1 << pzMetaHead->expCbDrop , 0 ) ; //TO SHRINK SIZE OF COMPRESSED DISK IMAGE; SANS tinP USED FOR MAX SPEED
 
         if( offSlot < pzMetaHead->cSlotsAvoidLo ) { BLAMMO ; }
 
@@ -88,7 +88,7 @@
         ZE( countT , idiFileTaggedCopy ) ;
         ZE( countT , idLineTaggedCopy ) ;
 
-        pbP = 0 ;
+        pbDropP = 0 ;
 
         else putNegAM( pcSlot[ 1 ] , FINGERnEG_dropHeaderInitialize ) ;
         }
@@ -180,20 +180,22 @@
         if( F(tinP.flagsThreadMode3) & flTHREADmODE3_POOLdELtRYhARDERaNDtRACE )
 
         }
-            BLAMMOiD( 0xaabbccdd ) ;
-            //tinP.pc Utility[ 0xf ] = pbSlot - pbv ;
+            }
+                BLAMMOiD( 0xaabbccdd ) ;
+                //tinP.pc Utility[ 0xf ] = pbSlot - pbv ;
+            {
+            if( pbSlot != pbv )
+            byteT* pbv = pbData + offSlot * cbGross ;
         {
-        if( pbSlot != pbv )
-        byteT* pbv     = pbData + offSlot * cbGross ;
         countT offSlot = ( pbSlot - pbData ) / cbGross ;
-        countT cbGross = ( CBsEXdROPsEPARATOR + CBsEXdROPhEADER ) + ( 1 << pzMetaHead->expCbSlot ) ;
+        countT cbGross = ( CBsEXdROPsEPARATOR + CBsEXdROPhEADER ) + ( 1 << pzMetaHead->expCbDrop ) ;
 
         _IO_
     {
     if( pbData <= pbSlot && pbSlot < pbDataEnd )
     if( F(flagsCt) & fliSEXc_READoNLY ) { BLAMMO ; }
 
-    const byteT* pbSlot = !pbP ? 0 : pbP - ( CBsEXdROPsEPARATOR + CBsEXdROPhEADER ) ;
+    byteT* pbSlot = !pbDropP ? 0 : pbDropP - ( CBsEXdROPsEPARATOR + CBsEXdROPhEADER ) ;
 
     }
         if( POOP ) return ;
@@ -202,7 +204,7 @@
     _IO_
     SCOOP
 {
-/*1*/voidT sexC::operator ()( tinS& tinP , byteT*& pbP )/*1*/
+/*1*/voidT sexC::operator ()( tinS& tinP , byteT*& pbDropP )/*1*/
 
 /**/
 */

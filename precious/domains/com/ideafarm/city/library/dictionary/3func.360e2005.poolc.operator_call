@@ -18,7 +18,7 @@
         {
         if( guts.ppSlots[ offs ] )
     {
-    for( countT offs = guts.expCbSlotMin ; offs <= guts.expCbSlotMax ; offs ++ )
+    for( countT offs = guts.expCbDropMin ; offs <= guts.expCbDropMax ; offs ++ )
 #if defined( NEVERdEFINED )
 //U:: OBSOLETED BY ADDITION OF DROP HEADER ; THIS WAS AT THE END OF THE DEF
 
@@ -44,10 +44,10 @@
                 OStEXTAK( ostoSay , "    " ) ;
                 OStEXTC(  ostoSay , dropHeader , '0' ) ;
                 OStEXTAK( ostoSay , "    " ) ;
-                OStEXTC(  ostoSay , guts.expCbSlotMin , 0 ) ;
+                OStEXTC(  ostoSay , guts.expCbDropMin , 0 ) ;
                 OStEXTAK( ostoSay , "    " ) ;
-                OStEXTC(  ostoSay , guts.cBitsExpCbSlot , 0 ) ;
-                OStEXTA( ostoSay , !pbP ? "poolC::operator (): trying harder succeeded [cBitsExpCbSlot,expCbSlotMin,dropHeader,mask,offs,offsTry]:    " : "poolC::operator (): trying harder failed [cBitsExpCbSlot,expCbSlotMin,dropHeader,mask,offs]:    " ) ;
+                OStEXTC(  ostoSay , guts.cBitsExpCbDrop , 0 ) ;
+                OStEXTA( ostoSay , !pbP ? "poolC::operator (): trying harder succeeded [cBitsExpCbDrop,expCbDropMin,dropHeader,mask,offs,offsTry]:    " : "poolC::operator (): trying harder failed [cBitsExpCbDrop,expCbDropMin,dropHeader,mask,offs]:    " ) ;
                 OStEXT( ostoSay , TUCK << 1 ) ;
             {
             if( pEtRock )
@@ -82,8 +82,8 @@
         {
         if( !( F(tinP.flagsThreadMode3) & flTHREADmODE3_POOLdELtRYhARDERaNDtRACE ) )
 
-        countT offs = guts.expCbSlotMin + ( dropHeader & mask ) ;
-        countT mask = ( 1 << guts.cBitsExpCbSlot ) - 1 ;
+        countT offs = guts.expCbDropMin + ( dropHeader & mask ) ;
+        countT mask = ( 1 << guts.cBitsExpCbDrop ) - 1 ;
         countT& dropHeader = ((countT*)pbP)[ - 1 ] ;
     {
     if( pbP )

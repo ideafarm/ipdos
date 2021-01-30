@@ -58,23 +58,23 @@
                             //
                             //    *posto = 0 ;
                             //    while( cDo -- ) *( posto ++ ) = ( pstti ++ )->idAdam ;
-                            //    countT cDo = ((strokeS*)pbx)->idAdam ;
+                            //    countT cDo = ((strokeS*)pbDrop)->idAdam ;
                             //    osTextT* posto = postBuf ;
-                            //    strokeS* pstti = (strokeS*)pbx + CSpREFIX ;
+                            //    strokeS* pstti = (strokeS*)pbDrop + CSpREFIX ;
                             //    osTextT postBuf[ TUCK << 2 ] ;
                             //{
                             //COMMENT OUT IN PRODUCTION.  CODE LIKE THIS CAN BE USED TO FIND LEAKS: strokeS STRING
 
                             //}
                             //    LOGrAW( "\r\n" ) ;
-                            //    LOGrAW( pbx ) ;
+                            //    LOGrAW( pbDrop ) ;
                             //    //LOGrAW( "content: \"" ) ;
                             //
                             //    CONoUTrAW( "\r\n" ) ;
-                            //    CONoUTrAW( pbx + offx ) ;
+                            //    CONoUTrAW( pbDrop + offx ) ;
                             //    //CONoUTrAW( "content: \"" ) ;
                             //
-                            //    countT offx = thirdC::c_strstrIF( pbx , postTest ) == pbx ? sizeof postTest - 1 : 0 ;
+                            //    countT offx = thirdC::c_strstrIF( pbDrop , postTest ) == pbDrop ? sizeof postTest - 1 : 0 ;
                             //    static osTextT postTest[] = POSThHOMEdRIVE ":\\ideafarm.home.1\\ephemeral\\backed.up.daily\\domains\\com\\ideafarm\\ipdos\\memorySpaces\\ifo20111122\\4\\stateSpaces\\" ;
                             //{
                             //if( pzMetaNote[ offs ].idLineTagged == 0x5f )
@@ -98,7 +98,7 @@
                             OStEXTAK( ostoSay , "(" ) ;
                             OStEXTC(  ostoSay , pzMetaNote[ offs ].idiFileTagged , 0 ) ;
                             OStEXTAK( ostoSay , " " ) ;
-                            OStEXTC(  ostoSay , pbx , '0' ) ;
+                            OStEXTC(  ostoSay , pbDrop , '0' ) ;
                             OStEXTAK( ostoSay , "\" leak: " ) ;
                             OStEXTA(  ostoSay , pzMetaHead->postName ) ;
                             OStEXTAK( ostoSay , "\"" ) ;
@@ -106,9 +106,9 @@
 
                             ;
                                 : 0
-                                ? ((listC*)pbx)->nameF()
-                            countT idName = listingC::bIsListingIF( tinP , (listingC*)pbx , fliLISTINGc_MIXINlIST )
-                            byteT* pbx = pbData + offs * cbSlot + ( CBsEXdROPsEPARATOR + CBsEXdROPhEADER ) ;
+                                ? ((listC*)pbDrop)->nameF()
+                            countT idName = listingC::bIsListingIF( tinP , (listingC*)pbDrop , fliLISTINGc_MIXINlIST )
+                            byteT* pbDrop = pbData + offs * cbSlot + ( CBsEXdROPsEPARATOR + CBsEXdROPhEADER ) ;
 
                             cLeaks ++ ;
                         {
@@ -138,7 +138,7 @@
                     const countT offSlotsUseableEnd   = cSlots - pzMetaHead->cSlotsAvoidHi ;
                     const countT offSlotsUseableBegin =          pzMetaHead->cSlotsAvoidLo ;
                     const countT cSlots = 1 << pzMetaHead->expSlots ;
-                    const countT cbSlot = 1 << pzMetaHead->expCbSlot ;
+                    const countT cbSlot = 1 << pzMetaHead->expCbDrop ;
                 {
                 if( pzMetaNote )
 
@@ -181,7 +181,7 @@
                 sleepC s( tinP , TAG( TAGiDnULL ) ) ;
                 THREADmODE1oN( flTHREADmODE1_ALLOWsTOPwHILEgRABBING )
 
-                const countT offSexBit = pzMetaHead->expCbSlot * CsLOTeXTENTS + pzMetaHead->expSlots ;
+                const countT offSexBit = pzMetaHead->expCbDrop * CsLOTeXTENTS + pzMetaHead->expSlots ;
             {
             else
             if( !pReg ) { BLAMMO ; }
@@ -255,10 +255,10 @@
         //    OStEXTA(  ostoSay , F(flagsState) & flSEXcsTATE_USINGnAPfORdATA ? " NAPKIN " : " pool   " ) ;
         //    OStEXTC(  ostoSay , pzMetaHead->expSlots , ' ' ) ;
         //    OStEXTAK( ostoSay , " " ) ;
-        //    OStEXTC(  ostoSay , pzMetaHead->expCbSlot , ' ' ) ;
+        //    OStEXTC(  ostoSay , pzMetaHead->expCbDrop , ' ' ) ;
         //    OStEXTAK( ostoSay , "          " ) ;
         //    OStEXTC(  ostoSay , tinP.pAdamGlobal1->idAdam , ' ' ) ;
-        //    OStEXTAK( ostoSay , "---- ~sexC [idAdam                ,expCbSlot,expSlots,n/p,pbData,pbDataEnd,postName]: " ) ;
+        //    OStEXTAK( ostoSay , "---- ~sexC [idAdam                ,expCbDrop,expSlots,n/p,pbData,pbDataEnd,postName]: " ) ;
         //    OStEXT(   ostoSay , TUCK << 2 ) ;
         //{
     {
@@ -277,7 +277,7 @@
         info.pSex       = this ;
         thirdC::c_strcpyIF( tinP , info.postName , pzMetaHead->postName ) ;
         info.expSlots   = pzMetaHead->expSlots  ;
-        info.expCbSlot  = pzMetaHead->expCbSlot ;
+        info.expCbDrop  = pzMetaHead->expCbDrop ;
         info.osPid      = tinP.osPid ;
         tellInfoSysSexS info ;
         countT idTypeSay = ifcIDtYPEtELLsYS_SEXdT ;

@@ -25,7 +25,7 @@
         info.pSex       = this ;
         thirdC::c_strcpyIF( tinP , info.postName , pzMetaHead->postName ) ;
         info.expSlots   = pzMetaHead->expSlots  ;
-        info.expCbSlot  = pzMetaHead->expCbSlot ;
+        info.expCbDrop  = pzMetaHead->expCbDrop ;
         info.osPid      = tinP.osPid ;
         tellInfoSysSexS info ;
         countT idTypeSay = ifcIDtYPEtELLsYS_SEXcT ;
@@ -54,8 +54,8 @@
     }
         }
             }
-                if( !bNest2 ) tinP.fliSexCtPendingExpCbSlot &= ~maskExpSlots  ;
-                if( !bNest1 ) tinP.fliSexCtPendingExpCbSlot &= ~maskExpCbSlot ;
+                if( !bNest2 ) tinP.fliSexCtPendingExpCbDrop &= ~maskExpSlots  ;
+                if( !bNest1 ) tinP.fliSexCtPendingExpCbDrop &= ~maskExpCbDrop ;
             {
             if( pPoolContainsMe )
 
@@ -134,12 +134,12 @@
             //    OStEXTA(  ostoSay , F(flagsState) & flSEXcsTATE_USINGnAPfORdATA ? " NAPKIN " : " pool   " ) ;
             //    OStEXTC(  ostoSay , expSlotsP , ' ' ) ;
             //    OStEXTAK( ostoSay , " " ) ;
-            //    OStEXTC(  ostoSay , expCbSlotP , ' ' ) ;
+            //    OStEXTC(  ostoSay , expCbDropP , ' ' ) ;
             //    OStEXTAK( ostoSay , " " ) ;
             //    OStEXTC(  ostoSay , bRecursionCycle , ' ' ) ;
             //    OStEXTAK( ostoSay , " " ) ;
             //    OStEXTC(  ostoSay , tinP.pAdamGlobal1->idAdam , ' ' ) ;
-            //    OStEXTAK( ostoSay , "      sexC [idAdam,bRecursionCycle,expCbSlot,expSlots,n/p,pbData,pbDataEnd,postName]: " ) ;
+            //    OStEXTAK( ostoSay , "      sexC [idAdam,bRecursionCycle,expCbDrop,expSlots,n/p,pbData,pbDataEnd,postName]: " ) ;
             //    OStEXT(   ostoSay , TUCK << 2 ) ;
             //{
 
@@ -165,11 +165,11 @@
                         countT idIn = 1 + incv02AM( idInLath ) ;
                         static countT idInLath ;
                     {
-                    if( expCbSlotP == 0x9 && expSlotsP == 8 )
+                    if( expCbDropP == 0x9 && expSlotsP == 8 )
             
                     }
                         __( expSlotsP  - pzMetaHead->expSlots  ) ;
-                        __( expCbSlotP - pzMetaHead->expCbSlot ) ;
+                        __( expCbDropP - pzMetaHead->expCbDrop ) ;
                     {
                     else
                     }
@@ -212,18 +212,18 @@
 
                     inc02AM( pzMetaHead->cRef ) ;
                     }
-                        //CONoUTrAWd( "[expCbSlot,expSlots,bSmallSlots,USINGnAPfORdATA,cSlotsAvoidLo,cSlotsAvoidHi]: " , expCbSlotP , " " , expSlotsP , " " , bSmallSlots , " " , !!( F(flagsState) & flSEXcsTATE_USINGnAPfORdATA ) , " " , pzMetaHead->cSlotsAvoidLo , " " , pzMetaHead->cSlotsAvoidHi , "\r\n" ) ; //U:: TO FIND A BUG
+                        //CONoUTrAWd( "[expCbDrop,expSlots,bSmallSlots,USINGnAPfORdATA,cSlotsAvoidLo,cSlotsAvoidHi]: " , expCbDropP , " " , expSlotsP , " " , bSmallSlots , " " , !!( F(flagsState) & flSEXcsTATE_USINGnAPfORdATA ) , " " , pzMetaHead->cSlotsAvoidLo , " " , pzMetaHead->cSlotsAvoidHi , "\r\n" ) ; //U:: TO FIND A BUG
 
                         }
                             *(countT*)&pzMetaHead->cSlotsAvoidHi = 1 + ( sizeof( countT        ) - 2 ) / cbSlot ; // HEADROOM: sizeof( countT ) - 1 (ALWAYS 1 NOW THAT DROPhEADER IS USED; THIS LINE IS CODED GENERALLY TO WORK EVEN IF !( CBsEXdROPsEPARATOR + CBsEXdROPhEADER ))
                             *(countT*)&pzMetaHead->cSlotsAvoidLo = 1 + ( sizeof( napkinHeaderS ) - 1 ) / cbSlot ; // SOME PART OF NAPKIN HEADER IS UNDER THIS MANY SLOTS
-                            countT cbSlot = ( CBsEXdROPsEPARATOR + CBsEXdROPhEADER ) + ( 1 << expCbSlotP ) ;
+                            countT cbSlot = ( CBsEXdROPsEPARATOR + CBsEXdROPhEADER ) + ( 1 << expCbDropP ) ;
                         {
                         if( F(flagsState) & flSEXcsTATE_USINGnAPfORdATA && bSmallSlots )
 
-                        //CONoUTrAW9( "sexC formatting meta [USINGnAPfORdATA,bSmallSlots,expCbSlotP,expSlotsP,]: " , !!( F(flagsState) & flSEXcsTATE_USINGnAPfORdATA ) , " " , bSmallSlots , " " , expCbSlotP , " " , expSlotsP , "\r\n" ) ;
+                        //CONoUTrAW9( "sexC formatting meta [USINGnAPfORdATA,bSmallSlots,expCbDropP,expSlotsP,]: " , !!( F(flagsState) & flSEXcsTATE_USINGnAPfORdATA ) , " " , bSmallSlots , " " , expCbDropP , " " , expSlotsP , "\r\n" ) ;
 
-                        pzMetaHead = new( 0 , tinP , pbMeta , sizeof( sexHeadS ) ) sexHeadS( tinP , expCbSlotP , expSlotsP , postNameP , flagsCt ) ;
+                        pzMetaHead = new( 0 , tinP , pbMeta , sizeof( sexHeadS ) ) sexHeadS( tinP , expCbDropP , expSlotsP , postNameP , flagsCt ) ;
                     {
                     else
                     if( !bFormat ) pzMetaHead = (sexHeadS*)pbMeta ;
@@ -259,12 +259,12 @@
                 //etRock.traceF( tinP , T("sexC::sexC: called  poolC::reportF; now calling BLAMMO") ) ;
                 //pPoolContainsMe->reportF( tinP ) ;
                 //etRock.traceF( tinP , T("sexC::sexC: calling poolC::reportF") ) ;
-                //etRock.traceF( tinP , T("sexC::sexC: could not allocate pbMeta for a poolC [expCbSlotP,expSlotsP,idLineNewP,idiFileNewP]: ")+TF2(expCbSlotP,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T(" ")+TF2(expSlotsP,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T(" ")+TF4(idLineNewP,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FOREIGN,0,0xa)+T(" ")+TF2(idiFileNewP,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FOREIGN) ) ;
+                //etRock.traceF( tinP , T("sexC::sexC: could not allocate pbMeta for a poolC [expCbDropP,expSlotsP,idLineNewP,idiFileNewP]: ")+TF2(expCbDropP,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T(" ")+TF2(expSlotsP,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T(" ")+TF4(idLineNewP,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FOREIGN,0,0xa)+T(" ")+TF2(idiFileNewP,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FOREIGN) ) ;
 
                 etRock.traceF( tinP , T("sexC::sexC: traced  pool tallies; now calling BLAMMO") ) ;
                 etRock.tracePoolTalliesF( tinP ) ;
                 etRock.traceF( tinP , T("sexC::sexC: tracing pool tallies") ) ;
-                etRock.traceF( tinP , T("sexC::sexC: could not allocate pbMeta for a poolC [expCbSlotP,expSlotsP,idLineNewP,idiFileNewP]: ")+TF2(expCbSlotP,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T(" ")+TF2(expSlotsP,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T(" ")+TF4(idLineNewP,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FOREIGN,0,0xa)+T(" ")+TF2(idiFileNewP,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FOREIGN) ) ;
+                etRock.traceF( tinP , T("sexC::sexC: could not allocate pbMeta for a poolC [expCbDropP,expSlotsP,idLineNewP,idiFileNewP]: ")+TF2(expCbDropP,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T(" ")+TF2(expSlotsP,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T(" ")+TF4(idLineNewP,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FOREIGN,0,0xa)+T(" ")+TF2(idiFileNewP,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FOREIGN) ) ;
 
                 etherC& etRock = etherC::etRockIF( tinP ) ;
             {
@@ -376,7 +376,7 @@
                         listC::openIF( tinP , hListSex , pczListSex , flLISToPEN_null , ifcIDgRABlAYER_8POOL5nEW) ;
                         handleC hListSex( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_LISTING ) ;
                     {
-                    if( ( 1 << expCbSlotP != sizeof( listC ) || bListsExist ) ) // CREATION OF THE RECORD AND THE FIELD listC WOULD REQUIRE ME
+                    if( ( 1 << expCbDropP != sizeof( listC ) || bListsExist ) ) // CREATION OF THE RECORD AND THE FIELD listC WOULD REQUIRE ME
             
                     }
                         if( ~hListField ) bListsExist = 1 ;
@@ -432,19 +432,19 @@
             //etRock.traceF( tinP , T("sexC::sexC: called  poolC::reportF; now calling BLAMMO") ) ;
             //pPoolContainsMe->reportF( tinP ) ;
             //etRock.traceF( tinP , T("sexC::sexC: calling poolC::reportF") ) ;
-            //etRock.traceF( tinP , T("sexC::sexC: could not allocate pbData for a poolC [expCbSlotP,expSlotsP,idLineNewP,idiFileNewP]: ")+TF2(expCbSlotP,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T(" ")+TF2(expSlotsP,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T(" ")+TF4(idLineNewP,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FOREIGN,0,0xa)+T(" ")+TF2(idiFileNewP,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FOREIGN) ) ;
+            //etRock.traceF( tinP , T("sexC::sexC: could not allocate pbData for a poolC [expCbDropP,expSlotsP,idLineNewP,idiFileNewP]: ")+TF2(expCbDropP,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T(" ")+TF2(expSlotsP,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T(" ")+TF4(idLineNewP,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FOREIGN,0,0xa)+T(" ")+TF2(idiFileNewP,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FOREIGN) ) ;
 
             etRock.traceF( tinP , T("sexC::sexC: traced  pool tallies; now calling BLAMMO") ) ;
             etRock.tracePoolTalliesF( tinP ) ;
             etRock.traceF( tinP , T("sexC::sexC: tracing pool tallies") ) ;
-            etRock.traceF( tinP , T("sexC::sexC: could not allocate pbData for a poolC [expCbSlotP,expSlotsP,idLineNewP,idiFileNewP]: ")+TF2(expCbSlotP,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T(" ")+TF2(expSlotsP,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T(" ")+TF4(idLineNewP,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FOREIGN,0,0xa)+T(" ")+TF2(idiFileNewP,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FOREIGN) ) ;
+            etRock.traceF( tinP , T("sexC::sexC: could not allocate pbData for a poolC [expCbDropP,expSlotsP,idLineNewP,idiFileNewP]: ")+TF2(expCbDropP,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T(" ")+TF2(expSlotsP,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T(" ")+TF4(idLineNewP,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FOREIGN,0,0xa)+T(" ")+TF2(idiFileNewP,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FOREIGN) ) ;
 
             etherC& etRock = etherC::etRockIF( tinP ) ;
         {
         if( !pbData && pPoolContainsMe )
         //CS: CODEsYNC: PSEUDODUPLICATE: 360e0003 360e0003
 
-        pbDataEnd = !pbData ? 0 : pbData + ( ( CBsEXdROPsEPARATOR + CBsEXdROPhEADER ) + ( 1 << expCbSlotP ) ) * ( 1 << expSlotsP ) ;
+        pbDataEnd = !pbData ? 0 : pbData + ( ( CBsEXdROPsEPARATOR + CBsEXdROPhEADER ) + ( 1 << expCbDropP ) ) * ( 1 << expSlotsP ) ;
 
         }
             }
@@ -457,16 +457,16 @@
             }
                 countT foo = 2 ;
             {
-            if( expCbSlotP == 0xe && expSlotsP == 0x3 ) //DT
+            if( expCbDropP == 0xe && expSlotsP == 0x3 ) //DT
 
             }
                 countT foo = 2 ;
             {
-            if( expCbSlotP == 0x10 && expSlotsP == 0x1 ) //CT
+            if( expCbDropP == 0x10 && expSlotsP == 0x1 ) //CT
 
             }
                 ) ;
-                    F(flagsP) & (fliSEXc_BROWSE|fliSEXc_READoNLY) ? ifcOPENsHAREDmEMORYhOW_nFeO : ifcOPENsHAREDmEMORYhOW_nCeO , /*tinP.pAdamGlobal1->idMemorySpace == ifcIDmEMORYsPACE_APPLICATION && expCbSlotP + expSlotsP <= 0x14 ? flNAPKINc_LOCK :*/ flNAPKINc_null , 1 , idMemorySpaceP
+                    F(flagsP) & (fliSEXc_BROWSE|fliSEXc_READoNLY) ? ifcOPENsHAREDmEMORYhOW_nFeO : ifcOPENsHAREDmEMORYhOW_nCeO , /*tinP.pAdamGlobal1->idMemorySpace == ifcIDmEMORYsPACE_APPLICATION && expCbDropP + expSlotsP <= 0x14 ? flNAPKINc_LOCK :*/ flNAPKINc_null , 1 , idMemorySpaceP
                     cbaDataNapkin ,
                     ) ,
                             : (const handleC*)*(fileC*)pbFileData
@@ -570,7 +570,7 @@
                     handleC hListSex2( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_LISTING ) ;
                 {
                 )
-                    ( 1 << expCbSlotP != sizeof( listC ) || bListsExist )           // CREATION OF THE RECORD AND THE FIELD listC WOULD REQUIRE ME
+                    ( 1 << expCbDropP != sizeof( listC ) || bListsExist )           // CREATION OF THE RECORD AND THE FIELD listC WOULD REQUIRE ME
                 (
                 if
 
@@ -632,7 +632,7 @@
 
     tinP.tlsNewF( TUCK ) ;
     tinP.tlsNewF( 0x10 ) ;    thirdC::c_itoaIF( tinP , tinP.pbF() , 0x10 , idStateSpaceP ) ;
-    tinP.tlsNewF( 0x10 ) ;    thirdC::c_itoaIF( tinP , tinP.pbF() , 0x10 , expCbSlotP ) ;
+    tinP.tlsNewF( 0x10 ) ;    thirdC::c_itoaIF( tinP , tinP.pbF() , 0x10 , expCbDropP ) ;
     tinP.tlsNewF( 0x10 ) ;    thirdC::c_itoaIF( tinP , tinP.pbF() , 0x10 , expSlotsP ) ;
     //CS:CODEsYNC: 360e0003 360e0003
 
@@ -722,7 +722,7 @@
 
     //------------------------------------------------------------------------------------------------------------------------------------------------------------
     // 
-    // WILL DETECT THIS AND BECOME IMPOTENT.  THE CALLER MUST DETECT THIS AND DESTROY ME RATHER THAN USE ME.  "SPECIFICATIONS" MEANS "[expCbSlot,expSlots]"
+    // WILL DETECT THIS AND BECOME IMPOTENT.  THE CALLER MUST DETECT THIS AND DESTROY ME RATHER THAN USE ME.  "SPECIFICATIONS" MEANS "[expCbDrop,expSlots]"
     // THE CALLER MUST CAST ME TO (const poopC&) TO DISCOVER WHETHER I WAS CONSTRUCTED AOK.  IF SOMETHING THAT I DO CAUSES A sexC WITH THE SAME SPEC TO BE CT'D, I
     // 
     // EXACTLY DETERMINES WHETHER THE poolC ATTEMPTS ARE SUPPRESSED AND WHETHER THOSE CIRCUMSTANCES CAN BE REDUCED OR ELIMINATED.
@@ -740,7 +740,7 @@
     // 
     // EACH SLOT IS ASSOCIATED WITH A SINGLE BIT IN pbMeta.  IF THAT BIT IS 0, THE SLOT IS AVAILABLE; ELSE THE SLOT IS "OWNED" (OR "IN USE").
     // *pPoolContainsMe, THE POINTER VALUE THAT IS RETURNED POINTS TO THE BEGINNING OF WO OF THESE SLOTS.  (THE SLOT SELECTED IS ALWAYS THE HIGHEST AVAILABLE SLOT.)
-    // pbData IS SIMPLY A SEQUENCE OF 1 << expSlotsP "SLOTS", EACH OF SIZE 1 << expCbSlotP.  WHEN APPLICATION CODE USES THE new OPERATOR TO REQUEST MEMORY FROM
+    // pbData IS SIMPLY A SEQUENCE OF 1 << expSlotsP "SLOTS", EACH OF SIZE 1 << expCbDropP.  WHEN APPLICATION CODE USES THE new OPERATOR TO REQUEST MEMORY FROM
     // OO napkinC's.  THE ONLY UNUSUAL FEATURE OF THE CODE WAS THAT THREAD LOCAL STORAGE WAS USED TO CALCULATE THE CONSTRUCTION ARGUMENTS FOR THESE OO napkinC'S.
     // WHEN ORIGINALLY WRITTEN, MY JOB WAS SIMPLY TO ASK THE BASE O.S. TO ALLOCATE OO SHARED MEMORY BLOBS, pbData AND pbMeta.  THESE BLOBS WERE OBTAINED USING
     // 
@@ -776,32 +776,32 @@
         
     countT cbaDataNapkin =
     countT cbaDataPool   = cbaDataNeeded ;
-    countT cbaDataNeeded = ( 1 << expSlotsP ) * ( ( CBsEXdROPsEPARATOR + CBsEXdROPhEADER ) + ( 1 << expCbSlotP ) ) ;
-    /*FOR SMALL expCbSlotP, SLOTS AT BOTTOM ARE UNUSEABLE; SEE sexHeadS::cSlotsAvoidLo*/
+    countT cbaDataNeeded = ( 1 << expSlotsP ) * ( ( CBsEXdROPsEPARATOR + CBsEXdROPhEADER ) + ( 1 << expCbDropP ) ) ;
+    /*FOR SMALL expCbDropP, SLOTS AT BOTTOM ARE UNUSEABLE; SEE sexHeadS::cSlotsAvoidLo*/
 
     if( F(flagsCt) & fliSEXc_NOTES ) cbaMeta += sizeof( dropNoteS ) << expSlotsP ;
     countT cbaMeta = sizeof( sexHeadS ) + cbNeededForBits + CBtOaLIGN02( cbNeededForBits ) ;
     countT cbNeededForBits = 1 + ( 1 << expSlotsP ) / SB ;
 
-    //CONoUTrAW7( "sexC [bSmallSlots,expCbSlotP,expSlotsP]: " , bSmallSlots , " " , expCbSlotP , " " , expSlotsP , "\r\n" ) ;
+    //CONoUTrAW7( "sexC [bSmallSlots,expCbDropP,expSlotsP]: " , bSmallSlots , " " , expCbDropP , " " , expSlotsP , "\r\n" ) ;
 
-    boolT bSmallSlots = ( CBsEXdROPsEPARATOR + CBsEXdROPhEADER ) + ( 1 << expCbSlotP ) < ( 1 << thirdC::os_expCbAllocationGrain_IF( tinP ) ) ; // FOR SMALL SLOT SIZES, pbData WILL POINT TO THE napkinHeaderS CONTROL STRUCTURE, WHICH IS WHY THE LOW SLOTS MUST BE MARKED AS UNAVAILABLE
+    boolT bSmallSlots = ( CBsEXdROPsEPARATOR + CBsEXdROPhEADER ) + ( 1 << expCbDropP ) < ( 1 << thirdC::os_expCbAllocationGrain_IF( tinP ) ) ; // FOR SMALL SLOT SIZES, pbData WILL POINT TO THE napkinHeaderS CONTROL STRUCTURE, WHICH IS WHY THE LOW SLOTS MUST BE MARKED AS UNAVAILABLE
 
     //CONoUTrAW3( "[expGrain]: " , thirdC::os_expCbAllocationGrain_IF( tinP ) , "\r\n" ) ;
 
     }
         countT foo = 2 ;
     {
-    if( expCbSlotP == 0x10 )
+    if( expCbDropP == 0x10 )
 
     //U:: C NOW HERE
 
-    countT pczListSex[] = { LISTnAME_ROOT , LISTnAME_ROOTsYSTEM1 , LISTnAME_HANDhOLD , LISTnAME_SEXc , BM_HIGH | expCbSlotP , BM_HIGH | expSlotsP , 0 } ;
+    countT pczListSex[] = { LISTnAME_ROOT , LISTnAME_ROOTsYSTEM1 , LISTnAME_HANDhOLD , LISTnAME_SEXc , BM_HIGH | expCbDropP , BM_HIGH | expSlotsP , 0 } ;
     //U::B NOW HERE
 
     const byteT  maskSexByte = (byteT)( 1 << ( offSexBit % SB ) ) ;
     const countT offSexByte  =                 offSexBit / SB ;
-    const countT offSexBit   = expCbSlotP * CsLOTeXTENTS + expSlotsP ;
+    const countT offSexBit   = expCbDropP * CsLOTeXTENTS + expSlotsP ;
     ZE( poolRegistrationS* , pReg ) ;
     ZE( boolT , bMetaPool ) ;
     ZE( boolT , bDataPool ) ;
@@ -811,7 +811,7 @@
 
     }
         if( !bNest2 ) tinP.fliSexCtPendingExpSlots  |= maskExpSlots  ;
-        if( !bNest1 ) tinP.fliSexCtPendingExpCbSlot |= maskExpCbSlot ;
+        if( !bNest1 ) tinP.fliSexCtPendingExpCbDrop |= maskExpCbDrop ;
 
                                tinP.pSexLifoConstructing = this ;
         pSexLifoConstructing = tinP.pSexLifoConstructing ;
@@ -843,9 +843,9 @@
     SCOOP
 
     boolT bNest2 = !pPoolContainsMe ? 0 : !!( tinP.fliSexCtPendingExpSlots  & maskExpSlots  ) ;
-    boolT bNest1 = !pPoolContainsMe ? 0 : !!( tinP.fliSexCtPendingExpCbSlot & maskExpCbSlot ) ;
+    boolT bNest1 = !pPoolContainsMe ? 0 : !!( tinP.fliSexCtPendingExpCbDrop & maskExpCbDrop ) ;
     const flagsT maskExpSlots  = 1 << expSlotsP  ;
-    const flagsT maskExpCbSlot = 1 << expCbSlotP ;                              //U::REMOVE UNNECESSARY AND/OR UNUSED SERIALIZATION SUPPORT sexC poolC FOR poolRegistrationS
+    const flagsT maskExpCbDrop = 1 << expCbDropP ;                              //U::REMOVE UNNECESSARY AND/OR UNUSED SERIALIZATION SUPPORT sexC poolC FOR poolRegistrationS
 
     thirdC::dosPriorityIF( tinP ) ; //U:: TO FIND A BUG
 {
@@ -865,7 +865,7 @@ flagsState( flSEXcsTATE_null ) ,
             )
                 flagsP | fliSEXc_MAPPEDtOdISK
                 ,
-                ctFilesF( tinP , postNameP , expCbSlotP , expSlotsP , idStateSpaceP )
+                ctFilesF( tinP , postNameP , expCbDropP , expSlotsP , idStateSpaceP )
             (
         :
         ? flagsP
@@ -873,7 +873,7 @@ flagsState( flSEXcsTATE_null ) ,
 (
 flagsCt
 pPoolContainsMe( pPoolContainsMeP ) ,
-/*1*/sexC::sexC( tinS& tinP , const countT idLineCtP , const countT idiFileCtP , const byteT* const pbBitsCtP , const countT idLineNewP , const countT idiFileNewP , const osTextT* const postNameP , const countT expCbSlotP , const countT expSlotsP , const flagsT flagsP , const countT idStateSpaceP , countT idMemorySpaceP , poolC* const pPoolContainsMeP ) :/*1*/
+/*1*/sexC::sexC( tinS& tinP , const countT idLineCtP , const countT idiFileCtP , const byteT* const pbBitsCtP , const countT idLineNewP , const countT idiFileNewP , const osTextT* const postNameP , const countT expCbDropP , const countT expSlotsP , const flagsT flagsP , const countT idStateSpaceP , countT idMemorySpaceP , poolC* const pPoolContainsMeP ) :/*1*/
 
 /**/
 */

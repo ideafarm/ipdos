@@ -2344,7 +2344,7 @@ use this rather than _ to avoid the overhead of _
 //
 
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200539.tracefieldout END
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.1120053a.HINTeXPcBsLOTeXPsLOTS BEGIN
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.1120053a.HINTeXPcBdROPeXPsLOTS BEGIN
 
 
 //
@@ -2357,12 +2357,12 @@ use this rather than _ to avoid the overhead of _
 /*
 \<A HREF=\"5.00101cf.1.0.html\"\>definition\</A\>
 */
-/*1*//*HINTeXPcBsLOTeXPsLOTS(expCbSlotP,expSlotsP)*//*1*/
+/*1*//*HINTeXPcBdROPeXPsLOTS(expCbDropP,expSlotsP)*//*1*/
 /**/
 
-/*1*//*HINTeXPcBsLOTeXPsLOTS(expCbSlotP,expSlotsP)*//*1*/
+/*1*//*HINTeXPcBdROPeXPsLOTS(expCbDropP,expSlotsP)*//*1*/
 
-#define HINTeXPcBsLOTeXPsLOTS(expCbSlotP,expSlotsP) ( (byteT)(expCbSlotP) | (byteT)(expSlotsP) << SB | BM_HIGH )
+#define HINTeXPcBdROPeXPsLOTS(expCbDropP,expSlotsP) ( (byteT)(expCbDropP) | (byteT)(expSlotsP) << SB | BM_HIGH )
 
 
 //
@@ -2372,8 +2372,8 @@ use this rather than _ to avoid the overhead of _
 // Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
 
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.1120053a.HINTeXPcBsLOTeXPsLOTS END
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.1120053b.HINTeXPcBsLOTeXPsLOTSaLL BEGIN
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.1120053a.HINTeXPcBdROPeXPsLOTS END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.1120053b.HINTeXPcBdROPeXPsLOTSaLL BEGIN
 
 //
 // Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
@@ -2385,12 +2385,12 @@ use this rather than _ to avoid the overhead of _
 /*
 \<A HREF=\"5.00101cf.1.0.html\"\>definition\</A\>
 */
-/*1*//*HINTeXPcBsLOTeXPsLOTSaLL(expCbSlotP,expSlotsP)*//*1*/
+/*1*//*HINTeXPcBdROPeXPsLOTSaLL(expCbDropP,expSlotsP)*//*1*/
 /**/
 
-/*1*//*HINTeXPcBsLOTeXPsLOTSaLL(expCbSlotP,expSlotsP)*//*1*/
+/*1*//*HINTeXPcBdROPeXPsLOTSaLL(expCbDropP,expSlotsP)*//*1*/
 
-#define HINTeXPcBsLOTeXPsLOTSaLL(expCbSlotP,expSlotsP) ( (byteT)(expCbSlotP) | (byteT)(expSlotsP) << SB | BM_HIGH | BM_HIGH2 )
+#define HINTeXPcBdROPeXPsLOTSaLL(expCbDropP,expSlotsP) ( (byteT)(expCbDropP) | (byteT)(expSlotsP) << SB | BM_HIGH | BM_HIGH2 )
 
 
 //
@@ -2400,7 +2400,7 @@ use this rather than _ to avoid the overhead of _
 // Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
 
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.1120053b.HINTeXPcBsLOTeXPsLOTSaLL END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.1120053b.HINTeXPcBdROPeXPsLOTSaLL END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.1120053c.BLAMMOiFcANNOTsHIFTlEFT BEGIN
 
 
@@ -2416,7 +2416,7 @@ use this rather than _ to avoid the overhead of _
 /*
 \<A HREF=\"5.00101cf.1.0.html\"\>definition\</A\>
 */
-/*1*//*HINTeXPcBsLOTeXPsLOTSaLL(expCbSlotP,expSlotsP)*//*1*/
+/*1*//*HINTeXPcBdROPeXPsLOTSaLL(expCbDropP,expSlotsP)*//*1*/
 /**/
 
 /*1*//*BLAMMOiFcANNOTsHIFTlEFT(cP,cBitsLeftP)*//*1*/
@@ -27687,7 +27687,7 @@ it is illegal to modify any member other than pc Utility in the definition of an
  timeS                   timeTraceLath ;
  countT                  cPoolDropCt ;
  countT                  cPoolDropDt ;
- flagsT                  fliSexCtPendingExpCbSlot ;
+ flagsT                  fliSexCtPendingExpCbDrop ;
  flagsT                  fliSexCtPendingExpSlots ;
  barryC*                 pBarryUtility ;                     // NOT REFERENCED BY tinS OR BY IPDOS SYSTEM CODE ; AVAILABLE FOR USE BY APPLICATION CODE
  sexC*                   pSexLifoConstructing ;              // USED BY sexC TO DETECT RECURSIVE CYCLING DURING CT
@@ -29642,7 +29642,7 @@ applications should avoid using thirdC objects
 /*1*/struct _export sexHeadS/*1*/
 {
     countT              cRef ;
-    const countT        expCbSlot ;
+    const countT        expCbDrop ;
     const countT        expSlots ;
     osTextT             postName[ COSTpOOLnAMEmAX ] ;
     const flagsT        flagsCtCopy ;
@@ -29655,7 +29655,7 @@ applications should avoid using thirdC objects
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34001.sexHeadS.NEWdELcLASSb!||
     ~sexHeadS( voidT ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34002.sexHeadS.dt_sexHeadS!||
-    sexHeadS( tinS& tinP , const countT expCbSlotP , const countT expSlotsP , const osTextT* const postP , const flagsT flagsCtP ) ;
+    sexHeadS( tinS& tinP , const countT expCbDropP , const countT expSlotsP , const osTextT* const postP , const flagsT flagsCtP ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34003.sexHeadS.sexHeadS!||
     voidT glassF( tinS& tinP , strokeS*& psttP ) const ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.360df004.sexHeadS.glassF!||
@@ -29715,9 +29715,9 @@ applications should avoid using thirdC objects
 
     private :
 
-    static voidT ctFileNamesIF( tinS& tinP , textC& tMetaP , textC& tDataP , const osTextT* const postNameP , const countT expCbSlotP , const countT expSlotsP , const countT idStateSpaceP ) ;
+    static voidT ctFileNamesIF( tinS& tinP , textC& tMetaP , textC& tDataP , const osTextT* const postNameP , const countT expCbDropP , const countT expSlotsP , const countT idStateSpaceP ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400f.sexC.ctFileNamesIF!||
-    voidT ctFilesF( tinS& tinP , const osTextT* const postNameP , const countT expCbSlotP , const countT expSlotsP , const countT idStateSpaceP ) ;
+    voidT ctFilesF( tinS& tinP , const osTextT* const postNameP , const countT expCbDropP , const countT expSlotsP , const countT idStateSpaceP ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400d.sexC.ctFilesF!||
     voidT formatDataBlobF( tinS& tinP ) ;
 
@@ -29727,9 +29727,9 @@ applications should avoid using thirdC objects
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34001.sexC.NEWdELcLASSb!||
     ~sexC( voidT ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34002.sexC.dt_sexC!||
-    sexC( tinS& tinP , const countT idLineCtP , const countT idiFileCtP , const byteT* const pbBitsCtP , const countT idLineNewP , const countT idiFileNewP , const osTextT* const postNameP , const countT expCbSlotP , const countT expSlotsP = 0 , const flagsT flagsP = fliSEXc_null , const countT idStateSpaceP = 0 , countT idMemorySpaceP = 0 , poolC* const pPoolContainsMeP = 0 ) ;
+    sexC( tinS& tinP , const countT idLineCtP , const countT idiFileCtP , const byteT* const pbBitsCtP , const countT idLineNewP , const countT idiFileNewP , const osTextT* const postNameP , const countT expCbDropP , const countT expSlotsP = 0 , const flagsT flagsP = fliSEXc_null , const countT idStateSpaceP = 0 , countT idMemorySpaceP = 0 , poolC* const pPoolContainsMeP = 0 ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34003.sexC.sexC!||
-    static boolT bStateExistsIF( tinS& tinP , const osTextT* const postNameP , const countT expCbSlotP , const countT expSlotsP , const countT idStateSpaceP ) ;
+    static boolT bStateExistsIF( tinS& tinP , const osTextT* const postNameP , const countT expCbDropP , const countT expSlotsP , const countT idStateSpaceP ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400e.sexC.bStateExistsIF!||
     byteT* newF( tinS& tinP , const countT idLineP , const countT idiFileP ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34006.sexC.newF!||
@@ -29792,8 +29792,8 @@ applications should avoid using thirdC objects
     const countT        idStateSpace ;    
     const countT        idMemorySpace ;
     osTextT             postName[ COSTpOOLnAMEmAX ] ;         // THIS VALUE MUST BE SHORTER THAN COSTpOOLnAMEmAX TO ALLOW FOR slotsC AND sexC APPENDAGES
-    const countT        poolC_cBitsExpCbSlot ;
-    const countT        expCbSlot ;
+    const countT        poolC_cBitsExpCbDrop ;
+    const countT        expCbDrop ;
     const countT        expSlotsMin ;
     const countT        cBitsExpSlots ;
     byteT               pbza1[  CsLOTeXTENTS * SIZEOF_sexC ] ; // USED IF NOT NESTED
@@ -29811,7 +29811,7 @@ applications should avoid using thirdC objects
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34001.slotsC.NEWdELcLASSb!||
     ~slotsC( voidT ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34002.slotsC.dt_slotsC!||
-    slotsC( tinS& tinP , const countT idLineCtP , const countT idiFileCtP , const byteT* const pbBitsCtP , const countT idLineNewP , const countT idiFileNewP , const osTextT* const postNameP , const countT poolC_cBitsExpCbSlotP , const countT expCbSlotP , const flagsT flagsP = flSLOTSc_null , const countT idStateSpaceP = 0 , countT idMemorySpaceP = 0 , poolC* const pPoolContainsMeP = 0 ) ;
+    slotsC( tinS& tinP , const countT idLineCtP , const countT idiFileCtP , const byteT* const pbBitsCtP , const countT idLineNewP , const countT idiFileNewP , const osTextT* const postNameP , const countT poolC_cBitsExpCbDropP , const countT expCbDropP , const flagsT flagsP = flSLOTSc_null , const countT idStateSpaceP = 0 , countT idMemorySpaceP = 0 , poolC* const pPoolContainsMeP = 0 ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34003.slotsC.slotsC!||
     operator byteT*( voidT ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34004.slotsC.operator_byteT_ptr!||
@@ -29829,7 +29829,7 @@ applications should avoid using thirdC objects
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34009.slotsC.operator_element!||
     voidT walkF( tinS& tinP , slotsWalkCBFT pSlotsWalkCBFP , countT& cArgP ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400a.slotsC.walkF!||
-    static boolT bStateExistsIF( tinS& tinP , const osTextT* const postNameP , const countT expCbSlotP , const countT idStateSpaceP = 0 ) ;
+    static boolT bStateExistsIF( tinS& tinP , const osTextT* const postNameP , const countT expCbDropP , const countT idStateSpaceP = 0 ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400b.slotsC.bStateExistsIF!||
     static voidT ctFileNameLikeIF( tinS& tinP , textC& tLikeP , const osTextT* const postNameP , const countT idStateSpaceP ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400c.slotsC.ctFileNameLikeF!||
@@ -30456,13 +30456,13 @@ listC must be the wo'th base class of any class derived from it
         slotsC*         ppSlots[  CsLOTsIZESmAX                    ] ;
         byteT           pbzaGrab[ CsLOTsIZESmAX * sizeof( grabC )  ] ;
         grabC* const    pGrabNewElt ;
-        const countT    expCbSlotMin ;
-        const countT    expCbSlotMax ;
-        const countT    cBitsExpCbSlot ;
+        const countT    expCbDropMin ;
+        const countT    expCbDropMax ;
+        const countT    cBitsExpCbDrop ;
 
         NEWdELcLASSpROTOS
         ~guts_poolC_S( voidT ) ;
-        guts_poolC_S( tinS& tinP , const countT idLineCtP , const countT idiFileCtP , const byteT* const pbBitsCtP , const osTextT* const postNameP , const flagsT flagsP , const countT idStateSpaceP , const countT expCbSlotMinP , const countT expCbSlotMaxP , countT idMemorySpaceP ) ;
+        guts_poolC_S( tinS& tinP , const countT idLineCtP , const countT idiFileCtP , const byteT* const pbBitsCtP , const osTextT* const postNameP , const flagsT flagsP , const countT idStateSpaceP , const countT expCbDropMinP , const countT expCbDropMaxP , countT idMemorySpaceP ) ;
     }
     ;
 
@@ -30522,7 +30522,7 @@ listC must be the wo'th base class of any class derived from it
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34001.poolC.NEWdELcLASSb!||
     ~poolC( voidT ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34002.poolC.dt_poolC!||
-    poolC( tinS& tinP , const countT idLineCtP , const countT idiFileCtP , const byteT* const pbBitsCtP , const osTextT* const postNameP , const flagsT flagsP = flPOOLc_null , const countT idStateSpaceP = 0 , const countT expCbSlotMinP = - 1 , const countT expCbSlotMaxP = - 1 , const countT* pczHintPreallocationP = 0 , countT idMemorySpaceP = 0 ) ;
+    poolC( tinS& tinP , const countT idLineCtP , const countT idiFileCtP , const byteT* const pbBitsCtP , const osTextT* const postNameP , const flagsT flagsP = flPOOLc_null , const countT idStateSpaceP = 0 , const countT expCbDropMinP = - 1 , const countT expCbDropMaxP = - 1 , const countT* pczHintPreallocationP = 0 , countT idMemorySpaceP = 0 ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34003.poolC.poolC!||
     voidT newF( tinS& tinP , const countT idLineP , const countT idiFileP , byteT*& pbP , const countT cbP , const flagsT flagsP = flPOOLcnEW_null ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34004.poolC.newF!||
@@ -30613,7 +30613,7 @@ listC must be the wo'th base class of any class derived from it
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34001.puseC.NEWdELcLASSb!||
     ~puseC( voidT ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34002.puseC.dt_puseC!||
-    puseC( tinS& tinP , const osTextT* const postNameP , const flagsT flagsP = flPOOLc_null , const countT idStateSpaceP = 0 , const countT expCbSlotMinP = - 1 , const countT expCbSlotMaxP = - 1 , const countT* const pczHintPreallocationP = 0 , const countT idMemorySpaceP = 0 ) ;
+    puseC( tinS& tinP , const osTextT* const postNameP , const flagsT flagsP = flPOOLc_null , const countT idStateSpaceP = 0 , const countT expCbDropMinP = - 1 , const countT expCbDropMaxP = - 1 , const countT* const pczHintPreallocationP = 0 , const countT idMemorySpaceP = 0 ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34003.puseC.puseC!||
     puseC( tinS& tinP , const countT idPoolP ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34004.puseC.puseC!||
@@ -33618,7 +33618,7 @@ each communication between hosts is speedy, unreliable, and limited in size to i
 {
     countT  osPid ;
     osTextT postName[ COSTpOOLnAMEmAX ] ;
-    countT  expCbSlot ;
+    countT  expCbDrop ;
     countT  expSlots ;
     sexC*   pSex ;
     countT  idLineCt ;
