@@ -24,78 +24,87 @@
                         }
                             }
                                 }
-                                    else                                 { DEL( pInfoP ) ; }
-                                    IFpATTERN( *this , *pPatternP , fn ) { break ; }
+                                    }
+                                        else                                 { DEL( pInfoP ) ; }
+                                        IFpATTERN( *this , *pPatternP , fn ) { break ; }
+                                        _IO_
+                                   {
+                                    else
+                                    if( !fn ) { DEL( pInfoP ) ; }
+
+                                    fileNameC fn( tinP , *this , pInfoP->psttIfoName ) ;
+
+                                    strMakeF( tinP , LF , pInfoP->psttIfoName , T(iffn) ) ; ___( pInfoP->psttIfoName ) ;
+                                    ifFileNameC iffn( tinP , third , pInfoP->postOsName ) ;
                                     _IO_
-                               {
+                                {
                                 else
-                                if( !fn ) { DEL( pInfoP ) ; }
+                                if( !bOk ) { DEL( pInfoP ) ; }
 
-                                fileNameC fn( tinP , *this , pInfoP->psttIfoName ) ;
-
-                                strMakeF( tinP , LF , pInfoP->psttIfoName , T(iffn) ) ; ___( pInfoP->psttIfoName ) ;
-                                ifFileNameC iffn( tinP , third , pInfoP->postOsName ) ;
-                                _IO_
-                            {
-                            else
-                            if( !bOk ) { DEL( pInfoP ) ; }
-
-                            }
                                 }
+                                    }
+                                        }
+                                            break ;
+                                            bOk = 0 ;
+                                            _IO_
+                                        {
+                                        if( !postHit )
+                                        }
+                                            postHit = thirdC::c_strstrIF( tinP , postc , pPatternP->ppostLiteral[ offLit ] ) ;
+                                            postc += costLit ;
+                                            _IO_
+                                        {
+                                        while( postHit && postHit + costLit < poste )
+                                        osTextT* poste = postc + thirdC::c_strlenIF( tinP , postc ) ;
+                                        _IO_
+                                    {
+                                    if( !pPatternP->ppostLiteral[ offLit + 1 ] && F(pPatternP->flagsLiterals) & flPATTERNlITERALS_LITERALeNDING )
+
                                     }
                                         break ;
                                         bOk = 0 ;
                                         _IO_
                                     {
-                                    if( !postHit )
-                                    }
-                                        postHit = thirdC::c_strstrIF( tinP , postc , pPatternP->ppostLiteral[ offLit ] ) ;
-                                        postc += costLit ;
-                                        _IO_
-                                    {
-                                    while( postHit && postHit + costLit < poste )
-                                    osTextT* poste = postc + thirdC::c_strlenIF( tinP , postc ) ;
-                                    _IO_
-                                {
-                                if( !pPatternP->ppostLiteral[ offLit + 1 ] && F(pPatternP->flagsLiterals) & flPATTERNlITERALS_LITERALeNDING )
-
-                                }
-                                    break ;
-                                    bOk = 0 ;
-                                    _IO_
-                                {
-                                )
                                     )
-                                        postHit - postc
-                                        &&
-                                        F(pPatternP->flagsLiterals) & flPATTERNlITERALS_LITERALbEGINNING
-                                        &&
-                                        !offLit
+                                        )
+                                            postHit - postc
+                                            &&
+                                            F(pPatternP->flagsLiterals) & flPATTERNlITERALS_LITERALbEGINNING
+                                            &&
+                                            !offLit
+                                        (
+                                        ||
+                                        !postHit
                                     (
-                                    ||
-                                    !postHit
-                                (
-                                if
-                                osTextT* postHit = thirdC::c_strstrIF( tinP , postc , pPatternP->ppostLiteral[ offLit ] ) ;
+                                    if
+                                    osTextT* postHit = thirdC::c_strstrIF( tinP , postc , pPatternP->ppostLiteral[ offLit ] ) ;
 
-                                if( pPatternP->ppostLiteral[ offLit ][ costLit - 1 ] == '/' ) pPatternP->ppostLiteral[ offLit ][ costLit - 1 ] = '\\' ; // PATCH THE LITERAL SO THAT IT WILL MATCH ITS BASE OS MAPPING (SLASH TO BACKSLASH) ; NOTE: THIS HAS IMPLICATIONS IF THE patternC INSTANCE IS USED MULTIPLE TIMES (IT WILL BE PATCHED ONLY WO TIME) ; THIS IS DONE HERE RATHER THAN IN patternC BECAUSE patternC CAN BE USED FOR SEARCHES OTHER THAN FOR FILES SO FUTURE CODE MIGHT USE THE LITERALS IN WAYS THAT WOULD NOT WANT THE PATCH
-                                countT costLit = thirdC::c_strlenIF( tinP , pPatternP->ppostLiteral[ offLit ] ) ;
-                                _IO_
+                                    if( pPatternP->ppostLiteral[ offLit ][ costLit - 1 ] == '/' ) pPatternP->ppostLiteral[ offLit ][ costLit - 1 ] = '\\' ; // PATCH THE LITERAL SO THAT IT WILL MATCH ITS BASE OS MAPPING (SLASH TO BACKSLASH) ; NOTE: THIS HAS IMPLICATIONS IF THE patternC INSTANCE IS USED MULTIPLE TIMES (IT WILL BE PATCHED ONLY WO TIME) ; THIS IS DONE HERE RATHER THAN IN patternC BECAUSE patternC CAN BE USED FOR SEARCHES OTHER THAN FOR FILES SO FUTURE CODE MIGHT USE THE LITERALS IN WAYS THAT WOULD NOT WANT THE PATCH
+                                    countT costLit = thirdC::c_strlenIF( tinP , pPatternP->ppostLiteral[ offLit ] ) ;
+                                    _IO_
+                                {
+                                for( countT offLit = 0 ; offLit < sizeof pPatternP->ppostLiteral / sizeof pPatternP->ppostLiteral[ 0 ] && pPatternP->ppostLiteral[ offLit ] ; offLit ++ )
                             {
-                            for( countT offLit = 0 ; offLit < sizeof pPatternP->ppostLiteral / sizeof pPatternP->ppostLiteral[ 0 ] && pPatternP->ppostLiteral[ offLit ] ; offLit ++ )
+                            else
+                            if( !bOk ) { DEL( pInfoP ) ; }
 
+                            // NOW EITHER !bOk OR postc POINTS TO LEAF
                             }
                                 }
-                                    break ;
-                                    postc = pInfoP->postOsName + offn + 1 ;
+                                    else                       postc -- ;
+                                    if( postc[ - 1 ] == '\\' ) break ;
                                 {
-                                if( pInfoP->postOsName[ offn ] == '\\' && offn < costOsName - 1 )
-                                _IO_
+                                while( cDo -- )
+                                countT cDo = costOsName - 1 ;
                             {
-                            for( countT offn = costOsName - 1 ; offn ; offn -- )
-                            ZE( osTextT* , postc ) ;    // WILL POINT TO LEAF
+                            else
+                            }
+                                bOk = 0 ;
+                                postc = 0 ;
+                            {
+                            if( *postc == '\\' )    // SHOULD BE IMPOSSIBLE SINCE NOT ACCEPTING DIRECTORY ENTRIES
 
-                            countT costOsName = thirdC::c_strlenIF( tinP , pInfoP->postOsName ) ;
+                            osTextT* postc = pInfoP->postOsName + costOsName - 1 ; // NOW POINTS TO LATH CHAR ; WILL BE ADJUSTED TO POINT TO LEAF
 
                             boolT bOk = 1 ;
                             //THIS BLOCK IS A SPEED OPTIMIZATION THAT REJECTS CANDIDATES THAT DO NOT CONTAIN REQUIRED LITERALS
@@ -109,6 +118,15 @@
                             _IO_
                         {
                         if( !pPatternP )
+
+                        }
+                            continue ;
+                            DEL( pInfoP ) ;
+                        {
+                        if( !costOsName )
+
+                        countT costOsName = thirdC::c_strlenIF( tinP , pInfoP->postOsName ) ;
+
                         _IO_
                     {
                     else
