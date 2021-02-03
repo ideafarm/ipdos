@@ -393,6 +393,7 @@ a jPointer is also considered null if it contains one of the special values [JrE
 //20160430@1025: INCREASED FROM ( TUCK >> 4 ) TO ( TUCK >> 2 )
 //20170413@1040: INCREASED FROM ( TUCK >> 2 ) TO ( TOCK )
 //20170530@1135: DECREASED FROM TOCK BACK TO ( TUCK >> 2 ) (TO SPEED UP CT OF poolC ESPECIALLY WHEN RUNNING WITHIN WDW)
+//20210202@1823: INCREASED FROM ( TUCK >> 2 ) TO ( TUCK ) IN RESPONSE TO SEEING CAPACITY REACHED ON FACTORY WITH MANY CLOUD PROCESS INSTANCES
 
 /*3*/
 #define CpOOLrEGISTRATIONSmAX ( TUCK >> 0 )
@@ -2344,7 +2345,7 @@ use this rather than _ to avoid the overhead of _
 //
 
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200539.tracefieldout END
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.1120053a.HINTeXPcBdROPeXPsLOTS BEGIN
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.1120053a.HINTeXPcBsLOTeXPsLOTS BEGIN
 
 
 //
@@ -2372,8 +2373,8 @@ use this rather than _ to avoid the overhead of _
 // Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
 
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.1120053a.HINTeXPcBdROPeXPsLOTS END
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.1120053b.HINTeXPcBdROPeXPsLOTSaLL BEGIN
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.1120053a.HINTeXPcBsLOTeXPsLOTS END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.1120053b.HINTeXPcBsLOTeXPsLOTSaLL BEGIN
 
 //
 // Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
@@ -2400,7 +2401,7 @@ use this rather than _ to avoid the overhead of _
 // Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
 
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.1120053b.HINTeXPcBdROPeXPsLOTSaLL END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.1120053b.HINTeXPcBsLOTeXPsLOTSaLL END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.1120053c.BLAMMOiFcANNOTsHIFTlEFT BEGIN
 
 
@@ -5415,6 +5416,63 @@ examples
 //
 
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200590.___CHK END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200591.CBsEXdROPsEPARATOR BEGIN
+
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+/*
+*/
+/**/
+/*1*//*CBsEXdROPsEPARATOR*//*1*/
+
+//SHOULD BE AN INTEGRAL MULTIPLE OF sizeof( countT ) SO THAT THE DATA PORTION OF EACH DROP IS countT ALIGNED
+
+#define CBsEXdROPsEPARATOR ( sizeof( countT ) )
+
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200591.CBsEXdROPsEPARATOR END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200592.flSearch BEGIN
+
+
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+/*
+*/
+/**/
+/*1*//*flSEARCH*//*1*/
+
+/*3*/
+#define flSEARCH_IGNOREcASE                                0xe0000111
+/*3*/
+#define flSEARCH_null    0xe0000011
+
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 28 years.
+//
+// Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200592.flSearch END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.thirdParties : 1snip.15000014.thirdparties BEGIN
 
 
@@ -28880,8 +28938,9 @@ applications should avoid using thirdC objects
  voidT diskWalkCopyF( tinS& tinP , countT& cDirsP , countT& cFilesP , const boolT& bQuitP , const osTextT* const postToP , const osTextT* const postFromP , diskWalkCopyCBFT pCbfP = 0 , countT* pcArgP = 0 ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34194.thirdC.diskWalkCopyF!||
  voidT diskWalkSearchF( tinS& tinP , countT& cDirsP , countT& cFilesP , const boolT& bQuitP , const osTextT* const postP , const osTextT* const postFindP , const flagsT flagsP = flDISKwALK_null , diskWalkSearchCBFT pCbfP = 0 , countT* pcArgP = 0 ) ;
- voidT diskWalkSearchIgnoreCaseF( tinS& tinP , countT& cDirsP , countT& cFilesP , const boolT& bQuitP , const osTextT* const postP , const osTextT* const postFindP , const flagsT flagsP = flDISKwALK_null , diskWalkSearchCBFT pCbfP = 0 , countT* pcArgP = 0 ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3600119e.thirdc.diskWalkSearchF!||
+ voidT diskWalkSearchIgnoreCaseF( tinS& tinP , countT& cDirsP , countT& cFilesP , const boolT& bQuitP , const osTextT* const postP , const osTextT* const postFindP , const flagsT flagsP = flDISKwALK_null , diskWalkSearchCBFT pCbfP = 0 , countT* pcArgP = 0 ) ;
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.360011ad.thirdc.diskWalkSearchIgnoreCaseF!||
  voidT diskZipF( tinS& tinP , const osTextT* const postToP , const osTextT* const postFromP , const flagsT flagsP = flZIP_null ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34195.thirdC.diskZipF!||
  voidT diskUnzipF( tinS& tinP , const osTextT* const postFileP , const osTextT* const postZipfileP , const flagsT flagsP = flUNZIP_null ) ;
@@ -29722,6 +29781,7 @@ applications should avoid using thirdC objects
     voidT ctFilesF( tinS& tinP , const osTextT* const postNameP , const countT expCbDropP , const countT expSlotsP , const countT idStateSpaceP ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400d.sexC.ctFilesF!||
     voidT formatDataBlobF( tinS& tinP ) ;
+    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.360e0013.sexc.formatDataBlobF!||
 
     public :
 
@@ -29735,7 +29795,7 @@ applications should avoid using thirdC objects
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400e.sexC.bStateExistsIF!||
     byteT* newF( tinS& tinP , const countT idLineP , const countT idiFileP ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34006.sexC.newF!||
-    voidT operator ()( tinS& tinP , byteT*& pbP ) ;
+    voidT operator ()( tinS& tinP , byteT*& pbDropP ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34007.sexC.operator_call!||
     boolT operator !( voidT ) const ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34008.sexC.operator_not!||
@@ -32068,6 +32128,7 @@ examples
  voidT diskWalkSearchF( tinS& tinP , countT& cDirsP , countT& cFilesP , const boolT& bQuitP , const strokeS* const psttP , const osTextT* const postFindP , const flagsT flagsP = flDISKwALK_null , diskWalkSearchCBFT pCbfP = 0 , countT* pcArgP = 0 ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.360021e5.etherC.diskWalkSearchF!||
  voidT diskWalkSearchIgnoreCaseF( tinS& tinP , countT& cDirsP , countT& cFilesP , const boolT& bQuitP , const strokeS* const psttP , const osTextT* const postFindP , const flagsT flagsP = flDISKwALK_null , diskWalkSearchCBFT pCbfP = 0 , countT* pcArgP = 0 ) ;
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.360021f8.etherc.diskWalkSearchIgnoreCaseF!||
  voidT diskZipF( tinS& tinP , const strokeS* const psttToP , const strokeS* const psttFromP , const flagsT flagsP = flZIP_null ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.341bc.etherC.diskZipF!||
  voidT diskUnzipF( tinS& tinP , const strokeS* const psttToP , const strokeS* const psttFromFileP , const strokeS* const psttFromZipP , const flagsT flagsP = flUNZIP_null ) ;

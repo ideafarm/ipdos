@@ -12,11 +12,27 @@ IP-DOS (tm) <> IdeaFarm (tm) Piggyback Distributed Operating System
 
 **** Known problems (list):
 
+ALL PROCESSES OTHER THAN THE SERVICE PROCESS DIE IMMEDIATELY
 COMPUTER SHUTDOWN TAKES 30 SECONDS LONGER
 NOT FULLY REMOVED BY WINDOWS UNINSTALLER
 
 
 **** Known problems (details):
+_______________________________________________________________________________
+
+ALL PROCESSES OTHER THAN THE SERVICE PROCESS DIE IMMEDIATELY
+
+If you see the service process but no other IPDOS (tm) processes (with number
+names), this might be because the Visual Studio runtime is not installed.
+Run both executables in the following folder and then stop and restart the
+IdeaFarm (tm) service:
+
+    ///ideafarm/precious/domains/com/ideafarm/city/workshop/visualstudio
+
+Example:
+
+    C:\ideafarm.home.1\precious\domains\com\ideafarm\city\workshop\visualstudio
+
 _______________________________________________________________________________
 
 COMPUTER SHUTDOWN TAKES 30 SECONDS LONGER:
@@ -41,6 +57,7 @@ changes to IP-DOS (tm) are planned to fix this problem.  Future releases of
 IP-DOS (tm) might include features that make it easier to manually stop
 IP-DOS (tm) by clicking an icon on the desktop, or to start IP-DOS (tm) on
 demand, so that IP-DOS (tm) will not be started unless it is used.
+
 _______________________________________________________________________________
 
 NOT FULLY REMOVED BY WINDOWS UNINSTALLER:
@@ -74,6 +91,7 @@ directory on a network drive or on a removable drive (such as a USB thumb
 drive).  If it finds one, it will copy its system programs (but not its data) 
 and attempt to start those programs locally.  This is all working as designed;
 no changes are planned.
+
 _______________________________________________________________________________
 
 
@@ -95,4 +113,5 @@ delete the home directory.
 
 Warning: The "x:\ideafarm.home.1" home directory contains all of your data.  Do
 not delete it unless you are sure that you want to delete all of your data.
+
 _______________________________________________________________________________
