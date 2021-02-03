@@ -18,7 +18,8 @@ REST
         {
         if( POOP )
 
-        tinP.pEtScratch->diskWalkSearchF( tinP , cDirs , cFiles , ether , tRoot , tFind ) ;
+        else              tinP.pEtScratch->diskWalkSearchF(           tinP , cDirs , cFiles , ether , tRoot , tFind ) ;
+        if( bIgnoreCase ) tinP.pEtScratch->diskWalkSearchIgnoreCaseF( tinP , cDirs , cFiles , ether , tRoot , tFind ) ;
         ZE( countT , cFiles ) ;
         ZE( countT , cDirs ) ;
         CONoUTrAW( "\r\nSearching...\r\n" ) ;
@@ -44,8 +45,9 @@ etThread.traceF( tinP , T("ifcIDaDAM_TOOLwALKsEARCH will search folder [psttzEar
             bArmedRoot = 0 ;
         {
         else if( bArmedRoot )
-        else if( !etThread.strCompareF( tinP , psttc1 , tFindCmd ) ) { bArmedFind = 1 ; bArmedRoot = 0 ; }
-             if( !etThread.strCompareF( tinP , psttc1 , tRootCmd ) ) { bArmedRoot = 1 ; bArmedFind = 0 ; }
+        else if( !etThread.strCompareF( tinP , psttc1 , tIgnoreCaseCmd ) ) { bIgnoreCase = 1 ;                  }
+        else if( !etThread.strCompareF( tinP , psttc1 , tFindCmd       ) ) { bArmedFind  = 1 ; bArmedRoot = 0 ; }
+             if( !etThread.strCompareF( tinP , psttc1 , tRootCmd       ) ) { bArmedRoot  = 1 ; bArmedFind = 0 ; }
         CONoUTrAW( "\r\n" ) ;
         CONoUTrAW( T(psttc1) ) ;
     {
@@ -54,6 +56,8 @@ etThread.traceF( tinP , T("ifcIDaDAM_TOOLwALKsEARCH will search folder [psttzEar
     ZE( boolT , bArmedRoot ) ;
     strokeS*& pstt1Params = etThread.ether_pstt1_processParametersI_F( tinP ) ;
 {
+ZE( boolT , bIgnoreCase ) ;
+TN( tIgnoreCaseCmd , "!ignoreCase" ) ;
 TN( tFind , "" ) ;
 TN( tFindCmd , "!find" ) ;
 TN( tRoot , psttzEarlyFolder ) ; // WILL BE OVERRIDDEN IF !find PARAMETER IS FOUND

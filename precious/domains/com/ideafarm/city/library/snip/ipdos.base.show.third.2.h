@@ -395,7 +395,7 @@ a jPointer is also considered null if it contains one of the special values [JrE
 //20170530@1135: DECREASED FROM TOCK BACK TO ( TUCK >> 2 ) (TO SPEED UP CT OF poolC ESPECIALLY WHEN RUNNING WITHIN WDW)
 
 /*3*/
-#define CpOOLrEGISTRATIONSmAX ( TUCK >> 2 )
+#define CpOOLrEGISTRATIONSmAX ( TUCK >> 0 )
 /*3*/
 
 
@@ -28315,6 +28315,7 @@ features
 {
     countT               costRoot ;
     const osTextT*       postFind ;
+    flagsT               flagsSearch ;
     diskWalkCopyCBFT     pCbf ;
     countT*              pcArgApp ;
 }
@@ -28879,6 +28880,7 @@ applications should avoid using thirdC objects
  voidT diskWalkCopyF( tinS& tinP , countT& cDirsP , countT& cFilesP , const boolT& bQuitP , const osTextT* const postToP , const osTextT* const postFromP , diskWalkCopyCBFT pCbfP = 0 , countT* pcArgP = 0 ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34194.thirdC.diskWalkCopyF!||
  voidT diskWalkSearchF( tinS& tinP , countT& cDirsP , countT& cFilesP , const boolT& bQuitP , const osTextT* const postP , const osTextT* const postFindP , const flagsT flagsP = flDISKwALK_null , diskWalkSearchCBFT pCbfP = 0 , countT* pcArgP = 0 ) ;
+ voidT diskWalkSearchIgnoreCaseF( tinS& tinP , countT& cDirsP , countT& cFilesP , const boolT& bQuitP , const osTextT* const postP , const osTextT* const postFindP , const flagsT flagsP = flDISKwALK_null , diskWalkSearchCBFT pCbfP = 0 , countT* pcArgP = 0 ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3600119e.thirdc.diskWalkSearchF!||
  voidT diskZipF( tinS& tinP , const osTextT* const postToP , const osTextT* const postFromP , const flagsT flagsP = flZIP_null ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34195.thirdC.diskZipF!||
@@ -32065,6 +32067,7 @@ examples
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.341bb.etherC.diskWalkCopyF!||
  voidT diskWalkSearchF( tinS& tinP , countT& cDirsP , countT& cFilesP , const boolT& bQuitP , const strokeS* const psttP , const osTextT* const postFindP , const flagsT flagsP = flDISKwALK_null , diskWalkSearchCBFT pCbfP = 0 , countT* pcArgP = 0 ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.360021e5.etherC.diskWalkSearchF!||
+ voidT diskWalkSearchIgnoreCaseF( tinS& tinP , countT& cDirsP , countT& cFilesP , const boolT& bQuitP , const strokeS* const psttP , const osTextT* const postFindP , const flagsT flagsP = flDISKwALK_null , diskWalkSearchCBFT pCbfP = 0 , countT* pcArgP = 0 ) ;
  voidT diskZipF( tinS& tinP , const strokeS* const psttToP , const strokeS* const psttFromP , const flagsT flagsP = flZIP_null ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.341bc.etherC.diskZipF!||
  voidT diskUnzipF( tinS& tinP , const strokeS* const psttToP , const strokeS* const psttFromFileP , const strokeS* const psttFromZipP , const flagsT flagsP = flUNZIP_null ) ;
