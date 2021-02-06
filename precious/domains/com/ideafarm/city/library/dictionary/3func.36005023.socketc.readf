@@ -28,11 +28,13 @@
                 pEther->delF( tinP , pbAll ) ;
                 }
                     soulP.shiftLeftF( tinP , ifcIDtYPEsOULiTEM_soulC , pbAll , 0 , 0 , flSOULsHIFTlEFT_UNPACKsOULiMAGE ) ;
-                    if( cbIn2 ) pEther->memCopyF( tinP , pbAll + sizeof( countT ) , pbIn2 , cbIn2 ) ;
-                    *(countT*)pbAll = length ;
+                    if( cbIn2 ) pEther->memCopyF( tinP , pbAll + 3 * sizeof( countT ) , pbIn2 , cbIn2 ) ;
+                    ((countT*)pbAll)[ 2 ] = length   ;
+                    ((countT*)pbAll)[ 1 ] = idFormat ;
+                    ((countT*)pbAll)[ 0 ] = finger   ;
                 {
                 if( pbAll )
-                pEther->newF( tinP , LF , pbAll , sizeof( countT ) + length ) ; ___( pbAll ) ;
+                pEther->newF( tinP , LF , pbAll , 3 * sizeof( countT ) + length ) ; ___( pbAll ) ;
                 ZE( byteT* , pbAll ) ;
     
                 }
@@ -56,18 +58,25 @@
                 }    
                     }
                         pEther->delF( tinP , pbIn1 ) ;
-                        if( pbIn1 ) length = *(countT*)pbIn1 ;
-                        __( cbIn1 - sizeof length ) ;
-                        dad( tinP , pbIn1 , cbIn1 , pcCode1 , sizeof( countT ) ) ; ___( pbIn1 ) ;
+                        }
+                            length   = ((countT*)pbIn1)[ 2 ] ;
+                            idFormat = ((countT*)pbIn1)[ 1 ] ;
+                            finger   = ((countT*)pbIn1)[ 0 ] ;
+                        {
+                        if( pbIn1 )
+                        __( cbIn1 - 3 * sizeof( countT ) ) ;
+                        dad( tinP , pbIn1 , cbIn1 , pcCode1 , 3 * sizeof( countT ) ) ; ___( pbIn1 ) ;
                         ZE( countT , cbIn1 ) ;
                         ZE( byteT* , pbIn1 ) ;
                     {
                     if( !*pEther )
             
                     readF( tinP , (byteT*)( pcCode1 + 1 ) , sizeof pcCode1 - sizeof pcCode1[ 0 ] , flSOCKETcrEAD_null , time1P , time2P ) ;
-                    count01T pcCode1[ sizeof( countT ) ] = { woth } ;
+                    count01T pcCode1[ 3 * sizeof( countT ) ] = { woth } ;
                 {
-                ZE( countT , length ) ;
+                ZE( countT , length   ) ;
+                ZE( countT , idFormat ) ;
+                ZE( countT , finger   ) ;
             {
             else
             }
