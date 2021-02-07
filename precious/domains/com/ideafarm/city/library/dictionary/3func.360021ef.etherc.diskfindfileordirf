@@ -91,22 +91,29 @@
                             // NOW EITHER !bOk OR postc POINTS TO LEAF
                             }
                                 }
-                                    else                       postc -- ;
-                                    if( postc[ - 1 ] == '\\' ) break ;
+                                    }
+                                        else                       postc -- ;
+                                        if( postc[ - 1 ] == '\\' ) break ;
+                                    {
+                                    while( cDo -- )
                                 {
-                                while( cDo -- )
+                                else
+                                if( *postc == '\\' ) bOk = 0 ; // SHOULD BE IMPOSSIBLE SINCE IT WOULD IMPLY A NULL LENGTH DIRECTORY NAME
+
+                                }
+                                    cDo   -- ;
+                                    postc -- ;
+                                {
+                                if( *postc == '\\' )
                                 countT cDo = costOsName - 1 ;
                             {
-                            else
-                            }
-                                bOk = 0 ;
-                                postc = 0 ;
-                            {
-                            if( *postc == '\\' )    // SHOULD BE IMPOSSIBLE SINCE NOT ACCEPTING DIRECTORY ENTRIES
 
                             osTextT* postc = pInfoP->postOsName + costOsName - 1 ; // NOW POINTS TO LATH CHAR ; WILL BE ADJUSTED TO POINT TO LEAF
-
                             boolT bOk = 1 ;
+
+                            // CONJ: WHEN I ADDED THIS SPEED OPTIMIZATION, I MISTAKENLY ASSUMED THAT I WOULD NOT WANT DIRECTORIES, NOTWITHSTANDING THE FUNCTION NAME
+                            //20210207@1347: EDITED THE NEXT CODE LINES TO ACCEPT DIRECTORY ENTRIES ; ORIGINAL COMMENT:  SHOULD BE IMPOSSIBLE SINCE NOT ACCEPTING DIRECTORY ENTRIES
+
                             //THIS BLOCK IS A SPEED OPTIMIZATION THAT REJECTS CANDIDATES THAT DO NOT CONTAIN REQUIRED LITERALS
                             _IO_
                         {
