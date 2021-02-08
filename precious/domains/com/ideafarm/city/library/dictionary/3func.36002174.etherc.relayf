@@ -10,7 +10,7 @@
 }
     }
         }
-            (*this)( tinP , psPayload ) ;
+            DEL( psPayload ) ;
             stRelayOutP >> *(countT*)&psPayload ;
             ZE( soulC* , psPayload ) ;
         {
@@ -24,18 +24,18 @@
                 }
                     if( psNull ) stRelayOutP << *(countT*)&psNull ;
                     __Z( psNull ) ;
-                    (*this)( tinP , psNull , TAG( TAGiDnULL ) ) ;
-                    ZE( soulC* , psNull ) ;
+                    soulC* psNull = new( 0 , tinP , LF ) soulC( tinP , TAG( TAGiDnULL ) ) ;
                 {
                 bQuitWoConnect = 1 ;
     
                 }
-                    (*this)( tinP , psWrap ) ;
+                    DEL( psWrap ) ;
+
                     }
                         b_pCioGetFP.ungrabF( tinP ) ;
                         }
                             }
-                                if( psGift ) (*this)( tinP , psGift ) ; //CALLBACK WILL NORMALLY ZE THIS AND BE RESPONSIBLE FOR DELETION
+                                DEL( psGift ) ; //CALLBACK WILL NORMALLY ZE THIS AND BE RESPONSIBLE FOR DELETION
                                 }
                                     if( POOP ) POOPR
                                     (*pCioGetFP)( tinP , *tinP.pEtScratch , bQuitP , ifcIDtYPEgIFT_REPLYrELAYiDpORTtIMEcaLLhOMES , psGift , pczChannelCopy , pcArgP ? *pcArgP : ze , idptNU ) ;
@@ -50,8 +50,7 @@
                                 ZE( countT , idtsGift ) ;
                             {
                             if( psGift )
-                            (*this)( tinP , psGift , TAG( TAGiDnULL ) ) ;
-                            ZE( soulC* , psGift ) ;
+                            soulC* psGift = new( 0 , tinP , LF ) soulC( tinP , TAG( TAGiDnULL ) ) ;
                         {
                         if( pCioGetFP )
                         b_pCioGetFP.grabF( tinP , TAG( TAGiDnULL ) ) ;
@@ -61,7 +60,7 @@
                         b_pCioGetFP.ungrabF( tinP ) ;
                         }
                             }
-                                if( psGift ) (*this)( tinP , psGift ) ; //CALLBACK WILL NORMALLY ZE THIS AND BE RESPONSIBLE FOR DELETION
+                                DEL( psGift ) ; //CALLBACK WILL NORMALLY ZE THIS AND BE RESPONSIBLE FOR DELETION
                                 }
                                     if( POOP ) POOPR
                                     (*pCioGetFP)( tinP , *tinP.pEtScratch , bQuitP , ifcIDtYPEgIFT_REPLYrELAYiDpORTtIMEc , psGift , pczChannelCopy , pcArgP ? *pcArgP : ze , idptNU ) ;
@@ -76,8 +75,7 @@
                                 ZE( countT , idtsGift ) ;
                             {
                             if( psGift )
-                            (*this)( tinP , psGift , TAG( TAGiDnULL ) ) ;
-                            ZE( soulC* , psGift ) ;
+                            soulC* psGift = new( 0 , tinP , LF ) soulC( tinP , TAG( TAGiDnULL ) ) ;
                         {
                         if( pCioGetFP )
                         b_pCioGetFP.grabF( tinP , TAG( TAGiDnULL ) ) ;
@@ -87,7 +85,7 @@
                         b_pCioGetFP.ungrabF( tinP ) ;
                         }
                             }
-                                if( psGift ) (*this)( tinP , psGift ) ; //CALLBACK WILL NORMALLY ZE THIS AND BE RESPONSIBLE FOR DELETION
+                                DEL( psGift ) ; //CALLBACK WILL NORMALLY ZE THIS AND BE RESPONSIBLE FOR DELETION
                                 }
                                     if( POOP ) POOPR
                                     (*pCioGetFP)( tinP , *tinP.pEtScratch , bQuitP , ifcIDtYPEgIFT_REPLYrELAYrANK , psGift , pczChannelCopy , pcArgP ? *pcArgP : ze , idptNU ) ;
@@ -102,8 +100,7 @@
                                 ZE( countT , idtsGift ) ;
                             {
                             if( psGift )
-                            (*this)( tinP , psGift , TAG( TAGiDnULL ) ) ;
-                            ZE( soulC* , psGift ) ;
+                            soulC* psGift = new( 0 , tinP , LF ) soulC( tinP , TAG( TAGiDnULL ) ) ;
                         {
                         if( pCioGetFP )
                         b_pCioGetFP.grabF( tinP , TAG( TAGiDnULL ) ) ;
@@ -116,7 +113,7 @@
                             b_pCioGetFP.ungrabF( tinP ) ;
                             }
                                 }
-                                    if( psGift ) (*this)( tinP , psGift ) ; //CALLBACK WILL NORMALLY ZE THIS AND BE RESPONSIBLE FOR DELETION
+                                    DEL( psGift ) ; //CALLBACK WILL NORMALLY ZE THIS AND BE RESPONSIBLE FOR DELETION
                                     }
                                         if( POOP ) POOPR
                                         (*pCioGetFP)( tinP , *tinP.pEtScratch , bQuitP , ifcIDtYPEgIFT_APPLICATION , psGift , pczChannelCopy , pcArgP ? *pcArgP : ze , idptOrigin ) ;
@@ -126,8 +123,7 @@
                                     psGift->shiftLeftF( tinP , 0 , pbsGift , 0 , flSOULiTEM_null , flSOULsHIFTlEFT_UNPACKsOULiMAGE ) ;
                                 {
                                 if( psGift )
-                                (*this)( tinP , psGift , TAG( TAGiDnULL ) ) ;
-                                ZE( soulC* , psGift ) ;
+                                soulC* psGift = new( 0 , tinP , LF ) soulC( tinP , TAG( TAGiDnULL ) ) ;
                             {
                             if( pCioGetFP )
                             b_pCioGetFP.grabF( tinP , TAG( TAGiDnULL ) ) ;
@@ -201,7 +197,7 @@
                     else if( idType == ifcIDtYPEwRAP_GIFT )
                     }
                         break ;
-                        (*this)( tinP , psWrap ) ;
+                        DEL( psWrap ) ;
                     {
                     if( idType == ifcIDtYPEwRAP_QUIT    )
                     ZE( countT , ze ) ;
@@ -228,7 +224,7 @@
                     //else { CONoUTrAW( "relayF: readF returned a wrap\r\n" ) ; }
                     }
                         break ;
-                        (*this)( tinP , psWrap ) ;
+                        DEL( psWrap ) ;
                         //LOGrAW3( "ERROR READING FROM TEAT PORT " , (countT)home.idpTeat , "\r\n" ) ;
                         //CONoUTrAW3( "ERROR READING FROM TEAT PORT " , (countT)home.idpTeat , "\r\n" ) ;
                         POOPR
@@ -236,8 +232,7 @@
                     if( POOP )
                     sock.readF( tinP , *psWrap ) ;
         
-                    (*this)( tinP , psWrap , TAG( TAGiDnULL ) ) ;
-                    ZE( soulC* , psWrap ) ;
+                    soulC* psWrap = new( 0 , tinP , LF ) soulC( tinP , TAG( TAGiDnULL ) ) ;
                 {
                 while( !bQuitP && !POOP )
             
