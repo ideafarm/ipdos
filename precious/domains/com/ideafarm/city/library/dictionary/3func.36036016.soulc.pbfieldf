@@ -22,7 +22,7 @@
 
                 flagsT flagsItem = ((flagsT*)pbi)[ 2 ] ;
                 countT idType    = ((countT*)pbi)[ 1 ] ;
-                countT length    = ((countT*)pbi)[ 0 ] ;
+                countT length    = ((countT*)pbi)[ 0 ] - 2 * sizeof( countT ) ; //U::20210207@1739: SUBTRACT "" TO MAKE THE LENGTH CORRECT, W/O ANALYSIS
 
                 const byteT* pbi = (*pJot)[ idJot ] ;
                 countT idJot = ((countT*)pbs)[ idFieldP - 1 ] ;
@@ -44,11 +44,11 @@
 
             }
                 break ;
-                if( cbP > 2 * sizeof( countT ) ) pbf = pbs + 3 * sizeof( countT ) ;
+                if( cbP ) pbf = pbs + 3 * sizeof( countT ) ;
 
                 flagsP  = ((flagsT*)pbs)[ 2 ] ;
                 idTypeP = ((countT*)pbs)[ 1 ] ;
-                cbP     = ((countT*)pbs)[ 0 ] ;
+                cbP     = ((countT*)pbs)[ 0 ] - 2 * sizeof( countT ) ; //U::20210207@1739: SUBTRACT "" TO MAKE THE LENGTH CORRECT, W/O ANALYSIS
             {
             if( !idFieldP )
         {

@@ -11,11 +11,11 @@
     return (byteT*)pbc ;
 
     }
-        cbP = cbf - 2 * sizeof( countT ) ;
+        cbP = cbf ;
 
-        flagsP     = *(flagsT*)pbc ; pbc += sizeof( flagsT ) ;
-        idTypeP    = *(countT*)pbc ; pbc += sizeof( countT ) ;
-        countT cbf = *(countT*)pbc ; pbc += sizeof( countT ) ;
+        flagsP     = *(flagsT*)pbc                        ; pbc += sizeof( flagsT ) ;
+        idTypeP    = *(countT*)pbc                        ; pbc += sizeof( countT ) ;
+        countT cbf = *(countT*)pbc - 2 * sizeof( countT ) ; pbc += sizeof( countT ) ; //U::20210207@1739: SUBTRACT "" TO MAKE THE LENGTH CORRECT, W/O ANALYSIS
     {
     else
     if( pbc >= pbe ) pbc = 0 ;
