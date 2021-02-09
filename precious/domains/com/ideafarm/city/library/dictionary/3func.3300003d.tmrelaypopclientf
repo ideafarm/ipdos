@@ -51,6 +51,7 @@ DONE( tmRelayPopClientF )
                         TELL( "reading ok+ 5" )
                         pso->writeF( tinP , *psBag ) ;
                         TELL( "writing bang" )
+                        etThread.traceF( tinP , T("writing bang *psBag") ) ;
                     {
                     if( idType != ifcIDtYPEbAG_CLIENTnULL )
                     countT idType = psBag->cFieldF( tinP , ifcIDfIELDbAG_IDtYPE ) ;
@@ -78,6 +79,7 @@ DONE( tmRelayPopClientF )
                     VERIFYrELAY( *pso ) ;
                     TELL( "reading ok+ 3" )
                     pso->writeF( tinP , sBagHello ) ;
+                    etThread.traceF( tinP , T("writing sBagHello") ) ;
     
                     sBagHello << idWorkP ;
                     relayC::hdrBagIF( tinP , sBagHello , idptP , idSerialLathHeaderP , flRELAYpOP_null , ifcIDtYPEbAG_CLIENTpOPhELLO ) ;
@@ -126,6 +128,7 @@ DONE( tmRelayPopClientF )
                     }
                         etThread( tinP , psBag ) ;
                         pso->writeF( tinP , *psBag ) ;
+                        etThread.traceF( tinP , T("writing *psBag") ) ;
                         relayC::hdrBagIF( tinP , *psBag , idptP , idSerialLathHeaderP , flRELAYpOP_null , ifcIDtYPEbAG_CLIENTpOPbYE ) ;
                     {
                     if( psBag )

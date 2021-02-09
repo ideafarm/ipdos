@@ -17,6 +17,7 @@ DONE( tmRelayChatRepliesF )
             if( !sReply ) break ;
     
             soDn.writeF( tinP , sWrite ) ;
+            etThread.traceF( tinP , T("writing sWrite (sNull or sReply)") ) ;
             TELL( "writing to below the reply soul read from above" )
             soulC& sWrite = soUp.etherF( tinP ) ? sNull : sReply ;
             soulC sNull( tinP , TAG( TAGiDnULL ) ) ;

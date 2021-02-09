@@ -9,21 +9,21 @@
 
 DONE( tmRelayBlowTeatF )
 }
-    //CONoUTrAW( "WriteWrapFromAppF: exiting\r\n" ) ;
     }
         }
             etThread( tinP , psWrap ) ;
             }
                 sockP.writeF( tinP , *psWrap ) ;
-                //CONoUTrAW( "writing wrap to teat\r\n" ) ;
+                etThread.traceF( tinP , T("writing wrap to teat") ) ;
             {
             if( *psWrap )
             stRelayOutP >> *(countT*)&psWrap ;
             ZE( soulC* , psWrap ) ;
         {
         while( !bQuitWoConnectP && stRelayOutP )
+        //etThread.traceF( tinP , T("waited  for push") ) ;
         stRelayOutP.waitF( tinP ) ;
-        //CONoUTrAW( "WriteWrapFromAppF: waiting for push\r\n" ) ;
+        //etThread.traceF( tinP , T("waiting for push") ) ;
     {
     while( !bQuitWoConnectP && !etThread && !stRelayOutP.third )
 
@@ -39,7 +39,6 @@ DONE( tmRelayBlowTeatF )
         ZE( soulC* , psWrap ) ;
     {
 
-    //CONoUTrAW( "WriteWrapFromAppF: beginning work\r\n" ) ;
     ZE( countT , idWrap ) ;
     TN( tTM , "IdeaFarm " "(tm)" ) ;
 
