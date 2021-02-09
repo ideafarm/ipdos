@@ -212,19 +212,20 @@
         idPortTimeC idpt ;
     
         idPort = socketC::nicNameIF( tinP , etThread ) ;
-        sListen.etherF( tinP , etThread ) ;
 
         }
             etThread.traceF( tinP , T("bind aok [idptHandle:nn,idPort]:    ")+T((nicNameC&)idptHandle)+T("    ")+TF2((countT&)idptHandle,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
+            sListen.etherF( tinP , etThread ) ;
             SCOOPSdEL
         {
         else
         }
+            etThread.traceF( tinP , T("bound aok to idPort [idPort:nn,idPort]:    ")+T((nicNameC&)idPort)+T("    ")+TF2((countT&)idPort,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
             idPort = sListen.bindF( tinP ) ;
             sListen.etherF( tinP , etThread ) ;
             SCOOPSdEL
-            POOPR
-            etThread.traceF( tinP , T("could not bind [idptHandle:nn,idPort]:    ")+T((nicNameC&)idptHandle)+T("    ")+TF2((countT&)idptHandle,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
+            POOPRqUIET
+            etThread.traceF( tinP , T("could not bind to preferred idPort [idptHandle:nn,idPort]:    ")+T((nicNameC&)idptHandle)+T("    ")+TF2((countT&)idptHandle,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
         {
         if( POOP || !idPort )
         idPortC idPort = sListen.bindF( tinP , idptHandle , nicNameC() , 1 ) ;
