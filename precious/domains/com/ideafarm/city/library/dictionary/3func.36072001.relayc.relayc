@@ -140,7 +140,7 @@
                     if( bWoth ) //WOTH CLIENT MUST NOT BE REFUSED
             
                     }
-                        CONoUT( "client accepted" ) ;
+                        //CONoUT( "client accepted" ) ;
                         sListen.acceptF( tinP , pso , idPortPeer , nnPeer , bRefuse ) ;
                         ZE( countT , idPortPeer ) ;
                         nicNameC nnPeer ;
@@ -214,13 +214,17 @@
         idPort = socketC::nicNameIF( tinP , etThread ) ;
         sListen.etherF( tinP , etThread ) ;
 
-        else SCOOPSdEL
+        }
+            etThread.traceF( tinP , T("bind aok [idptHandle:nn,idPort]:    ")+T((nicNameC&)idptHandle)+T("    ")+TF2((countT&)idptHandle,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
+            SCOOPSdEL
+        {
+        else
         }
             idPort = sListen.bindF( tinP ) ;
             sListen.etherF( tinP , etThread ) ;
             SCOOPSdEL
             POOPR
-            //CONoUTrAW( "could not bind to ifcIDpORT_RELAYtEST\r\n" ) ;
+            etThread.traceF( tinP , T("could not bind [idptHandle:nn,idPort]:    ")+T((nicNameC&)idptHandle)+T("    ")+TF2((countT&)idptHandle,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
         {
         if( POOP || !idPort )
         idPortC idPort = sListen.bindF( tinP , idptHandle , nicNameC() , 1 ) ;

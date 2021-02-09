@@ -2571,6 +2571,7 @@ use this rather than _ to avoid the overhead of _
 /*3*/
 #define flHOMEsaDAMS_ROOThTTPsERVER            0xe0000108
 #define flHOMEsaDAMS_ROOThEAL                  0xe0000208
+#define flHOMEsaDAMS_ROOTbANG                  0xe0000408
 /*3*/
 #define flHOMEsaDAMS_null    0xe0000008
 

@@ -9,16 +9,22 @@
 
 REST
 
+etThread.traceF( tinP , T("ifcIDaDAM_KERNEL3BANG / ----") ) ;
+
 }
     while( cRelays ) { ++ s ; etThread.osSleepF( tinP , TUCK * 0x40 ) ; }
+
+    etThread.traceF( tinP , T("ifcIDaDAM_KERNEL3BANG / launched tmRelayF") ) ;
 
     }
         ++ s ; etThread.osSleepF( tinP , TOCK ) ;
         cRelays ++ ; etThread.osThreadF( tinP , countTC() , tmRelayF , 0 , flTHREADlAUNCH_null , 0 , (countT)&cRelays ) ;
     {
     while( cTries -- )
-    countT cTries = /*0x10*/1 ;
+    countT cTries = 1 ;
     sleepC s( tinP , TAG( TAGiDnULL ) ) ;
+
+    etThread.traceF( tinP , T("ifcIDaDAM_KERNEL3BANG / launching tmRelayF") ) ;
 {
 
 ZE( countT , cRelays ) ;
@@ -28,20 +34,26 @@ ZE( countT , cRelays ) ;
     homeS& host = homeS::homeIF() ;
 {
 
+etThread.traceF( tinP , T("ifcIDaDAM_KERNEL3BANG / ++++") ) ;
+
 TODO
 
 DONE( tmRelayF )
 }
+    etThread.traceF( tinP , T("ifcIDaDAM_KERNEL3BANG / tmRelayF / ----") ) ;
+
     cRelaysP -- ;
     relayC relay( tinP , etThread , bReady ) ;
     ZE( boolT , bReady ) ;
     countT& cRelaysP = *(countT*)pTaskP->c1 ;
+
+    etThread.traceF( tinP , T("ifcIDaDAM_KERNEL3BANG / tmRelayF / ++++") ) ;
 {
 if( pTaskP && pTaskP->c1 )
 TELL( "setting up" )
 TASK( tmRelayF )
 
-/*1*/WAKEsHOWtEXT( "ifcIDaDAM_KERNEL3BANG" )/*1*/
+/*1*/WAKEhIDE( "ifcIDaDAM_KERNEL3BANG" )/*1*/
 /**/
 */
 i am an object oriented rewrite of ff40104, which works

@@ -332,7 +332,7 @@ DONE( tmRelayTeatServerF )
             ZE( soulC* , psWrap ) ;
         {
         while( !ether && !bQuitP && !bQuit && !etThread )
-        CONoUTrAW3( "tmRelayTeatServerF: client is " , idAdamClient , "\r\n" ) ;
+        etThread.traceF( tinP , T("tmRelayTeatServerF: client is ")+TF2(idAdamClient,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
 
         etThread.osThreadF( tinP , countTC() , tmRelayServerWrapToAppF , &sgnDone_tmRelayServerWrapToAppF , flTHREADlAUNCH_null , 0 , (countT)&bQuit , (countT)&psoP , (countT)&stWrapRef , (countT)&stChannelInclude , (countT)&stChannelExclude , idAdamClient ) ;
         signC sgnDone_tmRelayServerWrapToAppF( tinP , TAG( TAGiDnULL ) ) ;

@@ -9,12 +9,22 @@
 
 DONE( tmRelayPopClientF )
 }
-    if( POOP ) POOPR
+    }
+        POOPR
+        etThread.traceF( tinP , T("probable coding error: still impotent 1") ) ;
+    {
+    if( POOP )
+
     }
         TELL( "tmRelayPopClientF: cleaning up" )
     
         DEL( pso ) ;
-        if( POOP ) POOPR
+        }
+            POOPR
+            etThread.traceF( tinP , T("probable coding error: still impotent 2") ) ;
+        {
+        if( POOP )
+
         }
             }
                 etThread( tinP , psBag ) ;
@@ -32,7 +42,8 @@ DONE( tmRelayPopClientF )
                                 stPop.insertF( tinP , (countT)psBag , ifcSTACKtYPE_PTR_soulC , 1 ) ;
                             {
                             if( !ether && !bQuitP )
-                            POOPR
+                            etThread.traceF( tinP , T("could not write bag") ) ;
+                            POOPRqUIET
                         {
                         if( POOP )
                         TELL( "reading ok-" )
@@ -57,9 +68,10 @@ DONE( tmRelayPopClientF )
                 idptServerCorrect = 0 ;
                 }
                     }
+                        etThread.traceF( tinP , T("could not say hello to correct client") ) ;
                         idptServer = 0 ;
-                        POOPR
                         DEL( pso ) ;
+                        POOPRqUIET
                     {
                     if( POOP )
                     TELL( "reading ok-" )
@@ -75,13 +87,18 @@ DONE( tmRelayPopClientF )
                 else
                 }
                     idptServer = 0 ;
-                    POOPR
+                    etThread.traceF( tinP , T("could not connect to correct client") ) ;
                     DEL( pso ) ;
+                    POOPRqUIET
                 {
                 else if( POOP )
                 }
                     idptServer = 0 ;
-                    if( POOP ) POOPR
+                    }
+                        etThread.traceF( tinP , T("quitting, so am not going to connect to correct client") ) ;
+                        POOPRqUIET
+                    {
+                    if( POOP )
                     DEL( pso ) ;
                     //P: CLIENTS THAT ARE QUITTING ARE RUDE WHEN CLOSING CONNECTION
                 {
@@ -97,7 +114,11 @@ DONE( tmRelayPopClientF )
             }
                 idptServer = 0 ;
                 DEL( pso ) ;
-                if( POOP ) POOPR
+                }
+                    etThread.traceF( tinP , T("could not say bye to stale (incorrect) client") ) ;
+                    POOPRqUIET
+                {
+                if( POOP )
                 TELL( "reading ok-" )
                 VERIFYrELAY( *pso ) ;
                 TELL( "reading ok+ 2" )
