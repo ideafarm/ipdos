@@ -9,32 +9,25 @@
 
 REST
 
-etThread.traceF( tinP , T("ifcIDaDAM_KERNEL3BANG / ----") ) ;
-
 }
     while( cRelays ) { ++ s ; etThread.osSleepF( tinP , TUCK * 0x40 ) ; }
 
-    etThread.traceF( tinP , T("ifcIDaDAM_KERNEL3BANG / launched tmRelayF") ) ;
+    etThread.osThreadF( TaRG1( tmTestF ) ) ;
 
     }
         ++ s ; etThread.osSleepF( tinP , TOCK ) ;
-        cRelays ++ ; etThread.osThreadF( tinP , countTC() , tmRelayF , 0 , flTHREADlAUNCH_null , 0 , (countT)&cRelays ) ;
+        cRelays ++ ; etThread.osThreadF( TaRG1( tmRelayF ) , (countT)&cRelays ) ;
     {
-    while( cTries -- )
-    countT cTries = 1 ;
+    while( cDo -- )
+    countT cDo = 1 ;
     sleepC s( tinP , TAG( TAGiDnULL ) ) ;
-
-    etThread.traceF( tinP , T("ifcIDaDAM_KERNEL3BANG / launching tmRelayF") ) ;
 {
-
 ZE( countT , cRelays ) ;
     
 }
     host.idpTeat = idPortC() ;
     homeS& host = homeS::homeIF() ;
 {
-
-etThread.traceF( tinP , T("ifcIDaDAM_KERNEL3BANG / ++++") ) ;
 
 TODO
 
@@ -52,6 +45,51 @@ DONE( tmRelayF )
 if( pTaskP && pTaskP->c1 )
 TELL( "setting up" )
 TASK( tmRelayF )
+
+DONE( tmTestF )
+
+}
+    ++ s ; ether.osSleepF( tinP , TOCK >> 2 ) ;
+
+    etThread.cioPutF( tinP , bQuit , c8c , sGift ) ;
+{
+while( !ether )
+sleepC s( tinP , TAG( TAGiDnULL ) ) ;
+
+count8S c8c( 1 , 2 , 3 , 4 ) ;
+ZE( boolT , bQuit ) ;
+
+sGift << (strokeS*)tMsg ;
+TN( tMsg , "" ) ; tMsg = T("banged [nnMe,idHome]:    ")+T(nnMe)+T("    ")+TF2(processGlobal1S::_processGlobal1I_IF().idHome,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ;
+soulC sGift( tinP , TAG( TAGiDnULL ) ) ;
+
+nicNameC nnMe = socketC::nicNameIF( tinP , etThread , 0 ) ;
+
+etThread.cioSetGetF( tinP , cioGetF ) ;
+
+}
+    ++ s ; ether.osSleepF( tinP , TOCK << 3 ) ;
+    sleepC s( tinP , TAG( TAGiDnULL ) ) ;
+{
+
+TASK( tmTestF )
+
+}
+    }
+        DEL( psPayloadP ) ; //OPTIONAL
+        etherP.delF( tinP , pczChannelP ) ; //OPTIONAL
+        etherP.delF( tinP , psttMsg ) ;
+
+        etherP.traceF( tinP , T("cioGetF [channel,message]: ")+TF2(pczChannelP,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T(" \"")+T(psttMsg)+T("\"") ) ;
+
+        *psPayloadP >> psttMsg ; ___( psttMsg ) ;
+        ZE( strokeS* , psttMsg ) ;
+    {
+    if( idPayloadTypeP == ifcIDtYPEgIFT_APPLICATION )
+
+    //etherP.traceF( tinP , T("cioGetF [idPayloadTypeP]: ")+TF2(idPayloadTypeP,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
+{
+voidT cioGetF( tinS& tinP , etherC& etherP , const boolT& bQuitP , const countT idPayloadTypeP , soulC*& psPayloadP , countT*& pczChannelP , countT& cArgP , const idPortTimeC& idptOriginP )
 
 /*1*/WAKEhIDE( "ifcIDaDAM_KERNEL3BANG" )/*1*/
 /**/

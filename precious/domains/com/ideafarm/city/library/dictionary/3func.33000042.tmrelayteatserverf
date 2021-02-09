@@ -197,7 +197,8 @@ DONE( tmRelayTeatServerF )
                                 if( bDontHoldBreath ) relayC::doWrapLocallyIfIF( tinP , etThread , RELAYiNFOaRGS , *psWrap , idptP ) ;
             
                                 relayC::popIF( tinP , pStPop0P , pStPop1P , pStPop2P , pStPop3P , pStPop4P , *psBag , stIdptOpenP , stIdptGossipP , idptP ) ;
-                                CONoUTrAW5( "tmRelayTeatServerF: calling popIF [bRoot,bDontHoldBreath]: " , bRoot , " " , bDontHoldBreath , "\r\n" ) ;
+                                //tinP.pEther->traceF( tinP , T("tmRelayTeatServerF: calling popIF [bRoot,bDontHoldBreath]:    ")+TF2(bRoot,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+TF2(bDontHoldBreath,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
+
                                 *psBag << *psWrap ;
                                 relayC::hdrBagIF( tinP , *psBag , idptP , idSerialLathHeaderP , bRoot ? flRELAYpOP_UP : flRELAYpOP_DOWN , ifcIDtYPEbAG_WRAP ) ;
             
@@ -211,11 +212,11 @@ DONE( tmRelayTeatServerF )
                             etThread( tinP , psBag , TAG( TAGiDnULL ) ) ;
                             ZE( soulC* , psBag ) ;
         
-                            if( pczChannel && pczChannel[ 0 ] == ifcIDcHANNEL1_BYfUNCTION && pczChannel[ 1 ] == ifcIDcHANNELfUNCTION_MEDIATORrEGISTRATION ) { static countT idIn ; CONoUTrAW3( "" , ++idIn , " tmRelayTeatServerF: ifcIDtYPEwRAP_GIFT (mediator registration channel)\r\n" ) ; }
+                            if( pczChannel && pczChannel[ 0 ] == ifcIDcHANNEL1_BYfUNCTION && pczChannel[ 1 ] == ifcIDcHANNELfUNCTION_MEDIATORrEGISTRATION ) { static countT idIn ; tinP.pEther->traceF( tinP , TF2(++idIn,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T(" tmRelayTeatServerF: ifcIDtYPEwRAP_GIFT (mediator registration channel)") ) ; }
         
                             }
                                 THREADmODE1rESTORE
-                                CONoUTrAW( T("wrap from app for channel ")+T(pczChannel)+T("\r\n") ) ;
+                                //tinP.pEther->traceF( tinP , T("wrap from app for channel ")+T(pczChannel) ) ;
                                 THREADmODE1oN( flTHREADmODE1_ALLOWsTOPwHILEgRABBING )
                             {
                             else
@@ -282,8 +283,8 @@ DONE( tmRelayTeatServerF )
                     }
                         }
                             bQuit = 1 ;
-                            POOPR
-                            CONoUTrAW( "tmRelayTeatServerF / wrapper contains caca\r\n" ) ;
+                            POOPRqUIET
+                            tinP.pEther->traceF( tinP , T("tmRelayTeatServerF / wrapper contains garbage") ) ;
                         {
                         if( POOP )
                         __( psWrap->cFieldF( tinP , ifcIDfIELDwRAP_IDvERSION ) - 1 ) ; //idVersion

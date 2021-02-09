@@ -8,7 +8,7 @@ set ifc=d
 set scratch2=d
 set scratch=d
 
-set idHomeG=1
+if idHomeGz == z set idHomeG=1
 
 rem ARG 1: THE DESIRED DIRECTORY
 rem ARG 2: THE DESIRED DRIVE
@@ -110,9 +110,11 @@ if %1z == isz   goto :FIN
 if %1z == ibz  %ifc%:
 if %1z == ibz  cd\ideafarm.home.%idHomeG%\backed.up.daily
 if %1z == ibz  goto :FIN
+
 if %1z == mz   %ifc%:
 if %1z == mz   cd\ideafarm.home.%idHomeG%\ephemeral\domains\com\ideafarm\city\park\exedll\1\master
 if %1z == mz   goto :FIN
+
 if %1z == mhz   %ifc%:
 if %1z == mhz   cd\ideafarm.home.%idHomeG%\domains\com\ideafarm\city\park\exedll\1\master.hide
 if %1z == mhz   goto :FIN
@@ -122,9 +124,9 @@ rem    if %1z == maz   cd\ideafarm.home.%idHomeG%\domains\com\ideafarm\5100043b\
 rem U::if %1z == maz   %ifc%:
 rem U::if %1z == maz   cd\ideafarm.home.%idHomeG%\domains\com\ideafarm\5100043c\in\1
 if %1z == maz   goto :FIN
-if %1z == m2z   %ifc%:
-if %1z == m2z   cd\ideafarm.home.%idHomeG%\domains\com\ideafarm\masterC
-if %1z == m2z   goto :FIN
+rem if %1z == m2z   %ifc%:
+rem if %1z == m2z   cd\ideafarm.home.%idHomeG%\domains\com\ideafarm\masterC
+rem if %1z == m2z   goto :FIN
 if %1z == manz  cd\ideafarm.work\bench\man
 if %1z == manz  goto :FIN
 if %1z == naz  cd\ideafarm.work\bench\nullasm
