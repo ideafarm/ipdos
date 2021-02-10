@@ -91,7 +91,7 @@ DONE( tmRelayServerCatchBagF )
                         SCOOPS
                     {
                     IFsCRATCH
-                    etThread.traceF( tinP , T("writing sOk") ) ;
+                    //etThread.traceF( tinP , T("writing sOk") ) ;
                     TELL( "writing ok" )
                     //CONoUTrAW3( "tmCatchBagF " , idCatch , ": 1 writing ok\r\n" ) ; //U::
             
@@ -99,15 +99,14 @@ DONE( tmRelayServerCatchBagF )
                         }
                             //CONoUTrAW3( "tmCatchBagF " , idCatch , ": 3 after doing\r\n" ) ; //U::
                             }
-                                etThread.traceF( tinP , T("called doWrapLocallyIfIF") ) ;
+                                //etThread.traceF( tinP , T("called doWrapLocallyIfIF") ) ;
                                 relayC::doWrapLocallyIfIF( tinP , etThread , RELAYiNFOaRGS , pbsWrap , idptOrigin , 2 ) ;
                             {
                             if( pbsWrap )
                             //CONoUTrAW3( "tmCatchBagF " , idCatch , ": 4 doing\r\n" ) ; //U::
-                            etThread.traceF( tinP , T("called popIF") ) ;
+                            //etThread.traceF( tinP , T("called popIF") ) ;
                             relayC::popIF( tinP , pStPop0P , pStPop1P , pStPop2P , pStPop3P , pStPop4P , sBag , stIdptOpenP , stIdptGossipP , idptP ) ;
-                            etThread.traceF( tinP , T("debug 0 [idSerial,flags]:    ")+TF2(idSerial,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+TF2(flags,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
-                            etThread.traceF( tinP , T("calling popIF") ) ;
+                            //etThread.traceF( tinP , T("calling popIF") ) ;
                             //CONoUTrAW3( "tmCatchBagF " , idCatch , ": 5 popping\r\n" ) ; //U::
             
                             }
@@ -130,7 +129,7 @@ DONE( tmRelayServerCatchBagF )
         
                                     TELL( "ifcIDtYPEbAG_WRAP+" )
                                     //CONoUTrAW3( "tmCatchBagF " , idCatch , ": 6_WRAP\r\n" ) ; //U::
-                                    etThread.traceF( tinP , T("ifcIDtYPEbAG_WRAP") ) ;
+                                    //etThread.traceF( tinP , T("ifcIDtYPEbAG_WRAP") ) ;
                                 {
                                 case ifcIDtYPEbAG_WRAP :
                                 }
@@ -262,7 +261,6 @@ DONE( tmRelayServerCatchBagF )
                                 case ifcIDtYPEbAG_CLIENTpOPhELLO :
                             {
                             switch( idType ) //ALL PROCESSING HERE MUST BE FAST; LONG PROCESSING SHOULD BE DONE AFTER POPPING
-                            etThread.traceF( tinP , T("debug 1 [idSerial,flags]:    ")+TF2(idSerial,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+TF2(flags,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
                             if( POOP ) { BLAMMO ; }
                             ZE( byteT* , pbsWrap ) ;
                             TELL( "local processing" )
@@ -277,7 +275,6 @@ DONE( tmRelayServerCatchBagF )
                                 GRABrELAYlISTS
                                 //CONoUTrAW3( "tmCatchBagF " , idCatch , ": 9 grabbing lists\r\n" ) ; //U::
                             {
-                            etThread.traceF( tinP , T("debug 2 [idSerial,flags]:    ")+TF2(idSerial,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+TF2(flags,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
             
                             swsIdSerialReceivedP.ungrabF( tinP ) ;
                             }
@@ -306,11 +303,10 @@ DONE( tmRelayServerCatchBagF )
                             (
                             if
                             //CONoUTrAW3( "tmCatchBagF " , idCatch , ": a registering serial\r\n" ) ; //U::
-                            etThread.traceF( tinP , T("debug 3 [idSerial,flags]:    ")+TF2(idSerial,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+TF2(flags,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
             
                             UNGRABrELAYlISTS
                             }
-                                etThread.traceF( tinP , T("flipped flags from down to up [flags]:    ")+TF2(flags,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
+                                //etThread.traceF( tinP , T("flipped flags from down to up [flags]:    ")+TF2(flags,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
                                 flags |=      flRELAYpOP_UP      ;
                                 flags &= ~( F(flRELAYpOP_DOWN) ) ;
                             {
@@ -323,13 +319,12 @@ DONE( tmRelayServerCatchBagF )
                             (
                             if
                             //P: A SERVER THAT THINKS THAT IT IS ROOT WILL BANG MOST ITEMS IMPLODED DOWN INTO IT
-                            etThread.traceF( tinP , T("[bRoot]:    ")+TF2(bRoot,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
+                            //etThread.traceF( tinP , T("[bRoot]:    ")+TF2(bRoot,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
                             const boolT bRoot = 1 == stIdptOpenP( (byteT*)&idptP , subtractIdPortTimesF , (countT)&stIdptGossipP ) ;
                             //CONoUTrAW3( "tmCatchBagF " , idCatch , ": b inspecting whether i am root\r\n" ) ; //U::
                             GRABrELAYlISTS
                             //CONoUTrAW3( "tmCatchBagF " , idCatch , ": c.2 grabbing lists before inspecting for being root\r\n" ) ; //U::
-                            etThread.traceF( tinP , T("not already seen [idSerial,flags]:    ")+TF2(idSerial,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+TF2(flags,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
-                            etThread.traceF( tinP , T("debug 4 [idSerial,flags]:    ")+TF2(idSerial,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+TF2(flags,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
+                            //etThread.traceF( tinP , T("not already seen [idSerial,flags]:    ")+TF2(idSerial,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+TF2(flags,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
                         {
                         else
                         }
@@ -355,13 +350,12 @@ DONE( tmRelayServerCatchBagF )
         
                             swsIdSerialReceivedP.ungrabF( tinP ) ;
                             //CONoUTrAW3( "tmCatchBagF " , idCatch , ": c.1 serial already seen\r\n" ) ; //U::
-                            etThread.traceF( tinP , T("already seen [idSerial,flags]:    ")+TF2(idSerial,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+TF2(flags,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
+                            //etThread.traceF( tinP , T("already seen [idSerial,flags]:    ")+TF2(idSerial,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+TF2(flags,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
                         {
                         if( swsIdSerialReceivedP( idSerial ) || swsIdSerialReceivedAltP( idSerial ) )
                         idPortOriginP = idptOrigin ;
                         swsIdSerialReceivedP.grabF( tinP , TAG( TAGiDnULL ) ) ;
                         //CONoUTrAW3( "tmCatchBagF " , idCatch , ": d.2 inspecting serial\r\n" ) ; //U::
-                        etThread.traceF( tinP , T("debug 5 [idSerial,flags]:    ")+TF2(idSerial,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+TF2(flags,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
                     {
                     else
                     }
@@ -373,8 +367,7 @@ DONE( tmRelayServerCatchBagF )
                     TELL( "handling soul" )
                     //CONoUTrAW3( "tmCatchBagF " , idCatch , ": e inspecting for null serial\r\n" ) ; //U::
 
-                    etThread.traceF( tinP , T("debug 6 [idSerial,flags]:    ")+TF2(idSerial,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+TF2(flags,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
-                    etThread.traceF( tinP , T("[idSerial,flags]:    ")+TF2(idSerial,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+TF2(flags,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
+                    //etThread.traceF( tinP , T("[idSerial,flags]:    ")+TF2(idSerial,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+TF2(flags,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
             
                     countT   idType     = sBag.cFieldF( tinP , ifcIDfIELDbAG_IDtYPE ) ;
                     flagsT&  flags      = sBag.cFieldF( tinP , ifcIDfIELDbAG_FLAGS ) ;
@@ -398,11 +391,11 @@ DONE( tmRelayServerCatchBagF )
                 idPortTimeC idptNull ;
                 //CONoUTrAW3( "tmCatchBagF " , idCatch , ": j a bag has arrived\r\n" ) ; //U::
                 idCatch = 1 + incv02AM( idCatchLath ) ;
-                etThread.traceF( tinP , T("processing a bag") ) ;
+                //etThread.traceF( tinP , T("processing a bag") ) ;
             {
             if( !bFail )
 
-            etThread.traceF( tinP , T("readed  a bag") ) ;
+            //etThread.traceF( tinP , T("readed  a bag") ) ;
             }
                 }
                     tTraceFail = T("could not read sBag") ;
@@ -415,7 +408,7 @@ DONE( tmRelayServerCatchBagF )
                 SCOOPS
             {
             IFsCRATCH
-            etThread.traceF( tinP , T("reading a bag") ) ;
+            //etThread.traceF( tinP , T("reading a bag") ) ;
 
             //CONoUTrAW3( "tmCatchBagF " , idCatch , ": 0 waiting for a bag to arrive\r\n" ) ; //U::
             sBag.removeAllF( tinP ) ;
