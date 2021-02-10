@@ -51,7 +51,7 @@ DONE( tmRelayPopClientF )
                         TELL( "reading ok+ 5" )
                         pso->writeF( tinP , *psBag ) ;
                         TELL( "writing bang" )
-                        etThread.traceF( tinP , T("writing bang *psBag") ) ;
+                        etThread.traceF( tinP , TF2(idWorkP,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T(": writing [idType]:    ")+TF2(idType,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
                     {
                     if( idType != ifcIDtYPEbAG_CLIENTnULL )
                     countT idType = psBag->cFieldF( tinP , ifcIDfIELDbAG_IDtYPE ) ;
@@ -63,6 +63,7 @@ DONE( tmRelayPopClientF )
                 TELL( "pulling from stPop" )
             {
             while( stPop )
+            //etThread.traceF( tinP , TF2(idWorkP,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T(": writing from stPop [stPop]:    ")+TF2(stPop,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
             
             }
                 if( !ether && !bQuitP ) relayC::idptServerIF( tinP , idptServerCorrect , stIdptOpenP , idptP , stIdptGossipP , idWorkP ) ;
@@ -79,7 +80,7 @@ DONE( tmRelayPopClientF )
                     VERIFYrELAY( *pso ) ;
                     TELL( "reading ok+ 3" )
                     pso->writeF( tinP , sBagHello ) ;
-                    etThread.traceF( tinP , T("writing sBagHello") ) ;
+                    //etThread.traceF( tinP , T("writing sBagHello") ) ;
     
                     sBagHello << idWorkP ;
                     relayC::hdrBagIF( tinP , sBagHello , idptP , idSerialLathHeaderP , flRELAYpOP_null , ifcIDtYPEbAG_CLIENTpOPhELLO ) ;
@@ -128,7 +129,7 @@ DONE( tmRelayPopClientF )
                     }
                         etThread( tinP , psBag ) ;
                         pso->writeF( tinP , *psBag ) ;
-                        etThread.traceF( tinP , T("writing *psBag") ) ;
+                        //etThread.traceF( tinP , T("writing *psBag") ) ;
                         relayC::hdrBagIF( tinP , *psBag , idptP , idSerialLathHeaderP , flRELAYpOP_null , ifcIDtYPEbAG_CLIENTpOPbYE ) ;
                     {
                     if( psBag )
@@ -143,8 +144,13 @@ DONE( tmRelayPopClientF )
             relayC::idptServerIF( tinP , idptServerCorrect , stIdptOpenP , idptP , stIdptGossipP , idWorkP ) ;
             idPortTimeC idptServerCorrect ;
             TELL( "calculating idPortTimeCorrect" )
-    
-            else                  stPop.waitF( tinP ) ;
+
+            }
+                //etThread.traceF( tinP , TF2(idWorkP,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T(": waited  for a push") ) ;
+                stPop.waitF( tinP ) ;
+                //etThread.traceF( tinP , TF2(idWorkP,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T(": waiting for a push") ) ;
+            {    
+            else
             else if( bMoreToPop ) bMoreToPop = 0 ;
             if( bWoth )           bWoth = 0 ;
             TELL( " waiting for a push onto stPop" )

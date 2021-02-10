@@ -8,7 +8,7 @@ set ifc=d
 set scratch2=d
 set scratch=d
 
-if idHomeGz == z set idHomeG=1
+if %idHomeG%z == z set idHomeG=1
 
 rem ARG 1: THE DESIRED DIRECTORY
 rem ARG 2: THE DESIRED DRIVE

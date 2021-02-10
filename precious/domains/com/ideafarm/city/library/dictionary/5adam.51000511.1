@@ -12,7 +12,7 @@ REST
 }
     while( cRelays ) { ++ s ; etThread.osSleepF( tinP , TUCK * 0x40 ) ; }
 
-    /*if( etherC::ifc_idHomeIdisk_IF() > 1 )*/ etThread.osThreadF( TaRG1( tmTestF ) ) ;
+    if( etherC::ifc_idHomeIdisk_IF() > 1 ) etThread.osThreadF( TaRG1( tmTestF ) ) ;
 
     }
         ++ s ; etThread.osSleepF( tinP , TOCK ) ;
@@ -47,13 +47,17 @@ DONE( tmTestF )
 }
     ++ s ; ether.osSleepF( tinP , TOCK >> 2 ) ;
 
-    etThread.cioPutF( tinP , bQuit , c8c , sGift ) ;
+    etThread.cioPutF( tinP , bQuit , c8c , sGift , &sTo , &sToMediator ) ;
 {
 while( !ether )
 sleepC s( tinP , TAG( TAGiDnULL ) ) ;
 
 count8S c8c( 1 , 2 , 3 , 4 ) ;
 ZE( boolT , bQuit ) ;
+
+soulC sToMediator( tinP , TAG( TAGiDnULL ) ) ;
+soulC sTo( tinP , TAG( TAGiDnULL ) ) ;
+
 
 sGift << (strokeS*)tMsg ;
 TN( tMsg , "" ) ; tMsg = T("banged [nnMe,idHome]:    ")+T(nnMe)+T("    ")+TF2(processGlobal1S::_processGlobal1I_IF().idHome,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ;
