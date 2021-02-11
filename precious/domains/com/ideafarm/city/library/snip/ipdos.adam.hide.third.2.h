@@ -29183,7 +29183,7 @@ applications should avoid using thirdC objects
   //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34084.thirdC.s_putHostLogEntryF!||
   countT s_readF( tinS& tinP , byteT* const pbP , const countT cbP , handleC& handleP , const flagsT flagsP = flSOCKETcrEAD_null , const countT time1P = 0 , const sCountT time2P = 0 , const countT idModeP = ifcIDmODEsOCKETS_NOTeNCRYPTED ) ;
   //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3403b.thirdC.s_readF!||
-  voidT s_readF( tinS& tinP , byteT*& pbP , countT& cbP , countT& idPortP , nicNameC& nicNameP , handleC& handleP , const countT time1P = 0 , const sCountT time2P = 0 ) ;
+  voidT s_readF( tinS& tinP , byteT*& pbP , countT& cbP , countT& idPortP , nicNameC& nicNameP , handleC& handleP , const countT time1P = 0 , const sCountT time2P = 0 , const countT idModeP = ifcIDmODEsOCKETS_NOTeNCRYPTED ) ;
   //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.340b0.thirdC.s_readF!||
   voidT s_readF( tinS& tinP , soulC& soulP , countT& idPortP , nicNameC& nicNameP , handleC& handleP , const countT time1P = 0 , const sCountT time2P = 0 , const countT idModeP = ifcIDmODEsOCKETS_NOTeNCRYPTED ) ;
   //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.340bd.thirdC.s_readF!||
