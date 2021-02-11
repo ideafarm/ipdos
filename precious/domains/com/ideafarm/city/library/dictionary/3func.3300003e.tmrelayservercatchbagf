@@ -399,16 +399,22 @@ DONE( tmRelayServerCatchBagF )
             //etThread.traceF( tinP , T("readed  a bag") ) ;
             }
                 }
-                    tTraceFail = T("could not read sBag") ;
+                    tTraceFail = T("could not read sBag, so client is gone, so i'm done") ;
                     bFail = 1 ;
-                    POOPR
+                    POOPRqUIET
                 {
                 if( POOP )
 
                 tinP.pcUtility[ 0 ] -- ; //U:: TO FIND A BUG
+                tinP.pcUtility[ 1 ] = 0 ; //U:: TO FIND A BUG
                 psoP->readF( tinP , sBag ) ;
+                tinP.pcUtility[ 1 ] = idIn ; //U:: TO FIND A BUG
                 tinP.pcUtility[ 0 ] ++ ; //U:: TO FIND A BUG
                 SCOOPS
+
+countT idIn = 1 + incv02AM( idInLath ) ;
+static countT idInLath ;
+//U::
             {
             IFsCRATCH
             //etThread.traceF( tinP , T("reading a bag") ) ;

@@ -47,7 +47,16 @@ DONE( _tmCatchF )
             if( bQuit_tmCatch )
             TELL( "handling a soulC object that just arrived in a datagram" )
 
-            thThread.s_readF( tinP , *pSouli , idpi , nicNamei , hsoc ) ;
+            }
+                thThread.delF( tinP , pbi ) ;
+                pSouli->shiftLeftF( tinP , ifcIDtYPEsOULiTEM_soulC , pbi , cbi , flSOULiTEM_null , flSOULsHIFTlEFT_UNPACKsOULiMAGE ) ;
+                thThread.s_readF( tinP , pbi , cbi , idpi , nicNamei , hsoc ) ; ___( pbi ) ;
+                ZE( countT , cbi ) ;
+                ZE( byteT* , pbi ) ;
+            {                           //20210210@1928: UNTESTED BLOCK ; WRITTEN WHEN REMOVED API SUPPORT FOR s_readF TO soulC FROM DATAGRAM
+            //U:: MOVE THIS INTO THE API (20210210@1928: THE EXISTING API WAS REMOVED BECAUSE IT WAS CODED WRONG AND WAS REDUNDANT ; SUPPORT FOR THIS SHOULD BE A SIMPLE WRAPPER OVERLOAD OF s_readF THAT CONTAINS THE CODE HERE)
+
+            thThread.s_readF( tinP , *pSouli , hsoc ) ;
             TELL( "waiting for a soulC object to arrive in a datagram" )
             nicNameC nicNamei ;
             ZE( countT , idpi ) ;
