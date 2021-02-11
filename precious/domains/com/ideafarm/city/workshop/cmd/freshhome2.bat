@@ -17,5 +17,8 @@ cd d:\ideafarm.home.2\ephemeral\domains\com\ideafarm\city\park\exedll\1\hover
 del */q
 copy d:\ideafarm.home.1\ephemeral\domains\com\ideafarm\city\park\exedll\1\hover\*
 
+cd d:\ideafarm.home.2\ephemeral\domains\com\ideafarm\city\workshop\2source
+del */q
+copy d:\ideafarm.home.1\ephemeral\domains\com\ideafarm\city\workshop\2source\*
 
 :FIN

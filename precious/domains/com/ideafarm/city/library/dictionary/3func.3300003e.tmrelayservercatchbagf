@@ -9,59 +9,59 @@
 
 DONE( tmRelayServerCatchBagF )
 }
+    if( !bSaidBye && !ether && !bQuitP ) ;
+    //CONoUTrAW3( "tmCatchBagF " , idCatch , ": thread ending\r\n" ) ; //U::
+
+    if( POOP ) { BLAMMO ; } //U:: TO FIND A BUG
+
     }
-        if( !bSaidBye && !ether && !bQuitP ) ;
-        //CONoUTrAW3( "tmCatchBagF " , idCatch , ": thread ending\r\n" ) ; //U::
-    
-        if( POOP ) { BLAMMO ; } //U:: TO FIND A BUG
+        etThread( tinP , psBag ) ;
 
         }
-            etThread( tinP , psBag ) ;
-    
-            }
-                relayC::popIF( tinP , pStPop0P , pStPop1P , pStPop2P , pStPop3P , pStPop4P , *psBag , stIdptOpenP , stIdptGossipP , idptP ) ;
-                idptPopClient >> *psBag ;
-                relayC::hdrBagIF( tinP , *psBag , idptP , idSerialLathHeaderP , flRELAYpOP_DOWN , ifcIDtYPEbAG_CLIENTpOPgOSSIP ) ;
-            {
-            if( bPop )
-    
-            UNGRABrELAYlISTS
-            }
-                else bPop = 1 ;
-                }
-                    relayC::sortOpenIF( tinP , stIdptOpenP , stIdptGossipP , stIdptTempP ) ;
-                    stIdptGossipP.sinkF( tinP , countTC() , (byteT*)&idptPopClient , flSTACKsINK_UNIQUE , subtractIdPortsF , - 1 ) ;
-                {
-                if( pnRoot && *pnRoot == idptP )
-                //P: SERVER WILL GOSSIP IF A POP CLIENT IMPLODING DOWNWARD TO IT DIED WITHOUT SAYING GOODBYE
-            {
-            if( idptPopClient && !bSaidBye && !bQuitP && idWork == IDtYPErELAYpOPcLIENTwORK_IMPLODE ) //THIS CODE WILL NEVER GOSSIP ABOUT THE ROOT
-            idPortTimeC* pnRoot = stIdptOpenP ? (idPortTimeC*)&stIdptOpenP[ 1 ] : 0 ;
-            GRABrELAYlISTS
-            ZE( boolT , bPop ) ;
+            relayC::popIF( tinP , pStPop0P , pStPop1P , pStPop2P , pStPop3P , pStPop4P , *psBag , stIdptOpenP , stIdptGossipP , idptP ) ;
+            idptPopClient >> *psBag ;
+            relayC::hdrBagIF( tinP , *psBag , idptP , idSerialLathHeaderP , flRELAYpOP_DOWN , ifcIDtYPEbAG_CLIENTpOPgOSSIP ) ;
         {
-        if( psBag )
-        etThread( tinP , psBag , TAG( TAGiDnULL ) ) ;
-        ZE( soulC* , psBag ) ;
-    
-        }
-            stIdptPopClientP.ungrabF( tinP ) ;
-            if( stIdptPopClientP( (byteT*)&idptPopClient , subtractIdPortTimesF , - 1 ) ) stIdptPopClientP.extractF( 0 , tinP ) ;
-            stIdptPopClientP.grabF( tinP , TAG( TAGiDnULL ) ) ;
-        {
-        if( bPopClient )
-        TELL( "tmRelayServerCatchBagF: cleaning up" )
-    
-        }
-            DEL( psoP ) ;
-            stPsoServerP.ungrabF( tinP ) ;
-            if( stPsoServerP( (countT)psoP ) ) stPsoServerP.extractF( tinP ) ;
-            stPsoServerP.grabF( tinP , TAG( TAGiDnULL ) ) ;
-        {
-        if( psoP )
-        TELL( "deleting socket" )
-        //CONoUTrAW3( "tmCatchBagF " , idCatch , ": exited loop; deleting socket\r\n" ) ; //U::
+        if( bPop )
 
+        UNGRABrELAYlISTS
+        }
+            else bPop = 1 ;
+            }
+                relayC::sortOpenIF( tinP , stIdptOpenP , stIdptGossipP , stIdptTempP ) ;
+                stIdptGossipP.sinkF( tinP , countTC() , (byteT*)&idptPopClient , flSTACKsINK_UNIQUE , subtractIdPortsF , - 1 ) ;
+            {
+            if( pnRoot && *pnRoot == idptP )
+            //P: SERVER WILL GOSSIP IF A POP CLIENT IMPLODING DOWNWARD TO IT DIED WITHOUT SAYING GOODBYE
+        {
+        if( idptPopClient && !bSaidBye && !bQuitP && idWork == IDtYPErELAYpOPcLIENTwORK_IMPLODE ) //THIS CODE WILL NEVER GOSSIP ABOUT THE ROOT
+        idPortTimeC* pnRoot = stIdptOpenP ? (idPortTimeC*)&stIdptOpenP[ 1 ] : 0 ;
+        GRABrELAYlISTS
+        ZE( boolT , bPop ) ;
+    {
+    if( psBag )
+    etThread( tinP , psBag , TAG( TAGiDnULL ) ) ;
+    ZE( soulC* , psBag ) ;
+
+    }
+        stIdptPopClientP.ungrabF( tinP ) ;
+        if( stIdptPopClientP( (byteT*)&idptPopClient , subtractIdPortTimesF , - 1 ) ) stIdptPopClientP.extractF( 0 , tinP ) ;
+        stIdptPopClientP.grabF( tinP , TAG( TAGiDnULL ) ) ;
+    {
+    if( bPopClient )
+    TELL( "tmRelayServerCatchBagF: cleaning up" )
+
+    }
+        DEL( psoP ) ;
+        stPsoServerP.ungrabF( tinP ) ;
+        if( stPsoServerP( (countT)psoP ) ) stPsoServerP.extractF( tinP ) ;
+        stPsoServerP.grabF( tinP , TAG( TAGiDnULL ) ) ;
+    {
+    if( psoP )
+    TELL( "deleting socket" )
+    //CONoUTrAW3( "tmCatchBagF " , idCatch , ": exited loop; deleting socket\r\n" ) ; //U::
+
+    }
         }
             }
                 break ;
@@ -401,11 +401,13 @@ DONE( tmRelayServerCatchBagF )
                 }
                     tTraceFail = T("could not read sBag") ;
                     bFail = 1 ;
-                    POOPRqUIET
+                    POOPR
                 {
                 if( POOP )
 
+                tinP.pcUtility[ 0 ] -- ; //U:: TO FIND A BUG
                 psoP->readF( tinP , sBag ) ;
+                tinP.pcUtility[ 0 ] ++ ; //U:: TO FIND A BUG
                 SCOOPS
             {
             IFsCRATCH
@@ -415,26 +417,28 @@ DONE( tmRelayServerCatchBagF )
             sBag.removeAllF( tinP ) ;
             TELL( "reading soul" )
 
+            sOk << ifcIDtYPEbAG_SERVERoK ;
+            soulC sOk(  tinP , *tinP.pEtScratch , TAG( TAGiDnULL ) ) ;
+            soulC sBag( tinP , *tinP.pEtScratch , TAG( TAGiDnULL ) ) ;
             ZE( boolT , bFail ) ;
         {
-        while( !etThread && !ether && !bQuitP && psoP )
-        TN( tTraceFail , "" ) ;
-        ZE( countT , idCatch ) ;
-        static countT idCatchLath ;
-        stackC stIdMe( tinP , etThread , TAG( TAGiDnULL ) ) ;
-        ZE( boolT  , bSaidBye ) ;
-        ZE( countT , idWork ) ;
-        ZE( boolT  , bPopClient ) ;
-        ZE( countT , idPingLath ) ;
-        idPortTimeC idptOriginLathGood ;
-        idPortTimeC idptPopClient ;
+        IFsCRATCH
+    {
+    while( !etThread && !ether && !bQuitP && psoP )
+    TN( tTraceFail , "" ) ;
+    ZE( countT , idCatch ) ;
+    static countT idCatchLath ;
+    stackC stIdMe( tinP , etThread , TAG( TAGiDnULL ) ) ;
+    ZE( boolT  , bSaidBye ) ;
+    ZE( countT , idWork ) ;
+    ZE( boolT  , bPopClient ) ;
+    ZE( countT , idPingLath ) ;
+    idPortTimeC idptOriginLathGood ;
+    idPortTimeC idptPopClient ;
 
-        sOk << ifcIDtYPEbAG_SERVERoK ;
-        soulC sOk(  tinP , *tinP.pEtScratch , TAG( TAGiDnULL ) ) ;
-        soulC sBag( tinP , *tinP.pEtScratch , TAG( TAGiDnULL ) ) ;
-    
-        stPsoServerP.sinkF( tinP , countTC() , (countT)psoP , flSTACKsINK_UNIQUE ) ;
+    stPsoServerP.sinkF( tinP , countTC() , (countT)psoP , flSTACKsINK_UNIQUE ) ;
 
+    }
         psoP->etherF( tinP , *tinP.pEtScratch ) ;
     {
     IFsCRATCH

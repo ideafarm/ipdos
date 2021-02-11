@@ -33,7 +33,9 @@
                         VERIFYrELAY2( sock , *psBagOk ) ;
                         TELL( "reading ok+ 5" )
                         //CONoUTrAW( "helloToHandleIF: 4 reading the ok bag\r\n" ) ;
+                        tinP.pcUtility[ 0 ] -- ; //U:: TO FIND A BUG
                         sock.writeF( tinP , *psBag ) ; //ASSUME: SERVER WILL, IF ROOT, ADD ME TO ITS LIST
+                        tinP.pcUtility[ 0 ] ++ ; //U:: TO FIND A BUG
                         //CONoUTrAW( "helloToHandleIF: 5 writing the hello bag\r\n" ) ;
                         tinP.pEther->traceF( tinP , T("writing hello bag") ) ;
             

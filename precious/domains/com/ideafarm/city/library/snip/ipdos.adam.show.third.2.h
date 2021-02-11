@@ -28424,7 +28424,6 @@ features
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.diskWalkCopyInfoS : 1snip.15000135.diskwalkcopyinfos END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.thirdC : 1snip.15000003.thirdc BEGIN
 
-
 //
 // Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
@@ -29186,9 +29185,9 @@ applications should avoid using thirdC objects
   //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3403b.thirdC.s_readF!||
   voidT s_readF( tinS& tinP , byteT*& pbP , countT& cbP , countT& idPortP , nicNameC& nicNameP , handleC& handleP , const countT time1P = 0 , const sCountT time2P = 0 ) ;
   //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.340b0.thirdC.s_readF!||
-  voidT s_readF( tinS& tinP , soulC& soulP , handleC& handleP , const countT time1P = 0 , const sCountT time2P = 0 , const countT idModeP = ifcIDmODEsOCKETS_NOTeNCRYPTED ) ;
+  voidT s_readF( tinS& tinP , soulC& soulP , countT& idPortP , nicNameC& nicNameP , handleC& handleP , const countT time1P = 0 , const sCountT time2P = 0 , const countT idModeP = ifcIDmODEsOCKETS_NOTeNCRYPTED ) ;
   //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.340bd.thirdC.s_readF!||
-  voidT s_readF( tinS& tinP , soulC& soulP , countT& idPortP , nicNameC& nicNameP , handleC& handleP , const countT time1P = 0 , const sCountT time2P = 0 ) ;
+  voidT s_readF( tinS& tinP , soulC& soulP , handleC& handleP , const countT time1P = 0 , const sCountT time2P = 0 , const countT idModeP = ifcIDmODEsOCKETS_NOTeNCRYPTED ) ;
   //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.340be.thirdC.s_readF!||
   static countT s_readIF( tinS& tinP , byteT* const pbP , const countT cbP , handleC& handleP , const flagsT flagsTcpP = 0 , const flagsT flagsP = flSOCKETcrEAD_null ) ;
   //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.350011ac.thirdc.s_readif!||

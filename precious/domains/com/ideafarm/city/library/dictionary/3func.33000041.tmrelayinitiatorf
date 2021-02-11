@@ -13,7 +13,7 @@ tinP.idPhase2 = 0 ;
     }
         while( cTries -- && ( !bRoot || ( cGossipPopped == cGossipInP ) ) ) { ++ s ; ether.osSleepF( tinP , TUCK * 0x80 ) ; }
         //P: A ROOT RELAY WILL CONTINUE IMMEDIATELY TO NEXT CYCLE IF IT HAS RECEIVED NEW GOSSIP
-        countT cTries = TUCK / 0x10 ;
+        countT cTries = /*U:: TUCK / 0x10 */ 1 ; //U::TO FIND A BUG
         sleepC s( tinP , TAG( TAGiDnULL ) ) ;
         TELL( "napping" )
         //CONoUTrAW( "tmRelayInitiatorF: 0 napping\r\n" ) ;
