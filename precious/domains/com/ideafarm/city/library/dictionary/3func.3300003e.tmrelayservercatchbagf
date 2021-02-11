@@ -72,7 +72,7 @@ DONE( tmRelayServerCatchBagF )
                     stPsoServerP.grabF( tinP , TAG( TAGiDnULL ) ) ;
                 {
                 if( psoP )
-                etThread.traceF( tinP , tTraceFail ) ;
+                if( tTraceFail.csF( tinP ) ) etThread.traceF( tinP , tTraceFail ) ;
             {
             if( bFail )
 
@@ -270,7 +270,12 @@ DONE( tmRelayServerCatchBagF )
                             }
                                 UNGRABrELAYlISTS
                                 //P: A SERVER THAT THINKS THAT IT IS ROOT WILL ADD UNKNOWN ORIGIN RELAYS TO ITS LIST
-                                if( ideMe == 1 && idptOrigin && !relayC::bListedIF( tinP , stIdptOpenP , stIdptGossipP , idptOrigin ) ) stIdptOpenP.sinkF( tinP , countTC() , (byteT*)&idptOrigin , flSTACKsINK_UNIQUE , subtractIdPortTimesF , (countT)&stIdptGossipP ) ;
+                                }
+                                    etThread.traceF( tinP , T("registered origin [cNodes,idptOrigin]:    ")+TF2(stIdptOpenP,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+TF2(nn4,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
+                                    countT nn4 = *(const countT*)(nicNameC&)idptOrigin ;
+                                    stIdptOpenP.sinkF( tinP , countTC() , (byteT*)&idptOrigin , flSTACKsINK_UNIQUE , subtractIdPortTimesF , (countT)&stIdptGossipP ) ;
+                                {
+                                if( ideMe == 1 && idptOrigin && !relayC::bListedIF( tinP , stIdptOpenP , stIdptGossipP , idptOrigin ) )
                                 countT ideMe = stIdptOpenP( (byteT*)&idptP , subtractIdPortTimesF , (countT)&stIdptGossipP ) ;
                                 //CONoUTrAW3( "tmCatchBagF " , idCatch , ": 8 after grabbing lists\r\n" ) ; //U::
                                 GRABrELAYlISTS
@@ -325,7 +330,17 @@ DONE( tmRelayServerCatchBagF )
                             //CONoUTrAW3( "tmCatchBagF " , idCatch , ": b inspecting whether i am root\r\n" ) ; //U::
                             GRABrELAYlISTS
                             //CONoUTrAW3( "tmCatchBagF " , idCatch , ": c.2 grabbing lists before inspecting for being root\r\n" ) ; //U::
-                            //etThread.traceF( tinP , T("not already seen [idSerial,flags]:    ")+TF2(idSerial,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+TF2(flags,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
+
+                            //}
+                            //    }
+                            //        etThread.traceF( tinP , T("foreign") ) ;
+                            //    {
+                            //    if( nn4 != 0x266f9365 )
+                            //    //etThread.traceF( tinP , T("[nn4]:    ")+TF2(nn4,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
+                            //    countT nn4 = *(const countT*)(nicNameC&)idptOrigin ;
+                            //{
+
+                            //etThread.traceF( tinP , T("not fooey already seen [idSerial,flags,itType]:    ")+TF2(idSerial,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+TF2(flags,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+TF2(idType,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
                         {
                         else
                         }
@@ -351,7 +366,7 @@ DONE( tmRelayServerCatchBagF )
         
                             swsIdSerialReceivedP.ungrabF( tinP ) ;
                             //CONoUTrAW3( "tmCatchBagF " , idCatch , ": c.1 serial already seen\r\n" ) ; //U::
-                            //etThread.traceF( tinP , T("already seen [idSerial,flags]:    ")+TF2(idSerial,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+TF2(flags,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
+                            //etThread.traceF( tinP , T("already seen [idSerial,flags,itType]:    ")+TF2(idSerial,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+TF2(flags,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+TF2(idType,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
                         {
                         if( swsIdSerialReceivedP( idSerial ) || swsIdSerialReceivedAltP( idSerial ) )
                         idPortOriginP = idptOrigin ;
@@ -393,28 +408,20 @@ DONE( tmRelayServerCatchBagF )
                 //CONoUTrAW3( "tmCatchBagF " , idCatch , ": j a bag has arrived\r\n" ) ; //U::
                 idCatch = 1 + incv02AM( idCatchLath ) ;
                 //etThread.traceF( tinP , T("processing a bag") ) ;
+                cBagsCaught ++ ;
             {
             if( !bFail )
 
             //etThread.traceF( tinP , T("readed  a bag") ) ;
             }
                 }
-                    tTraceFail = T("could not read sBag, so client is gone, so i'm done") ;
+                    if( !cBagsCaught ) tTraceFail = T("could not read woth sBag, so client is gone without sending me a bag, so i'm done") ;
                     bFail = 1 ;
                     POOPRqUIET
                 {
                 if( POOP )
-
-                tinP.pcUtility[ 0 ] -- ; //U:: TO FIND A BUG
-                tinP.pcUtility[ 1 ] = 0 ; //U:: TO FIND A BUG
                 psoP->readF( tinP , sBag ) ;
-                tinP.pcUtility[ 1 ] = idIn ; //U:: TO FIND A BUG
-                tinP.pcUtility[ 0 ] ++ ; //U:: TO FIND A BUG
                 SCOOPS
-
-countT idIn = 1 + incv02AM( idInLath ) ;
-static countT idInLath ;
-//U::
             {
             IFsCRATCH
             //etThread.traceF( tinP , T("reading a bag") ) ;
@@ -431,6 +438,7 @@ static countT idInLath ;
         IFsCRATCH
     {
     while( !etThread && !ether && !bQuitP && psoP )
+    ZE( countT , cBagsCaught ) ;
     TN( tTraceFail , "" ) ;
     ZE( countT , idCatch ) ;
     static countT idCatchLath ;
