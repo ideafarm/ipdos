@@ -220,24 +220,32 @@
     
         idPort = socketC::nicNameIF( tinP , etThread ) ;
 
+        etThread.traceF( tinP , T("bind aok [idptHandle:nn,idPort]:    ")+T((nicNameC&)idptHandle)+T("    ")+TF2((countT&)idptHandle,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
+        sListen.etherF( tinP , etThread ) ;
+
         }
-            etThread.traceF( tinP , T("bind aok [idptHandle:nn,idPort]:    ")+T((nicNameC&)idptHandle)+T("    ")+TF2((countT&)idptHandle,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
-            sListen.etherF( tinP , etThread ) ;
-            SCOOPSdEL
+            }
+                }
+                    idpTry ++ ;
+                    etThread.traceF( tinP , T("could not bind to requested port [idPort]:    ")+TF2(idpTry,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
+                    idPort = idPortC() ;
+                    POOPRqUIET
+                {
+                else
+                }
+                    break ;
+                    etThread.traceF( tinP , T("bind aok to requested port [idPort]:    ")+TF2(idpTry,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
+                {
+                if( !POOP )
+                idPort = sListen.bindF( tinP , idpTry , nicNameC() , 1 ) ;
+            {
+            for(;;)
+            countT idpTry = ifcIDpORT_RELAY ;
+
+            SCOOPS
         {
-        else
-        }
-            etThread.traceF( tinP , T("bound aok to idPort [idPort:nn,idPort]:    ")+T((nicNameC&)idPort)+T("    ")+TF2((countT&)idPort,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
-            idPort = sListen.bindF( tinP ) ;
-            sListen.etherF( tinP , etThread ) ;
-            SCOOPSdEL
-            POOPRqUIET
-            etThread.traceF( tinP , T("could not bind to preferred idPort [idptHandle:nn,idPort]:    ")+T((nicNameC&)idptHandle)+T("    ")+TF2((countT&)idptHandle,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
-        {
-        if( POOP || !idPort )
-        idPortC idPort = sListen.bindF( tinP , idptHandle , nicNameC() , 1 ) ;
+        idPortC idPort ;
         socketC sListen( tinP , *tinP.pEtScratch , TAG( TAGiDnULL )/*U:: , 0 , flSOCKETc_TOPsECRET*/ ) ;
-        SCOOPSnEW
     {
     IFsCRATCH
 
