@@ -206,7 +206,7 @@ class   /*ff*/mapCTC/*ff*/                      ; /*ff*//**//*ff*/
 class   /*ff*/pauseC/*ff*/                      ; /*ff*//**//*ff*/
 struct /*ff*/strokingFrameS/*ff*/               ; /*ff*//**//*ff*/
 class   /*ff*/xrayC/*ff*/                       ; /*ff*//**//*ff*/
-class   /*ff*/earDropC/*ff*/                    ; /*ff*//**//*ff*/
+class   /*ff*/arrayOldC/*ff*/                    ; /*ff*//**//*ff*/
 class   /*ff*/vTextC/*ff*/                      ; /*ff*//**//*ff*/
 class   /*ff*/staqC/*ff*/                       ; /*ff*//**//*ff*/
 class   /*ff*/tcButtonC/*ff*/                   ; /*ff*//**//*ff*/

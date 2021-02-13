@@ -24,12 +24,12 @@
     else
     }
         }
-            pbP = (byteT*)ed - 3 * sizeof( countT ) ;
-            ((countT*)(byteT*)ed)[ - 2 ] = 1 ;
-            putNegAM( ((countT*)(byteT*)ed)[ - 3 ] , FINGERnEG_SOULc ) ;
+            pbP = (byteT*)aImage - 3 * sizeof( countT ) ;
+            ((countT*)(byteT*)aImage)[ - 2 ] = 1 ;
+            putNegAM( ((countT*)(byteT*)aImage)[ - 3 ] , FINGERnEG_SOULc ) ;
         {
         else
-        if( !(byteT*)ed ) pbP = (byteT*)pcZe ; 
+        if( !(byteT*)aImage ) pbP = (byteT*)pcZe ; 
     {
     if( !postNameJot )
 
@@ -51,8 +51,8 @@ countT pcZe[] = { -(sCountT)FINGERnEG_SOULc , 1 , 0 } ;
 
 /**/
 */
-  there appears to be a race condition when earDropC is reallocating
- i appear to be thread safe if jotC is used but not thread safe if earDropC is used
+  there appears to be a race condition when arrayOldC is reallocating
+ i appear to be thread safe if jotC is used but not thread safe if arrayOldC is used
 thread safety
  this comment is obsoleted by changes to the prolog format (addition of fingerprint and...
   the length prefix is a countT object that is set to the number of bytes that follow for one item

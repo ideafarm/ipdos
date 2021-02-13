@@ -24276,7 +24276,7 @@ the data portion of each plate is of size sizeof( countT )
 //
 
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.newsKnowS : 1snip.1500004a.newsknows END
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.earDropC : 1snip.1500007a.eardropc BEGIN
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.arrayOldC : 1snip.1500007a.arrayOldC BEGIN
 
 
 //
@@ -24287,15 +24287,12 @@ the data portion of each plate is of size sizeof( countT )
 //
 
 /*
-the class name "earDropC" derives from "extensible array of drops"
- U:: rename this class
- this class was a precursor to the arrayC class
- now its name is opaque and confusing
-  earDropC is similar to arrayC in its internals but not in its externals
+this class was a precursor to the arrayC class
+ arrayOldC is similar to arrayC in its internals but not in its externals
 */
 /**/
 
-/*1*/class _export earDropC/*1*/
+/*1*/class _export arrayOldC/*1*/
 {
     byteT* pbHave ;
     byteT* pbHaveEnd ;
@@ -24306,22 +24303,24 @@ the class name "earDropC" derives from "extensible array of drops"
 
     public :
 
-    ~earDropC( voidT ) ;
-    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34001.earDropC.dt_earDropC!||
-    earDropC( tinS& tinP , const flagsT flagsP = flEARdROPc_null , const countT cbHeaderP = 0 ) ;
-    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34002.earDropC.earDropC!||
+    ~arrayOldC( voidT ) ;
+    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34001.arrayOldC.dt_arrayOldC!||
+    arrayOldC( tinS& tinP , const flagsT flagsP = flEARdROPc_null , const countT cbHeaderP = 0 ) ;
+    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34002.arrayOldC.arrayOldC!||
     operator byteT*( voidT ) ;
-    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34003.earDropC.operator_byteT_ptr!||
+    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34003.arrayOldC.operator_byteT_ptr!||
     countT cbF( voidT ) ;
-    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34004.earDropC.cbF!||
+    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34004.arrayOldC.cbF!||
     voidT prependF( tinS& tinP , const byteT* const pbP , countT cbP = 0 ) ;
-    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34005.earDropC.prependF!||
+    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34005.arrayOldC.prependF!||
     voidT appendF( tinS& tinP , const byteT* const pbP , countT cbP = 0 ) ;
-    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34006.earDropC.appendF!||
+    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34006.arrayOldC.appendF!||
     countT freePrefixF( countT cbP = 1 ) ;
-    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34007.earDropC.freePrefixF!||
+    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34007.arrayOldC.freePrefixF!||
     countT freeSuffixF( countT cbP = 1 ) ;
-    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34008.earDropC.freeSuffixF!||
+    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34008.arrayOldC.freeSuffixF!||
+    voidT arrayOldC::purgeF( tinS& tinP ) ;
+    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3608b009.arrayOldC.purgeF!||
 }
 ;
 
@@ -24333,7 +24332,7 @@ the class name "earDropC" derives from "extensible array of drops"
 // Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
 
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.earDropC : 1snip.1500007a.eardropc END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.arrayOldC : 1snip.1500007a.arrayOldC END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.ag1_soulC_C : 1snip.150000d3.ag1_soulc_c BEGIN
 
 
@@ -24395,21 +24394,21 @@ the class name "earDropC" derives from "extensible array of drops"
 {
  public : //SO etherC CAN SEE THESE
  private :
- etherC&      ether ; //FOR SPEED
+ etherC&        ether ; //FOR SPEED
  const osTextT* const postName ;
  const osTextT* const postNameJot ;
- count9S      c9nu ;
- const poopC& poop ; // NOT SERIALIZED, FOR SPEED; APP MUST ENSURE THAT soulC IS REFERENCED BY SERIALIZED THREADS
- earDropC     ed ; // EACH VALUE IS THE ADDRESS OF A LENGTH PREFIXED IMAGE, WHERE THE LENGTH PREFIX IS 4 BYTES AND CONTAINS THE NET LENGTH OF THE REMAINING BYTES
- countT       cFields ; //NUMBER OF FIELDS STORED IN ed; TO AVOID NEED TO WALK ed TO COUNT FIELDS
- const countT idLineCt ;
- const countT idiFileCt ;
- const byteT  pbBitsCt[ CBbITScT ] ;
- countT       cNestTrace ;
- flagsT       flTrace ;
- countT       _idSlotJotRegistry1 ;
- jotC*        pJot ;
- const countT cbJotDataBook ;
+ count9S        c9nu ;
+ const poopC&   poop ; // NOT SERIALIZED, FOR SPEED; APP MUST ENSURE THAT soulC IS REFERENCED BY SERIALIZED THREADS
+ arrayOldC      aImage ; // EACH VALUE IS THE ADDRESS OF A LENGTH PREFIXED IMAGE, WHERE THE LENGTH PREFIX IS 4 BYTES AND CONTAINS THE NET LENGTH OF THE REMAINING BYTES
+ countT         cFields ; //NUMBER OF FIELDS STORED IN aImage; TO AVOID NEED TO WALK aImage TO COUNT FIELDS
+ const countT   idLineCt ;
+ const countT   idiFileCt ;
+ const byteT    pbBitsCt[ CBbITScT ] ;
+ countT         cNestTrace ;
+ flagsT         flTrace ;
+ countT         _idSlotJotRegistry1 ;
+ jotC*          pJot ;
+ const countT   cbJotDataBook ;
 
  voidT playPrivateF( tinS& tinP , byteT* pbP ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34052.soulC.playPrivateF!||
@@ -24419,7 +24418,7 @@ the class name "earDropC" derives from "extensible array of drops"
  public :
 
 /* face */
- flagsT       flags ;
+ flagsT         flags ;
 
 /* birth , death */
  NEWdELcLASSpROTOS
@@ -28424,6 +28423,7 @@ features
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.diskWalkCopyInfoS : 1snip.15000135.diskwalkcopyinfos END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.thirdC : 1snip.15000003.thirdc BEGIN
 
+
 //
 // Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
@@ -31706,6 +31706,7 @@ examples
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.ag1_etherC_C : 1snip.150000c7.ag1_etherc_c END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.etherC : 1snip.15000006.etherc BEGIN
 
+
 //
 // Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
@@ -33363,6 +33364,7 @@ each textC object contains an unmodifiable string of strokes
 
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.ag1_socketC_C : 1snip.150000d2.ag1_socketc_c END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.socketC : 1snip.1500000d.socketc BEGIN
+
 
 //
 // Copyright (c) 1992-2020 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.

@@ -3254,7 +3254,7 @@ void elf_obey_C::liveF( void )
                     "1snip.15*.arrayC"                          ,
                     "1snip.15*.soulC"                           ,
                     "1snip.15*.ag1_soulC_C"                     ,
-                    "1snip.15*.earDropC"                        ,
+                    "1snip.15*.arrayOldC"                       ,
                     //"1snip.15*.newsC"                         ,
                     "1snip.15*.newsKnowS"                       ,
                     "1snip.15*.nicNamesC"                       ,

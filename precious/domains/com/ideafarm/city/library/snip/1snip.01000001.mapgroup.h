@@ -199,7 +199,7 @@
     ((countT)0x36088) , "strokes" ,
     ((countT)0x36089) , "strokingframes" ,
     ((countT)0x3608a) , "xrayc" ,
-    ((countT)0x3608b) , "eardropc" ,
+    ((countT)0x3608b) , "arrayOldC" ,
     ((countT)0x3608c) , "vtextc" ,
     ((countT)0x3608d) , "staqc" ,
     ((countT)0x3608e) , "tcbuttonc" ,

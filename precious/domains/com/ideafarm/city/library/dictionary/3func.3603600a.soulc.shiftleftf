@@ -23,13 +23,13 @@
                         //U: FOR NON 386 HARDWARE (CAN DO MEMCOPY IFF LEAST SIGNIF NUMERIC BYTE IS AT LOWEST ADDRESS, AS ON INTEL HARDWARE
                     #else
                         }
-                            ed.prependF(  tinP , (byteT*)&idJot , sizeof idJot ) ;
+                            aImage.prependF(  tinP , (byteT*)&idJot , sizeof idJot ) ;
                             countT idJot = pJot->writeF( tinP , (byteT*)pci , sizeof pci , pbP , cbp ) ;
                         {
                         else
                         }
-                            ed.prependF( tinP , (byteT*)pci , sizeof pci ) ;
-                            ed.prependF( tinP , pbP , cbp ) ;
+                            aImage.prependF( tinP , (byteT*)pci , sizeof pci ) ;
+                            aImage.prependF( tinP , pbP , cbp ) ;
                         {
                         if( !pJot )
                     #if defined( __386__ )
@@ -37,13 +37,13 @@
                 else
                 }
                     }
-                        ed.prependF(  tinP , (byteT*)&idJot , sizeof idJot ) ;
+                        aImage.prependF(  tinP , (byteT*)&idJot , sizeof idJot ) ;
                         countT idJot = pJot->writeF( tinP , (byteT*)pci , sizeof pci , pbP , cbp ) ;
                     {
                     else
                     }
-                        ed.prependF( tinP , (byteT*)pci , sizeof pci ) ;
-                        ed.prependF( tinP , pbP , cbp ) ;
+                        aImage.prependF( tinP , (byteT*)pci , sizeof pci ) ;
+                        aImage.prependF( tinP , pbP , cbp ) ;
                     {
                     if( !pJot )
                 {
@@ -57,13 +57,13 @@
                         //U: FOR NON 386 HARDWARE (CAN DO MEMCOPY IFF LEAST SIGNIF NUMERIC BYTE IS AT LOWEST ADDRESS, AS ON INTEL HARDWARE
                     #else
                         }
-                            ed.appendF(  tinP , (byteT*)&idJot , sizeof idJot ) ;
+                            aImage.appendF(  tinP , (byteT*)&idJot , sizeof idJot ) ;
                             countT idJot = pJot->writeF( tinP , (byteT*)pci , sizeof pci , pbP , cbp ) ;
                         {
                         else
                         }
-                            ed.appendF( tinP , pbP , cbp ) ;
-                            ed.appendF( tinP , (byteT*)pci , sizeof pci ) ;
+                            aImage.appendF( tinP , pbP , cbp ) ;
+                            aImage.appendF( tinP , (byteT*)pci , sizeof pci ) ;
                         {
                         if( !pJot )
                     #if defined( __386__ )
@@ -71,13 +71,13 @@
                 else
                 }
                     }
-                        ed.appendF(  tinP , (byteT*)&idJot , sizeof idJot ) ;
+                        aImage.appendF(  tinP , (byteT*)&idJot , sizeof idJot ) ;
                         countT idJot = pJot->writeF( tinP , (byteT*)pci , sizeof pci , pbP , cbp ) ;
                     {
                     else
                     }
-                        ed.appendF( tinP , pbP , cbp ) ;
-                        ed.appendF( tinP , (byteT*)pci , sizeof pci ) ;
+                        aImage.appendF( tinP , pbP , cbp ) ;
+                        aImage.appendF( tinP , (byteT*)pci , sizeof pci ) ;
                     {
                     if( !pJot )
                 {
@@ -94,20 +94,20 @@
             cFields ++ ;
             }
                 }
-                    ed.prependF(  tinP , (byteT*)&idJot , sizeof idJot ) ;
+                    aImage.prependF(  tinP , (byteT*)&idJot , sizeof idJot ) ;
                     countT idJot = pJot->writeF( tinP , (byteT*)pci , cbi ) ;
                 {
                 else
-                if( !pJot ) ed.prependF( tinP , (byteT*)pci , cbi ) ;
+                if( !pJot ) aImage.prependF( tinP , (byteT*)pci , cbi ) ;
             {
             else
             }
                 }
-                    ed.appendF(  tinP , (byteT*)&idJot , sizeof idJot ) ;
+                    aImage.appendF(  tinP , (byteT*)&idJot , sizeof idJot ) ;
                     countT idJot = pJot->writeF( tinP , (byteT*)pci , cbi ) ;
                 {
                 else
-                if( !pJot ) ed.appendF(  tinP , (byteT*)pci , cbi ) ;
+                if( !pJot ) aImage.appendF(  tinP , (byteT*)pci , cbi ) ;
             {
             if( !( F(flags) & flSOUL_LIFO ) )
 
@@ -131,20 +131,20 @@
 
                 }
                     }
-                        ed.prependF(  tinP , (byteT*)&idJot , sizeof idJot ) ;
+                        aImage.prependF(  tinP , (byteT*)&idJot , sizeof idJot ) ;
                         countT idJot = pJot->writeF( tinP , pbc , cbo ) ;
                     {
                     else
-                    if( !pJot ) ed.prependF( tinP , pbc , cbo ) ;
+                    if( !pJot ) aImage.prependF( tinP , pbc , cbo ) ;
                 {
                 else
                 }
                     }
-                        ed.appendF(  tinP , (byteT*)&idJot , sizeof idJot ) ;
+                        aImage.appendF(  tinP , (byteT*)&idJot , sizeof idJot ) ;
                         countT idJot = pJot->writeF( tinP , pbc , cbo ) ;
                     {
                     else
-                    if( !pJot ) ed.appendF(  tinP , pbc , cbo ) ;
+                    if( !pJot ) aImage.appendF(  tinP , pbc , cbo ) ;
                 {
                 if( !( F(flags) & flSOUL_LIFO ) )
             {

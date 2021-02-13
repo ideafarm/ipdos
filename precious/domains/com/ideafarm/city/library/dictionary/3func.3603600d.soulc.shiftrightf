@@ -14,11 +14,11 @@
         }
             if( !cFields && pJot ) { DEL( pJot ) ; }
 
-            ed.freePrefixF( cbFree ) ;
+            aImage.freePrefixF( cbFree ) ;
 
             ;
-                : sizeof( countT )                            // IF pJot THEN THE idJot IN ed IS FREED BUT NEIGHER THE INDEX ENTRY (A handle0111C) NOR THE DATA ARE FREED ; BOTH WILL CONTINUE TO OCCUPY MEMORY AND BACKING DISK SPACE UNTIL *this IS DESTROYED
-                ? sizeof( countT ) + *(countT*)(byteT*)ed
+                : sizeof( countT )                            // IF pJot THEN THE idJot IN aImage IS FREED BUT NEIGHER THE INDEX ENTRY (A handle0111C) NOR THE DATA ARE FREED ; BOTH WILL CONTINUE TO OCCUPY MEMORY AND BACKING DISK SPACE UNTIL *this IS DESTROYED
+                ? sizeof( countT ) + *(countT*)(byteT*)aImage
             countT cbFree = !pJot
 
             }
@@ -88,12 +88,12 @@
             }
                 }
                     pbi = (*pJot)[ idJot ] ;
-                    countT idJot = ((countT*)(byteT*)ed)[ 0 ] ;
+                    countT idJot = ((countT*)(byteT*)aImage)[ 0 ] ;
                 {
                 if( !POOP )
             {
             else
-            if( !pJot ) pbi = ed ;
+            if( !pJot ) pbi = aImage ;
             ZE( const byteT* , pbi ) ;
         {
         ZE( const byteT* , pbi2 ) ;
@@ -105,7 +105,7 @@
     _IO_
 
     }
-        if( ( !!pbP - !!cbP ) || !(byteT*)ed ) return *this ;
+        if( ( !!pbP - !!cbP ) || !(byteT*)aImage ) return *this ;
     {
     IFbEcAREFUL    
     SCOOP
