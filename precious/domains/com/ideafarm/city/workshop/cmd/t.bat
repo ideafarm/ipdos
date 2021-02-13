@@ -15,12 +15,12 @@ set idHomeG=1
 call g m
 start ideafarm.41000002.ipdos-wm 51000511 !idHome %idHomeG%0000008 !debug
 
-goto :FIN
+rem goto :FIN
 pause
 
 set idHomeG=2
 call g m
-start  ideafarm.41000002.ipdos-wm 51000511 !idHome %idHomeG%0000008
+start wdw ideafarm.41000002.ipdos-wm 51000511 !idHome %idHomeG%0000008
 
 set idHomeG=1
 
