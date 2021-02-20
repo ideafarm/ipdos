@@ -7341,13 +7341,13 @@ to use this, the object must be of a class that provides operator byteT* which r
 \<A HREF=\"5.0010110.1.0.html\"\>definition\</A\>
 */
 /**/
-/*1*//*flSOULsHIFTlEFT*//*1*/
+/*1*//*flSOULsHIFTlEFTmODE*//*1*/
 
 /*3*/
-#define flSOULsHIFTlEFT_UNPACKsOULiMAGE      0xe0000114
-#define flSOULsHIFTlEFT_UNPACKsOULiMAGEpART  0xe0000214
+#define flSOULsHIFTlEFTmODE_UNPACKsOULiMAGE      0xe0000114
+#define flSOULsHIFTlEFTmODE_UNPACKsOULiMAGEpART  0xe0000214
 /*3*/
-#define flSOULsHIFTlEFT_null    0xe0000014
+#define flSOULsHIFTlEFTmODE_null    0xe0000014
 
 
 //
@@ -26629,12 +26629,12 @@ it is illegal to refer to this symbol anywhere but in the definition of a BwOTHs
 /*
 */
 /**/
-/*1*//*flEARdROPc*//*1*/
+/*1*//*flARRAYoLDc*//*1*/
 
 /*3*/
-#define flEARdROPc_LENGTHpREFIX     0xe0000169
+#define flARRAYoLDc_LENGTHpREFIX     0xe0000169
 /*3*/
-#define flEARdROPc_null    0xe0000069
+#define flARRAYoLDc_null    0xe0000069
 
 
 //

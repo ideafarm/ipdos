@@ -27,6 +27,8 @@
     hostent* pInfo = (hostent*)tinP.brcRaw ;
     BOSS( WHATsir , BOSoK , gethostbyname( postUse ) ) // ON WINDOWS, LAUNCHES 3 THREADS THAT REMAIN ALIVE FOR ABOUT d TOCKS. CONJ: SOMETIMES THEY NEVER DIE, RESULTING IN A THREAD LEAK
 
+    //U:: MIGRATE TO USE getaddrinfo SO THAT BOTH IPv4 AND IPv6 NAMES CAN BE MAPPED
+
     }
         BOSpOOP
         BOSS( WHATsir , BOSsOCKETcODE2 , gethostname( postDefault , sizeof postDefault ) )

@@ -20,17 +20,21 @@
                     }
                         else        pcTabIdSlot[ oTab ] ++ ;
                         if( bDelP ) pcTabIdSlot[ oTab ] -- ;
+                        _IO_
                     {
                     if( bFound )
     
                     if( ppTab[ oTab ] == ppc ) bFound = 1 ;
+                    _IO_
                 {
                 for( countT oTab = 0 ; oTab < cTabs ; oTab ++ )
                 ZE( boolT , bFound ) ;
+                _IO_
             {
             if( ppc )
             while( ppc && !( F(ppc->flags) & flPLATE_TAB ) ) ppc = ppc->ppD ;
             plateS* ppc = ppNewDelP ;
+            _IO_
         {
         else if( ppNewDelP )
         }
@@ -49,14 +53,17 @@
                             pcTabIdSlot[ oTab ++ ] = idSlot ;
                             ppTab[       oTab    ] = ppc ;
                             ppc->flags |= flPLATE_TAB ;
+                            _IO_
                         {
                         if( !( ++ idSlot % cPlatesPerTab ) )
+                        _IO_
                     {
                     while( ppc )
                     ZE( countT , idSlot ) ;
                     ZE( plateS* , ppcLag ) ; //U::FOR DEBUGGING
                     plateS* ppc = ppTop ;
                     ZE( countT , oTab ) ;
+                    _IO_
                 {
                 if( ppTab && pcTabIdSlot )
                 }
@@ -75,6 +82,7 @@
                     third.newF( tinP , LF , *(countT**)&ppTab , cTabs ) ; ___CT( ppTab ) ;
                     _IO_
                 {
+                _IO_
             {
             if( cTabs )
             third.delF( tinP , pcTabIdSlot ) ;
@@ -83,14 +91,15 @@
             countT cPlatesPerTab = 0x10 ;
             cTabAge = 0 ;
             bMade = 1 ; //EVEN IF I MAKE 0 TABS
+            _IO_
         {
         if( !( ( ++ cTabAge ) % 0x10 ) || ( ppNewDelP && F(ppNewDelP->flags) & flPLATE_TAB ) ) // IF ppNewDelP IS MARKED AS A TAB THEN ppNewDelP MUST HAVE JUST BEEN REMOVED (IF ADDED, IT WOULD NOT HAVE THE FLAG YET)
+        _IO_
     {
     if( !third && F(flagsState) & flSTACKsTATE_MAINTAINtABS )
     ZE( boolT , bMade ) ;
 
     //validateF( tinP ) ; //U::REMOVE THIS WHEN CONFIDENT; THIS IS EXPENSIVE
-
 
     _INbATONsTACKc_
 

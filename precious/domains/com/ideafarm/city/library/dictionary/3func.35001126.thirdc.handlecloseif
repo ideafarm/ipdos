@@ -85,7 +85,18 @@
 
                 #endif
                     
-                    if( tinP.bosFail && handleP.osh != handleP.oshInvalid && tinP.brcLath != WSAENOTCONN && tinP.brcLath != WSAENOTSOCK ) { BLAMMO ; }
+                    }
+                        BLAMMOiD( tinP.brcLath ) ;
+                        tinP.pcUtility[ 0 ] = tinP.brcLath - WSABASEERR ;
+                    {
+                    )
+                        && tinP.brcLath != ERROR_HANDLE_EOF             //20210214@1745: OBSERVED ON factory9 within voidT socketC::acceptF( tinS& tinP , socketC*& pSocketP , countT& idPortP , nicNameC& nicNameP , boolT& bRefuseP )
+                        && tinP.brcLath != WSAENOTSOCK
+                        && tinP.brcLath != WSAENOTCONN
+                        && handleP.osh != handleP.oshInvalid
+                           tinP.bosFail
+                    (
+                    if
 
                     BOSS( WHATgbo , BOSfAIL , closesocket( handleP.osh ) )
                     //LOGrAW5( "" , handleP.osh , "    " , tinP.pAdamGlobal1->idAdam , " ----\r\n" ) ;

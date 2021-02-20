@@ -24305,7 +24305,7 @@ this class was a precursor to the arrayC class
 
     ~arrayOldC( voidT ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34001.arrayOldC.dt_arrayOldC!||
-    arrayOldC( tinS& tinP , const flagsT flagsP = flEARdROPc_null , const countT cbHeaderP = 0 ) ;
+    arrayOldC( tinS& tinP , const flagsT flagsP = flARRAYoLDc_null , const countT cbHeaderP = 0 ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34002.arrayOldC.arrayOldC!||
     operator byteT*( voidT ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34003.arrayOldC.operator_byteT_ptr!||
@@ -24437,7 +24437,7 @@ this class was a precursor to the arrayC class
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34021.soulC.soulC!||
  soulC( tinS& tinP , const countT idLineCtP , const countT idiFileCtP , const byteT* const pbBitsCtP , const flagsT flagsP , const measure04T mP , const osTextT* const postNameJotP = 0 , const countT cbJotDataBookP = 0 , const osTextT* const postNameP = 0 ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34024.soulC.soulC!||
- soulC( tinS& tinP , const countT idLineCtP , const countT idiFileCtP , const byteT* const pbBitsCtP , const byteT* const pbP , const flagsT flagsP , const countT cbP = 0 , const flagsT flagsItemP = flSOULiTEM_null , const flagsT flagsModeP = flSOULsHIFTlEFT_null , const osTextT* const postNameJotP = 0 , const countT cbJotDataBookP = 0 , const osTextT* const postNameP = 0 ) ; //U::REORDER THE flagsP PARAM
+ soulC( tinS& tinP , const countT idLineCtP , const countT idiFileCtP , const byteT* const pbBitsCtP , const byteT* const pbP , const flagsT flagsP , const countT cbP = 0 , const flagsT flagsItemP = flSOULiTEM_null , const flagsT flagsModeP = flSOULsHIFTlEFTmODE_null , const osTextT* const postNameJotP = 0 , const countT cbJotDataBookP = 0 , const osTextT* const postNameP = 0 ) ; //U::REORDER THE flagsP PARAM
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34007.soulC.soulC!||
  soulC( tinS& tinP , const countT idLineCtP , const countT idiFileCtP , const byteT* const pbBitsCtP , const flagsT flagsP , const countT* const pcP , const countT ccP = 0 , const boolT bOrderSignificanceIncreasingP = 0 , const osTextT* const postNameJotP = 0 , const countT cbJotDataBookP = 0 , const osTextT* const postNameP = 0 ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3401b.soulC.soulC!||
@@ -24477,7 +24477,7 @@ this class was a precursor to the arrayC class
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3404d.soulC.pbFieldF!||
  voidT removeAllF( tinS& tinP ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34015.soulC.removeAllF!||
- soulC& shiftLeftF( tinS& tinP , const countT idTypeShiftP , const byteT* pbP = 0 , countT cbP = 0 , const flagsT flagsItemP = flSOULiTEM_null , const flagsT flagsModeP = flSOULsHIFTlEFT_null , const countT* const pcIncludeP = 0 , const countT* const pcExcludeP = 0 ) ;
+ soulC& shiftLeftF( tinS& tinP , const countT idTypeShiftP , const byteT* pbP = 0 , countT cbP = 0 , const flagsT flagsItemP = flSOULiTEM_null , const flagsT flagsModeP = flSOULsHIFTlEFTmODE_null , const countT* const pcIncludeP = 0 , const countT* const pcExcludeP = 0 ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400a.soulC.shiftLeftF!||
  soulC& shiftLeftF( tinS& tinP , const countT idTypeShiftP , const countT* const pcP , const countT ccP = 0 , const boolT bOrderSignificanceIncreasingP = 0 ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34018.soulC.shiftLeftF!||
