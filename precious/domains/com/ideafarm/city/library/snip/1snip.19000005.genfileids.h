@@ -176,7 +176,7 @@
 0x112000b2 , 0x000000b0 ,   // 1snip.112000b2.vargopen
 0x112000b3 , 0x000000b1 ,   // 1snip.112000b3.varg
 0x112000b4 , 0x000000b2 ,   // 1snip.112000b4.vargclose
-0x112000b5 , 0x000000b3 ,   // 1snip.112000b5.flsoulshiftleft
+0x112000b5 , 0x000000b3 ,   // 1snip.112000b5.flsoulshiftleftmode
 0x112000b6 , 0x000000b4 ,   // 1snip.112000b6.ifcsignaturethird
 0x112000b7 , 0x000000b5 ,   // 1snip.112000b7.ifcdriverstatus
 0x112000b8 , 0x000000b6 ,   // 1snip.112000b8.flsoulitem
@@ -688,7 +688,7 @@
 0x112002cc , 0x000002b0 ,   // 1snip.112002cc.returntorecycler6
 0x112002cd , 0x000002b1 ,   // 1snip.112002cd.lograwtida
 0x112002ce , 0x000002b2 ,   // 1snip.112002ce.lograwtidc
-0x112002cf , 0x000002b3 ,   // 1snip.112002cf.fleardropc
+0x112002cf , 0x000002b3 ,   // 1snip.112002cf.flArrayOldC
 0x112002d0 , 0x000002b4 ,   // 1snip.112002d0.cbtoalign02
 0x112002d1 , 0x000002b5 ,   // 1snip.112002d1.flrenderstyle
 0x112002d2 , 0x000002b6 ,   // 1snip.112002d2.flfeaturesadamhotkey
