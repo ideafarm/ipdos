@@ -115,32 +115,45 @@ DONE( tmWatchF )
 
         //thirdC::osLogWrongNodeIF( tinP ) ;
 
-        // }
-        //     //LOGrAW( T("[time,idAdam,tallyAll]: ")+TT(timeN1,timeN2)+T("    ")+TF2(tinP.pAdamGlobal1->idAdam,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+TF2(tallyAll,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("\r\n") ) ;
-        // 
-        //     etThread.osTimeNowF( tinP , timeN1 , timeN2 ) ;
-        //     ZE( sCountT , timeN2 ) ;
-        //     ZE( countT , timeN1 ) ;
-        // 
-        //     }
-        //         //LOGrAW( T("    ")+TF2(idf,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+TF2(tally,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+TF2(pczLever,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("\r\n") ) ;
-        //     
-        //         tallyAll += tally ;
-        //         countT tally = swTally ;
-        //         pczLever = (countT*)swTally.leverF( tinP , idf ) ;
-        //     {
-        //     for( countT idf = 1 ; idf <= cFlavors ; idf ++ )
-        //     countT cFlavors = swTally.cFlavorsF( tinP ) ;
-        //     ZE( countT , tallyAll ) ;
-        //     
-        //     poolC::reportIF( tinP , pczLever , swTally ) ;
-        //     switchC swTally( tinP , etThread , TAG( TAGiDnULL ) , flSTACKc_DOnOTsERIALIZE , *(const countT**)&pczLever , 0 , 3 * sizeof( countT ) ) ;
-        //     ZE( countT* , pczLever ) ;
-        // 
-        //     //LOGrAW3( "\r\npoolC tally report [idTick]: " , idCycle , "\r\n" ) ;
-        // {
-        // if( !( idCycle % ( TUCK << 0 ) ) ) //APPROXIMATELY ONCE PER TICK
-        // //if( !( idCycle % ( TUCK << 4 ) ) ) //APPROXIMATELY ONCE PER HOUR
+#endif
+        }
+            LOGrAW( T("[time,idAdam,tallyAll]: ")+TT(timeN1,timeN2)+T("    ")+TF2(tinP.pAdamGlobal1->idAdam,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+TF2(tallyAll,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("\r\n") ) ;
+        
+            etThread.osTimeNowF( tinP , timeN1 , timeN2 ) ;
+            ZE( sCountT , timeN2 ) ;
+            ZE( countT , timeN1 ) ;
+        
+            }
+                LOGrAW( T("    ")+TF2(idf,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+TF2(tally,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+TF2(pczLever,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("\r\n") ) ;
+            
+                tallyAll += tally ;
+                countT tally = swTally ;
+                pczLever = (countT*)swTally.leverF( tinP , idf ) ;
+            {
+            for( countT idf = 1 ; idf <= cFlavors ; idf ++ )
+            countT cFlavors = swTally.cFlavorsF( tinP ) ;
+            ZE( countT , tallyAll ) ;
+            
+            poolC::reportIF( tinP , pczLever , swTally ) ;
+            switchC swTally( tinP , etThread , TAG( TAGiDnULL ) , flSTACKc_DOnOTsERIALIZE , *(const countT**)&pczLever , 0 , 3 * sizeof( countT ) ) ;
+            ZE( const countT* , pczLever ) ;
+        
+            LOGrAW3( "\r\npoolC tally report [idTick]: " , idCycle , "\r\n" ) ;
+        {
+        if( !( idCycle % ( TUCK << 0 ) ) ) //APPROXIMATELY ONCE PER TICK
+        //if( !( idCycle % ( TUCK << 4 ) ) ) //APPROXIMATELY ONCE PER HOUR
+#if defined( NEVERdEFINED )
+//U:: 20210220@1114: REMOVE THIS OLD CODE, WHICH IS REPLACED WITH THE PRECEDING (OLD: ALL poolC INSTANCES.  NEW: ONLY THE CURRENT poolC INSTANCE
+
+        }
+            etRock.traceF( tinP , T("dosCreateDirF: traced  pool tallies; now calling BLAMMO") ) ;
+            etRock.tracePoolTalliesF( tinP ) ;
+            etRock.traceF( tinP , T("dosCreateDirF: tracing pool tallies") ) ;
+            etherC& etRock = etherC::etRockIF( tinP ) ;
+        {
+        if( !( idCycle % ( TUCK << 0 ) ) ) //APPROXIMATELY ONCE PER TICK
+
+        //20210220@1100: ENABLED IN RESPONSE TO "OUT OF MEMORY" (CODE 8) WINDOWS ERROR
         //20130918@1315: THIS IS CPU COSTLY SO COMMENTED OUT.  AFAIK IT WORKS
 
         //}
