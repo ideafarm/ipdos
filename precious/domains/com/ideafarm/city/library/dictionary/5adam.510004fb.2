@@ -1896,7 +1896,8 @@ DONE( tmReportF )
                     soulC sRptAdd(    tinP , TAG( TAGiDnULL ) , flSOUL_null , ostoFileRptAdd    ) ; sRptAdd    << (strokeS*)T("\r\nAddress Space Usage\r\n") ;
                     soulC sRptTitle(  tinP , TAG( TAGiDnULL ) , flSOUL_null , ostoFileRptTitle  ) ; sRptTitle  << (strokeS*)( T("Memory Space ")+TF2(idMemorySpaceP,flFORMAT_UNSIGNED|flFORMAT_NObIGITvALUES)+T(" Glass: Minute Overview\r\nMinute by minute overview of the state of this home\r\nMinutes since gen: ")+TF2(idCycle,flFORMAT_UNSIGNED|flFORMAT_NObIGITvALUES)+T("\r\nMinute: ")+TF2(idMinute,flFORMAT_UNSIGNED|flFORMAT_NObIGITvALUES)+T("\r\n\r\n") ) ;
 
-                #if defined( NEVERdEFINED )
+                #if !defined( NEVERdEFINED )
+                // PRODUCTION: USE jotC (TO ACCOMMODATE LARGE REPORTS)
                 // WHEN THAT IS FIXED, CHANGE THE NEXT LINE SO THAT JOT IS USED
                 //U:: soulC::operator <<() DOES NOT WORK WHEN THE RHS soulC INSTANCE USES JOT
 
