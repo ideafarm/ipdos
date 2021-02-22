@@ -73,7 +73,6 @@ signC sgnGo( tinP , TAG( TAGiDnULL ) ) ;
 {
 if( !bSandbox )
 
-bSandbox = 0 ;
 boolT bSandbox = etherC::ifc_idHomeI_IF() & fliIDhOME_HOMELESS ;
 
 __( tinP.pAdamGlobal1->idMemorySpace - ifcIDmEMORYsPACE_WATCH ) ;
@@ -447,6 +446,8 @@ DONE( tmWatch05Deadman1F )
     
         #if !defined( CgORILLAS1 )
 
+        if( bSandbox ) break ; //U::TO FIND A BUG
+
         }
             }
                 inc02AM( cDone1 ) ;
@@ -595,7 +596,6 @@ DONE( tmWatch05Deadman1F )
         etThread.osThreadSwitchingDesireF( tinP , ifcTHREADpRIORITY_RUDE ) ;
     #if !defined( CgORILLAS1 )
 
-    bSandbox = 0 ;
     boolT bSandbox = etherC::ifc_idHomeI_IF() & fliIDhOME_HOMELESS ;
 
     etThread.traceF( tinP , T("deadman1:  WATCH: about to enter watch loop") , flTRACE_HOMEeCHOdEADMAN1 | flTRACE_FORCEnOsILENCE | flTRACE_ECHOoNLY ) ;

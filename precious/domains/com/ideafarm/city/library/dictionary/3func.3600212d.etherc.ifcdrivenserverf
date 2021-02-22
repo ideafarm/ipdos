@@ -214,11 +214,14 @@
                                 sw_cSessionWithPeer.ungrabF( tinP ) ;
 
                                 }
-                                    bSilent |= 1 ; //TO PREVENT WO PEER FROM OPENING MANY SESSIONS TO DOS ATTACK
-                                    if( bHeIsWatchDeadman1 ) traceF( tinP , T("ifcDrivenServerF / setting bSilent (too many sessions with this nnPeer)"), flTRACE_HOMEeCHOdEADMAN1 | flTRACE_FORCEnOsILENCE | flTRACE_ECHOoNLY ) ;
+                                    }
+                                        bSilent |= 1 ; //TO PREVENT WO PEER FROM OPENING MANY SESSIONS TO DOS ATTACK
+                                        if( bHeIsWatchDeadman1 ) traceF( tinP , T("ifcDrivenServerF / setting bSilent (too many sessions with this nnPeer)"), flTRACE_HOMEeCHOdEADMAN1 | flTRACE_FORCEnOsILENCE | flTRACE_ECHOoNLY ) ;
+                                    {
+                                    if( 0x10 < cSession )
+                                    if( bHeIsWatchDeadman1 ) traceF( tinP , T("ifcDrivenServerF / checking session count with this nnPeer [cSessionMax,cSession]:    ")+TF2(info2P.cSessionMax,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2(cSession,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED), flTRACE_HOMEeCHOdEADMAN1 | flTRACE_FORCEnOsILENCE | flTRACE_ECHOoNLY ) ;
+                                    countT cSession = sw_cSessionWithPeer ;
                                 {
-                                if( 0x10 < sw_cSessionWithPeer )
-                                if( bHeIsWatchDeadman1 ) traceF( tinP , T("ifcDrivenServerF / checking session count with this nnPeer"), flTRACE_HOMEeCHOdEADMAN1 | flTRACE_FORCEnOsILENCE | flTRACE_ECHOoNLY ) ;
 
                                 lever_nnPeer = nnPeer ;
                                 sw_cSessionWithPeer.grabF( tinP , TAG( TAGiDnULL ) ) ;
@@ -325,12 +328,12 @@
                                 {
                                 if( bHeIsSpoofingMe )
 
-                                else                           traceF( tinP , T("ifcDrivenServerF / accepted from a host other than me [nnPeer]:    ")+T(nnPeer), flTRACE_HOMEeCHOdEADMAN1 | flTRACE_FORCEnOsILENCE | flTRACE_ECHOoNLY ) ;
-                                else if(  bLoopback          ) traceF( tinP , T("ifcDrivenServerF / accepted from loopback"), flTRACE_HOMEeCHOdEADMAN1 | flTRACE_FORCEnOsILENCE | flTRACE_ECHOoNLY ) ;
-                                else if(  bHeIsMe            ) traceF( tinP , T("ifcDrivenServerF / accepted from me host"), flTRACE_HOMEeCHOdEADMAN1 | flTRACE_FORCEnOsILENCE | flTRACE_ECHOoNLY ) ;
-                                else if(  bHeIsWatchDeadman2 ) traceF( tinP , T("ifcDrivenServerF / accepted from watch deadman2"), flTRACE_HOMEeCHOdEADMAN1 | flTRACE_FORCEnOsILENCE | flTRACE_ECHOoNLY ) ;
-                                else if(  bHeIsWatchDeadman1 ) traceF( tinP , T("ifcDrivenServerF / accepted from watch deadman1"), flTRACE_HOMEeCHOdEADMAN1 | flTRACE_FORCEnOsILENCE | flTRACE_ECHOoNLY ) ;
-                                     if(  bHeIsSpoofingMe    ) traceF( tinP , T("ifcDrivenServerF / accepted i am being spoofed [idpPeer,home.idPortWatchHttpDeadman1,home.idPortWatchHttpDeadman2]:    ")+TF2(idpPeer,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2(idPortWatchHttpDeadman1Snap,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2(idPortWatchHttpDeadman2Snap,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED), flTRACE_HOMEeCHOdEADMAN1 | flTRACE_FORCEnOsILENCE | flTRACE_ECHOoNLY ) ;
+                                else                           traceF( tinP , T("ifcDrivenServerF / accepted from a host other than me [idAccept,nnPeer]:    "                                                    )+TF2(idAccept,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+T(nnPeer)                                                                                                                                                                                                        , flTRACE_HOMEeCHOdEADMAN1 | flTRACE_FORCEnOsILENCE | flTRACE_ECHOoNLY ) ;
+                                else if(  bLoopback          ) traceF( tinP , T("ifcDrivenServerF / accepted from loopback [idAccept]:    "                                                                       )+TF2(idAccept,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)                                                                                                                                                                                                                      , flTRACE_HOMEeCHOdEADMAN1 | flTRACE_FORCEnOsILENCE | flTRACE_ECHOoNLY ) ;
+                                else if(  bHeIsMe            ) traceF( tinP , T("ifcDrivenServerF / accepted from me host [idAccept]:    "                                                                        )+TF2(idAccept,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)                                                                                                                                                                                                                      , flTRACE_HOMEeCHOdEADMAN1 | flTRACE_FORCEnOsILENCE | flTRACE_ECHOoNLY ) ;
+                                else if(  bHeIsWatchDeadman2 ) traceF( tinP , T("ifcDrivenServerF / accepted from watch deadman2 [idAccept]:    "                                                                 )+TF2(idAccept,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)                                                                                                                                                                                                                      , flTRACE_HOMEeCHOdEADMAN1 | flTRACE_FORCEnOsILENCE | flTRACE_ECHOoNLY ) ;
+                                else if(  bHeIsWatchDeadman1 ) traceF( tinP , T("ifcDrivenServerF / accepted from watch deadman1 [idAccept]:    "                                                                 )+TF2(idAccept,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)                                                                                                                                                                                                                      , flTRACE_HOMEeCHOdEADMAN1 | flTRACE_FORCEnOsILENCE | flTRACE_ECHOoNLY ) ;
+                                     if(  bHeIsSpoofingMe    ) traceF( tinP , T("ifcDrivenServerF / accepted i am being spoofed [idAccept,idpPeer,home.idPortWatchHttpDeadman1,home.idPortWatchHttpDeadman2]:    ")+TF2(idAccept,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2(idpPeer,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2(idPortWatchHttpDeadman1Snap,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2(idPortWatchHttpDeadman2Snap,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED), flTRACE_HOMEeCHOdEADMAN1 | flTRACE_FORCEnOsILENCE | flTRACE_ECHOoNLY ) ;
 
                                 boolT bHeIsSpoofingMe = bHeIsMe && !bHeIsWatchDeadman1 && !bHeIsWatchDeadman2 ;
 
@@ -353,15 +356,15 @@
                                     }
                                         break ;
 
-                                        traceF( tinP , T("ifcDrivenServerF / listener socket failed to accept a connection") , flTRACE_null , ifcIDtRACEdIVERT_7 ) ;
-                                        traceF( tinP , T("ifcDrivenServerF / listener socket failed to accept a connection") , flTRACE_null , ifcIDtRACEdIVERT_6 ) ;
-                                        traceF( tinP , T("ifcDrivenServerF / listener socket failed to accept a connection") , flTRACE_null , ifcIDtRACEdIVERT_5 ) ;
-                                        traceF( tinP , T("ifcDrivenServerF / listener socket failed to accept a connection") , flTRACE_null , ifcIDtRACEdIVERT_4 ) ;
-                                        traceF( tinP , T("ifcDrivenServerF / listener socket failed to accept a connection") , flTRACE_null , ifcIDtRACEdIVERT_3 ) ;
-                                        traceF( tinP , T("ifcDrivenServerF / listener socket failed to accept a connection") , flTRACE_null , ifcIDtRACEdIVERT_2 ) ;
+                                        traceF( tinP , T("ifcDrivenServerF / listener socket failed to accept a connection [idAccept]:    ")+TF2(idAccept,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) , flTRACE_null , ifcIDtRACEdIVERT_7 ) ;
+                                        traceF( tinP , T("ifcDrivenServerF / listener socket failed to accept a connection [idAccept]:    ")+TF2(idAccept,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) , flTRACE_null , ifcIDtRACEdIVERT_6 ) ;
+                                        traceF( tinP , T("ifcDrivenServerF / listener socket failed to accept a connection [idAccept]:    ")+TF2(idAccept,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) , flTRACE_null , ifcIDtRACEdIVERT_5 ) ;
+                                        traceF( tinP , T("ifcDrivenServerF / listener socket failed to accept a connection [idAccept]:    ")+TF2(idAccept,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) , flTRACE_null , ifcIDtRACEdIVERT_4 ) ;
+                                        traceF( tinP , T("ifcDrivenServerF / listener socket failed to accept a connection [idAccept]:    ")+TF2(idAccept,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) , flTRACE_null , ifcIDtRACEdIVERT_3 ) ;
+                                        traceF( tinP , T("ifcDrivenServerF / listener socket failed to accept a connection [idAccept]:    ")+TF2(idAccept,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) , flTRACE_null , ifcIDtRACEdIVERT_2 ) ;
                                         //CS:CODEsYNC: 360021f7 3600212d
 
-                                        traceF( tinP , T("ifcDrivenServerF / listener socket failed to accept a connection"), flTRACE_HOMEeCHOdEADMAN1 | flTRACE_FORCEnOsILENCE | flTRACE_ECHOoNLY ) ;
+                                        traceF( tinP , T("ifcDrivenServerF / listener socket failed to accept a connection [idAccept]:    ")+TF2(idAccept,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED), flTRACE_HOMEeCHOdEADMAN1 | flTRACE_FORCEnOsILENCE | flTRACE_ECHOoNLY ) ;
 
                                         POOPRqUIET
                                         DEL( psoListen ) ;
@@ -377,6 +380,7 @@
                                     SCOOPS
                                 {
                                 IFsCRATCH
+                                idAccept ++ ;
                                 //traceF( tinP , T("ifcDrivenServerF / waiting for a client to connect") , flTRACE_null , ifcIDtRACEdIVERT_7 ) ;
                                 TELL( "server: waiting for a client to connect" )
                                 ZE( countT , idPortWatchHttpDeadman2Snap ) ;
@@ -469,6 +473,7 @@
                     SCOOPS
                 {
                 while( !info1P.bQuit )
+                ZE( countT , idAccept ) ;
                 threadC th( tinP , *this , TAG( TAGiDnULL ) , tmLoadSilentF , cArg_tmLoadSilent , flTHREADlAUNCH_SHOWpONY ) ;
                 TELL( "server: launching thread tmLoadSilentF" )
 
@@ -565,7 +570,8 @@
         byteT pbSessions[ sizeof( sessionsC ) ] ;
         TELL( "server: setting up" )
 
-        boolT bSandbox = etherC::ifc_idHomeI_IF() & fliIDhOME_HOMELESS ;
+        const boolT bHttp    = info2P.idPortHint == ifcIDpORT_HTTP ;
+        const boolT bSandbox = etherC::ifc_idHomeI_IF() & fliIDhOME_HOMELESS ;
 
         _IO_
     {
