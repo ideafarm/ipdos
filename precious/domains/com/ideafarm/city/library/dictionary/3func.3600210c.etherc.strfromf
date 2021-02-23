@@ -32,22 +32,30 @@
 
     }
         }
-            if( off && pcv[ off ] && !bLong ) bLong = 1 ;_WQ
             stEach << psttw ;_WQ
-            strFromF( tinP , psttw , pcv[ off ] , flFormat , /*csP*/8 , radixP ) ; ___( psttw ) ;_WQ
+            strFromF( tinP , psttw , pcv[ off ] , bLong ? flFormatLong : flFormatShort , /*csP*/8 , radixP ) ; ___( psttw ) ;_WQ
             ZE( strokeS* , psttw ) ;_WQ
         {
         for( countT off = 0 ; off < 4 ; off ++ )
+
+        }
+            }
+                break ;
+                bLong = 1 ;_WQ
+            {
+            if( off && pcv[ off ] && !bLong )
+        {
+        for( countT off = 1 ; off < 4 ; off ++ )
         countT* pcv = (countT*)&nicNameP ;_WQ
     {
     stackC stEach( tinP , *this , TAG( TAGiDnULL ) , flSTACKc_FIFO , ifcSTACKtYPE_PTR_strokeS ) ;_WQ
     ZE( boolT , bLong ) ;_WQ
 
-    //flagsT flFormat = flFormatP | flFORMAT_NObIGITvALUES | flFORMAT_FILLzE ;_WQ
-    flagsT flFormat = F(flFormatP) ? flFormatP : flFORMAT_DOTTEDdECIMAL ;_WQ
+    flagsT flFormatLong  = F(flFormatP) ? flFormatP : flFORMAT_COLONEDhEX    ;_WQ
+    flagsT flFormatShort = F(flFormatP) ? flFormatP : flFORMAT_DOTTEDdECIMAL ;_WQ
 
     const strokeS* const psttSeparator = psttSeparatorP ? psttSeparatorP : tSeparator ;_WQ
-    TN( tSeparator , "." ) ; //CHANGED FROM "/" TO "." ON 2003JUNE9
+    TN( tSeparator , ":" ) ; //CHANGED FROM "/" TO "." ON 2003JUNE9 ; CHANGED FROM "." TO ":" AT 20210223@1106
 
     _IO_
 

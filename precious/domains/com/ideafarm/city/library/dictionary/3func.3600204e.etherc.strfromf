@@ -152,6 +152,15 @@
     {
     else
     }
+        strMakeF( tinP , LF , psttP , TF3(v2,flags,0)+tColon+TF3(v1,flags,0) ) ; // CALLER MUST TAG ___( psttP ) ;_WQ
+        flagsT flags = flFORMAT_NObIGITvALUES | flFORMAT_UNSIGNED | flFORMAT_FOREIGN ;_WQ
+        TN( tColon , ":" ) ;_WQ
+        countT v2 = vv & 0xffff ; vv >>= 0x10 ;_WQ
+        countT v1 = vv & 0xffff ; vv >>= 0x10 ;_WQ
+        countT vv = valueP ;_WQ
+    {
+    else if( F(flagsFormatP) & flFORMAT_COLONEDhEX )
+    }
         strMakeF( tinP , LF , psttP , TF4(v4,flags,0,0xa)+tDot+TF4(v3,flags,0,0xa)+tDot+TF4(v2,flags,0,0xa)+tDot+TF4(v1,flags,0,0xa) ) ; // CALLER MUST TAG ___( psttP ) ;_WQ
         flagsT flags = flFORMAT_NObIGITvALUES | flFORMAT_UNSIGNED | flFORMAT_FOREIGN | flFORMAT_NObASE ;_WQ
         TN( tDot , "." ) ;_WQ
