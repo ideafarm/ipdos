@@ -68,7 +68,7 @@
 #include <ws2tcpip.h>
 
 MYpREFIX void _export           c_debugF( void ) ;
-MYpREFIX void _export __watcall c_getaddrinfoF( void ) ;
+MYpREFIX void _export __watcall c_getaddrinfoF( char* pbP , unsigned cbP ) ;
 MYpREFIX void _export           c_traceHelperIF( unsigned pP ) ;
 
 MYpREFIX void     __watcall c_openSsl_setupIF(              unsigned* pEcP , openSsl_pInitFT            pInitFP                                                                                                                                                                                                      ) ;
