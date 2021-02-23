@@ -18779,6 +18779,7 @@ it is illegal to refer to this symbol anywhere except in napkinC definitions
  countT   pcId[ 4 ] ;
 
 /* birth , death */
+ NEWdELcLASSpROTOS
  nicNameC( const countT c1P = 0 , const countT c2P = 0 , const countT c3P = 0 , const countT c4P = 0 ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34001.nicNameC.nicNameC!||
 

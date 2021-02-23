@@ -10,36 +10,51 @@
 }
     }
         }
-            off ++ ;
             }
-                stP << pYou ;
-                *pYou = tinP.brcRaw ;
-                BOSdOnOTtEST( WHATgbo , ntohl( *(countT*)pInfo->h_addr_list[ off ] ) )
+                break ;
+
+                //if( pYou ) stP << pYou ;
+                //nicNameC* pYou = new( 0 , tinP , LF ) nicNameC( nn1 , nn2 , nn3 , nn4 ) ;
+                //U:: ENABLE AFTER TESTING (CURRENT CODE DOES NOT EXPECT nicNameC VALUES TO CONTAIN IPv6 VALUES)
+
+                countT nn4 = tinP.brcRaw ;
+                BOSdOnOTtEST( WHATgbo , ntohl( pca[ ++ offi ] ) )
+
+                countT nn3 = tinP.brcRaw ;
+                BOSdOnOTtEST( WHATgbo , ntohl( pca[ ++ offi ] ) )
+
+                countT nn2 = tinP.brcRaw ;
+                BOSdOnOTtEST( WHATgbo , ntohl( pca[ ++ offi ] ) )
+
+                countT nn1 = tinP.brcRaw ;
+                BOSdOnOTtEST( WHATgbo , ntohl( pca[ ++ offi ] ) )
             {
-            if( pYou )
-            newF( tinP , LF , pYou ) ; ___( pYou ) ;
-            ZE( nicNameC* , pYou ) ;
+            case 0x66666666 :
+            }
+                break ;
+
+                if( pYou ) stP << pYou ;
+                nicNameC* pYou = new( 0 , tinP , LF ) nicNameC( nn1 ) ;
+
+                countT nn1 = tinP.brcRaw ;
+                BOSdOnOTtEST( WHATgbo , ntohl( pca[ ++ offi ] ) )
+            {
+            case 0x44444444 :
+            }
+                break ;
+                bDone = 1 ;
+            {
+            case 0x11111111 :
         {
-        while( pInfo->h_addr_list[ off ] )
-        ZE( countT , off ) ;
+        switch( pca[ offi ] )
     {
-    if( pInfo )
-    hostent* pInfo = (hostent*)tinP.brcRaw ;
-    BOSS( WHATsir , BOSoK , gethostbyname( postUse ) ) // ON WINDOWS, LAUNCHES 3 THREADS THAT REMAIN ALIVE FOR ABOUT d TOCKS. CONJ: SOMETIMES THEY NEVER DIE, RESULTING IN A THREAD LEAK
+    for( countT offi = 0 ; !bDone && offi < sizeof pca / sizeof pca[ 0 ] ; offi ++ )
+    ZE( boolT , bDone ) ;
 
-    //U:: MIGRATE TO USE getaddrinfo SO THAT BOTH IPv4 AND IPv6 NAMES CAN BE MAPPED
+    c_getaddrinfoF( (byteT*)pca , sizeof pca ) ;
+                                    //WO WAY TO DO THIS IS TO USE OO POWER ALLOCATION (ADD A RETURN VALUE TO c_getaddrinfoF TO REVEAL HOW MUCH BUFFER LENGTH IS NEEDED)
+    countT pca[ TUCK >> 2 ] ;       //THIS WILL NEED TO BE ENLARGED TO SUPPORT A NAME WITH MANY ADDRESSES
 
-    }
-        if( rc ) ;
-        countT rc = getaddrinfo( postP , "http" , (addrinfo*)0x88776655 , ppInfo ) ;
-        //B:countT rc = GetAddrInfoA( postP , "http" , 0 , ppInfo ) ;
-
-        c_getaddrinfoF( pbBuffer , sizeof pbBuffer ) ;
-        byteT pbBuffer[ 6 * sizeof( countT ) ] ;
-
-        ZE( addrinfo** , ppInfo ) ;
-    {
-    else
     }
         BOSpOOP
         BOSS( WHATsir , BOSsOCKETcODE2 , gethostname( postDefault , sizeof postDefault ) )
@@ -50,7 +65,7 @@
         : postDefault
         ? postP
     const osTextT* postUse = postP
-    osTextT  postDefault[ TUCK ] ;
+    osTextT postDefault[ TUCK ] ;
 
     _IO_
 
