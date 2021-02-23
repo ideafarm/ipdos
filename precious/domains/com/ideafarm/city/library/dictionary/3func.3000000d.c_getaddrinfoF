@@ -51,7 +51,7 @@
     while( pCursor )
     pCursor = pInfo ;
 
-    getaddrinfo( "factory6.ideafarm.com" , "http" , 0 , &pInfo ) ;
+    getaddrinfo( postNameP , "http" , 0 , &pInfo ) ;
 
     unsigned* pcGold  = 0 ;
 
@@ -62,10 +62,10 @@
     struct addrinfo* pCursor = 0 ;
     struct addrinfo* pInfo   = 0 ;
 
-    unsigned* pcEnd = (unsigned*)( pbP + cbP - sizeof( unsigned ) ) ;     /* RESERVES TRAILING unsigned FOR END MARKER */
-    unsigned* pcOut = (unsigned*)pbP ;
+    unsigned* pcEnd = (unsigned*)( pbListP + cbListP - sizeof( unsigned ) ) ;     /* RESERVES TRAILING unsigned FOR END MARKER */
+    unsigned* pcOut = (unsigned*)pbListP ;
 {
-/*1*/void _export __watcall c_getaddrinfoF( char* pbP , unsigned cbP )/*1*/
+/*1*/void _export __watcall c_getaddrinfoF( char* pbListP , unsigned cbListP , const char* const postNameP )/*1*/
 
 /**/
 */

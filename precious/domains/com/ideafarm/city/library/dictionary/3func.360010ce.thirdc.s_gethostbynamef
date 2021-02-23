@@ -17,23 +17,27 @@
                 //nicNameC* pYou = new( 0 , tinP , LF ) nicNameC( nn1 , nn2 , nn3 , nn4 ) ;
                 //U:: ENABLE AFTER TESTING (CURRENT CODE DOES NOT EXPECT nicNameC VALUES TO CONTAIN IPv6 VALUES)
 
-                countT nn4 = tinP.brcRaw ;
-                BOSdOnOTtEST( WHATgbo , ntohl( pca[ ++ offi ] ) )
-
-                countT nn3 = tinP.brcRaw ;
+                countT nn1 = tinP.brcRaw ;
                 BOSdOnOTtEST( WHATgbo , ntohl( pca[ ++ offi ] ) )
 
                 countT nn2 = tinP.brcRaw ;
                 BOSdOnOTtEST( WHATgbo , ntohl( pca[ ++ offi ] ) )
 
-                countT nn1 = tinP.brcRaw ;
+                countT nn3 = tinP.brcRaw ;
+                BOSdOnOTtEST( WHATgbo , ntohl( pca[ ++ offi ] ) )
+
+                countT nn4 = tinP.brcRaw ;
                 BOSdOnOTtEST( WHATgbo , ntohl( pca[ ++ offi ] ) )
             {
             case 0x66666666 :
             }
                 break ;
 
-                if( pYou ) stP << pYou ;
+                }
+                    stP << pYou ;
+                    if( tinP.pEther ) tinP.pEther->traceF( tinP , T("s_getHostByNameF [*pYou,postP]:    ")+T(*pYou)+T("    ")+T(postP) ) ;
+                {
+                if( pYou )
                 nicNameC* pYou = new( 0 , tinP , LF ) nicNameC( nn1 ) ;
 
                 countT nn1 = tinP.brcRaw ;
@@ -51,7 +55,7 @@
     for( countT offi = 0 ; !bDone && offi < sizeof pca / sizeof pca[ 0 ] ; offi ++ )
     ZE( boolT , bDone ) ;
 
-    c_getaddrinfoF( (byteT*)pca , sizeof pca ) ;
+    c_getaddrinfoF( (byteT*)pca , sizeof pca , postP ) ;
                                     //WO WAY TO DO THIS IS TO USE OO POWER ALLOCATION (ADD A RETURN VALUE TO c_getaddrinfoF TO REVEAL HOW MUCH BUFFER LENGTH IS NEEDED)
     countT pca[ TUCK >> 2 ] ;       //THIS WILL NEED TO BE ENLARGED TO SUPPORT A NAME WITH MANY ADDRESSES
 
