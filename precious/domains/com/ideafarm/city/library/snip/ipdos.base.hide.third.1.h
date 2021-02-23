@@ -825,6 +825,7 @@ examples
 #define flSOCKETc_TOPsECRET                      0xe0040002
 #define flSOCKETc_CRYPTfOREIGNsSL                0xe0080002
 #define flSOCKETc_CRYPTfOREIGNsSLdEFERhANDSHAKE  0xe0100002
+#define flSOCKETc_NOdUALsTACK                    0xe0200002
 /*3*/
 #define flSOCKETc_null    0xe0000002
 

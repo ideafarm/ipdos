@@ -34,6 +34,7 @@
         if(    F(flags) & flSOCKETc_CANbROADCAST   && idType == ifcSOCKETtYPE_DATAgRAM ) pEther->sockOptionBroadcastF( tinP , handle ) ;
         if( !( F(flags) & flSOCKETc_NOsENDnOW    ) && idType == ifcSOCKETtYPE_STREAM   ) pEther->sockOptionSendNowF(   tinP , handle ) ;
         if( !( F(flags) & flSOCKETc_NOlINGER     ) && idType == ifcSOCKETtYPE_STREAM   ) pEther->sockOptionLingerF(    tinP , handle ) ;
+        if( !( F(flags) & flSOCKETc_NOdUALsTACK  )                                     ) pEther->sockOptionDualStackF( tinP , handle ) ;
         __Z( handle ) ;
         pEther->sockF( tinP , handle , idType , !( F(flags) & flSOCKETc_CRYPTfOREIGNsSL ) ? 0 : &hSslContext ) ;
     

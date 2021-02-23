@@ -41,6 +41,7 @@
         if(    F(flags) & flSOCKETc_CANbROADCAST   && idType == ifcSOCKETtYPE_DATAgRAM ) pEther->sockOptionBroadcastF( tinP , handle ) ;
         if( !( F(flags) & flSOCKETc_NOsENDnOW    ) && idType == ifcSOCKETtYPE_STREAM   ) pEther->sockOptionSendNowF(   tinP , handle ) ;
         if( !( F(flags) & flSOCKETc_NOlINGER     ) && idType == ifcSOCKETtYPE_STREAM   ) pEther->sockOptionLingerF(    tinP , handle ) ; //U: PROBABLY DON'T WANT TO ALTER THE PROPERTIES OF THE SPECIFIED SOCKET
+        if( !( F(flags) & flSOCKETc_NOdUALsTACK  )                                     ) pEther->sockOptionDualStackF( tinP , handle ) ;
         __Z( handle ) ;
         handle << handleP ;
     

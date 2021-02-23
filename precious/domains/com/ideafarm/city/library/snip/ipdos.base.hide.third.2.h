@@ -29157,6 +29157,7 @@ applications should avoid using thirdC objects
   //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.340ad.thirdC.s_optionReuseAddressF!||
   voidT s_optionSendNowF( tinS& tinP , const handleC& handleP , const boolT bEnableP = 1 ) ;
   //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.340ae.thirdC.s_optionSendNowF!||
+  voidT s_optionDualStackF( tinS& tinP , const handleC& handleP ) ;
   static voidT s_setupIF( tinS& tinP ) ;
   //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3403d.thirdC.s_setupIF!||
   static voidT s_shutdown1IF( tinS& tinP ) ;
@@ -32482,6 +32483,7 @@ examples
   voidT sockOptionReuseAddressF( tinS& tinP , const handleC& handleP , const boolT bAllowP = 1 ) ;
   //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34114.etherC.sockOptionReuseAddressF!||
   voidT sockOptionSendNowF( tinS& tinP , const handleC& handleP , const boolT bEnableP = 1 ) ;
+  voidT sockOptionDualStackF( tinS& tinP , const handleC& handleP ) ;
   //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34115.etherC.sockOptionSendNowF!||
   voidT socksSetupF( tinS& tinP ) ;
   //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34046.etherC.socksSetupF!||
