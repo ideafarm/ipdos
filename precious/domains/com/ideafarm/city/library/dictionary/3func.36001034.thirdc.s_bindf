@@ -11,7 +11,7 @@
     return idPort ;
     }
         if( !POOP ) idPort = tinP.brcRaw ;
-        BOSdOnOTtEST( WHATgbo , ntohs( info.sin_port ) )
+        BOSdOnOTtEST( WHATgbo , ntohs( info.sin6_port ) )
         BOSpOOP
         BOSS( WHATsir , BOSfAIL , getsockname( handleP.osF( ifcIDtYPEhANDLE_SOCKET ) , (sockaddr*)&info , &cbInfo ) )
         sCountT cbInfo = sizeof info ;
@@ -38,11 +38,9 @@
             }
                 ++ s ; dosSleepIF( tinP , TUCK * 0x40 ) ;
 
-                //LOGrAW7( "adam " , processGlobal1I.idAdamRoot , " bind() to port " , idPortP , " failed, with WSABASEERR relative error code " , rc , "\r\n" ) ;
-                //rc -= WSABASEERR ;
-                //countT rc = tinP.brcRaw ;
-                //BOSdOnOTtEST( WHATgbo , WSAGetLastError() )
-                //U:: TO CATCH A BUG
+                if( tinP.pEther ) tinP.pEther->traceF( tinP , T("bindF failed [rc]:    ")+TF2(rc,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
+                countT rc = tinP.brcRaw ;
+                BOSdOnOTtEST( WHATgbo , WSAGetLastError() )
             {
             if( tinP.bosFail )
             BOSS( WHATgbo , BOSfAIL , bind( handleP.osF( ifcIDtYPEhANDLE_SOCKET ) , (sockaddr*)&info , sizeof info ) )
@@ -54,13 +52,13 @@
     boolT bNoQuitEarly = !cTriesP ;
     boolT bNoQuit = cTriesP == - 1 ;
 
-    info.sin_addr.s_addr = tinP.brcRaw ; //U: SUPPORTS ONLY IPV4 (NOT IPV6)
+    *(countT*)info.sin6_addr.u.Byte = tinP.brcRaw ; //U: SUPPORTS ONLY IPV4 (NOT IPV6)
     BOSdOnOTtEST( WHATgbo , htonl( *(const countT*)nicNameP ) )
-    info.sin_port = (count01T)tinP.brcRaw ;
+    info.sin6_port = (count01T)tinP.brcRaw ;
     BOSdOnOTtEST( WHATgbo , htons( (count01T)( idPortP ? idPortP : INADDR_ANY ) ) )
-    info.sin_family = AF_INET ;
+    info.sin6_family = AF_INET6 ;
     c_memsetIF( tinP , (byteT* const)&info , sizeof info ) ;
-    sockaddr_in info ;
+    sockaddr_in6 info ;
     _IO_
 
     }

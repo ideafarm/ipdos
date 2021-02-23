@@ -154,15 +154,22 @@
 
     killSocketS* pks = time1P || time2P ? s_registerTimeoutF( tinP , handleP , time1P , time2P ) : 0 ;
 
-    //etherC::etRockIF( tinP ).traceF( tinP , T("s_connect [sin_addr.s_addr,sin_port]: ")+TF3((countT)info.sin_addr.s_addr,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE,3)+T("    ")+TF2((countT)info.sin_port,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
+    //etherC::etRockIF( tinP ).traceF( tinP , T("s_connect [sin_addr.s_addr,sin_port]: ")+TF3((countT)info.sin6_addr.s_addr,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE,3)+T("    ")+TF2((countT)info.sin6_port,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
 
-    info.sin_addr.s_addr = tinP.brcRaw ; //U: SUPPORTS ONLY IPV4 (NOT IPV6)
-    BOSdOnOTtEST( WHATgbo , htonl( *(const countT*)nicName ) )
-    info.sin_port = (count01T)tinP.brcRaw ;
+    }
+        pcTo[ 3 - offi ] = tinP.brcRaw ;
+        BOSdOnOTtEST( WHATgbo , htonl( pcFrom[ offi ] ) )
+    {
+    for( countT offi = 0 ; offi < 4 ; offi ++ )
+    const countT* pcFrom = nicName ;
+    countT* pcTo   = (countT*)info.sin6_addr.u.Byte ;
+    //CS:CODEsYNC: 350011ab 36001036
+
+    info.sin6_port = (count01T)tinP.brcRaw ;
     BOSdOnOTtEST( WHATgbo , htons( (count01T)idPortP ) )
-    info.sin_family = AF_INET ;
+    info.sin6_family = AF_INET6 ;
     c_memsetIF( tinP , (byteT* const)&info , sizeof info ) ;
-    sockaddr_in info ;
+    sockaddr_in6 info ;
     if( !time1P && !time2P ) time1P = nicNameP ? TOCK * 2 : TUCK * 0x80 ;
     const nicNameC nicName = nicNameP ? nicNameP : nicNameC( NICnAMElOCAL ) ;
     //if( pEtherContainsMe ) pEtherContainsMe->ifcSayIF( tNNP+T(" connecting") , flSAY_APPEND | flSAY_LOG ) ;

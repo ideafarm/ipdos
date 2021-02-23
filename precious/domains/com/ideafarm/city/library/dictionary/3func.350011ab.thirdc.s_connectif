@@ -56,13 +56,20 @@
     boolT bNoQuitEarly = !cTriesP ;
     boolT bNoQuit = cTriesP == - 1 ;
 
-    info.sin_addr.s_addr = tinP.brcRaw ; //U: SUPPORTS ONLY IPV4 (NOT IPV6)
-    BOSdOnOTtEST( WHATgbo , htonl( *(const countT*)nicName ) )
-    info.sin_port = (count01T)tinP.brcRaw ;
+    }
+        pcTo[ 3 - offi ] = tinP.brcRaw ;
+        BOSdOnOTtEST( WHATgbo , htonl( pcFrom[ offi ] ) )
+    {
+    for( countT offi = 0 ; offi < 4 ; offi ++ )
+    const countT* pcFrom = nicName ;
+    countT* pcTo   = (countT*)info.sin6_addr.u.Byte ;
+    //CS:CODEsYNC: 350011ab 36001036
+
+    info.sin6_port = (count01T)tinP.brcRaw ;
     BOSdOnOTtEST( WHATgbo , htons( (count01T)idPortP ) )
-    info.sin_family = AF_INET ;
+    info.sin6_family = AF_INET6 ;
     c_memsetIF( tinP , (byteT* const)&info , sizeof info ) ;
-    sockaddr_in info ;
+    sockaddr_in6 info ;
     const nicNameC nicName = nicNameP ? nicNameP : nicNameC( NICnAMElOCAL ) ;
     _IO_
 

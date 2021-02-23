@@ -14,12 +14,19 @@
         }
             //else if( pEtherContainsMe ) bRefuseP = pEtherContainsMe->diskFileExistsF( tinP , T("///ideafarm/ephemeral/domains/com/ideafarm/ipdos/attackers/")+T(nicNameP)+T("/") ) ;
             if( !nicNameP ) nicNameP = NICnAMElOCAL ;
-            nicNameP = tinP.brcRaw ; //U: SUPPORTS ONLY IPV4 (NOT IPV6)
-            BOSdOnOTtEST( WHATgbo , ntohl( info.sin_addr.s_addr ) )
+
+            }
+                pcTo[ 3 - offi ] = tinP.brcRaw ;
+                BOSdOnOTtEST( WHATgbo , ntohl( pcFrom[ offi ] ) )
+            {
+            for( countT offi = 0 ; offi < 4 ; offi ++ )
+            countT* pcTo   = (countT*)(const countT*)nicNameP ;
+            countT* pcFrom = (countT*)info.sin6_addr.u.Byte ;
+
             idPortP = tinP.brcRaw ;
-            BOSdOnOTtEST( WHATgbo , ntohs( info.sin_port ) )
+            BOSdOnOTtEST( WHATgbo , ntohs( info.sin6_port ) )
             __( cbInfo - sizeof info ) ;
-            __( info.sin_family - AF_INET ) ;
+            __( info.sin6_family - AF_INET6 ) ;
         {
         else
         if( bRefuseP ) hClientP.closeIfF() ;
@@ -46,7 +53,7 @@
     BOSS( WHATsia , BOSsOCKETcODE , accept( handleP.osF( ifcIDtYPEhANDLE_SOCKET ) , (sockaddr*)&info , &cbInfo ) )
     sCountT cbInfo = sizeof info ;
     c_memsetIF( tinP , (byteT* const)&info , sizeof info ) ;
-    sockaddr_in info ;
+    sockaddr_in6 info ;
     _IO_
 
     //POPUPcOUNT( "acceptF2 called within: " , processGlobal1I.idAdamRoot ) ; //U::
