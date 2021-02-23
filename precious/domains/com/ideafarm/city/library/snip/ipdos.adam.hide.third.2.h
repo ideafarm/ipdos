@@ -5537,7 +5537,10 @@ it is illegal to refer to this symbol in the definition of an adam
         //#define _WIN32_WINNT _WIN32_WINNT_WIN7
         #define _WIN32_WINNT _WIN32_WINNT_WS08
 
-        //#include <winsock2.h>
+        #undef UNICODE
+
+        #include <ws2tcpip.h>
+        #include <winsock2.h>
         #include <windows.h>
         #include <psapi.h>
         //#include <conio.h>
