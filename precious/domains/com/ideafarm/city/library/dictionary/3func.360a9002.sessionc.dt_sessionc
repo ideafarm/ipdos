@@ -20,8 +20,13 @@
     { _IO_ ether.delF( tinP , pbAppMemory ) ; }
     { _IO_ ether.delF( tinP , psttFolder ) ; }
     { _IO_ ether.delF( tinP , psttu ) ; }
-    ether.boxPutUniqueF( tinP , psttu , T("///ideafarm/ephemeral/domains/com/ideafarm/ipdos/sessions/")+TF2(etherC::ifc_idAdamI_IF(tinP),flFORMAT_UNSIGNED|flFORMAT_NObIGITvALUES)+T("/")+T(psttFolder)+T("/")+T(nnPeer)+T("/session") , WS( soul ) ) ; ___( psttu ) ;
+    ether.delF( tinP , psttPeer ) ;
+    ether.boxPutUniqueF( tinP , psttu , T("///ideafarm/ephemeral/domains/com/ideafarm/ipdos/sessions/")+TF2(etherC::ifc_idAdamI_IF(tinP),flFORMAT_UNSIGNED|flFORMAT_NObIGITvALUES)+T("/")+T(psttFolder)+T("/")+T(psttPeer)+T("/session") , WS( soul ) ) ; ___( psttu ) ;
     ZE( strokeS* , psttu ) ;
+
+    ether.strReplaceF( tinP , psttPeer , 0 , T(":") , T(".") ) ;        // IPv4: a.b.c.d ; IPv6: a:b:c:d:e:f:g:h
+    ether.strMakeF( tinP , LF , psttPeer , (strokeS*)T(nnPeer) ) ; ___( psttPeer ) ;
+    ZE( strokeS* , psttPeer ) ;
 
     { _IO_ ether.delF( tinP , psttEmailLoggedIn     ) ; }
     { _IO_ ether.delF( tinP , *(strokeS**)&psttUser ) ; }
