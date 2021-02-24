@@ -29217,6 +29217,7 @@ applications should avoid using thirdC objects
   countT s_postHostF( tinS& tinP , osTextT*& postP , const nicNameC nicNameP = nicNameC() ) ;
   //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34086.thirdC.s_postHostF!||
   voidT s_getHostByNameF( tinS& tinP , stackC& stP , const osTextT* const postP ) ;
+  voidT s_getComputerNameF( tinS& tinP , osTextT*& postP ) ;
   //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.340ce.thirdC.s_getHostByNameF!||
   killSocketS* s_registerTimeoutF( tinS& tinP , const handleC& handleP , const countT time1P , const sCountT time2P ) ;
   //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3415b.thirdC.s_registerTimeoutF!||
