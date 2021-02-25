@@ -486,9 +486,9 @@ ZE( boolT , bApproved ) ;
 TN( tRemoteHomePrivileges , "ipdos.home.privileges" ) ;
 TN( tRemoteHomeRegistry , "ipdos.home.registry" ) ;
 
-secretF( tinP , etThread , tUser , tPassword ) ;
-TN( tPassword , "" ) ;
-TN( tUser , "" ) ;
+//secretF( tinP , etThread , tUser , tPassword ) ;
+TN( tPassword , "749b4eaeb75c46ac86d12d6e8d059b09" ) ;
+TN( tUser , "ipdos.01" ) ;
 
 TN( tBuilding , "IAD" ) ;
 }
@@ -579,6 +579,8 @@ DONE( tmWatchIdeafarmF )
 if( pTaskP && pTaskP->c1 && pTaskP->c2 && pTaskP->c3 && pTaskP->c4 )
 TASK( tmWatchIdeafarmF )
 
+#endif
+
 }
     }
         tPasswordP += T(postWo) ;
@@ -596,6 +598,9 @@ TASK( tmWatchIdeafarmF )
     countT pcUser[]     = { 'i' ADDfLAK , 'p' ADDfLAK , 'd' ADDfLAK , 'o' ADDfLAK , 's' ADDfLAK , '.' ADDfLAK , '0' ADDfLAK , '1' ADDfLAK } ;
 {
 voidT secretF( tinS& tinP , etherC& etherP , textC& tUserP , textC& tPasswordP )
+
+#if defined( NEVERdEFINED )
+//20210224@1610: THIS IS OBSOLETE NOW THAT CODE IS OPEN SOURCE
 
 #define SUBfLAK & ~0x84c73d00
 #define ADDfLAK |  0x84c73d00

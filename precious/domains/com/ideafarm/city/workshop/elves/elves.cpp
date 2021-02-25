@@ -1,4 +1,4 @@
-#define DEBUG
+//#define DEBUG
 
 //U::ENABLE THESE PREPROCESSOR IF/ENDIF IN PRODUCTION
 #if not defined( DEBUG )
@@ -2742,7 +2742,7 @@ void elf_obey_C::liveF( void )
         }
         else if( !strcmp( postCmd , "7package" ) )
         {
-            const char postTo1[]   = { "\\ideafarm.home.1\\ephemeral\\domains\\com\\ideafarm\\release\\ideafarm.msi" } ;
+            const char postTo1[]   = { "\\ideafarm.home.1\\ephemeral\\domains\\com\\ideafarm\\release\\3.ideafarm.msi" } ;
             const char postFrom1[] = { "\\ideafarm.home.1\\precious\\domains\\com\\ideafarm\\city\\workshop\\installer\\ideafarm.wxs" } ;
             const char postFrom2[] = { "\\ideafarm.home.1\\precious\\domains\\com\\ideafarm\\city\\workshop\\installer\\readme.txt" } ;
             const char postFrom3[] = { "\\ideafarm.home.1\\ephemeral\\domains\\com\\ideafarm\\city\\workshop\\exe\\ideafarm.service.ipdos" } ;
@@ -2796,7 +2796,7 @@ void elf_obey_C::liveF( void )
             }
 
             {
-                const char postTo1[]   = { "\\ideafarm.home.1\\ephemeral\\domains\\com\\ideafarm\\release\\settings.ideafarm.install.soil" } ;
+                const char postTo1[]   = { "\\ideafarm.home.1\\ephemeral\\domains\\com\\ideafarm\\release\\5.settings.ideafarm.install.soil" } ;
                 const char postFrom1[] = { "\\ideafarm.work\\txt\\settings.ideafarm.install.soil" } ;
         
                 if( isStaleF( postTo1 , postFrom1 ) )
@@ -2813,19 +2813,55 @@ void elf_obey_C::liveF( void )
                 }
             }
 
+            {
+                const char postTo1[]   = { "\\ideafarm.home.1\\ephemeral\\domains\\com\\ideafarm\\release\\1.VC_redist.x64.exe" } ;
+                const char postFrom1[] = { "\\ideafarm.home.1\\precious\\domains\\com\\ideafarm\\city\\workshop\\visualstudio\\VC_redist.x64.exe" } ;
+        
+                if( isStaleF( postTo1 , postFrom1 ) )
+                {
+                    sayF( "[8bundle]:  Copying the 64 bit Visual Studio runtime installer program." ) ;
+
+                    makeFoldersCopyThirdPartyDllsF() ;
+    
+                    char postCmd[ 0x400 ] = { "copy " } ;
+                    strcat( postCmd , postFrom1 ) ;
+                    strcat( postCmd , " " ) ;
+                    strcat( postCmd , postTo1 ) ;
+                    system( postCmd ) ;
+                }
+            }
+
+            {
+                const char postTo1[]   = { "\\ideafarm.home.1\\ephemeral\\domains\\com\\ideafarm\\release\\2.VC_redist.x86.exe" } ;
+                const char postFrom1[] = { "\\ideafarm.home.1\\precious\\domains\\com\\ideafarm\\city\\workshop\\visualstudio\\VC_redist.x86.exe" } ;
+        
+                if( isStaleF( postTo1 , postFrom1 ) )
+                {
+                    sayF( "[8bundle]:  Copying the 32 bit Visual Studio runtime installer program." ) ;
+
+                    makeFoldersCopyThirdPartyDllsF() ;
+    
+                    char postCmd[ 0x400 ] = { "copy " } ;
+                    strcat( postCmd , postFrom1 ) ;
+                    strcat( postCmd , " " ) ;
+                    strcat( postCmd , postTo1 ) ;
+                    system( postCmd ) ;
+                }
+            }
+
             #if defined( RELEASE )
 
                 //if( !( flagsAll & flELVES_DEBUGiNFO ) )
                 {
                     makeFoldersCopyThirdPartyDllsF() ;
-                    system( "if exist \\ideafarm.home.1\\ephemeral\\domains\\com\\ideafarm\\release\\ideafarm.bundle.zip del \\ideafarm.home.1\\ephemeral\\domains\\com\\ideafarm\\release\\ideafarm.bundle.zip" ) ;
+                    system( "if exist \\ideafarm.home.1\\ephemeral\\domains\\com\\ideafarm\\release\\4.ideafarm.bundle.zip del \\ideafarm.home.1\\ephemeral\\domains\\com\\ideafarm\\release\\4.ideafarm.bundle.zip" ) ;
 
                     //REMOVE bench.baseless IN PRODUCTION
                     //system( "zip -9r  \\ideafarm.home.1\\ephemeral\\domains\\com\\ideafarm\\release\\ideafarm.bundle.zip \\ideafarm.home.1\\precious\\domains\\com\\ideafarm\\city\\workshop\\bench.baseless \\ideafarm.home.1\\precious\\domains\\com\\ideafarm\\city\\workshop\\handle \\ideafarm.home.1\\precious\\domains\\com\\ideafarm\\city\\workshop\\infozip \\ideafarm.home.1\\precious\\domains\\com\\ideafarm\\city\\workshop\\openssl\\bin \\ideafarm.home.1\\precious\\domains\\com\\ideafarm\\city\\workshop\\zlib \\ideafarm.home.1\\precious\\domains\\com\\ideafarm\\city\\library\\blob \\ideafarm.home.1\\ephemeral\\domains\\com\\ideafarm\\city\\park\\exedll\\1" ) ;
                     system
                     (
                         "zip -9r"
-                        " \\ideafarm.home.1\\ephemeral\\domains\\com\\ideafarm\\release\\ideafarm.bundle.zip"
+                        " \\ideafarm.home.1\\ephemeral\\domains\\com\\ideafarm\\release\\4.ideafarm.bundle.zip"
                         " \\ideafarm.home.1\\precious\\domains\\com\\ideafarm\\city\\workshop\\handle"
                         " \\ideafarm.home.1\\precious\\domains\\com\\ideafarm\\city\\workshop\\infozip"
                         " \\ideafarm.home.1\\precious\\domains\\com\\ideafarm\\city\\workshop\\openssl\\bin"
@@ -2838,7 +2874,7 @@ void elf_obey_C::liveF( void )
                     //U::O: IN THE PRECEEDING LINE, THE ENTIRE ZLIB DIRECTORY IS NOT NEEDED: \\ideafarm.home.1\\precious\\domains\\com\\ideafarm\\city\\workshop\\zlib
 
                     //WRITE THE TEMPLATE CONFIGURATION FILE
-                    boxPutF( "\\ideafarm.home.1\\ephemeral\\domains\\com\\ideafarm\\release\\settings.ideafarm.install.soil" ,
+                    boxPutF( "\\ideafarm.home.1\\ephemeral\\domains\\com\\ideafarm\\release\\5.settings.ideafarm.install.soil" ,
 
                         "\r\n"
                         "{settings:\r\n"
@@ -5153,7 +5189,7 @@ void boxPutF( const char* postFileP , const char* postP , int idElfP )
     else
     {
         const char* pbToDo = postP ;
-        int         cbToDo = strlen( postP ) + 1 ;
+        int         cbToDo = strlen( postP ) /*+ 1*/ ;  //20210224@1926: THE TRAILING NULL WAS CAUSING etherSoilF TO REJECT THE SOIL FILE ; TRAILING NULL SHOULD NOT BE ADDED TO A FILE
         while( cbToDo )
         {
             int cbChunk = fwrite( pbToDo , 1 , cbToDo , pFile ) ;
