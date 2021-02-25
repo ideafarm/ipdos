@@ -1,6 +1,6 @@
 @echo off
 
-d:
+rem d:
 cd\
 
 for /d %%d in (ideafarm.home.*) do @if exist "\%%d\IdeaFarm (tm)\WoIdeafarm\SOIL (tm) Text Being Eaten\production.*"        move "\%%d\IdeaFarm (tm)\WoIdeafarm\SOIL (tm) Text Being Eaten\production.*" "\%%d\IdeaFarm (tm)\WoIdeafarm\Drop a Copy of SOIL (tm) Text Here"

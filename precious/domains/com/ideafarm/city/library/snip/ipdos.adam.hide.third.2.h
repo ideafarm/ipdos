@@ -5572,9 +5572,9 @@ it is illegal to refer to this symbol in the definition of an adam
         // - BUT IT'S A BIT OF A PAIN IN THE ASS (PITA) TO SET UP EACH API
 
         #if defined( HOMEdRIVEiS_i )
-            #include "d:\ideafarm.home.1\precious\domains\com\ideafarm\city\workshop\openssl\include\openssl\ssl.h"
+            #include "\ideafarm.home.1\precious\domains\com\ideafarm\city\workshop\openssl\include\openssl\ssl.h"
         #else
-            #include "d:\ideafarm.home.1\precious\domains\com\ideafarm\city\workshop\openssl\include\openssl\ssl.h"
+            #include "\ideafarm.home.1\precious\domains\com\ideafarm\city\workshop\openssl\include\openssl\ssl.h"
         #endif
 
         //----------------------------------------------------- BEGIN
@@ -5646,7 +5646,7 @@ it is illegal to refer to this symbol in the definition of an adam
         // * WILL ENABLE AN IDEAFARM HOME TO HAVE "FEATURES" THAT CAN BE ENABLED OR DISABLED, AND YOU PAY ONLY FOR WHAT YOU USE (LOAD TIME, DISK SPACE)
         // - BUT IT'S A BIT OF A PAIN IN THE ASS (PITA) TO SET UP EACH API
 
-        #include "d:\ideafarm.home.1\precious\domains\com\ideafarm\city\workshop\zlib\unzipped.zlib123\zlib.h"
+        #include "\ideafarm.home.1\precious\domains\com\ideafarm\city\workshop\zlib\unzipped.zlib123\zlib.h"
 
         //----------------------------------------------------- BEGIN
 
@@ -27082,7 +27082,7 @@ code may use setIfZeAM on *(countT*)this
     osTextT             postIdHomeGlobal[ COSTiDhOMEgLOBALmAX + 1 ] ;
     countT              idStepSoil ;                    //  0              1
     countT              pcTallyIn[ CCtALLYiN ] ;        //  123456789abcdef0123456789a
-    osTextT             postHome[ 0x1a ] ;              // "d:\ideafarm.home.12345678"
+    osTextT             postHome[ 0x1a ] ;              // "x:\ideafarm.home.12345678"
 
     NEWdELcLASSpROTOS
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34001.homeS.NEWdELcLASSb!||

@@ -1653,7 +1653,7 @@ baP.cMonitors -- ;
                     }
                         TELL( "logTinF for a sin returned" ) ;
                         logTinF( tinP , etThread , bw.stPhrases , *bw.pTinEvent , bw.bCopy ) ;
-                        bw.stPhrases << psttOldC( tinP , etThread , T("thread information for the offending thread:\r\n") ) ;
+                        bw.stPhrases << psttOldC( tinP , etThread , T("thread information for the offending thread" ":\r\n") ) ;
                         //logStackFramesF( tinP , etThread , bw.stPhrases , bw.sw_hThread_osTid , bw.osPid ) ; // pTinEvent CAUSE THIS TO BE SUPRESSED IF VERY EARLY OR VERY LATE.  IN PARTICULAR, FOR THE CREATEpROCESS AND FOR THE WO'TH LOADdLL EVENTS, ccf WOULD BE VERY LARGE AND WOULD CAUSE ME TO FAIL IN THE newF EXPRESSION
                         TELL( "calling logTinF for a sin" ) ;
                     {
@@ -3982,7 +3982,7 @@ voidT annotateRegionInfoF( tinS& tinP , etherC& etThread , vmInfoS& vmInfoP , st
         ZE( count2S* , pc2o ) ;
     {
     while( stSortedNest )
-    etThread.strFuseF( tinP , psttP , T(" \r\n \r\nthese nesting levels were observed:\r\n \r\ntally___ cNest\r\n \r\n") ) ;
+    etThread.strFuseF( tinP , psttP , T(" \r\n \r\nthese nesting levels were observed" ":\r\n \r\ntally___ cNest\r\n \r\n") ) ;
     
     }
         etThread.delF( tinP, pc2o ) ;
@@ -3994,7 +3994,7 @@ voidT annotateRegionInfoF( tinS& tinP , etherC& etThread , vmInfoS& vmInfoP , st
         ZE( count2S* , pc2o ) ;
     {
     while( stSortedChainOfCommand )
-    etThread.strFuseF( tinP , psttP , T(" \r\n \r\nthese chains of command were observed:\r\n \r\ntally___ worker/supervisor/.../supervisor\r\n \r\n") ) ;
+    etThread.strFuseF( tinP , psttP , T(" \r\n \r\nthese chains of command were observed" ":\r\n \r\ntally___ worker/supervisor/.../supervisor\r\n \r\n") ) ;
     
     }
         etThread.delF( tinP, pc2o ) ;
@@ -4029,7 +4029,7 @@ voidT annotateRegionInfoF( tinS& tinP , etherC& etThread , vmInfoS& vmInfoP , st
         ZE( count2S* , pc2o ) ;
     {
     while( stSortedTell )
-    etThread.strFuseF( tinP , psttP , T(" \r\n \r\nthese activity declarations were observed:\r\n \r\ntally___ activity\r\n \r\n") ) ;
+    etThread.strFuseF( tinP , psttP , T(" \r\n \r\nthese activity declarations were observed" ":\r\n \r\ntally___ activity\r\n \r\n") ) ;
     
     }
         }

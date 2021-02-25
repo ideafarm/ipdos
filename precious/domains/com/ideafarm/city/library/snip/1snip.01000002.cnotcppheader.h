@@ -17,7 +17,7 @@
 
 #else
 
-    #include "d:\ideafarm.home.1\precious\domains\com\ideafarm\city\workshop\openssl\include\openssl\ssl.h"
+    #include "\ideafarm.home.1\precious\domains\com\ideafarm\city\workshop\openssl\include\openssl\ssl.h"
 
     //----------------------------------------------------- BEGIN
 

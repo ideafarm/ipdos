@@ -2491,7 +2491,7 @@ void elf_obey_C::liveF( void )
 
                     //DEBUG ------------------------------------------------- (BEGIN)
                     {
-                        HANDLE hfo = CreateFile( "d:\\\\tmp\\foo.ttt" , GENERIC_WRITE , 0 , 0 , OPEN_ALWAYS , FILE_FLAG_SEQUENTIAL_SCAN , 0 ) ;
+                        HANDLE hfo = CreateFile( "\\tmp\\foo.ttt" , GENERIC_WRITE , 0 , 0 , OPEN_ALWAYS , FILE_FLAG_SEQUENTIAL_SCAN , 0 ) ;
                         int bFail = hfo == INVALID_HANDLE_VALUE ;
                         if( bFail )
                         {
@@ -2702,6 +2702,8 @@ void elf_obey_C::liveF( void )
 
                 system( postCmd ) ; //MUST BE SERIALIZED SINCE wlink USES A TEMPORARY FILE THAT IT CREATES, AND WILL COLLIDE WITH ITSELF IN CREATING THIS FILE
 
+                sayF( "[4link]:  Linked to build the base dll (done)." ) ;
+
                 int bFail = 0 ;    
                 {
                     FILE* pFile = fopen( postMas , "rb" ) ;
@@ -2727,11 +2729,16 @@ void elf_obey_C::liveF( void )
                     fclose( pFile ) ; pFile = 0 ;
                 }
     
-                if( !bFail ) system( "wlib -p=32 -q -n -b \\ideafarm.home.1\\ephemeral\\domains\\com\\ideafarm\\city\\park\\exedll\\1\\master\\ideafarm.81000001.ipdos-wl +\\ideafarm.home.1\\ephemeral\\domains\\com\\ideafarm\\city\\park\\exedll\\1\\master\\ideafarm.81000001.ipdos-wm" ) ;
+                if( !bFail )
+                {
+                    sayF( "[4link]:  calling wlib." ) ;
+                    system( "wlib -p=32 -q -n -b \\ideafarm.home.1\\ephemeral\\domains\\com\\ideafarm\\city\\park\\exedll\\1\\master\\ideafarm.81000001.ipdos-wl +\\ideafarm.home.1\\ephemeral\\domains\\com\\ideafarm\\city\\park\\exedll\\1\\master\\ideafarm.81000001.ipdos-wm" ) ;
+                    sayF( "[4link]:  called wlib (done)." ) ;
+                }
     
                 batWatcom.ungrabF() ;
 
-                hoverC hover( "d:\\ideafarm.home.1\\precious\\domains\\com\\ideafarm\\city\\workshop\\adam" ) ;
+                hoverC hover( "\\ideafarm.home.1\\precious\\domains\\com\\ideafarm\\city\\workshop\\adam" ) ;
                 system( "m.bat" ) ;
             }
         }
@@ -5294,7 +5301,7 @@ void itoaF( char* post9P , int costa9P , int cP )
 
 void makeFoldersCopyThirdPartyDllsF( void )
 {
-    if( !SetCurrentDirectory( "d:\\" ) ) { BLAMMO ; }       //DONE TO ENSURE THAT CURRENT DRIVE IS d:
+    if( !SetCurrentDirectory( "\\" ) ) { BLAMMO ; }
     CreateDirectory( "\\ideafarm.home.1" , 0 ) ;
     CreateDirectory( "\\ideafarm.home.1\\ephemeral" , 0 ) ;
     CreateDirectory( "\\ideafarm.home.1\\ephemeral\\backed.up.daily" , 0 ) ;
@@ -5478,7 +5485,7 @@ int main( int cArgP , char* ppostArgP[] , char* ppostEnvP[] )
     int bHighPriest = sourceCodeExistsF() ;
 
     makeFoldersCopyThirdPartyDllsF() ;
-    { hoverC hover( "d:\\ideafarm.home.1\\ephemeral\\domains\\com\\ideafarm\\city\\park\\exedll\\1\\hover" , flHOVER_PERSIST ) ; } // WHEN USING PRECOMPILED HEADERS, MUST ALWAYS BE HOVERING IN THE SAME CURRENT DIRECTORY
+    { hoverC hover( "\\ideafarm.home.1\\ephemeral\\domains\\com\\ideafarm\\city\\park\\exedll\\1\\hover" , flHOVER_PERSIST ) ; } // WHEN USING PRECOMPILED HEADERS, MUST ALWAYS BE HOVERING IN THE SAME CURRENT DIRECTORY
 
     char postCmdWoth[ 0x10 ] = { "" } ;
     if( !bHighPriest ) ether.userF( "anonymous" ) ;
