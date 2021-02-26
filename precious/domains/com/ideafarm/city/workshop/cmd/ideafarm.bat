@@ -12,10 +12,10 @@ echo IdeaFarm (tm) drive is: %idrive%
 
 set iworkshop=%idrive%\ideafarm.home.1\precious\domains\com\ideafarm\city\workshop
 
-if not exist \tmp.ideafarm\* md \tmp.ideafarm
-if exist \tmp.ideafarm\vc.installed.txt goto :VCINSTALLED
+if not exist %idrive%\tmp.ideafarm\* md %idrive%\tmp.ideafarm
+if exist %idrive%\tmp.ideafarm\vc.installed.txt goto :VCINSTALLED
 
-copy %iworkshop%\visualstudio\vc.installed.txt \tmp.ideafarm
+copy %iworkshop%\visualstudio\vc.installed.txt %idrive%\tmp.ideafarm
 
 echo .
 echo I am about to install the Visual Studio runtimes.
@@ -27,8 +27,32 @@ pause
 %iworkshop%\visualstudio\VC_redist.x64.exe
 %iworkshop%\visualstudio\VC_redist.x86.exe
 
+echo .
+echo I am about to install the Rimstar Programmers Editor into c:\rimstar
+echo .
+pause
+
+c:
+if exist c:\rimstar\* goto :SKIPRIMSTAR
+md c:\rimstar
+cd c:\rimstar
+%iworkshop%\infozip\unzip.exe\unzip %iworkshop%\rimstar\rimstar.zip
+%idrive%
+
+goto :VCINSTALLED
+
+:SKIPRIMSTAR
+
+echo .
+echo I did not install Rimstar because c:\rimstar already exists.
+echo .
+pause
 
 :VCINSTALLED
+
+echo .
+echo Looking for IdeaFarm (tm) home folders on all drives...
+echo .
 
 if exist a:\ideafarm.home.* echo WARNING: ideafarm.home.* exists on drive a.
 if exist b:\ideafarm.home.* echo WARNING: ideafarm.home.* exists on drive b.
@@ -56,11 +80,14 @@ if exist w:\ideafarm.home.* echo WARNING: ideafarm.home.* exists on drive w.
 if exist x:\ideafarm.home.* echo WARNING: ideafarm.home.* exists on drive x.
 if exist y:\ideafarm.home.* echo WARNING: ideafarm.home.* exists on drive y.
 if exist z:\ideafarm.home.* echo WARNING: ideafarm.home.* exists on drive z.
+
 echo .
 echo All ideafarm.home.* folders must be in the root folder of the same local drive.
 echo If execution fails, this is the first thing to check for.
 echo .
 pause
+
+set path=%path%;c:\rimstar
 
 rem COMMENT OUT THESE LINES IF YOU HAVE INSTALLED THE WiX Toolset:
 set path=%path%;%iworkshop%\wix\WiX Toolset v3.11\bin
