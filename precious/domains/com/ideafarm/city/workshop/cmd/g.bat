@@ -229,6 +229,4 @@ if %1z == tdtz  goto :FIN
 if %1z == zz   cd\ideafarm.work\backed.up.never\gen\zip
 if %1z == zz   goto :FIN
 
-cd\ideafarm.work\backed.up.never\gen\%1
-
 :FIN
