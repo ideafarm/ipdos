@@ -1,0 +1,98 @@
+/*
+** Macro module: project.rm - Project support macros
+**
+** Copyright (C) 1996 Brian L. Smith
+** All rights reserved internationally.
+** Unlicensed use is a violation of applicable laws.
+**
+** This source code is provided to licensed users of RimStar's products
+** for the purpose of allowing the user to customize and/or enhance RimStar's
+** products. The source code remains the property of the copyright holders
+** with all rights reserved internationally.
+** Any modifications to the source code are considered derivative works and
+** all rights thereto are reserved to the copyright holders except
+** that the purchaser may use the derivitive work in the same manner
+** as permitted by the license governing the unmodified product.
+** Distribution in any manner of any part of the original source code,
+** whether in source or object form, is expressly prohibited without the
+** express written permission of the copyright holders.
+**
+*/
+
+#include "macro.h"
+
+
+
+void
+RunDialogEditor(void)
+{
+  #ifdef WINDOWS
+	ExecAppl("DLGEDIT.EXE", "", SW_SHOWNORMAL);
+  #else	// OS/2
+	ExecProgram("DLGEDIT.EXE", "", NULL);
+  #endif
+} // end RunDialogEditor()
+
+
+void
+RunImageEditor(void)
+{
+  #ifdef WINDOWS
+	ExecAppl("IMAGEDIT.EXE", "", SW_SHOWNORMAL);
+  #else	// OS/2
+	ExecProgram("ICONEDIT.EXE", "", NULL);
+  #endif
+} // end RunImageEditor()
+
+
+int
+BuildBrowserDatabase(char *fileName, char *pszDir, int type)
+{
+	PROGINFO	pi;
+	char		*pszExe = NULL;
+	char		szArgs[_MAX_PATH+2];
+	char		szProgPath[_MAX_PATH+1];
+
+	szProgPath[0] = 0;
+
+	switch ( type ) {
+	case 0:	// C++
+		switch ( OSType ) {
+		case OSTYPE_OS2:		pszExe = "cppsymp.exe"; break;
+		case OSTYPE_WIN:
+		case OSTYPE_WINNT:
+		case OSTYPE_WIN95:	pszExe = "cppsym.exe"; break;
+		}
+		break;
+	case 1:	// C
+		switch ( OSType ) {
+		case OSTYPE_OS2:		pszExe = "ccsymp.exe"; break;
+		case OSTYPE_WIN:
+		case OSTYPE_WINNT:
+		case OSTYPE_WIN95:	pszExe = "ccsym.exe"; break;
+		}
+		break;
+	case 2:	// SBD
+		return -1;
+	case 3:	// Tags
+		return -1;
+	}
+	if ( !pszExe )
+		return -1;
+	sprintf(szArgs, "@%s", fileName);
+	sprintf(szProgPath, "%s%s", SysQueryEditorPath(), pszExe);
+	memset(&pi, 0, sizeof(PROGINFO));
+
+	pi.pszTitle = "Build Browser database";
+	pi.pszPath  = szProgPath;
+	pi.pszDir   = pszDir;
+	pi.pszArgs  = szArgs;
+	pi.pszFunc  = "DatabaseErrorHandler";
+	pi.ulFlags  = EXECASSOC_NOWINDOW; // | EXECASSOC_IGNOREWARNINGS;
+	return ExecWithCapture(&pi);
+} // end BuildBrowserDatabase()
+
+
+/*
+** End module: project.rm
+*/

@@ -1,0 +1,53 @@
+
+#if WINDOWS
+#include "macro.h"
+
+
+/*
+** function definitions
+*/
+void	CppMakeClass(void);
+void  CppLaunchClassGen(void);
+
+
+/*
+** MakeClass - this function prompts for the class name and derived name
+** and executes the C++ Class Generator
+*/
+void CppMakeClass(void) {
+	char Class[128];
+	char Derived[128];
+	char CmdLine[280];
+
+	Class[0] = 0;
+
+	if ( PromptGetInput( "New Class Name:",Class,128, NULL) == NULL)
+		return;
+
+	PromptGetInput("Derived From:",Derived,128,NULL);
+
+	if ( Class[0] == 0 )
+		return;
+
+	strcpy(CmdLine, Class);
+	strcat(CmdLine, " ");
+	strcat(CmdLine, Derived);
+
+	ExecAppl("RCLSGEN.EXE",CmdLine,SW_SHOWMINIMIZED);
+} // end CppMakeClass()
+
+
+/*
+** This launches the class generator
+*/
+void
+CppLaunchClassGen(void) {
+	ExecAppl("RCLSGEN.EXE","",SW_SHOWMAXIMIZED);
+} // end CppLaunchClassGen()
+
+
+#endif // WINDOWS
+
+/*
+** End module: cppgen.rm
+*/

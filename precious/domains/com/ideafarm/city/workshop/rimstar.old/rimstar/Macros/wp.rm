@@ -1,0 +1,268 @@
+/*
+** Macro module: wp.rm - Some simple word processing features
+**
+** Copyright (C) 1994 Brian L. Smith
+** Copyright (C) 1994 RimStar Technology, Inc.
+** All rights reserved internationally.
+** Unlicensed use is a violation of applicable laws.
+**
+** This source code is provided to licensed users of RimStar's products
+** for the purpose of allowing the user to customize and/or enhance RimStar's
+** products. The source code remains the property of the copyright holders
+** with all rights reserved internationally.
+** Any modifications to the source code are considered derivative works and
+** all rights thereto are reserved to the copyright holders except
+** that the purchaser may use the derivitive work in the same manner
+** as permitted by the license governing the unmodified product.
+** Distribution in any manner of any part of the original source code,
+** whether in source or object form, is expressly prohibited without the
+** express written permission of the copyright holders.
+**
+*/
+
+#define INCL_EVENT
+#include "macro.h"
+#include "lang.h"
+
+
+extern long FILE_OFFSET;	/* built-in editor variable - MUST NEVER BE ASSIGNED TO!!! */
+
+long LeftMargin  =  0;
+long RightMargin = 79;
+
+
+void
+_init( void ) {
+
+	EventRegisterEvent(EVENT_CHAR_INSERTED, EVENT_LAST, "_ww", NULL);
+
+} /* end _init() */
+
+
+void
+enable_wp( void ) {
+	PBUFINFO	pbi;
+
+	pbi = BufInfoQuery(BufQueryCurrentBuffer());
+	if ( pbi )
+		pbi->ulFlags |= BI_WORDPROC;	/* enable wp features */
+} /* end enable_wp() */
+
+
+void
+disable_wp( void ) {
+	PBUFINFO	pbi;
+
+	pbi = BufInfoQuery(BufQueryCurrentBuffer());
+	if ( pbi )
+		pbi->ulFlags &= ~BI_WORDPROC;	/* disable wp features */
+} /* end disable_wp() */
+
+
+/*
+** .txt files will have word wrap enabled.
+*/
+void
+_txt_init(void) {
+	enable_wp();
+} /* end _txt_init() */
+
+
+void
+toggle_wp(void) {
+	PBUFINFO	pbi;
+
+	pbi = BufInfoQuery(BufQueryCurrentBuffer());
+	if ( pbi ) {
+		if ( pbi->ulFlags & BI_WORDPROC ) {
+			pbi->ulFlags &= ~BI_WORDPROC;	/* disable */
+			MsgPrintf("Word wrap is now off");
+		} else {
+			pbi->ulFlags |= BI_WORDPROC;	/* enable */
+			MsgPrintf("Word wrap is now on");
+		}
+	}
+} /* toggle_wp() */
+
+
+void
+left_margin(void) {
+	char txt[20];
+
+	sprintf(txt, "%d", LeftMargin);
+	if ( PromptGetInput("Set left margin:", txt, 4) )
+		LeftMargin = atol(txt);
+
+} /* end left_margin */
+
+
+void
+right_margin(void) {
+	char txt[20];
+
+	sprintf(txt, "%d", RightMargin);
+	if ( PromptGetInput("Set right margin:", txt, 4) )
+		RightMargin = atol(txt);
+
+} /* end right_margin */
+
+
+/*
+** center_line - Centers current line between left & right margins
+*/
+void
+center_line( void ) {
+	char	*text, *trimmed;
+	long	space, len;
+
+	PosSOT();
+	text = BufRead();
+	trimmed = ltrim( rtrim(text) );
+	PosSOL();
+	BufDeleteToEOL();
+	space = RightMargin - LeftMargin;
+	len = strlen(trimmed);
+	if ( len < space )
+		PosRel(0, LeftMargin + (space - len) / 2);
+	BufInsertString(trimmed);
+	free(text);
+} /* end center_line() */
+
+
+int
+wrap_line( void ) {
+	long		s_col;
+	long		delta, save_offset, current_offset, sol_offset, len;
+	char		*txt;
+	int		ch;
+
+	if ( (s_col = BufQueryColumn()) > RightMargin ) {
+		save_offset = FILE_OFFSET;
+
+		/* Position to the point to begin looking for a place to break the line */
+		current_offset = PosRel(0, RightMargin - s_col);
+		delta = save_offset - current_offset;
+
+		len = current_offset -= (sol_offset = PosSOL());
+		txt = BufRead();
+		while ( len > 0L ) {
+			ch = txt[len];
+			if ( ch == ' ' || ch == '\t' ) {
+				/* found a point at which to break the line */
+				break;
+			}
+			--len;
+		}
+		free(txt);
+		if ( len == 0 ) {
+			/* no place on line to break it so just leave it alone */
+			PosToOffset(save_offset);
+			return 0;
+		}
+		PosNextChar( len+1 );
+		BufInsertNewline();
+		if ( LeftMargin )
+			BufIndentColumn(1L, LeftMargin+1);
+		PosNextChar( delta + current_offset - (len+1) );
+		return 1;
+	}
+	return 0;
+} /* end wrap_line() */
+
+
+/*
+** Event handler for EVENT_CHAR_INSERTED
+**
+** Checks to see if line needs to be wrapped and does so if necessary
+*/
+int
+_ww(USHORT usEvent, char *chInserted) {
+	PBUFINFO	pbi;
+
+	pbi = BufInfoQuery(BufQueryCurrentBuffer());
+	if ( !pbi || !(pbi->ulFlags & BI_WORDPROC) || Undoing() || *chInserted == '\n' )
+		return 0;
+	wrap_line();
+	return 0;
+} /* end _ww (WordWrap) */
+
+    	
+void
+reformat(void) {
+	SHORT			type;
+	SELECTION	s;
+	HBUFFER		hb, hbOrig;
+	long			size;
+
+	if ( !MarkQuerySelExcl(&s, 1) ) {
+		/* look back for a blank line */
+		if ( SrchBack("^[ \t]*$", -1, 1, 0) == -1 )
+			PosSOF();
+		else
+			MovDown();
+		MarkLine();
+		/* look forward for a blank line */
+		if ( SrchFwd("^[ \t]*$", -1, 1, 0) == -1 )
+			PosEOF();
+		else
+			MovUp();
+		MarkQuerySel(&s, 1);
+	}
+
+	if ( s.type != SELECT_LINE ) {
+		MarkRemoveSel();
+		s.type = SELECT_LINE;
+		MarkCreateSel(&s);
+		MarkQuerySel(&s, 1);
+	}
+
+	/* Copy the selection into a temporary buffer */
+	hb = BufCreateBuffer("Reformat", NULL, BUFTYPE_SYSTEM);
+	if ( !hb ) {
+		MsgPrintf("Reformat: buffer creation failed");
+		return;
+	}
+	hbOrig = BufSwitchBuffer(hb);
+	if ( BufTransfer(hbOrig, s.s_line, s.s_column, s.e_line, s.e_column) ) {
+		BufSwitchBuffer(hbOrig);
+		MsgPrintf("Reformat: transfer failed");
+		BufDeleteBuffer(hb);
+		return;
+	}
+
+	PosSOF();
+	/* Join all the lines in each paragraph together */
+	while ( 1 ) {
+		PosEOL();
+		if ( FILE_OFFSET >= BufQueryBufferSize()-1L )
+			break;
+		if ( BufQueryChar(FILE_OFFSET+1L) != '\n' ) {
+			/* Join the lines together */
+			BufDeleteChar();	/* delete the newline */
+			BufDeleteWhitespace();
+			BufInsertChar( ' ' );
+		} else /* skip over blank line */
+			PosNextChar(2L);
+	}
+
+	PosSOF();
+	do {
+		do {
+			PosEOL();
+		} while ( wrap_line() );
+	} while ( !MovDown() );
+	size = BufQueryBufferSize();
+
+	BufSwitchBuffer(hbOrig);
+
+	BufDeleteSel();
+	PosSOL();
+	BufTransferBytes(hb, 0, size);
+	BufDeleteBuffer(hb);
+} /* end reformat() */
+
+
+
+/*
+** End module: wp.rm
+*/

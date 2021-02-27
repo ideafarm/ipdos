@@ -1,0 +1,46 @@
+/*
+** Macro module: cpp.rm - C++ professional support features
+**
+** Copyright (C) 1996 Brian L. Smith
+** All rights reserved internationally.
+** Unlicensed use is a violation of applicable laws.
+**
+** This source code is provided to licensed users of RimStar's products
+** for the purpose of allowing the user to customize and/or enhance RimStar's
+** products. The source code remains the property of the copyright holders
+** with all rights reserved internationally.
+** Any modifications to the source code are considered derivative works and
+** all rights thereto are reserved to the copyright holders except
+** that the purchaser may use the derivitive work in the same manner
+** as permitted by the license governing the unmodified product.
+** Distribution in any manner of any part of the original source code,
+** whether in source or object form, is expressly prohibited without the
+** express written permission of the copyright holders.
+**
+*/
+
+#include "macro.h"
+
+extern int GetDefaultSearchString(char *s, int len);
+
+char	_SymbolString[256];
+
+
+void
+CppBrowseSymbol(void)
+{
+	GetDefaultSearchString( _SymbolString, sizeof(_SymbolString) );
+	SbrShowSymbolInfo(_SymbolString);
+} // CppBrowseSymbol()
+
+
+_init()
+{
+	LibAutoload("search", "GetDefaultSearchString");
+}
+
+
+
+/*
+** End module: cpp.rm
+*/

@@ -1,0 +1,406 @@
+/*
+** Macro module: pl1.rm - PL/1 support features
+**
+** Copyright (C) 1993,1994 Brian L. Smith
+** Copyright (C) 1993,1994 RimStar Technology, Inc.
+** All rights reserved internationally.
+** Unlicensed use is a violation of applicable laws.
+**
+** This source code is provided to licensed users of RimStar's products
+** for the purpose of allowing the user to customize and/or enhance RimStar's
+** products. The source code remains the property of the copyright holders
+** with all rights reserved internationally.
+** Any modifications to the source code are considered derivative works and
+** all rights thereto are reserved to the copyright holders except
+** that the purchaser may use the derivitive work in the same manner
+** as permitted by the license governing the unmodified product.
+** Distribution in any manner of any part of the original source code,
+** whether in source or object form, is expressly prohibited without the
+** express written permission of the copyright holders.
+**
+*/
+
+/* NOTE:
+**
+** This version of PL1 support uses the C SyntaColor routines.
+** This will incorrectly color some PL1 code. PL1 specific
+** SyntaColor routines are in the works.
+*/
+
+#include "macro.h"
+#include "lang.h"
+
+#define INCL_PL1_TEMPLATES
+#include "template.h"
+
+
+/* IndentStyle is an internal variable within the editor
+** set it with RSE_FLAGS or on the command line using
+** the -Is flag
+*/
+extern long	IndentStyle;
+
+/* IndentSize is an internal variable within the editor
+** set it with RSE_FLAGS or on the command line using
+** the -Iwnnn where 'nnn' is size of indent. Default: 3
+*/
+extern long	IndentSize;
+
+/* regular indent keyboard - created in lang.rm */
+extern HKEYBOARD	_r_keymap;
+
+/*
+** Special buffer keyboards used for PL1 specific
+** indenting and template editing.
+*/
+HKEYBOARD	_pl1_smart, _pl1_template, _pl1_alt_template;
+
+
+/*
+** PL1 keyword names - for SyntaColor support
+*/
+PSZ KeywordsPL1[] = {
+	"ALIAS",
+	"ALLOCATE",
+	"ANYCONDITION",
+	"AREA",
+	"ATTACH",
+	"ATTENTION",
+	"AUTOMATIC",
+	"BASED",
+	"BEGIN",
+	"BIN",
+	"BINARY",
+	"BIT",
+	"BUF",
+	"BUFFERED",
+	"BY",	"NAME",
+	"CALL",
+	"CHAR",
+	"CHARACTER",
+	"CHECK",
+	"CLOSE",
+	"COL",
+	"COLUMN",
+	"COMPLEX",
+	"CONDITION",
+	"CTL",
+	"CONTROLLED",
+	"CONV",
+	"CONVERSION",
+	"COPY",
+	"DATA",
+	"DEC",
+	"DECIMAL",
+	"DCL",
+	"DECLARE",
+	"DEFINE",
+	"DEFAULT",
+	"DELAY",
+	"DELETE",
+	"DETACH",
+	"DIRECT",
+	"DISPLAY",
+	"DO",
+	"EDIT",
+	"ELSE",
+	"END",
+	"ENDFILE",
+	"ENDPAGE",
+	"ENTRY",
+	"ERROR",
+	"EXIT",
+	"EXT",
+	"EXTERNAL",
+	"FETCH",
+	"FILE",
+	"FINISH",
+	"FIXED",
+	"FOFL",
+	"FIXEDOVERFLOW",
+	"FLOAT",
+	"FORMAT",
+	"FREE",
+	"FROM",
+	"GET",
+	"GO",
+	"IDENT",
+	"IF",
+	"IN",
+	"INDEX",
+	"INIT",
+	"INITIAL",
+	"INPUT",
+	"INTO",
+	"INVALOOP",
+	"ITERATE",
+	"KEY",
+	"KEYED",
+	"KEYFROM",
+	"LABEL",
+	"LEAVE",
+	"LINE",
+	"LIST",
+	"LOCATE",
+	"MAIN",
+	"NAME",
+	"NULL",
+	"OFFSET",
+	"ON",
+	"OPEN",
+	"OPTIONS",
+	"ORDINAL",
+	"OTHERWISE",
+	"OUTPUT",
+	"OFL",
+	"OVERFLOW",
+	"PACKAGE",
+	"PAGE",
+	"PIC",
+	"PICTURE",
+	"PTR",
+	"POINTER",
+	"PRINT",
+	"PROC",
+	"PROCEDURE",
+	"PUT",
+	"READ",
+	"REAL",
+	"RECORD",
+	"RECURSIVE",
+	"RELEASE",
+	"RESIGNAL",
+	"RETURN",
+	"RETURNS",
+	"REVERT",
+	"REWRITE",
+	"SELECT",
+	"SEQL",
+	"SEQUENTIAL",
+	"SET",
+	"SIGNAL",
+	"SIZE",
+	"SKIP",
+	"STATIC",
+	"STOP",
+	"STORAGE",
+	"STREAM",
+	"STRING",
+	"STRG",
+	"STRINGRANGE",
+	"STRINGSIZE",
+	"STRUCTURE",
+	"SUBRG",
+	"SUBSCRIPTRANGE",
+	"TITLE",
+	"TO",
+	"TRANSMIT",
+	"UPDATE",
+	"UNDEFINEDFILE",
+	"UFL",
+	"UNDERFLOW",
+	"VAR",
+	"VARYING",
+	"WAIT",
+	"WHEN",
+	"WHILE",
+	"WRITE",
+	"ZDIV",
+	"ZERODIVIDE",
+	0
+};
+
+HHASH	htKeywordsPL1;	/* Handle to hash table created from above keywords */
+
+
+/*
+**	PL1Init
+**
+**	 Sets up the language specific features for PL/1
+**	 files. Called by pl1 file extension macros.
+*/
+void
+PL1Init(void) {
+	PBUFINFO	pBufInfo;
+
+	/* Set up for SyntaColor */
+	if ( pBufInfo = BufInfoQuery(BufQueryCurrentBuffer()) ) {
+		pBufInfo->htKeywords = htKeywordsPL1;
+		pBufInfo->ulFlags |= BI_SYNTACOLOR;
+		pBufInfo->syntaRefresh = SyntaColorC;
+		pBufInfo->syntaUpdate  = SyntaColorUpdateC;
+		if ( SyntaColorEnabled )
+			SyntaColorC(-1L, htKeywordsPL1);
+
+		/* Set templates to use if template editing style in effect */
+		switch ( IndentStyle ) {
+		case 3:		case 4:		case 6:		case 7:
+			pBufInfo->pTemplates = PL1Templates;
+		}
+	}
+	/*
+	** Make the C keyboard bindings override the regular keyboard
+	**	for this buffer. Called by LangInit() in lang.rm
+	*/
+	switch ( IndentStyle ) {
+	case 0:	return;
+	case 1:	KbdSetBufferKeyboard(_r_keymap);				break;
+	case 5:
+	case 2:	KbdSetBufferKeyboard(_pl1_smart);			break;
+	case 6:
+	case 3:	KbdSetBufferKeyboard(_pl1_template);		break;
+	case 7:
+	case 4:	KbdSetBufferKeyboard(_pl1_alt_template);	break;
+	}
+} /* end PL1Init() */
+
+
+void
+_pl1_init(void) {
+	PL1Init();
+}
+
+
+void
+_pli_init(void) {
+	PL1Init();
+}
+
+
+void
+_cpy_init(void) {
+	PL1Init();
+}
+
+
+void
+_inc_init(void) {
+	PL1Init();
+}
+
+
+/*
+** PL1 extension specific next/previous word functions
+*/
+
+void
+_pl1_next_word(void) {
+	long	len;
+	len = SrchFwd("([a-zA-Z0-9_]+)|([^ \t\f\na-zA-Z0-9_]+)|([ \t\f\n]+)[ \t\f\n]*", -1, 1, 0);
+	if ( len > 0 )
+		PosNextChar(len);
+} /* end _cmd_next_word() */
+
+
+void
+_pl1_prev_word(void) {
+	__prev_word();
+}
+
+
+void
+_pli_next_word(void) {
+	_pl1_next_word();
+}
+
+
+void
+_pli_prev_word(void) {
+	_pl1_prev_word();
+}
+
+
+void
+_cpy_next_word(void) {
+	_pl1_next_word();
+}
+
+
+void
+_cpy_prev_word(void) {
+	_pl1_prev_word();
+}
+
+
+void
+_inc_next_word(void) {
+	_pl1_next_word();
+}
+
+
+void
+_inc_prev_word(void) {
+	_pl1_prev_word();
+}
+
+
+/*
+** PL1BindKeys is used to define keyboard bindings for the
+** various indenting styles supported. A new keyboard has
+** usually been made current to just define these keys
+** and that keyboard is then made a buffer specific keyboard
+** for PL1 files.
+*/
+void
+PL1BindKeys(int template) {
+	char	*enter, *kp_enter, *tab, *expand;
+
+	expand = "TemplateExpand";
+	enter = kp_enter = "BufNewlineIndent";
+	if ( template == 2 )
+		tab = expand;	/* alternate template - expand on tab key */
+	else
+		tab = "slide_in";
+
+	if ( template == 1 )	{
+		/* regular template editing - expand on space key */
+		KbdBind("Space",		expand);
+		KbdBind("Ctrl+Space","just_space");
+	}
+	KbdBind("Enter",			enter);
+	KbdBind("Kp_Enter",		kp_enter);
+	KbdBind("Shift+Enter",	"BufNewlineIndent");
+	KbdBind("Tab",				tab);
+	KbdBind("Shift+Tab", 	"slide_out");
+} /* end PL1BindKeys() */
+
+
+void
+_init(void) {
+
+	/*
+	**	Create keyboards for the keys we need to remap
+	**	These keyboards are used as Buffer keyboards which
+	**	over-ride and/or supplement the current keyboard
+	**	when that buffer is current.
+	*/
+
+	/* The regular indenting keyboard ( -Is1 ) is created in lang.rm */
+
+	/* Create smart indenting keyboard ( -Is2 ) */
+	KbdPush();
+	PL1BindKeys(0);
+	_pl1_smart = KbdPop();
+
+	/* Create template editing keyboard ( -Is3 ) */
+	KbdPush();
+	PL1BindKeys(1);
+	_pl1_template = KbdPop();
+
+	/* Create alternate template editing keyboard ( -Is4 ) */
+	KbdPush();
+	PL1BindKeys(2);
+	_pl1_alt_template = KbdPop();
+
+	/* Set up for SyntaColor support */
+
+	/* Create a hash table of the PL1 language keywords */
+	htKeywordsPL1 = LangLoadKeywords(KeywordsPL1, 1);
+
+} /* end _init() */
+
+
+
+/*
+** End module: pl1.rm
+*/

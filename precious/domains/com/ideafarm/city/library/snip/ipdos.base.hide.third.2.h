@@ -27082,7 +27082,7 @@ code may use setIfZeAM on *(countT*)this
     osTextT             postIdHomeGlobal[ COSTiDhOMEgLOBALmAX + 1 ] ;
     countT              idStepSoil ;                    //  0              1
     countT              pcTallyIn[ CCtALLYiN ] ;        //  123456789abcdef0123456789a
-    osTextT             postHome[ 0x1a ] ;              // "x:\ideafarm.home.12345678"
+    osTextT             postHome[ 0x1a ] ;              // "d:\ideafarm.home.12345678"
 
     NEWdELcLASSpROTOS
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34001.homeS.NEWdELcLASSb!||

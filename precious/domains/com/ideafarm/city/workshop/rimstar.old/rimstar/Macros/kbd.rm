@@ -1,0 +1,69 @@
+/*
+** Macro module: kbd.rm - ASCII key bindings macros
+**
+** Copyright (C) 1993,1995 Brian L. Smith
+** Copyright (C) 1993,1995 RimStar Technology, Inc.
+** All rights reserved internationally.
+** Unlicensed use is a violation of applicable laws.
+**
+** This source code is provided to licensed users of RimStar's products
+** for the purpose of allowing the user to customize and/or enhance RimStar's
+** products. The source code remains the property of the copyright holders
+** with all rights reserved internationally.
+** Any modifications to the source code are considered derivative works and
+** all rights thereto are reserved to the copyright holders except
+** that the purchaser may use the derivitive work in the same manner
+** as permitted by the license governing the unmodified product.
+** Distribution in any manner of any part of the original source code,
+** whether in source or object form, is expressly prohibited without the
+** express written permission of the copyright holders.
+**
+*/
+
+#include "macro.h"
+
+/*
+** KbdBindAsciiKeys()
+**
+**	Binds (assigns) all the typable keys to the current keyboard mapping.
+**	Called by KbdBindDefault()
+**	If you are defining a new keyboard and want the standard typables
+**	just make your new keyboard the current keyboard and call this function.
+*/
+void
+KbdBindAsciiKeys(void) {
+	char	*p;
+	/* Bind the default CUA system menu accels */
+
+	KbdBind("Ctrl+F4",		"WinDeleteCurrentWindow");
+	KbdBind("Ctrl+F5",		"WinRestore");
+	KbdBind("Ctrl+F7",		"WinMove");
+	KbdBind("Ctrl+F8",		"WinSize");
+	KbdBind("Ctrl+F9",		"WinMinimize");
+	KbdBind("Ctrl+F10",		"WinMaximize");
+	KbdBind("Ctrl+Space",	"WinSysMenu");
+	KbdBind("Alt+F4",			"ExitEditor");
+	KbdBind("Alt+F5",			"WinMainRestore");
+	KbdBind("Alt+F7",			"WinMainMove");
+	KbdBind("Alt+F8",			"WinMainSize");
+	KbdBind("Alt+F9",			"WinMainMinimize");
+	KbdBind("Alt+F10",		"WinMainMaximize");
+  #if !WINDOWS
+	// if you hide it under windows you can't get it back!
+	// KbdBind("Alt+F11",		"WinMainHide");
+  #endif
+	KbdBind("Alt+Space",		"WinMainSysMenu");
+
+	/*
+	** Bind the standard typable key bindings
+	**
+	** 1st parameter: function to bind to all the normal typable keys like a-z
+	** 2nd parameter: function to bind to the Enter keys
+	*/
+	KbdBindTypables("SelfInsert", "BufInsertChar 10");
+} /* end KbdBindAsciiKeys() */
+
+
+/*
+** End module: kbd.rm
+*/

@@ -1,0 +1,803 @@
+/*
+** Macro module: c.rm - C/C++ support features
+**
+** Copyright (C) 1993-1996 Brian L. Smith
+** All rights reserved internationally.
+** Unlicensed use is a violation of applicable laws.
+**
+** This source code is provided to licensed users of RimStar's products
+** for the purpose of allowing the user to customize and/or enhance RimStar's
+** products. The source code remains the property of the copyright holders
+** with all rights reserved internationally.
+** Any modifications to the source code are considered derivative works and
+** all rights thereto are reserved to the copyright holders except
+** that the purchaser may use the derivitive work in the same manner
+** as permitted by the license governing the unmodified product.
+** Distribution in any manner of any part of the original source code,
+** whether in source or object form, is expressly prohibited without the
+** express written permission of the copyright holders.
+**
+*/
+
+#include "macro.h"
+#include "lang.h"
+
+#define INCL_C_TEMPLATES
+#include "template.h"
+
+extern long	_Country;	// built-in editor variable
+extern BOOL	CUASelActive;
+extern int c_brace_style;
+
+/*
+** c_tab_indent determines which function is bound to the Tab 
+** key when the smart indenter ( style 2 & 3 ) is used. 
+** When c_tab_indent is set to 1 the tab key works like this: 
+** If you are positioned on the first non whitespace character 
+** or in the leading whitespace of a line when you press Tab 
+** the line will be reindented to what the smart indenter 
+** considers to be correct and you will be positioned to the 
+** first non-whitespace character on the line. When 
+** TAB_REINDENT is set to 0 the tab key works like you would 
+** expect. If you have a selection active the Tab key will 
+** indent the selection by 'IndentWidth' - this behavior is 
+** the same for either setting of c_tab_indent.
+*/
+extern int	c_tab_indent;
+
+/*
+** Inteligent pasting (enabled by default) will reindent
+** lines of code to the proper indent level for you automaticly
+** using the _c_InteliPaste function defined below. This function
+** uses the default smart indenting routines to do its work.
+** If you are using quick smart indenting, the reindenting results 
+** could be slighly different, mainly 'case' statement indenting.
+** Settings for the smart indenter can be customized in the
+** _c_smart_setup() function (approx. line 1858) in the file c_smart.rm
+** You can disable this feature from the configuration dialog
+*/
+extern int	c_intelipaste;
+
+/*
+** c_indent_method is an internal variable within the editor
+** that is set by the configuration dialog.
+** It supercedes the -Is command line flag.
+*/
+extern int	c_indent_method;
+
+/*
+** c_indent_level is an internal variable within the editor
+** that is set by the configuration dialog.
+** It supercedes the -Iw command line flag.
+*/
+extern int	c_indent_level;
+
+/* regular indent keyboard - created in lang.rm */
+extern HKEYBOARD	_r_keymap;
+
+/*
+** Special buffer keyboards used for C/C++ specific
+** indenting and template editing.
+*/
+HKEYBOARD	_c_smart, _c_template, _c_alt_template;
+HKEYBOARD	_qc_smart, _qc_template, _qc_alt_template;
+
+
+/*
+** 'C' keyword names - for SyntaColor support
+*/
+PSZ KeywordsC[] = {
+ "auto",      "break",      "case",     "char",      "const",
+ "continue",  "default",    "do",       "double",    "else",
+ "enum",      "extern",     "float",    "for",       "goto",
+ "if",        "int",        "long",     "register",  "return",
+ "short",     "signed",     "sizeof",   "static",    "struct",
+ "switch",    "typedef",    "union",    "unsigned",  "void",
+ "volatile",  "while",
+ 0
+};
+
+HHASH	htKeywordsC;	/* Handle to hash table created from above keywords */
+
+
+/*
+** 'C++' specific keyword names - for SyntaColor support
+*/
+PSZ KeywordsCpp[] = {
+ "bool",      "catch",      "class",    "delete",    "explicit",
+ "false",     "friend",     "inline",   "mutable",   "namespace",
+ "new",       "operator",   "overload", "private",   "protected",
+ "public",    "template",   "this",     "throw",     "true",
+ "try",       "typename",   "using",    "virtual",   "wchar_t",
+	0
+};
+
+HHASH	htKeywordsCpp;	/* Handle to hash table created from above keywords */
+
+
+/*
+**	_c_init
+**
+**	 Sets up the language specific features for 'C' and related language
+**	 files. Called by LangInit() in lang.rm
+*/
+void
+_c_init(.../*long method (optional) */) {
+	PBUFINFO	pBufInfo;
+	long		method;
+
+	if ( !htKeywordsC )
+		/* Create a hash table of the C language keywords */
+		htKeywordsC   = LangLoadKeywords(KeywordsC);
+
+	if ( LibQueryArgCount() )
+		method = *(long *)LibGetArgPtr(0);
+	else
+		method = c_indent_method;
+	/* Set up for SyntaColor */
+	if ( pBufInfo = BufInfoQuery(BufQueryCurrentBuffer()) ) {
+		pBufInfo->htKeywords   = htKeywordsC;
+		pBufInfo->ulFlags     |= BI_SYNTACOLOR;
+		pBufInfo->syntaRefresh = SyntaColorC;
+		pBufInfo->syntaUpdate  = SyntaColorUpdateC;
+		pBufInfo->pszFunc      = "_c_init";
+
+		if ( SyntaColorEnabled )
+			SyntaColorC(-1L, htKeywordsC);
+
+		/* Set templates to use if a template editing method in effect */
+		switch ( method ) {
+		case 3:		case 4:		case 6:		case 7:
+			switch ( c_brace_style ) {
+			case BRACES_NEXTLINE:
+				pBufInfo->pTemplates = cTemplates0;	break;
+			case BRACES_SAMELINE:
+				pBufInfo->pTemplates = cTemplates1;	break;
+			case BRACES_INDENTED:
+				pBufInfo->pTemplates = cTemplates2;	break;
+			}
+		}
+	}
+	/*
+	** Make the C keyboard bindings override the default keyboard
+	**	for this buffer.
+	*/
+	switch ( method ) {
+	case 0:	return;
+	case 1:	KbdSetBufferKeyboard(_r_keymap);			break;
+	case 2:	KbdSetBufferKeyboard(_c_smart);			break;
+	case 3:	KbdSetBufferKeyboard(_c_template);		break;
+	case 4:	KbdSetBufferKeyboard(_c_alt_template);	break;
+	case 5:	KbdSetBufferKeyboard(_qc_smart);			break;
+	case 6:	KbdSetBufferKeyboard(_qc_template);		break;
+	case 7:	KbdSetBufferKeyboard(_qc_alt_template);break;
+	}
+} /* end _c_init() */
+
+/*
+**	_cpp_init
+**
+**	 Sets up the language specific features for 'C++' and related language
+**	 files.
+*/
+void
+_cpp_init(.../*long method (optional) */) {	/* C++ source files */
+	PBUFINFO	pBufInfo;
+	long		method;
+
+	if ( !htKeywordsCpp ) {
+		/* Create a hash table of the C++ language keywords */
+		htKeywordsCpp = LangLoadKeywords(KeywordsC);	// 1st the 'C' keywords
+		LangAddKeywords(htKeywordsCpp, KeywordsCpp);	// now add C++ specific
+	}
+
+	if ( LibQueryArgCount() )
+		method = *(long *)LibGetArgPtr(0);
+	else
+		method = c_indent_method;
+	if ( pBufInfo = BufInfoQuery(BufQueryCurrentBuffer()) ) {
+		pBufInfo->htKeywords   = htKeywordsCpp;
+		pBufInfo->ulFlags     |= BI_SYNTACOLOR;
+		pBufInfo->syntaRefresh = SyntaColorC;
+		pBufInfo->syntaUpdate  = SyntaColorUpdateC;
+		pBufInfo->pszFunc      = "_cpp_init";
+
+		if ( SyntaColorEnabled )
+			SyntaColorC(-1L, htKeywordsCpp);
+
+		/*
+		** Set templates to use if template editing method in effect
+		**
+		** Note: We are currently using the same templates for C++
+		**			as for C, there is no reason why you can't add
+		**			additional C++ specific templates to cTemplates
+		**			or create a separate cppTemplates array.
+		**			The templates are defined in template.h.
+		*/
+		switch ( method ) {
+		case 3:		case 4:		case 6:		case 7:
+			switch ( c_brace_style ) {
+			case BRACES_NEXTLINE:
+				pBufInfo->pTemplates = cTemplates0;	break;
+			case BRACES_SAMELINE:
+				pBufInfo->pTemplates = cTemplates1;	break;
+			case BRACES_INDENTED:
+				pBufInfo->pTemplates = cTemplates2;	break;
+			}
+		}
+	}
+	/*
+	** Make the C++ keyboard bindings override the regular keyboard
+	**	for this buffer.
+	*/
+	switch ( method ) {
+	case 0:	return;
+	case 1:	KbdSetBufferKeyboard(_r_keymap);			break;
+	case 2:	KbdSetBufferKeyboard(_c_smart);			break;
+	case 3:	KbdSetBufferKeyboard(_c_template);		break;
+	case 4:	KbdSetBufferKeyboard(_c_alt_template);	break;
+	case 5:	KbdSetBufferKeyboard(_qc_smart);			break;
+	case 6:	KbdSetBufferKeyboard(_qc_template);		break;
+	case 7:	KbdSetBufferKeyboard(_qc_alt_template);break;
+	}
+} /* end _cpp_init() */
+
+
+void
+_cpv_init(void) {	/* IBM Visual Builder C++ source files */
+	_cpp_init();
+}
+
+void
+_hpv_init(void) {	/* IBM Visual Builder C++ header files */
+	_cpp_init();
+}
+
+void
+_cxx_init(void) {	/* C++ source files */
+	_cpp_init();
+}
+
+void
+_h_init(void) {	/* C/C++ Header files */
+	_cpp_init();
+}
+
+void
+_hpp_init(void) {	/* C++ header files */
+	_cpp_init();
+}
+
+void
+_hcd_init(void) {	/* Poet C++ header files */
+	_cpp_init();
+}
+
+void
+_hxx_init(void) {	/* C++ header files */
+	_cpp_init();
+}
+
+void
+_inl_init(void) {	/* C++ inline files */
+	_cpp_init();
+}
+
+void
+_rm_init(void) { /* RimStar macro files */
+	_c_init();
+}
+
+void
+_sqc_init(void) { /* imbedded SQL C source files */
+	_c_init();
+}
+
+void
+_rc_init(void) { /* Resource files */
+	_c_init(1);	// force regular indenting
+}
+
+void
+_rch_init(void) { /* Resource header files */
+	_c_init();
+}
+
+
+/*
+** C/C++ extension specific next/previous word functions
+*/
+
+void
+_c_next_word(void) {
+	long	len;
+
+	len = SrchFwd("(([a-zA-Z0-9_]+)|([^ \t\f\na-zA-Z0-9_]+)|([ \t\f\n]+))[ \t\f\n]*", -1, 1);
+	if ( len > 0 )
+		PosNextChar(len);
+} /* end _c_next_word() */
+
+void
+_cpp_next_word(void) {
+	_c_next_word();
+}
+
+void
+_cpv_next_word(void) {
+	_c_next_word();
+}
+
+void
+_cxx_next_word(void) {
+	_c_next_word();
+}
+
+void
+_h_next_word(void) {
+	_c_next_word();
+}
+
+void
+_hpp_next_word(void) {
+	_c_next_word();
+}
+
+void
+_hxx_next_word(void) {
+	_c_next_word();
+}
+
+void
+_inl_next_word(void) {
+	_c_next_word();
+}
+
+void
+_rm_next_word(void) {
+	_c_next_word();
+}
+
+void
+_sqc_next_word(void) {
+	_c_next_word();
+}
+
+
+void
+_c_prev_word(void) {
+  #if 1
+	if ( !PosPrevChar() )
+		SrchBack("([0-9A-Z_a-z]+|[^ \t\f\n0-9A-Z_a-z]+)[ \t\f\n]*", -2, 1);
+  #else
+	__prev_word();
+  #endif
+}
+
+void
+_cpp_prev_word(void) {
+	_c_prev_word();
+}
+
+void
+_cpv_prev_word(void) {
+	_c_prev_word();
+}
+
+void
+_cxx_prev_word(void) {
+	_c_prev_word();
+}
+
+void
+_h_prev_word(void) {
+	_c_prev_word();
+}
+
+void
+_hpp_prev_word(void) {
+	_c_prev_word();
+}
+
+void
+_hxx_prev_word(void) {
+	_c_prev_word();
+}
+
+void
+_inl_prev_word(void) {
+	_c_prev_word();
+}
+
+void
+_rm_prev_word(void) {
+	_c_prev_word();
+}
+
+void
+_sqc_prev_word(void) {
+	_c_prev_word();
+}
+
+
+void
+just_brace(void) {
+	BufInsertChar('{');
+}
+
+void
+just_cbrace(void) {
+	BufInsertChar('}');
+}
+
+
+char *
+replace_whitespace(char *s, int c)
+{
+	char	*p;
+
+	p = s;
+	if ( p ) {
+		for ( ; *p; ++p )
+			if ( *p == ' ' || *p == '\n' || *p == '\t' || *p == '\f' )
+				*p = c;
+	}
+	return s;
+} // end replace_whitespace()
+
+static HLIST hlFunctions;
+#define cpp_func_rexp	"^([a-zA-Z_0-9]+[ \t\n\f]+)*(([a-zA-Z_0-9]+[ \t\n\f]*::[ \t\n\f]*)*[a-zA-Z_~0-9]+)[ \t\n\f]*\\(.*\\)[ \t\n\f]*(const[ \t\n\f]*)*{"
+
+void _c_FunctionList()
+{
+	int			saveLine, saveCol;
+	int			rc, len;
+	char			*n1, *n2, *name;
+	USERLISTDLG	dlgData;
+	PLISTITEM	psel;
+
+	// Create list
+	if ( !hlFunctions ) {
+		hlFunctions = ListCreate("Functions", 0, LIST_FIFO, 0);
+		if ( !hlFunctions ) {
+			MsgError("Unable to create the function list.");
+			return;
+		}
+	} else {
+		ListItemDeleteAll(hlFunctions);
+	}
+	// rexp for C++ function definitions: "^(([a-zA-Z_0-9]+[ \t\n\f]*::[ \t\n\f]*)?[a-zA-Z_0-9]+)[ \t\n\f]*\(.*\)[ \t\n\f]*{"
+	BufQueryPosition(&saveLine, &saveCol);
+	PosSOF();
+	while ( 1 ) {
+		rc = SrchFwd(cpp_func_rexp, -1, 1, 0, NULL, RE_SYNTAX_UNIX);
+		if ( rc > 0 ) {
+			// Get text of 1st regular expression group - ie. the function's name
+			n1 = SrchQueryGroup(0);
+			if ( n1 )
+				replace_whitespace(n1, ' ');
+			n2 = SrchQueryGroup(1);
+			if ( n2 )
+				replace_whitespace(n2, ' ');
+
+			if ( n1 )
+				len = strlen(n1);
+			else
+				len = 0;
+			if ( n2 )
+				len += strlen(n2);
+			name = malloc(len+1);
+			name[0] = 0;
+			if ( name ) {
+				if ( n1 )
+					strcpy(name, n1);
+				if ( n2 )
+					strcat(name, n2);
+				// Add function to list
+				ListItemAdd( hlFunctions, name, BufQueryLine(), -1 );
+				free(name);
+			}
+			PosNextChar(rc);	// skip over matched string
+		} else
+			break;	// no more function definitions
+	}
+	PosAbs(saveLine, saveCol);
+
+	// Show the list
+	memset(dlgData, 0, sizeof(dlgData));
+	dlgData.cbStruct = sizeof(dlgData);
+	dlgData.pszTitle = "Functions";
+	dlgData.pItems   = (PLISTITEM) ListItemFirst(hlFunctions);
+	if ( !DlgUserList(&dlgData) ) {
+		// Selected a function
+		if ( psel = dlgData.pItemSel ) {
+			MovAbs(psel->ulData, 1);
+			WinScrollCenter();
+		}
+	}
+} // end _c_FunctionList()
+
+
+/*
+** _c_InteliPaste
+**
+** This function pastes the current scrap and then
+** reindents the lines pasted to the proper indent
+** level using the smart indenting function c_indenter().
+**
+*/
+void
+_c_InteliPaste(void) {
+   long  	s_line, e_line, e_col, col;
+
+	if ( (BufQueryFlags(BufQueryCurrentScrap()) & BUFFER_SCRAPTYPE) == SCRAPTYPE_COLUMN ) {
+		/* do not adjust column pastes */
+		BufPasteScrap();
+		return;
+	}
+
+   s_line = BufQueryLine();
+
+   BufPasteScrap();
+   
+   BufQueryPosition(&e_line, &e_col);
+
+   if ( e_line > s_line ) {
+      while ( s_line <= e_line ) {
+			PosAbs(s_line, 1L);
+			PosSOT();
+			if ( BufQueryChar() != '\n' ) {
+				// the line is not empty
+				col = BufQueryColumn();
+				c_indenter();
+				// see if indenter changed indenting, if no change,
+				// assume rest of insert is already properly indented
+				if ( col == BufQueryColumn() )
+					break;
+			}
+         ++s_line;
+      }
+      MovAbs(e_line, e_col);
+   }
+} /* end _c_InteliPaste() */
+
+
+/*
+** BindInteliPaste
+**
+** This function will create keyboard bindings for the currently
+** active keyboard (should be a buffer keyboard) to match
+** the default keyboard bindings for pasting the scrap so that
+** the Inteligent paste function is used for the buffer instead
+** of the normal paste function.
+*/
+void
+BindInteliPaste(void) {
+	HKEYBOARD	hKbd;
+	PBINDING		pBind = NULL;
+
+	// current keyboard is the buffer keyboard being created
+	// we want to search default kbd so pop the buffer keyboard
+	hKbd = KbdPop();
+
+	// Find each key bound to BufPasteScrap
+	do	{
+		pBind = KbdQueryBinding("BufPasteScrap", pBind);
+		if ( pBind ) {
+			KbdPush(hKbd);		// make buffer keyboard current
+			// convert key sequence to a string and bind to buffer kbd
+			KbdBind( KbdKeysToString(pBind->key, 0), "_c_InteliPaste" );
+			KbdPop();
+		}
+	} while ( pBind != NULL );
+
+	// now check for CUA versions of BufPasteScrap
+	do	{
+		pBind = KbdQueryBinding("CUAReplace BufPasteScrap", pBind);
+		if ( pBind ) {
+			KbdPush(hKbd);		// make buffer keyboard current
+			// convert key sequence to a string and bind to buffer kbd
+			KbdBind( KbdKeysToString(pBind->key, 0), "CUAReplace _c_InteliPaste" );
+			KbdPop();
+		}
+	} while ( pBind != NULL );
+	KbdPush(hKbd);		// make buffer keyboard current
+} /* end BindInteliPaste() */
+
+
+/*
+** _cBindKeys is used to define keyboard bindings for the
+** various indenting methods supported. A new keyboard has
+** usually been made current to just define these keys
+** and that keyboard is then made a buffer specific keyboard
+** for C/C++ files.
+*/
+void
+_cBindKeys(BOOL quick, int templates) {
+	char	*enter, *kp_enter, *open, *close, *tab, *expand, *p;
+
+	expand = "TemplateExpand";
+	if ( quick ) {
+		/* Quick smart indenter */
+		enter = kp_enter = "_c_qnewline";
+		open  = "_c_qopen";
+		close = "_c_qclose";
+		if ( templates == 2 )
+			tab = expand;	/* alternate template - expand on tab key */
+		else
+			tab = "slide_in";
+	} else {
+		/* Standard smart indenter */
+		enter    = "_c_newline_break";
+		kp_enter = "_c_newline";
+		open     = "_c_open";
+		close    = "_c_close";
+		if ( templates == 2 ) {
+			tab = expand;	/* alternate template - expand on tab key */
+		} else {
+			if ( c_tab_indent ) {
+				/*
+				** Pressing Tab when you are positioned on or before the first character
+				** of the line reindents the line as the smart indenter thinks it should
+				** be indented. If you are positioned after the 1st non whitespace
+				** character on a line Tab will work as you expect it to work.
+				** If this feature drives you crazy just change the #define TAB_REINDENT 1
+				** (at or near line 45 above) to #define TAB_REINDENT 0,
+				** which will give you normal Tab key behavior.
+				*/
+				tab = "_c_indent";
+			} else {
+				tab = "slide_in";
+				KbdBind("Ctrl+Tab", "_c_indent");
+			}
+		}
+	}
+
+	if ( templates == 1 )	{
+		/* regular template editing - expand on space key */
+		KbdBind("Space",		expand);
+		KbdBind("Ctrl+Space","just_space");
+	}
+	KbdBind("Enter",			enter);
+	KbdBind("Kp_Enter",		kp_enter);
+	KbdBind("Shift+Enter",	"BufNewlineIndent");
+	KbdBind("Tab",				tab);
+	KbdBind("Shift+Tab", 	"slide_out");
+	/*
+	** Since the curly brace keys are on different keys
+	**	for different countries, they must be mapped
+	** correctly. This applies as well to other punctuation
+	** characters.
+	*/
+	switch ( _Country ) {
+	default:
+	case 1:		/* United States */
+	case 44:		/* United Kingdom */
+		KbdBind("Shift+[", open);
+		KbdBind("Shift+]", close);
+		break;
+	case 3:		/* Latin America */
+		KbdBind("{", open);
+		KbdBind("}", close);
+		break;
+	case 32:		/* Belgium */
+	case 2:		/* Canada, French */
+	case 42:		/* Czechoslovakia */
+	case 45: 	/* Denmark */
+	case 358:	/* Finland */
+	case 33:		/* France  */
+	case 49:		/* Germany */
+	case 36:		/* Hungary */
+	case 354:	/* Iceland */
+	case 39:		/* Italy */
+	case 31:		/* Netherlands */
+	case 47:		/* Norway */
+	case 48:		/* Poland */
+	case 351:	/* Portugal */
+	case 34:		/* Spain */
+	case 46:		/* Sweden */
+	case 41:		/* Switzerland */
+	case 90:		/* Turkey */
+	case 38:		/* Yugoslavia */
+		KbdBind("AltGr+{", open);
+		KbdBind("AltGr+}", close);
+		/* Also rebind find_matching_delim */
+		KbdBind("Shift+AltGr+{",	p="find_matching_delim");
+		KbdBind("Shift+Alt+}",		p);
+		KbdBind("Shift+AltGr+}",	p);
+		KbdBind("Shift+Alt+}", 		p);
+		break;
+	}
+	/* Additional fuctions available from smart indenter */
+	KbdBind("Ctrl+Alt+A",	"_c_start_of_func");
+	KbdBind("Ctrl+Alt+E",	"_c_end_of_func");
+	KbdBind("Ctrl+Alt+F",	"_c_forward_cexp");
+	KbdBind("Ctrl+Alt+B",	"_c_backward_cexp");
+	KbdBind("Ctrl+Alt+U",	"_c_up_level");
+	KbdBind("Ctrl+Alt+Q",	"_c_indent_function");
+	KbdBind("Ctrl+Alt+Tab",	"_c_indent_lines");
+  #if WINDOWS
+	KbdBind("Ctrl+Alt+C",	"CppMakeClass");
+  #endif
+	// new 16Aug96 - use new function to display functions in module
+	KbdBind("Ctrl+G",	"_c_FunctionList");
+
+	if ( c_intelipaste )
+		BindInteliPaste();
+} /* end _cBindKeys() */
+
+
+void
+_c_keyboards(void)
+{
+	/*
+	**	Create keyboards for the keys we need to remap
+	**	These keyboards are used as Buffer keyboards which
+	**	over-ride and/or supplement the current keyboard
+	**	when that buffer is current.
+	*/
+
+	/* The regular indenting keyboard ( -Is1 ) is created in lang.rm */
+
+	/* Create smart indenting keyboard ( -Is2 ) */
+	if ( _c_smart )
+		KbdUnbindAll(_c_smart);
+	KbdPush(_c_smart);
+	_cBindKeys(0, 0);
+	_c_smart = KbdPop();
+
+	/* Create template editing keyboard ( -Is3 ) */
+	if ( _c_template )
+		KbdUnbindAll(_c_template);
+	KbdPush(_c_template);
+	_cBindKeys(0, 1);
+	_c_template = KbdPop();
+
+	/* Create alternate template editing keyboard ( -Is4 ) */
+	if ( _c_alt_template )
+		KbdUnbindAll(_c_alt_template);
+	KbdPush(_c_alt_template);
+	_cBindKeys(0, 2);
+	_c_alt_template = KbdPop();
+
+	/* Create quick smart indenting keyboard ( -Is5 ) */
+	if ( _qc_smart )
+		KbdUnbindAll(_qc_smart);
+	KbdPush(_qc_smart);
+	_cBindKeys(1, 0);
+	_qc_smart = KbdPop();
+
+	/* Create quick template editing keyboard ( -Is6 ) */
+	if ( _qc_template )
+		KbdUnbindAll(_qc_template);
+	KbdPush(_qc_template);
+	_cBindKeys(1, 1);
+	_qc_template = KbdPop();
+
+	/* Create alternate template editing keyboard ( -Is7 ) */
+	if ( _qc_alt_template )
+		KbdUnbindAll(_qc_alt_template);
+	KbdPush(_qc_alt_template);
+	_cBindKeys(1, 2);
+	_qc_alt_template = KbdPop();
+} // end _c_keyboards()
+
+
+void
+_init(void) {
+
+	LibAutoload("c_smart",  "_c_newline", "_c_newline_break",
+                           "_c_indent",  "_c_close", 
+                           "_c_open",    "_c_indent_function",
+                           "_c_start_of_func", "_c_end_of_func",
+                           "_c_forward_cexp",  "_c_backward_cexp",
+                           "c_indenter", "_c_up_level",
+                           "_c_qopen",   "_c_qclose",
+                           "_c_qnewline", "_c_indent_lines" );
+	_c_keyboards();
+} /* end _init() */
+
+
+
+/*
+** End module: c.rm
+*/

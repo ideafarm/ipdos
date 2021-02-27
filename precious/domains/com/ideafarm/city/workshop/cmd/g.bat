@@ -50,7 +50,7 @@ if %1z == elz  goto :FIN
 if %1z == wwz  cd\ideafarm.work\bench\wowindow
 if %1z == wwz  goto :FIN
 rem if %1z == hwz cd \Program Files\Microsoft SDKs\Windows\v7.0\Include
-if %1z == hwz d:
+if %1z == hwz %idrive%
 if %1z == hwz cd \ideafarm.home.1\precious\domains\com\ideafarm\city\workshop\watcom\h\nt
 if %1z == hwz   goto :FIN
 if %1z == mkz   cd\ideafarm.home.%idHomeG%\domains\com\ideafarm\gen\osMakeF

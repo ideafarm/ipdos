@@ -1,6 +1,6 @@
 @echo off
 
-if exist \tmp\*                   del \tmp\* /q
+if exist i:\tmp\*                   del i:\tmp\* /q
 
 call g m
 

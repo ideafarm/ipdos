@@ -2702,8 +2702,6 @@ void elf_obey_C::liveF( void )
 
                 system( postCmd ) ; //MUST BE SERIALIZED SINCE wlink USES A TEMPORARY FILE THAT IT CREATES, AND WILL COLLIDE WITH ITSELF IN CREATING THIS FILE
 
-                sayF( "[4link]:  Linked to build the base dll (done)." ) ;
-
                 int bFail = 0 ;    
                 {
                     FILE* pFile = fopen( postMas , "rb" ) ;
@@ -2729,12 +2727,7 @@ void elf_obey_C::liveF( void )
                     fclose( pFile ) ; pFile = 0 ;
                 }
     
-                if( !bFail )
-                {
-                    sayF( "[4link]:  calling wlib." ) ;
-                    system( "wlib -p=32 -q -n -b \\ideafarm.home.1\\ephemeral\\domains\\com\\ideafarm\\city\\park\\exedll\\1\\master\\ideafarm.81000001.ipdos-wl +\\ideafarm.home.1\\ephemeral\\domains\\com\\ideafarm\\city\\park\\exedll\\1\\master\\ideafarm.81000001.ipdos-wm" ) ;
-                    sayF( "[4link]:  called wlib (done)." ) ;
-                }
+                if( !bFail ) system( "wlib -p=32 -q -n -b \\ideafarm.home.1\\ephemeral\\domains\\com\\ideafarm\\city\\park\\exedll\\1\\master\\ideafarm.81000001.ipdos-wl +\\ideafarm.home.1\\ephemeral\\domains\\com\\ideafarm\\city\\park\\exedll\\1\\master\\ideafarm.81000001.ipdos-wm" ) ;
     
                 batWatcom.ungrabF() ;
 
@@ -5196,7 +5189,7 @@ void boxPutF( const char* postFileP , const char* postP , int idElfP )
     else
     {
         const char* pbToDo = postP ;
-        int         cbToDo = strlen( postP ) /*+ 1*/ ;  //20210224@1926: THE TRAILING NULL WAS CAUSING etherSoilF TO REJECT THE SOIL FILE ; TRAILING NULL SHOULD NOT BE ADDED TO A FILE
+        int         cbToDo = strlen( postP ) + 1 ;
         while( cbToDo )
         {
             int cbChunk = fwrite( pbToDo , 1 , cbToDo , pFile ) ;
@@ -5301,7 +5294,6 @@ void itoaF( char* post9P , int costa9P , int cP )
 
 void makeFoldersCopyThirdPartyDllsF( void )
 {
-    if( !SetCurrentDirectory( "\\" ) ) { BLAMMO ; }
     CreateDirectory( "\\ideafarm.home.1" , 0 ) ;
     CreateDirectory( "\\ideafarm.home.1\\ephemeral" , 0 ) ;
     CreateDirectory( "\\ideafarm.home.1\\ephemeral\\backed.up.daily" , 0 ) ;

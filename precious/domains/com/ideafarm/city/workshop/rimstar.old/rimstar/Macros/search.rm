@@ -1,0 +1,410 @@
+/*
+** Macro module: search.rm - search functions
+**
+** Copyright (C) 1993-1996 Brian L. Smith
+** All rights reserved internationally.
+** Unlicensed use is a violation of applicable laws.
+**
+** This source code is provided to licensed users of RimStar's products
+** for the purpose of allowing the user to customize and/or enhance RimStar's
+** products. The source code remains the property of the copyright holders
+** with all rights reserved internationally.
+** Any modifications to the source code are considered derivative works and
+** all rights thereto are reserved to the copyright holders except
+** that the purchaser may use the derivitive work in the same manner
+** as permitted by the license governing the unmodified product.
+** Distribution in any manner of any part of the original source code,
+** whether in source or object form, is expressly prohibited without the
+** express written permission of the copyright holders.
+**
+*/
+
+#include "macro.h"
+
+extern BOOL	CUASelActive;
+
+int
+SelToString(char *s, int len, BOOL posStartSel) {
+	char			*p;
+	int			line, col, type, slen = 0;
+	SELECTION	sel;
+
+   if ( type = MarkQuerySelExcl(&sel) ) {
+		if ( sel.s_line == sel.e_line && 
+			  sel.type != SELECT_LINE ) {
+			BufQueryPosition(&line, &col);
+			if ( type == SELECT_EXCLUSIVE &&
+				  (line != sel.s_line || line != sel.e_line) ) {
+				// exclusive selection of the entire line - don't take it
+				return 0;
+			}
+			MarkRemoveSel();
+			CUASelActive = FALSE;
+			slen = sel.e_column - sel.s_column + 1;
+			if ( slen > len-1 )
+				slen = len-1;
+			PosAbs(sel.s_line, sel.s_column);
+			p = BufRead(slen);
+			strcpy(s, rtrim(p));
+			free(p);
+			if ( !posStartSel )
+				PosAbs(line, col);
+		}
+	}
+	return slen;
+} // end SelToString()
+
+
+int
+GetDefaultSearchString(char *s, int len) {
+	int	n;
+
+	n = SelToString(s, len, FALSE);
+	if ( n == 0 )
+		n = BufCopyWordToString(s, len);
+	return n;
+} // end GetDefaultSearchString()
+
+
+int
+Search(int dir) {
+	SRCHPARMS	s;
+	int			rc;
+
+	memset(&s, 0, sizeof(s));
+	s.cbSize     = sizeof(s);
+	s.pszPattern = _SearchString;
+	s.cbPattern  = sizeof(_SearchString);
+	s.flags      = _SrchFlags;
+
+	if ( dir == -1 )
+		s.flags |= SRCH_BACKWARD; 
+	else if ( dir == 1 )
+		s.flags &= ~SRCH_BACKWARD; 
+
+	GetDefaultSearchString( _SearchString, sizeof(_SearchString) );
+
+	// put up the dialog
+	rc = SrchDlg(&s);
+	if ( rc || !_SearchString[0] ) 
+		return -1;
+	_SrchFlags = s.flags;
+	return _Search(2, 0);
+} // end Search()
+
+INT
+SearchAgain( void ) {
+	return _Search(2, 1);
+} // end SearchAgain()
+
+INT
+SearchBackward( void ) {
+	return Search(-1);
+} // end SearchBackward()
+
+INT
+SearchForward( void ) {
+	return Search(1);
+} // end SearchForward()
+
+
+INT
+Replace(int dir) {
+	SRCHPARMS	s;
+	int			rc;
+
+	memset(&s, 0, sizeof(s));
+	s.cbSize     = sizeof(s);
+	s.pszPattern = _ReplaceSearchString;
+	s.pszReplace = _ReplaceString;
+	s.cbPattern  = sizeof(_ReplaceSearchString);
+	s.cbReplace  = sizeof(_ReplaceString);
+	s.flags      = _SrchFlags;
+	
+	if ( dir == -1 )
+		s.flags |= SRCH_BACKWARD; 
+	else if ( dir == 1 )
+		s.flags &= ~SRCH_BACKWARD; 
+
+	SelToString( _ReplaceSearchString, sizeof(_ReplaceSearchString), TRUE );
+
+	rc = ReplaceDlg(&s);
+	if ( rc || !_ReplaceSearchString[0] )
+		return -1;
+	_SrchFlags = s.flags;
+	_Replace();
+} // end Replace()
+
+INT
+ReplaceAgain( void ) {
+	_Replace();
+} // end ReplaceAgain
+
+INT
+ReplaceBackward( void ) {
+	Replace(-1);
+} // end ReplaceBackward()
+
+INT
+ReplaceForward( void ) {
+	Replace(1);
+} // end ReplaceForward()
+
+
+/*
+** SearchSel - uses the current selection as a search string
+**		to search for the next/prev occurrence.
+** If no selection is active then a the Search dialog is presented.
+*/
+void
+SearchSel(int dir) {
+	SELECTION	p;
+	char			*string, ch;
+	LONG			type;
+	LONG			rc, offset, column, line, i, len;
+
+	type = MarkQuerySelExcl( &p, 1 );
+	if ( type < 1 || type > 4 || ( p.s_line != p.e_line ) ) {
+		if ( dir ) {
+			PosNextChar();
+			SearchForward();
+		} else {
+			PosPrevChar();
+			SearchBackward();
+		}
+		return;
+	} else {
+		MarkRemoveSel();
+		CUASelActive = FALSE;
+		PosAbs( p.s_line, p.s_column );
+		offset = BufQueryOffset();
+		len = ( p.e_column - p.s_column ) + 1L;
+		string = malloc(len+1L);
+		for ( i = 0; i < len; i++, offset++ ) {
+			ch = BufQueryChar(offset);
+			string[i] = ch;
+		}
+
+		if ( dir ) {
+			PosNextChar();
+			rc = SrchFwd(string, 0, 1, 0, &len);
+		} else {
+			PosPrevChar();
+			rc = SrchBack(string, 0, 1, 0, &len);
+		}
+		strcpy(_SearchString, string);
+		if ( rc > 0L ) {
+			BufQueryPosition( &line, &column );
+			p.s_column = column;
+			p.s_line = p.e_line = line;
+			p.e_column = column + len;
+			p.type = SELECT_EXCLUSIVE;
+			MarkCreateSel( &p );
+			CUASelActive = TRUE;
+		} else {
+			if ( dir )
+				PosPrevChar();
+			else
+				PosNextChar();
+			MsgInfo("Pattern not found");
+		}
+		free(string);
+	}
+} /* end SearchSel() */
+
+
+/*
+** SearchAll() - find all occurences of a string
+** in the current buffer. Uses current selection
+** if no current selection you are prompted for
+** a search string. If no search string is entered
+** and the invocation of this function was done on
+** the current buffer, you are presented the search
+** results from the last invocation.
+** 
+** Note: The search is performed without regard to case.
+**
+** This macro originally written by Arnie Stone.
+**
+*/
+void
+SearchAll( void ) {
+	static HLIST	hSearchAllList;
+	static HLIST	hSearchAllHistory;
+	static HBUFFER	hSearchAllBuf;
+	static char 	szSearchStr[100];
+	static char 	szLastStr[100];
+	HBUFFER 			hCurBuf;
+	SELECTION		Sel;
+	BOOL 				fSel;
+	LONG				lLen;
+	char 				*pszSrchData = NULL;
+	char 				*pszData;
+	char 				*pszEntry;
+	long	 			lRc;
+	LONG 				lLine, lColumn;
+	LONG 				lStartLine, lStartColumn;
+	LONG	 			numFound;
+	char 				szMisc[128];
+	USERLISTDLG		listDlg;
+	USERSTRINGDLG	dlgData;
+
+	if ( !hSearchAllHistory ) {
+		// create history list for DlgUserString dialog
+		hSearchAllHistory = ListCreate("SearchAllHist", 0, LIST_LIFO|LIST_UNIQUE, 0L);
+		if ( !hSearchAllHistory )
+			MsgError("Could not create list for SearchAll All history");
+	}
+	// Set string to find to selection if there is one
+	fSel = FALSE;
+   if ( MarkQuerySelExcl(&Sel) ) {
+		if ( Sel.s_line == Sel.e_line ) {
+			BufQueryPosition(&lLine, &lColumn);
+			MarkRemoveSel();
+			lLen = Sel.e_column - Sel.s_column + 1;
+			if ( lLen > 99 )
+				lLen = 99;
+			PosAbs(Sel.s_line, Sel.s_column);
+			pszSrchData = BufRead(lLen);
+			strcpy(szSearchStr, pszSrchData);
+			free(pszSrchData);
+			PosAbs(lLine, lColumn);
+			if ( *szSearchStr )
+				ListItemAdd(hSearchAllHistory, szSearchStr, 0L, 0L);
+			fSel = TRUE;
+		}
+	}
+
+   // Get handle of current buffer
+	hCurBuf = BufQueryCurrentBuffer();
+
+	// Ask for string to find if none specified
+	if ( !fSel ) {
+		*szSearchStr = 0;
+		dlgData.cbStruct  = sizeof(USERSTRINGDLG);
+		dlgData.pszTitle  = "Search for all occurrences in buffer";
+		if ( (lLen = strlen(szLastStr)) && hCurBuf == hSearchAllBuf ) {
+			if ( lLen > 36 )
+				sprintf(szMisc,"Enter string to find\nLast = '%.36s ...'", szLastStr);
+			else
+				sprintf(szMisc,"Enter string to find\nLast = '%s'", szLastStr);
+		} else
+			strcpy(szMisc,"Enter string to find");
+
+		dlgData.pszPrompt = szMisc;
+		dlgData.cbText    = 100;
+		dlgData.pszText   = szSearchStr;
+		dlgData.hList     = hSearchAllHistory;
+
+		if ( DlgUserString(&dlgData) )
+			return;
+	}
+
+   // Save for later
+	if ( strlen(szSearchStr) )
+	   strcpy(szLastStr,szSearchStr);
+
+	// If no input and no search results or current buf has changed then error
+   if ( !strlen(szSearchStr) &&
+		  ( !hSearchAllList || hCurBuf != hSearchAllBuf) ) {
+		MsgInfo("Search all: search string required.");
+		return;
+	}
+
+	hSearchAllBuf = hCurBuf;
+
+	// Create new list for new search arg
+	if ( hSearchAllList && strlen(szSearchStr) ) {
+		ListDelete(hSearchAllList);
+		hSearchAllList = NULL;
+	}
+	if ( !hSearchAllList ) {
+		hSearchAllList = ListCreate("SearchAll", 0, LIST_FIFO, 0L);
+		if ( !hSearchAllList ) {
+			MsgError("SearchAll: Could not create list.");
+			return;
+		}
+	}
+
+	BufQueryPosition(&lStartLine,&lStartColumn);
+	if ( strlen(szSearchStr) ) {
+		PosSOF();
+		numFound = 0;
+	   lRc = SrchFwd(szSearchStr,0,0);	// search ignore case
+
+	   while ( lRc > 0 ) {
+			BufQueryPosition(&lLine,&lColumn);
+			PosSOT();
+			pszData = BufRead();
+			rtrim(pszData);
+
+			if ( !(pszEntry = malloc(strlen(pszData)+16)) ) {
+				PopupMsgBox( "Insufficient memory","SearchAll:Allocation Error",
+								 MB_CANCEL | MB_ICONHAND );
+				free(pszData);
+				ListDelete(hSearchAllList);
+				hSearchAllList = NULL;
+				return;
+			}
+
+	      sprintf(pszEntry,"%5ld: %s", lLine, pszData);
+			free(pszData);
+
+			if ( !ListItemAdd(hSearchAllList,pszEntry, lLine, -1L) ) {
+				PopupMsgBox( "Unable to add list item","SearchAll:List Error",
+								 MB_CANCEL | MB_ICONHAND );
+				ListDelete(hSearchAllList);
+				hSearchAllList = NULL;
+			   free(pszEntry);
+				return;
+			}
+			free(pszEntry);
+	      numFound++;
+
+			PosEOL(); PosNextChar();
+			lRc = SrchFwd(szSearchStr, 0, 0);	// search ignore case
+		}
+
+		PosAbs(lStartLine, lStartColumn);
+
+		if ( numFound == 0 ) {
+			ListDelete(hSearchAllList);
+			hSearchAllList = NULL;
+			sprintf(szMisc, "'%s' not found.", szSearchStr);
+			MsgInfo(szMisc);
+			*szLastStr = 0x00;
+			return;
+		}
+
+		/* Add hits found to LB */
+		sprintf( szMisc,"[ %d match%s on: '%.80s' ]",
+					numFound, numFound>1?"es":"", szSearchStr );
+		if ( !ListItemAdd(hSearchAllList,szMisc, 0, 0L) ) {
+			PopupMsgBox( "Unable to add list item","SearchAll:List Error",
+							 MB_CANCEL | MB_ICONHAND);
+			ListDelete(hSearchAllList);
+			hSearchAllList = NULL;
+			return;
+		}
+	}
+
+	listDlg.cbStruct  = sizeof(USERLISTDLG);
+	listDlg.pszTitle  = "Search All Results";
+	listDlg.pszPrompt = "Select a line to jump to";
+	listDlg.pItemSel = NULL;
+	listDlg.pItems = (PLISTITEM)ListItemFirst(hSearchAllList);
+
+	lRc = DlgUserList(&listDlg);
+	if ( !lRc && listDlg.pItemSel ) {
+		if ( listDlg.pItemSel->ulData )
+			MovAbs(listDlg.pItemSel->ulData, 1L);
+	} else
+		PosAbs(lStartLine,lStartColumn);
+	WinScrollCenter();
+} /* end SearchAll() */
+
+
+
+/*
+** End module: search.rm
+*/

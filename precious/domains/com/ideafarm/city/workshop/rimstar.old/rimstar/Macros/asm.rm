@@ -1,0 +1,397 @@
+/*
+** Macro module: asm.rm - assembler support
+**
+** Copyright (C) 1994, 1997 Brian L. Smith
+** All rights reserved internationally.
+** Unlicensed use is a violation of applicable laws.
+** SyntaColor(tm) is a trademark of RimStar Technology, Inc.
+**
+** This source code is provided to licensed users of RimStar's products
+** for the purpose of allowing the user to customize and/or enhance RimStar's
+** products. The source code remains the property of the copyright holders
+** with all rights reserved internationally.
+** Any modifications to the source code are considered derivative works and
+** all rights thereto are reserved to the copyright holders except
+** that the purchaser may use the derivitive work in the same manner
+** as permitted by the license governing the unmodified product.
+** Distribution in any manner of any part of the original source code,
+** whether in source or object form, is expressly prohibited without the
+** express written permission of the copyright holders.
+**
+*/
+
+#include "macro.h"
+#include "lang.h"
+
+extern HKEYBOARD	_r_keymap;	/* Regular indenting keyboard */
+
+/*
+** Assembler keyword names - for SyntaColor support
+*/
+static PSZ Directives[] = {
+	// MASM and TASM Directives
+	".186",
+	".286",	".286C",	".286P",	".287",
+	".386",	".386C",	".386P",	".387",
+	".8086",	".8087",
+	"ALIGN",
+	".ALPHA",
+	"ARG",
+	"ASSUME",
+	"%BIN",
+	"CATSTR",
+	".CODE",
+	"CODESEG",
+	"COMM",
+	"COMMENT",
+	"%CONDS",
+	".CONST",	"CONST",
+	".CREF",	"%CREF",	"%CREFALL",	"%CREFREF",	"%CREFUREF",
+	"%CTLS",
+	".DATA",	".DATA?",
+	"DATASEG",
+	"DB",	"DD",	"DW",	"DF",	"DP",	"DQ",	"DT",
+	"%DEPTH",
+	"DISPLAY",
+	"DOSSEG",
+	"ELSE",
+	"ELSEIF",
+	"EMUL",
+	"END",	"ENDIF",	"ENDM",	"ENDP",	"ENDS",
+	"EQU",
+	".ERR",	"ERR",	".ERR1",	".ERR2",	".ERRB",	".ERRDEF",
+	".ERRDIF",	".ERRDIFI",	".ERRE",	"ERRIDN",	".ERRIDNI",
+	"ERRIF",	"ERRIF1",	"ERRIF2",	"ERRIFB",
+	"ERRIFDEF",	"ERRIFDIF",	"ERRIFDIFI",
+	"ERRIFE",	"ERRIFIDN",	"ERRIFIDNI",
+	"ERRIFNB",	"ERRIFNDEF",
+	".ERRNB",	".ERRNDEF",	".ERRNZ",
+	"EVEN",
+	"EVENDATA",
+	"EXITM",
+	"EXTRN",
+	".FARDATA",	".FARDATA?",	"FARDATA",
+	"GLOBAL",
+	"GROUP",
+	"IDEAL",	// Borland TASM
+	"IF",	"IF1",	"IF2",	"IFB",
+	"IFDEF",	"IFDIF",	"IFDIFI",
+	"IFE",	"IFIDN",	"IFIDNI",
+	"IFNB",
+	"IFNDEF",
+	"%INCL",
+	"INCLUDE",
+	"INCLUDELIB",
+	"INSTR",
+	"IRP",
+	"IRPC",
+	"JUMPS",
+	"LABEL",
+	".LALL",
+	".LFCOND",
+	"%LINUM",
+	"%LIST",
+	".LIST",
+	"LOCAL",	"LOCALS",
+	"MACRO",
+	"%MACS",
+	"MASM",	"MASM51",
+	".MODEL",	"MODEL",
+	"MULTERRS",
+	"NAME",
+	"%NEWPAGE",
+	"%NOCONDS",
+	"%NOCREF",
+	"%NOCTLS",
+	"NOEMUL",
+	"%NOINCL",
+	"NOJUMPS",
+	"%NOLIST",
+	"NOLOCALS",
+	"%NOMACS",
+	"NOMASM51",
+	"NOMULTERRS",
+	"%NOSYMS",
+	"%NOTRUNC",
+	"NOWARN",
+	"ORG",
+	"%OUT",
+	"P186",	"P286",	"P286N",	"P287",
+	"P386",	"P386N",	"P387",
+	"P8086",	"P8087",
+	"PAGE",
+	"%PAGESIZE",
+	"%PCNT",
+	"PNO87",
+	"%POPLCTL",
+	"PROC",
+	"PUBLIC",
+	"PURGE",
+	"%PUSHLCTL",
+	"QUIRKS",
+	".RADIX",	"RADIX",
+	"RECORD",
+	"REPT",
+	".SALL",
+	"SEGMENT",
+	".SEQ",
+	".SFCOND",
+	"SIZESTR",
+	".STACK",
+	"STACK",
+	"STRUC",
+	"SUBSTR",
+	"SUBTTL",	"%SUBTTL",
+	"%SYMS",
+	"%TABSIZE",
+	"%TEXT",
+	".TFCOND",
+	"TITLE",
+	"%TITLE",
+	"%TRUNC",
+	"UDATASEG",
+	"UFARDATA",
+	"UNION",
+	"USE32",
+	"USES",
+	"WARN",
+	".XALL",
+	".XCREF",
+	".XLIST",
+	0
+};
+
+static PSZ Symbols[] = {
+	"@Code",
+	"@CodeSize",
+	"@Cpu",
+	"@CurSeg",
+	"@Data",
+	"@DataSize",
+	"??Date",
+	"@FarData",
+	"@FarData?",
+	"@FileName",
+	"??Filename",
+	"??Time",
+	"??Version",
+	"@WordSize",
+	"AND",
+	"BYTE",
+	"DUP",
+	"DWORD",
+	"EQ",
+	"FAR",
+	"FWORD",
+	"GE",
+	"GT",
+	"HIGH",
+	"LARGE",
+	"LE",
+	"LENGTH",
+	"LOW",
+	"LT",
+	"MASK",
+	"MOD",
+	"NE",
+	"NEAR",
+	"NOT",
+	"OFFSET",
+	"OR",
+	"PROC",
+	"PTR",
+	"PWORD",
+	"QWORD",
+	"SEG",
+	"SHL",
+	"SHORT",
+	"SHR",
+	"SIZE",
+	"SMALL",
+	"SYMTYPE",
+	"TBYTE",
+	"THIS",
+	".TYPE",
+	"TYPE",
+	"UNKNOWN",
+	"WIDTH",
+	"WORD",
+	"XOR",
+	0
+};
+
+static PSZ Instructions[] = {
+	// 80x86 assembly instructions
+	"AAA",
+	"AAD",
+	"AAM",
+	"AAS",
+	"ADC",
+	"ADD",
+	"AND",
+	"ARPL",
+	"BOUND",
+	"BSF",
+	"BSR",
+	"BT",
+	"BTC",
+	"BTR",
+	"BTS",
+	"CALL",
+	"CBW",
+	"CDQ",
+	"CLC",
+	"CLD",
+	"CLI",
+	"CLTS",
+	"CMC",
+	"CMP",
+	"CMPS",	"CMPSB",	"CMPSW",	"CMPSD",
+	"CWD",
+	"CWDE",
+	"DAA",
+	"DAS",
+	"DEC",
+	"DIV",
+	"ENTER",
+	"ESC",
+	"HLT",
+	"IDIV",
+	"IMUL",
+	"IN",
+	"INC",
+	"INS",	"INSB",	"INSW",	"INSD",
+	"INT",
+	"INTO",
+	"IRET",	"IRETD",
+	"JB",		"JNAE",
+	"JAE",	"JNB",
+	"JBE",	"JNA",
+	"JA",		"JNBE",
+	"JE",		"JZ",
+	"JNE",	"JNZ",
+	"JL",		"JNGE",
+	"JGE",	"JNL",
+	"JLE",	"JNG",
+	"JG",		"JNLE",
+	"JS",		"JNS",
+	"JC",		"JNC",
+	"JO",		"JNO",
+	"JP",		"JPE",
+	"JNP",	"JPO",
+	"JCXZ",
+	"JECXZ",
+	"JMP",
+	"LAHF",
+	"LAR",
+	"LDS",	"LES",	"LFS",	"LGS",	"LSS",
+	"LEA",
+	"LEAVE",
+	"LGDT",	"LIDT",	"LLDT",
+	"LMSW",
+	"LOCK",
+	"LODS",	"LODSB",	"LODSW",	"LODSD",
+	"LOOP",	"LOOPE",	"LOOPZ",	"LOOPNE",	"LOOPNZ",
+	"LSL",	"LTR",
+	"MOV",
+	"MOVS",	"MOVSB",	"MOVSW",	"MOVSD",
+	"MOVSX",	"MOVZX",
+	"MUL",
+	"NEG",
+	"NOP",
+	"NOT",
+	"OR",
+	"OUT",
+	"OUTS",	"OUTSB",	"OUTSW",	"OUTSD",
+	"POP",
+	"POPA",	"POPAD",
+	"POPF",	"POPFD",
+	"PUSH",
+	"PUSHA",	"PUSHAD",
+	"PUSHF",	"PUSHFD",
+	"RCL",	"RCR",	"ROL",	"ROR",
+	"REP",	"REPE",	"REPZ",	"REPNE",	"REPNZ",
+	"RET",	"RETN",	"RETF",
+	"SAHF",
+	"SAL",	"SAR",	"SHL",	"SHR",
+	"SBB",
+	"SCAS",	"SCASB",	"SCASW",	"SCASD",
+	"SETB",	"SETNAE",
+	"SETAE",	"SETNB",
+	"SETBE",	"SETNA",
+	"SETA",	"SETNBE",
+	"SETE",	"SETZ",
+	"SETNE",	"SETNZ",
+	"SETL",	"SETNGE",
+	"SETGE",	"SETNL",
+	"SETLE",	"SETNG",
+	"SETG",	"SETNLE",
+	"SETS",	"SETNS",
+	"SETC",	"SETNC",
+	"SETO",	"SETNO",
+	"SETP",	"SETPE",
+	"SETNP",	"SETPO",
+	"SGDT",	"SIDT",	"SLDT",
+	"SHLD",	"SHRD",
+	"SMSW",
+	"STC",
+	"STD",
+	"STI",
+	"STOS",	"STOSB",	"STOSW",	"STOSD",
+	"STR",
+	"SUB",
+	"TEST",
+	"VERR",	"VERW",
+	"WAIT",
+	"XCHG",
+	"XLAT",	"XLATB",
+	"XOR",
+ 0
+};
+
+HHASH	htKeywordsAsm;	/* Handle to hash table created from above keywords */
+
+/*
+** set up for assembler files
+*/
+void
+_asm_init(void) {
+	PBUFINFO	pBufInfo;
+
+	// BufSetTabs("9");	/* tabs every 8 */
+	KbdSetBufferKeyboard(_r_keymap);	/* enable regular indenting */
+
+	if ( !htKeywordsAsm ) {
+		/* Create a hash table of assembler keywords */
+		htKeywordsAsm = LangLoadKeywords(Directives, 1);
+		LangAddKeywords(htKeywordsAsm, Symbols);
+		LangAddKeywords(htKeywordsAsm, Instructions);
+	}
+	/* Set up for SyntaColor */
+	if ( pBufInfo = BufInfoQuery(BufQueryCurrentBuffer()) ) {
+		pBufInfo->htKeywords   = htKeywordsAsm;
+		pBufInfo->ulFlags     |= BI_SYNTACOLOR;
+		pBufInfo->syntaRefresh = SyntaColorAsm;
+		pBufInfo->syntaUpdate  = SyntaColorUpdateAsm;
+		pBufInfo->pszFunc      = 0; // "_asm_init";
+
+		if ( SyntaColorEnabled )
+			SyntaColorAsm(-1L, htKeywordsAsm);
+	}
+} /* end _asm_init() */
+
+void
+_inc_init(void) {
+	_asm_init();
+}
+
+void
+_mac_init(void) {
+	_asm_init();
+}
+
+
+
+/*
+** End module: asm.rm
+*/

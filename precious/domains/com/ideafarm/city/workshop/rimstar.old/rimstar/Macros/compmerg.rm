@@ -1,0 +1,1313 @@
+/*
+** Macro module: compmerg.rm - interactive compare/merge
+**
+** Copyright (C) 1995 Brian L. Smith
+** All rights reserved internationally.
+** Unlicensed use is a violation of applicable laws.
+** SyntaColor(tm) is a trademark of RimStar Technology, Inc.
+**
+** This source code is provided to licensed users of RimStar's products
+** for the purpose of allowing the user to customize and/or enhance RimStar's
+** products. The source code remains the property of the copyright holders
+** with all rights reserved internationally.
+** Any modifications to the source code are considered derivative works and
+** all rights thereto are reserved to the copyright holders except
+** that the purchaser may use the derivitive work in the same manner
+** as permitted by the license governing the unmodified product.
+** Distribution in any manner of any part of the original source code,
+** whether in source or object form, is expressly prohibited without the
+** express written permission of the copyright holders.
+**
+*/
+
+/*
+**		This file contains macros that will compare two
+**		files or merge two files into a third file.
+**
+**		F1 or <ALT-H> will display a keyboard help screen for each macro.
+**
+**		Original Brief version written by Rob Mahn, translated to RimStar
+**		macro format by Pat Parker.
+**
+**	FileCompare
+**
+**		Syntax:  FileCompare( file1, file2 );
+**
+**		Notes:
+**			File names not passed on the command line will be prompted for.
+**
+**		The compare macro will display the two files that it is comparing
+**		in top and bottom windows, stopping at the lines that don't compare.
+**		After examining the differences, you may select to skip the <T>op,
+**		<B>ottom, or <N>ext (both top and bottom) lines.
+**
+**		A number value may be entered when lines don't compare to repeat the operaton
+**		multiple times.  This process will continue until the end of both
+**		files are reached.
+**
+**		If you press <Esc> or <Q>uit, the macro is ended.  Bookmarks 1000
+**		and 2000 are placed on the current lines in the top and bottom
+**		files respectively.  This allows you to restart the comparison
+**		where you left off.
+**
+**		When a comp is started, if the file selected is currently being
+**		edited and the cursor is not at the top of the file, you are
+**		prompted to select whether you want to begin at the <T>op,
+**		<C>ursor, or <B>ookmark position.
+**
+**
+**	FileMerge
+**
+**		Syntax:  FileMerge( file1, file2, destination_file )
+**
+**		Notes:
+**			File names not passed on the command line will be prompted for.
+**
+**		The merge macro will display the two files that it is merging
+**		in top and bottom windows, stopping at the lines that don't compare.
+**		After examining the differences, you may select to merge the <T>op,
+**		<B>ottom, or <N>ext (both top and bottom) lines.  In addition, you
+**		may select to skip <CTRL-T>op <CTRL-B>ottom, or <CTRL-N>ext lines,
+**		<ALT-T> will merge the top line and skip the bottom line and <ALT-B>
+**		will merge the bottom line and skip the top line.
+**
+**		A number value may be entered at this point to repeat the operaton
+**		multiple times.  This process will continue until the end of both
+**		files are reached.
+**
+**		If you press <Esc> or <Q>uit, the macro is ended.  Bookmarks 1 and
+**		2 are placed on the current lines in the top and bottom files
+**		respectively.  This allows you to restart the merge where you left
+**		off.
+**
+**		When a merge is started, if the file selected is currently being
+**		edited and the cursor is not at the top of the file, you are
+**		prompted to select whether you want to begin at the <T>op,
+**		<C>ursor, or <B>ookmark position.
+**
+**		If the destination file alread exists, you are prompted to delete
+**		the file to begin the merge are exit.  If you selected to start
+**		at the bookmark locations in the source files, you are given the
+**		additional choice of appending to the end of the destination file.
+**
+**
+**	compare and merge
+**
+**		Both comp and merge will take file names as parameters or
+**		prompt for files, defaulting with the current buffer.
+**
+*/
+
+#define	INCL_IO
+#include "macro.h"
+
+//#define DEBUG
+
+#define INVALID_HANDLE_VALUE	0xFFFFFFFF
+
+#define COLOR_MATCH		200
+#define COLOR_NOMATCH	201
+#define COLOR_SYNC		202
+
+#define TOP_MARK	1000
+#define BOT_MARK	2000
+
+extern long FILE_OFFSET;
+extern int CompareDlg(PCOMPMRGPARMS);
+extern int MergeDlg(PCOMPMRGPARMS);
+extern int hash_pjw_nospace(char *line);
+/*
+** function definitions
+*/
+static void	CompMrgSetup(void);
+static void	CompMrg(void);
+static void	CompMrgCleanup(void);
+static void	CompMrgHelp(void);
+static void	ChangeTop(void);
+static void	ChangeBottom(void);
+static int	GetFiles(char *file1, char *file2, char *file3);
+static int	CreateHashTables(void);
+static void	DisplayLineNumbers(void);
+static void	SetColorMismatch(void);
+static int	FileExist(char *filename);
+static int  TopOfFilePrompt(int bookmark);
+static void	CMBookmarkSet(int n);
+static void	CMBookmarkGoto(int n);
+void			SyncFiles(void);
+
+/*
+** Global Declarations
+*/
+static HBUFFER		topBuffer, testBuffer, bottomBuffer, mergeBuffer;
+static HWINDOW		topWindow, bottomWindow;
+static HKEYBOARD	tempKbd;
+static long			repeatCnt, topLineNumber,	bottomLineNumber;
+static int 			mergeFlag, eofFlag, diffFlag, mergeBufferModified;
+static int 			moreFlag = 0;
+static char			topFile[_MAX_PATH], bottomFile[_MAX_PATH], mergeFile[_MAX_PATH];
+static char  		*file1, *file2, *file3;
+static char			*topLine, *bottomLine;
+static char			szFile1[_MAX_PATH];
+static char			szFile2[_MAX_PATH];
+static char			szMergeFile[_MAX_PATH];
+static UINT32		*file1Array, *file2Array;
+static long			file1Idx, file2Idx;
+static long			restart1Idx, restart2Idx;
+static long			lastLine1, lastLine2;
+static BOOL			inCompMerge;
+
+
+void
+_init(void) {
+
+	LibAutoload( "lang", 	"RefreshSyntaColorImmediate" );
+
+	/*
+	** Create entries in Color Table for coloring differences
+	**
+	** blue on white for part that does match
+	** red on white for part that does not match
+	*/
+	ColorSet( COLOR_MATCH,   RGB(   0,   0, 255 ), RGB( 0xC0, 0xC0, 0xC0 ) );
+	ColorSet( COLOR_NOMATCH, RGB( 255,   0,   0 ), RGB( 0xC0, 0xC0, 0xC0 ) );
+	ColorSet( COLOR_SYNC,    RGB(   0, 255,   0 ), RGB( 0xC0, 0xC0, 0xC0 ) );
+
+} /* end _init() */
+
+
+/*
+** CompMrgSetup - sets the keyboard interface
+*/
+static void
+CompMrgSetup(void) {
+
+	if ( tempKbd )
+		KbdDestroyKeyboard(tempKbd);
+	tempKbd = KbdCreateKeyboard();
+	if ( !tempKbd ) {
+		PopupMsg("Could not create keyboard", "CompMrgSetup");
+		return;
+	}
+	KbdPush(tempKbd);
+	if ( mergeFlag ) {
+		// keys for merge
+		KbdBind("T", 		"TakeTopFileLine");
+		KbdBind("B", 		"TakeBottomFileLine");
+		KbdBind("N", 		"TakeBothFileLines");
+		KbdBind("Ctrl+T", "SkipTopFileLine");
+		KbdBind("Alt+T", 	"TakeTopSkipBottomFileLine");
+		KbdBind("Ctrl+B", "SkipBottomFileLine");
+		KbdBind("Alt+B", 	"TakeBottomSkipTopFileLine");
+		KbdBind("Ctrl+N", "SkipBothFileLines");
+		KbdBind("Alt+R", 	"TakeRestTopFile");
+		KbdBind("Ctrl+R", "TakeRestBottomFile");
+		KbdBind("M", 		"MoreOptions");
+	} else {
+		// keys for compare
+		KbdBind("T", 		"SkipTopFileLine");
+		KbdBind("B", 		"SkipBottomFileLine");
+		KbdBind("N", 		"SkipBothFileLines");
+		KbdBind("S", 		"SyncFiles");
+	}
+	KbdBind("F1", 			"CompMrgHelp");
+	KbdBind("ALT+H",		"CompMrgHelp");
+	KbdBind("Q", 			"CompMrgExit 1");
+	KbdBind("1", 			"CompMrgRepeat 1");
+	KbdBind("2", 			"CompMrgRepeat 2");
+	KbdBind("3", 			"CompMrgRepeat 3");
+	KbdBind("4", 			"CompMrgRepeat 4");
+	KbdBind("5", 			"CompMrgRepeat 5");
+	KbdBind("6", 			"CompMrgRepeat 6");
+	KbdBind("7", 			"CompMrgRepeat 7");
+	KbdBind("8", 			"CompMrgRepeat 8");
+	KbdBind("9", 			"CompMrgRepeat 9");
+	KbdBind("Esc", 		"CompMrgEscapeKey");
+} /* end CompMrgSetup() */
+
+
+void
+CompMrgCleanup(void) {
+	if ( tempKbd ) {
+		KbdPop();
+		KbdDestroyKeyboard(tempKbd);
+		tempKbd = 0;
+	}
+} /* end CompMrgCleanup() */
+
+
+/*
+** CompMrgExit() - restore the original keyboard and exit.
+*/
+void
+CompMrgExit(int quit) {
+	/*
+	** drop bookmarks at current buffer locations
+	*/
+	if ( quit ) {
+		ChangeTop();
+		CMBookmarkSet(TOP_MARK);
+		ChangeBottom();
+		CMBookmarkSet(BOT_MARK);
+	}
+
+	/*
+	** restore the default keyboard
+	*/
+	CompMrgCleanup();
+
+	if ( mergeFlag ) {
+		if ( mergeBufferModified ) {
+			BufSwitchBuffer(mergeBuffer);
+			BufWrite(mergeBuffer,0);
+			BufSwitchBuffer(topBuffer);
+		} else
+			BufDeleteBuffer(mergeBuffer);
+		if (quit)
+			Msg("Merge ended. Bookmarks placed.");
+		else
+			Msg("File merge complete.");
+	} else {
+		if ( quit )
+			Msg("Compare ended. Bookmarks placed.");
+		else {
+			switch ( diffFlag ) {
+			case 0:
+				Msg("Files Compare OK");
+				break;
+			case 1:
+				Msg("Files DID NOT Compare");
+				break;
+			default:
+				ChangeBottom();
+				CMBookmarkGoto(BOT_MARK);
+				ChangeTop();
+				CMBookmarkGoto(TOP_MARK);
+				Msg("Done, compare not started from start of files");
+			}
+		}
+	}
+	free(file1Array);
+	free(file2Array);
+	ChangeBottom();
+	ChangeTop();
+	inCompMerge = FALSE;
+} /* end CompMrgExit() */
+
+
+/*
+** CompMrgHelp - display key help
+*/
+void 
+CompMrgHelp(void) {
+	HBUFFER helpBuffer, prevBuffer;
+
+	if ( mergeFlag ) {
+		PopupMsg(
+      "<F1>       merge help\n" 
+      "<Alt+H>   merge help\n"
+		"<T>        take top file line\n"
+		"<B>        take bottom file line\n"
+		"<N>        take both file lines\n"
+		"<Ctrl+T> skip top file line\n"
+		"<Ctrl+B> skip bottom file line\n"
+		"<Ctrl+N> skip both file lines\n"
+		"<Alt+T>  take top, skip bottom file\n"
+      "             line\n"
+		"<Alt+B>  take bottom, skip top file\n"
+		"             line\n"
+		"<0 - 9>  repeat count\n"
+		"<ESC>    during repeat-clear repeat\n"
+		"             count\n"
+		"<Alt+R>  copy remainder of top file\n"
+		"<Ctrl+R> copy remainder of bottom file\n"
+		"<Q> or <ESC>   exit merge\n",
+		"merge help");
+	} else {
+		PopupMsg( 
+		"<F1>      comp help\n"
+		"<Alt+H>  comp help\n"
+		"<T>       skip top file line\n"
+		"<B>       skip bottom file line\n"
+		"<N>       skip both file lines\n"
+		"<0 - 9>  repeat count\n"
+		"<ESC>   during repeat clear\n"
+		"           repeat count\n"
+		"<Q>      exit comp\n"
+		"<ESC>   exit comp\n",
+		"comp help");
+	}
+} /* end CompMrgHelp() */
+
+
+/*
+** FileCompare() - compares 2 files interactively
+*/
+void 
+FileCompare(/* char *file1, char *file2 */) {
+	COMPMRGPARMS	s;
+	int				rc, len;
+
+	if ( inCompMerge ) {
+		MsgError("Already running compare/merge");
+		DisplayLineNumbers();
+		return;
+	}
+	++inCompMerge;
+	mergeFlag 	= 0;
+	memset(&s, 0, sizeof(s));
+	s.cbSize     = sizeof(s);
+	s.pszFile1   = szFile1;
+	s.pszFile2   = szFile2;
+	s.cbFile1    = sizeof(szFile1);
+	s.cbFile2    = sizeof(szFile2);
+
+	rc = CompareDlg(&s);
+	if ( rc )
+		return;
+	if ( GetFiles(s.pszFile1, s.pszFile2, NULL) )
+		return;
+	CreateHashTables();
+	
+	if ( restart1Idx )
+		file1Idx = restart1Idx;
+	else
+		file1Idx = 0L;
+
+	if ( restart2Idx )
+		file2Idx = restart2Idx;
+	else
+		file2Idx = 0L;
+
+	CompMrgSetup();
+	CompMrg();
+} /* end FileCompare() */
+
+
+/*
+** FileMerge() - merge 2 files into a third
+*/
+void 
+FileMerge(/*char *file1, char *file2,char * file3 */)	{
+	COMPMRGPARMS	s;
+	int				rc, len;
+
+	if ( inCompMerge ) {
+		MsgError("Already running compare/merge");
+		DisplayLineNumbers();
+		return;
+	}
+	++inCompMerge;
+
+	mergeFlag = 1;
+
+	s.cbSize     	= sizeof(s);
+	s.pszFile1   	= szFile1;
+	s.pszFile2   	= szFile2;
+	s.pszMergeFile = szMergeFile;
+	s.cbFile1      = sizeof(szFile1);
+	s.cbFile2      = sizeof(szFile2);
+	s.cbMergeFile  = sizeof(szMergeFile);
+
+	rc = MergeDlg(&s);
+	if ( rc )
+		return;
+	if ( GetFiles(s.pszFile1, s.pszFile2, s.pszMergeFile) )
+		return;
+	CreateHashTables();
+	if ( restart1Idx )
+		file1Idx = restart1Idx;
+	else
+		file1Idx = 0L;
+
+	if ( restart2Idx )
+		file2Idx = restart2Idx;
+	else
+		file2Idx = 0L;
+
+	CompMrgSetup();
+	CompMrg();
+} /* end FileMerge() */
+
+
+static int
+NextLine(int lines) {
+	while ( lines-- > 0 ) {
+		PosEOL();
+		if ( PosNextChar() )
+			return 0;
+	}
+	return 1;
+} /* end NextLine() */
+
+static void
+ChangeBottom(void) {
+	BufSwitchBuffer( bottomBuffer );
+	BufSyncWindows( bottomBuffer );
+	WinSetWindow( bottomWindow );
+}
+
+
+static void
+ChangeTop(void) {
+	BufSwitchBuffer( topBuffer );
+	BufSyncWindows( topBuffer );
+	WinSetWindow( topWindow );
+}
+
+
+/* 
+** CompMrg()
+*/			  
+static void
+CompMrg( void ) {
+	PRAWKEY keyPressed;
+	char	reply[2];
+
+	ChangeTop();
+
+	if ( mergeFlag )
+		Msg("Merging ...");
+	else
+		Msg("Comparing ...");
+	
+	while ( 1 )	{
+		if ( keyPressed = KbdBufferGetKey() ) {
+			if ( keyPressed->ascii == 'q' ||
+				  keyPressed->ascii == 'Q' ||
+				  keyPressed->ascii == 0x1B ) {
+				KbdBufferUngetKey(1);
+				WinNextWindow();
+				PosAbs(bottomLineNumber, 0);
+				WinNextWindow();
+				PosAbs(topLineNumber, 0);
+				return;
+			}
+		}
+		moreFlag = 0;
+		if ( file1Idx + 1L >= lastLine1 ) { // at EOF in top buffer 
+			topLine = NULL;
+			ChangeBottom();
+			if ( file2Idx + 1L >= lastLine2 ) {
+				// at EOF in bottom buffer - we are done
+				PosSOF();
+				WinUpdateWindow();
+				ChangeTop();
+				PosSOF();
+				WinUpdateWindow();
+				CompMrgExit(0);
+				return;
+			} else {
+				PosAbs(file2Idx + 1L);
+				WinUpdateWindow();
+				BufSwitchBuffer(topBuffer);
+				PosAbs(lastLine1, 0L);
+				ChangeTop();
+				PopupMsg("End of top file", "End Top Flle");
+				Msg("At end of top file.");
+				diffFlag = 1;
+				eofFlag = 1;
+				if ( !mergeFlag )
+					CompMrgExit(0);
+				break;
+			}
+		} 
+
+		if ( file2Idx + 1L >= lastLine2 ) {
+			bottomLine = NULL;
+			ChangeBottom();
+			PopupMsg("End of bottom file", "End Bottom File");
+			Msg("At end of bottom file");
+			diffFlag = 1;
+			ChangeTop();
+		  	eofFlag = 1;
+			if ( !mergeFlag )
+				CompMrgExit(0);
+			break;
+		}
+		
+		if ( file1Array[file1Idx] == file2Array[file2Idx] ) {
+			file1Idx++;
+			topLineNumber = file1Idx;
+			file2Idx++;
+			bottomLineNumber = file2Idx;
+		} else {
+			topLineNumber = file1Idx +1L;
+			PosAbs(topLineNumber, 0L);
+			topLine = BufRead();
+			BufSwitchBuffer(bottomBuffer);
+			bottomLineNumber = file2Idx +1L;
+			PosAbs(bottomLineNumber, 0L);
+			bottomLine = BufRead();
+			diffFlag = 1;
+			// color the difference
+			SetColorMismatch();
+			ChangeTop();
+			WinScrollTop();
+			WinUpdateWindow();
+			ChangeBottom();
+			WinScrollTop();
+			ChangeTop();
+			/* free lines */
+			free(topLine);
+			free(bottomLine);
+			DisplayLineNumbers();
+			break;
+		}
+
+  		if ( mergeFlag ) {
+			/*
+			** insert the identical line in the merge file
+			*/
+			BufSwitchBuffer(topBuffer);
+			PosAbs(file1Idx, 0L);
+			topLine = BufRead();
+  			BufSwitchBuffer(mergeBuffer);
+			BufInsertString(topLine);
+			mergeBufferModified = 1;
+			free(topLine);
+		}
+
+		BufSwitchBuffer(topBuffer);
+		if ( KbdQueryLastKey() == 118 )
+			return;
+	} // end while 1
+} /* end CompMrg() */
+
+
+/*
+** SkipTopFileLine() -	skip the top file line
+*/
+void 
+SkipTopFileLine( void )	{
+
+	ChangeTop();
+ 	NextLine(repeatCnt);
+	WinScrollTop();
+	WinUpdateWindow();
+	repeatCnt = 1;
+	file1Idx++;
+	CompMrg();
+} /* end SkipTopFileLine() */
+
+
+/*
+** SkipBottomFileLine() -	skip the bottom file line
+*/
+void 
+SkipBottomFileLine( void )	{
+
+	ChangeBottom();
+ 	NextLine(repeatCnt);
+	WinScrollTop();
+	WinUpdateWindow();
+	repeatCnt = 1L;
+	file2Idx++;
+	CompMrg();
+} /* end SkipBottomFileLine() */
+
+
+/*
+** SkipBothFileLines() - skip both the top and bottom file lines
+*/
+void
+SkipBothFileLines( void ) {
+
+	BufSwitchBuffer(bottomBuffer);
+ 	NextLine(repeatCnt);
+	BufSwitchBuffer(topBuffer);
+ 	NextLine(repeatCnt);
+	repeatCnt = 1;
+	file1Idx++;
+	file2Idx++;
+	CompMrg();
+} /* end SkipBothFileLines() */
+
+
+/*
+** TakeTopFileLine() -	take the top file line
+*/
+void
+TakeTopFileLine(void) {
+	char	*bufferLine;
+	char	msg[64];
+
+	while ( repeatCnt-- > 0 ) {
+		sprintf( msg, "Repeat countdown: %d", repeatCnt);
+		MsgInfo( msg );
+		BufSwitchBuffer( topBuffer );
+		if ( FILE_OFFSET >= BufQueryBufferSize() ) 
+			break;
+		/*
+		** insert the top line in the merge file
+		*/
+  		bufferLine = BufRead();
+		file1Idx++;
+
+		BufSwitchBuffer(mergeBuffer);
+		BufInsertString(bufferLine);
+		free(bufferLine);
+		mergeBufferModified = 1;
+  	}
+
+	repeatCnt = 1;
+	BufSwitchBuffer(topBuffer);
+	CompMrg();
+} /* end TakeTopFileLine() */
+
+
+/*
+** TakeBottomFileLine() -	take the bottom file line
+*/
+void
+TakeBottomFileLine(void) {
+	char	*bufferLine;
+	char	msg[64];
+
+	while ( repeatCnt-- > 0 )	{
+		sprintf( msg, "Repeat countdown: %d", repeatCnt);
+		Msg( msg );
+		BufSwitchBuffer( bottomBuffer );
+		if ( FILE_OFFSET >= BufQueryBufferSize() )
+			break;
+		/*
+		** insert the bottom line in the merge file
+		*/
+		bufferLine = BufRead();
+		file2Idx++;
+
+		BufSwitchBuffer(mergeBuffer);
+		BufInsertString(bufferLine);
+		free(bufferLine);
+		mergeBufferModified = 1;
+	}
+	repeatCnt = 1;
+	BufSwitchBuffer(topBuffer);
+	CompMrg();
+} /* end TakeBottomFileLine() */
+
+
+/*
+** TakeBothFileLines() - take both the top and bottom file lines
+*/
+void
+TakeBothFileLines(void)	{
+	char	*bufferLine;
+	int	atEOF = 0;
+	char	msg[64];
+
+	while ( repeatCnt-- > 0 && atEOF != 3 ) {
+		sprintf(msg, "Repeat countdown: %d", repeatCnt);
+		Msg(msg);
+		BufSwitchBuffer(topBuffer);
+		PosAbs(file1Idx+1L, 0L);
+		if ( FILE_OFFSET < BufQueryBufferSize() ) {
+			/*
+			** insert the top line in the merge file
+			*/
+			bufferLine = BufRead();
+			file1Idx++;
+			BufSwitchBuffer(mergeBuffer);
+			BufInsertString(bufferLine);
+			free(bufferLine);
+			mergeBufferModified = 1;
+		} else
+			atEOF |= 1;
+
+		BufSwitchBuffer(bottomBuffer);
+		PosAbs(file2Idx+1L, 0L);
+		if ( FILE_OFFSET < BufQueryBufferSize() ) {
+			/*
+			** insert the bottom line in the merge file
+			*/
+			bufferLine = BufRead();
+			file2Idx++;
+			BufSwitchBuffer(mergeBuffer);
+			BufInsertString(bufferLine);
+			free(bufferLine);
+			mergeBufferModified = 1;
+		} else
+			atEOF |= 2;
+	}
+
+	repeatCnt = 1;
+	BufSwitchBuffer(topBuffer);
+	CompMrg();
+} /* end TakeBothFileLines() */
+
+
+/*
+** TakeTopSkipBottomFileLine() - take the top and skip the bottom line
+*/
+void 
+TakeTopSkipBottomFileLine( void ) {
+
+	BufSwitchBuffer(bottomBuffer);
+	if ( FILE_OFFSET < BufQueryBufferSize() )
+		file2Idx++;
+	TakeTopFileLine();
+} /* end TakeTopSkipBottomFileLine() */
+
+
+/*
+** TakeBottomSkipTopFileLine() - take the bottom and skip the top line
+*/
+void
+TakeBottomSkipTopFileLine( void ) {
+
+	BufSwitchBuffer(topBuffer);
+	if ( FILE_OFFSET < BufQueryBufferSize() )
+		file1Idx++;
+	TakeBottomFileLine();
+} /* end TakeBottomSkipTopFileLine() */
+
+
+/*
+** TakeRestTopFile() -	copies remainder of top file into merge file
+*/
+void
+TakeRestTopFile(void) {
+	char	*bufferLine;
+	long	bufSize = BufQueryBufferSize();
+
+	BufSwitchBuffer( topBuffer );
+	while ( FILE_OFFSET < bufSize ) {
+		/*
+		** insert the top line in the merge file
+		*/
+  		bufferLine = BufRead();
+		NextLine(1);
+		file1Idx++;
+		BufSwitchBuffer(mergeBuffer);
+		BufInsertString(bufferLine);
+		free(bufferLine);
+		mergeBufferModified = 1;
+		BufSwitchBuffer( topBuffer );
+  	}
+	CompMrg();
+} /* end TakeRestTopFile() */
+
+
+/*
+** TakeRestBottomFile() -	copies remainder of bottom file into merge file
+*/
+void
+TakeRestBottomFile(void) {
+	char	*bufferLine;
+	long	bufSize = BufQueryBufferSize();
+
+	BufSwitchBuffer( bottomBuffer );
+	while ( FILE_OFFSET < bufSize ) {
+		if ( FILE_OFFSET >= BufQueryBufferSize() )
+			break;
+			/*
+		** insert the top line in the merge file
+		*/
+  		bufferLine = BufRead();
+		NextLine(1);
+		file2Idx++;
+
+		BufSwitchBuffer(mergeBuffer);
+		BufInsertString(bufferLine);
+		free(bufferLine);
+		mergeBufferModified = 1;
+		BufSwitchBuffer( bottomBuffer);
+  	}
+	CompMrg();
+} /* end TakeRestTopFile() */
+
+
+/*
+** CompMrgEscapeKey() - determine what to do with the escape key in merge
+*/
+void
+CompMrgEscapeKey(void) {
+
+	if ( repeatCnt < 2 )
+		CompMrgExit(1);
+	else
+		repeatCnt = 1;
+} /* end CompMrgEscapeKey() */
+
+/*
+** MoreOptions() - calls DisplayLineNumbers for more options
+*/
+void
+MoreOptions(void) {
+
+	DisplayLineNumbers();
+} /* end MoreOptions() */
+
+
+
+/*
+** CompMrgRepeat() - set repeat count
+*/
+void 
+CompMrgRepeat(int n) {
+
+	repeatCnt = n;
+	DisplayLineNumbers();
+} /* end CompMrgRepeat() */
+
+
+#define GF_CREATE					0x01
+#define GF_MUST_EXIST 			0x02
+#define GF_PROMPT_OVERWRITE	0x04
+
+static char *
+GetFile(char *fname, int cBufSize, char *prompt, HBUFFER *phb, unsigned flags) {
+	char		*p;
+	HBUFFER	hb, hbCurrent;
+	char		tmpStr[2];
+	long		size;
+
+	if ( !fname )
+		return NULL;
+	if ( fname[0] )
+		p = complete_path(fname);
+	else
+		p = NULL;
+ prompt:
+	while ( p == NULL ) {
+		/* prompt for file */
+		if ( !PromptGetInput(prompt, fname, cBufSize, NULL) )
+			return NULL;
+		p = complete_path(fname);
+		if ( !p )
+			PopupMsg( "Filename is invalid. Please re-enter.", "Invalid filename");
+	}
+	strncpy(fname, p, cBufSize-1);
+	fname[cBufSize-1] = 0;
+	free(p);
+	if ( flags & GF_CREATE ) {
+		if ( !FileExist(fname) ) {
+			int	hf;
+
+			hf = creat(fname, S_IWRITE | S_IREAD );
+			if ( hf < 0 ) {
+				PopupMsg("File creation failed, please re-enter.", "File Creation Error");
+				p = NULL;
+				goto prompt;
+			}
+			close(hf);
+		}
+		hb = BufCreateBuffer(fname, fname, BUFTYPE_NORMAL);
+	} else if ( flags & GF_MUST_EXIST ) {
+		/* Is the file loaded? */
+		hb = BufFindBuffer(fname, 0);
+		if ( !hb )
+			if ( FileExist(fname) )
+				hb = BufCreateBuffer(fname, fname, BUFTYPE_NORMAL);
+			else {
+				PopupMsg("File does not exist, please re-enter", "File not found");
+				p = NULL;
+				goto prompt;
+			}
+	} else
+		hb = BufCreateBuffer( fname, fname, BUFTYPE_NORMAL);
+	if ( !hb ) {
+		PopupMsg("Buffer creation failed.", "BufCreateBuffer");
+		return NULL;
+	}
+	if ( phb )
+		*phb = hb;
+	if ( flags & GF_PROMPT_OVERWRITE ) {
+		hbCurrent = BufSwitchBuffer(hb);
+		size = BufQueryBufferSize();
+		BufSwitchBuffer(hbCurrent);
+		if ( size ) {
+		 retry:
+			tmpStr[0] = 'Q';
+			tmpStr[1] = 0;
+			PromptGetInput( "File exists: (A)ppend,(O)verwrite,(Q)uit?", tmpStr, 2, NULL);
+			switch ( toupper(tmpStr[0]) ) {
+			case 'Q':
+				fname = NULL;
+				break;
+			case 'A':
+				BufSwitchBuffer(hb);
+				PosEOF();
+				BufSwitchBuffer(hbCurrent);
+				break;
+			case 'O':
+				BufZapBuffer(hb);
+				break;
+			default:
+				SysBeep(250,250);
+				goto retry;
+			}
+		}
+	}
+	return fname;
+} /* end GetFile() */
+
+
+/*
+** GetFiles() - get files for comp and merge macros
+*/
+static int
+GetFiles(char *file1, char *file2, char *file3) {
+	/*
+	** initialize global variables
+	*/
+	repeatCnt = 1;
+	eofFlag   = 0;
+	diffFlag  = 0;
+	restart1Idx = restart2Idx = 0L;
+	mergeBufferModified = 0;
+
+	/* close all windows except topfile window */
+	WinOneWindow();
+	/* Select topfile for comparison */
+	if ( file1 ) {
+		strncpy(topFile, file1, _MAX_PATH);
+		topFile[_MAX_PATH-1] = 0;
+	} else
+		topFile[0] = 0;
+	if ( !GetFile(topFile, _MAX_PATH, "File 1: ", &topBuffer, GF_MUST_EXIST) ) {
+		Msg( "Command cancelled.");
+		return 1;
+	}
+	// Attach buffer to current window
+	topWindow = WinQueryCurrentWindow();
+	WinAttachBuffer(topBuffer);
+	BufSyncWindows( topBuffer );
+	if ( BufQueryOffset() ){
+		TopOfFilePrompt(TOP_MARK);
+	   restart1Idx = BufQueryLine() - 1L;
+	} else {
+		WinSetWindow(topWindow);
+	}
+	RefreshSyntaColorImmediate();
+	CMBookmarkSet(TOP_MARK);
+
+	/* Select bottomfile for comparison */
+	if ( file2 ) {
+		strncpy(bottomFile, file2, _MAX_PATH);
+		bottomFile[_MAX_PATH-1] = 0;
+	} else
+		bottomFile[0] = 0;
+	if ( !GetFile(bottomFile, _MAX_PATH, "File 2: ", &bottomBuffer, GF_MUST_EXIST) ) {
+		Msg( "Command cancelled.");
+		return 1;
+	}
+	// create bottom window and attach bottomBuffer to it
+	WinSplitH(1);
+	bottomWindow = WinQueryCurrentWindow();
+	WinAttachBuffer(bottomBuffer);
+	BufSyncWindows( bottomBuffer );
+	if ( BufQueryOffset() ) {
+		TopOfFilePrompt(BOT_MARK);
+	   restart2Idx = BufQueryLine() - 1L;
+	} else {
+		WinSetWindow(bottomWindow);
+	}
+	RefreshSyntaColorImmediate();
+	CMBookmarkSet(BOT_MARK);
+
+	ChangeTop();
+
+	/* Select merge file */
+	if ( mergeFlag ) {
+		if ( file3 ) {
+			strncpy(mergeFile, file3, _MAX_PATH);
+			mergeFile[_MAX_PATH-1] = 0;
+		} else
+			mergeFile[0] = 0;
+		if ( !GetFile(mergeFile, _MAX_PATH, "Merge file: ", &mergeBuffer, GF_CREATE|GF_PROMPT_OVERWRITE) ) {
+			Msg( "Command cancelled.");
+			return 1;
+		}
+		if ( mergeBuffer == topBuffer || mergeBuffer == bottomBuffer ) {
+			PopupMsg("Merge file can not be the same as file1 or file2", "Merge file error");
+			return 1;
+		}
+	} // end if merging
+
+	return 0;
+} /* end GetFiles() */
+
+
+/*
+* FileExist() - checks for file existence, not a directory
+*/
+static int
+FileExist(char *filename) {
+	struct find_buf	buf;
+	HANDLE 				hFindFile;
+	char					*name;
+	char					msg[300];
+
+	hFindFile = FindFirstFile(filename, &buf);
+	if ( hFindFile != INVALID_HANDLE_VALUE ) {
+		FindClose(hFindFile);
+		if ( buf.ulAttr != 16L )
+			return 1;
+	   else {
+			sprintf(msg, "'%s' is a directory.", filename);
+			PopupMsg(msg, "Error");
+		}
+	}
+	return 0;
+} /* end FileExist() */
+
+
+/*
+** TopOfFilePrompt() - Prompt to set current buffer to top of file.
+*/
+static int
+TopOfFilePrompt(int bookmark) {
+	char	reply[2];
+	char	msg[48];
+
+	/*
+	** don't prompt if already at the top of file
+	*/
+	if ( !FILE_OFFSET )
+		return 0;
+
+	sprintf( msg, "Start at (T)op,(C)ursor,(B)ookmark:");
+	reply[0] = 'T';
+	reply[1] = 0;
+	PromptGetInput(msg, reply, 2, NULL); 
+	if ( reply[0] == 'c' || reply[0] == 'C' ) {
+		PosSOL();
+	} else if ( reply[0] == 'b' || reply[0] == 'B' ) {
+		CMBookmarkGoto(bookmark);
+		PosSOL();
+	} else {
+		// default - start at beginning of file
+		PosSOF();
+	}
+	WinScrollTop();
+	WinUpdateWindow();
+	return 0;
+} /* end TopOfFilePrompt() */
+
+
+/*
+** DisplayLineNumbers() - display the top and bottom file line numbers
+*/
+static void
+DisplayLineNumbers(void)	{
+	char	msg[128];
+	char 	msgcomp[70];
+	
+	if ( !mergeFlag ) {
+		strcpy(msgcomp,"Skip: (T)op, (B)ottom, (N)both, (S)ync");
+		sprintf( msg,"Top line: %d  Bottom line: %d  %s",
+				topLineNumber, bottomLineNumber, msgcomp );
+	} else if ( moreFlag == 1 ) {
+		strcpy(msgcomp,"Skip: (Ctrl+T)top, (Ctrl+B)bottom, (Ctrl+N)both, (M)more options");
+	   sprintf( msg,"Top line: %d  Bottom line: %d  %s",
+					topLineNumber, bottomLineNumber, msgcomp );
+		moreFlag++;
+	} else if ( moreFlag == 2 ) {
+		strcpy(msgcomp,"Take: (Alt+T)top skip bottom, (Alt+B)bottom skip top, (M)more options");
+	   sprintf( msg,"Top line: %d  Bottom line: %d  %s",
+					topLineNumber, bottomLineNumber, msgcomp );
+		moreFlag++;
+	} else if ( moreFlag == 3 ) {
+		moreFlag = 0;
+		strcpy(msgcomp,"Skip rest: (Alt+R)top, (Ctrl+R)bottom, (M)more options");
+	   sprintf( msg,"Top line: %d  Bottom line: %d  %s",
+					topLineNumber, bottomLineNumber, msgcomp );
+	} else {
+		strcpy(msgcomp,"Take: (T)top, (B)bottom, (N)both, (M)more options");
+	   sprintf( msg,"Top line: %d  Bottom line: %d  %s",
+					topLineNumber, bottomLineNumber, msgcomp );
+		moreFlag++;
+	}
+	if ( repeatCnt > 1 )
+		sprintf(msg, "%s Repeat: %d", msg, repeatCnt);
+	Msg(msg);
+} /* end DislplayLineNumbers() */
+
+
+static void
+SetColorMismatch(void) {
+	long	i;
+
+	/* set color of text to display mismatch */
+	if ( !eofFlag ) {
+		i = 0;
+		while ( 1 ) {
+			if ( bottomLine[i] != topLine[i] )
+				break;
+			i++;
+		}
+		AttrSetColorAt( FILE_OFFSET, i, COLOR_MATCH );
+		AttrSetColorAt( FILE_OFFSET+i, strlen(&bottomLine[i]), COLOR_NOMATCH );
+		BufSwitchBuffer( topBuffer );
+		AttrSetColorAt( FILE_OFFSET, i, COLOR_MATCH );
+		AttrSetColorAt( FILE_OFFSET+i, strlen(&topLine[i]), COLOR_NOMATCH );
+		BufSwitchBuffer( bottomBuffer );
+	}
+} /* end SetColorMismatch() */
+
+
+static void
+CMBookmarkSet(int number) {
+	HMARK	hMark;
+
+	hMark = MarkQueryGlobalFromID(number);
+	if ( !hMark )
+		hMark = MarkAllocGlobal(number);
+	else {
+		#if 0
+		char	reply[2];
+
+		reply[0] = 'Y';
+		reply[1] = 0;
+		PromptGetInput("Bookmark is already set. Overwrite? (Y)es (N)o:", reply, 2, NULL );
+		if ( reply[0] == 'y' || reply[0] == 'Y' ) {
+			if ( !MarkResetMark(hMark) )
+				PopupMsg( "MarkResetMark returned NULL", "Error");
+		} else
+			return;
+	  #else
+		MarkResetMark(hMark);
+	  #endif
+	}
+} /* end CMBookmarkSet() */
+
+
+static void
+CMBookmarkGoto(int number) {
+	HMARK		hMark;
+
+	hMark = MarkQueryGlobalFromID(number);
+	if ( hMark ) {
+		MarkRemoveSel();
+		MarkGoto(hMark);
+	}
+} /* end CMBookmarkGoto() */
+
+/* 
+** SyncFiles()
+** This function saves the current postion in both file arrays
+** then it loops thru file2 array from current position looking for match with file1.
+** If no match is found it starts at the beginning of file2 and looks for a match
+** until it reaches the saved position.
+** If no match is found it increments file1 array by one and starts the process over.
+*/
+void
+SyncFiles( void) {
+	int 			save1Idx, save2Idx, last1Idx, last2Idx;
+	char 			msg[100];
+
+	/* save current index position */
+	save1Idx = last1Idx = file1Idx;
+	save2Idx = last2Idx = file2Idx;
+
+	/* if at end of array 1 quit */
+	if ( file1Idx > lastLine1 ) {
+		sprintf( msg,"Top line: %d  Bottom line: %d  Sync failed.",
+					save1Idx + 1L, save2Idx + 1L);
+		Msg(msg);
+		return;
+	}
+	/* if come in with match increment file1 index */
+	if ( file1Array[file1Idx] == file2Array[file2Idx] ) {
+		file1Idx++;
+		last1Idx = file1Idx;
+		sprintf( msg,"save1: %Ld  last1: %Ld  file1: %Ld",
+					save1Idx, last1Idx, file1Idx);
+		Msg(msg);
+	}
+	while ( 1 ) {
+		while ( file2Idx < lastLine2 ) {
+			if ( file2Array[file2Idx] == file1Array[file1Idx] )
+				break;
+			file2Idx++;
+			if ( file2Idx == last2Idx && file1Idx == last1Idx )
+				break;
+		}
+		if ( file2Array[file2Idx] == file1Array[file1Idx] )
+			break;
+		if ( file2Idx == last2Idx ) {
+			if ( file1Idx + 1 > lastLine1 ) {
+				break;
+			} else {
+			file1Idx++;
+			last1Idx = file1Idx;
+			}
+		}	else
+			if ( save2Idx == 0L ) {
+				file2Idx = 0L;
+				file1Idx++;
+			} else
+				file2Idx = 0L;
+		if ( file1Idx + 1 > lastLine1 )
+			break;
+	}
+	/* if files match and you are not at the end of both files -- success */
+	if ( file2Array[file2Idx] == file1Array[file1Idx] 
+		  && file1Idx + 1L != lastLine1 && file2Idx + 1L != lastLine2 ) {
+		save1Idx = file1Idx;
+		save2Idx = file2Idx;
+		sprintf( msg,"Top line: %d  Bottom line: %d  Sync successful, N to continue S to sync again",
+					save1Idx + 1L, save2Idx + 1L);
+	} else
+		sprintf( msg,"Top line: %d  Bottom line: %d  Sync failed.",
+					save1Idx + 1L, save2Idx + 1L);
+	ChangeTop();
+	PosAbs(save1Idx + 1L, 0L);
+	AttrSetColorAt( FILE_OFFSET, BufQueryLineLength(), COLOR_SYNC );
+	BufSyncWindows(topBuffer);
+	WinScrollTop();
+	WinSetWindow(topWindow);
+	ChangeBottom();
+	PosAbs(save2Idx + 1L, 0L);
+	AttrSetColorAt( FILE_OFFSET, BufQueryLineLength(), COLOR_SYNC );
+	BufSyncWindows(bottomBuffer);
+	WinScrollTop();
+	WinSetWindow(bottomWindow);
+	ChangeTop();
+	Msg(msg);
+} /* end SyncFiles() */
+
+
+
+static int
+CreateHashTables(void) {
+
+	BufSwitchBuffer(topBuffer);
+	PosEOF();
+	lastLine1 = BufQueryLine();
+	file1Array = calloc(lastLine1, sizeof(long));
+	PosSOF();
+	file1Idx = 0L;
+	while ( file1Idx < lastLine1 ) {
+		topLine = BufRead();
+		file1Array[file1Idx] = hash_pjw_nospace(topLine);
+	   free(topLine);
+		file1Idx++;
+		PosRel(1L, 0L);
+   }
+	PosSOF();
+
+	BufSwitchBuffer(bottomBuffer);
+	PosEOF();
+	lastLine2 = BufQueryLine();
+	file2Array = calloc(lastLine2, sizeof(long));
+	PosSOF();
+	file2Idx = 0L;
+	while ( file2Idx < lastLine2 ) {
+		bottomLine = BufRead();
+		file2Array[file2Idx] = hash_pjw_nospace(bottomLine);
+	   free(bottomLine);
+		file2Idx++;
+		PosRel(1L, 0L);
+   }
+	PosSOF();
+
+	BufSwitchBuffer(topBuffer);
+
+} /* end CreateHashTables() */
+
+
+
+/*
+** End macro: compmerg.rm
+*/

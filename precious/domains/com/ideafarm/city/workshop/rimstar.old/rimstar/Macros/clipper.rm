@@ -1,0 +1,239 @@
+/*
+** Macro module: clipper.rm - Clipper language support features
+**
+** Copyright (C) 1993-1995 Brian L. Smith
+** Copyright (C) 1993-1995 RimStar Technology, Inc.
+** All rights reserved internationally.
+** Unlicensed use is a violation of applicable laws.
+**
+** This source code is provided to licensed users of RimStar's products
+** for the purpose of allowing the user to customize and/or enhance RimStar's
+** products. The source code remains the property of the copyright holders
+** with all rights reserved internationally.
+** Any modifications to the source code are considered derivative works and
+** all rights thereto are reserved to the copyright holders except
+** that the purchaser may use the derivitive work in the same manner
+** as permitted by the license governing the unmodified product.
+** Distribution in any manner of any part of the original source code,
+** whether in source or object form, is expressly prohibited without the
+** express written permission of the copyright holders.
+**
+*/
+
+#include "macro.h"
+#include "lang.h"
+
+#define INCL_PRG_TEMPLATES
+#include "template.h"
+
+
+/* IndentStyle is an internal variable within the editor
+** set it with RSE_FLAGS or on the command line using
+** the -Is flag
+*/
+extern long	IndentStyle;
+
+/* IndentSize is an internal variable within the editor
+** set it with RSE_FLAGS or on the command line using
+** the -Iwnnn where 'nnn' is size of indent. Default: 3
+*/
+extern long	IndentSize;
+
+/* regular indent keyboard - created in lang.rm */
+extern HKEYBOARD	_r_keymap;
+
+/*
+** Special buffer keyboards used for Clipper specific
+** indenting and template editing.
+*/
+HKEYBOARD	_prg_smart, _prg_template, _prg_alt_template;
+
+
+/*
+** Clipper keyword names - for SyntaColor support
+*/
+PSZ KeywordsClipper[] = {
+	".and.", ".not.", ".or.", "accept", "all", "alternate", "append", "average", "begin", "bell",
+	"blank", "box", "break", "call", "cancel", "case", "century", "clear", "close", "color",
+	"commit", "confirm", "console", "continue", "copy", "count", "create", "cursor",
+	"date", "decimals", "default", "define", "deleted", "delimiters",
+	"device", "dir", "display", "do", "eject", "else", "elseif", "end", "endcase",
+	"enddo", "endfor", "endif", "epoch", "erase", "escape", "exact", "exclusive", "extended",
+	"external", "file", "filter", "find", "fixed", "for", "form", "format", "from",
+	"function", "get", "go", "index", "input", "intensity", "join", "key", "keyboard",
+	"label", "list", "local", "locate", "loop", "margin", "memory", "memvar",
+	"menu", "message", "new", "next", "note", "on", "order", "otherwise", "pack", "path",
+	"picture", "printer", "private", "procedure", "prompt", "public", "quit",
+	"read", "recall", "reindex", "relation", "release", "rename", "replace", "report",
+	"restore", "return", "run", "save", "say", "scoreboard", "screen", "set", "sequence",
+	"shared", "skip", "softseek", "sort", "static", "store", "structure", "sum",
+	"text", "to", "total", "type", "typeahead", "unique", "unlock", "update", "use",
+	"wait", "while", "wrap", "zap",
+	/* Additional Clipper symbols to color as keywords */
+	".f.", ".t.", "aadd", "abs", "achoice", "aclone", "acopy", "adel", "adir", "aeval", "afields",
+	"afill", "ains", "alert", "alias", "alltrim", "altd", "array", "asc", "ascan", "asize",
+	"asort", "at", "atail", "bin2i", "bin2l", "bin2w", "bof", "browse", "cdow", "chr", "cmonth",
+	"col", "ctod", "curdir", "database", "date", "day", "dbappend", "dbclearfile",
+	"dbclearindex", "dbclearrel", "dbcloseall", "dbclosearea", "dbcommit", "dbcommitall",
+	"dbcreate", "dbcreateindex", "dbdelete", "dbedit", "dbeval", "dbf", "dbfilter",
+	"dbgobottom", "dbgoto", "dbgotop", "dbrecall", "dbreindex", "dbrelation", "dbrselect",
+	"dbseek", "dbselectarea", "dbsetdriver", "dbsetfilter", "dbsetindex", "dbsetorder",
+	"dbsetrelation", "dbskip", "dbstruct", "dbunlock", "dbunlockall", "dbusearea",
+	"deleted", "descend", "devout", "devpos", "directory", "diskspace", "dispbegin",
+	"dispbox", "dispend", "dispout", "doserror", "dow", "dtoc", "dtos", "echo", "empty", "eof",
+	"error", "errorblock", "errorlevel", "eval", "exit", "exp", "fclose", "fcount", "fcreate",
+	"ferase", "ferror", "field", "fieldblock", "fieldget", "fieldname", "fieldput",
+	"fieldwblock", "file", "fklabel", "fkmax", "flock", "flush", "fopen", "found", "fread",
+	"freadstr", "frename", "fseek", "fwrite", "getactive", "getenv", "hardcr", "header",
+	"i2bin", "if", "indexext", "indexkey", "indexord", "inkey", "int", "into", "isalpha",
+	"iscolor", "isdigit", "islower", "isprinter", "isupper", "l2bin", "lastkey", "lastrec",
+	"left", "len", "log", "lower", "ltrim", "lupdate", "master", "max", "maxcol", "maxrow",
+	"memoedit", "memoline", "memoread", "memory", "memotran", "memowrit", "memvarblock",
+	"min", "mlcount", "mlctopos", "mlpos", "mod", "month", "mpostolc", "neterr", "netname",
+	"nextkey", "nosnow", "off", "os", "outerr", "outstd", "pad", "padl", "padr", "pcol", "pcount",
+	"procline", "procname", "prow", "qout", "rat", "readexit", "readinsert", "readkey",
+	"readmodal", "readvar", "reccount", "recno", "recsize", "replicate", "restscreen",
+	"right", "rlock", "round", "row", "rtrim", "safety", "savescreen", "scroll", "seconds",
+	"seek", "select", "set", "setblink", "setcancel", "setcolor", "setcursor", "setkey",
+	"setmode", "setpos", "space", "sqrt", "status", "str", "strtran", "stuff", "substr",
+	"suspend", "talk", "time", "tone", "transform", "trim", "type", "updated", "upper",
+	"used", "val", "valtype", "version", "with", "word", "year",
+   0
+};
+
+HHASH	htKeywordsClipper;	/* Handle to hash table created from above keywords */
+
+
+/*
+**	_prg_init
+**
+**	 Sets up the language specific features for Clipper and related language
+**	 files. Called by LangInit() in lang.rm
+*/
+void
+_prg_init(void) {
+	PBUFINFO	pBufInfo;
+
+	/* Set up for SyntaColor */
+	if ( pBufInfo = BufInfoQuery(BufQueryCurrentBuffer()) ) {
+		pBufInfo->htKeywords   = htKeywordsClipper;
+		pBufInfo->ulFlags     |= BI_SYNTACOLOR;
+		pBufInfo->syntaRefresh = SyntaColorPrg;
+		pBufInfo->syntaUpdate  = SyntaColorUpdatePrg;
+		if ( SyntaColorEnabled )
+			SyntaColorPrg(-1L, htKeywordsClipper);
+
+		/* Set templates to use if template editing style in effect */
+		switch ( IndentStyle ) {
+		case 3:		case 4:		case 6:		case 7:
+			pBufInfo->pTemplates = prgTemplates;
+		}
+	}
+
+	/*
+	** Make the Clipper keyboard bindings override the regular keyboard
+	**	for this buffer. Called by LangInit() in lang.rm
+	*/
+	switch ( IndentStyle ) {
+	case 0:	return;
+	case 1:	KbdSetBufferKeyboard(_r_keymap);				break;
+	case 2:
+	case 5:	KbdSetBufferKeyboard(_prg_smart);			break;
+	case 3:
+	case 6:	KbdSetBufferKeyboard(_prg_template);		break;
+	case 4:
+	case 7:	KbdSetBufferKeyboard(_prg_alt_template);	break;
+	}
+} /* end _prg_init() */
+
+
+/*
+** Clipper extension specific next/previous word functions
+*/
+
+void
+_prg_next_word(void) {
+	long	len;
+	len = SrchFwd("([a-zA-Z0-9_]+)|([^ \t\f\na-zA-Z0-9_]+)|([ \t\f\n]+)[ \t\f\n]*", -1, 1, 0);
+	if ( len > 0 )
+		PosNextChar(len);
+} /* end _prg_next_word() */
+
+void
+_prg_prev_word(void) {
+	__prev_word();
+}
+
+
+/*
+** _prgBindKeys is used to define keyboard bindings for the
+** various indenting styles supported. A new keyboard has
+** usually been made current to just define these keys
+** and that keyboard is then made a buffer specific keyboard
+** for Clipper files.
+*/
+void
+_prgBindKeys( int templates ) {
+	char	*enter, *kp_enter, *open, *close, *tab, *expand;
+
+	expand   = "TemplateExpand";
+	enter    = "BufNewlineIndent";
+	kp_enter = enter;
+	if ( templates == 2 )
+		tab = expand;	/* alternate template - expand on tab key */
+	else
+		tab = "slide_in";
+
+	if ( templates == 1 )	{
+		/* regular template editing - expand on space key */
+		KbdBind("Space",		expand);
+		KbdBind("Ctrl+Space","just_space");
+	}
+	KbdBind("Enter",			enter);
+	KbdBind("Kp_Enter",		kp_enter);
+	KbdBind("Shift+Enter",	"BufNewlineIndent");
+	KbdBind("Tab",				tab);
+	KbdBind("Shift+Tab", 	"slide_out");
+} /* end _prgBindKeys() */
+
+
+void
+_init(void) {
+
+	/*
+	**	Create keyboards for the keys we need to remap
+	**	These keyboards are used as Buffer keyboards which
+	**	over-ride and/or supplement the current keyboard
+	**	when that buffer is current.
+	*/
+
+	/* The regular indenting keyboard ( -Is1 ) is created in lang.rm */
+
+	/* Create smart indenting keyboard ( -Is2 ) */
+	KbdPush();
+	_prgBindKeys(0);
+	_prg_smart = KbdPop();
+
+	/* Create template editing keyboard ( -Is3 ) */
+	KbdPush();
+	_prgBindKeys(1);
+	_prg_template = KbdPop();
+
+	/* Create alternate template editing keyboard ( -Is4 ) */
+	KbdPush();
+	_prgBindKeys(2);
+	_prg_alt_template = KbdPop();
+
+	/* Set up for SyntaColor support */
+
+	/* Create a hash table of the Clipper language keywords */
+	/* keyword recognition is case insensitive */
+	htKeywordsClipper = LangLoadKeywords(KeywordsClipper, 1);
+
+} /* end _init() */
+
+
+
+/*
+** End module: clipper.rm
+*/

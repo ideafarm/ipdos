@@ -1,0 +1,493 @@
+/*
+** Macro module: java.rm - Java language support features
+**
+**	Java(tm) is a trademark of Sun Microsystems, Inc.
+**
+** Copyright (C) 1995-1996 Brian L. Smith
+** All rights reserved internationally.
+** Unlicensed use is a violation of applicable laws.
+**
+** This source code is provided to licensed users of RimStar's products
+** for the purpose of allowing the user to customize and/or enhance RimStar's
+** products. The source code remains the property of the copyright holders
+** with all rights reserved internationally.
+** Any modifications to the source code are considered derivative works and
+** all rights thereto are reserved to the copyright holders except
+** that the purchaser may use the derivitive work in the same manner
+** as permitted by the license governing the unmodified product.
+** Distribution in any manner of any part of the original source code,
+** whether in source or object form, is expressly prohibited without the
+** express written permission of the copyright holders.
+**
+*/
+
+#include "macro.h"
+#include "lang.h"
+
+#define INCL_JAVA_TEMPLATES
+#include "javatmpl.h"
+
+extern long	_Country;	// built-in editor variable
+extern BOOL	CUASelActive;
+
+extern int c_brace_style;
+/*
+** c_tab_indent determines which function is bound to the Tab 
+** key when the smart indenter ( style 2 & 3 ) is used. 
+** When c_tab_indent is set to 1 the tab key works like this: 
+** If you are positioned on the first non whitespace character 
+** or in the leading whitespace of a line when you press Tab 
+** the line will be reindented to what the smart indenter 
+** considers to be correct and you will be positioned to the 
+** first non-whitespace character on the line. When 
+** TAB_REINDENT is set to 0 the tab key works like you would 
+** expect. If you have a selection active the Tab key will 
+** indent the selection by 'IndentWidth' - this behavior is 
+** the same for either setting of c_tab_indent.
+*/
+extern int	c_tab_indent;
+
+/*
+** Inteligent pasting (enabled by default) will reindent
+** lines of code to the proper indent level for you automaticly
+** using the _c_InteliPaste function defined below. This function
+** uses the default smart indenting routines to do its work.
+** If you are using quick smart indenting, the reindenting results 
+** could be slighly different, mainly 'case' statement indenting.
+** Settings for the smart indenter can be customized in the
+** _c_smart_setup() function (approx. line 1858) in the file c_smart.rm
+** You can disable this feature from the configuration dialog
+*/
+extern int	c_intelipaste;
+
+/*
+** c_indent_method is an internal variable within the editor
+** that is set by the configuration dialog.
+** It supercedes the -Is command line flag.
+*/
+extern int	c_indent_method;
+
+/*
+** c_indent_level is an internal variable within the editor
+** that is set by the configuration dialog.
+** It supercedes the -Iw command line flag.
+*/
+extern int	c_indent_level;
+
+/* regular indent keyboard - created in lang.rm */
+extern HKEYBOARD	_r_keymap;
+
+/*
+** Special buffer keyboards used for Java specific
+** indenting and template editing.
+*/
+HKEYBOARD	_java_smart, _java_template, _java_alt_template;
+HKEYBOARD	_qjava_smart, _qjava_template, _qjava_alt_template;
+
+
+/*
+** Java keyword names - for SyntaColor support
+*/
+PSZ KeywordsJava[] = {
+ "abstract",  "boolean",    "break",    "byte",      "case",
+ "cast",      "catch",      "char",     "class",     "const",
+ "continue",  "default",    "do",       "double",    "else",
+ "extends",   "final",      "finally",  "float",     "for",
+ "future",    "generic",    "goto",
+ "if",        "implements", "import",   "inner",     "instanceof",
+ "int",       "interface",  "long",     "native",    "new",
+ "null",      "operator",   "outer",    "package",   "private",
+ "protected", "public",     "rest",     "return",
+ "short",     "static",     "super",    "switch",    "synchronized",
+ "this",      "throw",      "throws",   "transient", "try",
+ "var",       "void",       "volatile", "while",     "byvalue",
+ "true",      "false",
+	0
+};
+
+HHASH	htKeywordsJava;	/* Handle to hash table created from above keywords */
+
+
+/*
+**	_java_init
+**
+**	 Sets up the language specific features for 'Java'
+**	 files. Called by LangInit() in lang.rm
+*/
+void
+_java_init(/*long method (optional) */) {
+	PBUFINFO	pBufInfo;
+	long		method;
+
+	//BufSetTabs("9");
+	if ( LibQueryArgCount() )
+		method = *(long *)LibGetArgPtr(0);
+	else
+		method = c_indent_method;
+	// Set up for SyntaColor
+	// Create a hash table of the C language keywords
+	if ( !htKeywordsJava )
+		htKeywordsJava = LangLoadKeywords(KeywordsJava);
+
+	if ( pBufInfo = BufInfoQuery(BufQueryCurrentBuffer()) ) {
+		pBufInfo->htKeywords   = htKeywordsJava;
+		pBufInfo->ulFlags     |= BI_SYNTACOLOR;
+		pBufInfo->syntaRefresh = SyntaColorC;
+		pBufInfo->syntaUpdate  = SyntaColorUpdateC;
+		pBufInfo->pszFunc      = "_java_init";
+
+		if ( SyntaColorEnabled )
+			SyntaColorC(-1L, htKeywordsJava);
+
+		/* Set templates to use if template editing style in effect */
+		switch ( method ) {
+		case 3:		case 4:		case 6:		case 7:
+			switch ( c_brace_style ) {
+			case BRACES_NEXTLINE:
+				pBufInfo->pTemplates = JavaTemplates0;	break;
+			case BRACES_SAMELINE:
+				pBufInfo->pTemplates = JavaTemplates1;	break;
+			case BRACES_INDENTED:
+				pBufInfo->pTemplates = JavaTemplates2;	break;
+			}
+		}
+	}
+	/*
+	** Make the Java keyboard bindings override the regular keyboard
+	**	for this buffer.
+	*/
+	switch ( method ) {
+	case 0:	return;
+	case 1:	KbdSetBufferKeyboard(_r_keymap);				break;
+	case 2:	KbdSetBufferKeyboard(_java_smart);			break;
+	case 3:	KbdSetBufferKeyboard(_java_template);		break;
+	case 4:	KbdSetBufferKeyboard(_java_alt_template);	break;
+	case 5:	KbdSetBufferKeyboard(_qjava_smart);			break;
+	case 6:	KbdSetBufferKeyboard(_qjava_template);		break;
+	case 7:	KbdSetBufferKeyboard(_qjava_alt_template);break;
+	}
+} /* end _java_init() */
+
+
+_jav_init() {
+	_java_init();
+}
+
+
+/*
+** Java extension specific next/previous word functions
+*/
+
+void
+_java_next_word(void) {
+	long	len;
+
+	len = SrchFwd("(([a-zA-Z0-9_]+)|([^ \t\f\na-zA-Z0-9_]+)|([ \t\f\n]+))[ \t\f\n]*", -1, 1);
+	if ( len > 0 )
+		PosNextChar(len);
+} /* end _java_next_word() */
+
+_jav_next_word(void) {
+	_java_next_word();
+}
+
+void
+_java_prev_word(void) {
+	if ( !PosPrevChar() )
+		SrchBack("([0-9A-Z_a-z]+|[^ \t\f\n0-9A-Z_a-z]+)[ \t\f\n]*", -2, 1);
+}
+
+void
+_jav_prev_word(void) {
+	_java_prev_word();
+}
+
+void
+just_brace(void) {
+	BufInsertChar('{');
+}
+
+void
+just_cbrace(void) {
+	BufInsertChar('}');
+}
+
+
+/*
+** _java_InteliPaste
+**
+** This function pastes the current scrap and then
+** reindents the lines pasted to the proper indent
+** level using the smart indenting function c_indenter().
+**
+*/
+void
+_java_InteliPaste(void) {
+   long  	s_line, e_line, e_col, col;
+
+	if ( (BufQueryFlags(BufQueryCurrentScrap()) & BUFFER_SCRAPTYPE) == SCRAPTYPE_COLUMN ) {
+		/* do not adjust column pastes */
+		BufPasteScrap();
+		return;
+	}
+
+   s_line = BufQueryLine();
+
+   BufPasteScrap();
+   
+   BufQueryPosition(&e_line, &e_col);
+
+   if ( e_line > s_line ) {
+      while ( s_line <= e_line ) {
+			PosAbs(s_line, 1L);
+			PosSOT();
+			if ( BufQueryChar() != '\n' ) {
+				// the line is not empty
+				col = BufQueryColumn();
+				c_indenter();
+				// see if indenter changed indenting, if no change,
+				// assume rest of insert is already properly indented
+				if ( col == BufQueryColumn() )
+					break;
+			}
+         ++s_line;
+      }
+      MovAbs(e_line, e_col);
+   }
+} /* end _java_InteliPaste() */
+
+
+/*
+** JavaBindInteliPaste
+**
+** This function will create keyboard bindings for the currently
+** active keyboard (should be a buffer keyboard) to match
+** the default keyboard bindings for pasting the scrap so that
+** the Inteligent paste function is used for the buffer instead
+** of the normal paste function.
+*/
+void
+JavaBindInteliPaste(void) {
+	HKEYBOARD	hKbd;
+	PBINDING		pBind = NULL;
+
+	hKbd = KbdPop();	// want to search default kbd
+
+	// Find each key bound to BufPasteScrap
+	do	{
+		pBind = KbdQueryBinding("BufPasteScrap", pBind);
+		if ( pBind ) {
+			KbdPush(hKbd);		// make buffer keyboard current
+			// convert key sequence to a string and bind to buffer kbd
+			KbdBind( KbdKeysToString(pBind->key, 0), "_java_InteliPaste" );
+			KbdPop();
+		}
+	} while ( pBind != NULL );
+
+	// now check for CUA versions of BufPasteScrap
+	do	{
+		pBind = KbdQueryBinding("CUAReplace BufPasteScrap", pBind);
+		if ( pBind ) {
+			KbdPush(hKbd);		// make buffer keyboard current
+			// convert key sequence to a string and bind to buffer kbd
+			KbdBind( KbdKeysToString(pBind->key, 0), "CUAReplace _java_InteliPaste" );
+			KbdPop();
+		}
+	} while ( pBind != NULL );
+	KbdPush(hKbd);		// make buffer keyboard current
+} /* end JavaBindInteliPaste() */
+
+
+/*
+** _javaBindKeys is used to define keyboard bindings for the
+** various indenting methods supported. A new keyboard has
+** usually been made current to just define these keys
+** and that keyboard is then made a buffer specific keyboard
+** for Java files.
+*/
+void
+_javaBindKeys(BOOL quick, int templates) {
+	char	*enter, *kp_enter, *open, *close, *tab, *expand, *p;
+
+	expand = "TemplateExpand";
+	if ( quick ) {
+		/* Quick smart indenter */
+		enter = kp_enter = "_c_qnewline";
+		open  = "_c_qopen";
+		close = "_c_qclose";
+		if ( templates == 2 )
+			tab = expand;	/* alternate template - expand on tab key */
+		else
+			tab = "slide_in";
+	} else {
+		/* Standard smart indenter */
+		enter    = "_c_newline_break";
+		kp_enter = "_c_newline";
+		open     = "_c_open";
+		close    = "_c_close";
+		if ( templates == 2 ) {
+			tab = expand;	/* alternate template - expand on tab key */
+		} else {
+			if ( c_tab_indent ) {
+				/*
+				** Pressing Tab when you are positioned on or before the first character
+				** of the line reindents the line as the smart indenter thinks it should
+				** be indented. If you are positioned after the 1st non whitespace
+				** character on a line Tab will work as you expect it to work.
+				** If this feature drives you crazy just change the #define TAB_REINDENT 1
+				** (at or near line 45 above) to #define TAB_REINDENT 0,
+				** which will give you normal Tab key behavior.
+				*/
+				tab = "_c_indent";
+			} else {
+				tab = "slide_in";
+				KbdBind("Ctrl+Tab", "_c_indent");
+			}
+		}
+	}
+
+	if ( templates == 1 )	{
+		/* regular template editing - expand on space key */
+		KbdBind("Space",		expand);
+		KbdBind("Ctrl+Space","just_space");
+	}
+	KbdBind("Enter",			enter);
+	KbdBind("Kp_Enter",		kp_enter);
+	KbdBind("Shift+Enter",	"BufNewlineIndent");
+	KbdBind("Tab",				tab);
+	KbdBind("Shift+Tab", 	"slide_out");
+	/*
+	** Since the curly brace keys are on different keys
+	**	for different countries, they must be mapped
+	** correctly. This applies as well to other punctuation
+	** characters.
+	*/
+	switch ( _Country ) {
+	default:
+	case 1:		/* United States */
+	case 44:		/* United Kingdom */
+		KbdBind("Shift+[", open);
+		KbdBind("Shift+]", close);
+		break;
+	case 3:		/* Latin America */
+		KbdBind("{", open);
+		KbdBind("}", close);
+		break;
+	case 32:		/* Belgium */
+	case 2:		/* Canada, French */
+	case 42:		/* Czechoslovakia */
+	case 45: 	/* Denmark */
+	case 358:	/* Finland */
+	case 33:		/* France  */
+	case 49:		/* Germany */
+	case 36:		/* Hungary */
+	case 354:	/* Iceland */
+	case 39:		/* Italy */
+	case 31:		/* Netherlands */
+	case 47:		/* Norway */
+	case 48:		/* Poland */
+	case 351:	/* Portugal */
+	case 34:		/* Spain */
+	case 46:		/* Sweden */
+	case 41:		/* Switzerland */
+	case 90:		/* Turkey */
+	case 38:		/* Yugoslavia */
+		KbdBind("AltGr+{", open);
+		KbdBind("AltGr+}", close);
+		/* Also rebind find_matching_delim */
+		KbdBind("Shift+AltGr+{",	p="find_matching_delim");
+		KbdBind("Shift+Alt+}",		p);
+		KbdBind("Shift+AltGr+}",	p);
+		KbdBind("Shift+Alt+}", 		p);
+		break;
+	}
+	/* Additional fuctions available from smart indenter */
+	KbdBind("Ctrl+Alt+A",	"_c_start_of_func");
+	KbdBind("Ctrl+Alt+E",	"_c_end_of_func");
+	KbdBind("Ctrl+Alt+F",	"_c_forward_cexp");
+	KbdBind("Ctrl+Alt+B",	"_c_backward_cexp");
+	KbdBind("Ctrl+Alt+U",	"_c_up_level");
+	KbdBind("Ctrl+Alt+Q",	"_c_indent_function");
+	KbdBind("Ctrl+Alt+Tab",	"_c_indent_lines");
+
+	if ( c_intelipaste )
+		JavaBindInteliPaste();
+} /* end _javaBindKeys() */
+
+
+void
+_java_keyboards(void)
+{
+	/*
+	**	Create keyboards for the keys we need to remap
+	**	These keyboards are used as Buffer keyboards which
+	**	over-ride and/or supplement the current keyboard
+	**	when that buffer is current.
+	*/
+
+	/* The regular indenting keyboard ( -Is1 ) is created in lang.rm */
+
+	/* Create smart indenting keyboard ( -Is2 ) */
+	if ( _java_smart )
+		KbdUnbindAll(_java_smart);
+	KbdPush(_java_smart);
+	_javaBindKeys(0, 0);
+	_java_smart = KbdPop();
+
+	/* Create template editing keyboard ( -Is3 ) */
+	if ( _java_template )
+		KbdUnbindAll(_java_template);
+	KbdPush(_java_template);
+	_javaBindKeys(0, 1);
+	_java_template = KbdPop();
+
+	/* Create alternate template editing keyboard ( -Is4 ) */
+	if ( _java_alt_template )
+		KbdUnbindAll(_java_alt_template);
+	KbdPush(_java_alt_template);
+	_javaBindKeys(0, 2);
+	_java_alt_template = KbdPop();
+
+	/* Create quick smart indenting keyboard ( -Is5 ) */
+	if ( _qjava_smart )
+		KbdUnbindAll(_qjava_smart);
+	KbdPush(_qjava_smart);
+	_javaBindKeys(1, 0);
+	_qjava_smart = KbdPop();
+
+	/* Create quick template editing keyboard ( -Is6 ) */
+	if ( _qjava_template )
+		KbdUnbindAll(_qjava_template);
+	KbdPush(_qjava_template);
+	_javaBindKeys(1, 1);
+	_qjava_template = KbdPop();
+
+	/* Create alternate template editing keyboard ( -Is7 ) */
+	if ( _qjava_alt_template )
+		KbdUnbindAll(_qjava_alt_template);
+	KbdPush(_qjava_alt_template);
+	_javaBindKeys(1, 2);
+	_qjava_alt_template = KbdPop();
+} // end _java_keyboards()
+
+
+void
+_init(void) {
+
+	LibAutoload("c_smart",  "_c_newline", "_c_newline_break",
+                           "_c_indent",  "_c_close", 
+                           "_c_open",    "_c_indent_function",
+                           "_c_start_of_func", "_c_end_of_func",
+                           "_c_forward_cexp",  "_c_backward_cexp",
+                           "c_indenter", "_c_up_level",
+                           "_c_qopen",   "_c_qclose",
+                           "_c_qnewline", "_c_indent_lines" );
+	// create indenting keyboards
+	_java_keyboards();
+} /* end _init() */
+
+
+
+/*
+** End module: java.rm
+*/

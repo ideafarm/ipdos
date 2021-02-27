@@ -1,0 +1,2038 @@
+/*
+** c_smart.rm
+**
+**	'C/C++' smart indenting commands for RimStar Programmer's Editor
+**
+** Copyright (C) 1993 Free Software Foundation, Inc.
+** Copyright (C) 1993 K. Shane Hartman
+** Copyright (C) 1993-1996 Brian L. Smith
+**
+** This file was ported from GNU Emacs.
+**
+** This file is free software; you can redistribute it and/or modify
+** it under the terms of the GNU General Public License as published by
+** the Free Software Foundation; either version 1, or (at your option)
+** any later version.
+**
+** This file is distributed in the hope that it will be useful,
+** but WITHOUT ANY WARRANTY; without even the implied warranty of
+** MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+** GNU General Public License for more details.
+**
+** If you want a copy of the GNU General Public License, write to the
+** Free Software Foundation, 675 Mass Ave, Cambridge, MA 02139, USA.
+**
+**		16 Nov 93 - Fixed bug in c_backward_to_noncomment()  causing
+**						infinite loop when preprocessor command is first
+**						non-white in file.
+**		21 Nov 93 - Added _c_newline_break() to give alternate to _c_newline()
+**						this function will break the line instead of just opening a
+**						a line.
+**		5 May 94  - Fixed bug which can cause the indenter to go into an infinite loop.
+**						Enhanced the performance of the indenter in most cases.
+*/
+
+#include "macro.h"
+#define DEBUG	0
+#if DEBUG
+extern void pmsg(char *fmt, ... );
+#endif
+
+extern long FILE_OFFSET;			// built-in editor variable - MUST NEVER BE ASSIGNED TO!!!
+extern void TmplExpand(char *);	// in lang.rm
+static char *comment_start;
+static char *comment_end;
+static long comment_column = 40;
+
+static long	matchstart;
+static long	matchend;
+static BOOL	auto_indent = 1;
+static BOOL	Matchdelim = 0;
+
+/*
+** Brace style 0, 1, or 2
+**
+** style 0 looks like this:
+**    if ( x )
+**    {
+**       statement;
+**    }
+** style 1 looks like this:
+**    if ( x ) {
+**       statement;
+**    }
+** style 2 looks like this:
+**    if ( x )
+**       {
+**       statement;
+**       }
+*/
+#define BRACES_NEXTLINE		0
+#define BRACES_SAMELINE		1
+#define BRACES_INDENTED		2
+
+extern int	c_brace_style;
+
+/*
+** Setting c_braces_matched to 1 causes a matching close brace to be inserted
+** when you press '{'.
+*/
+extern int	c_braces_matched;
+
+/*
+** The following variables control the operation of the indenting routines
+** They can be set by using the Editor configuration Language page
+** or by modifying your rse_cfg.ini file directly.
+*/
+
+/*
+** Enable much faster shortcut (in most cases) for Shane's indentation style,
+** if indentation looks funny for you, set this to 0.  The full indenter
+** is always correct for all settings of the variables below.
+*/
+BOOL c_indenter_shortcut;
+
+/*
+** Non-zero means TAB in C mode should always reindent the current line,
+** regardless of where in the line the cursor is when the TAB command is used.
+** You'll probably want to set this to 1 if you bind _c_indent to something
+** other than the Tab key.
+*/
+BOOL c_tab_always_indent;
+
+/*
+** If top level braces should be indented set to 1; if you want them pulled
+** back to column 1, set to 0. This is currently set according to the value of 
+** c_brace_style, if you have braces indented but you don't want the braces 
+** which enclose a function to be indented set this to 0.
+*/
+extern BOOL c_indent_toplevel_brace;
+
+/* If pre-processor statements should start at column 1 set this TRUE */
+extern BOOL c_preproc_col_1;
+
+/* If c_preproc_col_1 == 0 then offset # statements from current indent level */
+extern long c_preproc_offset;
+
+/* Indentation of C statements with respect to containing block. */
+extern long c_indent_level;
+
+/* Imagined indentation of a C open brace that actually follows a statement. */
+extern long c_brace_imaginary_offset;
+
+/* Extra indentation for braces, compared with other text in same context. */
+extern long c_brace_offset;
+
+/* Indentation level of declarations of C function arguments.
+** Note: this must be 0 if c_indenter_shortcut is TRUE
+** Normally it is set to one greater than IndentWidth
+*/
+extern long c_argdecl_indent;
+
+/* Offset of C label lines relative to usual indentation. */
+extern long c_label_offset;
+
+/* Offset of C case statements relative to usual indentation. */
+extern long c_case_offset;
+
+/* Extra indent for lines not starting new statements. */
+extern long c_continued_statement_offset;
+
+/*
+** Extra indent for multiline comments.
+*/
+/*
+ * set c_continued_comment_offset to 1L
+ * if you format comments like this one is formatted.
+ */
+/*
+** set c_continued_comment_offset to 0L
+** if you format comments like this one is formatted.
+*/
+extern long c_continued_comment_offset;
+
+/*
+** c_paren_extra_space helps keep parenthesized
+** expressions that span lines aligned.
+** if you have a space follwing an open parenthesis
+** like: if ( x ) then set c_paren_extra_space to 2
+** if you format your code like this: if (x) then
+** set c_paren_extra_space to 1
+** this is the extra spacing to be added for 
+** parenthesized expressions that span lines
+** 0 lines up under the '('
+** 1 after the '(' and so on
+*/
+extern long c_paren_extra_space;
+
+
+typedef struct pstate {
+	long	beginning_of_defun;
+	long	containing_cexp;
+	int	incomment;
+	int	instring;
+	int	quoted;
+	int	level;
+} PSTATE;
+
+
+int  c_backward_to_start_of_do( long limit );
+void c_backward_to_start_of_if( long limit );
+void c_backward_to_noncomment( long limit );
+long calculate_c_indent_in_comment( void );
+long calculate_c_indent( PSTATE *state );
+
+#define AtSOL() (BufQueryColumn() == 1L)
+
+
+/* replace current indentation with indent to col */
+void
+Indent(long col) {
+	BufDeleteWhitespace();
+	BufIndentColumn(BufQueryColumn(), col);
+} /* end Indent() */
+
+
+int
+find(int dir, char *str) {
+	long	len;
+
+	if ( dir > 0 ) {
+		if ( (len = SrchFwd(str, 0, 1, 0, 0L)) > 0L ) {
+			PosNextChar(len);
+			return 1;
+		} else
+			PosEOF();
+	} else {
+		if ( (len = SrchBack(str, 0, 1, 0, 0L)) > 0L )
+			return 1;
+		else
+			PosSOF();
+	}
+	return 0;
+} /* end find() */
+
+
+int
+find_pat(int dir, char *str) {
+	long	len;
+
+	if ( dir > 0 ) {
+		if ( (len = SrchFwd(str, -1, 1, 0, 0L)) > 0L ) {
+			PosNextChar(len);
+			return 1;
+		} else
+			PosEOF();
+	} else {
+		if ( PosPrevChar() )
+			return 0;
+		if ( (len = SrchBack(str, -1, 1, 0, 0L)) > 0L )
+			return 1;
+		else
+			PosSOF();
+	}
+	return 0;
+} /* end find_pat() */
+
+
+void
+skip_chars(int dir, char *set) {
+	if ( dir < 0 )
+		PosPrevChar();	
+	while ( strchr(set, (BufQueryChar())) )
+		if ( PosNextChar((long)dir) )
+			return;
+	if ( dir < 0 )
+		PosNextChar();
+} /* end skip_chars() */
+
+
+long
+query_indent_of_line() {
+	long indent, offset;
+
+	offset = FILE_OFFSET;
+	PosSOT();
+	indent = BufQueryColumn();
+	PosToOffset(offset);
+	return indent;
+} /* end query_indent_of_line() */
+
+
+int
+Srch(int dir, char *pat) {
+	if ( dir > 0 )
+		return SrchFwd(pat, -1, 1, 0, 0);
+	else {
+		if ( PosPrevChar() )
+			return -1;
+		return SrchBack(pat, -1, 1, 0, 0);
+	}
+} /* end Srch() */
+
+
+int
+are_at(int dir, char *pat) {
+  	int	rc = 0;
+  	int	len;
+	long	offset;
+  
+	offset = FILE_OFFSET;
+	if ( (len = Srch(dir, pat)) > 0 ) {
+		matchstart = FILE_OFFSET;
+		if ( matchstart == offset )
+			rc = 1;
+		else
+			rc = 0;
+		matchend = matchstart + len;
+	} else
+		matchend = offset;
+	PosToOffset(offset);
+  	return rc;
+} /* end are_at() */
+
+
+int
+are_on(char *pattern) {
+	char	*p;
+  	int	rc = 0;
+  	int	ndx;
+	long	len;
+  
+	matchend = FILE_OFFSET;
+	p = BufRead();
+	if ( (ndx = SrchString(pattern, p, &len, -1)) >= 0 ) {
+		if	( ndx == 0 )
+			rc = 1;
+		matchstart = matchend+ndx;
+		matchend = matchstart+len;
+	}
+	free(p);
+	return rc;
+} /* end are_on() */
+
+
+int
+BufQueryPrevChar() {
+	long offset;
+
+	if ( (offset = FILE_OFFSET) == 0L )
+		return 0;
+	return BufQueryChar(offset-1L);
+} /* end BufQueryPrevChar() */
+
+
+char matching_punct[] = "][]}{})()\"\"''";
+char opening_punct[] = "[{(";
+char closing_punct[] = "]})";
+
+char
+get_matching_punct(char c) {
+	char *s = strchr(matching_punct, c);
+
+	if ( !s )
+		return 0;
+	else
+		return s[1];
+} /* end get_matching_punct() */
+
+
+int
+PosNextLine( void ) {
+	PosEOL();
+	return PosNextChar();
+} /* end of PosNextLine */
+
+int
+PosPrevLine( void ) {
+	PosSOL();
+	return PosPrevChar();
+} /* end of PosPrevLine */
+
+#define is_opening_punct(c) (strchr(opening_punct, (c)) != NULL)
+#define is_closing_punct(c) (strchr(closing_punct, (c)) != NULL)
+
+int
+FindStartOfDef(LONG *pPos) {
+
+	if ( SrchBack("^[{A-Za-z0-9$_]+(::[{A-Za-z0-9$_]+)*[^A-Za-z0-9$_:]", -1, 1, 0) > 0 ) {
+		*pPos = FILE_OFFSET;
+		return 1;
+	}
+	*pPos = PosSOF();
+	return 0;
+} /* end FindStartOfDef() */
+
+
+int
+query_matching_slashes(int dir) {
+	long slash_count = 0L, offset;
+
+	offset = FILE_OFFSET;
+	if ( dir > 0 )
+		PosPrevChar();
+	while ( !PosPrevChar() && BufQueryChar() == '\\' )
+		slash_count++;
+	PosToOffset(offset);
+	return (int)(slash_count & 1L);	/* returns 1 if odd number of slashes 0 if even */
+}
+
+void
+skip_c_comments(int dir) {
+	long offset = 1L;
+	long last;
+	char c;
+	char cc;
+  
+	last = BufQueryFilesize();
+	if ( dir != 1 ) {
+		dir	 = -1;
+		offset = 0L;
+	}
+	while ( find_pat(dir, "[^ \t\n\f]") &&
+			  FILE_OFFSET > 0L  && FILE_OFFSET < last ) {
+		c  = BufQueryChar(FILE_OFFSET - offset);
+	 	if ( c == '/' ) {
+			cc = BufQueryChar(FILE_OFFSET - offset + (long)dir);
+			if ( cc == '*' )
+				find(dir, dir > 0 ? "*/" : "/*");
+			else if ( cc == '/' )	{	/* c++ comment */
+				if ( dir > 0 )	{
+					PosNextLine();
+				} else
+					PosPrevChar();
+			}
+		} else {
+			if ( dir > 0 )
+				PosPrevChar();
+			break;
+		}
+	}
+} /* end skip_c_comments() */
+
+
+/*
+** move to next/prev c expression
+*/
+long
+traverse_cexp(int dir) {
+	long level  = 0L;
+	long offset = 1L;
+	long orig;
+	char c		= 0;
+	char start  = 0;
+	char end	   = 0;
+	char buf[2];
+	char patbuf[40];
+
+	orig = FILE_OFFSET;
+	if ( dir != 1 ) {
+		dir = -1;
+		offset = 0L;
+	}
+	if ( dir > 0 &&
+		  orig < BufQueryFilesize() &&
+		  strchr(":;?,", BufQueryChar())
+		)
+		PosNextChar();
+
+	skip_c_comments(dir);
+
+	if ( !strchr(matching_punct, c = (BufQueryChar())) ) {
+		if ( find_pat(dir, "[][)(}{\"';:,? \t\n\f]") ) {
+			if ( dir < 0 )
+				PosNextChar();
+			else
+				PosPrevChar();
+			return 1;
+		}
+		return 0;
+	} else if ( (is_opening_punct(c) && dir > 0) ||
+					(is_closing_punct(c) && dir < 0) ||
+					c == '"' || c == '\'' )
+	{
+		if ( dir < 0 )
+			PosNextChar();
+		strcpy(patbuf, "([][)(}{\"'])|(/\\*)|(\\*/)|(//)");
+		while ( find_pat(dir, patbuf) ) {
+			buf[0] = c = BufQueryChar(FILE_OFFSET - offset);
+			buf[1] = 0;
+			if ( start == 0 ) {
+				start = c;
+				end = get_matching_punct(start);
+				if ( !end ) 
+					start = 0;
+				else {
+					strcpy (patbuf, "\\X|\\X|([\"'])|(/\\*)|(\\*/)|(//)");
+					patbuf[1] = start;
+					patbuf[4] = end;
+				}
+			}
+			if ( c == '"' || c == '\'' ) { 
+				char strpat[8];
+
+				strcpy (strpat, "\\X|\n");
+				strpat[1] = c;
+				while ( find_pat(dir, strpat) && query_matching_slashes(dir) )
+					;
+				if ( BufQueryPrevChar() == '\n')
+					break;
+			} else if ( c == '*' ) {
+				find(dir, dir > 0 ? "*/" : "/*");
+			} else if ( c == '/' ) {		/* c++ comment */
+				if ( dir > 0 ) {
+					PosEOL();
+					PosNextChar();
+				}
+			}
+			if ( c == start )
+				level++;
+			if ( c == end && !--level )
+				break;
+		}
+		return ( level == 0L && start != 0 );
+	} else {
+		if ( (dir > 0 && c == ')') ||
+			  (dir < 0 && c == '(') ) {
+			PosNextChar((long)dir);
+			return 1;
+		}
+		else
+			PosToOffset(orig);
+		return 0;
+	}
+} /* end traverse_cexp() */
+
+
+void
+parse_partial_cexp(long from, long to, PSTATE* state) {
+	char c = 0;
+	char msg[64];
+	long stack[64];
+  
+	state->instring  = 0;
+	state->incomment = 0;
+	state->containing_cexp = -1L;
+	state->quoted = 0;
+	state->level = -1;
+	while ( find_pat(1, "([][(){}\"'])|(/\\*)|(//)") && FILE_OFFSET < to ) {
+		c = BufQueryPrevChar();
+		if ( is_opening_punct(c) ) {
+			state->level++;
+			if ( state->level > 63 ) {
+				sprintf( msg, "Expression nesting too deep: %d:", state->level);
+				PopupMsg( msg, "parse_partial_cexp" );
+				abort();
+			}
+			stack[state->level] = FILE_OFFSET - 1L;
+		} else if ( is_closing_punct(c) ) { 
+			if ( state->level >= 0 )
+				if ( get_matching_punct(BufQueryChar(stack[state->level])) == c )
+					state->level--;
+				else {
+					PosToOffset(stack[state->level]);
+					sprintf( msg, "Error: Should have found '%c' but found '%c' instead", c, BufQueryChar(stack[state->level]) );
+					PopupMsg( msg, "parse_partial_cexp" );
+					abort();
+				}
+		} else if ( c == '"' || c == '\'' ) {		/* quotes */
+			char strpat[8];
+		
+			state->quoted = -1;
+			strcpy (strpat, "[X\n]");
+			strpat[1] = c;
+			while ( find_pat(1, strpat) 		 &&			/* find matching quote or end of line */
+					  query_matching_slashes(1) &&			/* single slashe behind it (the quote found is escaped) */
+					  FILE_OFFSET < to )							/* not past where we are indenting */
+				;
+			if ( FILE_OFFSET < to ) 
+				state->quoted = 0;	/* found the matching quote */
+		} else if ( c == '*' || c == '/' ) {
+			state->incomment =  1;
+			state->quoted	  = -2;
+			if ( c == '*' ) {
+				find(1, "*/");						/* find close of comment */
+				if ( FILE_OFFSET < to )
+					state->incomment = state->quoted = 0;
+				else
+					break;
+			} else {									/* C++ comment - go to next line */
+				state->incomment = 2;
+				PosEOL();
+				if ( FILE_OFFSET < to ) {
+					PosNextChar();
+					state->incomment = state->quoted = 0;
+				} else
+					break;
+			}
+		}
+	}
+	if ( state->level >= 0 ) 
+		state->containing_cexp = stack[state->level];
+} /* end parse_partial_cexp() */
+
+
+void
+find_matching_delim(void) {
+	long		level;
+	long		offset;
+	int		c;
+	int		dir;
+	int		start, end;
+   char     strpat[8];
+	char		patbuf[40];
+
+	start = BufQueryChar();
+	if ( is_opening_punct(start) ) {
+		dir = 1;
+		offset = 0L;
+		PosNextChar();
+	} else if ( is_closing_punct(start) ) {
+		dir = -1;
+		offset = 1L;
+	} else
+		return;  // not something we can match
+
+   end = get_matching_punct(start);
+   strcpy (patbuf, "\\X|\\X|([\"'])|(/\\*)|(\\*/)|(//)");
+   patbuf[1] = start;
+   patbuf[4] = end;
+   strcpy (strpat, "\\X|\n");
+
+	level = 0L;
+	SysSetHourglass(1);
+	do {
+		if ( dir > 0 )
+			c = BufQueryPrevChar();
+		else
+			c = BufQueryChar();
+		if ( c == '"' || c == '\'' ) {
+         // string or character literal
+			strpat[1] = c;
+			while ( find_pat(dir, strpat) && query_matching_slashes(dir) )
+				;
+			if ( BufQueryPrevChar() == '\n' )
+				break;
+		} else if ( c == '*' ) {
+			find(dir, dir > 0 ? "*/" : "/*");
+		} else if ( c == '/' ) {		/* c++ comment */
+			if ( dir > 0 ) {
+				PosEOL();
+				PosNextChar();
+			}
+		}
+		if ( c == start )
+			level++;
+		else if ( c == end && !--level )	{
+			if ( dir > 0 )
+				PosPrevChar();
+			break;
+		}
+	} while ( find_pat(dir, patbuf) );
+	SysSetHourglass(0);
+} /* end find_matching_delim() */
+
+
+/*
+ * Indenting functions
+ */
+
+#if 0
+/* This will indent comments nicely but is not hooked up */
+long
+c_comment_indent() {
+	long opoint;
+	long ret = 0L;
+	long inColumn;
+
+	if ( BufQueryColumn() == 1L && are_on("/\\*") )
+		return 0L;			/* Existing comment at bol stays. */
+
+	opoint = FILE_OFFSET;
+	PosSOT();
+	inColumn = BufQueryColumn();
+	if ( are_on("}[ \t]*(\n|(/\\*))") )	{
+		/*
+		 * A comment following a solitary close-brace 
+		 * should have only one space. 
+		 */
+		ret = inColumn + 2L;
+	}
+	else if ( are_on("#[ \t]*endif[ \t]*") ||
+				 are_on("#[ \t]*else[ \t]*") )
+		ret = inColumn + 9L;	/* 2 spaces after #endif */
+	else if ( PosToOffset(opoint),
+				 skip_chars(-1, " \t"),
+				 !comment_column && AtSOL() )
+		/*
+		** If comment_column is 0, and nothing but space
+		** before the comment, align it at 0 rather than 1. 
+		*/
+		ret = 0L;
+	else {
+		ret = inColumn + 1L;	 				/* Else indent at comment column */
+		if ( comment_column > ret )
+			ret = comment_column;			/* except leave at least one space. */
+	}
+	PosToOffset(opoint);
+	return ret;
+} /* end c_comment_indent() */
+#endif
+
+
+/* 
+** Indent current line as C code. This does the work.
+*/
+long c_indenter_1( PSTATE *state )
+{
+	long indent;
+	long pos;
+	long startPos;
+	long size = BufQueryFilesize();
+	int  ch;
+
+	startPos = FILE_OFFSET;
+	if ( startPos == size ) {	/* at EOF */
+		/* 
+		 * So that indenting in a brand new file works correctly
+		 * when there are no characters after the indent point.
+		 */
+		BufInsertNewline();
+		PosPrevChar();
+		++size;
+	}
+	pos = size - startPos;
+	indent = calculate_c_indent(state);
+	startPos = PosSOT();
+	if ( indent == -1L )										/* do not change indent */
+		indent = query_indent_of_line();
+	else if ( indent == -2L )								/* in a comment */
+		indent = calculate_c_indent_in_comment ();
+	else if ( BufQueryChar() == '#' ) {					/* a preprocessor line */
+		if ( c_preproc_col_1 )
+			indent = 0L;
+		else
+			indent += c_preproc_offset;
+	} else {
+		if ( are_on("(case[ \t'(])|(default:)") ) {	/* case or default */
+			if ( state->containing_cexp >= 0L ) {
+				PosToOffset( state->containing_cexp );
+				indent = query_indent_of_line() + c_case_offset + c_indent_level - c_brace_offset;
+				if ( indent < 0L )
+					indent = 0L;
+				PosToOffset( startPos );
+			}
+		} else if ( are_on("[A-Za-z0-9$_]+:[^:]") ) {	/* a label */
+			indent += c_label_offset;
+			if ( indent < 0L )
+				indent = 0L;
+		} else if ( are_on("else[ \t\n]") ) {			/* else followed by whitespace */
+			c_backward_to_start_of_if(state->beginning_of_defun);
+			indent = query_indent_of_line();
+			PosToOffset( startPos );
+		} else if ( are_on("}[ \t]*else") ) {			/* cbrace followed by else */
+			PosNextChar();							  /* move past brace */
+			traverse_cexp(-1);
+			indent = query_indent_of_line();
+			PosToOffset( startPos );
+		} else if ( are_on("while[ \t\n]") ) {			/* `while' statement */
+			if ( c_backward_to_start_of_do(state->beginning_of_defun) ) {
+				/* This is a `while' that ends a do-while. */
+				indent = query_indent_of_line();
+				PosToOffset( startPos );
+			} else
+				goto next;
+		} else {
+		 next:
+			ch = BufQueryChar();
+			if ( ch == '}' )
+				indent -= c_indent_level - c_brace_offset;
+			else if ( ch == '{' )
+				indent += c_brace_offset;
+		}
+	}
+	startPos = PosSOT();
+	if ( !c_indenter_shortcut ) {
+		ch = BufQueryChar();
+		if ( ch == '{'		  &&
+			  c_brace_offset &&
+			  state->containing_cexp <= 0L ) {
+			if ( c_indent_toplevel_brace )
+				++indent;						/* Indent top level braces */
+			else
+				indent -= c_brace_offset;	/* Pull top level brace back a level */
+		} else if ( ch == '}' ) {
+			PosToOffset( state->containing_cexp );
+			if ( AtSOL() )
+				indent = 0L;
+			PosToOffset( startPos );
+		}
+	}
+	if ( BufQueryColumn() != indent )
+		Indent(indent);
+	/*
+	 * If initial point was within line's indentation,
+	 * position after the indentation.  Else stay at same point in text. 
+	 */
+	size = BufQueryFilesize();
+	if ( size - pos > FILE_OFFSET )
+		PosToOffset( size - pos );
+	return indent;
+} /* end c_indenter_1() */
+
+
+int
+c_indenter( void ) {
+  PSTATE state;
+  
+  state.beginning_of_defun = -1L;
+  return c_indenter_1( &state );
+}
+
+
+void
+c_backward_to_exp_start( long limit ) {
+
+  if ( strchr( ")\"", BufQueryPrevChar()) )
+	 traverse_cexp(-1);
+  if ( PosSOL() <= limit )
+	 PosToOffset( limit + 1L );
+  skip_chars(1, " \t");
+}
+
+
+/*
+ * If point follows a `do' statement, move to beginning of it and return t.
+ * Otherwise return nil and don't move point.
+ */
+int
+c_backward_to_start_of_do( long limit ) {
+	long save_excursion;
+	long startpos;
+	BOOL first = TRUE;
+	int  done = 0;
+
+	if ( limit < 0L ) {
+	  #if 0
+		save_excursion = FILE_OFFSET;
+		FindStartOfDef();
+		limit = FILE_OFFSET;
+		PosToOffset(save_excursion);
+	  #else
+		limit = 0L;
+	  #endif	 
+	}
+	startpos = FILE_OFFSET;
+	while ( !done ) {
+		c_backward_to_noncomment( limit );
+		if ( !traverse_cexp(-1) )
+			done = 2;
+		else if ( are_on( "do[^A-Za-z0-9_$]" ) )
+			done = 1;
+		/* 
+		** Otherwise, if we skipped a semicolon, we lose.
+		** (Exception: we can skip one semicolon before getting
+		** to the last token of the statement, unless that token
+		** is a close brace).
+		*/
+		else {
+			save_excursion = FILE_OFFSET;
+			if ( traverse_cexp(1) ) {
+				if ( !first && BufQueryPrevChar() == '}' )
+					done = 2;
+				if ( !done && BufQueryChar() == ';' && BufQueryPrevChar() == '}' )
+					done = 2;
+				if ( !done && BufQueryChar() == ';' ) {
+					if ( first ) {
+						if ( BufQueryPrevChar() == ')' && traverse_cexp(-1) ) {
+							if ( traverse_cexp(-1) && 
+								  are_on("while")   && 
+								  c_backward_to_start_of_do(limit) )
+								continue;
+						}
+					}
+					if ( !first ) 
+						done = 2;
+					else
+						first = FALSE;
+				}
+				PosToOffset(save_excursion);
+			}
+		}
+		/* If we go too far back in the buffer, we lose. */
+		if ( FILE_OFFSET < limit && !done )
+			done = 2;
+	}
+	if ( done != 1 )
+		PosToOffset( startpos );
+	return done == 1;
+} /* c_backward_to_start_of_do() */
+
+
+/* Move to the start of the last "unbalanced" `if'. */
+void
+c_backward_to_start_of_if( long limit ) {
+	long if_level = 1L;
+
+	if ( limit < 0L ) {
+	  #if 0
+		long save_excursion = FILE_OFFSET;
+
+		FindStartOfDef();
+		limit = FILE_OFFSET;
+		PosToOffset(save_excursion);
+	  #else
+		limit = 0L;
+	  #endif
+	}
+	while ( FILE_OFFSET > 0L && if_level > 0L ) {
+		if ( !traverse_cexp(-1) ) {
+			/* not bracketed if */
+			if ( if_level != 1L ) {
+				PopupMsg( "Syntax error", "c_backward_to_start_of_if" );
+				abort();
+			}
+			return;
+		}
+		if ( are_on("else[^A-Za-z0-9$_]") )
+			if_level++;
+		else if ( are_on("if[^A-Za-z0-9$_]") )
+			if_level--;
+		else if ( FILE_OFFSET < limit ) {
+			if_level = 0L;
+			PosToOffset(limit);
+		}
+	}
+} /* end c_backward_to_start_of_if() */
+
+
+void
+c_backward_to_noncomment( long limit ) {
+	long	limit2;
+	long	start;
+	int	ch1, ch2;
+  
+	if ( limit < 0L )
+		limit = 0L;
+	limit2 = limit+2L;
+	while ( FILE_OFFSET > limit ) {
+	  #if DEBUG
+		MsgPrintf("L:%d, C:%d O:%d", BufQueryLine(), BufQueryColumn(), BufQueryOffset());
+	  #endif
+		skip_chars(-1, " \t\n\f");
+		// in a C++ style comment?
+		if ( (start = BufQueryInCommentCpp(FILE_OFFSET)) >= 0 ) {
+			PosToOffset(start);
+			continue;
+		}
+		if ( FILE_OFFSET >= limit2 ) {
+			ch2 = _prev_char();
+			ch1 = _prev_char();
+			if ( ch1 == '*' && ch2 == '/' ) {
+				/* at close of C comment? */
+				if ( (start = BufQueryInCommentC(FILE_OFFSET)) < 0 ) {
+					PosToOffset( limit );
+					return;	/* failed to find start of comment */
+				}
+				PosToOffset(start);
+				continue;
+			}
+			PosNextChar( 2L );
+		}
+		start = FILE_OFFSET;
+		PosSOT();
+		if ( BufQueryChar() != '#' ) {
+			PosToOffset(start);
+			break;
+		}
+	}
+} /* end c_backward_to_noncomment() */
+
+
+/*
+ * Return the indentation amount for line inside a block comment.
+ */
+long
+calculate_c_indent_in_comment( void ) {
+  	long indent = 0L;
+	long savePos = FILE_OFFSET;
+  
+	if ( PosSOL() > 0L ) {
+		skip_chars(-1, " \t\n");
+		PosSOT();
+		indent = BufQueryColumn();
+		if ( c_continued_comment_offset && are_on("/\\*") )
+			indent += c_continued_comment_offset;
+	}
+	PosToOffset( savePos );
+	return indent;
+} /* end calculate_c_indent_in_comment() */
+
+
+/*
+ * This lookback parser was not part of the original code.  I added it
+ * to speed the beast up in most cases.  It works for my indentation style;
+ * it may not work for yours since it makes more assumptions than the
+ * general indenter.  It is disabled by default, set the variable
+ * c-indenter-shortcut to 1 if you want to try it out.  It is much faster
+ * if you indent like the style in this file but it WILL misindent code
+ * that does not use braces for cues in complicated code.  The general
+ * indenter can handle everything.
+ */
+int
+calculate_simple_c_indent(long indent_point) {
+	long save_excursion;
+	long limit;
+	long ret = -1L;
+
+	save_excursion = FILE_OFFSET;
+	limit = save_excursion - 512L;
+	if ( !c_indenter_shortcut )
+		return -1;
+	if ( limit < 0L )
+		limit = -1;
+	PosToOffset(indent_point);
+	PosSOT();
+	indent_point = FILE_OFFSET;
+	if ( BufQueryChar() == '}' ) {
+		PosNextChar();
+		if ( traverse_cexp(-1) ) {
+			long save_excursion_1 = FILE_OFFSET;
+
+			PosSOT ();
+			if ( FILE_OFFSET == save_excursion_1 )
+				ret = BufQueryColumn() - c_brace_offset + c_indent_level;
+		}
+		goto finish;
+	}
+	c_backward_to_noncomment(limit);
+	if ( FILE_OFFSET > 0L ) {
+		if ( BufQueryPrevChar() == '{') {
+			long save_excursion_1 = FILE_OFFSET;
+
+			PosPrevChar();
+			c_backward_to_noncomment(limit);
+			if ( BufQueryPrevChar() == ')' )
+				c_backward_to_exp_start(limit);
+			else {
+				PosToOffset(save_excursion_1);
+				PosSOT ();
+			}
+			ret = BufQueryColumn() + c_indent_level;
+			if ( BufQueryChar() == '{' )
+				ret -= c_brace_offset;
+		}
+		else if ( BufQueryPrevChar() == '}' ) {
+			PosSOT ();
+			ret = BufQueryColumn() - c_brace_offset;
+		} else if ( BufQueryPrevChar() == ')' ) {
+			long save_excursion_1;
+
+			c_backward_to_exp_start(limit);
+			save_excursion_1 = FILE_OFFSET;
+			if ( are_on("((if)|(else)|(else[ \t]+if)|(switch)|(for))[ \t\n(]") ) {
+				PosToOffset(matchend);
+				if ( traverse_cexp(1) && FILE_OFFSET <= indent_point ) {
+					PosToOffset(save_excursion_1);
+					ret = BufQueryColumn();
+					PosToOffset(indent_point);
+					if ( BufQueryChar() != '{' )
+						ret += c_indent_level;
+				} else
+					PosToOffset(save_excursion_1);
+			}
+		} else if ( BufQueryPrevChar() == ';' ) {
+			PosPrevChar();
+			c_backward_to_exp_start(limit);
+			if ( !are_on("for[ \t\n(]") ) {
+				long save_excursion_1 = FILE_OFFSET;
+
+				skip_c_comments(-1);
+				if ( BufQueryChar() == ';' ) {
+					PosToOffset(save_excursion_1);
+					ret = query_indent_of_line();
+				} else if ( strchr("{}", BufQueryChar()) ) {
+					PosToOffset(save_excursion_1);
+					ret = query_indent_of_line();
+				} else {
+					PosSOT();
+					if ( are_on("((else)|(if)|(for)|(while)|(switch))[ \t\n(]") )
+						ret = BufQueryColumn();
+					else if ( are_on("(case[ \t'(])|(default:)") )
+						ret = BufQueryColumn() + c_indent_level - c_case_offset;
+				}
+				PosToOffset(indent_point);
+				if ( are_on("(case[ \t'(])|(default:)") )
+					ret -= c_indent_level;
+			}
+		} else if ( BufQueryPrevChar() == ':' ) {
+			PosSOT();
+			if ( are_on("(case[ \t'(])|(default:)") ) {
+				ret = BufQueryColumn() + c_indent_level;
+				PosToOffset(indent_point);
+				if ( are_on("(case[ \t'(])|(default:)") )
+					ret -= c_indent_level;
+				else if ( BufQueryChar() == '{' )
+					ret -= c_case_offset + c_indent_level;
+			}
+		}
+	}
+ finish:
+	if ( ret >= 0 ) {
+		PosToOffset(indent_point);
+		if ( are_on("(case[ \t'(])|(default:)") )
+			ret += c_case_offset;
+	}
+	PosToOffset(save_excursion);
+	return ret;
+} /* end calculate_simple_c_indent() */
+
+
+/*
+ * Return appropriate indentation for current line as C code.
+ * In usual case returns an integer: the column to indent to.
+ * Returns -1 if line starts inside a string, -2 if in a comment.
+ */
+long
+calculate_c_indent(PSTATE *state) {
+	long		startPos;
+	long		savePos;
+	long		found;
+	long		colon_line_end;
+	long		containing_cexp;
+	long		indent_point;
+	long		parse_start;
+	long		ret 				 =  0L;
+	int		is_case;
+	char		c;
+	PSTATE	ps;
+
+	startPos = FILE_OFFSET;
+	if ( !state ) {
+		state = &ps;
+		state->beginning_of_defun = -1L;
+	}
+	state->containing_cexp = -1L;
+	if ( (indent_point = PosSOL()) > 0L ) {	/* Not at SOF */
+		if ( c_indenter_shortcut )	{
+			ret = calculate_simple_c_indent(indent_point);
+			if ( ret >= 0L )
+				goto finish;
+			ret = 0L;
+		}
+		if ( state->beginning_of_defun == -1L )
+			FindStartOfDef(&state->beginning_of_defun);
+		else
+			PosToOffset(state->beginning_of_defun);
+		do {
+			parse_start = FILE_OFFSET;
+			parse_partial_cexp(FILE_OFFSET, indent_point, state);
+		} while ( FILE_OFFSET < indent_point );
+		containing_cexp = state->containing_cexp;
+		if ( state->incomment && are_on("[ \t]*//") ) {	/* at start of C++ comment? */
+			state->quoted = 0L;
+			state->incomment = 0L;
+		}
+		if ( state->instring || state->incomment ) {
+			/* return -1 or -2 if should not change this line */
+			ret = state->quoted;
+		} else if ( containing_cexp < 0L ) {
+			/* Line is at top level.  May be data or function definition,
+			* or may be function argument declaration.
+			* Indent like the previous top level line
+			* unless that ends in a closeparen without semicolon,
+			* in which case this line is the first argument decl.
+			*/
+			PosToOffset(indent_point);
+			PosSOT();
+			if ( BufQueryChar() == '{' )
+				ret = 0L;								/* Unless it starts a function body */
+			else if ( c_argdecl_indent > 0 ) {	/* Handle arg list */
+				c_backward_to_noncomment(parse_start > 0L ? parse_start : 0L);
+				/* 
+				* look at previous line that's at column 0
+				* to determine whether we are in top-level decls
+				* or function's arg decls.
+				*/
+				find_pat(-1, "^[^ \f\t\n#]");			/* beginning of line no whitespace or preprocessor statements */
+				if ( are_on("[A-Za-z0-9$_]+[^\"\n=]*\\(") ) {
+					PosToOffset( matchend-1L );
+					traverse_cexp(1);
+					skip_chars(1, " \t\f");
+					if ( FILE_OFFSET < indent_point &&
+						  !strchr(",;", BufQueryChar()) )
+						ret = c_argdecl_indent;
+				  #if DEBUG
+					pmsg("argdecl_indent being used");
+				  #endif
+				}
+			}
+		} else if ( BufQueryChar(containing_cexp) != '{' ) {
+			/*
+			* line is expression, not statement:
+			* indent to just after the surrounding open.
+			*/
+			PosToOffset( containing_cexp + c_paren_extra_space );
+			ret = BufQueryColumn();
+		  #if DEBUG
+			pmsg("is expr not a statement");
+		  #endif
+		} else {
+			/* 
+			* Statement level.  Is it a continuation or a new statement
+			* Find previous non-comment character.
+			*/
+			PosToOffset(indent_point);
+			c_backward_to_noncomment(containing_cexp);
+			/* 
+			* Back up over label lines, since they don't
+			* affect whether our line is a continuation.
+			*/
+			while ( (c = BufQueryPrevChar()) == ',' ||
+					  ( c == ':' && ( (c = BufQueryChar(FILE_OFFSET-2L)) == '\'' || iscsym(c) || c == ')' ) )
+					  ) {
+				if ( BufQueryChar() == ',' ) {
+					PosPrevChar();
+					c_backward_to_exp_start(containing_cexp);
+				}
+				PosSOL();
+				c_backward_to_noncomment(containing_cexp);
+			}
+			/* 
+			* Check for a preprocessor statement or its continuation lines.
+			* Move back to end of previous non-preprocessor line.
+			*/
+			found = FILE_OFFSET;
+			while ( 1 ) {
+				savePos = FILE_OFFSET;
+
+				if ( savePos > 0L )
+					PosEOL();
+				if ( BufQueryPrevChar() != '\\' ) {
+					/*
+					* This line is not preceded by a backslash.
+					* So either it starts a preprocessor command
+					* or any following continuation lines
+					* should not be skipped.
+					*/
+					PosSOT();
+					if ( BufQueryChar() == '#' ) {
+						PosEOL();
+						found = FILE_OFFSET;
+					}
+					break;
+				}
+				if ( PosPrevLine() )
+					break;
+			}
+			savePos = found;
+			PosToOffset(indent_point);
+			skip_chars(1, " \t");
+			/*
+			* Don't treat a line with a close-brace
+			* as a continuation.  It is probably the
+			* end of an enum type declaration.
+			*/
+			if ( BufQueryChar() != '}' ) {
+				PosToOffset(savePos);
+				if ( savePos > 0L && !strchr(",;{}", BufQueryPrevChar()) ) {
+					/*
+					* This line is continuation of preceding line's statement
+					* indent c_continued_statement_offset more than the
+					* 1st line of the statement.
+					*/
+					c_backward_to_exp_start(containing_cexp);
+					ret = BufQueryColumn();
+					PosToOffset(indent_point);
+					skip_chars(1, " \t");
+					if ( BufQueryChar() !=  '{' )
+						ret += c_continued_statement_offset;
+				  #if DEBUG
+					pmsg("line is continuation");
+				  #endif
+				} else
+					goto new_statement;
+			} else {
+			 new_statement:			
+				/* 
+				** This line starts a new statement.
+				** Position following last unclosed open.
+				*/
+				PosToOffset(containing_cexp);
+				/*
+				** Is line first statement after an open-brace or after a case.
+				** If not, find that first statement and indent like it. 
+				*/
+				PosNextChar();
+				colon_line_end = 0;
+				skip_chars(1, " \t\n");
+				is_case = FALSE;
+				while ( are_on( "#|(//)|(/\\*)|(case[ \t\n'(].*:)|([a-zA-Z0-9_$]+[ \t]*:[^:])" ) ) {
+					/* Skip over comments and labels following open brace. */
+					if ( (c = BufQueryChar()) == '#' )
+						PosNextLine(); 
+					else if ( c == '/') {
+						PosNextChar();
+						if ( BufQueryChar() == '/' ) {
+							// C++ comment
+							PosEOL();
+						} else {
+							// a C comment
+						 	PosNextChar();
+							find(1, "*/");
+						}
+					} else {
+						/* case or label: */
+						savePos = FILE_OFFSET;
+						// we need to know whether it is a case or a label
+						// so we can properly indent after 1st case label
+						if ( are_on( "case[ \t\n'(]|default[ \t]") )
+							is_case = 1;
+						else if ( is_case )
+							is_case = -1;
+						PosEOL();
+						colon_line_end = FILE_OFFSET;
+						PosToOffset(savePos);
+						find(1, ":");
+					}
+					skip_chars(1, " \t\n");
+				}
+				/* 
+				** The immediately following code counts
+				** if it is before the line we want to indent.
+				*/
+				savePos = FILE_OFFSET;
+				if ( savePos < indent_point &&
+					  colon_line_end > 0L	 &&
+					  colon_line_end < indent_point )
+				{
+					if ( colon_line_end > savePos ) {
+						// there is text immediately following the label
+						if ( is_case > 0 ) {
+						  #if DEBUG
+							pmsg("case label with text following it");
+						  #endif
+							PosSOT();
+							ret = BufQueryColumn();
+							PosToOffset(indent_point);
+							skip_chars(1, " \t");
+							c = BufQueryChar();
+							if ( c == '}' || c == '{' )
+								ret -= c_case_offset;
+							else
+								ret += c_indent_level;
+						} else {
+							// it's just a label
+						  #if DEBUG
+							pmsg("just a regular label with text following it");
+						  #endif
+							ret = query_indent_of_line() - c_label_offset;
+						}
+					} else if ( colon_line_end > containing_cexp ) {
+						if ( is_case > 0 ) {
+							PosToOffset(colon_line_end);
+							PosSOT();
+							ret = BufQueryColumn();
+							PosToOffset(indent_point);
+							skip_chars(1, " \t");
+							c = BufQueryChar();
+							if ( c == '}' || c == '{' )
+								ret -= c_case_offset;
+							else
+								ret += c_indent_level;
+						  #if DEBUG
+							pmsg("previous is case label");
+						  #endif
+						} else {
+						  #if DEBUG
+							pmsg("previous is not case label");
+						  #endif
+							PosToOffset(savePos);
+							ret = BufQueryColumn();
+						}
+					} else {
+					  #if DEBUG
+						pmsg("label/case line <= containing_cexp");
+					  #endif
+						goto no_previous;
+					}
+				} else {
+				 no_previous:
+				  #if DEBUG
+					pmsg("No previous");
+				  #endif
+					/*
+					** If no previous statement,
+					** indent it relative to line brace is on (or the last case
+					** statement).  For open brace in column zero, don't let
+					** statement start there too.  If c_indent_level is zero,
+					** use c_brace_offset + c_continued_statement_offset instead.
+					** For open-braces not the first thing in a line,
+					** add in c_brace_imaginary_offset.
+					*/
+					PosToOffset(containing_cexp);
+					if ( AtSOL() ) {
+						if ( !c_indent_level )
+							ret = c_brace_offset + c_continued_statement_offset;
+						else
+							ret = c_indent_level;
+					} else
+						ret = c_indent_level - c_brace_offset;
+					/*
+					** Move back over whitespace before the openbrace.
+					** If openbrace is not first nonwhite thing on the line,
+					** add the c_brace_imaginary_offset.
+					*/
+					skip_chars(-1, " \t");
+					if ( !AtSOL() )
+						ret += c_brace_imaginary_offset;
+					/*
+					** If the openbrace is preceded by a parenthesized exp,
+					** move to the beginning of that;
+					** possibly a different line. 
+					*/
+					if ( BufQueryPrevChar() == ')' )
+						traverse_cexp(-1);
+					/* Get initial indentation of the line we are on. */
+					ret += query_indent_of_line();
+					if ( is_case ) {
+						ret += c_indent_level + c_case_offset;
+					  #if DEBUG
+						pmsg("No previous, but case label seen in=%d", ret);
+					  #endif
+					}
+				}
+			}
+		}
+	}
+ finish:
+	PosToOffset(startPos);
+	return ret;
+} /* end calculate_c_indent() */
+
+
+#if 0
+/*
+** This function does not work on all styles
+** of function beginnings, therefore it is not
+** being used.
+*/
+void
+beginning_of_defun() {
+	long	last, next;
+	char	c, cp;
+
+	last = FILE_OFFSET;
+
+	while ( FindStartOfDef(&next) ) {
+		long save_excursion;
+
+		if ( BufQueryChar() == '{' ) {
+			while ( FILE_OFFSET > 0L ) {
+				PosPrevLine();
+				save_excursion = FILE_OFFSET;
+				PosSOL();
+				next = FILE_OFFSET;
+				skip_chars(1, " \t");
+				if ( FILE_OFFSET == save_excursion ) {
+					PosNextLine();
+					break;
+				}
+				PosToOffset(next);
+				if ( are_on("#|(.*\\*/)|(//)") ) {
+					PosNextLine();
+					break;
+				}
+			}
+			break;
+		}
+		skip_c_comments(-1);
+		save_excursion = FILE_OFFSET;
+		PosSOL();
+		if ( BufQueryChar() == '#' ) {
+			PosToOffset(next);
+			break;
+		}
+		PosEOL();
+		if ( (c = BufQueryPrevChar()) == '\\' ) {
+			PosToOffset(next);
+			break;
+		} else if ( c == '{' || BufQueryChar() == '{' ) {
+			PosSOL();
+			break;
+		}
+		last = next;
+		PosToOffset(save_excursion);
+		c  = BufQueryChar();
+		cp = BufQueryPrevChar();
+		if ( c == '}'	||
+			 (c == ';'				 &&
+			  save_excursion > 0L &&
+			  ( cp == '}' || cp == ')' ||
+				(traverse_cexp(-1), 
+				 skip_c_comments(-1), 
+				 BufQueryChar() == '='
+				)
+			  )
+			 )
+			) {
+			PosToOffset(last);
+			break;
+		}
+		if ( FILE_OFFSET == 0L )
+			break;
+		PosEOL();
+		PosNextChar();
+	}
+} /* end beginning_of_defun() */
+#endif
+
+
+/*
+** Commands which can be bound to keys
+*/
+
+void
+_c_indent() {	/* usually bound to Tab key */
+	long lastPos;
+
+	if ( MarkQuerySelType() ) {
+		slide_in();
+		return;
+	}
+	if ( !c_tab_always_indent ) {
+		lastPos = FILE_OFFSET;
+		/* If not in leading whitespace, do a tab */
+		skip_chars(-1, " \t");
+		if ( !AtSOL() ) {
+			PosToOffset(lastPos);
+			BufInsertChar('\t');
+			return;
+		}
+		PosToOffset(lastPos);
+	}
+	c_indenter();
+} /* end _c_indent() */
+
+
+/* _c_newline_break - reindents current line, breaks the line, and
+ *		indents to proper position
+ */
+void
+_c_newline_break() {					/* on Keypad+Enter */
+	long	line, column;
+	BOOL	reindent;
+
+	if ( auto_indent ) {
+		BufQueryPosition(&line, &column);
+		PosSOT();
+		/* May need to update indenting on current line */
+		reindent = are_on("#|(case)|(else)|([A-Za-z0-9$_]+:)|(while[ \t]*\\(.*\\)[ \t]*;)");
+		PosAbs(0L, column);				/* back to where we were */
+		BufNewlineIndent();
+		if ( reindent ) {
+			column = BufQueryColumn();
+			PosAbs(line, 1L);				/* back to line we were on */
+			c_indenter();					/* make sure it's indented correctly */
+			PosAbs(line+1L, column);	/* back to where we should be */
+		}
+		c_indenter();						/* position to correct column */
+	} else
+		BufInsertNewline();
+} /* end _c_newline_break() */
+
+
+/* _c_newline - reindents current line, opens a new line below, and
+ *		indents to proper position in the new line
+ */
+void
+_c_newline() {					/* on Enter */
+	if ( auto_indent ) {
+		PosSOT();
+		/* May need to update indenting on current line */
+		if ( are_on("#|(case)|(else)|([A-Za-z0-9$_]+:)|(while[ \t]*\\(.*\\)[ \t]*;)") )
+			c_indenter();
+		PosEOL();
+		BufInsertNewline();
+		c_indenter();
+	} else
+		BufInsertNewline();
+} /* end _c_newline() */
+
+
+void
+_c_open() {	/* on '{' */
+	BufInsertChar( '{' );
+	if ( auto_indent ) {
+		c_indenter();
+		/*
+		** TemplateExpand causes template matching 
+		** if the current line matches a defined abbreviation it will
+		** be expanded immediately.
+		*/
+		if ( c_braces_matched ) {
+			if ( !TemplateExpand() ) {
+				// no template matched - an extra '{' has been inserted
+				// by TemplateExpand() so remove it
+				Undo();
+			  #if 0
+				if ( c_brace_style == 2 )
+					TmplExpand("\n%\n}");
+				else
+					TmplExpand("\n\t%\n}");
+			  #endif
+			}
+		}
+	}
+} /* end _c_open() */
+
+
+void
+_c_close() {	/* on '}' */
+	BufInsertChar( '}' );
+	if ( auto_indent )
+		c_indenter();
+  #if 0
+	if ( Matchdelim )
+		find_delimiter();
+  #endif
+} /* end _c_close() */
+
+
+void
+_c_forward_cexp() {	/* on ALT+CTRL+F */
+	long start;
+	long last;
+  
+	start = FILE_OFFSET;
+	if ( !traverse_cexp(1) ) {
+		PosToOffset(start);
+		abort();
+	}
+	last  = BufQueryFilesize();
+	while ( strchr (",:;\\", BufQueryChar()) &&
+			  FILE_OFFSET < last )
+	  PosNextChar();
+} /* end _c_forward_cexp() */
+
+
+void
+_c_backward_cexp() {			/* on Alt+Ctrl+B */
+	long start;
+
+	start = FILE_OFFSET;
+
+	while ( FILE_OFFSET > 0L &&
+			  strchr(",:;\\ \t\n\f", BufQueryPrevChar()) )
+		PosPrevChar();
+	if ( !traverse_cexp(-1) ) {
+		PosToOffset(start);
+		abort();
+	}
+} /* end _c_backward_cexp() */
+
+
+void
+_c_start_of_func() {		/* on Alt+Ctrl+A */
+	long offset;
+
+	FindStartOfDef(&offset);
+	WinScrollTop();
+} /* _c_start_of_func() */
+
+
+void
+_c_end_of_func() {		/* on Alt+Ctrl+E */
+	long orig, offset;
+
+	orig = FILE_OFFSET;
+  
+	traverse_cexp(1);
+	PosNextChar();
+	if ( FindStartOfDef(&offset) ) {
+	  while ( traverse_cexp(1) && BufQueryPrevChar() != '}' )
+		  ;
+	  if ( BufQueryPrevChar() != '}' )
+		  PosToOffset(orig);
+	  else if ( BufQueryChar() == ';' )
+		  PosNextChar();
+	}
+} /* end _c_end_of_func() */
+
+
+void
+_c_up_level() {	/* on ALT+CTRL+U */
+	PSTATE state;
+	long orig, offset;
+
+	orig = FILE_OFFSET;
+
+	FindStartOfDef(&offset);
+	while ( FILE_OFFSET <= orig ) {
+		parse_partial_cexp(FILE_OFFSET, orig + 1L, &state);
+	}
+	if ( state.containing_cexp >= 0L )
+		PosToOffset(state.containing_cexp);
+	else {
+		PosToOffset(orig);
+		PopupMsg("No containing C expression", "up_level");
+		return;
+	}
+} /* end _c_up_level() */
+
+
+/*
+ * Note: this function can take quite a bit of time
+ * to do it's job.
+ */
+void
+_c_indent_function() {		/* on Alt+Ctrl+Q */
+	PSTATE	ps;
+	long 	offset, lines, n;
+	long	startLine, stopLine;
+
+	MarkPushPos();
+	FindStartOfDef(&offset); /* beginning_of_defun(); */
+	ps.beginning_of_defun = offset;
+   startLine = BufQueryLine();
+   SrchFwd("{", 0, 1, 0, 0L);
+   find_matching_delim();
+   stopLine = BufQueryLine();
+   lines = stopLine - startLine + 1L;
+   n = 1;
+	PosToOffset(offset);
+   SysSetHourglass(1);
+	while ( startLine++ <= stopLine ) {
+      MsgPrintf("Reindenting line %d of %d.", n, lines);
+		c_indenter_1(&ps);
+		PosNextLine();
+      ++n;
+	}
+	SysSetHourglass(0);
+	MarkPopPos();
+   Msg("Reindent function completed.");
+} /* end _c_indent_function() */
+
+
+/*
+** IndentLines
+**
+** This function will reindent the lines
+** contained by a selection, if no selection
+** is active then you are prompted for the
+** number of lines to reindent.
+*/
+void
+_c_indent_lines(void) {
+   long				i, lines, line, column;
+   char				buff[8];
+   char           *animate = "|/-\\";
+   SELECTION		sel;
+   USERSTRINGDLG	dlg;
+
+   // save current position
+   BufQueryPosition(&line, &column);
+   if ( !MarkQuerySel(&sel, 1) ) {
+      // no selection active
+      buff[0] = 0;
+     #if 0
+      // Use dialog to get input
+      dlg.cbStruct = sizeof(dlg);
+      dlg.pszTitle = "Indent Lines";
+      dlg.pszPrompt= "Number of lines to indent:";
+      dlg.cbText   = 8;
+      dlg.pszText  = buff;
+      dlg.hList    = 0L;
+
+      if ( DlgUserString(&dlg) )
+         return ;
+     #else
+      // prompt in status line
+      if ( !PromptGetInput("Number of lines to indent:", buff, 8, 0L) )
+         return ;
+     #endif
+      lines = atoi(buff);
+   } else {
+      // reindent selected lines
+      MarkRemoveSel();
+      PosAbs(sel.s_line, 1L);
+      lines = sel.e_line - sel.s_line + 1;
+   }
+   for ( i = 0; i < lines; ++i ) {
+      if ( BufQueryOffset() >= BufQueryBufferSize() )
+         break;   // at end of file
+      MsgPrintf("Indenting %c", animate[i%4]);
+      PosSOL();
+      c_indenter();
+      if ( MovDown() ) {
+         // already on last line of the file
+         ++i;
+         break;
+      }
+   }
+   // restore current position
+   MovAbs(line, column);
+   MsgPrintf("%d lines indented.", i);
+} // end IndentLines()
+
+
+
+/*
+**
+** Start of quick indenting code
+**
+*/
+BOOL	c_indent_first;
+BOOL	c_indent_open;
+BOOL	c_indent_close;
+
+/*
+**	_c_qindent - C/C++ Quick indent
+**
+*/
+int
+_c_qindent(BOOL query) {
+	long	atLine;
+	long	atColumn;
+	long	indentLevel = 0L;
+	long	currentLineIndent = 1L;
+	long	previousLineIndent = 1L;
+	char	prev_eol_ch;
+	char	curr_eol_ch;
+	char	sol_ch = 0;
+	PSZ	following_text = NULL,	//	All characters following the cursor.
+         trailing_text = NULL;	// following text stripped of whitespace
+  #if DEBUG
+   char  temp[64];
+  #endif
+
+	if ( !(SysQueryFlags() & SYSTEM_INSERT) ) /* overtype mode */
+		PosEOL();
+	else {
+		following_text = BufRead();
+		trailing_text = ltrim(following_text);
+		if ( trailing_text[0] ) {
+			rtrim(trailing_text);
+			BufDeleteToEOL();
+		}
+	}
+
+	BufQueryPosition(&atLine, &atColumn);
+	prev_eol_ch = curr_eol_ch = ';';
+
+	/* skip back over comments or preproccessor statements */
+	c_backward_to_noncomment(0L);
+
+	if ( !PosPrevChar() ) {
+		curr_eol_ch = BufQueryChar();
+
+		PosSOT();
+		sol_ch = BufQueryChar();
+		BufQueryPosition(NULL, &currentLineIndent);
+
+		if ( !PosPrevChar() ) {
+			c_backward_to_noncomment(0L);
+			PosPrevChar();
+			prev_eol_ch = BufQueryChar();
+
+			PosSOT();
+			BufQueryPosition(NULL, &previousLineIndent);
+		}
+	}
+
+	PosAbs(atLine, currentLineIndent);
+
+	if ( currentLineIndent == 1L ) {
+		if ( !c_indent_first && curr_eol_ch == '{' )
+			currentLineIndent += BufQueryDistanceToTab();
+	} else {
+		int known = 0;
+
+		switch ( prev_eol_ch ) {
+		case ';':
+	   case '{':
+      case '}':
+      case ':':
+			++known;
+			break;
+		case ')':
+			--known;
+	   }
+		switch ( curr_eol_ch ) {
+		case ';':
+			if ( known <= 0 )
+				--currentLineIndent;
+			break;
+
+		case '}':
+			if ( c_indent_close )
+				--currentLineIndent;
+			break;
+
+		case '{':
+			if ( !c_indent_open || (sol_ch != '{' && !(c_indent_first && previousLineIndent == 1L)))
+				currentLineIndent += BufQueryDistanceToTab();
+			break;
+
+		default:
+			if ( known )
+				currentLineIndent += BufQueryDistanceToTab();
+		} /* end switch */
+	}
+
+	PosAbs(0, atColumn);
+   if ( !query )
+      BufInsertNewline();
+
+	PosSOL();
+	atColumn = BufQueryDistanceToTab() + 1;
+
+	while ( atColumn <= currentLineIndent ) {
+	  #if DEBUG
+      sprintf(temp, "cc = %d cic= %d il= %d", atColumn, currentLineIndent, indentLevel);
+      PopupMsg(temp, "cc cic il");
+	  #endif
+		PosAbs(0, atColumn);
+		++indentLevel;
+		atColumn += BufQueryDistanceToTab();
+	}
+
+	BufQueryPosition(&atLine, &atColumn);
+   if ( trailing_text  && trailing_text[0] )
+      BufInsertString(trailing_text);
+
+   free(following_text);
+	PosAbs(atLine, atColumn);
+
+  #if DEBUG
+   sprintf(temp, "indent = %d", indentLevel);
+   PopupMsg(temp, "ident level");
+  #endif
+
+	return indentLevel;
+} /* end _c_qindent() */
+
+
+void
+_c_qnewline(void) {
+	_c_qindent(0);
+} /* end _c_qnewline() */
+
+
+/*
+** _c_qopen - Quick insert open brace
+**
+*/
+void
+_c_qopen(void) {
+   char *line, *tline;
+	long	col;
+
+	col = BufQueryColumn();
+	PosSOL();
+   line = BufRead();
+   tline = rtrim(ltrim(line));
+	PosAbs(0L, col);
+	if ( !tline[0] ) {
+		_c_qindent(1);
+
+		if ( !c_indent_open )
+			MovPrevTabPos();
+		else if ( c_indent_first ) {
+			int	atColumn;
+
+			BufQueryPosition(NULL, &atColumn);
+			if ( atColumn == 1L )
+				PosRel(0L, BufQueryDistanceToTab());
+      }
+   }
+   BufInsertChar('{');
+   free(line);
+} /* end _c_qopen() */
+
+
+/*
+** _c_qclose - Quick insert close brace
+**
+*/
+void
+_c_qclose(void) {
+   char *line, *tline;
+	long	col;
+
+	col = BufQueryColumn();
+	PosSOL();
+   line = BufRead();
+   tline = rtrim(ltrim(line));
+	PosAbs(0L, col);
+	if ( !tline[0] ) {
+		if ( (!c_indent_first && _c_qindent(1) == 1) ||
+            !c_indent_close )
+			MovPrevTabPos();
+	}
+	BufInsertChar('}');
+   free(line);
+} /* end _c_qclose() */
+
+/* End of quick indenting code */
+
+
+void
+switch_case_indent(void) {
+	if ( c_case_offset )
+		// indent case relative the switch
+		c_case_offset = 0L;
+	else
+		// line up case with switch
+		c_case_offset = -c_indent_level;
+} /* end switch_case_indent() */
+
+
+/*
+** c_smart() - setup certain variables based on the brace style in effect.
+** This function is called by _init() (below) and also by the Language page
+** in the editor configuration dialog.
+*/
+void
+c_smart(void) {
+	switch ( c_brace_style ) {
+	default:
+	case 0:
+	case 1:
+		c_indent_toplevel_brace  = FALSE;
+		c_brace_imaginary_offset = 0;
+		c_brace_offset				 = 0;
+		break;
+	case 2:
+		c_indent_toplevel_brace  = TRUE;
+		c_brace_imaginary_offset = 0;
+		c_brace_offset				 = c_indent_level;
+		break;
+	} // end switch
+
+	c_continued_statement_offset = c_indent_level;
+	c_argdecl_indent = c_indent_level+1;
+
+	// Set up the quick indenter variables
+	// c_indent_first - whether top level braces are indented
+	// c_indent_open  - whether open braces are indented
+	// c_indent_close - whether close braces are indented
+	c_indent_first = c_indent_toplevel_brace;
+	c_indent_open = c_indent_close = (c_brace_offset != 0);
+} // end c_smart()
+
+
+void
+_init(void)
+{
+	c_smart();
+  #if DEBUG
+	LibAutoload("debug", "pmsg");
+  #endif
+}
+
+
+
+/*
+** End module: c_smart.rm
+*/

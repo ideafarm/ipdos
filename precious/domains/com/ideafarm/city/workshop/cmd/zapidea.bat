@@ -4,7 +4,7 @@ setlocal
 if not %2z == z goto :DOmEMORYsPACE
 if not %1z == z goto :DOhOME
 
-rem d:
+%idrive%
 cd\
 if exist ideafarm.home.1\* goto :GOTdRIVE
 if exist ideafarm.home.101\* goto :GOTdRIVE

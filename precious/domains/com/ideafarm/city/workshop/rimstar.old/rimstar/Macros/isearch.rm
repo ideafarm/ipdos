@@ -1,0 +1,245 @@
+/*
+** Macro module: isearch.rm - Incremental search
+**
+** Copyright (C) 1993, 1994 Brian L. Smith
+** Copyright (C) 1993, 1994 RimStar Technology, Inc.
+** All rights reserved internationally.
+** Unlicensed use is a violation of applicable laws.
+**
+** This source code is provided to licensed users of RimStar's products
+** for the purpose of allowing the user to customize and/or enhance RimStar's
+** products. The source code remains the property of the copyright holders
+** with all rights reserved internationally.
+** Any modifications to the source code are considered derivative works and
+** all rights thereto are reserved to the copyright holders except
+** that the purchaser may use the derivitive work in the same manner
+** as permitted by the license governing the unmodified product.
+** Distribution in any manner of any part of the original source code,
+** whether in source or object form, is expressly prohibited without the
+** express written permission of the copyright holders.
+**
+*/
+
+/*
+** You can use these keys to control the way the search is performed
+**
+** Ctrl+S - searches for next match if current search direction is forward
+**				else changes to search direction to forward
+**
+** Ctrl+R - searches for next match if current search direction is backward
+**				else changes to search direction to backward
+**
+** Ctrl+T - toggles regular expression search mode
+**
+** Ctrl+O - toggles whether incremental search is perform as you type
+**
+** Ctrl+C - toggles case sensitivity of search (Folding means not case sensitive)
+**
+** Each time the text in the edit field is changed an incremental search is
+** performed unless regular expression mode is on or the search is not to be
+** done incrementally - in these cases you must use Ctrl+S or Ctrl+R to
+** actually perform the search.
+*/
+
+#include "macro.h"
+#include "event.h"
+
+int 	fForward = TRUE;
+int 	Regex;
+int 	Case;
+int 	fAgain;
+int 	fIncremental;
+int 	fFailed;
+int	syntax;
+long 	len_match;
+
+
+static char *
+SetStringBasedOnFlags( char *buf ) {
+
+	sprintf( buf, "%s%s%s%s",
+				fFailed ? "Failed " : "",
+				fForward ? "" : "Reverse ",
+				Case ? "Exact " : "Folding ",
+				Regex ? "R-E Search:" : ( fIncremental ? "I-Search:" : "Search:" ) );
+	return buf;
+} /* end SetStringBasedOnFlags */
+
+
+static void
+SetPromptBasedOnFlags( void ) {
+	char buf[ 40 ];
+
+	PromptSetText( SetStringBasedOnFlags( buf ) );
+} /* end SetPromptBasedOnFlags */
+
+
+/*
+** do_isearch - this function does the actual searching
+**
+*/
+static void
+do_isearch( void ) {
+
+	SysPsuedoCursor();	/* Turns off simulated cursor at current position */
+
+	if ( fForward ) {
+		PosPrevChar( len_match );
+		if ( fAgain && !fFailed )
+			PosNextChar();
+		if ( ( len_match = SrchFwd( _SearchString, Regex, Case, 0, NULL, syntax ) ) == -1L ) {
+			SysBeep(100L,250L);
+			fFailed = TRUE;
+			len_match = 0;
+		} else {
+			PosNextChar( len_match );
+			fFailed = FALSE;
+		}
+	} else { /* backwards searching */
+		if ( !fFailed )
+			if ( !fAgain && len_match )
+				PosNextChar( len_match-1L );
+			else
+				PosPrevChar();
+		if ( ( len_match = SrchBack( _SearchString, Regex, Case, 0, NULL, syntax  ) ) == -1L ) {
+			SysBeep(100L,250L);
+			fFailed = TRUE;
+			if ( !fAgain )
+				PosNextChar();
+			len_match = 0;
+		} else {
+			fFailed = FALSE;
+		}
+	}
+	SetPromptBasedOnFlags();
+	fAgain = FALSE;
+	SysPsuedoCursor(); /* Turn on simulated cursor at new location */
+} /* end do_isearch() */
+
+
+/*
+** This is an event handler for EVENT_PROMPT_CHANGE
+**
+** Each time the text in the edit field is changed this
+** function is called. This does the incremental search
+** unless regular expression mode is on or the search is not
+** to be done incrementally - in these cases you must
+** use Ctrl+S or Ctrl+R to actually perform the search.
+*/
+void
+is_event_change( USHORT id, PVOID not_used ) {
+	PromptQueryEditText( _SearchString, MAX_SEARCH );
+	if ( fIncremental && Regex == 0 && _SearchString[0] )
+		do_isearch();
+} /* end is_event_change() */
+
+
+/*
+** This is an event handler for EVENT_PROMPT_KEY
+** It handles special key presses which control the
+** mode of the search.
+**
+** Ctrl+S - searches for next match if current search direction is forward
+**				else changes to search direction to forward
+**
+** Ctrl+R - searches for next match if current search direction is backward
+**				else changes to search direction to backward
+**
+** Ctrl+T - toggles regular expression search mode
+**
+** Ctrl+O - toggles whether incremental search is perform as you type
+**
+** Ctrl+C - toggles case sensitivity of search (Folding means not case sensitive)
+**
+** If the handler returns 1 the key is ignored by the edit field
+** if it returns 0 the key is processed by the edit field.
+** if it returns 2 input is terminated as if you pressed the Enter key.
+** if it returns 3 input is terminated same as 2 and the keystroke is placed
+** into the editor's keystroke buffer to be processed as a normal key.
+**
+*/
+int
+is_event_key( USHORT id, PRAWKEY rk ) {
+	int	rc = 1;
+
+	if ( rk->key & KC_CTRL ) {
+		if ( ( rk->key & 0xff ) == 31 ) {			/* ^S */
+			PromptQueryEditText( _SearchString, MAX_SEARCH );
+			if ( fForward ) {
+				fAgain = TRUE;
+				do_isearch();
+			} else {
+				fFailed = FALSE;
+				fForward = TRUE;
+			}
+		} else if ( ( rk->key & 0xff ) == 19 ) {	/* ^R */
+			PromptQueryEditText( _SearchString, MAX_SEARCH );
+			if ( !fForward ) {
+				fAgain = TRUE;
+				do_isearch();
+			} else {
+				fFailed = FALSE;
+				fForward = FALSE;
+			}
+		} else if ( ( rk->key & 0xff ) == 20 ) {	/* ^T */
+			if ( Regex )
+				Regex = 0;
+			else
+				Regex = -1;
+		} else if ( ( rk->key & 0xff ) == 24 )		/* ^O */
+			fIncremental = !fIncremental;
+		else if ( ( rk->key & 0xff ) == 46 )		/* ^C */
+			Case = !Case;
+		else if ( ( rk->key & 0xff ) == 34 )		/* ^G - done */
+			rc = 2;
+		else
+			rc = 0;
+	} else
+		rc = 0;
+	SetPromptBasedOnFlags();
+	return rc;
+} /* end is_event_key() */
+
+
+void
+incremental_search( void ) {
+	HEVENT	he1, he2;
+	char		szBuffer[40];
+
+	SysPsuedoCursor();
+
+	he1 = EventRegisterEvent( EVENT_PROMPT_KEY, EVENT_ONLY, "is_event_key" );
+	he2 = EventRegisterEvent( EVENT_PROMPT_CHANGE, EVENT_ONLY, "is_event_change" );
+
+	len_match = 0;
+	syntax    = SysQueryRegExprSyntax();
+	Regex     = 0; /* not a regular expression search */
+	fAgain    = FALSE;
+	fFailed   = FALSE;
+	fIncremental = TRUE;
+
+	PromptGetInput( SetStringBasedOnFlags(szBuffer), _SearchString, MAX_SEARCH, ListFromID(IDL_SEARCH) );
+
+	EventDeregisterEvent( he1 );
+	EventDeregisterEvent( he2 );
+	SysPsuedoCursor();
+} /* end incremental_search() */
+
+
+void
+reverse_incremental_search( void ) {
+	fForward = FALSE;
+	incremental_search();
+}
+
+
+void
+forward_incremental_search( void ) {
+	fForward = TRUE;
+	incremental_search();
+}
+
+
+/*
+** End module: isearch.rm
+*/

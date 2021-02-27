@@ -1,0 +1,1225 @@
+/*
+** Macro module: jmperr.rm - Jump to error functions
+**
+** Copyright (C) 1994-1996 Brian L. Smith
+** All rights reserved internationally.
+** Unlicensed use is a violation of applicable laws.
+**
+** This source code is provided to licensed users of RimStar's products
+** for the purpose of allowing the user to customize and/or enhance RimStar's
+** products. The source code remains the property of the copyright holders
+** with all rights reserved internationally.
+** Any modifications to the source code are considered derivative works and
+** all rights thereto are reserved to the copyright holders except
+** that the purchaser may use the derivitive work in the same manner
+** as permitted by the license governing the unmodified product.
+** Distribution in any manner of any part of the original source code,
+** whether in source or object form, is expressly prohibited without the
+** express written permission of the copyright holders.
+**
+*/
+
+/* Jump to error macro functions
+**
+** If you are using the editor's built-in ExecAssoc function to
+** perform compiles, makes, etc. and you are going to write your
+** own custom jump to error handler, you should understand a few
+** things about the way the editor sets up the error output buffer:
+**
+** 1. The error output buffer is created as BUFTYPE_TEMP - no undo information
+**    is retained for a buffer of this type.
+** 2. The output buffer is internally linked to the "source" buffer (the buffer
+**    that was current when you executed the ExecAssoc function) when ExecAssoc
+**		executes.
+** 3. The ErrJumpToErr, ErrNextError and ErrPrevError functions expect this
+**    linkage to be present and if it is not, no jump to error processing
+**    will be performed. This means you can not just load a file containing error
+**    output into the editor and have these functions jump to errors based on the
+**    contents of this file because no linkage has been established to a source
+**		buffer. If you need to load an external file containing error output you
+**		can use the function ErrLoadErrorFile() to load and setup the buffer for
+**		jump to error processing.
+**
+** If you create your own jump to error handler you should add a LibAutoload
+** call for it in the _init function in your KEYBOARD.RM macro file and recompile it.
+**		eg. LibAutoload("jmperr", "MyErrorHandler");
+**
+** If you need a custom error handler, in most cases you should be able to define
+** the appropriate regular expressions and use _ErrorHandler to do all the work.
+** If you need help call RimStar Technical Support.
+*/
+
+#include "macro.h"
+
+/* Control whether messages are displayed in popups or in the msg area */
+#define UsePopup	0
+//#define UsePopup	1
+
+/*
+** Control whether beeps generated when execution completed
+** Set to 0 for sound, 1 for no sound, and recompile.
+*/
+#define NOSOUND	0
+
+/* Forward reference prototypes */
+extern int  _ErrorHandler ( ULONG action, HBUFFER hbError, PPROGINFO pinfo,
+									 PSZ regExpAny, PSZ regExpErrors, PSZ regExpWarnings,
+									 PSZ regExpFilename, PSZ regExpColumn, PSZ regExpText );
+extern void _ErrorJump(char *pathname, long line, long column, char *title, char *text);
+extern void ColorLinesInError(HBUFFER hbError, PSZ regExpErrorLine, PSZ regExpWarningLine, PSZ regExpFilename, PROGINFO *pinfo );
+
+static int	RegExprSyntax;
+
+/* Common strings */
+static PSZ	ExecutionCompleted   = "Execution completed";
+static PSZ	ExecutionCompletedRC = "Execution rc=";
+static PSZ	ReturnCodeNonZero    = "return code was ";
+
+
+/*
+** Characters which can terminate the filename.
+** End of filename marked by one of these chars
+** if some other character follows the filename
+** add it to the string.
+*/
+static char	szFilenameEndChars[] = " \t\n([<>]):,\"";
+
+
+/*
+** \\c in a reg expr pattern will return the offset of the pattern following it
+** This is used to find the offset into the string of various parts of the error
+** line, like the line number, column number(if any) and filename
+*/
+
+/*
+** Regular expressions used for Microsoft conforming error output
+** This includes the editor's own utilities C.EXE and SB.EXE as well
+** as Borland Turbo Pascal and Watcom C/C++
+*/
+static PSZ	MSRegExpAny      = "^.*\\(\\c[0-9]+\\) *: *((wa)|(er)|(fa))";	// match any type of message
+static PSZ	MSRegExpErrors   = "^.*\\(\\c[0-9]+\\) *: *((er)|(fa))";			// match only error messages
+static PSZ	MSRegExpWarnings = "^.*\\(\\c[0-9]+\\) *: *wa";						// match warnings
+static PSZ	MSRegExpFilename = "^\\c.*\\(";											// match filename
+static PSZ	MSRegExpText     = "^.*\\([0-9]+\\) *: *\\c";						// match text of message
+
+/* Regular expressions used for GNU conforming error output */
+static PSZ	GnuRegExpAny      = "^.*:\\c[0-9]+:";			// match any type of message
+static PSZ	GnuRegExpErrors   = "^.*:\\c[0-9]+:.*error";	// match only error messages
+static PSZ	GnuRegExpWarnings = "^.*:\\c[0-9]+:.*warn";	// match warnings
+static PSZ	GnuRegExpFilename = "^\\c.*:";					// match filename
+static PSZ	GnuRegExpText     = "^.*:[0-9]+: *\\c";		// match text of message
+
+/* Regular expressions used for Borland C++ conforming error output */
+static PSZ	BorlandRegExpAny      = "^(Error|Warning) .* \\c[0-9]+:";	// match any type of message
+static PSZ	BorlandRegExpErrors   = "^Error .* \\c[0-9]+:";					// match only error messages
+static PSZ	BorlandRegExpWarnings = "^Warning .* \\c[0-9]+:";				// match warnings
+static PSZ	BorlandRegExpFilename = "^(E|W)[a-z]+ \\c.* ";					// match filename
+static PSZ	BorlandRegExpText     = "^(E|W)[a-z]+ .* [0-9]+:\\c";			// match text of message
+
+/* Regular expressions used for Borland Turbo assembler conforming error output */
+static PSZ	TasmRegExpAny      = "^[*]+(Error|Warning)[*]+ .* \\(\\c[0-9]+\\) ";	// match any type of message
+static PSZ	TasmRegExpErrors   = "^[*]+Error[*]+ .* \\(\\c[0-9]+\\) ";				// match only error messages
+static PSZ	TasmRegExpWarnings = "^[*]+Warning[*]+ .* \\(\\c[0-9]+\\) ";			// match warnings
+static PSZ	TasmRegExpFilename = "^[*]+(E|W)[a-z]+[*]+ \\c.* ";						// match filename
+static PSZ	TasmRegExpText     = "^[*]+(E|W)[a-z]+[*]+ .* \\([0-9]+\\) \\c";		// match text of message
+
+/* Regular expressions used for Gimpel Lint conforming error output */
+static PSZ	LintRegExpAny      = "^.*[ \t]+\\c[0-9]+[ \t]+(w|e|i)";	// match any type of message
+static PSZ	LintRegExpErrors   = "^.*[ \t]+\\c[0-9]+[ \t]+e";			// match only error messages
+static PSZ	LintRegExpWarnings = "^.*[ \t]+\\c[0-9]+[ \t]+(w|i)";		// match warning or info
+static PSZ	LintRegExpFilename = "^\\c.*[ \t]";								// match filename
+static PSZ	LintRegExpText     = "^.*[ \t]+[0-9]+[ \t]+\\c";			// match text of message
+
+/* Regular expressions used for IBM CSet/2 or Visual Age C++ conforming error output */
+static PSZ	IBMCRegExpAny      = "^.*\\(\\c[0-9]+:[0-9]+\\) : (e|w|i)";	// match any type of message
+static PSZ	IBMCRegExpErrors   = "^.*\\(\\c[0-9]+:[0-9]+\\) : e";			// match only error messages
+static PSZ	IBMCRegExpWarnings = "^.*\\(\\c[0-9]+:[0-9]+\\) : w";			// match warnings
+static PSZ	IBMCRegExpFilename = "^\\c.*\\(";									// match filename
+static PSZ	IBMCRegExpColumn   = "^.*\\([0-9]+:\\c[0-9]+\\)";				// match column number
+static PSZ	IBMCRegExpText     = "^.*\\([0-9]+:[0-9]+\\) : \\c";			// match text of message
+
+/* Regular expression used for error output that does not contain a filename for each error line */
+static char	*NopathRegExp = "^((error in )|([ \t]*))\\c[0-9]+:";
+
+/* Regular expressions used for Avocet 8051 assembler error output */
+static PSZ	AvocetRegExpAny      = "^.*:\\c[0-9]+ ";	// match any type of message
+static PSZ	AvocetRegExpErrors   = "^.*:\\c[0-9]+ E";	// match only error messages
+static PSZ	AvocetRegExpWarnings = "^.*:\\c[0-9]+ W";	// match warnings
+static PSZ	AvocetRegExpFilename = "^\\c.*:[0-9]+ ";	// match filename
+
+/* Regular expressions used for Aztec C86 assembler error output */
+static PSZ	AztecRegExpAny      = "^.*:\\c[0-9]+: ";	// match any type of message
+static PSZ	AztecRegExpErrors   = "^.*:\\c[0-9]+: E";	// match only error messages
+static PSZ	AztecRegExpWarnings = "^.*:\\c[0-9]+: W";	// match warnings
+static PSZ	AztecRegExpFilename = "^\\c.*:[0-9]+:";	// match filename
+
+/* Regular expressions used for Franklin 8051 C compiler error output */
+static PSZ	FranklinRegExpAny      = "^[*]+.((error)|(warning)).* in line \\c[0-9]+ ";	// match any type of message
+static PSZ	FranklinRegExpErrors   = "^[*]+.error .* in line \\c[0-9]+ ";					// match only error messages
+static PSZ	FranklinRegExpWarnings = "^[*]+.warning .* in line \\c[0-9]+ ";				// match warnings
+static PSZ	FranklinRegExpFilename = "line [0-9]+ of \\c.*: ";									// match filename
+
+/* Regular expressions used for Franklin 8051 assembler error output */
+static PSZ	FranklinAsmRegExpAny      = "^[*]+.((error)|(warning)).* in \\c[0-9]+ \\(.*,";// match any type of message
+static PSZ	FranklinAsmRegExpErrors   = "^[*]+.error.* in \\c[0-9]+ \\(.*,";					// match only error messages
+static PSZ	FranklinAsmRegExpWarnings = "^[*]+.warning.* in \\c[0-9]+ \\(.*,";				// match warnings
+static PSZ	FranklinAsmRegExpFilename = "in [0-9]+ \\(\\c.*,";										// match filename
+
+/* Regular expressions for Western Wares C/C++ Source Browser */
+static PSZ	WWRegExpAny      = "^(!WARNING!|[*]+).* line \\c[0-9]+ of ";	// match any type of message
+static PSZ	WWRegExpErrors   = "^[*]+ .* line \\c[0-9]+ of ";					// match only error messages
+static PSZ	WWRegExpWarnings = "^!WARNING! .* line \\c[0-9]+ of ";			// match warnings
+static PSZ	WWRegExpFilename = "line [0-9]+ of \\c";								// match filename
+static PSZ	WWRegExpText     = "^\\c";													// match text of message
+
+/* Regular expressions for IBM OS/2 Help compiler */
+static PSZ	IpfRegExpAny      = "^<.*:\\c[0-9]+>";			// match any type of message
+static PSZ	IpfRegExpErrors   = "^<.*:\\c[0-9]+> e";		// match only error messages
+static PSZ	IpfRegExpWarnings = "^<.*:\\c[0-9]+> w";		// match warnings
+static PSZ	IpfRegExpFilename = "^<\\c.*:[0-9]+>";			// match filename
+static PSZ	IpfRegExpText     = "^<.*:[0-9]+> \\c";		// match text of message
+
+/*
+** DefaultErrorHandler
+**		This function can be used to jump to errors that have an
+**		error format conforming to Microsoft C/C++ error output:
+**			filename(line) : error errorText
+**					OR
+**			filename(line) : warning warningText
+**
+**	To use this jump to error handler specify this function
+** in the Error Handler Macro entry field in the Associated
+** Program information dialog, or if you are calling ExecAssoc()
+** from a macro with your own PROGINFO structure you would set the pszFunc
+** member like this:
+**
+**		PROGINFO	pinfo;
+**
+**		... initialize other structure members
+**		pinfo.pszFunc = "DefaultErrHandler";
+**		...
+**		ExecAssoc(&pinfo);
+**
+** See macro.h for the definition of the PROGINFO structure and
+** the Macro Reference Manual for ExecAssoc().
+**
+** ErrNextError, ErrPrevError and ErrJumpToError will then call this
+** function to do the jump to error processing.
+**
+** Returns: Zero if a matching error line is found, 1 if not
+*/
+int
+DefaultErrorHandler( ULONG action, HBUFFER hbError, PPROGINFO pinfo ) {
+
+	RegExprSyntax = RE_SYNTAX_UNIX;
+	return _ErrorHandler( action, hbError, pinfo,
+								 MSRegExpAny, MSRegExpErrors, MSRegExpWarnings,
+								 MSRegExpFilename, NULL, MSRegExpText);
+} /* end DefaultErrorHandler() */
+
+
+int
+MacroErrorHandler( ULONG action, HBUFFER hbError, PPROGINFO pinfo ) {
+	int	rc;
+
+	RegExprSyntax = RE_SYNTAX_UNIX;
+	rc = _ErrorHandler( action, hbError, pinfo,
+							  MSRegExpAny, MSRegExpErrors, MSRegExpWarnings,
+							  MSRegExpFilename, NULL, MSRegExpText);
+	if ( action == 3L ) {
+		char	*fname, *p, *pszObm;
+
+		// Compiled OK - unload then load new version of macro
+		fname = strdup( BufQueryFilename(hbError) );
+		if ( fname ) {
+			// last part of filename must be the macro filename
+			char	*pszObm = strrchr(fname, ' ');
+			if ( pszObm ) {
+				char *p;
+				++pszObm;
+				// have macro source file name - remove the .rm extension
+				if ( p = strrchr(pszObm, '.') )
+					*p = 0;
+				LibUnloadMacro(pszObm);
+				if ( LibLoadMacro(pszObm) == 0 )
+					MsgPrintf( "%s compiled and loaded.", pszObm );
+			}
+			free(fname);
+		}
+	}
+	return rc;
+} /* end MacroErrorHandler */
+
+int
+BrowseErrorHandler( ULONG action, HBUFFER hbError, PPROGINFO pinfo ) {
+	int	rc;
+
+	RegExprSyntax = RE_SYNTAX_UNIX;
+	rc = _ErrorHandler( action, hbError, pinfo,
+								 WWRegExpAny, WWRegExpErrors, WWRegExpWarnings,
+								 WWRegExpFilename, NULL, WWRegExpText);
+	return rc;
+} /* end BrowseErrorHandler() */
+
+/*
+** DatabaseErrorHandler()
+**
+** This error handler is used by BuildBrowserDatabase
+** when the database for a project is built. It reloads the
+** database if the build went ok.
+*/
+int
+DatabaseErrorHandler( ULONG action, HBUFFER hbError, PPROGINFO pinfo ) {
+	int	rc;
+
+	RegExprSyntax = RE_SYNTAX_UNIX;
+	rc = _ErrorHandler( action, hbError, pinfo,
+								 WWRegExpAny, WWRegExpErrors, WWRegExpWarnings,
+								 WWRegExpFilename, NULL, WWRegExpText);
+	if ( (action & 0xFFFFL) == 3 ) {
+		// Browser database rebuild completed
+		rc = action >> 16;
+		if ( rc >= 0 && rc < 2 )
+			PjtReloadBrowserDB();
+	}
+	return rc;
+} /* end DatabaseErrorHandler() */
+
+
+/*
+** GnuErrorHandler
+**
+** This error handler is for Gnu C/C++ compilers and utilities like grep.
+**
+*/
+int
+GnuErrorHandler( ULONG action, HBUFFER hbError, PPROGINFO pinfo ) {
+
+	RegExprSyntax = RE_SYNTAX_UNIX;
+	return _ErrorHandler( action, hbError, pinfo,
+								 GnuRegExpAny, GnuRegExpErrors, GnuRegExpWarnings,
+								 GnuRegExpFilename, NULL, GnuRegExpText);
+} /* end GnuErrorHandler() */
+
+/*
+** BorlandErrorHandler
+**
+** This error handler is for Borland C/C++ compilers.
+**
+*/
+int
+BorlandErrorHandler(ULONG action, HBUFFER hbError, PPROGINFO pinfo) {
+	RegExprSyntax = RE_SYNTAX_UNIX;
+	return _ErrorHandler( action, hbError, pinfo,
+								 BorlandRegExpAny, BorlandRegExpErrors, BorlandRegExpWarnings,
+								 BorlandRegExpFilename, NULL, BorlandRegExpText);
+} /* end BorlandErrorHandler() */
+
+
+/*
+** TasmErrorHandler
+**
+** This error handler is for Borland Turbo Assembler.
+**
+*/
+int
+TasmErrorHandler(ULONG action, HBUFFER hbError, PPROGINFO pinfo) {
+	RegExprSyntax = RE_SYNTAX_UNIX;
+	return _ErrorHandler( action, hbError, pinfo,
+								 TasmRegExpAny, TasmRegExpErrors, TasmRegExpWarnings,
+								 TasmRegExpFilename, NULL, TasmRegExpText);
+} /* end TasmErrorHandler() */
+
+
+/*
+** LintErrorHandler
+**
+** This error handler is for Gimpel Lint.
+**
+*/
+int
+LintErrorHandler(ULONG action, HBUFFER hbError, PPROGINFO pinfo) {
+	RegExprSyntax = RE_SYNTAX_UNIX;
+	return _ErrorHandler( action, hbError, pinfo,
+								 LintRegExpAny, LintRegExpErrors, LintRegExpWarnings,
+								 LintRegExpFilename, NULL, LintRegExpText);
+} /* end LintErrorHandler() */
+
+
+/*
+** NopathErrorHandler
+**
+** This error handler is for compilers which do not output the
+** source as part of each error line, like some 8051 assemblers
+** It assumes the error line has either of these formats:
+** ERROR IN lineno:					(case insensitive search)
+**		 OR
+**          lineno:					(whitespace followed by line number:)
+** and that the error is in the the buffer linked to the
+** error output buffer.
+*/
+int
+NopathErrorHandler( ULONG action, HBUFFER hbError, PPROGINFO pinfo ) {
+
+	RegExprSyntax = RE_SYNTAX_UNIX;
+	return _ErrorHandler( action, hbError, pinfo,
+								 NopathRegExp, NopathRegExp, NULL,
+								 NULL, NULL, NULL);
+} /* end NopathErrorHandler() */
+
+
+/*
+** AvocetErrorHandler
+**
+** This error handler is for the Avocet 8051 assembler.
+**
+*/
+int
+AvocetErrorHandler( ULONG action, HBUFFER hbError, PPROGINFO pinfo ) {
+
+	RegExprSyntax = RE_SYNTAX_UNIX;
+	return _ErrorHandler( action, hbError, pinfo,
+								 AvocetRegExpAny, AvocetRegExpErrors, AvocetRegExpWarnings,
+								 AvocetRegExpFilename, NULL, NULL);
+} /* end AvocetErrorHandler() */
+
+
+/*
+** AztecErrorHandler
+**
+** This error handler is for the Aztec C86 compiler.
+**
+*/
+int
+AztecErrorHandler( ULONG action, HBUFFER hbError, PPROGINFO pinfo ) {
+
+	RegExprSyntax = RE_SYNTAX_UNIX;
+	return _ErrorHandler( action, hbError, pinfo,
+								 AztecRegExpAny, AztecRegExpErrors, AztecRegExpWarnings,
+								 AztecRegExpFilename, NULL, NULL);
+} /* end AztecErrorHandler() */
+
+
+/*
+** FranklinErrorHandler
+**
+** This error handler is for the Franklin 8051 C compiler.
+**
+*/
+int
+FranklinErrorHandler( ULONG action, HBUFFER hbError, PPROGINFO pinfo ) {
+
+	RegExprSyntax = RE_SYNTAX_UNIX;
+	return _ErrorHandler( action, hbError, pinfo,
+								 FranklinRegExpAny, FranklinRegExpErrors, FranklinRegExpWarnings,
+								 FranklinRegExpFilename, NULL, NULL);
+} /* end FranklinErrorHandler() */
+
+
+/*
+** FranklinAsmErrorHandler
+**
+** This error handler is for the Franklin 8051 Assembler.
+**
+*/
+int
+FranklinAsmErrorHandler( ULONG action, HBUFFER hbError, PPROGINFO pinfo ) {
+
+	RegExprSyntax = RE_SYNTAX_UNIX;
+	return _ErrorHandler( action, hbError, pinfo,
+								 FranklinAsmRegExpAny, FranklinAsmRegExpErrors, FranklinAsmRegExpWarnings,
+								 FranklinAsmRegExpFilename, NULL, NULL);
+} /* end FranklinAsmErrorHandler() */
+
+
+static PSZ	SDSRegExpAny      = "^cc68000:\".*\"line [0-9]+:";						// match any type of message
+static PSZ	SDSRegExpErrors   = "^cc68000:\".*\"line [0-9]+: *((er)|(fa))";	// match only error messages
+static PSZ	SDSRegExpWarnings = "^cc68000:\".*\"line [0-9]+: *wa";				// match warnings
+static PSZ	SDSRegExpText     = "^cc68000:\".*\"line [0-9]+: *\\c";				// match text of message
+static PSZ	SDSRegExpFilename = "^cc68000:\"\\c.*\"line";							// match filename
+
+/*
+** SDSErrorHandler
+**
+** This error handler is for the SDS Cross code compiler MC68K
+**
+*/
+int
+SDSErrorHandler(ULONG action, HBUFFER hbError, PPROGINFO pinfo) {
+
+	RegExprSyntax = RE_SYNTAX_UNIX;
+	return _ErrorHandler( action, hbError, pinfo,
+								 SDSRegExpAny, SDSRegExpErrors, SDSRegExpWarnings,
+								 SDSRegExpFilename, 0, SDSRegExpText);
+} /* end SDSErrorHandler() */
+
+
+/*
+** IBMCErrorHandler
+**
+** This error handler is for IBM's Cset/2 C/C++ compiler.
+**
+** If you do not want to jump to informational messages you can
+** change the IBMCRegExp string (defined above) to remove '|i'
+**
+*/
+int
+IBMCErrorHandler(ULONG action, HBUFFER hbError, PPROGINFO pinfo) {
+
+	RegExprSyntax = RE_SYNTAX_UNIX;
+	return _ErrorHandler( action, hbError, pinfo,
+								 IBMCRegExpAny, IBMCRegExpErrors, IBMCRegExpWarnings,
+								 IBMCRegExpFilename, IBMCRegExpColumn, IBMCRegExpText);
+} /* end IBMCErrorHandler() */
+
+
+/*
+** IpfErrorHandler
+**
+** This error handler is for IBM's OS/2 IPF Help compiler.
+**
+*/
+int
+IpfcErrorHandler( ULONG action, HBUFFER hbError, PPROGINFO pinfo ) {
+
+	RegExprSyntax = RE_SYNTAX_UNIX;
+	return _ErrorHandler( action, hbError, pinfo,
+								 IpfRegExpAny, IpfRegExpErrors, IpfRegExpWarnings,
+								 IpfRegExpFilename, NULL, IpfRegExpText);
+} /* end IpfcErrorHandler() */
+
+
+/*
+** VisualAgeErrorHandler
+**
+** This error handler is for IBM's Visual Age C/C++ compiler.
+**
+** This error handler is the same as IBMCErrorHandler except that
+** it does not use the column information provided by the compiler
+** since the compiler has a bug which can give the wrong column
+** position and thus cause the editor to position to a line beyond
+** the line containing the error. When IBM fixes this bug you can
+** change the #if 1 below to #if 0.
+**
+** If you do not want to jump to informational messages you can
+** change the IBMCRegExp string (defined above) to remove '|i'
+**
+*/
+int
+VisualAgeErrorHandler(ULONG action, HBUFFER hbError, PPROGINFO pinfo) {
+
+	RegExprSyntax = RE_SYNTAX_UNIX;
+	#if 1
+	/* Visual Age compiler bug */
+	return _ErrorHandler( action, hbError, pinfo,
+								 IBMCRegExpAny, IBMCRegExpErrors, IBMCRegExpWarnings,
+								 IBMCRegExpFilename, NULL, IBMCRegExpText);
+  #else
+	/* when Visual Age compiler bug is fixed */
+	return _ErrorHandler( action, hbError, pinfo,
+								 IBMCRegExpAny, IBMCRegExpErrors, IBMCRegExpWarnings,
+								 IBMCRegExpFilename, IBMCRegExpColumn, IBMCRegExpText);
+  #endif
+} /* end VisualAgeErrorHandler() */
+
+
+#ifndef WINDOWS
+/*
+** MsgWorkFrameError
+**
+** Called by the editor when WorkFrame/2 sends a
+** jump to error request.
+*/
+void
+MsgWorkFrame(char *msg) {
+	long	save_line, save_column, start, end;
+	long	offset;
+
+	/* Editor has already positioned to the line in error */
+	/* Color the line using COLOR_ERRORLINE */
+	BufQueryPosition(&save_line, &save_column);
+	start = PosSOL();
+	end   = PosEOL();
+	AttrSetColorAt(start, end-start+1L, COLOR_ERRORLINE);
+	PosAbs(save_line, save_column);
+
+  #if 1
+	/*
+	** This code assumes the error message text is formatted like the C Set/2
+	** compiler, SrchString is used to skip over the filename line:column
+	** information and just display the type of message and its text.
+	**
+	** If 'msg' does not match this format the entire msg passed from
+	** WorFrame/2 is displayed.
+	**
+	** If your compiler uses some other error line format, you can
+	** change the regular expression string (1st arg to SrchString) or parse
+	** 'msg' in some other fashion to display whatever you wish.
+	*/
+	offset = SrchString(IBMCRegExpText, msg, NULL, 1, 0, RE_SYNTAX_UNIX);
+	if ( offset < 0L )
+		offset = 0L;
+	Msg(&msg[offset]);
+  #else
+	/* Use popup message box to display what WorkFrame/2 sent */
+	PopupMsg(msg, "WF/2 Jump to Error");
+  #endif
+} /* end MsgWorkFrame() */
+#endif
+
+char *
+ConstructPath(char *dir, char *filename)
+{
+	char	*p, *newPath;
+
+	if ( !dir )
+		return complete_path(filename);
+	if ( filename[1] == ':' && filename[2] == '\\' )
+		// consider it fully qualified
+		return complete_path(filename);
+
+	newPath = calloc(1, _MAX_PATH);
+	p = strchr(filename, '\\');
+	if ( p ) {
+		// there is some form of path specification in the filename
+		if ( filename[0] == '.' && filename[1] == '\\' ) {
+			strcpy(newPath, dir);
+			strcat(newPath, &filename[1]);
+		} else if ( filename[0] == '\\' ) {
+			newPath[0] = dir[0];
+			newPath[1] = ':';
+			newPath[2] = 0;
+			strcat(newPath, filename);
+		} else {
+			// assume path is relative to 'dir'
+			strcpy(newPath, dir);
+			strcat(newPath, "\\");
+			strcat(newPath, filename);
+		}
+	} else {
+		strcpy(newPath, dir);
+		strcat(newPath, "\\");
+		strcat(newPath, filename);
+	}
+	return newPath;
+} // end ConstructPath()
+
+
+/*
+** _ErrorHandler
+**
+**	This function is used by other error handlers to perform the work which is
+** common to all of them. This is accomplished by defining a few regular
+** expressions which match the various components of an error output line and
+** then calling this function to do the work.
+**
+** regExpAny must be supplied    - it should match only valid lines for jump to error
+** regExpErrors must be supplied - it should match only errors not warning lines,
+**                                 if this is not applicable to your compiler pass
+**                                 same reg expr as regExpAny.
+** regExpWarnings can be NULL    - if supplied it is used to color source lines
+**                                 in warning color
+** regExpFilename can be NULL    - must be supplied if the error line contains
+**                                 the filename for the source of the error.
+**                                 If NULL assumes any error found is for the
+**                                 buffer used to invoke the compilation,
+**                                 Note: this means that you will not be able
+**                                       to jump to errors if a file other than
+**                                       the file containing the errors was the
+**                                       source buffer if you pass this as NULL
+** regExpColumn can be NULL      - if supplied matches the column number to
+**                                 position to in the source file (actually it
+**                                 positions to the character offset in the line
+**                                 if you use tab characters)
+**
+** regExpText can be NULL      	- if supplied the text which follows what this
+**											  regular expression matches is used for the 
+**											  message text that is displayed.
+**
+** Note: This function only uses the pinfo arg's ulFlags & pszDir members but
+**       your own custom handler might use this information in some other fashion.
+**       eg. the pszRegExp member could be used to pass a regular
+**       expression or any other character string to your handler.
+**			The contents of the regular expression entry field in the
+**       Associated Program dialog is passed in this field of the
+**       PROGINFO structure and is ignored by the editor if an
+**			error handler macro is provided (ie. pszFunc member contains
+**       a string.) See SimpleErrorHandler (below) for an example of
+**       using pinfo->pszRegExp.
+*/
+int
+_ErrorHandler ( ULONG action, HBUFFER hbError, PPROGINFO pinfo,
+					 PSZ regExpAny, PSZ regExpErrors, PSZ regExpWarnings,
+					 PSZ regExpFilename, PSZ regExpColumn, PSZ regExpText )
+{
+	HBUFFER	hbSave;
+	LONG		line, column, offset;
+	char		*errText;
+	int		direction;
+	int		i, rc = 1;
+	char		pathname[_MAX_PATH];
+
+	RegExprSyntax = RE_SYNTAX_UNIX;
+	switch ( action & 0xFFFFL ) {
+	case 0:	/* jump to error at current position in output buffer (ErrJumpToError) */
+		direction = 0;		break;
+	case 1:	/* jump to next error (ErrNextErr) */
+		direction = 1;		break;
+	case 2:	/* jump to previous error (ErrPrevError) */
+		direction = -1;	break;
+
+	case 3:
+		/* This is called after the associated program completes.
+		** The return code from the executing program is contained
+		** in the upper 16 bits of 'action'
+		*/
+		if ( action == 3L ) {
+			/* return code was zero - assume no errors
+			** You could delete the output
+			** buffer and its window (if any) at this point.
+			*/
+		  #if UsePopup
+			PopupMsg(ExecutionCompleted, BufQueryFilename(hbError));
+		  #else
+			#if !NOSOUND
+			SysBeep(200L, 250L);
+			SysBeep(300L, 250L);
+			#endif
+			MsgPrintf("%s: %s", ExecutionCompleted, BufQueryFilename(hbError));
+		  #endif
+		} else {
+			rc = (int)(action >> 16);
+		  #if UsePopup
+			sprintf(pathname, "%s, %s%d.", ExecutionCompleted, ReturnCodeNonZero, rc);
+			PopupMsg(pathname, BufQueryFilename(hbError));
+		  #else
+			#if !NOSOUND
+			SysBeep(300L, 250L);
+			SysBeep(200L, 250L);
+			SysBeep(100L, 250L);
+			#endif
+			MsgPrintf("%s%d: %s", ExecutionCompletedRC, rc, BufQueryFilename(hbError));
+		  #endif
+		}
+		/* color all lines with warnings/errors in the source buffer to warning/error color */
+		if ( pinfo->ulFlags & EXECASSOC_IGNOREWARNINGS ) {
+			ColorLinesInError(hbError, regExpErrors, NULL, regExpFilename, pinfo);
+		} else {
+			ColorLinesInError(hbError, regExpErrors, regExpWarnings, regExpFilename, pinfo);
+		}
+	  #if 0
+		/*
+		** This code will cause the editor to jump to the first error
+		** immediately upon completion of the compilation.
+		*/
+		_ErrorHandler( 1L, hbError, pinfo,
+							regExpAny, regExpErrors, regExpWarnings,
+							regExpFilename, regExpColumn, regExpText );
+	  #endif
+		return 0;
+	} /* end switch on action */
+
+   hbSave = BufSwitchBuffer(hbError);
+
+   if ( direction >= 0 && BufQueryOffset() >= BufQueryFilesize() ) {
+		/* At EOF - start search at SOF */
+      PosSOF();
+      direction = 0;						/* don't move */
+   } else if ( direction == -1 && BufQueryOffset() == 0L ) {
+		/* At SOF - start search at EOF */
+		PosEOF();
+		direction = 0;
+	}
+	PosSOL();
+
+   if ( direction > 0 ) {          	/* find next error */
+      MovDown(1L);
+   } else if ( direction < 0 ) {   	/* find previous error */
+      MovUp(1L);
+   } /* otherwise check current line for error */
+
+	/* Find a line in the error output buffer that matches regular expression */
+	rc = 1;
+   while ( 1 ) {
+      errText = BufRead();
+		if ( pinfo->ulFlags & EXECASSOC_IGNOREWARNINGS )
+			offset = SrchString(regExpErrors, errText, NULL, 1, 0, RegExprSyntax);
+		else
+			offset = SrchString(regExpAny, errText, NULL, 1, 0, RegExprSyntax);
+		if ( offset < 0L ) {
+         free(errText);
+			if ( !direction )	{		/* no direction */
+            if ( MovDown(1L) ) {
+					/* Can't move down - must be at EOF */
+					direction = -1;	/* set direction to backwards */
+					if ( MovUp(1L) )
+						break;			/* at SOF - error buffer empty */
+				} else
+					direction = 1;		/* set direction to forward */
+			} else if ( direction > 0 ) {
+            if ( MovDown(1L) )
+               break;				/* at end of file */
+         } else {
+            if ( MovUp(1L) )
+               break;				/* at start of file */
+         }
+      } else {
+			/* found match - process it */
+			rc = 0;
+			BufSyncWindows(hbError);
+         break;
+		}
+   }
+
+   BufSwitchBuffer(hbSave);
+
+	if ( !rc ) {
+	   /* found error/warning line */
+	   line = atol(&errText[offset]);
+
+	   if ( line > 0L ) {
+			char	*fullPath, *p;
+
+			/* Get column number if supported */
+			if ( regExpColumn ) {
+				offset = SrchString(regExpColumn, errText, NULL, 1, 0, RegExprSyntax);
+				column = atol(&errText[offset]);
+			} else
+				column = 0L;
+
+			/* Get filename for source of error */
+			if ( regExpFilename ) {
+				offset = SrchString(regExpFilename, errText, NULL, 1, 0, RegExprSyntax);
+				if ( offset < 0L )	/* not found - assume in source buffer */
+					fullPath = strdup(BufQueryFilename(BufQueryLinkedBuffer(hbError)));
+				else {
+					/*
+					** End of filename marked by one of the chars in szFilenameEndChars
+					** if some other character follows the filename
+					** for your compiler add it to the szFilenameEndChars string.
+					*/
+					if ( errText[offset+1] == ':' ) {
+						i = strcspn(&errText[offset+2], szFilenameEndChars);
+						if ( i )
+							i += 2;
+					} else
+						i = strcspn(&errText[offset], szFilenameEndChars);
+					if ( i < _MAX_PATH )	{
+						strncpy( pathname, &errText[offset], i );
+						pathname[i] = 0;	/* null terminate the string */
+						fullPath = ConstructPath(pinfo->pszDir, pathname);
+					} else
+						fullPath = strdup(BufQueryFilename(BufQueryLinkedBuffer(hbError)));
+				}
+			} else {
+				/*
+				** No regular expression to locate filename in error line -
+				** assume any error output lines refer to the source buffer
+				*/
+				fullPath = strdup(BufQueryFilename(BufQueryLinkedBuffer(hbError)));
+			}
+			if ( regExpText ) {
+				offset = SrchString(regExpText, errText, NULL, 1, 0, RegExprSyntax);
+				if ( offset < 0L )
+					offset = 0L;
+			} else
+				offset = 0L;
+			/* make any windows showing the error buffer position to the error we are processing */
+	      _ErrorJump(fullPath, line, column, BufQueryFilename(hbError), rtrim(&errText[offset]));
+			free(fullPath);
+			rc = 0;
+		}
+		free(errText);
+	}
+   return rc;
+} /* end _ErrorHandler() */
+
+
+/*
+**	_ErrorJump
+**
+** This function is called by ErrorHandlers to perform the
+** jump to the line (and optionally the column) in error.
+**
+** This function can be used by your own custom jump to error
+** handling functions to perform the jump to error after you
+**	have located a valid error line.
+**
+** Arguments:
+**		pathname		the fully qualified path to the source file
+**						containing the error.
+**		line			the line number to jump to in the source file
+**		column		the column to position to in the source file
+**						if column == 0 moves to 1st non-whitespace
+**						character on the line.
+**		title			the title to display in the popup dialog
+**		text			the error description text to be displayed
+**						in the popup message box.
+*/
+void
+_ErrorJump(char *pathname, long line, long column, char *title, char *text) {
+   HBUFFER  hbSource;
+	HWINDOW	win = NULL;
+	ULONG		sysFlags, bufFlags;
+   SHORT    reply;
+
+   if ( pathname ) {
+		sysFlags = SysQueryFlags();
+		bufFlags = BufQueryFlags();
+      if ( !(bufFlags & BUFTYPE_NORMAL) ) {
+			/* invoked from an error output buffer */
+         if ( (hbSource = BufFindBuffer(pathname, 0)) == NULL ) {
+            /* file is not loaded - load it */
+				if ( sysFlags & SYSTEM_SW_ERROR )
+					win = WinQueryCurrentWindow();
+            if ( !WinLoadFileInWindow(pathname, win) )
+               return;
+         } else {
+            /* file is already loaded - is a window displaying it? */
+            if ( win = BufQueryWindow(hbSource) )
+               WinSetWindow(win);
+            else {
+					if ( !(sysFlags & SYSTEM_SW_ERROR) )
+	               WinNewWindow();
+               WinAttachBufferToWindow(hbSource, WinQueryCurrentWindow());
+            }
+         }
+      } else if ( stricmp(BufQueryFilename(), pathname) ) {
+         /* error is for a different file */
+         if ( (hbSource = BufFindBuffer(pathname, 0)) == NULL ) {
+			  #if 1
+            /* file is not loaded */
+            reply = PopupMsgBox( "Error/warning is located in a file that is not loaded "
+											"- load the file?", pathname,
+                                 MB_YESNO | MB_ICONQUESTION | MB_APPLMODAL | MB_MOVEABLE);
+            if ( reply == MBID_NO )
+               return;
+			  #endif
+            /* Load it */
+				if ( sysFlags & SYSTEM_SW_ERROR )
+					win = WinQueryCurrentWindow();
+            if ( !WinLoadFileInWindow(pathname, win) )
+               return;
+         } else {
+			  #if 0
+            /* file is already loaded */
+            reply = PopupMsgBox( "Error/warning located in different buffer "
+											"- jump to it?", pathname,
+											MB_YESNO | MB_ICONQUESTION | MB_APPLMODAL | MB_MOVEABLE);
+            if ( reply == MBID_NO )
+               return;
+			  #endif
+            if ( win = BufQueryWindow(hbSource) )
+               WinSetWindow(win);
+            else {
+					if ( !(sysFlags & SYSTEM_SW_ERROR) )
+	               WinNewWindow();
+               WinAttachBufferToWindow(hbSource, WinQueryCurrentWindow());
+            }
+         }
+      }
+   }
+
+   PosAbs(line, 1L);
+	if ( column == 0L )
+		PosSOT();
+	else
+		/* column is not handled as a column position,
+		** (because of tab size) it is the character offset
+		** into the line.
+		*/
+		PosNextChar(column-1L);
+	WinScrollCenter();
+	WinUpdateWindow();
+  #if UsePopup
+	PopupMsgBox(text, title, MB_OK | MB_NOICON | MB_MOVEABLE | MB_APPLMODAL);
+  #else
+	MsgPrintf(text);
+  #endif
+} /* end _ErrorJump() */
+
+
+/*
+**	ColorLineInError
+**
+**	Colors the line in the buffer whose filename is 'pathname'
+** to COLOR_ERRORLINE. If pathname is not loaded no action is
+** taken by this function.
+*/
+void
+ColorLineInError(char *pathname, long line, int color) {
+	HBUFFER	hbSource;
+	HBUFFER	hbSave;
+	long		save_line, save_column, start, end;
+
+	/* Color the error/warning line in the output buffer itself */
+	BufQueryPosition(&save_line, &save_column);
+	start = PosSOL();
+	end   = PosEOL();
+	AttrSetColorAt(start, end-start+1L, color);
+	PosAbs(save_line, save_column);
+
+	if ( (hbSource = BufFindBuffer(pathname, 0)) ) {
+		hbSave = BufSwitchBuffer(hbSource);
+		BufQueryPosition(&save_line, &save_column);
+		start = PosAbs(line, 1L);
+		end   = PosEOL();
+		AttrSetColorAt(start, end-start+1L, color);
+		PosAbs(save_line, save_column);
+		BufSwitchBuffer(hbSave);
+	}
+} /* end ColorLineInError() */
+
+
+/*
+** ColorLinesInError
+**
+**	Arguments:
+**
+**	hbError     buffer containing error output
+**
+** regExpLine  regular expression that will match a valid error line
+**             and position to the line number section of the error line
+** regExpFilename  regular expression that will position to the filename section
+**             of the error line. If NULL assumes all error lines are for
+**             the "source" buffer ie. not in include files.
+*/
+void
+ColorLinesInError(HBUFFER hbError, PSZ regExpErrorLine, PSZ regExpWarningLine, PSZ regExpFilename, PROGINFO *pinfo ) {
+	HBUFFER	hbSrc, hbSave;
+	char		*errText, *fullPath, *srcPath;
+	int		i, isWarning;
+	long		line, lastLine = 0L;
+	long		offset;
+	char		pathname[_MAX_PATH];
+
+	if ( !hbError )
+		return;
+	hbSrc = BufQueryLinkedBuffer(hbError);
+	if ( !hbSrc )
+		srcPath = NULL;
+	else
+		srcPath = BufQueryFilename(hbSrc);
+	SysSetHourglass(1);
+	hbSave = BufQueryCurrentBuffer();
+	/* Find each line in the error output buffer that matches regExpLine */
+	BufSwitchBuffer(hbError);
+	PosSOF();
+   while ( 1 ) {
+		SysSetHourglass(1);
+		isWarning = FALSE;
+      errText = BufRead();
+      offset = SrchString(regExpErrorLine, errText, NULL, 1, 0, RegExprSyntax);
+		if ( offset < 0L && regExpWarningLine ) {
+			offset = SrchString(regExpWarningLine, errText, NULL, 1, 0, RegExprSyntax);
+			isWarning = TRUE;
+		}
+		if ( offset >= 0L ) {
+			/* found valid error - color source line */
+		   line = atol(&errText[offset]);
+		   if ( line > 0L ) {
+				/* Get filename */
+				if ( regExpFilename ) {
+					offset = SrchString(regExpFilename, errText, NULL, 1, 0, RegExprSyntax);
+					if ( offset < 0L )
+						ColorLineInError( srcPath, line,
+												isWarning ? COLOR_WARNINGLINE : COLOR_ERRORLINE);
+					else {
+						/*
+						** End of filename marked by one of these chars
+						** if some other character follows the filename
+						** for your compiler add it to the szFilenameEndChars string.
+						*/
+						if ( errText[offset+1] == ':' ) {
+							i = strcspn(&errText[offset+2], szFilenameEndChars);
+							if ( i )
+								i += 2;
+						} else
+							i = strcspn(&errText[offset], szFilenameEndChars);
+
+						if ( i < _MAX_PATH ) {
+							strncpy( pathname, &errText[offset], i );
+							pathname[i] = 0;	/* null terminate the string */
+							fullPath = ConstructPath(pinfo->pszDir, pathname);
+							ColorLineInError( fullPath,
+													line,
+													isWarning ? COLOR_WARNINGLINE : COLOR_ERRORLINE);
+							free(fullPath);
+						}
+						else {
+							errText[offset+_MAX_PATH-1] = 0;
+							PopupMsg(&errText[offset], "Filename parsed is too long");
+						}
+					}
+				} else {
+					/*
+					** No regular expression to locate filename in error line -
+					** assume any error output refers to source buffer
+					*/
+					ColorLineInError( srcPath, line,
+											isWarning ? COLOR_WARNINGLINE : COLOR_ERRORLINE);
+				}
+			}
+		}
+		free(errText);
+		if ( MovDown(1L) )
+			break;					/* at EOF - done */
+   }
+	BufRefreshWindows();
+	BufSwitchBuffer(hbSave);
+	SysSetHourglass(0);
+} /* end ColorLinesInError() */
+
+
+/*
+** SimpleErrorHandler
+**
+** This macro has replaced the built-in functionality for handling
+** ErrJumpToErr, ErrNextError, ErrPrevError that was used in versions
+** prior to V2.0.69(OS/2) or V3.1.06(Windows)
+**
+** It uses the regular expression passed in the pinfo structure
+** to match error lines in the output buffer. This macro will be
+** inserted (when the associations are loaded) into the
+** Error Handler Macro entry field in the Add/Change Program
+** dialog of the File Extensions Dialog when a regular expression
+** is supplied but no error handler macro is specified.
+**
+** See DefaultErrorHandler() above for further information.
+*/
+int
+SimpleErrorHandler(ULONG action, HBUFFER hbError, PPROGINFO pinfo) {
+	HBUFFER	hbSave;
+	LONG		line, offset;
+	char		*errText, *fullPath;
+	int		direction;
+	int		i, rc = 1;
+	char		pathname[_MAX_PATH];
+
+	RegExprSyntax = SysQueryRegExprSyntax();	/* Brief or Unix */
+	switch ( action & 0xFFFFL ) {
+	case 0:	/* jump to error at current position in output buffer (ErrJumpToError) */
+		direction = 0;		break;
+	case 1:	/* jump to next error (ErrNextErr) */
+		direction = 1;		break;
+	case 2:	/* jump to previous error (ErrPrevError) */
+		direction = -1;	break;
+
+	case 3:
+		/*
+		** This is called after the associated program completes.
+		** The return code from the executing program is contained
+		** in the upper 16 bits of 'action'
+		*/
+		if ( action == 3L ) {
+			/* return code was zero - assume no errors
+			** You could delete the output
+			** buffer and its window (if any) at this point.
+			*/
+		  #if UsePopup
+			PopupMsg(ExecutionCompleted, BufQueryFilename(hbError));
+		  #else
+			#if !NOSOUND
+			SysBeep(200L, 250L);
+			SysBeep(300L, 250L);
+			#endif
+			MsgPrintf("%s: %s", ExecutionCompleted, BufQueryFilename(hbError));
+		  #endif
+		} else {
+			rc = (int)(action >> 16);
+		  #if UsePopup
+			sprintf(pathname, "%s, %s%d.", ExecutionCompleted, ReturnCodeNonZero, rc);
+			PopupMsg(pathname, BufQueryFilename(hbError));
+		  #else
+			#if !NOSOUND
+			SysBeep(200L, 250L);
+			SysBeep(100L, 250L);
+			#endif
+			MsgPrintf("%s%d: %s", ExecutionCompletedRC, rc, BufQueryFilename(hbError));
+		  #endif
+		}
+		/* color all lines with warnings/errors in the source buffer to warning/error color */
+		ColorLinesInError(hbError, pinfo->pszRegExp, NULL, NULL, pinfo);
+		return 0;
+	} /* end switch on action */
+
+   hbSave = BufSwitchBuffer(hbError);
+   if ( direction >= 0 && BufQueryOffset() >= BufQueryFilesize() ) {
+		/* At EOF - start search at SOF */
+      PosSOF();
+      direction = 0;						/* don't move */
+   } else if ( direction == -1 && BufQueryOffset() == 0L ) {
+		/* At SOF - start search at EOF */
+		PosEOF();
+		direction = 0;
+	}
+	PosSOL();
+
+   if ( direction > 0 ) {          	/* find next error */
+      MovDown(1L);
+   } else if ( direction < 0 ) {   	/* find previous error */
+      MovUp(1L);
+   } /* otherwise check current line for error */
+
+	/* Find a line in the error output buffer that matches pinfo->pszRegExp */
+	rc = 1;
+   while ( 1 ) {
+      errText = BufRead();
+		offset = SrchString(pinfo->pszRegExp, errText, NULL, 1, 0, RegExprSyntax);
+		if ( offset < 0L ) {
+         free(errText);
+			if ( !direction )	{		/* no direction */
+            if ( MovDown(1L) ) {
+					/* Can't move down - must be at EOF */
+					direction = -1;	/* set direction to backwards */
+					if ( MovUp(1L) )
+						break;			/* at SOF - error buffer empty */
+				} else
+					direction = 1;		/* set direction to forward */
+			} else if ( direction > 0 ) {
+            if ( MovDown(1L) )
+               break;				/* at end of file */
+         } else {
+            if ( MovUp(1L) )
+               break;				/* at start of file */
+         }
+      } else {
+			/* found match - process it */
+			rc = 0;
+			BufSyncWindows(hbError);
+         break;
+		}
+   }
+
+   BufSwitchBuffer(hbSave);
+
+	if ( !rc ) {
+	   /* found error/warning line */
+	   line = atol(&errText[offset]);
+	   if ( line > 0L ) {
+			long	start, len;
+
+			/* Get filename - 1st grouping in regular expression must match the filename */
+			len = SrchQueryGroupOffsets(0, &start, NULL);
+			if ( len > 0 ) {
+				len = len >= _MAX_PATH ? (long)_MAX_PATH-1 : len;
+				strncpy(pathname, &errText[start], len);
+				pathname[len] = 0;
+				fullPath = ConstructPath(pinfo->pszDir, pathname);
+				/* make any windows showing the error buffer position to the error we are processing */
+		      _ErrorJump(fullPath, line, 0L, BufQueryFilename(hbError), rtrim(errText));
+				free(fullPath);
+				rc = 0;
+			} else
+				rc = 1;
+		}
+		free(errText);
+	}
+   return rc;
+} /* end SimpleErrorHandler() */
+
+
+
+/*
+** End module: jmperr.rm
+*/

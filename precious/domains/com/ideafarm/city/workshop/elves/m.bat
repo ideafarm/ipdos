@@ -2,6 +2,7 @@
 
 setlocal
 
+%idrive%
 set v1=\ideafarm.home.1\ephemeral\domains\com\ideafarm\city\workshop
 
 if not exist %v1%\tmp md %v1%\tmp

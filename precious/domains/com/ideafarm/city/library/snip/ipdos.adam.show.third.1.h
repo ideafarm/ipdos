@@ -15250,7 +15250,7 @@ see QUITO
         OStEXTC( ostoTitle , processGlobal1S::_processGlobal1I_IF().idAdamRoot , 0 ) ;                                                   \
         OStEXTAK( ostoTitle , " ; idThread:" )  ;                                                                      \
         OStEXTC( ostoTitle , tinP.monitor.idThread , 0 ) ;                                                                    \
-        OStEXTAK( ostoTitle , " ; thread" ":\"" ) ;                                                                       \
+        OStEXTAK( ostoTitle , " ; thread:\"" ) ;                                                                       \
         OStEXTA( ostoTitle , tinP.postThreadName ) ;                                                                  \
         OStEXTAK( ostoTitle , "\"" ) ;                                                                                 \
                                                                                                                         \

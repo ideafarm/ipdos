@@ -36,7 +36,7 @@ if( cErrors )
                 ZE( countT , cFiles ) ;
                 ZE( countT , cDirs ) ;
 
-                TN( tElves , "///d/ideafarm.home.1/precious/domains/com/ideafarm/city/workshop/elves/" ) ;
+                TN( tElves , "" ) ; tElves = tPrefix+T("ideafarm.home.1/precious/domains/com/ideafarm/city/workshop/elves/" ) ;
             {
 
             if( POOP ) POOPR ;
@@ -51,8 +51,20 @@ if( cErrors )
         strokeS sSlash( '/' ) ;
         TN( tTo      , "ideafarm.home.1" ) ;
 
-        TN( tFrom    , "///d/ideafarm.home.1/" ) ;
-        TN( tRelease , "///d/tmp/ps/" ) ; // SHORT AS POSSIBLE.  THIS INCREMENT TO THE LENGTH OF THE FILE NAME CAN CAUSE A FILE COPY TO SILENTLY FAIL
+        TN( tFrom    , "" ) ; tFrom    = tPrefix+T("ideafarm.home.1/" ) ;
+        TN( tRelease , "" ) ; tRelease = tPrefix+T("tmp/ps/") ; // SHORT AS POSSIBLE.  THIS INCREMENT TO THE LENGTH OF THE FILE NAME CAN CAUSE A FILE COPY TO SILENTLY FAIL
+
+        }
+            etThread.delF( tinP , psttHover ) ;
+            etThread.delF( tinP , psttLetter ) ;
+            tPrefix = T(psttLetter) ;
+            etThread.strSubstringF( tinP , psttLetter , countTC( 1 ) , countTC( 5 ) , psttHover ) ; ___( psttLetter ) ;
+            ZE( strokeS* , psttLetter ) ;
+
+            etThread.diskGetHoverF( tinP , psttHover ) ; ___( psttHover ) ;
+            ZE( strokeS* , psttHover ) ;
+        {
+        TN( tPrefix , "" ) ;
 
         const boolT bPrecious = !etThread.strCompareF( tinP , psttc1 , tCmdPrecious ) ;
     {
