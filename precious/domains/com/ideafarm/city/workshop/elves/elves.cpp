@@ -5189,7 +5189,7 @@ void boxPutF( const char* postFileP , const char* postP , int idElfP )
     else
     {
         const char* pbToDo = postP ;
-        int         cbToDo = strlen( postP ) + 1 ;
+        int         cbToDo = strlen( postP ) ;
         while( cbToDo )
         {
             int cbChunk = fwrite( pbToDo , 1 , cbToDo , pFile ) ;
