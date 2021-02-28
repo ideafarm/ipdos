@@ -1,0 +1,349 @@
+
+//
+// Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 29 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+
+REST
+
+etThread.delF( tinP , pbPackage ) ;
+etThread.strokeF( tinP , T("file \"")+tFile+T("\" has been written\r\n") ) ;
+etThread.boxPutF( tinP , tFile , pbPackage , cbPackage ) ;
+TN( tFile , "///ideafarm/ephemeral/domains/com/ideafarm/ftp/public/ifc-w.exe" ) ;
+
+etThread.delF( tinP , pbUnzip ) ;
+etThread.delF( tinP , pbZipped ) ;
+    
+__( pbc - pbb - cbAll ) ;
+etThread.memCopyF( tinP , pbc , ta        , ta.csF( tinP ) + 1 ) ; pbc += ta.csF( tinP ) + 1 ;
+etThread.memCopyF( tinP , pbc , t9        , t9.csF( tinP ) + 1 ) ; pbc += t9.csF( tinP ) + 1 ;
+etThread.memCopyF( tinP , pbc , t8        , t8.csF( tinP ) + 1 ) ; pbc += t8.csF( tinP ) + 1 ;
+etThread.memCopyF( tinP , pbc , t7        , t7.csF( tinP ) + 1 ) ; pbc += t7.csF( tinP ) + 1 ;
+etThread.memCopyF( tinP , pbc , t6        , t6.csF( tinP ) + 1 ) ; pbc += t6.csF( tinP ) + 1 ;
+etThread.memCopyF( tinP , pbc , t5        , t5.csF( tinP ) + 1 ) ; pbc += t5.csF( tinP ) + 1 ;
+etThread.memCopyF( tinP , pbc , pbZipped  , cbZipped           ) ; pbc += cbZipped           ;
+etThread.memCopyF( tinP , pbc , pbUnzip   , cbUnzip            ) ; pbc += cbUnzip            ;
+etThread.memCopyF( tinP , pbc , t4        , t4.csF( tinP ) + 1 ) ; pbc += t4.csF( tinP ) + 1 ;
+etThread.memCopyF( tinP , pbc , t3        , t3.csF( tinP )     ) ; pbc += t3.csF( tinP )     ;
+etThread.memCopyF( tinP , pbc , t2        , t2.csF( tinP ) + 1 ) ; pbc += t2.csF( tinP ) + 1 ;
+etThread.memCopyF( tinP , pbc , t1        , t1.csF( tinP ) + 1 ) ; pbc += t1.csF( tinP ) + 1 ;
+byteT* pbc = pbb ;
+__( pbe - pbb < cbAll ) ;
+    
+    T("\r\n") ) ;
+    T("\r\nwasted space:      ")+TF2(pbe-pbb-cbAll,flFORMAT_UNSIGNED|flFORMAT_NObIGITvALUES)+
+    T("\r\nspace needed:      ")+TF2(cbAll,flFORMAT_UNSIGNED|flFORMAT_NObIGITvALUES)+
+        T("space allocated:   ")+TF2(pbe-pbb,flFORMAT_UNSIGNED|flFORMAT_NObIGITvALUES)+
+etThread.strokeF( tinP , 
+byteT* pbe = pbF( tinP , pbb       , cbPackage - ( pbb - pbPackage ) , pbKeyEnd , sizeof pbKeyEnd ) ;
+byteT* pbb = pbF( tinP , pbPackage , cbPackage                       , pbKey    , sizeof pbKey    ) ;
+byteT pbKeyEnd[] = "!ifc_contentsAllocEnd" ;
+byteT pbKey[]    = "!ifc_contentsAllocBegin" ;
+    
+countT cbAll = t1.csF( tinP ) + 1 + t2.csF( tinP ) + 1 + t3.csF( tinP ) + t4.csF( tinP ) + 1 + cbUnzip + cbZipped + t5.csF( tinP ) + 1 + t6.csF( tinP ) + 1 + t7.csF( tinP ) + 1 + t8.csF( tinP ) + 1 + t9.csF( tinP ) + 1 + ta.csF( tinP ) + 1 ;
+    
+TN( ta , "!ifc_contentsEnd" ) ;
+TN( t9 , "!ifc_delete=ideafarm.01020010.ipdos-wm" ) ;
+TN( t8 , "!ifc_delete=ideafarm.0130001w.exe" ) ;
+TN( t7 , "!ifc_hire=ideafarm.0130001w.exe" ) ;
+TN( t6 , "!ifc_passParms" ) ;
+TN( t5 , "!ifc_delete=ifcsfx.exe" ) ;
+TN( t4 , (osTextT*)TF1(cbUnzip+cbZipped) ) ;
+TN( t3 , "!ifc_cBytes=" ) ;
+TN( t2 , "!ifc_hireMeForgive" ) ;
+TN( t1 , "!ifc_name=ifcsfx.exe" ) ;
+    
+//  "!ifc_delete=0130001w.exe"
+//  "!ifc_delete=01020010.ipdos-wm"
+//  "!ifc_hire=0130001w.exe"
+//  "!ifc_delete=ifcsfx.exe"
+//  ifc.zip
+//  unzipsfx.exe
+//  "!ifc_cBytes=nnnn"
+//  "!ifc_hireMeForgive"
+//  "!ifc_name=ifcsfx.exe"      
+// byteT pbContentsEnd[] = "!ifc_contentsAllocEnd" ;
+// byteT pbContents[ CBcONTENTS ] = "!ifc_contentsAllocBegin" ;
+// THE FOLLOWING IMAGES ARE APPENDED INTO pbPackage AT THE LOCATION OF "!ifc_contentsBegin"
+// CREATE THE PACKAGE CONTENTS
+    
+etThread.boxGetShadowF( tinP , pbZipped , cbZipped , tZip ) ; ___( pbZipped ) ;
+ZE( countT , cbZipped ) ;
+ZE( byteT* , pbZipped ) ;
+    
+etThread.boxGetShadowF( tinP , pbUnzip , cbUnzip , T("///d/ideafarm.work/backed.up.never/software/zip/unzipsfx.exe") ) ; ___( pbUnzip ) ;
+ZE( countT , cbUnzip ) ;
+ZE( byteT* , pbUnzip ) ;
+    
+etThread.boxGetShadowF( tinP , pbPackage , cbPackage , T("///d/ideafarm.work/backed.up.never/gen/exe/package.exe") ) ; ___( pbPackage ) ;
+ZE( countT , cbPackage ) ;
+ZE( byteT* , pbPackage ) ;
+    
+}
+    zipperF( tinP , etThread , 0 , T("ideafarm.blob.mp3.2009.02.25.milpitas.mayor.on.free.speech_01.mp3" ) , tZipOs , tZipper ) ;
+    hoverC hoverMp3( tinP , etThread , T("///d/ideafarm.work/backed.up.daily/mp3/") ) ;
+
+    zipperF( tinP , etThread , 0 , T("ideafarm.blob.favicon.ico") , tZipOs , tZipper ) ;
+    zipperF( tinP , etThread , 0 , T("ideafarm.blob.ifc.ico") , tZipOs , tZipper ) ;
+    hoverC hoverIco( tinP , etThread , T("///d/ideafarm.work/backed.up.daily/ico/") ) ;
+
+    //zipperF( tinP , etThread , 0 , T("ideafarm.blob.ad.8.gif"           ) , tZipOs , tZipper ) ;
+    //zipperF( tinP , etThread , 0 , T("ideafarm.blob.ad.7.gif"           ) , tZipOs , tZipper ) ;
+    //zipperF( tinP , etThread , 0 , T("ideafarm.blob.ad.6.gif"           ) , tZipOs , tZipper ) ;
+    //zipperF( tinP , etThread , 0 , T("ideafarm.blob.ad.5.gif"           ) , tZipOs , tZipper ) ;
+    //zipperF( tinP , etThread , 0 , T("ideafarm.blob.ad.4.gif"           ) , tZipOs , tZipper ) ;
+    //zipperF( tinP , etThread , 0 , T("ideafarm.blob.ad.3.gif"           ) , tZipOs , tZipper ) ;
+    //zipperF( tinP , etThread , 0 , T("ideafarm.blob.ad.2.gif"           ) , tZipOs , tZipper ) ;
+    //zipperF( tinP , etThread , 0 , T("ideafarm.blob.ad.1.gif"           ) , tZipOs , tZipper ) ;
+    //zipperF( tinP , etThread , 0 , T("ideafarm.blob.skit.0.end.gif"     ) , tZipOs , tZipper ) ;
+    //zipperF( tinP , etThread , 0 , T("ideafarm.blob.skit.1.husband.gif" ) , tZipOs , tZipper ) ;
+    //zipperF( tinP , etThread , 0 , T("ideafarm.blob.skit.2.husband.gif" ) , tZipOs , tZipper ) ;
+    //zipperF( tinP , etThread , 0 , T("ideafarm.blob.skit.3.husband.gif" ) , tZipOs , tZipper ) ;
+    //zipperF( tinP , etThread , 0 , T("ideafarm.blob.skit.4.husband.gif" ) , tZipOs , tZipper ) ;
+    //zipperF( tinP , etThread , 0 , T("ideafarm.blob.skit.5.husband.gif" ) , tZipOs , tZipper ) ;
+    //zipperF( tinP , etThread , 0 , T("ideafarm.blob.skit.6.husband.gif" ) , tZipOs , tZipper ) ;
+    //zipperF( tinP , etThread , 0 , T("ideafarm.blob.skit.7.husband.gif" ) , tZipOs , tZipper ) ;
+    //zipperF( tinP , etThread , 0 , T("ideafarm.blob.skit.8.husband.gif" ) , tZipOs , tZipper ) ;
+    //zipperF( tinP , etThread , 0 , T("ideafarm.blob.skit.9.wife.gif"    ) , tZipOs , tZipper ) ;
+    //zipperF( tinP , etThread , 0 , T("ideafarm.blob.skit.10.wife.gif"   ) , tZipOs , tZipper ) ;
+    //zipperF( tinP , etThread , 0 , T("ideafarm.blob.skit.11.wife.gif"   ) , tZipOs , tZipper ) ;
+    //zipperF( tinP , etThread , 0 , T("ideafarm.blob.skit.12.wife.gif"   ) , tZipOs , tZipper ) ;
+    //zipperF( tinP , etThread , 0 , T("ideafarm.blob.skit.13.wife.gif"   ) , tZipOs , tZipper ) ;
+    //zipperF( tinP , etThread , 0 , T("ideafarm.blob.skit.14.wife.gif"   ) , tZipOs , tZipper ) ;
+    //zipperF( tinP , etThread , 0 , T("ideafarm.blob.skit.15.wife.gif"   ) , tZipOs , tZipper ) ;
+    //zipperF( tinP , etThread , 0 , T("ideafarm.blob.skit.16.wife.gif"   ) , tZipOs , tZipper ) ;
+    //zipperF( tinP , etThread , 0 , T("ideafarm.blob.skit.17.wife.gif"   ) , tZipOs , tZipper ) ;
+    //zipperF( tinP , etThread , 0 , T("ideafarm.blob.skit.18.economy.gif") , tZipOs , tZipper ) ;
+    //zipperF( tinP , etThread , 0 , T("ideafarm.blob.skit.19.economy.gif") , tZipOs , tZipper ) ;
+    //zipperF( tinP , etThread , 0 , T("ideafarm.blob.skit.20.economy.gif") , tZipOs , tZipper ) ;
+    //zipperF( tinP , etThread , 0 , T("ideafarm.blob.skit.21.economy.gif") , tZipOs , tZipper ) ;
+    //zipperF( tinP , etThread , 0 , T("ideafarm.blob.skit.22.economy.gif") , tZipOs , tZipper ) ;
+    //zipperF( tinP , etThread , 0 , T("ideafarm.blob.skit.23.economy.gif") , tZipOs , tZipper ) ;
+    //zipperF( tinP , etThread , 0 , T("ideafarm.blob.skit.24.economy.gif") , tZipOs , tZipper ) ;
+    //zipperF( tinP , etThread , 0 , T("ideafarm.blob.skit.25.economy.gif") , tZipOs , tZipper ) ;
+    //zipperF( tinP , etThread , 0 , T("ideafarm.blob.skit.26.economy.gif") , tZipOs , tZipper ) ;
+    //zipperF( tinP , etThread , 0 , T("ideafarm.blob.adimageblank.gif"   ) , tZipOs , tZipper ) ; //FOR TESTING
+    //zipperF( tinP , etThread , 0 , T("ideafarm.blob.adlinkblank.gif"    ) , tZipOs , tZipper ) ; //FOR TESTING
+
+    zipperF( tinP , etThread , 0 , T("ideafarm.blob.console.gif"          ) , tZipOs , tZipper ) ;
+    zipperF( tinP , etThread , 0 , T("ideafarm.blob.nautilus.gif"         ) , tZipOs , tZipper ) ;
+    zipperF( tinP , etThread , 0 , T("ideafarm.blob.organizer.head.gif"   ) , tZipOs , tZipper ) ;
+    zipperF( tinP , etThread , 0 , T("ideafarm.blob.organizer.gif"        ) , tZipOs , tZipper ) ;
+    zipperF( tinP , etThread , 0 , T("ideafarm.blob.ipdos.panic.2.gif"    ) , tZipOs , tZipper ) ;
+    zipperF( tinP , etThread , 0 , T("ideafarm.blob.ipdos.panic.1.gif"    ) , tZipOs , tZipper ) ;
+    zipperF( tinP , etThread , 0 , T("ideafarm.blob.ipdos.door.2.gif"     ) , tZipOs , tZipper ) ;
+    zipperF( tinP , etThread , 0 , T("ideafarm.blob.ipdos.door.1.gif"     ) , tZipOs , tZipper ) ;
+    zipperF( tinP , etThread , 0 , T("ideafarm.blob.ipdos.5.gif"          ) , tZipOs , tZipper ) ;
+    zipperF( tinP , etThread , 0 , T("ideafarm.blob.ipdos.4.gif"          ) , tZipOs , tZipper ) ;
+    zipperF( tinP , etThread , 0 , T("ideafarm.blob.ipdos.3.gif"          ) , tZipOs , tZipper ) ;
+    zipperF( tinP , etThread , 0 , T("ideafarm.blob.ipdos.2.gif"          ) , tZipOs , tZipper ) ;
+    zipperF( tinP , etThread , 0 , T("ideafarm.blob.ipdos.1.gif"          ) , tZipOs , tZipper ) ;
+    zipperF( tinP , etThread , 0 , T("ideafarm.blob.favicon.gif"          ) , tZipOs , tZipper ) ;
+    zipperF( tinP , etThread , 0 , T("ideafarm.blob.usflag.gif"           ) , tZipOs , tZipper ) ;
+    zipperF( tinP , etThread , 0 , T("ideafarm.blob.dadflag.paypal.gif"   ) , tZipOs , tZipper ) ;
+    hoverC hoverGif( tinP , etThread , T("///d/ideafarm.work/backed.up.daily/images/gif/") ) ;
+
+    /*INSERT:USER.1*/
+    //zipperF( tinP , etThread , 0 , T("ideafarm.blob.user.a1.320x240.jpeg"  ) , tZipOs , tZipper ) ;
+    //zipperF( tinP , etThread , 0 , T("ideafarm.blob.user.a1.64x48.jpeg"    ) , tZipOs , tZipper ) ;
+    //zipperF( tinP , etThread , 0 , T("ideafarm.blob.user.9.320x240.jpeg"   ) , tZipOs , tZipper ) ;
+    //zipperF( tinP , etThread , 0 , T("ideafarm.blob.user.9.64x48.jpeg"     ) , tZipOs , tZipper ) ;
+    //zipperF( tinP , etThread , 0 , T("ideafarm.blob.user.8.320x240.jpeg"   ) , tZipOs , tZipper ) ;
+    //zipperF( tinP , etThread , 0 , T("ideafarm.blob.user.8.64x48.jpeg"     ) , tZipOs , tZipper ) ;
+    //zipperF( tinP , etThread , 0 , T("ideafarm.blob.user.7.320x240.jpeg"   ) , tZipOs , tZipper ) ;
+    //zipperF( tinP , etThread , 0 , T("ideafarm.blob.user.7.64x48.jpeg"     ) , tZipOs , tZipper ) ;
+    //zipperF( tinP , etThread , 0 , T("ideafarm.blob.user.5.320x240.jpeg"   ) , tZipOs , tZipper ) ;
+    //zipperF( tinP , etThread , 0 , T("ideafarm.blob.user.5.64x48.jpeg"     ) , tZipOs , tZipper ) ;
+    //zipperF( tinP , etThread , 0 , T("ideafarm.blob.user.6.320x240.jpeg"   ) , tZipOs , tZipper ) ;
+    //zipperF( tinP , etThread , 0 , T("ideafarm.blob.user.6.64x48.jpeg"     ) , tZipOs , tZipper ) ;
+    //zipperF( tinP , etThread , 0 , T("ideafarm.blob.user.4.320x240.jpeg"   ) , tZipOs , tZipper ) ;
+    //zipperF( tinP , etThread , 0 , T("ideafarm.blob.user.4.64x48.jpeg"     ) , tZipOs , tZipper ) ;
+    //U::ENABLE AFTER INSTALL FILES FROM SONY LAPTOP
+    zipperF( tinP , etThread , 0 , T("ideafarm.blob.user.1.64x48.jpeg"     ) , tZipOs , tZipper ) ;
+    zipperF( tinP , etThread , 0 , T("ideafarm.blob.user.1.320x240.jpeg"   ) , tZipOs , tZipper ) ;
+
+    zipperF( tinP , etThread , 0 , T("ideafarm.blob.sign.jpeg"            ) , tZipOs , tZipper ) ;
+    zipperF( tinP , etThread , 0 , T("ideafarm.blob.deposit.jpeg"         ) , tZipOs , tZipper ) ;
+    zipperF( tinP , etThread , 0 , T("ideafarm.blob.dadflag.header.jpeg"  ) , tZipOs , tZipper ) ;
+    zipperF( tinP , etThread , 0 , T("ideafarm.blob.dadflag.jpeg"         ) , tZipOs , tZipper ) ;
+    hoverC hoverJpeg( tinP , etThread , T("///d/ideafarm.work/backed.up.daily/images/jpeg/") ) ;
+
+    zipperF( tinP , etThread , 0x1000310 , tExe , tZipOs , tZipper ) ;
+    hoverC hoverExe( tinP , etThread , T("///d/ideafarm.work/backed.up.never/gen/exe/") ) ;
+
+    zipperF( tinP , etThread , ifcIDaDAM_KERNEL3BANG                            , tMas , tZipOs , tZipper ) ;
+    zipperF( tinP , etThread , ifcIDaDAM_DNS                                    , tMas , tZipOs , tZipper ) ;
+    zipperF( tinP , etThread , ifcIDaDAM_WATCH                                  , tMas , tZipOs , tZipper ) ;
+    zipperF( tinP , etThread , ifcIDaDAM_PREPARElISTS                           , tMas , tZipOs , tZipper ) ;
+    zipperF( tinP , etThread , ifcIDaDAM_MEMBRANEgLASS                          , tMas , tZipOs , tZipper ) ;
+    zipperF( tinP , etThread , ifcIDaDAM_KERNEL2MONITOR                         , tMas , tZipOs , tZipper ) ;
+    zipperF( tinP , etThread , ifcIDaDAM_KERNEL1DRIVER                          , tMas , tZipOs , tZipper ) ;
+    zipperF( tinP , etThread , 0x3000010                                        , tMas , tZipOs , tZipper ) ;
+    zipperF( tinP , etThread , 0x2000010                                        , tMas , tZipOs , tZipper ) ;
+    zipperF( tinP , etThread , 0x1002010                                        , tMas , tZipOs , tZipper ) ;
+    //2011.01.09: PACKAGE: WO'O'S SCRAPBOOK
+
+    //zipperF( tinP , etThread , ifcIDaDAM_GORILLAlISTS                           , tMas , tZipOs , tZipper ) ;
+    //zipperF( tinP , etThread , ifcIDaDAM_WATCH                                  , tMas , tZipOs , tZipper ) ;
+    //zipperF( tinP , etThread , ifcIDaDAM_LISTsERVERmONEYbUCKETS                 , tMas , tZipOs , tZipper ) ;
+    //zipperF( tinP , etThread , ifcIDaDAM_LISTsERVERiDaCCOUNTdESCRIPTION         , tMas , tZipOs , tZipper ) ;
+    //zipperF( tinP , etThread , ifcIDaDAM_PREPARElISTS                           , tMas , tZipOs , tZipper ) ;
+    //zipperF( tinP , etThread , ifcIDaDAM_LISTsERVEReMAILiDaCCOUNT               , tMas , tZipOs , tZipper ) ;
+    //zipperF( tinP , etThread , ifcIDaDAM_DOMAINsERIALnUMBERdISPENSER            , tMas , tZipOs , tZipper ) ;
+    //zipperF( tinP , etThread , ifcIDaDAM_MEMBRANEgLASS                          , tMas , tZipOs , tZipper ) ;
+    //zipperF( tinP , etThread , ifcIDaDAM_ROOTlEAKlOGGER                         , tMas , tZipOs , tZipper ) ;
+    //zipperF( tinP , etThread , ifcIDaDAM_ROOTgORILLA                            , tMas , tZipOs , tZipper ) ;
+    //zipperF( tinP , etThread , ifcIDaDAM_ROOTwATCHMAN                           , tMas , tZipOs , tZipper ) ;
+    //zipperF( tinP , etThread , ifcIDaDAM_NEWcONSOLE                             , tMas , tZipOs , tZipper ) ;
+    //zipperF( tinP , etThread , ifcIDaDAM_KERNELwATCHdATABASE                    , tMas , tZipOs , tZipper ) ;
+    //zipperF( tinP , etThread , ifcIDaDAM_SOIXLoLDiNTERPRETER                        , tMas , tZipOs , tZipper ) ;
+    //zipperF( tinP , etThread , ifcIDaDAM_UNINSTALLER                            , tMas , tZipOs , tZipper ) ;
+    //zipperF( tinP , etThread , ifcIDaDAM_TIMEcARD                               , tMas , tZipOs , tZipper ) ;
+    //zipperF( tinP , etThread , ifcIDaDAM_ROOTfORMdATAeATER                      , tMas , tZipOs , tZipper ) ;
+    //zipperF( tinP , etThread , ifcIDaDAM_ROOThTTPsERVER                         , tMas , tZipOs , tZipper ) ;
+    //zipperF( tinP , etThread , ifcIDaDAM_ROOTsMTPsERVER                         , tMas , tZipOs , tZipper ) ;
+    //zipperF( tinP , etThread , ifcIDaDAM_ROOTmAILoUT                            , tMas , tZipOs , tZipper ) ;
+    //zipperF( tinP , etThread , ifcIDaDAM_KERNEL3PANICdOOR                       , tMas , tZipOs , tZipper ) ;
+    //zipperF( tinP , etThread , ifcIDaDAM_ROOTfTPsERVER                          , tMas , tZipOs , tZipper ) ;
+    //zipperF( tinP , etThread , ifcIDaDAM_KERNEL2MONITOR                         , tMas , tZipOs , tZipper ) ;
+    //zipperF( tinP , etThread , ifcIDaDAM_KERNEL1DRIVER                          , tMas , tZipOs , tZipper ) ;
+    //zipperF( tinP , etThread , 0x3000010                                        , tMas , tZipOs , tZipper ) ;
+    //zipperF( tinP , etThread , 0x2000010                                        , tMas , tZipOs , tZipper ) ;
+    //zipperF( tinP , etThread , 0x1002010                                        , tMas , tZipOs , tZipper ) ;
+    //2007.10.13: ROOT SERVER, TO RECEIVE INCOMING EMAIL
+
+    //zipperF( tinP , etThread , 0x4010350 , tMas , tZipOs , tZipper ) ;
+    //zipperF( tinP , etThread , 0x401043a , tMas , tZipOs , tZipper ) ;
+    //zipperF( tinP , etThread , 0x401048b , tMas , tZipOs , tZipper ) ;
+    //zipperF( tinP , etThread , 0x40103fc , tMas , tZipOs , tZipper ) ;
+    //zipperF( tinP , etThread , 0x4010120 , tMas , tZipOs , tZipper ) ;
+    //zipperF( tinP , etThread , 0x4010452 , tMas , tZipOs , tZipper ) ;
+    //OLD BRAIN: THESE ARE NORMALLY COMMENTED OUT (THESE ARE ALL OBSOLETE)
+
+    //zipperF( tinP , etThread , 0x40100f9 , tMas , tZipOs , tZipper ) ;
+    //zipperF( tinP , etThread , 0x4010485 , tMas , tZipOs , tZipper ) ;
+    //zipperF( tinP , etThread , 0x401012a , tMas , tZipOs , tZipper ) ;
+    //zipperF( tinP , etThread , 0x4010495 , tMas , tZipOs , tZipper ) ;
+    //zipperF( tinP , etThread , 0x40104ae , tMas , tZipOs , tZipper ) ;
+    //zipperF( tinP , etThread , 0x4010411 , tMas , tZipOs , tZipper ) ;
+    //zipperF( tinP , etThread , 0x40104e2 , tMas , tZipOs , tZipper ) ;
+    //zipperF( tinP , etThread , 0x401040e , tMas , tZipOs , tZipper ) ;
+    //zipperF( tinP , etThread , 0x3000010 , tMas , tZipOs , tZipper ) ;
+    //zipperF( tinP , etThread , 0x2000010 , tMas , tZipOs , tZipper ) ;
+    //zipperF( tinP , etThread , 0x1002010 , tMas , tZipOs , tZipper ) ;
+    //THESE ARE ALL OBSOLETE
+
+    //zipperF( tinP , etThread , 0x4010512 , tMas , tZipOs , tZipper ) ; //TIMECARD: REMOVE THIS BEFORE RELEASING DOWNLOAD
+    //zipperF( tinP , etThread , 0x401053d , tMas , tZipOs , tZipper ) ;
+    //zipperF( tinP , etThread , 0x401053a , tMas , tZipOs , tZipper ) ;
+    //zipperF( tinP , etThread , 0x4010536 , tMas , tZipOs , tZipper ) ;
+    //zipperF( tinP , etThread , 0x4010535 , tMas , tZipOs , tZipper ) ;
+    //zipperF( tinP , etThread , 0x4010534 , tMas , tZipOs , tZipper ) ;
+    //zipperF( tinP , etThread , 0x4010418 , tMas , tZipOs , tZipper ) ;
+    //zipperF( tinP , etThread , 0x401052d , tMas , tZipOs , tZipper ) ;
+    //zipperF( tinP , etThread , 0x401051b , tMas , tZipOs , tZipper ) ;
+    //zipperF( tinP , etThread , 0x4010515 , tMas , tZipOs , tZipper ) ;
+    //zipperF( tinP , etThread , 0x4010514 , tMas , tZipOs , tZipper ) ;
+    //zipperF( tinP , etThread , 0x4010505 , tMas , tZipOs , tZipper ) ;
+    //zipperF( tinP , etThread , 0x4010504 , tMas , tZipOs , tZipper ) ;
+    //zipperF( tinP , etThread , 0x40104ff , tMas , tZipOs , tZipper ) ;
+    ////zipperF( tinP , etThread , 0x4010511 , tMas , tZipOs , tZipper ) ;
+    //zipperF( tinP , etThread , 0x4010501 , tMas , tZipOs , tZipper ) ;
+    //zipperF( tinP , etThread , 0x401040e , tMas , tZipOs , tZipper ) ;
+    //zipperF( tinP , etThread , 0x3000010 , tMas , tZipOs , tZipper ) ;
+    //zipperF( tinP , etThread , 0x2000010 , tMas , tZipOs , tZipper ) ;
+    //zipperF( tinP , etThread , 0x1002010 , tMas , tZipOs , tZipper ) ;
+    //zipperF( tinP , etThread , 0x4010516 , tMas , tZipOs , tZipper ) ;
+    //THESE ARE ALL PSEUDOOBSOLETE (INITIAL RELEASE IS JUST A KT VIEWER)
+
+    //zipperF( tinP , etThread , 0x4010512 , tMas , tZipOs , tZipper ) ; //JUST FOR CRAFTWORK ENVIRONMENT; NORMALLY THIS SHOULD BE COMMENTED OUT
+    //zipperF( tinP , etThread , 0x4010556 , tMas , tZipOs , tZipper ) ;
+    //zipperF( tinP , etThread , 0x4010505 , tMas , tZipOs , tZipper ) ;
+    //zipperF( tinP , etThread , 0x4010564 , tMas , tZipOs , tZipper ) ;
+    //zipperF( tinP , etThread , 0x4010501 , tMas , tZipOs , tZipper ) ;
+    //zipperF( tinP , etThread , 0x401040e , tMas , tZipOs , tZipper ) ;
+    //zipperF( tinP , etThread , 0x3000010 , tMas , tZipOs , tZipper ) ;
+    //zipperF( tinP , etThread , 0x2000010 , tMas , tZipOs , tZipper ) ;
+    //zipperF( tinP , etThread , 0x1002010 , tMas , tZipOs , tZipper ) ;
+
+    }
+        etThread.delF( tinP , psttHover ) ;
+        etThread.strokeF( tinP , T("releasing from:\r\n" USCORE79 "\r\n\r\n")+T(psttHover)+T("\r\n" USCORE79 "\r\n\r\n") ) ;
+        etThread.diskGetHoverF( tinP , psttHover ) ; ___( psttHover ) ;
+        ZE( strokeS* , psttHover ) ;
+    {
+    hoverC hoverMaster( tinP , etThread , T("///d/ideafarm.home.1/ephemeral/domains/com/ideafarm/city/park/exedll/1/master/") ) ;
+    etThread.diskMakeDirIfNeededF( tinP , T("///d/ideafarm.work/backed.up.never/gen/zip/ifc-w.zip") ) ;
+    if( etThread.diskFileExistsF( tinP , tZip ) ) etThread.boxZapF( tinP , tZip ) ;
+    TN( tExe , "exe" ) ;
+    TN( tMas , "mas" ) ;
+    TN( tZipOs  , osFileNameC( tinP , etThread , tZip ) ) ;
+    TN( tZipper , "///d/ideafarm.work/backed.up.never/software/zip/zip.exe" ) ;
+{
+TN( tZip , "///d/ideafarm.work/backed.up.never/gen/zip/ifc-w.zip" ) ;
+etThread.strokeF( tinP , T("starting...\r\n") ) ;
+
+TODO
+
+}
+    etThread.strokeF( tinP , T(" done\r\n") ) ;
+    __( value ) ;
+    etThread.osProcessF( value , iddt , tinP , psttZipperP , T("-9j ")+T(psttZipOsP)+T(" ")+tShortName ) ;
+    ZE( countT , iddt ) ;
+    ZE( countT , value ) ;
+
+    }
+        etThread.strokeF( tinP , T("zipping ")+tShortName+T(" ...") ) ;
+        tShortName = T(psttTypeP) ;
+    {
+    else
+    }
+        etThread.strokeF( tinP , T("zipping ")+tIdiFile+T(" ...") ) ;
+        tShortName = T("ideafarm.")+tIdiFile+T("w.")+T(psttTypeP) ;
+        TN( tIdiFile , "" ) ; tIdiFile = TF3(idiFileP,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED|flFORMAT_FILLzE,7) ;
+    {
+    if( idiFileP )
+    TN( tShortName , "" ) ;
+{
+voidT zipperF( tinS& tinP , etherC& etThread , const countT idiFileP , const strokeS* const psttTypeP , const strokeS* const psttZipOsP , const strokeS* const psttZipperP )
+
+}
+    return (byteT*)pbc ;
+    //if( tinP.fingerprint ) ;
+
+    }
+        }
+            __1
+            pbc = 0 ;
+        {
+        if( pbc == pbe )
+        }
+            if( off == cbSmallP ) break ;
+            }
+                if( pbc[ off ] != pbSmallP[ off ] ) break ;
+            {
+            for( off = 0 ; off < cbSmallP ; off ++ )
+        {
+        for( pbc = pbBigP ; pbc < pbe ; pbc ++ )
+        ZE( countT , off ) ;
+        const byteT* const pbe = pbBigP + cbBigP ;
+    {
+    ZE( const byteT* , pbc ) ;
+{
+byteT* pbF( tinS& tinP , const byteT* const pbBigP , const countT cbBigP , const byteT* const pbSmallP , const countT cbSmallP )
+
+/*1*/WAKEhIDE( "tool.release.packer" )/*1*/
+/**/
+*/
+/*
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 29 years.
+//
+// Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+

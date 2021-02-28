@@ -1,0 +1,206 @@
+
+//
+// Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 29 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+
+}
+    ) ;
+
+        )
+
+            "</FORM>\r\n"
+                "<INPUT TYPE=\"submit\" NAME=\"action\" VALUE=\"")+tAction_setMyPrivileges+T("\" ALT=\"")+tAction_setMyPrivileges+T("\">\r\n"
+                "<P>\r\n"
+                "Password: <INPUT NAME=\"")+tKeyPassword+T("\" VALUE=\"\" TYPE=\"password\" MAXLENGTH=\"8\" SIZE=\"8\" ONCLICK=\"select() ;\">\r\n"
+                "<INPUT NAME=\"")+tKeyUser+T("\" VALUE=\"")+tKeyUser+T("\" TYPE=\"text\" MAXLENGTH=\"16\" SIZE=\"16\" ONCLICK=\"select() ;\">\r\n"
+                "<P>\r\n"
+
+        +T(
+
+        +tPrivilegesNew
+        )
+
+                "<P>\r\n"
+                "<INPUT TYPE=\"hidden\" VALUE=\"privileges\" NAME=\"form\">\r\n"
+            "<FORM ACTION=\"/header/do/privileges.html\" METHOD=\"post\">\r\n"
+            "<P>\r\n"
+            "  For privileges marked with (**), the valid user id and password of a security cleared user must be entered.\r\n"
+            "  For privileges marked with (*), a valid user id and password must be entered.\r\n"
+            "  Select only those privileges that you will need during this session.\r\n"
+            "  Your current session privileges are indicated.\r\n"
+            "All privileges that are available to you are listed below.\r\n"
+            "<P>\r\n"
+            "</FORM>\r\n"
+                "<INPUT TYPE=\"submit\" NAME=\"action\" VALUE=\"")+tAction_clearMyPrivileges+T("\" ALT=\"")+tAction_clearMyPrivileges+T("\">\r\n"
+                "<INPUT TYPE=\"hidden\" VALUE=\"logout\" NAME=\"form\"><P>\r\n"
+            "<FORM ACTION=\"/header/do/privileges.html\" METHOD=\"post\">\r\n"
+            "  But you can \"log out\" by clearing all of your privileges:\r\n"
+            "  A session ends only when it times out.\r\n"
+            "This sesssion currently has the privileges listed above.\r\n"
+            "<P>\r\n"
+        
+        +T(
+        tPrivilegesOld
+
+    meP.pushSnipF( tinP , stBodyP ,
+
+    if( !tPrivilegesOld.csF( tinP ) ) tPrivilegesOld = T("(none)<BR>") ;
+
+    tPrivilegesNew += T("<INPUT TYPE=CHECKBOX NAME=\"")+tKeyPrivelege_viewServerReports+T("\" VALUE=\"")+tValue_on+T("\" ")+T(F(flagsp)&flSESSIONpRIVILEGE_VIEWsERVERrEPORTS  ?"CHECKED":"")+T("> ")+tKeyPrivelege_viewServerReports+tsssbr ;
+    tPrivilegesNew += T("<INPUT TYPE=CHECKBOX NAME=\"")+tKeyPrivilege_sendReceiveEmail +T("\" VALUE=\"")+tValue_on+T("\" ")+T(F(flagsp)&flSESSIONpRIVILEGE_SENDaNDrECEIVEeMAIL?"CHECKED":"")+T("> ")+tKeyPrivilege_sendReceiveEmail +tssbr  ;
+    //tPrivilegesNew += T("<INPUT TYPE=CHECKBOX NAME=\"")+tKeyPrivilege_hideAdLinks      +T("\" VALUE=\"")+tValue_on+T("\" ")+T(F(flagsp)&flSESSIONpRIVILEGE_HIDEaDlINKS        ?"CHECKED":"")+T("> ")+tKeyPrivilege_hideAdLinks      +tssbr  ;
+    tPrivilegesNew += T("<INPUT TYPE=CHECKBOX NAME=\"")+tKeyPrivilege_viewUntestedPages+T("\" VALUE=\"")+tValue_on+T("\" ")+T(F(flagsp)&flSESSIONpRIVILEGE_VIEWuNTESTEDpAGES  ?"CHECKED":"")+T("> ")+tKeyPrivilege_viewUntestedPages+tbr    ;
+    //tPrivilegesNew += T("<INPUT TYPE=CHECKBOX NAME=\"")+tKeyPrivilege_hideImageAds     +T("\" VALUE=\"")+tValue_on+T("\" ")+T(F(flagsp)&flSESSIONpRIVILEGE_HIDEiMAGEaDS       ?"CHECKED":"")+T("> ")+tKeyPrivilege_hideImageAds     +tbr    ;
+    tPrivilegesNew += T("<P>") ;
+    tPrivilegesNew += T("<INPUT TYPE=CHECKBOX NAME=\"")+tKeyPrivilege_recall           +T("\" VALUE=\"")+tValue_on+T("\" CHECKED> "                                                                )+tKeyPrivilege_recall           +tssbr  ;
+    TN( tPrivilegesNew , "" ) ;
+    TN( tsssbr , "** <BR>" ) ;
+    TN( tssbr , "* <BR>" ) ;
+
+    //if( F(flagsp) & flSESSIONpRIVILEGE_HIDEaDlINKS         ) tPrivilegesOld += tli+tKeyPrivilege_hideAdLinks      +tbr ;
+    //if( F(flagsp) & flSESSIONpRIVILEGE_HIDEiMAGEaDS        ) tPrivilegesOld += tli+tKeyPrivilege_hideImageAds     +tbr ;
+    if( F(flagsp) & flSESSIONpRIVILEGE_SENDaNDrECEIVEeMAIL ) tPrivilegesOld += tli+tKeyPrivilege_sendReceiveEmail +tbr ;
+    if( F(flagsp) & flSESSIONpRIVILEGE_VIEWuNTESTEDpAGES   ) tPrivilegesOld += tli+tKeyPrivilege_viewUntestedPages+tbr ;
+    if( F(flagsp) & flSESSIONpRIVILEGE_VIEWsERVERrEPORTS   ) tPrivilegesOld += tli+tKeyPrivelege_viewServerReports+tbr ;
+    TN( tli , "<LI>" ) ;
+    TN( tbr , "<BR>" ) ;
+    TN( tPrivilegesOld , "" ) ;
+
+    flagsT flagsp = session.privilegesF( tinP ) ;
+    sessionC& session = sessionsP( tinP , nnPeerP ) ;
+    //CS:CODEsYNC: 0010435 1850104
+
+    }
+        }
+            if( POOP ) POOPR
+    
+            }
+                }
+                    }
+                        }
+                            if( !tinP.pEtScratch->strCompareF( tinP , psttLeverKVP , tKeyPrivelege_viewServerReports.psttLowerF( tinP ) ) && !tinP.pEtScratch->strCompareF( tinP , pzsttv , tValue_on ) ) session.privilegesF( tinP , session.privilegesF( tinP ) | flSESSIONpRIVILEGE_VIEWsERVERrEPORTS   ) ;
+                        {
+                        if( cPrivilegeLevel >= 2 ) //WORKAROUND TO CLOSE SECURITY HOLE NOW THAT ANYWO CAN GET A LOGIN ACCOUNT
+
+                        //else if( !tinP.pEtScratch->strCompareF( tinP , psttLeverKVP , tKeyPrivilege_hideAdLinks.psttLowerF( tinP )       ) && !tinP.pEtScratch->strCompareF( tinP , pzsttv , tValue_on ) ) session.privilegesF( tinP , session.privilegesF( tinP ) | flSESSIONpRIVILEGE_HIDEaDlINKS         ) ;
+                             if( !tinP.pEtScratch->strCompareF( tinP , psttLeverKVP , tKeyPrivilege_sendReceiveEmail.psttLowerF( tinP )  ) && !tinP.pEtScratch->strCompareF( tinP , pzsttv , tValue_on ) ) session.privilegesF( tinP , session.privilegesF( tinP ) | flSESSIONpRIVILEGE_SENDaNDrECEIVEeMAIL ) ;
+                    {
+                    else if( cPrivilegeLevel )
+                    //else if( !tinP.pEtScratch->strCompareF( tinP , psttLeverKVP , tKeyPrivilege_hideImageAds.psttLowerF( tinP )      ) && !tinP.pEtScratch->strCompareF( tinP , pzsttv , tValue_on ) ) session.privilegesF( tinP , session.privilegesF( tinP ) | flSESSIONpRIVILEGE_HIDEiMAGEaDS      ) ;
+                         if( !tinP.pEtScratch->strCompareF( tinP , psttLeverKVP , tKeyPrivilege_viewUntestedPages.psttLowerF( tinP ) ) && !tinP.pEtScratch->strCompareF( tinP , pzsttv , tValue_on ) ) session.privilegesF( tinP , session.privilegesF( tinP ) | flSESSIONpRIVILEGE_VIEWuNTESTEDpAGES ) ;
+
+                    //LOGrAW( tSay ) ;
+                    //TN( tSay , "" ) ; tSay = T("\"")+T(psttLeverKVP)+T("\":\"")+T(pzsttv)+T("\"\r\n") ;
+                    strokeS* pzsttv = (strokeS*)(countT)swKVP ;
+                    psttLeverKVP = (strokeS*)swKVP.leverF( tinP , idf ) ;
+
+                    if( idf == idLeverAction || idf == idLeverUser || idf == idLeverPassword ) continue ;
+                {
+                for( countT idf = 1 ; idf <= cFlavors ; idf ++ )
+                sessionC& session = sessionsP( tinP , nnPeerP ) ;
+
+                }
+                    }
+                        }
+                            }
+                                etThread.delF( tinP , pstt1w ) ;
+                                }
+                                    }
+                                        break ;
+                                        cPrivilegeLevel = 2 ;
+                                    {
+                                    if( !etThread.strCompareF( tinP , psttc1 , T("all") ) )
+                                {
+                                FORsTRINGSiN1( pstt1w )
+                                etThread.strWordsOldF( tinP , pstt1w , T(posti) , sttq ) ; ___( pstt1w ) ;
+                                strokeS sttq( 0 , sc_IGNOREqUOTES ) ;
+                                ZE( strokeS* , pstt1w ) ;
+                            {
+                            else if( posti )
+                            if( POOP ) { POOPR ; }
+                            tinP.pEtScratch->boxGetShadowF( tinP , posti , costi , tDirAccount+T("privileges.txt") , 1 ) ; ___( posti ) ;
+                            ZE( countT   , costi ) ;
+                            ZE( osTextT* , posti ) ;
+
+                            sessionsP.registerConnectionF( tinP , nnPeerP , 0 , pzsttvUser , 1 ) ;
+                        {
+                        if( cPrivilegeLevel )
+
+                        cPrivilegeLevel = tinP.pEtScratch->diskFileExistsF( tinP , tDirAccount ) && tinP.pEtScratch->diskFileExistsF( tinP , tFilePassword ) ; //!! ELIMINATED FROM WOTH TERM BECAUSE REDUNDANT (&& RETURNS 0 OR 1)
+
+                        TN( tFilePassword , "" ) ; tFilePassword = tDirAccount+tShortFilePassword+T(pzsttvPassword) ;
+                        TN( tShortFilePassword   , "password." ) ;
+                        TN( tDirAccount   , "///ideafarm/ephemeral/backed.up.daily/domains/com/ideafarm/ipdos/accounts/" ) ; tDirAccount += T(pzsttvUser)+T("/") ;
+
+                        strokeS* pzsttvPassword = (strokeS*)(countT)swKVP ;
+                        psttLeverKVP = tKeyPassword.psttLowerF( tinP ) ;
+
+                        strokeS* pzsttvUser = (strokeS*)(countT)swKVP ;
+                        psttLeverKVP = tKeyUser.psttLowerF( tinP ) ;
+                    {
+                    if( idLeverUser && idLeverPassword )
+                {
+                ZE( countT , cPrivilegeLevel ) ;
+                const countT idLeverPassword = swKVP.idSlotOfLeverF( tinP , (countT)tKeyPassword.psttLowerF( tinP ) ) ;
+                const countT idLeverUser     = swKVP.idSlotOfLeverF( tinP , (countT)tKeyUser.psttLowerF( tinP )     ) ;
+            {
+            else if( !tinP.pEtScratch->strCompareF( tinP , pzsttvAction , tAction_setMyPrivileges ) )
+            if( !tinP.pEtScratch->strCompareF( tinP , pzsttvAction , tAction_clearMyPrivileges ) ) sessionsP.registerConnectionF( tinP , nnPeerP , 0 , 0 , 1 ) ;
+
+            }
+                session.privilegesF( tinP , flSESSIONpRIVILEGE_null ) ;
+                sessionC& session = sessionsP( tinP , nnPeerP ) ;
+            {
+    
+            strokeS* pzsttvAction = (strokeS*)(countT)swKVP ;
+            psttLeverKVP = tKeyAction.psttLowerF( tinP ) ;
+        {
+        if( idLeverAction )
+        const countT idLeverAction = swKVP.idSlotOfLeverF( tinP , (countT)tKeyAction.psttLowerF( tinP ) ) ;
+
+        //}
+        //    LOGrAW( tSay ) ; //U::
+        //    TN( tSay , "" ) ; tSay = T("\"")+T(psttLeverKVP)+T("\":\"")+T(pzsttv)+T("\"\r\n") ;
+        //    strokeS* pzsttv = (strokeS*)(countT)swKVP ;
+        //    psttLeverKVP = (strokeS*)swKVP.leverF( tinP , idf ) ;
+        //{
+        //for( countT idf = 1 ; idf <= cFlavors ; idf ++ )
+        //LOGrAW( tSay ) ; //U::
+        //TN( tSay , "" ) ; tSay = T("---- keys and value  received ----------------------------------\r\n") ;
+    {
+    if( cFlavors )
+    countT cFlavors = swKVP.cFlavorsF( tinP ) ;
+
+    TN( tKeyPassword                                , "Password"   ) ;
+    TN( tKeyUser                                    , "User Id"     ) ;
+
+    TN( tKeyPrivilege_recall                        , "Recall From Lath Session" ) ;
+    TN( tKeyPrivilege_hideAdLinks                   , "Hide Ad Links" ) ;
+    TN( tKeyPrivilege_hideImageAds                  , "Hide Image Ads" ) ;
+    TN( tKeyPrivilege_sendReceiveEmail              , "Send and Receive Email" ) ;
+    TN( tKeyPrivilege_viewUntestedPages             , "View Untested Pages" ) ;
+    TN( tKeyPrivelege_viewServerReports             , "View Server Reports" ) ;
+
+    TN( tAction_clearMyPrivileges                   , "Clear My Privileges" ) ;
+    TN( tAction_setMyPrivileges                     , "Set My Privileges" ) ;
+    TN( tKeyAction                                  , "Action" ) ;
+
+    TN( tValue_on                                   , "on" ) ;
+{
+/*1*/voidT privilegesCBF( tinS& tinP , etherC& etThread , const boolT& bQuitP , httpServerC& meP , countT& cArgP , httpReplyS& replyP , stackC& stBodyP , const strokeS* const psttKVReportP , switchC& swKVP , strokeS*& psttLeverKVP , sessionsC& sessionsP , nicNameC& nnPeerP , const strokeS* const psttNameP , const strokeS* const psttQueryKVP , const strokeS* const psttPeerAgentP , const osTextT* const postBodyP )/*1*/
+
+/**/
+*/
+/*
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 29 years.
+//
+// Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+

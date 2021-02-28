@@ -1,0 +1,61 @@
+
+//
+// Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 29 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+
+#endif
+
+    ;
+                                                                                                                            \
+        modify [eax]                                                                                                        \
+        parm [ebx]                                                                                                          \
+                                                                                                                            \
+        "               call eipF                                  "                                                        \
+        "               push eax                                   "                                                        \
+        "               lea eax , dword ptr 020h[ ebx ]            "                                                        \
+        "               mov dword ptr 024h[ebx] , eax              "                                                        \
+        "               popfd                                      "                                                        \
+        "               mov eax , dword ptr [esp]                  "                                                        \
+        "               pushfd                                     "                                                        \
+        "               mov  word ptr 03ch[ebx] , cs               "                                                        \
+        "               mov  word ptr 038h[ebx] , ss               "                                                        \
+        "               mov  word ptr 034h[ebx] , gs               "                                                        \
+        "               mov  word ptr 030h[ebx] , fs               "                                                        \
+        "               mov  word ptr 02ch[ebx] , es               "                                                        \
+        "               mov  word ptr 028h[ebx] , ds               "                                                        \
+        "               mov dword ptr 01ch[ebx] , esp              "                                                        \
+        "               mov dword ptr 018h[ebx] , ebp              "                                                        \
+        "               mov dword ptr 014h[ebx] , edi              "                                                        \
+        "               mov dword ptr 010h[ebx] , esi              "                                                        \
+        "               mov dword ptr 00ch[ebx] , edx              "                                                        \
+        "               mov dword ptr 008h[ebx] , ecx              "                                                        \
+        "               mov dword ptr 004h[ebx] , ebx              "                                                        \
+        "               mov dword ptr 000h[ebx] , eax              "                                                        \
+                                                                                                                            \
+    #pragma aux getRegsAM =                                                                                                 \
+
+#if defined( __NT__ )
+
+//CODEsYNC: 0090012 0090013 003002a
+
+/*1*/void __export getRegsAM( unsigned* pcP ) ;/*1*/
+/**/
+*/
+  must point to enough storage to receive all registers
+  must not be 0
+ pcP
+arguments
+\<A HREF=\"5.0090012.1.0.html\"\>definition\</A\>
+/*
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 29 years.
+//
+// Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+

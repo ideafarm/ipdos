@@ -307,6 +307,8 @@ voidT sockOptionReuseAddressF_b6_GF( tinS& tinP , etherC& etherP , soulC& slP , 
 
 voidT sockOptionSendNowF_b6_GF( tinS& tinP , etherC& etherP , soulC& slP , const strokeS* const _psttNameP ) ;
 
+voidT sockOptionDualStackF_b_GF( tinS& tinP , etherC& etherP , soulC& slP , const strokeS* const _psttNameP ) ;
+
 voidT socksSetupF__GF( tinS& tinP , etherC& etherP , soulC& slP , const strokeS* const _psttNameP ) ;
 
 voidT socksShutdownF__GF( tinS& tinP , etherC& etherP , soulC& slP , const strokeS* const _psttNameP ) ;

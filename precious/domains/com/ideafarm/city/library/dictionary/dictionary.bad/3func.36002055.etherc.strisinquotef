@@ -1,0 +1,117 @@
+
+//
+// Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 29 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+
+}
+    return bInQuote ;
+
+    }
+        }
+            bInQuote = 0 ;
+            sttQuoteP = 0 ;
+        {
+        else
+        if( !(countT)sttQuoteP ) sttQuoteP = psttP[ CSpREFIX - 1 + idP ] ;
+    {
+    )
+        )
+            psttP[ CSpREFIX - 1 + idP ] == S2( '\"' , sc_cFROMaSCII ) // THERE IS A DOUBLE QUOTE
+            ||
+            psttP[ CSpREFIX - 1 + idP ] == S2( '\"' , sc_cALPHABET1 ) // THERE IS A DOUBLE QUOTE
+        (
+        &&
+        !bLiteral
+    (
+    if
+
+    boolT bInQuote = !!(countT)sttQuoteP ;
+
+    _IO_
+
+    }
+        }
+            bLiteral = 1 ;
+            )
+                psttP[ CSpREFIX - 1 + idc ] == S2( '\\' , sc_cFROMaSCII )
+                ||
+                psttP[ CSpREFIX - 1 + idc ] == S2( '\\' , sc_cALPHABET1 )
+            (
+            else if
+            if( bLiteral ) bLiteral = 0 ;
+        {
+        for( ; idc < idP ; idc ++ )
+        // idc NOW POINTS TO THE WOTH STROKE IN THE RUN OF BACKSLASHES AND DOUBLE QUOTES
+
+        idc -- ;
+        )
+            )
+                psttP[ CSpREFIX - 2 + idc ] == S2( '\\' , sc_cFROMaSCII )
+                ||
+                psttP[ CSpREFIX - 2 + idc ] == S2( '\\' , sc_cALPHABET1 )
+                ||
+                psttP[ CSpREFIX - 2 + idc ] == S2( '\"' , sc_cFROMaSCII )
+                ||
+                psttP[ CSpREFIX - 2 + idc ] == S2( '\"' , sc_cALPHABET1 )
+            (
+            &&
+            1 < idc
+        (
+        while
+        countT idc = idP ;
+    {
+    )
+        psttP[ CSpREFIX - 1 + idP ] == S2( '\"' , sc_cFROMaSCII )
+        ||
+        psttP[ CSpREFIX - 1 + idP ] == S2( '\"' , sc_cALPHABET1 )
+    (
+    if
+    ZE( boolT , bLiteral ) ; //TREATS QUOTE MARK AS LITERAL IF IT IS PRECEDED BY NONLITERAL BACKSLASH
+
+    }
+        if( POOP ) return 0 ;
+        __( psttP->idAdam < idP ) ;
+        __( psttP->idCaste != sc_PREFIXlENGTH ) ;
+        if( POOP ) return 0 ;
+        __Z( psttP ) ;
+        __Z( idP ) ;
+        if( POOP ) return 0 ;
+    {
+    IFbEcAREFUL
+    SCOOP
+{
+/*1*/boolT etherC::strIsInQuoteF( tinS& tinP , strokeS& sttQuoteP , const countT idP , const strokeS* const psttP )/*1*/
+
+/**/
+*/
+ psttP
+ idP
+ sttQuoteP
+arguments
+  nesting more than one level requires making the quote marks unique by varying idCaste
+ this function will not check for, but will correctly process, nested quotes that use distinct quote marks
+ this function will not check for, and cannot correctly process, nested quotes using the same quote mark
+unmatching quote marks within a quote are treated as literals, i.e. ignored
+the opening and closing quote strokes are not in the quote
+to match, both quote marks must be of the same caste
+single quotes are not treated as quote delimiters
+matches pairs of double quotes
+do not modify sttQuoteP between calls
+must be called consecutively for idP = 1,2,3,...
+updates sttQuoteP to contain either a null stroke or the most recent quote stroke encountered
+evaluates to 1 iff the stroke at idP is within a quote
+\<A HREF=\"5.1030060.1.0.html\"\>definition\</A\>
+\<A HREF=\"6.$strIsInQuoteF.0.html\"\>instances\</A\>
+/*
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 29 years.
+//
+// Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+

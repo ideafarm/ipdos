@@ -1,0 +1,221 @@
+
+//
+// Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 29 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+
+DONE( tmServePortF )
+
+}
+    TELL( "cleaning up: final" )
+    DEL( pso ) ;
+    pso->readF( tinP , &bnu , 1 , flSOCKETcrEAD_STILLhUNGRYiSoK ) ;
+    TELL( "cleaning up: reading a byteT so client can disconnect" )
+    ZE( byteT , bnu ) ;
+
+    pso->writeF( tinP , (byteT*)&idAck , sizeof idAck ) ;
+    etThread = 0 ;
+    countT idAck = etThread ? ifcREPLY_NACK : ifcREPLY_ACK ;
+
+    TELL( "cleaning up: writing acknack" )
+    }
+        }
+            }
+                break ;
+                __1
+                __( idCmd ) ;
+            {
+            default :
+            }
+                break ;
+
+                b_idProcessOldI.ungrabF( tinP ) ;
+
+                }
+                    //U: OPTIMIZE: ELIMINATE THE WRITING OF REDUNDANT idiClass VALUES. ALT: SEND idiClass, cPort, idPort , idPort , ... FOR EACH DISTINCT idiClass
+                    else                                     pso->writeF( tinP , (byteT*)pc2cp      , sizeof( count2S ) ) ;
+                    if( idCmd == ifcCMDpORTaUTHORITY_QUERY ) pso->writeF( tinP , (byteT*)&pc2cp->c2 , sizeof( countT  ) ) ;
+                    stc2p >> pc2cp ;
+                    ZE( count2S* , pc2cp ) ;
+                {
+                while( stc2p )
+                pso->writeF( tinP , (byteT*)&cPorts , sizeof cPorts ) ;
+                TELL( "ifcCMDpORTaUTHORITY_QUERY ifcCMDpORTaUTHORITY_QUERYaLL: writing port authorities " )
+                countT cPorts = stc2p ;
+
+                }
+                    }
+                        }
+                            __Z( idSlot ) ;
+                            stc2p.sinkF( tinP , idSlot , pc2cp , flSTACKsINK_UNIQUE ) ;
+                            ZE( countT , idSlot ) ;
+                        {
+                        if( pc2cp && ( !idiClassWanted || idiClassWanted == pc2cp->c1 ) )
+
+                        __Z( pc2cp ) ;
+                        count2S* pc2cp = (count2S*)(countT)swc2 ;
+                        idProcessOldI = swc2.leverF( tinP , idf ) ;
+                    {
+                    for( countT idf = 1 ; idf <= cFlavors ; idf ++ )
+                    countT cFlavors = swc2.cFlavorsF( tinP ) ;
+                {
+                stackC stc2p( tinP , etThread , TAG( TAGiDnULL ) , flSTACKc_FIFO , ifcSTACKtYPE_PTR_count2S ) ; // WILL CONTAIN SORTED PROCESS [CLASS,PORT] PAIRS
+
+                validateF( tinP , etThread , swc2 , idProcessOldI ) ;
+                TELL( "ifcCMDpORTaUTHORITY_QUERY ifcCMDpORTaUTHORITY_QUERYaLL: validating" )
+
+                b_idProcessOldI.grabF( tinP , TAG( TAGiDnULL ) ) ;
+
+                }
+                    __Z( idiClassWanted ) ;
+                    __( sizeof idiClassWanted - pso->readF( tinP , (byteT*)&idiClassWanted , sizeof idiClassWanted ) ) ;
+                    TELL( "ifcCMDpORTaUTHORITY_QUERY ifcCMDpORTaUTHORITY_QUERYaLL: reading idiClassWanted" )
+                {
+                if( idCmd == ifcCMDpORTaUTHORITY_QUERY )
+                ZE( countT , idiClassWanted ) ;
+            {
+            case ifcCMDpORTaUTHORITY_QUERYaLL :
+            case ifcCMDpORTaUTHORITY_QUERY :
+            }
+                break ;
+
+                }
+                    b_idProcessOldI.ungrabF( tinP ) ;
+                    etThread.delF( tinP , pc2cp ) ;
+                    swc2.freeF( tinP ) ;
+                    count2S* pc2cp = (count2S*)(countT)swc2 ;
+                    idProcessOldI = idProcessOldIn ;
+                    b_idProcessOldI.grabF( tinP , TAG( TAGiDnULL ) ) ;
+                {
+                if( !ether && !etThread )
+
+                __Z( idProcessOldIn ) ;
+                __( sizeof idProcessOldIn - pso->readF( tinP , (byteT*)&idProcessOldIn , sizeof idProcessOldIn ) ) ;
+
+                ZE( countT , idProcessOldIn ) ;
+                TELL( "ifcCMDpORTaUTHORITY_DELETE" )
+            {
+            case ifcCMDpORTaUTHORITY_DELETE :
+            }
+                break ;
+
+                }
+                    b_idProcessOldI.ungrabF( tinP ) ;
+                    }
+                        }
+                            swc2 = (countT)pc2cp ;
+                            pc2cp->c2  = idPortIn ;
+                            pc2cp->c1 = idiClassIn ;
+                        {
+                        if( pc2cp )
+                        etThread.newF( tinP , LF , pc2cp ) ; ___( pc2cp ) ;
+                        ZE( count2S* , pc2cp ) ;
+                    {
+                    if( !etThread )
+
+                    __( (countT&)swc2 ) ;
+
+                    idProcessOldI = idProcessOldIn ;
+                    b_idProcessOldI.grabF( tinP , TAG( TAGiDnULL ) ) ;
+                {
+                if( !ether && !etThread )
+
+                //WE DO NOT VERIFY THAT idPortIn IS OK HERE BECAUSE THE SERVER MIGHT NOT BE ACCEPTING CONNECTIONS UNTIL AFTER I RETURN
+
+                __Z( idPortIn ) ;
+                __Z( idiClassIn ) ;
+                __Z( idProcessOldIn ) ;
+                __( sizeof c3i - pso->readF( tinP , (byteT*)&c3i , sizeof c3i ) ) ;
+
+                countT& idPortIn    = c3i.c3 ;
+                countT& idiClassIn  = c3i.c2 ;
+                countT& idProcessOldIn = c3i.c1 ;
+                count3S c3i ;
+                TELL( "ifcCMDpORTaUTHORITY_NEW" )
+            {
+            case ifcCMDpORTaUTHORITY_NEW :
+            }
+                break ;
+
+                pso->writeF( tinP , (byteT*)&idProcessOldI , sizeof idProcessOldI ) ;
+                TELL( "ifcCMDpORTaUTHORITY_NEWpROCESS: writing idProcessOldI" )
+                b_idProcessOldLast.ungrabF( tinP ) ;
+                countT idProcessOldI = ++ idProcessOldLast ;
+                b_idProcessOldLast.grabF( tinP , TAG( TAGiDnULL ) ) ;
+            {
+            case ifcCMDpORTaUTHORITY_NEWpROCESS :
+            }
+                break ;
+
+                pso->writeF( tinP , (byteT*)&idMisc , sizeof idMisc ) ;
+                TELL( "ifcCMDpORTaUTHORITY_NEWiDmISC: writing idMisc" )
+                b_idMiscLast.ungrabF( tinP ) ;
+                countT idMisc = ++ idMiscLast ;
+                b_idMiscLast.grabF( tinP , TAG( TAGiDnULL ) ) ;
+            {
+            case ifcCMDpORTaUTHORITY_NEWiDmISC :
+            }
+                break ;
+                etThread.delF( tinP , psttArgs ) ;
+
+                etThread.osProcessF( tinP , countTC() , countTC() , idAdam , T(psttArgs)+T(" !idKidI ")+TF1(idKidI)+T(" !idPortFaceDadI ")+TF1(idPortFaceDadI)+T(" !nicNamePaperDadI ")+TF1(nicNamePaperDadI) ) ;
+                TELL( "launching process" )
+
+                { countT cbi = sizeof( strokeS ) * ( CSpREFIX + csArgs ) ; __( cbi - pso->readF( tinP , (byteT*)psttArgs , cbi ) ) ; }
+                TELL( "ifcCMDpORTaUTHORITY_LAUNCHkIDpROCESS: reading psttArgs" )
+                etThread.newF( tinP , LF , psttArgs , CSpREFIX + csArgs ) ; ___( psttArgs ) ;
+                ZE( strokeS* , psttArgs ) ;
+
+                __( processGlobal1I.cb_nicNameC_ - pso->readF( tinP , (byteT*)&nicNamePaperDadI , processGlobal1I.cb_nicNameC_ ) ) ;
+                TELL( "ifcCMDpORTaUTHORITY_LAUNCHkIDpROCESS: reading nicNamePaperDadI" )
+                nicNameC nicNamePaperDadI ;
+
+                __( sizeof c4i - pso->readF( tinP , (byteT*)&c4i , sizeof c4i ) ) ;
+                TELL( "ifcCMDpORTaUTHORITY_LAUNCHkIDpROCESS: reading idKidI idAdam csArgs idPortFaceDadI" )
+                countT& idPortFaceDadI = c4i.c4 ;
+                countT& csArgs        = c4i.c3 ;
+                countT& idAdam        = c4i.c2 ;
+                countT& idKidI         = c4i.c1 ;
+                count4S c4i ;
+            {
+            case ifcCMDpORTaUTHORITY_LAUNCHkIDpROCESS :
+        {
+        switch( idCmd )
+    {
+    if( !ether && !etThread )
+
+    TELL( "processing idCmd" )
+    __( sizeof idCmd - pso->readF( tinP , (byteT*)&idCmd , sizeof idCmd ) ) ;
+    TELL( "reading idCmd" )
+    ZE( countT , idCmd ) ;
+
+    pso->etherF( tinP , etThread ) ;
+
+    countT&       idMiscLast      =  *(countT*)c7p1.c7 ;
+    batonC&       b_idMiscLast    =  *(batonC*)c7p1.c6 ;
+    countT&       idProcessOldLast   =  *(countT*)c7p1.c5 ;
+    batonC&       b_idProcessOldLast =  *(batonC*)c7p1.c4 ;
+    switchC&      swc2            = *(switchC*)c7p1.c3 ;
+    countT&       idProcessOldI       =  *(countT*)c7p1.c2 ;
+    batonC&       b_idProcessOldI     =  *(batonC*)c7p1.c1 ;
+
+    count7S&      c7p1            = *(count8S*)pTaskP->c2 ;
+    socketC*      pso             =  (socketC*)pTaskP->c1 ;
+    TELL( "setting up" )
+{
+if( pTaskP && pTaskP->c1 && pTaskP->c2 )
+/*1*/TASK( tmServePortF )/*1*/
+/**/
+*/
+/*
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 29 years.
+//
+// Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+

@@ -29158,6 +29158,8 @@ applications should avoid using thirdC objects
   voidT s_optionSendNowF( tinS& tinP , const handleC& handleP , const boolT bEnableP = 1 ) ;
   //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.340ae.thirdC.s_optionSendNowF!||
   voidT s_optionDualStackF( tinS& tinP , const handleC& handleP ) ;
+  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.360011ae.thirdc.s_optionDualStackF!||
+
   static voidT s_setupIF( tinS& tinP ) ;
   //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3403d.thirdC.s_setupIF!||
   static voidT s_shutdown1IF( tinS& tinP ) ;
@@ -29217,8 +29219,9 @@ applications should avoid using thirdC objects
   countT s_postHostF( tinS& tinP , osTextT*& postP , const nicNameC nicNameP = nicNameC() ) ;
   //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34086.thirdC.s_postHostF!||
   voidT s_getHostByNameF( tinS& tinP , stackC& stP , const osTextT* const postP ) ;
-  voidT s_getComputerNameF( tinS& tinP , osTextT*& postP ) ;
   //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.340ce.thirdC.s_getHostByNameF!||
+  voidT s_getComputerNameF( tinS& tinP , osTextT*& postP ) ;
+  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.360011af.thirdc.s_getComputerNameF!||
   killSocketS* s_registerTimeoutF( tinS& tinP , const handleC& handleP , const countT time1P , const sCountT time2P ) ;
   //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3415b.thirdC.s_registerTimeoutF!||
   boolT s_unregisterTimeoutF( tinS& tinP , const handleC& handleP ) ;
@@ -32484,8 +32487,9 @@ examples
   voidT sockOptionReuseAddressF( tinS& tinP , const handleC& handleP , const boolT bAllowP = 1 ) ;
   //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34114.etherC.sockOptionReuseAddressF!||
   voidT sockOptionSendNowF( tinS& tinP , const handleC& handleP , const boolT bEnableP = 1 ) ;
-  voidT sockOptionDualStackF( tinS& tinP , const handleC& handleP ) ;
   //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34115.etherC.sockOptionSendNowF!||
+  voidT sockOptionDualStackF( tinS& tinP , const handleC& handleP ) ;
+  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.360021f9.etherc.sockoptionDualStackF!||
   voidT socksSetupF( tinS& tinP ) ;
   //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34046.etherC.socksSetupF!||
   voidT socksShutdownF( tinS& tinP ) ;

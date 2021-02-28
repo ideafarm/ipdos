@@ -1,0 +1,1286 @@
+
+//
+// Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 29 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+
+REST
+}
+    TELL( "resting" )
+    
+    }
+        }
+            DEL(                   *(stackC**)&tblHost(          idr , 9 ).c2 ) ;
+            etThread.delF( tinP , *(nicNameC**)&tblHost(          idr , 8 ).c2 ) ;
+            etThread.delF( tinP ,              tblHost._CT1_07F( idr , 7 )    ) ;
+            etThread.delF( tinP ,              tblHost._CT1_07F( idr , 6 )    ) ;
+            etThread.delF( tinP ,              tblHost._CT1_07F( idr , 5 )    ) ;
+            etThread.delF( tinP ,              tblHost._CT1_07F( idr , 4 )    ) ;
+            etThread.delF( tinP ,              tblHost._CT1_07F( idr , 3 )    ) ;
+            etThread.delF( tinP ,              tblHost._CT1_07F( idr , 2 )    ) ;
+        {
+        for( countT idr = 1 ; idr <= cRows ; idr ++ )
+        countT cRows = tblHost.cRowsF( tinP ) ;
+    {
+    
+    sgnDone_tmTickRegisterIdComputerNicName.waitF( tinP ) ;
+    sgnDone_tmTickRegisterAdams.waitF( tinP ) ;
+    sgnMonitorHasRegistered.giveF( tinP ) ;
+    TELL("cleaning up") ;
+
+    etThread.ifcDrivenServerF( tinP , i1 , i2 ) ;
+    serverInfo2S i2( ifcPORToLD2_CHAT , flSOCKETc_null , TF2(thirdC::third_idAdamRootI_IF( tinP ),flFORMAT_UNSIGNED|flFORMAT_NObIGITvALUES) , 0 , (countT)&c9p , TICK , - 1 , 1 , sizeof( stateS ) , translateStateF ) ;
+    serverInfo1S i1( &pbdVarying , b_pbdVarying , bHandedOff , sgnIdPortReplaced , tmcF , countTC() , ether ) ;
+    TELL("listening for new chat client connections") ;
+    
+    etThread.osThreadF( tinP , countTC() , tmHireConsoleF ) ;
+    
+    etThread.osThreadF( tinP , countTC() , tmTickRegisterIdComputerNicNameF , &sgnDone_tmTickRegisterIdComputerNicName , flTHREADlAUNCH_null , 0 , (countT)&c9p ) ;
+    signC sgnDone_tmTickRegisterIdComputerNicName( tinP , TAG( TAGiDnULL ) ) ;
+    
+    etThread.osThreadF( tinP , countTC() , tmTickRegisterAdamsF , &sgnDone_tmTickRegisterAdams , flTHREADlAUNCH_null , 0 , (countT)&c9p ) ;
+    //U::ENABLE REGISTRATION AFTER ELIMINATE THE USE OF gethostbyname SO HAVE RESPONSIVE QUIT QUALITY WHILE A DNS NAME IS BEING RESOLVED AND THE ideafarm.com DNS SERVER IS DOWN; CURRENT CODE TAKES 04 TOCK TO TIME OUT AND DOES NOT RESPOND TO REPEATED ATTEMPTS TO CANCLEL THE SOCKET
+    signC sgnDone_tmTickRegisterAdams( tinP , TAG( TAGiDnULL ) ) ;
+    
+    c9p.c9 = (countT)&sgnMonitorHasRegistered ;
+    c9p.c8 = (countT)&etThread ;
+    c9p.c7 = (countT)&sws_idAdam ;
+    c9p.c6 = (countT)&levNicName ;
+    c9p.c5 = (countT)&b_levNicName ;
+    c9p.c4 = (countT)&tblHost ;
+    c9p.c3 = (countT)&tblAdam ;
+    c9p.c2 = (countT)&b_pbdVarying ;
+    c9p.c1 = (countT)&pbdVarying ;
+    count9S c9p ;
+    
+    signC sgnMonitorHasRegistered( tinP , TAG( TAGiDnULL ) ) ;
+    
+    switchStackC sws_idAdam( tinP , etThread , TAG( TAGiDnULL ) , flSTACKc_null , levNicName ) ;
+    nicNameC levNicName ;
+    batonC b_levNicName( tinP , TAG( TAGiDnULL ) ) ;
+    
+    tblHost.newColF( tinP , T("nicNameAll") ) ;
+    tblHost.newColF( tinP , T("nicNameRegistrand") ) ;
+    tblHost.newColF( tinP , T("commentUsedByIFC") ) ;
+    tblHost.newColF( tinP , T("commentUsedByOwner") ) ;
+    tblHost.newColF( tinP , T("nameUsedByInternet") ) ;
+    tblHost.newColF( tinP , T("nameUsedByIFC") ) ;
+    tblHost.newColF( tinP , T("nameUsedByOwner") ) ;
+    tblHost.newColF( tinP , T("emailOwner") ) ;
+    tblHost.newColF( tinP , T("idComputer") ) ;
+    tableC tblHost( tinP , etThread , T("host" ) ) ;
+    
+    tblAdam.newColF( tinP , T("idPortChat") ) ;
+    tblAdam.newColF( tinP , T("idAdam") ) ;
+    tableC tblAdam( tinP , etThread , T("idAdamIdPortChat") ) ;
+    
+    ZE( boolT , bHandedOff ) ;
+    batonC b_pbdVarying( tinP , TAG( TAGiDnULL ) ) ;
+    ZE( byteT* , pbdVarying ) ;
+    
+    signC sgnIdPortReplaced( tinP , TAG( TAGiDnULL ) ) ;
+    
+    //fooF( tinP , etThread ) ;
+    //THIS FUNCTION WILL CAUSE 314 TO FAIL
+    //U: DO NOT REMOVE THIS UNTIL USE IT TO TEST AND DEBUG 314
+
+    //U::etThread.osThreadF( tinP , countTC() , tmCheckPoolF ) ;
+    
+    TELL("preparing to work") ;
+{
+TODO
+
+DONE( tmCheckPoolF )
+}
+    }
+        ++ s ; etThread.osSleepF( tinP , ether ? TOCK : TOCK * 0x10 ) ;
+        sleepC s( tinP , TAG( TAGiDnULL ) ) ;
+    {
+    etThread.strokeF( tinP , TT(timeN1,timeN2)+T(" cdUsed: ")+TF1(cdUsed)+tc ) ;
+    countT cdUsed = poolOld.cdUsedF( tinP ) ;
+
+    etThread.osTimeSubtractF( tinP , timeN1 , timeN2 , timeS1 , timeS2 ) ;
+    etThread.osTimeNowF( tinP , timeN1 , timeN2 ) ;
+    ZE( sCountT , timeN2 ) ;
+    ZE( countT , timeN1 ) ;
+{
+while( !ether || cAfter -- )
+countT cAfter = 0x20 ;
+
+TN( tc , "\r\n" ) ;
+etThread.osTimeNowF( tinP , timeS1 , timeS2 ) ;
+ZE( sCountT , timeS2 ) ;
+ZE( countT , timeS1 ) ;
+
+TASK( tmCheckPoolF )
+
+//}
+//    //etThread.ifcSayF( tinP , T("a stack address foo2: ")+TF1((countT)foo2) , flSAY_APPEND | flSAY_LOG ) ; //U:
+//    //etThread.ifcSayF( tinP , T("a stack address foo1: ")+TF1((countT)&foo1) , flSAY_APPEND | flSAY_LOG ) ; //U:
+//
+//    byteT foo2[ 0x10000 ] ;
+//    byteT foo1 ;
+//{
+//voidT fooF( tinS& tinP , etherC& etThread )
+
+DONE( tmHireConsoleF )
+HIRE( T("city.driven.server.chat") , ifcIDaDAMoLD_LOGIN , 0x10000000 , ifcIDaDAMoLD_LOGIN , 0x10000000 )
+}
+    ++ s ; ether.osSleepF( tinP , TOCK * 8 ) ;
+    CONoUTrAW( "main/sleeping for 8 tocks to give chat time to come alive\r\n" ) ; //U::
+    sleepC s( tinP , TAG( TAGiDnULL ) ) ;
+{
+TASK( tmHireConsoleF )
+
+DONE( tmTickRegisterIdComputerNicNameF )
+}
+    TELL("cleaning up") ;
+    }
+        TELL("closing my connection to www.ideafarm.com") ;
+        *tinP.zEtScratch = 0 ;
+
+        //etThread.ifcSayF( tinP , T("registration took  ")+TT(timeB1,timeB2)+T(" time") , flSAY_APPEND | flSAY_LOG ) ;
+        etThread.osTimeSubtractF( tinP , timeB1 , timeB2 , timeA1 , timeA2 ) ;
+        //etThread.ifcSayF( tinP , T("register my idComputer ")+TF1(idComputer)+T(" and nn ")+T(nnMe)+T(" at ")+TT(timeB1,timeB2)+(etScratch?T(" (FAILED)"):T(" (AOK)")) , flSAY_APPEND | flSAY_LOG ) ;
+        etThread.osTimeNowF( tinP , timeB1 , timeB2 ) ;
+        ZE( sCountT , timeB2 ) ;
+        ZE( countT , timeB1 ) ;
+        TELL("2540104's work is done") ;
+        tinP.zEtScratch->ifcJobF( tinP , stCourses , 0x4010452 , sOrderPrimary , stOrders , T("register my idComputer and nn") ) ;
+        TELL("hiring 2540104") ;
+        //etThread.ifcSayF( tinP , T("register my idComputer ")+TF1(idComputer)+T(" and nn ")+T(nnMe)+T(" at ")+TT(timeA1,timeA2)+T(" (BEGUN)") , flSAY_APPEND | flSAY_LOG ) ;
+        etThread.osTimeNowF( tinP , timeA1 , timeA2 ) ;
+        ZE( sCountT , timeA2 ) ;
+        ZE( countT , timeA1 ) ;
+    
+        sOrderPrimary << nnMe ;
+        sOrderPrimary << idComputer ;
+        sOrderPrimary << (strokeS*)T("!idComputerNicName") ;
+        sOrderPrimary << (countT)ifcIDcMDjOBoRDER_NAMED ;
+        nicNameC nnMe       = etThread.sockNicNameF( tinP ) ;
+        countT   idComputer = etThread.diskIdF( tinP , tDiskC ) ;
+    
+        soulC sOrderPrimary( tinP , TAG( TAGiDnULL ) ) ;
+        stOrders << new( 0 , tinP , LF ) soulC( tinP , TAG( TAGiDnULL ) ) ;
+        stackC stOrders(  tinP , etThread , TAG( TAGiDnULL ) , flSTACKc_FIFO | flSTACKc_GIVEsIGNnEWpLATE , ifcSTACKtYPE_PTR_soulC ) ;
+        stackC stCourses( tinP , etThread , TAG( TAGiDnULL ) , flSTACKc_FIFO | flSTACKc_GIVEsIGNnEWpLATE , ifcSTACKtYPE_PTR_soulC ) ;
+        TELL("specifying a job") ;
+
+
+        if( ether ) break ;
+        TELL("waking up from my cycle nap") ;
+        }
+            ++ s ; ether.osSleepF( tinP , TOCK * 0x10 ) ;
+            sleepC s( tinP , TAG( TAGiDnULL ) ) ;
+        {
+        TELL("taking my cycle nap") ;
+    {
+    while( !ether && !etThread )
+    TN( tLog , "///d/ideafarm.log.114.register.idComputer" ) ;
+
+    }
+        ++ s ; ether.osSleepF( tinP , TOCK * 0x40 ) ; // GIVE 2540104 TIME TO START AND TO REGISTER ITSELF
+        sleepC s( tinP , TAG( TAGiDnULL ) ) ;
+    {
+
+    TN( tDiskC , "///c" ) ;
+    PARAMS( pTaskP->c1 )
+{
+if( pTaskP && pTaskP->c1 )
+TELL("setting up") ;
+TASK( tmTickRegisterIdComputerNicNameF )
+
+DONE( tmTickRegisterAdamsF )
+}
+    TELL("cleaning up") ;
+    }
+        //etThread.ifcSayF( tinP , T("registering idAdams/-/")+tIdAdams , flSAY_APPEND | flSAY_LOG ) ;
+//CONoUT( "-" ) ; //U::
+        }
+            TELL("closing my connection to www.ideafarm.com") ;
+            *tinP.zEtScratch = 0 ;
+    
+            sChat2.writeF( tinP , sOut3 ) ;
+            soulC sOut3( tinP , TAG( TAGiDnULL ) , flSOUL_null , ifcIDcMDsESSION_BYE ) ;
+            TELL("saying goodbye to www.ideafarm.com") ;
+    
+            __( idCmd - ifcIDcMDsESSION_REGISTERnICnAMErEPLY ) ;
+            sIn2 >> idCmd ;
+            idCmd = 0 ;
+            sChat2.readF( tinP , sIn2 ) ;
+            soulC sIn2( tinP , TAG( TAGiDnULL ) ) ;
+            sChat2.writeF( tinP , sOut2 ) ;
+            TELL("writing my nicName values to www.ideafarm.com") ;
+    
+            __( idCmd - ifcIDcMDsESSION_REGISTERaDAMSrEPLY ) ;
+            sIn1 >> idCmd ;
+            ZE( countT , idCmd ) ;
+            sChat2.readF( tinP , sIn1 ) ;
+            soulC sIn1( tinP , TAG( TAGiDnULL ) ) ;
+            sChat2.writeF( tinP , sOut1 ) ;
+            TELL("writing tblAdam info to www.ideafarm.com") ;
+    
+            sChat2.connectF( tinP , 0 , socketC::nicNameIF( tinP , *tinP.zEtScratch , T("www.ideafarm.com") ) ) ;
+            socketC sChat2( tinP , *tinP.zEtScratch , TAG( TAGiDnULL ) ) ;
+            TELL("connecting to www.ideafarm.com") ;
+        {
+//CONoUT( "+" ) ; //U::
+
+        }
+            tinP.zEtScratch->delF( tinP , pNicNameMe ) ;
+            }
+                for( countT off = 0 ; off < cNicNameMe ; off ++ ) sOut2 << pNicNameMe[ off ] ;
+                sOut2 << cNicNameMe ;
+                sOut2 << (strokeS*)T("U:psttOldCommentUsedByIFC") ;
+                sOut2 << (strokeS*)T("U:psttOldCommentUsedByOwner") ;
+                sOut2 << (strokeS*)T("U:psttNameUsedByIFC") ;
+                sOut2 << (strokeS*)T("U:psttNameUsedByOwner") ;
+                sOut2 << (strokeS*)T("U:V:psttEmailOwner") ;
+                sOut2 << tinP.zEtScratch->diskIdF( tinP , tDiskC ) ;
+            {
+            if( pNicNameMe && cNicNameMe )
+            socketC::nicNameIF( tinP , *tinP.zEtScratch , pNicNameMe , cNicNameMe ) ; ___( pNicNameMe ) ;
+            ZE( countT   , cNicNameMe ) ;
+            ZE( nicNameC* , pNicNameMe ) ;
+        {
+        soulC sOut2( tinP , TAG( TAGiDnULL ) , flSOUL_null , ifcIDcMDsESSION_REGISTERnICnAME ) ;
+        TELL("copying my nicName values into a soulC") ;
+        //etThread.ifcSayF( tinP , T("registering idAdams/+/")+tIdAdams , flSAY_APPEND | flSAY_LOG ) ;
+
+        }
+            }
+                tinP.zEtScratch->delF( tinP , psttw ) ;
+                tIdAdams = T(psttw) ;
+                }
+                    tinP.zEtScratch->strFuseF( tinP , psttw , TF1(idAdam)+(stIdAdam?T("."):T("")) ) ;
+                    stIdAdam >> idAdam ;
+                    ZE( countT , idAdam ) ;
+                {
+                while( stIdAdam )
+                tinP.zEtScratch->strMakeF( tinP , LF , psttw , T("") , 8 * stIdAdam ) ; ___( psttw ) ;
+                ZE( strokeS* , psttw ) ;
+            {
+            if( stIdAdam )
+
+            }
+                tblAdam.ungrabF( tinP ) ;
+                }
+                    stIdAdam.sinkF( tinP , countTC() , idAdam ) ;
+                    sOut1 << idAdam ;
+                    countT idAdam = tblAdam._CT1_04F( idr ) ;
+                {
+                for( countT idr = 1 ; idr <= cRows ; idr ++ )
+                sOut1 << cRows ;                    
+                countT cRows = tblAdam.cRowsF( tinP ) ;
+                tblAdam.grabF( tinP , TAG( TAGiDnULL ) ) ;
+            {
+            stackC stIdAdam( tinP , *tinP.zEtScratch , TAG( TAGiDnULL ) ) ;
+        {
+        TN( tIdAdams , "" ) ;
+        soulC sOut1( tinP , TAG( TAGiDnULL ) , flSOUL_null , ifcIDcMDsESSION_REGISTERaDAMS ) ;
+        TELL("copying tblAdam info into a soulC") ;
+
+
+        TELL("beginning a new cycle") ;
+        if( ether ) break ;
+
+        }
+            ++ s ; ether.osSleepF( tinP , TOCK * 0x10 ) ;
+            sleepC s( tinP , TAG( TAGiDnULL ) ) ;
+        {
+        TELL("taking my cycle nap") ;
+    {
+    while( !ether && !etThread )
+    ZE( countT , idCycle ) ;
+
+    TN( tDiskC , "///c" ) ;
+    PARAMS( pTaskP->c1 )
+{
+if( pTaskP && pTaskP->c1 )
+TELL("setting up") ;
+TASK( tmTickRegisterAdamsF )
+
+DONEdRIVENsERVERnEWsOCKET( tmcF )
+}
+    //etThread.ifcSayF( tinP , TF3(idClient,flFORMAT_UNSIGNED,9)+T(tinP.postTell) , flSAY_APPEND | flSAY_LOG ) ; //U::
+    TELL( "cleaning up" ) ;
+    *tinP.zEtScratch = 0 ;
+    //etThread.ifcSayF( tinP , TF3(idClient,flFORMAT_UNSIGNED,9)+T("tmcF/-") , flSAY_APPEND | flSAY_LOG ) ; //U::
+    if( bReboot ) etThread.osFireF( tinP ) ; // ASSUME: Ctrl-C and shutdown exception handler will block long enough to this process to close normally
+    if( !etThread && !*tinP.zEtScratch ) pso->readF( tinP , (byteT*)&cFoo , sizeof cFoo , flSOCKETcrEAD_STILLhUNGRYiSoK ) ;
+    ZE( countT , cFoo ) ;
+    //etThread.ifcSayF( tinP , TF3(idClient,flFORMAT_UNSIGNED,9)+T(tinP.postTell) , flSAY_APPEND | flSAY_LOG ) ; //U::
+    TELL( "reading a final countT object (i expect this to fail)" ) ;
+
+    }
+        }
+            }
+                break ;
+                //etThread.ifcSayF( tinP , TF3(idClient,flFORMAT_UNSIGNED,9)+T(tinP.postTell) , flSAY_APPEND | flSAY_LOG ) ; //U::
+                TELL( "ifcIDcMDsESSION_BYE/-" ) ;
+                bBye = 1 ;
+                //etThread.ifcSayF( tinP , TF3(idClient,flFORMAT_UNSIGNED,9)+T(tinP.postTell) , flSAY_APPEND | flSAY_LOG ) ; //U::
+                TELL( "ifcIDcMDsESSION_BYE/+" ) ;
+            {
+            default :
+            case ifcIDcMDsESSION_BYE :
+            }
+                break ;
+                //etThread.ifcSayF( tinP , TF3(idClient,flFORMAT_UNSIGNED,9)+T(tinP.postTell) , flSAY_APPEND | flSAY_LOG ) ; //U::
+                TELL( "ifcIDcMDsESSION_QUERYnICnAME/-" ) ;
+                b_pbdVarying.ungrabF( tinP ) ;
+                }
+                    pso->writeF( tinP , sOut ) ;
+                    soulC sOut( tinP , TAG( TAGiDnULL ) , flSOUL_null , ifcIDcMDsESSION_ERROR ) ;
+                {
+                else
+                }
+                    pso->writeF( tinP , sOut ) ;
+                    }
+                        tblHost.ungrabF( tinP ) ;
+                        }
+                            while( !*tinP.zEtScratch && ~hDown ) ;
+                            }
+                                else          __1
+                                if( pNicName ) sOut << *pNicName ;
+                                nicNameC* pNicName = (nicNameC*)st_pNicName.downF( tinP , hDown ) ;
+                            {
+                            do
+                            handleC hDown( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_STACKwALK ) ;
+                            sOut << (countT)st_pNicName ;
+                            sOut << nicNameRegistrand            ; // pNicNameRegistrand
+                            sOut << tblHost._CT1_07F( idr , 7 ) ; // psttOldCommentUsedByIFC   
+                            sOut << tblHost._CT1_07F( idr , 6 ) ; // psttOldCommentUsedByOwner 
+                            sOut << tblHost._CT1_07F( idr , 5 ) ; // psttNameUsedByInternet
+                            sOut << tblHost._CT1_07F( idr , 4 ) ; // psttNameUsedByIFC
+                            sOut << tblHost._CT1_07F( idr , 3 ) ; // psttNameUsedByOwner    
+                            sOut << tblHost._CT1_07F( idr , 2 ) ; // psttEmailOwner         
+                            sOut << tblHost._CT1_04F( idr , 1 ) ; // idComputer
+
+                            stackC& st_pNicName = tblHost._CT2_3F( idr , 9 ) ;
+
+                            }
+                                //etThread.delF( tinP , psttDomain ) ;
+                                //etThread.ifcSayF( tinP , TF3(idClient,flFORMAT_UNSIGNED,9)+T(nicNameRegistrand)+T(" ")+T(psttDomain) , flSAY_APPEND | flSAY_LOG ) ;
+                                //etThread.sockPsttHostF( tinP , psttDomain , nicNameRegistrand ) ; ___( psttDomain ) ;
+                                //ZE( strokeS* , psttDomain ) ;
+                            {
+
+                            nicNameC& nicNameRegistrand = tblHost._CT1_0fF( idr , 8 ) ;
+                        {
+                        for( countT idr = 1 ; idr <= cRows ; idr ++ )
+                        //etThread.ifcSayF( tinP , TF3(idClient,flFORMAT_UNSIGNED,9)+T("======== ")+TF1(cRows)+T(" HOSTS ========") , flSAY_APPEND | flSAY_LOG ) ;
+                        //TN( tLog , "///d/ideafarm.log.114.hosts" ) ;
+
+                        sOut << cRows ;
+                        countT cRows = tblHost.cRowsF( tinP ) ;
+                        tblHost.grabF( tinP , TAG( TAGiDnULL ) ) ;
+                    {
+                    soulC sOut( tinP , TAG( TAGiDnULL ) , flSOUL_null , ifcIDcMDsESSION_QUERYnICnAMErEPLY ) ;
+
+                    __( idCmd - ifcIDcMDsESSION_QUERYnICnAME ) ;
+                    sIn >> idCmd ;
+                    ZE( countT , idCmd ) ;
+
+                    stateS& state = *(stateS*)pbdVarying ;
+                {
+                if( pbdVarying )
+                b_pbdVarying.grabF( tinP , TAG( TAGiDnULL ) ) ;
+                //etThread.ifcSayF( tinP , TF3(idClient,flFORMAT_UNSIGNED,9)+T(tinP.postTell) , flSAY_APPEND | flSAY_LOG ) ; //U::
+                TELL( "ifcIDcMDsESSION_QUERYnICnAME/+" ) ;
+            {
+            case ifcIDcMDsESSION_QUERYnICnAME :
+            }
+                break ;
+                //etThread.ifcSayF( tinP , TF3(idClient,flFORMAT_UNSIGNED,9)+T(tinP.postTell) , flSAY_APPEND | flSAY_LOG ) ; //U::
+                TELL( "ifcIDcMDsESSION_QUERYaDAMS/-" ) ;
+                b_pbdVarying.ungrabF( tinP ) ;
+                }
+                    pso->writeF( tinP , sOut ) ;
+                    soulC sOut( tinP , TAG( TAGiDnULL ) , flSOUL_null , ifcIDcMDsESSION_ERROR ) ;
+                {
+                else
+                }
+                    pso->writeF( tinP , sOut ) ;
+
+                    b_levNicName.ungrabF( tinP ) ;
+                    }
+                        while( !sws_idAdam.third && ~hDown ) ;
+                        do sOut << sws_idAdam.downF( tinP , hDown ) ;
+                        handleC hDown( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_STACKwALK ) ;
+
+                        sOut << (countT)sws_idAdam ;
+                        sOut << levNicName ;
+                        levNicName = *(nicNameC*)sws_idAdam.leverF( tinP , idf ) ;
+                    {
+                    for( countT idf = 1 ; idf <= cFlavors ; idf ++ )
+                    sOut << cFlavors ;                    
+                    soulC sOut( tinP , TAG( TAGiDnULL ) , flSOUL_null , ifcIDcMDsESSION_QUERYaDAMSrEPLY ) ;
+                    countT cFlavors = sws_idAdam.cFlavorsF( tinP ) ;
+                    b_levNicName.grabF( tinP , TAG( TAGiDnULL ) ) ;
+
+                    __( idCmd - ifcIDcMDsESSION_QUERYaDAMS ) ;
+                    sIn >> idCmd ;
+                    ZE( countT , idCmd ) ;
+
+                    stateS& state = *(stateS*)pbdVarying ;
+                {
+                if( pbdVarying )
+                b_pbdVarying.grabF( tinP , TAG( TAGiDnULL ) ) ;
+                //etThread.ifcSayF( tinP , TF3(idClient,flFORMAT_UNSIGNED,9)+T(tinP.postTell) , flSAY_APPEND | flSAY_LOG ) ; //U::
+                TELL( "ifcIDcMDsESSION_QUERYaDAMS/+" ) ;
+            {
+            case ifcIDcMDsESSION_QUERYaDAMS :
+            }
+                break ;
+                //etThread.ifcSayF( tinP , TF3(idClient,flFORMAT_UNSIGNED,9)+T(tinP.postTell) , flSAY_APPEND | flSAY_LOG ) ; //U::
+                TELL( "ifcIDcMDsESSION_REGISTERaDAMS/-" ) ;
+                b_pbdVarying.ungrabF( tinP ) ;
+                }
+                    pso->writeF( tinP , sOut ) ;
+                    soulC sOut( tinP , TAG( TAGiDnULL ) , flSOUL_null , ifcIDcMDsESSION_ERROR ) ;
+                {
+                else
+                }
+                    pso->writeF( tinP , sOut ) ;
+                    soulC sOut( tinP , TAG( TAGiDnULL ) , flSOUL_null , ifcIDcMDsESSION_REGISTERaDAMSrEPLY ) ;
+
+                    b_levNicName.ungrabF( tinP ) ;
+                    }
+                        }
+//CONoUT( T("nn ")+TF1(nicNameRegistrand)+T(" registered adam ")+TF1(idAdam) ) ; //U::
+                            sws_idAdam.sinkF( tinP , ids , idAdam , flSTACKsINK_UNIQUE ) ;
+                        {
+                        if( !*tinP.zEtScratch )
+                        ZE( countT , ids ) ;
+
+                        sIn >> idAdam ;
+                        ZE( countT , idAdam ) ;
+                    {
+                    while( !*tinP.zEtScratch && cAdams -- )
+                    levNicName = nicNameRegistrand ;
+                    b_levNicName.grabF( tinP , TAG( TAGiDnULL ) ) ;
+
+                    sIn >> cAdams ;
+                    ZE( countT , cAdams ) ;
+
+                    pso->peerNameF( tinP , countTC() , nicNameRegistrand ) ;
+                    nicNameC nicNameRegistrand ;
+
+                    __( idCmd - ifcIDcMDsESSION_REGISTERaDAMS ) ;
+                    sIn >> idCmd ;
+                    ZE( countT , idCmd ) ;
+
+                    stateS& state = *(stateS*)pbdVarying ;
+                {
+                if( pbdVarying )
+                b_pbdVarying.grabF( tinP , TAG( TAGiDnULL ) ) ;
+                //etThread.ifcSayF( tinP , TF3(idClient,flFORMAT_UNSIGNED,9)+T(tinP.postTell) , flSAY_APPEND | flSAY_LOG ) ; //U::
+                TELL( "ifcIDcMDsESSION_REGISTERaDAMS/+" ) ;
+            {
+            case ifcIDcMDsESSION_REGISTERaDAMS :
+            }
+                break ;
+                //etThread.ifcSayF( tinP , TF3(idClient,flFORMAT_UNSIGNED,9)+T(tinP.postTell) , flSAY_APPEND | flSAY_LOG ) ; //U::
+                TELL( "ifcIDcMDsESSION_REGISTERnICnAME/-" ) ;
+                b_pbdVarying.ungrabF( tinP ) ;
+                }
+                    pso->writeF( tinP , sOut ) ;
+                    soulC sOut( tinP , TAG( TAGiDnULL ) , flSOUL_null , ifcIDcMDsESSION_ERROR ) ;
+                {
+                else
+                }
+                    pso->writeF( tinP , sOut ) ;
+                    soulC sOut( tinP , TAG( TAGiDnULL ) , flSOUL_null , ifcIDcMDsESSION_REGISTERnICnAMErEPLY ) ;
+
+                    }
+                        tblHost.ungrabF( tinP ) ;
+                        }
+                            tblHost.newObjectF( tinP , *pStk_pNicName         ) ;
+                            tblHost.newObjectF( tinP , *pNicNameRegistrand    ) ;
+                            tblHost.newObjectF( tinP , psttOldCommentUsedByIFC   ) ;
+                            tblHost.newObjectF( tinP , psttOldCommentUsedByOwner ) ;
+                            tblHost.newObjectF( tinP , psttNameUsedByInternet ) ;
+                            tblHost.newObjectF( tinP , psttNameUsedByIFC      ) ;
+                            tblHost.newObjectF( tinP , psttNameUsedByOwner    ) ;
+                            tblHost.newObjectF( tinP , psttEmailOwner         ) ;
+                            tblHost.newObjectF( tinP , idComputer             ) ;
+                            tblHost.newEventF( tinP ) ;
+                        {
+                        if( !bFound )
+
+                        }
+                            }
+                                break ;
+
+                                DEL(               *(stackC**)&tblHost(          idr , 9 ).c2 ) ;   *(stackC**)&tblHost(          idr , 9 ).c2 = pStk_pNicName          ;
+                                tinP.zEtScratch->delF( tinP , *(nicNameC**)&tblHost(          idr , 8 ).c2 ) ; *(nicNameC**)&tblHost(          idr , 8 ).c2 = pNicNameRegistrand     ;
+                                tinP.zEtScratch->delF( tinP ,               tblHost._CT1_07F( idr , 7 )    ) ;               tblHost._CT1_07F( idr , 7 )    = psttOldCommentUsedByIFC   ;
+                                tinP.zEtScratch->delF( tinP ,               tblHost._CT1_07F( idr , 6 )    ) ;               tblHost._CT1_07F( idr , 6 )    = psttOldCommentUsedByOwner ;
+                                tinP.zEtScratch->delF( tinP ,               tblHost._CT1_07F( idr , 5 )    ) ;               tblHost._CT1_07F( idr , 5 )    = psttNameUsedByInternet ;
+                                tinP.zEtScratch->delF( tinP ,               tblHost._CT1_07F( idr , 4 )    ) ;               tblHost._CT1_07F( idr , 4 )    = psttNameUsedByIFC      ;
+                                tinP.zEtScratch->delF( tinP ,               tblHost._CT1_07F( idr , 3 )    ) ;               tblHost._CT1_07F( idr , 3 )    = psttNameUsedByOwner    ;
+                                tinP.zEtScratch->delF( tinP ,               tblHost._CT1_07F( idr , 2 )    ) ;               tblHost._CT1_07F( idr , 2 )    = psttEmailOwner         ;
+                                bFound = 1 ;
+                            {
+                            if( tblHost._CT1_04F( idr ) == idComputer )
+                        {
+                        for( countT idr = 1 ; idr <= cRows ; idr ++ )
+                        countT cRows = tblHost.cRowsF( tinP ) ;
+                        ZE( boolT , bFound ) ;
+                        tblHost.grabF( tinP , TAG( TAGiDnULL ) ) ;
+                    {
+                    if( !*tinP.zEtScratch )
+
+                    }
+                        }
+                            }
+                                tinP.zEtScratch->delF( tinP , psttw ) ;
+                                tinP.zEtScratch->strFuseF( tinP , psttNameUsedByInternet , T(psttw)+(cNicName?tSlash:tNull) ) ; ___( psttNameUsedByInternet ) ;
+                                tinP.zEtScratch->sockPsttHostF( tinP , psttw , *pNicName ) ; ___( psttw ) ;
+                                ZE( strokeS* , psttw ) ;
+                                *pStk_pNicName << pNicName ;
+//CONoUT( T("computer ")+TF1(idComputer)+T(" registered nn ")+T(*pNicName) ) ;
+                                sIn >> *pNicName ;
+                                *pNicName = 0 ;
+                            {
+                            if( pNicName )
+                            tinP.zEtScratch->newF( tinP , LF , pNicName ) ; ___( pNicName ) ;
+                            ZE( nicNameC* , pNicName ) ;
+                        {
+                        while( cNicName -- )
+                        TN( tNull , "" ) ;
+                        TN( tSlash , "/" ) ;
+                        tinP.zEtScratch->strMakeF( tinP , LF , psttNameUsedByInternet , T("") , 0x100 * cNicName ) ; ___( psttNameUsedByInternet ) ;
+                        sIn >> cNicName ;
+                        ZE( countT , cNicName ) ;
+                    {
+                    if( !*tinP.zEtScratch && pStk_pNicName )
+                    stackC* pStk_pNicName = new( 0 , tinP , LF ) stackC( tinP , etThread1 , TAG( TAGiDnULL ) , flSTACKc_FIFO , ifcSTACKtYPE_PTR_nicNameC ) ; ___( pStk_pNicName ) ;
+                    ZE( strokeS* , psttNameUsedByInternet ) ;
+//CONoUT( T("computer ")+TF1(idComputer)+T(" registered nn ")+T(*pNicNameRegistrand) ) ;
+
+                    sIn >> psttOldCommentUsedByIFC   ; ___( psttOldCommentUsedByIFC   ) ;
+                    sIn >> psttOldCommentUsedByOwner ; ___( psttOldCommentUsedByOwner ) ;
+                    sIn >> psttNameUsedByIFC      ; ___( psttNameUsedByIFC      ) ;
+                    sIn >> psttNameUsedByOwner    ; ___( psttNameUsedByOwner    ) ;
+                    sIn >> psttEmailOwner         ; ___( psttEmailOwner         ) ;
+                    sIn >> idComputer ;
+                    ZE( strokeS* , psttOldCommentUsedByIFC ) ;
+                    ZE( strokeS* , psttOldCommentUsedByOwner ) ;
+                    ZE( strokeS* , psttNameUsedByIFC ) ;
+                    ZE( strokeS* , psttNameUsedByOwner ) ;
+                    ZE( strokeS* , psttEmailOwner ) ;
+                    ZE( countT   , idComputer ) ;
+
+                    }
+                        //etThread.ifcSayF( tinP , TF3(idClient,flFORMAT_UNSIGNED,9)+T("registering host ")+T(*pNicNameRegistrand) , flSAY_APPEND | flSAY_LOG ) ;
+                        pso->peerNameF( tinP , countTC() , *pNicNameRegistrand ) ;
+                        *pNicNameRegistrand = 0 ;
+                    {
+                    if( pNicNameRegistrand )
+                    tinP.zEtScratch->newF( tinP , LF , pNicNameRegistrand ) ; ___( pNicNameRegistrand ) ;
+                    ZE( nicNameC* , pNicNameRegistrand ) ;
+
+                    __( idCmd - ifcIDcMDsESSION_REGISTERnICnAME ) ;
+                    sIn >> idCmd ;
+                    ZE( countT , idCmd ) ;
+
+                    TN( tLog , "///d/ideafarm.log.114.hosts" ) ;
+
+                    stateS& state = *(stateS*)pbdVarying ;
+                {
+                if( pbdVarying )
+                b_pbdVarying.grabF( tinP , TAG( TAGiDnULL ) ) ;
+                //etThread.ifcSayF( tinP , TF3(idClient,flFORMAT_UNSIGNED,9)+T(tinP.postTell) , flSAY_APPEND | flSAY_LOG ) ; //U::
+                TELL( "ifcIDcMDsESSION_REGISTERnICnAME/+" ) ;
+            {
+            case ifcIDcMDsESSION_REGISTERnICnAME :
+            }
+                break ;
+//CONoUT( "ifcIDcMDsESSION_RELAYcHAT: -" ) ; //U::
+                //etThread.ifcSayF( tinP , TF3(idClient,flFORMAT_UNSIGNED,9)+T(tinP.postTell) , flSAY_APPEND | flSAY_LOG ) ; //U::
+                TELL( "ifcIDcMDsESSION_RELAYcHAT/-" ) ;
+                //etThread.ifcSayF( tinP , TF3(idClient,flFORMAT_UNSIGNED,9)+T("ifcIDcMDsESSION_RELAYcHAT/-") , flSAY_APPEND | flSAY_LOG ) ; //U::
+
+                //b_pbdVarying.ungrabF( tinP ) ;
+                //}
+                //    pso->writeF( tinP , sOut ) ;
+                //    soulC sOut( tinP , TAG( TAGiDnULL ) , flSOUL_null , ifcIDcMDsESSION_ERROR ) ;
+                //{
+                //else
+                }
+                    //etText.ifcSayF( tinP , TF3(idClient,flFORMAT_UNSIGNED,9)+tComment+tBar+T("RcHAT/")+TF1(idRelay)+T("/-") , flSAY_APPEND | flSAY_LOG ) ;
+
+                    }
+                        }
+                            //etThread.ifcSayF( tinP , TF3(idClient,flFORMAT_UNSIGNED,9)+tComment+tBar+T(tinP.postTell) , flSAY_APPEND | flSAY_LOG ) ; //U::
+                            TELL( "ifcIDcMDsESSION_RELAYcHAT/work is done" ) ;
+                            //etThread.ifcSayF( tinP , TF3(idClient,flFORMAT_UNSIGNED,9)+tComment+tBar+T("chat done aok to ")+(bDirect?TF1(idAdam):TF1(DDNUMB)+T("(")+TF1(idAdam)+T(")"))+tBar+tComment , flSAY_APPEND | flSAY_LOG ) ;
+                            //etText.ifcSayF( tinP , TF3(idClient,flFORMAT_UNSIGNED,9)+tComment+tBar+T("RcHAT/")+TF1(idRelay)+T("/sgnDone_tmRelayChatReplies has been given") , flSAY_APPEND | flSAY_LOG ) ;
+                            sgnDone_tmRelayChatReplies.waitF( tinP ) ;
+    
+                            //etThread.ifcSayF( tinP , TF3(idClient,flFORMAT_UNSIGNED,9)+tComment+tBar+T(tinP.postTell) , flSAY_APPEND | flSAY_LOG ) ; //U::
+                            TELL( "ifcIDcMDsESSION_RELAYcHAT/waiting for tmRelayChatReplies to end" ) ;
+                            if( *tinP.zEtScratch || etThread ) soUp.stopWaitingF( tinP ) ; //NOT LOGGED, BECAUSE OF WAD WAC: SERVER IS NEVER RUDE; CLIENT IS ALWAYS RUDE
+                            }
+                                else               break ;
+                                if( !*tinP.zEtScratch && sCmd ) soUp.writeF( tinP , sCmd ) ;
+    
+                                //else               etText.ifcSayF( tinP , TF3(idClient,flFORMAT_UNSIGNED,9)+tComment+tBar+T("RcHAT/")+TF1(idRelay)+T("/read of an sCmd from down failed") , flSAY_APPEND | flSAY_LOG ) ;
+                                //else if( !*tinP.zEtScratch )    etText.ifcSayF( tinP , TF3(idClient,flFORMAT_UNSIGNED,9)+tComment+tBar+T("RcHAT/")+TF1(idRelay)+T("/received a null sCmd (not writing it upward)") , flSAY_APPEND | flSAY_LOG ) ;
+                                //if( !*tinP.zEtScratch && sCmd ) etText.ifcSayF( tinP , TF3(idClient,flFORMAT_UNSIGNED,9)+tComment+tBar+T("RcHAT/")+TF1(idRelay)+T("/about to write an sCmd upward") , flSAY_APPEND | flSAY_LOG ) ;
+    
+                                //etThread.ifcSayF( tinP , TF3(idClient,flFORMAT_UNSIGNED,9)+tComment+tBar+T(tinP.postTell) , flSAY_APPEND | flSAY_LOG ) ; //U::
+                                TELL( "ifcIDcMDsESSION_RELAYcHAT/finished reading an sCmd from down" ) ;
+                                pso->readF( tinP , sCmd ) ;
+                                soulC sCmd( tinP , TAG( TAGiDnULL ) ) ;
+                                //etThread.ifcSayF( tinP , TF3(idClient,flFORMAT_UNSIGNED,9)+tComment+tBar+T(tinP.postTell) , flSAY_APPEND | flSAY_LOG ) ; //U::
+                                TELL( "ifcIDcMDsESSION_RELAYcHAT/reading sCmd from down" ) ;
+                            {
+                            while( !*tinP.zEtScratch && !etThread && !ether )
+    
+                            //etThread.ifcSayF( tinP , TF3(idClient,flFORMAT_UNSIGNED,9)+tComment+tBar+T("connected aok to ")+(bDirect?TF1(idAdam):TF1(DDNUMB)+T("(")+TF1(idAdam)+T(")"))+tBar/*+tComment*/+tCRLF , flSAY_APPEND | flSAY_LOG ) ;
+                            if( !etThread ) sgnUpTested.waitF( tinP ) ;
+                            //etThread.ifcSayF( tinP , TF3(idClient,flFORMAT_UNSIGNED,9)+tComment+tBar+T(tinP.postTell) , flSAY_APPEND | flSAY_LOG ) ; //U::
+                            TELL( "ifcIDcMDsESSION_RELAYcHAT/waiting for tmRelayChatRepliesF to give sgnUpTested" ) ;
+                            //etThread.ifcSayF( tinP , TF3(idClient,flFORMAT_UNSIGNED,9)+tComment+tBar+T("waiting for sgnUpTested to be given ")+(bDirect?TF1(idAdam):TF1(DDNUMB)+T("(")+TF1(idAdam)+T(")"))+tBar/*+tComment*/+tCRLF , flSAY_APPEND | flSAY_LOG ) ;
+                            etThread.osThreadF( tinP , countTC() , tmRelayChatRepliesF , &sgnDone_tmRelayChatReplies , flTHREADlAUNCH_null , 0 , (countT)&etScratch , (countT)pso , (countT)&soUp , (countT)&sgnUpTested , idRelay ) ;
+                            signC sgnDone_tmRelayChatReplies( tinP , TAG( TAGiDnULL ) ) ;
+                            signC sgnUpTested( tinP , TAG( TAGiDnULL ) ) ;
+                            //etThread.ifcSayF( tinP , TF3(idClient,flFORMAT_UNSIGNED,9)+tComment+tBar+T(tinP.postTell) , flSAY_APPEND | flSAY_LOG ) ; //U::
+                            TELL( "ifcIDcMDsESSION_RELAYcHAT/launching tmRelayChatRepliesF" ) ;
+    
+                            soUp.writeF( tinP , bDirect ? sPayload : sIn ) ;
+                            //etThread.ifcSayF( tinP , TF3(idClient,flFORMAT_UNSIGNED,9)+tComment+tBar+T(tinP.postTell) , flSAY_APPEND | flSAY_LOG ) ; //U::
+                            TELL( "ifcIDcMDsESSION_RELAYcHAT/writing sPayload or sIn upward" ) ;
+    
+                            }
+                                __( bFail ) ;
+                                soUp.etherF( tinP , etThread ) ;
+                                //etThread.ifcSayF( tinP , TF3(idClient,flFORMAT_UNSIGNED,9)+tComment+tBar+T(tinP.postTell) , flSAY_APPEND | flSAY_LOG ) ; //U::
+                                TELL( "ifcIDcMDsESSION_RELAYcHAT/connecting directly to server adam on target nic/finished connecting" ) ;
+                                while( !etThread && ( bNoQuit || ( bNoQuitEarly && !ether ) || ( cTries && -- cTries ) ) ) ;
+                                }
+                                    }
+                                        break ;
+                                        bFail = 0 ;
+                                        //etText.ifcSayF( tinP , TF3(idClient,flFORMAT_UNSIGNED,9)+tComment+tBar+T("RcHAT/")+TF1(idRelay)+T("/connected to port ")+TF1(idPort)+T(" of ")+T(nicName) , flSAY_APPEND | flSAY_LOG ) ;
+                                    {
+                                    else
+                                    if( *tinP.zEtScratch ) *tinP.zEtScratch = 0 ;
+                                    //etText.ifcSayF( tinP , TF3(idClient,flFORMAT_UNSIGNED,9)+tComment+tBar+T("RcHAT/")+TF1(idRelay)+T("/connectF returned (port ")+TF1(idPort)+T(" of ")+T(nicName)+T("): ")+(etScratch?T("failed"):T("aok")) , flSAY_APPEND | flSAY_LOG ) ;
+                                    soUp.connectF( tinP , idPort , nicName , 1 ) ;
+                                    //etText.ifcSayF( tinP , TF3(idClient,flFORMAT_UNSIGNED,9)+tComment+tBar+T("RcHAT/")+TF1(idRelay)+T("/attempting to connect to port ")+TF1(idPort)+T(" of ")+T(nicName) , flSAY_APPEND | flSAY_LOG ) ;
+                                    //etThread.ifcSayF( tinP , TF3(idClient,flFORMAT_UNSIGNED,9)+tComment+tBar+T(tinP.postTell) , flSAY_APPEND | flSAY_LOG ) ; //U::
+                                    TELL( "ifcIDcMDsESSION_RELAYcHAT/connecting directly to server adam on target nic/connecting" ) ;
+    
+                                    }
+                                        }
+                                            }
+                                                ++ s ; ether.osSleepF( tinP , TUCK * 0x40 ) ;
+                                                sleepC s( tinP , TAG( TAGiDnULL ) ) ;
+                                            {
+                                            if( !idPort )
+                                            tblAdam.ungrabF( tinP ) ;
+                                            }
+                                                }
+                                                    break ;
+                                                    idPort = idPortTbl ;
+                                                {
+                                                if( idAdam == idAdamTbl )
+                
+                                                countT idPortTbl = tblAdam._CT1_04F( idr , 2 ) ;
+                                                countT idAdamTbl = tblAdam._CT1_04F( idr ) ;
+                                            {
+                                            for( countT idr = 1 ; idr <= cRows ; idr ++ )
+                                            countT cRows = tblAdam.cRowsF( tinP ) ;
+                                            tblAdam.grabF( tinP , TAG( TAGiDnULL ) ) ;
+                                        {
+                                        while( !idPort && !ether && !etThread && !*tinP.zEtScratch ) // I BLOCK UNTIL THE TARGET CELL IS REGISTERED
+                                        idPort = 0 ;
+                                        //etThread.ifcSayF( tinP , TF3(idClient,flFORMAT_UNSIGNED,9)+tComment+tBar+T(tinP.postTell) , flSAY_APPEND | flSAY_LOG ) ; //U::
+                                        TELL( "ifcIDcMDsESSION_RELAYcHAT/connecting directly to server adam on target nic/obtaining idPort from tblAdam" ) ;
+                                    {
+                                    if( bLookUpIdPort )
+                                {
+                                do
+                                soUp.etherF( tinP , *tinP.zEtScratch ) ;
+                                boolT bFail = 1 ;
+                                boolT bNoQuitEarly = !cTries ;
+                                boolT bNoQuit = cTries == - 1 ;
+                                //etThread.ifcSayF( tinP , TF3(idClient,flFORMAT_UNSIGNED,9)+tComment+tBar+T(tinP.postTell) , flSAY_APPEND | flSAY_LOG ) ; //U::
+                                TELL( "ifcIDcMDsESSION_RELAYcHAT/connecting directly to server adam on target nic" ) ;
+                            {
+                            else
+                            }
+                                soUp.connectF( tinP , 0 , nicName , cTries ) ;
+                                //etThread.ifcSayF( tinP , TF3(idClient,flFORMAT_UNSIGNED,9)+tComment+tBar+T("indirect connect to ")+TF1(nicName) , flSAY_APPEND | flSAY_LOG ) ;
+                                //etThread.ifcSayF( tinP , TF3(idClient,flFORMAT_UNSIGNED,9)+tComment+tBar+T(tinP.postTell) , flSAY_APPEND | flSAY_LOG ) ; //U::
+                                TELL( "ifcIDcMDsESSION_RELAYcHAT/connecting to relay chat server on target nic" ) ;
+                            {
+                            if( !bDirect )
+    
+                            //etThread.ifcSayF( tinP , TF3(idClient,flFORMAT_UNSIGNED,9)+tComment+tBar+T("calling connectF, specifying idPort ")+TF1(bDirect?idPort:0) , flSAY_APPEND | flSAY_LOG ) ;
+                            socketC soUp( tinP , etThread , TAG( TAGiDnULL ) ) ; // "up" REFERS TO FORWARD IN THE RELAY TOWARD THE TERMINAL SERVER; "down" REFERS BACKWARD TOWARD THE TERMINAL CLIENT
+                            //etThread.ifcSayF( tinP , TF3(idClient,flFORMAT_UNSIGNED,9)+tComment+tBar+T("connecting to ")+(bDirect?TF1(idAdam):TF1(DDNUMB)+T("(")+TF1(idAdam)+T(")"))+tBar/*+tComment*/+tCRLF , flSAY_APPEND | flSAY_LOG ) ;
+                            TN( tCRLF , "\r\n" ) ;
+                        {
+                        else
+                        if( *tinP.zEtScratch ) etThread.ifcSayF( tinP , TF3(idClient,flFORMAT_UNSIGNED,9)+tComment+tBar+T("spline terminated here due to errors: \"")+tComment+T("\"") , flSAY_APPEND | flSAY_LOG ) ;
+    
+                        }
+                            sIn >> sPayload ;
+                            __( idCmd - ifcIDcMDsESSION_RELAYcHAT ) ;
+                            sIn >> idCmd ;
+                            ZE( countT , idCmd ) ;
+                            //etThread.ifcSayF( tinP , TF3(idClient,flFORMAT_UNSIGNED,9)+tComment+tBar+T(tinP.postTell) , flSAY_APPEND | flSAY_LOG ) ; //U::
+                            TELL( "ifcIDcMDsESSION_RELAYcHAT/retrieving sPayload from soulC sIn" ) ;
+                        {
+                        if( bDirect )
+                        soulC sPayload( tinP , TAG( TAGiDnULL ) ) ;
+    
+                        }
+                            bDirect =  bLocal || bDirectRequested ;
+    
+                            }
+                                tinP.zEtScratch->delF( tinP , pNicNameMe ) ;
+                                }
+                                    }
+                                        }
+                                            break ;
+                                            //nicName = nicNameC( NICnAMElOCAL ) ; //AVOID USING AN ADAPTER WHEN I DO NOT NEED TO (TO AVOID PROBLEMS WITH AN ADAPTER CONFIGURED FOR IP FILTERING)
+                                            bLocal = 1 ;
+                                        {
+                                        if( pNicNameMe[ off ] == nicName )
+                                    {
+                                    for( countT off = 0 ; off < cNicNameMe ; off ++ )
+                                {
+                                if( pNicNameMe )
+                                socketC::nicNameIF( tinP , *tinP.zEtScratch , pNicNameMe , cNicNameMe ) ; ___( pNicNameMe ) ;
+                                ZE( countT   , cNicNameMe ) ;
+                                ZE( nicNameC* , pNicNameMe ) ;
+                            {
+                            if( !bLocal )
+    
+                            __( ++ cRelays > 8 ) ; // cRelays WILL NORMALLY BE 2.  WILL BE 4 IF THERE IS A WIRETAP AT EACH END.  PURPOSE OF THIS LINE IS TO DETECT INFINITE LOOPS
+                            //if( cRelays ) etThread.ifcSayF( tinP , TF3(idClient,flFORMAT_UNSIGNED,9)+tComment+tBar+T("osTid,idRelay,cTries,bLocal,cRelaysPrior,tComment: ")+TF1(tinP.osTid)+T(" ")+TF1(idRelay)+T(" ")+TF1(cTries)+T(" ")+TF1(bLocal)+T(" ")+TF1(cRelays)+T(" \"")+tComment+T("\"\r\n") , flSAY_APPEND | flSAY_LOG ) ;
+
+                            boolT bLocal = !nicName || nicName == nicNameC( NICnAMElOCAL ) ;
+                            countT& cRelays = sIn.cFieldF( tinP , 8 ) ;
+    
+                            boolT bDirectRequested = sIn.cFieldF( tinP , 7 ) ;
+                        {
+                        ZE( boolT , bDirect ) ;
+                        //etThread.ifcSayF( tinP , TF3(idClient,flFORMAT_UNSIGNED,9)+tComment+tBar+T(tinP.postTell) , flSAY_APPEND | flSAY_LOG ) ; //U::
+                        TELL( "ifcIDcMDsESSION_RELAYcHAT/setting bDirect" ) ;
+    
+                        countT cTries = sIn.cFieldF( tinP , 6 ) ;
+                        //etThread.ifcSayF( tinP , TF3(idClient,flFORMAT_UNSIGNED,9)+tComment+tBar+T(tinP.postTell) , flSAY_APPEND | flSAY_LOG ) ; //U::
+                        TELL( "ifcIDcMDsESSION_RELAYcHAT/retrieving cTries from soulC sIn" ) ;
+                    {
+                    if( !ether && !etThread && !*tinP.zEtScratch )
+
+                    }
+                        }
+                            etThread.delF( tinP , pstti ) ;
+                            }
+                                //etText.ifcSayF( tinP , TF3(idClient,flFORMAT_UNSIGNED,9)+tComment+tBar+T("RcHAT/")+TF1(idRelay)+T("/i chose ")+T(nicName)+T(" randomly for ")+TF1(idAdam) , flSAY_APPEND | flSAY_LOG ) ;
+                                nicName = tinP.zEtScratch->ifcCellHostsF( tinP , idAdam , 1 ) ;
+                                //etThread.ifcSayF( tinP , TF3(idClient,flFORMAT_UNSIGNED,9)+tComment+tBar+T(tinP.postTell) , flSAY_APPEND | flSAY_LOG ) ; //U::
+                                TELL( "ifcIDcMDsESSION_RELAYcHAT/obtaining a random nicName value" ) ;
+                                //etText.ifcSayF( tinP , TF3(idClient,flFORMAT_UNSIGNED,9)+tComment+tBar+T("RcHAT/")+TF1(idRelay)+T("/choosing nicName randomly for ")+TF1(idAdam) , flSAY_APPEND | flSAY_LOG ) ;
+                            {
+                            else
+                            }
+                                etThread.delF( tinP , pstt1w ) ;
+                                }
+                                    }
+                                        break ;
+                                        //CONJ: NOT NEEDED CAUSE MY CODE INTERPREST 0 AS "LOCAL": if( !nicName ) nicName = etThread.sockNicNameF( tinP ) ;
+                                        nicName = etThread.strDigitsToNicNameF( tinP , psttc1 ) ;
+                                    {
+                                    if( !( cSkip -- ) )
+                                {
+                                FORsTRINGSiN1( pstt1w )
+                                countT cSkip = ranUniC( cWords , 0 ) ;
+                                countT cWords = etThread.strWordsOldF( tinP , pstt1w , pstti , sttq , T("\r\n") ) ; ___( pstt1w ) ;
+                                strokeS sttq( (countT)0 , sc_IGNOREqUOTES ) ;
+                                ZE( strokeS* , pstt1w ) ;
+                            {
+                            if( pstti )
+                            etThread.boxGetShadow::20141115@1937::MIGRATE:TO:USE:SETTINGS.BIT.TREE::SettingF( tinP , pstti , T("///d/ideafarm.")+TF1(etherC::ifc_idHomeI_IF())+T(".setting.keyValue.nnCellHostsAll") ) ; ___( pstti ) ;
+                            ZE( strokeS* , pstti ) ; //U:: CONJ: THE INSPECTION FOR nnCellHostsAll SHOULD BE DONE WITHIN ifcCellHostsF
+                        {
+                        if( !idPort && !nicName )
+                        //etThread.ifcSayF( tinP , TF3(idClient,flFORMAT_UNSIGNED,9)+tComment+tBar+T("idAdam: ")+TF1(idAdam)+T("    nicName: ")+TF1(*(const countT*)nicName)+T("    idPort: ")+TF1(idPort) , flSAY_APPEND | flSAY_LOG ) ; //U::
+
+                        tinP.zEtScratch->memCopyF( tinP , (byteT*)&nicName , pbNicName + 1 , sizeof nicName ) ;
+
+                        __Z( pbNicName ) ;
+                        __( cbNicName - 1 - sizeof( nicNameC ) ) ; // THE "1" CORRESPONDS TO THE flags2 BYTE
+                        __( flags - ( flSOULiTEM_MADEoFcOUNToBJECTS | flSOULiTEM_INCREASINGiNsIGNIFICANCE ) ) ;
+                        __( idType - ifcIDtYPEsOULiTEM_nicNameC ) ;
+                        const byteT* const pbNicName = sIn.pbFieldF( tinP , idType , flags , cbNicName , 5 ) ;
+                        ZE( countT , cbNicName ) ;
+                        ZE( flagsT , flags ) ;
+                        ZE( countT , idType ) ;
+                    {
+                    nicNameC nicName ;
+                    //etThread.ifcSayF( tinP , TF3(idClient,flFORMAT_UNSIGNED,9)+tComment+tBar+T(tinP.postTell) , flSAY_APPEND | flSAY_LOG ) ; //U::
+                    TELL( "ifcIDcMDsESSION_RELAYcHAT/retrieving nicName from soulC sIn" ) ;
+
+                    __NZ( !idPort && !idAdam ) ;
+                    __NZ( idPort == ifcPORToLD2_CATCH ) ;
+                    __NZ( idPort == ifcPORToLD2_CHAT ) ;
+                    const boolT bLookUpIdPort = !idPort ;
+                    //etThread.ifcSayF( tinP , TF3(idClient,flFORMAT_UNSIGNED,9)+tComment+tBar+T("from ")+TF3(idiClient,flFORMAT_UNSIGNED,9)+T(" to ")+TF3(idAdam,flFORMAT_UNSIGNED,9)+T(" (idPort ")+TF1(idPort)+T(")") , flSAY_APPEND | flSAY_LOG ) ; //U::
+                    countT idPort    = sIn.cFieldF( tinP , 4 ) ; // IF 0 THEN WILL BE LOOKED UP; NORMALLY WILL BE 0
+                    countT idAdam    = sIn.cFieldF( tinP , 3 ) ;
+                    countT idiClient = sIn.cFieldF( tinP , 9 ) ;
+                    //etThread.ifcSayF( tinP , TF3(idClient,flFORMAT_UNSIGNED,9)+tComment+tBar+T(tinP.postTell) , flSAY_APPEND | flSAY_LOG ) ; //U::
+                    TELL( "ifcIDcMDsESSION_RELAYcHAT/retrieving idAdam idPort from soulC sIn" ) ;
+
+                    }
+                        __Z( pbPayload ) ;
+                        __( idType - ifcIDtYPEsOULiTEM_soulC ) ;
+                        const byteT* const pbPayload = sIn.pbFieldF( tinP , idType , flags , cbPayload , 2 ) ;
+                        ZE( countT , cbPayload ) ;
+                        ZE( flagsT , flags ) ;
+                        ZE( countT , idType ) ;
+                    {
+                    //etThread.ifcSayF( tinP , TF3(idClient,flFORMAT_UNSIGNED,9)+tComment+tBar+T(tinP.postTell) , flSAY_APPEND | flSAY_LOG ) ; //U::
+                    TELL( "ifcIDcMDsESSION_RELAYcHAT/retrieving pbPayload from soulC sIn" ) ;
+
+                    __( idCmd - ifcIDcMDsESSION_RELAYcHAT ) ;
+                    countT idCmd = sIn.cFieldF( tinP ) ;
+                    //etThread.ifcSayF( tinP , TF3(idClient,flFORMAT_UNSIGNED,9)+tComment+tBar+T(tinP.postTell) , flSAY_APPEND | flSAY_LOG ) ; //U::
+                    TELL( "ifcIDcMDsESSION_RELAYcHAT/retrieving idCmd from soulC sIn" ) ;
+
+                    //etText.ifcSayF( tinP , TF3(idClient,flFORMAT_UNSIGNED,9)+tComment+tBar+T("RcHAT/comment: \"")+tComment+T("\"") , flSAY_APPEND | flSAY_LOG ) ;
+                    }
+                        if( !*tinP.zEtScratch ) tComment = T(psttOldComment) ;
+                        if( !*tinP.zEtScratch ) { __( cbComment - 1 - sizeof( strokeS ) * ( CSpREFIX + psttOldComment->idAdam ) ) ; }
+                        __( flags - flSOULiTEM_MADEoFcOUNToBJECTS ) ;
+                        __Z( psttOldComment ) ;
+                        __( idType - ifcIDtYPEsOULiTEM_strokeSptr ) ;
+                        const strokeS* const psttOldComment = (strokeS*)( sIn.pbFieldF( tinP , idType , flags , cbComment , 0xa ) + 1 ) ;
+                        ZE( countT , cbComment ) ;
+                        ZE( flagsT , flags ) ;
+                        ZE( countT , idType ) ;
+
+                    {
+                    TN( tComment , "comment could not be retrieved from soul sIn" ) ;
+                    //etThread.ifcSayF( tinP , TF3(idClient,flFORMAT_UNSIGNED,9)+T(tinP.postTell) , flSAY_APPEND | flSAY_LOG ) ; //U::
+                    TELL( "ifcIDcMDsESSION_RELAYcHAT/retrieving psttOldComment from soulC sIn" ) ;
+                    TN( tLog , "///d/ideafarm.log.relayChat" ) ;
+                    TN( tBar , "| " ) ;
+
+                    //etText.ifcSayF( tinP , TF3(idClient,flFORMAT_UNSIGNED,9)+T("RcHAT/")+TF1(idRelay) , flSAY_APPEND | flSAY_LOG ) ; //U::
+
+                    etherC& etText = etherC::etTextIF( tinP ) ;
+
+                    //stateS& state = *(stateS*)pbdVarying ;
+
+                    idRelay ++ ;
+                    static countT idRelay ;
+                {
+                //if( pbdVarying )
+                //b_pbdVarying.grabF( tinP , TAG( TAGiDnULL ) ) ;
+                // STATE CANNOT BE ACCESSED IN THIS BLOCK BECAUSE RELAY; THIS RESTRICTION IS SO THAT NESTED RELAY CHAT SESSIONS ARE SUPPORTED
+
+                // WHEN THE UP   SOCKET FAILS, THE DOWN SOCKET IS CANCELED
+                // WHEN THE DOWN SOCKET FAILS, THE UP   SOCKET IS CANCELED
+                // SOCKET FAILURES ARE RELAYED
+                // SOCKET FAILURES
+
+                // AFTER THE CONNECTION SPLINE IS ESTABLISHED, IF A FAILURE OCCURS, NO RETRY IS ATTEMPTED
+                //  THIS SAME cTries VALUE WOULD NORMALLY HAVE BEEN USED TO CONNECT TO ME
+                // WHILE ESTABLISHING A CONNECTION SPLINE, cTries IN THE RELAY CHAT HEADER IS USED BY ALL CHAT SERVER RELAY POINTS (1140104 CELLS) IN THE SPLINE
+                // THE STREAM UPWARD IS TERMINATED BY SOCKET CLOSURE (THE CLIENT MUST BE RUDE)
+                // THE STREAM DOWNWARD IS TERMINATED BY AN EMPTY soulC OBJECT (THE SERVER MUST BE POLITE)
+                // A RELAY CHAT IS A FULL DUPLEX PAIR OF STREAMS OF soulC OBJECTS
+                //
+                // PROTOCOL
+                //etThread.ifcSayF( tinP , TF3(idClient,flFORMAT_UNSIGNED,9)+T(tinP.postTell) , flSAY_APPEND | flSAY_LOG ) ; //U::
+                TELL( "ifcIDcMDsESSION_RELAYcHAT/+" ) ;
+//CONoUT( "ifcIDcMDsESSION_RELAYcHAT: +" ) ; //U::
+            {
+            case ifcIDcMDsESSION_RELAYcHAT :
+            }
+                break ;
+                //etThread.ifcSayF( tinP , TF3(idClient,flFORMAT_UNSIGNED,9)+T(tinP.postTell) , flSAY_APPEND | flSAY_LOG ) ; //U::
+                TELL( "ifcIDcMDsESSION_QUERYiDpORTlOCALcHAT/-" ) ;
+                b_pbdVarying.ungrabF( tinP ) ;
+                }
+                    pso->writeF( tinP , sOut ) ;
+                    soulC sOut( tinP , TAG( TAGiDnULL ) , flSOUL_null , ifcIDcMDsESSION_ERROR ) ;
+                {
+                else
+                }
+                    pso->writeF( tinP , sOut ) ;
+
+                    sOut << idPortChat ;
+                    soulC sOut( tinP , TAG( TAGiDnULL ) , flSOUL_null , ifcIDcMDsESSION_QUERYiDpORTlOCALcHATrEPLY ) ;
+
+                    }
+                        tblAdam.ungrabF( tinP ) ;
+                        }
+                            }
+                                break ;
+                                idPortChat = tblAdam._CT1_04F( idr , 2 ) ;
+                            {
+                            if( tblAdam._CT1_04F( idr ) == idAdam )
+                        {
+                        for( countT idr = 1 ; idr <= cRows ; idr ++ )
+                        countT cRows = tblAdam.cRowsF( tinP ) ;
+                        tblAdam.grabF( tinP , TAG( TAGiDnULL ) ) ;
+                    {
+                    if( !*tinP.zEtScratch )
+                    ZE( countT , idPortChat ) ;
+
+                    sIn >> idAdam ;
+                    ZE( countT , idAdam ) ;
+
+                    __( idCmd - ifcIDcMDsESSION_QUERYiDpORTlOCALcHAT ) ;
+                    sIn >> idCmd ;
+                    ZE( countT , idCmd ) ;
+
+                    stateS& state = *(stateS*)pbdVarying ;
+                {
+                if( pbdVarying )
+                b_pbdVarying.grabF( tinP , TAG( TAGiDnULL ) ) ;
+                //etThread.ifcSayF( tinP , TF3(idClient,flFORMAT_UNSIGNED,9)+T(tinP.postTell) , flSAY_APPEND | flSAY_LOG ) ; //U::
+                TELL( "ifcIDcMDsESSION_QUERYiDpORTlOCALcHAT/+" ) ;
+            {
+            case ifcIDcMDsESSION_QUERYiDpORTlOCALcHAT :
+            }
+                break ;
+                //etThread.ifcSayF( tinP , TF3(idClient,flFORMAT_UNSIGNED,9)+T(tinP.postTell) , flSAY_APPEND | flSAY_LOG ) ; //U::
+                TELL( "ifcIDcMDsESSION_REGISTERiDpORTlOCALcHAT/-" ) ;
+                //etThread.ifcSayF( tinP , TF3(idClient,flFORMAT_UNSIGNED,9)+T("ifcIDcMDsESSION_REGISTERiDpORTlOCALcHAT/-") , flSAY_APPEND | flSAY_LOG ) ; //U::
+                b_pbdVarying.ungrabF( tinP ) ;
+                }
+                    pso->writeF( tinP , sOut ) ;
+                    soulC sOut( tinP , TAG( TAGiDnULL ) , flSOUL_null , ifcIDcMDsESSION_ERROR ) ;
+                {
+                else
+                }
+                    pso->writeF( tinP , sOut ) ;
+                    soulC sOut( tinP , TAG( TAGiDnULL ) , flSOUL_null , ifcIDcMDsESSION_REGISTERiDpORTlOCALcHATrEPLY ) ;
+
+                    }
+                        }
+                            }
+                                break ;
+                                sgnMonitorHasRegistered.giveF( tinP ) ;
+                                CONoUT( T("     ifcIDcMDsESSION_REGISTERiDpORTlOCALcHATsYSTEM: state.idPortMonitor is now ")+TF1(state.idPortMonitor)+T("\r\n") ) //U::
+                                state.idPortMonitor = idPortChat ;
+                            {
+                            case ifcIDaDAM_KERNEL2MONITOR :
+                        {
+                        switch( idAdam )
+                    {
+                    if( !*tinP.zEtScratch )
+
+                    }
+                        tblAdam.ungrabF( tinP ) ;
+                        }
+                            tblAdam.newObjectF( tinP , idPortChat ) ;
+                            tblAdam.newObjectF( tinP , idAdam ) ;
+                            tblAdam.newEventF( tinP ) ;
+                        {
+                        if( !bFound )
+
+                        }
+                            }
+                                break ;
+                                tblAdam._CT1_04F( idr , 2 ) = idPortChat ;
+                                bFound = 1 ;
+                            {
+                            if( tblAdam._CT1_04F( idr ) == idAdam )
+                        {
+                        for( countT idr = 1 ; idr <= cRows ; idr ++ )
+                        countT cRows = tblAdam.cRowsF( tinP ) ;
+                        ZE( boolT , bFound ) ;
+                        tblAdam.grabF( tinP , TAG( TAGiDnULL ) ) ;
+                    {
+                    if( !*tinP.zEtScratch )
+
+//CONoUTrAW( T("idAdam: ")+TF1(idAdam)+T(" idPortChat: ")+TF1(idPortChat) ) ; //U::
+                    //etThread.ifcSayF( tinP , TF3(idClient,flFORMAT_UNSIGNED,9)+T("idAdam: ")+TF1(idAdam)+T("    idPortChat: ")+TF1(idPortChat) , flSAY_APPEND | flSAY_LOG ) ; //U::
+                    sIn >> idPortChat ;
+                    sIn >> idAdam ;
+                    ZE( countT , idPortChat ) ;
+                    ZE( countT , idAdam ) ;
+
+                    __( idCmd - ifcIDcMDsESSION_REGISTERiDpORTlOCALcHAT ) ;
+                    sIn >> idCmd ;
+                    ZE( countT , idCmd ) ;
+
+                    stateS& state = *(stateS*)pbdVarying ;
+                {
+                if( pbdVarying )
+                b_pbdVarying.grabF( tinP , TAG( TAGiDnULL ) ) ;
+                //etThread.ifcSayF( tinP , TF3(idClient,flFORMAT_UNSIGNED,9)+T(tinP.postTell) , flSAY_APPEND | flSAY_LOG ) ; //U::
+                TELL( "ifcIDcMDsESSION_REGISTERiDpORTlOCALcHAT/+" ) ;
+            {
+            case ifcIDcMDsESSION_REGISTERiDpORTlOCALcHAT :
+            }
+                break ;
+                //etThread.ifcSayF( tinP , TF3(idClient,flFORMAT_UNSIGNED,9)+T(tinP.postTell) , flSAY_APPEND | flSAY_LOG ) ; //U::
+                TELL( "ifcIDcMDsESSION_REBOOT/-" ) ;
+
+                bReboot = bBye = 1 ;
+                pso->writeF( tinP , sOut ) ;
+                soulC sOut( tinP , TAG( TAGiDnULL ) , flSOUL_null , ifcIDcMDsESSION_REBOOTrEPLY ) ;
+                //etThread.ifcSayF( tinP , TF3(idClient,flFORMAT_UNSIGNED,9)+T(tinP.postTell) , flSAY_APPEND | flSAY_LOG ) ; //U::
+                TELL( "ifcIDcMDsESSION_REBOOT/+" ) ;
+            {
+            case ifcIDcMDsESSION_REBOOT :
+            }
+                break ;
+                //etThread.ifcSayF( tinP , TF3(idClient,flFORMAT_UNSIGNED,9)+T(tinP.postTell) , flSAY_APPEND | flSAY_LOG ) ; //U::
+                TELL( "ifcIDcMDsESSION_PUThIREdELETE/-" ) ;
+
+                pso->writeF( tinP , sOut ) ;
+                soulC sOut( tinP , TAG( TAGiDnULL ) , flSOUL_null , ifcIDcMDsESSION_PUThIREdELETErEPLY ) ;
+
+                etThread.delF( tinP , pbFile ) ;
+                etThread.delF( tinP , psttExe ) ;
+                etThread.delF( tinP , psttArgs ) ;
+
+                etThread.boxZapF( tinP , psttExe ) ;
+
+                __( value - ifcEXITcODEpROCESSaOK ) ;
+                tinP.zEtScratch->osProcessF( value , iddt , tinP , psttExe , psttArgs ) ;
+                ZE( countT , iddt ) ;
+                ZE( countT , value ) ;
+
+                etThread.boxPutUniqueF( tinP , psttExe , T("ideafarm/ephemeral/domains/com/ideafarm/tmp/1140104") , pbFile , cbFile ) ;
+                ZE( strokeS* , psttExe ) ;
+
+                sIn >> psttArgs ; ___( psttArgs ) ;
+                ZE( strokeS* , psttArgs ) ;
+
+                __Z( cbFile ) ;
+                __Z( pbFile ) ;
+                sIn.shiftRightF( tinP , pbFile , cbFile ) ; ___( pbFile ) ;
+                ZE( countT , cbFile ) ;
+                ZE( byteT* , pbFile ) ;
+
+                __( idCmd - ifcIDcMDsESSION_PUThIREdELETE ) ;
+                sIn >> idCmd ;
+                ZE( countT , idCmd ) ;
+                //etThread.ifcSayF( tinP , TF3(idClient,flFORMAT_UNSIGNED,9)+T(tinP.postTell) , flSAY_APPEND | flSAY_LOG ) ; //U::
+                TELL( "ifcIDcMDsESSION_PUThIREdELETE/+" ) ;
+            {
+            case ifcIDcMDsESSION_PUThIREdELETE :
+            }
+                break ;
+                //etThread.ifcSayF( tinP , TF3(idClient,flFORMAT_UNSIGNED,9)+T(tinP.postTell) , flSAY_APPEND | flSAY_LOG ) ; //U::
+                TELL( "ifcIDcMDsESSION_HIRE1/-" ) ;
+
+                b_pbdVarying.ungrabF( tinP ) ;
+                }
+                    pso->writeF( tinP , sOut ) ;
+                    soulC sOut( tinP , TAG( TAGiDnULL ) , flSOUL_null , ifcIDcMDsESSION_ERROR ) ;
+                {
+                else
+                }
+                    pso->writeF( tinP , sDone ) ;
+                    sDone.cFieldF( tinP ) = ifcIDcMDsESSION_HIRE1rEPLY ;
+
+                    __( sDone.cFieldF( tinP ) - ifcIDcMDsESSION_HIRE2rEPLY ) ;
+                    }
+                        }
+                            }
+                                ++ s ; ether.osSleepF( tinP , ru ) ;
+                                sleepC s( tinP , TAG( TAGiDnULL ) ) ;
+                                *tinP.zEtScratch = 0 ;
+                                CONoUT( T("     ifcIDcMDsESSION_HIRE1: ERROR: COULD NOT CONNECT TO state.idPortMonitor ")+TF1(state.idPortMonitor)+T("\r\n") ) //U::
+                            {
+                            else
+                            if( !*tinP.zEtScratch ) bFail = 0 ;
+                            }
+                                som.writeF( tinP , sBye ) ;
+                                som.readF( tinP , sDone ) ;
+                                som.writeF( tinP , sIn ) ;
+                                som.connectF( tinP , state.idPortMonitor ) ;
+                                socketC som( tinP , *tinP.zEtScratch , TAG( TAGiDnULL ) ) ;
+                            {
+                        {
+                        while( !ether && !etThread && !*tinP.zEtScratch && bFail )
+                        sIn.cFieldF( tinP ) = ifcIDcMDsESSION_HIRE2 ;
+                        __( !state.idPortMonitor ) ;
+                        ranUniC ru( TOCK * 8 ) ;
+                        boolT bFail = 1 ;
+                    {
+                    soulC sDone( tinP , TAG( TAGiDnULL ) ) ;
+
+                    stateS& state = *(stateS*)pbdVarying ;
+                {
+                if( pbdVarying )
+                b_pbdVarying.grabF( tinP , TAG( TAGiDnULL ) ) ;
+                //etThread.ifcSayF( tinP , TF3(idClient,flFORMAT_UNSIGNED,9)+T(tinP.postTell) , flSAY_APPEND | flSAY_LOG ) ; //U::
+                TELL( "ifcIDcMDsESSION_HIRE1/+" ) ;
+            {
+            case ifcIDcMDsESSION_HIRE1 :
+            }
+                break ;
+                //etThread.ifcSayF( tinP , TF3(idClient,flFORMAT_UNSIGNED,9)+T(tinP.postTell) , flSAY_APPEND | flSAY_LOG ) ; //U::
+                TELL( "ifcIDcMDsESSION_GETfYLE/-" ) ;
+
+                pso->writeF( tinP , sOut ) ;
+
+                etThread.delF( tinP , pbFile ) ;
+                sOut.shiftLeftF( tinP , ifcIDtYPEsOULiTEM_byteTptr , pbFile , cbFile ) ;
+                soulC sOut( tinP , TAG( TAGiDnULL ) , flSOUL_null , ifcIDcMDsESSION_GETfYLErEPLY ) ;
+
+                etThread.delF( tinP , pcName ) ;
+                }
+                    tinP.zEtScratch->boxGetShadowF( tinP , pbFile , cbFile , T("///ideafarm/ephemeral/domains/com/ideafarm/city/park/exedll/1/master/")+TF3(pcName[1],flFORMAT_UNSIGNED|flFORMAT_FILLzE|flFORMAT_FOREIGN,8)+T(".ipdos-wm") ) ; ___( pbFile ) ;
+
+                    __( !pcName[ 1 ] ) ;
+                    __( pcName[ 0 ] - ifcIDfYLEnAME1_MASTEReXEDLL_WINDOWS ) ;
+
+                    __( ostOs - 'w' ) ;
+                    osTextT ostOs = (osTextT)( tOs.csF( tinP ) ? ((strokeS*)tOs)[ CSpREFIX ].idAdam : 0 ) ;
+                    tOs = etThread.osIdF( tinP , 1 ) ;
+                    TN( tOs , "" ) ;
+                {
+                if( !*tinP.zEtScratch )
+                __( cWords - 2 ) ;
+                etThread.delF( tinP , psttName ) ;
+                countT cWords = tinP.zEtScratch->strToF( tinP , pcName , psttName ) ; ___( pcName ) ;
+                ZE( byteT* , pbFile ) ;
+                ZE( countT , cbFile ) ;
+                ZE( countT* , pcName ) ;
+
+                sIn >> psttName ; ___( psttName ) ;
+                ZE( strokeS* , psttName ) ;
+                __( idCmd - ifcIDcMDsESSION_GETfYLE ) ;
+                sIn >> idCmd ;
+                ZE( countT , idCmd ) ;
+                //etThread.ifcSayF( tinP , TF3(idClient,flFORMAT_UNSIGNED,9)+T(tinP.postTell) , flSAY_APPEND | flSAY_LOG ) ; //U::
+                TELL( "ifcIDcMDsESSION_GETfYLE/+" ) ;
+            {
+            case ifcIDcMDsESSION_GETfYLE :
+            }
+                break ;
+                //etThread.ifcSayF( tinP , TF3(idClient,flFORMAT_UNSIGNED,9)+T(tinP.postTell) , flSAY_APPEND | flSAY_LOG ) ; //U::
+                TELL( "ifcIDcMDsESSION_GETfILE/-" ) ;
+
+                pso->writeF( tinP , sOut ) ;
+
+                etThread.delF( tinP , pbFile ) ;
+                sOut.shiftLeftF( tinP , ifcIDtYPEsOULiTEM_byteTptr , pbFile , cbFile ) ;
+                soulC sOut( tinP , TAG( TAGiDnULL ) , flSOUL_null , ifcIDcMDsESSION_GETfILErEPLY ) ;
+
+                tinP.zEtScratch->delF( tinP , psttName ) ;
+                tinP.zEtScratch->boxGetShadowF( tinP , pbFile , cbFile , psttName ) ; ___( pbFile ) ;
+                ZE( byteT* , pbFile ) ;
+                ZE( countT , cbFile ) ;
+
+                }
+                    __( 1 - tinP.zEtScratch->strIdF( tinP , idf , sttq , T("///ideafarm/ephemeral/domains/com/ideafarm/city/park/exedll/1/master/") , psttName ) ) ;
+                    strokeS sttq( (countT)0 , sc_IGNOREqUOTES ) ;
+                    countT idf = 1 ;
+                {
+
+                sIn >> psttName ; ___( psttName ) ;
+                ZE( strokeS* , psttName ) ;
+                __( idCmd - ifcIDcMDsESSION_GETfILE ) ;
+                sIn >> idCmd ;
+                ZE( countT , idCmd ) ;
+                //etThread.ifcSayF( tinP , TF3(idClient,flFORMAT_UNSIGNED,9)+T(tinP.postTell) , flSAY_APPEND | flSAY_LOG ) ; //U::
+                TELL( "ifcIDcMDsESSION_GETfILE/+" ) ;
+            {
+            case ifcIDcMDsESSION_GETfILE :
+            }
+                break ;
+                //etThread.ifcSayF( tinP , TF3(idClient,flFORMAT_UNSIGNED,9)+T(tinP.postTell) , flSAY_APPEND | flSAY_LOG ) ; //U::
+                TELL( "ifcIDcMDsESSION_YOUaREfIRED/-" ) ;
+                pso->writeF( tinP , sOut ) ;
+                soulC sOut( tinP , TAG( TAGiDnULL ) , flSOUL_null , ifcIDcMDsESSION_YOUaREfIREDrEPLY ) ;
+                etThread.etherFireImpersonateMonitorIF( tinP ) ;
+                //etThread.ifcSayF( tinP , TF3(idClient,flFORMAT_UNSIGNED,9)+T(tinP.postTell) , flSAY_APPEND | flSAY_LOG ) ; //U::
+                TELL( "ifcIDcMDsESSION_YOUaREfIRED/+" ) ;
+            {
+            case ifcIDcMDsESSION_YOUaREfIRED :
+            }
+                break ;
+                //etThread.ifcSayF( tinP , TF3(idClient,flFORMAT_UNSIGNED,9)+T(tinP.postTell) , flSAY_APPEND | flSAY_LOG ) ; //U::
+                TELL( "ifcIDcMDsESSION_ECHO/-" ) ;
+                pso->writeF( tinP , sIn ) ;
+                //etThread.ifcSayF( tinP , TF3(idClient,flFORMAT_UNSIGNED,9)+T(tinP.postTell) , flSAY_APPEND | flSAY_LOG ) ; //U::
+                TELL( "ifcIDcMDsESSION_ECHO/+" ) ;
+            {
+            case ifcIDcMDsESSION_ECHO :
+        {
+        switch( idCmd )
+        const countT idCmd = sIn.cFieldF( tinP ) ;
+
+        if( *tinP.zEtScratch ) break ;
+        TELL( "finished reading soulC sIn" ) ;
+        pso->readF( tinP , sIn ) ;
+        soulC sIn( tinP , TAG( TAGiDnULL ) ) ;
+        TELL( "reading soulC sIn" ) ;
+    {
+    while( !ether && !etThread && !*tinP.zEtScratch && !bBye )
+    soulC sBye( tinP , TAG( TAGiDnULL ) , flSOUL_null , ifcIDcMDsESSION_BYE ) ;
+    ZE( boolT , bBye ) ;
+    ZE( boolT , bReboot ) ;
+
+    //etThread.ifcSayF( tinP , TF3(idClient,flFORMAT_UNSIGNED,9)+T("tmcF/+") , flSAY_APPEND | flSAY_LOG ) ; //U::
+    const countT idClient = 1 + incv02AM( idClientLath ) ;
+    static countT idClientLath ;
+    PARAMS( cArg )
+    TELL( "setting up" ) ;
+{
+if( cArg )
+TASKdRIVENsERVERnEWsOCKET( tmcF )
+
+TRANSLATEsTATEdRIVENsERVER_END
+    state.idMe ++ ;
+TRANSLATEsTATEdRIVENsERVER_MIDDLE
+    case 1 : { state.idPortMonitor = stateOther.idPortMonitor ; }
+    case 2 : { state.idMe          = stateOther.idMe          ; }
+TRANSLATEsTATEdRIVENsERVER_BEGIN( stateS , 2 )
+
+;
+}
+    countT idMe ;
+    countT idPortMonitor ;
+    countT idVersion ;
+{
+struct stateS
+
+    signC&        sgnMonitorHasRegistered =        *(signC*)c9p.c9 ;
+    etherC&       etThread1               =       *(etherC*)c9p.c8 ;                                                        \
+    switchStackC& sws_idAdam              = *(switchStackC*)c9p.c7 ;                                                        \
+    nicNameC&     levNicName              =     *(nicNameC*)c9p.c6 ;                                                        \
+    batonC&       b_levNicName            =       *(batonC*)c9p.c5 ;                                                        \
+    tableC&       tblHost                 =       *(tableC*)c9p.c4 ;                                                        \
+    tableC&       tblAdam                 =       *(tableC*)c9p.c3 ;                                                        \
+    batonC&       b_pbdVarying            =       *(batonC*)c9p.c2 ;                                                        \
+    byteT*&       pbdVarying              =       *(byteT**)c9p.c1 ;                                                        \
+    count9S&      c9p                     =       *(count9S*)cArgP ;                                                        \
+                                                                                                                            \
+#define PARAMS(cArgP)                                                                                                       \
+
+/*1*/WAKEhIDE( "ifcIDaDAMoLD_CHATsERVER.city.driven.server.chat" )/*1*/
+/**/
+*/
+/*
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 29 years.
+//
+// Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+

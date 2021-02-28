@@ -1,0 +1,166 @@
+
+//
+// Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 29 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+
+}
+    return idDesireOld ;
+
+    tinP.idDesire = idP ;
+
+    #endif
+
+        BOS( WHATgbo , BOSoK , SetThreadPriority( (HANDLE)tinP.brcRaw , osDesire ) )
+        BOSdOnOTtEST( WHATgbo ,  GetCurrentThread() )
+
+        }
+            }
+                break ;
+                __1
+            {
+            default :
+            case ifcTHREADpRIORITY_RUDE    : { osDesire = THREAD_PRIORITY_TIME_CRITICAL ; break ; }
+            case ifcTHREADpRIORITY_PUSHY   : { osDesire = THREAD_PRIORITY_HIGHEST       ; break ; }
+            case ifcTHREADpRIORITY_RUSH    : { osDesire = THREAD_PRIORITY_ABOVE_NORMAL  ; break ; }
+            case ifcTHREADpRIORITY_NORMAL  : { osDesire = THREAD_PRIORITY_NORMAL        ; break ; }
+            case ifcTHREADpRIORITY_LAZY    : { osDesire = THREAD_PRIORITY_BELOW_NORMAL  ; break ; }
+            case ifcTHREADpRIORITY_LAZIER  : { osDesire = THREAD_PRIORITY_LOWEST        ; break ; }
+            case ifcTHREADpRIORITY_LAZIEST : { osDesire = THREAD_PRIORITY_IDLE          ; break ; }
+        {
+        switch( idP )
+        ZE( countT , osDesire ) ;
+
+        //CONoUTrAW( "p" ) ;
+
+        //if( idP == ifcTHREADpRIORITY_SPINLOCK ) { BLAMMO ; } //CODE THAT SETS RUDE MUST ENSURE AGAINST CPU SPINNING
+    
+        //dosPriorityProcessIF( tinP , idP ) ;
+    
+    #elif defined( __NT__ )
+
+        }
+            }
+                break ;
+                __1
+            {
+            default :
+            }
+                break ;
+                BOSpOOP
+                BOS( WHATgbo , BOSfAIL , DosSetPriority( PRTYS_THREAD           , PRTYC_TIMECRITICAL     , 0 , 0 ) )
+            {
+            case ifcTHREADpRIORITY_SPINLOCK :
+            }
+                break ;
+                BOSpOOP
+                BOS( WHATgbo , BOSfAIL , DosSetPriority( PRTYS_THREAD , PRTYC_FOREGROUNDSERVER , 0 , 0 ) )
+            {
+            case ifcTHREADpRIORITY_RUSH :
+            }
+                break ;
+                BOSpOOP
+                BOS( WHATgbo , BOSfAIL , DosSetPriority( PRTYS_THREAD , PRTYC_REGULAR , 0 , 0 ) )
+            {
+            case ifcTHREADpRIORITY_NORMAL :
+            }
+                break ;
+                BOSpOOP
+                BOS( WHATgbo , BOSfAIL , DosSetPriority( PRTYS_THREAD , PRTYC_IDLETIME , 0 , 0 ) )
+            {
+            case ifcTHREADpRIORITY_LAZIEST :
+        {
+        switch( idP )
+
+    #if defined( __OS2__ )
+
+    const countT idDesireOld = dosPriorityIF( tinP ) ;
+
+    if( F(tinP.flagsThreadMode2) & flTHREADmODE2_LOCKdESIRE ) { BLAMMO ; }
+
+    //O: _IO_       COMMENTED OUT BECAUSE THIS IS CALLED VERY FREQUENTLY SO IMPOSES GREAT OVERHEAD 
+
+    //}
+    //    if( POOP ) return 0 ;
+    //{
+    //IFbEcAREFUL
+    //THIS MUST BE DONE EVEN IF IMPOTENT SO THAT GRABBING/UNGRABBING WILL WORK
+{
+/*1*/countT thirdC::dosPriorityIF( tinS& tinP , const countT idP )/*1*/
+
+/**/
+*/
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/1snip.001007f.ifcTHREADpRIORITY!||
+ idP
+arguments
+ code should be crafted with this in mind
+ the process priority (when the operating system uses this concept) will be determined by the most recent call to me 
+   | 
+   | RUDE                         f1   Real-time class, THREAD_PRIORITY_TIME_CRITICAL
+   | rush(RUDE)                   a1   Real-time class, THREAD_PRIORITY_HIGHEST
+   |                              91   Real-time class, THREAD_PRIORITY_ABOVE_NORMAL
+   | normal(RUDE)                 81   Real-time class, THREAD_PRIORITY_NORMAL
+   |                              71   Real-time class, THREAD_PRIORITY_BELOW_NORMAL
+   |                              61   Real-time class, THREAD_PRIORITY_LOWEST
+   | idle(RUDE)                   01   Real-time class, THREAD_PRIORITY_IDLE
+   | RUSH rude(IDLE,NORMAL,RUSH)  f    Idle, normal, or high class, THREAD_PRIORITY_TIME_CRITICAL      High class, THREAD_PRIORITY_HIGHEST
+   |                              e    High class, THREAD_PRIORITY_ABOVE_NORMAL
+   | normal(HIGH)                 d    High class, THREAD_PRIORITY_NORMAL
+   |                              c    High class, THREAD_PRIORITY_BELOW_NORMAL
+   | rush(NORMALfORE)             b    High class, THREAD_PRIORITY_LOWEST                              Foreground normal class, THREAD_PRIORITY_HIGHEST
+   |                              a    Foreground normal class, THREAD_PRIORITY_ABOVE_NORMAL
+   | NORMALfORE rush(NORMALbACK)  9    Foreground normal class, THREAD_PRIORITY_NORMAL                 Background normal class, THREAD_PRIORITY_HIGHEST
+   |                              8    Foreground normal class, THREAD_PRIORITY_BELOW_NORMAL           Background normal class, THREAD_PRIORITY_ABOVE_NORMAL
+   | NORMALbACK                   7    Foreground normal class, THREAD_PRIORITY_LOWEST                 Background normal class, THREAD_PRIORITY_NORMAL
+   | rush(IDLE)                   6    Background normal class, THREAD_PRIORITY_BELOW_NORMAL           Idle class, THREAD_PRIORITY_HIGHEST
+   |                              5    Background normal class, THREAD_PRIORITY_LOWEST                 Idle class, THREAD_PRIORITY_ABOVE_NORMAL
+   | normal(IDLE)                 4    Idle class, THREAD_PRIORITY_NORMAL
+   |                              3    Idle class, THREAD_PRIORITY_BELOW_NORMAL
+   |                              2    Idle class, THREAD_PRIORITY_LOWEST
+   | IDLE                         1    Idle, normal, or high class, THREAD_PRIORITY_IDLE
+   |                              Base Priority class/thread priority
+   | 
+   |     they will be changed to b iff the process is in the foreground (e.g. the window is selected by the mouse)
+   |    if another thread then calls me specifying NORMAL, all RUSH threads will be changed from 6 to either b or 9
+   |    if another thread then calls me specifying IDLE, all RUSH threads will be changed from a1 to 6
+   |    if another thread then calls me specifying RUDE, all RUSH threads will be changed from f to a1
+   |    my thread will remain at f until another thread calls me
+   |    this initially results in my thread being assigned priority f
+   |   calling me specifying RUSH
+   |  example
+   |    after that happens, if i am called specifying IDLE, NORMAL, or RUSH, then all of the IDLE threads will drop back from 01 to 1
+   |    but if another thread calls me specifying RUDE, all threads that i have assigned IDLE will be changed from 1 to 01
+   |    my thread will remain at 1 even if another thread calls me specifying NORMAL or RUSH
+   |    this initially results in my thread being assigned priority 1
+   |   calling me specifying IDLE
+   |  example
+   |  the re'th column is copied from the windows programmers' reference information in the toolkit
+   |  the oo'th column indicates the base priority number that windows assigns to the thread
+   |  the leftmost column indicates the result of calling me
+   |  windows assigns a "base priority" that is a number in [1-f1]
+   | how to read this table:
+   | 
+   table: effective thread priority (excluding dynamic boosts) for windows
+   i handle this by setting both the thread priority and the process priority
+   a thread's priority is determined by both the thread priority setting and by the process priority in effect
+   windows implements the concept of "process priority"
+  on windows, will also affect the priority of other threads in the process
+ on operating systems that use "process priority", i will also set the process priority
+sets the priority of the current thread
+  \<A HREF=\"5.4010104.1.1.0.html\"\>4010104:  WAKEsHOW( "example.simplest.func.1020080.thirdC.dosPriorityIF" )\</A\>
+ simplest
+examples
+\<A HREF=\"5.1020080.1.0.html\"\>definition\</A\>
+\<A HREF=\"6.$dosPriorityIF.0.html\"\>instances\</A\>
+/*
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 29 years.
+//
+// Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+

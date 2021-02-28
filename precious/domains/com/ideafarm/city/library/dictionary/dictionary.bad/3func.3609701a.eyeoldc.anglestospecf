@@ -1,0 +1,177 @@
+
+//
+// Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 29 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+
+}
+    vSpecPodLagP( 0 ) = 1 ; //VALUE IS VALID
+    vSpecPodLagP = vSpecPod ;
+
+    }
+        }
+            }
+                else                 hAngleP = - 1.0 - hAngleP ;
+                if( hAngleP >= 0.0 ) hAngleP =   1.0 - hAngleP ;
+
+                hAngleP = tinP.brcm04Raw ;
+                BOSmEASURE04( WHATgbo , atan2( vSpecPod( 1 ) , - vSpecPod( 3 ) ) / PI )
+            {
+            else
+            }
+                hAngleP = tinP.brcm04Raw ;
+                BOSmEASURE04( WHATgbo , atan2( vSpecPod( 1 ) , vSpecPod( 3 ) ) / PI )
+            {
+            if( vSpecPod( 3 ) > 0.0 )
+
+            vAngleP = tinP.brcm04Raw ;
+            BOSmEASURE04( WHATgbo , atan2( vSpecPod(2) , thirdC::c_sqrtIF( vSpecPodHorProj ) ) / PI )
+        {
+        else
+        }
+            }
+                vAngleP = tinP.brcm04Raw ;
+                BOSmEASURE04( WHATgbo , atan2( vSpecPod( 2 ) , - vSpecPod( 1 ) ) / PI )
+                hAngleP = - 0.5 ;
+            {
+            else if( vSpecPod( 1 ) < 0.0 ) // IN FACE PLANE TO MY LEFT
+            }
+                vAngleP = tinP.brcm04Raw ;
+                BOSmEASURE04( WHATgbo , atan2( vSpecPod( 2 ) , vSpecPod( 1 ) ) / PI )
+                hAngleP = 0.5 ;
+            {
+            else if( vSpecPod( 1 ) > 0.0 ) // IN FACE PLANE TO MY RIGHT
+            }
+                else vAngleP = vSpecPod( 2 ) > 0.0 ? 0.5 : - 0.5 ;
+                }
+                    vAngleP = 0.0 ;
+                    flagsP |= flEYEoLDaNGLEStOsPEC_LINEcONTAINSmE ;
+                {
+                if( vSpecPod( 2 ) > - FUZZ2 && vSpecPod( 2 ) < FUZZ2 )  // SPEC IS VERY CLOSE TO ME
+                hAngleP = 0.0 ;
+            {
+            if( vSpecPod( 1 ) > - FUZZ2 && vSpecPod( 1 ) < FUZZ2 ) //IN VERTICAL VIEW PLANE (SO IS EITHER DIRECTLY ABOVE OR DIRECTLY BELOW ME)
+        {
+        if( vSpecPod( 3 ) > - FUZZ2 && vSpecPod( 3 ) < FUZZ2 ) //IN FACE PLANE
+
+        }
+            }
+                else flagsP &= ~( F(flEYEoLDaNGLEStOsPEC_AFT) ) ;
+                }
+                    vAngleAftP = tinP.brcm04Raw ;
+                    BOSmEASURE04( WHATgbo , atan2( vSpecPodAft( 2 ) , - vSpecPodAft( 3 ) ) / PI )
+                {
+                if( vSpecPodAft( 0 ) && vSpecPodAft( 3 ) < - FUZZ2 )
+            {
+            if( F(flagsP) & flEYEoLDaNGLEStOsPEC_AFT )
+
+            if( vSpecPodAft( 0 ) && vSpecPodAft < FUZZ2 ) flagsP = flEYEoLDaNGLEStOsPEC_LINEcONTAINSmE ;           // IF LINE PASSES VERY CLOSE TO ME
+
+            }
+                vSpecPodAft( 3 ) = ( vSpecPodLagP( 3 ) + vSpecPod( 3 ) ) / 2.0 ;
+                vSpecPodAft( 2 ) = ( vSpecPodLagP( 2 ) + vSpecPod( 2 ) ) / 2.0 ;
+                vSpecPodAft( 1 ) = 0.0 ;
+                vSpecPodAft( 0 ) = 1 ;
+            {
+            )
+                           vSpecPod( 1 ) <= FUZZ2
+                - FUZZ2 <= vSpecPod( 1 )                &&
+                           vSpecPodLagP( 1 ) <= FUZZ2   &&
+                - FUZZ2 <= vSpecPodLagP( 1 )            &&
+            (
+            else if // X IS WITHIN FUZZ OF 0
+            }
+                }
+                    vSpecPodAft( 0 ) = min - FUZZ2 <= test && test <= max + FUZZ2 ;
+                    measureT test = vSpecPodAft( ii ) ;
+                    }
+                        min = save ;
+                        max = min ;
+                        measureT save = max ;
+                    {
+                    if( max < min )
+                    measureT max = vSpecPod( ii ) ;
+                    measureT min = vSpecPodLagP( ii ) ;
+                    // TRUE IFF AFT POINT IS BETWEEN THE ENDPOINTS, USING THE DIMENSION THAT RANGES MOST
+
+                    countT ii = rz > ry ? 3 : 2 ;
+                    measureT rz = dz ; if( rz < 0.0 ) rz = - rz ;
+                    measureT ry = dy ; if( ry < 0.0 ) ry = - ry ;
+    
+                    vSpecPodAft( 3 ) = vSpecPodLagP( 3 ) - dzdx * vSpecPodLagP( 1 ) ;
+                    vSpecPodAft( 2 ) = vSpecPodLagP( 2 ) - dydx * vSpecPodLagP( 1 ) ;
+                    vSpecPodAft( 1 ) = 0.0 ; //SET AFT TO THE POINT WHERE THE LINE INTERSECTS WITH THE VERTICAL VIEW PLANE
+                    
+                    measureT dzdx = dz / dx ;
+                    measureT dydx = dy / dx ;
+                {
+                )
+                    ( vSpecPodLagP( 1 ) >= - FUZZ2 && vSpecPod( 1 ) <=   FUZZ2 )
+                    ( vSpecPodLagP( 1 ) <=   FUZZ2 && vSpecPod( 1 ) >= - FUZZ2 ) ||
+                (
+                if
+            {
+            if( dx < - FUZZ2 || dx > FUZZ2 ) // X RANGES
+            vectorOldC vSpecPodAft( tinP , ether ) ;
+
+            measureT dz = vSpecPod( 3 ) - vSpecPodLagP( 3 ) ;
+            measureT dy = vSpecPod( 2 ) - vSpecPodLagP( 2 ) ;
+            measureT dx = vSpecPod( 1 ) - vSpecPodLagP( 1 ) ;
+        {
+        if( vSpecPodLagP( 0 ) )
+    {
+    else
+    }
+        vAngleP = hAngleP = 0.0 ;
+        flagsP = flEYEoLDaNGLEStOsPEC_LINEcONTAINSmE ;
+    {
+    if( vSpecPod < FUZZ2 )                  // IF ENDPOINT IS VERY CLOSE TO ME
+
+    }
+        vSpecPodHorProj( 3 ) = vSpecPod( 3 ) ;
+        vSpecPodHorProj( 1 ) = vSpecPod( 1 ) ;
+
+        podFromAbsF( tinP , vSpecPod , vSpecAbs ) ;
+        vSpecAbs -= state.vao ;
+        vSpecAbs(3) = zzP ;
+        vSpecAbs(2) = yyP ;
+        vSpecAbs(1) = xxP ;
+        vectorOldC vSpecAbs( tinP , ether ) ;
+    {
+    vectorOldC vSpecPodHorProj( tinP , ether ) ;
+    vectorOldC vSpecPod( tinP , ether ) ;
+{
+/*1*/voidT eyeOldC::anglesToSpecF( tinS& tinP , flagsT& flagsP , measureT& hAngleP , measureT& vAngleP , measureT& vAngleAftP , measureT xxP , measureT yyP , measureT zzP , vectorOldC& vSpecPodLagP )/*1*/
+
+/**/
+
+*/
+ this is not done for a move command since the caller does not need to draw anything for a move
+ vAngleAftP is set to the vertical height of the point on the line that is horizontally directly behind the pod
+ when rendering a line that passes directly behind the pod, the image is split, with part appearing on the left edge, and part appearing on the right edge, of the stroking frame
+middle
+ it is also precisely and instantaneously controllable by overwhelmingly powerful servomotors
+ the orientation of the pod within the hull is not subject to external forces
+ the timelessness assumes that the body of the pilot is impervious to rotational acceleration and deceleration
+ the costless assumption is the limit of a tiny single occupant pod within a huge, planet sized hull
+ the pod has a fixed center point within the hull but can be costlessly and timelessly reoriented to any orientation
+ the idea is that the pod is mounted on magnetic fields within the hull
+ the pod can have any orientation within the hull
+pod: a pilot's pod within the hull of a space ship
+ the orientation of the hull is changed with rockets and can be perturbed by external, unpredictable shock forces
+ the idea is that it is costly (time and fuel) to change the orientation of the hull in space
+ the hull can have any orientation in space, just like a real space ship
+hull: the hull of a space ship
+absolute: a cartesian coordinate system for the space that contains the hull, which contains the pod
+/*
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 29 years.
+//
+// Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+

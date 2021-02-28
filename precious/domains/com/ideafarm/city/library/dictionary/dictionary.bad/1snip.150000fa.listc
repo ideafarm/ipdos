@@ -1,0 +1,132 @@
+
+//
+// Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 29 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+
+;
+}
+    friend class recordC ;
+
+    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34013.listC.countIF!||
+    static countVSP countIF( tinS& tinP , handleC& hRecordP , const countT* pczFieldP , const flagsT flagsP = flLISToPEN_null ) ;
+    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400e.listC.fieldIF!||
+    static flagsT fieldIF( tinS& tinP , fieldEditParamOutC*& pOutP , handleC& hRecordP , const countT* pczFieldP , const fieldEditParamInC& inP , const countT idLineNewP , const countT idiFileNewP , const flagsT flagsP = flLISToPEN_null , const countT idGrabLayerP = ifcIDgRABlAYER_7BASEmISC1 ) ;
+
+    /* FIELD MANIPULATION */
+
+    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34026.listC.dictionaryRestoreOsTextIF!||
+    static voidT dictionaryRestoreOsTextIF( tinS& tinP , countT* const pczNameP ) ;
+    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400d.listC.dictionaryReplaceOsTextIF!||
+    static voidT dictionaryReplaceOsTextIF( tinS& tinP , countT* const pczNameP ) ;
+    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400c.listC.dictionaryForgetIdIF!||
+    static voidT dictionaryForgetIdIF( tinS& tinP , const countT idP , const countT idGrabLayerP = ifcIDgRABlAYER_7BASEmISC1 ) ;
+    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400b.listC.dictionaryForgetTextIF!||
+    static voidT dictionaryForgetTextIF( tinS& tinP , const osTextT* const postP , const countT idGrabLayerP = ifcIDgRABlAYER_7BASEmISC1 ) ;
+    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400a.listC.dictionaryQueryFromIdIF!||
+    static blobVSP dictionaryQueryFromIdIF( tinS& tinP , const countT idP , const countT idGrabLayerP = ifcIDgRABlAYER_7BASEmISC1 ) ;
+    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34009.listC.dictionaryQueryFromTextIF!||
+    static countT dictionaryQueryFromTextIF( tinS& tinP , const osTextT* const postP , const flagsT flagsP = flDICTIONARYqUERYfROMtEXT_null , const countT idGrabLayerP = ifcIDgRABlAYER_7BASEmISC1 ) ;
+
+    /* DICTIONARY */
+
+    inline listC& operator =( listC& listDadP ) { aptDad = (byteT*)&listDadP ; return *this ; }
+    inline        operator countT&( voidT )       { return idName ; }
+    inline        operator countT(  voidT ) const { return idName ; }
+    inline countT dispenseNameF( voidT )  { return - 1 + decv02AM( idNameKidDefaultLath ) ; } // DISPENSES DOWNWARD SO THAT MOST RECENT WILL BE ENCOUNTERED WOTH WHEN WALKING
+    inline boolT  isEmptyF( voidT ) const { return !aptKid ; }
+
+    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.360e6026.listc.resetIndexBitsIF!||
+    static flagsT resetIndexBitsIF( tinS& tinP , handleC& hListP , const flagsT flagsP = flLISTwALK_null , const countT idGrabLayerP = ifcIDgRABlAYER_7BASEmISC1 ) ;
+    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34025.listC.nameF!||
+    countT nameF( tinS& tinP , countT*& pczNameP ) const ;
+    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34024.listC.nameF!||
+    countT nameF( sCountT idP = 0 ) const ;
+    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3401e.listC.walkEnumerateIF!||
+    static flagsT walkEnumerateIF( tinS& tinP , datumS*& pDatumP , const countT cNameP , const countT idGrabLayerP = ifcIDgRABlAYER_7BASEmISC1 ) ;
+    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3401d.listC.walkIndexIF!||
+    static flagsT walkIndexIF( tinS& tinP , const countT cNameP , const countT* const valueP , const countT cNetP ) ;
+    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3401c.listC.walkIndexIF!||
+    static flagsT walkIndexIF( tinS& tinP , const countT cNameP , const osTextT* const valueP , const countT cNetP ) ;
+    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3401b.listC.walkIndexIF!||
+    static flagsT walkIndexIF( tinS& tinP , const countT cNameP , const countT valueP , const countT cNetP ) ;
+    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3401a.listC.unIndexIF!||
+    static voidT unIndexIF( tinS& tinP , puseC& puseIndexP , handleC& hIKP , const countT idKeyP , const countT* const valueP , const countT cNetP , const listingC& recordP , const listingC& datumP , const flagsT flagsP = flUNiNDEXf_null ) ;
+    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34019.listC.unIndexIF!||
+    static voidT unIndexIF( tinS& tinP , puseC& puseIndexP , handleC& hIKP , const countT idKeyP , const osTextT* const valueP , const countT cNetP , const listingC& recordP , const listingC& datumP , const flagsT flagsP = flUNiNDEXf_null ) ;
+    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34018.listC.unIndexIF!||
+    static voidT unIndexIF( tinS& tinP , puseC& puseIndexP , handleC& hIKP , const countT idKeyP , const countT valueP , const countT cNetP , const listingC& recordP , const listingC& datumP , const flagsT flagsP = flUNiNDEXf_null ) ;
+    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34017.listC.indexIF!||
+    static voidT indexIF( tinS& tinP , puseC& puseIndexP , handleC& hIndexP , const countT idKeyP , const countT* const valueP , const countT cNetP , const listingC& recordP , const listingC& datumP ) ;
+    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34016.listC.indexIF!||
+    static voidT indexIF( tinS& tinP , puseC& puseIndexP , handleC& hIndexP , const countT idKeyP , const osTextT* const valueP , const countT cNetP , const listingC& recordP , const listingC& datumP ) ;
+    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34015.listC.indexIF!||
+    static voidT indexIF( tinS& tinP , puseC& puseIndexP , handleC& hIndexP , const countT idKeyP , const countT valueP , const countT cNetP , const listingC& recordP , const listingC& datumP ) ;
+    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34022.listC.unIndexIF!||
+    static flagsT unIndexIF( tinS& tinP , handleC& hListP , const flagsT flagsP = flLISTwALK_null , const countT idGrabLayerP = ifcIDgRABlAYER_7BASEmISC1 ) ;
+    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34021.listC.indexIF!||
+    static flagsT indexIF( tinS& tinP , handleC& hListP , const flagsT flagsP = flLISTwALK_null , const countT idGrabLayerP = ifcIDgRABlAYER_7BASEmISC1 ) ;
+    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34020.listC.isIndexedIF!||
+    static boolT isIndexedIF( tinS& tinP , const countT idGrabLayerP = ifcIDgRABlAYER_7BASEmISC1 ) ;
+    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34012.listC.chatterIF!||
+    static flagsT chatterIF( tinS& tinP , countT* const pczNameP = 0 , flagsT flagsP = flLISTwALKcHATTER_null , countT cArgP = 0 , const countT idGrabLayerP = ifcIDgRABlAYER_7BASEmISC1 ) ;
+    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34011.listC.pourIF!||
+    static flagsT pourIF( tinS& tinP , countT* const pczNameToP , countT* const pczNameFromP , const countT idGrabLayerP = ifcIDgRABlAYER_7BASEmISC1 ) ;
+    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34010.listC.lintIF!||
+    static voidT lintIF( tinS& tinP , const countT idGrabLayerP = ifcIDgRABlAYER_7BASEmISC1 ) ;
+    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3401f.listC.deleteIF!||
+    static flagsT deleteIF( tinS& tinP , handleC& hListFromP , const countT* const pczNameP , const flagsT flagsP = flLISTdELETE_null , const countT idGrabLayerP = ifcIDgRABlAYER_7BASEmISC1 ) ;
+    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400f.listC.deleteIF!||
+    static flagsT deleteIF( tinS& tinP , const countT* const pczNameP , const flagsT flagsP = flLISTdELETE_null , const countT idGrabLayerP = ifcIDgRABlAYER_7BASEmISC1 ) ;
+    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34007.listC.walkIF!||
+    static flagsT walkIF( tinS& tinP , handleC& hListFromP , countT* const pczNameP = 0 , const flagsT flagsP = flLISToPEN_null , const countT idGrabLayerP = ifcIDgRABlAYER_7BASEmISC1 ) ;
+    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34006.listC.walkIF!||
+    static flagsT walkIF( tinS& tinP , countT* const pczNameP , const flagsT flagsP = flLISToPEN_null , const countT idGrabLayerP = ifcIDgRABlAYER_7BASEmISC1 ) ;
+    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34005.listC.openIF!||
+    static flagsT openIF( tinS& tinP , handleC& hListP , handleC& hListFromP , const countT* const pczNameP , const flagsT flagsP = flLISToPEN_null , const countT idGrabLayerP = ifcIDgRABlAYER_7BASEmISC1 , listC** const ppPreallocatedListsP = 0 ) ;
+    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34004.listC.openIF!||
+    static flagsT openIF( tinS& tinP , handleC& hListP , const countT* const pczNameP , const flagsT flagsP = flLISToPEN_null , const countT idGrabLayerP = ifcIDgRABlAYER_7BASEmISC1 ) ;
+    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34003.listC.listC!||
+    listC( tinS& tinP , const listC& listDadP , const countT idNameP , const flagsT flagsP = flLISTINGc_null ) ;
+    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34023.listC.listC!||
+    listC( tinS& tinP , const countT idNameP , const flagsT flagsP = flLISTINGc_null ) ; // ILLEGAL TO CALL THIS EXCEPT BY poolC::face_poolC_S::face_poolC_S TO CONSTRUCT A SINGLE ROOT listC FOR EACH POOL
+    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34002.listC.dt_listC!||
+    ~listC( voidT ) ;
+    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34001.listC.NEWdELcLASSb!||
+    NEWdELcLASSpROTOS
+
+    public :
+
+    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34008.listC.walkF!||
+    flagsT walkF( tinS& tinP , const countT idGrabLayerP = ifcIDgRABlAYER_7BASEmISC1 ) ;
+
+    countT idNameKidDefaultLath ;
+    aptC   aptKid ;
+    timeS  timeLathModified ; //MUST BE IMMEDIATELY ABOVE idName TO PERMIT EFFICIENT SORTING (CURRENT CODE DOES NOT RELY UPON THIS BUT FUTURE CODE MIGHT)
+    countT idName ;
+{
+/*1*/class _export listC : public listingC/*1*/
+
+// FOR EFFICIENT USE OF POOL, listC SHOULD BE SIZED A POWER OF 2
+
+/**/
+*/
+  in particular, callback definitions are not allowed to access the dictionary
+ application code is only allowed to access the dictionary on threads that are not currently grabbing any listingC instance
+ all list names passed into member functions must be valid numeric names
+ to avoid deadlocks, listC definitions do not use the dictionary to map readable list names into true (nuneric) list names
+ the dictionary is only for application use
+ code assumes this by casting pointers to classes derived from list to listC pointers
+listC must be the wo'th base class of any class derived from it
+/*
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 29 years.
+//
+// Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+

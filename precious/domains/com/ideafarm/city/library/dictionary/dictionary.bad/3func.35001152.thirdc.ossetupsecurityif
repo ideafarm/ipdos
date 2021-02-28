@@ -1,0 +1,53 @@
+
+//
+// Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 29 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+
+}
+    #endif
+
+        if( _pbsd[ sizeof _pbsd - 1 ] != 0xfe ) BLAMMO ; //U:: TO SEE WHETHER _pbsd IS LONG ENOUGH
+        if( bFail ) { BLAMMO ; } //WILL BE SET ON MS-DOS
+        bFail |= !_brcRaw ;
+        BOSnOtIN( SetKernelObjectSecurity( (HANDLE)thirdC::osOpenProcessIF() , DACL_SECURITY_INFORMATION , sa.lpSecurityDescriptor ) )
+        bFail |= !_brcRaw ;
+        BOSnOtIN( SetSecurityDescriptorDacl( sa.lpSecurityDescriptor , 1 , 0 , 0 ) )
+        boolT bFail = !_brcRaw ;
+        BOSnOtIN( InitializeSecurityDescriptor( sa.lpSecurityDescriptor , SECURITY_DESCRIPTOR_REVISION ) )
+        ZE( countT , _brcRaw ) ;
+        
+        sa.bInheritHandle = 0 ;
+        sa.lpSecurityDescriptor = (SECURITY_DESCRIPTOR*)( _pbsd + _cbAlign ) ;
+        sa.nLength = sizeof sa ;
+        SECURITY_ATTRIBUTES sa ;
+        
+        if( _cbAlign ) _cbAlign = sizeof( unsigned ) - _cbAlign ;
+        unsigned _cbAlign = (unsigned)_pbsd % sizeof( unsigned ) ;
+    
+        _pbsd[ sizeof _pbsd - 1 ] = 0xfe ;
+        char _pbsd[ SECURITY_DESCRIPTOR_MIN_LENGTH + sizeof( unsigned ) + 1 ] ; //U:: IS THIS LONG ENOUGH?
+
+    #if defined( __NT__ )
+{
+/*1*/voidT thirdC::osSetupSecurityIF( voidT )/*1*/
+
+//NEEDED SO THAT OTHER PROCESSES CAN OPEN A HANDLE TO MY PROCESS; MY DEFAULT SECURITY DESCRIPTOR DOES NOT PERMIT THIS SINCE I AM LAUNCHED AS A WINDOWS SERVICE
+//NEEDED ON NT 4.0 ONLY FOR SERVICES; NEEDED ON 2000 FOR ALL IFC PROCESSES
+//THIS MUST BE DONE BEFORE I GRAB A grabC OBJECT THAT IS VISIBLE TO OTHER PROCESSES; OTHERWISE THE OTHER PROCESS WON'T BE ABLE TO AWAKEN MY THREAD
+//SEE gloSecurityC
+
+/**/
+*/
+/*
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 29 years.
+//
+// Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+

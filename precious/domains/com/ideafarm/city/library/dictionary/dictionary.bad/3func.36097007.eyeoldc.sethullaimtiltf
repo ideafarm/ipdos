@@ -1,0 +1,162 @@
+
+//
+// Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 29 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+
+}
+    tinP.pAdamGlobal5->frPaper.grab.ungrabF( tinP ) ;
+    freshHullF( tinP ) ;
+
+    }
+        }
+            state.vaHull_z(3) /= len_z ;
+            state.vaHull_z(2) /= len_z ;
+            state.vaHull_z(1) /= len_z ;
+            
+            state.vaHull_y(3) /= len_y ;
+            state.vaHull_y(2) /= len_y ;
+            state.vaHull_y(1) /= len_y ;
+            
+            state.vaHull_x(3) /= len_x ;
+            state.vaHull_x(2) /= len_x ;
+            state.vaHull_x(1) /= len_x ;
+            
+            measureT len_z = tinP.brcm04Raw ;
+            BOSmEASURE04( WHATgbo , sqrt( state.vaHull_z * state.vaHull_z ) )
+            measureT len_y = tinP.brcm04Raw ;
+            BOSmEASURE04( WHATgbo , sqrt( state.vaHull_y * state.vaHull_y ) )
+            measureT len_x = tinP.brcm04Raw ;
+            BOSmEASURE04( WHATgbo , sqrt( state.vaHull_x * state.vaHull_x ) )
+            //U::O: USE bigMeasureT AND THEN ONLY NORMALIZE WHEN off == 2
+            
+            state.vaHull_z = sqmr * state.vaHull_z ;
+            state.vaHull_y = sqmr * state.vaHull_y ;
+            state.vaHull_x = sqmr * state.vaHull_x ;
+    
+            sqMatrixOldC& sqmr = *ppSqmr[ off ] ;
+        {
+        for( countT off = 0 ; off <= 2 ; off ++ )
+    
+        sqMatrixOldC* ppSqmr[] = { &sqmrh , &sqmrv , &sqmrt } ;
+        }
+            sqmrt( 3 , 3 ) = 1.0 ;
+            sqmrt( 3 , 2 ) = 0.0 ;
+            sqmrt( 3 , 1 ) = 0.0 ;
+            sqmrt( 2 , 3 ) = 0.0 ;
+            sqmrt( 2 , 2 ) = cra  ;
+            sqmrt( 2 , 1 ) = cram ;
+            sqmrt( 1 , 3 ) = 0.0  ;
+            sqmrt( 1 , 2 ) = crap ;
+            sqmrt( 1 , 1 ) = cra  ;
+        
+            */
+                X'      cra     crap    0
+            
+                Y'      cram    cra     0
+            
+                Z'      0       0       1
+            
+                        X       Y       Z
+            
+                ROTATION MATRIX FOR TILT
+            /*
+            
+            const measureT cram = tinP.brcm04Raw ;
+            BOSmEASURE04( WHATgbo , cos( ( 0.5 - nang ) * PI ) )
+            const measureT crap = tinP.brcm04Raw ;
+            BOSmEASURE04( WHATgbo , cos( ( 0.5 + nang ) * PI ) )
+            const measureT cra  = tinP.brcm04Raw ;
+            BOSmEASURE04( WHATgbo , cos(         nang   * PI ) )
+            const measureT nang = - angtP ;
+        {
+        }
+            sqmrv( 3 , 3 ) = cra  ;
+            sqmrv( 3 , 2 ) = cram ;
+            sqmrv( 3 , 1 ) = 0.0  ;
+            sqmrv( 2 , 3 ) = crap ;
+            sqmrv( 2 , 2 ) = cra  ;
+            sqmrv( 2 , 1 ) = 0.0  ;
+            sqmrv( 1 , 3 ) = 0.0 ;
+            sqmrv( 1 , 2 ) = 0.0  ;
+            sqmrv( 1 , 1 ) = 1.0  ;
+        
+            */
+                X'      1       0       0
+                       
+                Y'      0       cra     crap
+            
+                Z'      0       cram    cra
+            
+                        X       Y       Z
+            
+                ROTATION MATRIX FOR AIM VERTICAL
+            /*
+            
+            const measureT cram = tinP.brcm04Raw ;
+            BOSmEASURE04( WHATgbo , cos( ( 0.5 - nang ) * PI ) )
+            const measureT crap = tinP.brcm04Raw ;
+            BOSmEASURE04( WHATgbo , cos( ( 0.5 + nang ) * PI ) )
+            const measureT cra  = tinP.brcm04Raw ;
+            BOSmEASURE04( WHATgbo , cos(         nang   * PI ) )
+            const measureT nang = - angvP ;
+        {
+        }
+            sqmrh( 3 , 3 ) = cra  ;
+            sqmrh( 3 , 2 ) = 0.0  ;
+            sqmrh( 3 , 1 ) = cram ;
+            sqmrh( 2 , 3 ) = 0.0  ;
+            sqmrh( 2 , 2 ) = 1.0  ;
+            sqmrh( 2 , 1 ) = 0.0  ;
+            sqmrh( 1 , 3 ) = crap ;
+            sqmrh( 1 , 2 ) = 0.0  ;
+            sqmrh( 1 , 1 ) = cra  ;
+        
+            */
+                X'      cra     0       crap
+                       
+                Y'      0       1       0
+            
+                Z'      cram    0       cra
+            
+                        X       Y       Z
+            
+                ROTATION MATRIX FOR AIM HORIZONTAL
+            /*
+            
+            const measureT cram = tinP.brcm04Raw ;
+            BOSmEASURE04( WHATgbo , cos( ( 0.5 - nang ) * PI ) )
+            const measureT crap = tinP.brcm04Raw ;
+            BOSmEASURE04( WHATgbo , cos( ( 0.5 + nang ) * PI ) )
+            const measureT cra  = tinP.brcm04Raw ;
+            BOSmEASURE04( WHATgbo , cos(         nang   * PI ) )
+            const measureT nang = - anghP ;
+        {
+        sqMatrixOldC sqmrt( tinP , ether ) ;
+        sqMatrixOldC sqmrv( tinP , ether ) ;
+        sqMatrixOldC sqmrh( tinP , ether ) ;
+    {
+    //U::if( anghP || angvP || angtP )
+
+    state.vaHull_z = unit_z ;
+    state.vaHull_y = unit_y ;
+    state.vaHull_x = unit_x ;
+    tinP.pAdamGlobal5->frPaper.grab.grabF( tinP , TAG( TAGiDnULL ) ) ;
+{
+/*1*/voidT eyeOldC::setHullAimTiltF( tinS& tinP , const measureT anghP , const measureT angvP , const measureT angtP )/*1*/
+
+/**/
+
+*/
+/*
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 29 years.
+//
+// Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+

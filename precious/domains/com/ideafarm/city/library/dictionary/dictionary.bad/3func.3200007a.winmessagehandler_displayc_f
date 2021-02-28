@@ -1,0 +1,202 @@
+
+//
+// Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 29 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+
+}
+    return rc ;
+
+    }
+        BOSpOOP
+        BOS( WHATgbo , BOSoK , PostMessage( (HWND)oshWindowP , idwm_PAINT , 0 , 0 ) )
+    {
+    if( bNeedRepaint )
+
+    }
+        }
+            break ;
+            if( bLog ) { LOGrAW( "winmess/default -\r\n" ) ; }
+            rc = tinP.brcRaw ;
+            BOSdOnOTtEST( WHATgbo , DefWindowProc( (HWND)oshWindowP , idCmdP , p1P , p2P ) )
+            if( bLog ) { LOGrAW( "winmess/default +\r\n" ) ; }
+        {
+        default :
+        }
+            break ;
+            if( bLog ) { LOGrAW( "winmess/WM_WINDOWPOSCHANGING -\r\n" ) ; }
+
+            }
+                pInfo->flags &= ~( SWP_NOMOVE | SWP_NOSIZE ) ;
+                pInfo->cy     = info.bottom - info.top + 1 ;
+                pInfo->cx     = info.right - info.left + 1 ;
+                pInfo->y      = info.top ;
+                pInfo->x      = info.left ;
+                WINDOWPOS* pInfo = (WINDOWPOS*)p2P ;
+            
+                BOSpOOP
+                BOS( WHATgbo , BOSoK , AdjustWindowRect( &info , WS_OVERLAPPEDWINDOW , 0 ) )
+                info.bottom = ( tinP.brcRaw - 1 ) >> 1 ; // FOR DEBUGGING, UNCOMMENT ">> x"
+                BOSpOOP
+                BOS( WHATgbo , BOSoK , GetSystemMetrics( SM_CYSCREEN ) )
+                info.right  = ( tinP.brcRaw - 1 ) >> 1 ; // FOR DEBUGGING, UNCOMMENT ">> x"
+                BOSpOOP
+                BOS( WHATgbo , BOSoK , GetSystemMetrics( SM_CXSCREEN ) )
+                info.top    = /*0x8*/0 ;
+                info.left   = 0 ;
+                RECT info ;
+            {
+            else /*if( !bDebug )*/
+            //THIS IS NEEDED BECAUSE SOMETIMES WINDOWS OVERRIDES THE REQUESTED POSITION (E.G. THIS WILL HAPPEN WHEN SCREEN RESOLUTION IS CHANGED)
+
+            if( bAllowResize ) bAllowResize = 0 ;
+            if( bLog ) { LOGrAW( "winmess/WM_WINDOWPOSCHANGING +\r\n" ) ; }
+        {
+        case WM_WINDOWPOSCHANGING :
+        }
+            break ;
+            if( bLog ) { LOGrAW( "winmess/WM_WINDOWPOSCHANGED -\r\n" ) ; }
+
+            }
+                }
+                    if( pStuff->pDisplay->pDeviceCBF ) (*pStuff->pDisplay->pDeviceCBF)( *pStuff->pTinWindow , flDEVICEcbf_null , *pStuff->pDisplay , pStuff->pDisplay->cArg , ifcIDeVENTdEVICEc_RESIZED , 0 ) ;
+                    pStuff->pDisplay->positionF( tinP , flDISPLAYpOSITION_DOnOTpOSITION , info.right , info.bottom , info.left , info.top ) ;
+                    tinS& tinP = *pStuff->pTinWindow ;
+                {
+                if( info.right && info.bottom ) //CONDITIONAL BECAUSE I AM CALLED (SEND MESSAGE) DURING THE positionF CALL WITHIN WM_DISPLAYCHANGE
+
+                BOSpOOP
+                BOS( WHATgbo , BOSoK , GetClientRect( (HWND)oshWindowP , &info ) ) // DISCARD THE BOTTOM ROW AND RIGHTMOST COL OF THIS RECT
+                RECT info ;
+        
+                WINDOWPOS* pInfo = (WINDOWPOS*)p2P ;
+            {
+            if( !bGotClose && pStuff && pStuff->pDisplay ) //WINDOWS CALLS ME (MESSAGE IS SENT, NOT POSTED) AFTER THE MESSAGE PUMP TERMINATES
+            if( bLog ) { LOGrAW( "winmess/WM_WINDOWPOSCHANGED +\r\n" ) ; }
+        {
+        case WM_WINDOWPOSCHANGED :
+        }
+            break ;
+            if( bLog ) { LOGrAW( "winmess/idwm_SHOW -\r\n" ) ; }
+            BOSdOnOTtEST( WHATgbo , ShowWindow( (HWND)((const handleC&)*pStuff->pDisplay).osF( ifcIDtYPEhANDLE_WINDOW ) , SW_SHOW ) )
+            if( bLog ) { LOGrAW( "winmess/idwm_SHOW +\r\n" ) ; }
+        {
+        case idwm_SHOW :
+        }
+            break ;
+            if( bLog ) { LOGrAW( "winmess/WM_PAINT -\r\n" ) ; }
+            EndPaint( (HWND)oshWindowP , &info ) ;
+
+            }
+                pStuff->pDisplay->ungrabF( tinP ) ;
+
+                }
+                    pStuff->pDisplay->bSuppressAnimation = 0 ;
+                    //LOGrAW5( "WM_PAINT 0 [pDisplay,bSuppressAnimation]: " , pStuff->pDisplay , " " , pStuff->pDisplay->bSuppressAnimation , "\r\n" ) ;
+                    bWothPaintDone = 1 ;
+                {
+                if( !bWothPaintDone )
+
+                bNeedRepaint = 0 ;
+
+                }
+                    if( bLog ) { LOGrAW7( "winmess/WM_PAINT BitBlt [bOk,oshDevice,oshDeviceMemory]:    " , tinP.brcRaw , "    " , oshDevice , "    " , oshDeviceMemory , "\r\n" ) ; }
+                    BOSpOOP
+                    BOS( WHATgbo , BOSoK , BitBlt( oshDevice , 0 , 0 , cCol , cRow , oshDeviceMemory , 0 , 0 , SRCCOPY ) )
+                    HDC oshDeviceMemory = pStuff->pDisplay->oshDeviceMemoryF() ;
+                {
+                if( cCol && cRow )
+                countT cRow = pStuff->pDisplay->cRowF() ;
+                countT cCol = pStuff->pDisplay->cColF() ;
+
+                pStuff->pDisplay->grabF( tinP , TAG( TAGiDnULL ) ) ;
+
+                tinS& tinP = *pStuff->pTinWindow ;
+            {
+            if( pStuff )
+
+            HDC oshDevice = (HDC)tinP.brcRaw ;
+            BOSpOOP
+            BOS( WHATgbo , BOSoK , BeginPaint( (HWND)oshWindowP , &info ) )
+            PAINTSTRUCT info ;
+            if( bLog ) { LOGrAW( "winmess/WM_PAINT +\r\n" ) ; }
+        {
+        case WM_PAINT :
+        case idwm_PAINT :
+        }
+            break ;
+            if( bLog ) { LOGrAW( "winmess/WM_CLOSE -\r\n" ) ; }
+            BOSpOOP
+            BOS( WHATgbo , BOSoK , PostMessage( (HWND)oshWindowP , WM_QUIT , 0 , 0 ) )
+            bGotClose = 1 ;
+            if( bLog ) { LOGrAW( "winmess/WM_CLOSE +\r\n" ) ; }
+        {
+        case WM_CLOSE :
+        }
+            break ;
+            if( bLog ) { LOGrAW( "winmess/WM_KILLFOCUS -\r\n" ) ; }
+        
+            }
+                BOSdOnOTtEST( WHATgbo , ShowWindow( (HWND)oshWindowP , SW_MINIMIZE ) )
+                }
+                    pStuff->pDisplay->bSuppressAnimation = 1 ;
+                    //LOGrAW5( "WM_KILLFOCUS 1 [pDisplay,bSuppressAnimation]: " , pStuff->pDisplay , " " , pStuff->pDisplay->bSuppressAnimation , "\r\n" ) ;
+                {
+                if( pStuff )
+                bAllowResize = 1 ;
+            {
+            if( !bDebug )
+            if( bLog ) { LOGrAW( "winmess/WM_KILLFOCUS +\r\n" ) ; }
+        {
+        case WM_KILLFOCUS :
+        }
+            break ;
+            if( bLog ) { LOGrAW( "winmess/WM_SETFOCUS -\r\n" ) ; }
+            bNeedRepaint = 1 ;
+            }
+                pStuff->pDisplay->bSuppressAnimation = 0 ;
+                //LOGrAW5( "WM_SETFOCUS 0 [pDisplay,bSuppressAnimation]: " , pStuff->pDisplay , " " , pStuff->pDisplay->bSuppressAnimation , "\r\n" ) ;
+            {
+            if( pStuff && bWothPaintDone )
+            if( bLog ) { LOGrAW( "winmess/WM_SETFOCUS +\r\n" ) ; }
+        {
+        case WM_SETFOCUS :
+        }
+            break ;
+            if( bLog ) { LOGrAW( "winmess/WM_DISPLAYCHANGE -\r\n" ) ; }
+            if( pStuff->pDisplay->pDeviceCBF ) (*pStuff->pDisplay->pDeviceCBF)( *pStuff->pTinWindow , flDEVICEcbf_null , *pStuff->pDisplay , pStuff->pDisplay->cArg , ifcIDeVENTdEVICEc_RECONFIGURED , 0 ) ;
+            pStuff->pDisplay->positionF( *pStuff->pTinWindow ) ;
+            if( bLog ) { LOGrAW( "winmess/WM_DISPLAYCHANGE +\r\n" ) ; }
+        {
+        case WM_DISPLAYCHANGE :
+    {
+    switch( idCmdP )
+
+    tinS& tinP = *pStuff->pTinWindow ;
+
+    ZE( countT , rc ) ;
+    static boolT  bWothPaintDone ;
+    static boolT  bNeedRepaint ;
+    static boolT  bAllowResize ;
+    static boolT  bGotClose ;
+    displayArgS*  pStuff = displayC::pStuffIF() ;
+{
+/*1*/extern "C" countT OSF winMessageHandler_displayC_F( const countT oshWindowP , const countT idCmdP , const countT p1P , const countT p2P )/*1*/
+
+boolT bLog ;
+boolT bDebug = 1 ;
+
+/**/
+*/
+/*
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 29 years.
+//
+// Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+

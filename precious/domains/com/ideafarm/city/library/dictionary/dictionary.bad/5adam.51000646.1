@@ -1,0 +1,73 @@
+
+//
+// Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 29 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+
+REST
+
+doodleAM() ;
+
+TODO
+
+
+;
+    modify [ebx esp]                                                                                                                                            \
+                                                                                                                                                                    \
+    "           add                         esp , 06ch                                      " /*                                                                                                             */  \
+    "           frstor                      dword ptr [esp]                                 " /*                                                                                                             */  \
+    "           add                         esp , 04h                                       " /*                                                                                                             */  \
+    "                                                                                       " /*                                                                                                             */  \
+    "                                                                                       " /*                                                                                                             */  \
+    "                                                                                       " /*                                                                                                             */  \
+    "                                                                                       " /*                                                                                                             */  \
+    "                                                                                       " /*                                                                                                             */  \
+    "                                                                                       " /*                                                                                                             */  \
+    "                                                                                       " /*                                                                                                             */  \
+    "           jmp                         AGAIN                                           " /*                                                                                                             */  \
+    "DO:        fdiv                        st , st(1)                                      " /*                                                                                                             */  \
+    "                                                                                       " /*                                                                                                             */  \
+    "           fst                         dword ptr [esp]                                 " /*                                                                                                             */  \
+    "                                                                                       " /*                                                                                                             */  \
+    "           jb                          DO                                              " /*                                                                                                             */  \
+    "           cmp                         ebx , 03fffh                                    " /*                                                                                                             */  \
+    "AGAIN:     inc                         ebx                                             " /*                                                                                                             */  \
+    "                                                                                       " /*                                                                                                             */  \
+    "           mov                         ebx , 0h                                        " /*                                                                                                             */  \
+    "           fild                        dword ptr [esp]                                 " /*                                                                                                             */  \
+    "           mov                         dword ptr [esp] , 01h                           " /*                                                                                                             */  \
+    "           fild                        dword ptr [esp]                                 " /*                                                                                                             */  \
+    "           mov                         dword ptr [esp] , 02h                           " /*                                                                                                             */  \
+    "                                                                                       " /*                                                                                                             */  \
+    "           fldcw                       dword ptr [esp]                                 " /*                                                                                                             */  \
+    "           and                         dword ptr [esp] , 0fff0h                        " /*                                                                                                             */  \
+    "           fstcw                       dword ptr [esp]                                 " /*                                                                                                             */  \
+    "           sub                         esp , 04h                                       " /*                                                                                                             */  \
+    "                                                                                       " /*                                                                                                             */  \
+    "           fsave                       dword ptr [esp]                                 " /*                                                                                                             */  \
+    "           sub                         esp , 06ch                                      " /*                                                                                                             */  \
+                                                                                                                                                                    \
+#pragma aux doodleAM =                                                                                                                              \
+
+/*1*/WAKEsHOWtEXT( "doodle.assembler" )/*1*/
+/**/
+*/
+/*
+
+#endif
+
+    "           fdiv st(0) , st(1)                                                          " /* [nan 0.0]                                                                                                            */  \
+    "           fld1                                                                        " /* [1.0 0.0]                                                                                                            */  \
+    "           fldz                                                                        " /* [0.0]                                                                                                            */  \
+
+#if defined( NEVERdEFINED )
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 29 years.
+//
+// Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+

@@ -1,0 +1,824 @@
+
+//
+// Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 29 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+
+//VISIBLE
+
+REST
+TELL( "cleaning up" )
+}
+    }
+        TELL( "cleaning up: destroying state objects cState and state" )
+        sgnDone_tmHear.waitF( tinP ) ; // tmHearF USES consoleStateC OBJECTS; THIS MUST STOP BEFORE THE WO'TH consoleStateC OBJECT IS DESTROYED
+        TELL( "waiting for tmHearF to end" )
+        etThread.loafIF( tinP ) ;
+        TELL( "waiting to be fired" )
+    
+        //U:: CALL talkHelpF HERE
+        //while( bLogo && !ether ) ether.osSleepF( tinP , TUCK * 0x40 ) ;
+    
+        etThread.osThreadF( tinP , countTC() , tmHearF , &sgnDone_tmHear ) ;
+        signC sgnDone_tmHear( tinP , TAG( TAGiDnULL ) ) ;
+        TELL( "setting up/launching tmHearF" )
+        
+        if( !ether ) cState.talkHelpF( tinP ) ;
+        etThread.faceStkNotifyAdamF( tinP , keyTaskNoticeHandlerF , (countT)&bLogo ) ;
+        cState.resetTokensF( tinP ) ;
+        consoleStateC cState( tinP , etThread ) ; // THE WO'TH INSTANCE IS UNDELETABLE; SUBSEQUENT INSTANCES ARE IN THE POOLoLD AND ARE DELETABLE
+        etThread.winSetTitleF( tinP , textC( tinP , TAG( TAGiDnULL ) , "IdeaFarm " "(tm) City Operator's Console") ) ;
+        TELL( "setting up/cState" )
+    {
+    else
+    }
+        etThread.loafIF( tinP ) ;
+        etThread.strokeF( tinP , T("i was unable to obtain authorization for this computer\r\nif you just paid, please wait 1 to 10 minutes and try again\r\nif the problem persists, please report it\r\npress the Esc key now to fire this console\r\n") ) ;
+    {
+    if( !bHostOkF( tinP , etThread ) )
+
+    stateS state( tinP , etThread ) ;
+    TELL( "setting up/state" )
+
+    boolT bLogo = 1 ;
+    //}
+    //    etThread.delF( tinP , psttl ) ;
+    //    etThread.strokeF( tinP , psttl ) ;
+    //    etThread.strIfcLogoF( tinP , psttl ) ; ___( psttl ) ; //U::LOGO DOES NOT DISPLAY CORRECTLY OR GO AWAY CORRECTLY
+    //    ZE( strokeS* , psttl ) ;
+    //{
+    //TELL( "setting up: displaying logo" )
+{
+TELL( "setting up" )
+TODO
+
+}
+    return 1 ;
+    if( tinP.fingerprint && etThread ) ;
+    //U:: return !!nn ;
+    //U:: 
+    //U:: etThread.delF( tinP , psttEmail ) ;
+    //U:: etThread.delF( tinP , psttq ) ;
+    //U:: 
+    //U:: etThread.strokeF( tinP , T(psttq)+T(": ")+TF1(nn)+T("\r\n") ) ;
+    //U:: nicNameC nn = socketC::nicNameIF( tinP , etThread , psttq ) ;
+    //U:: 
+    //U:: 
+    //U:: etThread.strokeF( tinP , T("query: \"")+T(psttq)+T("\"\r\n") ) ;
+    //U:: etThread.strMakeF( tinP , LF , psttq , T(psttEmail)+td+tCid+td+tCid+T(".!hostOk.ideafarm.com") ) ; ___( psttq ) ;
+    //U:: TNCID ;
+    //U:: TN( td , "." ) ;
+    //U:: ZE( strokeS* , psttq ) ;
+    //U:: 
+    //U:: }
+    //U::     etThread.boxPutF( tinP , tFile , tv , tv.csF( tinP ) ) ;
+    //U::     TN( tv , "" ) ; tv = T(psttEmail) ;
+    //U:: {
+    //U:: if( bNew )
+    //U:: etThread.strokeF( tinP , T("email: \"")+T(psttEmail)+T("\"\r\n") ) ;
+    //U:: }
+    //U::     etThread.faceHearF( tinP , psttEmail ) ; ___( psttEmail ) ;
+    //U::     etThread.strokeF( tinP , T("please enter the email address used to pay for access to IdeaFarm " "(tm) City at this computer.\r\n") ) ;
+    //U:: 
+    //U::     etThread.delF( tinP , psttEmail ) ;
+    //U::     etThread.faceHearF( tinP , psttEmail ) ; ___( psttEmail ) ;
+    //U::     etThread.strokeF( tinP , T("Please open your web browser and purchase an IdeaFarm " "(tm) City tourist pass for this computer.\r\nI have put the URL onto this computer's clipboard; you can paste it into the appropriate window.\r\n(Click on the URL window and key Shift-Ins).\r\nWhen you have done this, please press the Enter key.\r\n") ) ;
+    //U::     etThread.osClipboardLetGoF( tinP ) ;
+    //U::     etThread.osClipboardWriteF( tinP , tClip ) ;
+    //U::     etThread.osClipboardGrabF( tinP ) ;
+    //U::     TN( tClip , "http://www.ideafarm.com/1.14.0" ) ;
+    //U:: {
+    //U:: else
+    //U:: }
+    //U::     etThread.delF( tinP , pstte ) ;
+    //U::     else bNew = 0 ;
+    //U::     }
+    //U::         pstte = 0 ;
+    //U::         psttEmail = pstte ;
+    //U::         etThread.delF( tinP , psttEmail ) ;
+    //U::     {
+    //U::     if( pstte && pstte->idAdam )
+    //U::     etThread.faceHearF( tinP , pstte ) ; ___( pstte ) ;
+    //U::     ZE( strokeS* , pstte ) ;
+    //U::     etThread.strokeF( tinP , T("email of the person who has paid for IdeaFarm " "(tm) City access on this host: \"")+T(psttEmail)+T("\"\r\nif you want to specify a new email value, enter it now.\r\n") ) ;
+    //U:: {
+    //U:: if( psttEmail )
+    //U:: boolT bNew = 1 ;
+    //U:: etThread.boxGetShadow::20141115@1937::MIGRATE:TO:USE:SETTINGS.BIT.TREE::SettingF( tinP , psttEmail , tFile ) ; ___( psttEmail ) ; //INSIDE THE LOOP SO CAN "HOT SWAP" THE ADAM TO BE TESTED
+    //U:: TN( tFile , "///d/ideafarm.")+TF1(etherC::ifc_idHomeI_IF())+T(".setting.keyValue.email" ) ;
+    //U:: TELL( "setting up/reading setting file to see who is the responsible email contact for this computer" )
+    //U:: ZE( strokeS* , psttEmail ) ;
+{
+boolT bHostOkF( tinS& tinP , etherC& etThread )
+
+STATE0
+
+DONE( tmHearF )
+
+TELL( "cleaning up" )
+}
+    etThread.delF( tinP , pstth ) ;
+    }
+        cs.doF( tinP , pstth ) ;
+        cs.snapFaceF( tinP , 1 ) ;
+        consoleStateC& cs = consoleStateC::currentStateF( tinP ) ;
+    {
+    if( pstth )
+    TELL( "processing a heard strokeS" )
+    etThread.faceHearF( tinP , pstth ) ; ___( pstth ) ;
+    TELL( "waiting to hear a strokeS" )
+    ZE( strokeS* , pstth ) ;
+{
+while( !ether && !etThread )
+
+etThread.osThreadF( tinP , countTC() , tmSetNormalDesireF ) ; //U: ENHANCE etherC::osThreadSwitchingDesireF TO DO THIS
+//etThread.osThreadSwitchingDesireF( tinP , ifcTHREADpRIORITY_LAZIEST ) ; //THIS GIVES tmWindowsF MORE OPPORTUNITY TO HIDE/SHOW, ETC.
+TELL( "setting up" )
+TASK( tmHearF ) // THIS THREAD IS IDLE PRIORITY TO ENSURE THAT ITS WORK IS SUBORDINATE TO tmWindowsF, WHICH HANDLES THE USER INTERFACE
+
+DONE( tmSetNormalDesireF )
+TELL( "cleaning up" )
+//etThread.osThreadSwitchingDesireF( tinP , ifcTHREADpRIORITY_NORMAL ) ;
+TELL( "working" )
+TASK( tmSetNormalDesireF )
+
+}
+    ether.delF( tinP , pstta ) ;
+    talkOutputF( tinP , pstta ) ;
+    ether.strKTTrimF( tinP , pstta , 0 , 4 ) ; //U:AFTER OPTIMIZINT strByCasteF and switchC::operator countT&, CHANGE 4 TO 02
+    }
+        }
+            }
+                else        pstta[ CSpREFIX - 1 + ids ].idAdam &= ~( F(flKTsCRATCH_WMHhERE) ) ;
+                if( bKeep ) bKeep = 0 ;
+            {
+            if( pstta[ CSpREFIX - 1 + ids ].idCaste == scOld_KTfLAGSsCRATCH && pstta[ CSpREFIX - 1 + ids ].idAdam & F(flKTsCRATCH_WMHhERE) )
+        {
+        for( countT ids = pstta->idAdam ; ids ; ids -- )
+        boolT bKeep = 1 ;
+    {
+    if( pstta )
+
+    ether.strMakeF( tinP , LF , pstta , tAll ) ; ___( pstta ) ;
+    ZE( strokeS* , pstta ) ;
+
+    if( pCmdeeF ) (*pCmdeeF)( tinP , ether , etPrime , tAll , psttOldCmd ) ;
+    cmdFT pCmdeeF = (cmdFT)(countT)swCmdee ;
+    psttOldCmd = (strokeS*)psttOldCmdP ;
+
+    etherC& etPrime = etherC::etPrimeIF( tinP ) ;
+
+    bAttachOutputDown = 1 ;
+    tAll += T("")+S2(1,scOld_KTfORMAT)+S2(flKTsCRATCH_null,scOld_KTfLAGSsCRATCH)+TT(timeN1,timeN2)+T(" ")+T(psttOldCmdP)+S2(saOLD_KTaTTACHuP,scOld_KTaTTACH)+S2(1,scOld_KTfORMAT)+S2(flKTsCRATCH_WMHhERE,scOld_KTfLAGSsCRATCH) ;
+
+    tAll += T("")+S2(bAttachOutputDown?saOLD_KTaTTACHdOWN:(bWoth?saOLD_KTaTTACHuP:saOLD_KTaTTACHnEXT),scOld_KTaTTACH) ;
+
+    if( bWoth ) tAll  += T("")+S2(1,scOld_KTfORMAT)+S2(flKTsCRATCH_null,scOld_KTfLAGSsCRATCH)+T("press arrow keys to view output; press Enter key to enter a command") ;
+
+    TN( tAll , "" ) ; tAll = tSnapOutput ;
+    const boolT bWoth = 1 == tSnapOutput.csF( tinP ) ;
+
+    ether.osTimeNowF( tinP , timeN1 , timeN2 ) ;
+    ZE( sCountT , timeN2 ) ;
+    ZE( countT , timeN1 ) ;
+
+    //U:MAKE ME A RECURSIVE TOKEN EATER
+{
+voidT consoleStateC::doF( tinS& tinP , const strokeS* const psttOldCmdP )
+
+}
+    }
+        }
+            }
+                default : tokenF( tinP , T("h")+TF1(idAdam) , cmd_h_F , T("hire the local cell of adam ")+TF1(idAdam) ) ;
+                { break ; }
+                case ifcIDaDAMoLD_COMMANDcONSOLE :
+                case ifcIDaDAMoLD_LOGIN          :
+                case ifcIDaDAMoLD_CHATsERVER     :
+                case ifcIDaDAM_KERNEL2MONITOR    :
+                case ifcIDaDAMoLD_DRIVER2        :
+                case ifcIDaDAMoLD_DRIVER1        :
+                case 0x3000010                :
+                case 0x2000010                :
+                case 0x1002010                :
+            {
+            switch( idAdam )
+            idAdam = swIdCopy.leverF( tinP , idf ) ;
+        {
+        for( countT idf = 1 ; idf <= cFlavors ; idf ++ )
+        countT cFlavors = swIdCopy.cFlavorsF( tinP ) ;
+
+        master.idCopyF( tinP , swIdCopy , idAdam , b_idAdam ) ;
+        switchC swIdCopy( tinP , ether , TAG( TAGiDnULL ) , flSTACKc_null , idAdam ) ;
+        batonC b_idAdam( tinP , TAG( TAGiDnULL ) ) ;
+        ZE( countT , idAdam ) ;
+        masterOldC master( tinP , ether ) ;
+    {
+
+    //EXAMPLE OF KT HELP: tokenF( tinP , T("echo") , T("display the tokens which follow \"echo\"")+S2(saOLD_KTaTTACHnEXT,scOld_KTaTTACH)+S2(1,scOld_KTfORMAT)+S2(flKTsCRATCH_null,scOld_KTfLAGSsCRATCH)+T("example: echo foo will echo the word \"foo\"") ) ;
+
+    tokenF( tinP , T("ifcremove") , cmd_ifcremove_F , T("remove the IdeaFarm " "(tm) City driver from this host") ) ;
+    tokenF( tinP , T("timenow"  ) , cmd_timenow_F   , T("display the current time in IdeaFarm " "(tm) City") ) ;
+    tokenF( tinP , T("oshire"   ) , cmd_oshire_F    , T("fire the operating system so that the system board is reset and a new instance of the operating system is hired") ) ;
+    tokenF( tinP , T("osfire"   ) , cmd_osfire_F    , T("fire the operating system so that this host shuts down") ) ;
+    tokenF( tinP , T("oslogoff" ) , cmd_oslogoff_F  , T("tell the operating system to log off the current operator and to prompt for a new operator id and password") ) ;
+
+    clearTokensF( tinP ) ;
+{
+voidT consoleStateC::resetTokensF( tinS& tinP )
+
+}
+    if( ether ) ;
+
+    }
+        tAllP += T("i could not hire the local cell of adam ")+TF1(idAdam)+T("\r\n") ;
+        *tinP.zEtScratch = 0 ;
+    {
+    if( *tinP.zEtScratch )
+    tinP.zEtScratch->ifcHireF( tinP , T("ifc.driver.console.1") , idAdam , 0 , flHIRE_DISPLAYaUTO , nicNameC() ) ;
+
+    tAllP += T("the local cell of adam ")+TF1(idAdam)+T(" is being hired\r\n") ;
+
+    etThread.delF( tinP , psttIdAdam ) ;
+    countT idAdam = etThread.strDigitsToSCountF( tinP , psttIdAdam ) ;
+    etThread.strSubstringF( tinP , psttIdAdam , idf , countTC() , psttOldCmdP ) ; ___( psttIdAdam ) ;
+    countT idf = 2 ;
+    ZE( strokeS* , psttIdAdam ) ;
+{
+voidT cmd_h_F( tinS& tinP , etherC& etThread , etherC& ether , textC& tAllP , const strokeS* const psttOldCmdP )
+
+}
+    tAllP += T("to remove the IdeaFarm " "(tm) City driver, use the Services icon to close the IdeaFarmCity service.\r\nlocation (Windows XP): (?) Start/Settings/ControlPanel/AdministrativeTools/Services\r\nlocation (Windows 2000): Start/Settings/ControlPanel/AdministrativeTools/Services\r\nlocation (Windows NT 4.0): Start/Settings/ControlPanel/Services\r\n") ;
+
+    if( ether && etThread && psttOldCmdP ) ;
+    //etThread.delF( tinP , psttDriverName ) ;
+    //((thirdC&)etThread).osDriverUnregisterF( tinP , T(psttDriverName) ) ;
+    //((thirdC&)etThread).osDriverFireF(       tinP , T(psttDriverName) ) ;
+    //__( psttDriverName && CSdRIVERnAMEmAX < psttDriverName->idAdam ) ;
+    //etThread.homeOsDriverNameF( tinP , psttDriverName ) ; ___( psttDriverName ) ;
+    //ZE( strokeS* , psttDriverName ) ;
+    //tAllP += T("the IdeaFarm " "(tm) City driver is being removed\r\n") ;
+{
+voidT cmd_ifcremove_F( tinS& tinP , etherC& etThread , etherC& ether , textC& tAllP , const strokeS* const psttOldCmdP )
+
+}
+    if( ether && psttOldCmdP ) ;
+    etThread.osFireF( tinP ) ;
+    tAllP += T("operating system hired at ")+TT(timeN1,timeN2) ;
+    etThread.osTimeNowF( tinP , timeN1 , timeN2 ) ;
+    ZE( sCountT , timeN2 ) ;
+    ZE( countT , timeN1 ) ;
+{
+voidT cmd_oshire_F( tinS& tinP , etherC& etThread , etherC& ether , textC& tAllP , const strokeS* const psttOldCmdP )
+
+}
+    if( ether && psttOldCmdP ) ;
+    etThread.osFireF( tinP , 1 ) ;
+    tAllP += T("operating system fired at ")+TT(timeN1,timeN2) ;
+    etThread.osTimeNowF( tinP , timeN1 , timeN2 ) ;
+    ZE( sCountT , timeN2 ) ;
+    ZE( countT , timeN1 ) ;
+{
+voidT cmd_osfire_F( tinS& tinP , etherC& etThread , etherC& ether , textC& tAllP , const strokeS* const psttOldCmdP )
+
+}
+    BOSpOOP
+    BOS( WHATgbo , BOSoK , ExitWindowsEx( EWX_LOGOFF , 0 ) //U: MOVE TO thirdC
+    tAllP += T("operator logged off at ")+TT(timeN1,timeN2) ;
+    etThread.osTimeNowF( tinP , timeN1 , timeN2 ) ;
+    ZE( sCountT , timeN2 ) ;
+    ZE( countT , timeN1 ) ;
+{
+voidT cmd_oslogoff_F( tinS& tinP , etherC& etThread , etherC& ether , textC& tAllP , const strokeS* const psttOldCmdP )
+
+}
+    if( ether && psttOldCmdP ) ;
+    tAllP += TT(timeN1,timeN2) ;
+    etThread.osTimeNowF( tinP , timeN1 , timeN2 ) ;
+    ZE( sCountT , timeN2 ) ;
+    ZE( countT , timeN1 ) ;
+{
+voidT cmd_timenow_F( tinS& tinP , etherC& etThread , etherC& ether , textC& tAllP , const strokeS* const psttOldCmdP )
+
+}
+    }
+        psttOldCmd = 0 ;
+        swCmdee = (countT)pCmdeeFP ;
+        swHelp = (countT)(strokeS*)psttOldC( tinP , ether , psttHelpP ) ;
+        __( swHelp ) ;
+        psttOldCmd = psttw ;
+    {
+    else
+    }
+        ether.delF( tinP , psttw ) ;
+        __1
+    {
+    if( !ids )
+    stLegalTokens.sinkF( tinP , ids , psttw , flSTACKsINK_UNIQUE ) ;
+    ZE( countT , ids ) ;
+    ether.strMakeF( tinP , LF , psttw , psttTokenP ) ;
+    ZE( strokeS* , psttw ) ;
+{
+voidT consoleStateC::tokenF( tinS& tinP , const strokeS* const psttTokenP , cmdFT pCmdeeFP , const strokeS* const psttHelpP )
+
+}
+    }
+        ether.delF( tinP , psttw ) ;
+        psttOldCmd = 0 ;
+        swCmdee.freeF( tinP ) ;
+        swHelp.freeF( tinP ) ;
+        ether.delF( tinP , *(strokeS**)&(countT&)swHelp ) ;
+        __Z( swHelp ) ;
+        psttOldCmd = psttw ;
+
+        stLegalTokens >> psttw ;
+        ZE( strokeS* , psttw ) ;
+    {
+    while( stLegalTokens )
+{
+voidT consoleStateC::clearTokensF( tinS& tinP )
+
+}
+    etThread.delF( tinP , psttOneP ) ;
+    }
+        TELL( "keystroke has been processed" ) ;
+        if( psttOneP ) consoleStateC::currentStateF( tinP ).presentF( tinP , psttOneP ) ;
+        TELL( "applying a keystroke to the current state" ) ;
+    {
+    //else
+    //if( bLogo ) bLogo = 0 ; //bLogo
+    boolT& bLogo = *(boolT*)infoP ;
+    _IO_
+{
+voidT keyTaskNoticeHandlerF( tinS& tinP , etherC& etThread , strokeS*& psttOneP , const countT infoP )
+
+}
+    TELL( "presentF/-" ) ;
+    }
+        }
+            break ;
+            TELL( "presentF/6" ) ;
+            }
+                }
+                    break ;
+
+                    //talkInputF( tinP , T(psttOneP)+S1C('\n') ) ; //THIS WILL ONLY BE NEEDED FOR COMMANDS THAT TAKE AN UNDEFINED NUMBER OF ARGUMENTS
+
+                    }
+                        currentStateF( tinP ).isPotentF( tinP , psttOneP , 1 ) ;
+        
+                        }
+                            else break ;
+                            }
+                                DEL( pcs ) ;
+                                pstMe->extractF( tinP ) ;
+                            {
+                            if( pcs != this )
+                            consoleStateC* pcs = (consoleStateC*)(*pstMe)[ - 2 ] ; // THE EARLIEST PLATE POINTS TO AN UNDELETABLE INSTANCE
+                        {
+                        while( *pstMe > 0x40 )
+        
+                        new( 0 , tinP , LF ) consoleStateC( *this ) ;
+                    {
+                    else if( isPotentF( tinP , psttOneP ) )
+                    }
+                        }
+                            talkSnapsF( tinP ) ;
+                            bOutputShowing = 1 ;
+                        {
+                        else if( tSnapOutput.csF( tinP ) > 1 )
+                        }
+                            talkSnapsF( tinP ) ;
+                            bOutputShowing = 0 ;
+                        {
+                        if( bOutputShowing )
+                    {
+                    if( !tokenStrokesAccepted )
+                {
+                case '\r' :
+                }
+                    break ;
+                    }
+                        DEL( pcs ) ; //I AM DELETING MYSELF
+                        __( pcs != this ) ;
+                        currentStateF( tinP ).talkSnapsF( tinP ) ;
+                        *pstMe >> *(countT*)&pcs ;
+                        ZE( consoleStateC* , pcs ) ;
+                    {
+                    if( *pstMe > 1 && cmdStrokesAccepted )
+                {
+                case '\b' :
+            {
+            switch( psttOneP[ CSpREFIX ].idAdam )
+            TELL( "presentF/5" ) ;
+        {
+        case sc_cFROMcONTROL :
+        }
+            break ;
+            TELL( "presentF/4" ) ;
+            }
+                currentStateF( tinP ).isPotentF( tinP , psttOneP , 1 ) ;
+
+                }
+                    else break ;
+                    }
+                        DEL( pcs ) ;
+                        pstMe->extractF( tinP ) ;
+                    {
+                    if( pcs != this )
+                    consoleStateC* pcs = (consoleStateC*)(*pstMe)[ - 2 ] ; // THE EARLIEST PLATE POINTS TO AN UNDELETABLE INSTANCE
+                {
+                while( *pstMe > 0x40 )
+
+                new( 0 , tinP , LF ) consoleStateC( *this ) ;
+            {
+            if( isPotentF( tinP , psttOneP ) )
+            TELL( "presentF/3" ) ;
+        {
+        case sc_cFROMaSCII :
+        }
+            break ;
+            TELL( "presentF/2" ) ;
+            snapFaceF( tinP ) ;
+            TELL( "presentF/1" ) ;
+        {
+        case scOld_KTcLIMBEDtO :
+    {
+    switch( psttOneP[ CSpREFIX ].idCaste )
+    TELL( "presentF/+" ) ;
+    // ether.beeClickF( tinP ) ;
+    _IO_
+{
+voidT consoleStateC::presentF( tinS& tinP , strokeS* const psttOneP )
+
+}
+    stFace.ungrabF( tinP ) ;
+    snapFaceF( tinP ) ;
+    ether.strokeF( tinP , psttP , flPAPERtALK_MOVEhERE ) ;
+    bOutputShowing = 1 ;
+    stFace.grabF( tinP , TAG( TAGiDnULL ) ) ;
+{
+voidT consoleStateC::talkOutputF( tinS& tinP , const strokeS* const psttP )
+
+}
+    st FaceHear.ungrabF( tinP ) ;
+    snapFaceF( tinP , 1 ) ;
+    ether.strokeF( tinP , psttP , flPAPERtALK_ INPUTwINDOW ) ;
+    st FaceHear.grabF( tinP , TAG( TAGiDnULL ) ) ;
+{
+voidT consoleStateC::talkInputF( tinS& tinP , const strokeS* const psttP )
+
+}
+    stFace.ungrabF( tinP ) ;
+    snapFaceF( tinP ) ;
+    ether.strokeF( tinP , tKT , flPAPERtALK_MOVEhERE ) ;
+    bOutputShowing = 0 ;
+    stFace.grabF( tinP , TAG( TAGiDnULL ) ) ;
+    
+    }
+        psttOldCmd = 0 ;
+        while( !ether && ~hDown ) ;
+        }
+            }
+                if( ~hDown ) tKT += T("")+S2(saOLD_KTaTTACHdOWN,scOld_KTaTTACH) ;
+                tKT += T(psttOldCmd)+S2(saOLD_KTaTTACHuP,scOld_KTaTTACH)+S2(1,scOld_KTfORMAT)+S2(flKTsCRATCH_null,scOld_KTfLAGSsCRATCH)+T((strokeS*)(countT)swHelp) ;
+    
+                else tKT += T("")+S2(saOLD_KTaTTACHnEXT,scOld_KTaTTACH)+S2(1,scOld_KTfORMAT)+S2(flKTsCRATCH_null,scOld_KTfLAGSsCRATCH) ;
+                }
+                    tKT += T("")+S2(saOLD_KTaTTACHuP,scOld_KTaTTACH)+S2(1,scOld_KTfORMAT)+S2(flKTsCRATCH_WMHhERE,scOld_KTfLAGSsCRATCH) ;
+                    bWoth = 0 ;
+                {
+                if( bWoth )
+            {
+            if( psttOldCmd )
+            psttOldCmd = (strokeS*)stLegalTokens.downF( tinP , hDown ) ;
+        {
+        do
+        handleC hDown( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_STACKwALK ) ;
+        boolT bWoth = 1 ;
+    {
+    if( stLegalTokens )
+
+    TN( tKT , "" ) ; tKT = T("\f")+S2(1,scOld_KTfORMAT)+S2(flKTsCRATCH_null,scOld_KTfLAGSsCRATCH)+T("IdeaFarm " "(tm) City Command Console   [press arrow keys to climb around this knowledge tree]") ;
+{
+voidT consoleStateC::talkHelpF( tinS& tinP )
+
+}
+    return bPotent ;
+    }
+        }
+            ether.delF( tinP , psttNew ) ;
+            talkInputF( tinP , psttNew ) ;
+            ether.strConcatenateF( tinP , psttNew , stNew , 0 , flSTRcONCATENATE_COPY ) ; ___( psttNew ) ;
+            ZE( strokeS* , psttNew ) ;
+
+            }
+                else break ;
+                }
+                    cmdStrokesAccepted ++ ;
+                    tokenStrokesAccepted ++ ;
+                    stNew << psttOldC( tinP , ether , psttv ) ;
+                    psttv[ CSpREFIX ] = sttCandidate ;
+                    SETpREFIX( psttv , 1 , 0 )
+                    strokeS psttv[ CSpREFIX + 1 ] ;
+                {
+                if( cDistinct == 1 )
+
+                while( !ether && ~hDown ) ;
+                }
+                    }
+                        }
+                            }
+                                break ;
+                                cDistinct ++ ;
+                            {
+                            if( sttCandidate2 != sttCandidate )
+                            strokeS sttCandidate2 = psttw->idAdam == tokenStrokesAccepted ? S1C('\r') : psttw[ CSpREFIX + tokenStrokesAccepted ] ;
+                        {
+                        else
+                        }
+                            cDistinct ++ ;
+                            sttCandidate = psttw->idAdam == tokenStrokesAccepted ? S1C('\r') : psttw[ CSpREFIX + tokenStrokesAccepted ] ;
+                        {
+                        if( !sttCandidate )
+                    {
+                    if( psttw )
+                    strokeS* psttw = (strokeS*)stLegalTokens.downF( tinP , hDown ) ;
+                {
+                do
+                handleC hDown( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_STACKwALK ) ;
+                ZE( countT , cDistinct ) ;
+                strokeS sttCandidate ;
+
+                __Z( stLegalTokens ) ;
+            {
+            while( !ether )
+            stNew << psttOldC( tinP , ether , psttOneP ) ;
+            stackC stNew( tinP , ether , TAG( TAGiDnULL ) , flSTACKc_FIFO , ifcSTACKtYPE_PTR_strokeS ) ;
+            //WHILE THE NEXT LEGAL STROKE IS UNAMBIGUOUS, TALK IT
+
+            cmdStrokesAccepted ++ ;
+            tokenStrokesAccepted ++ ;
+            talkHelpF( tinP ) ;
+            }
+                psttOldCmd = 0 ;
+                while( !ether && ~hDown ) ;
+                }
+                    }
+                        ether.delF( tinP , pstth ) ;
+                        ether.delF( tinP , psttw ) ;
+                        swCmdee.freeF( tinP ) ;
+                        swHelp.freeF( tinP ) ;
+                        strokeS* pstth = (strokeS*)(countT)swHelp ;
+                        psttOldCmd = psttw ;
+                        stLegalTokens.extractF( tinP ) ;
+                    {
+                    if( !psttw || psttw->idAdam <= tokenStrokesAccepted || psttw[ CSpREFIX + tokenStrokesAccepted ] != psttOneP[ CSpREFIX ] )
+                    strokeS* psttw = (strokeS*)stLegalTokens.downF( tinP , hDown ) ;
+                {
+                do
+                handleC hDown( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_STACKwALK ) ;
+            {
+            if( stLegalTokens )
+        {
+        else if( cMatch )
+        }
+            //U: LOAD THE TOKENS THAT ARE NOW VALID AS SUFFIX TOKENS ON THIS COMMAND LINE (USE A STACK)
+
+            talkHelpF( tinP ) ;
+            resetTokensF( tinP ) ;
+            cmdStrokesAccepted = tokenStrokesAccepted = 0 ;
+            ether.delF( tinP , pstts ) ;
+            talkInputF( tinP , T(pstts)+T("\r\n") ) ;
+            ether.strSubstringF( tinP , pstts , idf , countTC() , psttMatch ) ; ___( pstts ) ;
+            countT idf = tokenStrokesAccepted + 1 ;
+            ZE( strokeS* , pstts ) ;
+        {
+        if( cMatch == 1 )
+    {
+    if( bChangeP )
+    boolT bPotent = !!cMatch ;
+
+    }
+        while( !ether && ~hDown ) ;
+        }
+            }
+                }
+                    psttMatch = psttw ;
+                    cMatch ++ ;
+                {
+                if( bMatch )
+                boolT bMatch = psttOneP[ CSpREFIX ] == S1C('\r') ? psttw->idAdam == tokenStrokesAccepted : psttw->idAdam > tokenStrokesAccepted && psttw[ CSpREFIX + tokenStrokesAccepted ] == psttOneP[ CSpREFIX ] ;
+            {
+            if( psttw )
+            strokeS* psttw = (strokeS*)stLegalTokens.downF( tinP , hDown ) ;
+        {
+        do
+        handleC hDown( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_STACKwALK ) ;
+    {
+    if( stLegalTokens )
+    ZE( strokeS* , psttMatch ) ;
+    ZE( countT , cMatch ) ;
+    _IO_
+{
+boolT consoleStateC::isPotentF( tinS& tinP , const strokeS* const psttOneP , const bChangeP )
+
+}
+    ether.strokeF( tinP , tSnapInput                           , flPAPERtALK_ INPUTwINDOW ) ;
+    ether.strokeF( tinP , bOutputShowing?tSnapOutput:tSnapHelp , flPAPERtALK_MOVEhERE    ) ;
+{
+voidT consoleStateC::talkSnapsF( tinS& tinP )
+
+}
+    ether.delF( tinP , psttw ) ;
+    tTo = T("\f")+T(psttw) ;
+    ether.strConcatenateF( tinP , psttw , stFrom , 0 , flSTRcONCATENATE_COPY ) ;
+    ZE( strokeS* , psttw ) ;
+
+    textC&  tTo    = bOutputShowing ? tSnapOutput : tSnapHelp ;
+    stackC& stFrom = stFace                                       ;
+{
+voidT consoleStateC::snapFaceF( tinS& tinP , const boolT bInputP )
+
+}
+    return *(consoleStateC*)(*pstMe)[ 1 ] ;
+    if( tinP.fingerprint ) ;
+{
+consoleStateC& consoleStateC::currentStateF( tinS& tinP )
+
+}
+    if( pstMe ) *pstMe << (countT)this ;
+    __Z( pstMe ) ;
+
+    psttOldCmd = cStateP.psttOldCmd = 0 ;
+    }
+        __Z( swCmdee ) ;
+        __Z( swHelp ) ;
+        swCmdee = cStateP.swCmdee ;
+        swHelp = (countT)(strokeS*)psttOldC( tinP , ether , (strokeS*)(countT)cStateP.swHelp ) ;
+        psttOldCmd = cStateP.psttOldCmd = (strokeS*)cStateP.swHelp.leverF( tinP , idf ) ;
+    {
+    for( countT idf = 1 ; idf <= cFlavorsHelp ; idf ++ )
+    __( cFlavorsCmdee - cFlavorsHelp ) ;
+    countT cFlavorsCmdee= cStateP.swCmdee.cFlavorsF( tinP ) ;
+    countT cFlavorsHelp = cStateP.swHelp.cFlavorsF( tinP ) ;
+
+    }
+        while( !ether && ~hUp ) ;
+        }
+            }
+                if( !ids ) ether.delF( tinP , psttv ) ;
+                stLegalTokens.sinkF( tinP , ids , psttv , flSTACKsINK_UNIQUE ) ;
+                ZE( countT , ids ) ;
+                ether.strMakeF( tinP , LF , psttv , psttw ) ; ___( psttv ) ;
+                ZE( strokeS* , psttv ) ;
+            {
+            if( psttw )
+            strokeS* psttw = (strokeS*)cStateP.stLegalTokens.upF( tinP , hUp ) ;
+        {
+        do
+        handleC hUp( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_STACKwALK ) ;
+    {
+    if( cStateP.stLegalTokens )
+    TINSL
+{
+stFace( cStateP.stFace )
+cmdStrokesAccepted( cStateP.cmdStrokesAccepted ) ,
+tokenStrokesAccepted( cStateP.tokenStrokesAccepted ) ,
+swCmdee( thirdC::third_tinS_ref_IF() , cStateP.ether , TAG( TAGiDnULL ) , flSTACKc_null , psttOldCmd ) ,
+swHelp( thirdC::third_tinS_ref_IF() , cStateP.ether , TAG( TAGiDnULL ) , flSTACKc_null , psttOldCmd ) ,
+psttOldCmd( 0 ) , // THIS IS NOT COPIED BECAUSE IT IS NOT REALLY A STATE VALUE.  IT IS ONLY USED TO SELECT STATE INFO
+stLegalTokens( thirdC::third_tinS_ref_IF() , cStateP.ether , TAG( TAGiDnULL ) , flSTACKc_null , ifcSTACKtYPE_PTR_strokeS ) ,
+bAttachOutputDown( cStateP.bAttachOutputDown ) ,
+tSnapOutput( cStateP.tSnapOutput ) ,
+tSnapInput( cStateP.tSnapInput ) ,
+tSnapHelp( cStateP.tSnapHelp ) ,
+bOutputShowing( 0 ) ,
+ether( cStateP.ether ) ,
+consoleStateC::consoleStateC( consoleStateC& cStateP ) :
+
+}
+    if( pstMe ) *pstMe << (countT)this ;
+
+    else         { __( !(>>>>(p oolC&)et<<>>OBSOLETEDcODE:INTENTIONALcOMPILEeRROR<<<<her).bMineF( tinP , (byteT*)this ) ) ; } // ALL INSTANCES AFTER THE WO'TH MUST BE IN THE POOLoLD. (THE WO'TH INSTANCE CAN BE ANYWHERE; THE APP IS RESPONSIBLE FOR ALLOC AND DEALLOC IT)
+    if( !pstMe ) { pstMe = new( 0 , tinP , LF ) stackC( tinP , ether , TAG( TAGiDnULL ) ) ; ___( pstMe ) ; }
+{
+stFace( etherP.paperStkTalkF( tinP ) ) ,
+cmdStrokesAccepted( 0 ) ,
+tokenStrokesAccepted( 0 ) ,
+swCmdee( tinP , etherP , TAG( TAGiDnULL ) , flSTACKc_null , psttOldCmd ) ,
+swHelp( tinP , etherP , TAG( TAGiDnULL ) , flSTACKc_null , psttOldCmd ) ,
+psttOldCmd( 0 ) ,
+stLegalTokens( tinP , etherP , TAG( TAGiDnULL ) , flSTACKc_null , ifcSTACKtYPE_PTR_strokeS ) ,
+bAttachOutputDown( 0 ) ,
+tSnapOutput( tinP , TAG( TAGiDnULL ) , "\f" ) ,
+tSnapInput( tinP , TAG( TAGiDnULL ) , "\f" ) ,
+tSnapHelp( tinP , TAG( TAGiDnULL ) , "\f" ) ,
+bOutputShowing( 0 ) ,
+ether( etherP ) ,
+consoleStateC::consoleStateC( tinS& tinP , etherC& etherP ) :
+
+}
+    psttOldCmd = 0 ;
+    }
+        ether.delF( tinP , (strokeS*&)(countT&)swHelp ) ;
+        psttOldCmd = (strokeS*)swHelp.leverF( tinP , idf ) ;
+    {
+    for( countT idf = 1 ; idf <= cFlavors ; idf ++ )
+    countT cFlavors = swHelp.cFlavorsF( tinP ) ;
+
+    }
+        if( !*pstMe ) { DEL( pstMe ) ; }
+
+        while( !ether && ~hUp ) ;
+        }
+            }
+                break ;
+                pstMe->extractF( tinP ) ;
+            {
+            if( (consoleStateC*)pstMe->upF( tinP , hUp ) == this )
+        {
+        do
+        handleC hUp( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_STACKwALK ) ;
+
+        __( !*pstMe ) ;
+    {
+    if( pstMe )
+    __Z( pstMe ) ;
+
+    }
+        }
+            DEL( pcs ) ;
+            *pstMe >> *(countT*)&pcs ;
+            ZE( consoleStateC* , pcs ) ;
+        {
+        while( *pstMe > 1 )
+    {
+    if( pcsWoth == this )
+    consoleStateC* pcsWoth = (consoleStateC*)(*pstMe)[ - 1 ] ;
+
+    TINSL
+{
+consoleStateC::~consoleStateC( voidT )
+
+NEWdELcLASSb( consoleStateC )
+
+stackC* consoleStateC::pstMe ;
+
+;
+}
+    voidT doF( tinS& tinP , const strokeS* const psttOldCmdP ) ;
+    voidT resetTokensF( tinS& tinP ) ;
+    voidT talkSnapsF( tinS& tinP ) ;
+    static consoleStateC& currentStateF( tinS& tinP ) ;
+    voidT snapFaceF( tinS& tinP , const boolT bInputP = 0 ) ;
+    voidT presentF( tinS& tinP , strokeS* const psttOneP ) ;
+    voidT tokenF( tinS& tinP , const strokeS* const psttTokenP , cmdFT pCmdeeFP , const strokeS* const psttHelpP ) ;
+    voidT clearTokensF( tinS& tinP ) ;
+    voidT talkOutputF( tinS& tinP , const strokeS* const psttP ) ;
+    voidT talkInputF( tinS& tinP , const strokeS* const psttP ) ;
+    voidT talkHelpF( tinS& tinP ) ;
+    boolT isPotentF( tinS& tinP , const strokeS* const psttOneP , const bChangeP = 0 ) ;
+    consoleStateC( consoleStateC& cStateP ) ;
+    consoleStateC( tinS& tinP , etherC& etherP ) ;
+    ~consoleStateC( voidT ) ;
+    NEWdELcLASSpROTOS( consoleStateC , etherC , thirdC ) ;
+
+    public :
+
+    boolT    bAttachOutputDown ;
+    textC    tSnapOutput ;
+    textC    tSnapInput ;
+    textC    tSnapHelp ;
+    boolT    bOutputShowing ;
+    stackC&  stFace ;
+    countT   cmdStrokesAccepted ;   //CURRENT COMMAND
+    countT   tokenStrokesAccepted ; //CURRENT TOKEN OF CURRENT COMMAND
+    switchC  swCmdee ;
+    switchC  swHelp ;
+    strokeS* psttOldCmd ;
+    stackC   stLegalTokens ;
+    etherC&  ether ;
+
+    static stackC* pstMe ;
+{
+class consoleStateC
+
+typedef voidT (*cmdFT)( tinS& tinP , etherC& etThread , etherC& ether , textC& tAllP , const strokeS* const psttOldCmdP ) ;
+
+/*1*/WAKEhIDE( "ifcIDaDAMoLD_COMMANDcONSOLE.ifc.driver.console" )/*1*/
+/**/
+*/
+\<A HREF=\"5.5940104.1.0.html\"\>definition\</A\>
+/*
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 29 years.
+//
+// Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+

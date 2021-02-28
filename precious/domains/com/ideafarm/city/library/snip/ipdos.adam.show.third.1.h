@@ -1738,10 +1738,10 @@ examples
 #define flFORMAT_CITIZENnAME       0xe0040007
 #define flFORMAT_CITIZENeMAIL      0xe0080007
 #define flFORMAT_DOTTEDdECIMAL     0xe0100007
-#define flFORMAT_NObIGITvALUES     0xe0200007
-#define flFORMAT_TIMEqUARTERnAME   0xe0400007
-#define flFORMAT_PREFIXED          0xe0800007
-#define flFORMAT_COLONEDhEX        0xe1000007
+#define flFORMAT_COLONEDhEX        0xe0200007
+#define flFORMAT_NObIGITvALUES     0xe0400007
+#define flFORMAT_TIMEqUARTERnAME   0xe0800007
+#define flFORMAT_PREFIXED          0xe1000007
 /*3*/
 #define flFORMAT_null    0xe0000007
 

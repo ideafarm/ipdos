@@ -1,0 +1,221 @@
+
+//
+// Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 29 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+
+REST
+pStNodeGod = 0 ;
+pRuAge = 0 ;
+pStStBang = 0 ;
+TELL( "cleaning up" )
+etherC::ifcSayIF( T("GOD: i am outa here") , flSAY_APPEND | flSAY_LOG ) ;
+
+}
+    }
+        ++ s ; etThread.osSleepF( tinP , TUCK * 0x40 ) ;
+    {
+    while( cNodes )
+    sleepC s( tinP , TAG( TAGiDnULL ) ) ;
+{
+TELL( "waiting for all acceptors to die" )
+etherC::ifcSayIF( T("GOD: waiting for all nodes to die") , flSAY_APPEND | flSAY_LOG ) ;
+
+}
+    ++ s ; ether.osSleepF( tinP , TOCK * 0x8 ) ;
+    sleepC s( tinP , TAG( TAGiDnULL ) ) ;
+    TELL( "napping" )
+
+    }
+        }
+            }
+                break ;
+                CONoUTrAW( "* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *\r\n* * * * * * * *GOD: I AM NOW WAITING FOR ALL NODES TO DIE * * * * * * * *\r\n* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *\r\n" ) ;
+                etherC::ifcSayIF( T("GOD: breaking from launch loop") , flSAY_APPEND | flSAY_LOG ) ;
+            {
+            if( cLaunches >= CnODES )
+            }
+                //break ; //ENABLE FOR SINGLE SHOT; DISABLE FOR BURST
+                TELL( "launching tmNodeF-" )
+                if( !etThread ) cNodes ++ , cLaunches ++ ;
+                etThread.osThreadF( tinP , countTC() , tmNodeF , 0 , flTHREADlAUNCH_null , 0 , (countT)&cNodes ) ;
+                TELL( "launching tmNodeF+" )
+            {
+            while( cToDo -- )
+            countT cToDo = CnODES - cNodes ;
+            //etThread.strokeF( tinP , T("no backlog\r\n") ) ;
+            cSuppress = 0 ;
+        {
+        else if( !( cSuppress && cSuppress -- ) )
+        else if( cNodes > CnODES ) etThread.strokeF( tinP , T("cNodes: ")+TF1(cNodes)+T("\r\n") ) ;
+        if( cBacklog ) etThread.strokeF( tinP , T("----")+TF1(cBacklog)+T("----\r\n") ) ;
+    {
+    //if( cLaunches < 2 )
+    TELL( "deciding whether to launch tmNodeF" )
+
+    countT cBacklog = godBacklogF( tinP ) ;
+    TELL( "calculating cBacklog" )
+{
+while( !ether )
+ZE( countT , cSuppress ) ;
+ZE( countT , cLaunches ) ;
+ZE( countT , cNodes ) ;
+
+pRuAge = &ruAge ;
+ranUniC ruAge( TICK * 0x10 , 1 ) ;
+pStStBang = &stStBang ;
+stackC stStBang( tinP , etThread , TAG( TAGiDnULL ) ) ;
+TELL( "setting up 2" )
+
+pStNodeGod = &stNodeGod ;
+stackC stNodeGod( tinP , etThread , TAG( TAGiDnULL ) , flSTACKc_BLOB , sizeof( nodeC ) ) ;
+TELL( "setting up" )
+
+TODO
+
+}
+    return cBacklog ;
+    pStStBang->ungrabF( tinP ) ;
+    }
+        while( !pStStBang->third && ~hDown ) ;
+        }
+            if( pStBang && *pStBang ) cBacklog += *pStBang ;
+            stackC* pStBang = (stackC*)pStStBang->downF( tinP , hDown ) ;
+        {
+        do
+        handleC hDown( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_STACKwALK ) ;
+    {
+    if( *pStStBang )
+    pStStBang->grabF( tinP , TAG( TAGiDnULL ) ) ;
+    ZE( countT , cBacklog ) ;
+{
+countT godBacklogF( tinS& tinP )
+
+DONE( tmNodeF )
+}
+    cNodes -- ;
+    nodeMainF( tinP , etThread ) ;
+    countT& cNodes = *(countT*)pTaskP->c1 ;
+{
+if( pTaskP && pTaskP->c1 )
+TELL( "setting up" )
+TASK( tmNodeF )
+
+}
+    pStStBang->ungrabF( tinP ) ;
+    if( (*pStStBang)( (countT)&stBangP ) ) pStStBang->extractF( tinP ) ;
+    pStStBang->grabF( tinP , TAG( TAGiDnULL ) ) ;
+{
+voidT godByeF( tinS& tinP , stackC& stBangP )
+
+}
+    pStStBang->sinkF( tinP , countTC() , (countT)&stBangP , flSTACKsINK_UNIQUE , subtractNodesF ) ;
+{
+voidT godHelloF( tinS& tinP , stackC& stBangP )
+
+}
+    pStNodeGod->ungrabF( tinP ) ;
+    if( (*pStNodeGod)( (byteT*)nodeP , subtractNodesF ) ) pStNodeGod->extractF( 0 , tinP ) ;
+    pStNodeGod->grabF( tinP , TAG( TAGiDnULL ) ) ;
+    bGasp = 1 ;
+{
+voidT godByeF( tinS& tinP , const nodeC& nodeP )
+
+}
+    pStNodeGod->sinkF( tinP , countTC() , (byteT*)nodeP , flSTACKsINK_UNIQUE , subtractNodesF ) ;
+{
+voidT godHelloF( tinS& tinP , const nodeC& nodeP )
+
+}
+    //return TOCK * 0x10 + *pRuAge / ( nodeP.idMe % 2 ? 1.0 : 16.0 ) ;
+
+    return TOCK * ( 0x10 * ( nodeP.idMe % 2 ? 0x40 : 1 ) ) ;
+
+    //return TOCK * 0x8 + *pRuAge / 8 ;
+    //return ( TOCK * 0x10 ) * idMe ;
+
+    //countT idMe = 1 + incv02AM( idMeLath ) ;
+    //static countT idMeLath ;
+
+    //return pcAge[ off ++ ] ;
+
+    //static countT off ;
+    //static countT pcAge[ 2 ] = { TICK * 0x10 , TOCK * 0x20 } ;
+
+    if( tinP.fingerprint ) ;
+{
+countT godMyLifespanF( tinS& tinP , nodeC& nodeP )
+
+}
+    if( tinP.fingerprint && etThread && stNodeOpenP ) ;
+
+    if( bTalkP ) etThread.strokeF( tinP , tLine ) ;
+    tLine += T("\r\n") ;
+    
+    }
+        }
+            tLine += T(" ")+TF1(idMe) ;
+            stIdMe >> idMe ;
+            ZE( countT , idMe ) ;
+        {
+        while( stIdMe )
+        tLine += T("                        ") ;
+    {
+    if( stIdMe )
+    
+    stNodeOpenP.ungrabF( tinP ) ;
+    }
+        while( !stNodeOpenP.third && ~hDown ) ;
+        }
+            if( stIdMe( node.idMe ) ) stIdMe.extractF( tinP ) ;
+            tLine += T(" ")+TF1(node.idMe)+T((*pStNodeGod)((byteT*)&node,subtractNodesF)?" ":"~") ;
+            //if( bGasp && !( node.idMe % 2 ) ) bTalkP = 1 ;
+            nodeC& node = *(nodeC*)&stNodeOpenP.downF( tinP , hDown ) ;
+        {
+        do
+        handleC hDown( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_STACKwALK ) ;
+    {
+    if( stNodeOpenP )
+    stNodeOpenP.grabF( tinP , TAG( TAGiDnULL ) ) ;
+    bTalkP = 1 ;
+    
+    pStNodeGod->ungrabF( tinP ) ;
+    }
+        while( !pStNodeGod->third && ~hUp ) ;
+        do stIdMe.sinkF( tinP , countTC() , pStNodeGod->upF( tinP , hUp ) , flSTACKsINK_UNIQUE ) ;
+        handleC hUp( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_STACKwALK ) ;
+    {
+    if( *pStNodeGod )
+    pStNodeGod->grabF( tinP , TAG( TAGiDnULL ) ) ;
+    stackC stIdMe( tinP , etThread , TAG( TAGiDnULL ) ) ;
+    
+    TN( tLine , "" ) ; tLine = TF1(nodeP.idMe)+T(":") ;
+{
+voidT godPrayF( tinS& tinP , etherC& etThread , stackC& stNodeOpenP , const nodeC& nodeP , boolT& bTalkP )
+
+boolT bGasp ;
+
+stackC*  pStNodeGod ;
+ranUniC* pRuAge ;
+stackC*  pStStBang ;
+
+#define CnODES 0x7
+
+#include postHEADER
+
+/*1*/WAKEhIDE( "ifcIDaDAM_KERNEL3BANG: simulator code" )/*1*/
+/**/
+*/
+this file contains code that would not be running or available on the real IPDOS system
+/*
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 29 years.
+//
+// Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+

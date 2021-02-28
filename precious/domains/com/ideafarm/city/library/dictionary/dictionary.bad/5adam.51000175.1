@@ -1,0 +1,103 @@
+
+//
+// Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 29 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+
+//VISIBLE
+
+REST
+etThread.osProcessIdPhaseAdamF( tinP , ifcIDpHASEhANDOFFoLD_SHUTTINGdOWN ) ;
+
+HEAReNTER( ether )
+etThread.strokeF( tinP , T("press the enter key\r\n") ) ;
+
+sDone_tmCancel.waitF( tinP ) ;
+etThread.strokeF( tinP , T("primary thread is waiting for tmCancelF to end\r\n") ) ;
+
+sDone_tmClient.waitF( tinP ) ;
+etThread.strokeF( tinP , T("primary thread is waiting for tmClientF to end\r\n") ) ;
+
+etThread.socksShutdownF( tinP ) ;
+etThread.strokeF( tinP , T("primary thread is shutting down its sockets access\r\n") ) ;
+etThread.strokeF( tinP , T("primary thread is closing handleServer\r\n") ) ;
+etThread.strokeF( tinP , T("primary thread is closing handleJob\r\n") ) ;
+
+etThread = 0 ;
+else          etThread.strokeF( tinP , T("primary thread could not receive a value on port ")+TF1(idPort)+T("\r\n") ) ;
+if( !etThread ) etThread.strokeF( tinP , T("primary thread received the value ")+TF1(value)+T(" on port ")+TF1(idPort)+T("\r\n") ) ;
+etThread.sockReadF( tinP , handleJob , (byteT*)&value , sizeof value ) ;
+etThread.strokeF( tinP , T("primary thread is attempting to read a value on port ")+TF1(idPort)+T("\r\n") ) ;
+ZE( countT , value ) ;
+
+{ ZE( countT , tnu ) ; etThread.osThreadF( tinP , tnu , tmCancelF , &sDone_tmCancel , flTHREADlAUNCH_null , 0 , (countT)&handleJob ) ; } ;
+signC sDone_tmCancel( tinP , TAG( TAGiDnULL ) ) ;
+etThread.sockAcceptF( tinP , handleJob , idPortPeer , nnPeer , handleServer , countTC() ) ;
+ZE( countT , idPortPeer ) ;
+nicNameC nnPeer ;
+handleC handleJob( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_SOCKET ) ;
+etThread.sockListenF( tinP , handleServer ) ;
+{ ZE( countT , tnu ) ; etThread.osThreadF( tinP , tnu , tmClientF , &sDone_tmClient , flTHREADlAUNCH_null , 0 , idPort ) ; } ;
+signC sDone_tmClient( tinP , TAG( TAGiDnULL ) ) ;
+countT idPort = etThread.sockBindF( tinP , handleServer ) ;
+etThread.sockF( tinP , handleServer ) ;
+handleC handleServer( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_SOCKET ) ;
+etThread.socksSetupF( tinP ) ;
+
+TODO
+
+DONE( tmClientF )
+}
+    etThread.strokeF( tinP , T("thread tmClientF could not write the value ")+TF1(value)+T(" to port ")+TF1(idPort)+T("\r\n") ) ;
+    etThread = 0 ;
+{
+else
+if( !etThread ) etThread.strokeF( tinP , T("thread tmClientF wrote the value ")+TF1(value)+T(" to port ")+TF1(idPort)+T("\r\n") ) ;
+etThread.sockWriteF( tinP , handleClient , (byteT*)&value , sizeof value ) ;
+countT value = 0x54321 ;
+
+etThread.osSleepF( tinP , TOCK * 0x10 ) ;
+etThread.strokeF( tinP , T("secondary thread tmClientF is connected but will sleep for 10 tocks before writing\r\n") ) ;
+
+etThread.sockConnectF( tinP , handleClient , idPort ) ;
+etThread.sockF( tinP , handleClient ) ;
+handleC handleClient( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_SOCKET ) ;
+
+const countT idPort = pTaskP ? pTaskP->c1 : 0 ;
+TASK( tmClientF )
+
+DONE( tmCancelF )
+
+}
+    etThread = 0 ;
+    else         etThread.strokeF( tinP , T("thread tmCancelF canceled the job socket\r\n") ) ;
+    if( etThread ) etThread.strokeF( tinP , T("thread tmCancelF could not cancel the job socket\r\n") ) ;
+    etThread.sockCancelF( tinP , handleJob ) ;
+    etThread.strokeF( tinP , T("secondary thread tmCancelF is canceling the job socket\r\n") ) ;
+    etThread.osSleepF( tinP , TOCK * 2 ) ;
+    etThread.strokeF( tinP , T("secondary thread tmCancelF is sleeping now, for two tocks\r\n") ) ;
+    countT& handleJob = *(countT*)pTaskP->c1 ;
+{
+if( !ether )
+
+__( pTaskP && !pTaskP->c1 ) ;
+__Z( pTaskP ) ;
+
+TASK( tmCancelF )
+
+/*1*/WAKEhIDE( "example.simplest.func.1030047.etherC.sockCancelF" )/*1*/
+/**/
+*/
+\<A HREF=\"5.5710104.1.0.html\"\>definition\</A\>
+/*
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 29 years.
+//
+// Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+

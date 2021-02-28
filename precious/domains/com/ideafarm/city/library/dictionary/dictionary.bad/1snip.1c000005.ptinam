@@ -1,0 +1,92 @@
+
+//
+// Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 29 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+
+;
+                                                                                                                                    \
+    value [eax]                                                                                                                     \
+    modify [ebx ecx]                                                                                                                \
+    "   fin:         nop                                                        "                                                   \
+    "   early:       lea    eax , pTinMainI                                     "                                                   \
+    "                jmp    again                                               "                                                   \
+    "   foundloc :   mov    ebx , dword ptr 08h[eax]                            "                                                   \
+    "                jmp    fin                                                 "                                                   \
+    "   foundtls:    add    eax , 08h                                           "                                                   \
+    "                jmp    fin                                                 "                                                   \
+    "                mov    eax , 0h                                            "  /*INF LOOP SO MUST BE IN EXCEP HANDLER*/         \
+    "                jne    again                                               "                                                   \
+    "                cmp    ecx , ebx                                           "                                                   \
+    "                mov    ebx , dword ptr [ebx]                               "                                                   \
+    "   climb:       mov    ecx , ebx                                           "                                                   \
+    "                je     foundloc                                            "                                                   \
+    "                cmp    ecx , -0cccc0034h                                   "                                                   \
+    "                neg    ecx                                                 "                                                   \
+    "   chkloc :     mov    ecx , dword ptr 04h[eax]                            "  /*finger (loc)*/                                 \
+    "                jmp    climb                                               "                                                   \
+    "                je     foundtls                                            "                                                   \
+    "                cmp    ecx , -0cccc0033h                                   "                                                   \
+    "                neg    ecx                                                 "                                                   \
+    "   chktls:      mov    ecx , dword ptr 04h[eax]                            "  /*finger*/                                       \
+    "                jne    climb                                               "                                                   \
+    "                cmp    ecx , -0cccc0035h                                   "                                                   \
+    "                neg    ecx                                                 "                                                   \
+    "                mov    ecx , dword ptr [eax]                               "  /*fingerVerify*/                                 \
+    "                jl     climb                                               "                                                   \
+    "                cmp    eax , esp                                           "                                                   \
+    "                sub    eax , offFingerVerifyI                              "                                                   \
+    "                mov    eax , ebx                                           "                                                   \
+    "                je     chkloc                                              "                                                   \
+    "                cmp    ecx , -0cccc0035h                                   "                                                   \
+    "                neg    ecx                                                 "                                                   \
+    "                mov    ecx , dword ptr [eax]                               "  /*fingerVerify (loc)*/                           \
+    "                jl     climb                                               "                                                   \
+    "                cmp    eax , esp                                           "                                                   \
+    "                sub    eax , offFingerVerifyLocationI                      "                                                   \
+    "   again:       mov    eax , ebx                                           "                                                   \
+    "   begin:       mov    ebx , ebp                                           "                                                   \
+    "                je     early                                               "                                                   \
+    "                cmp    bTlsEarlyLateI , 01h                                "                                                   \
+                                                                                                                                    \
+#pragma aux pTinAM =                                                                                                                \
+//PSEUDOdUPLICATEcODE THIS FILE
+
+//CODE SYNC: 0080009 001024e 0010265
+
+//2002.12.20: finger offset from ebp: -8 -> -01 (I DO NOT KNOW WHAT IS IN THE HIGHEST 2 countT OF THE FRAME, AND WHY THIS CHANGED TO 4)
+
+/*1*/tinS*& __export pTinAM( voidT ) ;/*1*/
+
+*/
+
+            ecx     test value (finger or fingerVerify)
+
+            ebx     ebp value for the stack frame being inspected
+
+                    return value: address of sf.pTin            
+            eax     address of sf.fingerVerify
+
+        register uses
+
+    code notes
+/*
+
+/**/
+*/
+if the new ebp value is 0 then i assume that my caller is an exception handler, and i return &tinExceptionHanderDfltG
+as i climb the stack, i look for either a tls or a frame that contains a new ebp value to use
+i obtain the current thread's tinS, by walking up the thread stack until i find my ifc thread local storage
+\<A HREF=\"5.0090009.1.0.html\"\>definition\</A\>
+/*
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 29 years.
+//
+// Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+

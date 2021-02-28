@@ -2545,13 +2545,17 @@ voidT sockOptionSendNowF_b6_GF( tinS& tinP , etherC& etherP , soulC& slP , const
     if( !POOP ) etherP.sockOptionSendNowF( tinP , handleP , bEnableP ) ;
 }
 
-voidT socksSetupF__GF( tinS& tinP , etherC& etherP , soulC& slP , const strokeS* const _psttNameP )
+voidT sockOptionDualStackF_b_GF( tinS& tinP , etherC& etherP , soulC& slP , const strokeS* const _psttNameP )
 {
     countT idArgNext = 1 ;
     ZE( byteT* , pbFieldNext ) ;
     ZE( countT , idTypeNext ) ;
     ZE( flagsT , flagsNext ) ;
     ZE( countT , cbFieldNext ) ;
-    if( !POOP ) etherP.socksSetupF( tinP ) ;
-    if( tinP.fingerprint && _psttNameP && slP ) ;
+
+   SOIXLoLDtESTeMPTY( 0xdddd8014 , etherC )
+   SOIXLoLDtESTtYPE( 0xdddd8014 , etherC )
+    handleC handleP( /*GOOEY*/tinP , TAG( TAGiDnULL ) ) ;
+    if( !POOP ) { handleP << slP ; idArgNext ++ ; }
+    if( !POOP ) etherP.sockOptionDualStackF( tinP , handleP ) ;
 }

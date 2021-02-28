@@ -1,0 +1,49 @@
+
+//
+// Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 29 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+
+;
+    modify [eax ebx ecx]                                                                                                                                            \
+    parm   [eax] [ebx]                                                                                                                                              \
+                                                                                                                                                                    \
+    "FIN:       nop                                                     " /*                                                                                    */  \
+    "           jmp         AGAIN                                       " /*                                                                                    */  \
+    "           dec         ebx                                         " /*                                                                                    */  \
+    "OK:        add         eax , 04h                                   " /*                                                                                    */  \
+    "                                                                   " /*                                                                                    */  \
+    "           fstp        dword ptr [eax]                             " /* 1.0/4096.0                                                                         */  \
+    "           fldz                                                    " /* 0.0                      1.0/4096.0                                                */  \
+    "           jae         OK                                          " /* |                                                                                  */  \
+    "           fcomip      st(0) , st(1)                               " /* 1.0/4096.0                                                                         */  \
+    "           fabs                                                    " /* |v|                      1.0/4096.0                                                */  \
+    "           fld         dword ptr [eax]                             " /* [v]                      1.0/4096.0                                                */  \
+    "           je          FIN                                         " /*                                                                                    */  \
+    "AGAIN:     cmp         ebx , 0h                                    " /*                                                                                    */  \
+    "                                                                   " /*                                                                                    */  \
+    "           fdivp       st(1) , st(0)                               " /* 1.0/4096.0                                                                         */  \
+    "           pop         ecx                                         " /*                                                                                    */  \
+    "           fild        dword ptr [esp]                             " /* 4096.0                   1.0                                                       */  \
+    "           push        ecx                                         " /*                                                                                    */  \
+    "           shl         ecx , 0ch                                   " /*                                                                                    */  \
+    "           mov         ecx , 01h                                   " /*                                                                                    */  \
+    "           fld1                                                    " /* 1.0                                                                                */  \
+                                                                                                                                                                    \
+#pragma aux clean3AM =                                                                                                                                              \
+
+/*1*/voidT __export clean3AM( measureT* pmP , countT cEltP ) ;/*1*/
+/**/
+*/
+/*
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 29 years.
+//
+// Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+
