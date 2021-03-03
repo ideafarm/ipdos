@@ -183,11 +183,11 @@ a jPointer is also considered null if it contains one of the special values [JrE
 /*1*//*ifcIDsEXclATHnEWdEL*//*1*/
 
 /*3*/
-#define ifcIDsEXclATHnEWdEL_NEW           0xdddd0bb8
-#define ifcIDsEXclATHnEWdEL_DEL           0xdddd0bb9
+#define ifcIDsEXclATHnEWdEL_NEW           0xdddd0bc0
+#define ifcIDsEXclATHnEWdEL_DEL           0xdddd0bc1
 /*3*/
-#define ifcIDsEXclATHnEWdEL_min     0xdddd0bb8
-#define ifcIDsEXclATHnEWdEL_max     0xdddd0bb9
+#define ifcIDsEXclATHnEWdEL_min     0xdddd0bc0
+#define ifcIDsEXclATHnEWdEL_max     0xdddd0bc1
 
 
 //
@@ -333,10 +333,10 @@ a jPointer is also considered null if it contains one of the special values [JrE
 /*1*//*ifcIDsEXaRRAY*//*1*/
 
 /*3*/
-#define ifcIDsEXaRRAY_BEINGcONSTRUCTED           0xdddd0bba
+#define ifcIDsEXaRRAY_BEINGcONSTRUCTED           0xdddd0bc2
 /*3*/
-#define ifcIDsEXaRRAY_min     0xdddd0bba
-#define ifcIDsEXaRRAY_max     0xdddd0bba
+#define ifcIDsEXaRRAY_min     0xdddd0bc2
+#define ifcIDsEXaRRAY_max     0xdddd0bc2
 
 
 //
@@ -778,21 +778,21 @@ i do not verify that the naked idJot value is valid
 /*1*//*ifcIDmODEpUTfILE*//*1*/
 
 /*3*/
-#define ifcIDmODEpUTfILE_ROOT         0xdddd0bbb
-#define ifcIDmODEpUTfILE_PAID         0xdddd0bbc
-#define ifcIDmODEpUTfILE_TUTORIALS    0xdddd0bbd
-#define ifcIDmODEpUTfILE_HOOKS        0xdddd0bbe
-#define ifcIDmODEpUTfILE_ESSAYS       0xdddd0bbf
-#define ifcIDmODEpUTfILE_ARCHIVE      0xdddd0bc0
-#define ifcIDmODEpUTfILE_WO           0xdddd0bc1
-#define ifcIDmODEpUTfILE_NEWS         0xdddd0bc2
-#define ifcIDmODEpUTfILE_BUNDLE       0xdddd0bc3
-#define ifcIDmODEpUTfILE_PAY          0xdddd0bc4
-#define ifcIDmODEpUTfILE_IPDOS        0xdddd0bc5
-#define ifcIDmODEpUTfILE_OTHER        0xdddd0bc6
+#define ifcIDmODEpUTfILE_ROOT         0xdddd0bc3
+#define ifcIDmODEpUTfILE_PAID         0xdddd0bc4
+#define ifcIDmODEpUTfILE_TUTORIALS    0xdddd0bc5
+#define ifcIDmODEpUTfILE_HOOKS        0xdddd0bc6
+#define ifcIDmODEpUTfILE_ESSAYS       0xdddd0bc7
+#define ifcIDmODEpUTfILE_ARCHIVE      0xdddd0bc8
+#define ifcIDmODEpUTfILE_WO           0xdddd0bc9
+#define ifcIDmODEpUTfILE_NEWS         0xdddd0bca
+#define ifcIDmODEpUTfILE_BUNDLE       0xdddd0bcb
+#define ifcIDmODEpUTfILE_PAY          0xdddd0bcc
+#define ifcIDmODEpUTfILE_IPDOS        0xdddd0bcd
+#define ifcIDmODEpUTfILE_OTHER        0xdddd0bce
 /*3*/
-#define ifcIDmODEpUTfILE_min     0xdddd0bbb
-#define ifcIDmODEpUTfILE_max     0xdddd0bc6
+#define ifcIDmODEpUTfILE_min     0xdddd0bc3
+#define ifcIDmODEpUTfILE_max     0xdddd0bce
 
 
 //
@@ -957,11 +957,11 @@ parameters
 /*1*//*ifcIDcLOUD*//*1*/
 
 /*3*/
-#define ifcIDcLOUD_RACKSPACE           0xdddd0bc7
-#define ifcIDcLOUD_GOOGLE              0xdddd0bc8
+#define ifcIDcLOUD_RACKSPACE           0xdddd0bcf
+#define ifcIDcLOUD_GOOGLE              0xdddd0bd0
 /*3*/
-#define ifcIDcLOUD_min     0xdddd0bc7
-#define ifcIDcLOUD_max     0xdddd0bc8
+#define ifcIDcLOUD_min     0xdddd0bcf
+#define ifcIDcLOUD_max     0xdddd0bd0
 
 
 //
@@ -1373,12 +1373,12 @@ parameters
 /*1*//*ifcIDdOcLOUDiFdIFFER*//*1*/
 
 /*3*/
-#define ifcIDdOcLOUDiFdIFFER_NOTHING    0xdddd0bc9
-#define ifcIDdOcLOUDiFdIFFER_REPORT     0xdddd0bca
-#define ifcIDdOcLOUDiFdIFFER_REPLACE    0xdddd0bcb
+#define ifcIDdOcLOUDiFdIFFER_NOTHING    0xdddd0bd1
+#define ifcIDdOcLOUDiFdIFFER_REPORT     0xdddd0bd2
+#define ifcIDdOcLOUDiFdIFFER_REPLACE    0xdddd0bd3
 /*3*/
-#define ifcIDdOcLOUDiFdIFFER_min     0xdddd0bc9
-#define ifcIDdOcLOUDiFdIFFER_max     0xdddd0bcb
+#define ifcIDdOcLOUDiFdIFFER_min     0xdddd0bd1
+#define ifcIDdOcLOUDiFdIFFER_max     0xdddd0bd3
 
 
 //
@@ -1487,11 +1487,11 @@ parameters
 /*1*//*ifcIDmODEsOCKETS*//*1*/
 
 /*3*/
-#define ifcIDmODEsOCKETS_NOTeNCRYPTED  0xdddd0bcc
-#define ifcIDmODEsOCKETS_ENCRYPTED     0xdddd0bcd
+#define ifcIDmODEsOCKETS_NOTeNCRYPTED  0xdddd0bd4
+#define ifcIDmODEsOCKETS_ENCRYPTED     0xdddd0bd5
 /*3*/
-#define ifcIDmODEsOCKETS_min     0xdddd0bcc
-#define ifcIDmODEsOCKETS_max     0xdddd0bcd
+#define ifcIDmODEsOCKETS_min     0xdddd0bd4
+#define ifcIDmODEsOCKETS_max     0xdddd0bd5
 
 
 //
@@ -2108,41 +2108,41 @@ use this rather than _ to avoid the overhead of _
 //CS:CODEsYNC: WO CONSTANT IS NEEDED FOR EACH BIT IN A countT OBJECT (WHICH IS CURRENTLY OF SIZE count02T)
 
 /*3*/
-#define ifcIDgRABITbIT_00     0xdddd0bce
-#define ifcIDgRABITbIT_10     0xdddd0bcf
-#define ifcIDgRABITbIT_20     0xdddd0bd0
-#define ifcIDgRABITbIT_30     0xdddd0bd1
-#define ifcIDgRABITbIT_40     0xdddd0bd2
-#define ifcIDgRABITbIT_50     0xdddd0bd3
-#define ifcIDgRABITbIT_60     0xdddd0bd4
-#define ifcIDgRABITbIT_70     0xdddd0bd5
-#define ifcIDgRABITbIT_80     0xdddd0bd6
-#define ifcIDgRABITbIT_90     0xdddd0bd7
-#define ifcIDgRABITbIT_a0     0xdddd0bd8
-#define ifcIDgRABITbIT_b0     0xdddd0bd9
-#define ifcIDgRABITbIT_c0     0xdddd0bda
-#define ifcIDgRABITbIT_d0     0xdddd0bdb
-#define ifcIDgRABITbIT_e0     0xdddd0bdc
-#define ifcIDgRABITbIT_f0     0xdddd0bdd
-#define ifcIDgRABITbIT_01     0xdddd0bde
-#define ifcIDgRABITbIT_11     0xdddd0bdf
-#define ifcIDgRABITbIT_21     0xdddd0be0
-#define ifcIDgRABITbIT_31     0xdddd0be1
-#define ifcIDgRABITbIT_41     0xdddd0be2
-#define ifcIDgRABITbIT_51     0xdddd0be3
-#define ifcIDgRABITbIT_61     0xdddd0be4
-#define ifcIDgRABITbIT_71     0xdddd0be5
-#define ifcIDgRABITbIT_81     0xdddd0be6
-#define ifcIDgRABITbIT_91     0xdddd0be7
-#define ifcIDgRABITbIT_a1     0xdddd0be8
-#define ifcIDgRABITbIT_b1     0xdddd0be9
-#define ifcIDgRABITbIT_c1     0xdddd0bea
-#define ifcIDgRABITbIT_d1     0xdddd0beb
-#define ifcIDgRABITbIT_e1     0xdddd0bec
-#define ifcIDgRABITbIT_f1     0xdddd0bed
+#define ifcIDgRABITbIT_00     0xdddd0bd6
+#define ifcIDgRABITbIT_10     0xdddd0bd7
+#define ifcIDgRABITbIT_20     0xdddd0bd8
+#define ifcIDgRABITbIT_30     0xdddd0bd9
+#define ifcIDgRABITbIT_40     0xdddd0bda
+#define ifcIDgRABITbIT_50     0xdddd0bdb
+#define ifcIDgRABITbIT_60     0xdddd0bdc
+#define ifcIDgRABITbIT_70     0xdddd0bdd
+#define ifcIDgRABITbIT_80     0xdddd0bde
+#define ifcIDgRABITbIT_90     0xdddd0bdf
+#define ifcIDgRABITbIT_a0     0xdddd0be0
+#define ifcIDgRABITbIT_b0     0xdddd0be1
+#define ifcIDgRABITbIT_c0     0xdddd0be2
+#define ifcIDgRABITbIT_d0     0xdddd0be3
+#define ifcIDgRABITbIT_e0     0xdddd0be4
+#define ifcIDgRABITbIT_f0     0xdddd0be5
+#define ifcIDgRABITbIT_01     0xdddd0be6
+#define ifcIDgRABITbIT_11     0xdddd0be7
+#define ifcIDgRABITbIT_21     0xdddd0be8
+#define ifcIDgRABITbIT_31     0xdddd0be9
+#define ifcIDgRABITbIT_41     0xdddd0bea
+#define ifcIDgRABITbIT_51     0xdddd0beb
+#define ifcIDgRABITbIT_61     0xdddd0bec
+#define ifcIDgRABITbIT_71     0xdddd0bed
+#define ifcIDgRABITbIT_81     0xdddd0bee
+#define ifcIDgRABITbIT_91     0xdddd0bef
+#define ifcIDgRABITbIT_a1     0xdddd0bf0
+#define ifcIDgRABITbIT_b1     0xdddd0bf1
+#define ifcIDgRABITbIT_c1     0xdddd0bf2
+#define ifcIDgRABITbIT_d1     0xdddd0bf3
+#define ifcIDgRABITbIT_e1     0xdddd0bf4
+#define ifcIDgRABITbIT_f1     0xdddd0bf5
 /*3*/
-#define ifcIDgRABITbIT_min     0xdddd0bce
-#define ifcIDgRABITbIT_max     0xdddd0bed
+#define ifcIDgRABITbIT_min     0xdddd0bd6
+#define ifcIDgRABITbIT_max     0xdddd0bf5
 
 
 //
@@ -2169,12 +2169,12 @@ use this rather than _ to avoid the overhead of _
 /*1*//*ifcIDeMAILrEGISTRATIONrEQUESTsTATUS*//*1*/
 
 /*3*/
-#define ifcIDeMAILrEGISTRATIONrEQUESTsTATUS_BOTwRONGsCHEME              0xdddd0bee
-#define ifcIDeMAILrEGISTRATIONrEQUESTsTATUS_BOTwRONGiMAGE               0xdddd0bef
-#define ifcIDeMAILrEGISTRATIONrEQUESTsTATUS_HUMANnOpRIORpENDING         0xdddd0bf0
+#define ifcIDeMAILrEGISTRATIONrEQUESTsTATUS_BOTwRONGsCHEME              0xdddd0bf6
+#define ifcIDeMAILrEGISTRATIONrEQUESTsTATUS_BOTwRONGiMAGE               0xdddd0bf7
+#define ifcIDeMAILrEGISTRATIONrEQUESTsTATUS_HUMANnOpRIORpENDING         0xdddd0bf8
 /*3*/
-#define ifcIDeMAILrEGISTRATIONrEQUESTsTATUS_min     0xdddd0bee
-#define ifcIDeMAILrEGISTRATIONrEQUESTsTATUS_max     0xdddd0bf0
+#define ifcIDeMAILrEGISTRATIONrEQUESTsTATUS_min     0xdddd0bf6
+#define ifcIDeMAILrEGISTRATIONrEQUESTsTATUS_max     0xdddd0bf8
 
 
 //
@@ -2630,25 +2630,25 @@ use this rather than _ to avoid the overhead of _
 /*1*//*ifcIDtRACEdIVERT*//*1*/
 
 /*3*/
-#define ifcIDtRACEdIVERT_1              0xdddd0bf1
-#define ifcIDtRACEdIVERT_2              0xdddd0bf2
-#define ifcIDtRACEdIVERT_3              0xdddd0bf3
-#define ifcIDtRACEdIVERT_4              0xdddd0bf4
-#define ifcIDtRACEdIVERT_5              0xdddd0bf5
-#define ifcIDtRACEdIVERT_6              0xdddd0bf6
-#define ifcIDtRACEdIVERT_7              0xdddd0bf7
-#define ifcIDtRACEdIVERT_8              0xdddd0bf8
-#define ifcIDtRACEdIVERT_9              0xdddd0bf9
-#define ifcIDtRACEdIVERT_a              0xdddd0bfa
-#define ifcIDtRACEdIVERT_b              0xdddd0bfb
-#define ifcIDtRACEdIVERT_c              0xdddd0bfc
-#define ifcIDtRACEdIVERT_d              0xdddd0bfd
-#define ifcIDtRACEdIVERT_e              0xdddd0bfe
-#define ifcIDtRACEdIVERT_f              0xdddd0bff
-#define ifcIDtRACEdIVERT_10             0xdddd0c00
+#define ifcIDtRACEdIVERT_1              0xdddd0bf9
+#define ifcIDtRACEdIVERT_2              0xdddd0bfa
+#define ifcIDtRACEdIVERT_3              0xdddd0bfb
+#define ifcIDtRACEdIVERT_4              0xdddd0bfc
+#define ifcIDtRACEdIVERT_5              0xdddd0bfd
+#define ifcIDtRACEdIVERT_6              0xdddd0bfe
+#define ifcIDtRACEdIVERT_7              0xdddd0bff
+#define ifcIDtRACEdIVERT_8              0xdddd0c00
+#define ifcIDtRACEdIVERT_9              0xdddd0c01
+#define ifcIDtRACEdIVERT_a              0xdddd0c02
+#define ifcIDtRACEdIVERT_b              0xdddd0c03
+#define ifcIDtRACEdIVERT_c              0xdddd0c04
+#define ifcIDtRACEdIVERT_d              0xdddd0c05
+#define ifcIDtRACEdIVERT_e              0xdddd0c06
+#define ifcIDtRACEdIVERT_f              0xdddd0c07
+#define ifcIDtRACEdIVERT_10             0xdddd0c08
 /*3*/
-#define ifcIDtRACEdIVERT_min     0xdddd0bf1
-#define ifcIDtRACEdIVERT_max     0xdddd0c00
+#define ifcIDtRACEdIVERT_min     0xdddd0bf9
+#define ifcIDtRACEdIVERT_max     0xdddd0c08
 
 
 //
@@ -2767,11 +2767,11 @@ use this rather than _ to avoid the overhead of _
 /**/
 
 /*3*/
-#define ifcIDcMDcLOAK_QUERYfOLDERcONTENTS               0xdddd0c01
-#define ifcIDcMDcLOAK_QUERYaLLlOCKEDfOLDERScONTENTS     0xdddd0c02
+#define ifcIDcMDcLOAK_QUERYfOLDERcONTENTS               0xdddd0c09
+#define ifcIDcMDcLOAK_QUERYaLLlOCKEDfOLDERScONTENTS     0xdddd0c0a
 /*3*/
-#define ifcIDcMDcLOAK_min     0xdddd0c01
-#define ifcIDcMDcLOAK_max     0xdddd0c02
+#define ifcIDcMDcLOAK_min     0xdddd0c09
+#define ifcIDcMDcLOAK_max     0xdddd0c0a
 
 
 //
@@ -2798,11 +2798,11 @@ use this rather than _ to avoid the overhead of _
 /**/
 
 /*3*/
-#define ifcIDrEPLYcLOAK_FOLDERcONTENTS            0xdddd0c03
-#define ifcIDrEPLYcLOAK_ALLlOCKEDfOLDERScONTENTS  0xdddd0c04
+#define ifcIDrEPLYcLOAK_FOLDERcONTENTS            0xdddd0c0b
+#define ifcIDrEPLYcLOAK_ALLlOCKEDfOLDERScONTENTS  0xdddd0c0c
 /*3*/
-#define ifcIDrEPLYcLOAK_min     0xdddd0c03
-#define ifcIDrEPLYcLOAK_max     0xdddd0c04
+#define ifcIDrEPLYcLOAK_min     0xdddd0c0b
+#define ifcIDrEPLYcLOAK_max     0xdddd0c0c
 
 
 //
@@ -2894,13 +2894,13 @@ use this rather than _ to avoid the overhead of _
 /*1*//*ifcIDtYPEpATTERN*//*1*/
 
 /*3*/
-#define ifcIDtYPEpATTERN_NATIVE                          0xdddd0c05
-#define ifcIDtYPEpATTERN_FOREIGNwILDCARDmICROSOFT        0xdddd0c06
-#define ifcIDtYPEpATTERN_FOREIGNwILDCARDsTRICT           0xdddd0c07
-#define ifcIDtYPEpATTERN_FOREIGNuNIXrEGULAReXPRESSION    0xdddd0c08
+#define ifcIDtYPEpATTERN_NATIVE                          0xdddd0c0d
+#define ifcIDtYPEpATTERN_FOREIGNwILDCARDmICROSOFT        0xdddd0c0e
+#define ifcIDtYPEpATTERN_FOREIGNwILDCARDsTRICT           0xdddd0c0f
+#define ifcIDtYPEpATTERN_FOREIGNuNIXrEGULAReXPRESSION    0xdddd0c10
 /*3*/
-#define ifcIDtYPEpATTERN_min     0xdddd0c05
-#define ifcIDtYPEpATTERN_max     0xdddd0c08
+#define ifcIDtYPEpATTERN_min     0xdddd0c0d
+#define ifcIDtYPEpATTERN_max     0xdddd0c10
 
 //
 // Respecting the rights of other people is an important part of empowering one another.
@@ -3045,11 +3045,11 @@ use this rather than _ to avoid the overhead of _
 /*1*//*ifcIDtYPEcLOAKcONNECTION*//*1*/
 
 /*3*/
-#define ifcIDtYPEcLOAKcONNECTION_SIMPLE                          0xdddd0c09
-#define ifcIDtYPEcLOAKcONNECTION_SOULFUL                         0xdddd0c0a
+#define ifcIDtYPEcLOAKcONNECTION_SIMPLE                          0xdddd0c11
+#define ifcIDtYPEcLOAKcONNECTION_SOULFUL                         0xdddd0c12
 /*3*/
-#define ifcIDtYPEcLOAKcONNECTION_min     0xdddd0c09
-#define ifcIDtYPEcLOAKcONNECTION_max     0xdddd0c0a
+#define ifcIDtYPEcLOAKcONNECTION_min     0xdddd0c11
+#define ifcIDtYPEcLOAKcONNECTION_max     0xdddd0c12
 
 //
 // Respecting the rights of other people is an important part of empowering one another.
@@ -3076,11 +3076,11 @@ use this rather than _ to avoid the overhead of _
 /*1*//*ifcIDtYPEtINaRGiNuSE*//*1*/
 
 /*3*/
-#define ifcIDtYPEtINaRGiNuSE_LIST                          0xdddd0c0b
-#define ifcIDtYPEtINaRGiNuSE_PATTERN                       0xdddd0c0c
+#define ifcIDtYPEtINaRGiNuSE_LIST                          0xdddd0c13
+#define ifcIDtYPEtINaRGiNuSE_PATTERN                       0xdddd0c14
 /*3*/
-#define ifcIDtYPEtINaRGiNuSE_min     0xdddd0c0b
-#define ifcIDtYPEtINaRGiNuSE_max     0xdddd0c0c
+#define ifcIDtYPEtINaRGiNuSE_min     0xdddd0c13
+#define ifcIDtYPEtINaRGiNuSE_max     0xdddd0c14
 
 //
 // Respecting the rights of other people is an important part of empowering one another.
@@ -4551,13 +4551,13 @@ use this rather than _ to avoid the overhead of _
 /*1*//*ifcIDtYPEtELLaPP*//*1*/
 
 /*3*/
-#define ifcIDtYPEtELLaPP_NOOP                                           0xdddd0c0d
-#define ifcIDtYPEtELLaPP_INoUT                                          0xdddd0c0e
-#define ifcIDtYPEtELLaPP_INoUTaRRAY                                     0xdddd0c0f
-#define ifcIDtYPEtELLaPP_INoUTtINdT                                     0xdddd0c10
+#define ifcIDtYPEtELLaPP_NOOP                                           0xdddd0c15
+#define ifcIDtYPEtELLaPP_INoUT                                          0xdddd0c16
+#define ifcIDtYPEtELLaPP_INoUTaRRAY                                     0xdddd0c17
+#define ifcIDtYPEtELLaPP_INoUTtINdT                                     0xdddd0c18
 /*3*/
-#define ifcIDtYPEtELLaPP_min     0xdddd0c0d
-#define ifcIDtYPEtELLaPP_max     0xdddd0c10                                                               
+#define ifcIDtYPEtELLaPP_min     0xdddd0c15
+#define ifcIDtYPEtELLaPP_max     0xdddd0c18                                                               
 
 
 //
@@ -4584,11 +4584,11 @@ use this rather than _ to avoid the overhead of _
 /*1*//**//*1*/
 
 /*3*/
-#define ifcIDbOOKStELL_SYS                                           0xdddd0c11
-#define ifcIDbOOKStELL_APP                                           0xdddd0c12
+#define ifcIDbOOKStELL_SYS                                           0xdddd0c19
+#define ifcIDbOOKStELL_APP                                           0xdddd0c1a
 /*3*/
-#define ifcIDbOOKStELL_min     0xdddd0c11
-#define ifcIDbOOKStELL_max     0xdddd0c12                                                               
+#define ifcIDbOOKStELL_min     0xdddd0c19
+#define ifcIDbOOKStELL_max     0xdddd0c1a                                                               
 
 
 //
