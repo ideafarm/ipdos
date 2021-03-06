@@ -38399,6 +38399,7 @@ the only function of this object is to edit tinS::grabPseudo so that the monitor
     countT                  cNestMax ;
     const strokeS*          psttFile ;
     flagsT                  flags ;
+    const countT            idMode ;
 
     textC                   tn ;
     textC                   thDot ;
