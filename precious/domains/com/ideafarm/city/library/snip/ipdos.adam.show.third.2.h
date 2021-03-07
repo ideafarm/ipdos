@@ -779,6 +779,7 @@ i do not verify that the naked idJot value is valid
 
 /*3*/
 #define ifcIDmODEpUTfILE_ROOT         0xdddd0bc3
+#define ifcIDmODEpUTfILE_ABOUT        0xdddd0bcf
 #define ifcIDmODEpUTfILE_PAID         0xdddd0bc4
 #define ifcIDmODEpUTfILE_TUTORIALS    0xdddd0bc5
 #define ifcIDmODEpUTfILE_HOOKS        0xdddd0bc6
@@ -792,7 +793,7 @@ i do not verify that the naked idJot value is valid
 #define ifcIDmODEpUTfILE_OTHER        0xdddd0bce
 /*3*/
 #define ifcIDmODEpUTfILE_min     0xdddd0bc3
-#define ifcIDmODEpUTfILE_max     0xdddd0bce
+#define ifcIDmODEpUTfILE_max     0xdddd0bcf
 
 
 //

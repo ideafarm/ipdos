@@ -104,7 +104,7 @@
         :
             ""
         ?
-        idModeP == ifcIDmODEpUTfILE_ROOT
+        idModeP == ifcIDmODEpUTfILE_ROOT || idModeP == ifcIDmODEpUTfILE_ABOUT
 
     tTailHardWhite = T(
 
@@ -119,7 +119,7 @@
         :
             ""
         ?
-        idModeP == ifcIDmODEpUTfILE_ROOT
+        idModeP == ifcIDmODEpUTfILE_ROOT || idModeP == ifcIDmODEpUTfILE_ABOUT
 
     tTailHardBlack = T(
 
@@ -229,7 +229,7 @@
         :
             ""
         ?
-        idModeP == ifcIDmODEpUTfILE_ROOT
+        idModeP == ifcIDmODEpUTfILE_ROOT || idModeP == ifcIDmODEpUTfILE_ABOUT
 
     tBodyProlog_01 = T(
 
@@ -239,7 +239,7 @@
         :
             ""
         ?
-        idModeP == ifcIDmODEpUTfILE_ROOT
+        idModeP == ifcIDmODEpUTfILE_ROOT || idModeP == ifcIDmODEpUTfILE_ABOUT
 
     tBodyProlog_f0White = T(
 
@@ -249,7 +249,7 @@
         :
             ""
         ?
-        idModeP == ifcIDmODEpUTfILE_ROOT
+        idModeP == ifcIDmODEpUTfILE_ROOT || idModeP == ifcIDmODEpUTfILE_ABOUT
 
     tBodyProlog_f0Black = T(
 
@@ -263,7 +263,7 @@
         :
             ""
         ?
-        idModeP == ifcIDmODEpUTfILE_ROOT
+        idModeP == ifcIDmODEpUTfILE_ROOT || idModeP == ifcIDmODEpUTfILE_ABOUT
 
     tBodyProlog_e0 = T(
 
@@ -273,7 +273,7 @@
         :
             ""
         ?
-        idModeP == ifcIDmODEpUTfILE_ROOT
+        idModeP == ifcIDmODEpUTfILE_ROOT || idModeP == ifcIDmODEpUTfILE_ABOUT
 
     tBodyProlog_d0White = T(
 
@@ -283,7 +283,7 @@
         :
             ""
         ?
-        idModeP == ifcIDmODEpUTfILE_ROOT
+        idModeP == ifcIDmODEpUTfILE_ROOT || idModeP == ifcIDmODEpUTfILE_ABOUT
 
     tBodyProlog_d0Black = T(
 
@@ -312,7 +312,7 @@
             //20190801@1825:  "                                    </td>\r\n"
             ""
         ?
-        idModeP == ifcIDmODEpUTfILE_ROOT
+        idModeP == ifcIDmODEpUTfILE_ROOT || idModeP == ifcIDmODEpUTfILE_ABOUT
 
     tBodyProlog_c0 = T(
 
@@ -338,7 +338,7 @@
             //20190801@1825:  "                                    </td>\r\n"
             ""
         ?
-        idModeP == ifcIDmODEpUTfILE_ROOT
+        idModeP == ifcIDmODEpUTfILE_ROOT || idModeP == ifcIDmODEpUTfILE_ABOUT
 
     tBodyProlog_b0 = T(
 
@@ -382,7 +382,7 @@
             //20190801@1825:  "</span>\r\n"
             ""
         ?
-        idModeP == ifcIDmODEpUTfILE_ROOT
+        idModeP == ifcIDmODEpUTfILE_ROOT || idModeP == ifcIDmODEpUTfILE_ABOUT
 
     tBodyProlog_90 = T(
 
@@ -395,7 +395,7 @@
         :
             ""
         ?
-        idModeP == ifcIDmODEpUTfILE_ROOT
+        idModeP == ifcIDmODEpUTfILE_ROOT || idModeP == ifcIDmODEpUTfILE_ABOUT
 
     tBodyProlog_80White = T(
 
@@ -408,31 +408,31 @@
         :
             ""
         ?
-        idModeP == ifcIDmODEpUTfILE_ROOT
+        idModeP == ifcIDmODEpUTfILE_ROOT || idModeP == ifcIDmODEpUTfILE_ABOUT
 
     tBodyProlog_80Black = T(
 
     ) ;
 
-            "                                        <span><a href=\"http://reports.ideafarm.com/access/"
-            "\" onmouseout=\"sayMessageF( 0 , 16000 )\" onmouseover=\"sayMessageF( 'Click to change the color scheme to color on black (for normal viewing).' , 0 )\">black</a>\r\n"
-        :
-            "\" onmouseout=\"sayMessageF( 0 , 16000 )\" onmouseover=\"sayMessageF( 'Click to change the color scheme to color on black (for normal viewing).' , 0 )\">black</a>\r\n    <p>\r\n    <hr>\r\n    "
-        ?
+            
+                : "                                    <span><a href=\"http://reports.ideafarm.com/access/"
+                ? "<a href=\"https://dc4887e7f1367376da22-75c63f2b54dd5029f3484f050cc6ab7e.ssl.cf5.rackcdn.com/index.white.html\">root</a>\r\n    <p>\r\n    <hr>\r\n    "
+            : idModeP == ifcIDmODEpUTfILE_ABOUT
+            ? "<a href=\"https://78ee3beee59967122432-83c44f998d6143e2566c1d222f92873b.ssl.cf5.rackcdn.com/index.white.html\">about</a>\r\n    <p>\r\n    <hr>\r\n    "
         idModeP == ifcIDmODEpUTfILE_ROOT
 
-    tBodyProlog_70White = T(
+    tBodyProlog_70White = T("\" onmouseout=\"sayMessageF( 0 , 16000 )\" onmouseover=\"sayMessageF( 'Click to change the color scheme to black on white (for printing).' , 0 )\">white</a>\r\n    ")+T(
 
     ) ;
 
-            "                                        <span><a href=\"http://reports.ideafarm.com/access/"
-            "\" onmouseout=\"sayMessageF( 0 , 16000 )\" onmouseover=\"sayMessageF( 'Click to change the color scheme to black on white (for printing).' , 0 )\">white</a>\r\n"
-        :
-            "\" onmouseout=\"sayMessageF( 0 , 16000 )\" onmouseover=\"sayMessageF( 'Click to change the color scheme to black on white (for printing).' , 0 )\">white</a>\r\n    <p>\r\n    <hr>\r\n    "
-        ?
+            
+                : "                                    <span><a href=\"http://reports.ideafarm.com/access/"
+                ? "<a href=\"https://dc4887e7f1367376da22-75c63f2b54dd5029f3484f050cc6ab7e.ssl.cf5.rackcdn.com/index.html\">root</a>\r\n    <p>\r\n    <hr>\r\n    "
+            : idModeP == ifcIDmODEpUTfILE_ABOUT
+            ? "<a href=\"https://78ee3beee59967122432-83c44f998d6143e2566c1d222f92873b.ssl.cf5.rackcdn.com/index.html\">about</a>\r\n    <p>\r\n    <hr>\r\n    "
         idModeP == ifcIDmODEpUTfILE_ROOT
 
-    tBodyProlog_70Black = T(
+    tBodyProlog_70Black = T("\" onmouseout=\"sayMessageF( 0 , 16000 )\" onmouseover=\"sayMessageF( 'Click to change the color scheme to black on white (for printing).' , 0 )\">white</a>\r\n    ")+T(
 
     ) ;
 
@@ -451,7 +451,7 @@
         :
             "\r\n\r\n    <a href=\""
         ?
-        idModeP == ifcIDmODEpUTfILE_ROOT
+        idModeP == ifcIDmODEpUTfILE_ROOT || idModeP == ifcIDmODEpUTfILE_ABOUT
 
     tBodyProlog_50 = T(
 
@@ -462,7 +462,7 @@
         :
             ""
         ?
-        idModeP == ifcIDmODEpUTfILE_ROOT
+        idModeP == ifcIDmODEpUTfILE_ROOT || idModeP == ifcIDmODEpUTfILE_ABOUT
 
     tBodyProlog_40White = T(
 
@@ -473,7 +473,7 @@
         :
             ""
         ?
-        idModeP == ifcIDmODEpUTfILE_ROOT
+        idModeP == ifcIDmODEpUTfILE_ROOT || idModeP == ifcIDmODEpUTfILE_ABOUT
 
     tBodyProlog_40Black = T(
 
@@ -495,13 +495,13 @@
         tBodyProlog_30 = T(
     {
     else
-    if( idModeP == ifcIDmODEpUTfILE_ROOT ) tBodyProlog_30 = T("") ;
+    if( idModeP == ifcIDmODEpUTfILE_ROOT || idModeP == ifcIDmODEpUTfILE_ABOUT ) tBodyProlog_30 = T("") ;
 
     ) ;
 
         //    : ""
         //    ? "++++"
-        //idModeP == ifcIDmODEpUTfILE_ROOT
+        //idModeP == ifcIDmODEpUTfILE_ROOT || idModeP == ifcIDmODEpUTfILE_ABOUT
         ""
 
     tBodyProlog_20 = T(
@@ -520,7 +520,7 @@
         :
             ""
         ?
-        idModeP == ifcIDmODEpUTfILE_ROOT
+        idModeP == ifcIDmODEpUTfILE_ROOT || idModeP == ifcIDmODEpUTfILE_ABOUT
 
     tHtml50TableBegin = T(
 
@@ -687,6 +687,7 @@
 
         {
         case ifcIDmODEpUTfILE_PAID :
+        case ifcIDmODEpUTfILE_ABOUT :
         case ifcIDmODEpUTfILE_ROOT :
     {
     switch( idModeP )
