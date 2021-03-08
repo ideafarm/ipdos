@@ -51,7 +51,7 @@
     while( pCursor )
     pCursor = pInfo ;
 
-    getaddrinfo( postNameP , "http" , 0 , &pInfo ) ;
+    unsigned rc = getaddrinfo( postNameP ? postNameP : "" , "http" , 0 , &pInfo ) ;
 
     unsigned* pcGold  = 0 ;
 
