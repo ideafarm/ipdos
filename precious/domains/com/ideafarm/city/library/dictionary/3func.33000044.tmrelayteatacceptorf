@@ -32,11 +32,12 @@ DONE( tmRelayTeatAcceptorF )
     if( home.idpTeat )
 
     sListen.listenF( tinP ) ;
-    (countT&)home.idpTeat = sListen.bindF( tinP ) ; //nn REMAINS 0 BECAUSE I AM ONLY TO BE USED BY CLIENTS ON THE LOCAL HOST
-    home.idpTeat = idPortC() ;
+    (countT&)home.idpTeat = sListen.bindF( tinP ) ;
+    home.idpTeat = socketC::nicNameIF( tinP , etThread ) ;
+
     socketC sListen( tinP , etThread , TAG( TAGiDnULL ) ) ;
 
-    idPortC& idpTeat = *(idPortC*)pTaskP->c4 ;
+    idPortC& idpTeat = *(idPortC*)pTaskP->c4 ;      //U:: NOT REFERENCED
     homeS& home = homeS::homeIF() ;
 
     RELAYiNFOtm
