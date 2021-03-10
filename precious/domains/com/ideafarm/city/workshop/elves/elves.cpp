@@ -299,7 +299,7 @@ int __export setIfZeroAM( int& cToP , const int cFromP ) ;
 
 int            bNumaIsAvailableF( void ) ;
 int            boxDispenseIdF( char* postFileP , int idMinP = 0 , int idElfP = 0 ) ;
-int            boxGetShadowF( char*& postP , const char* postFileP , int idElfP = 0 ) ;
+void           boxGetShadowF( char*& postP , const char* postFileP , int idElfP = 0 ) ;
 void           boxPutF( const char* postFileP , const char* postP , int idElfP = 0 ) ;
 BOOL __stdcall controlInterruptHandlerF( DWORD idEventP ) ;
 void           delF( char*& pbP ) ;
@@ -5120,7 +5120,7 @@ int boxDispenseIdF( char* postFileP , int idMinP , int idElfP )
     return idNew ;
 }
 
-int boxGetShadowF( char*& postP , const char* postFileP , int idElfP )
+void boxGetShadowF( char*& postP , const char* postFileP , int idElfP )
 {
     if( postP ) { BLAMMO ; }
     if( !postFileP ) { BLAMMO ; }
@@ -5145,7 +5145,7 @@ int boxGetShadowF( char*& postP , const char* postFileP , int idElfP )
         }
     
         int offBegin = 0 ;    
-        postP = newF( costaIn ) ;
+        postP = newF( costaIn + 1 ) ;
         if( !postP )
         {
             ether.sayF( idElfP , "  Could not obtain " , flSAY_START ) ;
@@ -5154,6 +5154,8 @@ int boxGetShadowF( char*& postP , const char* postFileP , int idElfP )
         }
         else
         {
+            postP[ costaIn ] = 0 ;
+
             const char* pbToDo = postP ;
             int         cbToDo = costaIn ;
             while( cbToDo )
@@ -5169,8 +5171,6 @@ int boxGetShadowF( char*& postP , const char* postFileP , int idElfP )
         }
     }
     fclose( pFile ) ; pFile = 0 ;
-
-    return costaIn ? costaIn - 1 : 0 ;
 }
 
 void boxPutF( const char* postFileP , const char* postP , int idElfP )
