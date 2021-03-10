@@ -67,14 +67,14 @@ DONE( tmRelayTeatServerF )
     
         }
             }
-                if( psWrap ) etThread( tinP , psWrap ) ; //MIGHT BE 0 IFF I CALLED relayC::doWrapLocallyIfIF
+                DEL( psWrap ) ; //MIGHT BE 0 IFF I CALLED relayC::doWrapLocallyIfIF
     
                 }
                     }
                         }
                             break ;
-                            etThread( tinP , psGift ) ;
-                            etThread( tinP , psWrapo ) ;
+                            DEL( psGift ) ;
+                            DEL( psWrapo ) ;
                             }
                                 }
                                     }
@@ -105,16 +105,14 @@ DONE( tmRelayTeatServerF )
                                 GRABrELAYlISTS
                             {
                             if( psGift && psWrapo )
-                            etThread( tinP , psGift , TAG( TAGiDnULL ) ) ;
-                            ZE( soulC* , psGift ) ;
-                            etThread( tinP , psWrapo , TAG( TAGiDnULL ) ) ;
-                            ZE( soulC* , psWrapo ) ;
+                            soulC* psGift = new( 0 , tinP , LF ) soulC( tinP , TAG( TAGiDnULL ) ) ; ___( psGift ) ;
+                            soulC* psWrapo = new( 0 , tinP , LF ) soulC( tinP , TAG( TAGiDnULL ) ) ; ___( psWrapo ) ;
                         {
                         case ifcIDtYPEwRAP_QUERYrELAYiDpORTtIMEcaLLhOMES :
                         }
                             break ;
-                            etThread( tinP , psGift ) ;
-                            etThread( tinP , psWrapo ) ;
+                            DEL( psGift ) ;
+                            DEL( psWrapo ) ;
                             }
                                 }
                                     }
@@ -137,16 +135,14 @@ DONE( tmRelayTeatServerF )
                                 idptP >> *psGift ;
                             {
                             if( psGift && psWrapo )
-                            etThread( tinP , psGift , TAG( TAGiDnULL ) ) ;
-                            ZE( soulC* , psGift ) ;
-                            etThread( tinP , psWrapo , TAG( TAGiDnULL ) ) ;
-                            ZE( soulC* , psWrapo ) ;
+                            soulC* psGift = new( 0 , tinP , LF ) soulC( tinP , TAG( TAGiDnULL ) ) ; ___( psGift ) ;
+                            soulC* psWrapo = new( 0 , tinP , LF ) soulC( tinP , TAG( TAGiDnULL ) ) ; ___( psWrapo ) ;
                         {
                         case ifcIDtYPEwRAP_QUERYrELAYiDpORTtIMEc :
                         }
                             break ;
-                            etThread( tinP , psGift ) ;
-                            etThread( tinP , psWrapo ) ;
+                            DEL( psGift ) ;
+                            DEL( psWrapo ) ;
                             }
                                 }
                                     }
@@ -187,16 +183,14 @@ DONE( tmRelayTeatServerF )
                                 GRABrELAYlISTS
                             {
                             if( psGift && psWrapo )
-                            etThread( tinP , psGift , TAG( TAGiDnULL ) ) ;
-                            ZE( soulC* , psGift ) ;
-                            etThread( tinP , psWrapo , TAG( TAGiDnULL ) ) ;
-                            ZE( soulC* , psWrapo ) ;
+                            soulC* psGift = new( 0 , tinP , LF ) soulC( tinP , TAG( TAGiDnULL ) ) ; ___( psGift ) ;
+                            soulC* psWrapo = new( 0 , tinP , LF ) soulC( tinP , TAG( TAGiDnULL ) ) ; ___( psWrapo ) ;
                         {
                         case ifcIDtYPEwRAP_QUERYrELAYrANK :
                         }
                             break ;
                             }
-                                etThread( tinP , psBag ) ;
+                                DEL( psBag ) ;
                                 if( bDontHoldBreath ) relayC::doWrapLocallyIfIF( tinP , etThread , RELAYiNFOaRGS , *psWrap , idptP ) ;
             
                                 relayC::popIF( tinP , pStPop0P , pStPop1P , pStPop2P , pStPop3P , pStPop4P , *psBag , stIdptOpenP , stIdptGossipP , idptP ) ;
@@ -212,8 +206,7 @@ DONE( tmRelayTeatServerF )
                                 GRABrELAYlISTS
                             {
                             if( psBag )
-                            etThread( tinP , psBag , TAG( TAGiDnULL ) ) ;
-                            ZE( soulC* , psBag ) ;
+                            soulC* psBag = new( 0 , tinP , LF ) soulC( tinP , TAG( TAGiDnULL ) ) ; ___( psBag ) ;
         
                             if( pczChannel && pczChannel[ 0 ] == ifcIDcHANNEL1_BYfUNCTION && pczChannel[ 1 ] == ifcIDcHANNELfUNCTION_MEDIATORrEGISTRATION ) { static countT idIn ; tinP.pEther->traceF( tinP , TF2(++idIn,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T(" tmRelayTeatServerF: ifcIDtYPEwRAP_GIFT (mediator registration channel)") ) ; }
         
@@ -320,7 +313,7 @@ DONE( tmRelayTeatServerF )
                 }
                     }
                         break ;
-                        etThread( tinP , psWrap ) ;
+                        DEL( psWrap ) ;
                         POOPR
                     {
                     if( POOP )
@@ -332,8 +325,7 @@ DONE( tmRelayTeatServerF )
                 {
             {
             if( psWrap )
-            etThread( tinP , psWrap , TAG( TAGiDnULL ) ) ;
-            ZE( soulC* , psWrap ) ;
+            soulC* psWrap = new( 0 , tinP , LF ) soulC( tinP , TAG( TAGiDnULL ) ) ; ___( psWrap ) ;
         {
         while( !ether && !bQuitP && !bQuit && !etThread )
         etThread.traceF( tinP , T("tmRelayTeatServerF: client is ")+TF2(idAdamClient,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
@@ -343,7 +335,7 @@ DONE( tmRelayTeatServerF )
 
         }
             if( !idAdamClient ) bQuit = 1 ;
-            etThread( tinP , psWrap ) ;
+            DEL( psWrap ) ;
             }
                 else       *psWrap >> idAdamClient ;
                 if( POOP ) POOPR
@@ -351,8 +343,7 @@ DONE( tmRelayTeatServerF )
                 SCOOPS
             {
             if( psWrap )
-            etThread( tinP , psWrap , TAG( TAGiDnULL ) ) ;
-            ZE( soulC* , psWrap ) ;
+            soulC* psWrap = new( 0 , tinP , LF ) soulC( tinP , TAG( TAGiDnULL ) ) ; ___( psWrap ) ;
         {
         ZE( countT , idAdamClient ) ;
         ZE( boolT , bQuit ) ;

@@ -20,13 +20,13 @@ tinP.idPhase2 = 0 ;
 
         }
             }
-                etThread( tinP , psBag ) ;
+                DEL( psBag ) ;
                 relayC::popIF( tinP , pStPop0P , pStPop1P , pStPop2P , pStPop3P , pStPop4P , *psBag , stIdptOpenP , stIdptGossipP , idptP ) ;
                 relayC::hdrBagIF( tinP , *psBag , idptP , idSerialLathHeaderP , flRELAYpOP_UP|flRELAYpOP_DOWN , ifcIDtYPEbAG_CLIENTnULL ) ;
             {
             if( psBag )
-            etThread( tinP , psBag , TAG( TAGiDnULL ) ) ;
-            ZE( soulC* , psBag ) ;
+            soulC* psBag = new( 0 , tinP , LF ) soulC( tinP , TAG( TAGiDnULL ) ) ; ___( psBag ) ;
+
         { //THIS IS TO STIMULATE THE POP STACKS SO THAT THE POP CLIENTS WILL KEEP THEIR CONNECTIONS CURRENT
         //CONoUTrAW( "tmRelayInitiatorF: 1 pop a null bag\r\n" ) ;
 

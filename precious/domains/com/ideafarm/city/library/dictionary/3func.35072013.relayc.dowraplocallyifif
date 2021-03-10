@@ -9,7 +9,7 @@
 
 }
     }
-        etThread( tinP , psWrap ) ;
+        DEL( psWrap ) ;
         }
             }
                 swsWrapRefP.ungrabF( tinP ) ;
@@ -116,7 +116,7 @@
                     }
                         }
                             }
-                                etThread( tinP , psGift ) ;
+                                DEL( psGift ) ;
                                 }
                                     }
                                         if( idCmd == ifcIDcMDrEGISTERmEDIATOR_AMaLIVE && idAdam == ifcIDaDAM_SECRETsERVICE ) homeS::homeIF().cSecretServerRegistrationsSeen ++ ;
@@ -131,8 +131,7 @@
                                     psGift->shiftLeftF( tinP , ifcIDtYPEsOULiTEM_soulC , pbsGift , 0 , flSOULiTEM_null , flSOULsHIFTlEFTmODE_UNPACKsOULiMAGE ) ;
                                 {
                                 if( psGift )
-                                etThread( tinP , psGift , TAG( TAGiDnULL ) ) ;
-                                ZE( soulC* , psGift ) ;
+                                soulC* psGift = new( 0 , tinP , LF ) soulC( tinP , TAG( TAGiDnULL ) ) ; ___( psGift ) ;
                             {
                             if( pbsGift )
 
@@ -161,7 +160,7 @@
         
             }
                 }
-                    etThread( tinP , psTo ) ;
+                    DEL( psTo ) ;
                     }
                         }
                             }
@@ -181,8 +180,7 @@
                         psTo->shiftLeftF( tinP , ifcIDtYPEsOULiTEM_soulC , pbsToOrToM , 0 , flSOULiTEM_null , flSOULsHIFTlEFTmODE_UNPACKsOULiMAGE ) ;
                     {
                     if( psTo )
-                    etThread( tinP , psTo , TAG( TAGiDnULL ) ) ;
-                    ZE( soulC* , psTo ) ;
+                    soulC* psTo = new( 0 , tinP , LF ) soulC( tinP , TAG( TAGiDnULL ) ) ; ___( psTo ) ;
                 {
                 if( pbsToOrToM )
         
@@ -203,8 +201,7 @@
             psWrap->shiftLeftF( tinP , ifcIDtYPEsOULiTEM_soulC , pbsWrapP , 0 , flSOULiTEM_null , flSOULsHIFTlEFTmODE_UNPACKsOULiMAGE ) ;
         {
         if( psWrap )
-        etThread( tinP , psWrap , TAG( TAGiDnULL ) ) ;
-        ZE( soulC* , psWrap ) ;
+        soulC* psWrap = new( 0 , tinP , LF ) soulC( tinP , TAG( TAGiDnULL ) ) ; ___( psWrap ) ;
     {
     if( !idPhaseP || idPhaseP == 2 )
 

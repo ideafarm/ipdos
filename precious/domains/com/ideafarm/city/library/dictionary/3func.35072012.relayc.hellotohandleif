@@ -25,8 +25,8 @@
                 if( POOP )
 
                 }
-                    (*tinP.pEtScratch)( tinP , psBagOk ) ;
-                    (*tinP.pEtScratch)( tinP , psBag ) ;
+                    DEL( psBagOk ) ;
+                    DEL( psBag ) ;
                     }
                         else       bOk = 1 ;
                         if( POOP ) POOPR
@@ -46,10 +46,8 @@
                         //CONoUTrAW( "helloToHandleIF: 6 making hello bag\r\n" ) ;
                     {
                     if( psBag && psBagOk )
-                    (*tinP.pEtScratch)( tinP , psBagOk , TAG( TAGiDnULL ) ) ;
-                    ZE( soulC* , psBagOk ) ;
-                    (*tinP.pEtScratch)( tinP , psBag , TAG( TAGiDnULL ) ) ;
-                    ZE( soulC* , psBag ) ;
+                    soulC* psBagOk = new( 0 , tinP , LF ) soulC( tinP , TAG( TAGiDnULL ) ) ; ___( psBagOk ) ;
+                    soulC* psBag = new( 0 , tinP , LF ) soulC( tinP , TAG( TAGiDnULL ) ) ; ___( psBag ) ;
                     //CONoUTrAW( "helloToHandleIF: 7 after connecting ok\r\n" ) ;
                 {
                 if( !POOP )

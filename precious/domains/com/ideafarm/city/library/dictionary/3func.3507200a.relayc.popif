@@ -28,8 +28,7 @@
                         *psBagCopy = sBagP ;
                     {
                     if( psBagCopy )
-                    (*tinP.pEther)( tinP , psBagCopy , TAG( TAGiDnULL ) ) ;
-                    ZE( soulC* , psBagCopy ) ;
+                    soulC* psBagCopy = new( 0 , tinP , LF ) soulC( tinP , TAG( TAGiDnULL ) ) ; ___( psBagCopy ) ;
                     //tinP.pEther->traceF( tinP , T("popIF / flRELAYpOP_UP / popping up lateral to 4") ) ;
                 {
                 if( pStPop4P )
@@ -49,8 +48,7 @@
                         *psBagCopy = sBagP ;
                     {
                     if( psBagCopy )
-                    (*tinP.pEther)( tinP , psBagCopy , TAG( TAGiDnULL ) ) ;
-                    ZE( soulC* , psBagCopy ) ;
+                    soulC* psBagCopy = new( 0 , tinP , LF ) soulC( tinP , TAG( TAGiDnULL ) ) ; ___( psBagCopy ) ;
                     //tinP.pEther->traceF( tinP , T("popIF / flRELAYpOP_UP / popping up lateral to 3") ) ;
                 {
                 if( pStPop3P )
@@ -72,8 +70,7 @@
                     *psBagCopy = sBagP ;
                 {
                 if( psBagCopy )
-                (*tinP.pEther)( tinP , psBagCopy , TAG( TAGiDnULL ) ) ;
-                ZE( soulC* , psBagCopy ) ;
+                soulC* psBagCopy = new( 0 , tinP , LF ) soulC( tinP , TAG( TAGiDnULL ) ) ; ___( psBagCopy ) ;
                 //tinP.pEther->traceF( tinP , T("popIF / flRELAYpOP_UP / popping up to 2") ) ;
             {
             if( flagsUp & 2 && pStPop2P )
@@ -93,18 +90,17 @@
                     *psBagCopy = sBagP ;
                 {
                 if( psBagCopy )
-                (*tinP.pEther)( tinP , psBagCopy , TAG( TAGiDnULL ) ) ;
-                ZE( soulC* , psBagCopy ) ;
+                soulC* psBagCopy = new( 0 , tinP , LF ) soulC( tinP , TAG( TAGiDnULL ) ) ; ___( psBagCopy ) ;
                 //tinP.pEther->traceF( tinP , T("popIF / flRELAYpOP_UP / popping up to 1") ) ;
             {
             if( flagsUp & 1 && pStPop1P )
     
             }
-                (*tinP.pEther)( tinP , psWrap ) ;
+                DEL( psWrap ) ;
                 }
                     }
                         //CONoUTrAW3( "popIF: flagsUp: " , flagsUp , "\r\n" ) ;
-                        (*tinP.pEther)( tinP , psTo ) ;
+                        DEL( psTo ) ;
                         }
                             UNGRABrELAYlISTS
                             }
@@ -136,8 +132,7 @@
                             //tinP.pEther->traceF( tinP , T("popIF / flRELAYpOP_UP / is a wrap / inspecting / sTo is not empty / inspecting psTo") ) ;
                         {
                         if( psTo )
-                        (*tinP.pEther)( tinP , psTo , TAG( TAGiDnULL ) ) ;
-                        ZE( soulC* , psTo ) ; // WILL CONTAIN EITHER sTo OR sToMediator
+                        soulC* psTo = new( 0 , tinP , LF ) soulC( tinP , TAG( TAGiDnULL ) ) ; ___( psTo ) ; // WILL CONTAIN EITHER sTo OR sToMediator
     
                         }
                             //CONoUTrAW3( "popIF: bDebugUsingMediator: " , bDebugUsingMediator , "\r\n" ) ;
@@ -165,8 +160,7 @@
                     //tinP.pEther->traceF( tinP , T("popIF / flRELAYpOP_UP / is a wrap / inspecting") ) ;
                 {
                 if( psWrap )
-                (*tinP.pEther)( tinP , psWrap , TAG( TAGiDnULL ) ) ;
-                ZE( soulC* , psWrap ) ;
+                soulC* psWrap = new( 0 , tinP , LF ) soulC( tinP , TAG( TAGiDnULL ) ) ; ___( psWrap ) ;
     
                 byteT* pbsWrap = sBagP.pbFieldF( tinP , idTypesWrap , flagssWrap , cbfsWrap , ifcIDfIELDbAG_WRAP ) ;
                 ZE( countT , cbfsWrap ) ;
@@ -197,8 +191,7 @@
                     *psBagCopy = sBagP ;
                 {
                 if( psBagCopy )
-                (*tinP.pEther)( tinP , psBagCopy , TAG( TAGiDnULL ) ) ;
-                ZE( soulC* , psBagCopy ) ;
+                soulC* psBagCopy = new( 0 , tinP , LF ) soulC( tinP , TAG( TAGiDnULL ) ) ; ___( psBagCopy ) ;
             {
             if( pStPop0P )
             //tinP.pEther->traceF( tinP , T("popIF / flRELAYpOP_DOWN") ) ;

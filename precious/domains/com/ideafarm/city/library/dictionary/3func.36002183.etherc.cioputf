@@ -22,8 +22,8 @@
         //CONoUTrAW( "cioPutF: pushing to *cio_pStkOutI\r\n" ) ;
 
         }
-            if( !psToMediatorP ) (*this)( tinP , psToMediator ) ;
-            if( !psToP ) (*this)( tinP , psTo ) ;
+            if( !psToMediatorP ) DEL( psToMediator ) ;
+            if( !psToP         ) DEL( psTo         ) ;
             }
                 /* a-d */ homeS::homeIF().idptRelay >> *psWrap ;
                 /* 9 */ *psWrap << sGiftP ;
@@ -39,11 +39,11 @@
             if( psTo && psToMediator )
 
             __Z( psToMediator ) ;
-            if( !psToMediator ) (*this)( tinP , psToMediator , TAG( TAGiDnULL ) ) ;
+            if( !psToMediator ) { psToMediator = new( 0 , tinP , LF ) soulC( tinP , TAG( TAGiDnULL ) ) ; ___( psToMediator ) ; }
             soulC* psToMediator = psToMediatorP ;
 
             __Z( psTo ) ;
-            if( !psTo ) (*this)( tinP , psTo , TAG( TAGiDnULL ) ) ;
+            if( !psTo ) { psTo = new( 0 , tinP , LF ) soulC( tinP , TAG( TAGiDnULL ) ) ; ___( psTo ) ; }
             soulC* psTo = psToP ;
         {
         else
@@ -51,7 +51,7 @@
     {
     if( psWrap )
     __Z( psWrap ) ;
-    soulC* psWrap = new( 0 , tinP , LF ) soulC( tinP , TAG( TAGiDnULL ) ) ;
+    soulC* psWrap = new( 0 , tinP , LF ) soulC( tinP , TAG( TAGiDnULL ) ) ; ___( psWrap ) ;
 
     //CONoUTrAW( "cioPutF: after cioSetupF\r\n" ) ;
     if( !tinP.pAdamGlobal1->_etherC_.cio_pStkOut ) cioSetupF( tinP ) ;
