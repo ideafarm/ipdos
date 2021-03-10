@@ -42,7 +42,7 @@ DONE( tmRelayPopClientF )
                                 stPop.insertF( tinP , (countT)psBag , ifcSTACKtYPE_PTR_soulC , 1 ) ;
                             {
                             if( !ether && !bQuitP )
-                            etThread.traceF( tinP , T("could not write bag") ) ;
+                            etThread.traceF( tinP , T("could not write bag to correct server ")+tPeer ) ;
                             POOPRqUIET
                         {
                         if( POOP )
@@ -70,7 +70,7 @@ DONE( tmRelayPopClientF )
                 idptServerCorrect = 0 ;
                 }
                     }
-                        etThread.traceF( tinP , T("could not say hello to correct client") ) ;
+                        etThread.traceF( tinP , T("could not say hello to correct server ")+tPeer ) ;
                         idptServer = 0 ;
                         DEL( pso ) ;
                         POOPRqUIET
@@ -80,17 +80,19 @@ DONE( tmRelayPopClientF )
                     VERIFYrELAY( *pso ) ;
                     TELL( "reading ok+ 3" )
                     pso->writeF( tinP , sBagHello ) ;
-                    //etThread.traceF( tinP , T("writing sBagHello") ) ;
+                    //etThread.traceF( tinP , T("writing sBagHello to correct server ")+tPeer ) ;
     
                     sBagHello << idWorkP ;
                     relayC::hdrBagIF( tinP , sBagHello , idptP , idSerialLathHeaderP , flRELAYpOP_null , ifcIDtYPEbAG_CLIENTpOPhELLO ) ;
                     soulC sBagHello( tinP , TAG( TAGiDnULL ) ) ;
                     TELL( "writing hello" )
+
+                    etThread.traceF( tinP , T("connected aok to correct server ")+tPeer+T(" [idptServer port, nn]:    ")+TF2((countT)idptServer,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+T((nicNameC&)idptServer) ) ;
                 {
                 else
                 }
                     idptServer = 0 ;
-                    etThread.traceF( tinP , T("could not connect to correct client") ) ;
+                    etThread.traceF( tinP , T("could not connect to correct server ")+tPeer+T(" [idptServer port, nn]:    ")+TF2((countT)idptServer,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+T((nicNameC&)idptServer) ) ;
                     DEL( pso ) ;
                     POOPRqUIET
                 {
@@ -98,7 +100,7 @@ DONE( tmRelayPopClientF )
                 }
                     idptServer = 0 ;
                     }
-                        etThread.traceF( tinP , T("quitting, so am not going to connect to correct client") ) ;
+                        etThread.traceF( tinP , T("quitting, so am not going to connect to correct server ")+tPeer ) ;
                         POOPRqUIET
                     {
                     if( POOP )
@@ -118,7 +120,7 @@ DONE( tmRelayPopClientF )
                 idptServer = 0 ;
                 DEL( pso ) ;
                 }
-                    etThread.traceF( tinP , T("could not say bye to stale (incorrect) client") ) ;
+                    etThread.traceF( tinP , T("could not say bye to stale (incorrect) server ")+tPeer ) ;
                     POOPRqUIET
                 {
                 if( POOP )
@@ -165,6 +167,17 @@ DONE( tmRelayPopClientF )
         SCOOPS
     {
     IFsCRATCH
+
+    }
+        default                                : { BLAMMOiD( idWorkP | BM_HIGH ) ; break ; }
+        case IDtYPErELAYpOPcLIENTwORK_RIGHT    : { tPeer = T("right")            ; break ; }
+        case IDtYPErELAYpOPcLIENTwORK_LEFT     : { tPeer = T("left")             ; break ; }
+        case IDtYPErELAYpOPcLIENTwORK_EXPLODE2 : { tPeer = T("up2")              ; break ; }
+        case IDtYPErELAYpOPcLIENTwORK_EXPLODE1 : { tPeer = T("up1")              ; break ; }
+        case IDtYPErELAYpOPcLIENTwORK_IMPLODE  : { tPeer = T("down")             ; break ; }
+    {
+    switch( idWorkP )
+    TN( tPeer , "" ) ;
 
 
     ;
