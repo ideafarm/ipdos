@@ -20635,7 +20635,6 @@ i am crafted for maximum speed for large bit strings
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.1c* : 1snip.1c000015.bitfoundam END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.1c* : 1snip.1c000016.putnegam BEGIN
 
-
 //
 // Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
@@ -20651,14 +20650,38 @@ application: retrieve a fingerprint (it is illegal to place fingerprint values i
 /**/
 /*1*/voidT __export putNegAM( countT& cToP , countT cFromP ) ;/*1*/
 
-#pragma aux putNegAM =                                                                                                  \
-                                                                                                                        \
-    "               neg edx                                   "                                                         \
-    "               mov dword ptr [ecx] , edx                 "                                                         \
-                                                                                                                        \
-    parm [ecx] [edx]                                                                                                    \
-                                                                                                                        \
-;
+//20210309@1637: HANDY TO FIND A BUG, WHEN I AM CLOBBERING A KNOWN VALUE
+#if defined( NEVERdEFINED )
+
+    #pragma aux putNegAM =                                                                                                  \
+                                                                                                                            \
+        "               cmp edx , 03333fff4h                      "                                                         \
+        "               je do                                     "                                                         \
+        "                                                         "                                                         \
+        "               mov eax , dword ptr [ecx]                 "                                                         \
+        "               cmp eax , 0cccc003dh                      "                                                         \
+        "               jne do                                    "                                                         \
+        "               mov dword ptr [eax] , 0h                  "                                                         \
+        "                                                         "                                                         \
+        "do:            neg edx                                   "                                                         \
+        "               mov dword ptr [ecx] , edx                 "                                                         \
+                                                                                                                            \
+        parm [ecx] [edx]                                                                                                    \
+                                                                                                                            \
+    ;
+
+#else
+
+    #pragma aux putNegAM =                                                                                                  \
+                                                                                                                            \
+        "               neg edx                                   "                                                         \
+        "               mov dword ptr [ecx] , edx                 "                                                         \
+                                                                                                                            \
+        parm [ecx] [edx]                                                                                                    \
+                                                                                                                            \
+    ;
+
+#endif
 
 
 //
@@ -24303,8 +24326,8 @@ this class was a precursor to the arrayC class
     byteT* pbHaveEnd ;
     byteT* pbzUsed ;
     byteT* pbzUsedEnd ;
-    flagsT flags ;
-    countT cbHeader ;
+    const flagsT flags ;
+    const countT cbHeader ;
 
     public :
 
