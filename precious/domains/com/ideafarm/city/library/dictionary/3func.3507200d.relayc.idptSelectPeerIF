@@ -61,7 +61,7 @@
         }
             while( !stIdptOpenP.third && ~hDown ) ;
             }
-                tinP.pEther->traceF( tinP , T("idptSelectPeerIF: [idPlate,idpt]:    ")+TF2(++idPlate,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+T((nicNameC&)idpt)+T(" ( ")+TF2((countT)idpt,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T(" )") ) ; //U:: TO FIND A BUG
+                tinP.pEther->traceF( tinP , T("idptSelectPeerIF: open [idPlate,idpt]:    ")+TF2(++idPlate,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+T((nicNameC&)idpt)+T(" ( ")+TF2((countT)idpt,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T(" )") ) ; //U:: TO FIND A BUG
                 idPortTimeC& idpt = *(idPortTimeC*)&stIdptOpenP.downF( tinP , hDown ) ;
             {
             do
@@ -70,7 +70,24 @@
         {
         if( stIdptOpenP )
 
-        tinP.pEther->traceF( tinP , T("idptSelectPeerIF: list [cRelays,ideMe]:    ")+TF2(cRelays,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+TF2(ideMe,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ; //U:: TO FIND A BUG
+        tinP.pEther->traceF( tinP , T("idptSelectPeerIF: open list [cRelays,ideMe]:    ")+TF2(cRelays,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+TF2(ideMe,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ; //U:: TO FIND A BUG
+    {
+    if( F(flagsP) & flSELECTpEER_TRACE )
+
+    }
+        }
+            while( !stIdptGossipP.third && ~hDown ) ;
+            }
+                tinP.pEther->traceF( tinP , T("idptSelectPeerIF: gossip [idPlate,idpt]:    ")+TF2(++idPlate,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+T((nicNameC&)idpt)+T(" ( ")+TF2((countT)idpt,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T(" )") ) ; //U:: TO FIND A BUG
+                idPortTimeC& idpt = *(idPortTimeC*)&stIdptGossipP.downF( tinP , hDown ) ;
+            {
+            do
+            handleC hDown( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_STACKwALK ) ;
+            ZE( countT , idPlate ) ;
+        {
+        if( stIdptGossipP )
+
+        tinP.pEther->traceF( tinP , T("idptSelectPeerIF: gossip list") ) ; //U:: TO FIND A BUG
     {
     if( F(flagsP) & flSELECTpEER_TRACE )
 
