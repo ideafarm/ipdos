@@ -190,7 +190,7 @@ class  /*ff*/windowOldC/*ff*/                   ; /*ff*//*q*//*ff*/
 class  /*ff*/zapC/*ff*/                         ; /*ff*//**//*ff*/
 class  /*ff*/soixlOldSpaceC/*ff*/               ; /*ff*//**//*ff*/
 class  /*ff*/idPortTimeC/*ff*/                  ; /*ff*//**//*ff*/
-class  /*ff*/relayC/*ff*/                       ; /*ff*//**//*ff*/
+class  /*ff*/relayOldC/*ff*/                       ; /*ff*//**//*ff*/
 class  /*ff*/spouseC/*ff*/                      ; /*ff*//**//*ff*/
 class  /*ff*/momC/*ff*/                         ; /*ff*//**//*ff*/
 class  /*ff*/dadC/*ff*/                         ; /*ff*//**//*ff*/
@@ -267,7 +267,7 @@ class   /*ff*/ag1_masterOldC_C/*ff*/               ; /*ff*//**//*ff*/
 class   /*ff*/ag1_neverUsedC_C/*ff*/            ; /*ff*//**//*ff*/
 class   /*ff*/ag1_paperOldC_C/*ff*/             ; /*ff*//**//*ff*/
 class   /*ff*/ag1_pulpOldC_C/*ff*/              ; /*ff*//**//*ff*/
-class   /*ff*/ag1_relayC_C/*ff*/                ; /*ff*//**//*ff*/
+class   /*ff*/ag1_relayOldC_C/*ff*/                ; /*ff*//**//*ff*/
 class   /*ff*/ag1_rootWordC_C/*ff*/             ; /*ff*//**//*ff*/
 class   /*ff*/ag3_socketC_C/*ff*/               ; /*ff*//**//*ff*/
 class   /*ff*/ag1_soulC_C/*ff*/                 ; /*ff*//**//*ff*/
@@ -20537,7 +20537,7 @@ for each previous absentee
             do                                                                                          \
             {                                                                                           \
                 idPortTimeC& idpt = *(idPortTimeC*)&stRelayAbsent##idWorkP##Lag.downF( tinP , hDown ) ; \
-                idptAbsent##idWorkP## = relayC::gossipIfIF( tinP , idSerialLathHeaderP , pStPop0P , pStPop1P , pStPop2P , pStPop3P , pStPop4P , stIdptOpenP , stIdptGossipP , stIdptTempP , stRelayAbsent##idWorkP## , idpt , idptP , idWorkP ) ; \
+                idptAbsent##idWorkP## = relayOldC::gossipIfIF( tinP , idSerialLathHeaderP , pStPop0P , pStPop1P , pStPop2P , pStPop3P , pStPop4P , stIdptOpenP , stIdptGossipP , stIdptTempP , stRelayAbsent##idWorkP## , idpt , idptP , idWorkP ) ; \
                 if( idptAbsent##idWorkP## ) break ; /*SHOULD BE UNNECESSARY SINCE THERE SHOULD BE EITHER 0 OR 1 PLATES*/        \
             }                                                                                           \
             while( !stRelayAbsent##idWorkP##Lag.third && ~hDown ) ;                        \
@@ -31872,9 +31872,9 @@ plateC& fooC::operator +=( plateC& plateP )                                     
 /*
 */
 /**/
-/*1*//*FRIENDS_relayC*//*1*/
+/*1*//*FRIENDS_relayOldC*//*1*/
 
-#define FRIENDS_relayC                                                                                                                                                                                                                                      \
+#define FRIENDS_relayOldC                                                                                                                                                                                                                                      \
                                                                                                                                                                                                                                                             \
  friend TASKpROTO( tmRelayPopClientF ) ;                                                                                                                                                                                                                    \
  friend TASKpROTO( tmRelayInitiatorF ) ;                                                                                                                                                                                                                    \

@@ -21,8 +21,8 @@ tinP.idPhase2 = 0 ;
         }
             }
                 DEL( psBag ) ;
-                relayC::popIF( tinP , pStPop0P , pStPop1P , pStPop2P , pStPop3P , pStPop4P , *psBag , stIdptOpenP , stIdptGossipP , idptP ) ;
-                relayC::hdrBagIF( tinP , *psBag , idptP , idSerialLathHeaderP , flRELAYpOP_UP|flRELAYpOP_DOWN , ifcIDtYPEbAG_CLIENTnULL ) ;
+                relayOldC::popIF( tinP , pStPop0P , pStPop1P , pStPop2P , pStPop3P , pStPop4P , *psBag , stIdptOpenP , stIdptGossipP , idptP ) ;
+                relayOldC::hdrBagIF( tinP , *psBag , idptP , idSerialLathHeaderP , flRELAYpOP_UP|flRELAYpOP_DOWN , ifcIDtYPEbAG_CLIENTnULL ) ;
             {
             if( psBag )
             soulC* psBag = new( 0 , tinP , LF ) soulC( tinP , TAG( TAGiDnULL ) ) ; ___( psBag ) ;
@@ -32,21 +32,21 @@ tinP.idPhase2 = 0 ;
 
         }
             soul.removeAllF( tinP ) ;
-            relayC::popIF( tinP , pStPop0P , pStPop1P , pStPop2P , pStPop3P , pStPop4P , soul , stIdptOpenP , stIdptGossipP , idptP ) ;
+            relayOldC::popIF( tinP , pStPop0P , pStPop1P , pStPop2P , pStPop3P , pStPop4P , soul , stIdptOpenP , stIdptGossipP , idptP ) ;
             cPops ++ ;
             static countT cPops ; //U::CONJ: NEEDS TO BE VISIBLE TO SOME OTHER SNIPPET
         {
         if( soul ) //U::CONJ: BUG: IS USING operator byteT*
         //CONoUTrAW( "tmRelayInitiatorF: 2 pop the soul\r\n" ) ;
 
-        if( bHelloHandle ) relayC::helloToHandleIF( tinP , idptP , idSerialLathHeaderP ) ;
+        if( bHelloHandle ) relayOldC::helloToHandleIF( tinP , idptP , idSerialLathHeaderP ) ;
 
         //CONoUTrAW( "tmRelayInitiatorF: 3 say hello to handle\r\n" ) ;
 
         }
             idptHandleLag = idptHandleCopy ;
             if( idptHandleCopy && idptHandleCopy != idptHandleLag && idptHandleCopy != idptP ) bHelloHandle = 1 ; //P: ALL RELAYS SAY HELLO TO A NEW HANDLE RELAY
-            idPortTimeC idptHandleCopy = relayC::handleQueryIF( tinP ) ;
+            idPortTimeC idptHandleCopy = relayOldC::handleQueryIF( tinP ) ;
         {
         //CONoUTrAW( "tmRelayInitiatorF: 4 set bHelloHandle\r\n" ) ;
 
@@ -84,7 +84,7 @@ tinP.idPhase2 = 0 ;
         if( !( idCycle % 0x8 ) ) //02->001
         //CONoUTrAW( "tmRelayInitiatorF: 5 pour mediator list\r\n" ) ;
 
-        relayC::handleRegisterMeIfIF( tinP , idptP ) ; //P: A RELAY WILL GRAB A HANDLE VACANCY
+        relayOldC::handleRegisterMeIfIF( tinP , idptP ) ; //P: A RELAY WILL GRAB A HANDLE VACANCY
         UNGRABrELAYlISTS
         //CONoUTrAW( "tmRelayInitiatorF: 6 register myself as handle\r\n" ) ;
 
@@ -115,9 +115,9 @@ tinP.idPhase2 = 0 ;
             {
             else if( incv02AM( cLooksForNewPingP ) > 4 )
             }
-                relayC::myListIF( tinP , soul , stIdptOpenP ) ;
-                relayC::myListIF( tinP , soul , stIdptGossipP ) ;
-                relayC::hdrBagIF( tinP , soul , idptP , idSerialLathHeaderP , flRELAYpOP_UP , ifcIDtYPEbAG_CLIENTpOPpING ) ;
+                relayOldC::myListIF( tinP , soul , stIdptOpenP ) ;
+                relayOldC::myListIF( tinP , soul , stIdptGossipP ) ;
+                relayOldC::hdrBagIF( tinP , soul , idptP , idSerialLathHeaderP , flRELAYpOP_UP , ifcIDtYPEbAG_CLIENTpOPpING ) ;
                 //etThread.traceF( tinP , T("loading ifcIDtYPEbAG_CLIENTpOPpING bag [cNodesOpen,cNodesGossip]:    ")+TF2(stIdptOpenP,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+TF2(stIdptGossipP,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
 
                 }
@@ -125,11 +125,11 @@ tinP.idPhase2 = 0 ;
                     while( !stIdptGossipP.third && ~hDown ) ;
                     }
                         }
-                            relayC::sortOpenIF( tinP , stIdptOpenP , stIdptGossipP , stIdptTempP ) ;
+                            relayOldC::sortOpenIF( tinP , stIdptOpenP , stIdptGossipP , stIdptTempP ) ;
                             if( stIdptGossipP( (byteT*)&idptTest , subtractIdPortsF  , - 1                    ) ) stIdptGossipP.extractF( 0 , tinP ) ;
                             if( stIdptOpenP(   (byteT*)&idptTest , subtractIdPortTimesF , (countT)&stIdptGossipP ) ) stIdptOpenP.extractF(   0 , tinP ) ;
                         {
-                        if( !relayC::testIF( tinP , idptP , idSerialLathHeaderP , idptTest ) )
+                        if( !relayOldC::testIF( tinP , idptP , idSerialLathHeaderP , idptTest ) )
                         idPortTimeC& idptTest = *(idPortTimeC*)&stIdptGossipP.downF( tinP , hDown ) ;
                     {
                     do
@@ -141,7 +141,7 @@ tinP.idPhase2 = 0 ;
                 //TEST ALL GOSSIPPED RELAYS
 
                 }
-                    relayC::sortOpenIF( tinP , stIdptOpenP , stIdptGossipP , stIdptTempP ) ;
+                    relayOldC::sortOpenIF( tinP , stIdptOpenP , stIdptGossipP , stIdptTempP ) ;
                     if( stIdptGossipP( (byteT*)&idptAbsent5 , subtractIdPortsF  , - 1                    ) ) stIdptGossipP.extractF( 0 , tinP ) ;
                     if( stIdptOpenP(   (byteT*)&idptAbsent5 , subtractIdPortTimesF , (countT)&stIdptGossipP ) ) stIdptOpenP.extractF(   0 , tinP ) ;
                     //P: A RELAY THAT THINKS IT IS ROOT WILL DELIST AN ABSENT RELAY THAT IT EXPECTS TO BE AT ITS LEFT
@@ -153,8 +153,8 @@ tinP.idPhase2 = 0 ;
                 //U: I DO NOT KNOW WHY THIS CAUSES CYCLING IF DONE EVERY CYCLE
 
                 }
-                    if( idpth && !relayC::bListedIF( tinP , stIdptOpenP , stIdptGossipP , idpth ) ) stIdptOpenP.sinkF( tinP , countTC() , (byteT*)&idpth , flSTACKsINK_UNIQUE , subtractIdPortTimesF , (countT)&stIdptGossipP ) ; //P: A ROOT RELAY ALWAYS KNOWS ABOUT A HANDLE RELAY
-                    idPortTimeC idpth = relayC::handleQueryIF( tinP ) ;
+                    if( idpth && !relayOldC::bListedIF( tinP , stIdptOpenP , stIdptGossipP , idpth ) ) stIdptOpenP.sinkF( tinP , countTC() , (byteT*)&idpth , flSTACKsINK_UNIQUE , subtractIdPortTimesF , (countT)&stIdptGossipP ) ; //P: A ROOT RELAY ALWAYS KNOWS ABOUT A HANDLE RELAY
+                    idPortTimeC idpth = relayOldC::handleQueryIF( tinP ) ;
                 {
             {
             if( *pnRoot == idptP )
@@ -221,11 +221,11 @@ tinP.idPhase2 = 0 ;
                 {
                 if( stIdptPopClientP )
             {
-            relayC::idPortTimeClientsExpectedIF( tinP , stRelayAbsent5 , stIdptOpenP , stIdptGossipP , idptP , IDtYPErELAYpOPcLIENTwORK_RIGHT    ) ;
-            relayC::idPortTimeClientsExpectedIF( tinP , stRelayAbsent4 , stIdptOpenP , stIdptGossipP , idptP , IDtYPErELAYpOPcLIENTwORK_LEFT     ) ;
-            relayC::idPortTimeClientsExpectedIF( tinP , stRelayAbsent3 , stIdptOpenP , stIdptGossipP , idptP , IDtYPErELAYpOPcLIENTwORK_EXPLODE2 ) ;
-            relayC::idPortTimeClientsExpectedIF( tinP , stRelayAbsent2 , stIdptOpenP , stIdptGossipP , idptP , IDtYPErELAYpOPcLIENTwORK_EXPLODE1 ) ;
-            relayC::idPortTimeClientsExpectedIF( tinP , stRelayAbsent1 , stIdptOpenP , stIdptGossipP , idptP , IDtYPErELAYpOPcLIENTwORK_IMPLODE  ) ;
+            relayOldC::idPortTimeClientsExpectedIF( tinP , stRelayAbsent5 , stIdptOpenP , stIdptGossipP , idptP , IDtYPErELAYpOPcLIENTwORK_RIGHT    ) ;
+            relayOldC::idPortTimeClientsExpectedIF( tinP , stRelayAbsent4 , stIdptOpenP , stIdptGossipP , idptP , IDtYPErELAYpOPcLIENTwORK_LEFT     ) ;
+            relayOldC::idPortTimeClientsExpectedIF( tinP , stRelayAbsent3 , stIdptOpenP , stIdptGossipP , idptP , IDtYPErELAYpOPcLIENTwORK_EXPLODE2 ) ;
+            relayOldC::idPortTimeClientsExpectedIF( tinP , stRelayAbsent2 , stIdptOpenP , stIdptGossipP , idptP , IDtYPErELAYpOPcLIENTwORK_EXPLODE1 ) ;
+            relayOldC::idPortTimeClientsExpectedIF( tinP , stRelayAbsent1 , stIdptOpenP , stIdptGossipP , idptP , IDtYPErELAYpOPcLIENTwORK_IMPLODE  ) ;
             stRelayAbsent5.purgeF( tinP ) ;
             stRelayAbsent4.purgeF( tinP ) ;
             stRelayAbsent3.purgeF( tinP ) ;

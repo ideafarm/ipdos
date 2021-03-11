@@ -67,7 +67,7 @@ DONE( tmRelayPopClientF )
             
             }
                 }
-                    relayC::idptSelectPeerIF( tinP , idptServerCorrect , stIdptOpenP , idptP , stIdptGossipP , idWorkP , idWorkP == IDtYPErELAYpOPcLIENTwORK_IMPLODE ? flSELECTpEER_TRACE : flSELECTpEER_null ) ;
+                    relayOldC::idptSelectPeerIF( tinP , idptServerCorrect , stIdptOpenP , idptP , stIdptGossipP , idWorkP , idWorkP == IDtYPErELAYpOPcLIENTwORK_IMPLODE ? flSELECTpEER_TRACE : flSELECTpEER_null ) ;
                     if( idWorkP == IDtYPErELAYpOPcLIENTwORK_IMPLODE ) etThread.traceF( tinP , tWork+T(": refreshing idptServerCorrect") ) ;
                 {
                 if( !ether && !bQuitP )
@@ -87,7 +87,7 @@ DONE( tmRelayPopClientF )
                     //etThread.traceF( tinP , tWork+T(": writing sBagHello to correct server ") ) ;
     
                     sBagHello << idWorkP ;
-                    relayC::hdrBagIF( tinP , sBagHello , idptP , idSerialLathHeaderP , flRELAYpOP_null , ifcIDtYPEbAG_CLIENTpOPhELLO ) ;
+                    relayOldC::hdrBagIF( tinP , sBagHello , idptP , idSerialLathHeaderP , flRELAYpOP_null , ifcIDtYPEbAG_CLIENTpOPhELLO ) ;
                     soulC sBagHello( tinP , TAG( TAGiDnULL ) ) ;
                     TELL( "writing hello" )
 
@@ -136,7 +136,7 @@ DONE( tmRelayPopClientF )
                         DEL( psBag ) ;
                         pso->writeF( tinP , *psBag ) ;
                         //etThread.traceF( tinP , tWork+T(": writing *psBag") ) ;
-                        relayC::hdrBagIF( tinP , *psBag , idptP , idSerialLathHeaderP , flRELAYpOP_null , ifcIDtYPEbAG_CLIENTpOPbYE ) ;
+                        relayOldC::hdrBagIF( tinP , *psBag , idptP , idSerialLathHeaderP , flRELAYpOP_null , ifcIDtYPEbAG_CLIENTpOPbYE ) ;
                     {
                     if( psBag )
                     soulC* psBag = new( 0 , tinP , LF ) soulC( tinP , TAG( TAGiDnULL ) ) ; ___( psBag ) ;
@@ -146,7 +146,7 @@ DONE( tmRelayPopClientF )
             {
             if( pso && idptServer && idptServer != idptServerCorrect && !bQuitP && !ether )
     
-            relayC::idptSelectPeerIF( tinP , idptServerCorrect , stIdptOpenP , idptP , stIdptGossipP , idWorkP , idWorkP == IDtYPErELAYpOPcLIENTwORK_IMPLODE ? flSELECTpEER_TRACE : flSELECTpEER_null ) ;
+            relayOldC::idptSelectPeerIF( tinP , idptServerCorrect , stIdptOpenP , idptP , stIdptGossipP , idWorkP , idWorkP == IDtYPErELAYpOPcLIENTwORK_IMPLODE ? flSELECTpEER_TRACE : flSELECTpEER_null ) ;
             idPortTimeC idptServerCorrect ;
             TELL( "calculating idPortTimeCorrect" )
 

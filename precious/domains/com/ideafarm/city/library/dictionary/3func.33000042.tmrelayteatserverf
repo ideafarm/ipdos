@@ -67,7 +67,7 @@ DONE( tmRelayTeatServerF )
     
         }
             }
-                DEL( psWrap ) ; //MIGHT BE 0 IFF I CALLED relayC::doWrapLocallyIfIF
+                DEL( psWrap ) ; //MIGHT BE 0 IFF I CALLED relayOldC::doWrapLocallyIfIF
     
                 }
                     }
@@ -191,13 +191,13 @@ DONE( tmRelayTeatServerF )
                             break ;
                             }
                                 DEL( psBag ) ;
-                                if( bDontHoldBreath ) relayC::doWrapLocallyIfIF( tinP , etThread , RELAYiNFOaRGS , *psWrap , idptP ) ;
+                                if( bDontHoldBreath ) relayOldC::doWrapLocallyIfIF( tinP , etThread , RELAYiNFOaRGS , *psWrap , idptP ) ;
             
-                                relayC::popIF( tinP , pStPop0P , pStPop1P , pStPop2P , pStPop3P , pStPop4P , *psBag , stIdptOpenP , stIdptGossipP , idptP ) ;
+                                relayOldC::popIF( tinP , pStPop0P , pStPop1P , pStPop2P , pStPop3P , pStPop4P , *psBag , stIdptOpenP , stIdptGossipP , idptP ) ;
                                 //tinP.pEther->traceF( tinP , T("tmRelayTeatServerF: calling popIF [bRoot,bDontHoldBreath]:    ")+TF2(bRoot,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+TF2(bDontHoldBreath,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
 
                                 *psBag << *psWrap ;
-                                relayC::hdrBagIF( tinP , *psBag , idptP , idSerialLathHeaderP , bRoot ? flRELAYpOP_UP : flRELAYpOP_DOWN , ifcIDtYPEbAG_WRAP ) ;
+                                relayOldC::hdrBagIF( tinP , *psBag , idptP , idSerialLathHeaderP , bRoot ? flRELAYpOP_UP : flRELAYpOP_DOWN , ifcIDtYPEbAG_WRAP ) ;
             
                                 UNGRABrELAYlISTS
                                 boolT bDontHoldBreath = bRoot /*&& stIdptOpenP < 4*/ ; //IF bDontHoldBreath THEN THE ROOT WILL NOT EVER GET ITS OWN POP

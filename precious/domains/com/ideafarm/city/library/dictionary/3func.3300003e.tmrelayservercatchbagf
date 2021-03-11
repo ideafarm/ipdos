@@ -18,9 +18,9 @@ DONE( tmRelayServerCatchBagF )
         DEL( psBag ) ;
 
         }
-            relayC::popIF( tinP , pStPop0P , pStPop1P , pStPop2P , pStPop3P , pStPop4P , *psBag , stIdptOpenP , stIdptGossipP , idptP ) ;
+            relayOldC::popIF( tinP , pStPop0P , pStPop1P , pStPop2P , pStPop3P , pStPop4P , *psBag , stIdptOpenP , stIdptGossipP , idptP ) ;
             idptPopClient >> *psBag ;
-            relayC::hdrBagIF( tinP , *psBag , idptP , idSerialLathHeaderP , flRELAYpOP_DOWN , ifcIDtYPEbAG_CLIENTpOPgOSSIP ) ;
+            relayOldC::hdrBagIF( tinP , *psBag , idptP , idSerialLathHeaderP , flRELAYpOP_DOWN , ifcIDtYPEbAG_CLIENTpOPgOSSIP ) ;
         {
         if( bPop )
 
@@ -28,7 +28,7 @@ DONE( tmRelayServerCatchBagF )
         }
             else bPop = 1 ;
             }
-                relayC::sortOpenIF( tinP , stIdptOpenP , stIdptGossipP , stIdptTempP ) ;
+                relayOldC::sortOpenIF( tinP , stIdptOpenP , stIdptGossipP , stIdptTempP ) ;
                 stIdptGossipP.sinkF( tinP , countTC() , (byteT*)&idptPopClient , flSTACKsINK_UNIQUE , subtractIdPortsF , - 1 ) ;
             {
             if( pnRoot && *pnRoot == idptP )
@@ -99,13 +99,13 @@ DONE( tmRelayServerCatchBagF )
                             //CONoUTrAW3( "tmCatchBagF " , idCatch , ": 3 after doing\r\n" ) ; //U::
                             }
                                 //etThread.traceF( tinP , T("called doWrapLocallyIfIF") ) ;
-                                relayC::doWrapLocallyIfIF( tinP , etThread , RELAYiNFOaRGS , pbsWrap , idptOrigin /*U::, 2*/ ) ;  //U:: 20210209@2012: COMMENTED OUT ", 2" WITHOUT ANALYSIS TO GET DUT TO WORK
+                                relayOldC::doWrapLocallyIfIF( tinP , etThread , RELAYiNFOaRGS , pbsWrap , idptOrigin /*U::, 2*/ ) ;  //U:: 20210209@2012: COMMENTED OUT ", 2" WITHOUT ANALYSIS TO GET DUT TO WORK
                             {
                             if( pbsWrap )
                             //CONoUTrAW3( "tmCatchBagF " , idCatch , ": 4 doing\r\n" ) ; //U::
                             //etThread.traceF( tinP , T("called popIF") ) ;
 
-                            relayC::popIF( tinP , pStPop0P , pStPop1P , pStPop2P , pStPop3P , pStPop4P , sBag , stIdptOpenP , stIdptGossipP , idptP ) ;
+                            relayOldC::popIF( tinP , pStPop0P , pStPop1P , pStPop2P , pStPop3P , pStPop4P , sBag , stIdptOpenP , stIdptGossipP , idptP ) ;
                             //etThread.traceF( tinP , T("calling popIF") ) ;
                             //CONoUTrAW3( "tmCatchBagF " , idCatch , ": 5 popping\r\n" ) ; //U::
             
@@ -115,7 +115,7 @@ DONE( tmRelayServerCatchBagF )
                                     //CONoUTrAW3( "tmCatchBagF " , idCatch , ": 6_WRAP\r\n" ) ; //U::
                                     TELL( "ifcIDtYPEbAG_WRAP-" )
                                     //CONoUTrAW3( "tmCatchBagF " , idCatch , ": 6_WRAP done\r\n" ) ; //U::
-                                    if( pbsWrap ) relayC::doWrapLocallyIfIF( tinP , etThread , RELAYiNFOaRGS , pbsWrap , idptOrigin , 1 ) ;
+                                    if( pbsWrap ) relayOldC::doWrapLocallyIfIF( tinP , etThread , RELAYiNFOaRGS , pbsWrap , idptOrigin , 1 ) ;
                                     //CONoUTrAW3( "tmCatchBagF " , idCatch , ": 6_WRAP doing\r\n" ) ; //U::
         
                                     //if( pbsWrap ) { CONoUTrAW( "w" ) ; }
@@ -139,8 +139,8 @@ DONE( tmRelayServerCatchBagF )
             
                                     }
                                         DEL( psBag ) ;
-                                        relayC::popIF( tinP , pStPop0P , pStPop1P , pStPop2P , pStPop3P , pStPop4P , *psBag , stIdptOpenP , stIdptGossipP , idptP ) ;
-                                        relayC::hdrBagIF( tinP , *psBag , idptP , idSerialLathHeaderP , flRELAYpOP_DOWN , ifcIDtYPEbAG_CLIENTpOPpONG ) ;
+                                        relayOldC::popIF( tinP , pStPop0P , pStPop1P , pStPop2P , pStPop3P , pStPop4P , *psBag , stIdptOpenP , stIdptGossipP , idptP ) ;
+                                        relayOldC::hdrBagIF( tinP , *psBag , idptP , idSerialLathHeaderP , flRELAYpOP_DOWN , ifcIDtYPEbAG_CLIENTpOPpONG ) ;
                                     {
                                     if( psBag )
                                     soulC* psBag = new( 0 , tinP , LF ) soulC( tinP , TAG( TAGiDnULL ) ) ; ___( psBag ) ;
@@ -149,15 +149,15 @@ DONE( tmRelayServerCatchBagF )
                                     }
                                         }
                                             DEL( psBag ) ;
-                                            relayC::popIF( tinP , pStPop0P , pStPop1P , pStPop2P , pStPop3P , pStPop4P , *psBag , stIdptOpenP , stIdptGossipP , idptP ) ;
+                                            relayOldC::popIF( tinP , pStPop0P , pStPop1P , pStPop2P , pStPop3P , pStPop4P , *psBag , stIdptOpenP , stIdptGossipP , idptP ) ;
                                             idptP   >> *psBag ;
                                             idptOld >> *psBag ;
-                                            relayC::hdrBagIF( tinP , *psBag , idptP , idSerialLathHeaderP , flRELAYpOP_DOWN , ifcIDtYPEbAG_CLIENTpOPuNgOSSIP ) ;
+                                            relayOldC::hdrBagIF( tinP , *psBag , idptP , idSerialLathHeaderP , flRELAYpOP_DOWN , ifcIDtYPEbAG_CLIENTpOPuNgOSSIP ) ;
                                         {
                                         if( psBag )
                                         soulC* psBag = new( 0 , tinP , LF ) soulC( tinP , TAG( TAGiDnULL ) ) ; ___( psBag ) ;
             
-                                        relayC::handleRefreshTimeStampF( tinP , idptP ) ;
+                                        relayOldC::handleRefreshTimeStampF( tinP , idptP ) ;
         
                                         idptP.timeStampIfF( tinP , etThread ) ;
                                         idptOld = idptP ;
@@ -169,8 +169,8 @@ DONE( tmRelayServerCatchBagF )
                                     }
                                         UNGRABrELAYlISTS
                                         }
-                                            relayC::hisListIF( tinP , stIdptOpenP , sBag , stIdptGossipP , idField ) ;
-                                            relayC::hisListIF( tinP , stIdptGossipP , sBag , stIdptGossipP , idField ) ;
+                                            relayOldC::hisListIF( tinP , stIdptOpenP , sBag , stIdptGossipP , idField ) ;
+                                            relayOldC::hisListIF( tinP , stIdptGossipP , sBag , stIdptGossipP , idField ) ;
                                             countT idField = ifcIDfIELDbAG_IDtYPE + 1 ;
                                         {
                                         stIdptGossipP.purgeF( tinP ) ;
@@ -192,14 +192,14 @@ DONE( tmRelayServerCatchBagF )
             
                                     }
                                         inc02AM( cGossipInP ) ;
-                                        relayC::sortOpenIF( tinP , stIdptOpenP , stIdptGossipP , stIdptTempP ) ;
+                                        relayOldC::sortOpenIF( tinP , stIdptOpenP , stIdptGossipP , stIdptTempP ) ;
                                         }
-                                            if( !relayC::bListedIF( tinP , stIdptOpenP , stIdptGossipP , idptGossipNew ) ) stIdptOpenP.sinkF( tinP , countTC() , (byteT*)&idptGossipNew , flSTACKsINK_UNIQUE , subtractIdPortTimesF , (countT)&stIdptGossipP ) ;
+                                            if( !relayOldC::bListedIF( tinP , stIdptOpenP , stIdptGossipP , idptGossipNew ) ) stIdptOpenP.sinkF( tinP , countTC() , (byteT*)&idptGossipNew , flSTACKsINK_UNIQUE , subtractIdPortTimesF , (countT)&stIdptGossipP ) ;
             
                                             }
                                                 stIdptGossipP.extractF( 0 , tinP ) ;
                                             {
-                                            else if( relayC::bListedIF( tinP , stIdptGossipP , stIdptGossipP , idptGossip ) )
+                                            else if( relayOldC::bListedIF( tinP , stIdptGossipP , stIdptGossipP , idptGossip ) )
                                             }
                                                 stIdptGossipP.extractF( 0 , tinP ) ;
                                             {
@@ -208,7 +208,7 @@ DONE( tmRelayServerCatchBagF )
                                             }
                                                 stIdptOpenP.extractF( 0 , tinP ) ;
                                             {
-                                            else if( relayC::bListedIF( tinP , stIdptOpenP , stIdptGossipP , idptGossip ) )
+                                            else if( relayOldC::bListedIF( tinP , stIdptOpenP , stIdptGossipP , idptGossip ) )
                                             }
                                                 stIdptOpenP.extractF( 0 , tinP ) ;
                                             {
@@ -272,7 +272,7 @@ DONE( tmRelayServerCatchBagF )
                                     countT nn4 = *(const countT*)(nicNameC&)idptOrigin ;
                                     stIdptOpenP.sinkF( tinP , countTC() , (byteT*)&idptOrigin , flSTACKsINK_UNIQUE , subtractIdPortTimesF , (countT)&stIdptGossipP ) ;
                                 {
-                                if( ideMe == 1 && idptOrigin && !relayC::bListedIF( tinP , stIdptOpenP , stIdptGossipP , idptOrigin ) )
+                                if( ideMe == 1 && idptOrigin && !relayOldC::bListedIF( tinP , stIdptOpenP , stIdptGossipP , idptOrigin ) )
                                 countT ideMe = stIdptOpenP( (byteT*)&idptP , subtractIdPortTimesF , (countT)&stIdptGossipP ) ;
                                 //CONoUTrAW3( "tmCatchBagF " , idCatch , ": 8 after grabbing lists\r\n" ) ; //U::
                                 GRABrELAYlISTS

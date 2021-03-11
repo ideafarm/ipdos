@@ -37912,7 +37912,7 @@ the only function of this object is to edit tinS::grabPseudo so that the monitor
 //
 
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.soilSpaceC : 1snip.1500007f.soilspacec END
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.ag1_relayC_C : 1snip.150000cf.ag1_relayc_c BEGIN
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.ag1_relayOldC_C : 1snip.150000cf.ag1_relayc_c BEGIN
 
 
 //
@@ -37926,16 +37926,16 @@ the only function of this object is to edit tinS::grabPseudo so that the monitor
 */
 /**/
 
-/*1*/class ag1_relayC_C/*1*/
+/*1*/class ag1_relayOldC_C/*1*/
 {
     idPortTimeC idptHandleAll ;
 
     public :
 
-    ag1_relayC_C( voidT ) ;
+    ag1_relayOldC_C( voidT ) ;
 
-    friend class relayC ;
-    FRIENDS_relayC                                                                                                                                                                                                                                      \
+    friend class relayOldC ;
+    FRIENDS_relayOldC                                                                                                                                                                                                                                      \
 }
 ;
 
@@ -37947,8 +37947,8 @@ the only function of this object is to edit tinS::grabPseudo so that the monitor
 // Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
 
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.ag1_relayC_C : 1snip.150000cf.ag1_relayc_c END
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.relayC : 1snip.15000082.relayc BEGIN
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.ag1_relayOldC_C : 1snip.150000cf.ag1_relayc_c END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.relayOldC : 1snip.15000082.relayc BEGIN
 
 
 //
@@ -37965,51 +37965,51 @@ the only function of this object is to edit tinS::grabPseudo so that the monitor
 //P: PERSONALITY COMMENTS DOCUMENT "PERSONALITY" ASPECTS OF RELAYS
 //S: SPEC: MOST CODE MANIPULATES idPortTimeC (TIMED idPortC), RATHER THAN idPortC, TO ENHANCE CONVERGENCE AND KEEP CODE SIMPLE
 
-/*1*/class _export relayC/*1*/
+/*1*/class _export relayOldC/*1*/
 {
  static boolT handleUnregisterIF( tinS& tinP , idPortTimeC idptMeP , const countT* const pczChannelP = 0 ) ;
- //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34002.relayC.handleUnregisterIF!||
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34002.relayOldC.handleUnregisterIF!||
  static boolT handleRegisterMeIfIF( tinS& tinP , idPortTimeC idptMeP , const countT* const pczChannelP = 0 ) ;
- //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34003.relayC.handleRegisterMeIfIF!||
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34003.relayOldC.handleRegisterMeIfIF!||
  static boolT handleRefreshTimeStampF( tinS& tinP , idPortTimeC idptMeP , const countT* const pczChannelP = 0 ) ;
- //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34004.relayC.handleRefreshTimeStampF!||
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34004.relayOldC.handleRefreshTimeStampF!||
  static idPortTimeC handleQueryIF( tinS& tinP , const countT* const pczChannelP = 0 ) ;
- //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34005.relayC.handleQueryIF!||
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34005.relayOldC.handleQueryIF!||
  static voidT hdrBagIF( tinS& tinP , soulC& sBagP , idPortTimeC& idptP , countT& idSerialLathHeaderP , const flagsT flagsP , const countT idTypeP ) ;
- //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34006.relayC.hdrBagIF!||
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34006.relayOldC.hdrBagIF!||
  static voidT sortOpenIF( tinS& tinP , stackC& stIdptOpenP , stackC& stIdptGossipP , stackC& stIdptTempP ) ;
- //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34007.relayC.sortOpenIF!||
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34007.relayOldC.sortOpenIF!||
  static voidT myListIF( tinS& tinP , soulC& soulP , stackC& stRelayP ) ;
- //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34008.relayC.myListIF!||
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34008.relayOldC.myListIF!||
  static countT hisListIF( tinS& tinP , stackC& stP , soulC& soulP , stackC& stIdptGossipP , countT& idFieldP ) ;
- //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34009.relayC.hisListIF!||
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34009.relayOldC.hisListIF!||
  static voidT popIF( tinS& tinP , stackC* pStPop0P , stackC* pStPop1P , stackC* pStPop2P , stackC* pStPop3P , stackC* pStPop4P , soulC& sBagP , stackC& stIdptOpenP , stackC& stIdptGossipP , idPortTimeC& idptP , const boolT bDudP = 0 ) ;
- //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400a.relayC.popIF!||
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400a.relayOldC.popIF!||
  static voidT idWorkInvertIF( tinS& tinP , countT& idWorkInvert1P , countT& idWorkInvert2P , const countT idWorkP ) ;
- //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400b.relayC.idWorkInvertIF!||
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400b.relayOldC.idWorkInvertIF!||
  static boolT bListedIF( tinS& tinP , stackC& stIdptOpenP , stackC& stIdptGossipP , const idPortTimeC& idptP ) ;
- //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400c.relayC.bListedIF!||
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400c.relayOldC.bListedIF!||
  static voidT idptSelectPeerIF( tinS& tinP , idPortTimeC& idptPeerP , stackC& stIdptOpenP , idPortTimeC& idptP , stackC& stIdptGossipP , const countT idMyWorkP , const flagsT flagsP = flSELECTpEER_null ) ;
- //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400d.relayC.idptSelectPeerIF!||
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400d.relayOldC.idptSelectPeerIF!||
  static voidT idPortTimeClientIF( tinS& tinP , idPortTimeC& idptPeer1P , idPortTimeC& idptPeer2P , stackC& stIdptOpenP , idPortTimeC& idptP , stackC& stIdptGossipP , const countT idHisWorkP ) ;
- //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400e.relayC.idPortTimeClientIF!||
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400e.relayOldC.idPortTimeClientIF!||
  static voidT idPortTimeClientsExpectedIF( tinS& tinP , stackC& stRelayExpectedP , stackC& stIdptOpenP , stackC& stIdptGossipP , idPortTimeC& idptP , const countT idWorkP = 0 ) ;
- //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400f.relayC.idPortTimeClientsExpectedIF!||
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400f.relayOldC.idPortTimeClientsExpectedIF!||
  static idPortTimeC gossipIfIF( tinS& tinP , countT& idSerialLathHeaderP , stackC* const pStPop0P , stackC* const pStPop1P , stackC* const pStPop2P , stackC* const pStPop3P , stackC* const pStPop4P , stackC& stIdptOpenP , stackC& stIdptGossipP , stackC& stIdptTempP , stackC& stRelayAbsentP , idPortTimeC& idptGossipP , idPortTimeC& idptP , const countT idWorkP ) ;
- //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34010.relayC.gossipIfIF!||
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34010.relayOldC.gossipIfIF!||
  static boolT testIF( tinS& tinP , idPortTimeC& idptP , countT& idSerialLathHeaderP , idPortTimeC& idptTestP ) ;
- //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34011.relayC.testIF!||
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34011.relayOldC.testIF!||
  static voidT helloToHandleIF( tinS& tinP , idPortTimeC& idptP , countT& idSerialLathHeaderP ) ;
- //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34012.relayC.helloToHandleIF!||
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34012.relayOldC.helloToHandleIF!||
  static voidT doWrapLocallyIfIF( tinS& tinP , etherC& etThread , RELAYiNFOpARMS , const byteT* const pbsWrapP , const idPortTimeC& idptOriginP , const countT idPhaseP = 0 ) ;
- //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34013.relayC.doWrapLocallyIfIF!||
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34013.relayOldC.doWrapLocallyIfIF!||
 
  public :
 
- relayC( tinS& tinP , etherC& etThread , boolT& bReadyP ) ;
- //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34001.relayC.relayC!||
+ relayOldC( tinS& tinP , etherC& etThread , boolT& bReadyP ) ;
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34001.relayOldC.relayOldC!||
 
- FRIENDS_relayC
+ FRIENDS_relayOldC
 }
 ;
 
@@ -38021,7 +38021,7 @@ the only function of this object is to edit tinS::grabPseudo so that the monitor
 // Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
 
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.relayC : 1snip.15000082.relayc END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.relayOldC : 1snip.15000082.relayc END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.parameterC : 1snip.1500008a.parameterc BEGIN
 
 
@@ -40163,7 +40163,7 @@ base class to make a derived class of objects easily contained by a stackC objec
     ag1_neverUsedC_C            _neverUsedC_ ;
     ag1_paperOldC_C             _paperOldC_ ;
     ag1_pulpOldC_C              _pulpOldC_ ;
-    ag1_relayC_C                _relayC_ ;
+    ag1_relayOldC_C                _relayOldC_ ;
     ag1_rootWordC_C             _rootWordC_ ;
     ag1_soulC_C                 _soulC_ ;
     ag1_soixlOldSpaceC_C        _soixlOldSpaceC_ ;
@@ -40863,7 +40863,7 @@ base class to make a derived class of objects easily contained by a stackC objec
 
 /*1*/struct adamGlobal5S/*1*/
 {
-    grabC                   /*A5*/ /*CT:13*/ _relayC_grabHandleAll ;
+    grabC                   /*A5*/ /*CT:13*/ _relayOldC_grabHandleAll ;
     grabC                   /*A5*/ /*CT:23*/ _soulC_grabTrace ;
     grabC                   /*A5*/ /*CT:33*/ grabGrabWatch ;
     grabC                                    _deviceC_grabHelper ;
