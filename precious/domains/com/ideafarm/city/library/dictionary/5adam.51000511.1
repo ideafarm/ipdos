@@ -48,8 +48,16 @@ DONE( tmTestF )
     ++ s ; ether.osSleepF( tinP , TOCK >> 2 ) ;
 
     etThread.cioPutF( tinP , bQuit , c8c , sGift , &sTo , &sToMediator ) ;
+    etThread.traceF( tinP , T("test [msg]:    ")+tMsg ) ;
+
+    sGift << (strokeS*)tMsg ;
+    TN( tMsg , "" ) ; tMsg = T("115 tmTestF bang [nnMe,idHome,idMsg]:    ")+T(nnMe)+T("    ")+TF2(processGlobal1S::_processGlobal1I_IF().idHome,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+tIdMsg ;
+    soulC sGift( tinP , TAG( TAGiDnULL ) ) ;
+
+    TN( tIdMsg , "" ) ; tIdMsg = TF2(++idMsg,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ;
 {
 while( !ether )
+ZE( countT , idMsg ) ;
 sleepC s( tinP , TAG( TAGiDnULL ) ) ;
 
 count8S c8c( 1 , 2 , 3 , 4 ) ;
@@ -57,11 +65,6 @@ ZE( boolT , bQuit ) ;
 
 soulC sToMediator( tinP , TAG( TAGiDnULL ) ) ;
 soulC sTo( tinP , TAG( TAGiDnULL ) ) ;
-
-
-sGift << (strokeS*)tMsg ;
-TN( tMsg , "" ) ; tMsg = T("banged [nnMe,idHome]:    ")+T(nnMe)+T("    ")+TF2(processGlobal1S::_processGlobal1I_IF().idHome,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ;
-soulC sGift( tinP , TAG( TAGiDnULL ) ) ;
 
 nicNameC nnMe = socketC::nicNameIF( tinP , etThread , 0 ) ;
 
@@ -82,7 +85,7 @@ TASK( tmTestF )
         etherP.delF( tinP , pczChannelP ) ; //OPTIONAL
         etherP.delF( tinP , psttMsg ) ;
 
-        etherP.traceF( tinP , T("cioGetF [channel,message]: ")+TF2(pczChannelP,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T(" \"")+T(psttMsg)+T("\"") ) ;
+        etherP.traceF( tinP , T("115 cioGetF [channel,message]: ")+TF2(pczChannelP,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T(" \"")+T(psttMsg)+T("\"") , flTRACE_null , ifcIDtRACEdIVERT_f ) ;
 
         *psPayloadP >> psttMsg ; ___( psttMsg ) ;
         ZE( strokeS* , psttMsg ) ;

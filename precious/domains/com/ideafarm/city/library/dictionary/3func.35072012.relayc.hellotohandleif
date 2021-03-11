@@ -28,34 +28,28 @@
                     DEL( psBagOk ) ;
                     DEL( psBag ) ;
                     }
-                        else       bOk = 1 ;
-                        if( POOP ) POOPR
-                        TELL( "reading ok-" )
+                        }
+                            tinP.pEther->traceF( tinP , T("could not verify that my hello was received") ) ;
+                            POOPRqUIET
+                        {
+                        else
+                        if( !POOP ) bOk = 1 ;
                         VERIFYrELAY2( sock , *psBagOk ) ;
-                        TELL( "reading ok+ 5" )
-                        //CONoUTrAW( "helloToHandleIF: 4 reading the ok bag\r\n" ) ;
 
                         sock.writeF( tinP , *psBag ) ; //ASSUME: SERVER WILL, IF ROOT, ADD ME TO ITS LIST
-
-                        //CONoUTrAW( "helloToHandleIF: 5 writing the hello bag\r\n" ) ;
-                        //tinP.pEther->traceF( tinP , T("writing hello bag") ) ;
+                        tinP.pEther->traceF( tinP , T("writing hello bag") ) ;
             
                         idptP >> *psBag ;
                         idptP >> *psBag ;
                         hdrBagIF( tinP , *psBag , idptP , idSerialLathHeaderP , flRELAYpOP_DOWN , ifcIDtYPEbAG_CLIENTpOPuNgOSSIP ) ;
-                        //CONoUTrAW( "helloToHandleIF: 6 making hello bag\r\n" ) ;
                     {
                     if( psBag && psBagOk )
                     soulC* psBagOk = new( 0 , tinP , LF ) soulC( tinP , TAG( TAGiDnULL ) ) ; ___( psBagOk ) ;
                     soulC* psBag = new( 0 , tinP , LF ) soulC( tinP , TAG( TAGiDnULL ) ) ; ___( psBag ) ;
-                    //CONoUTrAW( "helloToHandleIF: 7 after connecting ok\r\n" ) ;
                 {
                 if( !POOP )
-                //CONoUTrAW( "helloToHandleIF: 8 after calling connectF\r\n" ) ;
                 sock.connectF( tinP , idpthc , (nicNameC&)idpthc ) ;
-                //CONoUTrAW( "helloToHandleIF: 9 connecting\r\n" ) ;
 
-                tinP.pcUtility[ 0 ] = (countT)&sock ; //U:: TO FIND A BUG
                 socketC sock( tinP , *tinP.pEtScratch , TAG( TAGiDnULL )/*U:: , 0 , flSOCKETc_TOPsECRET*/ ) ;
                 SCOOPS
             {
@@ -64,7 +58,6 @@
             if( !idpthc ) break ;
     
             idPortTimeC idpthc = handleQueryIF( tinP ) ;
-            //CONoUTrAW( "helloToHandleIF: a querying handle\r\n" ) ;
         {
         for(;;)
     {

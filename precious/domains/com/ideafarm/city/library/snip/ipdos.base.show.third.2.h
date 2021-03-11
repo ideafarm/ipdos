@@ -37989,8 +37989,8 @@ the only function of this object is to edit tinS::grabPseudo so that the monitor
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400b.relayC.idWorkInvertIF!||
  static boolT bListedIF( tinS& tinP , stackC& stIdptOpenP , stackC& stIdptGossipP , const idPortTimeC& idptP ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400c.relayC.bListedIF!||
- static voidT idptServerIF( tinS& tinP , idPortTimeC& idptPeerP , stackC& stIdptOpenP , idPortTimeC& idptP , stackC& stIdptGossipP , const countT idMyWorkP , const boolT bDuplicateIsOkP = 0 ) ;
- //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400d.relayC.idptServerIF!||
+ static voidT idptSelectPeerIF( tinS& tinP , idPortTimeC& idptPeerP , stackC& stIdptOpenP , idPortTimeC& idptP , stackC& stIdptGossipP , const countT idMyWorkP , const flagsT flagsP = flSELECTpEER_null ) ;
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400d.relayC.idptSelectPeerIF!||
  static voidT idPortTimeClientIF( tinS& tinP , idPortTimeC& idptPeer1P , idPortTimeC& idptPeer2P , stackC& stIdptOpenP , idPortTimeC& idptP , stackC& stIdptGossipP , const countT idHisWorkP ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400e.relayC.idPortTimeClientIF!||
  static voidT idPortTimeClientsExpectedIF( tinS& tinP , stackC& stRelayExpectedP , stackC& stIdptOpenP , stackC& stIdptGossipP , idPortTimeC& idptP , const countT idWorkP = 0 ) ;

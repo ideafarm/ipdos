@@ -1,4 +1,8 @@
 
+#define flSELECTpEER_null                                         0xe00000ff
+#define flSELECTpEER_DUPLICATEiSoK                                0xe00001ff
+#define flSELECTpEER_TRACE                                        0xe00002ff
+
 // IPDOS (tm) <> IdeaFarm (tm) Piggyback Distributed Operating System
 
 // For build environment info, see file "\ideafarm.work\backed.up.never\txt\readme.first.ipdos.build.environment.txt"

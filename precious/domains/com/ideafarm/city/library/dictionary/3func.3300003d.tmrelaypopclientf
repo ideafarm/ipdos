@@ -11,7 +11,7 @@ DONE( tmRelayPopClientF )
 }
     }
         POOPR
-        etThread.traceF( tinP , T("probable coding error: still impotent 1") ) ;
+        etThread.traceF( tinP , tWork+T(": probable coding error: still impotent 1") ) ;
     {
     if( POOP )
 
@@ -21,14 +21,14 @@ DONE( tmRelayPopClientF )
         DEL( pso ) ;
         }
             POOPR
-            etThread.traceF( tinP , T("probable coding error: still impotent 2") ) ;
+            etThread.traceF( tinP , tWork+T(": probable coding error: still impotent 2") ) ;
         {
         if( POOP )
 
         }
             }
                 DEL( psBag ) ;
-                TELL( "recycling soul" )
+                TELL( "deleting soul" )
                 }
                     }
                         }
@@ -42,7 +42,7 @@ DONE( tmRelayPopClientF )
                                 stPop.insertF( tinP , (countT)psBag , ifcSTACKtYPE_PTR_soulC , 1 ) ;
                             {
                             if( !ether && !bQuitP )
-                            etThread.traceF( tinP , T("could not write bag to correct server ")+tPeer ) ;
+                            etThread.traceF( tinP , tWork+T(": could not write bag to correct server") ) ;
                             POOPRqUIET
                         {
                         if( POOP )
@@ -51,7 +51,7 @@ DONE( tmRelayPopClientF )
                         TELL( "reading ok+ 5" )
                         pso->writeF( tinP , *psBag ) ;
                         TELL( "writing bang" )
-                        //etThread.traceF( tinP , TF2(idWorkP,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T(": writing [idType]:    ")+TF2(idType,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
+                        //etThread.traceF( tinP , tWork+T(": writing [idType]:    ")+TF2(idType,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
                     {
                     if( idType != ifcIDtYPEbAG_CLIENTnULL )
                     countT idType = psBag->cFieldF( tinP , ifcIDfIELDbAG_IDtYPE ) ;
@@ -66,11 +66,15 @@ DONE( tmRelayPopClientF )
             //etThread.traceF( tinP , TF2(idWorkP,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T(": writing from stPop [stPop]:    ")+TF2(stPop,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
             
             }
-                if( !ether && !bQuitP ) relayC::idptServerIF( tinP , idptServerCorrect , stIdptOpenP , idptP , stIdptGossipP , idWorkP ) ;
+                }
+                    relayC::idptSelectPeerIF( tinP , idptServerCorrect , stIdptOpenP , idptP , stIdptGossipP , idWorkP , idWorkP == IDtYPErELAYpOPcLIENTwORK_IMPLODE ? flSELECTpEER_TRACE : flSELECTpEER_null ) ;
+                    if( idWorkP == IDtYPErELAYpOPcLIENTwORK_IMPLODE ) etThread.traceF( tinP , tWork+T(": refreshing idptServerCorrect") ) ;
+                {
+                if( !ether && !bQuitP )
                 idptServerCorrect = 0 ;
                 }
                     }
-                        etThread.traceF( tinP , T("could not say hello to correct server ")+tPeer ) ;
+                        etThread.traceF( tinP , tWork+T(": could not say hello to correct server") ) ;
                         idptServer = 0 ;
                         DEL( pso ) ;
                         POOPRqUIET
@@ -80,19 +84,19 @@ DONE( tmRelayPopClientF )
                     VERIFYrELAY( *pso ) ;
                     TELL( "reading ok+ 3" )
                     pso->writeF( tinP , sBagHello ) ;
-                    //etThread.traceF( tinP , T("writing sBagHello to correct server ")+tPeer ) ;
+                    //etThread.traceF( tinP , tWork+T(": writing sBagHello to correct server ") ) ;
     
                     sBagHello << idWorkP ;
                     relayC::hdrBagIF( tinP , sBagHello , idptP , idSerialLathHeaderP , flRELAYpOP_null , ifcIDtYPEbAG_CLIENTpOPhELLO ) ;
                     soulC sBagHello( tinP , TAG( TAGiDnULL ) ) ;
                     TELL( "writing hello" )
 
-                    etThread.traceF( tinP , T("connected aok to correct server ")+tPeer+T(" [idptServer port, nn]:    ")+TF2((countT)idptServer,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+T((nicNameC&)idptServer) ) ;
+                    etThread.traceF( tinP , tWork+T(": connected aok to correct server ")+tWork+T(" [idptServer port, nn]:    ")+TF2((countT)idptServer,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+T((nicNameC&)idptServer) ) ;
                 {
                 else
                 }
                     idptServer = 0 ;
-                    etThread.traceF( tinP , T("could not connect to correct server ")+tPeer+T(" [idptServer port, nn]:    ")+TF2((countT)idptServer,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+T((nicNameC&)idptServer) ) ;
+                    etThread.traceF( tinP , tWork+T(": could not connect to correct server ")+tWork+T(" [idptServer port, nn]:    ")+TF2((countT)idptServer,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+T((nicNameC&)idptServer) ) ;
                     DEL( pso ) ;
                     POOPRqUIET
                 {
@@ -100,7 +104,7 @@ DONE( tmRelayPopClientF )
                 }
                     idptServer = 0 ;
                     }
-                        etThread.traceF( tinP , T("quitting, so am not going to connect to correct server ")+tPeer ) ;
+                        etThread.traceF( tinP , tWork+T(": quitting, so am not going to connect to correct server") ) ;
                         POOPRqUIET
                     {
                     if( POOP )
@@ -120,7 +124,7 @@ DONE( tmRelayPopClientF )
                 idptServer = 0 ;
                 DEL( pso ) ;
                 }
-                    etThread.traceF( tinP , T("could not say bye to stale (incorrect) server ")+tPeer ) ;
+                    etThread.traceF( tinP , tWork+T(": could not say bye to stale (incorrect) server") ) ;
                     POOPRqUIET
                 {
                 if( POOP )
@@ -131,7 +135,7 @@ DONE( tmRelayPopClientF )
                     }
                         DEL( psBag ) ;
                         pso->writeF( tinP , *psBag ) ;
-                        //etThread.traceF( tinP , T("writing *psBag") ) ;
+                        //etThread.traceF( tinP , tWork+T(": writing *psBag") ) ;
                         relayC::hdrBagIF( tinP , *psBag , idptP , idSerialLathHeaderP , flRELAYpOP_null , ifcIDtYPEbAG_CLIENTpOPbYE ) ;
                     {
                     if( psBag )
@@ -142,14 +146,14 @@ DONE( tmRelayPopClientF )
             {
             if( pso && idptServer && idptServer != idptServerCorrect && !bQuitP && !ether )
     
-            relayC::idptServerIF( tinP , idptServerCorrect , stIdptOpenP , idptP , stIdptGossipP , idWorkP ) ;
+            relayC::idptSelectPeerIF( tinP , idptServerCorrect , stIdptOpenP , idptP , stIdptGossipP , idWorkP , idWorkP == IDtYPErELAYpOPcLIENTwORK_IMPLODE ? flSELECTpEER_TRACE : flSELECTpEER_null ) ;
             idPortTimeC idptServerCorrect ;
             TELL( "calculating idPortTimeCorrect" )
 
             }
-                //etThread.traceF( tinP , TF2(idWorkP,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T(": waited  for a push") ) ;
+                //etThread.traceF( tinP , tWork+T(": waited  for a push") ) ;
                 stPop.waitF( tinP ) ;
-                //etThread.traceF( tinP , TF2(idWorkP,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T(": waiting for a push") ) ;
+                //etThread.traceF( tinP , tWork+T(": waiting for a push") ) ;
             {    
             else
             else if( bMoreToPop ) bMoreToPop = 0 ;
@@ -167,17 +171,18 @@ DONE( tmRelayPopClientF )
     {
     IFsCRATCH
 
+    etThread.traceF( tinP , tWork+T(": setting up") ) ;
+
     }
         default                                : { BLAMMOiD( idWorkP | BM_HIGH ) ; break ; }
-        case IDtYPErELAYpOPcLIENTwORK_RIGHT    : { tPeer = T("right")            ; break ; }
-        case IDtYPErELAYpOPcLIENTwORK_LEFT     : { tPeer = T("left")             ; break ; }
-        case IDtYPErELAYpOPcLIENTwORK_EXPLODE2 : { tPeer = T("up2")              ; break ; }
-        case IDtYPErELAYpOPcLIENTwORK_EXPLODE1 : { tPeer = T("up1")              ; break ; }
-        case IDtYPErELAYpOPcLIENTwORK_IMPLODE  : { tPeer = T("down")             ; break ; }
+        case IDtYPErELAYpOPcLIENTwORK_RIGHT    : { tWork = T("right")            ; break ; }
+        case IDtYPErELAYpOPcLIENTwORK_LEFT     : { tWork = T("left")             ; break ; }
+        case IDtYPErELAYpOPcLIENTwORK_EXPLODE2 : { tWork = T("up2")              ; break ; }
+        case IDtYPErELAYpOPcLIENTwORK_EXPLODE1 : { tWork = T("up1")              ; break ; }
+        case IDtYPErELAYpOPcLIENTwORK_IMPLODE  : { tWork = T("down")             ; break ; }
     {
     switch( idWorkP )
-    TN( tPeer , "" ) ;
-
+    TN( tWork , "" ) ;
 
     ;
                     : *pStPop4P
