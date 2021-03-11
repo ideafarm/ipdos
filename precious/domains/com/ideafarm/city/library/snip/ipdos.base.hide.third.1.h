@@ -31876,12 +31876,12 @@ plateC& fooC::operator +=( plateC& plateP )                                     
 
 #define FRIENDS_relayOldC                                                                                                                                                                                                                                      \
                                                                                                                                                                                                                                                             \
- friend TASKpROTO( tmRelayPopClientF ) ;                                                                                                                                                                                                                    \
- friend TASKpROTO( tmRelayInitiatorF ) ;                                                                                                                                                                                                                    \
- friend TASKpROTO( tmRelayServerF ) ;                                                                                                                                                                                                                       \
- friend TASKpROTO( tmRelayServerCatchBagF ) ;                                                                                                                                                                                                               \
- friend TASKpROTO( tmRelayTeatServerF ) ;                                                                                                                                                                                                                   \
- friend TASKpROTO( tmRelayKillF ) ;
+ friend TASKpROTO( tmRelayOldPopClientF ) ;                                                                                                                                                                                                                    \
+ friend TASKpROTO( tmRelayOldInitiatorF ) ;                                                                                                                                                                                                                    \
+ friend TASKpROTO( tmRelayOldServerF ) ;                                                                                                                                                                                                                       \
+ friend TASKpROTO( tmRelayOldServerCatchBagF ) ;                                                                                                                                                                                                               \
+ friend TASKpROTO( tmRelayOldTeatServerF ) ;                                                                                                                                                                                                                   \
+ friend TASKpROTO( tmRelayOldKillF ) ;
 
 
 //

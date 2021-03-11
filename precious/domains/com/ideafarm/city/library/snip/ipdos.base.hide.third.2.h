@@ -9023,9 +9023,9 @@ it is illegal to refer to this symbol in the definition of an adam
 /*
 \<A HREF=\"5.0040030.1.0.html\"\>definition\</A\>
 */
-/*1*//*tmRelayChatRepliesF*//*1*/
+/*1*//*tmRelayOldChatRepliesF*//*1*/
 
-TASK0PROTO( tmRelayChatRepliesF ) ;
+TASK0PROTO( tmRelayOldChatRepliesF ) ;
 
 
 //
@@ -10498,9 +10498,9 @@ voidT pbcbF( tinS& tinP , etherC& etThread , byteT*& pbP , countT& cbP , strokeS
 
 /*
 */
-/*1*//*tmRelayTeatAcceptorF*//*1*/
+/*1*//*tmRelayOldTeatAcceptorF*//*1*/
 
-TASK0PROTO( tmRelayTeatAcceptorF ) ;
+TASK0PROTO( tmRelayOldTeatAcceptorF ) ;
 
 
 //
@@ -10523,9 +10523,9 @@ TASK0PROTO( tmRelayTeatAcceptorF ) ;
 
 /*
 */
-/*1*//*tmRelayServerCatchBagF*//*1*/
+/*1*//*tmRelayOldServerCatchBagF*//*1*/
 
-TASK0PROTO( tmRelayServerCatchBagF ) ;
+TASK0PROTO( tmRelayOldServerCatchBagF ) ;
 
 
 //
@@ -10548,9 +10548,9 @@ TASK0PROTO( tmRelayServerCatchBagF ) ;
 
 /*
 */
-/*1*//*tmRelayServerWrapToAppF*//*1*/
+/*1*//*tmRelayOldServerWrapToAppF*//*1*/
 
-TASK0PROTO( tmRelayServerWrapToAppF ) ;
+TASK0PROTO( tmRelayOldServerWrapToAppF ) ;
 
 
 //
@@ -10573,9 +10573,9 @@ TASK0PROTO( tmRelayServerWrapToAppF ) ;
 
 /*
 */
-/*1*//*tmRelayInitiatorF*//*1*/
+/*1*//*tmRelayOldInitiatorF*//*1*/
 
-TASK0PROTO( tmRelayInitiatorF ) ;
+TASK0PROTO( tmRelayOldInitiatorF ) ;
 
 
 //
@@ -10598,9 +10598,9 @@ TASK0PROTO( tmRelayInitiatorF ) ;
 
 /*
 */
-/*1*//*tmRelayKillF*//*1*/
+/*1*//*tmRelayOldKillF*//*1*/
 
-TASK0PROTO( tmRelayKillF ) ;
+TASK0PROTO( tmRelayOldKillF ) ;
 
 
 //
@@ -10623,9 +10623,9 @@ TASK0PROTO( tmRelayKillF ) ;
 
 /*
 */
-/*1*//*tmRelayTickleF*//*1*/
+/*1*//*tmRelayOldTickleF*//*1*/
 
-TASK0PROTO( tmRelayTickleF ) ;
+TASK0PROTO( tmRelayOldTickleF ) ;
 
 
 //
@@ -10648,9 +10648,9 @@ TASK0PROTO( tmRelayTickleF ) ;
 
 /*
 */
-/*1*//*tmRelayTeatServerF*//*1*/
+/*1*//*tmRelayOldTeatServerF*//*1*/
 
-TASK0PROTO( tmRelayTeatServerF ) ;
+TASK0PROTO( tmRelayOldTeatServerF ) ;
 
 
 //
@@ -10673,9 +10673,9 @@ TASK0PROTO( tmRelayTeatServerF ) ;
 
 /*
 */
-/*1*//*tmRelayPopClientF*//*1*/
+/*1*//*tmRelayOldPopClientF*//*1*/
 
-TASK0PROTO( tmRelayPopClientF ) ;
+TASK0PROTO( tmRelayOldPopClientF ) ;
 
 
 //
@@ -15289,9 +15289,9 @@ TASK0PROTO( tmCioF ) ;
 
 /*
 */
-/*1*//*tmRelayBlowTeatF*//*1*/
+/*1*//*tmRelayOldBlowTeatF*//*1*/
 
-TASK0PROTO( tmRelayBlowTeatF ) ;
+TASK0PROTO( tmRelayOldBlowTeatF ) ;
 
 
 //
@@ -18992,7 +18992,7 @@ it is illegal to refer to this symbol anywhere except in napkinC definitions
  static countT cFieldsF( tinS& tinP ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400d.idPortTimeC.cFieldsF!||
 
- friend TASKpROTO( tmRelayServerOuterF ) ; //U::FOR TEMPORARY DEBUGGING CODE ONLY
+ friend TASKpROTO( tmRelayOldServerOuterF ) ; //U::FOR TEMPORARY DEBUGGING CODE ONLY
 }
 ;
 

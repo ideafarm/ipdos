@@ -7,7 +7,7 @@
 //
 
 
-DONE( tmRelayInitiatorF )
+DONE( tmRelayOldInitiatorF )
 tinP.idPhase2 = 0 ;
 }
     }
@@ -16,7 +16,7 @@ tinP.idPhase2 = 0 ;
         countT cTries = /*U:: TUCK / 0x10 */ 1 ; //U::TO FIND A BUG
         sleepC s( tinP , TAG( TAGiDnULL ) ) ;
         TELL( "napping" )
-        //CONoUTrAW( "tmRelayInitiatorF: 0 napping\r\n" ) ;
+        //CONoUTrAW( "tmRelayOldInitiatorF: 0 napping\r\n" ) ;
 
         }
             }
@@ -28,7 +28,7 @@ tinP.idPhase2 = 0 ;
             soulC* psBag = new( 0 , tinP , LF ) soulC( tinP , TAG( TAGiDnULL ) ) ; ___( psBag ) ;
 
         { //THIS IS TO STIMULATE THE POP STACKS SO THAT THE POP CLIENTS WILL KEEP THEIR CONNECTIONS CURRENT
-        //CONoUTrAW( "tmRelayInitiatorF: 1 pop a null bag\r\n" ) ;
+        //CONoUTrAW( "tmRelayOldInitiatorF: 1 pop a null bag\r\n" ) ;
 
         }
             soul.removeAllF( tinP ) ;
@@ -37,18 +37,18 @@ tinP.idPhase2 = 0 ;
             static countT cPops ; //U::CONJ: NEEDS TO BE VISIBLE TO SOME OTHER SNIPPET
         {
         if( soul ) //U::CONJ: BUG: IS USING operator byteT*
-        //CONoUTrAW( "tmRelayInitiatorF: 2 pop the soul\r\n" ) ;
+        //CONoUTrAW( "tmRelayOldInitiatorF: 2 pop the soul\r\n" ) ;
 
         if( bHelloHandle ) relayOldC::helloToHandleIF( tinP , idptP , idSerialLathHeaderP ) ;
 
-        //CONoUTrAW( "tmRelayInitiatorF: 3 say hello to handle\r\n" ) ;
+        //CONoUTrAW( "tmRelayOldInitiatorF: 3 say hello to handle\r\n" ) ;
 
         }
             idptHandleLag = idptHandleCopy ;
             if( idptHandleCopy && idptHandleCopy != idptHandleLag && idptHandleCopy != idptP ) bHelloHandle = 1 ; //P: ALL RELAYS SAY HELLO TO A NEW HANDLE RELAY
             idPortTimeC idptHandleCopy = relayOldC::handleQueryIF( tinP ) ;
         {
-        //CONoUTrAW( "tmRelayInitiatorF: 4 set bHelloHandle\r\n" ) ;
+        //CONoUTrAW( "tmRelayOldInitiatorF: 4 set bHelloHandle\r\n" ) ;
 
         }
             swsIdptMediatorP.ungrabF( tinP ) ;
@@ -82,11 +82,11 @@ tinP.idPhase2 = 0 ;
             swsIdptMediatorP.grabF( tinP , TAG( TAGiDnULL ) ) ;
         {
         if( !( idCycle % 0x8 ) ) //02->001
-        //CONoUTrAW( "tmRelayInitiatorF: 5 pour mediator list\r\n" ) ;
+        //CONoUTrAW( "tmRelayOldInitiatorF: 5 pour mediator list\r\n" ) ;
 
         relayOldC::handleRegisterMeIfIF( tinP , idptP ) ; //P: A RELAY WILL GRAB A HANDLE VACANCY
         UNGRABrELAYlISTS
-        //CONoUTrAW( "tmRelayInitiatorF: 6 register myself as handle\r\n" ) ;
+        //CONoUTrAW( "tmRelayOldInitiatorF: 6 register myself as handle\r\n" ) ;
 
         //THREADmODE1rESTORE
         //}
@@ -176,7 +176,7 @@ tinP.idPhase2 = 0 ;
         GRABrELAYlISTS
         ZE( countT , cGossipPopped ) ;
         ZE( boolT , bRoot ) ;
-        //CONoUTrAW( "tmRelayInitiatorF: 7 root work\r\n" ) ;
+        //CONoUTrAW( "tmRelayOldInitiatorF: 7 root work\r\n" ) ;
 
         }
             }
@@ -266,7 +266,7 @@ tinP.idPhase2 = 0 ;
 {
 if( pTaskP && pTaskP->c1 && pTaskP->c2 && pTaskP->c3 && pTaskP->c4 && pTaskP->c5 && pTaskP->c6 )
 tinP.idPhase2 = 1 ;
-/*1*/TASK( tmRelayInitiatorF )/*1*/
+/*1*/TASK( tmRelayOldInitiatorF )/*1*/
 /**/
 */
 /*

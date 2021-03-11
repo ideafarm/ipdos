@@ -30,7 +30,7 @@ etThread.strokeF( tinP , T("\r\n\r\npress the enter key") ) ;
     socketC sTalk( tinP , ether , TAG( TAGiDnULL ) ) ;
 
     sgnReadyR.waitF( tinP ) ;
-    { ZE( countT , tnu ) ; etThread.osThreadF( tinP , tnu , tmRelayF , &sgnDoneR , flTHREADlAUNCH_null , 0 , (countT)&sRelayOut , (countT)&idPortR , (countT)&sgnReadyR ) ; }
+    { ZE( countT , tnu ) ; etThread.osThreadF( tinP , tnu , tmRelayOldF , &sgnDoneR , flTHREADlAUNCH_null , 0 , (countT)&sRelayOut , (countT)&idPortR , (countT)&sgnReadyR ) ; }
     signC sgnDoneR( tinP , TAG( TAGiDnULL ) ) ;
     signC sgnReadyR( tinP , TAG( TAGiDnULL ) ) ;
     ZE( countT , idPortR ) ;
@@ -46,8 +46,8 @@ etThread.strokeF( tinP , T("\r\n\r\npress the enter key") ) ;
 
 TODO
 
-DONE( tmRelayF )
-etThread.strokeF( tinP , T("tmRelay -\r\n") ) ;
+DONE( tmRelayOldF )
+etThread.strokeF( tinP , T("tmRelayOld -\r\n") ) ;
 }
     DEL( pso ) ;
     }
@@ -70,8 +70,8 @@ etThread.strokeF( tinP , T("tmRelay -\r\n") ) ;
     socketC& sRelayOut   = *(socketC*)pTaskP->c1 ;
 {
 if( pTaskP && pTaskP->c1 && pTaskP->c2 )
-etThread.strokeF( tinP , T("tmRelay +\r\n") ) ;
-TASK( tmRelayF )
+etThread.strokeF( tinP , T("tmRelayOld +\r\n") ) ;
+TASK( tmRelayOldF )
 
 DONE( tmListenF )
 etThread.strokeF( tinP , T("tmListen -\r\n") ) ;

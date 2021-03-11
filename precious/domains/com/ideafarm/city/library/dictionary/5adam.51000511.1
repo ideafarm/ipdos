@@ -16,7 +16,7 @@ REST
 
     }
         ++ s ; etThread.osSleepF( tinP , TOCK ) ;
-        cRelays ++ ; etThread.osThreadF( TaRG1( tmRelayF ) , (countT)&cRelays ) ;
+        cRelays ++ ; etThread.osThreadF( TaRG1( tmRelayOldF ) , (countT)&cRelays ) ;
     {
     while( cDo -- )
     countT cDo = 1 ;
@@ -31,7 +31,7 @@ ZE( countT , cRelays ) ;
 
 TODO
 
-DONE( tmRelayF )
+DONE( tmRelayOldF )
 }
     cRelaysP -- ;
     relayOldC relay( tinP , etThread , bReady ) ;
@@ -40,7 +40,7 @@ DONE( tmRelayF )
 {
 if( pTaskP && pTaskP->c1 )
 TELL( "setting up" )
-TASK( tmRelayF )
+TASK( tmRelayOldF )
 
 DONE( tmTestF )
 

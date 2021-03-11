@@ -7,7 +7,7 @@
 //
 
 
-DONE( tmRelayTeatAcceptorF )
+DONE( tmRelayOldTeatAcceptorF )
 }
     //LOGrAW7( "tit acceptor ending (ether,etThread.bQuitP): " , ether , " " , etThread , " " , bQuitP , "\r\n" ) ; //U::
     //CONoUTrAW7( "tit acceptor ending (ether,etThread.bQuitP): " , ether , " " , etThread , " " , bQuitP , "\r\n" ) ; //U::
@@ -16,8 +16,8 @@ DONE( tmRelayTeatAcceptorF )
 
         }
             else                 { DEL( pso ) ; }
-            if( !bQuitP && pso ) etThread.osThreadF( tinP , countTC() , tmRelayTeatServerF , 0 , flTHREADlAUNCH_null , 0 , RELAYiNFOaRGcOUNTS , (countT)pso ) ;
-            TELL( "launching tmRelayTeatServerF" )
+            if( !bQuitP && pso ) etThread.osThreadF( tinP , countTC() , tmRelayOldTeatServerF , 0 , flTHREADlAUNCH_null , 0 , RELAYiNFOaRGcOUNTS , (countT)pso ) ;
+            TELL( "launching tmRelayOldTeatServerF" )
     
             __( bRefuse ) ;
             sListen.acceptF( tinP , pso , idPortPeer , nnPeer , bRefuse ) ;
@@ -42,7 +42,7 @@ DONE( tmRelayTeatAcceptorF )
     RELAYiNFOtm
 {
 if( pTaskP && pTaskP->c1 && pTaskP->c2 && pTaskP->c3 )
-/*1*/TASK( tmRelayTeatAcceptorF )/*1*/
+/*1*/TASK( tmRelayOldTeatAcceptorF )/*1*/
 /**/
 */
 /*

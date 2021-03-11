@@ -56,7 +56,7 @@
                     else // JOB DOER
                     }
                         }
-                            sgnDone_tmRelayChatReplies.waitF( tinP ) ;
+                            sgnDone_tmRelayOldChatReplies.waitF( tinP ) ;
                             if( POOP ) soUp.stopWaitingF( tinP ) ; // WAD WAC: SERVER (UPWARD) IS NEVER RUDE; CLIENT (DOWNWARD) IS ALWAYS RUDE; SO THIS SOCKET CANCEL IS NOT LOGGED
                             }
                                 else                  break ;
@@ -68,8 +68,8 @@
                             while( !POOP && !etThread )
     
                             if( !etThread ) sgnReadTested.waitF( tinP ) ;
-                            etThread.osThreadF( tinP , countTC() , tmRelayChatRepliesF , &sgnDone_tmRelayChatReplies , flTHREADlAUNCH_null , 0 , (countT)pso , (countT)&soUp , (countT)&sgnReadTested , 0 ) ;
-                            signC sgnDone_tmRelayChatReplies( tinP , TAG( TAGiDnULL ) ) ;
+                            etThread.osThreadF( tinP , countTC() , tmRelayOldChatRepliesF , &sgnDone_tmRelayOldChatReplies , flTHREADlAUNCH_null , 0 , (countT)pso , (countT)&soUp , (countT)&sgnReadTested , 0 ) ;
+                            signC sgnDone_tmRelayOldChatReplies( tinP , TAG( TAGiDnULL ) ) ;
                             signC sgnReadTested( tinP , TAG( TAGiDnULL ) ) ;
     
                             soUp.writeF( tinP , sRelay ) ;

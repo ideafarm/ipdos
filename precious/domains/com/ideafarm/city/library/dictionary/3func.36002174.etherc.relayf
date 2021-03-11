@@ -21,7 +21,7 @@
         }
             }
                 }
-                    sgnDone_tmRelayBlowTeatF.waitF( tinP ) ;
+                    sgnDone_tmRelayOldBlowTeatF.waitF( tinP ) ;
                     }
                         if( psNull ) stRelayOutP << *(countT*)&psNull ;
                         __Z( psNull ) ;
@@ -240,8 +240,8 @@
                     {
                     while( !bQuitP && !POOP )
                 
-                    osThreadF( tinP , countTC() , tmRelayBlowTeatF , &sgnDone_tmRelayBlowTeatF , flTHREADlAUNCH_null , 0 , (countT)&sock , (countT)&bQuitWoConnect , (countT)&stRelayOutP ) ;
-                    signC sgnDone_tmRelayBlowTeatF( tinP , TAG( TAGiDnULL ) ) ;
+                    osThreadF( tinP , countTC() , tmRelayOldBlowTeatF , &sgnDone_tmRelayOldBlowTeatF , flTHREADlAUNCH_null , 0 , (countT)&sock , (countT)&bQuitWoConnect , (countT)&stRelayOutP ) ;
+                    signC sgnDone_tmRelayOldBlowTeatF( tinP , TAG( TAGiDnULL ) ) ;
                     ZE( boolT , bQuitWoConnect ) ;
                 {
                 if( !bFail )
@@ -310,20 +310,20 @@ arguments
    if pass then write the envelope to the application (BBBB)
    test against the filters registered by the application client
   for each outer envelope pushed onto a stackC (by the inner system)
- tmRelayServerOuterIncomingF
+ tmRelayOldServerOuterIncomingF
   read outer envelopes, popping each into the inner system (AAAA)                          ========AOK (triplets)
-  launches tmRelayServerOuterIncomingF
- tmRelayServerOuterF
-  for each local application client, launch tmRelayServerOuterF
+  launches tmRelayOldServerOuterIncomingF
+ tmRelayOldServerOuterF
+  for each local application client, launch tmRelayOldServerOuterF
   binds, and puts that idPort value into homeS so local clients can connect to it
- tmRelayAcceptorF
-  launches tmRelayAcceptorF
+ tmRelayOldAcceptorF
+  launches tmRelayOldAcceptorF
   does inner stuff
  relayOldC::relayOldC
   for each envelope pushed onto a stackC: write it to the local inner relay server (AAAA)  ========AOK (triplets)
- tmRelayWriteWrapFromAppF
+ tmRelayOldWriteWrapFromAppF
   for each incoming envelope: call callback  (BBBB)
-  launches tmRelayWriteWrapFromAppF
+  launches tmRelayOldWriteWrapFromAppF
   connects to the local inner relay server
  relayF
 relay system pseudocode

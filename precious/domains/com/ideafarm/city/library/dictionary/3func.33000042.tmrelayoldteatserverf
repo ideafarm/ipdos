@@ -7,7 +7,7 @@
 //
 
 
-DONE( tmRelayTeatServerF )
+DONE( tmRelayOldTeatServerF )
 }
     }
         }
@@ -50,7 +50,7 @@ DONE( tmRelayTeatServerF )
         {
         while( stWrapRef )
     
-        sgnDone_tmRelayServerWrapToAppF.waitF( tinP ) ;
+        sgnDone_tmRelayOldServerWrapToAppF.waitF( tinP ) ;
         }
             }
                 stWrapRef << (countT)pc2WrapRef ;
@@ -63,7 +63,7 @@ DONE( tmRelayTeatServerF )
         {
         bQuit = 1 ;
         swsWrapRefP.grabF( tinP , TAG( TAGiDnULL ) ) ;
-        if( etThread ) { ((const poopC&)etThread).chatterF( tinP , LF ) ; LOGrAW( "tmRelayTeatServerF: etThread is impotent so BLAMMO\r\n" ) ; BLAMMO ; } //NEEDED TO PRECLUDE DEADLOCK GRABBING swsWrapRefP
+        if( etThread ) { ((const poopC&)etThread).chatterF( tinP , LF ) ; LOGrAW( "tmRelayOldTeatServerF: etThread is impotent so BLAMMO\r\n" ) ; BLAMMO ; } //NEEDED TO PRECLUDE DEADLOCK GRABBING swsWrapRefP
     
         }
             }
@@ -194,7 +194,7 @@ DONE( tmRelayTeatServerF )
                                 if( bDontHoldBreath ) relayOldC::doWrapLocallyIfIF( tinP , etThread , RELAYiNFOaRGS , *psWrap , idptP ) ;
             
                                 relayOldC::popIF( tinP , pStPop0P , pStPop1P , pStPop2P , pStPop3P , pStPop4P , *psBag , stIdptOpenP , stIdptGossipP , idptP ) ;
-                                //tinP.pEther->traceF( tinP , T("tmRelayTeatServerF: calling popIF [bRoot,bDontHoldBreath]:    ")+TF2(bRoot,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+TF2(bDontHoldBreath,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
+                                //tinP.pEther->traceF( tinP , T("tmRelayOldTeatServerF: calling popIF [bRoot,bDontHoldBreath]:    ")+TF2(bRoot,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+TF2(bDontHoldBreath,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
 
                                 *psBag << *psWrap ;
                                 relayOldC::hdrBagIF( tinP , *psBag , idptP , idSerialLathHeaderP , bRoot ? flRELAYpOP_UP : flRELAYpOP_DOWN , ifcIDtYPEbAG_WRAP ) ;
@@ -208,7 +208,7 @@ DONE( tmRelayTeatServerF )
                             if( psBag )
                             soulC* psBag = new( 0 , tinP , LF ) soulC( tinP , TAG( TAGiDnULL ) ) ; ___( psBag ) ;
         
-                            if( pczChannel && pczChannel[ 0 ] == ifcIDcHANNEL1_BYfUNCTION && pczChannel[ 1 ] == ifcIDcHANNELfUNCTION_MEDIATORrEGISTRATION ) { static countT idIn ; tinP.pEther->traceF( tinP , TF2(++idIn,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T(" tmRelayTeatServerF: ifcIDtYPEwRAP_GIFT (mediator registration channel)") ) ; }
+                            if( pczChannel && pczChannel[ 0 ] == ifcIDcHANNEL1_BYfUNCTION && pczChannel[ 1 ] == ifcIDcHANNELfUNCTION_MEDIATORrEGISTRATION ) { static countT idIn ; tinP.pEther->traceF( tinP , TF2(++idIn,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T(" tmRelayOldTeatServerF: ifcIDtYPEwRAP_GIFT (mediator registration channel)") ) ; }
         
                             }
                                 THREADmODE1rESTORE
@@ -269,7 +269,7 @@ DONE( tmRelayTeatServerF )
                         case ifcIDtYPEwRAP_CHANNELiNCLUDEpUSH :
                     {
                     switch( idType )
-                    //CONoUTrAW3( "tmRelayTeatServerF [idType]: " , idType , "\r\n" ) ;
+                    //CONoUTrAW3( "tmRelayOldTeatServerF [idType]: " , idType , "\r\n" ) ;
                     countT idType = psWrap->cFieldF( tinP , ifcIDfIELDwRAP_IDtYPE ) ;
                 {
                 if( !bQuit )
@@ -280,7 +280,7 @@ DONE( tmRelayTeatServerF )
                         }
                             bQuit = 1 ;
                             POOPRqUIET
-                            tinP.pEther->traceF( tinP , T("tmRelayTeatServerF / wrapper contains garbage") ) ;
+                            tinP.pEther->traceF( tinP , T("tmRelayOldTeatServerF / wrapper contains garbage") ) ;
                         {
                         if( POOP )
                         __( psWrap->cFieldF( tinP , ifcIDfIELDwRAP_IDvERSION ) - 1 ) ; //idVersion
@@ -295,7 +295,7 @@ DONE( tmRelayTeatServerF )
                         //CONoUTrAW( ostoSay ) ;
                         //OStEXTA(  ostoSay , "\"\r\n" ) ;
                         //OStEXTA(  ostoSay , T(psttTM) ) ;
-                        //OStEXTAK( ostoSay , "tmRelayTeatServerF [psttTM]: \"" ) ;
+                        //OStEXTAK( ostoSay , "tmRelayOldTeatServerF [psttTM]: \"" ) ;
                         //OStEXT( ostoSay , TUCK << 2 ) ;
 
                         etThread.strReplaceF( tinP , psttTM , 0 , ifcIDtYPEsTRrEPLACE_MAKEiMPORT , psttTM[ 2 ].idAdam ) ; ___( psttTM ) ;
@@ -317,7 +317,7 @@ DONE( tmRelayTeatServerF )
                         POOPR
                     {
                     if( POOP )
-                    //CONoUTrAW3( "tmRelayTeatServerF: readF returned (" , idIn , ")\r\n" ) ;
+                    //CONoUTrAW3( "tmRelayOldTeatServerF: readF returned (" , idIn , ")\r\n" ) ;
                     countT idIn = 1 + incv02AM( idInLath ) ;
                     static countT idInLath ;
                     psoP->readF( tinP , *psWrap ) ;
@@ -328,10 +328,10 @@ DONE( tmRelayTeatServerF )
             soulC* psWrap = new( 0 , tinP , LF ) soulC( tinP , TAG( TAGiDnULL ) ) ; ___( psWrap ) ;
         {
         while( !ether && !bQuitP && !bQuit && !etThread )
-        etThread.traceF( tinP , T("tmRelayTeatServerF: client is ")+TF2(idAdamClient,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
+        etThread.traceF( tinP , T("tmRelayOldTeatServerF: client is ")+TF2(idAdamClient,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
 
-        etThread.osThreadF( tinP , countTC() , tmRelayServerWrapToAppF , &sgnDone_tmRelayServerWrapToAppF , flTHREADlAUNCH_null , 0 , (countT)&bQuit , (countT)&psoP , (countT)&stWrapRef , (countT)&stChannelInclude , (countT)&stChannelExclude , idAdamClient ) ;
-        signC sgnDone_tmRelayServerWrapToAppF( tinP , TAG( TAGiDnULL ) ) ;
+        etThread.osThreadF( tinP , countTC() , tmRelayOldServerWrapToAppF , &sgnDone_tmRelayOldServerWrapToAppF , flTHREADlAUNCH_null , 0 , (countT)&bQuit , (countT)&psoP , (countT)&stWrapRef , (countT)&stChannelInclude , (countT)&stChannelExclude , idAdamClient ) ;
+        signC sgnDone_tmRelayOldServerWrapToAppF( tinP , TAG( TAGiDnULL ) ) ;
 
         }
             if( !idAdamClient ) bQuit = 1 ;
@@ -366,7 +366,7 @@ DONE( tmRelayTeatServerF )
     RELAYiNFOtm
 {
 if( pTaskP->c1 && pTaskP->c2 && pTaskP->c3 && pTaskP->c4 )
-/*1*/TASK( tmRelayTeatServerF )/*1*/
+/*1*/TASK( tmRelayOldTeatServerF )/*1*/
 /**/
 */
 /*

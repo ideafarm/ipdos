@@ -620,11 +620,11 @@ DONEdRIVENsERVERnEWsOCKET( tmcF )
                             //etThread.ifcSayF( tinP , TF3(idClient,flFORMAT_UNSIGNED,9)+tComment+tBar+T(tinP.postTell) , flSAY_APPEND | flSAY_LOG ) ; //U::
                             TELL( "ifcIDcMDsESSION_RELAYcHAT/work is done" ) ;
                             //etThread.ifcSayF( tinP , TF3(idClient,flFORMAT_UNSIGNED,9)+tComment+tBar+T("chat done aok to ")+(bDirect?TF1(idAdam):TF1(DDNUMB)+T("(")+TF1(idAdam)+T(")"))+tBar+tComment , flSAY_APPEND | flSAY_LOG ) ;
-                            //etText.ifcSayF( tinP , TF3(idClient,flFORMAT_UNSIGNED,9)+tComment+tBar+T("RcHAT/")+TF1(idRelay)+T("/sgnDone_tmRelayChatReplies has been given") , flSAY_APPEND | flSAY_LOG ) ;
-                            sgnDone_tmRelayChatReplies.waitF( tinP ) ;
+                            //etText.ifcSayF( tinP , TF3(idClient,flFORMAT_UNSIGNED,9)+tComment+tBar+T("RcHAT/")+TF1(idRelay)+T("/sgnDone_tmRelayOldChatReplies has been given") , flSAY_APPEND | flSAY_LOG ) ;
+                            sgnDone_tmRelayOldChatReplies.waitF( tinP ) ;
     
                             //etThread.ifcSayF( tinP , TF3(idClient,flFORMAT_UNSIGNED,9)+tComment+tBar+T(tinP.postTell) , flSAY_APPEND | flSAY_LOG ) ; //U::
-                            TELL( "ifcIDcMDsESSION_RELAYcHAT/waiting for tmRelayChatReplies to end" ) ;
+                            TELL( "ifcIDcMDsESSION_RELAYcHAT/waiting for tmRelayOldChatReplies to end" ) ;
                             if( *tinP.zEtScratch || etThread ) soUp.stopWaitingF( tinP ) ; //NOT LOGGED, BECAUSE OF WAD WAC: SERVER IS NEVER RUDE; CLIENT IS ALWAYS RUDE
                             }
                                 else               break ;
@@ -646,13 +646,13 @@ DONEdRIVENsERVERnEWsOCKET( tmcF )
                             //etThread.ifcSayF( tinP , TF3(idClient,flFORMAT_UNSIGNED,9)+tComment+tBar+T("connected aok to ")+(bDirect?TF1(idAdam):TF1(DDNUMB)+T("(")+TF1(idAdam)+T(")"))+tBar/*+tComment*/+tCRLF , flSAY_APPEND | flSAY_LOG ) ;
                             if( !etThread ) sgnUpTested.waitF( tinP ) ;
                             //etThread.ifcSayF( tinP , TF3(idClient,flFORMAT_UNSIGNED,9)+tComment+tBar+T(tinP.postTell) , flSAY_APPEND | flSAY_LOG ) ; //U::
-                            TELL( "ifcIDcMDsESSION_RELAYcHAT/waiting for tmRelayChatRepliesF to give sgnUpTested" ) ;
+                            TELL( "ifcIDcMDsESSION_RELAYcHAT/waiting for tmRelayOldChatRepliesF to give sgnUpTested" ) ;
                             //etThread.ifcSayF( tinP , TF3(idClient,flFORMAT_UNSIGNED,9)+tComment+tBar+T("waiting for sgnUpTested to be given ")+(bDirect?TF1(idAdam):TF1(DDNUMB)+T("(")+TF1(idAdam)+T(")"))+tBar/*+tComment*/+tCRLF , flSAY_APPEND | flSAY_LOG ) ;
-                            etThread.osThreadF( tinP , countTC() , tmRelayChatRepliesF , &sgnDone_tmRelayChatReplies , flTHREADlAUNCH_null , 0 , (countT)&etScratch , (countT)pso , (countT)&soUp , (countT)&sgnUpTested , idRelay ) ;
-                            signC sgnDone_tmRelayChatReplies( tinP , TAG( TAGiDnULL ) ) ;
+                            etThread.osThreadF( tinP , countTC() , tmRelayOldChatRepliesF , &sgnDone_tmRelayOldChatReplies , flTHREADlAUNCH_null , 0 , (countT)&etScratch , (countT)pso , (countT)&soUp , (countT)&sgnUpTested , idRelay ) ;
+                            signC sgnDone_tmRelayOldChatReplies( tinP , TAG( TAGiDnULL ) ) ;
                             signC sgnUpTested( tinP , TAG( TAGiDnULL ) ) ;
                             //etThread.ifcSayF( tinP , TF3(idClient,flFORMAT_UNSIGNED,9)+tComment+tBar+T(tinP.postTell) , flSAY_APPEND | flSAY_LOG ) ; //U::
-                            TELL( "ifcIDcMDsESSION_RELAYcHAT/launching tmRelayChatRepliesF" ) ;
+                            TELL( "ifcIDcMDsESSION_RELAYcHAT/launching tmRelayOldChatRepliesF" ) ;
     
                             soUp.writeF( tinP , bDirect ? sPayload : sIn ) ;
                             //etThread.ifcSayF( tinP , TF3(idClient,flFORMAT_UNSIGNED,9)+tComment+tBar+T(tinP.postTell) , flSAY_APPEND | flSAY_LOG ) ; //U::
