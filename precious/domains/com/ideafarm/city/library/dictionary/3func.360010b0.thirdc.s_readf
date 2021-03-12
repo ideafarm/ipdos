@@ -16,12 +16,19 @@
 
     }
         if( !nicNameP ) nicNameP = NICnAMElOCAL ;
-        nicNameP = tinP.brcRaw ; //U: SUPPORTS ONLY IPV4 (NOT IPV6)
-        BOSdOnOTtEST( WHATgbo , ntohl( info.sin_addr.s_addr ) )
+
+        }
+            pcTo[ 3 - offi ] = tinP.brcRaw ;
+            BOSdOnOTtEST( WHATgbo , ntohl( pcFrom[ offi ] ) )
+        {
+        for( countT offi = 0 ; offi < 4 ; offi ++ )
+        countT* pcTo   = (countT*)(const countT*)nicNameP ;
+        countT* pcFrom = (countT*)info.sin6_addr.u.Byte ;
+
         idPortP = tinP.brcRaw ;
-        BOSdOnOTtEST( WHATgbo , ntohs( info.sin_port ) )
+        BOSdOnOTtEST( WHATgbo , ntohs( info.sin6_port ) )
         __( cbInfo - sizeof info ) ;
-        __( info.sin_family - AF_INET ) ;
+        __( info.sin6_family - AF_INET6 ) ;
 
         pbP[ cbP ] = 0 ;
         cbP = cba ;
@@ -32,12 +39,13 @@
 
     if( pbP ) { cba = tinP.brcRaw ; }
     __Z( cba ) ;
+
     BOSpOOP
     BOSS( WHATsir , BOSsOCKETcODE2 , recvfrom( handleP.osF( ifcIDtYPEhANDLE_SOCKET ) , (byteT*)pbP , cba , 0 , (sockaddr*)&info , &cbInfo ) )
     if( pEtherContainsMe ) pEtherContainsMe->chokeAttackerF( tinP , handleP , cba ) ;
     sCountT cbInfo = sizeof info ;
     c_memsetIF( tinP , (byteT* const)&info , sizeof info ) ;
-    sockaddr_in info ;
+    sockaddr_in6 info ;
     newF( tinP , LF , pbP , cba ) ; ___( pbP ) ;
     sCountT cba = tinP.pAdamGlobal1->_thirdC_.cbDatagramMax + 1 ;
 

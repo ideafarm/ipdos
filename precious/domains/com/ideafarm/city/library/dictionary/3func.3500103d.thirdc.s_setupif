@@ -9,10 +9,16 @@
 
 }
     #endif
+
+CONoUTrAW3( "\r\ns_setupIF / called WSAStartup [cbDatagramMax]:    " , tinP.pAdamGlobal1->_thirdC_.cbDatagramMax , "\r\n" ) ;
+
         tinP.pAdamGlobal1->_thirdC_.cbDatagramMax = info.iMaxUdpDg ;
         BOSpOOP
         BOSS( WHATgbo , BOSfAIL , WSAStartup( 0x0202 , &info ) )  //20201220@1630: CHANGED FROM 0x0101
         WSADATA info ;
+
+CONoUTrAW( "\r\ns_setupIF / calling WSAStartup\r\n" ) ;
+
     #elif defined( __NT__ )
     #ifdef __OS2__
     _IO_
