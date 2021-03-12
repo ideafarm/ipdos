@@ -28344,7 +28344,6 @@ features
     countT                      cLever_pSwFileOpen ;
     countT                      cLever_pSwKillSocket ;
     countT                      cThirdObjects ; //USED AT END OF PROCESS TO VERIFY THAT ALL thirdC OBJECTS HAVE BEEN DESTROYED (TO ENSURE THAT IMPOTENCE WAS REPORTED)
-    countT                      cbDatagramMax ;
     countT                      ecMergedHighWater ;
     countT                      idThreadWindows ;
     countT                      ifcImpotenceHandlerArg ;

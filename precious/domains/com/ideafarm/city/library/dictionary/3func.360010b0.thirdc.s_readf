@@ -47,7 +47,15 @@
     c_memsetIF( tinP , (byteT* const)&info , sizeof info ) ;
     sockaddr_in6 info ;
     newF( tinP , LF , pbP , cba ) ; ___( pbP ) ;
-    sCountT cba = tinP.pAdamGlobal1->_thirdC_.cbDatagramMax + 1 ;
+
+    }
+        cba = cbMax + 1 ;
+        BOSpOOP
+        BOSS( WHATgbo , BOSfAIL , getsockopt( handleP.osF( ifcIDtYPEhANDLE_SOCKET ) , SOL_SOCKET , SO_MAX_MSG_SIZE , (char*)&cbMax , &cbOpt ) )
+        int cbOpt = sizeof cbMax ;
+        ZE( int , cbMax ) ;
+    {
+    ZE( sCountT , cba ) ;
 
     _IO_
 
