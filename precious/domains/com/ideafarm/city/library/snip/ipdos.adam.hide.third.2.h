@@ -10700,7 +10700,7 @@ TASK0PROTO( tmRelayOldPopClientF ) ;
 */
 /**/
 
-/*1*/countT subtractIdPortTimesF( tinS& tinP , countT& pEther , countT& c1P , countT& c2P , countT& c3P ) ;/*1*/
+/*1*/countT _export subtractIdPortTimesF( tinS& tinP , countT& pEther , countT& c1P , countT& c2P , countT& c3P ) ;/*1*/
 
 
 //
@@ -10725,7 +10725,7 @@ TASK0PROTO( tmRelayOldPopClientF ) ;
 */
 /**/
 
-/*1*/countT subtractIdPortsF( tinS& tinP , countT& pEther , countT& c1P , countT& c2P , countT& c3P ) ;/*1*/
+/*1*/countT _export subtractIdPortsF( tinS& tinP , countT& pEther , countT& c1P , countT& c2P , countT& c3P ) ;/*1*/
 
 
 //
@@ -14816,7 +14816,7 @@ parameters
 */
 /**/
 
-/*1*/flagsT flagsUpF( const countT idrMeP , const countT idrToP , const countT idrMaxP ) ;/*1*/
+/*1*/flagsT _export flagsUpF( const countT idrMeP , const countT idrToP , const countT idrMaxP ) ;/*1*/
 
 
 //
@@ -37971,8 +37971,8 @@ the only function of this object is to edit tinS::grabPseudo so that the monitor
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34002.relayOldC.handleUnregisterIF!||
  static boolT handleRegisterMeIfIF( tinS& tinP , idPortTimeC idptMeP , const countT* const pczChannelP = 0 ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34003.relayOldC.handleRegisterMeIfIF!||
- static boolT handleRefreshTimeStampF( tinS& tinP , idPortTimeC idptMeP , const countT* const pczChannelP = 0 ) ;
- //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34004.relayOldC.handleRefreshTimeStampF!||
+ static boolT handleRefreshTimeStampIF( tinS& tinP , idPortTimeC idptMeP , const countT* const pczChannelP = 0 ) ;
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34004.relayOldC.handleRefreshTimeStampIF!||
  static idPortTimeC handleQueryIF( tinS& tinP , const countT* const pczChannelP = 0 ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34005.relayOldC.handleQueryIF!||
  static voidT hdrBagIF( tinS& tinP , soulC& sBagP , idPortTimeC& idptP , countT& idSerialLathHeaderP , const flagsT flagsP , const countT idTypeP ) ;
