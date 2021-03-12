@@ -11,10 +11,10 @@ REST
 
 etherC::loafIF( tinP ) ;
 
-
-
 etThread.delF( tinP , posti ) ;
+etThread.traceF( tinP , T("called readF [posti]:    ")+T(posti) ) ;
 socki.readF( tinP , posti , costi , idpHe , nnHe , 0 , 0 ) ; ___( posti ) ;
+etThread.traceF( tinP , T("calling readF") ) ;
 ZE( countT , idpHe ) ;
 nicNameC nnHe ;
 ZE( countT   , costi ) ;
@@ -44,7 +44,7 @@ TN( tSay , "Hello, Jesus!" ) ;
 socketC socko( tinP , etThread , TAG( TAGiDnULL ) , ifcSOCKETtYPE_DATAgRAM , flSOCKETc_null , 0 , 0 , 0 , 0 , 0 ) ;
 
 }
-    ++ s ; ether.osSleepF( tinP , TOCK ) ;
+    ++ s ; ether.osSleepF( tinP , TOCK << 2 ) ;
     sleepC s( tinP , TAG( TAGiDnULL ) ) ;
 {
 

@@ -18,13 +18,20 @@
             BOSS( WHATsiw , BOSsOCKETcODE2 , sendto( handleP.osF( ifcIDtYPEhANDLE_SOCKET ) , (byteT*)pbP , cbw , 0 , (sockaddr*)&info , sizeof info ) )
             if( pEtherContainsMe ) pEtherContainsMe->chokeAttackerF( tinP , handleP , 0 , cbP ) ;
 
-            info.sin_addr.s_addr = tinP.brcRaw ;
-            BOSdOnOTtEST( WHATgbo , htonl( *(const countT*)nicName ) ) //U: SUPPORTS ONLY IPV4 (NOT IPV6)
-            info.sin_port = (count01T)tinP.brcRaw ;
+            }
+                pcTo[ 3 - offi ] = tinP.brcRaw ;
+                BOSdOnOTtEST( WHATgbo , htonl( pcFrom[ offi ] ) )
+            {
+            for( countT offi = 0 ; offi < 4 ; offi ++ )
+            const countT* pcFrom = nicName ;
+            countT* pcTo   = (countT*)info.sin6_addr.u.Byte ;
+
+            info.sin6_port = (count01T)tinP.brcRaw ;
             BOSdOnOTtEST( WHATgbo , htons( (count01T)idPortP ) )
-            info.sin_family = AF_INET ;
+            info.sin6_family = AF_INET6 ;
             c_memsetIF( tinP , (byteT* const)&info , sizeof info ) ;
-            sockaddr_in info ;
+            sockaddr_in6 info ;
+
             const nicNameC nicName = !!nicNameP ? nicNameP : nicNameC( NICnAMElOCAL ) ;
         {
         ZE( sCountT , cba ) ;
