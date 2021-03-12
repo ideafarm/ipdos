@@ -1,8 +1,4 @@
 
-#define flSELECTpEER_null                                         0xe00000ff
-#define flSELECTpEER_DUPLICATEiSoK                                0xe00001ff
-#define flSELECTpEER_TRACE                                        0xe00002ff
-
 // IPDOS (tm) <> IdeaFarm (tm) Piggyback Distributed Operating System
 
 // For build environment info, see file "\ideafarm.work\backed.up.never\txt\readme.first.ipdos.build.environment.txt"
@@ -20151,7 +20147,7 @@ i am used with a soulC object to use that object as a forth-like program executo
 //
 
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200214.ifcidprotocol END
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200215.ifcidcmdrelay BEGIN
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200215.ifcIDtYPEwRAP BEGIN
 
 
 //
@@ -20193,7 +20189,7 @@ i am used with a soulC object to use that object as a forth-like program executo
 // Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
 
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200215.ifcidcmdrelay END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200215.ifcIDtYPEwRAP END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200216.flrelaypop BEGIN
 
 
@@ -31859,7 +31855,7 @@ plateC& fooC::operator +=( plateC& plateP )                                     
 //
 
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200343.friends_pulpoldc END
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200344.friends_relayc BEGIN
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200344.friends_relayoldc BEGIN
 
 
 //
@@ -31891,7 +31887,7 @@ plateC& fooC::operator +=( plateC& plateP )                                     
 // Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
 
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200344.friends_relayc END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200344.friends_relayoldc END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200345.friends_rootwordc BEGIN
 
 
@@ -45624,3 +45620,32 @@ else the reference to it that is kept within the jotC instance will become a zom
 //
 
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004ee.jrequest END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004ef.zej BEGIN
+
+
+//
+// Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 29 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+/*
+use me rather than ZE() to ask PUSE to allocate from a jotC that i have constructed rather than from the sexC instances that PUSE normally uses
+*/
+
+/**/
+
+/*1*//*ZEJ(classP,iP)*//*1*/
+
+#define ZEJ(classP,iP,jotP) if( !(jotP).idSlotJotF( tinP ) ) { BLAMMO ; } classP iP = (classP)( JrEQUEST_min - 1 + (jotP).idSlotJotF( tinP ) )
+
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 29 years.
+//
+// Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004ef.zej END

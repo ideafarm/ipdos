@@ -1,32 +1,3 @@
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004ef.zej BEGIN
-
-
-//
-// Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 29 years.
-// Respecting the rights of other people is an important part of empowering one another.
-//
-
-/*
-use me rather than ZE() to ask PUSE to allocate from a jotC that i have constructed rather than from the sexC instances that PUSE normally uses
-*/
-
-/**/
-
-/*1*//*ZEJ(classP,iP)*//*1*/
-
-#define ZEJ(classP,iP,jotP) if( !(jotP).idSlotJotF( tinP ) ) { BLAMMO ; } classP iP = (classP)( JrEQUEST_min - 1 + (jotP).idSlotJotF( tinP ) )
-
-
-//
-// Respecting the rights of other people is an important part of empowering one another.
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 29 years.
-//
-// Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004ef.zej END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004f0.isinitializedjpointer BEGIN
 
 
@@ -5475,6 +5446,36 @@ examples
 //
 
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200592.flSearch END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200593.flSELECTpEER BEGIN
+
+
+//
+// Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 29 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+/*
+*/
+/**/
+/*1*//**//*1*/
+
+/*3*/
+#define flSELECTpEER_DUPLICATEiSoK                                0xe0000112
+#define flSELECTpEER_TRACE                                        0xe0000212
+/*3*/
+#define flSELECTpEER_null    0xe0000012
+
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 29 years.
+//
+// Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200593.flSELECTpEER END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.thirdParties : 1snip.15000014.thirdparties BEGIN
 
 
@@ -9010,7 +9011,7 @@ it is illegal to refer to this symbol in the definition of an adam
 //
 
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.17*.* : 1snip.17000016.declarevmusagetypef END
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.17*.* : 1snip.17000017.tmrelaychatrepliesf BEGIN
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.17*.* : 1snip.17000017.tmrelayoldchatrepliesf BEGIN
 
 
 //
@@ -9035,7 +9036,7 @@ TASK0PROTO( tmRelayOldChatRepliesF ) ;
 // Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
 
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.17*.* : 1snip.17000017.tmrelaychatrepliesf END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.17*.* : 1snip.17000017.tmrelayoldchatrepliesf END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.17*.* : 1snip.17000018.hashf BEGIN
 
 
@@ -10486,7 +10487,7 @@ voidT pbcbF( tinS& tinP , etherC& etThread , byteT*& pbP , countT& cbP , strokeS
 //
 
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.17*.* : 1snip.17000050.postmanglef END
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.17*.* : 1snip.17000051.tmrelayacceptorf BEGIN
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.17*.* : 1snip.17000051.tmrelayoldacceptorf BEGIN
 
 
 //
@@ -10510,8 +10511,8 @@ TASK0PROTO( tmRelayOldTeatAcceptorF ) ;
 // Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
 
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.17*.* : 1snip.17000051.tmrelayacceptorf END
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.17*.* : 1snip.17000052.tmrelayserverinnerf BEGIN
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.17*.* : 1snip.17000051.tmrelayoldacceptorf END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.17*.* : 1snip.17000052.tmrelayoldserverinnerf BEGIN
 
 
 //
@@ -10535,8 +10536,8 @@ TASK0PROTO( tmRelayOldServerCatchBagF ) ;
 // Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
 
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.17*.* : 1snip.17000052.tmrelayserverinnerf END
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.17*.* : 1snip.17000053.tmrelayserverouterincomingf BEGIN
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.17*.* : 1snip.17000052.tmrelayoldserverinnerf END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.17*.* : 1snip.17000053.tmrelayoldserverouterincomingf BEGIN
 
 
 //
@@ -10560,8 +10561,8 @@ TASK0PROTO( tmRelayOldServerWrapToAppF ) ;
 // Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
 
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.17*.* : 1snip.17000053.tmrelayserverouterincomingf END
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.17*.* : 1snip.17000054.tmrelayinitiatorf BEGIN
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.17*.* : 1snip.17000053.tmrelayoldserverouterincomingf END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.17*.* : 1snip.17000054.tmrelayoldinitiatorf BEGIN
 
 
 //
@@ -10585,8 +10586,8 @@ TASK0PROTO( tmRelayOldInitiatorF ) ;
 // Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
 
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.17*.* : 1snip.17000054.tmrelayinitiatorf END
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.17*.* : 1snip.17000055.tmrelaykillf BEGIN
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.17*.* : 1snip.17000054.tmrelayoldinitiatorf END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.17*.* : 1snip.17000055.tmrelayoldkillf BEGIN
 
 
 //
@@ -10610,8 +10611,8 @@ TASK0PROTO( tmRelayOldKillF ) ;
 // Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
 
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.17*.* : 1snip.17000055.tmrelaykillf END
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.17*.* : 1snip.17000056.tmrelayticklef BEGIN
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.17*.* : 1snip.17000055.tmrelayoldkillf END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.17*.* : 1snip.17000056.tmrelayoldticklef BEGIN
 
 
 //
@@ -10635,8 +10636,8 @@ TASK0PROTO( tmRelayOldTickleF ) ;
 // Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
 
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.17*.* : 1snip.17000056.tmrelayticklef END
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.17*.* : 1snip.17000057.tmrelayserverouterf BEGIN
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.17*.* : 1snip.17000056.tmrelayoldticklef END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.17*.* : 1snip.17000057.tmrelayoldserverouterf BEGIN
 
 
 //
@@ -10660,8 +10661,8 @@ TASK0PROTO( tmRelayOldTeatServerF ) ;
 // Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
 
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.17*.* : 1snip.17000057.tmrelayserverouterf END
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.17*.* : 1snip.17000058.tmrelaypopclientf BEGIN
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.17*.* : 1snip.17000057.tmrelayoldserverouterf END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.17*.* : 1snip.17000058.tmrelayoldpopclientf BEGIN
 
 
 //
@@ -10685,7 +10686,7 @@ TASK0PROTO( tmRelayOldPopClientF ) ;
 // Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
 
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.17*.* : 1snip.17000058.tmrelaypopclientf END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.17*.* : 1snip.17000058.tmrelayoldpopclientf END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.17*.* : 1snip.17000059.subtractidporttimesf BEGIN
 
 
@@ -15277,7 +15278,7 @@ TASK0PROTO( tmCioF ) ;
 //
 
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.17*.* : 1snip.17000114.tmciof END
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.17*.* : 1snip.17000115.tmrelayblowteatf BEGIN
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.17*.* : 1snip.17000115.tmrelayoldblowteatf BEGIN
 
 
 //
@@ -15301,7 +15302,7 @@ TASK0PROTO( tmRelayOldBlowTeatF ) ;
 // Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
 
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.17*.* : 1snip.17000115.tmrelayblowteatf END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.17*.* : 1snip.17000115.tmrelayoldblowteatf END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.17*.* : 1snip.17000116.logtallyif BEGIN
 
 
@@ -20635,6 +20636,7 @@ i am crafted for maximum speed for large bit strings
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.1c* : 1snip.1c000015.bitfoundam END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.1c* : 1snip.1c000016.putnegam BEGIN
 
+
 //
 // Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
@@ -24322,10 +24324,10 @@ this class was a precursor to the arrayC class
 
 /*1*/class _export arrayOldC/*1*/
 {
-    byteT* pbHave ;
-    byteT* pbHaveEnd ;
-    byteT* pbzUsed ;
-    byteT* pbzUsedEnd ;
+    byteT*       pbHave ;
+    byteT*       pbHaveEnd ;
+    byteT*       pbzUsed ;
+    byteT*       pbzUsedEnd ;
     const flagsT flags ;
     const countT cbHeader ;
 
@@ -32897,6 +32899,9 @@ examples
  //THE CONTAINER CLASSES (stackC switchC switchStackC) MIGHT CONTAIN LOTS OF ERROR CHECKING AND OTHER OVERHEAD CODE THAT CAN BE ELIMINATED
  //THESE CLASSES HAVE BEEN IN SERVICE FOR 15 YEARS (SINCE APPROX 1995) AND ARE ROCK SOLID AND WERE POLISHED FOR SPEED IN THE LATE 1990'S
 
+ //20210310@1020: RECYCLING IS A STUPID IDEA, SHOULD NOT BE USED FOR NEW CODE, AND EXISTING CODE SHOULD BE MIGRATED AWAY FROM USING IT
+ //THE MAIN PROBLEM WITH RECYCLING IS THAT CAN PRESERVE MEMORY CORRUPTION AND LEAKAGE BUGS ; IT IS ALSO WAY TOO SLOW TO BE OF ANY BENEFIT
+
 /* recycling */
  voidT operator ()( tinS& tinP , soulC*& pSoulP , const countT idLineP , const countT idiFileP , const byteT* const pbBitsP ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3417a.etherC.operator_call!||
@@ -37912,7 +37917,7 @@ the only function of this object is to edit tinS::grabPseudo so that the monitor
 //
 
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.soilSpaceC : 1snip.1500007f.soilspacec END
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.ag1_relayOldC_C : 1snip.150000cf.ag1_relayc_c BEGIN
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.ag1_relayOldC_C : 1snip.150000cf.ag1_relayoldc_c BEGIN
 
 
 //
@@ -37947,8 +37952,8 @@ the only function of this object is to edit tinS::grabPseudo so that the monitor
 // Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
 
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.ag1_relayOldC_C : 1snip.150000cf.ag1_relayc_c END
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.relayOldC : 1snip.15000082.relayc BEGIN
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.ag1_relayOldC_C : 1snip.150000cf.ag1_relayoldc_c END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.relayOldC : 1snip.15000082.relayOldC BEGIN
 
 
 //
@@ -38021,7 +38026,7 @@ the only function of this object is to edit tinS::grabPseudo so that the monitor
 // Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
 
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.relayOldC : 1snip.15000082.relayc END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.relayOldC : 1snip.15000082.relayOldC END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.parameterC : 1snip.1500008a.parameterc BEGIN
 
 
@@ -40163,7 +40168,7 @@ base class to make a derived class of objects easily contained by a stackC objec
     ag1_neverUsedC_C            _neverUsedC_ ;
     ag1_paperOldC_C             _paperOldC_ ;
     ag1_pulpOldC_C              _pulpOldC_ ;
-    ag1_relayOldC_C                _relayOldC_ ;
+    ag1_relayOldC_C             _relayOldC_ ;
     ag1_rootWordC_C             _rootWordC_ ;
     ag1_soulC_C                 _soulC_ ;
     ag1_soixlOldSpaceC_C        _soixlOldSpaceC_ ;
