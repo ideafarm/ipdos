@@ -226,7 +226,7 @@
                             }
                                 break ;
                                 DEL( psWrap ) ;
-                                traceF( tinP , T("relayF: could not read wrap") ) ;
+                                traceF( tinP , T("relayOldF: could not read wrap") ) ;
                                 bFail = 1 ;
                                 POOPRqUIET
                             {
@@ -248,7 +248,7 @@
 
                 }
                     }
-                        traceF( tinP , T("relayF: could not connect to teat") ) ;
+                        traceF( tinP , T("relayOldF: could not connect to teat") ) ;
                         bFail = 1 ;
                         POOPRqUIET
                     {
@@ -288,7 +288,7 @@
     IFbEcAREFUL
     SCOOP
 {
-/*1*/voidT etherC::relayF( tinS& tinP , const boolT& bQuitP , stackC& stRelayOutP , countT*& pcArgP , cioGetFT& pCioGetFP , batonC& b_pCioGetFP )/*1*/
+/*1*/voidT etherC::relayOldF( tinS& tinP , const boolT& bQuitP , stackC& stRelayOutP , countT*& pcArgP , cioGetFT& pCioGetFP , batonC& b_pCioGetFP )/*1*/
 
 /**/
 */
@@ -325,7 +325,7 @@ arguments
   for each incoming envelope: call callback  (BBBB)
   launches tmRelayOldWriteWrapFromAppF
   connects to the local inner relay server
- relayF
+ relayOldF
 relay system pseudocode
 if this occurs, impotence will not occur
 i will return early if i must detach from relay

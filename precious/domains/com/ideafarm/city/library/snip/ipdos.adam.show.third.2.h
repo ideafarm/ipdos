@@ -32582,7 +32582,7 @@ examples
   //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3414f.etherC.sockStkQuittersF!||
 
 /* space */
-  voidT relayF( tinS& tinP , const boolT& bQuitP , stackC& stRelayOutP , countT*& pcArgP , cioGetFT& cioGetFP , batonC& b_pCioGetFP ) ;
+  voidT relayOldF( tinS& tinP , const boolT& bQuitP , stackC& stRelayOutP , countT*& pcArgP , cioGetFT& cioGetFP , batonC& b_pCioGetFP ) ;
   //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34174.etherC.spaceF!||
 
 /* statistics */
