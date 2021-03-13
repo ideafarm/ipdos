@@ -38,10 +38,11 @@
         {
         if( idType != ifcSOCKETtYPE_DATAgRAM && !( F(flags) & flSOCKETc_DOnOTrEGISTERqUITTER ) )
     
-        if(    F(flags) & flSOCKETc_CANbROADCAST   && idType == ifcSOCKETtYPE_DATAgRAM ) pEther->sockOptionBroadcastF( tinP , handle ) ;
-        if( !( F(flags) & flSOCKETc_NOsENDnOW    ) && idType == ifcSOCKETtYPE_STREAM   ) pEther->sockOptionSendNowF(   tinP , handle ) ;
-        if( !( F(flags) & flSOCKETc_NOlINGER     ) && idType == ifcSOCKETtYPE_STREAM   ) pEther->sockOptionLingerF(    tinP , handle ) ; //U: PROBABLY DON'T WANT TO ALTER THE PROPERTIES OF THE SPECIFIED SOCKET
-        if( !( F(flags) & flSOCKETc_NOdUALsTACK  )                                     ) pEther->sockOptionDualStackF( tinP , handle ) ;
+        if(    F(flags) & flSOCKETc_MULTICAST                 && idType == ifcSOCKETtYPE_DATAgRAM ) pEther->sockOptionMulticastF( tinP , handle , T("ff02::5:6") ) ; //U:: 20210313@1322: CRAFTWORK IN PROGRESS
+        if(    F(flags) & flSOCKETc_CANbROADCASToLDdOnOTuSE   && idType == ifcSOCKETtYPE_DATAgRAM ) pEther->sockOptionBroadcastF( tinP , handle ) ;
+        if( !( F(flags) & flSOCKETc_NOsENDnOW               ) && idType == ifcSOCKETtYPE_STREAM   ) pEther->sockOptionSendNowF(   tinP , handle ) ;
+        if( !( F(flags) & flSOCKETc_NOlINGER                ) && idType == ifcSOCKETtYPE_STREAM   ) pEther->sockOptionLingerF(    tinP , handle ) ; //U: PROBABLY DON'T WANT TO ALTER THE PROPERTIES OF THE SPECIFIED SOCKET
+        if( !( F(flags) & flSOCKETc_NOdUALsTACK             )                                     ) pEther->sockOptionDualStackF( tinP , handle ) ;
         __Z( handle ) ;
         handle << handleP ;
     
@@ -78,7 +79,7 @@
             FV( flSOCKETc , flagsP ) ;
             __( idType == ifcSOCKETtYPE_DATAgRAM && F(flags) & flSOCKETc_DOnOTrEGISTERqUITTER ) ;
             __( idType == ifcSOCKETtYPE_DATAgRAM && F(flags) & flSOCKETc_NOlINGER             ) ;
-            __( idType == ifcSOCKETtYPE_STREAM   && F(flags) & flSOCKETc_CANbROADCAST         ) ;
+            __( idType == ifcSOCKETtYPE_STREAM   && F(flags) & flSOCKETc_CANbROADCASToLDdOnOTuSE         ) ;
 
             }
                 return ;

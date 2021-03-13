@@ -29184,7 +29184,7 @@ applications should avoid using thirdC objects
   //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.340ae.thirdC.s_optionSendNowF!||
   voidT s_optionDualStackF( tinS& tinP , const handleC& handleP ) ;
   //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.360011ae.thirdc.s_optionDualStackF!||
-  voidT s_optionMulticastF( tinS& tinP , const handleC& handleP ) ;
+  voidT s_optionMulticastF( tinS& tinP , const handleC& handleP , const osTextT* const postAddrP ) ;
   //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.360011b0.thirdc.s_optionMulticastF!||
 
   static voidT s_setupIF( tinS& tinP ) ;
@@ -32517,6 +32517,7 @@ examples
   //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34115.etherC.sockOptionSendNowF!||
   voidT sockOptionDualStackF( tinS& tinP , const handleC& handleP ) ;
   //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.360021f9.etherc.sockoptionDualStackF!||
+  voidT sockOptionMulticastF( tinS& tinP , const handleC& handleP , const strokeS* const psttAddrP ) ;
   voidT socksSetupF( tinS& tinP ) ;
   //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34046.etherC.socksSetupF!||
   voidT socksShutdownF( tinS& tinP ) ;
