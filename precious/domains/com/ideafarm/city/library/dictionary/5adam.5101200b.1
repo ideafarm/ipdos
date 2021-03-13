@@ -11,21 +11,19 @@ REST
 
 etherC::loafIF( tinP ) ;
 
-etThread.delF( tinP , posti ) ;
-etThread.traceF( tinP , T("called readF [posti]:    ")+T(posti) ) ;
-socki.readF( tinP , posti , costi , idpHe , nnHe , 0 , 0 ) ; ___( posti ) ;
-etThread.traceF( tinP , T("calling readF") ) ;
-ZE( countT , idpHe ) ;
-nicNameC nnHe ;
-ZE( countT   , costi ) ;
-ZE( osTextT* , posti ) ;
-
 etThread.osThreadF( TaRG1( tmSayF ) ) ;
 
-idpMe = socki.bindF( tinP , 0 , nicNameC() , 1 , 0 ) ;
-socketC socki( tinP , etThread , TAG( TAGiDnULL ) , ifcSOCKETtYPE_DATAgRAM , flSOCKETc_null , 0 , 0 , 0 , 0 , 0 ) ;
+etThread.osThreadF( TaRG1( tmHearF ) ) ;
+etThread.osThreadF( TaRG1( tmHearF ) ) ;
 
-nnMe = socketC::nicNameIF( tinP , etThread , 0 ) ;
+etThread.traceF( tinP , T("[nnLocalMulticast]:    ")+T(nnLocalMulticast) ) ;
+nnLocalMulticast = socketC::nicNameIF( tinP , etThread , T("ff02:0:0:0:0:0:0:1") ) ;
+
+etThread.traceF( tinP , T("[nnMe]:    ")+T(nnMe) ) ;
+nnMe             = socketC::nicNameIF( tinP , etThread , T("2001:550:2:c::8b:101") ) ;
+
+etThread.traceF( tinP , T("[nnAny]:    ")+T(nnAny) ) ;
+nnAny = socketC::nicNameIF( tinP , etThread , T("::") ) ;
 
 //etThread.delF( tinP , pNicName ) ;
 //socketC::nicNameIF( tinP , etThread , pNicName , cNicName , 0 ) ; ___( pNicName ) ;
@@ -35,12 +33,46 @@ nnMe = socketC::nicNameIF( tinP , etThread , 0 ) ;
 
 TODO
 
+DONE( tmHearF )
+
+}
+    etThread.delF( tinP , posti ) ;
+    etThread.traceF( tinP , T("called readF [nnHe,idpHe,posti]:    ")+T(nnHe)+T("    ")+TF2(idpHe,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+T(posti) ) ;
+    socki.readF( tinP , posti , costi , idpHe , nnHe , 0 , 0 ) ; ___( posti ) ;
+    etThread.traceF( tinP , T("calling readF") ) ;
+    ZE( countT , idpHe ) ;
+    nicNameC nnHe ;
+    ZE( countT   , costi ) ;
+    ZE( osTextT* , posti ) ;
+{
+while( !POOP && !ether )
+
+idpMe = socki.bindF( tinP , 0 , nnAny , 1 , 0 ) ;
+socketC socki( tinP , etThread , TAG( TAGiDnULL ) , ifcSOCKETtYPE_DATAgRAM , flSOCKETc_null , 0 , 0 , 0 , 0 , 0 ) ;
+
+TASK( tmHearF )
+
 DONE( tmSayF )
 
-socko.writeF( tinP , idpMe , nnMe , tSay , tSay.csF( tinP ) ) ;
+//etThread.traceF( tinP , T("wrote 2") ) ;
+//socko.writeF( tinP , idpMe , nnLocalMulticast , tSay , tSay.csF( tinP ) ) ;
+//etThread.traceF( tinP , T("writing 2") ) ;
+//
+//}
+//    ++ s ; ether.osSleepF( tinP , TOCK << 2 ) ;
+//    sleepC s( tinP , TAG( TAGiDnULL ) ) ;
+//{
+
+etThread.traceF( tinP , T("wrote 1") ) ;
+socko.writeF( tinP , idpMe , nnLocalMulticast , tSay , tSay.csF( tinP ) ) ;
+//B:socko.writeF( tinP , idpMe , nnLocalMulticast , tSay , tSay.csF( tinP ) ) ;
+//G:socko.writeF( tinP , idpMe , nnMe , tSay , tSay.csF( tinP ) ) ;
+etThread.traceF( tinP , T("writing 1") ) ;
 
 TN( tSay , "Hello, Jesus!" ) ;
 
+socko.bindF( tinP , 0 , nnAny , 1 , 0 ) ;
+//G:socko.bindF( tinP , 0 , nnAny , 1 , 0 ) ;
 socketC socko( tinP , etThread , TAG( TAGiDnULL ) , ifcSOCKETtYPE_DATAgRAM , flSOCKETc_null , 0 , 0 , 0 , 0 , 0 ) ;
 
 }
@@ -52,6 +84,8 @@ TASK( tmSayF )
 
 countT idpMe ;
 nicNameC nnMe ;
+nicNameC nnLocalMulticast ;
+nicNameC nnAny ;
 
 /*1*/WAKEsHOWtEXT( "scratch b" )/*1*/
 /**/
