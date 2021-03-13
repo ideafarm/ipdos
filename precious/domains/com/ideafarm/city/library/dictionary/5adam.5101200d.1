@@ -12,32 +12,67 @@ REST
 etherC::loafIF( tinP ) ;
 etThread.traceF( tinP , T("ok") ) ;
 
+#endif
+
+etThread.traceF( tinP , T("wrote 1") ) ;
+socko.writeF( tinP , 12345 , nnLocalMulticast , tSay , tSay.csF( tinP ) ) ;
+etThread.traceF( tinP , T("writing 1") ) ;
+
+nicNameC nnLocalMulticast = socketC::nicNameIF( tinP , etThread , T("ff02::5:6") ) ;
+
+TN( tSay , "Hello, Jesus!" ) ;
+
+socketC socko( tinP , etThread , TAG( TAGiDnULL ) , ifcSOCKETtYPE_DATAgRAM , flSOCKETc_null , 0 , 0 , 0 , 0 , 0 ) ;
+
+#else
+
 closesocket( sd ) ;
+
+//*************************************************************************************************************
+//*************************************************************************************************************
+//*************************************************************************************************************
+//*************************************************************************************************************
 
 etThread.traceF( tinP , T("sent :    \"")+T(postBuf)+T("\"") ) ;
 if( cbOut < cbOutSave ) postBuf[ cbOut ] = 0 ;
 if( cbOut <= 0 ) { BLAMMO ; }
-int cbOut = sendto( sd , postBuf , cbOutSave , 0 , (const sockaddr *)&saddr , sizeof saddr ) ;
+int cbOut = sendto( sd , postBuf , cbOutSave , 0 , (const sockaddr *)&addrGroup , sizeof addrGroup ) ;
 int cbOutSave = strlen( postBuf ) ;
 
-sCountT cbInfo = sizeof info ;
-memset( &info , 0 , sizeof info ) ;
-sockaddr_in6 info ;
 osTextT postBuf[ TUCK ] = "Hello, Jesus!" ;
 
-if( bFail ) { BLAMMO ; }
-bFail = setsockopt( sd , IPPROTO_IPV6 , IPV6_JOIN_GROUP , (char*)&mreq , sizeof mreq ) ;
 
-mreq.ipv6mr_interface = ifidx ;
-memcpy( &mreq.ipv6mr_multiaddr , &saddr.sin6_addr , sizeof mreq.ipv6mr_multiaddr ) ;
-ipv6_mreq mreq ;
+
+
+
+
+
+
+
+
+
+
+
+
+
+//*************************************************************************************************************
+//*************************************************************************************************************
+//*************************************************************************************************************
+//*************************************************************************************************************
+
+if( bFail ) { BLAMMO ; }
+bFail = setsockopt( sd , IPPROTO_IPV6 , IPV6_JOIN_GROUP , (char*)&groupAddrCard , sizeof groupAddrCard ) ;
+
+groupAddrCard.ipv6mr_interface = ifidx ;
+memcpy( &groupAddrCard.ipv6mr_multiaddr , &addrGroup.sin6_addr , sizeof groupAddrCard.ipv6mr_multiaddr ) ;
+ipv6_mreq groupAddrCard ;
 ifidx = 0 ;
 
-inet_pton( AF_INET6 , "ff02::5:6" , &saddr.sin6_addr ) ;
-saddr.sin6_port = (count01T)htons( (count01T)12345 ) ;
-saddr.sin6_family = AF_INET6;
-memset( &saddr , 0 , sizeof saddr ) ;
-sockaddr_in6 saddr ;
+inet_pton( AF_INET6 , "ff02::5:6" , &addrGroup.sin6_addr ) ;
+addrGroup.sin6_port = (count01T)htons( (count01T)12345 ) ;
+addrGroup.sin6_family = AF_INET6;
+memset( &addrGroup , 0 , sizeof addrGroup ) ;
+sockaddr_in6 addrGroup ;
 
 if( bFail ) { BLAMMO ; }
 bFail = setsockopt( sd , IPPROTO_IPV6 , IPV6_MULTICAST_LOOP , (const char*)&on , sizeof on ) ;
@@ -57,6 +92,8 @@ int on = 1 ;
 
 if( sd < 0 ) { BLAMMO ; }
 int sd = socket( AF_INET6 , SOCK_DGRAM , IPPROTO_UDP ) ;
+
+#if defined( NEVERdEFINED )
 
 
 TODO

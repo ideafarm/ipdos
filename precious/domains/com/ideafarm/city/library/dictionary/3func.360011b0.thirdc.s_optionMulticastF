@@ -8,6 +8,42 @@
 
 
 }
+#endif
+
+    if( bFail ) { BLAMMO ; }
+    bFail = setsockopt( sd , IPPROTO_IPV6 , IPV6_JOIN_GROUP , (char*)&groupAddrCard , sizeof groupAddrCard ) ;
+
+    groupAddrCard.ipv6mr_interface = ifidx ;
+    memcpy( &groupAddrCard.ipv6mr_multiaddr , &addrGroup.sin6_addr , sizeof groupAddrCard.ipv6mr_multiaddr ) ;
+    ipv6_mreq groupAddrCard ;
+    ifidx = 0 ;
+
+    inet_pton( AF_INET6 , "ff02::5:6" , &addrGroup.sin6_addr ) ;
+    addrGroup.sin6_port = (count01T)htons( (count01T)12345 ) ;
+    addrGroup.sin6_family = AF_INET6;
+    memset( &addrGroup , 0 , sizeof addrGroup ) ;
+    sockaddr_in6 addrGroup ;
+
+    if( bFail ) { BLAMMO ; }
+    bFail = setsockopt( sd , IPPROTO_IPV6 , IPV6_MULTICAST_LOOP , (const char*)&on , sizeof on ) ;
+    on = 1 ;
+
+    if( bFail ) { BLAMMO ; }
+    bFail = setsockopt( sd , IPPROTO_IPV6 , IPV6_MULTICAST_HOPS , (const char*)&hops , sizeof hops ) ;
+    int hops = 255 ;
+
+    if( bFail ) { BLAMMO ; }
+    bFail = setsockopt( sd , IPPROTO_IPV6 , IPV6_MULTICAST_IF , (const char*)&ifidx , sizeof ifidx ) ;
+    int ifidx = 0 ;
+
+    if( bFail ) { BLAMMO ; }
+    int bFail = setsockopt( sd , SOL_SOCKET , SO_REUSEADDR , (const char*)&on , sizeof on ) ;
+    int on = 1 ;
+
+    int sd = handleP.osF( ifcIDtYPEhANDLE_SOCKET ) ;
+
+#else
+
     BOSpOOP
     BOSS( WHATgbo , BOSfAIL , setsockopt( handleP.osF( ifcIDtYPEhANDLE_SOCKET ) , IPPROTO_IPV6 , IPV6_JOIN_GROUP , (const char*)&mreq , sizeof mreq ) )
 
@@ -37,6 +73,8 @@
     BOSpOOP
     BOSS( WHATgbo , BOSfAIL , setsockopt( handleP.osF( ifcIDtYPEhANDLE_SOCKET ) , SOL_SOCKET , SO_REUSEADDR , (const char*)&wo , sizeof wo ) )
     countT wo = 1 ;
+
+#if defined( NEVERdEFINED )
 
     _IO_
 
