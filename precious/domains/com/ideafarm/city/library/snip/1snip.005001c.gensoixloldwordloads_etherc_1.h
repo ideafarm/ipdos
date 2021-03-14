@@ -1239,6 +1239,14 @@
     _pSwSoixlOldApi->ungrabF( tinP ) ;
 }
 {
+    TN( tNameSoixlOld , "sockOptionMulticastF_b4@" ) ;
+    _pSwSoixlOldApi->grabF( tinP , TAG( TAGiDnULL ) ) ;
+    _psttLeverSoixlOldApi = tNameSoixlOld ;
+    if( *_pSwSoixlOldApi ) { BLAMMO ; }
+    *_pSwSoixlOldApi = (countT)sockOptionMulticastF_b4P_GF ;
+    _pSwSoixlOldApi->ungrabF( tinP ) ;
+}
+{
     TN( tNameSoixlOld , "socksSetupF_" ) ;
     _pSwSoixlOldApi->grabF( tinP , TAG( TAGiDnULL ) ) ;
     _psttLeverSoixlOldApi = tNameSoixlOld ;

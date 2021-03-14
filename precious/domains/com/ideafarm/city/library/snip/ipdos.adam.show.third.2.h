@@ -18830,7 +18830,18 @@ it is illegal to refer to this symbol anywhere except in napkinC definitions
 
 /*inline*/
  inline countT ccF( voidT ) const { return pcId[ 3 ] ? 4 : pcId[ 2 ] ? 3 : pcId[ 1 ] ? 2 : 1 ; }
- inline boolT  isLoopbackF( voidT ) const { return !pcId[ 3 ] && !pcId[ 2 ] && !pcId[ 1 ] && pcId[ 0 ] == 0x7f000001 ; }
+ inline boolT  isLoopbackOldDoNotUseF( voidT ) const { return !pcId[ 3 ] && !pcId[ 2 ] && !pcId[ 1 ] && pcId[ 0 ] == 0x7f000001 ; }
+ inline boolT  isRoutableUnicastF( voidT ) const
+ {
+     return
+            (   pcId[ 3 ] || pcId[ 2 ] || pcId[ 1 ] || pcId[ 0 ]      )  // NOT "::" UNSPECIFIED
+         && (   pcId[ 3 ] || pcId[ 2 ] || pcId[ 1 ] || pcId[ 0 ] != 1 )  // NOT "::1" LOOPBACK
+         && ( ( pcId[ 3 ] & 0xffff0000 ) != 0xfe800000                )  // NOT LINK LOCAL
+         && ( ( pcId[ 3 ] & 0xffff0000 ) != 0x01000000                )  // NOT DISCARD
+         && ( ( pcId[ 3 ] & 0xff000000 ) != 0xff000000                )  // NOT MULTICAST
+         && ( ( pcId[ 3 ] & 0xff000000 ) != 0xfc000000                )  // NOT UNIQUE LOCAL
+     ;
+ }
 
 /**/
 }
@@ -32518,6 +32529,7 @@ examples
   voidT sockOptionDualStackF( tinS& tinP , const handleC& handleP ) ;
   //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.360021f9.etherc.sockoptionDualStackF!||
   voidT sockOptionMulticastF( tinS& tinP , const handleC& handleP , const strokeS* const psttAddrP ) ;
+  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.360021fa.etherc.sockoptionMulticastF!||
   voidT socksSetupF( tinS& tinP ) ;
   //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34046.etherC.socksSetupF!||
   voidT socksShutdownF( tinS& tinP ) ;

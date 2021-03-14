@@ -1,0 +1,110 @@
+
+//
+// Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 29 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+                            
+REST
+
+etherC::loafIF( tinP ) ;
+etThread.traceF( tinP , T("ok") ) ;
+
+#endif
+
+etThread.traceF( tinP , T("wrote 1") ) ;
+socko.writeF( tinP , 12345 , nicNameC() , tSay , tSay.csF( tinP ) ) ;
+etThread.traceF( tinP , T("writing 1") ) ;
+
+TN( tSay , "Hello, Jesus!" ) ;
+
+socketC socko( tinP , etThread , TAG( TAGiDnULL ) , ifcSOCKETtYPE_DATAgRAM , flSOCKETc_null , T("ff02::5:6") , 0 , 0 , 0 , 0 , 0 ) ;
+
+#else
+
+closesocket( sd ) ;
+
+//*************************************************************************************************************
+//*************************************************************************************************************
+//*************************************************************************************************************
+//*************************************************************************************************************
+
+etThread.traceF( tinP , T("sent :    \"")+T(postBuf)+T("\"") ) ;
+if( cbOut < cbOutSave ) postBuf[ cbOut ] = 0 ;
+if( cbOut <= 0 ) { BLAMMO ; }
+int cbOut = sendto( sd , postBuf , cbOutSave , 0 , (const sockaddr *)&addrGroup , sizeof addrGroup ) ;
+int cbOutSave = strlen( postBuf ) ;
+
+osTextT postBuf[ TUCK ] = "Hello, Jesus!" ;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//*************************************************************************************************************
+//*************************************************************************************************************
+//*************************************************************************************************************
+//*************************************************************************************************************
+
+if( bFail ) { BLAMMO ; }
+bFail = setsockopt( sd , IPPROTO_IPV6 , IPV6_JOIN_GROUP , (char*)&groupAddrCard , sizeof groupAddrCard ) ;
+
+groupAddrCard.ipv6mr_interface = ifidx ;
+memcpy( &groupAddrCard.ipv6mr_multiaddr , &addrGroup.sin6_addr , sizeof groupAddrCard.ipv6mr_multiaddr ) ;
+ipv6_mreq groupAddrCard ;
+ifidx = 0 ;
+
+inet_pton( AF_INET6 , "ff02::5:6" , &addrGroup.sin6_addr ) ;
+addrGroup.sin6_port = (count01T)htons( (count01T)12345 ) ;
+addrGroup.sin6_family = AF_INET6;
+memset( &addrGroup , 0 , sizeof addrGroup ) ;
+sockaddr_in6 addrGroup ;
+
+if( bFail ) { BLAMMO ; }
+bFail = setsockopt( sd , IPPROTO_IPV6 , IPV6_MULTICAST_LOOP , (const char*)&on , sizeof on ) ;
+on = 1 ;
+
+if( bFail ) { BLAMMO ; }
+bFail = setsockopt( sd , IPPROTO_IPV6 , IPV6_MULTICAST_HOPS , (const char*)&hops , sizeof hops ) ;
+int hops = 255 ;
+
+if( bFail ) { BLAMMO ; }
+bFail = setsockopt( sd , IPPROTO_IPV6 , IPV6_MULTICAST_IF , (const char*)&ifidx , sizeof ifidx ) ;
+int ifidx = 0 ;
+
+if( bFail ) { BLAMMO ; }
+int bFail = setsockopt( sd , SOL_SOCKET , SO_REUSEADDR , (const char*)&on , sizeof on ) ;
+int on = 1 ;
+
+if( sd < 0 ) { BLAMMO ; }
+int sd = socket( AF_INET6 , SOCK_DGRAM , IPPROTO_UDP ) ;
+
+#if defined( NEVERdEFINED )
+
+
+TODO
+
+/*1*/WAKEsHOWtEXT( "test.ipv6.multicast.send" )/*1*/
+/**/
+*/
+/*
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 29 years.
+//
+// Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+

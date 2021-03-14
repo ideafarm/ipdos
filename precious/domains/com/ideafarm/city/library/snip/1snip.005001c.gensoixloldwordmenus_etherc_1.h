@@ -153,6 +153,7 @@
     "    . sockOptionReuseAddressF_b6       . ?? ")+T(postName)+T("\r\n"
     "    . sockOptionSendNowF_b6       . ?? ")+T(postName)+T("\r\n"
     "    . sockOptionDualStackF_b       . ?? ")+T(postName)+T("\r\n"
+    "    . sockOptionMulticastF_b4@       . ?? ")+T(postName)+T("\r\n"
     "    . socksSetupF_       . ?? ")+T(postName)+T("\r\n"
     "    . socksShutdownF_       . ?? ")+T(postName)+T("\r\n"
     "    . sockF_b6b@       . ?? ")+T(postName)+T("\r\n"
