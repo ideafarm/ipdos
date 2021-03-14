@@ -18831,6 +18831,7 @@ it is illegal to refer to this symbol anywhere except in napkinC definitions
 /*inline*/
  inline countT ccF( voidT ) const { return pcId[ 3 ] ? 4 : pcId[ 2 ] ? 3 : pcId[ 1 ] ? 2 : 1 ; }
  inline boolT  isLoopbackOldDoNotUseF( voidT ) const { return !pcId[ 3 ] && !pcId[ 2 ] && !pcId[ 1 ] && pcId[ 0 ] == 0x7f000001 ; }
+ inline boolT  isIPv4F( voidT ) const { return !pcId[ 3 ] && !pcId[ 2 ] && pcId[ 1 ] == 0xffff && pcId[ 0 ] ; }
  inline boolT  isRoutableUnicastF( voidT ) const
  {
      return
@@ -29232,6 +29233,7 @@ applications should avoid using thirdC objects
   //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.340b0.thirdC.s_readF!||
   voidT s_readF( tinS& tinP , soulC& soulP , handleC& handleP , const flagsT flagsP = flSOCKETcrEAD_null , const countT time1P = 0 , const sCountT time2P = 0 , const countT idModeP = ifcIDmODEsOCKETS_NOTeNCRYPTED ) ;
   //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.340bd.thirdC.s_readF!||
+  voidT s_readF( tinS& tinP , soulC& soulP , countT& idPortP , nicNameC& nicNameP , handleC& handleP , const flagsT flagsP = flSOCKETcrEAD_null , const countT time1P = 0 , const sCountT time2P = 0 ) ;
   static countT s_readIF( tinS& tinP , byteT* const pbP , const countT cbP , handleC& handleP , const flagsT flagsTcpP = 0 , const flagsT flagsP = flSOCKETcrEAD_null ) ;
   //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.350011ac.thirdc.s_readif!||
   countT s_readOrPeekPrivateF( tinS& tinP , byteT* const pbP , const countT cbP , handleC& handleP , const flagsT flagsTcpP , const flagsT flagsP , const countT time1P , const sCountT time2P , const countT idModeP ) ;
@@ -32562,7 +32564,7 @@ examples
   //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34117.etherC.sockReadF!||
   voidT sockReadF( tinS& tinP , soulC& soulP , handleC& handleP , const countT time1P = 0 , const sCountT time2P = 0 , const countT idModeP = ifcIDmODEsOCKETS_NOTeNCRYPTED ) ;
   //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3411d.etherC.sockReadF!||
-//U:: voidT sockReadF( tinS& tinP , soulC& soulP , countT& idPortP , nicNameC& nicNameP , handleC& handleP , const countT time1P = 0 , const sCountT time2P = 0 ) ;
+  voidT sockReadF( tinS& tinP , soulC& soulP , countT& idPortP , nicNameC& nicNameP , handleC& handleP , const countT time1P = 0 , const sCountT time2P = 0 ) ;
   //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3411f.etherC.sockReadF!||
   voidT sockWriteF( tinS& tinP , handleC& handleP , const byteT* pbP , const countT cbP = 0 , const countT idModeP = ifcIDmODEsOCKETS_NOTeNCRYPTED ) ;
   //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34047.etherC.sockWriteF!||
@@ -33559,6 +33561,7 @@ examples
  voidT readF( tinS& tinP , soulC& soulP , const countT time1P = 0 , const sCountT time2P = 0 ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34023.socketC.readF!||
  voidT readF( tinS& tinP , countT& idTypeP , const flagsT flagsP = flSOCKETcrEAD_null , const countT time1P = 0 , const sCountT time2P = 0 ) ;
+ voidT readF( tinS& tinP , soulC& soulP , countT& idPortP , nicNameC& nicNameP , const countT time1P = 0 , const sCountT time2P = 0 ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34026.socketC.readF!||
  osTextT readWoLineF( tinS& tinP , strokeS*& psttP , const countT csttEstimateP , const osTextT* const postEscapeP = 0 ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34010.socketC.readWoLineF!||
