@@ -15,7 +15,7 @@
         pOdometer->cbWrite += tinP.odoSockCbWrite - _odoSockCbWriteOpen ;
         pOdometer->cbRead  += tinP.odoSockCbRead  - _odoSockCbReadOpen  ;
         pOdometer = (sockOdometerS*)&(countT&)*tinP.pAdamGlobal3->_socketC_.pSwOdometer ;
-        tinP.pAdamGlobal3->_socketC_.nnLever = nnPeer = nicNameP ;
+        tinP.pAdamGlobal3->_socketC_.nnLever = nnPeer = nnUse ;
         tinP.pAdamGlobal3->_socketC_.grab.grabF( tinP , TAG( TAGiDnULL ) ) ;
     
         bWrite.ungrabF( tinP ) ;
@@ -23,12 +23,15 @@
         if( idleTimeAllowedWrite ) FRESHtIMEaTOMIC( *pEther , timeLathWrite.time1 , timeLathWrite.time2 )
     
         THREADmODE1rESTORE
-        pEther->sockWriteF( tinP , handle , idPortP , nicNameP , (byteT*)&idTypeP , sizeof idTypeP ) ;
+        pEther->sockWriteF( tinP , handle , idPortP , nnUse , (byteT*)&idTypeP , sizeof idTypeP ) ;
         THREADmODE1oN( flTHREADmODE1_ALLOWsTOPwHILEgRABBING )
+
         bWrite.grabF( tinP , TAG( TAGiDnULL ) ) ;
     
         const countT _odoSockCbWriteOpen = tinP.odoSockCbWrite ;
         const countT _odoSockCbReadOpen  = tinP.odoSockCbRead  ;
+    
+        nicNameC& nnUse = ~nnMulticast ? nnMulticast : nicNameP ;
     
         _IO_
     
@@ -39,8 +42,18 @@
             {
             if( *pEther )
 
+
+
+
+
+
+
+
+
             __Z( idTypeP ) ;
             __Z( idPortP ) ;
+            __( ~nnMulticast && ~nicNameP ) ;
+            __( idType != ifcSOCKETtYPE_DATAgRAM ) ;
 
             }
                 return ;

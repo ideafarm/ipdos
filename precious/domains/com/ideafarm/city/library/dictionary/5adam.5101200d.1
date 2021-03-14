@@ -15,10 +15,8 @@ etThread.traceF( tinP , T("ok") ) ;
 #endif
 
 etThread.traceF( tinP , T("wrote 1") ) ;
-socko.writeF( tinP , 12345 , nnLocalMulticast , tSay , tSay.csF( tinP ) ) ;
+socko.writeF( tinP , 12345 , nicNameC() , tSay , tSay.csF( tinP ) ) ;
 etThread.traceF( tinP , T("writing 1") ) ;
-
-nicNameC nnLocalMulticast = socketC::nicNameIF( tinP , etThread , T("ff02::5:6") ) ;
 
 TN( tSay , "Hello, Jesus!" ) ;
 
