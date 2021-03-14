@@ -33430,6 +33430,7 @@ examples
     const byteT             pbBitsCt[ CBbITScT ] ;
     countT                  cFunctionsPending ;
     nicNameC                nnPeer ;
+    nicNameC                nnMulticast ;
     sockOdometerS*          pOdometer ;
     boolT                   bAcceptedByLF ;
     etherC*                 pEther ; // ALLOWS SPECIFICATION OF THE ETHER TO BE CHANGED
@@ -33479,9 +33480,9 @@ examples
 /* birth , death */
  NEWdELcLASSpROTOS
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400e.socketC.NEWdELcLASSpeTHER!||
- socketC( tinS& tinP , etherC& etherP , const countT idLineCtP , const countT idiFileCtP , const byteT* const pbBitsCtP , const boolT idTypeP = 0 , const flagsT flagsP = flSOCKETc_null , const countT* const pIdleTimeAllowedReadP = 0 , const countT* const pIdleTimeAllowedWriteP = 0 , const countT* const pTimeAllowedConnectedP = 0 , const strokeS* const psttPemCertificatesP = 0 , const strokeS* const psttPemPrivateKeyP = 0 ) ;
+ socketC( tinS& tinP , etherC& etherP , const countT idLineCtP , const countT idiFileCtP , const byteT* const pbBitsCtP , const boolT idTypeP = 0 , const flagsT flagsP = flSOCKETc_null , const strokeS* const psttAddrMulticastP = 0 , const countT* const pIdleTimeAllowedReadP = 0 , const countT* const pIdleTimeAllowedWriteP = 0 , const countT* const pTimeAllowedConnectedP = 0 , const strokeS* const psttPemCertificatesP = 0 , const strokeS* const psttPemPrivateKeyP = 0 ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34001.socketC.socketC!||
- socketC( etherC& etherP , tinS& tinP , const countT idLineCtP , const countT idiFileCtP , const byteT* const pbBitsCtP , handleC& handleP , const boolT idTypeP , const flagsT flagsP , const countT* const pIdleTimeAllowedReadP , const countT* const pIdleTimeAllowedWriteP , const countT* const pTimeAllowedConnectedP , nicNameC& nnPeerP , const strokeS* const psttPemCertificatesP , const strokeS* const psttPemPrivateKeyP ) ;
+ socketC( etherC& etherP , tinS& tinP , const countT idLineCtP , const countT idiFileCtP , const byteT* const pbBitsCtP , handleC& handleP , const boolT idTypeP , const flagsT flagsP , const strokeS* const psttAddrMulticastP , const countT* const pIdleTimeAllowedReadP , const countT* const pIdleTimeAllowedWriteP , const countT* const pTimeAllowedConnectedP , nicNameC& nnPeerP , const strokeS* const psttPemCertificatesP , const strokeS* const psttPemPrivateKeyP ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34002.socketC.socketC!||
  ~socketC( voidT ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34003.socketC.dt_socketC!||

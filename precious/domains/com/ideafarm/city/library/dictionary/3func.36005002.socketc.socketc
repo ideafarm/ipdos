@@ -38,7 +38,7 @@
         {
         if( idType != ifcSOCKETtYPE_DATAgRAM && !( F(flags) & flSOCKETc_DOnOTrEGISTERqUITTER ) )
     
-        if(    F(flags) & flSOCKETc_MULTICAST                 && idType == ifcSOCKETtYPE_DATAgRAM ) pEther->sockOptionMulticastF( tinP , handle , T("ff02::5:6") ) ; //U:: 20210313@1322: CRAFTWORK IN PROGRESS
+        if(    F(flags) & flSOCKETc_MULTICAST                 && idType == ifcSOCKETtYPE_DATAgRAM ) pEther->sockOptionMulticastF( tinP , handle , psttAddrMulticastP ) ; //U:: 20210313@1322: CRAFTWORK IN PROGRESS
         if(    F(flags) & flSOCKETc_CANbROADCASToLDdOnOTuSE   && idType == ifcSOCKETtYPE_DATAgRAM ) pEther->sockOptionBroadcastF( tinP , handle ) ;
         if( !( F(flags) & flSOCKETc_NOsENDnOW               ) && idType == ifcSOCKETtYPE_STREAM   ) pEther->sockOptionSendNowF(   tinP , handle ) ;
         if( !( F(flags) & flSOCKETc_NOlINGER                ) && idType == ifcSOCKETtYPE_STREAM   ) pEther->sockOptionLingerF(    tinP , handle ) ; //U: PROBABLY DON'T WANT TO ALTER THE PROPERTIES OF THE SPECIFIED SOCKET
@@ -153,11 +153,12 @@ pPoop( &(const poopC&)etherP ) ,
 pEther( &etherP ) ,
 bAcceptedByLF( 0 ) ,
 pOdometer( 0 ) ,
+nnMulticast( !psttAddrMulticastP ? nicNameC() : socketC::nicNameIF( tinP , etherP , psttAddrMulticastP ) ) ,
 nnPeer( nnPeerP ) ,
 cFunctionsPending( 0 ) ,
 idiFileCt( idiFileCtP ) ,
 idLineCt( idLineCtP ) ,
-/*1*/socketC::socketC( etherC& etherP , tinS& tinP , const countT idLineCtP , const countT idiFileCtP , const byteT* const pbBitsCtP , handleC& handleP , const boolT idTypeP , const flagsT flagsP , const countT* const pIdleTimeAllowedReadP , const countT* const pIdleTimeAllowedWriteP , const countT* const pTimeAllowedConnectedP , nicNameC& nnPeerP , const strokeS* const psttPemCertificatesP , const strokeS* const psttPemPrivateKeyP )/*1*/ :
+/*1*/socketC::socketC( etherC& etherP , tinS& tinP , const countT idLineCtP , const countT idiFileCtP , const byteT* const pbBitsCtP , handleC& handleP , const boolT idTypeP , const flagsT flagsP , const strokeS* const psttAddrMulticastP , const countT* const pIdleTimeAllowedReadP , const countT* const pIdleTimeAllowedWriteP , const countT* const pTimeAllowedConnectedP , nicNameC& nnPeerP , const strokeS* const psttPemCertificatesP , const strokeS* const psttPemPrivateKeyP )/*1*/ :
 
 /**/
 */
