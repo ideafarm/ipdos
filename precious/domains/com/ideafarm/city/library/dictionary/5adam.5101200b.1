@@ -14,7 +14,7 @@ etherC::loafIF( tinP ) ;
 etThread.osThreadF( TaRG1( tmSayF ) ) ;
 
 etThread.osThreadF( TaRG1( tmHearF ) ) ;
-etThread.osThreadF( TaRG1( tmHearF ) ) ;
+//etThread.osThreadF( TaRG1( tmHearF ) ) ;
 
 TODO
 
@@ -22,19 +22,28 @@ DONE( tmHearF )
 
 }
     }
-        etThread.traceF( tinP , T("[nnWo]:    ")+T(nnWo) ) ;
-        soulNicNameIn >> nnWo ;
-        nicNameC nnWo ;
-    {
-    while( soulNicNameIn )
+        }
+            }
+                etThread.traceF( tinP , T("[nnWo]:    ")+T(nnWo) ) ;
+                soulNicNameIn >> nnWo ;
+                nicNameC nnWo ;
+            {
+            while( soulNicNameIn )
 
-    etThread.delF( tinP , pbi ) ;
+            etThread.delF( tinP , pbs ) ;
+            soulNicNameIn.shiftLeftF( tinP , ifcIDtYPEsOULiTEM_soulC , pbs , 0 , 0 , flSOULsHIFTlEFTmODE_UNPACKsOULiMAGE ) ;
+            soulC soulNicNameIn( tinP , TAG( TAGiDnULL ) ) ;
+        {
+        if( cbs == cbsNet + 3 * sizeof( countT ) )    // INTENDED TO DETECT TRUNCATION DUE TO DATAGRAM PACKET CAPACITY
+        countT cbsNet = ((countT*)pbs)[ 2 ] ;
+    {
+    if( pbs && cbs >= 3 * sizeof( countT ) )
+
     etThread.traceF( tinP , T("called readF [nnHe,idpHe]:    ")+T(nnHe)+T("    ")+TF2(idpHe,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
-    socki.readF( tinP , pbi , cbi , idpHe , nnHe , 0 , 0 ) ;
-    ZE( countT , cbi ) ;
-    ZE( byteT* , pbi ) ;
+    socki.readF( tinP , pbs , cbs , idpHe , nnHe , 0 , 0 ) ;
+    ZE( countT , cbs ) ;
+    ZE( byteT* , pbs ) ;
     etThread.traceF( tinP , T("calling readF") ) ;
-    soulC soulNicNameIn( tinP , TAG( TAGiDnULL ) ) ;
     ZE( countT , idpHe ) ;
     nicNameC nnHe ;
 {
