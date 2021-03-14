@@ -819,14 +819,13 @@ examples
 #define flSOCKETc_DOnOTrEGISTERqUITTER           0xe0001002
 #define flSOCKETc_DOnOTrEGISTERtIMEoUT           0xe0002002
 #define flSOCKETc_NOlINGER                       0xe0004002
-#define flSOCKETc_CANbROADCASToLDdOnOTuSE                   0xe0008002
+#define flSOCKETc_CANbROADCASToLDdOnOTuSE        0xe0008002
 #define flSOCKETc_NOsENDnOW                      0xe0010002
 #define flSOCKETc_NOsECRECY                      0xe0020002
 #define flSOCKETc_TOPsECRET                      0xe0040002
 #define flSOCKETc_CRYPTfOREIGNsSL                0xe0080002
 #define flSOCKETc_CRYPTfOREIGNsSLdEFERhANDSHAKE  0xe0100002
 #define flSOCKETc_NOdUALsTACK                    0xe0200002
-#define flSOCKETc_MULTICAST                      0xe0400002
 /*3*/
 #define flSOCKETc_null    0xe0000002
 

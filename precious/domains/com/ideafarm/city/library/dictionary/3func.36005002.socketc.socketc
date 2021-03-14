@@ -38,7 +38,7 @@
         {
         if( idType != ifcSOCKETtYPE_DATAgRAM && !( F(flags) & flSOCKETc_DOnOTrEGISTERqUITTER ) )
     
-        if(    F(flags) & flSOCKETc_MULTICAST                 && idType == ifcSOCKETtYPE_DATAgRAM ) pEther->sockOptionMulticastF( tinP , handle , psttAddrMulticastP ) ; //U:: 20210313@1322: CRAFTWORK IN PROGRESS
+        if(    ~nnMulticast                                   && idType == ifcSOCKETtYPE_DATAgRAM ) pEther->sockOptionMulticastF( tinP , handle , psttAddrMulticastP ) ; //U:: 20210313@1322: CRAFTWORK IN PROGRESS
         if(    F(flags) & flSOCKETc_CANbROADCASToLDdOnOTuSE   && idType == ifcSOCKETtYPE_DATAgRAM ) pEther->sockOptionBroadcastF( tinP , handle ) ;
         if( !( F(flags) & flSOCKETc_NOsENDnOW               ) && idType == ifcSOCKETtYPE_STREAM   ) pEther->sockOptionSendNowF(   tinP , handle ) ;
         if( !( F(flags) & flSOCKETc_NOlINGER                ) && idType == ifcSOCKETtYPE_STREAM   ) pEther->sockOptionLingerF(    tinP , handle ) ; //U: PROBABLY DON'T WANT TO ALTER THE PROPERTIES OF THE SPECIFIED SOCKET
@@ -77,9 +77,10 @@
             if( *pEther )
 
             FV( flSOCKETc , flagsP ) ;
-            __( idType == ifcSOCKETtYPE_DATAgRAM && F(flags) & flSOCKETc_DOnOTrEGISTERqUITTER ) ;
-            __( idType == ifcSOCKETtYPE_DATAgRAM && F(flags) & flSOCKETc_NOlINGER             ) ;
-            __( idType == ifcSOCKETtYPE_STREAM   && F(flags) & flSOCKETc_CANbROADCASToLDdOnOTuSE         ) ;
+            __( idType != ifcSOCKETtYPE_DATAgRAM && ~nnMulticast                                 ) ;
+            __( idType == ifcSOCKETtYPE_DATAgRAM && F(flags) & flSOCKETc_DOnOTrEGISTERqUITTER    ) ;
+            __( idType == ifcSOCKETtYPE_DATAgRAM && F(flags) & flSOCKETc_NOlINGER                ) ;
+            __( idType == ifcSOCKETtYPE_STREAM   && F(flags) & flSOCKETc_CANbROADCASToLDdOnOTuSE ) ;
 
             }
                 return ;
