@@ -11,8 +11,8 @@ REST
 
 etherC::loafIF( tinP ) ;
 
-etThread.osThreadF( TaRG1( tmSayF ) ) ;
-etThread.osThreadF( TaRG1( tmHearF ) , (countT)&napNodeList ) ;
+etThread.osThreadF( TaRG1( tmSayNodeAdvertisementF ) ) ;
+etThread.osThreadF( TaRG1( tmHearNodeAdvertisementF ) , (countT)&napNodeList ) ;
 
 THREADmODE3rESTORE
 }
@@ -31,7 +31,7 @@ THREADmODE3oN( flTHREADmODE3_ALLOWeXPLICITmEMORYsPACE )
 
 TODO
 
-DONE( tmHearF )
+DONE( tmHearNodeAdvertisementF )
 
 }
     }
@@ -101,7 +101,7 @@ DONE( tmHearF )
 
     nodeListS& nl = *(nodeListS*)(byteT*)napNodeListP ;
 
-    countT idpMe = socki.bindF( tinP , 12345 , nnAny , 1 , 0 ) ;
+    countT idpMe = socki.bindF( tinP , ifcIDpORT_MULTICASTaDVERTISElANnODES , nnAny , 1 , 0 ) ;
     socketC socki( tinP , etThread , TAG( TAGiDnULL ) , ifcSOCKETtYPE_DATAgRAM , flSOCKETc_null , T(postADDRgROUP) , 0 , 0 , 0 , 0 , 0 ) ;
 
     nicNameC nnAny = socketC::nicNameIF( tinP , etThread , T("::") ) ;
@@ -109,9 +109,9 @@ DONE( tmHearF )
     napkinC& napNodeListP = *(napkinC*)pTaskP->c1 ;
 {
 if( pTaskP && pTaskP->c1 )
-TASK( tmHearF )
+TASK( tmHearNodeAdvertisementF )
 
-DONE( tmSayF )
+DONE( tmSayNodeAdvertisementF )
 
 }
     }
@@ -119,7 +119,7 @@ DONE( tmSayF )
         sleepC s( tinP , TAG( TAGiDnULL ) ) ;
     {
 
-    socko.writeF( tinP , 12345 , nicNameC() , soulNicName ) ;
+    socko.writeF( tinP , ifcIDpORT_MULTICASTaDVERTISElANnODES , nicNameC() , soulNicName ) ;
 
     }
         etThread.delF( tinP , pnnMe ) ;
@@ -142,7 +142,7 @@ while( !ether && !POOP )
 
 socketC socko( tinP , etThread , TAG( TAGiDnULL ) , ifcSOCKETtYPE_DATAgRAM , flSOCKETc_null , T(postADDRgROUP) , 0 , 0 , 0 , 0 , 0 ) ;
 
-TASK( tmSayF )
+TASK( tmSayNodeAdvertisementF )
 
 
 ;
