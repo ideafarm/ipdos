@@ -142,6 +142,8 @@ TASK( tmReportLocalNodesF )
 DONE( tmHearNodeAdvertisementF )
 }
     }
+        nl.idRevisionFinished ++ ;  //THESE CAN BE USED BY APP CODE TO VERIFY THAT THEY HAVE SEEN A CLEAN LIST (NOT BEING REVISED)
+
         if( !bFound ) etThread.traceF( tinP , T("error: could not add [nn,nnv4]:    ")+T(neTest.nn)+T("    ")+T(nicNameC(neTest.nnv4)) ) ;
 
         }
@@ -196,6 +198,8 @@ DONE( tmHearNodeAdvertisementF )
             if( nl.pEntry[ offi ].ttl && !( -- nl.pEntry[ offi ].ttl ) )
         {
         for( countT offi = 0 ; offi < nl.cEltsMax ; offi ++ )
+
+        nl.idRevisionBegun ++ ;     //THESE CAN BE USED BY APP CODE TO VERIFY THAT THEY HAVE SEEN A CLEAN LIST (NOT BEING REVISED)
 
         etThread.traceF( tinP , T("called readF [nnHe,idpHe]:    ")+T(nnHe)+T("    ")+TF2(idpHe,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
         socki.readF( tinP , soulNicNameIn , idpHe , nnHe , 0 , 0 ) ;
@@ -959,25 +963,6 @@ TASK( tmWatch05TallyF )
 
 countT cDone2 ;
 countT cDone1 ;
-
-;
-}
-    nodeEntryS pEntry[ 1 ] ;
-    countT     cElts       ;
-    countT     cEltsMax    ;
-{
-struct nodeListS
-
-;
-}
-    inline boolT operator ==( nodeEntryS& neP ) const { return nn == neP.nn && nnv4 == neP.nnv4 ; }
-    inline nodeEntryS( voidT ) : nnv4( 0 ) , ttl( 0 ) {}
-
-    count02T ttl  ;     // IF 0 THEN THIS ENTRY IS FREE AND AVAILABLE
-    count02T nnv4 ;
-    nicNameC nn   ;
-{
-struct nodeEntryS
 
 // 352_9 THREADS OBSERVED AS A MAXIMUM
 //#define CgORILLAS1              ( CsESSIONmAXdFLTiFCdRIVENsERVER >> 4 )

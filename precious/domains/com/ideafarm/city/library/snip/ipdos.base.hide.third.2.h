@@ -1,29 +1,3 @@
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004f0.isinitializedjpointer BEGIN
-
-
-//
-// Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 29 years.
-// Respecting the rights of other people is an important part of empowering one another.
-//
-
-/*
-*/
-/**/
-/*1*//*ISiNITIALIZEDjpOINTER(pbP)*//*1*/
-
-#define ISiNITIALIZEDjpOINTER(pbP) ( !(pbP) || ( (countT)(pbP) >= JrEQUEST_min && (countT)(pbP) <= JrEQUEST_max ) )
-
-
-//
-// Respecting the rights of other people is an important part of empowering one another.
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 29 years.
-//
-// Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004f0.isinitializedjpointer END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004f0.isinitializedpointer BEGIN
 
 
@@ -18758,7 +18732,6 @@ it is illegal to refer to this symbol anywhere except in napkinC definitions
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.psttOldC : 1snip.15000041.psttoldc END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.nicNameC : 1snip.15000033.nicnamec BEGIN
 
-
 //
 // Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
@@ -18778,11 +18751,11 @@ it is illegal to refer to this symbol anywhere except in napkinC definitions
 /**/
 
 /* face */
- countT   pcId[ 4 ] ;
+ count02T   pcId[ 4 ] ;
 
 /* birth , death */
  NEWdELcLASSpROTOS
- nicNameC( const countT c1P = 0 , const countT c2P = 0 , const countT c3P = 0 , const countT c4P = 0 ) ;
+ nicNameC( const count02T c1P = 0 , const count02T c2P = 0 , const count02T c3P = 0 , const count02T c4P = 0 ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34001.nicNameC.nicNameC!||
 
  voidT operator <<( soulC& slP ) ;
@@ -18791,19 +18764,19 @@ it is illegal to refer to this symbol anywhere except in napkinC definitions
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34010.nicNameC.operator_shiftRight!||
 
 /* operators */
- operator const countT*( voidT ) const ;
+ operator const count02T*( voidT ) const ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400b.nicNameC.operator_countT_ptr!||
- nicNameC& operator =( const countT c1P ) ;
+ nicNameC& operator =( const count02T c1P ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34002.nicNameC.operator_assign!||
  nicNameC& operator =( nicNamesC& nicNamesP ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400c.nicNameC.operator_assign!||
  boolT operator ==( const nicNameC& nicNameP ) const ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34003.nicNameC.operator_equal!||
- boolT operator ==( const countT nicNameP ) const ;
+ boolT operator ==( const count02T nicNameP ) const ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34004.nicNameC.operator_equal!||
  boolT operator !=( const nicNameC& nicNameP ) const ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400d.nicNameC.operator_notEqual!||
- boolT operator !=( const countT nicNameP ) const ;
+ boolT operator !=( const count02T nicNameP ) const ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400e.nicNameC.operator_notEqual!||
  operator boolT( voidT ) const ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34005.nicNameC.operator_boolT!||
@@ -45247,3 +45220,65 @@ i am nonconformant in that all of my member function definitions are in a single
 //
 
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.taskDrivenServerJobS : 1snip.1500018b.taskDrivenServerJobS END
+
+//
+// Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 29 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+/*
+*/
+/**/
+
+/*1*/struct nodeEntryS/*1*/
+{
+    nicNameC nn   ;
+    count02T nnv4 ;
+    count02T ttl  ;     // IF 0 THEN THIS ENTRY IS FREE AND AVAILABLE
+
+    inline nodeEntryS( voidT ) : nnv4( 0 ) , ttl( 0 ) {}
+    inline boolT operator ==( nodeEntryS& neP ) const { return nn == neP.nn && nnv4 == neP.nnv4 ; }
+}
+;
+
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 29 years.
+//
+// Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+
+
+
+//
+// Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 29 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+/*
+*/
+/**/
+
+
+/*1*/struct _export nodeListS/*1*/
+{
+    countT     cEltsMax    ;
+    countT     cElts       ;
+    countT     idRevisionBegun ;
+    countT     idRevisionFinished ;
+    nodeEntryS pEntry[ 1 ] ;
+}
+;
+
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 29 years.
+//
+// Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
