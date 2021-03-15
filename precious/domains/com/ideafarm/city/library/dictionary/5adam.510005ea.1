@@ -13,7 +13,8 @@ etThread.loafIF( tinP ) ;
 
 if( POOP ) { CONoUTrAW( "loafing with POOP in my pants\r\n" ) ; }
 
-etThread.osThreadF( TaRG1( tmSayNodeAdvertisementF ) ) ;
+etThread.osThreadF( TaRG1( tmReportLocalNodesF      ) , (countT)&napNodeList ) ;
+etThread.osThreadF( TaRG1( tmSayNodeAdvertisementF  )                        ) ;
 etThread.osThreadF( TaRG1( tmHearNodeAdvertisementF ) , (countT)&napNodeList ) ;
 
 THREADmODE3rESTORE
@@ -110,6 +111,33 @@ TN( tComputerName , "" ) ;
 
 TODO
 
+
+DONE( tmReportLocalNodesF )
+}
+    }
+        }
+            ++ s ; ether.osSleepF( tinP , TOCK << 4 ) ;
+            sleepC s( tinP , TAG( TAGiDnULL ) ) ;
+        {
+
+        etThread.traceF( tinP , T("local nodes (end)") , flTRACE_null , ifcIDtRACEdIVERT_e ) ;
+        }
+            }
+                etThread.traceF( tinP , T("local node [off,nn,nnv4]:    ")+TF2(offi,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+T(nl.pEntry[offi].nn)+tb4+T(nicNameC(nl.pEntry[offi].nnv4)) , flTRACE_null , ifcIDtRACEdIVERT_e ) ;
+            {
+            if( nl.pEntry[ offi ].ttl )
+        {
+        for( countT offi = 0 ; offi < nl.cEltsMax ; offi ++ )
+        etThread.traceF( tinP , T("local nodes (begin)") , flTRACE_null , ifcIDtRACEdIVERT_e ) ;
+    {
+    while( !POOP && !ether )
+    nodeListS& nl = *(nodeListS*)(byteT*)napNodeListP ;
+    TN( tb4 , "    " ) ;
+
+    napkinC& napNodeListP = *(napkinC*)pTaskP->c1 ;
+{
+if( pTaskP && pTaskP->c1 )
+TASK( tmReportLocalNodesF )
 
 DONE( tmHearNodeAdvertisementF )
 }
