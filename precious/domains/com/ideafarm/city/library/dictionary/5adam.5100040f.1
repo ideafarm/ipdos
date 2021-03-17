@@ -73,7 +73,7 @@ REST
     tblHost.newColF( tinP , T("idComputer") ) ;
     tableC tblHost( tinP , etThread , T("host" ) ) ;
     
-    tblAdam.newColF( tinP , T("idPortChat") ) ;
+    tblAdam.newColF( tinP , T("portChat") ) ;
     tblAdam.newColF( tinP , T("idAdam") ) ;
     tableC tblAdam( tinP , etThread , T("idAdamIdPortChat") ) ;
     
@@ -923,7 +923,7 @@ DONEdRIVENsERVERnEWsOCKET( tmcF )
                 }
                     pso->writeF( tinP , sOut ) ;
 
-                    sOut << idPortChat ;
+                    sOut << portChat ;
                     soulC sOut( tinP , TAG( TAGiDnULL ) , flSOUL_null , ifcIDcMDsESSION_QUERYiDpORTlOCALcHATrEPLY ) ;
 
                     }
@@ -931,7 +931,7 @@ DONEdRIVENsERVERnEWsOCKET( tmcF )
                         }
                             }
                                 break ;
-                                idPortChat = tblAdam._CT1_04F( idr , 2 ) ;
+                                portChat = tblAdam._CT1_04F( idr , 2 ) ;
                             {
                             if( tblAdam._CT1_04F( idr ) == idAdam )
                         {
@@ -940,7 +940,7 @@ DONEdRIVENsERVERnEWsOCKET( tmcF )
                         tblAdam.grabF( tinP , TAG( TAGiDnULL ) ) ;
                     {
                     if( !*tinP.zEtScratch )
-                    ZE( countT , idPortChat ) ;
+                    ZE( countT , portChat ) ;
 
                     sIn >> idAdam ;
                     ZE( countT , idAdam ) ;
@@ -978,7 +978,7 @@ DONEdRIVENsERVERnEWsOCKET( tmcF )
                                 break ;
                                 sgnMonitorHasRegistered.giveF( tinP ) ;
                                 CONoUT( T("     ifcIDcMDsESSION_REGISTERiDpORTlOCALcHATsYSTEM: state.idPortMonitor is now ")+TF1(state.idPortMonitor)+T("\r\n") ) //U::
-                                state.idPortMonitor = idPortChat ;
+                                state.idPortMonitor = portChat ;
                             {
                             case ifcIDaDAM_KERNEL2MONITOR :
                         {
@@ -989,7 +989,7 @@ DONEdRIVENsERVERnEWsOCKET( tmcF )
                     }
                         tblAdam.ungrabF( tinP ) ;
                         }
-                            tblAdam.newObjectF( tinP , idPortChat ) ;
+                            tblAdam.newObjectF( tinP , portChat ) ;
                             tblAdam.newObjectF( tinP , idAdam ) ;
                             tblAdam.newEventF( tinP ) ;
                         {
@@ -998,7 +998,7 @@ DONEdRIVENsERVERnEWsOCKET( tmcF )
                         }
                             }
                                 break ;
-                                tblAdam._CT1_04F( idr , 2 ) = idPortChat ;
+                                tblAdam._CT1_04F( idr , 2 ) = portChat ;
                                 bFound = 1 ;
                             {
                             if( tblAdam._CT1_04F( idr ) == idAdam )
@@ -1010,11 +1010,11 @@ DONEdRIVENsERVERnEWsOCKET( tmcF )
                     {
                     if( !*tinP.zEtScratch )
 
-//CONoUTrAW( T("idAdam: ")+TF1(idAdam)+T(" idPortChat: ")+TF1(idPortChat) ) ; //U::
-                    //etThread.ifcSayF( tinP , TF3(idClient,flFORMAT_UNSIGNED,9)+T("idAdam: ")+TF1(idAdam)+T("    idPortChat: ")+TF1(idPortChat) , flSAY_APPEND | flSAY_LOG ) ; //U::
-                    sIn >> idPortChat ;
+//CONoUTrAW( T("idAdam: ")+TF1(idAdam)+T(" portChat: ")+TF1(portChat) ) ; //U::
+                    //etThread.ifcSayF( tinP , TF3(idClient,flFORMAT_UNSIGNED,9)+T("idAdam: ")+TF1(idAdam)+T("    portChat: ")+TF1(portChat) , flSAY_APPEND | flSAY_LOG ) ; //U::
+                    sIn >> portChat ;
                     sIn >> idAdam ;
-                    ZE( countT , idPortChat ) ;
+                    ZE( countT , portChat ) ;
                     ZE( countT , idAdam ) ;
 
                     __( idCmd - ifcIDcMDsESSION_REGISTERiDpORTlOCALcHAT ) ;

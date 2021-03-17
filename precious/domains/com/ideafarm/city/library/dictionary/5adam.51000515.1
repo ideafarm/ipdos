@@ -125,7 +125,7 @@ homeS& home = homeS::homeIF() ;
 
 countT cArg = (countT)&c8p ;
 count8S c8p( (countT)&lever , (countT)&swIdp ) ;
-switchC swIdp( tinP , etThread , TAG( TAGiDnULL ) , flSTACKc_null , lever , 0 , sizeof( idPortC ) ) ;
+switchC swIdp( tinP , etThread , TAG( TAGiDnULL ) , flSTACKc_null , lever , 0 , sizeof( portC ) ) ;
 ZE( countT , lever ) ;
 
 TODO
@@ -150,7 +150,7 @@ TODO
                 *psGiftP >> iduuHomeAssigned ;
                 ZE( countT , iduuHomeAssigned ) ;
                 idptRelay << *psGiftP ;
-                idPortTimeC idptRelay ;
+                portTimeC idptRelay ;
             {
             else if( pczChannelP[ 1 ] == ifcIDcHANNELfUNCTION_REPLYiDhOME )
             }
@@ -181,7 +181,7 @@ TODO
                         if( !idpAssigned )
                         ZE( boolT , bReply ) ;
     
-                        idPortC& idpAssigned = *(idPortC*)&(countT&)swIdpP ;
+                        portC& idpAssigned = *(portC*)&(countT&)swIdpP ;
                         leverP = iduuHomeRequested ;
     
                         if( !iduuHomeRequested ) { BLAMMO ; } //U: IN PRODUCTION I WILL NEED TO RETIRE AND REUSE LOW VALUES
@@ -199,7 +199,7 @@ TODO
                                     iduuHomeRequested = leverP ;
                                 {
                                 if( idptRequestor == idpTest )
-                                idPortC& idpTest = *(idPortC*)&(countT&)swIdpP ;
+                                portC& idpTest = *(portC*)&(countT&)swIdpP ;
                                 leverP = swIdpP.leverF( tinP , idf ) ;
                             {
                             for( countT idf = 1 ; idf <= cFlavors ; idf ++ )
@@ -213,7 +213,7 @@ TODO
                         *psGiftP >> iduuHomeRequested ;
                         ZE( countT , iduuHomeRequested ) ;
                         idptRequestor << *psGiftP ;
-                        idPortTimeC idptRequestor ;
+                        portTimeC idptRequestor ;
                     {
                     if( psQuery )
                     etherP( tinP , psQuery , TAG( TAGiDnULL ) ) ;
@@ -240,7 +240,7 @@ TODO
         {
         if( home.idptRelay != idpt )
         idpt << *psGiftP ;
-        idPortTimeC idpt ;
+        portTimeC idpt ;
         //etherP.strokeF( tinP , T("received my relay timestamp\r\n") ) ; //U::
         //CONoUTrAW( "cioGetF: _REPLYrELAYiDpORTtIMEc\r\n" ) ; //U::
     {
@@ -265,7 +265,7 @@ TODO
     countT&      leverP    =      *(countT*)c8p.c1 ;
     count8S& c8p = *(count8S*)cArgP ;
 {
-voidT cioGetF( tinS& tinP , etherC& etherP , const boolT& bQuitP , const countT idGiftTypeP , soulC*& psGiftP , countT*& pczChannelP , countT& cArgP , const idPortTimeC& idptOriginP )
+voidT cioGetF( tinS& tinP , etherC& etherP , const boolT& bQuitP , const countT idGiftTypeP , soulC*& psGiftP , countT*& pczChannelP , countT& cArgP , const portTimeC& idptOriginP )
 
 /*1*/WAKEhIDE( "ifcIDaDAM_KERNEL4iDhOME" )/*1*/
 /**/

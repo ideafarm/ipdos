@@ -128,8 +128,8 @@ DONE( tmFtpServeF )
 
                                                 tinP.pEtScratch->strokeF( tinP , T("REPLY: ")+tReply ) ;
                             
-                                                sData.connectF( tinP , idPortClient , nicNameClient , 1 , TOCK * 4 ) ;
-                                                tinP.pEtScratch->strokeF( tinP , T("connecting to port ")+TF2(idPortClient,flFORMAT_NObIGITvALUES)+T(" of nn ")+T(nicNameClient)+T("\r\n") ) ;
+                                                sData.connectF( tinP , portClient , nicNameClient , 1 , TOCK * 4 ) ;
+                                                tinP.pEtScratch->strokeF( tinP , T("connecting to port ")+TF2(portClient,flFORMAT_NObIGITvALUES)+T(" of nn ")+T(nicNameClient)+T("\r\n") ) ;
                                                 socketC sData( tinP , *tinP.pEtScratch , TAG( TAGiDnULL ) ) ;
                                             {
                                             TN( tReply , "150 ok\r\n" ) ;
@@ -192,8 +192,8 @@ DONE( tmFtpServeF )
                                             tinP.pEtScratch->strokeF( tinP , T("REPLY: ")+tReply ) ;
                                             TN( tReply , "150 ok\r\n" ) ;
                         
-                                            sData.connectF( tinP , idPortClient , nicNameClient , 1 , TOCK * 4 ) ;
-                                            tinP.pEtScratch->strokeF( tinP , T("connecting to port ")+TF2(idPortClient,flFORMAT_NObIGITvALUES)+T(" of nn ")+T(nicNameClient)+T("\r\n") ) ;
+                                            sData.connectF( tinP , portClient , nicNameClient , 1 , TOCK * 4 ) ;
+                                            tinP.pEtScratch->strokeF( tinP , T("connecting to port ")+TF2(portClient,flFORMAT_NObIGITvALUES)+T(" of nn ")+T(nicNameClient)+T("\r\n") ) ;
                                             socketC sData( tinP , *tinP.pEtScratch , TAG( TAGiDnULL ) ) ;
                                         {
                                         else
@@ -264,7 +264,7 @@ DONE( tmFtpServeF )
                         
                                     tinP.pEtScratch->delF( tinP , pstt1w ) ;
                                     }
-                                        else { idPortClient <<= 8 ; idPortClient |= vv ; }
+                                        else { portClient <<= 8 ; portClient |= vv ; }
                                         }
                                             nicNameClient = idh ;
                                             idh |= vv ;
@@ -464,7 +464,7 @@ DONE( tmFtpServeF )
             ZE( socketC* , psoPassiveData ) ;
             ZE( boolT , bClientQuit ) ;
             ZE( strokeS* , psttl ) ;
-            ZE( countT , idPortClient ) ;
+            ZE( countT , portClient ) ;
             nicNameC nicNameClient ;
         
             //tinP.pEtScratch->ifcSayIF( tPrefix+T("client ")+T(nicNamePeer)+T(" \"")+T(psttPeer)+T("\"+") , flSAY_APPEND | flSAY_LOG ) ;

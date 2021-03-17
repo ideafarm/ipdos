@@ -7708,7 +7708,7 @@ typedef voidT (*/*ff*/treeOldCBFT/*ff*/)( tinS& tinP , etherC& etherP , const co
 */
 /**/
 
-/*1*/typedef voidT (*/*ff*/cioGetFT/*ff*/)( tinS& tinP , etherC& etherP , const boolT& bQuitP , const countT idGiftTypeP , soulC*& psGiftP , countT*& pczChannelP , countT& cArgP , const idPortTimeC& idptOriginP ) ;/*1*/    /*ff*//**//*ff*/
+/*1*/typedef voidT (*/*ff*/cioGetFT/*ff*/)( tinS& tinP , etherC& etherP , const boolT& bQuitP , const countT idGiftTypeP , soulC*& psGiftP , countT*& pczChannelP , countT& cArgP , const portTimeC& idptOriginP ) ;/*1*/    /*ff*//**//*ff*/
 
 
 //
@@ -18835,7 +18835,7 @@ it is illegal to refer to this symbol anywhere except in napkinC definitions
 //
 
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.nicNameC : 1snip.15000033.nicnamec END
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.idPortC : 1snip.15000080.idportc BEGIN
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.portC : 1snip.15000080.idportc BEGIN
 
 
 //
@@ -18851,7 +18851,7 @@ it is illegal to refer to this symbol anywhere except in napkinC definitions
 
 //A: ASSUME: idPort IS NONZE IFF idPort,nn IS VALID
 
-/*1*/class _export idPortC/*1*/
+/*1*/class _export portC/*1*/
 {
  protected :
 
@@ -18866,56 +18866,56 @@ it is illegal to refer to this symbol anywhere except in napkinC definitions
 
 /* birth , death */
  NEWdELcLASSpROTOS
- idPortC( voidT ) ;
- //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34002.idPortC.idPortC!||
- idPortC( const countT idPortP ) ;
- //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34003.idPortC.idPortC!||
+ portC( voidT ) ;
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34002.portC.portC!||
+ portC( const countT idPortP ) ;
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34003.portC.portC!||
 
  /*soixlOld*/
  voidT operator <<( soulC& slP ) ;
- //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34004.idPortC.operator_shiftLeft!||
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34004.portC.operator_shiftLeft!||
  voidT operator >>( soulC& slP ) const ;
- //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34005.idPortC.operator_shiftRight!||
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34005.portC.operator_shiftRight!||
 
 /* operators */
  operator countT( voidT ) const ;
- //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400c.idPortC.operator_countT!||
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400c.portC.operator_countT!||
  operator countT&( voidT ) ;
- //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34006.idPortC.operator_countT_ref!||
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34006.portC.operator_countT_ref!||
  operator nicNameC( voidT ) const ;
- //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400d.idPortC.operator_nicNameC!||
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400d.portC.operator_nicNameC!||
  operator nicNameC&( voidT ) ;
- //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34007.idPortC.operator_nicNameC_ref!||
- sCountT operator -( const idPortC& idPortP ) const ;
- //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34016.idPortC.operator_subtract!||
- boolT operator ==( const idPortC& idPortP ) const ;
- //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34012.idPortC.operator_equals!||
- boolT operator !=( const idPortC& idPortP ) const ;
- //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34013.idPortC.operator_notEquals!||
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34007.portC.operator_nicNameC_ref!||
+ sCountT operator -( const portC& idPortP ) const ;
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34016.portC.operator_subtract!||
+ boolT operator ==( const portC& idPortP ) const ;
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34012.portC.operator_equals!||
+ boolT operator !=( const portC& idPortP ) const ;
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34013.portC.operator_notEquals!||
  boolT operator ==( const nicNameC& nnP ) const ;
- //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34008.idPortC.operator_equals!||
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34008.portC.operator_equals!||
  boolT operator !=( const nicNameC& nnP ) const ;
- //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34009.idPortC.operator_notEquals!||
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34009.portC.operator_notEquals!||
  boolT operator ==( const countT idPortP ) const ;
- //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400a.idPortC.operator_equals!||
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400a.portC.operator_equals!||
  boolT operator !=( const countT idPortP ) const ;
- //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400b.idPortC.operator_notEquals!||
- boolT operator <( const idPortC& idPortP ) const ;
- //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400e.idPortC.operator_less!||
- boolT operator <=( const idPortC& idPortP ) const ;
- //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400f.idPortC.operator_lessOrEqual!||
- boolT operator >=( const idPortC& idPortP ) const ;
- //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34010.idPortC.operator_greaterOrEqual!||
- boolT operator >( const idPortC& idPortP ) const ;
- //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34011.idPortC.operator_greater!||
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400b.portC.operator_notEquals!||
+ boolT operator <( const portC& idPortP ) const ;
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400e.portC.operator_less!||
+ boolT operator <=( const portC& idPortP ) const ;
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400f.portC.operator_lessOrEqual!||
+ boolT operator >=( const portC& idPortP ) const ;
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34010.portC.operator_greaterOrEqual!||
+ boolT operator >( const portC& idPortP ) const ;
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34011.portC.operator_greater!||
  voidT operator =( const countT idPortP ) ;
- //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34014.idPortC.operator_assign!||
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34014.portC.operator_assign!||
  voidT operator =( const nicNameC& nnP ) ;
- //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34015.idPortC.operator_assign!||
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34015.portC.operator_assign!||
  static countT cFieldsF( tinS& tinP ) ;
- //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34017.idPortC.cFieldsF!||
- static idPortC fieldF( tinS& tinP , soulC& soulP , const countT idFieldStartP ) ;
- //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34018.idPortC.fieldF!||
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34017.portC.cFieldsF!||
+ static portC fieldF( tinS& tinP , soulC& soulP , const countT idFieldStartP ) ;
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34018.portC.fieldF!||
 /**/
 }
 ;
@@ -18928,8 +18928,8 @@ it is illegal to refer to this symbol anywhere except in napkinC definitions
 // Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
 
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.idPortC : 1snip.15000080.idportc END
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.idPortTimeC : 1snip.15000081.idporttimec BEGIN
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.portC : 1snip.15000080.idportc END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.portTimeC : 1snip.15000081.idporttimec BEGIN
 
 
 //
@@ -18942,46 +18942,46 @@ it is illegal to refer to this symbol anywhere except in napkinC definitions
 /*
 */
 /**/
-/*1*/class _export idPortTimeC : public idPortC/*1*/
+/*1*/class _export portTimeC : public portC/*1*/
 {
     timeS time ;
 
     public :
 
- idPortTimeC( voidT ) ;
- //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34001.idPortTimeC.idPortTimeC!||
+ portTimeC( voidT ) ;
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34001.portTimeC.portTimeC!||
  operator const timeS&( voidT ) const ;
- //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400f.idPortTimeC.operator_timeS_ref!||
- idPortTimeC& operator >>( soulC& soulP ) ;
- //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34002.idPortTimeC.operator_shiftRight!||
- idPortTimeC& operator <<( soulC& soulP ) ;
- //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34003.idPortTimeC.operator_shiftLeft!||
- idPortTimeC& operator =( const idPortTimeC& idptP ) ;
- //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34006.idPortTimeC.operator_assign!||
- idPortTimeC& operator =( const countT idPortP ) ;
- //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34007.idPortTimeC.operator_assign!||
- idPortTimeC& operator =( const sCountT idPortP ) ;
- //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34010.idPortTimeC.operator_assign!||
- idPortTimeC& operator =( const idPortC& idpP ) ;
- //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34005.idPortTimeC.operator_assign!||
- idPortTimeC& operator =( const nicNameC& nnP ) ;
- //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400e.idPortTimeC.operator_assign!||
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400f.portTimeC.operator_timeS_ref!||
+ portTimeC& operator >>( soulC& soulP ) ;
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34002.portTimeC.operator_shiftRight!||
+ portTimeC& operator <<( soulC& soulP ) ;
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34003.portTimeC.operator_shiftLeft!||
+ portTimeC& operator =( const portTimeC& idptP ) ;
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34006.portTimeC.operator_assign!||
+ portTimeC& operator =( const countT idPortP ) ;
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34007.portTimeC.operator_assign!||
+ portTimeC& operator =( const sCountT idPortP ) ;
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34010.portTimeC.operator_assign!||
+ portTimeC& operator =( const portC& idpP ) ;
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34005.portTimeC.operator_assign!||
+ portTimeC& operator =( const nicNameC& nnP ) ;
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400e.portTimeC.operator_assign!||
 
 
- boolT operator ==( const idPortTimeC& idptP ) const ;
- //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34008.idPortTimeC.operator_equals!||
- boolT operator !=( const idPortTimeC& idptP ) const ;
- //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34009.idPortTimeC.operator_notEquals!||
- sCountT operator -( const idPortTimeC& idptP ) const ;
- //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400a.idPortTimeC.operator_minus!||
+ boolT operator ==( const portTimeC& idptP ) const ;
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34008.portTimeC.operator_equals!||
+ boolT operator !=( const portTimeC& idptP ) const ;
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34009.portTimeC.operator_notEquals!||
+ sCountT operator -( const portTimeC& idptP ) const ;
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400a.portTimeC.operator_minus!||
  operator countT( voidT ) const ;
- //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400b.idPortTimeC.operator_countT!||
- static idPortTimeC fieldF( tinS& tinP , soulC& soulP , const countT idFieldStartP ) ;
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400b.portTimeC.operator_countT!||
+ static portTimeC fieldF( tinS& tinP , soulC& soulP , const countT idFieldStartP ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/!||
  voidT timeStampIfF( tinS& tinP , etherC& etThread ) ;
- //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34004.idPortTimeC.timeStampIfF!||
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34004.portTimeC.timeStampIfF!||
  static countT cFieldsF( tinS& tinP ) ;
- //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400d.idPortTimeC.cFieldsF!||
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400d.portTimeC.cFieldsF!||
 
  friend TASKpROTO( tmRelayOldServerOuterF ) ; //U::FOR TEMPORARY DEBUGGING CODE ONLY
 }
@@ -18995,7 +18995,7 @@ it is illegal to refer to this symbol anywhere except in napkinC definitions
 // Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
 
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.idPortTimeC : 1snip.15000081.idporttimec END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.portTimeC : 1snip.15000081.idporttimec END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.lowThreadS : 1snip.15000090.lowthreads BEGIN
 
 
@@ -27072,12 +27072,12 @@ code may use setIfZeAM on *(countT*)this
     countT              idPortListServerEmailIdAccount ; //SET AND MAINTAINED BY ifcIDaDAM_LISTsERVEReMAILiDaCCOUNT
     countT              idPortListServerIdAccountDescription ; //SET AND MAINTAINED BY ifcIDaDAM_LISTsERVERiDaCCOUNTdESCRIPTION
     countT              idPortListMoneyBuckets ; // SET AND MAINTAINED BY ifcIDaDAM_LISTsERVERmONEYbUCKETS
-    countT              idPortCloak ; // SET AND MAINTAINED BY ifcIDaDAM_CLOAK
+    countT              portCloak ; // SET AND MAINTAINED BY ifcIDaDAM_CLOAK
     countT              idPortWatchHttpDeadman1 ; // SET AND MAINTAINED BY ifcIDaDAM_WATCH
     countT              idPortWatchHttpDeadman2 ; // SET AND MAINTAINED BY ifcIDaDAM_WATCH
-    idPortTimeC         idptRelay ; //SET AND MAINTAINED BY b150104 (U::THIS COMMENT PROBABLY IDENTIFIES THE WRONG ADAM)
+    portTimeC         idptRelay ; //SET AND MAINTAINED BY b150104 (U::THIS COMMENT PROBABLY IDENTIFIES THE WRONG ADAM)
     countT              idRank ;
-    idPortC             idpTeat ;
+    portC             idpTeat ;
     countT              cSecretServerRegistrationsSeen ;
     countT              pcSuperRandom[ CCsUPERrANDOM ] ;
     countT              offNextSuperRandom ;
@@ -32662,7 +32662,7 @@ examples
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3410c.etherC.strFromF!||
  voidT strFromF( tinS& tinP , strokeS*& psttP , const byteT* const pbBlobP , const countT cbBlobP , const countT csttExtraP = 0 ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3410e.etherC.strFromF!||
- voidT strFromF( tinS& tinP , strokeS*& psttP , const idPortTimeC& idptP , const flagsT flFormatP = flFORMAT_null , const countT csP = 0 , const countT radixP = 0 , const strokeS* const psttSeparatorP = 0 , const countT csttExtraP = 0 ) ;
+ voidT strFromF( tinS& tinP , strokeS*& psttP , const portTimeC& idptP , const flagsT flFormatP = flFORMAT_null , const countT csP = 0 , const countT radixP = 0 , const strokeS* const psttSeparatorP = 0 , const countT csttExtraP = 0 ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34184.etherC.strFromF!||
  voidT strFromIdPortNicNameF( tinS& tinP , strokeS*& psttP , const countT idPortP = 0 , const nicNameC nicNameP = nicNameC() ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34077.etherC.strFromIdPortNicNameF!||
@@ -33128,7 +33128,7 @@ each textC object contains an unmodifiable string of strokes
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34016.textC.textC!||
  textC( const countT idP , tinS& tinP , const countT idLineCtP , const countT idiFileCtP , const byteT* const pbBitsCtP , const flagsT flagsP = flTEXTc_null ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34017.textC.textC!||
- textC( tinS& tinP , const countT idLineCtP , const countT idiFileCtP , const byteT* const pbBitsCtP , const flagsT flagsP , const idPortTimeC& valueP , const flagsT flagsFormatP = flFORMAT_null , const countT csP = 0 , const countT radixP = 0 ) ;
+ textC( tinS& tinP , const countT idLineCtP , const countT idiFileCtP , const byteT* const pbBitsCtP , const flagsT flagsP , const portTimeC& valueP , const flagsT flagsFormatP = flFORMAT_null , const countT csP = 0 , const countT radixP = 0 ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34018.textC.textC!||
  ~textC( voidT ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34003.textC.dt_textC!||
@@ -33451,7 +33451,7 @@ examples
     countT                  idPhaseTopSecret ;
     countT*                 pczKeyTopSecret ;
     countT*                 pczKeyTopSecretPeer ;
-    idPortTimeC             idptRelayTopSecretPeer ;
+    portTimeC             idptRelayTopSecretPeer ;
     timeS                   timeWothTopSecretPinRequestReceived ;
     timeS                   timeLathTopSecretPinSend ;
 
@@ -37931,7 +37931,7 @@ the only function of this object is to edit tinS::grabPseudo so that the monitor
 
 /*1*/class ag1_relayOldC_C/*1*/
 {
-    idPortTimeC idptHandleAll ;
+    portTimeC idptHandleAll ;
 
     public :
 
@@ -37966,19 +37966,19 @@ the only function of this object is to edit tinS::grabPseudo so that the monitor
 /**/
 
 //P: PERSONALITY COMMENTS DOCUMENT "PERSONALITY" ASPECTS OF RELAYS
-//S: SPEC: MOST CODE MANIPULATES idPortTimeC (TIMED idPortC), RATHER THAN idPortC, TO ENHANCE CONVERGENCE AND KEEP CODE SIMPLE
+//S: SPEC: MOST CODE MANIPULATES portTimeC (TIMED portC), RATHER THAN portC, TO ENHANCE CONVERGENCE AND KEEP CODE SIMPLE
 
 /*1*/class _export relayOldC/*1*/
 {
- static boolT handleUnregisterIF( tinS& tinP , idPortTimeC idptMeP , const countT* const pczChannelP = 0 ) ;
+ static boolT handleUnregisterIF( tinS& tinP , portTimeC idptMeP , const countT* const pczChannelP = 0 ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34002.relayOldC.handleUnregisterIF!||
- static boolT handleRegisterMeIfIF( tinS& tinP , idPortTimeC idptMeP , const countT* const pczChannelP = 0 ) ;
+ static boolT handleRegisterMeIfIF( tinS& tinP , portTimeC idptMeP , const countT* const pczChannelP = 0 ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34003.relayOldC.handleRegisterMeIfIF!||
- static boolT handleRefreshTimeStampIF( tinS& tinP , idPortTimeC idptMeP , const countT* const pczChannelP = 0 ) ;
+ static boolT handleRefreshTimeStampIF( tinS& tinP , portTimeC idptMeP , const countT* const pczChannelP = 0 ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34004.relayOldC.handleRefreshTimeStampIF!||
- static idPortTimeC handleQueryIF( tinS& tinP , const countT* const pczChannelP = 0 ) ;
+ static portTimeC handleQueryIF( tinS& tinP , const countT* const pczChannelP = 0 ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34005.relayOldC.handleQueryIF!||
- static voidT hdrBagIF( tinS& tinP , soulC& sBagP , idPortTimeC& idptP , countT& idSerialLathHeaderP , const flagsT flagsP , const countT idTypeP ) ;
+ static voidT hdrBagIF( tinS& tinP , soulC& sBagP , portTimeC& idptP , countT& idSerialLathHeaderP , const flagsT flagsP , const countT idTypeP ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34006.relayOldC.hdrBagIF!||
  static voidT sortOpenIF( tinS& tinP , stackC& stIdptOpenP , stackC& stIdptGossipP , stackC& stIdptTempP ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34007.relayOldC.sortOpenIF!||
@@ -37986,25 +37986,25 @@ the only function of this object is to edit tinS::grabPseudo so that the monitor
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34008.relayOldC.myListIF!||
  static countT hisListIF( tinS& tinP , stackC& stP , soulC& soulP , stackC& stIdptGossipP , countT& idFieldP ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34009.relayOldC.hisListIF!||
- static voidT popIF( tinS& tinP , stackC* pStPop0P , stackC* pStPop1P , stackC* pStPop2P , stackC* pStPop3P , stackC* pStPop4P , soulC& sBagP , stackC& stIdptOpenP , stackC& stIdptGossipP , idPortTimeC& idptP , const boolT bDudP = 0 ) ;
+ static voidT popIF( tinS& tinP , stackC* pStPop0P , stackC* pStPop1P , stackC* pStPop2P , stackC* pStPop3P , stackC* pStPop4P , soulC& sBagP , stackC& stIdptOpenP , stackC& stIdptGossipP , portTimeC& idptP , const boolT bDudP = 0 ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400a.relayOldC.popIF!||
  static voidT idWorkInvertIF( tinS& tinP , countT& idWorkInvert1P , countT& idWorkInvert2P , const countT idWorkP ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400b.relayOldC.idWorkInvertIF!||
- static boolT bListedIF( tinS& tinP , stackC& stIdptOpenP , stackC& stIdptGossipP , const idPortTimeC& idptP ) ;
+ static boolT bListedIF( tinS& tinP , stackC& stIdptOpenP , stackC& stIdptGossipP , const portTimeC& idptP ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400c.relayOldC.bListedIF!||
- static voidT idptSelectPeerIF( tinS& tinP , idPortTimeC& idptPeerP , stackC& stIdptOpenP , idPortTimeC& idptP , stackC& stIdptGossipP , const countT idMyWorkP , const flagsT flagsP = flSELECTpEER_null ) ;
+ static voidT idptSelectPeerIF( tinS& tinP , portTimeC& idptPeerP , stackC& stIdptOpenP , portTimeC& idptP , stackC& stIdptGossipP , const countT idMyWorkP , const flagsT flagsP = flSELECTpEER_null ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400d.relayOldC.idptSelectPeerIF!||
- static voidT idPortTimeClientIF( tinS& tinP , idPortTimeC& idptPeer1P , idPortTimeC& idptPeer2P , stackC& stIdptOpenP , idPortTimeC& idptP , stackC& stIdptGossipP , const countT idHisWorkP ) ;
- //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400e.relayOldC.idPortTimeClientIF!||
- static voidT idPortTimeClientsExpectedIF( tinS& tinP , stackC& stRelayExpectedP , stackC& stIdptOpenP , stackC& stIdptGossipP , idPortTimeC& idptP , const countT idWorkP = 0 ) ;
- //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400f.relayOldC.idPortTimeClientsExpectedIF!||
- static idPortTimeC gossipIfIF( tinS& tinP , countT& idSerialLathHeaderP , stackC* const pStPop0P , stackC* const pStPop1P , stackC* const pStPop2P , stackC* const pStPop3P , stackC* const pStPop4P , stackC& stIdptOpenP , stackC& stIdptGossipP , stackC& stIdptTempP , stackC& stRelayAbsentP , idPortTimeC& idptGossipP , idPortTimeC& idptP , const countT idWorkP ) ;
+ static voidT portTimeClientIF( tinS& tinP , portTimeC& idptPeer1P , portTimeC& idptPeer2P , stackC& stIdptOpenP , portTimeC& idptP , stackC& stIdptGossipP , const countT idHisWorkP ) ;
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400e.relayOldC.portTimeClientIF!||
+ static voidT portTimeClientsExpectedIF( tinS& tinP , stackC& stRelayExpectedP , stackC& stIdptOpenP , stackC& stIdptGossipP , portTimeC& idptP , const countT idWorkP = 0 ) ;
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400f.relayOldC.portTimeClientsExpectedIF!||
+ static portTimeC gossipIfIF( tinS& tinP , countT& idSerialLathHeaderP , stackC* const pStPop0P , stackC* const pStPop1P , stackC* const pStPop2P , stackC* const pStPop3P , stackC* const pStPop4P , stackC& stIdptOpenP , stackC& stIdptGossipP , stackC& stIdptTempP , stackC& stRelayAbsentP , portTimeC& idptGossipP , portTimeC& idptP , const countT idWorkP ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34010.relayOldC.gossipIfIF!||
- static boolT testIF( tinS& tinP , idPortTimeC& idptP , countT& idSerialLathHeaderP , idPortTimeC& idptTestP ) ;
+ static boolT testIF( tinS& tinP , portTimeC& idptP , countT& idSerialLathHeaderP , portTimeC& idptTestP ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34011.relayOldC.testIF!||
- static voidT helloToHandleIF( tinS& tinP , idPortTimeC& idptP , countT& idSerialLathHeaderP ) ;
+ static voidT helloToHandleIF( tinS& tinP , portTimeC& idptP , countT& idSerialLathHeaderP ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34012.relayOldC.helloToHandleIF!||
- static voidT doWrapLocallyIfIF( tinS& tinP , etherC& etThread , RELAYiNFOpARMS , const byteT* const pbsWrapP , const idPortTimeC& idptOriginP , const countT idPhaseP = 0 ) ;
+ static voidT doWrapLocallyIfIF( tinS& tinP , etherC& etThread , RELAYiNFOpARMS , const byteT* const pbsWrapP , const portTimeC& idptOriginP , const countT idPhaseP = 0 ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34013.relayOldC.doWrapLocallyIfIF!||
 
  public :
@@ -39966,7 +39966,7 @@ base class to make a derived class of objects easily contained by a stackC objec
     flagsT                          _thirdC_flagsProcessState ;
     countT                          _tinS_idTinLath ;
     //boolT                         bGo ;       //REMOVE IN PRODUCTION
-    const countT                    cb_idPortTimeC_ ; //THIS IS USED TO AVOID COMPILER WARNINGS FOR sizeof(  ) CALLED FOR baseSoilXxxxC DERIVED CLASS
+    const countT                    cb_portTimeC_ ; //THIS IS USED TO AVOID COMPILER WARNINGS FOR sizeof(  ) CALLED FOR baseSoilXxxxC DERIVED CLASS
     const countT                    cb_nicNameC_ ; //THIS IS USED TO AVOID COMPILER WARNINGS FOR sizeof(  ) CALLED FOR baseSoilXxxxC DERIVED CLASS
     const countT                    ccPrime ;
     countT                          ccValidFlags ;

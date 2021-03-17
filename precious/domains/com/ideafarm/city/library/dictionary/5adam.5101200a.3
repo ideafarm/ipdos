@@ -23,7 +23,7 @@
     if( !pczChannelP )
     ZE( boolT , bOk ) ;
 {
-/*1*/boolT nodeOldC::handleUnregisterIF( tinS& tinP , idPortTimeC idptMeP , const countT* const pczChannelP )/*1*/
+/*1*/boolT nodeOldC::handleUnregisterIF( tinS& tinP , portTimeC idptMeP , const countT* const pczChannelP )/*1*/
 /**/
 */
 /*
@@ -60,7 +60,7 @@
     if( !pczChannelP )
     ZE( boolT , bOk ) ;
 {
-/*1*/boolT nodeOldC::handleRegisterMeIfIF( tinS& tinP , idPortTimeC idptMeP , const countT* const pczChannelP )/*1*/
+/*1*/boolT nodeOldC::handleRegisterMeIfIF( tinS& tinP , portTimeC idptMeP , const countT* const pczChannelP )/*1*/
 /**/
 */
 /*
@@ -96,7 +96,7 @@
     if( !pczChannelP )
     ZE( boolT , bOk ) ;
 {
-/*1*/boolT nodeOldC::handleRefreshTimeStampIF( tinS& tinP , idPortTimeC idptMeP , const countT* const pczChannelP )/*1*/
+/*1*/boolT nodeOldC::handleRefreshTimeStampIF( tinS& tinP , portTimeC idptMeP , const countT* const pczChannelP )/*1*/
 /**/
 */
 /*
@@ -168,9 +168,9 @@
     //    pGrabHandleAll->grabF( tinP , TAG( TAGiDnULL ) ) ;
     //{
     //if( !pczChannelP )
-    idPortTimeC idpth ;
+    portTimeC idpth ;
 {
-/*1*/idPortTimeC nodeOldC::handleQueryIF( tinS& tinP , const countT* const pczChannelP )/*1*/
+/*1*/portTimeC nodeOldC::handleQueryIF( tinS& tinP , const countT* const pczChannelP )/*1*/
 /**/
 */
 /*
@@ -199,7 +199,7 @@
     /* 5   */ sBagP << (countT)( 1 + incv02AM( idSerialLathHeaderP ) ) ;
     /* 1-4 */ idptP >> sBagP ;
 {
-/*1*/voidT nodeOldC::hdrBagIF( tinS& tinP , soulC& sBagP , idPortTimeC& idptP , countT& idSerialLathHeaderP , const flagsT flagsP , const countT idTypeP )/*1*/
+/*1*/voidT nodeOldC::hdrBagIF( tinS& tinP , soulC& sBagP , portTimeC& idptP , countT& idSerialLathHeaderP , const flagsT flagsP , const countT idTypeP )/*1*/
 /**/
 */
 /*
@@ -226,7 +226,7 @@
         while( !stIdptOpenP.third && ~hDown ) ;
         }
             stIdptOpenP.sinkF( tinP , countTC() , (byteT*)&idpt , flSTACKsINK_UNIQUE , subtractIdPortTimesF , (countT)&stIdptGossipP ) ;
-            idPortTimeC& idpt = *(idPortTimeC*)&stIdptTempP.downF( tinP , hDown ) ;
+            portTimeC& idpt = *(portTimeC*)&stIdptTempP.downF( tinP , hDown ) ;
         {
         do
         handleC hDown( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_STACKwALK ) ;
@@ -237,7 +237,7 @@
         while( !stIdptOpenP.third && ~hDown ) ;
         }
             stIdptTempP.sinkF( tinP , countTC() , (byteT*)&idpt , flSTACKsINK_UNIQUE , subtractIdPortTimesF , (countT)&stIdptGossipP ) ;
-            idPortTimeC& idpt = *(idPortTimeC*)&stIdptOpenP.downF( tinP , hDown ) ;
+            portTimeC& idpt = *(portTimeC*)&stIdptOpenP.downF( tinP , hDown ) ;
         {
         do
         handleC hDown( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_STACKwALK ) ;
@@ -270,7 +270,7 @@
     stRelayP.ungrabF( tinP ) ;
     }
         while( !stRelayP.third && ~hDown ) ;
-        do *(idPortTimeC*)&stRelayP.downF( tinP , hDown ) >> soulP ;
+        do *(portTimeC*)&stRelayP.downF( tinP , hDown ) >> soulP ;
         handleC hDown( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_STACKwALK ) ;
     {
     if( stRelayP )
@@ -303,7 +303,7 @@
     return cRelays ;
     }
         if( idpt ) stP.sinkF( tinP , countTC() , (byteT*)&idpt , flSTACKsINK_UNIQUE , subtractIdPortTimesF , &stP == &stIdptGossipP ? - 1 : (countT)&stIdptGossipP ) ;
-        idPortTimeC idpt = idPortTimeC::fieldF( tinP , soulP , idFieldP ) ; idFieldP += idPortTimeC::cFieldsF( tinP ) ;
+        portTimeC idpt = portTimeC::fieldF( tinP , soulP , idFieldP ) ; idFieldP += portTimeC::cFieldsF( tinP ) ;
     {
     while( cToDo -- )
     }
@@ -444,7 +444,7 @@
                                 }
                                     if( idptTo ) idRankTo = stIdptOpenP( (byteT*)&idptTo , subtractIdPortTimesF , (countT)&stIdptGossipP ) ;
                                     idptTo << *psTo ;
-                                    idPortTimeC idptTo ;
+                                    portTimeC idptTo ;
                                 {
                                 ZE( countT , idRankTo ) ;
                             {
@@ -581,7 +581,7 @@
     {
     IFsCRATCH
 {
-/*1*/voidT nodeOldC::popIF( tinS& tinP , stackC* pStPop0P , stackC* pStPop1P , stackC* pStPop2P , stackC* pStPop3P , stackC* pStPop4P , soulC& sBagP , stackC& stIdptOpenP , stackC& stIdptGossipP , idPortTimeC& idptP , const boolT bDudP )/*1*/
+/*1*/voidT nodeOldC::popIF( tinS& tinP , stackC* pStPop0P , stackC* pStPop1P , stackC* pStPop2P , stackC* pStPop3P , stackC* pStPop4P , soulC& sBagP , stackC& stIdptOpenP , stackC& stIdptGossipP , portTimeC& idptP , const boolT bDudP )/*1*/
 
 //
 //  n: (2**n)*x ................ (2**n)*x+(2**(n-1))-1 | (2**n)*x+(2**(n-1)) ............ (2**n)*(x+1)-1
@@ -663,7 +663,7 @@
                 bListed = 1 ;
             {
             if( idpt == idptP ) //THIS LOOKS AT idPort; SINK LOOKS AT TIME
-            idPortTimeC& idpt = *(idPortTimeC*)&stIdptOpenP.downF( tinP , hDown ) ;
+            portTimeC& idpt = *(portTimeC*)&stIdptOpenP.downF( tinP , hDown ) ;
         {
         do
         handleC hDown( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_STACKwALK ) ;
@@ -672,7 +672,7 @@
     ZE( boolT , bListed ) ;
     GRABrELAYlISTS
 {
-/*1*/boolT nodeOldC::bListedIF( tinS& tinP , stackC& stIdptOpenP , stackC& stIdptGossipP , const idPortTimeC& idptP )/*1*/
+/*1*/boolT nodeOldC::bListedIF( tinS& tinP , stackC& stIdptOpenP , stackC& stIdptGossipP , const portTimeC& idptP )/*1*/
 /**/
 */
 /*
@@ -698,10 +698,10 @@
 
     }
         }
-            case IDtYPErELAYpOPcLIENTwORK_EXPLODE1 : { idPortTimeC nt ; idptSelectPeerIF( tinP , nt , stIdptOpenP , idptP , stIdptGossipP , IDtYPErELAYpOPcLIENTwORK_IMPLODE  , flSELECTpEER_DUPLICATEiSoK ) ; if( idptPeerP == nt ) idptPeerP = 0 ; }
-            case IDtYPErELAYpOPcLIENTwORK_EXPLODE2 : { idPortTimeC nt ; idptSelectPeerIF( tinP , nt , stIdptOpenP , idptP , stIdptGossipP , IDtYPErELAYpOPcLIENTwORK_EXPLODE1 , flSELECTpEER_DUPLICATEiSoK ) ; if( idptPeerP == nt ) idptPeerP = 0 ; }
-            case IDtYPErELAYpOPcLIENTwORK_LEFT     : { idPortTimeC nt ; idptSelectPeerIF( tinP , nt , stIdptOpenP , idptP , stIdptGossipP , IDtYPErELAYpOPcLIENTwORK_EXPLODE2 , flSELECTpEER_DUPLICATEiSoK ) ; if( idptPeerP == nt ) idptPeerP = 0 ; }
-            case IDtYPErELAYpOPcLIENTwORK_RIGHT    : { idPortTimeC nt ; idptSelectPeerIF( tinP , nt , stIdptOpenP , idptP , stIdptGossipP , IDtYPErELAYpOPcLIENTwORK_LEFT     , flSELECTpEER_DUPLICATEiSoK ) ; if( idptPeerP == nt ) idptPeerP = 0 ; }
+            case IDtYPErELAYpOPcLIENTwORK_EXPLODE1 : { portTimeC nt ; idptSelectPeerIF( tinP , nt , stIdptOpenP , idptP , stIdptGossipP , IDtYPErELAYpOPcLIENTwORK_IMPLODE  , flSELECTpEER_DUPLICATEiSoK ) ; if( idptPeerP == nt ) idptPeerP = 0 ; }
+            case IDtYPErELAYpOPcLIENTwORK_EXPLODE2 : { portTimeC nt ; idptSelectPeerIF( tinP , nt , stIdptOpenP , idptP , stIdptGossipP , IDtYPErELAYpOPcLIENTwORK_EXPLODE1 , flSELECTpEER_DUPLICATEiSoK ) ; if( idptPeerP == nt ) idptPeerP = 0 ; }
+            case IDtYPErELAYpOPcLIENTwORK_LEFT     : { portTimeC nt ; idptSelectPeerIF( tinP , nt , stIdptOpenP , idptP , stIdptGossipP , IDtYPErELAYpOPcLIENTwORK_EXPLODE2 , flSELECTpEER_DUPLICATEiSoK ) ; if( idptPeerP == nt ) idptPeerP = 0 ; }
+            case IDtYPErELAYpOPcLIENTwORK_RIGHT    : { portTimeC nt ; idptSelectPeerIF( tinP , nt , stIdptOpenP , idptP , stIdptGossipP , IDtYPErELAYpOPcLIENTwORK_LEFT     , flSELECTpEER_DUPLICATEiSoK ) ; if( idptPeerP == nt ) idptPeerP = 0 ; }
         {
         switch( idMyWorkP ) // idptP IS SET IFF A DISTINCT RELAY EXISTS
     {
@@ -709,14 +709,14 @@
 
     }
         }
-            case  IDtYPErELAYpOPcLIENTwORK_RIGHT    : {                                    idptPeerP = cRelays > 1 ? *(idPortTimeC*)&stIdptOpenP[ ideMe < cRelays ? ideMe + 1 : 1       ] : idptNull ; break ; }
-            case  IDtYPErELAYpOPcLIENTwORK_LEFT     : {                                    idptPeerP = cRelays > 1 ? *(idPortTimeC*)&stIdptOpenP[ ideMe > 1       ? ideMe - 1 : cRelays ] : idptNull ; break ; }
-            case  IDtYPErELAYpOPcLIENTwORK_EXPLODE2 : { if( stIdptOpenP >= ideMe * 2 + 1 ) idptPeerP =               *(idPortTimeC*)&stIdptOpenP[ ideMe * 2 + 1                         ]            ; break ; }
-            case  IDtYPErELAYpOPcLIENTwORK_EXPLODE1 : { if( stIdptOpenP >= ideMe * 2     ) idptPeerP =               *(idPortTimeC*)&stIdptOpenP[ ideMe * 2                             ]            ; break ; }
-            case  IDtYPErELAYpOPcLIENTwORK_IMPLODE  : { if(           1 != ideMe         ) idptPeerP =               *(idPortTimeC*)&stIdptOpenP[ ideMe / 2                             ]            ; break ; }
+            case  IDtYPErELAYpOPcLIENTwORK_RIGHT    : {                                    idptPeerP = cRelays > 1 ? *(portTimeC*)&stIdptOpenP[ ideMe < cRelays ? ideMe + 1 : 1       ] : idptNull ; break ; }
+            case  IDtYPErELAYpOPcLIENTwORK_LEFT     : {                                    idptPeerP = cRelays > 1 ? *(portTimeC*)&stIdptOpenP[ ideMe > 1       ? ideMe - 1 : cRelays ] : idptNull ; break ; }
+            case  IDtYPErELAYpOPcLIENTwORK_EXPLODE2 : { if( stIdptOpenP >= ideMe * 2 + 1 ) idptPeerP =               *(portTimeC*)&stIdptOpenP[ ideMe * 2 + 1                         ]            ; break ; }
+            case  IDtYPErELAYpOPcLIENTwORK_EXPLODE1 : { if( stIdptOpenP >= ideMe * 2     ) idptPeerP =               *(portTimeC*)&stIdptOpenP[ ideMe * 2                             ]            ; break ; }
+            case  IDtYPErELAYpOPcLIENTwORK_IMPLODE  : { if(           1 != ideMe         ) idptPeerP =               *(portTimeC*)&stIdptOpenP[ ideMe / 2                             ]            ; break ; }
         {
         switch( idMyWorkP ) // idptP IS SET IFF A DISTINCT RELAY EXISTS
-        idPortTimeC idptNull ;
+        portTimeC idptNull ;
     {
     if( ideMe )
 
@@ -731,7 +731,7 @@
                     bFound = 1 ;
                 {
                 if( idpt == idptP ) //THIS LOOKS AT idPort; SINK LOOKS AT TIME
-                idPortTimeC& idpt = *(idPortTimeC*)&stIdptOpenP.downF( tinP , hDown ) ;
+                portTimeC& idpt = *(portTimeC*)&stIdptOpenP.downF( tinP , hDown ) ;
                 ideMe ++ ;
             {
             do
@@ -748,7 +748,7 @@
             while( !stIdptOpenP.third && ~hDown ) ;
             }
                 tinP.pEther->traceF( tinP , T("idptSelectPeerIF: open [idPlate,idpt]:    ")+TF2(++idPlate,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+T((nicNameC&)idpt)+T(" ( ")+TF2((countT)idpt,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T(" )") ) ; //U:: TO FIND A BUG
-                idPortTimeC& idpt = *(idPortTimeC*)&stIdptOpenP.downF( tinP , hDown ) ;
+                portTimeC& idpt = *(portTimeC*)&stIdptOpenP.downF( tinP , hDown ) ;
             {
             do
             handleC hDown( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_STACKwALK ) ;
@@ -765,7 +765,7 @@
             while( !stIdptGossipP.third && ~hDown ) ;
             }
                 tinP.pEther->traceF( tinP , T("idptSelectPeerIF: gossip [idPlate,idpt]:    ")+TF2(++idPlate,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+T((nicNameC&)idpt)+T(" ( ")+TF2((countT)idpt,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T(" )") ) ; //U:: TO FIND A BUG
-                idPortTimeC& idpt = *(idPortTimeC*)&stIdptGossipP.downF( tinP , hDown ) ;
+                portTimeC& idpt = *(portTimeC*)&stIdptGossipP.downF( tinP , hDown ) ;
             {
             do
             handleC hDown( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_STACKwALK ) ;
@@ -793,7 +793,7 @@
     {
     IFbEcAREFUL
 {
-/*1*/voidT nodeOldC::idptSelectPeerIF( tinS& tinP , idPortTimeC& idptPeerP , stackC& stIdptOpenP , idPortTimeC& idptP , stackC& stIdptGossipP , const countT idMyWorkP , const flagsT flagsP )/*1*/
+/*1*/voidT nodeOldC::idptSelectPeerIF( tinS& tinP , portTimeC& idptPeerP , stackC& stIdptOpenP , portTimeC& idptP , stackC& stIdptGossipP , const countT idMyWorkP , const flagsT flagsP )/*1*/
 /**/
 */
 /*
@@ -818,14 +818,14 @@
     UNGRABrELAYlISTS
     }
         }
-            case  IDtYPErELAYpOPcLIENTwORK_RIGHT    : {                                idptPeer1P = cRelays > 1 ? *(idPortTimeC*)&stIdptOpenP[ ideMe > 1      ? ideMe - 1 : cRelays ] : idptNull ; break ; }
-            case  IDtYPErELAYpOPcLIENTwORK_LEFT     : {                                idptPeer1P = cRelays > 1 ? *(idPortTimeC*)&stIdptOpenP[ ideMe < cRelays ? ideMe + 1 : 1      ] : idptNull ; break ; }
-            case  IDtYPErELAYpOPcLIENTwORK_EXPLODE2 : { if( 1 < ideMe                ) idptPeer1P =              *(idPortTimeC*)&stIdptOpenP[ ideMe / 2                           ]            ; break ; }
+            case  IDtYPErELAYpOPcLIENTwORK_RIGHT    : {                                idptPeer1P = cRelays > 1 ? *(portTimeC*)&stIdptOpenP[ ideMe > 1      ? ideMe - 1 : cRelays ] : idptNull ; break ; }
+            case  IDtYPErELAYpOPcLIENTwORK_LEFT     : {                                idptPeer1P = cRelays > 1 ? *(portTimeC*)&stIdptOpenP[ ideMe < cRelays ? ideMe + 1 : 1      ] : idptNull ; break ; }
+            case  IDtYPErELAYpOPcLIENTwORK_EXPLODE2 : { if( 1 < ideMe                ) idptPeer1P =              *(portTimeC*)&stIdptOpenP[ ideMe / 2                           ]            ; break ; }
             case  IDtYPErELAYpOPcLIENTwORK_EXPLODE1 :
-            case  IDtYPErELAYpOPcLIENTwORK_IMPLODE  : { if( stIdptOpenP >= ideMe * 2 ) idptPeer1P =              *(idPortTimeC*)&stIdptOpenP[ ideMe * 2                           ]            ; if( stIdptOpenP >= ideMe * 2 + 1 ) idptPeer2P = *(idPortTimeC*)&stIdptOpenP[ ideMe * 2 + 1 ] ; break ; }
+            case  IDtYPErELAYpOPcLIENTwORK_IMPLODE  : { if( stIdptOpenP >= ideMe * 2 ) idptPeer1P =              *(portTimeC*)&stIdptOpenP[ ideMe * 2                           ]            ; if( stIdptOpenP >= ideMe * 2 + 1 ) idptPeer2P = *(portTimeC*)&stIdptOpenP[ ideMe * 2 + 1 ] ; break ; }
         {
         switch( idHisWorkP ) // idptP IS SET IFF A DISTINCT RELAY EXISTS
-        idPortTimeC idptNull ;
+        portTimeC idptNull ;
     {
     if( ideMe )
     countT ideMe = stIdptOpenP( (byteT*)&idptP , subtractIdPortTimesF , (countT)&stIdptGossipP ) ;
@@ -836,9 +836,9 @@
     if( stIdptOpenP.third ) { BLAMMO ; }
     if( idptPeer2P ) { BLAMMO ; }
     if( idptPeer1P ) { BLAMMO ; }
-    _IO_     TLNA( "idPortTimeClientIF" )
+    _IO_     TLNA( "portTimeClientIF" )
 {
-/*1*/voidT nodeOldC::idPortTimeClientIF( tinS& tinP , idPortTimeC& idptPeer1P , idPortTimeC& idptPeer2P , stackC& stIdptOpenP , idPortTimeC& idptP , stackC& stIdptGossipP , const countT idHisWorkP )/*1*/
+/*1*/voidT nodeOldC::portTimeClientIF( tinS& tinP , portTimeC& idptPeer1P , portTimeC& idptPeer2P , stackC& stIdptOpenP , portTimeC& idptP , stackC& stIdptGossipP , const countT idHisWorkP )/*1*/
 /**/
 */
 /*
@@ -861,11 +861,11 @@
 
 }
     }
-        { idPortTimeC n1 ; idPortTimeC n2 ; idPortTimeClientIF( tinP , n1 , n2 , stIdptOpenP , idptP , stIdptGossipP , IDtYPErELAYpOPcLIENTwORK_RIGHT    ) ; if( n1 ) stRelayExpectedP.sinkF( tinP , countTC() , (byteT*)&n1 , flSTACKsINK_UNIQUE , subtractIdPortTimesF , - 1 ) ; if( n2 ) stRelayExpectedP.sinkF( tinP , countTC() , (byteT*)&n2 , flSTACKsINK_UNIQUE , subtractIdPortTimesF , - 1 ) ; }
-        { idPortTimeC n1 ; idPortTimeC n2 ; idPortTimeClientIF( tinP , n1 , n2 , stIdptOpenP , idptP , stIdptGossipP , IDtYPErELAYpOPcLIENTwORK_LEFT     ) ; if( n1 ) stRelayExpectedP.sinkF( tinP , countTC() , (byteT*)&n1 , flSTACKsINK_UNIQUE , subtractIdPortTimesF , - 1 ) ; if( n2 ) stRelayExpectedP.sinkF( tinP , countTC() , (byteT*)&n2 , flSTACKsINK_UNIQUE , subtractIdPortTimesF , - 1 ) ; }
-        { idPortTimeC n1 ; idPortTimeC n2 ; idPortTimeClientIF( tinP , n1 , n2 , stIdptOpenP , idptP , stIdptGossipP , IDtYPErELAYpOPcLIENTwORK_EXPLODE2 ) ; if( n1 ) stRelayExpectedP.sinkF( tinP , countTC() , (byteT*)&n1 , flSTACKsINK_UNIQUE , subtractIdPortTimesF , - 1 ) ; if( n2 ) stRelayExpectedP.sinkF( tinP , countTC() , (byteT*)&n2 , flSTACKsINK_UNIQUE , subtractIdPortTimesF , - 1 ) ; }
-        { idPortTimeC n1 ; idPortTimeC n2 ; idPortTimeClientIF( tinP , n1 , n2 , stIdptOpenP , idptP , stIdptGossipP , IDtYPErELAYpOPcLIENTwORK_EXPLODE1 ) ; if( n1 ) stRelayExpectedP.sinkF( tinP , countTC() , (byteT*)&n1 , flSTACKsINK_UNIQUE , subtractIdPortTimesF , - 1 ) ; if( n2 ) stRelayExpectedP.sinkF( tinP , countTC() , (byteT*)&n2 , flSTACKsINK_UNIQUE , subtractIdPortTimesF , - 1 ) ; }
-        { idPortTimeC n1 ; idPortTimeC n2 ; idPortTimeClientIF( tinP , n1 , n2 , stIdptOpenP , idptP , stIdptGossipP , IDtYPErELAYpOPcLIENTwORK_IMPLODE  ) ; if( n1 ) stRelayExpectedP.sinkF( tinP , countTC() , (byteT*)&n1 , flSTACKsINK_UNIQUE , subtractIdPortTimesF , - 1 ) ; if( n2 ) stRelayExpectedP.sinkF( tinP , countTC() , (byteT*)&n2 , flSTACKsINK_UNIQUE , subtractIdPortTimesF , - 1 ) ; }
+        { portTimeC n1 ; portTimeC n2 ; portTimeClientIF( tinP , n1 , n2 , stIdptOpenP , idptP , stIdptGossipP , IDtYPErELAYpOPcLIENTwORK_RIGHT    ) ; if( n1 ) stRelayExpectedP.sinkF( tinP , countTC() , (byteT*)&n1 , flSTACKsINK_UNIQUE , subtractIdPortTimesF , - 1 ) ; if( n2 ) stRelayExpectedP.sinkF( tinP , countTC() , (byteT*)&n2 , flSTACKsINK_UNIQUE , subtractIdPortTimesF , - 1 ) ; }
+        { portTimeC n1 ; portTimeC n2 ; portTimeClientIF( tinP , n1 , n2 , stIdptOpenP , idptP , stIdptGossipP , IDtYPErELAYpOPcLIENTwORK_LEFT     ) ; if( n1 ) stRelayExpectedP.sinkF( tinP , countTC() , (byteT*)&n1 , flSTACKsINK_UNIQUE , subtractIdPortTimesF , - 1 ) ; if( n2 ) stRelayExpectedP.sinkF( tinP , countTC() , (byteT*)&n2 , flSTACKsINK_UNIQUE , subtractIdPortTimesF , - 1 ) ; }
+        { portTimeC n1 ; portTimeC n2 ; portTimeClientIF( tinP , n1 , n2 , stIdptOpenP , idptP , stIdptGossipP , IDtYPErELAYpOPcLIENTwORK_EXPLODE2 ) ; if( n1 ) stRelayExpectedP.sinkF( tinP , countTC() , (byteT*)&n1 , flSTACKsINK_UNIQUE , subtractIdPortTimesF , - 1 ) ; if( n2 ) stRelayExpectedP.sinkF( tinP , countTC() , (byteT*)&n2 , flSTACKsINK_UNIQUE , subtractIdPortTimesF , - 1 ) ; }
+        { portTimeC n1 ; portTimeC n2 ; portTimeClientIF( tinP , n1 , n2 , stIdptOpenP , idptP , stIdptGossipP , IDtYPErELAYpOPcLIENTwORK_EXPLODE1 ) ; if( n1 ) stRelayExpectedP.sinkF( tinP , countTC() , (byteT*)&n1 , flSTACKsINK_UNIQUE , subtractIdPortTimesF , - 1 ) ; if( n2 ) stRelayExpectedP.sinkF( tinP , countTC() , (byteT*)&n2 , flSTACKsINK_UNIQUE , subtractIdPortTimesF , - 1 ) ; }
+        { portTimeC n1 ; portTimeC n2 ; portTimeClientIF( tinP , n1 , n2 , stIdptOpenP , idptP , stIdptGossipP , IDtYPErELAYpOPcLIENTwORK_IMPLODE  ) ; if( n1 ) stRelayExpectedP.sinkF( tinP , countTC() , (byteT*)&n1 , flSTACKsINK_UNIQUE , subtractIdPortTimesF , - 1 ) ; if( n2 ) stRelayExpectedP.sinkF( tinP , countTC() , (byteT*)&n2 , flSTACKsINK_UNIQUE , subtractIdPortTimesF , - 1 ) ; }
     {
     else
     }
@@ -874,15 +874,15 @@
                 stRelayExpectedP.sinkF( tinP , countTC() , (byteT*)&n1 , flSTACKsINK_UNIQUE , subtractIdPortTimesF , - 1 ) ; if( n2 ) stRelayExpectedP.sinkF( tinP , countTC() , (byteT*)&n2 , flSTACKsINK_UNIQUE , subtractIdPortTimesF , - 1 ) ;
             {
             if( n1 )
-            idPortTimeClientIF( tinP , n1 , n2 , stIdptOpenP , idptP , stIdptGossipP , idWorkP  ) ;
-            idPortTimeC n2 ;
-            idPortTimeC n1 ;
+            portTimeClientIF( tinP , n1 , n2 , stIdptOpenP , idptP , stIdptGossipP , idWorkP  ) ;
+            portTimeC n2 ;
+            portTimeC n1 ;
         {
-        // { idPortTimeC n1 ; idPortTimeC n2 ; idPortTimeClientIF( tinP , n1 , n2 , stIdptOpenP , idptP , stIdptGossipP , idWorkP  ) ; if( n1 ) stRelayExpectedP.sinkF( tinP , countTC() , (byteT*)&n1 , flSTACKsINK_UNIQUE , subtractIdPortTimesF , - 1 ) ; if( n2 ) stRelayExpectedP.sinkF( tinP , countTC() , (byteT*)&n2 , flSTACKsINK_UNIQUE , subtractIdPortTimesF , - 1 ) ; }
+        // { portTimeC n1 ; portTimeC n2 ; portTimeClientIF( tinP , n1 , n2 , stIdptOpenP , idptP , stIdptGossipP , idWorkP  ) ; if( n1 ) stRelayExpectedP.sinkF( tinP , countTC() , (byteT*)&n1 , flSTACKsINK_UNIQUE , subtractIdPortTimesF , - 1 ) ; if( n2 ) stRelayExpectedP.sinkF( tinP , countTC() , (byteT*)&n2 , flSTACKsINK_UNIQUE , subtractIdPortTimesF , - 1 ) ; }
     {
     if( idWorkP )
 {
-/*1*/voidT nodeOldC::idPortTimeClientsExpectedIF( tinS& tinP , stackC& stRelayExpectedP , stackC& stIdptOpenP , stackC& stIdptGossipP , idPortTimeC& idptP , const countT idWorkP )/*1*/
+/*1*/voidT nodeOldC::portTimeClientsExpectedIF( tinS& tinP , stackC& stRelayExpectedP , stackC& stIdptOpenP , stackC& stIdptGossipP , portTimeC& idptP , const countT idWorkP )/*1*/
 /**/
 */
 /*
@@ -925,7 +925,7 @@
                     stIdptGossipP.sinkF( tinP , countTC() , (byteT*)&idptGossipP , flSTACKsINK_UNIQUE , subtractIdPortsF , - 1 ) ;
                 {
                 if( pnRoot && *pnRoot == idptP )
-                idPortTimeC* pnRoot = stIdptOpenP ? (idPortTimeC*)&stIdptOpenP[ 1 ] : 0 ;
+                portTimeC* pnRoot = stIdptOpenP ? (portTimeC*)&stIdptOpenP[ 1 ] : 0 ;
                 idptGossipped = idptGossipP ;
             {
             )
@@ -939,9 +939,9 @@
         case IDtYPErELAYpOPcLIENTwORK_IMPLODE :
     {
     switch( idWorkP )
-    idPortTimeC idptGossipped ;
+    portTimeC idptGossipped ;
 {
-/*1*/idPortTimeC nodeOldC::gossipIfIF( tinS& tinP , countT& idSerialLathHeaderP , stackC* const pStPop0P , stackC* const pStPop1P , stackC* const pStPop2P , stackC* const pStPop3P , stackC* const pStPop4P , stackC& stIdptOpenP , stackC& stIdptGossipP , stackC& stIdptTempP , stackC& stRelayAbsentP , idPortTimeC& idptGossipP , idPortTimeC& idptP , const countT idWorkP )/*1*/
+/*1*/portTimeC nodeOldC::gossipIfIF( tinS& tinP , countT& idSerialLathHeaderP , stackC* const pStPop0P , stackC* const pStPop1P , stackC* const pStPop2P , stackC* const pStPop3P , stackC* const pStPop4P , stackC& stIdptOpenP , stackC& stIdptGossipP , stackC& stIdptTempP , stackC& stRelayAbsentP , portTimeC& idptGossipP , portTimeC& idptP , const countT idWorkP )/*1*/
 /**/
 */
 if idptGossipP is absent and is not already gossipped, then gossip about it
@@ -1003,7 +1003,7 @@ if idptGossipP is absent and is not already gossipped, then gossip about it
     IFsCRATCH
     boolT bOk = 1 ;
 {
-/*1*/boolT nodeOldC::testIF( tinS& tinP , idPortTimeC& idptP , countT& idSerialLathHeaderP , idPortTimeC& idptTestP )/*1*/
+/*1*/boolT nodeOldC::testIF( tinS& tinP , portTimeC& idptP , countT& idSerialLathHeaderP , portTimeC& idptTestP )/*1*/
 /**/
 */
 /*
@@ -1074,13 +1074,13 @@ if idptGossipP is absent and is not already gossipped, then gossip about it
     
             if( !idpthc ) break ;
     
-            idPortTimeC idpthc = handleQueryIF( tinP ) ;
+            portTimeC idpthc = handleQueryIF( tinP ) ;
         {
         for(;;)
     {
     IFsCRATCH
 {
-/*1*/voidT nodeOldC::helloToHandleIF( tinS& tinP , idPortTimeC& idptP , countT& idSerialLathHeaderP )/*1*/
+/*1*/voidT nodeOldC::helloToHandleIF( tinS& tinP , portTimeC& idptP , countT& idSerialLathHeaderP )/*1*/
 /**/
 */
 /*
@@ -1264,7 +1264,7 @@ if idptGossipP is absent and is not already gossipped, then gossip about it
                                 {
                                 if( idptTo == idptP )
                                 idptTo << *psTo ;
-                                idPortTimeC idptTo ;
+                                portTimeC idptTo ;
                             {
                             while( (countT)*psTo )
                             bDo = 0 ;
@@ -1379,7 +1379,7 @@ if idptGossipP is absent and is not already gossipped, then gossip about it
                                 //    etThread.strokeF( tinP , T("patched to ")+TF1(*(countT*)pb_idPort)+T(*(nicNameC*)pb_nn)+T("\r\n") ) ; //U::
                                 //    etThread.strokeF( tinP , T("patched from ")+T(idptm)+T("\r\n") ) ; //U::
                                 //    etThread.strokeF( tinP , T("top plate is ")+T(idptms)+T("\r\n") ) ; //U::
-                                //    idPortTimeC& idptms = *(idPortTimeC*)&swsIdptMediatorP[ 1 ] ;
+                                //    portTimeC& idptms = *(portTimeC*)&swsIdptMediatorP[ 1 ] ;
                                 //    THREADmODE1oN( flTHREADmODE1_ALLOWsTOPwHILEgRABBING )
                                 //{
     
@@ -1403,7 +1403,7 @@ if idptGossipP is absent and is not already gossipped, then gossip about it
                                 if( !idptm )
                                 swsm.randomF( tinP , pb_idptm ) ;
                                 byteT* pb_idptm = (byteT*)&idptm ;
-                                idPortTimeC idptm ;
+                                portTimeC idptm ;
                                 switchStackC& swsm = bAlt ? swsIdptMediatorAltP : swsIdptMediatorP ;
 
                                 ;
@@ -1442,7 +1442,7 @@ if idptGossipP is absent and is not already gossipped, then gossip about it
                         {
                         for(;;)
                         ZE( countT , off ) ;
-                        if( idPortTimeC::cFieldsF( tinP ) - 4 ) { BLAMMO ; }
+                        if( portTimeC::cFieldsF( tinP ) - 4 ) { BLAMMO ; }
     
                         countT idAdamMediator = pczChannel[ 2 ] ;
                     {
@@ -1469,14 +1469,14 @@ if idptGossipP is absent and is not already gossipped, then gossip about it
         {
         if( pnRoot && *pnRoot == idptP )
         UNGRABrELAYlISTS
-        idPortTimeC* pnRoot = stIdptOpenP ? (idPortTimeC*)&stIdptOpenP[ 1 ] : 0 ;
+        portTimeC* pnRoot = stIdptOpenP ? (portTimeC*)&stIdptOpenP[ 1 ] : 0 ;
         GRABrELAYlISTS
     {
     if( !idPhaseP || idPhaseP == 1 )
 
     RELAYiNFOf
 {
-/*1*/voidT nodeOldC::doWrapLocallyIfIF( tinS& tinP , etherC& etThread , RELAYiNFOpARMS , const byteT* const pbsWrapP , const idPortTimeC& idptOriginP , const countT idPhaseP )/*1*/
+/*1*/voidT nodeOldC::doWrapLocallyIfIF( tinS& tinP , etherC& etThread , RELAYiNFOpARMS , const byteT* const pbsWrapP , const portTimeC& idptOriginP , const countT idPhaseP )/*1*/
 
 /**/
 */
@@ -1612,8 +1612,8 @@ if idptGossipP is absent and is not already gossipped, then gossip about it
                         TELL( "setting up 2.4" )
                     
                         }
-                            if( idpthc && NICnAMElOCAL != ((nicNameC&)(idPortC&)idpthc).pcId[ 0 ] ) stIdptOpen.sinkF( tinP , countTC() , (byteT*)&idpthc , flSTACKsINK_UNIQUE , subtractIdPortTimesF , (countT)&stIdptGossip ) ;
-                            idPortTimeC idpthc = handleQueryIF( tinP ) ;
+                            if( idpthc && NICnAMElOCAL != ((nicNameC&)(portC&)idpthc).pcId[ 0 ] ) stIdptOpen.sinkF( tinP , countTC() , (byteT*)&idpthc , flSTACKsINK_UNIQUE , subtractIdPortTimesF , (countT)&stIdptGossip ) ;
+                            portTimeC idpthc = handleQueryIF( tinP ) ;
                         {
                         stIdptOpen.sinkF( tinP , countTC() , (byteT*)&idpt   , flSTACKsINK_UNIQUE , subtractIdPortTimesF , (countT)&stIdptGossip ) ;
                         //P: A NEWBIE CLIENT KNOWS ABOUT ITSELF AND THE HANDLE
@@ -1648,7 +1648,7 @@ if idptGossipP is absent and is not already gossipped, then gossip about it
                     TELL( "waiting for a client to connect" )
                     ZE( socketC* , pso ) ;
         
-                    if( bWoth ) etThread.osThreadF( tinP , countTC() , tmNodeTickleF , 0 , flTHREADlAUNCH_null , 0 , (countT)(idPortC*)&idpt , (countT)&bWoth ) ;
+                    if( bWoth ) etThread.osThreadF( tinP , countTC() , tmNodeTickleF , 0 , flTHREADlAUNCH_null , 0 , (countT)(portC*)&idpt , (countT)&bWoth ) ;
                 {
                 while( !POOP && !ether && !bQuit )
                 ZE( countT , idClient ) ;
@@ -1707,7 +1707,7 @@ if idptGossipP is absent and is not already gossipped, then gossip about it
     
         idpt.timeStampIfF( tinP , etThread ) ;
         idpt = idPort ;
-        idPortTimeC idpt ;
+        portTimeC idpt ;
     
         idPort = socketC::nicNameIF( tinP , etThread ) ;
 
@@ -1718,7 +1718,7 @@ if idptGossipP is absent and is not already gossipped, then gossip about it
                 }
                     idpTry ++ ;
                     etThread.traceF( tinP , T("could not bind to requested port [idPort]:    ")+TF2(idpTry,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
-                    idPort = idPortC() ;
+                    idPort = portC() ;
                     POOPRqUIET
                 {
                 else
@@ -1734,12 +1734,12 @@ if idptGossipP is absent and is not already gossipped, then gossip about it
 
             SCOOPS
         {
-        idPortC idPort ;
+        portC idPort ;
         socketC sListen( tinP , *tinP.pEtScratch , TAG( TAGiDnULL )/*U:: , 0 , flSOCKETc_TOPsECRET*/ ) ;
     {
     IFsCRATCH
 
-    idPortTimeC idptHandle = handleQueryIF( tinP ) ;
+    portTimeC idptHandle = handleQueryIF( tinP ) ;
 
     switchStackC swsWrapRef( tinP , etThread , TAG( TAGiDnULL ) , flSTACKc_null , cLeverPayload , flSTACKc_FIFO|flSTACKc_GIVEsIGNnEWpLATE ) ;
     ZE( countT , cLeverPayload ) ;
@@ -1748,17 +1748,17 @@ if idptGossipP is absent and is not already gossipped, then gossip about it
     ranUniC ruZeWo( tinP , 1 , 1 ) ;
     const countT cKidThreadsSave = tinP.cKidThreads ;
 
-    switchStackC swsIdptMediatorAlt(    tinP , etThread , TAG( TAGiDnULL ) , flSTACKc_null , idAdamMediator , flSTACKc_BLOB , sizeof( idPortTimeC ) ) ;
-    switchStackC swsIdptMediator(       tinP , etThread , TAG( TAGiDnULL ) , flSTACKc_null , idAdamMediator , flSTACKc_BLOB , sizeof( idPortTimeC ) ) ;
+    switchStackC swsIdptMediatorAlt(    tinP , etThread , TAG( TAGiDnULL ) , flSTACKc_null , idAdamMediator , flSTACKc_BLOB , sizeof( portTimeC ) ) ;
+    switchStackC swsIdptMediator(       tinP , etThread , TAG( TAGiDnULL ) , flSTACKc_null , idAdamMediator , flSTACKc_BLOB , sizeof( portTimeC ) ) ;
     ZE( countT , idAdamMediator ) ;
-    stackC stIdptPopClient(             tinP , etThread , TAG( TAGiDnULL ) , flSTACKc_BLOB , sizeof( idPortTimeC ) ) ;
-    stackC stIdptGossip(                tinP , etThread , TAG( TAGiDnULL ) , flSTACKc_BLOB , sizeof( idPortTimeC ) ) ; // { idpt , timeBorn1 , timeBorn2 }, SORTED BY TIME BORN
-    stackC stIdptOpen(                  tinP , etThread , TAG( TAGiDnULL ) , flSTACKc_BLOB , sizeof( idPortTimeC ) ) ; // { idpt , timeBorn1 , timeBorn2 }, SORTED BY TIME BORN
-    stackC stIdptTemp(                  tinP , etThread , TAG( TAGiDnULL ) , flSTACKc_BLOB , sizeof( idPortTimeC ) ) ; // { idpt , timeBorn1 , timeBorn2 }, SORTED BY TIME BORN
+    stackC stIdptPopClient(             tinP , etThread , TAG( TAGiDnULL ) , flSTACKc_BLOB , sizeof( portTimeC ) ) ;
+    stackC stIdptGossip(                tinP , etThread , TAG( TAGiDnULL ) , flSTACKc_BLOB , sizeof( portTimeC ) ) ; // { idpt , timeBorn1 , timeBorn2 }, SORTED BY TIME BORN
+    stackC stIdptOpen(                  tinP , etThread , TAG( TAGiDnULL ) , flSTACKc_BLOB , sizeof( portTimeC ) ) ; // { idpt , timeBorn1 , timeBorn2 }, SORTED BY TIME BORN
+    stackC stIdptTemp(                  tinP , etThread , TAG( TAGiDnULL ) , flSTACKc_BLOB , sizeof( portTimeC ) ) ; // { idpt , timeBorn1 , timeBorn2 }, SORTED BY TIME BORN
     switchStackC swsIdSerialReceivedAlt( tinP , etThread , TAG( TAGiDnULL ) , flSTACKc_null , pbLever , sizeof idPortOrigin ) ;
     switchStackC swsIdSerialReceived(    tinP , etThread , TAG( TAGiDnULL ) , flSTACKc_null , pbLever , sizeof idPortOrigin ) ;
     const byteT* pbLever = (const byteT*)&idPortOrigin ;
-    idPortC idPortOrigin ;
+    portC idPortOrigin ;
     stackC stPsoServer(                  tinP , etThread , TAG( TAGiDnULL ) ) ;
     etherC& ether = etherC::etPrimeIF() ;
     _IO_

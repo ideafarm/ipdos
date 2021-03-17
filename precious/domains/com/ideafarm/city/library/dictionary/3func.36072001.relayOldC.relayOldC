@@ -121,8 +121,8 @@
                         TELL( "setting up 2.4" )
                     
                         }
-                            if( idpthc && NICnAMElOCAL != ((nicNameC&)(idPortC&)idpthc).pcId[ 0 ] ) stIdptOpen.sinkF( tinP , countTC() , (byteT*)&idpthc , flSTACKsINK_UNIQUE , subtractIdPortTimesF , (countT)&stIdptGossip ) ;
-                            idPortTimeC idpthc = handleQueryIF( tinP ) ;
+                            if( idpthc && NICnAMElOCAL != ((nicNameC&)(portC&)idpthc).pcId[ 0 ] ) stIdptOpen.sinkF( tinP , countTC() , (byteT*)&idpthc , flSTACKsINK_UNIQUE , subtractIdPortTimesF , (countT)&stIdptGossip ) ;
+                            portTimeC idpthc = handleQueryIF( tinP ) ;
                         {
                         stIdptOpen.sinkF( tinP , countTC() , (byteT*)&idpt   , flSTACKsINK_UNIQUE , subtractIdPortTimesF , (countT)&stIdptGossip ) ;
                         //P: A NEWBIE CLIENT KNOWS ABOUT ITSELF AND THE HANDLE
@@ -157,7 +157,7 @@
                     TELL( "waiting for a client to connect" )
                     ZE( socketC* , pso ) ;
         
-                    if( bWoth ) etThread.osThreadF( tinP , countTC() , tmRelayOldTickleF , 0 , flTHREADlAUNCH_null , 0 , (countT)(idPortC*)&idpt , (countT)&bWoth ) ;
+                    if( bWoth ) etThread.osThreadF( tinP , countTC() , tmRelayOldTickleF , 0 , flTHREADlAUNCH_null , 0 , (countT)(portC*)&idpt , (countT)&bWoth ) ;
                 {
                 while( !POOP && !ether && !bQuit )
                 ZE( countT , idClient ) ;
@@ -216,7 +216,7 @@
     
         idpt.timeStampIfF( tinP , etThread ) ;
         idpt = idPort ;
-        idPortTimeC idpt ;
+        portTimeC idpt ;
     
         idPort = socketC::nicNameIF( tinP , etThread ) ;
 
@@ -227,7 +227,7 @@
                 }
                     idpTry ++ ;
                     etThread.traceF( tinP , T("could not bind to requested port [idPort]:    ")+TF2(idpTry,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
-                    idPort = idPortC() ;
+                    idPort = portC() ;
                     POOPRqUIET
                 {
                 else
@@ -243,12 +243,12 @@
 
             SCOOPS
         {
-        idPortC idPort ;
+        portC idPort ;
         socketC sListen( tinP , *tinP.pEtScratch , TAG( TAGiDnULL )/*U:: , 0 , flSOCKETc_TOPsECRET*/ ) ;
     {
     IFsCRATCH
 
-    idPortTimeC idptHandle = handleQueryIF( tinP ) ;
+    portTimeC idptHandle = handleQueryIF( tinP ) ;
 
     switchStackC swsWrapRef( tinP , etThread , TAG( TAGiDnULL ) , flSTACKc_null , cLeverPayload , flSTACKc_FIFO|flSTACKc_GIVEsIGNnEWpLATE ) ;
     ZE( countT , cLeverPayload ) ;
@@ -257,17 +257,17 @@
     ranUniC ruZeWo( tinP , 1 , 1 ) ;
     const countT cKidThreadsSave = tinP.cKidThreads ;
 
-    switchStackC swsIdptMediatorAlt(    tinP , etThread , TAG( TAGiDnULL ) , flSTACKc_null , idAdamMediator , flSTACKc_BLOB , sizeof( idPortTimeC ) ) ;
-    switchStackC swsIdptMediator(       tinP , etThread , TAG( TAGiDnULL ) , flSTACKc_null , idAdamMediator , flSTACKc_BLOB , sizeof( idPortTimeC ) ) ;
+    switchStackC swsIdptMediatorAlt(    tinP , etThread , TAG( TAGiDnULL ) , flSTACKc_null , idAdamMediator , flSTACKc_BLOB , sizeof( portTimeC ) ) ;
+    switchStackC swsIdptMediator(       tinP , etThread , TAG( TAGiDnULL ) , flSTACKc_null , idAdamMediator , flSTACKc_BLOB , sizeof( portTimeC ) ) ;
     ZE( countT , idAdamMediator ) ;
-    stackC stIdptPopClient(             tinP , etThread , TAG( TAGiDnULL ) , flSTACKc_BLOB , sizeof( idPortTimeC ) ) ;
-    stackC stIdptGossip(                tinP , etThread , TAG( TAGiDnULL ) , flSTACKc_BLOB , sizeof( idPortTimeC ) ) ; // { idpt , timeBorn1 , timeBorn2 }, SORTED BY TIME BORN
-    stackC stIdptOpen(                  tinP , etThread , TAG( TAGiDnULL ) , flSTACKc_BLOB , sizeof( idPortTimeC ) ) ; // { idpt , timeBorn1 , timeBorn2 }, SORTED BY TIME BORN
-    stackC stIdptTemp(                  tinP , etThread , TAG( TAGiDnULL ) , flSTACKc_BLOB , sizeof( idPortTimeC ) ) ; // { idpt , timeBorn1 , timeBorn2 }, SORTED BY TIME BORN
+    stackC stIdptPopClient(             tinP , etThread , TAG( TAGiDnULL ) , flSTACKc_BLOB , sizeof( portTimeC ) ) ;
+    stackC stIdptGossip(                tinP , etThread , TAG( TAGiDnULL ) , flSTACKc_BLOB , sizeof( portTimeC ) ) ; // { idpt , timeBorn1 , timeBorn2 }, SORTED BY TIME BORN
+    stackC stIdptOpen(                  tinP , etThread , TAG( TAGiDnULL ) , flSTACKc_BLOB , sizeof( portTimeC ) ) ; // { idpt , timeBorn1 , timeBorn2 }, SORTED BY TIME BORN
+    stackC stIdptTemp(                  tinP , etThread , TAG( TAGiDnULL ) , flSTACKc_BLOB , sizeof( portTimeC ) ) ; // { idpt , timeBorn1 , timeBorn2 }, SORTED BY TIME BORN
     switchStackC swsIdSerialReceivedAlt( tinP , etThread , TAG( TAGiDnULL ) , flSTACKc_null , pbLever , sizeof idPortOrigin ) ;
     switchStackC swsIdSerialReceived(    tinP , etThread , TAG( TAGiDnULL ) , flSTACKc_null , pbLever , sizeof idPortOrigin ) ;
     const byteT* pbLever = (const byteT*)&idPortOrigin ;
-    idPortC idPortOrigin ;
+    portC idPortOrigin ;
     stackC stPsoServer(                  tinP , etThread , TAG( TAGiDnULL ) ) ;
     etherC& ether = etherC::etPrimeIF() ;
     _IO_

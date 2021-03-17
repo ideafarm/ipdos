@@ -1,4 +1,4 @@
-#define DEBUG
+//#define DEBUG
 
 //U::ENABLE THESE PREPROCESSOR IF/ENDIF IN PRODUCTION
 #if not defined( DEBUG )
@@ -3305,8 +3305,8 @@ void elf_obey_C::liveF( void )
                     "1snip.1b*"                                 ,
                     "1snip.16*"                                 ,
                     "1snip.15*.lowThreadS"                      ,
-                    "1snip.15*.idPortTimeC"                     ,
-                    "1snip.15*.idPortC"                         ,
+                    "1snip.15*.portTimeC"                       ,
+                    "1snip.15*.portC"                           ,
                     "1snip.15*.nicNameC"                        ,
                     "1snip.15*.psttOldC"                        ,
                     "1snip.15*.postOldC"                        ,

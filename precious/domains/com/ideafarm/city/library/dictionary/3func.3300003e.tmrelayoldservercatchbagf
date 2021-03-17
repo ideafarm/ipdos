@@ -35,7 +35,7 @@ DONE( tmRelayOldServerCatchBagF )
             //P: SERVER WILL GOSSIP IF A POP CLIENT IMPLODING DOWNWARD TO IT DIED WITHOUT SAYING GOODBYE
         {
         if( idptPopClient && !bSaidBye && !bQuitP && idWork == IDtYPErELAYpOPcLIENTwORK_IMPLODE ) //THIS CODE WILL NEVER GOSSIP ABOUT THE ROOT
-        idPortTimeC* pnRoot = stIdptOpenP ? (idPortTimeC*)&stIdptOpenP[ 1 ] : 0 ;
+        portTimeC* pnRoot = stIdptOpenP ? (portTimeC*)&stIdptOpenP[ 1 ] : 0 ;
         GRABrELAYlISTS
         ZE( boolT , bPop ) ;
     {
@@ -161,7 +161,7 @@ DONE( tmRelayOldServerCatchBagF )
         
                                         idptP.timeStampIfF( tinP , etThread ) ;
                                         idptOld = idptP ;
-                                        idPortTimeC idptOld ;
+                                        portTimeC idptOld ;
                                         //P: WHENEVER SELF IS GOSSIPPED IN A PING, THE FALSELY GOSSIPPED SERVER IMPODE POPS DOWNWARD AN "UNGOSSIP" ITEM AFTER RETIMESTAMPING ITSELF
                                     {
                                     if( stIdptGossipP( (byteT*)&idptP , subtractIdPortsF , - 1 ) )
@@ -213,7 +213,7 @@ DONE( tmRelayOldServerCatchBagF )
                                                 stIdptOpenP.extractF( 0 , tinP ) ;
                                             {
                                             if( stIdptOpenP( (byteT*)&idptGossip , subtractIdPortTimesF , (countT)&stIdptGossipP ) )
-                                            idPortTimeC idptGossipNew = idPortTimeC::fieldF( tinP , sBag , ifcIDfIELDbAG_IDtYPE + 1 + idPortTimeC::cFieldsF( tinP ) ) ;
+                                            portTimeC idptGossipNew = portTimeC::fieldF( tinP , sBag , ifcIDfIELDbAG_IDtYPE + 1 + portTimeC::cFieldsF( tinP ) ) ;
                                         {
                                         else
                                         }
@@ -222,11 +222,11 @@ DONE( tmRelayOldServerCatchBagF )
                                             //P: GOSSIP HAS THE SAME EFFECT ON THE RELAY DOING THE GOSSIP AS ON THE VICTIM RELAY
                                         {
                                         if( idType == ifcIDtYPEbAG_CLIENTpOPgOSSIP )
-                                        idPortTimeC idptGossip = idPortTimeC::fieldF( tinP , sBag , ifcIDfIELDbAG_IDtYPE + 1 ) ;
+                                        portTimeC idptGossip = portTimeC::fieldF( tinP , sBag , ifcIDfIELDbAG_IDtYPE + 1 ) ;
                                     {
                                     if( pnRoot && *pnRoot == idptP )
                                     //P: A SERVER WILL IGNORE GOSSIP UNLESS IT THINKS THAT IT IS ROOT
-                                    idPortTimeC* pnRoot = stIdptOpenP ? (idPortTimeC*)&stIdptOpenP[ 1 ] : 0 ;
+                                    portTimeC* pnRoot = stIdptOpenP ? (portTimeC*)&stIdptOpenP[ 1 ] : 0 ;
                                     GRABrELAYlISTS
                                     TELL( "ifcIDtYPEbAG_CLIENTpOPgOSSIP+" )
                                     //CONoUTrAW3( "tmCatchBagF " , idCatch , ": 6_CLIENTpOP*gOSSIP\r\n" ) ; //U::
@@ -400,8 +400,8 @@ DONE( tmRelayOldServerCatchBagF )
         
                 idptOriginLathGood = idptOrigin ;
 
-                idPortTimeC idptOrigin = POOP ? idptNull : idPortTimeC::fieldF( tinP , sBag , ifcIDfIELDbAG_RELAYoRIGIN ) ;
-                idPortTimeC idptNull ;
+                portTimeC idptOrigin = POOP ? idptNull : portTimeC::fieldF( tinP , sBag , ifcIDfIELDbAG_RELAYoRIGIN ) ;
+                portTimeC idptNull ;
                 //CONoUTrAW3( "tmCatchBagF " , idCatch , ": j a bag has arrived\r\n" ) ; //U::
                 idCatch = 1 + incv02AM( idCatchLath ) ;
                 //etThread.traceF( tinP , T("processing a bag") ) ;
@@ -443,8 +443,8 @@ DONE( tmRelayOldServerCatchBagF )
     ZE( countT , idWork ) ;
     ZE( boolT  , bPopClient ) ;
     ZE( countT , idPingLath ) ;
-    idPortTimeC idptOriginLathGood ;
-    idPortTimeC idptPopClient ;
+    portTimeC idptOriginLathGood ;
+    portTimeC idptPopClient ;
 
     stPsoServerP.sinkF( tinP , countTC() , (countT)psoP , flSTACKsINK_UNIQUE ) ;
 

@@ -150,7 +150,7 @@ countT cArg = (countT)&stGotten ;
 
 stackC stGotten( tinP , etThread , TAG( TAGiDnULL ) , flSTACKc_FIFO|flSTACKc_BLOB|flSTACKc_GIVEsIGNnEWpLATE , sizeof( cioGottenS ) ) ;
 switchStackC swsPin( tinP , etThread , TAG( TAGiDnULL ) , flSTACKc_null , (byteT*)&idpLever , sizeof idpLever , flSTACKc_null , ifcSTACKtYPE_PTR_countT ) ;
-idPortC idpLever ;
+portC idpLever ;
 
 TODO
 
@@ -225,7 +225,7 @@ DONE( tmWorkF )
                                     idpLeverP = idptTo ;
                                     swsPinP.grabF( tinP , TAG( TAGiDnULL ) ) ;
                                     idptTo << *psTo ;
-                                    idPortTimeC idptTo ;
+                                    portTimeC idptTo ;
                                 {
                                 while( (countT)*psTo )
                                 psTo->shiftLeftF( tinP , ifcIDtYPEsOULiTEM_soulC , pbsTo , 0 , flSOULiTEM_null , flSOULsHIFTlEFTmODE_UNPACKsOULiMAGE ) ;
@@ -238,7 +238,7 @@ DONE( tmWorkF )
                             ZE( countT , cbsTo ) ;
                             ZE( flagsT , flagssTo ) ;
                             ZE( countT , idTypesTo ) ;
-                            idPortTimeC& idptMe = homeS::homeIF().idptRelay ;
+                            portTimeC& idptMe = homeS::homeIF().idptRelay ;
                         {
                         if( psSecret )
                 
@@ -302,7 +302,7 @@ DONE( tmWorkF )
     while( !ether && !etThread )
 
     switchStackC& swsPinP   = *(switchStackC*)pTaskP->c3 ;
-    idPortC&      idpLeverP =      *(idPortC*)pTaskP->c2 ;
+    portC&      idpLeverP =      *(portC*)pTaskP->c2 ;
     stackC&       stGottenP =       *(stackC*)pTaskP->c1 ;
 {
 if( pTaskP && pTaskP->c1 && pTaskP->c2 && pTaskP->c3 )
@@ -323,7 +323,7 @@ TASK( tmWorkF )
 
     stackC& stGottenP = *(stackC*)cArgP ;
 {
-voidT cioGetF( tinS& tinP , etherC& etherP , const boolT& bQuitP , const countT idGiftTypeP , soulC*& psGiftP , countT*& pczChannelP , countT& cArgP , const idPortTimeC& idptOriginP )
+voidT cioGetF( tinS& tinP , etherC& etherP , const boolT& bQuitP , const countT idGiftTypeP , soulC*& psGiftP , countT*& pczChannelP , countT& cArgP , const portTimeC& idptOriginP )
 
 }
     if( tinP.fingerprint ) ;
@@ -334,7 +334,7 @@ idptOrigin( idptOriginP )
 pczChannel( pczChannelP ) ,
 psGift( psGiftP ) ,
 idGiftType( idGiftTypeP ) ,
-cioGottenS::cioGottenS( tinS& tinP , const countT idGiftTypeP , soulC*& psGiftP , countT*& pczChannelP , const idPortTimeC& idptOriginP ) :
+cioGottenS::cioGottenS( tinS& tinP , const countT idGiftTypeP , soulC*& psGiftP , countT*& pczChannelP , const portTimeC& idptOriginP ) :
 
 }
     thirdC::c_memsetIF( tinP , (byteT*)this , sizeof *this ) ;
@@ -343,10 +343,10 @@ cioGottenS::cioGottenS( tinS& tinP )
 
 ;
 }
-    cioGottenS( tinS& tinP , const countT idGiftTypeP , soulC*& psGiftP , countT*& pczChannelP , const idPortTimeC& idptOriginP ) ;
+    cioGottenS( tinS& tinP , const countT idGiftTypeP , soulC*& psGiftP , countT*& pczChannelP , const portTimeC& idptOriginP ) ;
     cioGottenS( tinS& tinP ) ;
 
-    idPortTimeC idptOrigin ;
+    portTimeC idptOrigin ;
     countT*     pczChannel ;
     soulC*      psGift ;
     countT      idGiftType ;

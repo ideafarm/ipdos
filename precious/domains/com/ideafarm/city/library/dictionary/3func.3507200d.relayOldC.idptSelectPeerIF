@@ -12,10 +12,10 @@
 
     }
         }
-            case IDtYPErELAYpOPcLIENTwORK_EXPLODE1 : { idPortTimeC nt ; idptSelectPeerIF( tinP , nt , stIdptOpenP , idptP , stIdptGossipP , IDtYPErELAYpOPcLIENTwORK_IMPLODE  , flSELECTpEER_DUPLICATEiSoK ) ; if( idptPeerP == nt ) idptPeerP = 0 ; }
-            case IDtYPErELAYpOPcLIENTwORK_EXPLODE2 : { idPortTimeC nt ; idptSelectPeerIF( tinP , nt , stIdptOpenP , idptP , stIdptGossipP , IDtYPErELAYpOPcLIENTwORK_EXPLODE1 , flSELECTpEER_DUPLICATEiSoK ) ; if( idptPeerP == nt ) idptPeerP = 0 ; }
-            case IDtYPErELAYpOPcLIENTwORK_LEFT     : { idPortTimeC nt ; idptSelectPeerIF( tinP , nt , stIdptOpenP , idptP , stIdptGossipP , IDtYPErELAYpOPcLIENTwORK_EXPLODE2 , flSELECTpEER_DUPLICATEiSoK ) ; if( idptPeerP == nt ) idptPeerP = 0 ; }
-            case IDtYPErELAYpOPcLIENTwORK_RIGHT    : { idPortTimeC nt ; idptSelectPeerIF( tinP , nt , stIdptOpenP , idptP , stIdptGossipP , IDtYPErELAYpOPcLIENTwORK_LEFT     , flSELECTpEER_DUPLICATEiSoK ) ; if( idptPeerP == nt ) idptPeerP = 0 ; }
+            case IDtYPErELAYpOPcLIENTwORK_EXPLODE1 : { portTimeC nt ; idptSelectPeerIF( tinP , nt , stIdptOpenP , idptP , stIdptGossipP , IDtYPErELAYpOPcLIENTwORK_IMPLODE  , flSELECTpEER_DUPLICATEiSoK ) ; if( idptPeerP == nt ) idptPeerP = 0 ; }
+            case IDtYPErELAYpOPcLIENTwORK_EXPLODE2 : { portTimeC nt ; idptSelectPeerIF( tinP , nt , stIdptOpenP , idptP , stIdptGossipP , IDtYPErELAYpOPcLIENTwORK_EXPLODE1 , flSELECTpEER_DUPLICATEiSoK ) ; if( idptPeerP == nt ) idptPeerP = 0 ; }
+            case IDtYPErELAYpOPcLIENTwORK_LEFT     : { portTimeC nt ; idptSelectPeerIF( tinP , nt , stIdptOpenP , idptP , stIdptGossipP , IDtYPErELAYpOPcLIENTwORK_EXPLODE2 , flSELECTpEER_DUPLICATEiSoK ) ; if( idptPeerP == nt ) idptPeerP = 0 ; }
+            case IDtYPErELAYpOPcLIENTwORK_RIGHT    : { portTimeC nt ; idptSelectPeerIF( tinP , nt , stIdptOpenP , idptP , stIdptGossipP , IDtYPErELAYpOPcLIENTwORK_LEFT     , flSELECTpEER_DUPLICATEiSoK ) ; if( idptPeerP == nt ) idptPeerP = 0 ; }
         {
         switch( idMyWorkP ) // idptP IS SET IFF A DISTINCT RELAY EXISTS
     {
@@ -23,14 +23,14 @@
 
     }
         }
-            case  IDtYPErELAYpOPcLIENTwORK_RIGHT    : {                                    idptPeerP = cRelays > 1 ? *(idPortTimeC*)&stIdptOpenP[ ideMe < cRelays ? ideMe + 1 : 1       ] : idptNull ; break ; }
-            case  IDtYPErELAYpOPcLIENTwORK_LEFT     : {                                    idptPeerP = cRelays > 1 ? *(idPortTimeC*)&stIdptOpenP[ ideMe > 1       ? ideMe - 1 : cRelays ] : idptNull ; break ; }
-            case  IDtYPErELAYpOPcLIENTwORK_EXPLODE2 : { if( stIdptOpenP >= ideMe * 2 + 1 ) idptPeerP =               *(idPortTimeC*)&stIdptOpenP[ ideMe * 2 + 1                         ]            ; break ; }
-            case  IDtYPErELAYpOPcLIENTwORK_EXPLODE1 : { if( stIdptOpenP >= ideMe * 2     ) idptPeerP =               *(idPortTimeC*)&stIdptOpenP[ ideMe * 2                             ]            ; break ; }
-            case  IDtYPErELAYpOPcLIENTwORK_IMPLODE  : { if(           1 != ideMe         ) idptPeerP =               *(idPortTimeC*)&stIdptOpenP[ ideMe / 2                             ]            ; break ; }
+            case  IDtYPErELAYpOPcLIENTwORK_RIGHT    : {                                    idptPeerP = cRelays > 1 ? *(portTimeC*)&stIdptOpenP[ ideMe < cRelays ? ideMe + 1 : 1       ] : idptNull ; break ; }
+            case  IDtYPErELAYpOPcLIENTwORK_LEFT     : {                                    idptPeerP = cRelays > 1 ? *(portTimeC*)&stIdptOpenP[ ideMe > 1       ? ideMe - 1 : cRelays ] : idptNull ; break ; }
+            case  IDtYPErELAYpOPcLIENTwORK_EXPLODE2 : { if( stIdptOpenP >= ideMe * 2 + 1 ) idptPeerP =               *(portTimeC*)&stIdptOpenP[ ideMe * 2 + 1                         ]            ; break ; }
+            case  IDtYPErELAYpOPcLIENTwORK_EXPLODE1 : { if( stIdptOpenP >= ideMe * 2     ) idptPeerP =               *(portTimeC*)&stIdptOpenP[ ideMe * 2                             ]            ; break ; }
+            case  IDtYPErELAYpOPcLIENTwORK_IMPLODE  : { if(           1 != ideMe         ) idptPeerP =               *(portTimeC*)&stIdptOpenP[ ideMe / 2                             ]            ; break ; }
         {
         switch( idMyWorkP ) // idptP IS SET IFF A DISTINCT RELAY EXISTS
-        idPortTimeC idptNull ;
+        portTimeC idptNull ;
     {
     if( ideMe )
 
@@ -45,7 +45,7 @@
                     bFound = 1 ;
                 {
                 if( idpt == idptP ) //THIS LOOKS AT idPort; SINK LOOKS AT TIME
-                idPortTimeC& idpt = *(idPortTimeC*)&stIdptOpenP.downF( tinP , hDown ) ;
+                portTimeC& idpt = *(portTimeC*)&stIdptOpenP.downF( tinP , hDown ) ;
                 ideMe ++ ;
             {
             do
@@ -62,7 +62,7 @@
             while( !stIdptOpenP.third && ~hDown ) ;
             }
                 tinP.pEther->traceF( tinP , T("idptSelectPeerIF: open [idPlate,idpt]:    ")+TF2(++idPlate,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+T((nicNameC&)idpt)+T(" ( ")+TF2((countT)idpt,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T(" )") ) ; //U:: TO FIND A BUG
-                idPortTimeC& idpt = *(idPortTimeC*)&stIdptOpenP.downF( tinP , hDown ) ;
+                portTimeC& idpt = *(portTimeC*)&stIdptOpenP.downF( tinP , hDown ) ;
             {
             do
             handleC hDown( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_STACKwALK ) ;
@@ -79,7 +79,7 @@
             while( !stIdptGossipP.third && ~hDown ) ;
             }
                 tinP.pEther->traceF( tinP , T("idptSelectPeerIF: gossip [idPlate,idpt]:    ")+TF2(++idPlate,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+T((nicNameC&)idpt)+T(" ( ")+TF2((countT)idpt,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T(" )") ) ; //U:: TO FIND A BUG
-                idPortTimeC& idpt = *(idPortTimeC*)&stIdptGossipP.downF( tinP , hDown ) ;
+                portTimeC& idpt = *(portTimeC*)&stIdptGossipP.downF( tinP , hDown ) ;
             {
             do
             handleC hDown( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_STACKwALK ) ;
@@ -107,7 +107,7 @@
     {
     IFbEcAREFUL
 {
-/*1*/voidT relayOldC::idptSelectPeerIF( tinS& tinP , idPortTimeC& idptPeerP , stackC& stIdptOpenP , idPortTimeC& idptP , stackC& stIdptGossipP , const countT idMyWorkP , const flagsT flagsP )/*1*/
+/*1*/voidT relayOldC::idptSelectPeerIF( tinS& tinP , portTimeC& idptPeerP , stackC& stIdptOpenP , portTimeC& idptP , stackC& stIdptGossipP , const countT idMyWorkP , const flagsT flagsP )/*1*/
 /**/
 */
 /*

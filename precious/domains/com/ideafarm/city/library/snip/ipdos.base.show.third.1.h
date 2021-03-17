@@ -127,7 +127,7 @@ class  /*ff*/netC/*ff*/                         ; /*ff*//**//*ff*/
 class  /*ff*/newsC/*ff*/                        ; /*ff*//**//*ff*/
 struct /*ff*/newsKnowS/*ff*/                    ; /*ff*//**//*ff*/
 class  /*ff*/nicNameC/*ff*/                     ; /*ff*//*d*//*ff*/
-class  /*ff*/idPortC/*ff*/                      ; /*ff*//*r*//*ff*/
+class  /*ff*/portC/*ff*/                      ; /*ff*//*r*//*ff*/
 class  /*ff*/nicNamesC/*ff*/                    ; /*ff*//**//*ff*/
 class  /*ff*/nicNamesNearbyOldC/*ff*/           ; /*ff*//**//*ff*/
 class  /*ff*/osFileNameC/*ff*/                  ; /*ff*//**//*ff*/
@@ -185,7 +185,7 @@ struct /*ff*/vmRegionS/*ff*/                    ; /*ff*//**//*ff*/
 class  /*ff*/windowOldC/*ff*/                   ; /*ff*//*q*//*ff*/
 class  /*ff*/zapC/*ff*/                         ; /*ff*//**//*ff*/
 class  /*ff*/soixlOldSpaceC/*ff*/               ; /*ff*//**//*ff*/
-class  /*ff*/idPortTimeC/*ff*/                  ; /*ff*//**//*ff*/
+class  /*ff*/portTimeC/*ff*/                  ; /*ff*//**//*ff*/
 class  /*ff*/relayOldC/*ff*/                       ; /*ff*//**//*ff*/
 class  /*ff*/spouseC/*ff*/                      ; /*ff*//**//*ff*/
 class  /*ff*/momC/*ff*/                         ; /*ff*//**//*ff*/
@@ -7919,7 +7919,7 @@ it is illegal to refer to this symbol in the definition of an adam
 #define ifciDtYPEdROPnOTE_baseSoilXxxxC                                 0xdddd039f
 #define ifciDtYPEdROPnOTE_lexC                                          0xdddd03a0
 #define ifciDtYPEdROPnOTE_rootWordC                                     0xdddd03a1
-#define ifciDtYPEdROPnOTE_idPortC                                       0xdddd03a2
+#define ifciDtYPEdROPnOTE_portC                                       0xdddd03a2
 #define ifciDtYPEdROPnOTE_osTextC                                       0xdddd03a3
 #define ifciDtYPEdROPnOTE_scoopC                                        0xdddd03a4
 #define ifciDtYPEdROPnOTE_strokingFrameS                                0xdddd03a5
@@ -20415,7 +20415,7 @@ i am used with a soulC object to use that object as a forth-like program executo
 /*1*//*RELAYiNFOf*//*1*/
 #define RELAYiNFOf                                                              \
                                                                                 \
-    idPortTimeC&  idptP                    =  *(idPortTimeC*)_c8ni1P.c1 ;       \
+    portTimeC&  idptP                    =  *(portTimeC*)_c8ni1P.c1 ;       \
     boolT&        bQuitP                   =        *(boolT*)_c8ni1P.c2 ;       \
     stackC&       stPsoServerP             =       *(stackC*)_c8ni1P.c3 ;       \
     switchStackC& swsIdSerialReceivedP     = *(switchStackC*)_c8ni1P.c4 ;       \
@@ -20432,7 +20432,7 @@ i am used with a soulC object to use that object as a forth-like program executo
     switchStackC& swsIdptMediatorAltP      = *(switchStackC*)_c8ni2P.c7 ;       \
     countT&       cGossipInP               =       *(countT*)_c8ni2P.c8 ;       \
     countT&       idSerialLathHeaderP      =       *(countT*)_c8ni3P.c1 ;       \
-    idPortC&      idPortOriginP            =      *(idPortC*)_c8ni3P.c2 ;       \
+    portC&      idPortOriginP            =      *(portC*)_c8ni3P.c2 ;       \
     switchStackC& swsIdSerialReceivedAltP  = *(switchStackC*)_c8ni3P.c3 ;       \
     boolT&        bAltSwsP                 =        *(boolT*)_c8ni3P.c4 ;       \
     countT&       cLeverPayloadP           =       *(countT*)_c8ni3P.c5 ;       \
@@ -20536,7 +20536,7 @@ for each previous absentee
             handleC hDown( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_STACKwALK ) ;                             \
             do                                                                                          \
             {                                                                                           \
-                idPortTimeC& idpt = *(idPortTimeC*)&stRelayAbsent##idWorkP##Lag.downF( tinP , hDown ) ; \
+                portTimeC& idpt = *(portTimeC*)&stRelayAbsent##idWorkP##Lag.downF( tinP , hDown ) ; \
                 idptAbsent##idWorkP## = relayOldC::gossipIfIF( tinP , idSerialLathHeaderP , pStPop0P , pStPop1P , pStPop2P , pStPop3P , pStPop4P , stIdptOpenP , stIdptGossipP , stIdptTempP , stRelayAbsent##idWorkP## , idpt , idptP , idWorkP ) ; \
                 if( idptAbsent##idWorkP## ) break ; /*SHOULD BE UNNECESSARY SINCE THERE SHOULD BE EITHER 0 OR 1 PLATES*/        \
             }                                                                                           \
@@ -20574,7 +20574,7 @@ for each previous absentee
         handleC hDown( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_STACKwALK ) ;                                 \
         do                                                                                              \
         {                                                                                               \
-            idPortTimeC& idpt = *(idPortTimeC*)&stRelayAbsent##idWorkP##.downF( tinP , hDown ) ;        \
+            portTimeC& idpt = *(portTimeC*)&stRelayAbsent##idWorkP##.downF( tinP , hDown ) ;        \
             stRelayAbsent##idWorkP##Lag.sinkF( tinP , countTC() , (byteT*)&idpt , flSTACKsINK_UNIQUE , subtractIdPortsF , - 1 ) ; \
         }                                                                                               \
         while( !stRelayAbsent##idWorkP##.third && ~hDown ) ;                               \
@@ -20663,10 +20663,10 @@ for each previous absentee
 
 /*3*/
 #define ifcIDfIELDbAG_RELAYoRIGIN             ( 1 )
-#define ifcIDfIELDbAG_IDsERIAL                ( idPortTimeC::cFieldsF( tinP ) + 1 )
-#define ifcIDfIELDbAG_FLAGS                   ( idPortTimeC::cFieldsF( tinP ) + 2 )
-#define ifcIDfIELDbAG_IDtYPE                  ( idPortTimeC::cFieldsF( tinP ) + 3 )
-#define ifcIDfIELDbAG_AFTERiDcMD              ( idPortTimeC::cFieldsF( tinP ) + 4 )
+#define ifcIDfIELDbAG_IDsERIAL                ( portTimeC::cFieldsF( tinP ) + 1 )
+#define ifcIDfIELDbAG_FLAGS                   ( portTimeC::cFieldsF( tinP ) + 2 )
+#define ifcIDfIELDbAG_IDtYPE                  ( portTimeC::cFieldsF( tinP ) + 3 )
+#define ifcIDfIELDbAG_AFTERiDcMD              ( portTimeC::cFieldsF( tinP ) + 4 )
 /*3*/
 
 
@@ -20695,12 +20695,12 @@ for each previous absentee
 
 /*3*/
 #define ifcIDfIELDbAG_RELAYoRIGIN             ( 1 )
-#define ifcIDfIELDbAG_IDsERIAL                ( idPortTimeC::cFieldsF( tinP ) + 1 )
-#define ifcIDfIELDbAG_FLAGS                   ( idPortTimeC::cFieldsF( tinP ) + 2 )
-#define ifcIDfIELDbAG_IDtYPE                  ( idPortTimeC::cFieldsF( tinP ) + 3 )
-#define ifcIDfIELDbAG_WRAP                    ( idPortTimeC::cFieldsF( tinP ) + 4 )
-#define ifcIDfIELDbAG_AFTERiDtYPE             ( idPortTimeC::cFieldsF( tinP ) + 4 )
-#define ifcIDfIELDbAG_IDwORK                  ( idPortTimeC::cFieldsF( tinP ) + 4 )
+#define ifcIDfIELDbAG_IDsERIAL                ( portTimeC::cFieldsF( tinP ) + 1 )
+#define ifcIDfIELDbAG_FLAGS                   ( portTimeC::cFieldsF( tinP ) + 2 )
+#define ifcIDfIELDbAG_IDtYPE                  ( portTimeC::cFieldsF( tinP ) + 3 )
+#define ifcIDfIELDbAG_WRAP                    ( portTimeC::cFieldsF( tinP ) + 4 )
+#define ifcIDfIELDbAG_AFTERiDtYPE             ( portTimeC::cFieldsF( tinP ) + 4 )
+#define ifcIDfIELDbAG_IDwORK                  ( portTimeC::cFieldsF( tinP ) + 4 )
 /*3*/
 
 
