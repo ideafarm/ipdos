@@ -1,29 +1,3 @@
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004f0.isinitializedpointer BEGIN
-
-
-//
-// Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 29 years.
-// Respecting the rights of other people is an important part of empowering one another.
-//
-
-/*
-*/
-/**/
-/*1*//*ISiNITIALIZEDpOINTER(pbP)*//*1*/
-
-#define ISiNITIALIZEDpOINTER(pbP) ( !(pbP) || ( (countT)(pbP) >= JrEQUEST_min && (countT)(pbP) <= JrEQUEST_max ) )
-
-
-//
-// Respecting the rights of other people is an important part of empowering one another.
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 29 years.
-//
-// Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004f0.isinitializedpointer END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004f0.isnulljpointer BEGIN
 
 
@@ -5450,6 +5424,36 @@ examples
 //
 
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200593.flSELECTpEER END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200594.postIPaDDRgROUP BEGIN
+
+
+
+//
+// Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 29 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+/*
+*/
+/**/
+
+/*1*//*postIPaDDRgROUP*//*1*/
+
+/*3*/
+#define postIPaDDRgROUP_ADVERTISElANnODE "ff02::bb:aa"
+/*3*/
+
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 29 years.
+//
+// Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200594.postIPaDDRgROUP END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.thirdParties : 1snip.15000014.thirdparties BEGIN
 
 
@@ -18732,6 +18736,7 @@ it is illegal to refer to this symbol anywhere except in napkinC definitions
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.psttOldC : 1snip.15000041.psttoldc END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.nicNameC : 1snip.15000033.nicnamec BEGIN
 
+
 //
 // Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
@@ -29207,6 +29212,7 @@ applications should avoid using thirdC objects
   voidT s_readF( tinS& tinP , soulC& soulP , handleC& handleP , const flagsT flagsP = flSOCKETcrEAD_null , const countT time1P = 0 , const sCountT time2P = 0 , const countT idModeP = ifcIDmODEsOCKETS_NOTeNCRYPTED ) ;
   //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.340bd.thirdC.s_readF!||
   voidT s_readF( tinS& tinP , soulC& soulP , countT& idPortP , nicNameC& nicNameP , handleC& handleP , const flagsT flagsP = flSOCKETcrEAD_null , const countT time1P = 0 , const sCountT time2P = 0 ) ;
+  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.360011b1.thirdc.s_readf!||
   static countT s_readIF( tinS& tinP , byteT* const pbP , const countT cbP , handleC& handleP , const flagsT flagsTcpP = 0 , const flagsT flagsP = flSOCKETcrEAD_null ) ;
   //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.350011ac.thirdc.s_readif!||
   countT s_readOrPeekPrivateF( tinS& tinP , byteT* const pbP , const countT cbP , handleC& handleP , const flagsT flagsTcpP , const flagsT flagsP , const countT time1P , const sCountT time2P , const countT idModeP ) ;
@@ -32538,7 +32544,7 @@ examples
   voidT sockReadF( tinS& tinP , soulC& soulP , handleC& handleP , const countT time1P = 0 , const sCountT time2P = 0 , const countT idModeP = ifcIDmODEsOCKETS_NOTeNCRYPTED ) ;
   //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3411d.etherC.sockReadF!||
   voidT sockReadF( tinS& tinP , soulC& soulP , countT& idPortP , nicNameC& nicNameP , handleC& handleP , const countT time1P = 0 , const sCountT time2P = 0 ) ;
-  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3411f.etherC.sockReadF!||
+  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.360021fb.etherc.sockreadf!||
   voidT sockWriteF( tinS& tinP , handleC& handleP , const byteT* pbP , const countT cbP = 0 , const countT idModeP = ifcIDmODEsOCKETS_NOTeNCRYPTED ) ;
   //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34047.etherC.sockWriteF!||
   voidT sockWriteF( tinS& tinP , handleC& handleP , soulC& soulP , const countT idModeP = ifcIDmODEsOCKETS_NOTeNCRYPTED ) ;
@@ -33529,12 +33535,13 @@ examples
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400a.socketC.readF!||
  voidT readF( tinS& tinP , byteT*& pbP , countT& cbP , countT& idPortP , nicNameC& nicNameP , const countT time1P = 0 , const sCountT time2P = 0 ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3401c.socketC.readF!||
+ voidT readF( tinS& tinP , soulC& soulP , countT& idPortP , nicNameC& nicNameP , const countT time1P = 0 , const sCountT time2P = 0 ) ;
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.36005030.socketc.readf!||
  voidT readF( tinS& tinP , countT& idTypeP , countT& idPortP , nicNameC& nicNameP , const countT time1P = 0 , const sCountT time2P = 0 ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3401e.socketC.readF!||
  voidT readF( tinS& tinP , soulC& soulP , const countT time1P = 0 , const sCountT time2P = 0 ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34023.socketC.readF!||
  voidT readF( tinS& tinP , countT& idTypeP , const flagsT flagsP = flSOCKETcrEAD_null , const countT time1P = 0 , const sCountT time2P = 0 ) ;
- voidT readF( tinS& tinP , soulC& soulP , countT& idPortP , nicNameC& nicNameP , const countT time1P = 0 , const sCountT time2P = 0 ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34026.socketC.readF!||
  osTextT readWoLineF( tinS& tinP , strokeS*& psttP , const countT csttEstimateP , const osTextT* const postEscapeP = 0 ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34010.socketC.readWoLineF!||
@@ -45220,6 +45227,7 @@ i am nonconformant in that all of my member function definitions are in a single
 //
 
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.taskDrivenServerJobS : 1snip.1500018b.taskDrivenServerJobS END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.nodeEntryS : 1snip.1500018e.nodeEntryS BEGIN
 
 //
 // Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
@@ -45252,6 +45260,8 @@ i am nonconformant in that all of my member function definitions are in a single
 //
 
 
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.nodeEntryS : 1snip.1500018e.nodeEntryS END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.nodeListS : 1snip.1500018f.nodeListS BEGIN
 
 //
 // Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
@@ -45282,3 +45292,5 @@ i am nonconformant in that all of my member function definitions are in a single
 //
 // Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
+
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.nodeListS : 1snip.1500018f.nodeListS END

@@ -9,167 +9,95 @@
                             
 REST
 
-etherC::loafIF( tinP ) ;
+etThread.loafIF( tinP ) ;
 
-etThread.osThreadF( TaRG1( tmSayNodeAdvertisementF ) ) ;
-etThread.osThreadF( TaRG1( tmHearNodeAdvertisementF ) , (countT)&napNodeList ) ;
-
-THREADmODE3rESTORE
-}
-    napNodeList.formattingIsDoneF( tinP ) ;
-
-    nl.cEltsMax = ( cbData - sizeof( nodeListS ) + sizeof( nodeEntryS ) ) / sizeof( nodeEntryS ) ;
-    nodeListS& nl = *(nodeListS*)pbData ;
-
-    etThread.memSetF( tinP , pbData , cbData ) ;
-    countT cbData = napNodeList ;
-    byteT* pbData = napNodeList ;
-{
-if( !napNodeList.bFormattedF() )
-napkinC napNodeList( tinP , TAG( TAGiDnULL ) , "ipdos.node.list" , 0 , TOCK , ifcOPENsHAREDmEMORYhOW_nCeO , flNAPKINc_null , - 1 , ifcIDmEMORYsPACE_UNIVERSE ) ;
-THREADmODE3oN( flTHREADmODE3_ALLOWeXPLICITmEMORYsPACE )
+nodeC nodeMe( tinP , etThread ) ;
 
 TODO
 
-DONE( tmHearNodeAdvertisementF )
-
 }
     }
-        if( !bFound ) etThread.traceF( tinP , T("error: could not add [nn,nnv4]:    ")+T(neTest.nn)+T("    ")+T(nicNameC(neTest.nnv4)) ) ;
-
-        }
-            }
-                break ;
-                bFound = 1 ;
-                nl.cElts ++ ;
-                etThread.traceF( tinP , T("adding [nn,nnv4]:    ")+T(nl.pEntry[offi].nn)+T("    ")+T(nicNameC(nl.pEntry[offi].nnv4)) ) ;
-                nl.pEntry[ offi ].ttl = 0x8 * ( nl.cElts + 1 ) ;        // TO REMAIN LISTED, A NODE MUST MUST RESPOND WITHIN 8 RESPONSE WAVES
-                nl.pEntry[ offi ]     = neTest ;
-            {
-            if( !nl.pEntry[ offi ].ttl )
-        {
-        if( !bFound ) for( countT offi = 0 ; offi < nl.cEltsMax ; offi ++ )
-
-        }
-            }
-                etThread.traceF( tinP , T("refreshing [nn,nnv4]:    ")+T(nl.pEntry[offi].nn)+T("    ")+T(nicNameC(nl.pEntry[offi].nnv4)) ) ;
-                nl.pEntry[ offi ].ttl = 0x8 * ( nl.cElts + 1 ) ;       // ENTRY WILL DISAPPEAR IF NOT REFRESHED ; THIS LINE REFRESHES
-                bFound = 1 ;
-            {
-            if( nl.pEntry[ offi ].ttl && nl.pEntry[ offi ] == neTest )
-        {
-        for( countT offi = 0 ; offi < nl.cEltsMax ; offi ++ )
-        ZE( boolT , bFound ) ;
-
-        }
-            else      neTest.nn   = nnWo ;
-            if( bv4 ) neTest.nnv4 = ((const countT*)nnWo)[ 0 ] ;
-
-            if( bIgnore ) continue ;
-
-            boolT bIgnore = bv4 ? !!neTest.nnv4 : ~neTest.nn ;
-            boolT bv4     = nnWo.isIPv4F() ;
-
-            etThread.traceF( tinP , T("yippee! [nnWo]:    ")+T(nnWo)+T(nnWo.isIPv4F()?"    IPv4":"    IPv6") ) ;
-            soulNicNameIn >> nnWo ;
-            nicNameC nnWo ;
-
-            if( neTest.nn && neTest.nnv4 ) break ;
-        {
-        while( soulNicNameIn )
-
-        nodeEntryS neTest ;
-
-        }
-            }
-                etThread.traceF( tinP , T("removing [nn,nnv4]:    ")+T(nl.pEntry[offi].nn)+T("    ")+T(nicNameC(nl.pEntry[offi].nnv4)) ) ;
-                nl.cElts -- ;
-                nl.pEntry[ offi ] = nodeEntryS() ;
-            {
-            if( nl.pEntry[ offi ].ttl && !( -- nl.pEntry[ offi ].ttl ) )
-        {
-        for( countT offi = 0 ; offi < nl.cEltsMax ; offi ++ )
-
-        etThread.traceF( tinP , T("called readF [nnHe,idpHe]:    ")+T(nnHe)+T("    ")+TF2(idpHe,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
-        socki.readF( tinP , soulNicNameIn , idpHe , nnHe , 0 , 0 ) ;
-        soulC soulNicNameIn( tinP , TAG( TAGiDnULL ) ) ;
-        etThread.traceF( tinP , T("calling readF") ) ;
-        ZE( countT , idpHe ) ;
-        nicNameC nnHe ;
+        ++ s ; ether.osSleepF( tinP , TOCK >> 2 ) ;
     {
-    while( !POOP && !ether )
+    while( cKids )
+    bQuit = 1 ;
 
-    nodeListS& nl = *(nodeListS*)(byteT*)napNodeListP ;
+    }
+        ++ s ; ether.osSleepF( tinP , TOCK ) ;
+    {
+    while( !etPrime )
+    sleepC s( tinP , TAG( TAGiDnULL ) ) ;
+    etherC& etPrime = etherC::etPrimeIF( tinP ) ;
 
-    countT idpMe = socki.bindF( tinP , ifcIDpORT_MULTICASTaDVERTISElANnODES , nnAny , 1 , 0 ) ;
-    socketC socki( tinP , etThread , TAG( TAGiDnULL ) , ifcSOCKETtYPE_DATAgRAM , flSOCKETc_null , T(postADDRgROUP) , 0 , 0 , 0 , 0 , 0 ) ;
+    ether.osThreadF( TaRG1( tmRefreshListF ) , (countT)this , (countT)&bQuit , (countT)&cKids ) ;
+    countT cKids = 1 ;
+    ZE( boolT , bQuit ) ;
+{
+stOpen( tinP , ether , TAG( TAGiDnULL ) , flSTACKc_BLOB , sizeof( idPortTimeC ) )
+ether( etherP ) ,
+nodeC::nodeC( tinS& tinP , etherC& etherP , const countT idTypeP ) :
 
-    nicNameC nnAny = socketC::nicNameIF( tinP , etThread , T("::") ) ;
+DONE( tmRefreshListF )
+}
+    dec02AM( cKidsP ) ;
 
-    napkinC& napNodeListP = *(napkinC*)pTaskP->c1 ;
+    }
+        }
+            }
+                ++ s ; ether.osSleepF( tinP , TOCK ) ;
+                sleepC s( tinP , TAG( TAGiDnULL ) ) ;
+
+                etThread.traceF( tinP , T("local nodes (end)") , flTRACE_null , ifcIDtRACEdIVERT_e ) ;
+                }
+                    }
+                        etThread.traceF( tinP , T("local node [off,nn,nnv4]:    ")+TF2(offi,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+T(nl.pEntry[offi].nn)+tb4+T(nicNameC(nl.pEntry[offi].nnv4)) , flTRACE_null , ifcIDtRACEdIVERT_e ) ;
+                    {
+                    if( nl.pEntry[ offi ].ttl )
+                {
+                for( countT offi = 0 ; offi < nl.cEltsMax ; offi ++ )
+                etThread.traceF( tinP , T("local nodes (begin)") , flTRACE_null , ifcIDtRACEdIVERT_e ) ;
+            {
+            while( !ether && !POOP && !bQuitP )
+            nodeListS& nl = *(nodeListS*)(byteT*)napNodeList ;
+            TN( tb4 , "    " ) ;
+        {
+        if( !bFail )
+
+        THREADmODE3rESTORE
+        }
+            bFail = 1 ;
+            etThread.traceF( tinP , T("watch must be running for this home; doing nothing") ) ;
+            napNodeList.formattingIsDoneF( tinP ) ;
+        {
+        if( !napNodeList.bFormattedF() )
+        napkinC napNodeList( tinP , TAG( TAGiDnULL ) , "ipdos.node.list" , 0 , TOCK , ifcOPENsHAREDmEMORYhOW_nCeO , flNAPKINc_null , - 1 , ifcIDmEMORYsPACE_UNIVERSE ) ;
+        THREADmODE3oN( flTHREADmODE3_ALLOWeXPLICITmEMORYsPACE )
+        ZE( boolT , bFail ) ;
+    {
+
+    countT& cKidsP = *(countT*)pTaskP->c3 ;
+    boolT&  bQuitP =  *(boolT*)pTaskP->c2 ;
+    nodeC&  nodeP  =  *(nodeC*)pTaskP->c1 ;
 {
 if( pTaskP && pTaskP->c1 )
-TASK( tmHearNodeAdvertisementF )
-
-DONE( tmSayNodeAdvertisementF )
-
-}
-    }
-        ++ s ; ether.osSleepF( tinP , TOCK << 2 ) ;
-        sleepC s( tinP , TAG( TAGiDnULL ) ) ;
-    {
-
-    socko.writeF( tinP , ifcIDpORT_MULTICASTaDVERTISElANnODES , nicNameC() , soulNicName ) ;
-
-    }
-        etThread.delF( tinP , pnnMe ) ;
-        }
-            else etThread.traceF( tinP , T("NON-routable    :    ")+T(pnnMe[offi]) ) ;
-            }
-                soulNicName << pnnMe[ offi ] ;
-                etThread.traceF( tinP ,  T("routable unicast:    ")+T(pnnMe[offi]) ) ;
-            {
-            if( pnnMe[ offi ].isRoutableUnicastF() )
-        {
-        for( countT offi = 0 ; offi < cnnMe ; offi ++ )
-        socketC::nicNameIF( tinP , etThread , pnnMe , cnnMe , 0 ) ; ___( pnnMe ) ;
-        ZE( countT    , cnnMe ) ;
-        ZE( nicNameC* , pnnMe ) ;
-    {
-    soulC soulNicName( tinP , TAG( TAGiDnULL ) ) ;
-{
-while( !ether && !POOP )
-
-socketC socko( tinP , etThread , TAG( TAGiDnULL ) , ifcSOCKETtYPE_DATAgRAM , flSOCKETc_null , T(postADDRgROUP) , 0 , 0 , 0 , 0 , 0 ) ;
-
-TASK( tmSayNodeAdvertisementF )
-
+TASK( tmRefreshListF )
 
 ;
 }
-    nodeEntryS pEntry[ 1 ] ;
-    countT     cElts       ;
-    countT     cEltsMax    ;
+    nodeC( tinS& tinP , etherC& etherP , const countT idTypeP = ifcIDtYPEnODE_LOCAL ) ;
+
+    public :
+
+    stackC  stOpen ;
+    etherC& ether  ;
 {
-struct nodeListS
+class nodeC
 
-;
-}
-    inline boolT operator ==( nodeEntryS& neP ) const { return nn == neP.nn && nnv4 == neP.nnv4 ; }
-    inline nodeEntryS( voidT ) : nnv4( 0 ) , ttl( 0 ) {}
+#define ifcIDtYPEnODE_GLOBAL         2 
+#define ifcIDtYPEnODE_LOCAL          1
 
-    count02T ttl  ;     // IF 0 THEN THIS ENTRY IS FREE AND AVAILABLE
-    count02T nnv4 ;
-    nicNameC nn   ;
-{
-struct nodeEntryS
 
-#define postADDRgROUP "ff02::bb:aa"
-//G:#define postADDRgROUP "ff02::bb:aa"
-//B:#define postADDRgROUP "ff02::1"
-//G:#define postADDRgROUP "ff02::5:6"
-
-/*1*/WAKEsHOWtEXT( "doodle.advertise.my.nicNameC.values.using.napkinC" )/*1*/
+/*1*/WAKEhIDE( "doodle.nodeC.bang.relay" )/*1*/
 /**/
 */
 /*

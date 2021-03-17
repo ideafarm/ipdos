@@ -7,9 +7,9 @@
 //
 
 
-TASK0PROTO( tmNodeChatRepliesF ) ;
+TASK0PROTO( tmNodeOldChatRepliesF ) ;
 
-/*1*//*tmNodeChatRepliesF*//*1*/
+/*1*//*tmNodeOldChatRepliesF*//*1*/
 */
 \<A HREF=\"5.0040030.1.0.html\"\>definition\</A\>
 /*
@@ -230,51 +230,51 @@ TASK0PROTO( tmNodeBlowTeatF ) ;
 
 ;
 }
- FRIENDS_nodeC
+ FRIENDS_nodeOldC
 
- //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34001.nodeC.nodeC!||
- nodeC( tinS& tinP , etherC& etThread , boolT& bReadyP ) ;
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34001.nodeOldC.nodeOldC!||
+ nodeOldC( tinS& tinP , etherC& etThread , boolT& bReadyP ) ;
 
  public :
 
- //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34013.nodeC.doWrapLocallyIfIF!||
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34013.nodeOldC.doWrapLocallyIfIF!||
  static voidT doWrapLocallyIfIF( tinS& tinP , etherC& etThread , RELAYiNFOpARMS , const byteT* const pbsWrapP , const idPortTimeC& idptOriginP , const countT idPhaseP = 0 ) ;
- //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34012.nodeC.helloToHandleIF!||
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34012.nodeOldC.helloToHandleIF!||
  static voidT helloToHandleIF( tinS& tinP , idPortTimeC& idptP , countT& idSerialLathHeaderP ) ;
- //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34011.nodeC.testIF!||
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34011.nodeOldC.testIF!||
  static boolT testIF( tinS& tinP , idPortTimeC& idptP , countT& idSerialLathHeaderP , idPortTimeC& idptTestP ) ;
- //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34010.nodeC.gossipIfIF!||
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34010.nodeOldC.gossipIfIF!||
  static idPortTimeC gossipIfIF( tinS& tinP , countT& idSerialLathHeaderP , stackC* const pStPop0P , stackC* const pStPop1P , stackC* const pStPop2P , stackC* const pStPop3P , stackC* const pStPop4P , stackC& stIdptOpenP , stackC& stIdptGossipP , stackC& stIdptTempP , stackC& stRelayAbsentP , idPortTimeC& idptGossipP , idPortTimeC& idptP , const countT idWorkP ) ;
- //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400f.nodeC.idPortTimeClientsExpectedIF!||
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400f.nodeOldC.idPortTimeClientsExpectedIF!||
  static voidT idPortTimeClientsExpectedIF( tinS& tinP , stackC& stRelayExpectedP , stackC& stIdptOpenP , stackC& stIdptGossipP , idPortTimeC& idptP , const countT idWorkP = 0 ) ;
- //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400e.nodeC.idPortTimeClientIF!||
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400e.nodeOldC.idPortTimeClientIF!||
  static voidT idPortTimeClientIF( tinS& tinP , idPortTimeC& idptPeer1P , idPortTimeC& idptPeer2P , stackC& stIdptOpenP , idPortTimeC& idptP , stackC& stIdptGossipP , const countT idHisWorkP ) ;
- //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400d.nodeC.idptSelectPeerIF!||
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400d.nodeOldC.idptSelectPeerIF!||
  static voidT idptSelectPeerIF( tinS& tinP , idPortTimeC& idptPeerP , stackC& stIdptOpenP , idPortTimeC& idptP , stackC& stIdptGossipP , const countT idMyWorkP , const flagsT flagsP = flSELECTpEER_null ) ;
- //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400c.nodeC.bListedIF!||
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400c.nodeOldC.bListedIF!||
  static boolT bListedIF( tinS& tinP , stackC& stIdptOpenP , stackC& stIdptGossipP , const idPortTimeC& idptP ) ;
- //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400b.nodeC.idWorkInvertIF!||
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400b.nodeOldC.idWorkInvertIF!||
  static voidT idWorkInvertIF( tinS& tinP , countT& idWorkInvert1P , countT& idWorkInvert2P , const countT idWorkP ) ;
- //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400a.nodeC.popIF!||
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400a.nodeOldC.popIF!||
  static voidT popIF( tinS& tinP , stackC* pStPop0P , stackC* pStPop1P , stackC* pStPop2P , stackC* pStPop3P , stackC* pStPop4P , soulC& sBagP , stackC& stIdptOpenP , stackC& stIdptGossipP , idPortTimeC& idptP , const boolT bDudP = 0 ) ;
- //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34009.nodeC.hisListIF!||
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34009.nodeOldC.hisListIF!||
  static countT hisListIF( tinS& tinP , stackC& stP , soulC& soulP , stackC& stIdptGossipP , countT& idFieldP ) ;
- //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34008.nodeC.myListIF!||
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34008.nodeOldC.myListIF!||
  static voidT myListIF( tinS& tinP , soulC& soulP , stackC& stRelayP ) ;
- //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34007.nodeC.sortOpenIF!||
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34007.nodeOldC.sortOpenIF!||
  static voidT sortOpenIF( tinS& tinP , stackC& stIdptOpenP , stackC& stIdptGossipP , stackC& stIdptTempP ) ;
- //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34006.nodeC.hdrBagIF!||
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34006.nodeOldC.hdrBagIF!||
  static voidT hdrBagIF( tinS& tinP , soulC& sBagP , idPortTimeC& idptP , countT& idSerialLathHeaderP , const flagsT flagsP , const countT idTypeP ) ;
- //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34005.nodeC.handleQueryIF!||
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34005.nodeOldC.handleQueryIF!||
  static idPortTimeC handleQueryIF( tinS& tinP , const countT* const pczChannelP = 0 ) ;
- //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34004.nodeC.handleRefreshTimeStampIF!||
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34004.nodeOldC.handleRefreshTimeStampIF!||
  static boolT handleRefreshTimeStampIF( tinS& tinP , idPortTimeC idptMeP , const countT* const pczChannelP = 0 ) ;
- //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34003.nodeC.handleRegisterMeIfIF!||
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34003.nodeOldC.handleRegisterMeIfIF!||
  static boolT handleRegisterMeIfIF( tinS& tinP , idPortTimeC idptMeP , const countT* const pczChannelP = 0 ) ;
- //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34002.nodeC.handleUnregisterIF!||
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34002.nodeOldC.handleUnregisterIF!||
  static boolT handleUnregisterIF( tinS& tinP , idPortTimeC idptMeP , const countT* const pczChannelP = 0 ) ;
 {
-/*1*/class _export nodeC/*1*/
+/*1*/class _export nodeOldC/*1*/
 
 //S: SPEC: MOST CODE MANIPULATES idPortTimeC (TIMED idPortC), RATHER THAN idPortC, TO ENHANCE CONVERGENCE AND KEEP CODE SIMPLE
 //P: PERSONALITY COMMENTS DOCUMENT "PERSONALITY" ASPECTS OF RELAYS
@@ -360,7 +360,7 @@ extern grabC*       pGrabHandleAll ;
             while( !stRelayAbsent##idWorkP##Lag.third && ~hDown ) ;                        \
             }                                                                                           \
                 if( idptAbsent##idWorkP## ) break ; /*SHOULD BE UNNECESSARY SINCE THERE SHOULD BE EITHER 0 OR 1 PLATES*/        \
-                idptAbsent##idWorkP## = nodeC::gossipIfIF( tinP , idSerialLathHeaderP , pStPop0P , pStPop1P , pStPop2P , pStPop3P , pStPop4P , stIdptOpenP , stIdptGossipP , stIdptTempP , stRelayAbsent##idWorkP## , idpt , idptP , idWorkP ) ; \
+                idptAbsent##idWorkP## = nodeOldC::gossipIfIF( tinP , idSerialLathHeaderP , pStPop0P , pStPop1P , pStPop2P , pStPop3P , pStPop4P , stIdptOpenP , stIdptGossipP , stIdptTempP , stRelayAbsent##idWorkP## , idpt , idptP , idWorkP ) ; \
                 idPortTimeC& idpt = *(idPortTimeC*)&stRelayAbsent##idWorkP##Lag.downF( tinP , hDown ) ; \
             {                                                                                           \
             do                                                                                          \
@@ -402,9 +402,9 @@ for each previous absentee
  friend TASKpROTO( tmNodeInitiatorF ) ;                                                                                                                                                                                                                    \
  friend TASKpROTO( tmNodePopClientF ) ;                                                                                                                                                                                                                    \
                                                                                                                                                                                                                                                             \
-#define FRIENDS_nodeC                                                                                                                                                                                                                                      \
+#define FRIENDS_nodeOldC                                                                                                                                                                                                                                      \
 
-/*1*//*FRIENDS_nodeC*//*1*/
+/*1*//*FRIENDS_nodeOldC*//*1*/
 /**/
 */
 /*

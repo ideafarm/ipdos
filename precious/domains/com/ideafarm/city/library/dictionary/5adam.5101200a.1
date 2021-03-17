@@ -20,7 +20,7 @@ REST
 
         }
             ++ s ; etThread.osSleepF( tinP , TOCK ) ;
-            cRelays ++ ; etThread.osThreadF( TaRG1( tmNodeF ) , (countT)&cRelays ) ;
+            cRelays ++ ; etThread.osThreadF( TaRG1( tmNodeOldF ) , (countT)&cRelays ) ;
         {
         while( cDo -- )
         countT cDo = 1 ;
@@ -42,16 +42,16 @@ REST
 
 TODO
 
-DONE( tmNodeF )
+DONE( tmNodeOldF )
 }
     cRelaysP -- ;
-    nodeC relay( tinP , etThread , bReady ) ;
+    nodeOldC relay( tinP , etThread , bReady ) ;
     ZE( boolT , bReady ) ;
     countT& cRelaysP = *(countT*)pTaskP->c1 ;
 {
 if( pTaskP && pTaskP->c1 )
 TELL( "setting up" )
-TASK( tmNodeF )
+TASK( tmNodeOldF )
 
 DONE( tmTestF )
 
@@ -116,7 +116,7 @@ grabC* pGrabHandleAll ;
 /*1*/WAKEhIDE( "ifcIDaDAM_KERNEL3BANG" )/*1*/
 /**/
 */
- the etherC::cioGetF cioPutF support is not duplicated ; adam a exercizes that code, presumably using its own nodeC class rather than base's relayOldC class
+ the etherC::cioGetF cioPutF support is not duplicated ; adam a exercizes that code, presumably using its own nodeOldC class rather than base's relayOldC class
  all of the code for the relayOldC class is duplicated within adam a, including the tmRelayOld*F thread functions
 this adam contains baseline code to duplicate the function of adam 115 (kernel3bang) so that the relayC class and related code can be rewritten for clarity
 /*

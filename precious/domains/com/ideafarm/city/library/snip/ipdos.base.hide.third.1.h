@@ -1,4 +1,3 @@
-#define postIPaDDRgROUP_ADVERTISElANnODE "ff02::bb:aa"
 
 // IPDOS (tm) <> IdeaFarm (tm) Piggyback Distributed Operating System
 
@@ -390,7 +389,10 @@ struct  /*ff*/diskFindHandleS/*ff*/             ; /*ff*//**//*ff*/
 struct  /*ff*/cachedS/*ff*/                     ; /*ff*//**//*ff*/
 class   /*ff*/cacheC/*ff*/                      ; /*ff*//**//*ff*/
 class   /*ff*/inOutFrameC/*ff*/                 ; /*ff*//**//*ff*/
-struct  /*ff*/taskDrivenServerJobS/*ff*/     ; /*ff*//**//*ff*/
+struct  /*ff*/taskDrivenServerJobS/*ff*/        ; /*ff*//**//*ff*/
+struct  /*ff*/nodeEntryS/*ff*/                  ; /*ff*//**//*ff*/
+struct  /*ff*/nodeListS/*ff*/                   ; /*ff*//**//*ff*/
+
 
 //INCLUDE GENERATED SNIPPETS HERE
 
@@ -45677,3 +45679,29 @@ use me rather than ZE() to ask PUSE to allocate from a jotC that i have construc
 //
 
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004f0.isinitializedjpointer END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004f0.isinitializedpointer BEGIN
+
+
+//
+// Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 29 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+/*
+*/
+/**/
+/*1*//*ISiNITIALIZEDpOINTER(pbP)*//*1*/
+
+#define ISiNITIALIZEDpOINTER(pbP) ( !(pbP) || ( (countT)(pbP) >= JrEQUEST_min && (countT)(pbP) <= JrEQUEST_max ) )
+
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 29 years.
+//
+// Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004f0.isinitializedpointer END
