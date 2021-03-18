@@ -9,8 +9,9 @@
 
 }
     return copy ;
-    copy.nn = nicNameC::fieldF( tinP , soulP , idFieldStartP + 1 ) ;
-    copy.idPort = soulP.cFieldF( tinP , idFieldStartP ) ;
+    copy.idPort =           soulP.cFieldF( tinP         , idFieldStartP + 2 ) ;
+    copy.nnv4   = (count02T)soulP.cFieldF( tinP         , idFieldStartP + 1 ) ; //U:: WHOEVER WRITES *this INTO soulC NEEDS TO BE EDITED TO THE NEW ORDER
+    copy.nn     =        nicNameC::fieldF( tinP , soulP , idFieldStartP     ) ; //20210317@1655: CHANGED ORDERING HERE FROM idPort nn TO nn nnv4 idPort
     portC copy ;
 
     if( (countT)soulP < idFieldStartP - 1 + cFieldsF( tinP ) ) { BLAMMO ; }

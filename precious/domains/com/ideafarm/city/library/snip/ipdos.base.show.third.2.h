@@ -18855,8 +18855,9 @@ it is illegal to refer to this symbol anywhere except in napkinC definitions
 {
  protected :
 
- countT   idPort ;
  nicNameC nn ;
+ count02T nnv4 ;
+ countT   idPort ;
 
  public :
 

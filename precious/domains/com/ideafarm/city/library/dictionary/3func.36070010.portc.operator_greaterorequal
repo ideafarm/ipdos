@@ -8,7 +8,13 @@
 
 
 }
-    return nn > idPortP.nn || ( nn == idPortP.nn && idPort >= idPortP.idPort ) ;
+    ;
+        ( nn == idPortP.nn && nnv4 == idPortP.nnv4 && idPort >= idPortP.idPort )
+        ||
+        ( nn == idPortP.nn && nnv4 > idPortP.nnv4 )
+        ||
+        nn > idPortP.nn
+    return
 {
 /*1*/boolT portC::operator >=( const portC& idPortP ) const/*1*/
 
