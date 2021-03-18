@@ -27,7 +27,7 @@
     if( bFail )
 
     }
-        while( !*this && ( bNoQuit || ( bNoQuitEarly && !thPrimeIF( tinP ) ) || ( cTriesP && -- cTriesP ) ) ) ;
+        while( bAgain ) ;
         }
             }
                 break ;
@@ -36,7 +36,7 @@
             {
             else
             }
-                ++ s ; dosSleepIF( tinP , TUCK * 0x40 ) ;
+                if( bAgain ) { ++ s ; dosSleepIF( tinP , TUCK * 0x40 ) ; }
 
                 if( tinP.pEther ) tinP.pEther->traceF( tinP , T("bindF failed [rc]:    ")+TF2(rc,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
                 countT rc = tinP.brcRaw ;
@@ -44,8 +44,11 @@
             {
             if( tinP.bosFail )
             BOSS( WHATgbo , BOSfAIL , bind( handleP.osF( ifcIDtYPEhANDLE_SOCKET ) , (sockaddr*)&info , sizeof info ) )
+
+            bAgain = !*this && ( bNoQuit || ( bNoQuitEarly && !thPrimeIF( tinP ) ) || ( cTriesP && -- cTriesP ) ) ;
         {
         do
+        ZE( boolT , bAgain ) ;
         sleepC s( tinP , TAG( TAGiDnULL ) ) ;
     {
     boolT bFail = 1 ;

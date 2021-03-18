@@ -1,3 +1,4 @@
+#define ifcIDpORT_nodeC                             0x00001cc0
 
 // IPDOS (tm) <> IdeaFarm (tm) Piggyback Distributed Operating System
 
