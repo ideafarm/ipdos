@@ -18835,7 +18835,7 @@ it is illegal to refer to this symbol anywhere except in napkinC definitions
 //
 
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.nicNameC : 1snip.15000033.nicnamec END
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.portC : 1snip.15000080.idportc BEGIN
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.portC : 1snip.15000080.portc BEGIN
 
 
 //
@@ -18917,6 +18917,8 @@ it is illegal to refer to this symbol anywhere except in napkinC definitions
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34017.portC.cFieldsF!||
  static portC fieldF( tinS& tinP , soulC& soulP , const countT idFieldStartP ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34018.portC.fieldF!||
+
+ inline nicNameC nnv4F( voidT ) const { return nicNameC( nnv4 ) ; }
 /**/
 }
 ;
@@ -18929,8 +18931,8 @@ it is illegal to refer to this symbol anywhere except in napkinC definitions
 // Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
 
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.portC : 1snip.15000080.idportc END
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.portTimeC : 1snip.15000081.idporttimec BEGIN
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.portC : 1snip.15000080.portc END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.portTimeC : 1snip.15000081.porttimec BEGIN
 
 
 //
@@ -18996,7 +18998,7 @@ it is illegal to refer to this symbol anywhere except in napkinC definitions
 // Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
 
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.portTimeC : 1snip.15000081.idporttimec END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.portTimeC : 1snip.15000081.porttimec END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.lowThreadS : 1snip.15000090.lowthreads BEGIN
 
 

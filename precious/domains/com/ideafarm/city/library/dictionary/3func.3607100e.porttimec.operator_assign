@@ -9,9 +9,10 @@
 
 }
     return *this ;
-    /*if( !idPort )*/ time.time2 = time.time1 = 0 ;
+    time.time2 = time.time1 = 0 ;
     idPort = 0 ;                                            //20210211@1157: ADDED W/O ANALYSIS ; PRESUMPTION THAT CHANGING nn WILL ALWAYS RENDER idPort IRRELEVANT BECAUSE IT IS ASSOCIATED WITH THE OLD nn
-    nn = nnP ;
+    else                nn   = nnP ;
+    if( nnP.isIPv4F() ) nnv4 = *(const countT*)nnP ;
 {
 /*1*/portTimeC& portTimeC::operator =( const nicNameC& nnP )/*1*/
 /**/

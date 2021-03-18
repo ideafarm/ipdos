@@ -29,11 +29,11 @@ TODO
     sleepC s( tinP , TAG( TAGiDnULL ) ) ;
     etherC& etPrime = etherC::etPrimeIF( tinP ) ;
 
-    ether.osThreadF( TaRG1( tmRefreshListF ) , (countT)this , (countT)&bQuit , (countT)&cKids ) ;
+    ether.osThreadF( TaRG1( tmRefreshListF ) , (countT)this , (countT)&bQuit , (countT)&cKids , (countT)&stOpen ) ;
     countT cKids = 1 ;
     ZE( boolT , bQuit ) ;
 {
-stOpen( tinP , ether , TAG( TAGiDnULL ) , flSTACKc_BLOB , sizeof( portTimeC ) )
+stOpen( tinP , ether , TAG( TAGiDnULL ) , flSTACKc_BLOB , sizeof( portC ) )
 ether( etherP ) ,
 nodeC::nodeC( tinS& tinP , etherC& etherP , const countT idTypeP ) :
 
@@ -47,19 +47,41 @@ DONE( tmRefreshListF )
                 ++ s ; ether.osSleepF( tinP , TOCK ) ;
                 sleepC s( tinP , TAG( TAGiDnULL ) ) ;
 
+                while( !stOpenP.third && ~hDown ) ;
+                }
+                    etThread.traceF( tinP , T("stOpen [idPlate,port,v4]:    ")+TF2(++idPlate,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+T((nicNameC&)portHe)+T("    ")+T(portHe.nnv4F())+T(" ( ")+TF2((countT)portHe,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T(" )") ) ; //U:: TO FIND A BUG
+                    portC& portHe = *(portC*)&stOpenP.downF( tinP , hDown ) ;
+                {
+                do
+                handleC hDown( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_STACKwALK ) ;
+                ZE( countT , idPlate ) ;
+
+                stOpenP.ungrabF( tinP ) ;
+
                 etThread.traceF( tinP , T("local nodes (end)") , flTRACE_null , ifcIDtRACEdIVERT_e ) ;
                 }
                     }
                         etThread.traceF( tinP , T("local node [off,nn,nnv4]:    ")+TF2(offi,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+T(nl.pEntry[offi].nn)+tb4+T(nicNameC(nl.pEntry[offi].nnv4)) , flTRACE_null , ifcIDtRACEdIVERT_e ) ;
 
-                        portHe = nicNameC( nl.pEntry[ offi ].nnv4 ) ;
-                        portHe =           nl.pEntry[ offi ].nn     ;
+                        stOpenP.sinkF( tinP , countTC() , (byteT*)&portHe , flSTACKsINK_UNIQUE , subtractPortsF ) ;
+
+                        //FROM THAT POINT, THE PROCESSING IS JUST LIKE THE OLD CODE ; THE ROOT PUBLISHES THE OPEN LIST AND THE GOSSIP LIST
+                        //RECIPE: SCAN PORTS FOR EACH LISTED HOST UNTIL I FIND AN ANSWER ; THEN REGISTER MYSELF WITH THAT ROOT
+                        //FOR A LOCAL BANG RELAY, THE LIST ONLY GIVES ME A WAY TO DISCOVER ROOT
+                        //U:: THE LIST ONLY GIVES ME POTENTIAL NODES ; stOpen CANNOT BE LOADED FROM THE LIST
+
+                        //U::ISSUE: HOW TO GET idPort?  CONJ: WILL NEED TO SCAN A RANGE OF PORTS TO FIND BANG RELAY
+                        portHe = nicNameC( nl.pEntry[ offi ].nnv4   ) ;
+                        portHe =           nl.pEntry[ offi ].nn       ;
                         portC portHe ;
                     {
                     if( nl.pEntry[ offi ].ttl )
                 {
                 for( countT offi = 0 ; offi < nl.cEltsMax ; offi ++ )
                 etThread.traceF( tinP , T("local nodes (begin)") , flTRACE_null , ifcIDtRACEdIVERT_e ) ;
+
+                stOpenP.purgeF( tinP ) ;
+                stOpenP.grabF( tinP , TAG( TAGiDnULL ) ) ;
             {
             while( !ether && !POOP && !bQuitP )
             nodeListS& nl = *(nodeListS*)(byteT*)napNodeList ;
@@ -79,12 +101,29 @@ DONE( tmRefreshListF )
         ZE( boolT , bFail ) ;
     {
 
-    countT& cKidsP = *(countT*)pTaskP->c3 ;
-    boolT&  bQuitP =  *(boolT*)pTaskP->c2 ;
-    nodeC&  nodeP  =  *(nodeC*)pTaskP->c1 ;
+    stackC& stOpenP = *(stackC*)pTaskP->c4 ;
+    countT& cKidsP  = *(countT*)pTaskP->c3 ;
+    boolT&  bQuitP  =  *(boolT*)pTaskP->c2 ;
+    nodeC&  nodeP   =  *(nodeC*)pTaskP->c1 ;
 {
 if( pTaskP && pTaskP->c1 )
 TASK( tmRefreshListF )
+
+
+}
+    return sgn ;
+
+    sCountT sgn = c1P && c2P ? *(portC*)c1P - *(portC*)c2P : 0 ;
+    _IO_
+
+    }
+    {
+    IFbEcAREFUL
+{
+/*1*/countT _export subtractPortsF( tinS& tinP , countT& pEther , countT& c1P , countT& c2P , countT& c3P )/*1*/
+/**/
+*/
+/*
 
 ;
 }
