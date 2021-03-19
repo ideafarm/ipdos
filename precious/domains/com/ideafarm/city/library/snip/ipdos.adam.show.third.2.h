@@ -18837,6 +18837,7 @@ it is illegal to refer to this symbol anywhere except in napkinC definitions
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.nicNameC : 1snip.15000033.nicnamec END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.portC : 1snip.15000080.portc BEGIN
 
+
 //
 // Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
@@ -18930,6 +18931,7 @@ it is illegal to refer to this symbol anywhere except in napkinC definitions
 
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.portC : 1snip.15000080.portc END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.portTimeC : 1snip.15000081.porttimec BEGIN
+
 
 //
 // Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
@@ -32652,7 +32654,6 @@ examples
  voidT strFromF( tinS& tinP , strokeS*& psttP , const sCountT valueP , const flagsT flagsFormatP = flFORMAT_null , const countT csP = 0 , const countT radixP = 0x10 , const countT csttExtraP = 0 ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3404e.etherC.strFromF!||
  voidT strFromF( tinS& tinP , strokeS*& psttP , const countT valueP , const flagsT flagsFormatP = flFORMAT_null , const countT csP = 0 , const countT radixP = 0x10 , const countT csttExtraP = 0 ) ;
- voidT strFromF( tinS& tinP , strokeS*& psttP , const timeS& timeP , const flagsT flFormatP = flFORMAT_null , const countT csP = 0 , const countT radixP = 0 , const strokeS* const psttSeparatorP = 0 , const countT csttExtraP = 0 ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.340db.etherC.strFromF!||
  voidT strFromF( tinS& tinP , strokeS*& psttP , const measureT valueP , const flagsT flagsFormatP = flFORMAT_null , const countT csP = 0 , const countT idcPointP = 0 , const countT cPrecisionP = 0 , const countT radixP = 0x10 , const countT csttExtraP = 0 ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.340da.etherC.strFromF!||
@@ -32666,6 +32667,8 @@ examples
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3410e.etherC.strFromF!||
  voidT strFromF( tinS& tinP , strokeS*& psttP , const portTimeC& idptP , const flagsT flFormatP = flFORMAT_null , const countT csP = 0 , const countT radixP = 0 , const strokeS* const psttSeparatorP = 0 , const countT csttExtraP = 0 ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34184.etherC.strFromF!||
+ voidT strFromF( tinS& tinP , strokeS*& psttP , const timeS& timeP , const flagsT flFormatP = flFORMAT_null , const countT csP = 0 , const countT radixP = 0 , const strokeS* const psttSeparatorP = 0 , const countT csttExtraP = 0 ) ;
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.360021fc.etherc.strfromf!||
  voidT strFromIdPortNicNameF( tinS& tinP , strokeS*& psttP , const countT idPortP = 0 , const nicNameC nicNameP = nicNameC() ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34077.etherC.strFromIdPortNicNameF!||
  voidT strFromProcessF( tinS& tinP , strokeS*& psttOutP , strokeS*& psttErrorP , const strokeS* const psttExeP , const strokeS* const psttArgsP = 0 , const strokeS* const psttInP = 0 ) ;
@@ -33133,6 +33136,7 @@ each textC object contains an unmodifiable string of strokes
  textC( tinS& tinP , const countT idLineCtP , const countT idiFileCtP , const byteT* const pbBitsCtP , const flagsT flagsP , const portTimeC& valueP , const flagsT flagsFormatP = flFORMAT_null , const countT csP = 0 , const countT radixP = 0 ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34018.textC.textC!||
  textC( tinS& tinP , const countT idLineCtP , const countT idiFileCtP , const byteT* const pbBitsCtP , const flagsT flagsP , const timeS& valueP , const flagsT flagsFormatP = flFORMAT_null , const countT csP = 0 , const countT radixP = 0 ) ;
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3600401e.textc.textc!||
  ~textC( voidT ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34003.textC.dt_textC!||
 

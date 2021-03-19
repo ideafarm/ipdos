@@ -15,29 +15,6 @@ nodeC nodeMe( tinP , etThread ) ;
 
 TODO
 
-}
-    }
-        ++ s ; ether.osSleepF( tinP , TOCK >> 2 ) ;
-    {
-    while( cKids )
-    bQuit = 1 ;
-
-    }
-        ++ s ; ether.osSleepF( tinP , TOCK ) ;
-    {
-    while( !etPrime )
-    sleepC s( tinP , TAG( TAGiDnULL ) ) ;
-    etherC& etPrime = etherC::etPrimeIF( tinP ) ;
-
-    ether.osThreadF( TaRG1( tmAcceptF      ) , (countT)this , (countT)&bQuit , (countT)&cKids , (countT)&stOpen ) ;
-    ether.osThreadF( TaRG1( tmRefreshListF ) , (countT)this , (countT)&bQuit , (countT)&cKids , (countT)&stOpen ) ;
-    countT cKids = 2 ;
-    ZE( boolT , bQuit ) ;
-{
-stOpen( tinP , ether , TAG( TAGiDnULL ) , flSTACKc_BLOB , sizeof( portTimeC ) )
-ether( etherP ) ,
-nodeC::nodeC( tinS& tinP , etherC& etherP , const countT idTypeP ) :
-
 DONE( tmAcceptF )
 }
     dec02AM( cKidsP ) ;
@@ -83,12 +60,13 @@ DONE( tmAcceptF )
         socketC sockListen( tinP , etThread , TAG( TAGiDnULL ) ) ;
     {
 
-    stackC& stOpenP = *(stackC*)pTaskP->c4 ;
-    countT& cKidsP  = *(countT*)pTaskP->c3 ;
-    boolT&  bQuitP  =  *(boolT*)pTaskP->c2 ;
-    nodeC&  nodeP   =  *(nodeC*)pTaskP->c1 ;
+    const countT idModeP =           pTaskP->c5 ;
+    stackC&      stOpenP = *(stackC*)pTaskP->c4 ;
+    countT&      cKidsP  = *(countT*)pTaskP->c3 ;
+    boolT&       bQuitP  =  *(boolT*)pTaskP->c2 ;
+    nodeC&       nodeP   =  *(nodeC*)pTaskP->c1 ;
 {
-if( pTaskP && pTaskP->c1 && pTaskP->c2 && pTaskP->c3 && pTaskP->c4 )
+if( pTaskP && pTaskP->c1 && pTaskP->c2 && pTaskP->c3 && pTaskP->c4 && pTaskP->c5 )
 TASK( tmAcceptF )
 
 DONE( tmRefreshListF )
@@ -96,164 +74,179 @@ DONE( tmRefreshListF )
     dec02AM( cKidsP ) ;
 
     }
+        DEL( pNapNodeList ) ;
+
         }
+            ++ s ; ether.osSleepF( tinP , TOCK ) ;
+            sleepC s( tinP , TAG( TAGiDnULL ) ) ;
+
+            stOpenP.ungrabF( tinP ) ;
             }
-                ++ s ; ether.osSleepF( tinP , TOCK ) ;
-                sleepC s( tinP , TAG( TAGiDnULL ) ) ;
-
-                stOpenP.ungrabF( tinP ) ;
+                while( !stOpenP.third && ~hDown ) ;
                 }
-                    while( !stOpenP.third && ~hDown ) ;
-                    }
-                        etThread.traceF( tinP , T("stOpenP [idPlate,port,v4]:    ")+TF2(++idPlate,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+T(nnHe)+T("    ")+T(ptHe.nnv4F())+T(" ( ")+TF2((countT)ptHe,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T(" )") ) ; //U:: TO FIND A BUG
-                        nicNameC nnHe = ptHe ;
-                        portTimeC& ptHe = *(portC*)&stOpenP.downF( tinP , hDown ) ;
-                    {
-                    do
-                    handleC hDown( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_STACKwALK ) ;
-                    ZE( countT , idPlate ) ;
+                    etThread.traceF( tinP , TF2(++idPlate,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+T(timeHe)+tb4+T(nnHe)+tb4+T(ptHe.nnv4F())+T(" ( ")+TF2((countT)ptHe,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T(" )") ) ; //U:: TO FIND A BUG
+                    const timeS& timeHe = ptHe ;
+                    nicNameC nnHe = ptHe ;
+                    portTimeC& ptHe = *(portTimeC*)&stOpenP.downF( tinP , hDown ) ;
                 {
+                do
+                handleC hDown( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_STACKwALK ) ;
+                ZE( countT , idPlate ) ;
+            {
 
+            }
+                while( !stValidated.third && ~hDown ) ;
                 }
-                    while( !stValidated.third && ~hDown ) ;
-                    }
-                        etThread.traceF( tinP , T("stValidated [idPlate,port,v4,time]:    ")+TF2(++idPlate,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+T(nnHe)+T("    ")+T(portHe.nnv4F())+T(" ( ")+TF2((countT)portHe,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T(" )    ")+T(timeHe) ) ; //U:: TO FIND A BUG
+                    etThread.traceF( tinP , T("stValidated [idPlate,port,v4,time]:    ")+TF2(++idPlate,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+T(nnHe)+T("    ")+T(portHe.nnv4F())+T(" ( ")+TF2((countT)portHe,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T(" )    ")+T(timeHe) ) ; //U:: TO FIND A BUG
 
-                        tFoo = T(timeHe) ;
-                        TN( tFoo , "" ) ;
+                    tFoo = T(timeHe) ;
+                    TN( tFoo , "" ) ;
 
-                        timeS timeHe = ptHe ;
-                        nicNameC nnHe = portHe ;
-                        stOpenP.sinkF( tinP , countTC() , (byteT*)&ptHe , flSTACKsINK_UNIQUE , subtractPortTimeF ) ;
+                    timeS timeHe = ptHe ;
+                    nicNameC nnHe = portHe ;
+                    stOpenP.sinkF( tinP , countTC() , (byteT*)&ptHe , flSTACKsINK_UNIQUE , subtractPortTimeF ) ;
 
-                        ptHe.timeStampIfF( tinP , etThread ) ;
-                        portTimeC ptHe = portHe ;
+                    ptHe.timeStampIfF( tinP , etThread ) ;
+                    portTimeC ptHe = portHe ;
 
-                        portC& portHe = *(portC*)&stValidated.downF( tinP , hDown ) ;
-                    {
-                    do
-                    handleC hDown( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_STACKwALK ) ;
-                    ZE( countT , idPlate ) ;
+                    portC& portHe = *(portC*)&stValidated.downF( tinP , hDown ) ;
                 {
-                if( stValidated )
+                do
+                handleC hDown( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_STACKwALK ) ;
+                ZE( countT , idPlate ) ;
+            {
+            if( stValidated )
 
-                // AT THIS POINT ALL PLATES IN stOpenP ARE STILL GOOD, AND stValidated ONLY CONTAINS PLATES THAT ARE NOT IN stOpenP
+            // AT THIS POINT ALL PLATES IN stOpenP ARE STILL GOOD, AND stValidated ONLY CONTAINS PLATES THAT ARE NOT IN stOpenP
+            }
+                while( !stOpenP.third && ~hDown ) ;
                 }
-                    while( !stOpenP.third && ~hDown ) ;
                     }
-                        }
-                            stValidated.extractF( 0 , tinP ) ;
-                            //etThread.traceF( tinP , T("extracting from stValidated (not newly open) [port,v4]:    ")/*+T((nicNameC)ptHe)+T("    ")+T(ptHe.nnv4F())+T(" ( ")+TF2((countT)ptHe,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T(" )")*/ ) ; //U:: TO FIND A BUG
-                        {
-                        else                
-                        }
-                            stOpenP.extractF( 0 , tinP ) ;
-                            etThread.traceF( tinP , T("extracting from stOpenP (no longer open) [port,v4]:    ")/*+T((nicNameC)ptHe)+T("    ")+T(ptHe.nnv4F())+T(" ( ")+TF2((countT)ptHe,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T(" )")*/ ) ; //U:: TO FIND A BUG
-                        {
-                        if( !stValidated( (byteT*)&ptHe , subtractPortF ) )
-                        portTimeC& ptHe = *(portC*)&stOpenP.downF( tinP , hDown ) ;
+                        stValidated.extractF( 0 , tinP ) ;
+                        //etThread.traceF( tinP , T("extracting from stValidated (not newly open) [port,v4]:    ")/*+T((nicNameC)ptHe)+T("    ")+T(ptHe.nnv4F())+T(" ( ")+TF2((countT)ptHe,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T(" )")*/ ) ; //U:: TO FIND A BUG
                     {
-                    do
-                    handleC hDown( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_STACKwALK ) ;
-                    ZE( countT , idPlate ) ;
+                    else                
+                    }
+                        stOpenP.extractF( 0 , tinP ) ;
+                        etThread.traceF( tinP , T("extracting from stOpenP (no longer open) [port,v4]:    ")/*+T((nicNameC)ptHe)+T("    ")+T(ptHe.nnv4F())+T(" ( ")+TF2((countT)ptHe,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T(" )")*/ ) ; //U:: TO FIND A BUG
+                    {
+                    if( !stValidated( (byteT*)&ptHe , subtractPortF ) )
+                    portTimeC& ptHe = *(portC*)&stOpenP.downF( tinP , hDown ) ;
                 {
-                if( stOpenP )
-                stOpenP.grabF( tinP , TAG( TAGiDnULL ) ) ;
+                do
+                handleC hDown( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_STACKwALK ) ;
+                ZE( countT , idPlate ) ;
+            {
+            if( stOpenP )
+            stOpenP.grabF( tinP , TAG( TAGiDnULL ) ) ;
 
-                //}
-                //    stValidated.purgeF( tinP ) ; //U:: TO TEST
-                //    etThread.traceF( tinP , T("U:: purging stValidated (to test)") ) ; //U:: TO FIND A BUG
-                //{
-                //if( stOpenP )
+            //}
+            //    stValidated.purgeF( tinP ) ; //U:: TO TEST
+            //    etThread.traceF( tinP , T("U:: purging stValidated (to test)") ) ; //U:: TO FIND A BUG
+            //{
+            //if( stOpenP )
 
+            }
+                while( !stToScan.third && ~hDown ) ;
                 }
-                    while( !stToScan.third && ~hDown ) ;
                     }
                         }
                             }
-                                }
-                                    break ;
-                                    //etThread.traceF( tinP , T("connected aok [nnTry,idPortTry]:    ")+T(nnHe)+tb4+TF2(idpTry,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
-                                    nicNameC nnHe = portHe ;
-                                    stValidated.sinkF( tinP , countTC() , (byteT*)&portHe , flSTACKsINK_UNIQUE , subtractPortF ) ;
-                                    portHe = idpTry ;
-                                {
-                                else
-                                }
-                                    //etThread.traceF( tinP , T("could not connect [nnTry,idPortTry]:    ")+T(nnHe)+tb4+TF2(idpTry,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
-                                    nicNameC nnHe = portHe ;
-                                    POOPRqUIET
-                                {
-                                if( POOP )
-                                sockScan.connectF( tinP , idpTry , portHe , 1 , TUCK >> 4 ) ; //U:: LONGER TIMEOUT FOR GLOBAL TREE
-
-                                socketC sockScan( tinP , *tinP.pEtScratch , TAG( TAGiDnULL ) ) ;
+                                break ;
+                                //etThread.traceF( tinP , T("connected aok [nnTry,idPortTry]:    ")+T(nnHe)+tb4+TF2(idpTry,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
+                                nicNameC nnHe = portHe ;
+                                stValidated.sinkF( tinP , countTC() , (byteT*)&portHe , flSTACKsINK_UNIQUE , subtractPortF ) ;
+                                portHe = idpTry ;
                             {
-                            for( countT idpTry = ifcIDpORT_nodeC ; idpTry < ifcIDpORT_nodeC + 4 ; idpTry ++ )
+                            else
+                            }
+                                //etThread.traceF( tinP , T("could not connect [nnTry,idPortTry]:    ")+T(nnHe)+tb4+TF2(idpTry,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
+                                nicNameC nnHe = portHe ;
+                                POOPRqUIET
+                            {
+                            if( POOP )
+                            sockScan.connectF( tinP , idpTry , portHe , 1 , TUCK >> 4 ) ; //U:: LONGER TIMEOUT FOR GLOBAL TREE
 
-                            SCOOPS
+                            socketC sockScan( tinP , *tinP.pEtScratch , TAG( TAGiDnULL ) ) ;
                         {
-                        IFsCRATCH
+                        for( countT idpTry = ifcIDpORT_nodeC ; idpTry < ifcIDpORT_nodeC + 4 ; idpTry ++ )
 
-                        //etThread.traceF( tinP , T("stToScan [idPlate,port,v4]:    ")+TF2(++idPlate,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+T((nicNameC&)portHe)+T("    ")+T(portHe.nnv4F()) ) ; //U:: TO FIND A BUG
-                        portC& portHe = *(portC*)&stToScan.downF( tinP , hDown ) ;
+                        SCOOPS
                     {
-                    do
-                    handleC hDown( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_STACKwALK ) ;
-                    ZE( countT , idPlate ) ;
+                    IFsCRATCH
+
+                    //etThread.traceF( tinP , T("stToScan [idPlate,port,v4]:    ")+TF2(++idPlate,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+T((nicNameC&)portHe)+T("    ")+T(portHe.nnv4F()) ) ; //U:: TO FIND A BUG
+                    portC& portHe = *(portC*)&stToScan.downF( tinP , hDown ) ;
                 {
-                if( stToScan )
-                stackC stValidated( tinP , ether , TAG( TAGiDnULL ) , flSTACKc_BLOB | flSTACKc_DOnOTsERIALIZE , sizeof( portC ) ) ;
-
-                }
-                    //etThread.traceF( tinP , T("local nodes (end)") , flTRACE_null , ifcIDtRACEdIVERT_e ) ;
-                    }
-                        }
-                            //etThread.traceF( tinP , T("local node [off,nn,nnv4]:    ")+TF2(offi,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+T(nl.pEntry[offi].nn)+tb4+T(nicNameC(nl.pEntry[offi].nnv4)) , flTRACE_null , ifcIDtRACEdIVERT_e ) ;
-
-                            stToScan.sinkF( tinP , countTC() , (byteT*)&portHe , flSTACKsINK_UNIQUE , subtractPortF ) ;
-
-                            //FROM THAT POINT, THE PROCESSING IS JUST LIKE THE OLD CODE ; THE ROOT PUBLISHES THE OPEN LIST AND THE GOSSIP LIST
-                            //RECIPE: SCAN PORTS FOR EACH LISTED HOST UNTIL I FIND AN ANSWER ; THEN REGISTER MYSELF WITH THAT ROOT
-                            //FOR A LOCAL BANG RELAY, THE LIST ONLY GIVES ME A WAY TO DISCOVER ROOT
-                            //U:: THE LIST ONLY GIVES ME POTENTIAL NODES ; stOpen CANNOT BE LOADED FROM THE LIST
-
-                            //U::ISSUE: HOW TO GET idPort?  CONJ: WILL NEED TO SCAN A RANGE OF PORTS TO FIND BANG RELAY
-                            portHe = nicNameC( nl.pEntry[ offi ].nnv4   ) ;
-                            portHe =           nl.pEntry[ offi ].nn       ;
-                            portC portHe ;
-                        {
-                        if( nl.pEntry[ offi ].ttl )
-                    {
-                    for( countT offi = 0 ; offi < nl.cEltsMax ; offi ++ )
-                    //etThread.traceF( tinP , T("local nodes (begin)") , flTRACE_null , ifcIDtRACEdIVERT_e ) ;
-                {
-                stackC stToScan( tinP , ether , TAG( TAGiDnULL ) , flSTACKc_BLOB | flSTACKc_DOnOTsERIALIZE , sizeof( portC ) ) ;
+                do
+                handleC hDown( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_STACKwALK ) ;
+                ZE( countT , idPlate ) ;
             {
-            while( !ether && !POOP && !bQuitP )
-            nodeListS& nl = *(nodeListS*)(byteT*)napNodeList ;
-            TN( tb4 , "    " ) ;
-        {
-        if( !bFail )
+            if( stToScan )
+            stackC stValidated( tinP , ether , TAG( TAGiDnULL ) , flSTACKc_BLOB | flSTACKc_DOnOTsERIALIZE , sizeof( portC ) ) ;
 
-        THREADmODE3rESTORE
-        }
-            bFail = 1 ;
-            etThread.traceF( tinP , T("watch must be running for this home; doing nothing") ) ;
-            napNodeList.formattingIsDoneF( tinP ) ;
+            }
+                //etThread.traceF( tinP , T("local nodes (end)") , flTRACE_null , ifcIDtRACEdIVERT_e ) ;
+                }
+                    }
+                        //etThread.traceF( tinP , T("local node [off,nn,nnv4]:    ")+TF2(offi,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+T(pNodeList->pEntry[offi].nn)+tb4+T(nicNameC(pNodeList->pEntry[offi].nnv4)) , flTRACE_null , ifcIDtRACEdIVERT_e ) ;
+
+                        stToScan.sinkF( tinP , countTC() , (byteT*)&portHe , flSTACKsINK_UNIQUE , subtractPortF ) ;
+
+                        //FROM THAT POINT, THE PROCESSING IS JUST LIKE THE OLD CODE ; THE ROOT PUBLISHES THE OPEN LIST AND THE GOSSIP LIST
+                        //RECIPE: SCAN PORTS FOR EACH LISTED HOST UNTIL I FIND AN ANSWER ; THEN REGISTER MYSELF WITH THAT ROOT
+                        //FOR A LOCAL BANG RELAY, THE LIST ONLY GIVES ME A WAY TO DISCOVER ROOT
+                        //U:: THE LIST ONLY GIVES ME POTENTIAL NODES ; stOpen CANNOT BE LOADED FROM THE LIST
+
+                        //U::ISSUE: HOW TO GET idPort?  CONJ: WILL NEED TO SCAN A RANGE OF PORTS TO FIND BANG RELAY
+                        portHe = nicNameC( pNodeList->pEntry[ offi ].nnv4   ) ;
+                        portHe =           pNodeList->pEntry[ offi ].nn       ;
+                        portC portHe ;
+                    {
+                    if( pNodeList->pEntry[ offi ].ttl )
+                {
+                for( countT offi = 0 ; offi < pNodeList->cEltsMax ; offi ++ )
+                //etThread.traceF( tinP , T("local nodes (begin)") , flTRACE_null , ifcIDtRACEdIVERT_e ) ;
+            {
+            stackC stToScan( tinP , ether , TAG( TAGiDnULL ) , flSTACKc_BLOB | flSTACKc_DOnOTsERIALIZE , sizeof( portC ) ) ;
         {
-        if( !napNodeList.bFormattedF() )
-        napkinC napNodeList( tinP , TAG( TAGiDnULL ) , "ipdos.node.list" , 0 , TOCK , ifcOPENsHAREDmEMORYhOW_nCeO , flNAPKINc_null , - 1 , ifcIDmEMORYsPACE_UNIVERSE ) ;
-        THREADmODE3oN( flTHREADmODE3_ALLOWeXPLICITmEMORYsPACE )
+        if( !bFail ) while( !ether && !POOP && !bQuitP )
+
+        }
+            //THE IDEA IS TO USE DISK TO REMEMBER PORTS SO THAT A NEW NODE CAN CONNECT ITSELF TO OTHER PORTS EVEN IF THE PORTS REGISTERED IN DNS ARE NOT RESPONSIVE
+            //REGARDLESS OF MODE, THIS IS A LIST OF PORTS TO SCAN IN THE SEARCH FOR RESPONSIVE NODES
+            //AT A MINIMUM, IT WILL CONTAIN spacenn.ideafarm.com ( spaceport.ideafarm.com )
+            //U::ALLOCATE pNodeList AND POPULATE IT FROM DNS AND OTHER SOURCES
+        {
+        else
+        }
+            if( !bFail ) pNodeList = (nodeListS*)(byteT*)*pNapNodeList ;
+
+            THREADmODE3rESTORE
+            }
+                bFail = 1 ;
+                etThread.traceF( tinP , T("watch must be running for this home; doing nothing") ) ;
+                pNapNodeList->formattingIsDoneF( tinP ) ;
+            {
+            if( !POOP && !pNapNodeList->bFormattedF() )
+            __Z( pNapNodeList ) ;
+            pNapNodeList = new( 0 , tinP , LF ) napkinC( tinP , TAG( TAGiDnULL ) , "ipdos.node.list" , 0 , TOCK , ifcOPENsHAREDmEMORYhOW_nCeO , flNAPKINc_null , - 1 , ifcIDmEMORYsPACE_UNIVERSE ) ; ___( pNapNodeList ) ;
+            THREADmODE3oN( flTHREADmODE3_ALLOWeXPLICITmEMORYsPACE )
+        {
+        if( idModeP == ifcIDmODEnODE_LOCAL )
         ZE( boolT , bFail ) ;
+        ZE( nodeListS* , pNodeList ) ;      // ZOMBIE IFF !!pNapNodeList
+        ZE( napkinC*   , pNapNodeList ) ;
+        TN( tb4 , "    " ) ;
     {
 
-    stackC& stOpenP = *(stackC*)pTaskP->c4 ;
-    countT& cKidsP  = *(countT*)pTaskP->c3 ;
-    boolT&  bQuitP  =  *(boolT*)pTaskP->c2 ;
-    nodeC&  nodeP   =  *(nodeC*)pTaskP->c1 ;
+    const countT idModeP =           pTaskP->c5 ;
+    stackC&      stOpenP = *(stackC*)pTaskP->c4 ;
+    countT&      cKidsP  = *(countT*)pTaskP->c3 ;
+    boolT&       bQuitP  =  *(boolT*)pTaskP->c2 ;
+    nodeC&       nodeP   =  *(nodeC*)pTaskP->c1 ;
 {
-if( pTaskP && pTaskP->c1 && pTaskP->c2 && pTaskP->c3 && pTaskP->c4 )
+if( pTaskP && pTaskP->c1 && pTaskP->c2 && pTaskP->c3 && pTaskP->c4 && pTaskP->c5 )
 TASK( tmRefreshListF )
 
 
@@ -287,19 +280,47 @@ TASK( tmRefreshListF )
 */
 /*
 
+}
+    }
+        ++ s ; ether.osSleepF( tinP , TOCK >> 2 ) ;
+    {
+    while( cKids )
+    bQuit = 1 ;
+
+    }
+        ++ s ; ether.osSleepF( tinP , TOCK ) ;
+    {
+    while( !etPrime )
+    sleepC s( tinP , TAG( TAGiDnULL ) ) ;
+    etherC& etPrime = etherC::etPrimeIF( tinP ) ;
+
+    ether.osThreadF( TaRG1( tmAcceptF      ) , (countT)this , (countT)&bQuit , (countT)&cKids , (countT)&stOpen , idMode ) ;
+    ether.osThreadF( TaRG1( tmRefreshListF ) , (countT)this , (countT)&bQuit , (countT)&cKids , (countT)&stOpen , idMode ) ;
+    countT cKids = 2 ;
+    ZE( boolT , bQuit ) ;
+{
+stOpen( tinP , ether , TAG( TAGiDnULL ) , flSTACKc_BLOB , sizeof( portTimeC ) )
+idMode( idModeP ) ,
+ether( etherP ) ,
+nodeC::nodeC( tinS& tinP , etherC& etherP , const countT idModeP ) :
+
 ;
 }
-    nodeC( tinS& tinP , etherC& etherP , const countT idTypeP = ifcIDtYPEnODE_LOCAL ) ;
+    nodeC( tinS& tinP , etherC& etherP , const countT idModeP = ifcIDmODEnODE_LOCAL ) ;
 
     public :
 
-    stackC  stOpen ;
-    etherC& ether  ;
+    stackC       stOpen ;
+    const countT idMode ;
+    etherC&      ether  ;
 {
 class nodeC
 
-#define ifcIDtYPEnODE_GLOBAL         2 
-#define ifcIDtYPEnODE_LOCAL          1
+TASK0PROTO( tmRefreshListF ) ;
+TASK0PROTO( tmAcceptF ) ;
+
+#define ifcIDmODEnODE_GLOBAL         2 
+#define ifcIDmODEnODE_LOCAL          1
 
 
 /*1*/WAKEhIDE( "doodle.nodeC.bang.relay" )/*1*/
