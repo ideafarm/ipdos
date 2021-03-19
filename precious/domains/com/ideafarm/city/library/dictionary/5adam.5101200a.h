@@ -238,7 +238,7 @@ TASK0PROTO( tmNodeBlowTeatF ) ;
  public :
 
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34013.nodeOldC.doWrapLocallyIfIF!||
- static voidT doWrapLocallyIfIF( tinS& tinP , etherC& etThread , RELAYiNFOpARMS , const byteT* const pbsWrapP , const portTimeC& idptOriginP , const countT idPhaseP = 0 ) ;
+ static voidT doWrapLocallyIfIF( tinS& tinP , etherC& etThread , OLDrELAYiNFOpARMS , const byteT* const pbsWrapP , const portTimeC& idptOriginP , const countT idPhaseP = 0 ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34012.nodeOldC.helloToHandleIF!||
  static voidT helloToHandleIF( tinS& tinP , portTimeC& idptP , countT& idSerialLathHeaderP ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34011.nodeOldC.testIF!||
@@ -333,8 +333,8 @@ extern grabC*       pGrabHandleAll ;
     {                                                                                                   \
     if( stRelayAbsent##idWorkP## )                                                                      \
                                                                                                         \
-#define POURaBSENTnODE( idWorkP )                                                                      \
-/*1*//*POURaBSENTnODE*//*1*/
+#define OLDpOURaBSENTnODE( idWorkP )                                                                      \
+/*1*//*OLDpOURaBSENTnODE*//*1*/
 /**/
 */
 /*
@@ -368,8 +368,8 @@ extern grabC*       pGrabHandleAll ;
         {                                                                                               \
         if( stRelayAbsent##idWorkP##Lag )                                                               \
                                                                                                         \
-#define GOSSIPaBSENTnODE( idWorkP )                                                                    \
-/*1*//*GOSSIPaBSENTnODE*//*1*/
+#define OLDgOSSIPaBSENTnODE( idWorkP )                                                                    \
+/*1*//*OLDgOSSIPaBSENTnODE*//*1*/
 /**/
 */
   gossip

@@ -20357,8 +20357,8 @@ i am used with a soulC object to use that object as a forth-like program executo
 /*
 */
 /**/
-/*1*//*RELAYiNFOpARMS*//*1*/
-#define RELAYiNFOpARMS count8S& _c8ni1P , count8S& _c8ni2P , count8S& _c8ni3P
+/*1*//*OLDrELAYiNFOpARMS*//*1*/
+#define OLDrELAYiNFOpARMS count8S& _c8ni1P , count8S& _c8ni2P , count8S& _c8ni3P
 
 
 //
