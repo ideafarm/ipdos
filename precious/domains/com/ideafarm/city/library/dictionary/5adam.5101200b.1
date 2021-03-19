@@ -34,7 +34,7 @@ TODO
     countT cKids = 2 ;
     ZE( boolT , bQuit ) ;
 {
-stOpen( tinP , ether , TAG( TAGiDnULL ) , flSTACKc_BLOB , sizeof( portC ) )
+stOpen( tinP , ether , TAG( TAGiDnULL ) , flSTACKc_BLOB , sizeof( portTimeC ) )
 ether( etherP ) ,
 nodeC::nodeC( tinS& tinP , etherC& etherP , const countT idTypeP ) :
 
@@ -45,9 +45,9 @@ DONE( tmAcceptF )
     }
         }
             DEL( psoa ) ;
-            etThread.traceF( tinP , T("called  acceptF [psoa]:    ")+TF2((countT)psoa,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
+            //etThread.traceF( tinP , T("called  acceptF [psoa]:    ")+TF2((countT)psoa,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
             sockListen.acceptF( tinP , psoa , idpHe , nnHe , bRefuse ) ; ___( psoa ) ;
-            etThread.traceF( tinP , T("calling acceptF") ) ;
+            //etThread.traceF( tinP , T("calling acceptF") ) ;
             nicNameC nnHe ;
             ZE( countT , idpHe ) ;
 
@@ -102,39 +102,108 @@ DONE( tmRefreshListF )
                 sleepC s( tinP , TAG( TAGiDnULL ) ) ;
 
                 stOpenP.ungrabF( tinP ) ;
-                stOpenP.purgeF( tinP ) ;
+                }
+                    while( !stOpenP.third && ~hDown ) ;
+                    }
+                        etThread.traceF( tinP , T("stOpenP [idPlate,port,v4]:    ")+TF2(++idPlate,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+T(nnHe)+T("    ")+T(ptHe.nnv4F())+T(" ( ")+TF2((countT)ptHe,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T(" )") ) ; //U:: TO FIND A BUG
+                        nicNameC nnHe = ptHe ;
+                        portTimeC& ptHe = *(portC*)&stOpenP.downF( tinP , hDown ) ;
+                    {
+                    do
+                    handleC hDown( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_STACKwALK ) ;
+                    ZE( countT , idPlate ) ;
+                {
+
+                }
+                    while( !stValidated.third && ~hDown ) ;
+                    }
+                        etThread.traceF( tinP , T("stValidated [idPlate,port,v4,time]:    ")+TF2(++idPlate,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+T(nnHe)+T("    ")+T(portHe.nnv4F())+T(" ( ")+TF2((countT)portHe,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T(" )    ")+T(timeHe) ) ; //U:: TO FIND A BUG
+
+                        tFoo = T(timeHe) ;
+                        TN( tFoo , "" ) ;
+
+                        timeS timeHe = ptHe ;
+                        nicNameC nnHe = portHe ;
+                        stOpenP.sinkF( tinP , countTC() , (byteT*)&ptHe , flSTACKsINK_UNIQUE , subtractPortTimeF ) ;
+
+                        ptHe.timeStampIfF( tinP , etThread ) ;
+                        portTimeC ptHe = portHe ;
+
+                        portC& portHe = *(portC*)&stValidated.downF( tinP , hDown ) ;
+                    {
+                    do
+                    handleC hDown( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_STACKwALK ) ;
+                    ZE( countT , idPlate ) ;
+                {
+                if( stValidated )
+
+                // AT THIS POINT ALL PLATES IN stOpenP ARE STILL GOOD, AND stValidated ONLY CONTAINS PLATES THAT ARE NOT IN stOpenP
+                }
+                    while( !stOpenP.third && ~hDown ) ;
+                    }
+                        }
+                            stValidated.extractF( 0 , tinP ) ;
+                            //etThread.traceF( tinP , T("extracting from stValidated (not newly open) [port,v4]:    ")/*+T((nicNameC)ptHe)+T("    ")+T(ptHe.nnv4F())+T(" ( ")+TF2((countT)ptHe,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T(" )")*/ ) ; //U:: TO FIND A BUG
+                        {
+                        else                
+                        }
+                            stOpenP.extractF( 0 , tinP ) ;
+                            etThread.traceF( tinP , T("extracting from stOpenP (no longer open) [port,v4]:    ")/*+T((nicNameC)ptHe)+T("    ")+T(ptHe.nnv4F())+T(" ( ")+TF2((countT)ptHe,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T(" )")*/ ) ; //U:: TO FIND A BUG
+                        {
+                        if( !stValidated( (byteT*)&ptHe , subtractPortF ) )
+                        portTimeC& ptHe = *(portC*)&stOpenP.downF( tinP , hDown ) ;
+                    {
+                    do
+                    handleC hDown( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_STACKwALK ) ;
+                    ZE( countT , idPlate ) ;
+                {
+                if( stOpenP )
                 stOpenP.grabF( tinP , TAG( TAGiDnULL ) ) ;
 
-                while( !stToScan.third && ~hDown ) ;
+                //}
+                //    stValidated.purgeF( tinP ) ; //U:: TO TEST
+                //    etThread.traceF( tinP , T("U:: purging stValidated (to test)") ) ; //U:: TO FIND A BUG
+                //{
+                //if( stOpenP )
+
                 }
+                    while( !stToScan.third && ~hDown ) ;
                     }
                         }
                             }
-                                break ;
-                                etThread.traceF( tinP , T("connected aok [nnTry,idPortTry]:    ")+TF2(idpTry,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+T((nicNameC&)portHe) ) ;
-                            {
-                            else
-                            }
-                                etThread.traceF( tinP , T("could not connect [nnTry,idPortTry]:    ")+TF2(idpTry,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+T((nicNameC&)portHe) ) ;
-                                POOPRqUIET
-                            {
-                            if( POOP )
-                            sockScan.connectF( tinP , idpTry , portHe , 1 , TOCK << 0 ) ; //U:: LONGER TIMEOUT FOR GLOBAL TREE
+                                }
+                                    break ;
+                                    //etThread.traceF( tinP , T("connected aok [nnTry,idPortTry]:    ")+T(nnHe)+tb4+TF2(idpTry,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
+                                    nicNameC nnHe = portHe ;
+                                    stValidated.sinkF( tinP , countTC() , (byteT*)&portHe , flSTACKsINK_UNIQUE , subtractPortF ) ;
+                                    portHe = idpTry ;
+                                {
+                                else
+                                }
+                                    //etThread.traceF( tinP , T("could not connect [nnTry,idPortTry]:    ")+T(nnHe)+tb4+TF2(idpTry,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
+                                    nicNameC nnHe = portHe ;
+                                    POOPRqUIET
+                                {
+                                if( POOP )
+                                sockScan.connectF( tinP , idpTry , portHe , 1 , TUCK >> 4 ) ; //U:: LONGER TIMEOUT FOR GLOBAL TREE
 
-                            socketC sockScan( tinP , *tinP.pEtScratch , TAG( TAGiDnULL ) ) ;
+                                socketC sockScan( tinP , *tinP.pEtScratch , TAG( TAGiDnULL ) ) ;
+                            {
+                            for( countT idpTry = ifcIDpORT_nodeC ; idpTry < ifcIDpORT_nodeC + 4 ; idpTry ++ )
+
+                            SCOOPS
                         {
-                        for( countT idpTry = ifcIDpORT_nodeC ; idpTry < ifcIDpORT_nodeC + /*U::0x10*/1 ; idpTry ++ )
+                        IFsCRATCH
 
-                        SCOOPS
+                        //etThread.traceF( tinP , T("stToScan [idPlate,port,v4]:    ")+TF2(++idPlate,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+T((nicNameC&)portHe)+T("    ")+T(portHe.nnv4F()) ) ; //U:: TO FIND A BUG
+                        portC& portHe = *(portC*)&stToScan.downF( tinP , hDown ) ;
                     {
-                    IFsCRATCH
-
-                    etThread.traceF( tinP , T("stToScan [idPlate,port,v4]:    ")+TF2(++idPlate,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+T((nicNameC&)portHe)+T("    ")+T(portHe.nnv4F())+T(" ( ")+TF2((countT)portHe,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T(" )") ) ; //U:: TO FIND A BUG
-                    portC& portHe = *(portC*)&stToScan.downF( tinP , hDown ) ;
+                    do
+                    handleC hDown( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_STACKwALK ) ;
+                    ZE( countT , idPlate ) ;
                 {
-                do
-                handleC hDown( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_STACKwALK ) ;
-                ZE( countT , idPlate ) ;
+                if( stToScan )
+                stackC stValidated( tinP , ether , TAG( TAGiDnULL ) , flSTACKc_BLOB | flSTACKc_DOnOTsERIALIZE , sizeof( portC ) ) ;
 
                 }
                     //etThread.traceF( tinP , T("local nodes (end)") , flTRACE_null , ifcIDtRACEdIVERT_e ) ;
@@ -142,7 +211,7 @@ DONE( tmRefreshListF )
                         }
                             //etThread.traceF( tinP , T("local node [off,nn,nnv4]:    ")+TF2(offi,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+T(nl.pEntry[offi].nn)+tb4+T(nicNameC(nl.pEntry[offi].nnv4)) , flTRACE_null , ifcIDtRACEdIVERT_e ) ;
 
-                            stToScan.sinkF( tinP , countTC() , (byteT*)&portHe , flSTACKsINK_UNIQUE , subtractPortsF ) ;
+                            stToScan.sinkF( tinP , countTC() , (byteT*)&portHe , flSTACKsINK_UNIQUE , subtractPortF ) ;
 
                             //FROM THAT POINT, THE PROCESSING IS JUST LIKE THE OLD CODE ; THE ROOT PUBLISHES THE OPEN LIST AND THE GOSSIP LIST
                             //RECIPE: SCAN PORTS FOR EACH LISTED HOST UNTIL I FIND AN ANSWER ; THEN REGISTER MYSELF WITH THAT ROOT
@@ -191,6 +260,21 @@ TASK( tmRefreshListF )
 }
     return sgn ;
 
+    sCountT sgn = c1P && c2P ? *(portTimeC*)c1P - *(portTimeC*)c2P : 0 ;
+    _IO_
+
+    }
+    {
+    IFbEcAREFUL
+{
+/*1*/countT _export subtractPortTimeF( tinS& tinP , countT& pEther , countT& c1P , countT& c2P , countT& c3P )/*1*/
+/**/
+*/
+/*
+
+}
+    return sgn ;
+
     sCountT sgn = c1P && c2P ? *(portC*)c1P - *(portC*)c2P : 0 ;
     _IO_
 
@@ -198,7 +282,7 @@ TASK( tmRefreshListF )
     {
     IFbEcAREFUL
 {
-/*1*/countT _export subtractPortsF( tinS& tinP , countT& pEther , countT& c1P , countT& c2P , countT& c3P )/*1*/
+/*1*/countT _export subtractPortF( tinS& tinP , countT& pEther , countT& c1P , countT& c2P , countT& c3P )/*1*/
 /**/
 */
 /*

@@ -18837,7 +18837,6 @@ it is illegal to refer to this symbol anywhere except in napkinC definitions
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.nicNameC : 1snip.15000033.nicnamec END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.portC : 1snip.15000080.portc BEGIN
 
-
 //
 // Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
@@ -18885,13 +18884,11 @@ it is illegal to refer to this symbol anywhere except in napkinC definitions
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34006.portC.operator_countT_ref!||
  operator nicNameC( voidT ) const ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400d.portC.operator_nicNameC!||
- operator nicNameC&( voidT ) ;
- //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34007.portC.operator_nicNameC_ref!||
- sCountT operator -( const portC& idPortP ) const ;
+ sCountT operator -( const portC& portP ) const ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34016.portC.operator_subtract!||
- boolT operator ==( const portC& idPortP ) const ;
+ boolT operator ==( const portC& portP ) const ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34012.portC.operator_equals!||
- boolT operator !=( const portC& idPortP ) const ;
+ boolT operator !=( const portC& portP ) const ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34013.portC.operator_notEquals!||
  boolT operator ==( const nicNameC& nnP ) const ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34008.portC.operator_equals!||
@@ -18901,13 +18898,13 @@ it is illegal to refer to this symbol anywhere except in napkinC definitions
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400a.portC.operator_equals!||
  boolT operator !=( const countT idPortP ) const ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400b.portC.operator_notEquals!||
- boolT operator <( const portC& idPortP ) const ;
+ boolT operator <( const portC& portP ) const ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400e.portC.operator_less!||
- boolT operator <=( const portC& idPortP ) const ;
+ boolT operator <=( const portC& portP ) const ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400f.portC.operator_lessOrEqual!||
- boolT operator >=( const portC& idPortP ) const ;
+ boolT operator >=( const portC& portP ) const ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34010.portC.operator_greaterOrEqual!||
- boolT operator >( const portC& idPortP ) const ;
+ boolT operator >( const portC& portP ) const ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34011.portC.operator_greater!||
  voidT operator =( const countT idPortP ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34014.portC.operator_assign!||
@@ -18934,7 +18931,6 @@ it is illegal to refer to this symbol anywhere except in napkinC definitions
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.portC : 1snip.15000080.portc END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.portTimeC : 1snip.15000081.porttimec BEGIN
 
-
 //
 // Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
@@ -18953,29 +18949,31 @@ it is illegal to refer to this symbol anywhere except in napkinC definitions
 
  portTimeC( voidT ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34001.portTimeC.portTimeC!||
+ portTimeC( portC& portP ) ;
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.36071011.porttimec.porttimec!||
  operator const timeS&( voidT ) const ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400f.portTimeC.operator_timeS_ref!||
  portTimeC& operator >>( soulC& soulP ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34002.portTimeC.operator_shiftRight!||
  portTimeC& operator <<( soulC& soulP ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34003.portTimeC.operator_shiftLeft!||
- portTimeC& operator =( const portTimeC& idptP ) ;
+ portTimeC& operator =( const portTimeC& ptP ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34006.portTimeC.operator_assign!||
  portTimeC& operator =( const countT idPortP ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34007.portTimeC.operator_assign!||
  portTimeC& operator =( const sCountT idPortP ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34010.portTimeC.operator_assign!||
- portTimeC& operator =( const portC& idpP ) ;
+ portTimeC& operator =( const portC& portP ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34005.portTimeC.operator_assign!||
  portTimeC& operator =( const nicNameC& nnP ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400e.portTimeC.operator_assign!||
 
 
- boolT operator ==( const portTimeC& idptP ) const ;
+ boolT operator ==( const portTimeC& ptP ) const ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34008.portTimeC.operator_equals!||
- boolT operator !=( const portTimeC& idptP ) const ;
+ boolT operator !=( const portTimeC& ptP ) const ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34009.portTimeC.operator_notEquals!||
- sCountT operator -( const portTimeC& idptP ) const ;
+ sCountT operator -( const portTimeC& ptP ) const ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400a.portTimeC.operator_minus!||
  operator countT( voidT ) const ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400b.portTimeC.operator_countT!||
@@ -32654,6 +32652,7 @@ examples
  voidT strFromF( tinS& tinP , strokeS*& psttP , const sCountT valueP , const flagsT flagsFormatP = flFORMAT_null , const countT csP = 0 , const countT radixP = 0x10 , const countT csttExtraP = 0 ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3404e.etherC.strFromF!||
  voidT strFromF( tinS& tinP , strokeS*& psttP , const countT valueP , const flagsT flagsFormatP = flFORMAT_null , const countT csP = 0 , const countT radixP = 0x10 , const countT csttExtraP = 0 ) ;
+ voidT strFromF( tinS& tinP , strokeS*& psttP , const timeS& timeP , const flagsT flFormatP = flFORMAT_null , const countT csP = 0 , const countT radixP = 0 , const strokeS* const psttSeparatorP = 0 , const countT csttExtraP = 0 ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.340db.etherC.strFromF!||
  voidT strFromF( tinS& tinP , strokeS*& psttP , const measureT valueP , const flagsT flagsFormatP = flFORMAT_null , const countT csP = 0 , const countT idcPointP = 0 , const countT cPrecisionP = 0 , const countT radixP = 0x10 , const countT csttExtraP = 0 ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.340da.etherC.strFromF!||
@@ -33133,6 +33132,7 @@ each textC object contains an unmodifiable string of strokes
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34017.textC.textC!||
  textC( tinS& tinP , const countT idLineCtP , const countT idiFileCtP , const byteT* const pbBitsCtP , const flagsT flagsP , const portTimeC& valueP , const flagsT flagsFormatP = flFORMAT_null , const countT csP = 0 , const countT radixP = 0 ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34018.textC.textC!||
+ textC( tinS& tinP , const countT idLineCtP , const countT idiFileCtP , const byteT* const pbBitsCtP , const flagsT flagsP , const timeS& valueP , const flagsT flagsFormatP = flFORMAT_null , const countT csP = 0 , const countT radixP = 0 ) ;
  ~textC( voidT ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34003.textC.dt_textC!||
 
