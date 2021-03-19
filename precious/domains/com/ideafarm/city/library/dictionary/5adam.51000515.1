@@ -28,7 +28,7 @@ REST
     }
         etThread( tinP , psPayload ) ;
         }
-            etThread.cioPutF( tinP , ether , count8S( ifcIDcHANNEL1_BYfUNCTION , ifcIDcHANNELfUNCTION_QUERYiDhOME ) , *psPayload ) ;
+            etThread.cioPutF( tinP , ether , count8S( ifcOLDiDcHANNEL1_BYfUNCTION , ifcOLDiDcHANNELfUNCTION_QUERYiDhOME ) , *psPayload ) ;
             /*if( (countT)home.idptRelay != ifcIDpORT_RELAYtEST )*/ etThread.strokeF( tinP , T(".\r\n") ) ;
             CONoUTrAW( etThread ? "etThread is impotent\r\n" : "putting query\r\n" ) ;
         
@@ -45,7 +45,7 @@ REST
     }
         etThread.cioPutF( tinP , ether , 0 , *psEnvelope ) ;
 
-        *psEnvelope << (countT)ifcIDtYPEwRAP_QUERYrELAYiDpORTtIMEc ;
+        *psEnvelope << (countT)ifcOLDiDtYPEwRAP_QUERYrELAYiDpORTtIMEc ;
         *psEnvelope << (countT)1 ; // idVersion
         *psEnvelope << (countT)ifcIDpROTOCOL_RELAYwRAP ;
         *psEnvelope << (strokeS*)tTM ;
@@ -57,7 +57,7 @@ REST
     }
         etThread.cioPutF( tinP , ether , 0 , *psEnvelope ) ;
 
-        *psEnvelope << (countT)ifcIDtYPEwRAP_QUERYrELAYrANK ;
+        *psEnvelope << (countT)ifcOLDiDtYPEwRAP_QUERYrELAYrANK ;
         *psEnvelope << (countT)1 ; // idVersion
         *psEnvelope << (countT)ifcIDpROTOCOL_RELAYwRAP ;
         *psEnvelope << (strokeS*)tTM ;
@@ -77,8 +77,8 @@ ZE( boolT , bHiredKid ) ;
         *psEnvelope << (countT)0 ; // ccFilter
         psEnvelope->shiftLeftF( tinP , ifcIDtYPEsOULiTEM_countTptr , (countT*)0 ) ; // pcFilter
         *psEnvelope << (countT)0 ; // ccTestMax ;
-        *psEnvelope << (countT*)count8S( ifcIDcHANNEL1_BYfUNCTION , ifcIDcHANNELfUNCTION_REPLYiDhOME ) ;
-        *psEnvelope << (countT)ifcIDtYPEwRAP_CHANNELiNCLUDEpUSH ;
+        *psEnvelope << (countT*)count8S( ifcOLDiDcHANNEL1_BYfUNCTION , ifcOLDiDcHANNELfUNCTION_REPLYiDhOME ) ;
+        *psEnvelope << (countT)ifcOLDiDtYPEwRAP_CHANNELiNCLUDEpUSH ;
         *psEnvelope << (countT)1 ; // idVersion
         *psEnvelope << (countT)ifcIDpROTOCOL_RELAYwRAP ;
         *psEnvelope << (strokeS*)tTM ;
@@ -93,8 +93,8 @@ ZE( boolT , bHiredKid ) ;
         *psEnvelope << (countT)0 ; // ccFilter
         psEnvelope->shiftLeftF( tinP , ifcIDtYPEsOULiTEM_countTptr , (countT*)0 ) ; // pcFilter
         *psEnvelope << (countT)0 ; // ccTestMax ;
-        *psEnvelope << (countT*)count8S( ifcIDcHANNEL1_BYfUNCTION , ifcIDcHANNELfUNCTION_QUERYiDhOME ) ;
-        *psEnvelope << (countT)ifcIDtYPEwRAP_CHANNELiNCLUDEpUSH ;
+        *psEnvelope << (countT*)count8S( ifcOLDiDcHANNEL1_BYfUNCTION , ifcOLDiDcHANNELfUNCTION_QUERYiDhOME ) ;
+        *psEnvelope << (countT)ifcOLDiDtYPEwRAP_CHANNELiNCLUDEpUSH ;
         *psEnvelope << (countT)1 ; // idVersion
         *psEnvelope << (countT)ifcIDpROTOCOL_RELAYwRAP ;
         *psEnvelope << (strokeS*)tTM ;
@@ -152,7 +152,7 @@ TODO
                 idptRelay << *psGiftP ;
                 portTimeC idptRelay ;
             {
-            else if( pczChannelP[ 1 ] == ifcIDcHANNELfUNCTION_REPLYiDhOME )
+            else if( pczChannelP[ 1 ] == ifcOLDiDcHANNELfUNCTION_REPLYiDhOME )
             }
                 }
                     etherP( tinP , psQuery ) ;
@@ -160,7 +160,7 @@ TODO
                         }
                             etherP( tinP , psGift ) ;
                             }
-                                etherP.cioPutF( tinP , bQuitP , count8S( ifcIDcHANNEL1_BYfUNCTION , ifcIDcHANNELfUNCTION_REPLYiDhOME ) , *psGift ) ;
+                                etherP.cioPutF( tinP , bQuitP , count8S( ifcOLDiDcHANNEL1_BYfUNCTION , ifcOLDiDcHANNELfUNCTION_REPLYiDhOME ) , *psGift ) ;
                             
                                 *psGift << iduuHomeRequested ;
                                 idptRequestor >> *psGift ;
@@ -222,13 +222,13 @@ TODO
                 if( home.idRank == 1 )
                 CONoUTrAW( "got query\r\n" ) ;
             {
-            if( pczChannelP[ 1 ] == ifcIDcHANNELfUNCTION_QUERYiDhOME )
+            if( pczChannelP[ 1 ] == ifcOLDiDcHANNELfUNCTION_QUERYiDhOME )
         {
-        if( pczChannelP && pczChannelP[ 0 ] == ifcIDcHANNEL1_BYfUNCTION )
+        if( pczChannelP && pczChannelP[ 0 ] == ifcOLDiDcHANNEL1_BYfUNCTION )
         //etherP.strokeF( tinP , T("idRank ")+TF1(home.idRank)+T(" received application payload on channel ")+T(pczChannelP)+T("\r\n") ) ;
         //CONoUTrAW( "cioGetF: _APPLICATION\r\n" ) ; //U::
     {
-    else if( idGiftTypeP == ifcIDtYPEgIFT_APPLICATION )
+    else if( idGiftTypeP == ifcOLDiDtYPEgIFT_APPLICATION )
     }
         //CONoUTrAW( "cioGetF: _REPLYrELAYiDpORTtIMEc\r\n" ) ; //U::
         }
@@ -244,7 +244,7 @@ TODO
         //etherP.strokeF( tinP , T("received my relay timestamp\r\n") ) ; //U::
         //CONoUTrAW( "cioGetF: _REPLYrELAYiDpORTtIMEc\r\n" ) ; //U::
     {
-    else if( idGiftTypeP == ifcIDtYPEgIFT_REPLYrELAYiDpORTtIMEc )
+    else if( idGiftTypeP == ifcOLDiDtYPEgIFT_REPLYrELAYiDpORTtIMEc )
     }
         //CONoUTrAW( "cioGetF: _REPLYrELAYrANK\r\n" ) ; //U::
         }
@@ -257,7 +257,7 @@ TODO
         //etherP.strokeF( tinP , T("received my relay rank\r\n") ) ; //U::
         //CONoUTrAW( "cioGetF: _REPLYrELAYrANK\r\n" ) ; //U::
     {
-    if( idGiftTypeP == ifcIDtYPEgIFT_REPLYrELAYrANK )
+    if( idGiftTypeP == ifcOLDiDtYPEgIFT_REPLYrELAYrANK )
 
     homeS& home = homeS::homeIF() ;
 

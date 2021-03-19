@@ -50,7 +50,7 @@ __Z( ether ) ;
                 CONoUTrAW( "3\r\n" ) ;
                 //etThread.strokeF( tinP , T("dropping \"am ")+T(bMediator?"alive":"dead")+T("\" msg ")+TF1(++idCycle)+T("\r\n") ) ;
                 *psGift << (countT)DDNUMB ;
-                *psGift << (countT)( bMediator ? ifcIDcMDrEGISTERmEDIATOR_AMaLIVE : ifcIDcMDrEGISTERmEDIATOR_AMdEAD ) ;
+                *psGift << (countT)( bMediator ? ifcOLDiDcMDrEGISTERmEDIATOR_AMaLIVE : ifcOLDiDcMDrEGISTERmEDIATOR_AMdEAD ) ;
             {
             if( psGift )
             etThread( tinP , psGift , TAG( TAGiDnULL ) ) ;
@@ -136,8 +136,8 @@ ZE( boolT , bMediatorLag ) ;
 countT idHomeDisk = etThread.ifc_idHomeIdisk_IF() ;
 //U::ENABLE IN PRODUCTION: etThread.ifcHireF( tinP , T("ifcIDaDAM_SECRETsERVICE") , ifcIDaDAM_NULL , T("!ignoreFireByOperator") , flHIRE_DISPLAYaUTO , nicNameC() ) ;
 ZE( countT , idCycle ) ;
-count8S c8ChannelMenu( ifcIDcHANNEL1_BYfUNCTION , ifcIDcHANNELfUNCTION_MEDIATORpINmENU , DDNUMB ) ;
-count8S c8ChannelReg( ifcIDcHANNEL1_BYfUNCTION , ifcIDcHANNELfUNCTION_MEDIATORrEGISTRATION ) ;
+count8S c8ChannelMenu( ifcOLDiDcHANNEL1_BYfUNCTION , ifcOLDiDcHANNELfUNCTION_MEDIATORpINmENU , DDNUMB ) ;
+count8S c8ChannelReg( ifcOLDiDcHANNEL1_BYfUNCTION , ifcOLDiDcHANNELfUNCTION_MEDIATORrEGISTRATION ) ;
 etThread.cioSetGetF( tinP , cioGetF ) ;
 etThread.cioSetArgF( tinP , cArg ) ;
 etThread.osThreadSwitchingDesireF( tinP , ifcTHREADpRIORITY_LAZIEST ) ;
@@ -180,9 +180,9 @@ DONE( tmWorkF )
                         //etThread.strokeF( tinP , TF1(cIn)+T(": rec'd pin menu from ")+T(info.idptOrigin)+T("\r\n") ) ;
                         ++ cIn ;
                     {
-                    if( info.pczChannel && info.pczChannel[ 0 ] == ifcIDcHANNEL1_BYfUNCTION && info.pczChannel[ 1 ] == ifcIDcHANNELfUNCTION_MEDIATORpINmENU && info.pczChannel[ 2 ] == DDNUMB )
+                    if( info.pczChannel && info.pczChannel[ 0 ] == ifcOLDiDcHANNEL1_BYfUNCTION && info.pczChannel[ 1 ] == ifcOLDiDcHANNELfUNCTION_MEDIATORpINmENU && info.pczChannel[ 2 ] == DDNUMB )
                 {
-                else if( info.idGiftType == ifcIDtYPEgIFT_APPLICATION )
+                else if( info.idGiftType == ifcOLDiDtYPEgIFT_APPLICATION )
                 }
                     }
                         etThread( tinP , psSecret ) ;
@@ -284,9 +284,9 @@ DONE( tmWorkF )
 
                         //CONoUTrAW( T("GOT SOMETHING ON MEDIATION CHANNEL\r\n")+T(info.pczChannel)+T("\r\n") ) ;
                     {
-                    if( info.pczChannel && info.pczChannel[ 0 ] == ifcIDcHANNEL1_BYfUNCTION && info.pczChannel[ 1 ] == ifcIDcHANNELfUNCTION_MEDIATED && info.pczChannel[ 2 ] == DDNUMB )
+                    if( info.pczChannel && info.pczChannel[ 0 ] == ifcOLDiDcHANNEL1_BYfUNCTION && info.pczChannel[ 1 ] == ifcOLDiDcHANNELfUNCTION_MEDIATED && info.pczChannel[ 2 ] == DDNUMB )
                 {
-                if( info.idGiftType == ifcIDtYPEgIFT_MEDIATE )
+                if( info.idGiftType == ifcOLDiDtYPEgIFT_MEDIATE )
                 //THREADmODE1oN( flTHREADmODE1_ALLOWsTOPwHILEgRABBING ) //U::SQUEEZE TO FIND WHERE I NEED THIS
                 //U::MIGHT NOT BE NEEDED
             {

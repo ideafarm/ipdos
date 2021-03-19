@@ -12,10 +12,10 @@
 
     }
         }
-            case IDtYPErELAYpOPcLIENTwORK_EXPLODE1 : { portTimeC nt ; idptSelectPeerIF( tinP , nt , stIdptOpenP , idptP , stIdptGossipP , IDtYPErELAYpOPcLIENTwORK_IMPLODE  , flSELECTpEER_DUPLICATEiSoK ) ; if( idptPeerP == nt ) idptPeerP = 0 ; }
-            case IDtYPErELAYpOPcLIENTwORK_EXPLODE2 : { portTimeC nt ; idptSelectPeerIF( tinP , nt , stIdptOpenP , idptP , stIdptGossipP , IDtYPErELAYpOPcLIENTwORK_EXPLODE1 , flSELECTpEER_DUPLICATEiSoK ) ; if( idptPeerP == nt ) idptPeerP = 0 ; }
-            case IDtYPErELAYpOPcLIENTwORK_LEFT     : { portTimeC nt ; idptSelectPeerIF( tinP , nt , stIdptOpenP , idptP , stIdptGossipP , IDtYPErELAYpOPcLIENTwORK_EXPLODE2 , flSELECTpEER_DUPLICATEiSoK ) ; if( idptPeerP == nt ) idptPeerP = 0 ; }
-            case IDtYPErELAYpOPcLIENTwORK_RIGHT    : { portTimeC nt ; idptSelectPeerIF( tinP , nt , stIdptOpenP , idptP , stIdptGossipP , IDtYPErELAYpOPcLIENTwORK_LEFT     , flSELECTpEER_DUPLICATEiSoK ) ; if( idptPeerP == nt ) idptPeerP = 0 ; }
+            case OLDiDtYPErELAYpOPcLIENTwORK_EXPLODE1 : { portTimeC nt ; idptSelectPeerIF( tinP , nt , stIdptOpenP , idptP , stIdptGossipP , OLDiDtYPErELAYpOPcLIENTwORK_IMPLODE  , flSELECTpEER_DUPLICATEiSoK ) ; if( idptPeerP == nt ) idptPeerP = 0 ; }
+            case OLDiDtYPErELAYpOPcLIENTwORK_EXPLODE2 : { portTimeC nt ; idptSelectPeerIF( tinP , nt , stIdptOpenP , idptP , stIdptGossipP , OLDiDtYPErELAYpOPcLIENTwORK_EXPLODE1 , flSELECTpEER_DUPLICATEiSoK ) ; if( idptPeerP == nt ) idptPeerP = 0 ; }
+            case OLDiDtYPErELAYpOPcLIENTwORK_LEFT     : { portTimeC nt ; idptSelectPeerIF( tinP , nt , stIdptOpenP , idptP , stIdptGossipP , OLDiDtYPErELAYpOPcLIENTwORK_EXPLODE2 , flSELECTpEER_DUPLICATEiSoK ) ; if( idptPeerP == nt ) idptPeerP = 0 ; }
+            case OLDiDtYPErELAYpOPcLIENTwORK_RIGHT    : { portTimeC nt ; idptSelectPeerIF( tinP , nt , stIdptOpenP , idptP , stIdptGossipP , OLDiDtYPErELAYpOPcLIENTwORK_LEFT     , flSELECTpEER_DUPLICATEiSoK ) ; if( idptPeerP == nt ) idptPeerP = 0 ; }
         {
         switch( idMyWorkP ) // idptP IS SET IFF A DISTINCT RELAY EXISTS
     {
@@ -23,11 +23,11 @@
 
     }
         }
-            case  IDtYPErELAYpOPcLIENTwORK_RIGHT    : {                                    idptPeerP = cRelays > 1 ? *(portTimeC*)&stIdptOpenP[ ideMe < cRelays ? ideMe + 1 : 1       ] : idptNull ; break ; }
-            case  IDtYPErELAYpOPcLIENTwORK_LEFT     : {                                    idptPeerP = cRelays > 1 ? *(portTimeC*)&stIdptOpenP[ ideMe > 1       ? ideMe - 1 : cRelays ] : idptNull ; break ; }
-            case  IDtYPErELAYpOPcLIENTwORK_EXPLODE2 : { if( stIdptOpenP >= ideMe * 2 + 1 ) idptPeerP =               *(portTimeC*)&stIdptOpenP[ ideMe * 2 + 1                         ]            ; break ; }
-            case  IDtYPErELAYpOPcLIENTwORK_EXPLODE1 : { if( stIdptOpenP >= ideMe * 2     ) idptPeerP =               *(portTimeC*)&stIdptOpenP[ ideMe * 2                             ]            ; break ; }
-            case  IDtYPErELAYpOPcLIENTwORK_IMPLODE  : { if(           1 != ideMe         ) idptPeerP =               *(portTimeC*)&stIdptOpenP[ ideMe / 2                             ]            ; break ; }
+            case  OLDiDtYPErELAYpOPcLIENTwORK_RIGHT    : {                                    idptPeerP = cRelays > 1 ? *(portTimeC*)&stIdptOpenP[ ideMe < cRelays ? ideMe + 1 : 1       ] : idptNull ; break ; }
+            case  OLDiDtYPErELAYpOPcLIENTwORK_LEFT     : {                                    idptPeerP = cRelays > 1 ? *(portTimeC*)&stIdptOpenP[ ideMe > 1       ? ideMe - 1 : cRelays ] : idptNull ; break ; }
+            case  OLDiDtYPErELAYpOPcLIENTwORK_EXPLODE2 : { if( stIdptOpenP >= ideMe * 2 + 1 ) idptPeerP =               *(portTimeC*)&stIdptOpenP[ ideMe * 2 + 1                         ]            ; break ; }
+            case  OLDiDtYPErELAYpOPcLIENTwORK_EXPLODE1 : { if( stIdptOpenP >= ideMe * 2     ) idptPeerP =               *(portTimeC*)&stIdptOpenP[ ideMe * 2                             ]            ; break ; }
+            case  OLDiDtYPErELAYpOPcLIENTwORK_IMPLODE  : { if(           1 != ideMe         ) idptPeerP =               *(portTimeC*)&stIdptOpenP[ ideMe / 2                             ]            ; break ; }
         {
         switch( idMyWorkP ) // idptP IS SET IFF A DISTINCT RELAY EXISTS
         portTimeC idptNull ;

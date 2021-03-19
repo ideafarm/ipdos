@@ -20,7 +20,7 @@ DONE( tmRelayOldServerCatchBagF )
         }
             relayOldC::popIF( tinP , pStPop0P , pStPop1P , pStPop2P , pStPop3P , pStPop4P , *psBag , stIdptOpenP , stIdptGossipP , idptP ) ;
             idptPopClient >> *psBag ;
-            relayOldC::hdrBagIF( tinP , *psBag , idptP , idSerialLathHeaderP , flRELAYpOP_DOWN , ifcIDtYPEbAG_CLIENTpOPgOSSIP ) ;
+            relayOldC::hdrBagIF( tinP , *psBag , idptP , idSerialLathHeaderP , flOLDrELAYpOP_DOWN , ifcOLDiDtYPEbAG_CLIENTpOPgOSSIP ) ;
         {
         if( bPop )
 
@@ -34,7 +34,7 @@ DONE( tmRelayOldServerCatchBagF )
             if( pnRoot && *pnRoot == idptP )
             //P: SERVER WILL GOSSIP IF A POP CLIENT IMPLODING DOWNWARD TO IT DIED WITHOUT SAYING GOODBYE
         {
-        if( idptPopClient && !bSaidBye && !bQuitP && idWork == IDtYPErELAYpOPcLIENTwORK_IMPLODE ) //THIS CODE WILL NEVER GOSSIP ABOUT THE ROOT
+        if( idptPopClient && !bSaidBye && !bQuitP && idWork == OLDiDtYPErELAYpOPcLIENTwORK_IMPLODE ) //THIS CODE WILL NEVER GOSSIP ABOUT THE ROOT
         portTimeC* pnRoot = stIdptOpenP ? (portTimeC*)&stIdptOpenP[ 1 ] : 0 ;
         GRABrELAYlISTS
         ZE( boolT , bPop ) ;
@@ -113,7 +113,7 @@ DONE( tmRelayOldServerCatchBagF )
                                 }
                                     break ;
                                     //CONoUTrAW3( "tmCatchBagF " , idCatch , ": 6_WRAP\r\n" ) ; //U::
-                                    TELL( "ifcIDtYPEbAG_WRAP-" )
+                                    TELL( "ifcOLDiDtYPEbAG_WRAP-" )
                                     //CONoUTrAW3( "tmCatchBagF " , idCatch , ": 6_WRAP done\r\n" ) ; //U::
                                     if( pbsWrap ) relayOldC::doWrapLocallyIfIF( tinP , etThread , RELAYiNFOaRGS , pbsWrap , idptOrigin , 1 ) ;
                                     //CONoUTrAW3( "tmCatchBagF " , idCatch , ": 6_WRAP doing\r\n" ) ; //U::
@@ -127,20 +127,20 @@ DONE( tmRelayOldServerCatchBagF )
                                         ZE( countT , idTypesWrap ) ;
                                     {
         
-                                    TELL( "ifcIDtYPEbAG_WRAP+" )
+                                    TELL( "ifcOLDiDtYPEbAG_WRAP+" )
                                     //CONoUTrAW3( "tmCatchBagF " , idCatch , ": 6_WRAP\r\n" ) ; //U::
-                                    //etThread.traceF( tinP , T("ifcIDtYPEbAG_WRAP") ) ;
+                                    //etThread.traceF( tinP , T("ifcOLDiDtYPEbAG_WRAP") ) ;
                                 {
-                                case ifcIDtYPEbAG_WRAP :
+                                case ifcOLDiDtYPEbAG_WRAP :
                                 }
                                     break ;
                                     //CONoUTrAW3( "tmCatchBagF " , idCatch , ": 6_CLIENTpOPpING\r\n" ) ; //U::
-                                    TELL( "ifcIDtYPEbAG_CLIENTpOPpING-" )
+                                    TELL( "ifcOLDiDtYPEbAG_CLIENTpOPpING-" )
             
                                     }
                                         DEL( psBag ) ;
                                         relayOldC::popIF( tinP , pStPop0P , pStPop1P , pStPop2P , pStPop3P , pStPop4P , *psBag , stIdptOpenP , stIdptGossipP , idptP ) ;
-                                        relayOldC::hdrBagIF( tinP , *psBag , idptP , idSerialLathHeaderP , flRELAYpOP_DOWN , ifcIDtYPEbAG_CLIENTpOPpONG ) ;
+                                        relayOldC::hdrBagIF( tinP , *psBag , idptP , idSerialLathHeaderP , flOLDrELAYpOP_DOWN , ifcOLDiDtYPEbAG_CLIENTpOPpONG ) ;
                                     {
                                     if( psBag )
                                     soulC* psBag = new( 0 , tinP , LF ) soulC( tinP , TAG( TAGiDnULL ) ) ; ___( psBag ) ;
@@ -152,7 +152,7 @@ DONE( tmRelayOldServerCatchBagF )
                                             relayOldC::popIF( tinP , pStPop0P , pStPop1P , pStPop2P , pStPop3P , pStPop4P , *psBag , stIdptOpenP , stIdptGossipP , idptP ) ;
                                             idptP   >> *psBag ;
                                             idptOld >> *psBag ;
-                                            relayOldC::hdrBagIF( tinP , *psBag , idptP , idSerialLathHeaderP , flRELAYpOP_DOWN , ifcIDtYPEbAG_CLIENTpOPuNgOSSIP ) ;
+                                            relayOldC::hdrBagIF( tinP , *psBag , idptP , idSerialLathHeaderP , flOLDrELAYpOP_DOWN , ifcOLDiDtYPEbAG_CLIENTpOPuNgOSSIP ) ;
                                         {
                                         if( psBag )
                                         soulC* psBag = new( 0 , tinP , LF ) soulC( tinP , TAG( TAGiDnULL ) ) ; ___( psBag ) ;
@@ -180,14 +180,14 @@ DONE( tmRelayOldServerCatchBagF )
                                     {
                                     if( idptOrigin && idptOrigin - idptP < 0 )
                                     cLooksForNewPingP = 0 ;
-                                    TELL( "ifcIDtYPEbAG_CLIENTpOPpING+" )
+                                    TELL( "ifcOLDiDtYPEbAG_CLIENTpOPpING+" )
                                     //CONoUTrAW3( "tmCatchBagF " , idCatch , ": 6_CLIENTpOPpING\r\n" ) ; //U::
                                 {
-                                case ifcIDtYPEbAG_CLIENTpOPpING :
+                                case ifcOLDiDtYPEbAG_CLIENTpOPpING :
                                 }
                                     break ;
                                     //CONoUTrAW3( "tmCatchBagF " , idCatch , ": 6_CLIENTpOP*gOSSIP\r\n" ) ; //U::
-                                    TELL( "ifcIDtYPEbAG_CLIENTpOPgOSSIP-" )
+                                    TELL( "ifcOLDiDtYPEbAG_CLIENTpOPgOSSIP-" )
                                     UNGRABrELAYlISTS
             
                                     }
@@ -221,31 +221,31 @@ DONE( tmRelayOldServerCatchBagF )
                                             stIdptGossipP.sinkF( tinP , countTC() , (byteT*)&idptGossip , flSTACKsINK_UNIQUE , subtractIdPortsF , - 1 ) ;
                                             //P: GOSSIP HAS THE SAME EFFECT ON THE RELAY DOING THE GOSSIP AS ON THE VICTIM RELAY
                                         {
-                                        if( idType == ifcIDtYPEbAG_CLIENTpOPgOSSIP )
+                                        if( idType == ifcOLDiDtYPEbAG_CLIENTpOPgOSSIP )
                                         portTimeC idptGossip = portTimeC::fieldF( tinP , sBag , ifcIDfIELDbAG_IDtYPE + 1 ) ;
                                     {
                                     if( pnRoot && *pnRoot == idptP )
                                     //P: A SERVER WILL IGNORE GOSSIP UNLESS IT THINKS THAT IT IS ROOT
                                     portTimeC* pnRoot = stIdptOpenP ? (portTimeC*)&stIdptOpenP[ 1 ] : 0 ;
                                     GRABrELAYlISTS
-                                    TELL( "ifcIDtYPEbAG_CLIENTpOPgOSSIP+" )
+                                    TELL( "ifcOLDiDtYPEbAG_CLIENTpOPgOSSIP+" )
                                     //CONoUTrAW3( "tmCatchBagF " , idCatch , ": 6_CLIENTpOP*gOSSIP\r\n" ) ; //U::
                                 {
-                                case ifcIDtYPEbAG_CLIENTpOPuNgOSSIP :
-                                case ifcIDtYPEbAG_CLIENTpOPgOSSIP :
+                                case ifcOLDiDtYPEbAG_CLIENTpOPuNgOSSIP :
+                                case ifcOLDiDtYPEbAG_CLIENTpOPgOSSIP :
                                 }
                                     break ;
                                     //CONoUTrAW3( "tmCatchBagF " , idCatch , ": 6_CLIENTpOPbYE\r\n" ) ; //U::
-                                    TELL( "ifcIDtYPEbAG_CLIENTpOPbYE-" )
+                                    TELL( "ifcOLDiDtYPEbAG_CLIENTpOPbYE-" )
                                     bSaidBye = 1 ;
-                                    TELL( "ifcIDtYPEbAG_CLIENTpOPbYE+" )
+                                    TELL( "ifcOLDiDtYPEbAG_CLIENTpOPbYE+" )
                                     //CONoUTrAW3( "tmCatchBagF " , idCatch , ": 6_CLIENTpOPbYE\r\n" ) ; //U::
                                 {
-                                case ifcIDtYPEbAG_CLIENTpOPbYE :
+                                case ifcOLDiDtYPEbAG_CLIENTpOPbYE :
                                 }
                                     break ;
                                     //CONoUTrAW3( "tmCatchBagF " , idCatch , ": 6_CLIENTpOPhELLO\r\n" ) ; //U::
-                                    TELL( "ifcIDtYPEbAG_CLIENTpOPhELLO-" )
+                                    TELL( "ifcOLDiDtYPEbAG_CLIENTpOPhELLO-" )
         
                                     //CONoUTrAW5( "tmRelayOldServerCatchBagF (idThread,idWork): " , tinP.monitor.idThread , processGlobal3I.mapPopClientWork(idWork) , 0 , "\r\n" ) ;
         
@@ -253,10 +253,10 @@ DONE( tmRelayOldServerCatchBagF )
                                     stIdptPopClientP.sinkF( tinP , countTC() , (byteT*)&idptPopClient , flSTACKsINK_null , subtractIdPortTimesF , - 1 ) ;
                                     bPopClient = 1 ;
                                     idptPopClient = idptOrigin ;
-                                    TELL( "ifcIDtYPEbAG_CLIENTpOPhELLO+" )
+                                    TELL( "ifcOLDiDtYPEbAG_CLIENTpOPhELLO+" )
                                     //CONoUTrAW3( "tmCatchBagF " , idCatch , ": 6_CLIENTpOPhELLO\r\n" ) ; //U::
                                 {
-                                case ifcIDtYPEbAG_CLIENTpOPhELLO :
+                                case ifcOLDiDtYPEbAG_CLIENTpOPhELLO :
                             {
                             switch( idType ) //ALL PROCESSING HERE MUST BE FAST; LONG PROCESSING SHOULD BE DONE AFTER POPPING
                             if( POOP ) { BLAMMO ; }
@@ -296,13 +296,13 @@ DONE( tmRelayOldServerCatchBagF )
                             )
                                 )
                                     )
-                                        idType == ifcIDtYPEbAG_CLIENTpOPuNgOSSIP
-                                        idType == ifcIDtYPEbAG_CLIENTpOPgOSSIP   ||
-                                        idType == ifcIDtYPEbAG_CLIENTpOPpONG     ||
+                                        idType == ifcOLDiDtYPEbAG_CLIENTpOPuNgOSSIP
+                                        idType == ifcOLDiDtYPEbAG_CLIENTpOPgOSSIP   ||
+                                        idType == ifcOLDiDtYPEbAG_CLIENTpOPpONG     ||
                                     (
                                     bRoot &&
                                 (
-                                F(flags) & flRELAYpOP_UP ||
+                                F(flags) & flOLDrELAYpOP_UP ||
                             (
                             if
                             //CONoUTrAW3( "tmCatchBagF " , idCatch , ": a registering serial\r\n" ) ; //U::
@@ -310,15 +310,15 @@ DONE( tmRelayOldServerCatchBagF )
                             UNGRABrELAYlISTS
                             }
                                 //etThread.traceF( tinP , T("flipped flags from down to up [flags]:    ")+TF2(flags,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
-                                flags |=      flRELAYpOP_UP      ;
-                                flags &= ~( F(flRELAYpOP_DOWN) ) ;
+                                flags |=      flOLDrELAYpOP_UP      ;
+                                flags &= ~( F(flOLDrELAYpOP_DOWN) ) ;
                             {
                             )
-                                idType != ifcIDtYPEbAG_CLIENTpOPuNgOSSIP
-                                idType != ifcIDtYPEbAG_CLIENTpOPgOSSIP    &&
-                                idType != ifcIDtYPEbAG_CLIENTpOPpONG      &&
+                                idType != ifcOLDiDtYPEbAG_CLIENTpOPuNgOSSIP
+                                idType != ifcOLDiDtYPEbAG_CLIENTpOPgOSSIP    &&
+                                idType != ifcOLDiDtYPEbAG_CLIENTpOPpONG      &&
                                 bRoot                                     &&
-                                F(flags) & flRELAYpOP_DOWN                &&
+                                F(flags) & flOLDrELAYpOP_DOWN                &&
                             (
                             if
                             //P: A SERVER THAT THINKS THAT IT IS ROOT WILL BANG MOST ITEMS IMPLODED DOWN INTO IT
@@ -346,7 +346,7 @@ DONE( tmRelayOldServerCatchBagF )
                             //        }
                             //            if( pbsTo && soulC::cFieldsIF( tinP , pbsTo ) ) { CONoUTrAW3( "ignoring directed bag " , idSerial , "\r\n" ) ; }
                             //
-                            //            byteT* pbsTo = soulC::pbFieldIF( tinP , idTypesTo , flagssTo , cbsTo , ifcIDfIELDwRAP_TO , pbsWrap ) ;
+                            //            byteT* pbsTo = soulC::pbFieldIF( tinP , idTypesTo , flagssTo , cbsTo , ifcOLDiDfIELDwRAP_TO , pbsWrap ) ;
                             //            ZE( countT , cbsTo ) ;
                             //            ZE( flagsT , flagssTo ) ;
                             //            ZE( countT , idTypesTo ) ;
@@ -357,7 +357,7 @@ DONE( tmRelayOldServerCatchBagF )
                             //        ZE( flagsT , flagssWrap ) ;
                             //        ZE( countT , idTypesWrap ) ;
                             //    {
-                            //    if( idType == ifcIDtYPEbAG_WRAP )
+                            //    if( idType == ifcOLDiDtYPEbAG_WRAP )
                             //{
                             //FOR DEBUGGING ONLY; MUST BE COMMENTED OUT IN PRODUCTION
         
@@ -426,7 +426,7 @@ DONE( tmRelayOldServerCatchBagF )
             //CONoUTrAW3( "tmCatchBagF " , idCatch , ": 0 waiting for a bag to arrive\r\n" ) ; //U::
             TELL( "reading soul" )
 
-            sOk << ifcIDtYPEbAG_SERVERoK ;
+            sOk << ifcOLDiDtYPEbAG_SERVERoK ;
             soulC sOk(  tinP , *tinP.pEtScratch , TAG( TAGiDnULL ) ) ;
             soulC sBag( tinP , *tinP.pEtScratch , TAG( TAGiDnULL ) ) ;
             ZE( boolT , bFail ) ;

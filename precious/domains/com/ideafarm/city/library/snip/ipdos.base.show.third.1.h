@@ -20152,7 +20152,7 @@ i am used with a soulC object to use that object as a forth-like program executo
 //
 
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200214.ifcidprotocol END
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200215.ifcIDtYPEwRAP BEGIN
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200215.ifcOLDiDtYPEwRAP BEGIN
 
 
 //
@@ -20165,26 +20165,26 @@ i am used with a soulC object to use that object as a forth-like program executo
 /*
 */
 /**/
-/*1*//*ifcIDtYPEwRAP*//*1*/
+/*1*//*ifcOLDiDtYPEwRAP*//*1*/
 
 /*3*/
-#define ifcIDtYPEwRAP_QUIT                          0xddddc001
-#define ifcIDtYPEwRAP_GIFT                          0xddddc002
-#define ifcIDtYPEwRAP_CHANNELiNCLUDEpUSH            0xddddc003
-#define ifcIDtYPEwRAP_CHANNELiNCLUDEpOP             0xddddc004
-#define ifcIDtYPEwRAP_CHANNELiNCLUDEpOPaLL          0xddddc005
-#define ifcIDtYPEwRAP_CHANNELeXCLUDEpUSH            0xddddc006
-#define ifcIDtYPEwRAP_CHANNELeXCLUDEpOP             0xddddc007
-#define ifcIDtYPEwRAP_CHANNELeXCLUDEpOPaLL          0xddddc008
-#define ifcIDtYPEwRAP_QUERYrELAYrANK                0xddddc009
-#define ifcIDtYPEwRAP_REPLYrELAYrANK                0xddddc00a
-#define ifcIDtYPEwRAP_QUERYrELAYiDpORTtIMEc         0xddddc00b
-#define ifcIDtYPEwRAP_REPLYrELAYiDpORTtIMEc         0xddddc00c
-#define ifcIDtYPEwRAP_QUERYrELAYiDpORTtIMEcaLLhOMES 0xddddc00d
-#define ifcIDtYPEwRAP_REPLYrELAYiDpORTtIMEcaLLhOMES 0xddddc00e
+#define ifcOLDiDtYPEwRAP_QUIT                          0xddddc001
+#define ifcOLDiDtYPEwRAP_GIFT                          0xddddc002
+#define ifcOLDiDtYPEwRAP_CHANNELiNCLUDEpUSH            0xddddc003
+#define ifcOLDiDtYPEwRAP_CHANNELiNCLUDEpOP             0xddddc004
+#define ifcOLDiDtYPEwRAP_CHANNELiNCLUDEpOPaLL          0xddddc005
+#define ifcOLDiDtYPEwRAP_CHANNELeXCLUDEpUSH            0xddddc006
+#define ifcOLDiDtYPEwRAP_CHANNELeXCLUDEpOP             0xddddc007
+#define ifcOLDiDtYPEwRAP_CHANNELeXCLUDEpOPaLL          0xddddc008
+#define ifcOLDiDtYPEwRAP_QUERYrELAYrANK                0xddddc009
+#define ifcOLDiDtYPEwRAP_REPLYrELAYrANK                0xddddc00a
+#define ifcOLDiDtYPEwRAP_QUERYrELAYiDpORTtIMEc         0xddddc00b
+#define ifcOLDiDtYPEwRAP_REPLYrELAYiDpORTtIMEc         0xddddc00c
+#define ifcOLDiDtYPEwRAP_QUERYrELAYiDpORTtIMEcaLLhOMES 0xddddc00d
+#define ifcOLDiDtYPEwRAP_REPLYrELAYiDpORTtIMEcaLLhOMES 0xddddc00e
 /*3*/
-#define ifcIDtYPEwRAP_min     0xddddc001
-#define ifcIDtYPEwRAP_max     0xddddc00e
+#define ifcOLDiDtYPEwRAP_min     0xddddc001
+#define ifcOLDiDtYPEwRAP_max     0xddddc00e
 
 
 //
@@ -20194,7 +20194,7 @@ i am used with a soulC object to use that object as a forth-like program executo
 // Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
 
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200215.ifcIDtYPEwRAP END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200215.ifcOLDiDtYPEwRAP END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200216.flrelaypop BEGIN
 
 
@@ -20208,12 +20208,12 @@ i am used with a soulC object to use that object as a forth-like program executo
 /*
 */
 /**/
-/*1*//*flRELAYpOP*//*1*/
+/*1*//*flOLDrELAYpOP*//*1*/
 /*3*/
-#define flRELAYpOP_DOWN                 0xe000014d
-#define flRELAYpOP_UP                   0xe000024d
+#define flOLDrELAYpOP_DOWN                 0xe000014d
+#define flOLDrELAYpOP_UP                   0xe000024d
 /*3*/
-#define flRELAYpOP_null    0xe000004d
+#define flOLDrELAYpOP_null    0xe000004d
 
 
 //
@@ -20237,20 +20237,20 @@ i am used with a soulC object to use that object as a forth-like program executo
 /*
 */
 /**/
-/*1*//*ifcIDtYPEbAG*//*1*/
+/*1*//*ifcOLDiDtYPEbAG*//*1*/
 /*3*/
-#define ifcIDtYPEbAG_SERVERoK                    0xdddd06a4
-#define ifcIDtYPEbAG_CLIENTnULL                  0xdddd06a5
-#define ifcIDtYPEbAG_CLIENTpOPhELLO              0xdddd06a6
-#define ifcIDtYPEbAG_CLIENTpOPbYE                0xdddd06a7
-#define ifcIDtYPEbAG_CLIENTpOPpING               0xdddd06a8
-#define ifcIDtYPEbAG_CLIENTpOPpONG               0xdddd06a9
-#define ifcIDtYPEbAG_CLIENTpOPgOSSIP             0xdddd06aa
-#define ifcIDtYPEbAG_CLIENTpOPuNgOSSIP           0xdddd06ab
-#define ifcIDtYPEbAG_WRAP                        0xdddd06ac
+#define ifcOLDiDtYPEbAG_SERVERoK                    0xdddd06a4
+#define ifcOLDiDtYPEbAG_CLIENTnULL                  0xdddd06a5
+#define ifcOLDiDtYPEbAG_CLIENTpOPhELLO              0xdddd06a6
+#define ifcOLDiDtYPEbAG_CLIENTpOPbYE                0xdddd06a7
+#define ifcOLDiDtYPEbAG_CLIENTpOPpING               0xdddd06a8
+#define ifcOLDiDtYPEbAG_CLIENTpOPpONG               0xdddd06a9
+#define ifcOLDiDtYPEbAG_CLIENTpOPgOSSIP             0xdddd06aa
+#define ifcOLDiDtYPEbAG_CLIENTpOPuNgOSSIP           0xdddd06ab
+#define ifcOLDiDtYPEbAG_WRAP                        0xdddd06ac
 /*3*/
-#define ifcIDtYPEbAG_min     0xdddd06a4
-#define ifcIDtYPEbAG_max     0xdddd06ac
+#define ifcOLDiDtYPEbAG_min     0xdddd06a4
+#define ifcOLDiDtYPEbAG_max     0xdddd06ac
 
 
 //
@@ -20274,16 +20274,16 @@ i am used with a soulC object to use that object as a forth-like program executo
 /*
 */
 /**/
-/*1*//*IDtYPErELAYpOPcLIENTwORK*//*1*/
+/*1*//*OLDiDtYPErELAYpOPcLIENTwORK*//*1*/
 /*3*/
-#define IDtYPErELAYpOPcLIENTwORK_IMPLODE  0xdddd06ad
-#define IDtYPErELAYpOPcLIENTwORK_EXPLODE1 0xdddd06ae
-#define IDtYPErELAYpOPcLIENTwORK_EXPLODE2 0xdddd06af
-#define IDtYPErELAYpOPcLIENTwORK_LEFT     0xdddd06b0
-#define IDtYPErELAYpOPcLIENTwORK_RIGHT    0xdddd06b1
+#define OLDiDtYPErELAYpOPcLIENTwORK_IMPLODE  0xdddd06ad
+#define OLDiDtYPErELAYpOPcLIENTwORK_EXPLODE1 0xdddd06ae
+#define OLDiDtYPErELAYpOPcLIENTwORK_EXPLODE2 0xdddd06af
+#define OLDiDtYPErELAYpOPcLIENTwORK_LEFT     0xdddd06b0
+#define OLDiDtYPErELAYpOPcLIENTwORK_RIGHT    0xdddd06b1
 /*3*/
-#define IDtYPErELAYpOPcLIENTwORK_min     0xdddd06ad
-#define IDtYPErELAYpOPcLIENTwORK_max     0xdddd06b1
+#define OLDiDtYPErELAYpOPcLIENTwORK_min     0xdddd06ad
+#define OLDiDtYPErELAYpOPcLIENTwORK_max     0xdddd06b1
 
 
 //
@@ -20467,7 +20467,7 @@ i am used with a soulC object to use that object as a forth-like program executo
     {                                                                                           \
         sInOk.removeAllF( tinP ) ;                                                              \
         (sockP).readF( tinP , sInOk , TOCK * 0x8 ) ;                                            \
-        __( !sInOk || sInOk.cFieldF( tinP , 1 ) != ifcIDtYPEbAG_SERVERoK ) ;                    \
+        __( !sInOk || sInOk.cFieldF( tinP , 1 ) != ifcOLDiDtYPEbAG_SERVERoK ) ;                    \
         sInOk.removeAllF( tinP ) ;                                                              \
     }
 
@@ -20499,7 +20499,7 @@ i am used with a soulC object to use that object as a forth-like program executo
     {                                                                                           \
         (sInOkP).removeAllF( tinP ) ;                                                           \
         (sockP).readF( tinP , (sInOkP) , TOCK * 0x8 ) ;                                         \
-        __( !(sInOkP) || (sInOkP).cFieldF( tinP , 1 ) != ifcIDtYPEbAG_SERVERoK ) ;              \
+        __( !(sInOkP) || (sInOkP).cFieldF( tinP , 1 ) != ifcOLDiDtYPEbAG_SERVERoK ) ;              \
         (sInOkP).removeAllF( tinP ) ;                                                           \
     }
 
@@ -21395,16 +21395,16 @@ U::idea: define TAGiDnADA as an empty symbol and use it to mark all tag id value
 /*
 */
 /**/
-/*1*//*ifcIDcHANNEL1*//*1*/
+/*1*//*ifcOLDiDcHANNEL1*//*1*/
 
 /*3*/
-#define ifcIDcHANNEL1_GLOBAL               0xdddd06b2
-#define ifcIDcHANNEL1_BYfUNCTION           0xdddd06b3
-#define ifcIDcHANNEL1_BYhOME               0xdddd06b4
-#define ifcIDcHANNEL1_BYpORT               0xdddd06b5
+#define ifcOLDiDcHANNEL1_GLOBAL               0xdddd06b2
+#define ifcOLDiDcHANNEL1_BYfUNCTION           0xdddd06b3
+#define ifcOLDiDcHANNEL1_BYhOME               0xdddd06b4
+#define ifcOLDiDcHANNEL1_BYpORT               0xdddd06b5
 /*3*/
-#define ifcIDcHANNEL1_min     0xdddd06b2
-#define ifcIDcHANNEL1_max     0xdddd06b5
+#define ifcOLDiDcHANNEL1_min     0xdddd06b2
+#define ifcOLDiDcHANNEL1_max     0xdddd06b5
 
 
 //
@@ -21428,23 +21428,23 @@ U::idea: define TAGiDnADA as an empty symbol and use it to mark all tag id value
 /*
 */
 /**/
-/*1*//*ifcIDcHANNELfUNCTION*//*1*/
+/*1*//*ifcOLDiDcHANNELfUNCTION*//*1*/
 
 /*3*/
-#define ifcIDcHANNELfUNCTION_QUERYiDhOME               0xdddd06b6
-#define ifcIDcHANNELfUNCTION_REPLYiDhOME               0xdddd06b7
-#define ifcIDcHANNELfUNCTION_STROKEcONSOLE             0xdddd06b8
-#define ifcIDcHANNELfUNCTION_SUPERrANDOMnUMBERS        0xdddd06b9
-#define ifcIDcHANNELfUNCTION_SUPERrANDOMnUMBERScTRL    0xdddd06ba
-#define ifcIDcHANNELfUNCTION_MEDIATORrEGISTRATION      0xdddd06bb
-#define ifcIDcHANNELfUNCTION_MEDIATORpINmENU           0xdddd06bc
-#define ifcIDcHANNELfUNCTION_MEDIATED                  0xdddd06bd
-#define ifcIDcHANNELfUNCTION_SECREThANDsHAKEkEY        0xdddd06be
-#define ifcIDcHANNELfUNCTION_SADAM0                    0xdddd06bf
+#define ifcOLDiDcHANNELfUNCTION_QUERYiDhOME               0xdddd06b6
+#define ifcOLDiDcHANNELfUNCTION_REPLYiDhOME               0xdddd06b7
+#define ifcOLDiDcHANNELfUNCTION_STROKEcONSOLE             0xdddd06b8
+#define ifcOLDiDcHANNELfUNCTION_SUPERrANDOMnUMBERS        0xdddd06b9
+#define ifcOLDiDcHANNELfUNCTION_SUPERrANDOMnUMBERScTRL    0xdddd06ba
+#define ifcOLDiDcHANNELfUNCTION_MEDIATORrEGISTRATION      0xdddd06bb
+#define ifcOLDiDcHANNELfUNCTION_MEDIATORpINmENU           0xdddd06bc
+#define ifcOLDiDcHANNELfUNCTION_MEDIATED                  0xdddd06bd
+#define ifcOLDiDcHANNELfUNCTION_SECREThANDsHAKEkEY        0xdddd06be
+#define ifcOLDiDcHANNELfUNCTION_SADAM0                    0xdddd06bf
 
 /*3*/
-#define ifcIDcHANNELfUNCTION_min     0xdddd06b6
-#define ifcIDcHANNELfUNCTION_max     0xdddd06bf
+#define ifcOLDiDcHANNELfUNCTION_min     0xdddd06b6
+#define ifcOLDiDcHANNELfUNCTION_max     0xdddd06bf
 
 
 //
@@ -21468,17 +21468,17 @@ U::idea: define TAGiDnADA as an empty symbol and use it to mark all tag id value
 /*
 */
 /**/
-/*1*//*ifcIDtYPEgIFT*//*1*/
+/*1*//*ifcOLDiDtYPEgIFT*//*1*/
 
 /*3*/
-#define ifcIDtYPEgIFT_MEDIATE                       0xdddd06c0
-#define ifcIDtYPEgIFT_APPLICATION                   0xdddd06c1
-#define ifcIDtYPEgIFT_REPLYrELAYrANK                0xdddd06c2
-#define ifcIDtYPEgIFT_REPLYrELAYiDpORTtIMEc         0xdddd06c3
-#define ifcIDtYPEgIFT_REPLYrELAYiDpORTtIMEcaLLhOMES 0xdddd06c4
+#define ifcOLDiDtYPEgIFT_MEDIATE                       0xdddd06c0
+#define ifcOLDiDtYPEgIFT_APPLICATION                   0xdddd06c1
+#define ifcOLDiDtYPEgIFT_REPLYrELAYrANK                0xdddd06c2
+#define ifcOLDiDtYPEgIFT_REPLYrELAYiDpORTtIMEc         0xdddd06c3
+#define ifcOLDiDtYPEgIFT_REPLYrELAYiDpORTtIMEcaLLhOMES 0xdddd06c4
 /*3*/
-#define ifcIDtYPEgIFT_min     0xdddd06c0
-#define ifcIDtYPEgIFT_max     0xdddd06c4
+#define ifcOLDiDtYPEgIFT_min     0xdddd06c0
+#define ifcOLDiDtYPEgIFT_max     0xdddd06c4
 
 
 //
@@ -22654,14 +22654,14 @@ examples
 /*
 */
 /**/
-/*1*//*ifcIDcMDrEGISTERmEDIATOR*//*1*/
+/*1*//*ifcOLDiDcMDrEGISTERmEDIATOR*//*1*/
 
 /*3*/
-#define ifcIDcMDrEGISTERmEDIATOR_AMaLIVE                0xdddd074c
-#define ifcIDcMDrEGISTERmEDIATOR_AMdEAD                 0xdddd074d
+#define ifcOLDiDcMDrEGISTERmEDIATOR_AMaLIVE                0xdddd074c
+#define ifcOLDiDcMDrEGISTERmEDIATOR_AMdEAD                 0xdddd074d
 /*3*/
-#define ifcIDcMDrEGISTERmEDIATOR_min     0xdddd074c
-#define ifcIDcMDrEGISTERmEDIATOR_max     0xdddd074d
+#define ifcOLDiDcMDrEGISTERmEDIATOR_min     0xdddd074c
+#define ifcOLDiDcMDrEGISTERmEDIATOR_max     0xdddd074d
 
 
 //
@@ -22903,25 +22903,25 @@ it is illegal to refer to this symbol anywhere but in the definition of a BlATHs
 /*
 */
 /**/
-/*1*//*ifcIDfIELDwRAP*//*1*/
+/*1*//*ifcOLDiDfIELDwRAP*//*1*/
 
 /*3*/
-#define ifcIDfIELDwRAP_TRADEmARK                    ( 1 )
-#define ifcIDfIELDwRAP_IDpROTOCOL                   ( 2 )
-#define ifcIDfIELDwRAP_IDvERSION                    ( 3 )
-#define ifcIDfIELDwRAP_IDtYPE                       ( 4 )
-#define ifcIDfIELDwRAP_CHANNEL                      ( 5 )
-#define ifcIDfIELDwRAP_RELAYrANK                    ( 5 )
-#define ifcIDfIELDwRAP_PORTtIME                     ( 5 )
-#define ifcIDfIELDwRAP_PORTtIMEaLLhOMES             ( 5 )
-#define ifcIDfIELDwRAP_TO                           ( 6 ) 
-#define ifcIDfIELDwRAP_CCtESTmAX                    ( 6 )
-#define ifcIDfIELDwRAP_TOmEDIATOR                   ( 7 )
-#define ifcIDfIELDwRAP_FILTER                       ( 7 )
-#define ifcIDfIELDwRAP_FLAGS                        ( 8 )
-#define ifcIDfIELDwRAP_CCfILTER                     ( 8 )
-#define ifcIDfIELDwRAP_GIFT                         ( 9 )
-#define ifcIDfIELDwRAP_IDPToRIGIN                   ( 0xa )
+#define ifcOLDiDfIELDwRAP_TRADEmARK                    ( 1 )
+#define ifcOLDiDfIELDwRAP_IDpROTOCOL                   ( 2 )
+#define ifcOLDiDfIELDwRAP_IDvERSION                    ( 3 )
+#define ifcOLDiDfIELDwRAP_IDtYPE                       ( 4 )
+#define ifcOLDiDfIELDwRAP_CHANNEL                      ( 5 )
+#define ifcOLDiDfIELDwRAP_RELAYrANK                    ( 5 )
+#define ifcOLDiDfIELDwRAP_PORTtIME                     ( 5 )
+#define ifcOLDiDfIELDwRAP_PORTtIMEaLLhOMES             ( 5 )
+#define ifcOLDiDfIELDwRAP_TO                           ( 6 ) 
+#define ifcOLDiDfIELDwRAP_CCtESTmAX                    ( 6 )
+#define ifcOLDiDfIELDwRAP_TOmEDIATOR                   ( 7 )
+#define ifcOLDiDfIELDwRAP_FILTER                       ( 7 )
+#define ifcOLDiDfIELDwRAP_FLAGS                        ( 8 )
+#define ifcOLDiDfIELDwRAP_CCfILTER                     ( 8 )
+#define ifcOLDiDfIELDwRAP_GIFT                         ( 9 )
+#define ifcOLDiDfIELDwRAP_IDPToRIGIN                   ( 0xa )
 /*3*/
 
 

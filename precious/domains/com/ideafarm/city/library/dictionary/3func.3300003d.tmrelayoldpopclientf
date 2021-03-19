@@ -53,7 +53,7 @@ DONE( tmRelayOldPopClientF )
                         TELL( "writing bang" )
                         //etThread.traceF( tinP , tWork+T(": writing [idType]:    ")+TF2(idType,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
                     {
-                    if( idType != ifcIDtYPEbAG_CLIENTnULL )
+                    if( idType != ifcOLDiDtYPEbAG_CLIENTnULL )
                     countT idType = psBag->cFieldF( tinP , ifcIDfIELDbAG_IDtYPE ) ;
                 {
                 if( pso && !ether && !bQuitP && *psBag >= 4 ) //CODEsYNC df40104 df40104
@@ -67,8 +67,8 @@ DONE( tmRelayOldPopClientF )
             
             }
                 }
-                    relayOldC::idptSelectPeerIF( tinP , idptServerCorrect , stIdptOpenP , idptP , stIdptGossipP , idWorkP , idWorkP == IDtYPErELAYpOPcLIENTwORK_IMPLODE ? flSELECTpEER_TRACE : flSELECTpEER_null ) ;
-                    if( idWorkP == IDtYPErELAYpOPcLIENTwORK_IMPLODE ) etThread.traceF( tinP , tWork+T(": refreshing idptServerCorrect") ) ;
+                    relayOldC::idptSelectPeerIF( tinP , idptServerCorrect , stIdptOpenP , idptP , stIdptGossipP , idWorkP , idWorkP == OLDiDtYPErELAYpOPcLIENTwORK_IMPLODE ? flSELECTpEER_TRACE : flSELECTpEER_null ) ;
+                    if( idWorkP == OLDiDtYPErELAYpOPcLIENTwORK_IMPLODE ) etThread.traceF( tinP , tWork+T(": refreshing idptServerCorrect") ) ;
                 {
                 if( !ether && !bQuitP )
                 idptServerCorrect = 0 ;
@@ -87,7 +87,7 @@ DONE( tmRelayOldPopClientF )
                     //etThread.traceF( tinP , tWork+T(": writing sBagHello to correct server ") ) ;
     
                     sBagHello << idWorkP ;
-                    relayOldC::hdrBagIF( tinP , sBagHello , idptP , idSerialLathHeaderP , flRELAYpOP_null , ifcIDtYPEbAG_CLIENTpOPhELLO ) ;
+                    relayOldC::hdrBagIF( tinP , sBagHello , idptP , idSerialLathHeaderP , flOLDrELAYpOP_null , ifcOLDiDtYPEbAG_CLIENTpOPhELLO ) ;
                     soulC sBagHello( tinP , TAG( TAGiDnULL ) ) ;
                     TELL( "writing hello" )
 
@@ -136,7 +136,7 @@ DONE( tmRelayOldPopClientF )
                         DEL( psBag ) ;
                         pso->writeF( tinP , *psBag ) ;
                         //etThread.traceF( tinP , tWork+T(": writing *psBag") ) ;
-                        relayOldC::hdrBagIF( tinP , *psBag , idptP , idSerialLathHeaderP , flRELAYpOP_null , ifcIDtYPEbAG_CLIENTpOPbYE ) ;
+                        relayOldC::hdrBagIF( tinP , *psBag , idptP , idSerialLathHeaderP , flOLDrELAYpOP_null , ifcOLDiDtYPEbAG_CLIENTpOPbYE ) ;
                     {
                     if( psBag )
                     soulC* psBag = new( 0 , tinP , LF ) soulC( tinP , TAG( TAGiDnULL ) ) ; ___( psBag ) ;
@@ -146,7 +146,7 @@ DONE( tmRelayOldPopClientF )
             {
             if( pso && idptServer && idptServer != idptServerCorrect && !bQuitP && !ether )
     
-            relayOldC::idptSelectPeerIF( tinP , idptServerCorrect , stIdptOpenP , idptP , stIdptGossipP , idWorkP , idWorkP == IDtYPErELAYpOPcLIENTwORK_IMPLODE ? flSELECTpEER_TRACE : flSELECTpEER_null ) ;
+            relayOldC::idptSelectPeerIF( tinP , idptServerCorrect , stIdptOpenP , idptP , stIdptGossipP , idWorkP , idWorkP == OLDiDtYPErELAYpOPcLIENTwORK_IMPLODE ? flSELECTpEER_TRACE : flSELECTpEER_null ) ;
             portTimeC idptServerCorrect ;
             TELL( "calculating portTimeCorrect" )
 
@@ -175,11 +175,11 @@ DONE( tmRelayOldPopClientF )
 
     }
         default                                : { BLAMMOiD( idWorkP | BM_HIGH ) ; break ; }
-        case IDtYPErELAYpOPcLIENTwORK_RIGHT    : { tWork = T("right")            ; break ; }
-        case IDtYPErELAYpOPcLIENTwORK_LEFT     : { tWork = T("left")             ; break ; }
-        case IDtYPErELAYpOPcLIENTwORK_EXPLODE2 : { tWork = T("up2")              ; break ; }
-        case IDtYPErELAYpOPcLIENTwORK_EXPLODE1 : { tWork = T("up1")              ; break ; }
-        case IDtYPErELAYpOPcLIENTwORK_IMPLODE  : { tWork = T("down")             ; break ; }
+        case OLDiDtYPErELAYpOPcLIENTwORK_RIGHT    : { tWork = T("right")            ; break ; }
+        case OLDiDtYPErELAYpOPcLIENTwORK_LEFT     : { tWork = T("left")             ; break ; }
+        case OLDiDtYPErELAYpOPcLIENTwORK_EXPLODE2 : { tWork = T("up2")              ; break ; }
+        case OLDiDtYPErELAYpOPcLIENTwORK_EXPLODE1 : { tWork = T("up1")              ; break ; }
+        case OLDiDtYPErELAYpOPcLIENTwORK_IMPLODE  : { tWork = T("down")             ; break ; }
     {
     switch( idWorkP )
     TN( tWork , "" ) ;
@@ -187,13 +187,13 @@ DONE( tmRelayOldPopClientF )
     ;
                     : *pStPop4P
                     ? *pStPop3P
-                : idWorkP == IDtYPErELAYpOPcLIENTwORK_LEFT
+                : idWorkP == OLDiDtYPErELAYpOPcLIENTwORK_LEFT
                 ? *pStPop2P
-            : idWorkP == IDtYPErELAYpOPcLIENTwORK_EXPLODE2
+            : idWorkP == OLDiDtYPErELAYpOPcLIENTwORK_EXPLODE2
             ? *pStPop1P
-        : idWorkP == IDtYPErELAYpOPcLIENTwORK_EXPLODE1
+        : idWorkP == OLDiDtYPErELAYpOPcLIENTwORK_EXPLODE1
         ? *pStPop0P
-    stackC& stPop = idWorkP == IDtYPErELAYpOPcLIENTwORK_IMPLODE
+    stackC& stPop = idWorkP == OLDiDtYPErELAYpOPcLIENTwORK_IMPLODE
     TELL( "setting up" )
 
     countT idWorkP = pTaskP->c4 ;
