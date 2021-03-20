@@ -36,6 +36,9 @@ DONE( tmAcceptF )
 
         sockListen.listenF( tinP ) ;
 
+        etThread.osThreadF( TaRG1( tmRefreshListF ) , (countT)&nodeP , (countT)&bQuitP , (countT)&cKidsP , (countT)&stOpenP , idModeP , (countT)&portMeP ) ; // portMeP IS NOW COMPLETELY KNOWN
+        inc02AM( cKidsP ) ;
+
         }
             }
                 }
@@ -443,27 +446,62 @@ DONE( tmRefreshListF )
         if( !bFail ) while( !ether && !POOP && !bQuitP )
 
         }
-            //THE IDEA IS TO USE DISK TO REMEMBER PORTS SO THAT A NEW NODE CAN CONNECT ITSELF TO OTHER PORTS EVEN IF THE PORTS REGISTERED IN DNS ARE NOT RESPONSIVE
-            //REGARDLESS OF MODE, THIS IS A LIST OF PORTS TO SCAN IN THE SEARCH FOR RESPONSIVE NODES
-            //AT A MINIMUM, IT WILL CONTAIN spacenn.ideafarm.com ( spaceport.ideafarm.com )
-            //U::ALLOCATE pNodeList AND POPULATE IT FROM DNS AND OTHER SOURCES
-        {
-        else
-        }
-            if( !bFail ) pNodeList = (nodeListS*)(byteT*)*pNapNodeList ;
-
-            THREADmODE3rESTORE
             }
-                bFail = 1 ;
-                etThread.traceF( tinP , T("watch must be running for this home; doing nothing") ) ;
-                pNapNodeList->formattingIsDoneF( tinP ) ;
+                break ;
+                __1
+                __( idModeP ) ;
             {
-            if( !POOP && !pNapNodeList->bFormattedF() )
-            __Z( pNapNodeList ) ;
-            pNapNodeList = new( 0 , tinP , LF ) napkinC( tinP , TAG( TAGiDnULL ) , "ipdos.node.list.link.local.recent.advertisers" , 0 , TOCK , ifcOPENsHAREDmEMORYhOW_nCeO , flNAPKINc_null , - 1 , ifcIDmEMORYsPACE_UNIVERSE ) ; ___( pNapNodeList ) ;
-            THREADmODE3oN( flTHREADmODE3_ALLOWeXPLICITmEMORYsPACE )
+            default :
+            }
+                break ;
+
+                //THE IDEA IS TO USE DISK TO REMEMBER PORTS SO THAT A NEW NODE CAN CONNECT ITSELF TO OTHER PORTS EVEN IF THE PORTS REGISTERED IN DNS ARE NOT RESPONSIVE
+                //REGARDLESS OF MODE, THIS IS A LIST OF PORTS TO SCAN IN THE SEARCH FOR RESPONSIVE NODES
+                //AT A MINIMUM, IT WILL CONTAIN spacenn.ideafarm.com ( spaceport.ideafarm.com )
+                //U::ALLOCATE pNodeList AND POPULATE IT FROM DNS AND OTHER SOURCES
+            {
+            case ifcIDmODEnODE_GLOBAL :
+            }
+                break ;
+
+                if( !bFail ) pNodeList = (nodeListS*)(byteT*)*pNapNodeList ;
+
+                THREADmODE3rESTORE
+                }
+                    bFail = 1 ;
+                    etThread.traceF( tinP , T("watch must be running for this home; doing nothing") ) ;
+                    pNapNodeList->formattingIsDoneF( tinP ) ;
+                {
+                if( !POOP && !pNapNodeList->bFormattedF() )
+                __Z( pNapNodeList ) ;
+                pNapNodeList = new( 0 , tinP , LF ) napkinC( tinP , TAG( TAGiDnULL ) , "ipdos.node.list.link.local.recent.advertisers" , 0 , TOCK , ifcOPENsHAREDmEMORYhOW_nCeO , flNAPKINc_null , - 1 , ifcIDmEMORYsPACE_UNIVERSE ) ; ___( pNapNodeList ) ;
+                THREADmODE3oN( flTHREADmODE3_ALLOWeXPLICITmEMORYsPACE )
+            {
+            case ifcIDmODEnODE_LOCAL :
+            }
+                break ;
+
+                pNodeList = (nodeListS*)(byteT*)*pNapNodeList ;
+
+                THREADmODE3rESTORE
+                }
+                    pNapNodeList->formattingIsDoneF( tinP ) ;
+
+                    nl.cEltsMax = ( cbData - sizeof( nodeListS ) + sizeof( nodeEntryS ) ) / sizeof( nodeEntryS ) ;
+                    nodeListS& nl = *(nodeListS*)pbData ;
+
+                    etThread.memSetF( tinP , pbData , cbData ) ;
+                    countT cbData = *pNapNodeList ;
+                    byteT* pbData = *pNapNodeList ;
+                {
+                if( !POOP && !pNapNodeList->bFormattedF() )
+                __Z( pNapNodeList ) ;
+                pNapNodeList = new( 0 , tinP , LF ) napkinC( tinP , TAG( TAGiDnULL ) , "ipdos.node.list.intraprocess" , 0 , TOCK , ifcOPENsHAREDmEMORYhOW_nCeO , flNAPKINc_null , - 1 , ifcIDmEMORYsPACE_UNIVERSE ) ; ___( pNapNodeList ) ;
+                THREADmODE3oN( flTHREADmODE3_ALLOWeXPLICITmEMORYsPACE )
+            {
+            case ifcIDmODEnODE_INTRApROCESS :
         {
-        if( idModeP == ifcIDmODEnODE_LOCAL )
+        switch( idModeP )
         ZE( boolT , bFail ) ;
         ZE( nodeListS* , pNodeList ) ;      // ZOMBIE IFF !!pNapNodeList
         ZE( napkinC*   , pNapNodeList ) ;
@@ -525,16 +563,9 @@ TASK( tmRefreshListF )
     sleepC s( tinP , TAG( TAGiDnULL ) ) ;
     etherC& etPrime = etherC::etPrimeIF( tinP ) ;
 
-    ether.osThreadF( TaRG1( tmAcceptF      ) , (countT)this , (countT)&bQuit , (countT)&cKids , (countT)&stAccepted , (countT)&stOpen , idMode , (countT)&portMe ) ;
-
-    }
-        ++ s ; ether.osSleepF( tinP , TOCK ) ;
-        sleepC s( tinP , TAG( TAGiDnULL ) ) ;
-    {
-
     ether.osThreadF( TaRG1( tmObeyF        ) , (countT)this , (countT)&bQuit , (countT)&cKids , (countT)&stAccepted , (countT)&stOpen , idMode , (countT)&portMe ) ;
-    ether.osThreadF( TaRG1( tmRefreshListF ) , (countT)this , (countT)&bQuit , (countT)&cKids                       , (countT)&stOpen , idMode , (countT)&portMe ) ;
-    countT cKids = 3 ;
+    ether.osThreadF( TaRG1( tmAcceptF      ) , (countT)this , (countT)&bQuit , (countT)&cKids , (countT)&stAccepted , (countT)&stOpen , idMode , (countT)&portMe ) ;
+    countT cKids = 2 ;
     ZE( boolT , bQuit ) ;
 
     }
@@ -605,8 +636,9 @@ TASK0PROTO( tmAcceptF ) ;
 #define ifcIDcMDnODE_PING            2
 #define ifcIDcMDnODE_BYE             1
 
-#define ifcIDmODEnODE_GLOBAL         2 
-#define ifcIDmODEnODE_LOCAL          1
+#define ifcIDmODEnODE_GLOBAL         3 
+#define ifcIDmODEnODE_LOCAL          2
+#define ifcIDmODEnODE_INTRApROCESS   1
 
 
 /*1*/WAKEhIDE( "doodle.nodeC.bang.relay" )/*1*/

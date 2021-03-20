@@ -1134,7 +1134,7 @@ ifcPORToLD2_CHAT and ifcPORToLD2_CATCH have been assigned wkp system values by t
 #define ifcIDpORT_RELAYcRAFT                        0x00001ee0
 #define ifcIDpORT_RELAYpRIVATE                      0x00001ff0
 #define ifcIDpORT_MULTICASTaDVERTISElANnODES        0x00001bb0
-#define ifcIDpORT_nodeC                             0x00001cc0
+#define ifcIDpORT_nodeC                             0x00008000
 /*3*/
 
 
