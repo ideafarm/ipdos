@@ -20153,7 +20153,7 @@ i am used with a soulC object to use that object as a forth-like program executo
 //
 
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200214.ifcidprotocol END
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200215.ifcOLDiDtYPEwRAP BEGIN
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200215.ifcIDtYPEwRAP BEGIN
 
 
 //
@@ -20195,7 +20195,7 @@ i am used with a soulC object to use that object as a forth-like program executo
 // Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
 
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200215.ifcOLDiDtYPEwRAP END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200215.ifcIDtYPEwRAP END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200216.flrelaypop BEGIN
 
 
@@ -20262,7 +20262,7 @@ i am used with a soulC object to use that object as a forth-like program executo
 //
 
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200217.idcmdrelay END
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200218.idtyperelaypopclientwork BEGIN
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200218.oldidtyperelaypopclientwork BEGIN
 
 
 //
@@ -20294,7 +20294,7 @@ i am used with a soulC object to use that object as a forth-like program executo
 // Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
 
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200218.idtyperelaypopclientwork END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200218.oldidtyperelaypopclientwork END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200219.relayinfoargcounts BEGIN
 
 
