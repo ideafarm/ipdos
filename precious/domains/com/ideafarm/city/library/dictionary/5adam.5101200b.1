@@ -21,7 +21,7 @@ DONE( tmAcceptF )
 
     }
         }
-            DEL( psoa ) ;
+            stAcceptedP << (countT)psoa ;
             //etThread.traceF( tinP , T("called  acceptF [psoa]:    ")+TF2((countT)psoa,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
             sockListen.acceptF( tinP , psoa , idpHe , nnHe , bRefuse ) ; ___( psoa ) ;
             //etThread.traceF( tinP , T("calling acceptF") ) ;
@@ -60,14 +60,149 @@ DONE( tmAcceptF )
         socketC sockListen( tinP , etThread , TAG( TAGiDnULL ) ) ;
     {
 
-    const countT idModeP =           pTaskP->c5 ;
-    stackC&      stOpenP = *(stackC*)pTaskP->c4 ;
-    countT&      cKidsP  = *(countT*)pTaskP->c3 ;
-    boolT&       bQuitP  =  *(boolT*)pTaskP->c2 ;
-    nodeC&       nodeP   =  *(nodeC*)pTaskP->c1 ;
+    const countT idModeP     =           pTaskP->c6 ;
+    stackC&      stOpenP     = *(stackC*)pTaskP->c5 ;
+    stackC&      stAcceptedP = *(stackC*)pTaskP->c4 ;
+    countT&      cKidsP      = *(countT*)pTaskP->c3 ;
+    boolT&       bQuitP      =  *(boolT*)pTaskP->c2 ;
+    nodeC&       nodeP       =  *(nodeC*)pTaskP->c1 ;
 {
-if( pTaskP && pTaskP->c1 && pTaskP->c2 && pTaskP->c3 && pTaskP->c4 && pTaskP->c5 )
+if( pTaskP && pTaskP->c1 && pTaskP->c2 && pTaskP->c3 && pTaskP->c4 && pTaskP->c5 && pTaskP->c6 )
 TASK( tmAcceptF )
+
+DONE( tmObeyF )
+}
+    dec02AM( cKidsP ) ;
+
+    }
+        }
+            }
+                DEL( psoa ) ;
+
+                }
+                    }
+                        }
+                            etThread.traceF( tinP , T("coding error 85") ) ;
+                            POOPRqUIET
+                        {
+                        if( POOP )
+
+                        }
+                            }
+                                }
+                                    }
+                                        break ;
+                                        __1
+                                        __( idCmd ) ;
+                                    {
+                                    default :
+                                    }
+                                        break ;
+
+                                        }
+                                            etThread.traceF( tinP , T("could not write ifcIDcMDnODE_PINGrEPLY") ) ;
+                                            POOPRqUIET
+                                        {
+                                        if( POOP )
+
+                                        psoa->writeF( tinP , soulo ) ;
+
+                                        soulo << finger ;   // idCmd
+                                        finger = ifcIDcMDnODE_PINGrEPLY ;
+
+                                        soulo << finger ;   // idFormat
+                                        finger = 1 ;
+
+                                        soulo << finger ;
+                                        putNegAM( finger , FINGERnEG_nodeC ) ;
+                                        ZE( countT , finger ) ;
+
+                                        soulC soulo( tinP , *tinP.pEtScratch , TAG( TAGiDnULL ) ) ;
+                                    {
+                                    case ifcIDcMDnODE_PING :
+                                    }
+                                        break ;
+                                        bBye = 1 ;
+                                    {
+                                    case ifcIDcMDnODE_BYE :
+                                {
+                                switch( idCmd )
+
+                                souli >> idCmd ;
+                                ZE( countT , idCmd ) ;
+                            {
+                            else
+                            }
+                                etThread.traceF( tinP , T("incoming soul contained unexpected fingerprint or idFormat") ) ;
+                                POOPRqUIET
+                            {
+                            if( POOP )
+
+                            __( finger - 1 ) ;
+                            souli >> finger ;
+                            finger = 0 ;
+
+                            __( getNegAM( finger ) - FINGERnEG_nodeC ) ;
+                            souli >> finger ;
+                            ZE( countT , finger ) ;
+                        {
+                        else
+                        }
+                            etThread.traceF( tinP , T("could not read soul") ) ;
+                            POOPRqUIET
+                        {
+                        if( POOP )
+
+                        psoa->readF( tinP , souli ) ;
+                        soulC souli( tinP , *tinP.pEtScratch , TAG( TAGiDnULL ) ) ;
+
+                        psoa->etherF( tinP , *tinP.pEtScratch ) ;
+
+                        SCOOPS
+                    {
+                    IFsCRATCH
+                {
+                while( !bQuitP && !bBye )
+                ZE( boolT , bBye ) ;
+
+                socketC* psoa = (socketC*)pc_psoa[ offi ] ;
+
+                //etThread.traceF( tinP , T("serving client ")+TF2(offi+1,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T(" of ")+TF2(cToDo,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
+            {
+            for( countT offi = 0 ; offi < cToDo ; offi ++ )
+
+            stAcceptedP.ungrabF( tinP ) ;
+
+            }
+                while( stAcceptedP ) stAcceptedP >> pc_psoa[ offo ++ ] ;
+                ZE( countT , offo ) ;
+            {
+            if( !POOP )
+
+            __Z( pc_psoa ) ;
+            etThread.newF( tinP , LF , pc_psoa , cToDo ) ; ___( pc_psoa ) ;
+            ZE( countT* , pc_psoa ) ;
+            countT cToDo = stAcceptedP ;
+        {
+        else
+        }
+            stAcceptedP.ungrabF( tinP ) ;
+        {
+        if( !stAcceptedP )
+        stAcceptedP.grabF( tinP , TAG( TAGiDnULL ) ) ;
+        stAcceptedP.waitF( tinP ) ;
+    {
+    while( !ether && !POOP )
+
+    const countT idModeP     =           pTaskP->c6 ;
+    stackC&      stOpenP     = *(stackC*)pTaskP->c5 ;
+    stackC&      stAcceptedP = *(stackC*)pTaskP->c4 ;
+    countT&      cKidsP      = *(countT*)pTaskP->c3 ;
+    boolT&       bQuitP      =  *(boolT*)pTaskP->c2 ;
+    nodeC&       nodeP       =  *(nodeC*)pTaskP->c1 ;
+{
+if( pTaskP && pTaskP->c1 && pTaskP->c2 && pTaskP->c3 && pTaskP->c4 && pTaskP->c5 && pTaskP->c6 )
+TASK( tmObeyF )
 
 DONE( tmRefreshListF )
 }
@@ -93,6 +228,7 @@ DONE( tmRefreshListF )
                 handleC hDown( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_STACKwALK ) ;
                 ZE( countT , idPlate ) ;
             {
+            if( stOpenP )
 
             }
                 while( !stValidated.third && ~hDown ) ;
@@ -152,28 +288,103 @@ DONE( tmRefreshListF )
                     }
                         }
                             }
-                                break ;
                                 //etThread.traceF( tinP , T("connected aok [nnTry,idPortTry]:    ")+T(nnHe)+tb4+TF2(idpTry,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
                                 nicNameC nnHe = portHe ;
                                 stValidated.sinkF( tinP , countTC() , (byteT*)&portHe , flSTACKsINK_UNIQUE , subtractPortF ) ;
                                 portHe = idpTry ;
                             {
-                            else
+                            if( !bFail )
+                        
+                            }
+                                }
+                                    }
+                                        }
+                                            sockScan.writeF( tinP , soulo ) ;
+
+                                            soulo << finger ;   // idCmd
+                                            finger = ifcIDcMDnODE_BYE ;
+                                            soulo << finger ;   // idFormat
+                                            finger = 1 ;
+                                            soulo << finger ;
+                                            putNegAM( finger , FINGERnEG_nodeC ) ;
+                                            ZE( countT , finger ) ;
+                                            soulC soulo( tinP , TAG( TAGiDnULL ) ) ;
+                                        {
+                                        else
+                                        }
+                                            etThread.traceF( tinP , T("unexpected contents in incoming soul") ) ;
+                                            bFail = 1 ;
+                                            POOPRqUIET
+                                        {
+                                        if( POOP )
+
+                                        __( finger - ifcIDcMDnODE_PINGrEPLY ) ;
+                                        souli >> finger ;   //idCmd
+                                        finger = 0 ;
+
+                                        __( finger - 1 ) ;
+                                        souli >> finger ;   //idFormat
+                                        finger = 0 ;
+
+                                        __( getNegAM( finger ) - FINGERnEG_nodeC ) ;
+                                        souli >> finger ;
+                                        ZE( countT , finger ) ;
+                                    {
+                                    else
+                                    }
+                                        etThread.traceF( tinP , T("could not read") ) ;
+                                        bFail = 1 ;
+                                        POOPRqUIET
+                                    {
+                                    if( POOP )
+
+                                    sockScan.readF( tinP , souli ) ;
+                                    soulC souli( tinP , *tinP.pEtScratch , TAG( TAGiDnULL ) ) ;
+                                {
+                                else
+                                }
+                                    etThread.traceF( tinP , T("could not write") ) ;
+                                    bFail = 1 ;
+                                    POOPRqUIET
+                                {
+                                if( POOP )
+
+                                sockScan.writeF( tinP , soulo ) ;
+                                //etThread.traceF( tinP , T("writing ifcIDcMDnODE_PING") ) ;
+                                SCOOPS
+                            {
+                            IFsCRATCH
+
+                            soulo << finger ;   // idCmd
+                            finger = ifcIDcMDnODE_PING ;
+                            soulo << finger ;   // idFormat
+                            finger = 1 ;
+                            soulo << finger ;
+                            putNegAM( finger , FINGERnEG_nodeC ) ;
+                            ZE( countT , finger ) ;
+                            soulC soulo( tinP , TAG( TAGiDnULL ) ) ;
+                        {
+                        if( !bFail )
+
+                        }
                             }
                                 //etThread.traceF( tinP , T("could not connect [nnTry,idPortTry]:    ")+T(nnHe)+tb4+TF2(idpTry,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
                                 nicNameC nnHe = portHe ;
+                                bFail = 1 ;
                                 POOPRqUIET
                             {
                             if( POOP )
+
                             sockScan.connectF( tinP , idpTry , portHe , 1 , TUCK >> 4 ) ; //U:: LONGER TIMEOUT FOR GLOBAL TREE
-
-                            socketC sockScan( tinP , *tinP.pEtScratch , TAG( TAGiDnULL ) ) ;
+                            sockScan.etherF( tinP , *tinP.pEtScratch ) ;
+                            SCOOPS
                         {
-                        for( countT idpTry = ifcIDpORT_nodeC ; idpTry < ifcIDpORT_nodeC + 4 ; idpTry ++ )
+                        IFsCRATCH
+                        ZE( boolT , bFail ) ;
 
-                        SCOOPS
+                        socketC sockScan( tinP , etThread , TAG( TAGiDnULL ) ) ;
                     {
-                    IFsCRATCH
+                    for( countT idpTry = ifcIDpORT_nodeC ; idpTry < ifcIDpORT_nodeC + 4 ; idpTry ++ )
 
                     //etThread.traceF( tinP , T("stToScan [idPlate,port,v4]:    ")+TF2(++idPlate,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+T((nicNameC&)portHe)+T("    ")+T(portHe.nnv4F()) ) ; //U:: TO FIND A BUG
                     portC& portHe = *(portC*)&stToScan.downF( tinP , hDown ) ;
@@ -294,12 +505,20 @@ TASK( tmRefreshListF )
     sleepC s( tinP , TAG( TAGiDnULL ) ) ;
     etherC& etPrime = etherC::etPrimeIF( tinP ) ;
 
-    ether.osThreadF( TaRG1( tmAcceptF      ) , (countT)this , (countT)&bQuit , (countT)&cKids , (countT)&stOpen , idMode ) ;
-    ether.osThreadF( TaRG1( tmRefreshListF ) , (countT)this , (countT)&bQuit , (countT)&cKids , (countT)&stOpen , idMode ) ;
-    countT cKids = 2 ;
+    ether.osThreadF( TaRG1( tmAcceptF      ) , (countT)this , (countT)&bQuit , (countT)&cKids , (countT)&stAccepted , (countT)&stOpen , idMode ) ;
+
+    }
+        ++ s ; ether.osSleepF( tinP , TOCK ) ;
+        sleepC s( tinP , TAG( TAGiDnULL ) ) ;
+    {
+
+    ether.osThreadF( TaRG1( tmObeyF        ) , (countT)this , (countT)&bQuit , (countT)&cKids , (countT)&stAccepted , (countT)&stOpen , idMode ) ;
+    ether.osThreadF( TaRG1( tmRefreshListF ) , (countT)this , (countT)&bQuit , (countT)&cKids                       , (countT)&stOpen , idMode ) ;
+    countT cKids = 3 ;
     ZE( boolT , bQuit ) ;
 {
-stOpen( tinP , ether , TAG( TAGiDnULL ) , flSTACKc_BLOB , sizeof( portTimeC ) )
+stOpen(     tinP , ether , TAG( TAGiDnULL ) , flSTACKc_BLOB , sizeof( portTimeC ) )
+stAccepted( tinP , ether , TAG( TAGiDnULL ) , flSTACKc_FIFO | flSTACKc_GIVEsIGNnEWpLATE , ifcSTACKtYPE_countT ) ,
 idMode( idModeP ) ,
 ether( etherP ) ,
 nodeC::nodeC( tinS& tinP , etherC& etherP , const countT idModeP ) :
@@ -310,14 +529,20 @@ nodeC::nodeC( tinS& tinP , etherC& etherP , const countT idModeP ) :
 
     public :
 
-    stackC       stOpen ;
-    const countT idMode ;
-    etherC&      ether  ;
+    stackC       stOpen     ;
+    stackC       stAccepted ;
+    const countT idMode     ;
+    etherC&      ether      ;
 {
 class nodeC
 
 TASK0PROTO( tmRefreshListF ) ;
+TASK0PROTO( tmObeyF ) ;
 TASK0PROTO( tmAcceptF ) ;
+
+#define ifcIDcMDnODE_PINGrEPLY       3
+#define ifcIDcMDnODE_PING            2
+#define ifcIDcMDnODE_BYE             1
 
 #define ifcIDmODEnODE_GLOBAL         2 
 #define ifcIDmODEnODE_LOCAL          1

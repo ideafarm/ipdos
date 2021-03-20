@@ -9974,9 +9974,10 @@ flHIRE_SHOW
 #define FINGERnEG_dropNoteSdeleted                      ((countT)-(sCountT)0xcccc0068)
 #define FINGERnEG_dropSeparator                         ((countT)-(sCountT)0xcccc0069)
 #define FINGERnEG_dropHeaderInitialize                  ((countT)-(sCountT)0xcccc006a)
+#define FINGERnEG_nodeC                                 ((countT)-(sCountT)0xcccc006b)
 /*3*/
 #define FINGERnEG_min     0xcccc0001
-#define FINGERnEG_max     0xcccc006a
+#define FINGERnEG_max     0xcccc006b
 
 
 //
