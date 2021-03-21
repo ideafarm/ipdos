@@ -123,7 +123,9 @@ DONE( tmReportLocalNodesF )
         etThread.traceF( tinP , T("local nodes (end)") , flTRACE_null , ifcIDtRACEdIVERT_e ) ;
         }
             }
-                etThread.traceF( tinP , T("local node [off,nn,nnv4]:    ")+TF2(offi,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+T(nl.pEntry[offi].nn)+tb4+T(nicNameC(nl.pEntry[offi].nnv4)) , flTRACE_null , ifcIDtRACEdIVERT_e ) ;
+                etThread.traceF( tinP , T("local node [off,nn,nnv4]:    ")+TF2(offi,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+T(nn)+T("    ")+T(nnv4) , flTRACE_null , ifcIDtRACEdIVERT_e ) ;
+                nicNameC nnv4 = nl.pEntry[ offi ].port.nnv4F() ;
+                nicNameC nn   = nl.pEntry[ offi ].port ;
             {
             if( nl.pEntry[ offi ].ttl )
         {
@@ -144,14 +146,22 @@ DONE( tmHearNodeAdvertisementF )
     }
         nl.idRevisionFinished ++ ;  //THESE CAN BE USED BY APP CODE TO VERIFY THAT THEY HAVE SEEN A CLEAN LIST (NOT BEING REVISED)
 
-        if( !bFound ) etThread.traceF( tinP , T("error: could not add [nn,nnv4]:    ")+T(neTest.nn)+T("    ")+T(nicNameC(neTest.nnv4)) ) ;
+        }
+            etThread.traceF( tinP , T("error: could not add [nn,nnv4]:    ")+T(nn)+T("    ")+T(nnv4) ) ;
+            nicNameC nnv4 = neTest.port.nnv4F() ;
+            nicNameC nn   = neTest.port ;
+        {
+        if( !bFound )
 
         }
             }
                 break ;
                 bFound = 1 ;
                 nl.cElts ++ ;
-                etThread.traceF( tinP , T("adding [nn,nnv4]:    ")+T(nl.pEntry[offi].nn)+T("    ")+T(nicNameC(nl.pEntry[offi].nnv4)) ) ;
+                etThread.traceF( tinP , T("adding [nn,nnv4]:    ")+T(nn)+T("    ")+T(nnv4) ) ;
+                nicNameC nnv4 = nl.pEntry[ offi ].port.nnv4F() ;
+                nicNameC nn   = nl.pEntry[ offi ].port ;
+
                 nl.pEntry[ offi ].ttl = 0x8 * ( nl.cElts + 1 ) ;        // TO REMAIN LISTED, A NODE MUST MUST RESPOND WITHIN 8 RESPONSE WAVES
                 nl.pEntry[ offi ]     = neTest ;
             {
@@ -161,7 +171,10 @@ DONE( tmHearNodeAdvertisementF )
 
         }
             }
-                etThread.traceF( tinP , T("refreshing [nn,nnv4]:    ")+T(nl.pEntry[offi].nn)+T("    ")+T(nicNameC(nl.pEntry[offi].nnv4)) ) ;
+                etThread.traceF( tinP , T("refreshing [nn,nnv4]:    ")+T(nn)+T("    ")+T(nnv4) ) ;
+                nicNameC nnv4 = nl.pEntry[ offi ].port.nnv4F() ;
+                nicNameC nn   = nl.pEntry[ offi ].port ;
+
                 nl.pEntry[ offi ].ttl = 0x8 * ( nl.cElts + 1 ) ;       // ENTRY WILL DISAPPEAR IF NOT REFRESHED ; THIS LINE REFRESHES
                 bFound = 1 ;
             {
@@ -171,19 +184,25 @@ DONE( tmHearNodeAdvertisementF )
         ZE( boolT , bFound ) ;
 
         }
-            else      neTest.nn   = nnWo ;
-            if( bv4 ) neTest.nnv4 = ((const countT*)nnWo)[ 0 ] ;
+            neTest.port = nnWo ;
 
             if( bIgnore ) continue ;
 
-            boolT bIgnore = bv4 ? !!neTest.nnv4 : ~neTest.nn ;
+            boolT bIgnore = bv4 ? ~nnv4 : ~nn ;
+            nicNameC nnv4 = neTest.port.nnv4F() ;
+            nicNameC nn   = neTest.port ;
+
             boolT bv4     = nnWo.isIPv4F() ;
 
             etThread.traceF( tinP , T("yippee! [nnWo]:    ")+T(nnWo)+T(nnWo.isIPv4F()?"    IPv4":"    IPv6") ) ;
             soulNicNameIn >> nnWo ;
             nicNameC nnWo ;
 
-            if( neTest.nn && neTest.nnv4 ) break ;
+            }
+                if( ~nn && ~nnv4 ) break ;
+                nicNameC nnv4 = neTest.port.nnv4F() ;
+                nicNameC nn   = neTest.port ;
+            {
         {
         while( soulNicNameIn )
 
@@ -191,7 +210,10 @@ DONE( tmHearNodeAdvertisementF )
 
         }
             }
-                etThread.traceF( tinP , T("removing [nn,nnv4]:    ")+T(nl.pEntry[offi].nn)+T("    ")+T(nicNameC(nl.pEntry[offi].nnv4)) ) ;
+                etThread.traceF( tinP , T("removing [nn,nnv4]:    ")+T(nn)+T("    ")+T(nnv4) ) ;
+                nicNameC nnv4 = nl.pEntry[ offi ].port.nnv4F() ;
+                nicNameC nn   = nl.pEntry[ offi ].port ;
+
                 nl.cElts -- ;
                 nl.pEntry[ offi ] = nodeEntryS() ;
             {

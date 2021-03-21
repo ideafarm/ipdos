@@ -45249,12 +45249,11 @@ i am nonconformant in that all of my member function definitions are in a single
 
 /*1*/struct nodeEntryS/*1*/
 {
-    nicNameC nn   ;
-    count02T nnv4 ;
+    portC    port ;
     count02T ttl  ;     // IF 0 THEN THIS ENTRY IS FREE AND AVAILABLE
 
-    inline nodeEntryS( voidT ) : nnv4( 0 ) , ttl( 0 ) {}
-    inline boolT operator ==( nodeEntryS& neP ) const { return nn == neP.nn && nnv4 == neP.nnv4 ; }
+    inline nodeEntryS( voidT ) : ttl( 0 ) {}
+    inline boolT operator ==( nodeEntryS& neP ) const { return port == neP.port ; }
 }
 ;
 

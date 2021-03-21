@@ -431,9 +431,9 @@ DONE( tmRefreshListF )
                         //FOR A LOCAL BANG RELAY, THE LIST ONLY GIVES ME A WAY TO DISCOVER ROOT
                         //U:: THE LIST ONLY GIVES ME POTENTIAL NODES ; stOpen CANNOT BE LOADED FROM THE LIST
 
-                        //U::ISSUE: HOW TO GET idPort?  CONJ: WILL NEED TO SCAN A RANGE OF PORTS TO FIND BANG RELAY
-                        portHe = nicNameC( pNodeList->pEntry[ offi ].nnv4   ) ;
-                        portHe =           pNodeList->pEntry[ offi ].nn       ;
+                        //portHe = nicNameC( pNodeList->pEntry[ offi ].nnv4   ) ;
+                        //portHe =           pNodeList->pEntry[ offi ].nn       ;
+                        portHe = pNodeList->pEntry[ offi ].port ;
                         portC portHe ;
                     {
                     if( pNodeList->pEntry[ offi ].ttl )
@@ -569,23 +569,29 @@ TASK( tmRefreshListF )
     ZE( boolT , bQuit ) ;
 
     }
-        portMe = nicNameC( neMe.nnv4 ) ;
-        portMe = neMe.nn ;
+        portMe = neMe.port.nnv4F() ;
+        portMe = neMe.port ;
 
         }
-            else      neMe.nn   = nnWo ;
-            if( bv4 ) neMe.nnv4 = ((const countT*)nnWo)[ 0 ] ;
+            neMe.port = nnWo ;
 
             if( bIgnore ) continue ;
 
-            boolT bIgnore = bv4 ? !!neMe.nnv4 : ~neMe.nn ;
+            boolT bIgnore = bv4 ? ~nnv4 : ~nn ;
+            nicNameC nnv4 = neMe.port.nnv4F() ;
+            nicNameC nn   = neMe.port ;
+
             boolT bv4     = nnWo.isIPv4F() ;
 
             //ether.traceF( tinP , T("[nnWo]:    ")+T(nnWo)+T(nnWo.isIPv4F()?"    IPv4":"    IPv6") ) ;
             soulNicName >> nnWo ;
             nicNameC nnWo ;
 
-            if( neMe.nn && neMe.nnv4 ) break ;
+            }
+                if( ~nn && ~nnv4 ) break ;
+                nicNameC nnv4 = neMe.port.nnv4F() ;
+                nicNameC nn   = neMe.port ;
+            {
         {
         while( soulNicName )
         nodeEntryS neMe ;
