@@ -1,4 +1,6 @@
 
+#define TaRG1tINYsTACK(tmFP) tinP , countTC() , tmFP , 0 , flTHREADlAUNCH_null , 0x4000
+
 // IPDOS (tm) <> IdeaFarm (tm) Piggyback Distributed Operating System
 
 // For build environment info, see file "\ideafarm.work\backed.up.never\txt\readme.first.ipdos.build.environment.txt"

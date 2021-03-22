@@ -11,9 +11,22 @@ REST
 
 etThread.loafIF( tinP ) ;
 
-nodeC nodeMe( tinP , etThread ) ;
+//G:nodeC nodeMe( tinP , etThread , ifcIDmODEnODE_INTRApROCESS ) ;
+//G:nodeC nodeMe( tinP , etThread ) ;
+
+while( cDo -- ) etThread.osThreadF( TaRG1tINYsTACK( tmNodeF ) ) ;
+countT cDo = 0x30 ;
+//G:countT cDo = 0x20 ;
+//G:countT cDo = 0x10 ;
+//B:countT cDo = TUCK >> 3 ;
+//B:countT cDo = TUCK >> 1 ;
+//G:countT cDo = 8 ;
 
 TODO
+
+DONE( tmNodeF )
+nodeC nodeMe( tinP , etThread , ifcIDmODEnODE_INTRApROCESS ) ;
+TASK( tmNodeF )
 
 DONE( tmAcceptF )
 }
@@ -36,7 +49,7 @@ DONE( tmAcceptF )
 
         sockListen.listenF( tinP ) ;
 
-        etThread.osThreadF( TaRG1( tmRefreshListF ) , (countT)&nodeP , (countT)&bQuitP , (countT)&cKidsP , (countT)&stOpenP , idModeP , (countT)&portMeP ) ; // portMeP IS NOW COMPLETELY KNOWN
+        etThread.osThreadF( TaRG1tINYsTACK( tmRefreshListF ) , (countT)&nodeP , (countT)&bQuitP , (countT)&cKidsP , (countT)&stOpenP , idModeP , (countT)&portMeP ) ; // portMeP IS NOW COMPLETELY KNOWN
         inc02AM( cKidsP ) ;
 
         }
@@ -54,7 +67,9 @@ DONE( tmAcceptF )
                 if( POOP )
                 idPortBound = sockListen.bindF( tinP , idpTry , nicNameC() , 1 , 0 ) ;
             {
-            for( countT idpTry = ifcIDpORT_nodeC ; idpTry < ifcIDpORT_nodeC + 0x10 ; idpTry ++ )
+            for( countT idpTry = idpMin ; idpTry <= idpMax ; idpTry ++ )
+            countT idpMax = idModeP == ifcIDmODEnODE_INTRApROCESS ? - 1 : ifcIDpORT_nodeC + 0xf ;
+            countT idpMin =                                               ifcIDpORT_nodeC ;
 
             sockListen.etherF( tinP , *tinP.pEtScratch ) ;
             SCOOPS
@@ -193,6 +208,8 @@ DONE( tmObeyF )
             }
                 while( stAcceptedP ) stAcceptedP >> pc_psoa[ offo ++ ] ;
                 ZE( countT , offo ) ;
+
+                etThread.memSetF( tinP , (byteT*)pc_psoa , cToDo * sizeof( countT ) ) ;
             {
             if( !POOP )
 
@@ -229,6 +246,45 @@ DONE( tmRefreshListF )
 
     }
         DEL( pNapNodeList ) ;
+
+        }
+            }
+                break ;
+                __1
+                __( idModeP ) ;
+            {
+            default :
+            }
+                break ;
+            {
+            case ifcIDmODEnODE_GLOBAL :
+            }
+                break ;
+            {
+            case ifcIDmODEnODE_LOCAL :
+            }
+                break ;
+
+                }
+                    }
+                        break ;
+
+                        nl.pEntry[ offi ].ttl  = 0 ;
+                        nl.pEntry[ offi ].port = portC() ;
+                        dec02AM( nl.cElts ) ;
+
+                        etThread.traceF( tinP , T("removing myself [nn,nnv4]:    ")+T(nn)+T("    ")+T(nnv4) ) ;
+                        nicNameC nnv4 = nl.pEntry[ offi ].port.nnv4F() ;
+                        nicNameC nn   = nl.pEntry[ offi ].port ;
+                    {
+                    if( nl.pEntry[ offi ].port == portMeP )
+                {
+                for( countT offi = 0 ; offi < nl.cEltsMax ; offi ++ )
+                nodeListS& nl = *pNodeList ;
+            {
+            case ifcIDmODEnODE_INTRApROCESS :
+        {
+        switch( idModeP )
 
         }
             ++ s ; ether.osSleepF( tinP , TOCK ) ;
@@ -406,7 +462,9 @@ DONE( tmRefreshListF )
 
                         socketC sockScan( tinP , etThread , TAG( TAGiDnULL ) ) ;
                     {
-                    for( countT idpTry = ifcIDpORT_nodeC ; idpTry < ifcIDpORT_nodeC + 4 ; idpTry ++ )
+                    for( countT idpTry = idpMin ; idpTry <= idpMax ; idpTry ++ )
+                    countT idpMax = (countT)portHe ? (countT)portHe : ifcIDpORT_nodeC + 3 ;
+                    countT idpMin = (countT)portHe ? (countT)portHe : ifcIDpORT_nodeC     ;
 
                     //etThread.traceF( tinP , T("stToScan [idPlate,port,v4]:    ")+TF2(++idPlate,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+T((nicNameC&)portHe)+T("    ")+T(portHe.nnv4F()) ) ; //U:: TO FIND A BUG
                     portC& portHe = *(portC*)&stToScan.downF( tinP , hDown ) ;
@@ -480,6 +538,21 @@ DONE( tmRefreshListF )
             case ifcIDmODEnODE_LOCAL :
             }
                 break ;
+
+                }
+                    }
+                        break ;
+                        inc02AM( nl.cElts ) ;
+                        etThread.traceF( tinP , T("adding myself [nn,nnv4]:    ")+T(nn)+T("    ")+T(nnv4) ) ;
+                        nicNameC nnv4 = nl.pEntry[ offi ].port.nnv4F() ;
+                        nicNameC nn   = nl.pEntry[ offi ].port ;
+
+                        nl.pEntry[ offi ].port = portMeP ;
+                    {
+                    if( !setIfZeAM( nl.pEntry[ offi ].ttl , 1 ) )
+                {
+                for( countT offi = 0 ; offi < nl.cEltsMax ; offi ++ )
+                nodeListS& nl = *pNodeList ;
 
                 pNodeList = (nodeListS*)(byteT*)*pNapNodeList ;
 
@@ -563,8 +636,8 @@ TASK( tmRefreshListF )
     sleepC s( tinP , TAG( TAGiDnULL ) ) ;
     etherC& etPrime = etherC::etPrimeIF( tinP ) ;
 
-    ether.osThreadF( TaRG1( tmObeyF        ) , (countT)this , (countT)&bQuit , (countT)&cKids , (countT)&stAccepted , (countT)&stOpen , idMode , (countT)&portMe ) ;
-    ether.osThreadF( TaRG1( tmAcceptF      ) , (countT)this , (countT)&bQuit , (countT)&cKids , (countT)&stAccepted , (countT)&stOpen , idMode , (countT)&portMe ) ;
+    ether.osThreadF( TaRG1tINYsTACK( tmObeyF        ) , (countT)this , (countT)&bQuit , (countT)&cKids , (countT)&stAccepted , (countT)&stOpen , idMode , (countT)&portMe ) ;
+    ether.osThreadF( TaRG1tINYsTACK( tmAcceptF      ) , (countT)this , (countT)&bQuit , (countT)&cKids , (countT)&stAccepted , (countT)&stOpen , idMode , (countT)&portMe ) ;
     countT cKids = 2 ;
     ZE( boolT , bQuit ) ;
 
@@ -658,4 +731,3 @@ TASK0PROTO( tmAcceptF ) ;
 //
 // Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
-
