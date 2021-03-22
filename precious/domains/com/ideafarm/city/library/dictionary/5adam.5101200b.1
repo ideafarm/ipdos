@@ -14,17 +14,55 @@ etThread.loafIF( tinP ) ;
 //G:nodeC nodeMe( tinP , etThread , ifcIDmODEnODE_INTRApROCESS ) ;
 //G:nodeC nodeMe( tinP , etThread ) ;
 
-while( cDo -- ) etThread.osThreadF( TaRG1tINYsTACK( tmNodeF ) ) ;
-countT cDo = 0x30 ;
+//U::PROD: while( cDo -- ) etThread.osThreadF( TaRG1tINYsTACK( tmNodeF ) ) ;
+while( cDo -- ) etThread.osThreadF( TaRG1( tmNodeF ) ) ;
+countT cDo = 1 ;
+//G::countT cDo = 0x30 ;
 //G:countT cDo = 0x20 ;
 //G:countT cDo = 0x10 ;
 //B:countT cDo = TUCK >> 3 ;
 //B:countT cDo = TUCK >> 1 ;
 //G:countT cDo = 8 ;
 
+
+
+
+
+
+
+
+
+
+
+VirtualQuery( &foo , &info , sizeof info ) ;
+static MEMORY_BASIC_INFORMATION info ;
+static countT addr2 = (countT)&goo ;
+static countT addr1 = (countT)&foo ;
+ZE( countT , goo ) ;
+ZE( countT , foo ) ;
+    
+
 TODO
 
-DONE( tmNodeF )
+}
+    return threadLocalStorageF( ifcIDtYPEtLS_KID , tmNodeF_workF , (countT)argP , 0 , 0 , 0 , 0 , "tmNodeF" ) ;
+
+    VirtualQuery( &foo , &info , sizeof info ) ;
+    static MEMORY_BASIC_INFORMATION info ;
+    static countT addr2 = (countT)&goo ;
+    static countT addr1 = (countT)&foo ;
+    ZE( countT , goo ) ;
+    ZE( countT , foo ) ;
+{
+TASK0PROTO( tmNodeF )
+
+DONE0
+
+//DONE( tmNodeF )
+
+
+
+
 nodeC nodeMe( tinP , etThread , ifcIDmODEnODE_INTRApROCESS ) ;
 TASK( tmNodeF )
 
@@ -718,7 +756,6 @@ TASK0PROTO( tmAcceptF ) ;
 #define ifcIDmODEnODE_GLOBAL         3 
 #define ifcIDmODEnODE_LOCAL          2
 #define ifcIDmODEnODE_INTRApROCESS   1
-
 
 /*1*/WAKEhIDE( "doodle.nodeC.bang.relay" )/*1*/
 /**/

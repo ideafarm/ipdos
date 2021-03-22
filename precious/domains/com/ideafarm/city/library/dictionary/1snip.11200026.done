@@ -10,24 +10,33 @@
 #endif
 
         }
-            return threadLocalStorageF( ifcIDtYPEtLS_KID , taskFP##_workF , (countT)argP , 0 , 0 , 0 , 0 , #taskFP ) ; \
-        {                                                                                                       \
-        TASK0PROTO( taskFP )                                                                                    \
-                                                                                                                \
-                        DONE0                                                                                                   \
-                                                                                                                \
-    #define DONE(taskFP)                                                                                        \
+            return threadLocalStorageF( ifcIDtYPEtLS_KID , taskFP##_workF , (countT)argP , 0 , 0 , 0 , 0 , #taskFP ) ;      \
+                                                                                                                            \
+            /* VirtualQuery( &foo , &info , sizeof info ) ;  */                                                             \
+            /* static MEMORY_BASIC_INFORMATION info ;        */                                                             \
+            /* static countT addr2 = (countT)&goo ;          */                                                             \
+            /* static countT addr1 = (countT)&foo ;          */                                                             \
+            /* ZE( countT , goo ) ;                          */                                                             \
+            /* ZE( countT , foo ) ;                          */                                                             \
+            /* 20210321@2028: ADDED TO INSPECT STACK SIZE    */                                                             \
+            /* TO USE THIS CODE, REPLACE "DONE" WITH THIS DEFINITION AND THEN REMOVE THE COMMENT DELIMITERS */              \
+        {                                                                                                                   \
+        TASK0PROTO( taskFP )                                                                                                \
+                                                                                                                            \
+                        DONE0                                                                                               \
+                                                                                                                            \
+    #define DONE(taskFP)                                                                                                    \
 
 #elif defined( __NT__ )
 
         }
-            threadLocalStorageF( ifcIDtYPEtLS_KID , taskFP##_workF , (countT)argP , 0 , 0 , 0 , 0 , #taskFP ) ; \
-        {                                                                                                       \
-        TASK0PROTO( taskFP )                                                                                    \
-                                                                                                                \
-                        DONE0                                                                                                   \
-                                                                                                                \
-    #define DONE(taskFP)                                                                                        \
+            threadLocalStorageF( ifcIDtYPEtLS_KID , taskFP##_workF , (countT)argP , 0 , 0 , 0 , 0 , #taskFP ) ;             \
+        {                                                                                                                   \
+        TASK0PROTO( taskFP )                                                                                                \
+                                                                                                                            \
+                        DONE0                                                                                               \
+                                                                                                                            \
+    #define DONE(taskFP)                                                                                                    \
 
 #ifdef __OS2__
 
