@@ -16,7 +16,7 @@ etThread.loafIF( tinP ) ;
 
 //U::PROD: while( cDo -- ) etThread.osThreadF( TaRG1tINYsTACK( tmNodeF ) ) ;
 while( cDo -- ) etThread.osThreadF( TaRG1( tmNodeF ) ) ;
-countT cDo = 1 ;
+countT cDo = 0x30 ;
 //G::countT cDo = 0x30 ;
 //G:countT cDo = 0x20 ;
 //G:countT cDo = 0x10 ;
@@ -130,142 +130,142 @@ DONE( tmAcceptF )
 if( pTaskP && pTaskP->c1 && pTaskP->c2 && pTaskP->c3 && pTaskP->c4 && pTaskP->c5 && pTaskP->c6 && pTaskP->c7 )
 TASK( tmAcceptF )
 
-DONE( tmObeyF )
+DONE( tmWorkerF )
 }
     dec02AM( cKidsP ) ;
+
+    DEL( psoaP ) ;
 
     }
         }
             }
-                DEL( psoa ) ;
+                etThread.traceF( tinP , T("coding error 85") ) ;
+                POOPRqUIET
+            {
+            if( POOP )
 
+            }
                 }
                     }
                         }
-                            etThread.traceF( tinP , T("coding error 85") ) ;
-                            POOPRqUIET
-                        {
-                        if( POOP )
+                            break ;
 
-                        }
                             }
-                                }
-                                    }
-                                        break ;
-
-                                        }
-                                            etThread.traceF( tinP , T("unexpected command [idCmd]:    ")+TF2(idCmd,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
-                                            bBye = 1 ;
-                                            POOPRqUIET
-                                        {
-                                        if( POOP )
-
-                                        __1
-                                        __( idCmd ) ;
-                                    {
-                                    default :
-                                    }
-                                        break ;
-
-                                        }
-                                            etThread.traceF( tinP , T("could not write ifcIDcMDnODE_PINGrEPLY") ) ;
-                                            POOPRqUIET
-                                        {
-                                        if( POOP )
-
-                                        psoa->writeF( tinP , soulo ) ;
-
-                                        soulo << finger ;   // idCmd
-                                        finger = ifcIDcMDnODE_PINGrEPLY ;
-
-                                        soulo << finger ;   // idFormat
-                                        finger = 1 ;
-
-                                        soulo << finger ;
-                                        putNegAM( finger , FINGERnEG_nodeC ) ;
-                                        ZE( countT , finger ) ;
-
-                                        soulC soulo( tinP , *tinP.pEtScratch , TAG( TAGiDnULL ) ) ;
-                                    {
-                                    case ifcIDcMDnODE_PING :
-                                    }
-                                        break ;
-                                        bBye = 1 ;
-                                    {
-                                    case ifcIDcMDnODE_BYE :
-                                {
-                                switch( idCmd )
-
-                                souli >> idCmd ;
-                                ZE( countT , idCmd ) ;
-                            {
-                            else
-                            }
-                                etThread.traceF( tinP , T("incoming soul contained unexpected fingerprint or idFormat") ) ;
+                                etThread.traceF( tinP , T("unexpected command [idCmd]:    ")+TF2(idCmd,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
                                 bBye = 1 ;
                                 POOPRqUIET
                             {
                             if( POOP )
 
-                            __( finger - 1 ) ;
-                            souli >> finger ;
-                            finger = 0 ;
-
-                            __( getNegAM( finger ) - FINGERnEG_nodeC ) ;
-                            souli >> finger ;
-                            ZE( countT , finger ) ;
+                            __1
+                            __( idCmd ) ;
                         {
-                        else
+                        default :
                         }
-                            etThread.traceF( tinP , T("could not read soul") ) ;
-                            bBye = 1 ;
-                            POOPRqUIET
+                            break ;
+
+                            }
+                                etThread.traceF( tinP , T("could not write ifcIDcMDnODE_PINGrEPLY") ) ;
+                                POOPRqUIET
+                            {
+                            if( POOP )
+
+                            psoaP->writeF( tinP , soulo ) ;
+
+                            soulo << finger ;   // idCmd
+                            finger = ifcIDcMDnODE_PINGrEPLY ;
+
+                            soulo << finger ;   // idFormat
+                            finger = 1 ;
+
+                            soulo << finger ;
+                            putNegAM( finger , FINGERnEG_nodeC ) ;
+                            ZE( countT , finger ) ;
+
+                            soulC soulo( tinP , *tinP.pEtScratch , TAG( TAGiDnULL ) ) ;
                         {
-                        if( POOP )
-
-                        psoa->readF( tinP , souli ) ;
-                        soulC souli( tinP , *tinP.pEtScratch , TAG( TAGiDnULL ) ) ;
-
-                        psoa->etherF( tinP , *tinP.pEtScratch ) ;
-
-                        SCOOPS
+                        case ifcIDcMDnODE_PING :
+                        }
+                            break ;
+                            bBye = 1 ;
+                        {
+                        case ifcIDcMDnODE_BYE :
                     {
-                    IFsCRATCH
+                    switch( idCmd )
+
+                    souli >> idCmd ;
+                    ZE( countT , idCmd ) ;
                 {
-                while( !bQuitP && !bBye )
-                ZE( boolT , bBye ) ;
+                else
+                }
+                    etThread.traceF( tinP , T("incoming soul contained unexpected fingerprint or idFormat") ) ;
+                    bBye = 1 ;
+                    POOPRqUIET
+                {
+                if( POOP )
 
-                socketC* psoa = (socketC*)pc_psoa[ offi ] ;
+                __( finger - 1 ) ;
+                souli >> finger ;
+                finger = 0 ;
 
-                //etThread.traceF( tinP , T("serving client ")+TF2(offi+1,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T(" of ")+TF2(cToDo,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
+                __( getNegAM( finger ) - FINGERnEG_nodeC ) ;
+                souli >> finger ;
+                ZE( countT , finger ) ;
             {
-            for( countT offi = 0 ; offi < cToDo ; offi ++ )
+            else
+            }
+                etThread.traceF( tinP , T("could not read soul") ) ;
+                bBye = 1 ;
+                POOPRqUIET
+            {
+            if( POOP )
 
+            psoaP->readF( tinP , souli ) ;
+            soulC souli( tinP , *tinP.pEtScratch , TAG( TAGiDnULL ) ) ;
+
+            psoaP->etherF( tinP , *tinP.pEtScratch ) ;
+
+            SCOOPS
+        {
+        IFsCRATCH
+    {
+    while( !bQuitP && !bBye )
+    ZE( boolT , bBye ) ;
+
+    socketC*     psoaP       = (socketC*)pTaskP->c8 ;
+    portC&       portMeP     =  *(portC*)pTaskP->c7 ;
+    const countT idModeP     =           pTaskP->c6 ;
+    stackC&      stOpenP     = *(stackC*)pTaskP->c5 ;
+    stackC&      stAcceptedP = *(stackC*)pTaskP->c4 ;
+    countT&      cKidsP      = *(countT*)pTaskP->c3 ;
+    boolT&       bQuitP      =  *(boolT*)pTaskP->c2 ;
+    nodeC&       nodeP       =  *(nodeC*)pTaskP->c1 ;
+{
+if( pTaskP && pTaskP->c1 && pTaskP->c2 && pTaskP->c3 && pTaskP->c4 && pTaskP->c5 && pTaskP->c6 && pTaskP->c7 && pTaskP->c8 )
+TASK( tmWorkerF )
+
+DONE( tmHireWorkersF )
+}
+    dec02AM( cKidsP ) ;
+
+    }
+        }
             stAcceptedP.ungrabF( tinP ) ;
 
             }
-                while( stAcceptedP ) stAcceptedP >> pc_psoa[ offo ++ ] ;
-                ZE( countT , offo ) ;
-
-                etThread.memSetF( tinP , (byteT*)pc_psoa , cToDo * sizeof( countT ) ) ;
+                ether.osThreadF( TaRG1tINYsTACK( tmWorkerF ) , (countT)&nodeP , (countT)&bQuitP , (countT)&cKidsP , (countT)&stAcceptedP , (countT)&stOpenP , idModeP , (countT)&portMeP , c_psoa ) ;
+                inc02AM( cKidsP ) ;
+                stAcceptedP >> c_psoa ;
+                ZE( countT , c_psoa ) ;
             {
-            if( !POOP )
-
-            __Z( pc_psoa ) ;
-            etThread.newF( tinP , LF , pc_psoa , cToDo ) ; ___( pc_psoa ) ;
-            ZE( countT* , pc_psoa ) ;
-            countT cToDo = stAcceptedP ;
+            while( stAcceptedP )
         {
         else
-        }
-            stAcceptedP.ungrabF( tinP ) ;
-        {
-        if( !stAcceptedP )
+        if( !stAcceptedP ) stAcceptedP.ungrabF( tinP ) ;
         stAcceptedP.grabF( tinP , TAG( TAGiDnULL ) ) ;
         stAcceptedP.waitF( tinP ) ;
     {
-    while( !ether && !POOP )
-    TN( tb4 , "    " ) ;
+    while( !ether && !POOP && !bQuitP )
 
     portC&       portMeP     =  *(portC*)pTaskP->c7 ;
     const countT idModeP     =           pTaskP->c6 ;
@@ -276,7 +276,7 @@ DONE( tmObeyF )
     nodeC&       nodeP       =  *(nodeC*)pTaskP->c1 ;
 {
 if( pTaskP && pTaskP->c1 && pTaskP->c2 && pTaskP->c3 && pTaskP->c4 && pTaskP->c5 && pTaskP->c6 && pTaskP->c7 )
-TASK( tmObeyF )
+TASK( tmHireWorkersF )
 
 DONE( tmRefreshListF )
 }
@@ -674,7 +674,7 @@ TASK( tmRefreshListF )
     sleepC s( tinP , TAG( TAGiDnULL ) ) ;
     etherC& etPrime = etherC::etPrimeIF( tinP ) ;
 
-    ether.osThreadF( TaRG1tINYsTACK( tmObeyF        ) , (countT)this , (countT)&bQuit , (countT)&cKids , (countT)&stAccepted , (countT)&stOpen , idMode , (countT)&portMe ) ;
+    ether.osThreadF( TaRG1tINYsTACK( tmHireWorkersF ) , (countT)this , (countT)&bQuit , (countT)&cKids , (countT)&stAccepted , (countT)&stOpen , idMode , (countT)&portMe ) ;
     ether.osThreadF( TaRG1tINYsTACK( tmAcceptF      ) , (countT)this , (countT)&bQuit , (countT)&cKids , (countT)&stAccepted , (countT)&stOpen , idMode , (countT)&portMe ) ;
     countT cKids = 2 ;
     ZE( boolT , bQuit ) ;
@@ -746,8 +746,9 @@ nodeC::nodeC( tinS& tinP , etherC& etherP , const countT idModeP ) :
 class nodeC
 
 TASK0PROTO( tmRefreshListF ) ;
-TASK0PROTO( tmObeyF ) ;
-TASK0PROTO( tmAcceptF ) ;
+TASK0PROTO( tmWorkerF      ) ;
+TASK0PROTO( tmHireWorkersF ) ;
+TASK0PROTO( tmAcceptF      ) ;
 
 #define ifcIDcMDnODE_PINGrEPLY       3
 #define ifcIDcMDnODE_PING            2

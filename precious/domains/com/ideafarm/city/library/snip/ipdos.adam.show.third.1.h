@@ -1,6 +1,4 @@
 
-#define TaRG1tINYsTACK(tmFP) tinP , countTC() , tmFP , 0 , flTHREADlAUNCH_null , 0x4000
-
 // IPDOS (tm) <> IdeaFarm (tm) Piggyback Distributed Operating System
 
 // For build environment info, see file "\ideafarm.work\backed.up.never\txt\readme.first.ipdos.build.environment.txt"
@@ -2171,24 +2169,33 @@ examples
 
 #ifdef __OS2__
 
-    #define DONE(taskFP)                                                                                        \
-                                                                                                                \
-                        DONE0                                                                                                   \
-                                                                                                                \
-        TASK0PROTO( taskFP )                                                                                    \
-        {                                                                                                       \
-            threadLocalStorageF( ifcIDtYPEtLS_KID , taskFP##_workF , (countT)argP , 0 , 0 , 0 , 0 , #taskFP ) ; \
+    #define DONE(taskFP)                                                                                                    \
+                                                                                                                            \
+                        DONE0                                                                                               \
+                                                                                                                            \
+        TASK0PROTO( taskFP )                                                                                                \
+        {                                                                                                                   \
+            threadLocalStorageF( ifcIDtYPEtLS_KID , taskFP##_workF , (countT)argP , 0 , 0 , 0 , 0 , #taskFP ) ;             \
         }
 
 #elif defined( __NT__ )
 
-    #define DONE(taskFP)                                                                                        \
-                                                                                                                \
-                        DONE0                                                                                                   \
-                                                                                                                \
-        TASK0PROTO( taskFP )                                                                                    \
-        {                                                                                                       \
-            return threadLocalStorageF( ifcIDtYPEtLS_KID , taskFP##_workF , (countT)argP , 0 , 0 , 0 , 0 , #taskFP ) ; \
+    #define DONE(taskFP)                                                                                                    \
+                                                                                                                            \
+                        DONE0                                                                                               \
+                                                                                                                            \
+        TASK0PROTO( taskFP )                                                                                                \
+        {                                                                                                                   \
+            /* TO USE THIS CODE, REPLACE "DONE" WITH THIS DEFINITION AND THEN REMOVE THE COMMENT DELIMITERS */              \
+            /* 20210321@2028: ADDED TO INSPECT STACK SIZE    */                                                             \
+            /* ZE( countT , foo ) ;                          */                                                             \
+            /* ZE( countT , goo ) ;                          */                                                             \
+            /* static countT addr1 = (countT)&foo ;          */                                                             \
+            /* static countT addr2 = (countT)&goo ;          */                                                             \
+            /* static MEMORY_BASIC_INFORMATION info ;        */                                                             \
+            /* VirtualQuery( &foo , &info , sizeof info ) ;  */                                                             \
+                                                                                                                            \
+            return threadLocalStorageF( ifcIDtYPEtLS_KID , taskFP##_workF , (countT)argP , 0 , 0 , 0 , 0 , #taskFP ) ;      \
         }
 
 #endif
