@@ -1,4 +1,6 @@
 
+#define ifcIDsTATUSdOc_TLSiSiNpOOLc                                           11234
+
 // IPDOS (tm) <> IdeaFarm (tm) Piggyback Distributed Operating System
 
 // For build environment info, see file "\ideafarm.work\backed.up.never\txt\readme.first.ipdos.build.environment.txt"
@@ -37322,9 +37324,10 @@ obsoleted by coding style standard: use osTextT strings for name elements so tha
 #define ifcIDdO_REGISTERrOOTaDAMhEART                  0xdddd0b4c
 #define ifcIDdO_SETUPsOCKETS                           0xdddd0b4d
 #define ifcIDdO_ALLOCATEaPPtELEMETRYpENDINGbUFFER      0xdddd0b4e
+#define ifcIDdO_ALLOCATEtLSfROMpOOL                    0xdddd0b4f
 /*3*/
 #define ifcIDdO_min     0xdddd0b4c
-#define ifcIDdO_max     0xdddd0b4e
+#define ifcIDdO_max     0xdddd0b4f
 
 
 //

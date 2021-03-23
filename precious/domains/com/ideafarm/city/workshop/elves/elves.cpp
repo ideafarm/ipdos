@@ -3098,7 +3098,6 @@ void elf_obey_C::liveF( void )
                     "1snip.15*.processGlobal5S"                 ,
                     "1snip.15*.processGlobal4S"                 ,
                     "1snip.15*.processGlobal3S"                 ,
-                    "1snip.15*.doC"                             ,
                     "1snip.15*.booksC"                          ,
                     "1snip.15*.adamGlobal1S"                    ,
                     "1snip.15*.processGlobal2S"                 ,
@@ -3253,6 +3252,7 @@ void elf_obey_C::liveF( void )
                     "1snip.15*.tallyC"                          ,
                     "1snip.15*.staticC"                         ,
                     "1snip.15*.tinS"                            ,
+                    "1snip.15*.doC"                             ,
                     "1snip.15*.bookMarkS"                       ,
                     "1snip.15*.topC"                            ,
                     "1snip.15*.cleanC"                          ,
@@ -3695,6 +3695,7 @@ void elf_obey_C::compileF( const char* postGroupP , int bPauseP )
 
             !strcmp( postGroupP , "36005" ) ||      // socketC U::20141102@2154: ENABLED ONLY FOR DEBUGGING ; DISABLE IN PRODUCTION
 
+            !strcmp( postGroupP , "36024" ) ||      // tinS
             !strcmp( postGroupP , "3603a" ) ||      // arrayC
             !strcmp( postGroupP , "36041" ) ||      // processGlobalBeginC  (Setting process affinity mask)
             !strcmp( postGroupP , "3607a" ) ||      // parameterC (calls CreateDirectory to create tmp directory so that i can get exception reports and LOGrAW)
@@ -3711,6 +3712,7 @@ void elf_obey_C::compileF( const char* postGroupP , int bPauseP )
 
 
 
+            !strcmp( postGroupP , "360fc" ) ||      // doC
             !strcmp( postGroupP , "36113" ) ||      // featuresS
             !strcmp( postGroupP , "36114" ) ||      // strikeS
             !strcmp( postGroupP , "36117" ) ||      // featuresSfCopyableS

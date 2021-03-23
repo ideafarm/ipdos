@@ -12,6 +12,31 @@
         }
             break ;
 
+            cbTls = 0 ;
+            pbTls = 0 ;
+
+            PUSE( tinP , pbTlsDoomed ) ;
+            if( !tinP.pPoolUse ) { BLAMMO ; }
+
+            cbTls = sizeof pbTlsTiny ;
+            pbTls = pbTlsTiny ;
+            byteT pbTlsTiny[ TUCK ] ;  // NEEDS TO BE BIG ENOUGH TO HANDLE ALL TLS USAGE DURING poolC::operator ()
+
+            byteT* pbTlsDoomed = pbTls ; pbTls = 0 ;
+
+            if( !rootAdamGlobal1I.pPoolAdamTemp ) { BLAMMO ; }
+            if( !!pbTls                         ) { BLAMMO ; }
+            if(  !pbTls != !cbTls               ) { BLAMMO ; }
+
+            countT& cbTls = *(countT*)cArg2 ;
+            byteT*& pbTls = *(byteT**)cArg1 ;
+
+            TINSL
+        {
+        case ifcIDdO_ALLOCATEtLSfROMpOOL :  //U:: NEEDS TO BE REWRITTEN (SEE CT'OR)
+        }
+            break ;
+
             TELLaPPc3LIFI( ifcIDtYPEtELLaPP_INoUTtINdT , (byteT*)&info , sizeof info , ifcLINE , DDNUMB ) ;
             THREADmODE4oN0( flTHREADmODE4_INoUTfRAMEdOnOTcOLLECTaPPtELEMETRY ) ;
 
