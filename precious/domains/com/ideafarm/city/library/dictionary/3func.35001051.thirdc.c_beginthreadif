@@ -64,7 +64,7 @@
                 if( !POOP )
 
                 BOSpOOP
-                BOS( WHATgbo , BOSoK , CreateThread( &sa , cbStackP , (tmfosFT)tmFP , pvP , CREATE_SUSPENDED , (ULONG*)&tidP ) )
+                BOS( WHATgbo , BOSoK , CreateThread( &sa , 0 , (tmfosFT)tmFP , pvP , CREATE_SUSPENDED , (ULONG*)&tidP ) )
 
                 BOSnOvALUE( WHATgbo , SetLastError( 0 ) )
                 SECURITYaTTRIBUTE_saUNRESTRICTED( 0 ) ;
@@ -82,7 +82,7 @@
 
         __Z( tidP ) ;
         BOSpOOP
-        BOSI( WHATgbo , BOSfAIL , DosCreateThread( (ULONG*)&tidP , (tmfosFT)tmFP , (ULONG)pvP , 0 , cbStackP ) )
+        BOSI( WHATgbo , BOSfAIL , DosCreateThread( (ULONG*)&tidP , (tmfosFT)tmFP , (ULONG)pvP , 0 , 0 ) )
 
     #ifdef __OS2__
 
@@ -119,7 +119,6 @@
         ZE( boolT , fnu ) ;
         if( POOP ) return ;
         __( !tinP.pAdamGlobal1->_thirdC_.pSwThreadHandle ) ;
-        __Z( cbStackP ) ;
         __Z( tmFP ) ;
         __( tidP ) ;
         FV( flTHREADlAUNCH , flagsP )
@@ -127,7 +126,7 @@
     {
     IFbEcAREFUL    
 {
-/*1*/voidT thirdC::c_beginthreadIF( tinS& tinP , countT& tidP , voidT* const tmFP , voidT* pvP , const countT cbStackP , const flagsT flagsP )/*1*/
+/*1*/voidT thirdC::c_beginthreadIF( tinS& tinP , countT& tidP , voidT* const tmFP , voidT* pvP , const flagsT flagsP )/*1*/
 
 #endif
     typedef ULONG (OSF *tmfosFT)( voidT* argP ) ;

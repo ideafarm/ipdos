@@ -8,9 +8,10 @@
 
 
 }
-    third.osThreadF( tinP , tidP , tmFP , pSgnDoneP , flagsP , cbStackP , c1P , c2P , c3P , c4P , c5P , c6P , c7P , c8P ) ;
+    third.osThreadF( tinP , tidP , tmFP , pSgnDoneP , flagsP , cbTls , c1P , c2P , c3P , c4P , c5P , c6P , c7P , c8P ) ;
 
-    //traceF( tinP , T("osThreadF: launching thread [cbStackP]:    ")+TF2(cbStackP,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
+    traceF( tinP , T("osThreadF: launching thread [cbTlsP]:    ")+TF2(cbTls,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
+    countT cbTls = cbTlsP ? cbTlsP : CBtLSdEFAULT ;
 
     // WINDOWS IS SUCH A PIECE OF ROYAL SHIT
     //U:: 20210321@2100: WIN32 CreateThread() APPARENTLY IGNORES cbStackP AND ALLOCATES A STACK OF THE SIZE SPECIFIED DURING LINKING
@@ -20,13 +21,12 @@
     }
         if( POOP ) { if( pSgnDoneP ) pSgnDoneP->giveF( tinP ) ; return ; }
         FV( flTHREADlAUNCH , flagsP ) ;
-        __( cbStackP && cbStackP < 1024 ) ;
         if( POOP ) { if( pSgnDoneP ) pSgnDoneP->giveF( tinP ) ; return ; }
     {
     IFbEcAREFUL
     SCOOP
 {
-/*1*/voidT etherC::osThreadF( tinS& tinP , countT& tidP , voidT* const tmFP , signC* const pSgnDoneP , const flagsT flagsP , const countT cbStackP , const countT c1P , const countT c2P , const countT c3P , const countT c4P , const countT c5P , const countT c6P , const countT c7P , const countT c8P )/*1*/
+/*1*/voidT etherC::osThreadF( tinS& tinP , countT& tidP , voidT* const tmFP , signC* const pSgnDoneP , const flagsT flagsP , const countT cbTlsP , const countT c1P , const countT c2P , const countT c3P , const countT c4P , const countT c5P , const countT c6P , const countT c7P , const countT c8P )/*1*/
 
 /**/
 */
@@ -39,7 +39,7 @@
  c2P
  c1P
  flagsP
- cbStackP
+ cbTlsP
  pSgnDoneP
    example: TASK( tmF )
   this symbol must be defined using the TASK macro

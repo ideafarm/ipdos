@@ -5467,9 +5467,9 @@ examples
 /*
 */
 /**/
-/*1*//*TaRG1tINYsTACK(tmFP)*//*1*/
+/*1*//*TaRG1tINYtLS(tmFP)*//*1*/
 
-#define TaRG1tINYsTACK(tmFP) tinP , countTC() , tmFP , 0 , flTHREADlAUNCH_null , 0x4000
+#define TaRG1tINYtLS(tmFP) tinP , countTC() , tmFP , 0 , flTHREADlAUNCH_null , ( TOCK << 4 )
 
 
 //
@@ -26359,7 +26359,6 @@ it is illegal to refer to this symbol in the definition of an adam
  const countT idThread ;
  signC*  pSgnDone ;
  voidT*  tmF ;     // USED WHEN THIS OBJECT IS STACKED FOR DEFERRED LAUNCH OF THE THREAD
- countT  cbStack ; // USED WHEN THIS OBJECT IS STACKED FOR DEFERRED LAUNCH OF THE THREAD
  byteT*  pbTlsInPool ;
  countT  cbTlsInPool ;
  flagsT  flags ;
@@ -26385,7 +26384,7 @@ it is illegal to refer to this symbol in the definition of an adam
 /* birth , death */
  NEWdELcLASSpROTOS
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34003.taskS.NEWdELcLASStHIRD!||
- taskS( tinS& tinP , voidT* const tmFP = 0 , signC* pSgnDoneP = 0 , const countT cbStackP = 0 , byteT* const pbTlsInPoolP = 0 , const countT cbTlsInPoolP = 0 , const flagsT flagsP = flTHREADlAUNCH_null , countT c1P = 0 , countT c2P = 0 , countT c3P = 0 , countT c4P = 0 , countT c5P = 0 , countT c6P = 0 , countT c7P = 0 , countT c8P = 0 , countT c9P = 0 , countT caP = 0 , countT cbP = 0 , countT ccP = 0 , countT cdP = 0 , countT ceP = 0 , countT cfP = 0 , countT c01P = 0 ) ;
+ taskS( tinS& tinP , voidT* const tmFP = 0 , signC* pSgnDoneP = 0 , byteT* const pbTlsInPoolP = 0 , const countT cbTlsInPoolP = 0 , const flagsT flagsP = flTHREADlAUNCH_null , countT c1P = 0 , countT c2P = 0 , countT c3P = 0 , countT c4P = 0 , countT c5P = 0 , countT c6P = 0 , countT c7P = 0 , countT c8P = 0 , countT c9P = 0 , countT caP = 0 , countT cbP = 0 , countT ccP = 0 , countT cdP = 0 , countT ceP = 0 , countT cfP = 0 , countT c01P = 0 ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34001.taskS.taskS!||
  ~taskS( voidT ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34002.taskS.dt_taskS!||
@@ -27950,7 +27949,7 @@ it is illegal to modify any member other than pc Utility in the definition of an
 //
 
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.tinS : 1snip.15000026.tins END
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.staticC : 1snip.15000088.staticc BEGIN
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.tlsBlobC : 1snip.15000088.staticc BEGIN
 
 
 //
@@ -27963,7 +27962,7 @@ it is illegal to modify any member other than pc Utility in the definition of an
 /*
 */
 /**/
-/*1*/class _export staticC/*1*/
+/*1*/class _export tlsBlobC/*1*/
 {
  const countT cbd ;
  byteT* const pbd ;
@@ -27972,24 +27971,24 @@ it is illegal to modify any member other than pc Utility in the definition of an
  public :
 
 /**/
- ~staticC( voidT ) ;
- //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34001.staticC.dt_staticC!||
- staticC( tinS& tinP , const osTextT* const postNameP = 0 , const osTextT* const postGroupP = 0 , const countT cbP = 0 , const countT idTypeP = ifcIDtYPEsTATICC_UNFORMATTED ) ;
- //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34002.staticC.staticC!||
+ ~tlsBlobC( voidT ) ;
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34001.tlsBlobC.dt_tlsBlobC!||
+ tlsBlobC( tinS& tinP , const osTextT* const postNameP = 0 , const osTextT* const postGroupP = 0 , const countT cbP = 0 , const countT idTypeP = ifcIDtYPEsTATICC_UNFORMATTED ) ;
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34002.tlsBlobC.tlsBlobC!||
  operator byteT&( voidT ) ;
- //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34003.staticC.operator_byteT_ref!||
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34003.tlsBlobC.operator_byteT_ref!||
  operator byteT*( voidT ) ;
- //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34004.staticC.operator_byteT_ptr!||
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34004.tlsBlobC.operator_byteT_ptr!||
  operator countT&( voidT ) ;
- //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34005.staticC.operator_countT_ref!||
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34005.tlsBlobC.operator_countT_ref!||
  operator countT*( voidT ) ;
- //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34006.staticC.operator_countT_ptr!||
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34006.tlsBlobC.operator_countT_ptr!||
  operator measureT&( voidT ) ;
- //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34007.staticC.operator_measureT_ref!||
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34007.tlsBlobC.operator_measureT_ref!||
  operator measureT*( voidT ) ;
- //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34008.staticC.operator_measureT_ptr!||
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34008.tlsBlobC.operator_measureT_ptr!||
  countT cbF( voidT ) ;
- //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34009.staticC.cbF!||
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34009.tlsBlobC.cbF!||
 /**/
 }
 ;
@@ -28002,7 +28001,7 @@ it is illegal to modify any member other than pc Utility in the definition of an
 // Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
 
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.staticC : 1snip.15000088.staticc END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.tlsBlobC : 1snip.15000088.staticc END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.tallyC : 1snip.15000091.tallyc BEGIN
 
 
@@ -28062,7 +28061,7 @@ it is illegal to modify any member other than pc Utility in the definition of an
 
 /*1*/struct _export tlsStackFrameS/*1*/
 {
- //byteT        pbTls[ CBtLS ] ; //MUST BE WOTH TO AVOID AFFECTING OFFSETS OF OTHER MEMBERS FROM ebp; FUTURE: DEFINE FLAVORS OF ME OFFERING A CHOICE OF SIZES FROM 2,4,8,01,02,...,00001
+ //byteT        pbTls[ CBtLSdEFAULT ] ; //MUST BE WOTH TO AVOID AFFECTING OFFSETS OF OTHER MEMBERS FROM ebp; FUTURE: DEFINE FLAVORS OF ME OFFERING A CHOICE OF SIZES FROM 2,4,8,01,02,...,00001
  //const countT fingerTlsEnd ;
  tallyC       tallyKid ;
  //zapC         zap_pbTls ;
@@ -28072,9 +28071,9 @@ it is illegal to modify any member other than pc Utility in the definition of an
  tinS*        pTin ;
  tinS         tinEarlyLate ;
  countT       rc ;
- staticC      postRptExceptionLath ;
- staticC      tellInfoSysExceptionLath ;
- staticC      stackTop ; //KEEP THIS AT THE TOP OF THIS CLASS LAYOUT UNLESS THERE IS A REASON TO DO OTHERWISE (ITS LOCATION AT THE TOP MIGHT BECOME USEFUL)
+ tlsBlobC      postRptExceptionLath ;
+ tlsBlobC      tellInfoSysExceptionLath ;
+ tlsBlobC      stackTop ; //KEEP THIS AT THE TOP OF THIS CLASS LAYOUT UNLESS THERE IS A REASON TO DO OTHERWISE (ITS LOCATION AT THE TOP MIGHT BECOME USEFUL)
 
  ~tlsStackFrameS( voidT ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34001.tlsStackFrameS.dt_tlsStackFrameS!||
@@ -28126,9 +28125,9 @@ it is illegal to modify any member other than pc Utility in the definition of an
  tinS*        pTin ;
  tinS         tinEarlyLate ;
  countT       rc ;
- staticC      postRptExceptionLath ;
- staticC      tellInfoSysExceptionLath ;
- staticC      stackTop ; //KEEP THIS AT THE TOP OF THIS CLASS LAYOUT UNLESS THERE IS A REASON TO DO OTHERWISE (ITS LOCATION AT THE TOP MIGHT BECOME USEFUL)
+ tlsBlobC      postRptExceptionLath ;
+ tlsBlobC      tellInfoSysExceptionLath ;
+ tlsBlobC      stackTop ; //KEEP THIS AT THE TOP OF THIS CLASS LAYOUT UNLESS THERE IS A REASON TO DO OTHERWISE (ITS LOCATION AT THE TOP MIGHT BECOME USEFUL)
 
  ~tlsStackFrameNoTlsS( voidT ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34001.tlsStackFrameNoTlsS.dt_tlsStackFrameNoTlsS!||
@@ -28702,7 +28701,7 @@ applications should avoid using thirdC objects
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34187.thirdC.c_atoiForeignIF!||
  static sCountT c_atoiForeignDecimalIF( const osTextT* const postP , const boolT bSignedP = 0 ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3600119a.thirdC.c_atoiForeignDecimalIF!||
- static voidT c_beginthreadIF( tinS& tinP , countT& tidP , voidT* const tmFP , voidT* pvP = 0 , const countT cbStackP = 0x40 * TOCK , const flagsT flagsP = flTHREADlAUNCH_null ) ;
+ static voidT c_beginthreadIF( tinS& tinP , countT& tidP , voidT* const tmFP , voidT* pvP = 0 , const flagsT flagsP = flTHREADlAUNCH_null ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34051.thirdC.c_beginthreadIF!||
  static voidT c_itoaIF( osTextT* const postP , countT valueP , const osTextT ostPadP = 0 ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34091.thirdC.c_itoaIF!||
@@ -29106,7 +29105,7 @@ applications should avoid using thirdC objects
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34111.thirdC.osProcessIdPhaseAdamIF!||
  voidT osRegionInfoF( tinS& tinP , countT& cBitsGrainP , byteT*& pbIdRegionP , byteT*& pbIdAllocP , vmRegionS*& pVmRegionP , vmRegionS*& pVmRegionAllocP , countT hProcessP ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.340fe.thirdC.osRegionInfoF!||
- voidT osThreadF( tinS& tinP , countT& tidP , voidT* const tmFP , signC* const pSgnDoneP = 0 , const flagsT flagsP = flTHREADlAUNCH_null , const countT cbStackP = 0 , const countT c1P = 0 , const countT c2P = 0 , const countT c3P = 0 , const countT c4P = 0 , const countT c5P = 0 , const countT c6P = 0 , const countT c7P = 0 , const countT c8P = 0 ) ;
+ voidT osThreadF( tinS& tinP , countT& tidP , voidT* const tmFP , signC* const pSgnDoneP = 0 , const flagsT flagsP = flTHREADlAUNCH_null , const countT cbTlsP = 0 , const countT c1P = 0 , const countT c2P = 0 , const countT c3P = 0 , const countT c4P = 0 , const countT c5P = 0 , const countT c6P = 0 , const countT c7P = 0 , const countT c8P = 0 ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.340dc.thirdC.osThreadF!||
  static voidT osThreadLaunchHeartbeatIF( tinS& tinP ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3414c.thirdC.osThreadLaunchHeartbeatIF!||
@@ -32504,7 +32503,7 @@ examples
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34064.etherC.osSleepF!||
  voidT osSleepF( tinS& tinP , const countT time1P , const sCountT time2P , const countT timeGrain1P , const sCountT timeGrain2P , const flagsT flagsP = flSLEEP_null ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.340b6.etherC.osSleepF!||
- voidT osThreadF( tinS& tinP , countT& tidP , voidT* const tmFP , signC* const pSgnDoneP = 0 , const flagsT flagsP = flTHREADlAUNCH_null , const countT cbStackP = 0 , const countT c1P = 0 , const countT c2P = 0 , const countT c3P = 0 , const countT c4P = 0 , const countT c5P = 0 , const countT c6P = 0 , const countT c7P = 0 , const countT c8P = 0 ) ;
+ voidT osThreadF( tinS& tinP , countT& tidP , voidT* const tmFP , signC* const pSgnDoneP = 0 , const flagsT flagsP = flTHREADlAUNCH_null , const countT cbTlsP = 0 , const countT c1P = 0 , const countT c2P = 0 , const countT c3P = 0 , const countT c4P = 0 , const countT c5P = 0 , const countT c6P = 0 , const countT c7P = 0 , const countT c8P = 0 ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34065.etherC.osThreadF!||
  voidT osThreadAdamF( tinS& tinP , countT idAdamP , const strokeS* const psttArgsP = 0 , const flagsT flagsP = flOStHREADaDAMf_null , signC* const pSgnDoneP = 0 ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.341aa.etherC.osThreadAdamF!||
@@ -40076,10 +40075,10 @@ base class to make a derived class of objects easily contained by a stackC objec
     byteT                           pb_bOsCallIMonitor[   CBzOMBIEbATONc ] ;
     byteT                           pb_bOsCallISharedMem[ CBzOMBIEbATONc ] ;
     byteT                           pb_bPoolRpt[          CBzOMBIEbATONc ] ;
-    byteT                           pbTlsMain[ CBtLS ] ;
-    byteT                           pbTlsHeart[ CBtLS ] ;
-    byteT                           pbTlsBreak[ CBtLS ] ;
-    byteT                           pbTlsVeryEarlyLateMain[ CBtLS ] ;
+    byteT                           pbTlsMain[ CBtLSdEFAULT ] ;
+    byteT                           pbTlsHeart[ CBtLSdEFAULT ] ;
+    byteT                           pbTlsBreak[ CBtLSdEFAULT ] ;
+    byteT                           pbTlsVeryEarlyLateMain[ CBtLSdEFAULT ] ;
     countT                          pcDebug[ TUCK << 1 ] ; //NOT USED IN PRODUCTION ; AVAILABLE FOR DEBUGGING
     osTextT                         postDllsLoaded[ TOCK ] ;
     osTextT                         postPathHomeTmp[ TUCK ] ;

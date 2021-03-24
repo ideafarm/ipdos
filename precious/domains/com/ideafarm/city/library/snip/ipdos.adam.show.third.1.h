@@ -193,7 +193,7 @@ class  /*ff*/spouseC/*ff*/                      ; /*ff*//**//*ff*/
 class  /*ff*/momC/*ff*/                         ; /*ff*//**//*ff*/
 class  /*ff*/dadC/*ff*/                         ; /*ff*//**//*ff*/
 class  /*ff*/bitsC/*ff*/                        ; /*ff*//**//*ff*/
-class  /*ff*/staticC/*ff*/                      ; /*ff*//**//*ff*/
+class  /*ff*/tlsBlobC/*ff*/                      ; /*ff*//**//*ff*/
 class  /*ff*/parameterC/*ff*/                   ; /*ff*//**//*ff*/
 class  /*ff*/sCountFromPostC/*ff*/              ; /*ff*//**//*ff*/
 struct  /*ff*/osTextBaseS/*ff*/                 ; /*ff*//**//*ff*/
@@ -528,7 +528,7 @@ it is illegal to refer to this symbol in the definition of an adam
             /*U:REPLACE THESE HARDCODED idAdam VALUES WITH ifcIDaDAM SYMBOLS*/                                                                                      \
             /*U:{ countT idio = DDNUMB ; if( idio != 0x 4010354 && idio != 0x 4010405 && idio != 0x 40103c1 && idio != 0x 40103d1 ) etThread.ifcPortNewProcessF( tinP ) ; }*/ \
             TELL( "MAINF: entering application code" ) ;                                                                                                            \
-            staticC _stackTop( tinP , "appStackTop" , "tin" ) ;                                                                                                     \
+            tlsBlobC _stackTop( tinP , "appStackTop" , "tin" ) ;                                                                                                     \
             (countT&)_stackTop = espAM() ;                                                                                                                          \
             if( !( F(tinP.flagsThreadMode1) & flTHREADmODE1_DRIVERaDAM ) )                                                                                          \
             {                                                                                                                                                       \
@@ -1903,7 +1903,7 @@ it is illegal to refer to this symbol in the definition of an adam
         OStEXTA(  _ostoTmp , tinP.postThreadName )                                                                          \
         OStEXTAK( _ostoTmp , "." )                                                                                          \
         OStEXTC(  _ostoTmp , tinP.monitor.idThread , 0 )                                                                    \
-        staticC _statRangerTag( tinP , "rangerTag" , "sys" , 2 * sizeof( countT ) + _ostoTmp.costF() + 1 , ifcIDtYPEsTATICC_FOOT ) ; \
+        tlsBlobC _statRangerTag( tinP , "rangerTag" , "sys" , 2 * sizeof( countT ) + _ostoTmp.costF() + 1 , ifcIDtYPEsTATICC_FOOT ) ; \
         osTextC _ostRangerTag( _ostoTmp.costF() + 1 , _ostoTmp , _statRangerTag , _statRangerTag.cbF() ) ;                  \
         OStEXTcLEAR( _ostoTmp )                                                                                             \
                                                                                                                             \
@@ -1979,7 +1979,7 @@ it is illegal to refer to this symbol in the definition of an adam
                     }                                                                                                       \
                     if( F(thirdC::third_flagsModeAdam1I_IF(tinP)) & flADAMmODE1_WHEREaLL && !( F(tinP.flagsThreadMode1) & flTHREADmODE1_NOwHERE ) ) etThread.etherWhereF( tinP , ifcIDaCTIONwHERE_WATCH ) ; \
                     TELL( "TASK0: entering application code" )                                                              \
-                    staticC _stackTop( tinP , "appStackTop" , "tin" ) ;                                                     \
+                    tlsBlobC _stackTop( tinP , "appStackTop" , "tin" ) ;                                                     \
                     (countT&)_stackTop = espAM() ;                                                                          \
                     if( tinP.idPhase1 < ifcIDpHASEtHREAD_WORKING ) tinP.idPhase1 = ifcIDpHASEtHREAD_WORKING ;               \
                     _IO_                                                                                                    \
@@ -21023,13 +21023,13 @@ for each previous absentee
 /*
 */
 /**/
-/*1*//*CBtLS*//*1*/
+/*1*//*CBtLSdEFAULT*//*1*/
 
 //20120404: DOUBLED TO ( TOCK << 3 ) FROM ( TOCK << 2 )
 //20160526@2157: DOUBLED TO ( TOCK << 4 ) FROM ( TOCK << 3 ) BECAUSE ADDED GRAB LIST TO EXCEPTION REPORT
 //20191010@0755: DOUBLED TO ( TOCK << 5 ) BECAUSE booksC::writeF EXHAUSTED TLS WHILE DELETING bookC INSTANCE
 
-#define CBtLS ( TOCK << 5 )
+#define CBtLSdEFAULT ( TOCK << 5 )
 
 
 //
