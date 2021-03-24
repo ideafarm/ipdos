@@ -27,9 +27,9 @@ postRptExceptionLath( thirdC::third_tinS_ref_IF() , "postRptExceptionLath" , "ti
 rc( ( pTin->flagsThreadMode4 &= ~F(flTHREADmODE4_INoUTfRAMEdEFERwRITINGaPPtELEMETRY) , 0 ) )
 ,
 )
-    /*sizeof pbTls*/0
+    ((taskS*)cArgP)->cbTlsInPool
     ,
-    /*pbTls*/0
+    ((taskS*)cArgP)->pbTlsInPool
     ,
         : ifcIDtINnAMED_tinEarlyLate
         ? ifcIDtINnAMED_tinEarlyLateMain
@@ -67,18 +67,17 @@ pTin
 finger( 0 ) ,
 fingerVerify( 0 ) ,
 zap_fingerVerify( (byteT*)&fingerVerify , sizeof fingerVerify , flZAP_DT ) ,
-zap_pbTls( pbTls , sizeof pbTls , flZAP_CT ) ,
+//zap_pbTls( pbTls , sizeof pbTls , flZAP_CT ) ,
 ) ,
     1
     ) , 
             : 0
             ? &((taskS*)cArgP)->pTinDad->cKidThreads 
         idTypeP == ifcIDtYPEtLS_KID && !( F(((taskS*)cArgP)->flags) & flTHREADlAUNCH_ORPHAN )
-        putNegAM( *(countT*)&fingerTlsEnd , FINGERnEG_TLSeND ) ,
     (
 ( 
 tallyKid
-fingerTlsEnd( 0 ) ,
+//fingerTlsEnd( 0 ) ,
 /*1*/tlsStackFrameS::tlsStackFrameS( const countT idTypeP , const osTextT* const postP , const countT cArgP ) :/*1*/
 
 //CODEsYNCH: 19d0003 17b0003 IDENTICAL EXCEPT FOR pbTls (BROKEN BY SPECIFICATION OF idThreadP)

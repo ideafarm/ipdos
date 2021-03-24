@@ -26337,7 +26337,6 @@ it is illegal to refer to this symbol in the definition of an adam
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.peekS : 1snip.15000015.peeks END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.taskS : 1snip.15000016.tasks BEGIN
 
-
 //
 // Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
@@ -26361,6 +26360,8 @@ it is illegal to refer to this symbol in the definition of an adam
  signC*  pSgnDone ;
  voidT*  tmF ;     // USED WHEN THIS OBJECT IS STACKED FOR DEFERRED LAUNCH OF THE THREAD
  countT  cbStack ; // USED WHEN THIS OBJECT IS STACKED FOR DEFERRED LAUNCH OF THE THREAD
+ byteT*  pbTlsInPool ;
+ countT  cbTlsInPool ;
  flagsT  flags ;
  tinS*   pTinDad ;
  flagsT  flagsThreadMode1Dad ;
@@ -26384,7 +26385,7 @@ it is illegal to refer to this symbol in the definition of an adam
 /* birth , death */
  NEWdELcLASSpROTOS
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34003.taskS.NEWdELcLASStHIRD!||
- taskS( tinS& tinP , voidT* const tmFP = 0 , signC* pSgnDoneP = 0 , const countT cbStackP = 0 , const flagsT flagsP = flTHREADlAUNCH_null , countT c1P = 0 , countT c2P = 0 , countT c3P = 0 , countT c4P = 0 , countT c5P = 0 , countT c6P = 0 , countT c7P = 0 , countT c8P = 0 , countT c9P = 0 , countT caP = 0 , countT cbP = 0 , countT ccP = 0 , countT cdP = 0 , countT ceP = 0 , countT cfP = 0 , countT c01P = 0 ) ;
+ taskS( tinS& tinP , voidT* const tmFP = 0 , signC* pSgnDoneP = 0 , const countT cbStackP = 0 , byteT* const pbTlsInPoolP = 0 , const countT cbTlsInPoolP = 0 , const flagsT flagsP = flTHREADlAUNCH_null , countT c1P = 0 , countT c2P = 0 , countT c3P = 0 , countT c4P = 0 , countT c5P = 0 , countT c6P = 0 , countT c7P = 0 , countT c8P = 0 , countT c9P = 0 , countT caP = 0 , countT cbP = 0 , countT ccP = 0 , countT cdP = 0 , countT ceP = 0 , countT cfP = 0 , countT c01P = 0 ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34001.taskS.taskS!||
  ~taskS( voidT ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34002.taskS.dt_taskS!||
@@ -28042,7 +28043,6 @@ it is illegal to modify any member other than pc Utility in the definition of an
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.tallyC : 1snip.15000091.tallyc END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.tlsStackFrameS : 1snip.15000062.tlsstackframes BEGIN
 
-
 //
 // Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
@@ -28062,10 +28062,10 @@ it is illegal to modify any member other than pc Utility in the definition of an
 
 /*1*/struct _export tlsStackFrameS/*1*/
 {
- byteT        pbTls[ CBtLS ] ; //MUST BE WOTH TO AVOID AFFECTING OFFSETS OF OTHER MEMBERS FROM ebp; FUTURE: DEFINE FLAVORS OF ME OFFERING A CHOICE OF SIZES FROM 2,4,8,01,02,...,00001
- const countT fingerTlsEnd ;
+ //byteT        pbTls[ CBtLS ] ; //MUST BE WOTH TO AVOID AFFECTING OFFSETS OF OTHER MEMBERS FROM ebp; FUTURE: DEFINE FLAVORS OF ME OFFERING A CHOICE OF SIZES FROM 2,4,8,01,02,...,00001
+ //const countT fingerTlsEnd ;
  tallyC       tallyKid ;
- zapC         zap_pbTls ;
+ //zapC         zap_pbTls ;
  zapC         zap_fingerVerify ;
  const countT fingerVerify ;
  const countT finger ;
