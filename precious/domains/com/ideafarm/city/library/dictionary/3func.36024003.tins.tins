@@ -34,6 +34,7 @@
         if( do1.idStatusF() == ifcIDsTATUSdOc_TLSiSiNpOOLc )   // NOW THAT I AM FULLY CT'D, I CAN REPLACE THE PREALLOCATED TLS THAT MY do1 MEMBER USED TO SET MY pbTls
     
         }
+#endif
             }
                 }
                     *(countT*)pbPendingInOutFramePackets = 0 ;
@@ -51,6 +52,8 @@
                 if( !pbPendingInOutFramePackets )
             {
             if( monitor.idThread > 3 ) // FOR THREAD 1, SEE do3; THREAD 2 3 ARE tinHeart AND tinBreak
+#if defined( NEVERdEFINED )
+//U:: 20210324@1747: DISABLED TO STUDY FEASIBILITY OF SUPPORT FOR MANY THREADS
 
             if( idTinNamed == ifcIDtINnAMED_tinBreakI ) thirdC::c_strncpyIF( tinP , postTell , "refusalsToClose:0    logoffsSeen:0" , sizeof postTell ) ; //CODEsYNC: 12f0006 10200cc
             thirdC::c_strncpyIF( tinP , postTell , "tinS::tinS: i am now registered" , sizeof postTell ) ;

@@ -5469,7 +5469,7 @@ examples
 /**/
 /*1*//*TaRG1tINYtLS(tmFP)*//*1*/
 
-#define TaRG1tINYtLS(tmFP) tinP , countTC() , tmFP , 0 , flTHREADlAUNCH_null , ( TOCK << 4 )
+#define TaRG1tINYtLS(tmFP) tinP , countTC() , tmFP , 0 , flTHREADlAUNCH_null , ( TOCK << 1 )
 
 
 //
@@ -27668,7 +27668,6 @@ struct bookMarkOldS
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.doC : 1snip.15000115.doc END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.tinS : 1snip.15000026.tins BEGIN
 
-
 //
 // Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
@@ -27821,8 +27820,8 @@ it is illegal to modify any member other than pc Utility in the definition of an
 
  private :
 
- byteT* const            pbTls ; //MUST BE BEFORE grabC OBJECTS AND OTHERS WHOSE CONSTRUCTORS CALL TAG OR TAGoR MACROS; THIS STORAGE IS NOT INITIALIZED
- const countT            cbTls ; //MUST BE BEFORE grabC OBJECTS AND OTHERS WHOSE CONSTRUCTORS CALL TAG OR TAGoR MACROS
+ byteT*                  pbTls ; //MUST BE BEFORE grabC OBJECTS AND OTHERS WHOSE CONSTRUCTORS CALL TAG OR TAGoR MACROS; THIS STORAGE IS NOT INITIALIZED
+ countT                  cbTls ; //MUST BE BEFORE grabC OBJECTS AND OTHERS WHOSE CONSTRUCTORS CALL TAG OR TAGoR MACROS
  doC                     do1 ;
  public :
  countT*                 pcExitsWhere ; //EXISTS SO CODE IN ADAM DEF CAN SEE THIS GLOBALS ARRAY
@@ -27849,7 +27848,7 @@ it is illegal to modify any member other than pc Utility in the definition of an
  countT                  cSpins2 ;
  countT                  cSpins3 ;
  countT                  cSpins4 ;
- bookMarkS               pBookMark[ TUCK ] ;    // USED BY pageC TO REGISTER A PENDING SMART POINTER ; INCREASE THE NUMBER OF ELEMENTS TO SUPPORT MORE SIMULTANEOUS pageC INSTANCES; 20180606: 01->TUCK WITHOUT ANALYSIS TO WORK AROUND PRODUCTION EXHAUSTION
+ bookMarkS               pBookMark[ CbOOKmARK ] ;    // USED BY pageC TO REGISTER A PENDING SMART POINTER ; INCREASE THE NUMBER OF ELEMENTS TO SUPPORT MORE SIMULTANEOUS pageC INSTANCES; 20180606: 01->TUCK WITHOUT ANALYSIS TO WORK AROUND PRODUCTION EXHAUSTION
 
  //ASSUME: FIELDS BEFORE HERE CAN BE COPIED AND RESET (SEE THE CT/DT OF processGlobal4I.tinVeryEarlyLateMain AND THE MAIN THREAD'S tinS, IN POOLoLD)
  /* suffix begin (not sloshed (copied) from tinS to tinS) */
@@ -27973,7 +27972,7 @@ it is illegal to modify any member other than pc Utility in the definition of an
 /**/
  ~tlsBlobC( voidT ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34001.tlsBlobC.dt_tlsBlobC!||
- tlsBlobC( tinS& tinP , const osTextT* const postNameP = 0 , const osTextT* const postGroupP = 0 , const countT cbP = 0 , const countT idTypeP = ifcIDtYPEsTATICC_UNFORMATTED ) ;
+ tlsBlobC( tinS& tinP , const osTextT* const postNameP = 0 , const osTextT* const postGroupP = 0 , const countT cbP = 0 , const countT idTypeP = ifcIDtYPEtLSbLOBc_UNFORMATTED ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34002.tlsBlobC.tlsBlobC!||
  operator byteT&( voidT ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34003.tlsBlobC.operator_byteT_ref!||

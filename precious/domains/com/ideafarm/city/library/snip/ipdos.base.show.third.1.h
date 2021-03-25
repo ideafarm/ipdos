@@ -1,4 +1,6 @@
 
+#define CbOOKmARK ( TUCK << 0 )
+
 #define ifcIDsTATUSdOc_TLSiSiNpOOLc                                           11234
 
 // IPDOS (tm) <> IdeaFarm (tm) Piggyback Distributed Operating System
@@ -1903,7 +1905,7 @@ it is illegal to refer to this symbol in the definition of an adam
         OStEXTA(  _ostoTmp , tinP.postThreadName )                                                                          \
         OStEXTAK( _ostoTmp , "." )                                                                                          \
         OStEXTC(  _ostoTmp , tinP.monitor.idThread , 0 )                                                                    \
-        tlsBlobC _statRangerTag( tinP , "rangerTag" , "sys" , 2 * sizeof( countT ) + _ostoTmp.costF() + 1 , ifcIDtYPEsTATICC_FOOT ) ; \
+        tlsBlobC _statRangerTag( tinP , "rangerTag" , "sys" , 2 * sizeof( countT ) + _ostoTmp.costF() + 1 , ifcIDtYPEtLSbLOBc_FOOT ) ; \
         osTextC _ostRangerTag( _ostoTmp.costF() + 1 , _ostoTmp , _statRangerTag , _statRangerTag.cbF() ) ;                  \
         OStEXTcLEAR( _ostoTmp )                                                                                             \
                                                                                                                             \
@@ -22188,14 +22190,14 @@ use only for debugging
 /*
 */
 /**/
-/*1*//*ifcIDtYPEsTATICC*//*1*/
+/*1*//*ifcIDtYPEtLSbLOBc*//*1*/
 
 /*3*/
-#define ifcIDtYPEsTATICC_UNFORMATTED  0xdddd0747
-#define ifcIDtYPEsTATICC_FOOT         0xdddd0748
+#define ifcIDtYPEtLSbLOBc_UNFORMATTED  0xdddd0747
+#define ifcIDtYPEtLSbLOBc_FOOT         0xdddd0748
 /*3*/
-#define ifcIDtYPEsTATICC_min     0xdddd0747
-#define ifcIDtYPEsTATICC_max     0xdddd0748
+#define ifcIDtYPEtLSbLOBc_min     0xdddd0747
+#define ifcIDtYPEtLSbLOBc_max     0xdddd0748
 
 
 //

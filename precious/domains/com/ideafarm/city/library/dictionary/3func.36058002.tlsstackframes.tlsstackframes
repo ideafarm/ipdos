@@ -19,10 +19,10 @@
     (countT&)stackTop = (countT)( this + 1 ) ;
 {
 stackTop( thirdC::third_tinS_ref_IF() , "sysStackTop" , "tin" )
+,                                                                                                                                    //THESE CHANGES WILL BREAK THE EXCEPTION REPORTING SYSTEM
+tellInfoSysExceptionLath( thirdC::third_tinS_ref_IF() , "tellInfoSysExceptionLath" , "tin" , /*sizeof( tellInfoSysExceptionS )*/ 1 ) //U::20210324@1647: THIS IS TO REDUCE TLS USAGE PROVISIONALLY PENDING MIGRATION OF EXCEPTION REPORTING SUBSYSTEM AWAY FROM USING TLS
 ,
-tellInfoSysExceptionLath( thirdC::third_tinS_ref_IF() , "tellInfoSysExceptionLath" , "tin" , sizeof( tellInfoSysExceptionS ) )
-,
-postRptExceptionLath( thirdC::third_tinS_ref_IF() , "postRptExceptionLath" , "tin" , COSTArPTeXCEPTION , ifcIDtYPEtLSbLOBc_FOOT )
+postRptExceptionLath(     thirdC::third_tinS_ref_IF() , "postRptExceptionLath"     , "tin" , /*U::COSTArPTeXCEPTION*/ 2 * sizeof( countT ) , ifcIDtYPEtLSbLOBc_FOOT )
 ,
 rc( ( pTin->flagsThreadMode4 &= ~F(flTHREADmODE4_INoUTfRAMEdEFERwRITINGaPPtELEMETRY) , 0 ) )
 ,

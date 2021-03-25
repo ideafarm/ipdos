@@ -3251,7 +3251,7 @@ void elf_obey_C::liveF( void )
                     "1snip.15*.tlsStackFrameNoTlsS"             ,
                     "1snip.15*.tlsStackFrameS"                  ,
                     "1snip.15*.tallyC"                          ,
-                    "1snip.15*.staticC"                         ,
+                    "1snip.15*.tlsBlobC"                        ,
                     "1snip.15*.tinS"                            ,
                     "1snip.15*.doC"                             ,
                     "1snip.15*.bookMarkS"                       ,
