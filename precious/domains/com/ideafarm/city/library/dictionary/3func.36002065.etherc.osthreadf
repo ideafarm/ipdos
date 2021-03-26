@@ -8,9 +8,10 @@
 
 
 }
-    third.osThreadF( tinP , tidP , tmFP , pSgnDoneP , flagsP , cbTlsP , c1P , c2P , c3P , c4P , c5P , c6P , c7P , c8P ) ;
+    third.osThreadF( tinP , tidP , tmFP , pSgnDoneP , flagsP , cbTls , c1P , c2P , c3P , c4P , c5P , c6P , c7P , c8P ) ;
 
-    //traceF( tinP , T("osThreadF: launching thread [cbTlsP]:    ")+TF2(cbTlsP,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
+    //traceF( tinP , T("osThreadF: launching thread [cbTlsP]:    ")+TF2(cbTls,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
+    countT cbTls = cbTlsP ? cbTlsP : CBtLSdEFAULT ;
 
     // WINDOWS IS SUCH A PIECE OF ROYAL SHIT
     //U:: 20210321@2100: WIN32 CreateThread() APPARENTLY IGNORES dwStackSize AND ALLOCATES A STACK OF THE SIZE SPECIFIED DURING LINKING
