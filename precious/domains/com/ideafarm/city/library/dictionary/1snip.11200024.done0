@@ -10,15 +10,8 @@
             DONE1
             }                                                                                                                                                       \
                 }                                                                                                                                                   \
-                    dec02AM( cAllThreads ) ; /* MUST BE THE VERY LAST THING THAT THIS THREAD DOES */                                                                \
-                    }                                                                                                                                               \
-                        DEL( pTaskP ) ;                                                                                                                             \
-                        /* THE PROCESS MUST SLEEP AFTER RECEIVING THIS SIGN BEFORE ENDING, SO THAT THIS THREAD CAN COMPLETE */                                      \
-                        /* MUST BE AS LATE AS POSSIBLE BECAUSE IT GIVES THE SIGN THAT THE THREAD IS DONE.                   */                                      \
-                                                                                                                                                                    \
-                        PUSE( tinP , pTaskP->pbTlsInPool ) ;                                                                                                        \
-                    {                                                                                                                                               \
-                    if( !bFake )                                                                                                                                    \
+                    dec02AM( cAllThreads ) ; /* MUST BE THE VERY LAST THING THAT THIS THREAD DOES */                                                                  \
+                    if( !bFake ) { DEL( pTaskP ) ; } /* MUST BE AS LATE AS POSSIBLE BECAUSE IT GIVES THE SIGN THAT THE THREAD IS DONE.  THE PROCESS MUST SLEEP AFTER RECEIVING THIS SIGN BEFORE ENDING, SO THAT THIS THREAD CAN COMPLETE */ \
                     if( tinP.monitor.idThread <= ClOWtHREADS ) processGlobal1S::_processGlobal1I_IF().pcPhaseLow[ tinP.monitor.idThread ] = - 1 ;                   \
                     TELL( "DONE0: i am outa here" )                                                                                                                 \
                     ;                                                                                                                                               \

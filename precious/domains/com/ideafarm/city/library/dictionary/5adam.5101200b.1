@@ -14,13 +14,9 @@ etThread.loafIF( tinP ) ;
 //G:nodeC nodeMe( tinP , etThread , ifcIDmODEnODE_INTRApROCESS ) ;
 //G:nodeC nodeMe( tinP , etThread ) ;
 
-//U::PROD: while( cDo -- ) etThread.osThreadF( TaRG1tINYtLS( tmNodeF ) ) ;
-}
-    etThread.osThreadF( TaRG1tINYtLS( tmNodeF ) ) ;
-    etThread.traceF( tinP , T("launching tmNodeF [cDo (after)]")+TF2(cDo,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
-{
-while( cDo -- )
-countT cDo = TUCK << 0 ;
+//U::PROD: while( cDo -- ) etThread.osThreadF( TaRG1tINYsTACK( tmNodeF ) ) ;
+while( cDo -- ) etThread.osThreadF( TaRG1( tmNodeF ) ) ;
+countT cDo = 0x30 ;
 //G::countT cDo = 0x30 ;
 //G:countT cDo = 0x20 ;
 //G:countT cDo = 0x10 ;
@@ -91,7 +87,7 @@ DONE( tmAcceptF )
 
         sockListen.listenF( tinP ) ;
 
-        etThread.osThreadF( TaRG1tINYtLS( tmRefreshListF ) , (countT)&nodeP , (countT)&bQuitP , (countT)&cKidsP , (countT)&stOpenP , idModeP , (countT)&portMeP ) ; // portMeP IS NOW COMPLETELY KNOWN
+        etThread.osThreadF( TaRG1tINYsTACK( tmRefreshListF ) , (countT)&nodeP , (countT)&bQuitP , (countT)&cKidsP , (countT)&stOpenP , idModeP , (countT)&portMeP ) ; // portMeP IS NOW COMPLETELY KNOWN
         inc02AM( cKidsP ) ;
 
         }
@@ -99,11 +95,11 @@ DONE( tmAcceptF )
                 }
                     break ;
                     portMeP = idPortBound ;
-                    //etThread.traceF( tinP , T("bound aok [idPortBound]:    ")+TF2(idPortBound,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
+                    etThread.traceF( tinP , T("bound aok [idPortBound]:    ")+TF2(idPortBound,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
                 {
                 else
                 }
-                    //etThread.traceF( tinP , T("could not bind [idPortTry]:    ")+TF2(idpTry,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
+                    etThread.traceF( tinP , T("could not bind [idPortTry]:    ")+TF2(idpTry,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
                     POOPRqUIET
                 {
                 if( POOP )
@@ -257,7 +253,7 @@ DONE( tmHireWorkersF )
             stAcceptedP.ungrabF( tinP ) ;
 
             }
-                ether.osThreadF( TaRG1tINYtLS( tmWorkerF ) , (countT)&nodeP , (countT)&bQuitP , (countT)&cKidsP , (countT)&stAcceptedP , (countT)&stOpenP , idModeP , (countT)&portMeP , c_psoa ) ;
+                ether.osThreadF( TaRG1tINYsTACK( tmWorkerF ) , (countT)&nodeP , (countT)&bQuitP , (countT)&cKidsP , (countT)&stAcceptedP , (countT)&stOpenP , idModeP , (countT)&portMeP , c_psoa ) ;
                 inc02AM( cKidsP ) ;
                 stAcceptedP >> c_psoa ;
                 ZE( countT , c_psoa ) ;
@@ -336,7 +332,7 @@ DONE( tmRefreshListF )
             }
                 while( !stOpenP.third && ~hDown ) ;
                 }
-                    //etThread.traceF( tinP , TF2(++idPlate,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+T(timeHe)+tb4+T(nnHe)+tb4+T(ptHe.nnv4F())+T(" ( ")+TF2((countT)ptHe,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T(bMe?" )  (me)":" )") ) ; //U:: TO FIND A BUG
+                    etThread.traceF( tinP , TF2(++idPlate,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+T(timeHe)+tb4+T(nnHe)+tb4+T(ptHe.nnv4F())+T(" ( ")+TF2((countT)ptHe,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T(bMe?" )  (me)":" )") ) ; //U:: TO FIND A BUG
                     const timeS& timeHe = ptHe ;
                     nicNameC nnHe = ptHe ;
 
@@ -353,7 +349,7 @@ DONE( tmRefreshListF )
             }
                 while( !stValidated.third && ~hDown ) ;
                 }
-                    //etThread.traceF( tinP , T("stValidated [idPlate,port,v4,time]:    ")+TF2(++idPlate,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+T(nnHe)+T("    ")+T(portHe.nnv4F())+T(" ( ")+TF2((countT)portHe,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T(" )    ")+T(timeHe) ) ; //U:: TO FIND A BUG
+                    etThread.traceF( tinP , T("stValidated [idPlate,port,v4,time]:    ")+TF2(++idPlate,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+T(nnHe)+T("    ")+T(portHe.nnv4F())+T(" ( ")+TF2((countT)portHe,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T(" )    ")+T(timeHe) ) ; //U:: TO FIND A BUG
 
                     tFoo = T(timeHe) ;
                     TN( tFoo , "" ) ;
@@ -585,7 +581,7 @@ DONE( tmRefreshListF )
                     }
                         break ;
                         inc02AM( nl.cElts ) ;
-                        //etThread.traceF( tinP , T("adding myself [nn,nnv4]:    ")+T(nn)+T("    ")+T(nnv4) ) ;
+                        etThread.traceF( tinP , T("adding myself [nn,nnv4]:    ")+T(nn)+T("    ")+T(nnv4) ) ;
                         nicNameC nnv4 = nl.pEntry[ offi ].port.nnv4F() ;
                         nicNameC nn   = nl.pEntry[ offi ].port ;
 
@@ -678,8 +674,8 @@ TASK( tmRefreshListF )
     sleepC s( tinP , TAG( TAGiDnULL ) ) ;
     etherC& etPrime = etherC::etPrimeIF( tinP ) ;
 
-    ether.osThreadF( TaRG1tINYtLS( tmHireWorkersF ) , (countT)this , (countT)&bQuit , (countT)&cKids , (countT)&stAccepted , (countT)&stOpen , idMode , (countT)&portMe ) ;
-    ether.osThreadF( TaRG1tINYtLS( tmAcceptF      ) , (countT)this , (countT)&bQuit , (countT)&cKids , (countT)&stAccepted , (countT)&stOpen , idMode , (countT)&portMe ) ;
+    ether.osThreadF( TaRG1tINYsTACK( tmHireWorkersF ) , (countT)this , (countT)&bQuit , (countT)&cKids , (countT)&stAccepted , (countT)&stOpen , idMode , (countT)&portMe ) ;
+    ether.osThreadF( TaRG1tINYsTACK( tmAcceptF      ) , (countT)this , (countT)&bQuit , (countT)&cKids , (countT)&stAccepted , (countT)&stOpen , idMode , (countT)&portMe ) ;
     countT cKids = 2 ;
     ZE( boolT , bQuit ) ;
 
@@ -714,10 +710,10 @@ TASK( tmRefreshListF )
         }
             ether.delF( tinP , pnnMe ) ;
             }
-                //else ether.traceF( tinP , T("nodeC / NON-routable    :    ")+T(pnnMe[offi]) ) ;
+                else ether.traceF( tinP , T("nodeC / NON-routable    :    ")+T(pnnMe[offi]) ) ;
                 }
                     soulNicName << pnnMe[ offi ] ;
-                    //ether.traceF( tinP ,  T("nodeC / routable unicast:    ")+T(pnnMe[offi]) ) ;
+                    ether.traceF( tinP ,  T("nodeC / routable unicast:    ")+T(pnnMe[offi]) ) ;
                 {
                 if( pnnMe[ offi ].isRoutableUnicastF() )
             {

@@ -5467,9 +5467,9 @@ examples
 /*
 */
 /**/
-/*1*//*TaRG1tINYtLS(tmFP)*//*1*/
+/*1*//*TaRG1tINYsTACK(tmFP)*//*1*/
 
-#define TaRG1tINYtLS(tmFP) tinP , countTC() , tmFP , 0 , flTHREADlAUNCH_null , ( TOCK << 1 )
+#define TaRG1tINYsTACK(tmFP) tinP , countTC() , tmFP , 0 , flTHREADlAUNCH_null , 0x4000
 
 
 //
@@ -5480,6 +5480,31 @@ examples
 //
 
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200595.targ1tinystack END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200597.CbOOKmARK BEGIN
+
+//
+// Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 29 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+/*
+*/
+/**/
+/*1*//*CbOOKmARK*//*1*/
+
+#define CbOOKmARK ( TUCK << 0 )
+
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 29 years.
+//
+// Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200597.CbOOKmARK END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.thirdParties : 1snip.15000014.thirdparties BEGIN
 
 
@@ -26337,6 +26362,7 @@ it is illegal to refer to this symbol in the definition of an adam
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.peekS : 1snip.15000015.peeks END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.taskS : 1snip.15000016.tasks BEGIN
 
+
 //
 // Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
@@ -26359,8 +26385,7 @@ it is illegal to refer to this symbol in the definition of an adam
  const countT idThread ;
  signC*  pSgnDone ;
  voidT*  tmF ;     // USED WHEN THIS OBJECT IS STACKED FOR DEFERRED LAUNCH OF THE THREAD
- byteT*  pbTlsInPool ;
- countT  cbTlsInPool ;
+ countT  cbTls ; // USED WHEN THIS OBJECT IS STACKED FOR DEFERRED LAUNCH OF THE THREAD
  flagsT  flags ;
  tinS*   pTinDad ;
  flagsT  flagsThreadMode1Dad ;
@@ -26384,7 +26409,7 @@ it is illegal to refer to this symbol in the definition of an adam
 /* birth , death */
  NEWdELcLASSpROTOS
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34003.taskS.NEWdELcLASStHIRD!||
- taskS( tinS& tinP , voidT* const tmFP = 0 , signC* pSgnDoneP = 0 , byteT* const pbTlsInPoolP = 0 , const countT cbTlsInPoolP = 0 , const flagsT flagsP = flTHREADlAUNCH_null , countT c1P = 0 , countT c2P = 0 , countT c3P = 0 , countT c4P = 0 , countT c5P = 0 , countT c6P = 0 , countT c7P = 0 , countT c8P = 0 , countT c9P = 0 , countT caP = 0 , countT cbP = 0 , countT ccP = 0 , countT cdP = 0 , countT ceP = 0 , countT cfP = 0 , countT c01P = 0 ) ;
+ taskS( tinS& tinP , voidT* const tmFP = 0 , signC* pSgnDoneP = 0 , const countT cbTlsP = 0 , const flagsT flagsP = flTHREADlAUNCH_null , countT c1P = 0 , countT c2P = 0 , countT c3P = 0 , countT c4P = 0 , countT c5P = 0 , countT c6P = 0 , countT c7P = 0 , countT c8P = 0 , countT c9P = 0 , countT caP = 0 , countT cbP = 0 , countT ccP = 0 , countT cdP = 0 , countT ceP = 0 , countT cfP = 0 , countT c01P = 0 ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34001.taskS.taskS!||
  ~taskS( voidT ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34002.taskS.dt_taskS!||
@@ -27622,51 +27647,8 @@ struct bookMarkOldS
 //
 
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.bookMarkS : 1snip.1500016e.bookmarks END
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.doC : 1snip.15000115.doc BEGIN
-
-//
-// Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 29 years.
-// Respecting the rights of other people is an important part of empowering one another.
-//
-
-/*
-*/
-/**/
-
-/*1*/class _export doC/*1*/
-{
-    const countT idDo     ;
-    const countT cArg1    ;
-    const countT cArg2    ;
-    const countT cArg3    ;
-    countT       idStatus ;
-
- public :
-
-/* birth , death */
- ~doC( voidT ) ;
- //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34002.doC.dt_doC!||
- doC( const countT idDoP , const countT cArg1P = 0 , const countT cArg2P = 0 , const countT cArg3P = 0 ) ;
- //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34003.doC.doC!||
-
- inline countT idStatusF( voidT ) const { return idStatus ; }
-
-/**/
-}
-;
-
-
-//
-// Respecting the rights of other people is an important part of empowering one another.
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 29 years.
-//
-// Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.doC : 1snip.15000115.doc END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.tinS : 1snip.15000026.tins BEGIN
+
 
 //
 // Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
@@ -27820,9 +27802,8 @@ it is illegal to modify any member other than pc Utility in the definition of an
 
  private :
 
- byteT*                  pbTls ; //MUST BE BEFORE grabC OBJECTS AND OTHERS WHOSE CONSTRUCTORS CALL TAG OR TAGoR MACROS; THIS STORAGE IS NOT INITIALIZED
- countT                  cbTls ; //MUST BE BEFORE grabC OBJECTS AND OTHERS WHOSE CONSTRUCTORS CALL TAG OR TAGoR MACROS
- doC                     do1 ;
+ byteT* const            pbTls ; //MUST BE BEFORE grabC OBJECTS AND OTHERS WHOSE CONSTRUCTORS CALL TAG OR TAGoR MACROS; THIS STORAGE IS NOT INITIALIZED
+ const countT            cbTls ; //MUST BE BEFORE grabC OBJECTS AND OTHERS WHOSE CONSTRUCTORS CALL TAG OR TAGoR MACROS
  public :
  countT*                 pcExitsWhere ; //EXISTS SO CODE IN ADAM DEF CAN SEE THIS GLOBALS ARRAY
  countT                  ccExitsWhere ; //EXISTS SO CODE IN ADAM DEF CAN SEE THIS GLOBALS ARRAY
@@ -27848,7 +27829,7 @@ it is illegal to modify any member other than pc Utility in the definition of an
  countT                  cSpins2 ;
  countT                  cSpins3 ;
  countT                  cSpins4 ;
- bookMarkS               pBookMark[ CbOOKmARK ] ;    // USED BY pageC TO REGISTER A PENDING SMART POINTER ; INCREASE THE NUMBER OF ELEMENTS TO SUPPORT MORE SIMULTANEOUS pageC INSTANCES; 20180606: 01->TUCK WITHOUT ANALYSIS TO WORK AROUND PRODUCTION EXHAUSTION
+ bookMarkS               pBookMark[ CbOOKmARK ] ;    // USED BY pageC TO REGISTER A PENDING SMART POINTER ; INCREASE THE NUMBER
 
  //ASSUME: FIELDS BEFORE HERE CAN BE COPIED AND RESET (SEE THE CT/DT OF processGlobal4I.tinVeryEarlyLateMain AND THE MAIN THREAD'S tinS, IN POOLoLD)
  /* suffix begin (not sloshed (copied) from tinS to tinS) */
@@ -27948,7 +27929,7 @@ it is illegal to modify any member other than pc Utility in the definition of an
 //
 
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.tinS : 1snip.15000026.tins END
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.tlsBlobC : 1snip.15000088.staticc BEGIN
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.tlsBlobC : 1snip.15000088.tlsBlobC BEGIN
 
 
 //
@@ -28000,7 +27981,7 @@ it is illegal to modify any member other than pc Utility in the definition of an
 // Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
 
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.tlsBlobC : 1snip.15000088.staticc END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.tlsBlobC : 1snip.15000088.tlsBlobC END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.tallyC : 1snip.15000091.tallyc BEGIN
 
 
@@ -28041,6 +28022,7 @@ it is illegal to modify any member other than pc Utility in the definition of an
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.tallyC : 1snip.15000091.tallyc END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.tlsStackFrameS : 1snip.15000062.tlsstackframes BEGIN
 
+
 //
 // Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
@@ -28060,10 +28042,10 @@ it is illegal to modify any member other than pc Utility in the definition of an
 
 /*1*/struct _export tlsStackFrameS/*1*/
 {
- //byteT        pbTls[ CBtLSdEFAULT ] ; //MUST BE WOTH TO AVOID AFFECTING OFFSETS OF OTHER MEMBERS FROM ebp; FUTURE: DEFINE FLAVORS OF ME OFFERING A CHOICE OF SIZES FROM 2,4,8,01,02,...,00001
- //const countT fingerTlsEnd ;
+ byteT        pbTls[ CBtLSdEFAULT ] ; //MUST BE WOTH TO AVOID AFFECTING OFFSETS OF OTHER MEMBERS FROM ebp; FUTURE: DEFINE FLAVORS OF ME OFFERING A CHOICE OF SIZES FROM 2,4,8,01,02,...,00001
+ const countT fingerTlsEnd ;
  tallyC       tallyKid ;
- //zapC         zap_pbTls ;
+ zapC         zap_pbTls ;
  zapC         zap_fingerVerify ;
  const countT fingerVerify ;
  const countT finger ;
@@ -40077,7 +40059,6 @@ base class to make a derived class of objects easily contained by a stackC objec
     byteT                           pbTlsMain[ CBtLSdEFAULT ] ;
     byteT                           pbTlsHeart[ CBtLSdEFAULT ] ;
     byteT                           pbTlsBreak[ CBtLSdEFAULT ] ;
-    byteT                           pbTlsVeryEarlyLateMain[ CBtLSdEFAULT ] ;
     countT                          pcDebug[ TUCK << 1 ] ; //NOT USED IN PRODUCTION ; AVAILABLE FOR DEBUGGING
     osTextT                         postDllsLoaded[ TOCK ] ;
     osTextT                         postPathHomeTmp[ TUCK ] ;
@@ -40312,7 +40293,6 @@ base class to make a derived class of objects easily contained by a stackC objec
     countT                      cSpins2 ;
     countT                      cSpins3 ;
     countT                      cSpins4 ;
-    byteT*                      pbTlsPreallocatedNext ;
 
     NEWdELcLASSpROTOS
     ~adamGlobal1S( voidT ) ;
@@ -40440,6 +40420,46 @@ base class to make a derived class of objects easily contained by a stackC objec
 //
 
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.booksC : 1snip.15000112.booksc END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.doC : 1snip.15000115.doc BEGIN
+
+
+//
+// Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 29 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+/*
+*/
+/**/
+
+/*1*/class _export doC/*1*/
+{
+    const countT idDo ;
+    const countT cArg ;
+
+ public :
+
+/* birth , death */
+ ~doC( voidT ) ;
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34002.doC.dt_doC!||
+ doC( const countT idDoP , const countT cArgP = 0 ) ;
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34003.doC.doC!||
+
+/**/
+}
+;
+
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 29 years.
+//
+// Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.doC : 1snip.15000115.doc END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.processGlobal3S : 1snip.150000e2.processglobal3s BEGIN
 
 

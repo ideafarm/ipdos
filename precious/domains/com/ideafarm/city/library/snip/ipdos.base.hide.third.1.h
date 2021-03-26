@@ -1,8 +1,4 @@
 
-#define CbOOKmARK ( TUCK << 0 )
-
-#define ifcIDsTATUSdOc_TLSiSiNpOOLc                                           11234
-
 // IPDOS (tm) <> IdeaFarm (tm) Piggyback Distributed Operating System
 
 // For build environment info, see file "\ideafarm.work\backed.up.never\txt\readme.first.ipdos.build.environment.txt"
@@ -1998,6 +1994,7 @@ it is illegal to refer to this symbol in the definition of an adam
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200023.task0 END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200024.done0 BEGIN
 
+
 //
 // Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
@@ -2106,15 +2103,8 @@ it is illegal to refer to this symbol in the definition of an adam
                     ;                                                                                                                                               \
                     TELL( "DONE0: i am outa here" )                                                                                                                 \
                     if( tinP.monitor.idThread <= ClOWtHREADS ) processGlobal1S::_processGlobal1I_IF().pcPhaseLow[ tinP.monitor.idThread ] = - 1 ;                   \
-                    if( !bFake )                                                                                                                                    \
-                    {                                                                                                                                               \
-                        PUSE( tinP , pTaskP->pbTlsInPool ) ;                                                                                                        \
-                                                                                                                                                                    \
-                        /* MUST BE AS LATE AS POSSIBLE BECAUSE IT GIVES THE SIGN THAT THE THREAD IS DONE.                   */                                      \
-                        /* THE PROCESS MUST SLEEP AFTER RECEIVING THIS SIGN BEFORE ENDING, SO THAT THIS THREAD CAN COMPLETE */                                      \
-                        DEL( pTaskP ) ;                                                                                                                             \
-                    }                                                                                                                                               \
-                    dec02AM( cAllThreads ) ; /* MUST BE THE VERY LAST THING THAT THIS THREAD DOES */                                                                \
+                    if( !bFake ) { DEL( pTaskP ) ; } /* MUST BE AS LATE AS POSSIBLE BECAUSE IT GIVES THE SIGN THAT THE THREAD IS DONE.  THE PROCESS MUST SLEEP AFTER RECEIVING THIS SIGN BEFORE ENDING, SO THAT THIS THREAD CAN COMPLETE */ \
+                    dec02AM( cAllThreads ) ; /* MUST BE THE VERY LAST THING THAT THIS THREAD DOES */                                                                  \
                 }                                                                                                                                                   \
             }                                                                                                                                                       \
             DONE1
@@ -12568,7 +12558,7 @@ these values are used in the foreign domain name system
 //
 
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200139.tellcountt END
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.1120013a.costtell BEGIN
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.1120013a.costmaxtell BEGIN
 
 
 //
@@ -12595,7 +12585,7 @@ these values are used in the foreign domain name system
 // Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
 
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.1120013a.costtell END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.1120013a.costmaxtell END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.1120013b.plate_countt_ref BEGIN
 
 
@@ -37332,10 +37322,9 @@ obsoleted by coding style standard: use osTextT strings for name elements so tha
 #define ifcIDdO_REGISTERrOOTaDAMhEART                  0xdddd0b4c
 #define ifcIDdO_SETUPsOCKETS                           0xdddd0b4d
 #define ifcIDdO_ALLOCATEaPPtELEMETRYpENDINGbUFFER      0xdddd0b4e
-#define ifcIDdO_ALLOCATEtLSfROMpOOL                    0xdddd0b4f
 /*3*/
 #define ifcIDdO_min     0xdddd0b4c
-#define ifcIDdO_max     0xdddd0b4f
+#define ifcIDdO_max     0xdddd0b4e
 
 
 //

@@ -180,7 +180,7 @@
     ((countT)0x36075) , "dadc" ,
     ((countT)0x36076) , "bitsc" ,
     ((countT)0x36077) , "tlsstackframenotlss" ,
-    ((countT)0x36078) , "staticc" ,
+    ((countT)0x36078) , "tlsBlobC" ,
     ((countT)0x36079) , "processglobalendc" ,
     ((countT)0x3607a) , "parameterc" ,
     ((countT)0x3607b) , "scountfrompostc" ,
