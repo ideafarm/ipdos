@@ -4501,7 +4501,7 @@ use this rather than _ to avoid the overhead of _
 /*
 \<A HREF=\"5.001020f.1.0.html\"\>definition\</A\>
 */
-/*1*//**//*1*/
+/*1*//*ifcIDbOOKStELL*//*1*/
 
 /*3*/
 #define ifcIDbOOKStELL_SYS                                           0xdddd0c1a
@@ -26361,6 +26361,7 @@ it is illegal to refer to this symbol in the definition of an adam
 
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.peekS : 1snip.15000015.peeks END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.taskS : 1snip.15000016.tasks BEGIN
+
 
 //
 // Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.

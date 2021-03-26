@@ -563,7 +563,7 @@
 0x1120024e , 0x00000233 ,   // 1snip.1120024e.footminit
 0x1120024f , 0x00000234 ,   // 1snip.1120024f.ostext
 0x11200250 , 0x00000235 ,   // 1snip.11200250.ostextak
-0x11200251 , 0x00000236 ,   // 1snip.11200251.ifcidtypestaticc
+0x11200251 , 0x00000236 ,   // 1snip.11200251.ifcIDtYPEtLSbLOBc
 0x11200252 , 0x00000237 ,   // 1snip.11200252.ostextal
 0x11200253 , 0x00000238 ,   // 1snip.11200253.costarptexception
 0x11200254 , 0x00000239 ,   // 1snip.11200254.ostextcf

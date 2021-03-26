@@ -1994,6 +1994,7 @@ it is illegal to refer to this symbol in the definition of an adam
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200023.task0 END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200024.done0 BEGIN
 
+
 //
 // Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
@@ -4224,6 +4225,7 @@ it is illegal to refer to this symbol in the definition of an adam
 /*1*//*OFFsLOTtINsTEPmAX*//*1*/
 
 // THIS MUST BE A POWER OF 2 MINUS 1 (0xff IS A VALID VALUE), SO WE CAN USE E.G. "aa & OFFsLOTtINsTEPmAX" RATHER THAN "aa % (1+OFFsLOTtINsTEPmAX)"
+
 #define OFFsLOTtINsTEPmAX (0xff)
 
 
@@ -5367,6 +5369,7 @@ it is illegal to refer to this symbol in the definition of an adam
 
 // THIS MUST BE A POWER OF 2 MINUS 1 (0xf IS A VALID VALUE), SO WE CAN USE E.G. "aa & OFFsLOTtINsTEPmAX" RATHER THAN "aa % (1+OFFsLOTtINsTEPmAX)"
 //#define OFFsLOTtINnESTmAX (0xf)
+
 #define OFFsLOTtINnESTmAX (0x1f)
 
 
@@ -20860,6 +20863,7 @@ for each previous absentee
 //CODEsYNC: 0030089 0010301 CBbITScT MUST SPECIFY AN INTEGRAL NUMBER OF countT OBJECTS
 
 /*1*//*CBbITScT*//*1*/
+
 #define CBbITScT ( 8 * sizeof( countT ) )
 
 
@@ -22173,7 +22177,7 @@ use only for debugging
 //
 
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200250.ostextak END
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200251.ifcidtypestaticc BEGIN
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200251.ifcIDtYPEtLSbLOBc BEGIN
 
 
 //
@@ -22203,7 +22207,7 @@ use only for debugging
 // Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
 
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200251.ifcidtypestaticc END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200251.ifcIDtYPEtLSbLOBc END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200252.ostextal BEGIN
 
 
