@@ -16,7 +16,7 @@ etThread.loafIF( tinP ) ;
 
 //U::PROD: while( cDo -- ) etThread.osThreadF( TaRG1tINYsTACK( tmNodeF ) ) ;
 while( cDo -- ) etThread.osThreadF( TaRG1( tmNodeF ) ) ;
-countT cDo = 0x30 ;
+countT cDo = 0x20 ;
 //G::countT cDo = 0x30 ;
 //G:countT cDo = 0x20 ;
 //G:countT cDo = 0x10 ;
@@ -95,11 +95,11 @@ DONE( tmAcceptF )
                 }
                     break ;
                     portMeP = idPortBound ;
-                    etThread.traceF( tinP , T("bound aok [idPortBound]:    ")+TF2(idPortBound,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
+                    //etThread.traceF( tinP , T("bound aok [idPortBound]:    ")+TF2(idPortBound,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
                 {
                 else
                 }
-                    etThread.traceF( tinP , T("could not bind [idPortTry]:    ")+TF2(idpTry,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
+                    //etThread.traceF( tinP , T("could not bind [idPortTry]:    ")+TF2(idpTry,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
                     POOPRqUIET
                 {
                 if( POOP )
@@ -581,7 +581,7 @@ DONE( tmRefreshListF )
                     }
                         break ;
                         inc02AM( nl.cElts ) ;
-                        etThread.traceF( tinP , T("adding myself [nn,nnv4]:    ")+T(nn)+T("    ")+T(nnv4) ) ;
+                        //etThread.traceF( tinP , T("adding myself [nn,nnv4]:    ")+T(nn)+T("    ")+T(nnv4) ) ;
                         nicNameC nnv4 = nl.pEntry[ offi ].port.nnv4F() ;
                         nicNameC nn   = nl.pEntry[ offi ].port ;
 
@@ -710,10 +710,10 @@ TASK( tmRefreshListF )
         }
             ether.delF( tinP , pnnMe ) ;
             }
-                else ether.traceF( tinP , T("nodeC / NON-routable    :    ")+T(pnnMe[offi]) ) ;
+                //else ether.traceF( tinP , T("nodeC / NON-routable    :    ")+T(pnnMe[offi]) ) ;
                 }
                     soulNicName << pnnMe[ offi ] ;
-                    ether.traceF( tinP ,  T("nodeC / routable unicast:    ")+T(pnnMe[offi]) ) ;
+                    //ether.traceF( tinP ,  T("nodeC / routable unicast:    ")+T(pnnMe[offi]) ) ;
                 {
                 if( pnnMe[ offi ].isRoutableUnicastF() )
             {

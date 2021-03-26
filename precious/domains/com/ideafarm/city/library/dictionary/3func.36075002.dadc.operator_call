@@ -12,9 +12,11 @@
     rememberF( tinP , bb ) ;
 
     }
-        bb = pbFrame[ off ] ;
+        bb = pbFrame[ off ] ;                               //U::20210325@2255: OBSERVED pbFrame 0 WHEN stFrame.cPlates IS 1 AND idFrameNew IS 1 AND idFrame IS 1 AND ppbFrame[ 1 ] IS NONZERO (ALL OTHER ELTS ARE 0)could not bind
         countT off = ( offNew - cP ) % CBfRAMEsPOUSE ;
-        byteT* pbFrame = ppbFrame[           stFrame - idFrameNew + idFrame ] ;
+        byteT* pbFrame = ppbFrame[           cPlates - idFrameNew + idFrame ] ;
+        countT cPlates = stFrame ;  //U:: TO FIND A BUG:  IF pbFrame IS AGAIN OBSERVED TO BE 0 IN WDW, I WILL BE ABLE TO INSPECT ALL VALUES USED TO CALCULATE IT
+                                    //U:: CONJ: SOMETHING IS VOLATILE HERE
 
         //}
         //    LOGrAW5( "offNew,cP: " , offNew , " " , cP , "\r\n" ) ;
