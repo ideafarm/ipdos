@@ -21,8 +21,8 @@
         if( processGlobal1I._grabC_pgw ) grabBookNow.ungrabF( tinP ) ;
 
         }
-            tinP.tlsDelF( pbtScratchBuffer ) ;
-            tinP.tlsDelF( *(byteT**)&pBk0Doomed ) ;
+            tinP.tlsDelF( LF , pbtScratchBuffer ) ;
+            tinP.tlsDelF( LF , *(byteT**)&pBk0Doomed ) ;
             DELzOMBIE( pBk0Doomed ) ;
 
             }
@@ -185,7 +185,7 @@
 
                     }
                         TELL( "booksC::writeF / called tlsNewF 2" )
-                        pbtBook0  = tinP.tlsNewF( cbtBook0 ) ;
+                        pbtBook0  = tinP.tlsNewF( LF , cbtBook0 ) ;
                         TELL( "booksC::writeF / calling tlsNewF 2" )
                         _IO_
                     {
@@ -193,7 +193,7 @@
 
                     }
                         TELL( "booksC::writeF / called tlsNewF 1" )
-                        pbtScratchBuffer = tinP.tlsNewF( cbtBuffer ) ;
+                        pbtScratchBuffer = tinP.tlsNewF( LF , cbtBuffer ) ;
                         TELL( "booksC::writeF / calling tlsNewF 1" )
                         _IO_
                     {

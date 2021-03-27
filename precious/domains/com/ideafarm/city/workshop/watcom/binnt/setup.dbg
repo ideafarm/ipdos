@@ -27,21 +27,21 @@ paint dialog active standout button bright white on cyan
 display all /close
 display status
 display toolbar /fixed 0
-display assembly /close 0,0,8136,9997
 display file /close 0,0,9999,9997
 display functions /close 3510,2639,2286,4433
 display log /close 0,0,5589,3146
 display memory /close 7497,26,2502,9971
 display stack /close 8010,4992,1989,5005
-display thread /close 3456,6331,4986,3666
-display variable /close 450,1053,3123,1534
+display thread /close 3456,0,4995,9997
+display variable /close 864,1040,3123,1534
 display break /open 0,1144,5175,4576
-display locals /open 0,5525,4455,4459
 display calls /open 18,6357,9855,3640
-display register /open 243,7748,5958,2015
+display register /open 2979,4914,5958,2015
 display modules /open 8064,0,1935,9945
-display watch /open 0,7085,9999,2912
-display source /open 9,13,9990,7202
+display assembly /open 0,0,8136,9997
+display locals /open 0,5525,4455,4459
+display source /open 9,13,9990,4212
+display watch /open 0,0,9999,9997
 font all {-13 0 0 0 400 0 0 0 0 1 2 1 49 "Courier"}
 font assembly {-13 0 0 0 400 0 0 0 0 1 1 1 1 "Courier"}
 font break {-13 0 0 0 400 0 0 0 0 1 1 1 1 "Courier"}
@@ -100,6 +100,9 @@ set types {
   }
   struct sockaddr { 
    field sa_data { pointer }
+  }
+  struct tlsHeaderS { 
+   field cSteps { decimal }
   }
 }
 set macro source v {

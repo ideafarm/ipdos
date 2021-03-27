@@ -392,13 +392,13 @@
     {
     IFbEcAREFUL
 
-                                                    tinP.tlsDelF( countTC() ) ; //TLS:1
-                                                    tinP.tlsDelF( countTC() ) ; //TLS:2
-                                                    tinP.tlsDelF( countTC() ) ; //TLS:3
-    flagsT saveThreadMode1 = *(flagsT*)tinP.pbF() ; tinP.tlsDelF( countTC() ) ; //TLS:4
-                                                    tinP.tlsDelF( countTC() ) ; //TLS:5
-                                                    tinP.tlsDelF( countTC() ) ; //TLS:6
-                                                    tinP.tlsDelF( countTC() ) ; //TLS:7
+                                                    tinP.tlsDelF( LF , countTC() ) ; //TLS:1
+                                                    tinP.tlsDelF( LF , countTC() ) ; //TLS:2
+                                                    tinP.tlsDelF( LF , countTC() ) ; //TLS:3
+    flagsT saveThreadMode1 = *(flagsT*)tinP.pbF() ; tinP.tlsDelF( LF , countTC() ) ; //TLS:4
+                                                    tinP.tlsDelF( LF , countTC() ) ; //TLS:5
+                                                    tinP.tlsDelF( LF , countTC() ) ; //TLS:6
+                                                    tinP.tlsDelF( LF , countTC() ) ; //TLS:7
     _IO_
 {
 pSexLifoConstructed( 0 )
@@ -435,11 +435,11 @@ guts( *(guts_poolC_S*)(byteT*)napGuts ) ,
             tinP ,
         (
         thirdC::c_strcatIF
-        tinP.tlsNewF( TUCK ) ,                                                                              //TLS:7     "poolC/guts/[postNameP].[this].[osTid]
+        tinP.tlsNewF( LF , TUCK ) ,                                                                              //TLS:7     "poolC/guts/[postNameP].[this].[osTid]
         thirdC::c_itoaIF( tinP , tinP.pbF() , 0x10 , (countT)this ) ,                                       /*TLS:6*/
-        tinP.tlsNewF( 0x10 ) ,                                                                              //TLS:6     [this]
+        tinP.tlsNewF( LF , 0x10 ) ,                                                                              //TLS:6     [this]
         thirdC::c_itoaIF( tinP , tinP.pbF() , 0x10 , tinP.osTid ) ,                                         /*TLS:5*/
-        tinP.tlsNewF( 0x10 ) ,                                                                              //TLS:5     "[osTid]"
+        tinP.tlsNewF( LF , 0x10 ) ,                                                                              //TLS:5     "[osTid]"
     (
     tinP , idLineCtP , idiFileCtP , pbBitsCtP ,
 (
@@ -450,7 +450,7 @@ flagsInstance( flPOOLiNSTANCE_null ) ,
         (poolC*)0
         tinP.flagsThreadMode1 |= flTHREADmODE1_ALLOWsTOPwHILEgRABBING ,
         *(flagsT*)tinP.pbF() = tinP.flagsThreadMode1 ,                                                      /*TLS:4*/
-        tinP.tlsNewF( sizeof( flagsT ) ) ,                                                                  //TLS:4     [flagsThreadMode1]
+        tinP.tlsNewF( LF , sizeof( flagsT ) ) ,                                                                  //TLS:4     [flagsThreadMode1]
         ctFaceF( tinP , idLineCtP , idiFileCtP , pbBitsCtP , idStateSpaceP ) ,
     (
 (
@@ -486,9 +486,9 @@ pNext
             tinP ,
         (
         thirdC::c_strcatIF
-        tinP.tlsNewF( TUCK ) ,                                                                              //TLS:3     "poolC/face/[postNameP].[idStateSpaceP]"
+        tinP.tlsNewF( LF , TUCK ) ,                                                                              //TLS:3     "poolC/face/[postNameP].[idStateSpaceP]"
         thirdC::c_itoaIF( tinP , tinP.pbF() , 0x10 , idStateSpaceP ) ,                                      /*TLS:2*/
-        tinP.tlsNewF( 0x10 ) ,                                                                              //TLS:2     [idStateSpaceP]
+        tinP.tlsNewF( LF , 0x10 ) ,                                                                              //TLS:2     [idStateSpaceP]
     (
     tinP ,idLineCtP , idiFileCtP , pbBitsCtP ,
 (
@@ -505,7 +505,7 @@ napFace
             tinP ,
         (
         thirdC::c_strcatIF
-        tinP.tlsNewF( TUCK ) ,                                                                              //TLS:1     "poolC/batonCt/[postNameP]"
+        tinP.tlsNewF( LF , TUCK ) ,                                                                              //TLS:1     "poolC/batonCt/[postNameP]"
     (
     tinP , idLineCtP , idiFileCtP , pbBitsCtP ,
 (

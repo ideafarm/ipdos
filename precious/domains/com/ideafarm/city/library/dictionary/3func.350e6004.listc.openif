@@ -11,7 +11,7 @@
     return flagsRC ;
 
     }
-        tinP.tlsDelF( *(byteT**)&ppPreallocatedLists ) ;
+        tinP.tlsDelF( LF , *(byteT**)&ppPreallocatedLists ) ;
 
         THREADmODE2rESTORE
         while( *ppc ) { DEL( *( ppc ++ ) ) ; }
@@ -80,7 +80,7 @@
 
         __Z( ppPreallocatedLists ) ;
 
-        ppPreallocatedLists = (listC**)tinP.tlsNewF( ( ccName + 1 ) * sizeof( listC* ) ) ;
+        ppPreallocatedLists = (listC**)tinP.tlsNewF( LF , ( ccName + 1 ) * sizeof( listC* ) ) ;
         countT ccName = thirdC::c_strlenIF( tinP , pczNameP ) ;
     {
     else if( !( F(flagsP) & flLISToPEN_IFeXISTS ) )
