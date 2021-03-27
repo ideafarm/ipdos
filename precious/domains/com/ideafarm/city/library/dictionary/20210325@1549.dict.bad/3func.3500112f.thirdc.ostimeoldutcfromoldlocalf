@@ -1,0 +1,198 @@
+
+//
+// Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 29 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+
+}
+    if( dowLP ) ;
+
+    }
+        dowUP = dowUS ;
+        yUP = yUS ;
+        mUP = mUS ;
+        dUP = dUS ;
+        hhUP = hhUS ;
+        mmUP = mmUS ;
+        ssUP = ssUS ;
+        msUP = msUS ;
+    {
+    else
+    }
+        dowUP = dowUD ;
+        yUP = yUD ;
+        mUP = mUD ;
+        dUP = dUD ;
+        hhUP = hhUD ;
+        mmUP = mmUD ;
+        ssUP = ssUD ;
+        msUP = msUD ;
+    {
+    if( bDay )
+
+    }
+        }
+            if( timeErrDay2 < timeErrStd2 || ( timeErrDay2 == timeErrStd2 && timeErrDay1 < timeErrStd1 ) ) bDay = 1 ;
+
+            }
+                timeErrDay2 = timeZ2 ;
+                timeErrDay1 = timeZ1 ;
+                osTimeSubtractF( tinP , timeZ1 , timeZ2 , timeErrDay1 , timeErrDay2 ) ;
+                ZE( sCountT , timeZ2 ) ;
+                ZE( countT , timeZ1 ) ;
+            {
+            if( timeErrDay2 == - 1 ) //CONVERT TO ABSOLUTE VALUE
+
+            }
+                timeErrStd2 = timeZ2 ;
+                timeErrStd1 = timeZ1 ;
+                osTimeSubtractF( tinP , timeZ1 , timeZ2 , timeErrStd1 , timeErrStd2 ) ;
+                ZE( sCountT , timeZ2 ) ;
+                ZE( countT , timeZ1 ) ;
+            {
+            if( timeErrStd2 == - 1 ) //CONVERT TO ABSOLUTE VALUE
+        {
+        else
+        else if( !timeErrDay1 && !timeErrDay2 ) bDay = 1 ;
+             if( !timeErrStd1 && !timeErrStd2 ) ;
+
+//SAY( T("timeErrDay : ")+TT(timeErrDay1,timeErrDay2) )
+//SAY( T("timeErrStd : ")+TT(timeErrStd1,timeErrStd2) )
+        osTimeSubtractF( tinP , timeErrDay1 , timeErrDay2 , timeL1 , timeL2 ) ;
+        osTimeSubtractF( tinP , timeErrStd1 , timeErrStd2 , timeL1 , timeL2 ) ;
+        sCountT timeErrDay2 = timeLDV2 ;
+        countT  timeErrDay1 = timeLDV1 ;
+        sCountT timeErrStd2 = timeLSV2 ;
+        countT  timeErrStd1 = timeLSV1 ;
+    {
+    ZE( boolT , bDay ) ;
+    //COMPARE LSV AND LDV TO LP TO DECIDE WHETHER TO RETURN US OR UD
+
+    osTimeFromOldTimeIF( tinP , timeLDV1 , timeLDV2 , yLDV , mLDV , dLDV , hhLDV , mmLDV , ssLDV , msLDV , flOStIMEfROMoLDtIME_OLDtIMEiSutc ) ;
+    ZE( sCountT , timeLDV2 ) ;
+    ZE( countT  , timeLDV1 ) ; // LOCAL VALIDATION TIME IF LOCAL IS DAY
+
+    osTimeFromOldTimeIF( tinP , timeLSV1 , timeLSV2 , yLSV , mLSV , dLSV , hhLSV , mmLSV , ssLSV , msLSV , flOStIMEfROMoLDtIME_OLDtIMEiSutc ) ;
+    ZE( sCountT , timeLSV2 ) ;
+    ZE( countT  , timeLSV1 ) ; // LOCAL VALIDATION TIME IF LOCAL IS STD
+
+    osTimeOldUtcToOldLocalF( tinP , msLDV , ssLDV , mmLDV , hhLDV , dLDV , mLDV , yLDV , dowLDV , msUD , ssUD , mmUD , hhUD , dUD , mUD , yUD , dowUD , idZoneP ) ;
+    ZE( countT  , dowLDV ) ;
+    ZE( sCountT , yLDV   ) ;
+    ZE( countT  , mLDV   ) ;
+    ZE( countT  , dLDV   ) ;
+    ZE( countT  , hhLDV  ) ;
+    ZE( countT  , mmLDV  ) ;
+    ZE( countT  , ssLDV  ) ;
+    ZE( countT  , msLDV  ) ; // LOCAL VALIDATION TIME IF LOCAL IS DAY
+
+//SAY( T("std guess v: ")+TX(yLSV)+T(".")+TX(mLSV)+T(".")+TX(dLSV)+T(" @ ")+TX(hhLSV)+T(":")+TX(mmLSV) )
+    osTimeOldUtcToOldLocalF( tinP , msLSV , ssLSV , mmLSV , hhLSV , dLSV , mLSV , yLSV , dowLSV , msUS , ssUS , mmUS , hhUS , dUS , mUS , yUS , dowUS , idZoneP ) ;
+    ZE( countT  , dowLSV ) ;
+    ZE( sCountT , yLSV   ) ;
+    ZE( countT  , mLSV   ) ;
+    ZE( countT  , dLSV   ) ;
+    ZE( countT  , hhLSV  ) ;
+    ZE( countT  , mmLSV  ) ;
+    ZE( countT  , ssLSV  ) ;
+    ZE( countT  , msLSV  ) ; // LOCAL VALIDATION TIME IF LOCAL IS STD
+
+    osTimeToOldTimeF( tinP , msUD , ssUD , mmUD , hhUD , dUD , mUD , yUD , dowUD , timeUtcDay1 , timeUtcDay2 , flOStIMEfROMoLDtIME_OLDtIMEiSutc ) ;
+    ZE( countT  , dowUD ) ;
+    ZE( sCountT , yUD   ) ;
+    ZE( countT  , mUD   ) ;
+    ZE( countT  , dUD   ) ;
+    ZE( countT  , hhUD  ) ;
+    ZE( countT  , mmUD  ) ;
+    ZE( countT  , ssUD  ) ;
+    ZE( countT  , msUD  ) ; //UTC TIME IF LOCAL IS DAY (GUESS 2)
+
+//SAY( T("std guess u: ")+TX(yUS)+T(".")+TX(mUS)+T(".")+TX(dUS)+T(" @ ")+TX(hhUS)+T(":")+TX(mmUS) )
+    osTimeToOldTimeF( tinP , msUS , ssUS , mmUS , hhUS , dUS , mUS , yUS , dowUS , timeUtcStd1 , timeUtcStd2 , flOStIMEfROMoLDtIME_OLDtIMEiSutc ) ;
+    ZE( countT  , dowUS ) ;
+    ZE( sCountT , yUS   ) ;
+    ZE( countT  , mUS   ) ;
+    ZE( countT  , dUS   ) ;
+    ZE( countT  , hhUS  ) ;
+    ZE( countT  , mmUS  ) ;
+    ZE( countT  , ssUS  ) ;
+    ZE( countT  , msUS  ) ; //UTC TIME IF LOCAL IS STD (GUESS 1)
+
+    else          osTimeAddIF(      tinP , timeUtcDay1 , timeUtcDay2 , timeBiasDay1 , timeBiasDay2 ) ;
+    if( bNegDay ) osTimeSubtractF( tinP , timeUtcDay1 , timeUtcDay2 , timeBiasDay1 , timeBiasDay2 ) ;
+
+//SAY( T("timeUtcStd : ")+TT(timeUtcStd1,timeUtcStd2) )
+    else          osTimeAddIF(      tinP , timeUtcStd1 , timeUtcStd2 , timeBiasStd1 , timeBiasStd2 ) ;
+    if( bNegStd ) osTimeSubtractF( tinP , timeUtcStd1 , timeUtcStd2 , timeBiasStd1 , timeBiasStd2 ) ;
+
+    sCountT timeUtcDay2 = timeL2 ;
+    countT  timeUtcDay1 = timeL1 ;
+    sCountT timeUtcStd2 = timeL2 ;
+    countT  timeUtcStd1 = timeL1 ;
+
+//SAY( T("timeLocal  : ")+TT(timeL1,timeL2) )
+    osTimeFromOldTimeIF( tinP , timeL1 , timeL2 , yLP , mLP , dLP , hhLP , mmLP , ssLP , msLP , flOStIMEfROMoLDtIME_OLDtIMEiSutc ) ;
+//SAY( T("timeBiasStd: ")+TT(timeBiasStd1,timeBiasStd2) )
+    timeFromSecondsIF( tinP , timeBiasDay1 , timeBiasDay2 , ( bNegDay ? - biasDay : biasDay ) * 60 ) ;
+    timeFromSecondsIF( tinP , timeBiasStd1 , timeBiasStd2 , ( bNegStd ? - biasStd : biasStd ) * 60 ) ;
+    const boolT bNegDay = biasDay < 0 ;
+    const boolT bNegStd = biasStd < 0 ;
+    ZE( sCountT , timeL2 ) ;
+    ZE( countT  , timeL1 ) ;
+    ZE( sCountT , timeBiasDay2 ) ;
+    ZE( countT  , timeBiasDay1 ) ;
+    ZE( sCountT , timeBiasStd2 ) ;
+    ZE( countT  , timeBiasStd1 ) ;
+
+//SAY( T("biasStd: ")+TF4(biasStd,flFORMAT_UNSIGNED|flFORMAT_FOREIGN|flFORMAT_NObASE,0,0xa) )
+    sCountT biasDay = tzs.bias + tzs.biasDay ;
+    sCountT biasStd = tzs.bias + tzs.biasStd ;
+    const timeZoneSpecS& tzs = timeZoneSpecF( tinP , idZoneP ) ;
+
+    // TO DISCOVER WHICH APPLIES, I SEE WHICH CALCULATED RESULT MAPS BACK TO WHAT I STARTED WITH
+    // WO OF OO BIAS VALUES APPLIES
+    //RECIPE
+
+    _IO_
+
+    }
+        if( POOP ) return ;
+        __( idZoneP > cTimeZonesF( tinP ) ) ;
+        __Z( idZoneP ) ;
+        __( dowUP ) ;
+        __( yUP ) ;
+        __( mUP ) ;
+        __( dUP ) ;
+        __( hhUP ) ;
+        __( mmUP ) ;
+        __( ssUP ) ;
+        __( msUP ) ;
+        if( POOP ) return ;
+    {
+    IFbEcAREFUL
+    SCOOP
+{
+/*1*/voidT thirdC::osTimeOldUtcFromOldLocalF( tinS& tinP , countT& msUP , countT& ssUP , countT& mmUP , countT& hhUP , countT& dUP , countT& mUP , sCountT& yUP , countT& dowUP , const countT msLP , const countT ssLP , const countT mmLP , const countT hhLP , const countT dLP , const countT mLP , const sCountT yLP , const countT dowLP , const countT idZoneP )/*1*/
+
+#define TX(cP) TF4(cP,flFORMAT_FOREIGN|flFORMAT_NObASE,5,0xa)
+#define SAY(fooP) pEtherContainsMe->strokeF( tinP , (fooP)+T("\r\n") ) ;
+//U::
+
+//WIN32 DOES NOT INCLUDE AN API TO DO THIS, SO I ITERATE BACKWARDS
+
+/**/
+*/
+ tinP
+arguments
+/*
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 29 years.
+//
+// Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+

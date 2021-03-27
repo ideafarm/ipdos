@@ -1,0 +1,131 @@
+
+//
+// Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 29 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+
+}
+    }
+        //rCache.cBits = 0 ;
+        //poolC::pool OldDelIF( tinP , (voidT*)rCache.pmrb ) ; rCache.pmrb = 0 ;
+        //DON'T KNOW WHY WAS DOING THIS; COMMENTED OUT FOR SPEED
+
+        rCache.msBr = sf.mIdRow ;
+        rCache.msBc = sf.mIdCol ;
+        rCache.msAr = sf.mRows ;
+        rCache.msAc = sf.mCols ;
+        strokingFrameS& sf = *(strokingFrameS*)&stqr_strokingFrame[ 1 + rCache.offFrame ] ;
+
+        rCache.myQs = rCache.myQ * mLower ;
+        rCache.myms = rCache.mym * mLower ;
+        rCache.myqs = rCache.myq * mLower ;
+
+        rCache.myQ = rCache.mr2 - rCache.mrq ;
+        rCache.mym = rCache.mr1 + rCache.mrm ;
+        rCache.myq = rCache.mr1 + rCache.mrq ;
+        
+        rCache.mxQ = rCache.mc2 - rCache.mcq ;
+        rCache.mxm = rCache.mc1 + rCache.mcm ;
+        rCache.mxq = rCache.mc1 + rCache.mcq ;
+    
+        rCache.mIdRowVector = 0 ;
+        rCache.mIdColVector = rCache.mCol + rCache.mPadRight ;
+
+        }
+            //if( cTraceOn ) { LOGrAW( T("\r\nrow padding (needed,set): ")+TF1(mNeeded)+T(" ")+TF1(rCache.mPadUp)+T("\r\n") ) ; }
+            if( !rCache.bPadUp && rCache.mPadUp < mNeeded ) rCache.mPadUp = mNeeded ;
+            measureT mNeeded = ( 2.0 + 2.0 * rCache.mRowsMarginSadamFrame ) * sfd.cStrokingFramesPadUp ;
+        {
+        if( sfd.cStrokingFramesPadUp )
+        //if( cTraceOn ) { LOGrAW( T("\r\ncacheF: row padding: ")+TF1(rCache.mPadUp)+T("\r\n") ) ; }
+
+        }
+            //if( cTraceOn ) { LOGrAW( T("\r\ncolumn padding (needed,set): ")+TF1(mNeeded)+T(" ")+TF1(rCache.mPadRight)+T("\r\n") ) ; }
+            if( !rCache.bPadRight && rCache.mPadRight < mNeeded ) rCache.mPadRight = mNeeded ;
+            measureT mNeeded = ( 2.0 + 2.0 * rCache.mColsMarginSadamFrame ) * sfd.cStrokingFramesPadRight ;
+        {
+        if( sfd.cStrokingFramesPadRight )
+        //if( cTraceOn ) { LOGrAW( T("\r\ncacheF: col padding: ")+TF1(rCache.mPadRight)+T("\r\n") ) ; }
+
+        rCache.bPeeWhileMoving = !!sfd.bPeeWhileMoving ;
+
+        strokingFrameS& sfd = *(strokingFrameS*)&stqr_strokingFrame[ 2 + rCache.offFrame + rCache.offFrameWrap ] ;
+
+        //if( cTraceOn ) { LOGrAW( T("\r\ncacheF: mPadRight: ")+TF1(rCache.mPadRight)+T("\r\n") ) ; }
+        //if( cTraceOn ) { LOGrAW( T("\r\ncacheF: scale (col,row): ")+TF1(rCache.mColScale)+T(" ")+TF1(rCache.mRowScale)+T("\r\n") ) ; }
+        rCache.mPadUp    = rCache.mRowScale * ( rCache.bPadUp    ? *(measureT*)&stqr_m01PadUp[    1 ] : ( 1.0f / 8.0f ) ) ;
+        rCache.mPadRight = rCache.mColScale * ( rCache.bPadRight ? *(measureT*)&stqr_m01PadRight[ 1 ] : ( 1.0f / 8.0f ) ) ;
+
+        rCache.mRowsMarginSadamFrame = stqr_cRowsMarginSadamFrame[ 1 ] ;
+        rCache.mColsMarginSadamFrame = stqr_cColsMarginSadamFrame[ 1 ] ;
+
+        rCache.mr2s = rCache.mr2 * mLower ;
+        measureT mLower = 1.0f ;
+        //measureT mLower = 2.0f ; //INTERESTING
+        // measureT mLower = 7.0f / 8.0f ; //NICE
+        //U::strokeS CASTE TO PUSH AND POP mLower (defaults to 1.0f)
+        
+        rCache.mr2 = rCache.mr1 - 1 + rCache.mRow ;
+        rCache.mc2 = rCache.mc1 - 1 + rCache.mCol ;
+        rCache.mr1 = rCache.mRowFloat + 1.0 - rCache.mRowHotPoint ;
+        rCache.mc1 = rCache.mColFloat + 1.0 - rCache.mColHotPoint ;
+    
+        rCache.mrm   = (countT)( rCache.mRow * 0.50 ) ;
+        rCache.mrq   = (countT)( rCache.mRow * 0.25 ) ;
+        rCache.mcm   = (countT)( rCache.mCol / 2.0 ) ;
+        rCache.mcq   = (countT)( rCache.mCol / 4.0 ) ;
+    
+        rCache.mRowHotPoint = 1.0 + (countT)( rCache.bHotPoint ? ( rCache.mRow - 1.0 ) * *(measureT*)&stqr_m01RowHotPoint[ 1 ] : 0.0 ) ;
+        rCache.mColHotPoint = 1.0 + (countT)( rCache.bHotPoint ? ( rCache.mCol - 1.0 ) * *(measureT*)&stqr_m01ColHotPoint[ 1 ] : 0.0 ) ;
+
+        rCache.mRowFloat = rCache.bHotPoint ? 0.0 : rCache.mRowScale * ( rCache.bFloatUp    ? *(measureT*)&stqr_m01FloatUp[    1 ] : 0.0 ) ;
+        rCache.mColFloat = rCache.bHotPoint ? 0.0 : rCache.mColScale * ( rCache.bFloatRight ? *(measureT*)&stqr_m01FloatRight[ 1 ] : 0.0 ) ;
+    
+        rCache.bPadUp      = F(rCache.flagsRenderControl) & flRENDERcONTROL_PADuP ;
+        rCache.bPadRight   = F(rCache.flagsRenderControl) & flRENDERcONTROL_PADrIGHT ;
+        rCache.bHotAngle    = F(rCache.flagsRenderControl) & flRENDERcONTROL_ATaNGLE ;
+        rCache.bHotPoint    = F(rCache.flagsRenderControl) & flRENDERcONTROL_AT ;
+        rCache.bFloatUp    = F(rCache.flagsRenderControl) & flRENDERcONTROL_FLOATuP ;
+        rCache.bFloatRight = F(rCache.flagsRenderControl) & flRENDERcONTROL_FLOATrIGHT ;
+    
+        rCache.mRow = rCache.mRowScale ;
+        rCache.mCol = rCache.mColScale ;
+        rCache.mRowScale = F(rCache.flagsRenderControl) & flRENDERcONTROL_ROWsCALE ? *(measureT*)&stqr_mRowScale[ 1 ] : 8.0f ;
+        rCache.mColScale = F(rCache.flagsRenderControl) & flRENDERcONTROL_COLsCALE ? *(measureT*)&stqr_mColScale[ 1 ] : 8.0f ;
+        rCache.flagsRenderControl = stqr_fRenderControl[ 1 ] ;
+
+        //U:: CONJ: mColScale mRowScale ARE OBSOLETED BY STROKING FRAMES; THE DEFAULT IS PROVISIONALLY SET TO 8,8 TO GET PADDING TO 1
+
+        rCache.cRipples      = stqr_cRipples[      1 ] ;
+        rCache.offFrameWrap  = stqr_offFrameWrap[  1 ] ;
+        rCache.offFrame      = stqr_offFrame[      1 ] ;
+        rCache.idTypePaint   = stqr_idTypePaint[   1 ] ;
+        rCache.idObject      = stqr_idObject[      1 ] ;
+        rCache.cPolygonSides = stqr_cPolygonSides[ 1 ] ;
+
+    {
+    if( !idCasteP ) /*U::*/ ; /*U::*/
+
+    _IO_
+
+    }
+        //if( ether ) return ;
+    {
+    IFbEcAREFUL
+{
+/*1*/voidT winPulpOldC::cacheF( tinS& tinP , const countT idCasteP )/*1*/
+
+/**/
+*/
+/*
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 29 years.
+//
+// Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+

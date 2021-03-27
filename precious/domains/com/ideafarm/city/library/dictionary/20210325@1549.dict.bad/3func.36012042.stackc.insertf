@@ -1,0 +1,142 @@
+
+//
+// Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 29 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+
+}
+    _OUTbATONsTACKc_
+    if( cPlates < *p_idCursor || ( *p_idCursor && !*p_ppCursor ) ) { BLAMMO ; } //U::
+
+
+    }
+        }
+            }
+                if( pSgnEvent && F(flags) & flSTACKc_GIVEsIGNnEWpLATE ) pSgnEvent->giveF( tinP ) ;
+                newTabsIfF( tinP , ppNew , 0 ) ;
+
+                cPlates ++ ;
+                }
+                    }
+                        ppc->ppD = ppc->ppD->ppU = ppNew ;
+                        ppNew->ppD = ppc->ppD ;
+                        __( ppc != ppc->ppD->ppU ) ;
+                    {
+                    else
+                    }
+                        ppBottom = ppc->ppD = ppNew ;
+                        __( ppc != ppBottom ) ;
+                    {
+                    if( !ppc->ppD )
+                    ppNew->ppU = ppc ;
+                {
+                else
+                }
+                    }
+                        ppc->ppU = ppc->ppU->ppD = ppNew ;
+                        ppNew->ppU = ppc->ppU ;
+                        __( ppc != ppc->ppU->ppD ) ;
+                    {
+                    else
+                    }
+                        ppTop = ppc->ppU = ppNew ;
+                        __( ppc != ppTop ) ;
+                    {
+                    if( !ppc->ppU )
+                    ppNew->ppD = ppc ;
+                {
+                if( bAbove )
+
+                adjustRefsF( tinP , idP , bAbove ? ifcIDaCTIONsTACKaDJUSTrEFS_NEWaBOVE : ifcIDaCTIONsTACKaDJUSTrEFS_NEWbELOW , ppNew ) ;
+                newPlateF( tinP , ppNew , valueP ) ;
+                ZE( plateS* , ppNew ) ;
+
+                if( bOtherWayP ) bAbove = !bAbove ;
+                boolT bAbove = !( F(flags) & flSTACKc_FIFO ) ;
+            {
+            if( idP )
+            plateS* ppc = pPlateF( tinP , idP ) ;
+        {
+        else
+        if( !cPlates ) operator << ( valueP ) ;
+
+        if( !( F(flagsState) & flSTACKsTATE_SHIFTlEFTuSED ) ) flagsState |= flSTACKsTATE_SHIFTlEFTuSED ;
+    {
+    if( !POOP )
+
+
+    LATHrEF
+
+    if( cPlates < *p_idCursor || ( *p_idCursor && !*p_ppCursor ) ) { BLAMMO ; } //U::
+
+    CURSOR
+
+    _INbATONsTACKc_
+
+    }
+        if( third ) return ;
+        __( F(flags) & flSTACKc_XRAY ) ;
+        __( idTypeP - idType ) ;
+        __( !( F(flags) & flSTACKc_ALLOWzE ) && !valueP ) ;
+        if( third ) return ;
+    {
+    IFbEcAREFUL
+
+    SCOOP
+{
+/*1*/voidT stackC::insertF( tinS& tinP , const countT valueP , const countT idTypeP , countT idP , const boolT bOtherWayP )/*1*/
+
+/**/
+*/
+  idP == -2 , -3 , -4 , ... refer to items near the bottom of the stack
+  idP == -1 refers to the bottommost (earliest) item
+  idP == 2 , 3 , 4 , ... refer to items near the top of the stack
+  idP == 1 refers to the topmost (most recently added) item
+    if this occurs, my behavior is exactly like operator <<(...)
+   i can be called with idP == 0 before any plate has been referenced
+   if idP == 0 then the new item will be inserted immediately above the plate whose value was most recently referenced
+  1-based: idP == 0 has a special meaning
+   application: use idP == -1 to push a plate onto the bottom of a lifo stack
+   special case: idP == -1: this is permitted even if cPlates is 0
+    using the new value of cPlates
+   the new plate will become the plate at cPlates + 1 - idP
+  if idP < 0 then the new plate will be below the cursor plate
+   application: use idP == 1 to push a plate onto the top of a fifo stack
+   special case: idP == 1: this is permitted even if cPlates is 0
+   the new plate will become the plate at idP
+  if idP > 0 then the new plate will be above the cursor plate
+  specifies the position of the cursor plate at which the insertion is to occur
+ idP
+  this parameter is not used in the body of my definition
+  impotence will occur if idType is not the expected type
+  must equal the idTypeP that i was configured with when i was constructed
+ idTypeP
+    if ifcSTACKtYPE_BLOB and cbData is     0 then valueP must contain the address of readable bytes that begin with a length prefix of size sizeof( countT )
+    if ifcSTACKtYPE_BLOB and cbData is not 0 then valueP must contain the address of cbData readable bytes
+   examples
+  valueP must really be of the type that is declared for it with flagsP
+  must not be 0 unless i was configured with flSTACKc_ALLOWzE
+ valueP
+ tinP
+arguments
+  flSTACKc_FIFO = 0: the new item is inserted immediately above the referenced item
+  flSTACKc_FIFO = 1: the new item is inserted immediately below the referenced item
+ when the most recently referenced item gives the insertion point, behavior depends upon the flSTACKc_FIFO flag
+inserts a new item into a stack at position idP or adjacent to the item most recently referenced
+  \<A HREF=\"5.0c40104.1.1.0.html\"\>0c40104:  WAKEsHOW( "example.simplest.func.1150047.stackC.insertF" )\</A\>
+ simplest
+examples
+\<A HREF=\"5.1150047.1.0.html\"\>definition\</A\>
+\<A HREF=\"6.$insertF.0.html\"\>instances\</A\>
+/*
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 29 years.
+//
+// Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+

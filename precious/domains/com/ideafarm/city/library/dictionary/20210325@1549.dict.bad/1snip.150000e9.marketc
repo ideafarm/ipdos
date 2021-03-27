@@ -1,0 +1,71 @@
+
+//
+// Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 29 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+
+;
+}
+
+    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34009.marketC.mannaF!||
+    voidT mannaF( tinS& tinP , const measure04T mMannaP ) ;
+    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34008.marketC.buyF!||
+    voidT buyF( tinS& tinP , etherC& etherP , measure04T& mMoneyP , measure04T& mQuantityP , const flagsT flagsP = flMARKETbUY_null , const measure04T mPriceMinP = 0.0 , const measure04T mPriceMaxP = 0.0 ) ;
+    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34007.marketC.sellF!||
+    voidT sellF( tinS& tinP , etherC& etherP , measure04T& mMoneyP , measure04T& mQuantityP , const flagsT flagsP = flMARKETsELL_null , const measure04T mPriceMinP = 0.0 , const measure04T mPriceMaxP = 0.0 ) ;
+    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34006.marketC.priceF!||
+    measure04T priceF( tinS& tinP , etherC& etherP ) ;
+    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34003.marketC.marketC!||
+    marketC( tinS& tinP , napkinC& napBackP , const countT idGoodP ) ;
+    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34002.marketC.dt_marketC!||
+    ~marketC() ;
+    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34001.marketC.NEWdELcLASSb!||
+    NEWdELcLASSpROTOS
+
+    public :
+
+    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34005.marketC.equilibriumF!||
+    boolT equilibriumF( tinS& tinP , measure04T& epP , measure04T& eqP , const measure04T s1pP , const measure04T s1qP , const measure04T s2pP , const measure04T s2qP , const measure04T d1pP , const measure04T d1qP , const measure04T d2pP , const measure04T d2qP ) ;
+    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34004.marketC.adjustPriceF!||
+    voidT adjustPriceF( tinS& tinP , etherC& etherP ) ;
+
+    measure04T      pmDemand[ 2 ] ;
+    measure04T      pmSupply[ 2 ] ;
+    measure04T      pmPrice[ 2 ] ;
+    countT          pOffTockBucket[ 2 ] ;
+    boolT           offBucket ;
+
+    measure04T      mStock ;
+    countT          idPeriod ;
+
+    measure04T      mMoney ;
+    countT          idGood ;
+    grabC           grab ;
+    countT          cRef ;
+{
+/*1*/class marketC/*1*/
+
+// WHENEVER A RUN OF A TUCK OF MONOTONIC PRICE CHANGES OCCURS, ADJUSTMENT BECOMES GROSSER BY A TUCK FACTOR
+// WHENEVER CYCLING IS DETECTED, THE PRICE ADJUSTMENT BECOMES FINER BY A TUCK FACTOR
+// PRICE ADJUSTMENTS ARE OO POWER UNTIL CYCLING IS DETECTED
+// AFTER EACH BUY OR SELL, PRICE IS ADJUSTED IN RESPONSE TO TARGET VS ACTUAL STOCK
+// INITIAL PRICE IS ARBITRARILY SET TO 1.0, AND INITIAL STOCK ON HAND IS 0
+// marketC MAKES A MARKET AS A WELL FUNDED RETAILER WOULD MAKE IT
+
+/**/
+*/
+it is illegal to refer to marketC class or extances except within the definitions of adamC
+each marketC exstance is associated with an idGood value and is an interface to the market for that good in the current memory space
+adamC provides the interface between application code and marketC exstances
+/*
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 29 years.
+//
+// Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+

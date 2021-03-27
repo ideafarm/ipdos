@@ -1,0 +1,204 @@
+
+//
+// Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 29 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+
+}
+    return bDone ;
+
+    tinP.pAdamGlobal5->frPaper.grab.ungrabF( tinP ) ;
+    }
+        }
+            break ;
+
+            }
+                }
+                    }
+                        }
+                            }
+                                bDone = 1 ;
+                                freshHullF( tinP ) ;
+        
+                                (*(eyeStateOldS*)&state).vaHull_z = sqmr * state.vaHull_z ;
+                                (*(eyeStateOldS*)&state).vaHull_y = sqmr * state.vaHull_y ;
+                                (*(eyeStateOldS*)&state).vaHull_x = sqmr * state.vaHull_x ;
+            
+                                }
+                                    sqmr = sqmr2 * sqmr ;
+    
+                                    sqmr2( 3 , 3 ) = cosAimv ;
+                                    sqmr2( 3 , 2 ) = cosmAimv ;
+                                    sqmr2( 3 , 1 ) = 0.0 ;
+                                    sqmr2( 2 , 3 ) = cospAimv ;
+                                    sqmr2( 2 , 2 ) = cosAimv ;
+                                    sqmr2( 2 , 1 ) = 0.0 ;
+                                    sqmr2( 1 , 3 ) = 0.0 ;
+                                    sqmr2( 1 , 2 ) = 0.0 ;
+                                    sqmr2( 1 , 1 ) = 1.0 ;
+                                    sqMatrixOldC sqmr2( tinP , etherP ) ;
+            
+                                    measureT cospAimv = tinP.brcm04Raw ;
+                                    BOSmEASURE04( WHATgbo , cos( PI / 2 + raAimv ) )
+                                    measureT cosmAimv = tinP.brcm04Raw ;
+                                    BOSmEASURE04( WHATgbo , cos( PI / 2 - raAimv ) )
+                                    measureT cosAimv  = tinP.brcm04Raw ;
+                                    BOSmEASURE04( WHATgbo , cos( raAimv ) )
+            
+                                    */
+            
+                                                X       Y       Z
+            
+            
+                                        X'      1       0       0
+            
+                                        Y'      0       cos     cosp
+            
+                                        Z'      0       cosm    cos
+            
+            
+                                        ROTATION MATRIX FOR VERTICAL AIM, ROTATING ON INTERMEDIATE X AXIS
+            
+                                        cosp: cos( PI / 2 + raAimv )
+                                        cosm: cos( PI / 2 - raAimv )
+                                        cos : cos(          raAimv )
+            
+                                    /*
+            
+                                    sqmr( 3 , 3 ) = cosAimh ;
+                                    sqmr( 3 , 2 ) = 0.0 ;
+                                    sqmr( 3 , 1 ) = cosmAimh ;
+                                    sqmr( 2 , 3 ) = 0.0 ;
+                                    sqmr( 2 , 2 ) = 1.0 ;
+                                    sqmr( 2 , 1 ) = 0.0 ;
+                                    sqmr( 1 , 3 ) = cospAimh ;
+                                    sqmr( 1 , 2 ) = 0.0 ;
+                                    sqmr( 1 , 1 ) = cosAimh ;
+            
+                                    measureT cospAimh = tinP.brcm04Raw ;
+                                    BOSmEASURE04( WHATgbo , cos( PI / 2 + raAimh ) )
+                                    measureT cosmAimh = tinP.brcm04Raw ;
+                                    BOSmEASURE04( WHATgbo , cos( PI / 2 - raAimh ) )
+                                    measureT cosAimh = tinP.brcm04Raw ;
+                                    BOSmEASURE04( WHATgbo , cos( raAimh ) )
+            
+                                    */
+            
+                                                X       Y       Z
+            
+            
+                                        X'      cos     0      cosp
+            
+                                        Y'      0       1      0
+            
+                                        Z'      cosm    0      cos
+            
+            
+                                        ROTATION MATRIX FOR HORIZONTAL AIM, ROTATING ON Y AXIS
+            
+                                        cosp: cos( PI / 2 + raAimh )
+                                        cosm: cos( PI / 2 - raAimh )
+                                        cos : cos(          raAimh )
+            
+                                    /*
+            
+                                    //hintF( tinP , etherP , pcNotesP[ 2 ] , T("raAimh,raAimv: ")+TF1(raAimh)+T(" ")+TF1(raAimv) ) ;
+                                    const measureT raAimv = - ( mRatioRow - 0.5 ) * 1.0 * PI ;
+                                    const measureT raAimh = - ( mRatioCol - 0.5 ) * 2.0 * PI ;
+                                {
+                                else
+                                }
+                                    sqmr( 3 , 3 ) = 1.0 ;
+                                    sqmr( 3 , 2 ) = 0.0 ;
+                                    sqmr( 3 , 1 ) = 0.0 ;
+                                    sqmr( 2 , 3 ) = 0.0 ;
+                                    sqmr( 2 , 2 ) = cosTilt ;
+                                    sqmr( 2 , 1 ) = cosmTilt ;
+                                    sqmr( 1 , 3 ) = 0.0 ;
+                                    sqmr( 1 , 2 ) = cospTilt ;
+                                    sqmr( 1 , 1 ) = cosTilt ;
+            
+                                    measureT cospTilt = tinP.brcm04Raw ;
+                                    BOSmEASURE04( WHATgbo , cos( PI / 2 + raTilt ) )
+                                    measureT cosmTilt = tinP.brcm04Raw ;
+                                    BOSmEASURE04( WHATgbo , cos( PI / 2 - raTilt ) )
+                                    measureT cosTilt = tinP.brcm04Raw ;
+                                    BOSmEASURE04( WHATgbo , cos( raTilt ) )
+            
+                                    */
+            
+                                                X       Y       Z
+            
+            
+                                        X'      cos     cosp    0
+            
+                                        Y'      cosm    cos     0
+            
+                                        Z'      0       0       1
+            
+            
+                                        ROTATION MATRIX
+            
+                                        cosp: cos( PI / 2 + raTilt )
+                                        cosm: cos( PI / 2 - raTilt )
+                                        cos : cos(          raTilt )
+            
+                                    /*
+            
+                                    //hintF( tinP , etherP , pcNotesP[ 2 ] , T("raTilt: ")+TF1(raTilt) ) ;
+                                    const measureT raTilt = - tinP.brcm04Raw ;
+                                    BOSmEASURE04( WHATgbo , atan2( mRatioCol - 0.5 , mRatioRow - 0.5 ) )
+                                {
+                                if( idTool == ifcIDtYPEtOOL_MOUSEbUTTONrIGHT )
+                                sqMatrixOldC sqmr( tinP , etherP ) ;
+            
+                                const measureT mRatioRow = ( idRow - mIdRowMin ) / ( mRows - 1.0 ) ; // [0.0,1.0]
+                                const measureT mRatioCol = ( idCol - mIdColMin ) / ( mCols - 1.0 ) ; // [0.0,1.0]
+                            {
+                            if( mCols > 1.0 && mRows > 1.0 )
+        
+                            const measureT mRows     = R( sadamP.pStrike->sc.mRowsHotVolatileBodyRendered  ) - 2.0 * R( sadamP.pStrike->sc.mRowsMarginSadamFrameVolatileBodyRendered ) ;
+                            const measureT mIdRowMin = R( sadamP.pStrike->sc.mIdRowHotVolatileBodyRendered ) +       R( sadamP.pStrike->sc.mRowsMarginSadamFrameVolatileBodyRendered ) ;
+        
+                            const measureT mCols     = R( sadamP.pStrike->sc.mColsHotVolatileBodyRendered  ) - 2.0 * R( sadamP.pStrike->sc.mColsMarginSadamFrameVolatileBodyRendered ) ;
+                            const measureT mIdColMin = R( sadamP.pStrike->sc.mIdColHotVolatileBodyRendered ) +       R( sadamP.pStrike->sc.mColsMarginSadamFrameVolatileBodyRendered ) ;
+                        {
+                        case ifcIDtYPEtOOL_MOUSEbUTTONrIGHT : // TILT
+                        case ifcIDtYPEtOOL_MOUSEbUTTONlEFT  : // AIM
+                    {
+                    switch( idTool )
+                {
+                if( idAction == ifcIDtYPEaCTION_DOWN )
+
+                const countT& idRow    = pcNotesP[ 6 ] ;
+                const countT& idCol    = pcNotesP[ 5 ] ;
+                const countT& idAction = pcNotesP[ 4 ] ;
+                const countT& idTool   = pcNotesP[ 3 ] ;
+            {
+            if( pcNotesP && pcNotesP[ 0 ] == 1 && pcNotesP[ 1 ] >= 5 )
+        {
+        case ifcIDtYPEsTROKEcALLbACK_MOUSE :
+    {
+    switch( idTypeCallP )
+
+    ZE( boolT , bDone ) ;
+
+    tinP.pAdamGlobal5->frPaper.grab.grabF( tinP , TAG( TAGiDnULL ) ) ;
+{
+/*1*/boolT eyeOldC::obeyToolActionF( tinS& tinP , etherC& etherP , const countT idTypeCallP , const countT* const pcNotesP , sadamC& sadamP )/*1*/
+
+/**/
+
+*/
+/*
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 29 years.
+//
+// Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+

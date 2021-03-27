@@ -1,0 +1,93 @@
+
+//
+// Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 29 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+
+}
+    return pv ? *pv : *(countT*)pbnu ;
+
+    _OUTbATONsTACKc_
+
+    }
+        if( ~handleP ) pv = &downF( tinP , handleP ) ;       //      1            2          0           0
+                   upF(   tinP , handleP ) ;                //      2            1          1           0
+                   upF(   tinP , handleP ) ;                //      3            2          2           1
+    {
+    else                                                    //      2            3          1           2
+    }
+        }
+           pv   = &downF( tinP , handleP ) ;                //                              1           2
+                   upF(   tinP , handleP ) ;                //                              1           0
+                   upF(   tinP , handleP ) ;                //                              2           1
+        {
+        else                                                //                              2           0
+            handleP = 0 ;                                   //                              0           0
+        if( ~handleP )                                       //                              1           2
+    {
+    else if( cPlates == 2 )
+    if( cPlates < 2 ) { __( ~handleP ) ; }
+
+    /*THE MOST RECENT downF CALL*/                          //      idLathI       idLathI+1
+    /*THE PRIOR       downF CALL*/                          //      idLathI-1     idLathI
+
+                                                            //      RETRIEVED    AIMED AT   RETRIEVED   AIMED AT
+                                                            //      PLATE        HANDLE     PLATE       HANDLE
+                                                            //      ----2-OR-MORE-downF--   ----1-downF----------
+    ZE( countT* , pv ) ;
+
+    _INbATONsTACKc_
+
+    }
+        if( third ) return *(countT*)pbnu ;
+    {
+    IFbEcAREFUL
+    SCOOP
+{
+/*1*/countT& stackC::downUndoF( tinS& tinP , handleC& handleP )/*1*/
+
+// FOR cPlates > 2, THE CODE MUST DETECT WHEN ONLY 1 downF CALL HAS BEEN MADE
+// MY DEFINITION EXPLICITLY CODES FOR ALL POSSIBLE CASES WHEN cPlates <= 2
+//
+//  idHandle IS THE ID OF THE PLATE THAT handleP NOW POINTS TO
+//  idGot IS THE ID OF THE PLATE WHOSE VALUE WAS JUST RETRIEVED
+//  THE CODE COMMENTS DEPICT A PAIR OF id'S: idGot,idHandle
+//  FOR EXAMPLE, WHEN idLathI IS 0, handleP IS 0, WHICH WOULD TELL downF TO RETRIEVE THE TOP PLATE (POSITION 1)
+//  AT ANY TIME DURING A PURE DOWN TRAVERSAL, handleP POINTS TO PLATE idLathI+1, THE NEXT PLATE TO RETRIEVE
+//  (NOTE THAT idLathI EQUALS THE NUMBER OF TIMES THAT downF HAS BEEN CALLED)
+//  LET PLATE idLathI DENOTE THE MOST RECENT PLATE RETRIEVED
+//  CONSIDER A SIMPLE DOWNWARD TRAVERSAL OF A stackC OBJECT
+//
+// CODE EXPLANATION
+
+/**/
+*/
+ warning: code that fails to do this for ifcSTACKtYPE_nicNameC will work for IPv4 but will fail for IPv6 long values
+ for example, if idType == ifcSTACKtYPE_nicNameC, my value stFoo[ 2 ] must be cast to *(nicNameC*)&stFoo[ 2 ]
+the application must cast my value to a reference to the appropriate class when the data on each plate is not of size sizeof( countT )
+ this illegal call might not cause impotence and might not be detected
+my behavior when not called immediately after a downF call has not been analyzed
+  test whether i return 0 to see whether i have referred to a plate
+ code that depends upon me referring to a plate can handle this case
+ this is wad, but is inconvenient for code that would like me to be a "true undoer"
+ in this case i do not reference any plate, so the reference is not unwound
+ but if handleP is pointing to the top plate, there was no prior to last downF call, so i return 0
+ normally, this function will evaluate to the plate that the prior to last downF call returned, so the reference will be unwound
+ this function operates in the normal way with respect to maintaining the pointer to the most recently referenced plate
+i completely, with 1 exception, negate all effects on the stackC object of the most recent downF(...) call
+i assume that i have been called immediately after a downF call
+call me 3 times to negate the 3 most recent calls to downF
+\<A HREF=\"5.1150048.1.0.html\"\>definition\</A\>
+\<A HREF=\"6.$downUndoF.0.html\"\>instances\</A\>
+/*
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 29 years.
+//
+// Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+

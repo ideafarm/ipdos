@@ -5469,7 +5469,8 @@ examples
 /**/
 /*1*//*TaRG1tINYsTACK(tmFP)*//*1*/
 
-#define TaRG1tINYsTACK(tmFP) tinP , countTC() , tmFP , 0 , flTHREADlAUNCH_null , 0x4000
+//#define TaRG1tINYsTACK(tmFP) tinP , countTC() , tmFP , 0 , flTHREADlAUNCH_null , 0x4000
+#define TaRG1tINYsTACK(tmFP) tinP , countTC() , tmFP , 0 , flTHREADlAUNCH_null , CBtLSdEFAULT
 
 
 //
@@ -28023,7 +28024,6 @@ it is illegal to modify any member other than pc Utility in the definition of an
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.tallyC : 1snip.15000091.tallyc END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.tlsStackFrameS : 1snip.15000062.tlsstackframes BEGIN
 
-
 //
 // Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
@@ -28043,10 +28043,10 @@ it is illegal to modify any member other than pc Utility in the definition of an
 
 /*1*/struct _export tlsStackFrameS/*1*/
 {
- byteT        pbTls[ CBtLSdEFAULT ] ; //MUST BE WOTH TO AVOID AFFECTING OFFSETS OF OTHER MEMBERS FROM ebp; FUTURE: DEFINE FLAVORS OF ME OFFERING A CHOICE OF SIZES FROM 2,4,8,01,02,...,00001
- const countT fingerTlsEnd ;
+ //byteT        pbTls[ CBtLSdEFAULT ] ; //MUST BE WOTH TO AVOID AFFECTING OFFSETS OF OTHER MEMBERS FROM ebp; FUTURE: DEFINE FLAVORS OF ME OFFERING A CHOICE OF SIZES FROM 2,4,8,01,02,...,00001
+ //const countT fingerTlsEnd ;
  tallyC       tallyKid ;
- zapC         zap_pbTls ;
+ //zapC         zap_pbTls ;
  zapC         zap_fingerVerify ;
  const countT fingerVerify ;
  const countT finger ;
@@ -45352,3 +45352,31 @@ i am nonconformant in that all of my member function definitions are in a single
 //
 
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.nodeListS : 1snip.1500018f.nodeListS END
+//
+// Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 29 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+/*
+*/
+/**/
+
+
+/*1*/struct _export tlsHeaderS/*1*/
+{
+    countT  offTopEntry ;
+    countT  cNew        ;
+    countT  cDel        ;
+}
+;
+
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 29 years.
+//
+// Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+

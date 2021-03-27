@@ -1,0 +1,52 @@
+
+//
+// Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 29 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+
+#endif
+
+    ;
+        parm [ecx] [eax] [ebx]                                                          \
+                                                                                        \
+        "           movss       dword ptr [ecx] , xmm0                  " /*         */ \
+        "           haddps      xmm0 , xmm0                             " /*         */ \
+        "           haddps      xmm0 , xmm0                             " /*         */ \
+        "           mulps       xmm0 , xmm1                             " /*         */ \
+        "                                                               " /*         */ \
+        "           shufps      xmm1 , xmm1 , 027h                      " /*         */ \
+        "           movss       xmm1 , xmm2                             " /*         */ \
+        "           shufps      xmm1 , xmm1 , 027h                      " /*         */ \
+        "                                                               " /*         */ \
+        "           shufps      xmm0 , xmm0 , 027h                      " /*         */ \
+        "           movss       xmm0 , xmm2                             " /*         */ \
+        "           shufps      xmm0 , xmm0 , 027h                      " /*         */ \
+        "                                                               " /*         */ \
+        "           xorps       xmm2 , xmm2                             " /*         */ \
+        "           movaps      xmm1 , dword ptr [ebx]                  " /*         */ \
+        "           movaps      xmm0 , dword ptr [eax]                  " /*         */ \
+                                                                                        \
+    #pragma aux vec3sse_mulAM =                                                         \
+    
+    /*1*/voidT __export vec3sse_mulAM( measureT& mCP , const measureT* pmAP , const measureT* pmBP ) ;/*1*/
+
+#if defined( NEVERdEFINED )
+
+/**/
+*/
+rewriting me for avx might make me faster than vec3_mulAM
+i am commented out because i am slower, and larger, than vec3_mulAM
+i do the same thing but use sse
+see vec3_mulAM
+/*
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 29 years.
+//
+// Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+

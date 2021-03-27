@@ -1,0 +1,81 @@
+
+//
+// Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 29 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+
+}
+    else      return *(countT*)pbnu ;
+    if( ppc ) return PLATE_countT_REF( ppc ) ;
+
+    _OUTbATONsTACKc_
+    if( ppc ) adjustRefsF( tinP , idP , ifcIDaCTIONsTACKaDJUSTrEFS_REFERENCE , ppc ) ;
+    plateS* ppc = pPlateF( tinP , idP ) ;
+
+    //}
+    //    if( third ) return *(countT*)pbnu ;
+    //    __( scSteps > (countT)*this ) ;
+    //    if( third ) return *(countT*)pbnu ;
+    //    __( !scSteps && !*p_ppLathRef ) ;
+    //    if( third ) return *(countT*)pbnu ;
+    //{
+    //IFbEcAREFUL
+    //SOME OF THESE CHECKS MUST BE DONE WHILE *this IS GRABBED
+    //U::CONJ: THIS SHOULD BE ENABLED; AT A MINIMUM, DETECT idP > cPlates
+
+    LATHrEF
+    _INbATONsTACKc_
+
+    SCOOP
+    TINSL
+{
+/*1*/countT& stackC::operator [] ( countT idP )/*1*/
+
+/**/
+*/
+ idP
+arguments
+after calling this function, stackC::extractF( tinP ) can be used to remove the item that it references
+  in this example, the second thread would retrieve slot 35 very quickly
+  then another thread might specify idP == 35
+  for example, one thread might specify idP == 34
+ in cases of multithreaded access to the stackC object, a single cursor is shared by all threads
+  it is more efficient to load plates before tab maintainance has begun
+  calling me with idP > 0 will cause tab maintainance to begin if it has not already begun
+ for efficiency, applications should load the stackC before calling me with an idP > 0
+ if idP is > 0 and is not very close to the current cursor then the tab array will be used
+  this is, for all practical purposes, just as fast as incrementing idP
+ near maximum speed is achieved when idP is 1 smaller than the last value of idP specified to operator []
+  actually, it is even faster in the uninteresting case where idP equals the last value specified to operator []
+  in other words, this function is speediest when idP is incremented upward from 1
+ maximum speed is achieved when idP is 1 greater than the last value of idP specified to operator []
+ when idP > 0, this function will use an internal cursor to retrieve the specified value very quickly
+this function operates in "turbo mode" (very speedy) if idP > 0
+ warning: code that fails to do this for ifcSTACKtYPE_nicNameC will work for IPv4 but will fail for IPv6 long values
+ for example, if idType == ifcSTACKtYPE_nicNameC, my value stFoo[ 2 ] must be cast to *(nicNameC*)&stFoo[ 2 ]
+the application must cast my value to a reference to the appropriate class when the data on each plate is not of size sizeof( countT )
+ idP == -2 , -3 , -4 , ... refer to items near the bottom of the stack
+ idP == -1 refers to the bottommost (earliest) item
+ idP == 1 refers to the topmost (most recently added) item
+  apprentice craftsmen: suggestion: avoid using 0
+  impotence will occur if 0 is specified and no plate has been referenced
+ 1-based: idP == 0 is a special value that means "most recently referenced"
+ the range of legal values, in absolute value, is from 1 to the number of items on the stack
+ idP == 2 , 3 , 4 , ... refer to items near the top of the stack
+idP == i evaluates to the i'th element on the stack
+  \<A HREF=\"5.ad10104.1.1.0.html\"\>ad10104:  WAKEsHOW( "example.simplest.func.115000b.stackC.operator_element" )\</A\>
+ simplest
+examples
+\<A HREF=\"5.115000b.1.0.html\"\>definition\</A\>
+/*
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 29 years.
+//
+// Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+

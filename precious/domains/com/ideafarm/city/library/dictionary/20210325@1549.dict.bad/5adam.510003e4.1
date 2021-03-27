@@ -1,0 +1,990 @@
+
+//
+// Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 29 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+
+REST
+etThread.osProcessIdPhaseAdamF( tinP , ifcIDpHASEhANDOFFoLD_SHUTTINGdOWN ) ;
+
+}
+    }
+        etThread.osSleepF( tinP , TOCK * 0x20 , TOCK , flSLEEP_TALK ) ;
+        etThread.strokeF( tinP , T("\r" BLANK79 "\r") ) ;
+
+        baton.ungrabF( tinP ) ;
+
+        }
+            break ;
+            __( etThread ) ;
+            ((thirdC&)etThread).logF( tinP , T("6e30104: the cycle ended with impotence")) ;
+            //etThread = 0 ;
+        {
+        if( etThread )
+        time2last = time2 ;
+        time1last = time1 ;
+
+        }
+            etThread.delF( tinP , psttOff ) ;
+            rptGroupF( tinP , etThread , T("duck.")+T(psttOff) , T("duck") ) ;
+            etThread.strFromF( tinP , psttOff , offDUCK( time2last ) ) ;
+            ZE( strokeS* , psttOff ) ;
+        {
+        if( bNewDuck   )
+        if( bNewQtr    ) { rptGroupF( tinP , etThread , T("duck"   ) , T("quarter") ) ; rptGroupF( tinP , etThread , 0 , T("duck"   ) ) ; }
+        if( bNewStrong ) { rptGroupF( tinP , etThread , T("quarter") , T("strong" ) ) ; rptGroupF( tinP , etThread , 0 , T("quarter") ) ; }
+        if( bNewDay    ) { rptGroupF( tinP , etThread , T("strong" ) , T("day"    ) ) ; rptGroupF( tinP , etThread , 0 , T("strong" ) ) ; }
+        if( bNewHour   ) { rptGroupF( tinP , etThread , T("day"    ) , T("hour"   ) ) ; rptGroupF( tinP , etThread , 0 , T("day"    ) ) ; }
+        if( bNewTick   ) { rptGroupF( tinP , etThread , T("hour"   ) , T("new"    ) ) ; rptGroupF( tinP , etThread , 0 , T("hour"   ) ) ; }
+
+        // ELSE IF PERIOD == HOUR THEN WRITE AN UPDATED PERIOD REPORT
+        // IF NEW PERIOD THEN WRITE THE PERIOD REPORT AND CLEAR IT TO THE CONTAINING PERIOD
+
+        const boolT bNewDayEnd    = bNewHour && offHOUR( time1 ) == 0x5 ;
+        const boolT bNewStrongEnd = bNewDay && ( offDAY( time2 ) == 0x6 || offDAY( time2 ) == 0xe ) ;
+
+        const boolT bNewTick      = bNewHour   || offTICK(   time1 ) != offTICK(   time1last ) ;
+        const boolT bNewHour      = bNewDay    || offHOUR(   time1 ) != offHOUR(   time1last ) ;
+        const boolT bNewDay       = bNewStrong || offDAY(    time2 ) != offDAY(    time2last ) ;
+        const boolT bNewStrong    = bNewQtr    || offSTRONG( time2 ) != offSTRONG( time2last ) ;
+        const boolT bNewQtr       = bNewDuck   || offQTR(    time2 ) != offQTR(    time2last ) ;
+        const boolT bNewDuck      =               offDUCK(   time2 ) != offDUCK(   time2last ) ;
+
+        etThread.osTimeNowF( tinP , time1 , time2 ) ;
+        ZE( sCountT , time2 ) ;
+        ZE( countT , time1 ) ;
+        idCycle ++ ;
+
+        baton.grabF( tinP , TAG( TAGiDnULL ) ) ;
+        batonC baton( tinP , TAG( TAGiDnULL ) , T("ifc.hog") ) ;
+    {
+    while( !etThread )
+    ZE( countT , idCycle ) ;
+
+    etThread.osTimeNowF( tinP , time1last , time2last ) ;
+    ZE( sCountT , time2last ) ;
+    ZE( countT , time1last ) ;
+    ZE( strokeS* , psttw ) ;
+
+    etThread.strokeF( tinP , T("IdeaFarm " "(tm) City Secretary\r\ni periodically write the city reports\r\n") ) ;
+{
+else
+}
+    etThread.strokeF( tinP , T("Another ")+textIdFileC( tinP , DDNAME )+T(" appears to be alive on this computer.  Only one is allowed.") ) ;
+    etThread = 0  ;
+{
+if( etThread )
+U:: USE napkinC OBJECT TO TEST FOR ALONENESS
+batonC baton( tinP , TAG( TAGiDnULL ) , T("6e30104") ) ;
+
+TODO
+
+}
+    }
+        rptLifeF( tinP , etThread , stLife ) ;
+
+        writeAllSpeedPagesF( tinP , etThread , sws_pcRaceClient , psttInP , idComputer , cSourceFiles ) ;
+
+        else           accumulateInfoF( tinP , etThread , sws_pcRaceClient , idComputer , cSourceFiles , stLife , 0                                                           , T("///ideafarm/ephemeral/domains/com/ideafarm/city/data/")+T(psttInP) ) ;
+        if( psttOutP ) accumulateInfoF( tinP , etThread , sws_pcRaceClient , idComputer , cSourceFiles , stLife , T("///ideafarm/ephemeral/domains/com/ideafarm/city/data/")+T(psttOutP) , T("///ideafarm/ephemeral/domains/com/ideafarm/city/data/")+T(psttInP) ) ;
+
+        switchStackC sws_pcRaceClient( tinP , etThread , TAG( TAGiDnULL ) , flSTACKc_null , idComputer , flSTACKc_FIFO ) ;
+        ZE( countT , idComputer ) ;
+        stackC stLife( tinP , etThread , TAG( TAGiDnULL ) , flSTACKc_FIFO , ifcSTACKtYPE_PTR_strokeS ) ;
+        ZE( countT , cSourceFiles ) ;
+    {
+{
+voidT rptGroupF( tinS& tinP , etherC& etThread , const strokeS* const psttOutP , const strokeS* const psttInP )
+
+}
+    }
+        }
+            DEL( pli ) ;
+
+            etThread.delF( tinP , postReport ) ;
+            etThread.boxPutF( tinP , T("///ideafarm/ephemeral/domains/com/ideafarm/gen/html/report.lifeTime.")+TF1(pli->idAdam)+T(".html") , postReport ) ;
+            etThread.delF( tinP , psttrLife ) ;
+            etThread.strMakeF( tinP , LF , postReport , psttrLife ) ; ___( postReport ) ;
+            ZE( osTextT* , postReport ) ;
+
+            etThread.delF( tinP , psttOldColumns ) ;
+            etThread.delF( tinP , psttTime ) ;
+
+            etThread.strFuseF( tinP , psttrLife , psttTime ) ; ___( psttrLife ) ;
+            etThread.strReverseF( tinP , psttrLife , 0 , T("\r\n") ) ;
+            etThread.strFuseF( tinP , psttrLife , tTitle ) ; ___( psttrLife ) ;
+            etThread.strFuseF( tinP , psttrLife , psttOldColumns ) ; ___( psttrLife ) ;
+
+            etThread.strFuseF( tinP , psttrLife , TP("carefree watchful watchTime watchEmployers",0x2a)+T("  ")+TT(pli->time1E,pli->time2E)+T("  watchEmployers"": accumulate the net time spent in the body of each function definition\r\n"  ) ) ; ___( psttrLife ) ;
+            etThread.strFuseF( tinP , psttrLife , TP("carefree watchful watchTime"               ,0x2a)+T("  ")+TT(pli->time1D,pli->time2D)+T("  watchTime:      accumulate the gross time spent in the body of each function definition\r\n") ) ; ___( psttrLife ) ;
+            etThread.strFuseF( tinP , psttrLife , TP("carefree watchful"                         ,0x2a)+T("  ")+TT(pli->time1C,pli->time2C)+T("  watchful:       check the individual watch flags\r\n"                                       ) ) ; ___( psttrLife ) ;
+            etThread.strFuseF( tinP , psttrLife , TP("carefree"                                  ,0x2a)+T("  ")+TT(pli->time1B,pli->time2B)+T("  carefree:       parameter validation is supressed\r\n"                                      ) ) ; ___( psttrLife ) ;
+            etThread.strFuseF( tinP , psttrLife , TP("careful"                                   ,0x2a)+T("  ")+TT(pli->time1A,pli->time2A)+T("  careful:        the prolog of each function validates parameters\r\n"                       ) ) ; ___( psttrLife ) ;
+
+            etThread.strFuseF( tinP , psttrLife , psttOldColumns , 0 , 0 , strokeS() , 0 , 0 ,/*U::SOUL?*/ 0x7f4 ) ; ___( psttrLife ) ;
+
+            timeBlurbF( tinP , etThread , psttTime ) ;
+            ZE( strokeS* , psttTime ) ;
+            lifeColumnTitlesF( tinP , etThread , psttOldColumns ) ;
+            ZE( strokeS* , psttOldColumns ) ;
+            textC tTitle = T("<!DOCTYPE HTML PUBLIC \"-//IETF//DTD HTML 2.0//EN\"><HEAD><TITLE>IdeaFarm " "(tm) City - Adam ")+TF1(pli->idAdam)+T(" Lifetime</TITLE></HEAD><BODY><PRE>\r\n") ;
+            TN( tCRLF , "\r\n" ) ;
+
+            ZE( strokeS* , psttrLife ) ;
+        {
+        if( pli )
+        lifeTimeS* pli = (lifeTimeS*)cPli ;
+        stLifeP >> cPli ;
+        ZE( countT , cPli ) ;
+    {
+    while( stLifeP )
+
+    if( etThread ) return ;
+{
+voidT rptLifeF( tinS& tinP , etherC& etThread , stackC& stLifeP )
+
+}
+    etThread.delF( tinP , psttInShort ) ;
+    etThread.strokeF( tinP , T("\r" BLANK79 "\r")+T(psttInShort)+T(" (accumulateInfoF: done)") ) ;
+
+    etThread.delF( tinP , postr ) ;
+    etThread.boxPutF( tinP , T("///ideafarm/ephemeral/domains/com/ideafarm/gen/html/report.rawData.")+T(psttInShort)+T(".html") , postr ) ;
+    etThread.delF( tinP , psttr ) ;
+    etThread.strMakeF( tinP , LF , postr , psttr ) ; ___( postr ) ;
+    ZE( osTextT* , postr ) ;
+
+    etThread.delF( tinP , psttOldColumns ) ;
+    etThread.delF( tinP , psttTime ) ;
+
+    etThread.strFuseF( tinP , psttr , psttTime ) ; ___( psttr ) ;
+    etThread.strReverseF( tinP , psttr , 0 , T("\r\n") ) ; ___( psttr ) ;
+    etThread.strFuseF( tinP , psttr , tTitle ) ; ___( psttr ) ;
+    etThread.strFuseF( tinP , psttr , psttOldColumns ) ; ___( psttr ) ;
+    etThread.strokeF( tinP , T("\r" BLANK79 "\r")+T(psttInShort)+T(" (accumulateInfoF: write totals page)") ) ;
+
+    }
+        }
+            }
+                etThread.delF( tinP , psttFlags ) ;
+
+                etThread.delF( tinP , pc3i ) ;
+                etThread.strFuseF( tinP , psttr , TF3(pc3i->c2,flFORMAT_UNSIGNED,8)+T(" ")+TF3(pc3i->c1,flFORMAT_UNSIGNED|flFORMAT_FILLzE,8)+T(" ")+T(psttFlags)+tCRLF ) ; ___( psttr ) ;
+
+                if( F(pc3i->c2) & flDATUM2_OS2                    ) { etThread.strFuseF( tinP , psttFlags , T("flDATUM2_OS2 "                    ) ) ; ___( psttFlags ) ; }
+                if( F(pc3i->c2) & flDATUM2_WINDOWS95              ) { etThread.strFuseF( tinP , psttFlags , T("flDATUM2_WINDOWS95 "              ) ) ; ___( psttFlags ) ; }
+                if( F(pc3i->c2) & flDATUM2_WINDOWS98              ) { etThread.strFuseF( tinP , psttFlags , T("flDATUM2_WINDOWS98 "              ) ) ; ___( psttFlags ) ; }
+                if( F(pc3i->c2) & flDATUM2_WINDOWSnT              ) { etThread.strFuseF( tinP , psttFlags , T("flDATUM2_WINDOWSnT "              ) ) ; ___( psttFlags ) ; }
+                if( F(pc3i->c2) & flDATUM2_LINUX                  ) { etThread.strFuseF( tinP , psttFlags , T("flDATUM2_LINUX "                  ) ) ; ___( psttFlags ) ; }
+                if( F(pc3i->c1) & flDATUM1_ADAMlIFEtIME            ) { etThread.strFuseF( tinP , psttFlags , T("flDATUM1_ADAMlIFEtIME "           ) ) ; ___( psttFlags ) ; }
+                if( F(pc3i->c2) & flDATUM2_strokeS                ) { etThread.strFuseF( tinP , psttFlags , T("flDATUM2_strokeS "                 ) ) ; ___( psttFlags ) ; }
+                if( F(pc3i->c2) & flDATUM2_ScOUNT                 ) { etThread.strFuseF( tinP , psttFlags , T("flDATUM2_ScOUNT "                 ) ) ; ___( psttFlags ) ; }
+                if( F(pc3i->c2) & flDATUM2_osTextT                ) { etThread.strFuseF( tinP , psttFlags , T("flDATUM2_osTextT "                 ) ) ; ___( psttFlags ) ; }
+                if( F(pc3i->c2) & flDATUM2_NULLtERMINATED         ) { etThread.strFuseF( tinP , psttFlags , T("flDATUM2_NULLtERMINATED "         ) ) ; ___( psttFlags ) ; }
+                if( F(pc3i->c2) & flDATUM2_countT                 ) { etThread.strFuseF( tinP , psttFlags , T("flDATUM2_countT "                  ) ) ; ___( psttFlags ) ; }
+                if( F(pc3i->c1) & flDATUM1_CLASStIMECARD           ) { etThread.strFuseF( tinP , psttFlags , T("flDATUM1_CLASStIMECARD "          ) ) ; ___( psttFlags ) ; }
+                if( F(pc3i->c1) & flDATUM1_CLASStIMER              ) { etThread.strFuseF( tinP , psttFlags , T("flDATUM1_CLASStIMER "             ) ) ; ___( psttFlags ) ; }
+                if( F(pc3i->c1) & flDATUM1_CLASSwORK               ) { etThread.strFuseF( tinP , psttFlags , T("flDATUM1_CLASSwORK "              ) ) ; ___( psttFlags ) ; }
+                if( F(pc3i->c1) & flDATUM1_CLASStRACElEVEL2        ) { etThread.strFuseF( tinP , psttFlags , T("flDATUM1_CLASStRACElEVEL2 "       ) ) ; ___( psttFlags ) ; }
+                if( F(pc3i->c1) & flDATUM1_CLASStRACElEVEL1        ) { etThread.strFuseF( tinP , psttFlags , T("flDATUM1_CLASStRACElEVEL1 "       ) ) ; ___( psttFlags ) ; }
+                if( F(pc3i->c1) & flDATUM1_CLASStRACEaLWAYSfIREdLL ) { etThread.strFuseF( tinP , psttFlags , T("flDATUM1_CLASStRACEaLWAYSfIREdLL ") ) ; ___( psttFlags ) ; }
+                if( F(pc3i->c1) & flDATUM1_CLASStRACEaLWAYShIREdLL ) { etThread.strFuseF( tinP , psttFlags , T("flDATUM1_CLASStRACEaLWAYShIREdLL ") ) ; ___( psttFlags ) ; }
+                if( F(pc3i->c1) & flDATUM1_CLASStRACEaLWAYSfIRE    ) { etThread.strFuseF( tinP , psttFlags , T("flDATUM1_CLASStRACEaLWAYSfIRE "   ) ) ; ___( psttFlags ) ; }
+                if( F(pc3i->c1) & flDATUM1_CLASStRACEaLWAYShIRE    ) { etThread.strFuseF( tinP , psttFlags , T("flDATUM1_CLASStRACEaLWAYShIRE "   ) ) ; ___( psttFlags ) ; }
+                if( F(pc3i->c1) & flDATUM1_CLASStACHOMETER         ) { etThread.strFuseF( tinP , psttFlags , T("flDATUM1_CLASStACHOMETER "        ) ) ; ___( psttFlags ) ; }
+                if( F(pc3i->c1) & flDATUM1_CLASSqUESTION           ) { etThread.strFuseF( tinP , psttFlags , T("flDATUM1_CLASSqUESTION "          ) ) ; ___( psttFlags ) ; }
+                if( F(pc3i->c1) & flDATUM1_CLASSqUERY              ) { etThread.strFuseF( tinP , psttFlags , T("flDATUM1_CLASSqUERY "             ) ) ; ___( psttFlags ) ; }
+                if( F(pc3i->c1) & flDATUM1_CLASSjOURNAL            ) { etThread.strFuseF( tinP , psttFlags , T("flDATUM1_CLASSjOURNAL "           ) ) ; ___( psttFlags ) ; }
+                if( F(pc3i->c1) & flDATUM1_CLASSeXCEPTIONjOURNAL   ) { etThread.strFuseF( tinP , psttFlags , T("flDATUM1_CLASSeXCEPTIONjOURNAL "  ) ) ; ___( psttFlags ) ; }
+                if( F(pc3i->c1) & flDATUM1_CLASSeXCEPTIONiMPOTENCE ) { etThread.strFuseF( tinP , psttFlags , T("flDATUM1_CLASSeXCEPTIONiMPOTENCE ") ) ; ___( psttFlags ) ; }
+                if( F(pc3i->c1) & flDATUM1_CLASScOMMENToRCHID      ) { etThread.strFuseF( tinP , psttFlags , T("flDATUM1_CLASScOMMENToRCHID "     ) ) ; ___( psttFlags ) ; }
+                if( F(pc3i->c1) & flDATUM1_CLASScOMMENToNION       ) { etThread.strFuseF( tinP , psttFlags , T("flDATUM1_CLASScOMMENToNION "      ) ) ; ___( psttFlags ) ; }
+
+                etThread.strMakeF( tinP , LF , psttFlags , T("") , 0x1000 ) ; ___( psttFlags ) ;
+                ZE( strokeS* , psttFlags ) ;
+
+            {
+            if( pc3i )
+            st_cIn >> pc3i ;
+
+            etThread.strokeF( tinP , T("\r" BLANK79 "\r")+T(psttInShort)+T(" (accumulateInfoF: report totals): ")+TF1((countT)st_cIn) ) ;
+        {
+        while( st_cIn )
+        ZE( count3S* , pc3i ) ;
+
+        }
+            }
+                }
+                    st_cIn.sinkF( tinP , idSlot , pc3i ) ;
+                    ZE( countT , idSlot ) ;
+
+                    pc3i->c3 = sw_cIn ;
+                    pc3i->c2 = flagsIn2 ;
+                    pc3i->c1 = flagsIn1 ;
+                {
+                if( pc3i )
+                etThread.newF( tinP , LF , pc3i ) ;
+                ZE( count3S* , pc3i ) ;
+
+                flagsIn2 = sw_cIn.leverF( tinP , idf ) ; //U:
+                flagsIn1 = sw_cIn.leverF( tinP , idf ) ; //U:
+                etThread.strokeF( tinP , T("\r" BLANK79 "\r")+T(psttInShort)+T(" (accumulateInfoF: sort totals): ")+TF1(cFlavors-idf) ) ;
+            {
+            for( countT idf = 1 ; idf <= cFlavors ; idf ++ )
+            countT cFlavors = sw_cIn.cFlavorsF( tinP ) ;
+        {
+        stackC st_cIn( tinP , etThread , TAG( TAGiDnULL ) , flSTACKc_null , ifcSTACKtYPE_PTR_count3S ) ;
+    {
+
+    etThread.delF( tinP , pstt1m ) ;
+    }
+        etThread.delF( tinP , pbDatum ) ;
+
+        }
+            ((thirdC&)etThread).logF( tinP , T("datum corruption detected") ) ;
+            ep = 0 ;
+        {
+        if( ep )
+
+        }
+            }
+                }
+                    }
+                        }
+                            }
+                                }
+                                    stLifeP << (countT)pli ;
+
+                                    pli->time2E = pcDatum[ off ++ ] ;
+                                    pli->time1E = pcDatum[ off ++ ] ;
+                                    pli->time2D = pcDatum[ off ++ ] ;
+                                    pli->time1D = pcDatum[ off ++ ] ;
+                                    pli->time2C = pcDatum[ off ++ ] ;
+                                    pli->time1C = pcDatum[ off ++ ] ;
+                                    pli->time2B = pcDatum[ off ++ ] ;
+                                    pli->time1B = pcDatum[ off ++ ] ;
+                                    pli->time2A = pcDatum[ off ++ ] ;
+                                    pli->time1A = pcDatum[ off ++ ] ;
+
+                                    pli->idAdam = idAdam ;
+                                {
+                                if( pli )
+                                lifeTimeS* pli = new( 0 , tinP , LF ) lifeTimeS( etThread ) ;
+                            {
+                            else
+                            if( cbAppendage != 0xa * sizeof( countT ) ) { ((thirdC&)etThread).logF( tinP , T("datum corruption detected: lifetime data length is not 0xa * sizeof( countT )") ) ; }
+                            if( cbAppendage  %       sizeof( countT ) ) { ((thirdC&)etThread).logF( tinP , T("datum corruption detected: lifetime data length is not a multiple of sizeof( countT )") ) ; }
+                        {
+                        else if( bLifeTime )
+                        }
+                            }
+                                }
+                                    etThread.osTimeAddF( tinP , pcRaceClient1[ 3 ] , (sCountT&)pcRaceClient1[ 4 ] , pcRaceIn1[ 3 ] , (sCountT&)pcRaceIn1[ 4 ] ) ;
+                                    pcRaceClient1[ 2 ] += pcRaceIn1[ 2 ] ;
+                                    pcRaceClient1[ 1 ] += pcRaceIn1[ 1 ] ;
+                                    countT* pcRaceClient1 = pcRaceClient + idFile * 5 ;
+                                {
+                                if( idFile && idFile <= cSourceFilesP )
+                                countT idFile = processGlobal7I.source.idFileRankF( tinP , pcRaceIn1[ 0 ] ) ;
+                                countT* pcRaceIn1 = pcRaceIn + idActive * 5 ;
+                            {
+                            for( countT idActive = 1 ; idActive <= cActive ; idActive ++ )
+                            countT cActive = cbAppendage / sizeof( countT ) / 5 ;
+
+                            // NOW pcRaceClient POINTS TO THE ACCUMULATOR TO BE USED
+                            }
+                                }
+                                    }
+                                        __Z( pcRaceClient ) ;
+                                        pcRaceClient = (countT*)sws_pcRaceClientP[ idPlate ] ;
+                                        etThread.delF( tinP , pcRaceClient ) ;
+                                    {
+                                    else
+                                    if( !idPlate ) sws_pcRaceClientP.sinkF( tinP , idPlate , (countT)pcRaceClient , flSTACKsINK_UNIQUE , 0 , subtract_pcRace_F ) ;
+
+                                    sws_pcRaceClientP.sinkF( tinP , idPlate , (countT)pcRaceClient , flSTACKsINK_QUERY , 0 , subtract_pcRace_F ) ;
+                                    ZE( countT , idPlate ) ;
+
+                                    *pcRaceClient = idPoolClient ; // OFFSET 0 IS NEVER USED SINCE idFile IS NEVER 0
+                                {
+                                if( pcRaceClient )
+
+                                thirdC::c_memsetIF( tinP , (byteT*)pcRaceClient , cNew * sizeof( countT ) ) ;
+                                etThread.newF( tinP , LF , pcRaceClient , cNew ) ; ___( pcRaceClient ) ;
+                                countT cNew = ( 1 + cSourceFilesP ) * 5 ;
+                            {
+                            ZE( countT* , pcRaceClient ) ;
+
+                            countT* pcRaceIn = pcDatum + off - 5 ; // THE POSITIONS FOR idFile == 0 ARE IMPLICIT, NOT EXPLICIT, IN THE INCOMING DATA
+                        {
+                        if( bTimer )
+
+                        off = offAppendage ;
+
+                        else { ((thirdC&)etThread).logF( tinP , T((osTextT*)(pcDatum+off)) ) ; }
+                        }
+                            }
+                                }
+                                    while( cValues -- ) off ++ ;
+                                    countT cValues = cbAppendage / sizeof( countT ) ;
+                                {
+                            {
+                            else
+                            if( cbAppendage % sizeof( countT ) ) { ((thirdC&)etThread).logF( tinP , T("datum corruption detected: data length is not a multiple of sizeof( countT )") ) ; }
+                        {
+                        if( bCounts )
+                    {
+                    if( !ep )
+
+                    }
+                        __( cbUnexpected ) ;
+                        ((thirdC&)etThread).logF( tinP , T("cbUnexpected=")+TF1(cbUnexpected) ) ;
+                    {
+                    if( cbUnexpected )
+                    sCountT cbUnexpected = (sCountT)cbDatum - (sCountT)cbBeforeAppendage - (sCountT)cbAppendage ;
+                    countT cbBeforeAppendage = off * sizeof( countT ) ;
+
+                    const countT offAppendage = off ;
+                {
+                if( cbAppendage )
+
+                off ++ ;
+                while( !etThread && !ep && pcDatum[ off ] ) off ++ ;
+                ZE( boolT , fPrevious3 ) ;
+
+                }
+                    else                                        idAdam = pcDatum[ off + 1 ] ;
+                    else if(  pcDatum[ off + 1 ]              ) { ((thirdC&)etThread).logF( tinP , T("too many resource identifiers for lifetime record"        ) ) ; }
+                    else if( !pcDatum[ off     ]              ) { ((thirdC&)etThread).logF( tinP , T("idAdam is 0"                                              ) ) ; }
+                         if(  pcDatum[ off - 1 ] != 0x40103c6 ) { ((thirdC&)etThread).logF( tinP , T("datum corruption detected: data was not signed by 6c30104") ) ; }
+                {
+                if( bLifeTime )
+                ZE( countT , idAdam ) ;
+            {
+            if( ccAll > CCpART1 )
+
+            }
+                }
+                    }
+                        off ++ ;
+                        }
+                            case 7 : { cbAppendage  = pcDatum[ off ]                               ; break ; }
+                            case 4 : { idPoolClient = pcDatum[ off ] ; __Z( idPoolClient ) ; break ; }
+                            case 3 : { idComputerP  = pcDatum[ off ] ; __Z( idComputerP  ) ; break ; }
+                        {
+                        switch( off )
+                    {
+                    else
+                    }
+                        off ++ ;
+
+                        bCounts   = !!( F(pcDatum[ off ]) & flDATUM2_countT        ) ;
+
+                        ( (countT&)sw_cIn ) ++ ; //U: UNTESTED MIGRATION TO 64 BIT SWITCH LEVER
+                        flagsIn2 = pcDatum[ off ] ;
+                    {
+                    else if( off == 6 )
+                    }
+                        off ++ ;
+
+                        bLifeTime = !!( F(pcDatum[ off ]) & flDATUM1_ADAMlIFEtIME ) ;
+                        bTimer    = !!( F(pcDatum[ off ]) & flDATUM1_CLASStIMER   ) ;
+
+                        ( (countT&)sw_cIn ) ++ ; //U: UNTESTED MIGRATION TO 64 BIT SWITCH LEVER
+                        flagsIn1 = pcDatum[ off ] ;
+                    {
+                    if( off == 5 )
+                {
+                else
+                if( !off ) off += 2 ;
+            {
+            while( !etThread && !ep && off < ccPart1 )
+            ZE( countT , idPoolClient ) ;
+            ZE( countT , cbAppendage ) ;
+            ZE( countT , off ) ;
+            ZE( boolT , fPrevious2 ) ;
+            ZE( strokeS* , psttw ) ;
+            if( ccPart1 > CCpART1 ) ccPart1 = CCpART1 ;
+            countT ccPart1 = ccAll ;
+            countT ccAll   = cbDatum / sizeof( countT ) ;
+            ZE( boolT , bLifeTime ) ;
+            ZE( boolT , bTimer ) ;
+            ZE( boolT , bCounts ) ;
+        {
+        if( !etThread && !ep )
+        }
+            __1
+            ((thirdC&)etThread).logF( tinP , T("!pcDatum") ) ;
+        {
+        if( !pcDatum )
+        }
+            __( cbDatum + 1 ) ;
+            ((thirdC&)etThread).logF( tinP , T("cbDatum < sizeof(countT)") ) ;
+        {
+        if( cbDatum < sizeof( countT ) )
+        pcDatum = (countT*)pbDatum ;
+        ZE( countT* , pcDatum ) ;
+        //U:add001F( pbDatum , cbDatum ) ; DO THIS ONCE HAVE A VERSION OF stackC THAT SUPPORTS SORTING AND ADDING
+        }
+            etThread.delF( tinP , psttArchive ) ;
+            etThread.boxPutF( tinP , psttArchive , pbDatum , cbDatum ) ;
+            etThread.boxGetF( tinP , pbDatum , cbDatum , psttc1 , 1 ) ; ___( pbDatum ) ;
+        {
+        else
+        if( !psttArchive ) { etThread.boxGetShadowF( tinP , pbDatum , cbDatum , psttc1 , 1 ) ; ___( pbDatum ) ; }
+        ZE( countT , cbDatum ) ;
+        ZE( byteT* , pbDatum ) ;
+
+        }
+            etThread.delF( tinP , psttw ) ;
+            etThread.strMakeF( tinP , LF , psttArchive , T(psttOutP)+T(psttw) ) ; ___( psttArchive ) ;
+            etThread.strSubstringF( tinP , psttw , idf , idl , psttc1 ) ; ___( psttw ) ;
+            ZE( countT , idl ) ;
+            __Z( idf ) ;
+            countT idf = etThread.strIdF( tinP , countTC( 1 ) , sttq , T("/") , psttc1 , 0 , - 1 ) ;
+            strokeS sttq( (countT)0 , sc_IGNOREqUOTES ) ;
+            ZE( strokeS* , psttw ) ;
+        {
+        if( psttOutP )
+        ZE( strokeS* , psttArchive ) ;
+
+        if( etThread ) break ;
+
+        #endif
+        }
+            if( idf ) { etThread.strSubstringF( tinP , psttUid , idf , sttq , T(".uid.") , psttc1 ) ; ___( psttUid ) ; }
+            if( psttUid ) etThread.delF( tinP , psttUid ) ;
+            etThread.strSubstringF( tinP , psttUid , idf , sttq , T(".uid.") , psttc1 ) ; ___( psttUid ) ;
+            strokeS sttq( (countT)0 , sc_IGNOREqUOTES ) ;
+            countT idf = 1 ;
+        {
+        ZE( strokeS* , psttUid ) ;
+        #if defined( NEVERdEFINED )
+
+        etThread.strokeF( tinP , T("\r" BLANK79 "\r")+T(psttInShort)+T(" (accumulateInfoF: accumulate): ")+TF1(cDatum--) ) ;
+    {
+    FORsTRINGSiN1( pstt1m )
+    switchC sw_cIn( tinP , etThread , TAG( TAGiDnULL ) , flSTACKc_null , c3flags ) ; //U: UNTESTED MIGRATION TO 64 BIT SWITCH LEVER
+    flagsT& flagsIn2 = c3flags.c2 ;
+    flagsT& flagsIn1 = c3flags.c1 ;
+    count3S c3flags ;
+    etThread.strFuseF( tinP , psttr , psttOldColumns , 0 , 0 , strokeS() , 0 , 0 ,/*U::SOUL?*/ 0x10000 ) ; ___( psttr ) ; //U: EXACT LENGTH NEEDED
+    countT cDatum = etThread.boxMenuF( tinP , soul1m , T(psttInP)+T("/dat.*") ) ; ___( pstt1m ) ;
+    etThread.strokeF( tinP , T("\r" BLANK79 "\r")+T(psttInShort)+T(" (accumulateInfoF: list the input files)") ) ;
+    ZE( strokeS* , pstt1m ) ;
+
+    cSourceFilesP = processGlobal7I.source.cFilesF( tinP ) ;
+    etThread.strokeF( tinP , T("\r" BLANK79 "\r")+T(psttInShort)+T(" (accumulateInfoF: cSourceFilesP)") ) ;
+
+    ep.flagsWatch = etThread.flagsWatch ;
+    ep.flagsMode  = etThread.flagsMode | flTHIRDmODE_IMPOTENCEeXPECTED ;
+    etherC ep( tinP , TAG( TAGiDnULL ) , etThread.os_cAllKidThreadsI_IF( tinP ) ) ;
+    ZE( boolT , fPrevious ) ;
+
+    timeBlurbF( tinP , etThread , psttTime ) ;
+    ZE( strokeS* , psttTime ) ;
+    incomingColumnTitlesF( tinP , etThread , psttOldColumns ) ;
+    ZE( strokeS* , psttOldColumns ) ;
+    TN( tTitle , "<!DOCTYPE HTML PUBLIC \"-//IETF//DTD HTML 2.0//EN\"><HEAD><TITLE>IdeaFarm " "(tm) City - Usage</TITLE></HEAD><BODY><PRE>\r\n" ) ;
+    TN( tCRLF , "\r\n" ) ;
+    ZE( strokeS* , psttw ) ;
+
+    ZE( strokeS* , psttr ) ;
+
+    etThread.strokeF( tinP , T("\r" BLANK79 "\r")+T(psttInShort)+T(" (accumulateInfoF: begun)") ) ;
+    }
+        etThread.strWordF( tinP , psttInShort , psttInP , sttq , S1C('/') , - 1 ) ;
+        strokeS sttq( (countT)0 , sc_IGNOREqUOTES ) ;
+    {
+    ZE( strokeS* , psttInShort ) ;
+
+    if( etThread ) return ;
+    __Z( psttInP ) ;
+    __NZ( cSourceFilesP ) ;
+    if( etThread ) return ;
+{
+voidT accumulateInfoF( tinS& tinP , etherC& etThread , switchStackC& sws_pcRaceClientP , countT& idComputerP , countT& cSourceFilesP , stackC& stLifeP , const strokeS* const psttOutP , const strokeS* const psttInP )
+
+}
+    return *(countT*)c1P - *(countT*)c2P ;
+    if( tinP.fingerprint && c3P ) ;
+    etherC& etThread = *(etherC*)pEtherP ;
+{
+countT subtract_pcRace_F( tinS& tinP , countT& pEtherP , countT& c1P , countT& c2P , countT& c3P )
+
+}
+    etThread.delF( tinP , psttInShort ) ;
+    etThread.delF( tinP , pcRaceAgg ) ;
+
+    }
+        rptSpeedF( tinP , etThread , pcRaceAgg , cSourceFilesP , psttInP ) ;
+        if( bNew ) rptListOfSpeedPagesF( tinP , etThread ) ;
+        etThread.strokeF( tinP , T("\r" BLANK79 "\r")+T(psttInShort)+T(" (writeAllSpeedPagesF: aggregate page)") ) ;
+
+        }
+            }
+                }
+                    etThread.delF( tinP , pcRaceClient ) ;
+                    if( bNew ) rptSpeedF( tinP , etThread , pcRaceClient , cSourceFilesP , 0 , idComputerP , *pcRaceClient ) ;
+                    for( countT off = 5 ; off < cNew ; off ++ ) pcRaceAgg[ off ] += pcRaceClient[ off ] ;
+                {
+                if( pcRaceClient )
+
+                __Z( pcRaceClient ) ;
+                countT* pcRaceClient = (countT*)c_pcRaceClient ;
+                sws_pcRaceClientP >> c_pcRaceClient ;
+                ZE( countT , c_pcRaceClient ) ;
+                etThread.strokeF( tinP , T("\r" BLANK79 "\r")+T(psttInShort)+T(" (writeAllSpeedPagesF: node,client) ")+TF1(cFlavors-idf)+T(" ")+TF1((countT)sws_pcRaceClientP) ) ;
+            {
+            while( sws_pcRaceClientP )
+            idComputerP = sws_pcRaceClientP.leverF( tinP , idf ) ;
+            etThread.strokeF( tinP , T("\r" BLANK79 "\r")+T(psttInShort)+T(" (writeAllSpeedPagesF: for each client) ")+TF1(cFlavors-idf) ) ;
+        {
+        for( countT idf = 1 ; idf <= cFlavors ; idf ++ )
+        countT cFlavors = sws_pcRaceClientP.cFlavorsF( tinP ) ;
+
+        boolT bNew = !etThread.strCompareF( tinP , T("new") , psttInP ) ;
+    {
+    if( pcRaceAgg )
+
+    }
+        thirdC::c_memsetIF( tinP , (byteT*)pcRaceAgg , cNew * sizeof( countT ) ) ;
+        etThread.newF( tinP , LF , pcRaceAgg , cNew ) ; ___( pcRaceAgg ) ;
+    {
+    const countT cNew = ( 1 + cSourceFilesP ) * 5 ;
+    ZE( countT* , pcRaceAgg ) ;
+
+    etThread.strokeF( tinP , T("\r" BLANK79 "\r")+T(psttInShort)+T(" (writeAllSpeedPagesF: begun)") ) ;
+    }
+        etThread.strWordF( tinP , psttInShort , psttInP , sttq , S1C('/') , - 1 ) ;
+        strokeS sttq( (countT)0 , sc_IGNOREqUOTES ) ;
+    {
+    ZE( strokeS* , psttInShort ) ;
+
+    if( etThread ) return ;
+    __Z( cSourceFilesP ) ;
+    __Z( psttInP ) ;
+    if( etThread ) return ;
+{
+voidT writeAllSpeedPagesF( tinS& tinP , etherC& etThread , switchStackC& sws_pcRaceClientP , const strokeS* const psttInP , countT& idComputerP , countT& cSourceFilesP )
+
+}
+    etThread.strokeF( tinP , T("\r" BLANK79 "\r(rptListOfSpeedPagesF: done)") ) ;
+    etThread.delF( tinP , postr ) ;
+    etThread.boxPutF( tinP , T("///ideafarm/ephemeral/domains/com/ideafarm/gen/html/report.speed.menu.html") , postr ) ;
+    etThread.delF( tinP , psttr ) ;
+    etThread.strMakeF( tinP , LF , postr , psttr ) ; ___( postr ) ;
+    ZE( osTextT* , postr ) ;
+
+    etThread.delF( tinP , psttTime ) ;
+    etThread.strFuseF( tinP , psttr , psttTime ) ; ___( psttr ) ;
+    etThread.strReverseF( tinP , psttr , 0 , T("\r\n") ) ;
+    etThread.strFuseF( tinP , psttr , tTitle ) ; ___( psttr ) ;
+    etThread.strokeF( tinP , T("\r" BLANK79 "\r(rptListOfSpeedPagesF: write the html page)") ) ;
+
+    }
+        }
+            etThread.delF( tinP , postrNode ) ;
+            etThread.boxPutF( tinP , T("///ideafarm/ephemeral/domains/com/ideafarm/gen/html/report.speed.")+tIdComputer+T(".html") , postrNode ) ;
+            etThread.delF( tinP , psttrNode ) ;
+            etThread.strMakeF( tinP , LF , postrNode , psttrNode ) ; ___( postrNode ) ;
+            ZE( osTextT* , postrNode ) ;
+
+            etThread.strFuseF( tinP , psttrNode , psttTime ) ; ___( psttrNode ) ;
+            etThread.strReverseF( tinP , psttrNode , 0 , T("\r\n") ) ;
+            etThread.strFuseF( tinP , psttrNode , tTitleNode ) ; ___( psttrNode ) ;
+
+            }
+                etThread.strFuseF( tinP , psttrNode , T("<A HREF=\"http://city.center.ideafarm.com///ideafarm/ephemeral/domains/com/ideafarm/gen/html/report.speed.")+tIdComputer+T(".")+tIdPoolClient+T(".html\">")+tIdPoolClient+T("</A>\r\n") ) ; ___( psttrNode ) ;
+                TN( tIdPoolClient , (strokeS*)TF3(idPoolClient,flFORMAT_UNSIGNED|flFORMAT_FILLzE,8) ) ;
+                sws_idPoolClient >> idPoolClient ;
+                ZE( countT , idPoolClient ) ;
+            {
+            while( sws_idPoolClient )
+
+            }
+                etThread.strFuseF( tinP , psttrNode , T("") , 0 , 0 , strokeS() , 0 , 0 , /*U::SOUL?*/ cExtra ) ; ___( psttr ) ;
+                if( cExtra < 0x10000 ) cExtra = 0x10000 ;
+                countT cExtra = tTitleNode.csF( tinP ) + ( psttTime ? psttTime->idAdam : 0 ) + (countT)sws_idPoolClient * 0x100 ;
+            {
+            ZE( strokeS* , psttrNode ) ;
+
+            textC tTitleNode = T("<!DOCTYPE HTML PUBLIC \"-//IETF//DTD HTML 2.0//EN\"><HEAD><TITLE>IdeaFarm " "(tm) City - speeds for node ")+tIdComputer+T("</TITLE></HEAD><BODY><PRE>\r\n") ;
+        {
+
+        etThread.strFuseF( tinP , psttr , T("<A HREF=\"http://city.center.ideafarm.com///ideafarm/ephemeral/domains/com/ideafarm/gen/html/report.speed.")+tIdComputer+T(".html\">")+tIdComputer+T("</A>\r\n") ) ; ___( psttr ) ;
+
+        TN( tIdComputer , (strokeS*)TF3(idComputer,flFORMAT_UNSIGNED|flFORMAT_FILLzE,8) ) ;
+        idComputer = sws_idPoolClient.leverF( tinP , idf ) ;
+        etThread.strokeF( tinP , T("\r" BLANK79 "\r(rptListOfSpeedPagesF: for each node) ")+TF1(cFlavors-idf) ) ;
+    {
+    for( countT idf = 1 ; idf <= cFlavors ; idf ++ )
+    countT cFlavors = sws_idPoolClient.cFlavorsF( tinP ) ;
+
+    etThread.delF( tinP , pstt1m ) ;
+    }
+        }
+            etThread.delF( tinP , psttw4 ) ;
+            etThread.delF( tinP , psttw3 ) ;
+
+            sws_idPoolClient << idPoolClient ;
+            countT idPoolClient = etThread.strDigitsToSCountF( tinP , psttw4 ) ;
+            idComputer = etThread.strDigitsToSCountF( tinP , psttw3 ) ;
+
+            etThread.delF( tinP , psttw ) ;
+            etThread.strWordF( tinP , psttw4 , psttw , sttq , S1C('.') , 4 ) ; ___( psttw4 ) ;
+            //sttq = ze ;
+            etThread.strWordF( tinP , psttw3 , psttw , sttq , S1C('.') , 3 ) ; ___( psttw3 ) ;
+            strokeS sttq( (countT)0 , sc_IGNOREqUOTES ) ;
+            ZE( strokeS* , psttw4 ) ;
+            ZE( strokeS* , psttw3 ) ;
+        {
+        if( psttw )
+
+        }
+            etThread.delF( tinP , psttw4 ) ;
+            if( !etThread.strCompareF( tinP , psttw4 , T("html") ) ) etThread.delF( tinP , psttw ) ;
+
+            etThread.strWordF( tinP , psttw4 , psttw , sttq , S1C('.') , 4 ) ;
+
+            //sttq = ze ;
+            ZE( strokeS* , psttw4 ) ;
+
+            etThread.strWordF( tinP , psttw , psttc1 , sttq , S1C('/') , - 1 ) ;
+            strokeS sttq( (countT)0 , sc_IGNOREqUOTES ) ;
+        {
+        ZE( strokeS* , psttw ) ;
+        etThread.strokeF( tinP , T("\r" BLANK79 "\r(rptListOfSpeedPagesF: for each html file) ")+TF1(cPages--) ) ;
+    {
+    FORsTRINGSiN1( pstt1m )
+    switchStackC sws_idPoolClient( tinP , etThread , TAG( TAGiDnULL ) , flSTACKc_null , idComputer , flSTACKc_FIFO ) ;
+    ZE( countT , idComputer ) ;
+
+    }
+        etThread.strFuseF( tinP , psttr , T("") , 0 , 0 , strokeS() , 0 , 0 , /*U::SOUL?*/ cExtra ) ; ___( psttr ) ;
+        if( cExtra < 0x10000 ) cExtra = 0x10000 ;
+        countT cExtra = tTitle.csF( tinP ) + ( psttTime ? psttTime->idAdam : 0 ) + cPages * 0x100 ;
+    {
+    ZE( strokeS* , psttr ) ;
+
+    countT cPages = etThread.boxMenuF( tinP , soul1m , T("///ideafarm/ephemeral/domains/com/ideafarm/gen/html/report.speed.*") ) ; ___( pstt1m ) ;
+    ZE( strokeS* , pstt1m ) ;
+    etThread.strokeF( tinP , T("\r" BLANK79 "\r(rptListOfSpeedPagesF: list the files)") ) ;
+
+    timeBlurbF( tinP , etThread , psttTime ) ;
+    ZE( strokeS* , psttTime ) ;
+    TN( tTitle , "<!DOCTYPE HTML PUBLIC \"-//IETF//DTD HTML 2.0//EN\"><HEAD><TITLE>IdeaFarm " "(tm) City - speed for individual poolOld clients</TITLE></HEAD><BODY><PRE>\r\n" ) ;
+    TN( tCRLF , "\r\n" ) ;
+    ZE( strokeS* , psttw ) ;
+
+    etThread.strokeF( tinP , T("\r" BLANK79 "\r(rptListOfSpeedPagesF: begun)") ) ;
+{
+voidT rptListOfSpeedPagesF( tinS& tinP , etherC& etThread )
+
+}
+    etThread.delF( tinP , psttInShort ) ;
+
+    etThread.delF( tinP , postReport ) ;
+    etThread.boxPutF( tinP , T("///ideafarm/ephemeral/domains/com/ideafarm/gen/html/report.speed")+(idComputerP?T(".")+TF3(idComputerP,flFORMAT_UNSIGNED|flFORMAT_FILLzE,8):T(""))+(idPoolClientP?T(".")+TF3(idPoolClientP,flFORMAT_UNSIGNED|flFORMAT_FILLzE,8):T(""))+(psttInP?T(".")+T(psttInP):T(""))+T(".html") , postReport ) ;
+    etThread.delF( tinP , psttrSpeed ) ;
+    etThread.strMakeF( tinP , LF , postReport , psttrSpeed ) ; ___( postReport ) ;
+    ZE( osTextT* , postReport ) ;
+
+    etThread.delF( tinP , psttOldColumns ) ;
+    etThread.delF( tinP , psttTime ) ;
+
+    etThread.strFuseF( tinP , psttrSpeed , psttTime ) ; ___( psttrSpeed ) ;
+    etThread.strReverseF( tinP , psttrSpeed , 0 , T("\r\n") ) ;
+    etThread.strFuseF( tinP , psttrSpeed , tTitle ) ; ___( psttrSpeed ) ;
+    etThread.strFuseF( tinP , psttrSpeed , psttOldColumns ) ; ___( psttrSpeed ) ;
+    etThread.strFuseF( tinP , psttrSpeed , tCRLF ) ; ___( psttrSpeed ) ;
+    etThread.strokeF( tinP , T("\r" BLANK79 "\r")+T(psttInShort)+T(" (rptSpeedF: write the html file)") ) ;
+
+    }
+        etThread.delF( tinP , psttLine ) ;
+
+        etThread.strFuseF( tinP , psttrSpeed , psttLine , 0 , 0 , strokeS() , 0 , 0 ,/*U::SOUL?*/ 0x10000 ) ; ___( psttrSpeed ) ;
+        else             { etThread.strFuseF( tinP , psttrSpeed , T("\r\n") , 0 , 0 , strokeS() , 0 , 0 , /*U::SOUL?*/ 0x10000 ) ; ___( psttrSpeed ) ; }
+        if( !fPrevious ) fPrevious = 1 ;
+
+        stMe >> psttLine ;
+        ZE( strokeS* , psttLine ) ;
+        etThread.strokeF( tinP , T("\r" BLANK79 "\r")+T(psttInShort)+T(" (rptSpeedF: compose report lines) ")+TF1((countT)stMe) ) ;
+    {
+    while( !etThread && stMe )
+    ZE( boolT , fPrevious ) ;
+
+    }
+        stMe.sinkF( tinP , idSlot , psttLine , 0 , subtractMyStringsF ) ;
+        ZE( countT , idSlot ) ;
+
+        etThread.strFuseF( tinP , psttLine , T(" ")+tFileTitle ) ; ___( psttLine ) ;
+
+        etThread.delF( tinP , psttw ) ;
+        etThread.strFuseF( tinP , psttLine , T(" ")+T(psttw) ) ; ___( psttLine ) ;
+        etThread.strFromF( tinP , psttw , processGlobal7I.source.idFileImmutableF( tinP , idFile ) , flFORMAT_UNSIGNED | flFORMAT_FILLzE , 7 ) ; ___( psttw ) ;
+
+        etThread.delF( tinP , psttw ) ;
+        etThread.strFuseF( tinP , psttLine , T(" ")+T(psttw) ) ; ___( psttLine ) ;
+        etThread.strFromF( tinP , psttw , pcRace1[ 1 ] , flFORMAT_UNSIGNED , 8 ) ; ___( psttw ) ;
+
+        etThread.delF( tinP , psttw ) ;
+        etThread.strFuseF( tinP , psttLine , T(" ")+T(psttw) ) ; ___( psttLine ) ;
+        etThread.strFromF( tinP , psttw , pcRace1[ 2 ] , flFORMAT_UNSIGNED , 8 ) ; ___( psttw ) ;
+
+        etThread.delF( tinP , psttw ) ;
+        etThread.strFuseF( tinP , psttLine , T(" ")+T(psttw) ) ; ___( psttLine ) ;
+        etThread.strFromTimeF( tinP , psttw , pcRace1[ 3 ] / pcRace1[ 1 ] , pcRace1[ 4 ] ) ;
+
+        //U: __( pcRace1[ 4 ] ) ; //U: SUPPORT TOTAL TIME >= 1 DAY (BY USING sCountC OBJECT WHEN time2 IS NONZE)
+        //U: THIS TEST FAILS WHEN THE TIME IS NEGATIVE.  WHY DO WE GET NEGATIVE TIMES?
+
+        etThread.delF( tinP , psttw ) ;
+        etThread.strFuseF( tinP , psttLine , T(psttw) , 0 , 0 , strokeS() , 0 , 0 , /*U::SOUL?*/ 0x40 + ( (strokeS*)tFileTitle ? ((strokeS*)tFileTitle)->idAdam : 0 ) ) ; ___( psttLine ) ;
+        etThread.strFromTimeF( tinP , psttw , pcRace1[ 3 ] , pcRace1[ 4 ] ) ;
+
+        TN( tFileTitle , processGlobal7I.source.postFileTitleF( tinP , idFile ) ) ;
+
+        if( !pcRace1[ 1 ] ) continue ;
+        countT* pcRace1 = pcRaceP + idFile * 5 ;
+
+        ZE( strokeS* , psttLine ) ;
+
+        etThread.strokeF( tinP , T("\r" BLANK79 "\r")+T(psttInShort)+T(" (rptSpeedF: for each source file) ")+TF1(cSourceFilesP-idFile) ) ;
+    {
+    for( countT idFile = 1 ; idFile <= cSourceFilesP ; idFile ++ )
+    stackC stMe( tinP , etThread , TAG( TAGiDnULL ) , flSTACKc_null , ifcSTACKtYPE_PTR_strokeS ) ;
+
+    }
+        etThread.strFuseF( tinP , psttrSpeed , psttOldColumns , 0 , 0 , strokeS() , 0 , 0 ,/*U::SOUL?*/ cExtra ) ; ___( psttrSpeed ) ;
+        if( cExtra < 0x10000 ) cExtra = 0x10000 ;
+        countT cExtra = cSourceFilesP * 0x400 + tCRLF.csF( tinP ) + ( psttOldColumns ? psttOldColumns->idAdam : 0 ) + tTitle.csF( tinP ) + ( psttTime ? psttTime->idAdam : 0 ) ;
+    {
+
+    timeBlurbF( tinP , etThread , psttTime ) ;
+    ZE( strokeS* , psttTime ) ;
+    speedColumnTitlesF( tinP , etThread , psttOldColumns ) ;
+    ZE( strokeS* , psttOldColumns ) ;
+    TN( tTitle , "<!DOCTYPE HTML PUBLIC \"-//IETF//DTD HTML 2.0//EN\"><HEAD><TITLE>IdeaFarm " "(tm) City - Speed</TITLE></HEAD><BODY><PRE>\r\n" ) ;
+    TN( tCRLF , "\r\n" ) ;
+    ZE( strokeS* , psttw ) ;
+
+    ZE( strokeS* , psttrSpeed ) ;
+
+    etThread.strokeF( tinP , T("\r" BLANK79 "\r")+T(psttInShort)+T(" (rptSpeedF: begun)") ) ;
+    }
+        etThread.strWordF( tinP , psttInShort , psttInP , sttq , S1C('/') , - 1 ) ;
+        strokeS sttq( (countT)0 , sc_IGNOREqUOTES ) ;
+    {
+    else
+    if( !psttInP ) { etThread.strMakeF( tinP , LF , psttInShort , TF3(idComputerP,flFORMAT_UNSIGNED|flFORMAT_FILLzE,8)+T(".")+TF3(*pcRaceP,flFORMAT_UNSIGNED|flFORMAT_FILLzE,8) ) ; ___( psttInShort ) ; }
+    ZE( strokeS* , psttInShort ) ;
+
+    if( etThread ) return ;
+    __( !idComputerP && idPoolClientP ) ;
+    __Z( pcRaceP ) ;
+    if( etThread ) return ;
+{
+voidT rptSpeedF( tinS& tinP , etherC& etThread , countT* pcRaceP , countT& cSourceFilesP , const strokeS* const psttInP , countT idComputerP = 0 , countT idPoolClientP = 0 )
+
+}
+    etThread.strMakeF( tinP , LF , psttP , T("\r\nthis report was made at IdeaFarm " "(tm) City time ")+TT(time1,time2)+T("\r\n" postDEFECTfORM postTRIALcLOSE "</PRE></BODY>\r\n") ) ; ___( psttP ) ;
+    etThread.osTimeNowF( tinP , time1 , time2 ) ;
+    ZE( sCountT , time2 ) ;
+    ZE( countT , time1 ) ;
+{
+voidT timeBlurbF( tinS& tinP , etherC& etThread , strokeS*& psttP )
+
+}
+    etThread.strFuseF( tinP , psttP , T("\r\n") ) ;
+
+    etThread.delF( tinP , psttw ) ;
+    etThread.strFuseF( tinP , psttP , psttw ) ;
+    etThread.strFuseF( tinP , psttw , TPS(" resource",0x21,S1C('-')) ) ;
+
+    etThread.delF( tinP , psttw ) ;
+    etThread.strFuseF( tinP , psttP , psttw ) ;
+    etThread.strFuseF( tinP , psttw , TPS(" owner",0x9,S1C('-')) ) ;
+
+    etThread.delF( tinP , psttw ) ;
+    etThread.strFuseF( tinP , psttP , psttw ) ;
+    etThread.strFuseF( tinP , psttw , TPS(" amount",0x9,S1C('-')) ) ;
+
+    etThread.delF( tinP , psttw ) ;
+    etThread.strFuseF( tinP , psttP , psttw ) ;
+    etThread.strFuseF( tinP , psttw , TPS(" length",0x9,S1C('-')) ) ;
+
+    etThread.delF( tinP , psttw ) ;
+    etThread.strFuseF( tinP , psttP , psttw ) ;
+    etThread.strFuseF( tinP , psttw , TPS(" class",0x9,S1C('-')) ) ;
+
+    etThread.delF( tinP , psttw ) ;
+    etThread.strFuseF( tinP , psttP , psttw ) ;
+    etThread.strFuseF( tinP , psttw , TPS(" flavor",0x9,S1C('-')) ) ;
+
+    etThread.delF( tinP , psttw ) ;
+    etThread.strFuseF( tinP , psttP , psttw ) ;
+    etThread.strFuseF( tinP , psttw , TPS(" client",0x9,S1C('-')) ) ;
+
+    etThread.delF( tinP , psttw ) ;
+    etThread.strFuseF( tinP , psttP , psttw ) ;
+    etThread.strFuseF( tinP , psttw , TPS(" node",0x9,S1C('-')) ) ;
+
+    etThread.delF( tinP , psttw ) ;
+    etThread.strFuseF( tinP , psttP , psttw ) ;
+    etThread.strFuseF( tinP , psttw , TPS(" host",0x9,S1C('-')) ) ;
+
+    etThread.delF( tinP , psttw ) ;
+    etThread.strFuseF( tinP , psttP , psttw ) ;
+    etThread.strFuseF( tinP , psttw , TPS("time",0x17,S1C('-')) ) ;
+
+    ZE( strokeS* , psttw ) ;
+
+    etThread.strMakeF( tinP , LF , psttP , T("") , 0x82 ) ;
+{
+voidT rawColumnTitlesF( tinS& tinP , etherC& etThread , strokeS*& psttP )
+
+}
+    etThread.strFuseF( tinP , psttP , T("\r\n") ) ;
+
+    etThread.delF( tinP , psttw ) ;
+    etThread.strFuseF( tinP , psttP , psttw ) ;
+    etThread.strFuseF( tinP , psttw , TPS(" flagSymbols",0x50,S1C('-')) ) ;
+
+    etThread.delF( tinP , psttw ) ;
+    etThread.strFuseF( tinP , psttP , psttw ) ;
+    etThread.strFuseF( tinP , psttw , TPS(" flags",0x9,S1C('-')) ) ;
+
+    etThread.delF( tinP , psttw ) ;
+    etThread.strFuseF( tinP , psttP , psttw ) ;
+    etThread.strFuseF( tinP , psttw , TPS("cIn",0x8,S1C('-')) ) ;
+
+    ZE( strokeS* , psttw ) ;
+
+    etThread.strMakeF( tinP , LF , psttP , T("") , 0x63 ) ;
+{
+voidT incomingColumnTitlesF( tinS& tinP , etherC& etThread , strokeS*& psttP )
+
+}
+    etThread.strFuseF( tinP , psttP , T("\r\n") ) ;
+
+    etThread.delF( tinP , psttw ) ;
+    etThread.strFuseF( tinP , psttP , psttw ) ;
+    etThread.strFuseF( tinP , psttw , TPS(" title",0x40,S1C('-')) ) ;
+
+    etThread.delF( tinP , psttw ) ;
+    etThread.strFuseF( tinP , psttP , psttw ) ;
+    etThread.strFuseF( tinP , psttw , TPS(" task",0x8,S1C('-')) ) ;
+
+    etThread.delF( tinP , psttw ) ;
+    etThread.strFuseF( tinP , psttP , psttw ) ;
+    etThread.strFuseF( tinP , psttw , TPS(" stops",0x9,S1C('-')) ) ;
+
+    etThread.delF( tinP , psttw ) ;
+    etThread.strFuseF( tinP , psttP , psttw ) ;
+    etThread.strFuseF( tinP , psttw , TPS(" starts",0x9,S1C('-')) ) ;
+
+    etThread.delF( tinP , psttw ) ;
+    etThread.strFuseF( tinP , psttP , psttw ) ;
+    etThread.strFuseF( tinP , psttw , TPS(" averageTime",0x18,S1C('-')) ) ;
+
+    etThread.delF( tinP , psttw ) ;
+    etThread.strFuseF( tinP , psttP , psttw ) ;
+    etThread.strFuseF( tinP , psttw , TPS("totalTime",0x17,S1C('-')) ) ;
+
+    ZE( strokeS* , psttw ) ;
+
+    etThread.strMakeF( tinP , LF , psttP , T("") , 0x8b ) ;
+{
+voidT speedColumnTitlesF( tinS& tinP , etherC& etThread , strokeS*& psttP )
+
+}
+    etThread.strFuseF( tinP , psttP , T("\r\n") ) ;
+
+    etThread.delF( tinP , psttw ) ;
+    etThread.strFuseF( tinP , psttP , psttw ) ;
+    etThread.strFuseF( tinP , psttw , TPS("  description",0x40,S1C('-')) ) ;
+
+    etThread.delF( tinP , psttw ) ;
+    etThread.strFuseF( tinP , psttP , psttw ) ;
+    etThread.strFuseF( tinP , psttw , TPS("  elapsedTime",0x19,S1C('-')) ) ;
+
+    etThread.delF( tinP , psttw ) ;
+    etThread.strFuseF( tinP , psttP , psttw ) ;
+    etThread.strFuseF( tinP , psttw , TPS("title",0x2a,S1C('-')) ) ;
+
+    ZE( strokeS* , psttw ) ;
+
+    etThread.strMakeF( tinP , LF , psttP , T("") , 0x8b ) ;
+{
+voidT lifeColumnTitlesF( tinS& tinP , etherC& etThread , strokeS*& psttP )
+
+}
+    return heavy ;
+    countT heavy = - etThread.strCompareF( tinP , (strokeS*)pv1P , (strokeS*)pv2P ) ;
+    etherC& etThread = *(etherC*)etThreadP ;
+
+    if( !etThreadP ) return 0 ;
+{
+countT subtractMyStringsF( tinS& tinP , countT& etThreadP , countT& pv1P , countT& pv2P )
+
+NEWdELcLASSb( lifeTimeS )
+
+}
+{
+time2E( 0 )
+time1E( 0 ) ,
+time2D( 0 ) ,
+time1D( 0 ) ,
+time2C( 0 ) ,
+time1C( 0 ) ,
+time2B( 0 ) ,
+time1B( 0 ) ,
+time2A( 0 ) ,
+time1A( 0 ) ,
+idAdam( 0 ) ,
+ether( etherP ) ,
+lifeTimeS::lifeTimeS( etherC& etherP ) :
+
+;
+}
+    lifeTimeS( etherC& etherP ) ;
+    NEWdELcLASSpROTOS( lifeTimeS , etherC , thirdC )
+
+    sCountT time2E ;
+    countT  time1E ;
+    sCountT time2D ;
+    countT  time1D ;
+    sCountT time2C ;
+    countT  time1C ;
+    sCountT time2B ;
+    countT  time1B ;
+    sCountT time2A ;
+    countT  time1A ;
+
+    countT  idAdam ;
+
+    etherC& ether ;
+{
+struct lifeTimeS
+
+#define CCpART1 9
+
+//IT ORIGINALLY SWITCHED ON A SINGLE 32 BIT FLAGST OBJECT
+//THIS CODE NEEDS TO BE EDITED TO SWITCH CORRECTLY ON THE FLAGS VALUES
+//U: UNFINISHED MIGRATION TO 64 BIT SWITCH LEVER
+
+/*1*/WAKEhIDE( "city.secretary" )/*1*/
+/**/
+*/
+/*
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 29 years.
+//
+// Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+

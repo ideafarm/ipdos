@@ -1,0 +1,87 @@
+
+//
+// Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 29 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+
+        }
+            #endif
+
+                    infoA.wMinute , infoA.wSecond , 0 , flOStIMEfROMoLDtIME_OLDtIMEiSutc ) ;
+                    infoA.wDay - 1 , infoA.wHour ,
+                    infoA.wYear - 1 , infoA.wMonth - 1 ,
+                osTimeFromOldTimeIF( tinP , pInfoFileP->timeAccessed1 , pInfoFileP->timeAccessed2 ,
+
+                    infoW.wMinute , infoW.wSecond , 0 , flOStIMEfROMoLDtIME_OLDtIMEiSutc ) ;
+                    infoW.wDay - 1 , infoW.wHour ,
+                    infoW.wYear - 1 , infoW.wMonth - 1 ,
+                osTimeFromOldTimeIF( tinP , pInfoFileP->timeWritten1 , pInfoFileP->timeWritten2 ,
+
+                    infoC.wMinute , infoC.wSecond , 0 , flOStIMEfROMoLDtIME_OLDtIMEiSutc ) ;
+                    infoC.wDay - 1 , infoC.wHour ,
+                    infoC.wYear - 1 , infoC.wMonth - 1 ,
+                osTimeFromOldTimeIF( tinP , pInfoFileP->timeCreated1 , pInfoFileP->timeCreated2 ,
+
+                BOSpOOP
+                BOS( WHATgbo , BOSoK , FileTimeToSystemTime( &info.ftLastAccessTime , &infoA ) )
+
+                BOSpOOP
+                BOS( WHATgbo , BOSoK , FileTimeToSystemTime( &info.ftLastWriteTime  , &infoW ) )
+
+                BOSpOOP
+                BOS( WHATgbo , BOSoK , FileTimeToSystemTime( &info.ftCreationTime   , &infoC ) )
+
+                SYSTEMTIME infoA ;
+                SYSTEMTIME infoW ;
+                SYSTEMTIME infoC ;
+
+                pInfoFileP->cbAllocatedHigh     = - 1 ;
+                pInfoFileP->cbAllocated         = - 1 ;
+                pInfoFileP->cbUsedHigh          = info.nFileSizeHigh ;
+                pInfoFileP->cbUsed              = info.nFileSizeLow ;
+                pInfoFileP->flags               = fileAttrIfFromOsIF( tinP , info.dwFileAttributes ) ;
+
+            #elif defined( __NT__ )
+
+                                   info.ftimeLastAccess.minutes , info.ftimeLastAccess.twosecs * 2 , 0 , flOStIMEfROMoLDtIME_OLDtIMEiSutc) ;
+                                   info.fdateLastAccess.day - 1 , info.ftimeLastAccess.hours ,
+                                   info.fdateLastAccess.year + 1979 , info.fdateLastAccess.month - 1 ,
+                osTimeFromOldTimeIF( tinP , pInfoFileP->timeAccessed1 , pInfoFileP->timeAccessed2 ,
+
+                                   info.ftimeLastWrite.minutes , info.ftimeLastWrite.twosecs * 2 , 0 , flOStIMEfROMoLDtIME_OLDtIMEiSutc ) ;
+                                   info.fdateLastWrite.day - 1 , info.ftimeLastWrite.hours ,
+                                   info.fdateLastWrite.year + 1979 , info.fdateLastWrite.month - 1 ,
+                osTimeFromOldTimeIF( tinP , pInfoFileP->timeWritten1 , pInfoFileP->timeWritten2 ,
+
+                    info.ftimeCreation.minutes , info.ftimeCreation.twosecs * 2 , 0 , flOStIMEfROMoLDtIME_OLDtIMEiSutc ) ;
+                    info.fdateCreation.day - 1 , info.ftimeCreation.hours ,
+                    info.fdateCreation.year + 1979 , info.fdateCreation.month - 1 ,
+                osTimeFromOldTimeIF( tinP , pInfoFileP->timeCreated1 , pInfoFileP->timeCreated2 ,
+
+                pInfoFileP->cbAllocatedHigh     = 0 ;
+                pInfoFileP->cbAllocated         = info.cbFileAlloc ;
+                pInfoFileP->cbUsedHigh          = 0 ;
+                pInfoFileP->cbUsed              = info.cbFile ;
+                pInfoFileP->flags               = fileAttrIfFromOsIF( tinP , info.attrFile ) ;
+
+            #ifdef __OS2__
+        {
+        if( pInfoFileP )
+
+/*1*//*code to get file information*//*1*/
+/**/
+*/
+it is illegal to refer to this symbol in the definition of an adam
+\<A HREF=\"5.0050001.1.0.html\"\>definition\</A\>
+/*
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 29 years.
+//
+// Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+

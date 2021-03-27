@@ -1,0 +1,160 @@
+
+//
+// Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 29 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+
+}
+    return flrc ;
+
+    UNGRABtINaRGS( ifcIDtYPEtINaRGiNuSE_LIST )
+    //CONoUTrAW9( "listWalkLintCBF/- [pListingP,flrc,idUpdateBegunP,idUpdateCompletedP]: " , pListingP , " " , flrc , " " , idUpdateBegunP , " " , idUpdateCompletedP , "\r\n" ) ;
+    }
+        }
+            tinP.tlsDelF( *(byteT**)&pczName ) ;
+            //{ puseC puseat( tinP , ifcIDpOOL_ADAMtEMP ) ; PUSE( tinP , *(byteT**)&pczName ) ; }
+            }
+                pczValue[ - 2 ] = 0 ; //CS:CODEsYNC: 2200010 2240003
+                CONoUTrAW3( " resetting cRef of " , pczValue[ - 2 ] , " for a countT string datum\r\n" ) ;
+            {
+            if( pczValue && pczValue[ - 2 ] )
+
+            }
+                ((countT*)postValue)[ - 2 ] = 0 ; //CS:CODEsYNC: 2200010 2240003
+                CONoUTrAW3( " resetting cRef of " , ((countT*)postValue)[ - 2 ] , " for a blob datum\r\n" ) ;
+            {
+            if( postValue && ((countT*)postValue)[ - 2 ] )
+
+            }
+                pcValue[ - 1 ] = 0 ; //CS:CODEsYNC: 2200010 2220003
+                CONoUTrAW3( " resetting cRef of " , pcValue[ - 1 ] , " for a countT datum\r\n" ) ;
+            {
+            if( pcValue && pcValue[ - 1 ] )
+
+            }
+                idUpdateBegunP = idUpdateCompletedP = 0 ;
+                }
+                    flrc |= flLISTwALKcALLbACKrETURNcODE_DELETE ;
+                    CONoUTrAW( "this record is dirty.  delete has been requested\r\n" ) ;
+                {
+                if( idUpdateBegunP != idUpdateCompletedP )
+                //CONoUTrAW5( "marked record [idUpdateBegunP,idUpdateCompletedP]: " , idUpdateBegunP , " " , idUpdateCompletedP , "\r\n" ) ;
+            {
+            if( flagsi & fliLISTINGc_MIXINlIST && flagsi & fliLISTINGc_RECORD && ( idUpdateBegunP || idUpdateCompletedP ) )
+
+            }
+                }
+                    //CONoUTrAW( T("LIST [pczName]: ")+TF2(pczName,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("\r\n") ) ;
+                {
+                else
+                }
+                    //CONoUTrAW( T("listing [pczName]: ")+TF2(pczName,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("\r\n") ) ;
+                {
+                if( !( flagsi & fliLISTINGc_MIXINlIST ) )
+            {
+            else
+            }
+                }
+                    }
+                        default                             : { BLAMMO                                                 ; break ; }
+                        case ifcIDtYPEmIXINdATUM_listingVSP : {                                                          break ; }
+                        case ifcIDtYPEmIXINdATUM_countTstrz : { pczValue  =    (countT*)*(list_countTstrz_C*)pListingP ; break ; }
+                        case ifcIDtYPEmIXINdATUM_blob       : { postValue =         (osTextT*)*(list_blob_C*)pListingP ; break ; }
+                        case ifcIDtYPEmIXINdATUM_countT     : { pcValue   =        (countT*)*(list_countT_C*)pListingP ; break ; }
+                    {
+                    switch( pListingP->idTypeDatumF() ) //CS:CODEsYNC: 00104b0 21e0006 21e0002 21e0008 21e0009 220000e
+
+                    }
+                        idUpdateBegunP = idUpdateCompletedP = 0 ;
+                        }
+                            flrc |= flLISTwALKcALLbACKrETURNcODE_DELETE ;
+                            CONoUTrAW( "this record is dirty.  delete has been requested\r\n" ) ;
+                        {
+                        if( idUpdateBegunP != idUpdateCompletedP )
+                        CONoUTrAW5( "marked record [idUpdateBegunP,idUpdateCompletedP]: " , idUpdateBegunP , " " , idUpdateCompletedP , "\r\n" ) ;
+                    {
+                    if( flagsi & fliLISTINGc_RECORD && ( idUpdateBegunP || idUpdateCompletedP ) )
+                    //CONoUTrAW( T("LIST with datum [pczName]: ")+TF2(pczName,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("\r\n") ) ;
+                {
+                else
+                }
+                    }
+                        default                             : { BLAMMO                                                 ; break ; }
+                        case ifcIDtYPEmIXINdATUM_listingVSP : {                                                          break ; }
+                        case ifcIDtYPEmIXINdATUM_countTstrz : { pczValue  = (countT*)*(listing_countTstrz_C*)pListingP ; break ; }
+                        case ifcIDtYPEmIXINdATUM_blob       : { postValue =      (osTextT*)*(listing_blob_C*)pListingP ; break ; }
+                        }
+                            break ;
+                            }
+                                case LISTnAME_IDuPDATEcOMPLETED : { idUpdateCompletedP = *pcValue ; /* CONoUTrAW3( "[idUpdateCompleted]: " , *pcValue , "\r\n" ) ;*/ break ; }
+                                case LISTnAME_IDuPDATEbEGUN     : { idUpdateBegunP     = *pcValue ; /* CONoUTrAW3( "    [idUpdateBegun]: " , *pcValue , "\r\n" ) ;*/ break ; }
+                            {
+                            switch( idName )
+                            countT idName = pListingP->nameF() ;
+                            pcValue = (countT*)*(listing_countT_C*)pListingP ;
+                        {
+                        case ifcIDtYPEmIXINdATUM_countT     :
+                    {
+                    switch( pListingP->idTypeDatumF() ) //CS:CODEsYNC: 00104b0 21e0006 21e0002 21e0008 21e0009 220000e
+                    //CONoUTrAW( T("listing with datum [pczName]: ")+TF2(pczName,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("\r\n") ) ;
+                {
+                if( !( flagsi & fliLISTINGc_MIXINlIST ) )
+            {
+            if( flagsi & fliLISTINGc_MIXINdATUM )
+            flagsT flagsi = pListingP->flagsF() ;
+            ZE( countT* , pczValue ) ;
+            ZE( osTextT* , postValue ) ;
+            ZE( countT* , pcValue ) ;
+
+            }
+                if( pDatum->getBitsF() & fliDATUMc_INDEXED ) { BLAMMO ; } //U::REMOVE WHEN CONFIDENT
+
+                pDatum->unIndexF( tinP , flUNiNDEXf_IFiNDEXED ) ;
+
+                if( pDatum->getBitsF() & fliDATUMc_INDEXED ) { CONoUTrAW( " unindexing a datumC\r\n" ) ; }
+
+                ;
+                    : (datumC*)(         pListingP + 1 )
+                    ? (datumC*)( (listC*)pListingP + 1 )
+                datumC* pDatum = pListingP->flagsF() & fliLISTINGc_MIXINlIST
+            {
+            if( pListingP->idTypeDatumF() )
+
+            pListingP->nameF( tinP , pczName ) ; // ___( pczName ) ;
+            ZE( countT* , pczName ) ;
+        {
+        else
+        }
+            flrc |= flLISTwALKcALLbACKrETURNcODE_QUIT ;
+            __1
+            CONoUTrAW( "EXCEPTION: An apartment was encountered that does not contain a valid listingC object.  quitting\r\n" ) ;
+        {
+        if( !listingC::bIsListingIF( tinP , aptC( tinP , pListingP ) ) )
+    {
+    if( pListingP )
+    //CONoUTrAW9( "listWalkLintCBF/+ [pListingP,flrc,idUpdateBegunP,idUpdateCompletedP]: " , pListingP , " " , flrc , " " , idUpdateBegunP , " " , idUpdateCompletedP , "\r\n" ) ;
+    flagsT flrc = flLISTwALKcALLbACKrETURNcODE_null ;
+
+    countT& idUpdateCompletedP = tinP.ta.retained.u.listWalk.util.pcP[ 1 ] ; // LATH ENCOUNTERED VALUE OF A FIELD NAMED LISTnAME_IDuPDATEcOMPLETED
+    countT& idUpdateBegunP     = tinP.ta.retained.u.listWalk.util.pcP[ 0 ] ; // LATH ENCOUNTERED VALUE OF A FIELD NAMED LISTnAME_IDuPDATEbEGUN
+    //CS:CODEsYNC: 330e6010 320000b4
+
+    listingC* pListingP = tinP.ta.pushed.u.listWalk.cbf.pListingP ;
+    GRABtINaRGS( ifcIDtYPEtINaRGiNuSE_LIST )
+{
+/*1*/flagsT listWalkLintCBF( tinS& tinP )/*1*/
+
+/**/
+*/
+/*
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 29 years.
+//
+// Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+

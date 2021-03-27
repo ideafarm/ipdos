@@ -1,0 +1,183 @@
+
+//
+// Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 29 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+                            
+REST
+
+etherC::loafIF( tinP ) ;
+
+etThread.osThreadF( TaRG1( tmSayNodeAdvertisementF ) ) ;
+etThread.osThreadF( TaRG1( tmHearNodeAdvertisementF ) , (countT)&napNodeList ) ;
+
+THREADmODE3rESTORE
+}
+    napNodeList.formattingIsDoneF( tinP ) ;
+
+    nl.cEltsMax = ( cbData - sizeof( nodeListS ) + sizeof( nodeEntryS ) ) / sizeof( nodeEntryS ) ;
+    nodeListS& nl = *(nodeListS*)pbData ;
+
+    etThread.memSetF( tinP , pbData , cbData ) ;
+    countT cbData = napNodeList ;
+    byteT* pbData = napNodeList ;
+{
+if( !napNodeList.bFormattedF() )
+napkinC napNodeList( tinP , TAG( TAGiDnULL ) , "ipdos.node.list.link.local.recent.advertisers" , 0 , TOCK , ifcOPENsHAREDmEMORYhOW_nCeO , flNAPKINc_null , - 1 , ifcIDmEMORYsPACE_UNIVERSE ) ;
+THREADmODE3oN( flTHREADmODE3_ALLOWeXPLICITmEMORYsPACE )
+
+TODO
+
+DONE( tmHearNodeAdvertisementF )
+
+}
+    }
+        if( !bFound ) etThread.traceF( tinP , T("error: could not add [nn,nnv4]:    ")+T(neTest.nn)+T("    ")+T(nicNameC(neTest.nnv4)) ) ;
+
+        }
+            }
+                break ;
+                bFound = 1 ;
+                nl.cElts ++ ;
+                etThread.traceF( tinP , T("adding [nn,nnv4]:    ")+T(nl.pEntry[offi].nn)+T("    ")+T(nicNameC(nl.pEntry[offi].nnv4)) ) ;
+                nl.pEntry[ offi ].ttl = 0x8 * ( nl.cElts + 1 ) ;        // TO REMAIN LISTED, A NODE MUST MUST RESPOND WITHIN 8 RESPONSE WAVES
+                nl.pEntry[ offi ]     = neTest ;
+            {
+            if( !nl.pEntry[ offi ].ttl )
+        {
+        if( !bFound ) for( countT offi = 0 ; offi < nl.cEltsMax ; offi ++ )
+
+        }
+            }
+                etThread.traceF( tinP , T("refreshing [nn,nnv4]:    ")+T(nl.pEntry[offi].nn)+T("    ")+T(nicNameC(nl.pEntry[offi].nnv4)) ) ;
+                nl.pEntry[ offi ].ttl = 0x8 * ( nl.cElts + 1 ) ;       // ENTRY WILL DISAPPEAR IF NOT REFRESHED ; THIS LINE REFRESHES
+                bFound = 1 ;
+            {
+            if( nl.pEntry[ offi ].ttl && nl.pEntry[ offi ] == neTest )
+        {
+        for( countT offi = 0 ; offi < nl.cEltsMax ; offi ++ )
+        ZE( boolT , bFound ) ;
+
+        }
+            else      neTest.nn   = nnWo ;
+            if( bv4 ) neTest.nnv4 = ((const countT*)nnWo)[ 0 ] ;
+
+            if( bIgnore ) continue ;
+
+            boolT bIgnore = bv4 ? !!neTest.nnv4 : ~neTest.nn ;
+            boolT bv4     = nnWo.isIPv4F() ;
+
+            etThread.traceF( tinP , T("yippee! [nnWo]:    ")+T(nnWo)+T(nnWo.isIPv4F()?"    IPv4":"    IPv6") ) ;
+            soulNicNameIn >> nnWo ;
+            nicNameC nnWo ;
+
+            if( neTest.nn && neTest.nnv4 ) break ;
+        {
+        while( soulNicNameIn )
+
+        nodeEntryS neTest ;
+
+        }
+            }
+                etThread.traceF( tinP , T("removing [nn,nnv4]:    ")+T(nl.pEntry[offi].nn)+T("    ")+T(nicNameC(nl.pEntry[offi].nnv4)) ) ;
+                nl.cElts -- ;
+                nl.pEntry[ offi ] = nodeEntryS() ;
+            {
+            if( nl.pEntry[ offi ].ttl && !( -- nl.pEntry[ offi ].ttl ) )
+        {
+        for( countT offi = 0 ; offi < nl.cEltsMax ; offi ++ )
+
+        etThread.traceF( tinP , T("called readF [nnHe,idpHe]:    ")+T(nnHe)+T("    ")+TF2(idpHe,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
+        socki.readF( tinP , soulNicNameIn , idpHe , nnHe , 0 , 0 ) ;
+        soulC soulNicNameIn( tinP , TAG( TAGiDnULL ) ) ;
+        etThread.traceF( tinP , T("calling readF") ) ;
+        ZE( countT , idpHe ) ;
+        nicNameC nnHe ;
+    {
+    while( !POOP && !ether )
+
+    nodeListS& nl = *(nodeListS*)(byteT*)napNodeListP ;
+
+    countT idpMe = socki.bindF( tinP , ifcIDpORT_MULTICASTaDVERTISElANnODES , nnAny , 1 , 0 ) ;
+    socketC socki( tinP , etThread , TAG( TAGiDnULL ) , ifcSOCKETtYPE_DATAgRAM , flSOCKETc_null , T(postADDRgROUP) , 0 , 0 , 0 , 0 , 0 ) ;
+
+    nicNameC nnAny = socketC::nicNameIF( tinP , etThread , T("::") ) ;
+
+    napkinC& napNodeListP = *(napkinC*)pTaskP->c1 ;
+{
+if( pTaskP && pTaskP->c1 )
+TASK( tmHearNodeAdvertisementF )
+
+DONE( tmSayNodeAdvertisementF )
+
+}
+    }
+        ++ s ; ether.osSleepF( tinP , TOCK << 2 ) ;
+        sleepC s( tinP , TAG( TAGiDnULL ) ) ;
+    {
+
+    socko.writeF( tinP , ifcIDpORT_MULTICASTaDVERTISElANnODES , nicNameC() , soulNicName ) ;
+
+    }
+        etThread.delF( tinP , pnnMe ) ;
+        }
+            else etThread.traceF( tinP , T("NON-routable    :    ")+T(pnnMe[offi]) ) ;
+            }
+                soulNicName << pnnMe[ offi ] ;
+                etThread.traceF( tinP ,  T("routable unicast:    ")+T(pnnMe[offi]) ) ;
+            {
+            if( pnnMe[ offi ].isRoutableUnicastF() )
+        {
+        for( countT offi = 0 ; offi < cnnMe ; offi ++ )
+        socketC::nicNameIF( tinP , etThread , pnnMe , cnnMe , 0 ) ; ___( pnnMe ) ;
+        ZE( countT    , cnnMe ) ;
+        ZE( nicNameC* , pnnMe ) ;
+    {
+    soulC soulNicName( tinP , TAG( TAGiDnULL ) ) ;
+{
+while( !ether && !POOP )
+
+socketC socko( tinP , etThread , TAG( TAGiDnULL ) , ifcSOCKETtYPE_DATAgRAM , flSOCKETc_null , T(postADDRgROUP) , 0 , 0 , 0 , 0 , 0 ) ;
+
+TASK( tmSayNodeAdvertisementF )
+
+
+;
+}
+    nodeEntryS pEntry[ 1 ] ;
+    countT     cElts       ;
+    countT     cEltsMax    ;
+{
+struct nodeListS
+
+;
+}
+    inline boolT operator ==( nodeEntryS& neP ) const { return nn == neP.nn && nnv4 == neP.nnv4 ; }
+    inline nodeEntryS( voidT ) : nnv4( 0 ) , ttl( 0 ) {}
+
+    count02T ttl  ;     // IF 0 THEN THIS ENTRY IS FREE AND AVAILABLE
+    count02T nnv4 ;
+    nicNameC nn   ;
+{
+struct nodeEntryS
+
+#define postADDRgROUP "ff02::bb:aa"
+//G:#define postADDRgROUP "ff02::bb:aa"
+//B:#define postADDRgROUP "ff02::1"
+//G:#define postADDRgROUP "ff02::5:6"
+
+/*1*/WAKEsHOWtEXT( "doodle.advertise.my.nicNameC.values.using.napkinC" )/*1*/
+/**/
+*/
+/*
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 29 years.
+//
+// Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+

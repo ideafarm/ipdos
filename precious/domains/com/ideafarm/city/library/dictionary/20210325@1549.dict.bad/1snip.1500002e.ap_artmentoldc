@@ -1,0 +1,66 @@
+
+//
+// Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 29 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+
+;
+}
+/**/
+
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.1390007.ap_artmentOldC.operator_countT!||
+ operator countT( voidT ) ;
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.1390006.ap_artmentOldC.operator_byteT_ptr!||
+ operator byteT*( voidT ) ;
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.1390005.ap_artmentOldC.apartmentF!||
+ voidT apartmentF( tinS& tinP , countT& offApartmentP , countT& idPoolP ) ;
+/* expressions */
+
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.1390007.ap_artmentOldC.ap_artmentOldC!||
+ ap_artmentOldC( tinS& tinP , const countT idApartmentP ) ;
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.1390004.ap_artmentOldC.ap_artmentOldC!||
+ ap_artmentOldC( tinS& tinP , const countT offApartmentP , const countT idPoolP ) ;
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.1390003.ap_artmentOldC.ap_artmentOldC!||
+ ap_artmentOldC( tinS& tinP , byteT* pbP ) ;
+/* birth , death */
+
+/**/
+
+ public :
+
+ byteT* const pbv ;
+{
+/*1*/class _export ap_artmentOldC/*1*/
+/**/
+
+//ASSUME: pbv WILL NEVER BE pbPool, BECAUSE APPLICATIONS ALWAYS HANDLE VALUES THAT ARE PRECEEDED BY A POOLoLD DROP HEADER AND A countT OBJECT THAT IS FOR THE APPLICATION'S USE
+
+*/
+apartment id values that are negative refer to locations in the poolOld header
+an ap_artmentOldC object that is constructed with a null pointer or a null apartment id will evaluate to a null pointer or a null apartment id
+the byte at the beginning of the poolOld does not have an apartment id
+a null apartment id indicates "no apartment"
+ ida == (byteT*)pv - (byteT*)poolOld
+the apartment id of a location is that location's offset, in bytes, from the beginning of the poolOld
+ using apartment id numbers, a process on the local host can refer to a given location in the poolOld by using a value that is identical for all processes
+ for some operating systems, including MS Windows, processes attaching to a shared memory block do not all see that block as having the same address
+ the address that a process uses to refer to a location in the poolOld depends upon the address range that the operating system assigns for use by the process to refer to the shared memory block in the poolOld
+unlike pointers, which are valid only for the local process, apartment id numbers can be used by any process on the local host to refer to a location in the IFC memory poolOld for that host
+uses the primary poolOld
+use this class to work with apartment id numbers in (interprocess pointers into) the poolOld
+  \<A HREF=\"5.7a30104.1.1.0.html\"\>7a30104:  WAKEsHOW( "example.simplest.snip.1500002e.ap_artmentOldC" )\</A\>
+ simplest
+examples
+\<A HREF=\"5.1500002e.1.0.html\"\>definition\</A\>
+/*
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 29 years.
+//
+// Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+

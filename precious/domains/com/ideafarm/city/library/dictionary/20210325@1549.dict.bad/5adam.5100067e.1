@@ -1,0 +1,889 @@
+
+//
+// Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 29 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+
+REST
+
+CONoUTrAW( "bye\r\n" ) ;
+etherC::loafIF( tinP ) ;
+CONoUTrAW( "done.\r\n" ) ;
+
+etThread.delF( tinP , psttr ) ;
+CONoUTrAW( T(psttr) ) ;
+
+}
+    etThread.delF( tinP , ppsttSmallBigComment[ ( offSmallBig * 3 ) + 2 ] ) ;
+    etThread.delF( tinP , ppsttSmallBigComment[ ( offSmallBig * 3 ) + 1 ] ) ;
+    etThread.delF( tinP , ppsttSmallBigComment[   offSmallBig * 3       ] ) ;
+
+    etThread.strFuseF( tinP , psttr , T("etherCstrIdF() returned ")+TF2(idFound,flFORMAT_NObIGITvALUES)+T(" and now idf is ")+TF2(idf,flFORMAT_NObIGITvALUES)+T("\r\n") ) ;
+
+    countT idFound = etThread.strIdF( tinP , idf , sttq , ppsttSmallBigComment[ offSmallBig * 3 ] , ppsttSmallBigComment[ ( offSmallBig * 3 ) + 1 ] , idl , 1 ) ;
+    ZE( countT , idl ) ;
+    strokeS sttq( 0 , sc_IGNOREqUOTES ) ;
+    countT  idf = 1 ;
+
+    etThread.delF( tinP , psttDumpBig   ) ;
+    etThread.delF( tinP , psttDumpSmall ) ;
+
+    etThread.strFuseF( tinP , psttr , T(psttDumpBig)+T("\r\n\r\n") ) ;
+    etThread.strFuseF( tinP , psttr , T("\r\nbig  :    \"")+T(ppsttSmallBigComment[ ( offSmallBig * 3 ) + 1 ])+T("\"\r\n") ) ;
+
+    etThread.strFuseF( tinP , psttr , T(psttDumpSmall)+T("\r\n") ) ;
+    etThread.strFuseF( tinP , psttr , T("\r\nsmall:    \"")+T(ppsttSmallBigComment[   offSmallBig * 3       ])+T("\"\r\n") ) ;
+
+    etThread.etherC::strDumpStrokesIF( tinP , psttDumpBig   , ppsttSmallBigComment[ ( offSmallBig * 3 ) + 1 ] , tn ) ; ___( psttDumpBig   ) ;
+    etThread.etherC::strDumpStrokesIF( tinP , psttDumpSmall , ppsttSmallBigComment[   offSmallBig * 3       ] , tn ) ; ___( psttDumpSmall ) ;
+    ZE( strokeS* , psttDumpBig   ) ;
+    ZE( strokeS* , psttDumpSmall ) ;
+
+    etThread.strFuseF( tinP , psttr , T(USCORE79 "\r\n\r\n")+T(ppsttSmallBigComment[offSmallBig*3+2])+T(":\r\n" USCORE79 "\r\n") ) ;
+{
+for( countT offSmallBig = 0 ; offSmallBig < cSmallBigComment ; offSmallBig ++ )
+TN( tn , "\r\n" ) ;
+
+etThread.strMakeF( tinP , LF , psttr , 0 , TOCK ) ; ___( psttr ) ;
+ZE( strokeS* , psttr ) ;
+
+#endif
+
+}
+    LOADsb( "SQUEEZE: sa_SSSoR whole words plus individual strokes matching a whole word" )
+    TN( tBig , "bCARa" ) ;
+
+    ;
+
+        +S2(sa_SSSaNDeND,sc_ccSSS)              // 01
+            +T("a")                             // f
+            +S2(sa_SSSoReND,sc_ccSSS)           // e
+                +S2(sa_SSSaNDeND,sc_ccSSS)      // d
+                    +T("CAR")                   // a-c
+                +S2(sa_SSSaND,sc_ccSSS)         // 9
+                +S2(sa_SSSaNDeND,sc_ccSSS)      // 8
+                    +T("BIC")                   // 5-7
+                +S2(sa_SSSaND,sc_ccSSS)         // 4
+            +S2(sa_SSSoR,sc_ccSSS)              // 3
+            +T("b")                             // 2
+        +S2(sa_SSSaND,sc_ccSSS)                 // 1
+        T("")
+
+    TN( tSmall , "" ) ; tSmall =
+{
+
+}
+    LOADsb( "mark:sa_SSSmARKlINEeND match" )
+
+    TN( tBig , "abcd\r\nefgh\r\nijkl\r\nmnop\r\n" ) ;
+
+    ;
+
+        +S2(sa_SSSaNDeND,sc_ccSSS)
+            +S2(sa_SSSmARKlINEeND,sc_cSSSmARK)
+            +T("mnop")
+            +S2(sa_SSSmARKlINEeND,sc_cSSSmARK)
+            +T("ijkl")
+            +S2(sa_SSSmARKlINEeND,sc_cSSSmARK)
+            +T("efgh")
+            +S2(sa_SSSmARKlINEeND,sc_cSSSmARK)
+            +T("abcd")
+        +S2(sa_SSSaND,sc_ccSSS)
+        T("")
+
+    TN( tSmall , "" ) ; tSmall =
+{
+
+}
+    LOADsb( "mark:sa_SSSmARKlINEeND match" )
+
+    TN( tBig , "abcd\r\n" ) ;
+
+    ;
+
+        +S2(sa_SSSaNDeND,sc_ccSSS)
+            +S2(sa_SSSmARKlINEeND,sc_cSSSmARK)
+            +T("abcd")
+        +S2(sa_SSSaND,sc_ccSSS)
+        T("")
+
+    TN( tSmall , "" ) ; tSmall =
+{
+
+}
+    LOADsb( "mark:sa_SSSmARKlINEeND mismatch" )
+
+    TN( tBig , "abcdyz" ) ;
+
+    ;
+
+        +S2(sa_SSSaNDeND,sc_ccSSS)
+            +S2(sa_SSSmARKlINEeND,sc_cSSSmARK)
+            +T("abcd")
+        +S2(sa_SSSaND,sc_ccSSS)
+        T("")
+
+    TN( tSmall , "" ) ; tSmall =
+{
+
+}
+    LOADsb( "mark:sa_SSSmARKlINEeND match" )
+
+    TN( tBig , "abcd" ) ;
+
+    ;
+
+        +S2(sa_SSSaNDeND,sc_ccSSS)
+            +S2(sa_SSSmARKlINEeND,sc_cSSSmARK)
+            +T("abcd")
+        +S2(sa_SSSaND,sc_ccSSS)
+        T("")
+
+    TN( tSmall , "" ) ; tSmall =
+{
+
+}
+    LOADsb( "mark:sa_SSSmARKlINEbEGIN match" )
+
+    TN( tBig , "\r\nabcd" ) ;
+
+    ;
+
+        +S2(sa_SSSaNDeND,sc_ccSSS)
+            +T("abcd")
+            +S2(sa_SSSmARKlINEbEGIN,sc_cSSSmARK)
+        +S2(sa_SSSaND,sc_ccSSS)
+        T("")
+
+    TN( tSmall , "" ) ; tSmall =
+{
+
+}
+    LOADsb( "mark:sa_SSSmARKlINEbEGIN mismatch" )
+
+    TN( tBig , "yzabcd" ) ;
+
+    ;
+
+        +S2(sa_SSSaNDeND,sc_ccSSS)
+            +T("abcd")
+            +S2(sa_SSSmARKlINEbEGIN,sc_cSSSmARK)
+        +S2(sa_SSSaND,sc_ccSSS)
+        T("")
+
+    TN( tSmall , "" ) ; tSmall =
+{
+
+}
+    LOADsb( "mark:sa_SSSmARKlINEbEGIN match" )
+
+    TN( tBig , "abcd" ) ;
+
+    ;
+
+        +S2(sa_SSSaNDeND,sc_ccSSS)
+            +T("abcd")
+            +S2(sa_SSSmARKlINEbEGIN,sc_cSSSmARK)
+        +S2(sa_SSSaND,sc_ccSSS)
+        T("")
+
+    TN( tSmall , "" ) ; tSmall =
+{
+
+}
+    LOADsb( "mark:sa_SSSmARKbLACK repeat variable match" )
+
+    TN( tBig , TbLACKeXCLUDINGnEWlINE "\r\nabcde" ) ;
+
+    ;
+
+        +S2(sa_SSSaNDeND,sc_ccSSS)
+            +S2(sa_SSSmARKbLACK,sc_cSSSmARK)
+            +S3(0,sc_ccSSSrEPEAT,0x200)
+        +S2(sa_SSSaND,sc_ccSSS)
+        T("")
+
+    TN( tSmall , "" ) ; tSmall =
+{
+
+}
+    etThread.delF( tinP , psttBig ) ;
+    LOADsb( "mark:sa_SSSmARKcONTROL repeat variable match" )
+
+    TN( tBig , psttBig ) ;
+
+    }
+        if( ostg == 0xff ) break ;
+        etThread.strFuseF( tinP , psttBig , S1C( ostg ) ) ;
+    {
+    for( osTextT ostg = 0 ;; ostg ++ )
+    etThread.strMakeF( tinP , LF , psttBig , 0 , TUCK << 1 ) ; ___( psttBig ) ;
+    ZE( strokeS* , psttBig ) ;
+
+    ;
+
+        +S2(sa_SSSaNDeND,sc_ccSSS)
+            +S2(sa_SSSmARKcONTROL,sc_cSSSmARK)
+            +S3(0,sc_ccSSSrEPEAT,0x200)
+        +S2(sa_SSSaND,sc_ccSSS)
+        T("")
+
+    TN( tSmall , "" ) ; tSmall =
+{
+
+}
+    etThread.delF( tinP , psttBig ) ;
+    LOADsb( "mark:sa_SSSmARKgRAPHIC repeat variable match" )
+
+    TN( tBig , psttBig ) ;
+
+    }
+        if( !ostg ) break ;
+        etThread.strFuseF( tinP , psttBig , S1C( ostg ) ) ;
+    {
+    for( osTextT ostg = 0xff ;; ostg -- )
+    etThread.strMakeF( tinP , LF , psttBig , 0 , TUCK << 1 ) ; ___( psttBig ) ;
+    ZE( strokeS* , psttBig ) ;
+
+    ;
+
+        +S2(sa_SSSaNDeND,sc_ccSSS)
+            +S2(sa_SSSmARKgRAPHIC,sc_cSSSmARK)
+            +S3(0,sc_ccSSSrEPEAT,0x200)
+        +S2(sa_SSSaND,sc_ccSSS)
+        T("")
+
+    TN( tSmall , "" ) ; tSmall =
+{
+
+}
+    LOADsb( "mark:sa_SSSmARKpUNCTUATION repeat variable match" )
+    TN( tBig , ",<.>/?;:'\"[{]}\|`~!@#$%^&*()-_=+abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789" ) ;
+
+    ;
+
+        +S2(sa_SSSaNDeND,sc_ccSSS)
+            +S2(sa_SSSmARKpUNCTUATION,sc_cSSSmARK)
+            +S3(0,sc_ccSSSrEPEAT,0x100)
+        +S2(sa_SSSaND,sc_ccSSS)
+        T("")
+
+    TN( tSmall , "" ) ; tSmall =
+{
+
+}
+    LOADsb( "mark:sa_SSSmARKaLPHABETIC repeat variable match" )
+    TN( tBig , "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789,<.>/?;:'\"[{]}\|`~!@#$%^&*()-_=+" ) ;
+
+    ;
+
+        +S2(sa_SSSaNDeND,sc_ccSSS)
+            +S2(sa_SSSmARKaLPHABETIC,sc_cSSSmARK)
+            +S3(0,sc_ccSSSrEPEAT,0x100)
+        +S2(sa_SSSaND,sc_ccSSS)
+        T("")
+
+    TN( tSmall , "" ) ; tSmall =
+{
+
+}
+    LOADsb( "mark:numericf repeat variable match" )
+    TN( tBig , "01234abcd5678efgh9abc" ) ;
+
+    ;
+
+        +S2(sa_SSSaNDeND,sc_ccSSS)
+            +S2(sa_SSSmARKnUMERICf,sc_cSSSmARK)
+            +S3(0,sc_ccSSSrEPEAT,0x1f)
+        +S2(sa_SSSaND,sc_ccSSS)
+        T("")
+
+    TN( tSmall , "" ) ; tSmall =
+{
+
+}
+    LOADsb( "mark:numeric9 repeat variable match" )
+    TN( tBig , "01234abcd5678" ) ;
+
+    ;
+
+        +S2(sa_SSSaNDeND,sc_ccSSS)
+            +S2(sa_SSSmARKnUMERIC9,sc_cSSSmARK)
+            +S3(0,sc_ccSSSrEPEAT,8)
+        +S2(sa_SSSaND,sc_ccSSS)
+        T("")
+
+    TN( tSmall , "" ) ; tSmall =
+{
+
+}
+    LOADsb( "mark:numeric9 repeat 1 match" )
+    TN( tBig , "01" ) ;
+
+    ;
+
+        +S2(sa_SSSaNDeND,sc_ccSSS)
+            +S2(sa_SSSmARKnUMERIC9,sc_cSSSmARK)
+            +S3(1,sc_ccSSSrEPEAT,1)
+        +S2(sa_SSSaND,sc_ccSSS)
+        T("")
+
+    TN( tSmall , "" ) ; tSmall =
+{
+
+}
+    LOADsb( "mark:numeric9 match" )
+    TN( tBig , "0" ) ;
+
+    ;
+
+        +S2(sa_SSSaNDeND,sc_ccSSS)
+            +S2(sa_SSSmARKnUMERIC9,sc_cSSSmARK)
+        +S2(sa_SSSaND,sc_ccSSS)
+        T("")
+
+    TN( tSmall , "" ) ; tSmall =
+{
+
+}
+    LOADsb( "mark:any variable repeat match" )
+    TN( tBig , "abcde" ) ;
+
+    ;
+
+        +S2(sa_SSSaNDeND,sc_ccSSS)
+            +S2(sa_SSSmARKaNY,sc_cSSSmARK)
+            +S3(0,sc_ccSSSrEPEAT,8)
+        +S2(sa_SSSaND,sc_ccSSS)
+        T("")
+
+    TN( tSmall , "" ) ; tSmall =
+{
+
+}
+    LOADsb( "mark:any match" )
+    TN( tBig , "abcde" ) ;
+
+    ;
+
+        +S2(sa_SSSaNDeND,sc_ccSSS)
+            +T("de")
+            +S2(sa_SSSmARKaNY,sc_cSSSmARK)
+            +T("ab")
+        +S2(sa_SSSaND,sc_ccSSS)
+        T("")
+
+    TN( tSmall , "" ) ; tSmall =
+{
+
+}
+    LOADsb( "sa_SSSlITERAL variable repeat repeated middle time match" )
+
+    ;
+    
+        +S2(sa_SSSaND,sc_ccSSS)
+        +S2(sa_SSSaND,sc_ccSSS)
+        +S2(sa_SSSaND,sc_ccSSS)
+        +S2(sa_SSSaND,sc_ccSSS)
+        +S2(sa_SSSaND,sc_ccSSS)
+        T("")
+    
+    TN( tBig , "" ) ; tBig =
+    
+    ;
+    
+        +S2(sa_SSSaNDeND,sc_ccSSS)
+            +S2(sa_SSSaNDeND,sc_ccSSS)
+                +S2(sa_SSSaND,sc_ccSSS)
+                +S2(sa_SSSlITERAL,sc_ccSSS)
+            +S2(sa_SSSaND,sc_ccSSS)
+            +S3(0,sc_ccSSSrEPEAT,8)
+        +S2(sa_SSSaND,sc_ccSSS)
+        T("")
+    
+    TN( tSmall , "" ) ; tSmall =
+{
+
+}
+    LOADsb( "sa_SSSlITERAL repeated 2 time match" )
+
+    ;
+    
+        +S2(sa_SSSaND,sc_ccSSS)
+        +S2(sa_SSSaND,sc_ccSSS)
+        +S2(sa_SSSaND,sc_ccSSS)
+        T("")
+    
+    TN( tBig , "" ) ; tBig =
+    
+    ;
+    
+        +S2(sa_SSSaNDeND,sc_ccSSS)
+            +S2(sa_SSSaNDeND,sc_ccSSS)
+                +S2(sa_SSSaND,sc_ccSSS)
+                +S2(sa_SSSlITERAL,sc_ccSSS)
+            +S2(sa_SSSaND,sc_ccSSS)
+            +S3(2,sc_ccSSSrEPEAT,2)
+        +S2(sa_SSSaND,sc_ccSSS)
+        T("")
+    
+    TN( tSmall , "" ) ; tSmall =
+{
+
+}
+    LOADsb( "sa_SSSlITERAL match" )
+
+    ;
+    
+        +S2(sa_SSSaND,sc_ccSSS)
+        T("abcdefgh")
+    
+    TN( tBig , "" ) ; tBig =
+    
+    ;
+    
+        +S2(sa_SSSaNDeND,sc_ccSSS)
+        +S2(sa_SSSaND,sc_ccSSS)
+        +S2(sa_SSSlITERAL,sc_ccSSS)
+        +T("abcdefgh")
+        +S2(sa_SSSaND,sc_ccSSS)
+        T("")
+    
+    TN( tSmall , "" ) ; tSmall =
+{
+
+}
+    LOADsb( "sa_SSSoR range pairs mismatch" )
+    TN( tBig , "f" ) ;       // 1-3
+    
+    ;
+    
+        +S2(sa_SSSaNDeND,sc_ccSSS)              // 43
+            +S2(sa_SSSoReND,sc_ccSSS)               // 4
+        
+                +T("aemp")                             // 3
+        
+            +S3(sa_SSSoR,sc_ccSSS,sp_SSSfLAGrANGEpAIRS)    // 1
+        +S2(sa_SSSaND,sc_ccSSS)                 // 1
+        T("")
+    
+    TN( tSmall , "" ) ; tSmall =
+{
+
+}
+    LOADsb( "sa_SSSoR range pairs match" )
+    TN( tBig , "n" ) ;       // 1-3
+    
+    ;
+    
+        +S2(sa_SSSaNDeND,sc_ccSSS)              // 43
+            +S2(sa_SSSoReND,sc_ccSSS)               // 4
+        
+                +T("aemp")                             // 3
+        
+            +S3(sa_SSSoR,sc_ccSSS,sp_SSSfLAGrANGEpAIRS)    // 1
+        +S2(sa_SSSaND,sc_ccSSS)                 // 1
+        T("")
+    
+    TN( tSmall , "" ) ; tSmall =
+{
+
+}
+    LOADsb( "sa_SSSoR simple mismatch" )
+    TN( tBig , "e" ) ;       // 1-3
+    
+    ;
+    
+        +S2(sa_SSSaNDeND,sc_ccSSS)              // 43
+            +S2(sa_SSSoReND,sc_ccSSS)               // 4
+        
+                +T("abcd")                             // 3
+        
+            //+S3(sa_SSSoR,sc_ccSSS,sp_SSSfLAGnOT)    // 1
+            +S2(sa_SSSoR,sc_ccSSS)    // 1
+        +S2(sa_SSSaND,sc_ccSSS)                 // 1
+        T("")
+    
+    TN( tSmall , "" ) ; tSmall =
+{
+
+}
+    LOADsb( "sc_ccSSSrEPEAT variable 0 to 8 match with 3" )
+    TN( tBig , "aaaab" ) ;       // 1-3
+    
+    ;
+    
+        +S2(sa_SSSaNDeND,sc_ccSSS)          // 5
+    
+            +T("ab")                        // 3-4
+            +S3(0,sc_ccSSSrEPEAT,8)         // 2
+    
+        +S2(sa_SSSaND,sc_ccSSS)             // 1
+        T("")
+    
+    TN( tSmall , "" ) ; tSmall =
+{
+
+}
+    LOADsb( "sc_ccSSSrEPEAT variable 0 to 8 match with 0" )
+    TN( tBig , "ab" ) ;       // 1-3
+    
+    ;
+    
+        +S2(sa_SSSaNDeND,sc_ccSSS)          // 5
+    
+            +T("ab")                        // 3-4
+            +S3(0,sc_ccSSSrEPEAT,8)         // 2
+    
+        +S2(sa_SSSaND,sc_ccSSS)             // 1
+        T("")
+    
+    TN( tSmall , "" ) ; tSmall =
+{
+
+}
+    LOADsb( "sc_ccSSSrEPEAT variable 0 to 8 mismatch" )
+    TN( tBig , "b" ) ;       // 1-3
+    
+    ;
+    
+        +S2(sa_SSSaNDeND,sc_ccSSS)          // 5
+    
+            +T("ab")                        // 3-4
+            +S3(0,sc_ccSSSrEPEAT,8)         // 2
+    
+        +S2(sa_SSSaND,sc_ccSSS)             // 1
+        T("")
+    
+    TN( tSmall , "" ) ; tSmall =
+{
+
+}
+    LOADsb( "sc_ccSSSrEPEAT variable repeat on whole word match 6 more than min 4 less than max 9" )
+    TN( tBig , "abcdabcdabcdabcdabcdabcd" ) ;       // 1-01
+    
+    ;
+    
+        +S2(sa_SSSaNDeND,sc_ccSSS)          // 9
+    
+            +S2(sa_SSSaNDeND,sc_ccSSS)      // 8
+                +T("abcd")                  // 4-7
+            +S2(sa_SSSaND,sc_ccSSS)         // 3
+            +S3(3,sc_ccSSSrEPEAT,8)         // 2
+    
+        +S2(sa_SSSaND,sc_ccSSS)             // 1
+        T("")
+    
+    TN( tSmall , "" ) ; tSmall =
+{
+
+}
+    LOADsb( "sc_ccSSSrEPEAT fixed length match" )
+    TN( tBig , "beforeaaaabbbbafter" ) ;
+
+    ;
+    
+        +S2(sa_SSSaNDeND,sc_ccSSS)
+    
+            +T("after")
+            +T("b")
+            +S3(3,sc_ccSSSrEPEAT,3)
+            +T("a")
+            +S3(3,sc_ccSSSrEPEAT,3)
+            +T("before")
+    
+        +S2(sa_SSSaND,sc_ccSSS)
+        T("")
+    
+    TN( tSmall , "" ) ; tSmall =
+{
+
+}
+    LOADsb( "sa_SSSoR with whole words and individual strokes mismatch" )
+    TN( tBig , "E" ) ;
+
+    ;
+    
+        +S2(sa_SSSaNDeND,sc_ccSSS)              // 43
+            +S2(sa_SSSoReND,sc_ccSSS)               // 43
+        
+                +S2(sa_SSSoReND,sc_ccSSS)          // e2
+                    +T("ABCD")                     // a-11
+                +S2(sa_SSSoR,sc_ccSSS)             // 8
+                +S2(sa_SSSaNDeND,sc_ccSSS)          // e2
+                    +T("CATASTROPHIC")              // a-11
+                +S2(sa_SSSaND,sc_ccSSS)             // 8
+                +S2(sa_SSSaNDeND,sc_ccSSS)          // e2
+                    +T("BORING")                    // a-11
+                +S2(sa_SSSaND,sc_ccSSS)             // 8
+                +S2(sa_SSSaNDeND,sc_ccSSS)          // e2
+                    +T("AWFUL")                     // a-11
+                +S2(sa_SSSaND,sc_ccSSS)             // 8
+        
+            +S2(sa_SSSoR,sc_ccSSS)                  // 1 WRONGO
+        +S2(sa_SSSaND,sc_ccSSS)                 // 1
+        T("")
+    
+    TN( tSmall , "" ) ; tSmall =
+{
+
+}
+    LOADsb( "sa_SSSoR with whole words and individual strokes match an individual stroke" )
+    TN( tBig , "C" ) ;
+
+    ;
+    
+        +S2(sa_SSSaNDeND,sc_ccSSS)              // 43
+            +S2(sa_SSSoReND,sc_ccSSS)               // 43
+        
+                +S2(sa_SSSoReND,sc_ccSSS)          // e2
+                    +T("ABCD")                     // a-11
+                +S2(sa_SSSoR,sc_ccSSS)             // 8
+                +S2(sa_SSSaNDeND,sc_ccSSS)          // e2
+                    +T("CATASTROPHIC")              // a-11
+                +S2(sa_SSSaND,sc_ccSSS)             // 8
+                +S2(sa_SSSaNDeND,sc_ccSSS)          // e2
+                    +T("BORING")                    // a-11
+                +S2(sa_SSSaND,sc_ccSSS)             // 8
+                +S2(sa_SSSaNDeND,sc_ccSSS)          // e2
+                    +T("AWFUL")                     // a-11
+                +S2(sa_SSSaND,sc_ccSSS)             // 8
+        
+            +S2(sa_SSSoR,sc_ccSSS)                  // 1 WRONGO
+        +S2(sa_SSSaND,sc_ccSSS)                 // 1
+        T("")
+    
+    TN( tSmall , "" ) ; tSmall =
+{
+
+}
+    LOADsb( "sa_SSSoR with whole words and individual strokes match a word" )
+    TN( tBig , "BORING" ) ;
+
+    ;
+    
+        +S2(sa_SSSaNDeND,sc_ccSSS)              // 43
+            +S2(sa_SSSoReND,sc_ccSSS)               // 43
+        
+                +S2(sa_SSSoReND,sc_ccSSS)          // e2
+                    +T("ABCD")                     // a-11
+                +S2(sa_SSSoR,sc_ccSSS)             // 8
+                +S2(sa_SSSaNDeND,sc_ccSSS)          // e2
+                    +T("CATASTROPHIC")              // a-11
+                +S2(sa_SSSaND,sc_ccSSS)             // 8
+                +S2(sa_SSSaNDeND,sc_ccSSS)          // e2
+                    +T("BORING")                    // a-11
+                +S2(sa_SSSaND,sc_ccSSS)             // 8
+                +S2(sa_SSSaNDeND,sc_ccSSS)          // e2
+                    +T("AWFUL")                     // a-11
+                +S2(sa_SSSaND,sc_ccSSS)             // 8
+        
+            +S2(sa_SSSoR,sc_ccSSS)                  // 1 WRONGO
+        +S2(sa_SSSaND,sc_ccSSS)                 // 1
+        T("")
+    
+    TN( tSmall , "" ) ; tSmall =
+{
+
+}
+    LOADsb( "sa_SSSaND with nested sa_SSSaND matching whole nested word" )
+    TN( tBig , "beforeAWFULafter" ) ;
+
+    ;
+    
+        +S2(sa_SSSaNDeND,sc_ccSSS)              // 43
+            +T("after")                         // f2-33
+            +S2(sa_SSSaNDeND,sc_ccSSS)          // e2
+                +T("AWFUL")                     // a-11
+            +S2(sa_SSSaND,sc_ccSSS)             // 8
+            +T("before")                        // 2-7
+        +S2(sa_SSSaND,sc_ccSSS)                 // 1 WRONGO
+        T("")
+    
+    TN( tSmall , "" ) ; tSmall =
+{
+
+}
+    LOADsb( "sa_SSSoR whole words plus individual strokes matching a whole word" )
+    TN( tBig , "beforeCARafter" ) ;
+
+    ;
+
+        +S2(sa_SSSaNDeND,sc_ccSSS)              // 43
+            +T("after")                         // f2-33
+            +S2(sa_SSSoReND,sc_ccSSS)           // e2
+                +T("WXYZ")                      // a2-d2
+                +S2(sa_SSSaNDeND,sc_ccSSS)      // 92
+                    +T("CAR")                   // 62-82
+                +S2(sa_SSSaND,sc_ccSSS)         // 52
+                +S2(sa_SSSaNDeND,sc_ccSSS)      // 42
+                    +T("BIPLANE")               // d1-32
+                +S2(sa_SSSaND,sc_ccSSS)         // c1
+                +S2(sa_SSSaNDeND,sc_ccSSS)      // b1
+                    +T("BICYCLE")               // 41-a1
+                +S2(sa_SSSaND,sc_ccSSS)         // 31
+                +S2(sa_SSSaNDeND,sc_ccSSS)      // 21
+                    +T("AIRPLANE")              // a-11
+                +S2(sa_SSSaND,sc_ccSSS)         // 9
+            +S2(sa_SSSoR,sc_ccSSS)              // 8
+            +T("before")                        // 2-7
+        +S2(sa_SSSaND,sc_ccSSS)                 // 1
+        T("")
+
+    TN( tSmall , "" ) ; tSmall =
+{
+
+}
+    LOADsb( "sa_SSSoR whole words plus individual strokes matching an individual stroke" )
+    TN( tBig , "beforeXafter" ) ;
+
+    ;
+
+        +S2(sa_SSSaNDeND,sc_ccSSS)              // 43
+            +T("after")                         // f2-33
+            +S2(sa_SSSoReND,sc_ccSSS)           // e2
+                +T("WXYZ")                      // a2-d2
+                +S2(sa_SSSaNDeND,sc_ccSSS)      // 92
+                    +T("CAR")                   // 62-82
+                +S2(sa_SSSaND,sc_ccSSS)         // 52
+                +S2(sa_SSSaNDeND,sc_ccSSS)      // 42
+                    +T("BIPLANE")               // d1-32
+                +S2(sa_SSSaND,sc_ccSSS)         // c1
+                +S2(sa_SSSaNDeND,sc_ccSSS)      // b1
+                    +T("BICYCLE")               // 41-a1
+                +S2(sa_SSSaND,sc_ccSSS)         // 31
+                +S2(sa_SSSaNDeND,sc_ccSSS)      // 21
+                    +T("AIRPLANE")              // a-11
+                +S2(sa_SSSaND,sc_ccSSS)         // 9
+            +S2(sa_SSSoR,sc_ccSSS)              // 8
+            +T("before")                        // 2-7
+        +S2(sa_SSSaND,sc_ccSSS)                 // 1
+        T("")
+
+    TN( tSmall , "" ) ; tSmall =
+{
+
+}
+    LOADsb( "simple mismatch" )
+    TN( tBig , "abce" ) ;
+
+    ;
+
+        +S2(sa_SSSaNDeND,sc_ccSSS)              // 43
+            +T("abcd")                             // f2-33
+        +S2(sa_SSSaND,sc_ccSSS)                 // 1
+        T("")
+
+    TN( tSmall , "" ) ; tSmall =
+{
+
+}
+    LOADsb( "simple match" )
+    TN( tBig , "abcd" ) ;
+
+    ;
+
+        +S2(sa_SSSaNDeND,sc_ccSSS)              // 43
+            +T("abcd")                             // f2-33
+        +S2(sa_SSSaND,sc_ccSSS)                 // 1
+        T("")
+
+    TN( tSmall , "" ) ; tSmall =
+{
+
+#if defined( NEVERdEFINED )
+
+}
+    LOADsb( "simple or with repeat" )
+    TN( tBig , "abcd20130510@2359efgh" ) ;
+
+    ;
+
+        +S2(sa_SSSaNDeND,sc_ccSSS)
+            +S2(sa_SSSmARKnUMERIC9,sc_cSSSmARK)
+            +S3(2,sc_ccSSSrEPEAT,2)
+            +S2(sa_SSSoReND,sc_ccSSS)
+                +T("012")
+            +S2(sa_SSSoR,sc_ccSSS)
+            +T("@")
+            +S2(sa_SSSmARKnUMERIC9,sc_cSSSmARK)
+            +S3(4,sc_ccSSSrEPEAT,4)
+            +S2(sa_SSSoReND,sc_ccSSS)
+                +T("01")
+            +S2(sa_SSSoR,sc_ccSSS)
+            +T("20")
+        +S2(sa_SSSaND,sc_ccSSS)
+        T("")
+
+    TN( tSmall , "" ) ; tSmall =
+    // MATCHES THIS PATTERN:  20130510@2359
+{
+
+#endif
+
+}
+    LOADsb( "simple or with repeat" )
+    TN( tBig , "abcdefghijkl" ) ;
+
+    ;
+
+        +S2(sa_SSSaNDeND,sc_ccSSS)
+            +S2(sa_SSSoReND,sc_ccSSS)
+                +T("efgh")
+            +S2(sa_SSSoR,sc_ccSSS)
+            +S3(0,sc_ccSSSrEPEAT,-1)
+        +S2(sa_SSSaND,sc_ccSSS)
+        T("")
+
+    TN( tSmall , "" ) ; tSmall =
+{
+
+}
+    LOADsb( "simple or" )
+    TN( tBig , "abc" ) ;
+
+    ;
+
+        +S2(sa_SSSaNDeND,sc_ccSSS)
+            +T("b")
+        +S2(sa_SSSaND,sc_ccSSS)
+        T("")
+
+    TN( tSmall , "" ) ; tSmall =
+{
+
+#if defined( NEVERdEFINED )
+
+thirdC::c_memsetIF( tinP , (byteT*)ppsttSmallBigComment , sizeof ppsttSmallBigComment ) ;
+strokeS* ppsttSmallBigComment[ TUCK * 3 ] ;
+ZE( countT , cSmallBigComment ) ;
+
+TODO
+
+    cSmallBigComment ++ ;
+    etThread.strMakeF( tinP , LF , ppsttSmallBigComment[ ( cSmallBigComment * 3 ) + 2 ] , T(postCommentP) ) ; ___( ppsttSmallBigComment[ ( cSmallBigComment * 3 ) + 2 ] ) ;  \
+    etThread.strMakeF( tinP , LF , ppsttSmallBigComment[ ( cSmallBigComment * 3 ) + 1 ] , tBig            ) ; ___( ppsttSmallBigComment[ ( cSmallBigComment * 3 ) + 1 ] ) ;  \
+    etThread.strMakeF( tinP , LF , ppsttSmallBigComment[   cSmallBigComment * 3       ] , tSmall          ) ; ___( ppsttSmallBigComment[   cSmallBigComment * 3       ] ) ;  \
+    __( cSmallBigComment * 3 + 2 >= sizeof ppsttSmallBigComment / sizeof ppsttSmallBigComment[ 0 ] ) ;                                                                  \
+                                                                                                                                                                        \
+#define LOADsb(postCommentP)                                                                                                                              \
+
+/*1*/WAKEsHOWtEXT( "example.test.suite.sss.stroke.string.specification.aka.regular.expressions" )/*1*/
+/**/
+*/
+ it exists so that failures of strIdF to correctly handle sss can be investigated
+ in contrast, my code is not tested
+ 5adam.5100067d.1 code is tested completely
+my code is from baseline adam 5adam.5100067d.1
+/*
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 29 years.
+//
+// Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+

@@ -1,0 +1,113 @@
+
+//
+// Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 29 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+
+//A: I've written a replacement function for accept which uses select.
+//A: This will block for ever but it is possible for another
+//A: thread to close the listening port at which time it will return
+//A: -1. Otherwise it will return a new socket fd when a connection
+//A: is made.
+//A: 
+//A: I'd very much welcome any feed back on the appropriateness
+//A: or otherwise of this idea!!!
+//A: 
+//A: Best regards,
+//A: Tim Hatton
+//A: 
+//A: int intAccept(int socket, struct sockaddr* cli_addr)
+//A: {
+//A:   int  clilen;
+//A:   
+//A:   fd_set fdvar;
+//A: 
+//A:   clilen = sizeof(*cli_addr);
+//A: 
+//A:   FD_ZE (&fdvar);
+//A:   FD_SET (socket, &fdvar);
+//A: 
+//A:   if (select (socket + 1, &fdvar, (fd_set *) 0, (fd_set *) 0, NULL) < 0)
+//A: {
+//A:     return -1;  /* The listening socket was closed */
+//A:   }
+//A:   else {
+//A:     if (FD_ISSET (socket, &fdvar)) {
+//A:       /* Someone connected - make a new socket */
+//A:       return accept(socket, cli_addr, &clilen);  
+//A:     }
+//A:   }
+//A: }
+//A: 
+//A: if run into this, can use Tim's suggestion above
+//A: NOTE: ON SOME OS, a thread calling close() on a socket that is in accept() on another thread will hangs.
+
+}
+    dec02AM( cFunctionsPending ) ;
+    }
+        if( F(flags) & flSOCKETc_CRYPTfOREIGNsSL && !( F(flags) & flSOCKETc_CRYPTfOREIGNsSLdEFERhANDSHAKE ) ) pSocketP->shakeHandsAsServerF( tinP ) ;
+    
+        }
+            }
+                if( psttName ) pSocketP->nameF( tinP , psttName ) ;
+                pSocketP->bAcceptedByLF = 1 ;
+            {
+            if( pSocketP )
+
+            pSocketP = new( 0 , tinP , LF ) socketC( *pEther , tinP , TAGoR( TAGiDnULL , idLineCt , idiFileCt , pbBitsCt ) , hClient , idType , flags | flSOCKETc_CTbYlISTENER | flSOCKETc_NOdUALsTACK , 0 , &idleTimeAllowedRead , &idleTimeAllowedWrite , &timeAllowedConnected , nicNameP , psttPemCertificates , psttPemPrivateKey ) ; ___( pSocketP ) ;
+        {
+        if( ~hClient )
+        pEther->sockAcceptF( tinP , hClient , idPortP , nicNameP , handle , bRefuseP , ~hSslContext ? &hSslContext : 0 ) ;
+        handleC hClient( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_SOCKET ) ;
+        _IO_
+    
+        }
+            }
+                return ;
+                dec02AM( cFunctionsPending ) ;
+            {
+            if( *pEther )
+
+            __Z( fListening ) ;
+            __NZ( pSocketP ) ;
+
+            }
+                return ;
+                dec02AM( cFunctionsPending ) ;
+            {
+            if( *pEther )
+        {
+        IFbEcAREFUL    
+        SCOOPP
+    {
+    inc02AM( cFunctionsPending ) ;
+{
+/*1*/voidT socketC::acceptF( tinS& tinP , socketC*& pSocketP , countT& idPortP , nicNameC& nicNameP , boolT& bRefuseP )/*1*/
+
+/**/
+*/
+ bRefuseP
+ pSocketP
+arguments
+listenF must be called once, after bindF and before the first call to acceptF
+ this permits the accepting thread (task) to resume listening for another client immediately
+normally, the new socket should be serviced and then d eleted by another thread (task)
+then constructs another socket for that connection
+waits for a peer to connect
+  \<A HREF=\"5.6420104.1.1.0.html\"\>6420104:  WAKEsHOW( "example.simplest.func.1070004.socketC.acceptF" )\</A\>
+ simplest
+examples
+\<A HREF=\"5.1070022.1.0.html\"\>definition\</A\>
+\<A HREF=\"6.$acceptF.0.html\"\>instances\</A\>
+/*
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 29 years.
+//
+// Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+

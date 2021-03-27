@@ -1,0 +1,55 @@
+
+//
+// Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 29 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+
+REST
+
+etThread.strokeF( tinP , T("function call: ")+TF1(ids)+T("\r\n") ) ;
+ids = st2( (byteT*)&c2p ) ;
+c2p.c2 -- ;
+c2p.c1 -- ;
+
+etThread.strokeF( tinP , T("sinkF query: ")+TF1(ids)+T("\r\n") ) ;
+st2.sinkF( tinP , ids , (byteT*)&c2p , flSTACKsINK_QUERY ) ;
+ids = 0 ;
+c2p.c2 -- ;
+c2p.c1 -- ;
+
+st2.sinkF( tinP , ids , (byteT*)&c2p ) ;
+ids = 0 ;
+c2p.c2 ++ ;
+c2p.c1 ++ ;
+
+st2.sinkF( tinP , ids , (byteT*)&c2p ) ;
+ids = 0 ;
+c2p.c2 ++ ;
+c2p.c1 ++ ;
+
+st2.sinkF( tinP , ids , (byteT*)&c2p ) ;
+ids = 0 ;
+c2p.c2 ++ ;
+c2p.c1 ++ ;
+
+st2.sinkF( tinP , ids , (byteT*)&c2p ) ;
+ZE( countT , ids ) ;
+
+count2S c2p( 1 , 0x10 ) ;
+
+stackC st2( tinP , etThread , TAG( TAGiDnULL ) , flSTACKc_BLOB , 2 * sizeof( countT ) ) ;
+
+TODO
+
+/*1*/WAKEhIDE( "example.other.stackC.sinkF.blobs" )/*1*/
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 29 years.
+//
+// Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+

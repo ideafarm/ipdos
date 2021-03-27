@@ -1,0 +1,203 @@
+
+//
+// Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 29 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+
+}
+    etThread.delF( tinP , psttEmailClicker ) ;
+    }
+        }
+            meP.pushSnipF( tinP , stBodyP , tSay ) ;
+
+            }
+                etThread.delF( tinP , psttListEntry ) ;
+                etThread.delF( tinP , psttSubEmail ) ;
+
+                ) ;
+
+                    "  That email address will only accept incoming email from the email address that you used to log in.\r\n"
+                    "  That address is for your exclusive use in contacting the entry in IdeaFarm " "(tm) Directory that you clicked.\r\n"
+                    "An email from an " postIFPE " address will be sent to you as soon as possible.\r\n"
+
+                tSay = T(
+
+                }
+                    etThread.boxPutF( tinP , T("//smtp/")+T(psttSubEmail)+T("/")+T(psttEmailClicker) , tOpener , tOpener.csF( tinP ) ) ;
+
+                    ;
+
+                        "\r\n")+T(info.psttDirectoryGreeting)
+                        "-------------------------\r\n"
+                        "Autoresponse from clickee:\r\n"
+                        "-------------------------\r\n"
+                        "\r\n"
+                        "\r\n"
+
+                    if( info.psttDirectoryGreeting && info.psttDirectoryGreeting->idAdam ) tOpener += T(
+
+                    ) ;
+
+                        "  Your reply will be relayed to the IdeaFarm " "(tm) Directory entry that you clicked."
+                        "Begin your conversation by replying to this note."
+                        "\r\n"
+                        "  You may report this possible security compromise of your email or of your account by logging in to IDEAFARM.COM.\r\n"
+                        "If this was done without your knowledge, you do not need to do anything."
+                        "\r\n"
+                        "    ")+T(psttListEntry)+T("\r\n"
+                        "\r\n"
+                        "This was sent to you because you, or someone impersonating you, clicked the following IdeaFarm " "(tm) Directory entry while logged in at IDEAFARM.COM using your email address:\r\n"
+                        "\r\n"
+                        "Subject: IdeaFarm " "(tm) Directory <> The new conversation that you requested.\r\n"
+
+                    TN( tOpener , "" ) ; tOpener = T(
+                {
+
+                etThread.strMakeF( tinP , LF , psttSubEmail , TF4(idSubOfClickee,flFORMAT_UNSIGNED|flFORMAT_NObIGITvALUES|flFORMAT_NObASE,0,36)+tDot+TF4(idAccClickee,flFORMAT_UNSIGNED|flFORMAT_NObIGITvALUES|flFORMAT_NObASE,0,36)+T(".doubleblind.1@ideafarm.com") ) ; ___( psttSubEmail ) ;
+                TN( tDot , "." ) ;
+
+                ZE( strokeS* , psttSubEmail ) ;
+
+                }
+                    STRfUSEsAFE( psttListEntry , info.psttZipAt  )
+                    STRfUSEsAFE( psttListEntry , psttSep )
+                    STRfUSEsAFE( psttListEntry , info.psttResidenceCountry )
+                    STRfUSEsAFE( psttListEntry , psttSep )
+                    STRfUSEsAFE( psttListEntry , info.psttAddressName )
+                    STRfUSEsAFE( psttListEntry , psttSep )
+                    STRfUSEsAFE( psttListEntry , info.psttAddressCity )
+                    STRfUSEsAFE( psttListEntry , psttSep )
+                    STRfUSEsAFE( psttListEntry , info.psttAddressZip )
+                    STRfUSEsAFE( psttListEntry , psttSep )
+                    STRfUSEsAFE( psttListEntry , info.psttAddressCountryCode )
+                    strokeS* psttSep = tSep ;
+                    TN( tSep , " <> " ) ;
+    
+                    etThread.strMakeF( tinP , LF , psttListEntry , 0 , TOCK ) ; ___( psttListEntry ) ;
+
+                {
+                ZE( strokeS* , psttListEntry ) ;
+                accountS info( tinP , etThread , idAccClickee , flACCOUNT1_null , flACCOUNT2_QUERYfLAGSmODE | flACCOUNT2_QUERYaDDRESScOUNTRYcODE | flACCOUNT2_QUERYaDDRESSzIP | flACCOUNT2_QUERYaDDRESScITY | flACCOUNT2_QUERYaDDRESSnAME | flACCOUNT2_QUERYrESIDENCEcOUNTRY | flACCOUNT2_QUERYzIPaT | flACCOUNT2_QUERYdIRECTORYgREETING ) ;
+            {
+            else
+            if( !idSubOfClickee ) tSay += T(" The server unexpectedly was not able to create a subaccount for you.") ;
+
+            }
+                *newSub.pStkEmailRelay << psttEmailClickee ;
+
+                }
+                    sIn >> psttEmailClickee ; ___( psttEmailClickee ) ;
+                
+                    __( idFormat - 1 ) ;
+                    sIn >> idFormat ;
+                    ZE( countT , idFormat ) ;
+                
+                    __( finger - FINGERnEG_LISTsERVERrEPLY ) ;
+                    sIn >> finger ;
+                    ZE( countT , finger ) ;
+                
+                    sock.readF( tinP , sIn ) ;
+                    soulC sIn( tinP , TAG( TAGiDnULL ) ) ;
+                
+                    sock.writeF( tinP , sOut ) ;
+                    sOut << idAccClickee ;
+                    sOut << (countT)ifcIDcMDlISTsERVEReMAILiDaCCOUNT_ASKeMAILfROMiDaCCOUNT ;
+                    sOut << (countT)1 ;
+                    sOut << (countT)FINGERnEG_LISTsERVERcMD ;
+                    soulC sOut( tinP , TAG( TAGiDnULL ) ) ;
+                
+                    sock.connectF( tinP , homeS::homeIF().idPortListServerEmailIdAccount ) ;
+                    socketC sock( tinP , *tinP.pEtScratch , TAG( TAGiDnULL ) ) ;
+                {
+                ZE( strokeS* , psttEmailClickee ) ;
+
+                *newSub.pStkEmailPenpalExactOr << psttw ; psttw = 0 ;
+                etThread.strMakeF( tinP , LF , psttw , psttEmailClicker ) ; ___( psttw ) ;
+                ZE( strokeS* , psttw ) ;
+
+                subaccountS newSub( tinP , etThread , idAccClickee , idSubOfClickee , TF2(idAccClicker,flFORMAT_UNSIGNED|flFORMAT_NObIGITvALUES) , T("IdeaFarm " "(tm) Directory Clicker") , T("IdeaFarm " "(tm) Directory Clickee") , fliSUBACCOUNTmODE_OWNERcONFIRMED | fliSUBACCOUNTmODE_OWNEDbYdIRECTORYoRhELLO | fliSUBACCOUNTmODE_RELAYrEPLYeNDScONVERSATION ) ;
+                // fliSUBACCOUNTmODE_RELAYrEPLYeNDScONVERSATION MAKES THE CONVERSATION CLEANER SINCE ALL ITEMS REFER TO THE SAME EMAIL ADDRESS; THE PREFIX TO IDENTIFY THE RESPONDING RELAY IS NOT NEEDED BECAUSE THERE IS ALWAYS EXACTLY ONE RELAY
+            {
+            if( !idSubOfClickee )
+    
+            }
+                tSay += T(" ]") ;
+                }
+                    }
+                        if( idSubOfClickee ) break ;
+        
+                        }
+                            }
+                                break ;
+                                tSay += T(" FOUND") ;
+                                idSubOfClickee = idSub ;
+                            {
+                            if( !etThread.strCompareF( tinP , psttw , psttEmailClicker ) )
+                            etThread.strConvertToLowerCaseF( tinP , psttw ) ;
+                            *sub.pStkEmailPenpalExactOr >> psttw ;
+                            ZE( strokeS* , psttw ) ;
+                        {
+                        while( *sub.pStkEmailPenpalExactOr )
+                    {
+                    if( F(sub.flagsMode) & fliSUBACCOUNTmODE_OWNEDbYdIRECTORYoRhELLO && !( F(sub.flagsMode) & fliSUBACCOUNTmODE_DELETED ) && sub.pStkEmailPenpalExactOr )
+        
+                    tSay += T("{")+TF2(sub.flagsMode,flFORMAT_UNSIGNED|flFORMAT_NObIGITvALUES)+T("}") ;
+                    subaccountS sub( tinP , etThread , idAccClickee , idSub , flSUBACCOUNT_QUERYfLAGSmODE | flSUBACCOUNT_QUERYeMAILpENPALeXACToR ) ;
+        
+                    tSay += tb+TF2(idSub,flFORMAT_UNSIGNED|flFORMAT_NObIGITvALUES) ;
+                    stkIdSub >> idSub ;
+                    ZE( countT , idSub ) ;
+                {
+                while( stkIdSub )
+                stkIdSubC stkIdSub( tinP , idAccClickee ) ;
+            {
+            ZE( countT , idSubOfClickee ) ;
+    
+            TN( tb , " " ) ;
+            TN( tSay , "idSub list: [" ) ;
+        {
+        else
+        if( idAccClickee == idAccClicker ) meP.pushSnipF( tinP , stBodyP , T("Clicks on your own entry are ignored.  Nothing has been done.") ) ;
+        //CS:CODEsYNC: b750104 1d20005
+
+        //POPUP( TF2(idAccClicker,flFORMAT_UNSIGNED|flFORMAT_NObIGITvALUES)+T(" clicked ")+TF2(idAccClickee,flFORMAT_UNSIGNED|flFORMAT_NObIGITvALUES) ) ;
+    {
+    if( idAccClickee && idAccClicker && psttEmailClicker )
+
+    }
+        session.getEmailF( tinP , psttEmailClicker ) ; ___( psttEmailClicker ) ;
+        idAccClicker = session.getIdAccountF( tinP ) ;
+        sessionC& session = sessionsP( tinP , nnPeerP ) ;
+
+        }
+            }
+                break ;
+                idAccClickee = etThread.strDigitsToSCountF( tinP , *(strokeS**)&(countT&)swKVP ) ;
+            {
+            if( !etThread.strCompareF( tinP , psttLeverKVP , tKeyIdAccClickee ) )
+            psttLeverKVP = (strokeS*)swKVP.leverF( tinP , idf ) ;
+        {
+        for( countT idf = 1 ; idf <= cFlavors ; idf ++ )
+        countT cFlavors = swKVP.cFlavorsF( tinP ) ;
+        TN( tKeyIdAccClickee , "idaccclickee" ) ;
+    {
+    ZE( strokeS* , psttEmailClicker ) ;
+    ZE( countT , idAccClickee ) ;
+    ZE( countT , idAccClicker ) ;
+{
+/*1*/voidT obeyDirectoryClickCBF( tinS& tinP , etherC& etThread , const boolT& bQuitP , httpServerC& meP , countT& cArgP , httpReplyS& replyP , stackC& stBodyP , const strokeS* const psttKVReportP , switchC& swKVP , strokeS*& psttLeverKVP , sessionsC& sessionsP , nicNameC& nnPeerP , const strokeS* const psttNameP , const strokeS* const psttQueryKVP , const strokeS* const psttPeerAgentP , const osTextT* const postBodyP )/*1*/
+
+/**/
+*/
+/*
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 29 years.
+//
+// Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+

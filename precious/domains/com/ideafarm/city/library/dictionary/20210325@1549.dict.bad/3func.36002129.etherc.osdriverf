@@ -1,0 +1,181 @@
+
+//
+// Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 29 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+
+}
+    delF( tinP , psttExe ) ;
+    }
+        }
+            }
+                break ;
+                __1
+                __( idState ) ;
+            {
+            default :
+            }
+                break ;
+                third.osDriverF( tinP , tDriverName ) ;
+            {
+            case ifcDRIVERsTATUS_STARTING :
+            }
+                break ;
+                }
+                    //__1
+                    POPUP( T("Service ")+tDriverName+T(" could not be hired.  It has been removed.  Please see http://www.ideafarm.com .") ) ;
+                    thp = 0 ;
+                    thp.osDriverUnregisterF( tinP , tDriverName ) ;
+                    thp = 0 ;
+                {
+                if( thp )
+                thp.osDriverHireF( tinP , tDriverName ) ;
+            {
+            case ifcDRIVERsTATUS_STOPPED :
+            }
+                //INTENTIONAL FALLTHROUGH
+
+                }
+                    __( idState - ifcDRIVERsTATUS_STOPPED ) ;
+                    }
+                        while( !POOP && !third && idState == ifcDRIVERsTATUS_STOPPING ) ;
+                        }
+                            idState = third.osDriverStatusF( tinP , tDriverName ) ;
+                            ++ s ; third.dosSleepIF( tinP , TUCK * 0x80 ) ;
+                        {
+                        do
+                        sleepC s( tinP , TAG( TAGiDnULL ) ) ;
+                    {
+                {
+                if( idState == ifcDRIVERsTATUS_STOPPING )
+            {
+            case ifcDRIVERsTATUS_STOPPING :
+            }
+                //INTENTIONAL FALLTHROUGH
+
+                }
+                    break ;
+                    __1
+                    thp = 0 ;
+                    POPUP( T("Service ")+tDriverName+T(" could not be installed.  Please see http://www.ideafarm.com .") ) ;
+                    thp.osDriverUnregisterF( tinP , tDriverName ) ;
+                    thp = 0 ;
+                {
+                if( thp )
+                thp.osDriverRegisterF( tinP , tDriverName , tDriverName , tDescription , T(psttExe) ) ;
+                //DUPLICATE CODE: 1030164 1030164
+            {
+            case ifcDRIVERsTATUS_UNKNOWN :
+            }
+                //INTENTIONAL FALLTHROUGH
+
+                }
+                    break ;
+                    
+                    POPUP( T("Service ")+tDriverName+T(" installation could not be completed because the service is currently started and took too long to go away when I fired it.  Please wait a few seconds and try again.  See http://ideafarm.com .") ) ;
+                    thp = 0 ;
+                {
+                if( thp )
+                thp.osDriverFireF( tinP , tDriverName ) ;
+                thp = 0 ;
+                thp.osDriverUnregisterF( tinP , tDriverName ) ; //DONE WOTH BECAUSE FIRING MIGHT TIME OUT
+            {
+            case ifcDRIVERsTATUS_STARTED :
+        {
+        switch( idState )
+        ZE( boolT , bDispatch ) ;
+
+        countT idState = third.osDriverStatusF( tinP , tDriverName ) ;
+    {
+    else
+    }
+        }
+            thp = 0 ;
+            thp.osDriverUnregisterF( tinP , tDriverName ) ;
+        {
+        if( bRemove )
+        thp = 0 ;
+        thp.osDriverFireF( tinP , tDriverName ) ;
+    {
+    if( bFire )
+    thirdC& thp = etp ;
+    etherC etp( tinP , TAG( TAGiDnULL ) , flTHIRDmODE_IMPOTENCEeXPECTED ) ; //U::MIGRATE THIS TO USING tinP.pEtScratch
+
+    }
+        delF( tinP , psttDriverName ) ;
+        tDriverName = T(psttDriverName) ;
+        if( !psttDriverName ) { osDriverNameFromMasterF( tinP , psttDriverName , idAdamP ) ; ___( psttDriverName ) ; }
+
+        }
+            else if( !strCompareF( tinP , psttc1 , tName   ) )           idArg = 1 ;
+            else if( !strCompareF( tinP , psttc1 , tFire   ) )           bFire = 1 ;
+            else if( !strCompareF( tinP , psttc1 , tRemove ) ) bRemove = bFire = 1 ;
+            else if( !psttExe )                                { strConvertToLowerCaseF( tinP , psttExe , psttc1 ) ; ___( psttExe ) ; }
+            }
+                }
+                    case 1 : { idArg = 0 ; strMakeF( tinP , LF , psttDriverName , psttc1 ) ; ___( psttc1 ) ; break ; }
+                {
+                switch( idArg )
+            {
+            if( idArg )
+        {
+        FORsTRINGSiN1( ether_pstt1_processParametersI_F( tinP ) )
+        ZE( countT , idArg ) ;
+        
+        TN( tName , "!name" ) ;
+        TN( tRemove , "!remove" ) ;
+        TN( tFire   , "!fire" ) ;
+        ZE( strokeS* , psttDriverName ) ;
+    {
+    ZE( boolT    , bRemove ) ;
+    ZE( boolT    , bFire ) ;
+    ZE( strokeS* , psttExe ) ;
+    TN( tDescription , postIPDOSsHORTlONG " <> http://ideafarm.com" ) ;
+    TN( tDriverDisplayName , "IdeaFarm " "(tm) City" ) ; //THIS DOES NOT WORK; WINDOWS CANNOT HANDLE NONUNIQUE DISPLAY NAMES
+    TN( tDriverName , "" ) ;
+
+    _IO_
+
+    }
+        if( POOP ) return ;
+        __Z( idAdamP ) ;
+        if( POOP ) return ;
+    {
+    IFbEcAREFUL
+    SCOOP
+{
+/*1*/voidT etherC::osDriverF( tinS& tinP , const countT idAdamP )/*1*/
+/**/
+
+*/
+  must not be 0
+ idAdamP
+ tinP
+arguments
+  if started: return
+  if starting: attach to service control manager; return
+  if stopped: hire the driver; return
+  if stopping: sleep till stopped; then do stopped
+  if unknown: register; then do stopped
+  gets status of the named driver
+ else do normal function
+ if command line says to fire (and possibly remove) the service, then do so
+ get the service name, either from idAdamP or from homeS::homeIF
+pseudocode
+it is illegal to call me more than 1 time per process
+this function is not thread safe
+it is illegal to refer to this symbol in the definition of an adam
+\<A HREF=\"5.1030164.1.0.html\"\>definition\</A\>
+\<A HREF=\"6.$osDriverF.0.html\"\>instances\</A\>
+/*
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 29 years.
+//
+// Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+

@@ -22,7 +22,7 @@
                 }
                     bFoundElder = 1 ;
                     offNextObject = 0 ;
-                    offTopEntry = *pOffElder ;
+                    th.offTopEntry = *pOffElder ;
                     if( offNextObject != offMe ) { BLAMMO ; }
                 {
                 if( !bFoundElder )
@@ -31,9 +31,15 @@
                 countT& offNextObject  = ( (countT*)( pbTls + *pOffElder ) )[ TLSeNTRYoFF_offNextObject  ] ;
             {
             else while( *pOffElder )
-            if( !*pOffElder ) offTopEntry = 0 ;
+            }
+                th.offTopEntry = 0 ;
+                //if( !thirdC::c_strcmpIF( *this , postThreadName , "tmWorkerF" ) ) { CONoUTrAW3( "" , (countT)&th.offTopEntry , "    tlsDelF / setting th.offTopEntry to 0\r\n" ) ; }
+            {
+            if( !*pOffElder )
             countT* pOffElder = &( (countT*)( pbTls + offMe ) )[ TLSeNTRYoFF_offElder ] ;
             ZE( boolT , bFoundElder ) ;
+
+            th.cDel ++ ;
     
             }
                 thirdC::c_memsetIF( tinP , (byteT*)pbData , cbData ) ;
@@ -54,14 +60,14 @@
             countT&              costaName    = ( (countT*)( pbTls + offMe ) )[ TLSeNTRYoFF_costaName    ] ;
             countT&              cbEntry      = ( (countT*)( pbTls + offMe ) )[ TLSeNTRYoFF_cbEntry      ] ;
     
-            //U::if( offMe != offTopEntry ) { BLAMMO ; } //ENFORCES LIFO delF CALLS
+            //U::if( offMe != th.offTopEntry ) { BLAMMO ; } //ENFORCES LIFO delF CALLS
 
             }
                 *pcBlammo = 0x12345678 ;
                 countT* pcBlammo = (countT*)0x88776655 ;
                 LOGcALLnEST( "tlsDelF: not lifo" )
             {
-            if( offMe != offTopEntry )  //U:: TO FIND A BUG (HOPEFULLY WDW WILL GIVE ME CALL STACK)
+            if( offMe != th.offTopEntry )  //U:: TO FIND A BUG (HOPEFULLY WDW WILL GIVE ME CALL STACK)
 
             cTls -- ;
         {
@@ -108,7 +114,7 @@
                 countT&              costaName    = ( (countT*)( pbTls + offMe ) )[ TLSeNTRYoFF_costaName    ] ;
             {
             while( offMe )
-            offMe = offTopEntry ;
+            offMe = th.offTopEntry ;
         {
         if( !offMe )
     
@@ -122,8 +128,15 @@
             countT&              costaName    = ( (countT*)( pbTls + offMe ) )[ TLSeNTRYoFF_costaName    ] ;
         {
         while( offMe )
-        countT offMe = offTopEntry ;
-        countT& offTopEntry = *(countT*)pbTls ;
+        countT offMe = th.offTopEntry ;
+
+        }
+            countT foo = 2 ;
+            //if( !thirdC::c_strcmpIF( *this , postThreadName , "tmWorkerF" ) ) { CONoUTrAW3( "" , (countT)&th.offTopEntry , "    tlsDelF / error: th.offTopEntry is 0\r\n" ) ; }
+        {
+        if( !th.offTopEntry )
+
+        tlsHeaderS& th = *(tlsHeaderS*)pbTls ;
     {
     POOPIES
 
@@ -153,7 +166,7 @@
 //    cRef (number of instances including the constructing instance; is never 0)
 //    cbEntry (exclusive prefix)
 //   tls entry
-//    offTopEntry (address of lath entry constructed); this is redundant; it is for speed and to detect corruption
+//    th.offTopEntry (address of lath entry constructed); this is redundant; it is for speed and to detect corruption
 //   tls header
 //
 // TLS LAYOUT

@@ -1,0 +1,67 @@
+
+//
+// Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 29 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+
+REST
+
+bFail = tinP.brcRaw ;
+BOSpOOP
+BOS( WHATgbo , BOSfAIL , mciSendCommand( wDeviceID , MCI_SAVE , MCI_SAVE_FILE | MCI_WAIT , (DWORD)(LPVOID)&mciSaveParms ) )
+etThread.strokeF( tinP , T("saving the recording to disk\r\n") ) ;
+mciSaveParms.lpfilename = "\\my.wav" ;
+MCI_SAVE_PARMS mciSaveParms ;
+// the operation to complete before continuing.
+// Save the recording to a file named TEMPFILE.WAV. Wait for
+
+bFail = tinP.brcRaw ;
+BOSpOOP
+BOS( WHATgbo , BOSfAIL , mciSendCommand( wDeviceID , MCI_PLAY , MCI_FROM | MCI_WAIT , (DWORD)(LPVOID)&mciPlayParms ) )
+etThread.strokeF( tinP , T("playing\r\n") ) ;
+mciPlayParms.dwFrom = 0L ;
+MCI_PLAY_PARMS mciPlayParms ;
+// Play the recording and query user to save the file.
+
+bFail = tinP.brcRaw ;
+BOSpOOP
+BOS( WHATgbo , BOSfAIL , mciSendCommand( wDeviceID , MCI_RECORD , MCI_TO | MCI_WAIT , (DWORD)(LPVOID)&mciRecordParms ) )
+etThread.strokeF( tinP , T("recording for about 6 tocks\r\n") ) ;
+mciRecordParms.dwTo = 8000 ;
+MCI_RECORD_PARMS mciRecordParms ;
+// (milliseconds).
+// Assume the default time format for the waveform-audio device
+// milliseconds. Wait for recording to complete before continuing.
+// Begin recording and record for the specified number of
+
+UINT wDeviceID = mciOpenParms.wDeviceID ;
+// The device opened successfully; get the device ID.
+boolT bFail = tinP.brcRaw ;
+BOSpOOP
+BOS( WHATgbo , BOSfAIL , mciSendCommand( 0 , MCI_OPEN , MCI_OPEN_ELEMENT | MCI_OPEN_TYPE , (DWORD)(LPVOID)&mciOpenParms ) )
+mciOpenParms.lpstrElementName = "";
+mciOpenParms.lpstrDeviceType = "waveaudio";
+MCI_OPEN_PARMS mciOpenParms ;
+// Open a waveform-audio device with a new file for recording.
+
+TODO
+
+//gorilla.service
+
+/*1*/WAKEhIDE( "doodle.record.from.microphone" )/*1*/
+/**/
+*/
+next: buy a microphone, plug it in, and try it out!
+i think that this adam records for 8 seconds from the microphone (if i had wo)
+/*
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 29 years.
+//
+// Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+

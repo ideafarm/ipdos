@@ -1,0 +1,231 @@
+
+//
+// Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 29 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+
+REST
+
+etThread.osSleepF( tinP , TOCK ) ;
+etThread.strokeF( tinP , T("ok\r\n") ) ;
+etThread.strokeF( tinP , T("just returned from destructor\r\n") ) ;
+}
+    etThread.osSleepF( tinP , TOCK ) ;
+    etThread.strokeF( tinP , T("about to call destructor in 1 tock\r\n") ) ;
+    etThread.loafIF( tinP ) ;
+    etThread.strokeF( tinP , T("news has been constructed\r\n") ) ;
+    newsC news( tinP , etThread ) ;
+{
+
+TODO
+
+}
+    }
+        ether.strokeF( tinP , T("connected\r\n") ) ;
+        }
+            }
+                }
+                    etPrime.osSleepF( tinP , TUCK * 0x40 ) ;
+                    DEL( psosc ) ;
+                    ether.strokeF( tinP , T(".") ) ;
+                    *tinP.zEtScratch = 0 ;
+                {
+                if( *tinP.zEtScratch )
+                psosc->connectF( tinP , ifcPORToLD2_NEWS , nnDns ) ;
+            {
+            else
+            if( !psosc ) break ;
+            psosc = new( 0 , tinP , LF ) socketC( tinP , *tinP.zEtScratch , TAG( TAGiDnULL ) ) ;
+        {
+        while( !psosc && !ether && !etPrime )
+        etherC& etPrime = etherC::etPrimeIF( tinP ) ;
+
+        ether.strokeF( tinP , T("connecting to dns\r\n") ) ;
+    {
+    if( !bDns )
+
+    ether.strokeF( tinP , T(*pnn)+(bDns?T(" dns"):T(" client"))+T("\r\n") ) ;
+    boolT bDns = *pnn == nnDns ;
+    
+    __( *pnn != nnDns && *pnn != nnOther ) ;
+    __( cnn - 1 ) ;
+    socketC::nicNameIF( tinP , ether , pnn , cnn ) ; ___( pnn ) ;
+    ZE( countT    , cnn ) ;
+    ZE( nicNameC* , pnn ) ;
+    
+    nicNameC nnOther = ether.sockNicNameF( tinP , T("209.128.78.19") ) ;
+    nicNameC nnDns   = ether.sockNicNameF( tinP , T("209.128.78.20") ) ;
+
+    ether.osThreadF( tinP , countTC() , tm_NewsC_chatF  , &sgnDone_tm_NewsC_chatF  , flTHREADlAUNCH_null , 0 , (countT)&bFired , (countT)&bChatEnding  , (countT)this , (countT)&psoss ) ;
+
+    }
+        if( ether ) return ;
+    {
+    IFbEcAREFUL
+{
+psoss( 0 )
+psosc( 0 ) ,
+sgnDone_tm_NewsC_chatF( tinP , TAG( TAGiDnULL ) ) ,
+bChatEnding( 0 ) ,
+bFired( 0 ) ,
+ether( etherP ) ,
+/*1*/newsC::newsC( tinS& tinP , etherC& etherP ) :/*1*/
+/**/
+*/
+/*
+
+}
+    sgnDone_tm_NewsC_chatF.waitF( tinP ) ;
+    }
+        tinP.zEtScratch->osSleepF( tinP , TUCK * 0x40 ) ;
+        *tinP.zEtScratch = 0 ;
+        socksk.connectF( tinP , ifcPORToLD2_NEWS ) ;
+        socketC socksk( tinP , *tinP.zEtScratch , TAG( TAGiDnULL ) ) ;
+    {
+    while( !bChatEnding )
+    *tinP.zEtScratch = 0 ;
+
+    DEL( psoss ) ;
+    if( psoss ) psoss->stopWaitingF( tinP ) ;
+    DEL( psosc ) ;
+    bFired = 1 ;
+
+    TINSL
+{
+/*1*/newsC::~newsC( voidT )/*1*/
+/**/
+*/
+/*
+
+DONE( tm_NewsC_chatF )
+}
+    }
+        etThread.osSleepF( tinP , TUCK * 0x40 ) ;
+        etThread.strokeF( tinP , T("waiting for ")+TF1(cSessions)+T(" sessions to end\r\n") ) ;
+    {
+    while( cSessions )
+
+    }
+        }
+            }
+                }
+                    etThread.osThreadF( tinP , countTC() , tm_newsC_sessionF , 0 , flTHREADlAUNCH_null , 0 , (countT)&psoss , (countT)&cSessions , (countT)&news , (countT)&bFired ) ;
+                    psoss = pso ; pso = 0 ;
+                    cSessions ++ ;
+                {
+                if( !etThread )
+            {
+            else
+            if( bFired ) { DEL( pso ) ; bChatEnding = 1 ; }
+            socks.acceptF( tinP , pso , idPortPeer , nnPeer , countTC() ) ; ___( pso ) ;
+            ZE( countT , idPortPeer ) ;
+            nicNameC nnPeer ;
+            ZE( socketC* , pso ) ;
+        {
+        while( !bFired && !etThread )
+
+        socks.listenF( tinP ) ;    
+        socks.bindF( tinP , ifcPORToLD2_NEWS ) ;
+        socketC socks( tinP , etThread , TAG( TAGiDnULL ) , ifcSOCKETtYPE_STREAM , flSOCKETc_DOnOTrEGISTERaCCEPTOR ) ;
+    {
+    while( !bFired )
+    ZE( countT , cSessions ) ;
+
+    socketC*& psoss       = *(socketC**)pTaskP->c4 ;
+    newsC&    news        =    *(newsC*)pTaskP->c3 ;
+    boolT&    bChatEnding =    *(boolT*)pTaskP->c2 ;
+    boolT&    bFired      =    *(boolT*)pTaskP->c1 ;
+{
+if( pTaskP && pTaskP->c1 && pTaskP->c2 && pTaskP->c3 && pTaskP->c4 )
+TASK( tm_NewsC_chatF )
+
+DONE( tm_newsC_sessionF )
+}
+    cSessions -- ;
+    DEL( pso ) ;
+    *tinP.zEtScratch = 0 ;
+    }
+        }
+            }
+                }
+                    break ;
+                    __1
+                    __( idCmd ) ;
+                {
+                default :
+                }
+                    break ;
+                    pso->writeF( tinP , sour ) ;
+                    soulC sour( tinP , TAG( TAGiDnULL ) , flSOUL_null , (countT)ifcIDcMDnEWS_PINGrEPLY ) ;
+                    bBye = 1 ;
+                {
+                case ifcIDcMDnEWS_PING :
+                }
+                    break ;
+                    pso->writeF( tinP , sour ) ;
+                    soulC sour( tinP , TAG( TAGiDnULL ) , flSOUL_null , (countT)ifcIDcMDnEWS_BYErEPLY ) ;
+                    bBye = 1 ;
+                {
+                case ifcIDcMDnEWS_BYE :
+            {
+            switch( idCmd )
+        
+            souq >> idCmd ;
+            ZE( countT , idCmd ) ;
+        {
+        if( !*tinP.zEtScratch && !bFired )    
+        pso->readF( tinP , souq ) ;
+        soulC souq( tinP , TAG( TAGiDnULL ) ) ;
+    {
+    while( !etThread && !*tinP.zEtScratch && !bBye && !bFired )
+    ZE( boolT , bBye ) ;
+
+    pso->myNameF(   tinP , countTC() , nicNameMe   ) ;
+    pso->peerNameF( tinP , countTC() , nicNamePeer ) ;
+    nicNameC nicNameMe ;
+    nicNameC nicNamePeer ;
+
+    pso->etherF( tinP , *tinP.zEtScratch ) ;
+
+    boolT&    bFired    =    *(boolT*)pTaskP->c4 ;
+    newsC&    news      =    *(newsC*)pTaskP->c3 ;
+    countT&   cSessions =    *(boolT*)pTaskP->c2 ;
+    socketC*& pso       = *(socketC**)pTaskP->c1 ;
+{
+if( pTaskP && pTaskP->c1 && pTaskP->c2 && pTaskP->c3 && pTaskP->c4 )
+TASK( tm_newsC_sessionF )
+
+;
+}
+    newsC( tinS& tinP , etherC& etherP ) ;
+    ~newsC( voidT ) ;
+
+    public :
+
+    socketC*            psoss ;
+    socketC*            psosc ;
+    boolT               bFired ;
+    boolT               bChatEnding ;
+    signC               sgnDone_tm_NewsC_chatF ;
+    etherC&             ether ;
+{
+/*1*/class __export newsC/*1*/
+/**/
+*/
+/*
+
+/*1*/WAKEhIDE( "doodle.newsC" )/*1*/
+/**/
+*/
+/*
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 29 years.
+//
+// Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+

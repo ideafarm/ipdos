@@ -1,0 +1,457 @@
+
+//
+// Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 29 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+
+//VISIBLE
+
+REST
+
+}
+    TELL( "cleaning up" ) ;
+    etThread.loafIF( tinP ) ;
+    TELL( "waiting to be fired" ) ;
+
+    HIRE( T("sentient.mailer") , 0x4010441 , 0x1000000 , 0x4010441 , 0x1000000 )
+    TELL( "hiring 144" )
+
+    etThread.ifcChatF( tinP , 0 , DDNUMB , jobFillCourseF , jobHearOrderF ) ;
+    TELL( "preparing to accept chat clients" ) ;
+
+    stateS state( tinP , etThread ) ;
+    TELL( "setting up" )
+{
+
+etThread.winSetTitleF( tinP , TF1(DDNUMB) ) ; //U::
+TODO
+
+STATE0
+
+}
+    if( ether && cArgP && c8argP.c1 && sDataP && sNotesTextP && sNotesDataP && idChatSessionP ) ;
+
+    }
+        }
+            break ;
+
+            }
+                }
+                    break ;
+
+                    etThread.delF( tinP , psttJobType ) ;
+
+                    else __1
+                    }
+                        }
+                            __1
+                            *tinP.zEtScratch = 0 ;
+                        {
+                        if( *tinP.zEtScratch )
+
+                        //etherC::ifcSayIF( T("-") , flSAY_APPEND | flSAY_LOG ) ;
+                        etThread.delF( tinP , psttBody ) ;
+                        etThread.delF( tinP , psttFrom ) ;
+                        etThread.delF( tinP , psttServer ) ;
+
+                        }
+                            }
+                                etThread.delF( tinP , psttr ) ;
+                                }
+                                    }
+                                        }
+                                            }
+                                                }
+                                                    if( *tinP.zEtScratch ) logErrorF( tinP , etThread , psttServer , psttFrom , st_psttTo , psttBody , T("\"quit\": ")+TF1(etScratch+221)+T("    \"")+T(psttr)+T("\"") ) ;
+                                                    __( sockc.readWoReplyF( tinP , psttr ) - 221 ) ;
+                                                    etThread.delF( tinP , psttr ) ;
+                                                    sockc.writeF( tinP , (osTextT*)tQuit ) ;
+                                                    //tinP.zEtScratch->ifcSayIF( T("writing quit: ")+tQuit , flSAY_APPEND | flSAY_LOG ) ;
+                                                {
+                                                else
+                                                if( *tinP.zEtScratch ) logErrorF( tinP , etThread , psttServer , psttFrom , st_psttTo , psttBody , T("\"body\": ")+TF1(etScratch+250)+T("    \"")+T(psttr)+T("\"") ) ;
+                    
+                                                __( sockc.readWoReplyF( tinP , psttr ) - 250 ) ;
+                                                etThread.delF( tinP , psttr ) ;
+                                                sockc.writeF( tinP , (osTextT*)tBody , tBody.csF( tinP ) ) ;
+                                                //tinP.zEtScratch->ifcSayIF( T("writing body: ")+tBody , flSAY_APPEND | flSAY_LOG ) ;
+                                            {
+                                            else
+                                            if( *tinP.zEtScratch ) logErrorF( tinP , etThread , psttServer , psttFrom , st_psttTo , psttBody , T("\"data\": ")+TF1(etScratch+354)+T("    \"")+T(psttr)+T("\"") ) ;
+                
+                                            __( sockc.readWoReplyF( tinP , psttr ) - 354 ) ;
+                                            etThread.delF( tinP , psttr ) ;
+                                            sockc.writeF( tinP , (osTextT*)tData ) ;
+                                            //tinP.zEtScratch->ifcSayIF( T("writing data: ")+tData , flSAY_APPEND | flSAY_LOG ) ;
+                                        {
+                                        else
+                                        if( *tinP.zEtScratch ) logErrorF( tinP , etThread , psttServer , psttFrom , st_psttTo , psttBody , T("some recipients were rejected") ) ;
+            
+                                        }
+                                            if( *tinP.zEtScratch ) logErrorF( tinP , etThread , psttServer , psttFrom , st_psttTo , psttBody , T("\"")+tTo+T("\": ")+TF1(etScratch+250)+T("    \"")+T(psttr)+T("\"") ) ;
+                                            __( sockc.readWoReplyF( tinP , psttr ) - 250 ) ;
+                                            etThread.delF( tinP , psttr ) ;
+                                            sockc.writeF( tinP , (osTextT*)tTo ) ;
+                                            //tinP.zEtScratch->ifcSayIF( T("writing to: ")+tTo , flSAY_APPEND | flSAY_LOG ) ;
+            
+                                            etThread.delF( tinP , psttTo ) ;
+                                            TN( tTo , "" ) ; tTo = T("rcpt to:<")+T(psttTo)+T(">\r\n") ;
+                                            st_psttTo >> psttTo ; ___( psttTo ) ;
+                                            ZE( strokeS* , psttTo ) ;
+                                        {
+                                        while( !*tinP.zEtScratch && st_psttTo )
+            
+                                        if( *tinP.zEtScratch ) logErrorF( tinP , etThread , psttServer , psttFrom , st_psttTo , psttBody , T("\"from\": ")+TF1(etScratch+250)+T("    \"")+T(psttr)+T("\"") ) ;
+                                        __( sockc.readWoReplyF( tinP , psttr ) - 250 ) ;
+                                        etThread.delF( tinP , psttr ) ;
+                                        sockc.writeF( tinP , (osTextT*)tFrom ) ;
+                                        //tinP.zEtScratch->ifcSayIF( T("writing from: ")+tFrom , flSAY_APPEND | flSAY_LOG ) ;
+                                    {
+                                    else
+                                    if( *tinP.zEtScratch ) logErrorF( tinP , etThread , psttServer , psttFrom , st_psttTo , psttBody , T("\"hello\": ")+TF1(etScratch+250)+T("    \"")+T(psttr)+T("\"") ) ;
+        
+                                    __( sockc.readWoReplyF( tinP , psttr ) - 250 ) ;
+                                    etThread.delF( tinP , psttr ) ;
+                                    sockc.writeF( tinP , (osTextT*)tHelo ) ;
+                                    //tinP.zEtScratch->ifcSayIF( T("writing hello") , flSAY_APPEND | flSAY_LOG ) ;
+                                {
+                                else
+                                if( *tinP.zEtScratch ) logErrorF( tinP , etThread , psttServer , psttFrom , st_psttTo , psttBody , T("\"connect\": ")+TF1(etScratch+220)+T("    \"")+T(psttr)+T("\"") ) ;
+                                //tinP.zEtScratch->ifcSayIF( T("connected to ")+T(psttServer) , flSAY_APPEND | flSAY_LOG ) ;
+                                __( sockc.readWoReplyF( tinP , psttr ) - 220 ) ;
+                                sockc.connectF( tinP , 0x19 , socketC::nicNameIF( tinP , *tinP.zEtScratch , psttServer ) , 1 ) ;
+                                //tinP.zEtScratch->ifcSayIF( T("connecting to ")+T(psttServer) , flSAY_APPEND | flSAY_LOG ) ;
+                            {
+                            else
+                            if( *tinP.zEtScratch ) logErrorF( tinP , etThread , psttServer , psttFrom , st_psttTo , psttBody , T("could not construct socket") ) ;
+                            socketC sockc( tinP , *tinP.zEtScratch , TAG( TAGiDnULL ) ) ;
+                            ZE( strokeS* , psttr ) ;
+
+                            TN( tQuit , "quit\r\n" ) ;
+                            TN( tBody , "" ) ; tBody = T(psttBody)+T("\r\n.\r\n") ;
+                            TN( tData , "data\r\n" ) ;
+                            TN( tFrom , "" ) ; tFrom = T("mail from:<")+T(psttFrom)+T(">\r\n") ;
+                            TN( tHelo , "helo unknown.ideafarm.com\r\n" ) ;
+
+                            etThread.strReplaceF( tinP , psttBody , 0 , T("\r\n.") , T("\r\n..") , 0 , flSTRrEPLACE_IGNOREqUOTES ) ; ___( psttBody ) ;
+                        {
+                        //SMTP TELNET SESSION WITH psttServer
+
+                        }
+                            etThread.delF( tinP , psttr ) ;
+                            //etherC::ifcSayIF( psttr , flSAY_APPEND | flSAY_LOG ) ;
+                            while( !etThread && ~hDown ) ;
+                            }
+                                etThread.strFuseF( tinP , psttr , T(" ")+T(psttTo)+T("\r\n") ) ; ___( psttr ) ;
+                                strokeS* psttTo = (strokeS*)st_psttTo.downF( tinP , hDown ) ;
+                            {
+                            do
+                            handleC hDown( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_STACKwALK ) ;
+                            etThread.strMakeF( tinP , LF , psttr , T("mailOutToNamed_SMTP_receiver \"")+T(psttServer)+T("\" for ")+TF1((countT)st_psttTo)+T(" recipients:\r\n\r\n") , st_psttTo * ( csttMaxTo + 0x40 ) ) ; ___( psttr ) ;
+                            ZE( strokeS* , psttr ) ;
+                        {
+
+                        sOrderP >> psttBody ; ___( psttBody ) ;
+                        ZE( strokeS* , psttBody ) ;
+
+                        }
+                            if( psttTo && csttMaxTo < psttTo->idAdam ) csttMaxTo = psttTo->idAdam ;
+
+                            st_psttTo << psttTo ;
+                            sOrderP >> psttTo ; ___( psttTo ) ;
+                            ZE( strokeS* , psttTo ) ;
+                        {
+                        while( cTo -- )
+                        stackC st_psttTo( tinP , etThread , TAG( TAGiDnULL ) , flSTACKc_FIFO , ifcSTACKtYPE_PTR_strokeS ) ;
+                        ZE( countT , csttMaxTo ) ;
+
+                        sOrderP >> cTo ;
+                        ZE( countT , cTo ) ;
+
+                        sOrderP >> psttFrom ; ___( psttFrom ) ;
+                        ZE( strokeS* , psttFrom ) ;
+
+                        sOrderP >> psttServer ; ___( psttServer ) ;
+                        ZE( strokeS* , psttServer ) ;
+                        //etherC::ifcSayIF( T("+") , flSAY_APPEND | flSAY_LOG ) ;
+                        TN( tLogFile , "" ) ; tLogFile = T("///d/ideafarm.log.")+TF1(DDNUMB)+T(".ifcIDcMDjOBoRDER_NAMED.mailOutToNamed_SMTP_receiver" ) ;
+                    {
+                    else if( !etThread.strCompareF( tinP , psttJobType , T("!mailOutToNamed_SMTP_receiver") ) )
+                    }
+                        //etherC::ifcSayIF( T("ifcIDcMDjOBoRDER_NAMED/!mailOut/-") , flSAY_APPEND | flSAY_LOG ) ;
+                        etThread.delF( tinP , psttBody ) ;
+                        }
+                            __( cFail ) ;
+                            }
+                                }
+                                    ++ s ; etThread.osSleepF( tinP , TOCK * 4 ) ;
+                                    //etherC::ifcSayIF( T("waiting for ")+TF1(cPending)+T(" tmSubJobF threads to complete") , flSAY_APPEND | flSAY_LOG ) ;
+                                {
+                                while( cPending )
+                                sleepC s( tinP , TAG( TAGiDnULL ) ) ;
+                            {
+
+                            }
+                                }
+                                    etThread.osThreadF( tinP , countTC() , tmSubJobF , 0 , flTHREADlAUNCH_null , 0 , (countT)&cPending , (countT)psOrder , (countT)&cFail ) ;
+                                    cPending ++ ;
+                                {
+                                if( psOrder && !etThread )
+                                st_sOrder >> psOrder ;
+                                ZE( soulC* , psOrder ) ;
+                            {
+                            while( !etThread && st_sOrder )
+                            ZE( countT , cFail ) ;
+                            ZE( countT , cPending ) ;
+                            //etherC::ifcSayIF( T("ifcIDcMDjOBoRDER_NAMED/!mailOut/")+T("about to launch ")+TF1(st_sOrder)+T(" tmSubJobF threads") , flSAY_APPEND | flSAY_LOG ) ;
+
+                            }
+                                }
+                                    st_sOrder << psOrder ;
+                                    *psOrder << psttBody ;
+                                    }
+                                        etThread.delF( tinP , psttTo ) ;
+                                        *psOrder << psttTo ;
+                                        st_psttTo >> psttTo ;
+                                        ZE( strokeS* , psttTo ) ;
+                                    {
+                                    while( st_psttTo )
+                                    *psOrder << (countT)st_psttTo ;
+                                    *psOrder << (strokeS*)tFrom ;
+                                    *psOrder << psttServer ;
+                                    *psOrder << (strokeS*)T("!mailOutToNamed_SMTP_receiver") ;
+
+                                    TN( tFrom , "" ) ; tFrom = TF1(idAdamFrom)+T("@" "ideafarm.com") ;
+
+                                    while( !etThread && ~hDown ) ;
+                                    }
+                                        while( !etThread && ~hDown2 ) ;
+                                        }
+                                            st_psttTo << psttTo ;
+                                            strokeS* psttTo = psttOldC( tinP , etThread , T(psttWho)+tAt+T(psttDomain) ) ; ___( psttTo ) ;
+                                            strokeS* psttWho = (strokeS*)sws_psttWho.downF( tinP , hDown2 ) ;
+                                        {
+                                        do
+                                        handleC hDown2( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_STACKwALK ) ;
+
+                                        psttDomain = (strokeS*)sws_psttDomain.downF( tinP , hDown ) ;
+                                    {
+                                    do
+                                    handleC hDown( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_STACKwALK ) ;
+                                    stackC st_psttTo( tinP , etThread , TAG( TAGiDnULL ) , flSTACKc_FIFO , ifcSTACKtYPE_PTR_strokeS ) ;
+                                {
+                                if( psOrder )
+                                soulC* psOrder = new( 0 , tinP , LF ) soulC( tinP , TAG( TAGiDnULL ) , flSOUL_null , ifcIDcMDjOBoRDER_NAMED ) ;
+
+                                psttServer = (strokeS*)sws_psttDomain.leverF( tinP , idf ) ;
+                            {
+                            for( countT idf = 1 ; idf <= cServers ; idf ++ )
+                            countT cServers = sws_psttDomain.cFlavorsF( tinP ) ;
+                            stackC st_sOrder( tinP , etThread , TAG( TAGiDnULL ) , flSTACKc_FIFO , ifcSTACKtYPE_PTR_soulC ) ;
+                        {
+
+                        }
+                            etThread.delF( tinP , psttr ) ;
+                            //etherC::ifcSayIF( psttr , flSAY_APPEND | flSAY_LOG ) ;
+
+                            }
+                                while( !etThread && ~hDown ) ;
+                                }
+                                    while( !etThread && ~hDown2 ) ;
+                                    }
+                                        etThread.strFuseF( tinP , psttr , T("   ")+T(psttWho)+T("\r\n") ) ; ___( psttr ) ;
+                                        strokeS* psttWho = (strokeS*)sws_psttWho.downF( tinP , hDown2 ) ;
+                                    {
+                                    do
+                                    handleC hDown2( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_STACKwALK ) ;
+
+                                    etThread.strFuseF( tinP , psttr , T("  ")+T(psttDomain)+T("\r\n") ) ; ___( psttr ) ;
+                                    psttDomain = (strokeS*)sws_psttDomain.downF( tinP , hDown ) ;
+                                {
+                                do
+                                handleC hDown( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_STACKwALK ) ;
+
+                                etThread.strFuseF( tinP , psttr , T(" ")+T(psttServer)+T("\r\n") ) ; ___( psttr ) ;
+                                psttServer = (strokeS*)sws_psttDomain.leverF( tinP , idf ) ;
+                            {
+                            for( countT idf = 1 ; idf <= cServers ; idf ++ )
+
+                            etThread.strMakeF( tinP , LF , psttr , T("mailOut from ")+TF1(idAdamFrom)+T(" to ")+TF1(cToNoDuplicates)+T(" recipients at ")+TF1(cDomains)+T(" domains, served by ")+TF1(cServers)+T(" incoming mail receivers:\r\n\r\n")+T(psttBody)+T("\r\n\r\nrecipients:\r\n\r\n") , ( cToNoDuplicates + cServers + cDomains ) * 0x80 ) ; ___( psttr ) ;
+                            ZE( strokeS* , psttr ) ;
+                            countT cDomains = sws_psttWho.cFlavorsF(tinP) ;
+                            countT cServers = sws_psttDomain.cFlavorsF( tinP ) ;
+                        {
+
+                        }
+                            }
+                                etThread.delF( tinP , psttServer ) ;
+                                if( !ids ) etThread.delF( tinP , psttDomain ) ;
+                                sws_psttDomain.sinkF( tinP , ids , psttDomain , flSTACKsINK_UNIQUE ) ;
+                                ZE( countT , ids ) ;
+
+                                etThread.dnsNicNamesF( tinP , psttServer , psttDomain , ifcIDtYPEdNSqUERY_MX ) ; ___( psttServer ) ;
+                                psttDomain = psttOldC( tinP , etThread , (strokeS*)sws_psttWho.leverF( tinP , idf ) ) ; ___( psttDomain ) ;
+                            {
+                            for( countT idf = 1 ; idf <= cDomains ; idf ++ )
+                            countT cDomains = sws_psttWho.cFlavorsF( tinP ) ;
+                        {
+                        switchStackC sws_psttDomain( tinP , etThread , TAG( TAGiDnULL ) , flSTACKc_null , psttServer , flSTACKc_FIFO , ifcSTACKtYPE_PTR_strokeS ) ;
+                        ZE( strokeS* , psttServer ) ;
+
+                        sOrderP >> psttBody ; ___( psttBody ) ;
+                        ZE( strokeS* , psttBody ) ;
+
+                        }
+                            etThread.delF( tinP , psttDomain ) ;
+                            else      etThread.delF( tinP , psttWho ) ;
+                            if( ids ) cToNoDuplicates ++ ;
+                            sws_psttWho.sinkF( tinP , ids , psttWho , flSTACKsINK_UNIQUE ) ;
+                            ZE( countT , ids ) ;
+
+                            if( psttDomain && csttMaxDomain < psttDomain->idAdam ) csttMaxDomain = psttDomain->idAdam ;
+                            if( psttWho    && csttMaxWho    <    psttWho->idAdam )    csttMaxWho =    psttWho->idAdam ;
+
+                            etThread.delF( tinP , psttTo ) ;
+                            etThread.strSubstringF( tinP , psttDomain , idf , sttq , tAt , psttTo , 1 ) ; ___( psttDomain ) ;
+                            etThread.strSubstringF( tinP , psttWho    , idf , sttq , tAt , psttTo , 1 ) ; ___( psttWho    ) ;
+                            ZE( strokeS* , psttWho ) ;
+                            countT idf = 1 ;
+                            strokeS sttq( (countT)0 , sc_IGNOREqUOTES ) ;
+
+                            __(  psttTo && !psttTo->idAdam ) ;
+                            __Z( psttTo ) ;
+                            sOrderP >> psttTo ; ___( psttTo ) ;
+                            ZE( strokeS* , psttTo ) ;
+                        {
+                        while( cTo -- )
+                        ZE( countT , cToNoDuplicates ) ;
+                        switchStackC sws_psttWho( tinP , etThread , TAG( TAGiDnULL ) , flSTACKc_null , psttDomain , flSTACKc_FIFO , ifcSTACKtYPE_PTR_strokeS ) ;
+                        TN( tAt , "@" ) ;
+                        ZE( strokeS* , psttDomain ) ;
+                        ZE( countT , csttMaxWho ) ;
+                        ZE( countT , csttMaxDomain ) ;
+
+                        __Z(  cTo ) ;
+                        sOrderP >> cTo ;
+                        ZE( countT , cTo ) ;
+
+                        __Z(  idAdamFrom ) ;
+                        sOrderP >> idAdamFrom ;
+                        ZE( countT , idAdamFrom ) ;
+                        //etherC::ifcSayIF( T("ifcIDcMDjOBoRDER_NAMED/!mailOut/+") , flSAY_APPEND | flSAY_LOG ) ;
+                        TN( tLogFile , "" ) ; tLogFile = T("///d/ideafarm.log.")+TF1(DDNUMB)+T(".ifcIDcMDjOBoRDER_NAMED.mailOut" ) ;
+                    {
+                    if( !etThread.strCompareF( tinP , psttJobType , T("!mailOut") ) )
+
+                    sOrderP >> psttJobType ; ___( psttJobType ) ;
+                    ZE( strokeS* , psttJobType )
+                {
+                case ifcIDcMDjOBoRDER_NAMED :
+                }
+                    break ;
+
+                    etThread.delF( tinP , psttBody ) ;
+                    etThread.delF( tinP , psttFrom ) ;
+                    }
+                        etThread.delF( tinP , postBody ) ;
+                        etThread.delF( tinP , psttu ) ;
+                        etThread.boxPutUniqueF( tinP , psttu , T("///ideafarm/ephemeral/backed.up.daily/domains/com/ideafarm/")+TF1(DDNUMB)+T("/in/ignored/in") , postBody , costBody ) ;
+                        ZE( strokeS* , psttu ) ;
+
+                        countT costBody = etThread.strMakeF( tinP , LF , postBody , psttBody ) ; ___( postBody ) ;
+                        ZE( osTextT* , postBody ) ;
+                    {
+
+                    sOrderP >> psttBody ; ___( psttBody ) ;
+                    ZE( strokeS* , psttBody ) ;
+
+                    __( idAdamTo - DDNUMB ) ;
+                    __Z(  idAdamTo ) ;
+                    sOrderP >> idAdamTo ;
+                    ZE( countT , idAdamTo ) ;
+
+                    __(  psttFrom && !psttFrom->idAdam ) ;
+                    __Z( psttFrom ) ;
+                    sOrderP >> psttFrom ; ___( psttFrom ) ;
+                    ZE( strokeS* , psttFrom ) ;
+                    //etherC::ifcSayIF( T("whoopiee!! i got new mail.  filing it") , flSAY_APPEND | flSAY_LOG ) ;
+                    TN( tLogFile , "" ) ; tLogFile = T("///d/ideafarm.log.")+TF1(DDNUMB)+T(".ifcIDcMDjOBoRDER_MAIL" ) ;
+                {
+                case ifcIDcMDjOBoRDER_MAIL :
+            {
+            switch( idJobType )
+
+            sOrderP >> idJobType ;
+            ZE( countT , idJobType ) ;
+        {
+        case 1 :
+    {
+    switch( idCourseP )
+
+    __( idAdamP - DDNUMB ) ;
+{
+voidT jobFillCourseF( tinS& tinP , etherC& ether , etherC& etThread , soulC& sDataP , soulC& sNotesTextP , soulC& sNotesDataP , const countT idCourseP , const countT idAdamP , const countT idChatSessionP , soulC& sOrderP , countT& cArgP , count8S& c8argP )
+
+}
+    if( cArgP && c8argP.c1 && sOrderP && ether && idChatSessionP ) ;
+
+    __( idAdamP - DDNUMB ) ;
+{
+voidT jobHearOrderF( tinS& tinP , etherC& ether , etherC& etThread , const countT idAdamP , const countT idChatSessionP , soulC& sOrderP , countT& cArgP , count8S& c8argP )
+
+}
+    if( tinP.fingerprint && etThread && psttServerP && psttFromP && st_psttToP && psttBodyP && psttNoteP ) ;
+
+    //etherC::ifcSayIF( T("s=\"")+T(psttServerP)+T("\" f=\"")+T(psttFromP)+T("\" n=\"")+T(psttNoteP)+T("\"") , flSAY_APPEND | flSAY_LOG ) ;
+{
+voidT logErrorF( tinS& tinP , etherC& etThread , const strokeS* const psttServerP , const strokeS* const psttFromP , stackC& st_psttToP , const strokeS* const psttBodyP , const strokeS* const psttNoteP )
+
+DONE( tmSubJobF )
+}
+    cPending -- ;
+    }
+        cFail ++ ;
+        *tinP.zEtScratch = 0 ;
+    {
+    if( *tinP.zEtScratch )
+    }
+        DEL( psOrder ) ;
+        //etherC::ifcSayIF( T("ifcIDcMDjOBoRDER_NAMED/!mailOut/tmSubJobF/ifcJobF/-") , flSAY_APPEND | flSAY_LOG ) ;
+        tinP.zEtScratch->ifcJobF( tinP , stCourses , DDNUMB , *psOrder , stOrders , T("ifcIDcMDjOBoRDER_NAMED/!mailOut/tmSubJobF") , 1 ) ;
+        //etherC::ifcSayIF( T("ifcIDcMDjOBoRDER_NAMED/!mailOut/tmSubJobF/ifcJobF/+") , flSAY_APPEND | flSAY_LOG ) ;
+        stOrders << new( 0 , tinP , LF ) soulC( tinP , TAG( TAGiDnULL ) ) ;
+        stackC stOrders(  tinP , *tinP.zEtScratch , TAG( TAGiDnULL ) , flSTACKc_FIFO | flSTACKc_GIVEsIGNnEWpLATE , ifcSTACKtYPE_PTR_soulC ) ;
+        stackC stCourses( tinP , *tinP.zEtScratch , TAG( TAGiDnULL ) , flSTACKc_FIFO | flSTACKc_GIVEsIGNnEWpLATE , ifcSTACKtYPE_PTR_soulC ) ;
+    {
+
+    countT& cFail    = *(countT*)pTaskP->c3 ;
+    soulC*  psOrder  =   (soulC*)pTaskP->c2 ;
+    countT& cPending = *(countT*)pTaskP->c1 ;
+{
+if( pTaskP && pTaskP->c1 && pTaskP->c2 )
+TASK( tmSubJobF )
+
+/*1*/WAKEhIDE( "ifcIDaDAMoLD_MAILcLERK.sentient.mailer" )/*1*/
+/**/
+*/
+ the supervising job does not complete until all delivery jobs complete
+ the job at each domain does not complete until all items have been delivered
+ each such domain is handled as a separate job
+copies to recipients at other domains are sent to the smtp server for each domain
+copies to recipients at ideafarm.com are sent directly to the recipient via chat
+i handle both small jobs and very large jobs
+the mail must be from an idAdam
+i accept and perform jobs to send mail
+\<A HREF=\"5.f340104.1.0.html\"\>definition\</A\>
+/*
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 29 years.
+//
+// Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+

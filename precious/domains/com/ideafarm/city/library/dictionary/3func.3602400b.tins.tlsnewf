@@ -44,7 +44,7 @@
             //if( tinP.pc Utility[ 0 ]                  ) { CONoUTrAW3( "tinS::newF/entry formatted at " , (countT)pbc , "\r\n" ) ; }
             //if( tinP.pc Utility[ 0 ] ) tinP.pc Utility[ 1 ] ++ ;
             const byteT* const pbe = pbTls + cbTls ;
-            byteT*             pbc = pbTls + offTopEntry ;
+            byteT*             pbc = pbTls + th.offTopEntry ;
         
             }
                 }
@@ -52,7 +52,7 @@
         
                     }
                         break ;
-                        offNextInGroup = offTopEntry ;
+                        offNextInGroup = th.offTopEntry ;
                         if( offNextInGroup ) { BLAMMO ; }
                         countT& offNextInGroup = ( (countT*)( pbTls + offCursor ) )[ TLSeNTRYoFF_offNextInGroup ] ;
                     {
@@ -70,32 +70,28 @@
                 while( offCursor )
                 countT offCursor = offElder ;
         
-                offNextObject = offTopEntry ;                                               // elder.offNextObject
+                offNextObject = th.offTopEntry ;                                               // elder.offNextObject
                 if( offNextObject ) { BLAMMO ; }
                 countT& offNextObject = ( (countT*)( pbTls + offElder ) )[ TLSeNTRYoFF_offNextObject ] ;
             {
             if( offElder )
 
-            if( cbTls <= offTopEntry + 7 * sizeof( countT ) ) { BLAMMO ; } //IF BLOW HERE THEN NEED TO MAKE TLS LARGER FOR THIS THREAD
-            if( cbTls <= offTopEntry                        ) { BLAMMO ; } //IF BLOW HERE THEN THE FOLLOWING CODE HAS A BUG
+            if( cbTls <= th.offTopEntry + 7 * sizeof( countT ) ) { BLAMMO ; } //IF BLOW HERE THEN NEED TO MAKE TLS LARGER FOR THIS THREAD
+            if( cbTls <= th.offTopEntry                        ) { BLAMMO ; } //IF BLOW HERE THEN THE FOLLOWING CODE HAS A BUG
+
+            //if( !thirdC::c_strcmpIF( *this , postThreadName , "tmWorkerF" ) ) { CONoUTrAW5( "" , (countT)&th.offTopEntry , "    tlsNewF / !pbData so just set [offTopEntry]:    " , th.offTopEntry , "\r\n" ) ; }
+
+            th.cNew ++ ;
         
             ;
                 : offElder + sizeof( countT ) + ( (countT*)( pbTls + offElder ) )[ TLSeNTRYoFF_cbEntry ]
-                ? sizeof( countT )
-            offTopEntry = !offElder
-            const countT offElder = offTopEntry ;
+                ? sizeof( tlsHeaderS )
+            th.offTopEntry = !offElder
+            const countT offElder = th.offTopEntry ;
 
-            }
-                }
-                    countT foo = 2 ;
-                {
-                if( idIn == 0x16256 )
-
-                countT idIn = 1 + incv02AM( idInLath ) ;
-            {
-            if( tinP.monitor.idThread == 1 )
-            static countT idInLath ;
-            //U:: TO CATCH A BUG
+            pcUtility[ 2 ] = TLSeNTRYoFF_cbEntry    ; //U:: TO FIND A BUG
+            pcUtility[ 1 ] = (countT)pbTls          ; //U:: TO FIND A BUG
+            pcUtility[ 0 ] = th.offTopEntry            ; //U:: TO FIND A BUG
         {
         if( !pbData )
     
@@ -120,9 +116,15 @@
                 countT&              costaName    = ( (countT*)( pbTls + offMe ) )[ TLSeNTRYoFF_costaName    ] ;
             {
             while( offMe )
-            countT offMe = costaNameP ? offTopEntry : 0 ;
+            countT offMe = costaNameP ? th.offTopEntry : 0 ;
         {
-        countT& offTopEntry = *(countT*)pbTls ;
+        //if( !thirdC::c_strcmpIF( *this , postThreadName , "tmWorkerF" ) ) { CONoUTrAW5( "" , (countT)&th.offTopEntry , "    tlsNewF / on entry [offTopEntry]:    " , th.offTopEntry , "\r\n" ) ; }
+        tlsHeaderS& th = *(tlsHeaderS*)pbTls ;
+
+        }
+            countT foo = 2 ;
+        {
+        if( costaNameP )
     
         const countT costaInGroupP = !postInGroupP ? 0 : 1 + thirdC::c_strlenIF( tinP , postInGroupP ) ;
         const countT costaNameP    = !postNameP    ? 0 : 1 + thirdC::c_strlenIF( tinP , postNameP    ) ;
@@ -153,14 +155,6 @@
     //_IO_
     //SPEED OPTIMIZATION: THIS _IO_ WOULD HAVE THE #1 HIGHEST FREQUENCY OF CALLS
 
-    }
-        countT foo = 2 ;
-    {
-    if( idIn == 0x1490e )   //SEEN 14910 1490e
-    countT idIn = 1 + incv02AM( idInLath ) ;
-    static countT idInLath ;
-    //U:: TO FIND A BUG
-
     if( !pbTls ) { BLAMMO ; }
 
     tinS& tinP = *this ;
@@ -178,7 +172,7 @@
 //    cRef (number of instances including the constructing instance; is never 0)
 //    cbEntry (exclusive prefix)
 //   tls entry
-//    offTopEntry (address of lath entry constructed); this is redundant; it is for speed and to detect corruption
+//    th.offTopEntry (address of lath entry constructed); this is redundant; it is for speed and to detect corruption
 //   tls header
 //
 // TLS LAYOUT
