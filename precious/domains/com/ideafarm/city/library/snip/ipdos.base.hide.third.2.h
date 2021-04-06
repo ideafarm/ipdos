@@ -5250,7 +5250,7 @@ examples
 
 /*1*//**//*1*/
 
-#define postCRAFTWORKfACTORY "factory2"
+#define postCRAFTWORKfACTORY "factory1"
 
 
 //
@@ -5440,8 +5440,9 @@ examples
 /**/
 /*1*//*TaRG1tINYsTACK(tmFP)*//*1*/
 
-//#define TaRG1tINYsTACK(tmFP) tinP , countTC() , tmFP , 0 , flTHREADlAUNCH_null , 0x4000
 #define TaRG1tINYsTACK(tmFP) tinP , countTC() , tmFP , 0 , flTHREADlAUNCH_null , CBtLSdEFAULT
+
+//U::#define TaRG1tINYsTACK(tmFP) tinP , countTC() , tmFP , 0 , flTHREADlAUNCH_null , 0x4000
 
 
 //
@@ -5477,6 +5478,31 @@ examples
 //
 
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200597.CbOOKmARK END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200598.CCtLSsTEP BEGIN
+
+//
+// Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 29 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+/*
+*/
+/**/
+/*1*//*CmAXsTEPtLS*//*1*/
+
+#define CmAXsTEPtLS ( TUCK << 0 )
+
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 29 years.
+//
+// Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200598.CCtLSsTEP END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.thirdParties : 1snip.15000014.thirdparties BEGIN
 
 
@@ -27880,6 +27906,8 @@ it is illegal to modify any member other than pc Utility in the definition of an
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400b.tinS.tlsNewF!||
  voidT tlsDelF( const countT idLineP , const countT idiFileP , byteT*& pbMeP ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400c.tinS.tlsDelF!||
+ voidT tlsCheckF( voidT ) ;
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.36024015.tins.tlsCheckF!||
  byteT* pbF( countT idP = 1 ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400d.tinS.pbF!||
 
@@ -27994,6 +28022,7 @@ it is illegal to modify any member other than pc Utility in the definition of an
 
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.tallyC : 1snip.15000091.tallyc END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.tlsStackFrameS : 1snip.15000062.tlsstackframes BEGIN
+
 
 //
 // Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
@@ -45323,20 +45352,7 @@ i am nonconformant in that all of my member function definitions are in a single
 //
 
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.nodeListS : 1snip.1500018f.nodeListS END
-//
-// Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 29 years.
-// Respecting the rights of other people is an important part of empowering one another.
-//
-//
-// Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 29 years.
-// Respecting the rights of other people is an important part of empowering one another.
-//
-
-#define CmAXsTEPtLS ( TUCK << 0 )
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.tlsHeaderS : 1snip.15000190.tlsHeaderS BEGIN
 
 //
 // Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
@@ -45352,10 +45368,10 @@ i am nonconformant in that all of my member function definitions are in a single
 
 /*1*/struct _export tlsHeaderS/*1*/
 {
-    countT  offTopEntry                 ;
-    countT  cNew                        ;
-    countT  cDel                        ;
-    countT  cSteps                      ;
+    countT  offTopEntry                   ;
+    countT  cNew                          ;
+    countT  cDel                          ;
+    countT  cSteps                        ;
     countT  pcStepLFAt[ CmAXsTEPtLS * 3 ] ;
 }
 ;
@@ -45368,11 +45384,4 @@ i am nonconformant in that all of my member function definitions are in a single
 // Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
 
-
-//
-// Respecting the rights of other people is an important part of empowering one another.
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 29 years.
-//
-// Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.tlsHeaderS : 1snip.15000190.tlsHeaderS END
