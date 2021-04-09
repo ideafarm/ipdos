@@ -5248,7 +5248,7 @@ examples
 */
 /**/
 
-/*1*//**//*1*/
+/*1*//*postCRAFTWORKfACTORY*//*1*/
 
 #define postCRAFTWORKfACTORY "factory1"
 

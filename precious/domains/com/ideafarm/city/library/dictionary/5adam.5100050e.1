@@ -221,7 +221,7 @@ DONE( tmGetIdHomeF )
                 {
                 if( POOP )
 
-                cloudC cloud( tinP , tName , ifcIDdOcLOUDiFdIFFER_NOTHING , flCLOUDc_NOcOPY | flCLOUDc_DOnOTlOADlOCAL | flCLOUDc_DOnOTlOADrEMOTE , ifcIDcLOUD_RACKSPACE , tBuilding , tUser , tPassword , tRemoteHomePrivileges ) ;
+                cloudC cloud( tinP , tName , ifcIDdOcLOUDiFdIFFER_NOTHING , flCLOUDc_NOcOPY | flCLOUDc_DOnOTlOADlOCAL | flCLOUDc_DOnOTlOADrEMOTE , ifcIDcLOUD_RACKSPACE , tBuilding , tUserPrivileges , tPasswordPrivileges , tRemoteHomePrivileges ) ;
                 etThread.traceF( tinP , T("querying privileges") ) ;
             {
             else
@@ -309,6 +309,9 @@ if( bApproved )
                         if( !POOP ) bUploadedOk = 1 ;
 
                         cloud.pushFileF( tinP , tRemoteHomeRegistry , tShort , postzMe , costzMe ) ; //U:: cTries = 1
+
+                        etThread.traceF( tinP , T("home registration check / could not download") ) ;
+
                         POOPR
                     {
                     if( POOP )
@@ -331,7 +334,7 @@ if( bApproved )
                 if( POOP )
                 ZE( boolT  , bUploadedOk ) ;
     
-                cloudC cloud( tinP , tName , ifcIDdOcLOUDiFdIFFER_NOTHING , flCLOUDc_NOcOPY | flCLOUDc_DOnOTlOADlOCAL | flCLOUDc_DOnOTlOADrEMOTE , ifcIDcLOUD_RACKSPACE , tBuilding , tUser , tPassword , tRemoteHomeRegistry ) ;
+                cloudC cloud( tinP , tName , ifcIDdOcLOUDiFdIFFER_NOTHING , flCLOUDc_NOcOPY | flCLOUDc_DOnOTlOADlOCAL | flCLOUDc_DOnOTlOADrEMOTE , ifcIDcLOUD_RACKSPACE , tBuilding , tUserRegistry , tPasswordRegistry , tRemoteHomeRegistry ) ;
             {
             while( !ether && !POOP && !bDone )
             etherC& etRock = etherC::etRockIF( tinP ) ;
@@ -346,8 +349,8 @@ if( bApproved )
             etThread.osThreadF( TaRG1( tmWatchIdeafarmF ) , (countT)psttBuilding , (countT)psttUser , (countT)psttPassword , (countT)psttRemoteHomeRegistry ) ;
 
             etThread.strMakeF( tinP , LF , psttRemoteHomeRegistry , tRemoteHomeRegistry ) ; ___( psttRemoteHomeRegistry ) ;
-            etThread.strMakeF( tinP , LF , psttPassword           , tPassword           ) ; ___( psttPassword           ) ;
-            etThread.strMakeF( tinP , LF , psttUser               , tUser               ) ; ___( psttUser               ) ;
+            etThread.strMakeF( tinP , LF , psttPassword           , tPasswordRegistry           ) ; ___( psttPassword           ) ;
+            etThread.strMakeF( tinP , LF , psttUser               , tUserRegistry               ) ; ___( psttUser               ) ;
             etThread.strMakeF( tinP , LF , psttBuilding           , tBuilding           ) ; ___( psttBuilding           ) ;
             ZE( strokeS* , psttRemoteHomeRegistry ) ;
             ZE( strokeS* , psttPassword ) ;
@@ -486,9 +489,12 @@ ZE( boolT , bApproved ) ;
 TN( tRemoteHomePrivileges , "ipdos.home.privileges" ) ;
 TN( tRemoteHomeRegistry , "ipdos.home.registry" ) ;
 
-//secretF( tinP , etThread , tUser , tPassword ) ;
-TN( tPassword , "749b4eaeb75c46ac86d12d6e8d059b09" ) ;
-TN( tUser , "ipdos.01" ) ;
+TN( tPasswordPrivileges , "749b4eaeb75c46ac86d12d6e8d059b09" ) ;  //THIS IS NOT SECRET
+TN( tUserPrivileges , "ipdos.01" ) ;
+
+//secretF( tinP , etThread , tUserRegistry , tPasswordRegistry ) ;
+TN( tPasswordRegistry , "310fd4ae8433448a96d03c7c0fe6a6b0" ) ;  //THIS IS NOT SECRET
+TN( tUserRegistry , "ipdos.public" ) ;
 
 TN( tBuilding , "IAD" ) ;
 }
