@@ -24,13 +24,18 @@
         while( pbc && pbc < pbe )
         byteT* pbe = pbTls + cbTls ;
         byteT* pbc = pbTls + sizeof th ;
-        ZE( countT , cTlsVerify ) ;
+        //U::ZE( countT , cTlsVerify ) ;
+        countT cTlsVerify = TOCK ;
     {
     else
     }
         if( th.offTopEntry ) { BLAMMO ; }
     {
-    if( !cTls )
+    //U::if( !cTls )
+    else if( cTls == TOCK )
+    if( cTls < TOCK ) { BLAMMO ; }
+
+    if( cTls != cTlsDebug ) { BLAMMO ; }
 
     tlsHeaderS& th = *(tlsHeaderS*)pbTls ;
 //#if defined( NEVERdEFINED )
