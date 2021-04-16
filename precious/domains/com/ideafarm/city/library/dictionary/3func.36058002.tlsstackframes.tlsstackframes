@@ -40,14 +40,15 @@ rc( ( pTin->flagsThreadMode4 &= ~F(flTHREADmODE4_INoUTfRAMEdEFERwRITINGaPPtELEME
             ? flTINs_null
         idTypeP == ifcIDtYPEtLS_BENCH || idTypeP == ifcIDtYPEtLS_CONSOLE || idTypeP == ifcIDtYPEtLS_WINDOW || idTypeP == ifcIDtYPEtLS_EXCEPTION
     (
-    flTINs_DISABLEcOMMENTS |
+    flTINs_DISABLEcOMMENTS | flTINs_DELETEtLS |
     ,
         : POSTtHREADnAMEmAIN
         ? postP
     idTypeP == ifcIDtYPEtLS_KID || idTypeP == ifcIDtYPEtLS_EXCEPTION
     ,
     idTypeP == ifcIDtYPEtLS_KID ? ((taskS*)cArgP)->pTinDad : 0
-    idTypeP == ifcIDtYPEtLS_KID ? ((taskS*)cArgP)->idThread : 0 ,
+    ,
+    idTypeP == ifcIDtYPEtLS_KID ? ((taskS*)cArgP)->idThread : 0
     *pTin , LF , (byteT*)0 ,
 (
 tinEarlyLate

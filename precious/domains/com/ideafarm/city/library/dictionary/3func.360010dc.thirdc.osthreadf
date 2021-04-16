@@ -21,7 +21,7 @@
         taskS* pTask = new( 0 , tinP , LF ) taskS( tinP , tmFP , pSgnDoneP , pbTlsInPool , cbTlsInPool , flagsP , c1P , c2P , c3P , c4P , c5P , c6P , c7P , c8P ) ; ___( pTask ) ; //U::LEAKS
 
         c_memsetIF( pbTlsInPool , cbTlsInPool ) ;
-        newF( tinP , LF , pbTlsInPool , cbTlsInPool ) ; ___( pbTlsInPool ) ;
+        newF( tinP , LF , pbTlsInPool , cbTlsInPool ) ; ___( pbTlsInPool ) ;        //DELETED WITHIN threadLocalStorageF, AFTER THE EARLYLATE tinS INSTANCE IS DT'D
         ZE( byteT* , pbTlsInPool ) ;
         countT cbTlsInPool = cbTlsP ? cbTlsP : CBtLSdEFAULT ;
 

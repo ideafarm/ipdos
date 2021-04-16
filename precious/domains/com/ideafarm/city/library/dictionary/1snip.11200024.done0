@@ -11,21 +11,21 @@
             }                                                                                                                                                       \
                 }                                                                                                                                                   \
                     dec02AM( cAllThreads ) ; /* MUST BE THE VERY LAST THING THAT THIS THREAD DOES */                                                                \
+                    if( tinP.monitor.idThread <= ClOWtHREADS ) processGlobal1S::_processGlobal1I_IF().pcPhaseLow[ tinP.monitor.idThread ] = - 1 ;                   \
+                    TELL( "DONE0: i am outa here" )                                                                                                                 \
+                                                                                                                                                                    \
                     }                                                                                                                                               \
                         DEL( pTaskP ) ;                                                                                                                             \
                         /* THE PROCESS MUST SLEEP AFTER RECEIVING THIS SIGN BEFORE ENDING, SO THAT THIS THREAD CAN COMPLETE */                                      \
                         /* MUST BE AS LATE AS POSSIBLE BECAUSE IT GIVES THE SIGN THAT THE THREAD IS DONE.                   */                                      \
-                                                                                                                                                                    \
-                        PUSE( tinP , pTaskP->pbTlsInPool ) ;                                                                                                        \
                     {                                                                                                                                               \
                     if( !bFake )                                                                                                                                    \
-                    if( tinP.monitor.idThread <= ClOWtHREADS ) processGlobal1S::_processGlobal1I_IF().pcPhaseLow[ tinP.monitor.idThread ] = - 1 ;                   \
-                    TELL( "DONE0: i am outa here" )                                                                                                                 \
+                    boolT bFake = pTaskP ? !!( F(pTaskP->flags) & flTHREADlAUNCH_FAKE ) : 0 ;                                                                       \
+                                                                                                                                                                    \
                     ;                                                                                                                                               \
                         : thirdC::os_cAllKidThreadsI_IF( tinP )                                                                                                     \
                         ? thirdC::os_cAllOrphanThreadsI_IF( tinP )                                                                                                  \
                     countT& cAllThreads = bOrphan                                                                                                                   \
-                    boolT bFake   = pTaskP ? !!( F(pTaskP->flags) & flTHREADlAUNCH_FAKE   ) : 0 ;                                                                   \
                     boolT bOrphan = pTaskP ? !!( F(pTaskP->flags) & flTHREADlAUNCH_ORPHAN ) : 0 ;                                                                   \
                     TELL( "DONE0: deregistering myself from either cAllOrphanThreadsI or cAllKidThreadsI (my final act)" )                                          \
                     TINSL /*THIS IS NEEDED BECAUSE tinP WAS DELETED IF I AM tmWindowsF */                                                                           \

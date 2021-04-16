@@ -1994,7 +1994,6 @@ it is illegal to refer to this symbol in the definition of an adam
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200023.task0 END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200024.done0 BEGIN
 
-
 //
 // Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
@@ -2096,21 +2095,21 @@ it is illegal to refer to this symbol in the definition of an adam
                     TINSL /*THIS IS NEEDED BECAUSE tinP WAS DELETED IF I AM tmWindowsF */                                                                           \
                     TELL( "DONE0: deregistering myself from either cAllOrphanThreadsI or cAllKidThreadsI (my final act)" )                                          \
                     boolT bOrphan = pTaskP ? !!( F(pTaskP->flags) & flTHREADlAUNCH_ORPHAN ) : 0 ;                                                                   \
-                    boolT bFake   = pTaskP ? !!( F(pTaskP->flags) & flTHREADlAUNCH_FAKE   ) : 0 ;                                                                   \
                     countT& cAllThreads = bOrphan                                                                                                                   \
                         ? thirdC::os_cAllOrphanThreadsI_IF( tinP )                                                                                                  \
                         : thirdC::os_cAllKidThreadsI_IF( tinP )                                                                                                     \
                     ;                                                                                                                                               \
-                    TELL( "DONE0: i am outa here" )                                                                                                                 \
-                    if( tinP.monitor.idThread <= ClOWtHREADS ) processGlobal1S::_processGlobal1I_IF().pcPhaseLow[ tinP.monitor.idThread ] = - 1 ;                   \
+                                                                                                                                                                    \
+                    boolT bFake = pTaskP ? !!( F(pTaskP->flags) & flTHREADlAUNCH_FAKE ) : 0 ;                                                                       \
                     if( !bFake )                                                                                                                                    \
                     {                                                                                                                                               \
-                        PUSE( tinP , pTaskP->pbTlsInPool ) ;                                                                                                        \
-                                                                                                                                                                    \
                         /* MUST BE AS LATE AS POSSIBLE BECAUSE IT GIVES THE SIGN THAT THE THREAD IS DONE.                   */                                      \
                         /* THE PROCESS MUST SLEEP AFTER RECEIVING THIS SIGN BEFORE ENDING, SO THAT THIS THREAD CAN COMPLETE */                                      \
                         DEL( pTaskP ) ;                                                                                                                             \
                     }                                                                                                                                               \
+                                                                                                                                                                    \
+                    TELL( "DONE0: i am outa here" )                                                                                                                 \
+                    if( tinP.monitor.idThread <= ClOWtHREADS ) processGlobal1S::_processGlobal1I_IF().pcPhaseLow[ tinP.monitor.idThread ] = - 1 ;                   \
                     dec02AM( cAllThreads ) ; /* MUST BE THE VERY LAST THING THAT THIS THREAD DOES */                                                                \
                 }                                                                                                                                                   \
             }                                                                                                                                                       \
@@ -13497,6 +13496,7 @@ flMONITORqUERYoLD_REPLYtRUNCATED: monitorReplyOldS::code contains the cb needed 
 #define flTINs_NOeLDER                        0xe000202e
 #define flTINs_DEREGISTERED                   0xe000402e
 #define flTINs_INHERITjOTrEGISTRATIONS        0xe000802e
+#define flTINs_DELETEtLS                      0xe001002e
 /*3*/
 #define flTINs_null    0xe000002e
 
