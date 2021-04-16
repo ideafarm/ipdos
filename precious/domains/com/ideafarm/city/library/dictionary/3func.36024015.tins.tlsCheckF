@@ -9,13 +9,20 @@
 
 }
 //#endif
+
+    }
+        *pcBlammo = 0x12345678 ;
+        countT* pcBlammo = (countT*)0x8bbbbbbb ;
+    {
+    if( idReasonBlammo )
+
     }
         }
             pbc = pbTls + offNext ;
             }
                 break ;
-                if( pbc - pbTls != th.offTopEntry ) { BLAMMO ; }
-                if( cTlsVerify  != cTls           ) { BLAMMO ; }
+                if( pbc - pbTls != th.offTopEntry ) { idReasonBlammo = 5 ; }
+                if( cTlsVerify  != cTls           ) { idReasonBlammo = 4 ; }
             {
             if( !offNext )
             countT offNext = ( (countT*)pbc )[ TLSeNTRYoFF_offNextObject ] ;
@@ -29,13 +36,15 @@
     {
     else
     }
-        if( th.offTopEntry ) { BLAMMO ; }
+        if( th.offTopEntry ) { idReasonBlammo = 3 ; }
     {
     //U::if( !cTls )
     else if( cTls == TOCK )
-    if( cTls < TOCK ) { BLAMMO ; }
+    if( cTls < TOCK ) { idReasonBlammo = 2 ; }
 
-    if( cTls != cTlsDebug ) { BLAMMO ; }
+    if( cTls != cTlsDebug ) { idReasonBlammo = 1 ; }
+
+    ZE( countT , idReasonBlammo ) ;
 
     tlsHeaderS& th = *(tlsHeaderS*)pbTls ;
 //#if defined( NEVERdEFINED )

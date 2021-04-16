@@ -27698,8 +27698,12 @@ it is illegal to modify any member other than pc Utility in the definition of an
 
  private :
 
+ countT                  cTls ;
+ byteT* const            pbTls ; //MUST BE BEFORE grabC OBJECTS AND OTHERS WHOSE CONSTRUCTORS CALL TAG OR TAGoR MACROS; THIS STORAGE IS NOT INITIALIZED
+ const countT            cbTls ; //MUST BE BEFORE grabC OBJECTS AND OTHERS WHOSE CONSTRUCTORS CALL TAG OR TAGoR MACROS
  countT                  idDesire ;              //MUST BE EARLY BECAUSE dosPriorityIF CAN BE (WHEN DEBUGGING) CALLED IN inOutFrameC CT/DT, AND BEFORE ANY SUCH CALLS idDesire MUST BE INITIALIZED
  countT                  idDesireProcess ;
+ countT                  cTlsDebug ;
 
  public :
 
@@ -27798,24 +27802,10 @@ it is illegal to modify any member other than pc Utility in the definition of an
  countT                  pcGrabitOsTid[    CmAXgRABITrECURSEiNtINs ] ;
  countT                  pcGrabitRecurse[  CmAXgRABITrECURSEiNtINs ] ;
 
- private :
-
- countT                  cTls ;
- byteT* const            pbTls ; //MUST BE BEFORE grabC OBJECTS AND OTHERS WHOSE CONSTRUCTORS CALL TAG OR TAGoR MACROS; THIS STORAGE IS NOT INITIALIZED
- const countT            cbTls ; //MUST BE BEFORE grabC OBJECTS AND OTHERS WHOSE CONSTRUCTORS CALL TAG OR TAGoR MACROS
-
- public :
-
  countT*                 pcExitsWhere ; //EXISTS SO CODE IN ADAM DEF CAN SEE THIS GLOBALS ARRAY
  countT                  ccExitsWhere ; //EXISTS SO CODE IN ADAM DEF CAN SEE THIS GLOBALS ARRAY
  countT                  cArmTrace_soulC ; //APP CODE CAN SET THIS: 0:DISARMED; -1:traceF WILL BE CALLED FOR ALL SUBSEQUENT soulC NEW'D OR RETRIEVED FROM RECYCLING; N:COUNTDOWN TO THE NEW/RETRIEVED INSTANCE TO CALL traceF FOR
  flagsT                  flagsTrace_soulC ; //FLAGS MUST INCLUDE flTRACEsOULc_ON AND MUST NOT SPECIFY flTRACEsOULc_PURGE
-
- private :
-
- countT                  cTlsDebug ;
-
- public :
 
  countT*                 pcWatchedByInOut ;
  countT                  valueExpectedByInOut ;
