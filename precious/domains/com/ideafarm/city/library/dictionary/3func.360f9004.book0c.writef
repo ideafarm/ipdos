@@ -10,18 +10,12 @@
 }
     return !cb1P ? 0 : cbuOld ;
 
-    tinP.tlsCheckF() ; //U:: TO FIND A BUG
-
     if( offPageEnd != offPageStart && F(flagsP) & flBOOK0cwRITE_FLUSHaTpAGE ) thirdC::flushViewOfFileIF( tinP , (const byteT*)( offPageStart * cbPage ) , ( offPageEnd - offPageStart ) * cbPage ) ;
-
-    tinP.tlsCheckF() ; //U:: TO FIND A BUG
 
     const countT offPageEnd = (countT)pbc / cbPage  ;
 
     __NZ( F(flagsP) & flBOOK0cwRITE_SETrEMAINING && F(flagsResultP) & flBOOK0cwRITErESULT_WROTElATHbYTE ) ;  //THIS VERIFIES THAT SETrEMAINING DID NOT WRITE THE LATH BYTE, WHICH SHOUJLD BE IMPOSSIBLE
     if( pbc == pbBody + pHead->cbBody && cbuOld < pHead->cbBody && ( F(flagsP) & flBOOK0cwRITE_SETrEMAINING || cb1P || cbFill ) ) flagsResultP |= flBOOK0cwRITErESULT_WROTElATHbYTE ;
-
-    tinP.tlsCheckF() ; //U:: TO FIND A BUG
 
     }
         }
@@ -43,8 +37,6 @@
         if( F(flagsP) & flBOOK0cwRITE_HEADcBdATA      )     { *(countT*)pbc = cb1P                                        ; pbc += sizeof( countT ) ; }
         if( F(flagsP) & flBOOK0cwRITE_HEADiDfORMAT    )     { *(countT*)pbc = ifcIDfORMAT_BOOK0hEAD                       ; pbc += sizeof( countT ) ; }
         if( F(flagsP) & flBOOK0cwRITE_HEADfINGER1     )     { putNegAM( *(countT*)pbc , FINGERnEG_BOOK0cwRITEhEAD1 )      ; pbc += sizeof( countT ) ; }
-
-        tinP.tlsCheckF() ; //U:: TO FIND A BUG
     {
     else
     }
@@ -55,8 +47,6 @@
         {
         else
         if( cbuOld >= pHead->cbBody - 1 ) cb1P = 0 ;
-
-        tinP.tlsCheckF() ; //U:: TO FIND A BUG
     {
     if( F(flagsP) & flBOOK0cwRITE_SETrEMAINING )
 
@@ -67,24 +57,14 @@
 
     if( F(flagsP) & flBOOK0cwRITE_PURGE ) cbuOld = 0 ;
 
-    tinP.tlsCheckF() ; //U:: TO FIND A BUG
-
     if( F(flagsP) & flBOOK0cwRITE_FLUSHbOOKhEADoNcHANGE ) thirdC::flushViewOfFileIF( tinP , (byteT*)pHead , sizeof( bookHeadS ) ) ;
-
-    tinP.tlsCheckF() ; //U:: TO FIND A BUG
 
     }
         }
-            tinP.tlsCheckF() ; //U:: TO FIND A BUG
-
             }
                 break ;
-
-                tinP.tlsCheckF() ; //U:: TO FIND A BUG
             {
             if( ( !cbw && !cbFill ) || cbuOld == setIfEqualsAM( pHead->cbUsed , cbuNew , cbuOld ) )
-
-            tinP.tlsCheckF() ; //U:: TO FIND A BUG
 
             ;
                 : cbw + cbFill + cbuOld
@@ -99,8 +79,6 @@
                 : cb1P
                 ? cbAsk
             const countT cbw = F(flagsP) & flBOOK0cwRITE_SETrEMAINING
-
-            tinP.tlsCheckF() ; //U:: TO FIND A BUG
 
             }
                 }
@@ -126,8 +104,6 @@
             {
             if( cbAsk > cbAvailable ) // CAN ONLY BE TRUE IF pb1P
 
-            tinP.tlsCheckF() ; //U:: TO FIND A BUG
-
             ;
                     : 0
                     ? cbAvailable - 1                                               // "- 1" IS TO AVOID WRITING LATH BYTE, MOTIVATED BY THE PRESUMPTION THAT CALLER IS ABOUT TO USE THE BYTES THAT I AM SETTING (SEE barryC FOR EXAMPLE)
@@ -147,8 +123,6 @@
             if( !cbuOld && !( F(pHead->flags) & flBOOKhEADs_PRIORbOOKnOTcONTINUEDhERE ) && !( F(flagsP) & flBOOK0cwRITE_CONTINUEfROMpRIOR ) )
     
             cbuOld = pHead->cbUsed ;
-
-            tinP.tlsCheckF() ; //U:: TO FIND A BUG
         {
         for(;;)
         sleepC s( tinP , TAG( TAGiDnULL ) ) ;
@@ -156,8 +130,6 @@
     ZE( countT , cbFill ) ;
     ZE( countT , cbuOld ) ;
     flagsResultP = flBOOK0cwRITErESULT_null ;
-
-    tinP.tlsCheckF() ; //U:: TO FIND A BUG
 
     if( F(flagsP) & flBOOK0cwRITE_TAILfINGER   ) cbHeadTail += sizeof( countT ) ;
     if( F(flagsP) & flBOOK0cwRITE_HEADfINGER2  ) cbHeadTail += sizeof( countT ) ;
@@ -167,8 +139,6 @@
     ZE( countT , cbHeadTail ) ;
 
     //_IO_ (WOULD BLOW STACK DUE TO inOutFrameC EMITTING APP TELEMETRY)
-
-    tinP.tlsCheckF() ; //U:: TO FIND A BUG
 
     }
         // if( POOP ) return 0 ;
@@ -194,8 +164,6 @@
         if( POOP ) return 0 ;
     {
     IFbEcAREFUL    
-
-    tinP.tlsCheckF() ; //U:: TO FIND A BUG
 {
 /*1*/countT book0C::writeF( tinS& tinP , flagsT& flagsResultP , const byteT* const pb1P , countT& cb1P , const byteT* const pb2P , countT& cb2P , const flagsT flagsP , countT* const pcOffWroteP )/*1*/
 

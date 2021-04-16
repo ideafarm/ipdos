@@ -20,7 +20,7 @@
             }
                 break ;
                 if( pbc - pbTls != th.offTopEntry ) { idReasonBlammo = 5 ; }
-                if( cTlsVerify  != cTls           ) { idReasonBlammo = 4 ; }
+                if( cTlsVerify  != cTls           ) { idReasonBlammo = BM_HIGH | cTlsVerify ; }
             {
             if( !offNext )
             countT offNext = ( (countT*)pbc )[ TLSeNTRYoFF_offNextObject ] ;
@@ -29,18 +29,13 @@
         while( pbc && pbc < pbe )
         byteT* pbe = pbTls + cbTls ;
         byteT* pbc = pbTls + sizeof th ;
-        //U::ZE( countT , cTlsVerify ) ;
-        countT cTlsVerify = TOCK ;
+        ZE( countT , cTlsVerify ) ;
     {
     else
     }
         if( th.offTopEntry ) { idReasonBlammo = 3 ; }
     {
-    //U::if( !cTls )
-    else if( cTls == TOCK )
-    if( cTls < TOCK ) { idReasonBlammo = 2 ; }
-
-    if( cTls != cTlsDebug ) { idReasonBlammo = 1 ; }
+    if( !cTls )
 
     ZE( countT , idReasonBlammo ) ;
 

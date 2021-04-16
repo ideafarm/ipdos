@@ -27703,7 +27703,6 @@ it is illegal to modify any member other than pc Utility in the definition of an
  const countT            cbTls ; //MUST BE BEFORE grabC OBJECTS AND OTHERS WHOSE CONSTRUCTORS CALL TAG OR TAGoR MACROS
  countT                  idDesire ;              //MUST BE EARLY BECAUSE dosPriorityIF CAN BE (WHEN DEBUGGING) CALLED IN inOutFrameC CT/DT, AND BEFORE ANY SUCH CALLS idDesire MUST BE INITIALIZED
  countT                  idDesireProcess ;
- countT                  cTlsDebug ;
 
  public :
 
