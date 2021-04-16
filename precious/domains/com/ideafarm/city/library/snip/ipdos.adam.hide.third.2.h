@@ -5440,9 +5440,7 @@ examples
 /**/
 /*1*//*TaRG1tINYsTACK(tmFP)*//*1*/
 
-#define TaRG1tINYsTACK(tmFP) tinP , countTC() , tmFP , 0 , flTHREADlAUNCH_null , CBtLSdEFAULT
-
-//U::#define TaRG1tINYsTACK(tmFP) tinP , countTC() , tmFP , 0 , flTHREADlAUNCH_null , 0x4000
+#define TaRG1tINYsTACK(tmFP) tinP , countTC() , tmFP , 0 , flTHREADlAUNCH_null , ( TOCK >> 2 )
 
 
 //
