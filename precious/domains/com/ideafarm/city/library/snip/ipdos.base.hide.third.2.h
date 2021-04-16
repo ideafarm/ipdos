@@ -27696,7 +27696,7 @@ it is illegal to modify any member other than pc Utility in the definition of an
                          //CODEsYNCH: 003002a 12f0002 12f0006
                          //END OF PREFIX: MEMBERS BEFORE THIS LINE ARE NOT SLOSHED (FROM/TO pTinOld)
 
- private :
+ //private :
 
  countT                  cTls ;
  byteT* const            pbTls ; //MUST BE BEFORE grabC OBJECTS AND OTHERS WHOSE CONSTRUCTORS CALL TAG OR TAGoR MACROS; THIS STORAGE IS NOT INITIALIZED
