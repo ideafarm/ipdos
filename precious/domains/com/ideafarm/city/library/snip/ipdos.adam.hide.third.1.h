@@ -1,4 +1,6 @@
 
+#define TaRG3fLAGScBtLS(tmFP,flagsP,cbTlsP) tinP , countTC() , tmFP , 0 , (flagsP) , (cbTlsP)
+
 #define TaRG2cBtLS(tmFP,cbTlsP) tinP , countTC() , tmFP , 0 , flTHREADlAUNCH_null , (cbTlsP)
 
 // IPDOS (tm) <> IdeaFarm (tm) Piggyback Distributed Operating System
@@ -6684,6 +6686,7 @@ flTHREADlAUNCH_ORPHAN
 #define flTHREADlAUNCH_SHOWpONY                0xe0000810
 #define flTHREADlAUNCH_INHERITjOTrEGISTRATIONS 0xe0001010
 #define flTHREADlAUNCH_EPHEMERAL               0xe0002010
+#define flTHREADlAUNCH_NOiNoUTfRAMEsUPPORT     0xe0004010
 /*3*/
 #define flTHREADlAUNCH_null    0xe0000010
 
@@ -13500,6 +13503,7 @@ flMONITORqUERYoLD_REPLYtRUNCATED: monitorReplyOldS::code contains the cb needed 
 #define flTINs_DEREGISTERED                   0xe000402e
 #define flTINs_INHERITjOTrEGISTRATIONS        0xe000802e
 #define flTINs_DELETEtLS                      0xe001002e
+#define flTINs_NOiNoUTfRAMEsUPPORT            0xe002002e
 /*3*/
 #define flTINs_null    0xe000002e
 

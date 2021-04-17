@@ -138,28 +138,28 @@
         {
         //if( !thirdC::c_strcmpIF( *this , postThreadName , "tmWorkerF" ) ) { CONoUTrAW5( "" , (countT)&th.offTopEntry , "    tlsNewF / on entry [offTopEntry]:    " , th.offTopEntry , "\r\n" ) ; }
 
-        }
-            CONoUTrAW( "\"\r\n" ) ;
-            CONoUTrAW( postNameP ) ;
-            CONoUTrAW( "tlsNewF [postNameP]:    \"" ) ;
-        {
-        if( postNameP )
-
-        }
-            CONoUTrAW( "\"\r\n" ) ;
-            CONoUTrAW( postInGroupP ) ;
-            CONoUTrAW( "tlsNewF [postInGroupP]:    \"" ) ;
-        {
-        if( postInGroupP )
-
-        }
-            }
-                CONoUTrAW5( "tlsNewF [cbP,offTopEntryMax(before)]:    " , cbP , "    " , offTopEntryMax , "\r\n" ) ;
-                offTopEntryMax = th.offTopEntry ; //INTENTIONAL RACE: THIS CODE IS NOT THREAD SAFE BUT I DON'T CARE SINCE ANY CLOBBERING IS LIKELY TO BE HEALED, AND I ONLY USE THIS MAX TO GET AN IDEA HOW BIG TLS MUST BE
-            {
-            if( offTopEntryMax < th.offTopEntry )
-            static countT offTopEntryMax ;
-        {
+        //}
+        //    CONoUTrAW( "\"\r\n" ) ;
+        //    CONoUTrAW( postNameP ) ;
+        //    CONoUTrAW( "tlsNewF [postNameP]:    \"" ) ;
+        //{
+        //if( postNameP )
+        //
+        //}
+        //    CONoUTrAW( "\"\r\n" ) ;
+        //    CONoUTrAW( postInGroupP ) ;
+        //    CONoUTrAW( "tlsNewF [postInGroupP]:    \"" ) ;
+        //{
+        //if( postInGroupP )
+        //
+        //}
+        //    }
+        //        CONoUTrAW5( "tlsNewF [cbP,offTopEntryMax(before)]:    " , cbP , "    " , offTopEntryMax , "\r\n" ) ;
+        //        offTopEntryMax = th.offTopEntry ; //INTENTIONAL RACE: THIS CODE IS NOT THREAD SAFE BUT I DON'T CARE SINCE ANY CLOBBERING IS LIKELY TO BE HEALED, AND I ONLY USE THIS MAX TO GET AN IDEA HOW BIG TLS MUST BE
+        //    {
+        //    if( offTopEntryMax < th.offTopEntry )
+        //    static countT offTopEntryMax ;
+        //{
 
         tlsHeaderS& th = *(tlsHeaderS*)pbTls ;
 

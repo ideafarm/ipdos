@@ -793,12 +793,13 @@
         poopC _poop( flPOOP_null ) ;/*_M*/
         static countT cCodeReadRetries ;
 
-        const tinS&          tinSnap  = *(tinS*)tellInfoSys.pbTin ;
-        tellInfoSysExceptionS&  tellInfoSys = *tinP.pTieLath ;/*_M*/
+        const tinS&            tinSnap     = *(tinS*)tellInfoSys.pbTin ;
+        tellInfoSysExceptionS& tellInfoSys = *tinP.pTieLath ;/*_M*/
 
         //TELL( "osExceptionHandlerWorkIF/+" )
         //A: ASSUME: tinP.pTieLath POINTS TO A STRUCTURE THAT CONTAINS AN IMAGE OF tinP AT EXCEPTION EVENT TIME
     {
+    if( tinP.pTieLath )
     ZE( boolT , bFixed ) ;
     _IO_
 

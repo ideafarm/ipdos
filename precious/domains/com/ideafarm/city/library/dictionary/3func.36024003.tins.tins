@@ -30,7 +30,7 @@
                 {
                 if( !pbPendingInOutFramePackets )
             {
-            if( monitor.idThread > 3 ) // FOR THREAD 1, SEE do3; THREAD 2 3 ARE tinHeart AND tinBreak
+            if( monitor.idThread > 3 && !( F(flags) & flTINs_NOiNoUTfRAMEsUPPORT ) ) // FOR THREAD 1, SEE do3; THREAD 2 3 ARE tinHeart AND tinBreak
 
             if( idTinNamed == ifcIDtINnAMED_tinBreakI ) thirdC::c_strncpyIF( tinP , postTell , "refusalsToClose:0    logoffsSeen:0" , sizeof postTell ) ; //CODEsYNC: 12f0006 10200cc
             thirdC::c_strncpyIF( tinP , postTell , "tinS::tinS: i am now registered" , sizeof postTell ) ;
@@ -322,7 +322,16 @@ pAdamGlobal2( pTinDadP ? pTinDadP->pAdamGlobal2 : ( idTinNamedP == ifcIDtINnAMED
 pAdamGlobal1( pTinDadP ? pTinDadP->pAdamGlobal1 : ( idTinNamedP == ifcIDtINnAMED_tinInPool ? tinSelfOrElderP.pAdamGlobal1 : &rootAdamGlobal1I ) ) ,
 idiFileCt( idiFileCtP ) ,
 idLineCt( idLineCtP ) ,
-flags( flagsP ) ,
+) ,
+    )
+            : flTINs_null
+            ? flTINs_NOiNoUTfRAMEsUPPORT
+        this != &tinSelfOrElderP && F(tinSelfOrElderP.flags) & flTINs_NOiNoUTfRAMEsUPPORT
+    (
+    |
+    flagsP
+(
+flags
 tally( tinSelfOrElderP ) ,
 ) ,
     (countT)this

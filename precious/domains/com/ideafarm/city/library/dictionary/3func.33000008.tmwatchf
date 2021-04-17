@@ -146,6 +146,7 @@ DONE( tmWatchF )
 #if defined( NEVERdEFINED )
 //U:: 20210220@1114: REMOVE THIS OLD CODE, WHICH IS REPLACED WITH THE PRECEDING (OLD: ALL poolC INSTANCES.  NEW: ONLY THE CURRENT poolC INSTANCE
 
+#endif
         }
             etRock.traceF( tinP , T("tmWatchF: traced pool tallies") ) ;
             etRock.tracePoolTalliesF( tinP ) ;
@@ -153,6 +154,8 @@ DONE( tmWatchF )
             etherC& etRock = etherC::etRockIF( tinP ) ;
         {
         if( !( idCycle % ( TUCK << 4 ) ) ) //APPROXIMATELY ONCE PER HOUR
+#if defined( NEVERdEFINED )
+//U:: COMMENTED OUT TO CONSERVE MEMORY WHILE STUDYING MEMORY USAGE
 
         //20210310@1246: ENABLED TO STUDY CHANNEL I/O BURN-IN TEST
         //20210228@0925: DISABLED

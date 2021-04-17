@@ -8,9 +8,12 @@
 
 
 }
-    else if(  tinEarlyLate.pTieLath != pTieLath ) { BLAMMO ; }
-         if( !tinEarlyLate.pTieLath             ) tinEarlyLate.pTieLath = pTieLath ;
-    tellInfoSysExceptionS* pTieLath = (tellInfoSysExceptionS*)(byteT*)tellInfoSysExceptionLath ;
+    }
+        else if(  tinEarlyLate.pTieLath != pTieLath ) { BLAMMO ; }
+             if( !tinEarlyLate.pTieLath             ) tinEarlyLate.pTieLath = pTieLath ;
+        tellInfoSysExceptionS* pTieLath = (tellInfoSysExceptionS*)(byteT*)tellInfoSysExceptionLath ;
+    {
+    if( (byteT*)tellInfoSysExceptionLath )
 
     }
         else if(  tinEarlyLate.postRptExceptionLath != postRieLath ) { BLAMMO ; }
@@ -23,7 +26,7 @@
 {
 stackTop( thirdC::third_tinS_ref_IF() , "sysStackTop" , "tin" )
 ,
-tellInfoSysExceptionLath( thirdC::third_tinS_ref_IF() , "tellInfoSysExceptionLath" , "tin" , sizeof( tellInfoSysExceptionS ) )
+tellInfoSysExceptionLath( thirdC::third_tinS_ref_IF() , "tellInfoSysExceptionLath" , "tin" , !cArgP || ((taskS*)cArgP)->cbTlsInPool >= CBtLSdEFAULT ? sizeof( tellInfoSysExceptionS ) : - 1 )
 ,
 postRptExceptionLath(     thirdC::third_tinS_ref_IF() , "postRptExceptionLath"     , "tin" , !cArgP || ((taskS*)cArgP)->cbTlsInPool >= CBtLSdEFAULT ? COSTArPTeXCEPTION : - 1 , ifcIDtYPEtLSbLOBc_FOOT )
 ,
@@ -39,11 +42,18 @@ rc( ( pTin->flagsThreadMode4 &= ~F(flTHREADmODE4_INoUTfRAMEdEFERwRITINGaPPtELEME
     idTypeP == ifcIDtYPEtLS_BENCH || idTypeP == ifcIDtYPEtLS_CONSOLE || idTypeP == ifcIDtYPEtLS_WINDOW
     ,
     )
+            : flTINs_null
+            ? flTINs_NOiNoUTfRAMEsUPPORT
+        cArgP && F(((taskS*)cArgP)->flags) & flTHREADlAUNCH_NOiNoUTfRAMEsUPPORT
+    (
+    |
+    )
             : flTINs_NOeLDER
             ? flTINs_null
         idTypeP == ifcIDtYPEtLS_BENCH || idTypeP == ifcIDtYPEtLS_CONSOLE || idTypeP == ifcIDtYPEtLS_WINDOW || idTypeP == ifcIDtYPEtLS_EXCEPTION
     (
-    flTINs_DISABLEcOMMENTS | flTINs_DELETEtLS |
+    |
+    flTINs_DISABLEcOMMENTS | flTINs_DELETEtLS
     ,
         : POSTtHREADnAMEmAIN
         ? postP
