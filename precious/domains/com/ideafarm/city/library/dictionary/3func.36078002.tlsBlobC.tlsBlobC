@@ -18,13 +18,13 @@
         if( !*(countT*)pbd )
         if( cbd < 2 * sizeof( countT ) ) { BLAMMO ; }
     {
-    if( idTypeP == ifcIDtYPEtLSbLOBc_FOOT )
+    if( pbd && idTypeP == ifcIDtYPEtLSbLOBc_FOOT )
 
-    if( !pbd ) { BLAMMO ; }
+    if( cbd && !pbd ) { BLAMMO ; }
 {
 bReset( 0 )
-pbd( tinP.tlsNewF( LF , cbd , postNameP , postGroupP ) ) ,
-cbd( cbP ? cbP : sizeof( countT ) ) ,
+pbd( !cbd ? 0 : tinP.tlsNewF( LF , cbd , postNameP , postGroupP ) ) ,
+cbd( cbP == - 1 ? 0 : cbP ? cbP : sizeof( countT ) ) ,
 /*1*/tlsBlobC::tlsBlobC( tinS& tinP , const osTextT* const postNameP , const osTextT* const postGroupP , const countT cbP , const countT idTypeP ) :/*1*/
 /**/
 */

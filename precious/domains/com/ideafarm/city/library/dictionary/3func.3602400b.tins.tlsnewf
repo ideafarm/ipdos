@@ -115,12 +115,11 @@
                         break ;
                         pbData = (byteT*)&costaInGroup + sizeof( countT ) + costaName + costaInGroup ;
 
-
-}
-    BLAMMO ;
-    CONoUTrAW3( "" , monitor.idThread , "    cRef++\r\n" ) ;
-{
-
+                        }
+                            BLAMMO ;
+                            CONoUTrAW3( "" , monitor.idThread , "    cRef++\r\n" ) ;
+                        {
+                        //20210416@1530:  THIS JUST PROVES THAT THIS CODE IS NEVER USED ; REMOVE THIS BLAMMO IF NEEDED
 
                         __( !( cRef ++ ) ) ;
                         countT& cRef = ( (countT*)( pbTls + offMe ) )[ TLSeNTRYoFF_cRef ] ;
@@ -139,13 +138,31 @@
         {
         //if( !thirdC::c_strcmpIF( *this , postThreadName , "tmWorkerF" ) ) { CONoUTrAW5( "" , (countT)&th.offTopEntry , "    tlsNewF / on entry [offTopEntry]:    " , th.offTopEntry , "\r\n" ) ; }
 
-        tlsHeaderS& th = *(tlsHeaderS*)pbTls ;
+        }
+            CONoUTrAW( "\"\r\n" ) ;
+            CONoUTrAW( postNameP ) ;
+            CONoUTrAW( "tlsNewF [postNameP]:    \"" ) ;
+        {
+        if( postNameP )
 
         }
-            countT foo = 2 ;
+            CONoUTrAW( "\"\r\n" ) ;
+            CONoUTrAW( postInGroupP ) ;
+            CONoUTrAW( "tlsNewF [postInGroupP]:    \"" ) ;
         {
-        if( costaNameP )
-    
+        if( postInGroupP )
+
+        }
+            }
+                CONoUTrAW5( "tlsNewF [cbP,offTopEntryMax(before)]:    " , cbP , "    " , offTopEntryMax , "\r\n" ) ;
+                offTopEntryMax = th.offTopEntry ; //INTENTIONAL RACE: THIS CODE IS NOT THREAD SAFE BUT I DON'T CARE SINCE ANY CLOBBERING IS LIKELY TO BE HEALED, AND I ONLY USE THIS MAX TO GET AN IDEA HOW BIG TLS MUST BE
+            {
+            if( offTopEntryMax < th.offTopEntry )
+            static countT offTopEntryMax ;
+        {
+
+        tlsHeaderS& th = *(tlsHeaderS*)pbTls ;
+
         const countT costaInGroupP = !postInGroupP ? 0 : 1 + thirdC::c_strlenIF( tinP , postInGroupP ) ;
         const countT costaNameP    = !postNameP    ? 0 : 1 + thirdC::c_strlenIF( tinP , postNameP    ) ;
     {
@@ -188,20 +205,6 @@
     {
     IFbEcAREFUL
     POOPIES
-
-//}
-//    CONoUTrAW( "\"\r\n" ) ;
-//    CONoUTrAW( postNameP ) ;
-//    CONoUTrAW( "postNameP: \"" ) ;
-//{
-//if( postNameP )
-
-//}
-//    CONoUTrAW( "\"\r\n" ) ;
-//    CONoUTrAW( postInGroupP ) ;
-//    CONoUTrAW( "postInGroupP: \"" ) ;
-//{
-//if( postInGroupP )
 
     tinS& tinP = *this ;
 {

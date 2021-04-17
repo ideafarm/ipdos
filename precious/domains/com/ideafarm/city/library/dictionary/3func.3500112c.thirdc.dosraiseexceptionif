@@ -28,6 +28,8 @@
     {
     if( pTin && !( F(thirdC::third_flagsModeProcess2I_IF(tinP)) & flMODEpROCESS2_DEBUG ) ) // CALLING RaiseException IS INCONVENIENT WHEN RUNNING AS A CHILD OF A DEBUGGER PROCESS BECAUSE THE CALL STACK BECOMES INVISIBLE, SO WHEN BEING DEBUGGED, I JUST DO AN INTENTIONAL BLAMMO
 
+    countT brcLathSave = tinP.brcLath ;
+
     tinS* pTin = &tinP ;
 {
 /*1*/voidT thirdC::dosRaiseExceptionIF( tinS& tinP , const countT idExceptionP , const countT* const pcArgsP , const countT ccArgsP )/*1*/

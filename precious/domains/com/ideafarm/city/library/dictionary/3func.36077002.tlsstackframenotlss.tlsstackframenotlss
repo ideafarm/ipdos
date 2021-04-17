@@ -12,9 +12,12 @@
          if( !tinEarlyLate.pTieLath             ) tinEarlyLate.pTieLath = pTieLath ;
     tellInfoSysExceptionS* pTieLath = (tellInfoSysExceptionS*)(byteT*)tellInfoSysExceptionLath ;
 
-    else if(  tinEarlyLate.postRptExceptionLath != postRieLath ) { BLAMMO ; }
-         if( !tinEarlyLate.postRptExceptionLath  ) tinEarlyLate.postRptExceptionLath = postRieLath ;
-    osTextT* postRieLath = (osTextT*)postRptExceptionLath + sizeof( countT ) ;
+    }
+        else if(  tinEarlyLate.postRptExceptionLath != postRieLath ) { BLAMMO ; }
+             if( !tinEarlyLate.postRptExceptionLath  ) tinEarlyLate.postRptExceptionLath = postRieLath ;
+        osTextT* postRieLath = (osTextT*)postRptExceptionLath + sizeof( countT ) ;
+    {
+    if( (byteT*)postRptExceptionLath )
 
     (countT&)stackTop = (countT)( this + 1 ) ;
 {
@@ -22,7 +25,7 @@ stackTop( thirdC::third_tinS_ref_IF() , "sysStackTop" , "tin" )
 ,
 tellInfoSysExceptionLath( thirdC::third_tinS_ref_IF() , "tellInfoSysExceptionLath" , "tin" , sizeof( tellInfoSysExceptionS ) )
 ,
-postRptExceptionLath( thirdC::third_tinS_ref_IF() , "postRptExceptionLath" , "tin" , COSTArPTeXCEPTION , ifcIDtYPEtLSbLOBc_FOOT )
+postRptExceptionLath( thirdC::third_tinS_ref_IF() , "postRptExceptionLath" , "tin" , !cArgP || ((taskS*)cArgP)->cbTlsInPool >= CBtLSdEFAULT ? COSTArPTeXCEPTION : - 1 , ifcIDtYPEtLSbLOBc_FOOT )
 ,
 rc( 0 )
 ,

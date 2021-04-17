@@ -1,4 +1,6 @@
 
+#define TaRG2cBtLS(tmFP,cbTlsP) tinP , countTC() , tmFP , 0 , flTHREADlAUNCH_null , (cbTlsP)
+
 // IPDOS (tm) <> IdeaFarm (tm) Piggyback Distributed Operating System
 
 // For build environment info, see file "\ideafarm.work\backed.up.never\txt\readme.first.ipdos.build.environment.txt"
@@ -40211,9 +40213,9 @@ optimized for speed
 /*
 */
 /**/
-/*1*//*TaRG2(tmFP,sgnDoneP)*//*1*/
+/*1*//*TaRG2sGNdONE(tmFP,sgnDoneP)*//*1*/
 
-#define TaRG2(tmFP,sgnDoneP) tinP , countTC() , tmFP , &(sgnDoneP) , flTHREADlAUNCH_null , 0
+#define TaRG2sGNdONE(tmFP,sgnDoneP) tinP , countTC() , tmFP , &(sgnDoneP) , flTHREADlAUNCH_null , 0
 
 
 //
@@ -45727,32 +45729,3 @@ use me rather than ZE() to ask PUSE to allocate from a jotC that i have construc
 //
 
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004f0.isinitializedpointer END
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004f0.isnulljpointer BEGIN
-
-
-//
-// Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 29 years.
-// Respecting the rights of other people is an important part of empowering one another.
-//
-
-/*
-a "jPointer" is of type byteT* and is allowed to contain either an address or an idJot value
-a jPointer that contains an address is null iff it is 0
-a jPointer is also considered null if it contains one of the special values [JrEQUEST_min,JrEQUEST_max]
-*/
-/**/
-/*1*//*ISnULLjpOINTER(pbP)*//*1*/
-
-#define ISnULLjpOINTER(pbP) ( !(pbP) || ( (countT)(pbP) >= JrEQUEST_min && (countT)(pbP) <= JrEQUEST_max ) )
-
-
-//
-// Respecting the rights of other people is an important part of empowering one another.
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 29 years.
-//
-// Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004f0.isnulljpointer END
