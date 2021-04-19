@@ -23197,6 +23197,7 @@ examples
 
 /*3*/
 #define flPOOP_SMELLY    0xe0000155
+#define flPOOP_BLAMMO    0xe0000255
 /*3*/
 #define flPOOP_null    0xe0000055
 
