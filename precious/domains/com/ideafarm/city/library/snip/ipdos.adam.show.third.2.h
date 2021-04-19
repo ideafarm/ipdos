@@ -33225,7 +33225,6 @@ each textC object contains an unmodifiable string of strokes
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.textC : 1snip.1500000e.textc END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.spouseC : 1snip.15000083.spousec BEGIN
 
-
 //
 // Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
@@ -33245,7 +33244,7 @@ each textC object contains an unmodifiable string of strokes
  const countT idLineCt ;
  const countT idiFileCt ;
  const byteT  pbBitsCt[ CBbITScT ] ;
- etherC* pEther ;
+ etherC& ether ;
  stackC  stFrame ;
  countT  offNew ; //N1
  byteT*  ppbFrame[ 1 + CfRAMESsPOUSE ] ; // OFFSET ii CACHES TO PLATE ii OF stFrame (OFFSET 0 IS NOT USED)
@@ -33253,17 +33252,10 @@ each textC object contains an unmodifiable string of strokes
 
  voidT refresh_ppbFrame_F( byteT* const pbFrameNewP ) ; // tinP NOT USED, FOR MAX SPEED
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34004.spouseC.refresh_ppbFrame_F!||
- spouseC( tinS& tinP , const countT idLineCtP , const countT idiFileCtP , const byteT* const pbBitsCtP ) ;
+ spouseC( tinS& tinP , etherC& etherP , const countT idLineCtP , const countT idiFileCtP , const byteT* const pbBitsCtP ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34001.spouseC.spouseC!||
  voidT rememberF( tinS& tinP , const byteT bP ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34005.spouseC.rememberF!||
-
- public :
-
- etherC& etherF( tinS& tinP ) ;
- //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34002.spouseC.etherF!||
- voidT etherF( tinS& tinP , etherC& etherP ) ;
- //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34003.spouseC.etherF!||
 }
 ;
 

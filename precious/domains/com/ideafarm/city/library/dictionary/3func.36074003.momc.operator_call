@@ -8,26 +8,26 @@
 
 
 }
-    if( bExistingPin ) pEther->delF( tinP , *(byteT**)&pbP ) ;
+    if( bExistingPin ) ether.delF( tinP , *(byteT**)&pbP ) ;
     }
         }
             }
-                pEther->memCopyF( tinP , (byteT*)pCursor , (byteT*)pczNameP , cczName * sizeof( countT ) ) ;
+                ether.memCopyF( tinP , (byteT*)pCursor , (byteT*)pczNameP , cczName * sizeof( countT ) ) ;
                 *( pCursor ++ ) = (count01T)( cczName * sizeof( countT ) / sizeof( count01T ) ) ;
                 *( pCursor ++ ) = (count01T)( bPinP ? ifcIDcMDsPOUSE_INSERTnAMEDpIN : ifcIDcMDsPOUSE_INSERTnAMEDpILL ) ;
                 *( pCursor ++ ) = 0                                                                                    ; //ESCAPE CODE
                 count01T* pCursor = pcP ;
             {
             if( pcP )
-            pEther->newF( tinP , LF , pcP , ccP ) ; ___( pcP ) ;
+            ether.newF( tinP , LF , pcP , ccP ) ; ___( pcP ) ;
             ccP = 3 + cczName * sizeof( countT ) / sizeof( count01T ) ; //A: ASSUME: sizeof( countT ) IS A MULTIPLE OF sizeof( count01T )
-            countT cczName = pEther->strBodyLengthF( tinP , pczNameP ) + 1 ;
+            countT cczName = ether.strBodyLengthF( tinP , pczNameP ) + 1 ;
         
-            else if( !bExistingPin ) pEther->boxPutF( tinP , tBig , pbP , cbP ) ;
+            else if( !bExistingPin ) ether.boxPutF( tinP , tBig , pbP , cbP ) ;
             }
                 ccBody = 0 ;
-                pEther->delF( tinP , pcBody ) ;
-                pEther->boxPutF( tinP , tBig , (byteT*)pcBody , sizeof( count01T ) * ccBody ) ;
+                ether.delF( tinP , pcBody ) ;
+                ether.boxPutF( tinP , tBig , (byteT*)pcBody , sizeof( count01T ) * ccBody ) ;
             {
             if( !bPinP )
         {
@@ -43,7 +43,7 @@
                 for( countT off = 0 ; off < cbP ; off ++ ) pcBody[ off ] = (*this)( tinP , pbP[ off ] ) ;
             {
             if( pcBody )
-            pEther->newF( tinP , LF , pcBody , ccBody ) ; ___( pcBody ) ;
+            ether.newF( tinP , LF , pcBody , ccBody ) ; ___( pcBody ) ;
             ccBody = cbP ;
         {
         else
@@ -54,11 +54,11 @@
         ZE( countT    , ccBody ) ;
         ZE( count01T* , pcBody ) ;
     
-        if( !cbP ) cbP = pEther->strBodyLengthF( tinP , pbP ) ;
+        if( !cbP ) cbP = ether.strBodyLengthF( tinP , pbP ) ;
     {
     if( pbP )
 
-    if( bExistingPin ) { pEther->boxGetShadowF( tinP , *(byteT**)&pbP , cbP , tBig ) ; ___( pbP ) ; }
+    if( bExistingPin ) { ether.boxGetShadowF( tinP , *(byteT**)&pbP , cbP , tBig ) ; ___( pbP ) ; }
     const boolT bExistingPin = !pbP && !cbP && pczNameP && bPinP ;
 
     }
@@ -72,11 +72,11 @@
     _IO_
 
     }
-        if( *pEther ) return ;
+        if( ether ) return ;
         __( !pbP && ( !pczNameP || !bPinP ) ) ;
         __( ccP ) ;
         __NZ( pcP ) ;
-        if( *pEther ) return ;
+        if( ether ) return ;
     {
     IFbEcAREFUL    
 {

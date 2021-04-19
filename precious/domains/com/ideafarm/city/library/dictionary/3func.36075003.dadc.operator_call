@@ -14,8 +14,8 @@
                 }
                     }
                         pb3 += cbSnip ;
-                        pEther->delF( tinP , pbSnip ) ;
-                        pEther->memCopyF( tinP , pb3 , pbSnip , cbSnip ) ;
+                        ether.delF( tinP , pbSnip ) ;
+                        ether.memCopyF( tinP , pb3 , pbSnip , cbSnip ) ;
                         stOut_cbSnip >> cbSnip ;
                         stOut_pbSnip >> pbSnip ;
                         ZE( countT , cbSnip ) ;
@@ -27,7 +27,7 @@
                     pbP[ cbAll ] = 0 ;
                 {
                 if( pbP )
-                pEther->newF( tinP , LF , pbP , cbAll + 1 ) ; ___( pbP ) ;
+                ether.newF( tinP , LF , pbP , cbAll + 1 ) ; ___( pbP ) ;
 
                 while( !stOut_cbSnip.third && ~hDown ) ;
                 do cbAll += stOut_cbSnip.downF( tinP , hDown ) ;
@@ -36,7 +36,7 @@
             {
             if( stOut_cbSnip )
         {
-        if( !*pEther && !bFail )
+        if( !ether && !bFail )
         __( stOut_cbSnip - stOut_pbSnip ) ;
         // pbP , cbP <- CONCATENATION OF SNIPPETS IN stOut_pbSnip
 
@@ -47,7 +47,7 @@
                 stOut_cbSnip << cbSnip ;
                 stOut_pbSnip << pbSnip ; pbSnip = 0 ;
                 if( pbSnip ) for( countT off = 0 ; off < cbSnip ; off ++ ) pbSnip[ off ] = (*this)( tinP , pcSnip[ off ] ) ;
-                pEther->newF( tinP , LF , pbSnip , cbSnip ) ; ___( pbSnip ) ;
+                ether.newF( tinP , LF , pbSnip , cbSnip ) ; ___( pbSnip ) ;
                 ZE( byteT* , pbSnip ) ;
 
                 countT cbSnip = pcSnipe - pcSnip ; //CANNOT BE 0
@@ -62,7 +62,7 @@
                         break ;
 
                         }
-                            pEther->delF( tinP , pbIn ) ;
+                            ether.delF( tinP , pbIn ) ;
                             }
                                 //stOut_cbSnip << cbIn ;
                                 //stOut_pbSnip << pbIn ; pbIn = 0 ;
@@ -70,11 +70,11 @@
 
                                 for( countT off = 0 ; off < cbIn ; off ++ ) rememberF( tinP , pbIn[ off ] ) ;
                             {
-                            if( !*pEther )
+                            if( !ether )
                         {
                         else
                         }
-                            pEther->delF( tinP , pbIn ) ;
+                            ether.delF( tinP , pbIn ) ;
                             }
                                 stOut_cbSnip << cbSnip ;
                                 stOut_pbSnip << pbSnip ; pbSnip = 0 ;
@@ -82,7 +82,7 @@
                                 ZE( countT , cbSnip ) ;
                                 ZE( byteT* , pbSnip ) ;
                             {
-                            if( !*pEther )
+                            if( !ether )
                             __( cbIn % sizeof( count01T ) ) ;
                         {
                         else if( idCmd == (count01T)ifcIDcMDsPOUSE_INSERTnAMEDpILL )
@@ -96,11 +96,11 @@
                             }
                                 }
                                     //if( pcNameSave[ 3 ] == idbKEYpINtYPE_SOCKETcONNECTION ) { CONoUTrAW( T("dad: ")+TF1(cbIn)+T(" ")+tShort+T("\r\n") ) ; }
-                                    pEther->boxGetShadowF( tinP , pbIn , cbIn , tLong , 1 ) ; ___( pbIn ) ;
+                                    ether.boxGetShadowF( tinP , pbIn , cbIn , tLong , 1 ) ; ___( pbIn ) ;
                                 {
                                 else
-                                //else                                                   { pEther->boxGetShadowF( tinP , pbIn , cbIn , tLong , 1 ) ; ___( pbIn ) ; }
-                                if( idCmd == (count01T)ifcIDcMDsPOUSE_INSERTnAMEDpILL ){ pEther->boxGetF(       tinP , pbIn , cbIn , tLong , 1 ) ; ___( pbIn ) ; }
+                                //else                                                   { ether.boxGetShadowF( tinP , pbIn , cbIn , tLong , 1 ) ; ___( pbIn ) ; }
+                                if( idCmd == (count01T)ifcIDcMDsPOUSE_INSERTnAMEDpILL ){ ether.boxGetF(       tinP , pbIn , cbIn , tLong , 1 ) ; ___( pbIn ) ; }
                             {
                             else
                             }
@@ -125,7 +125,7 @@
                         ZE( byteT* , pbIn ) ;
 
                         if( cczName - cczNameVerify ) { BLAMMO ; } //U::
-                        countT cczNameVerify = 2 * ( pEther->strBodyLengthF( tinP , (countT*)( ++ pcSnip ) ) + 1 ) ;
+                        countT cczNameVerify = 2 * ( ether.strBodyLengthF( tinP , (countT*)( ++ pcSnip ) ) + 1 ) ;
                         countT cczName = *( ++ pcSnip ) ;
                     {
                     case (count01T)ifcIDcMDsPOUSE_INSERTnAMEDpIN :
@@ -141,8 +141,8 @@
         ZE( boolT , bFail ) ;
         const count01T*       pcSnip = pcP ;
         const count01T* const pcEnd = pcP + ccP ;
-        stackC stOut_cbSnip( tinP , *pEther , TAG( TAGiDnULL ) , flSTACKc_FIFO ) ;
-        stackC stOut_pbSnip( tinP , *pEther , TAG( TAGiDnULL ) , flSTACKc_FIFO , ifcSTACKtYPE_PTR_byteT ) ;
+        stackC stOut_cbSnip( tinP , ether , TAG( TAGiDnULL ) , flSTACKc_FIFO ) ;
+        stackC stOut_pbSnip( tinP , ether , TAG( TAGiDnULL ) , flSTACKc_FIFO , ifcSTACKtYPE_PTR_byteT ) ;
     {
     else
     }
@@ -151,7 +151,7 @@
             for( countT off = 0 ; off < ccP ; off ++ ) pbP[ off ] = (*this)( tinP , pcP[ off ] ) ;
         {
         if( pbP )
-        pEther->newF( tinP , LF , pbP , cbP + 1 ) ; ___( pbP ) ;
+        ether.newF( tinP , LF , pbP , cbP + 1 ) ; ___( pbP ) ;
         cbP = ccP ;
     {
     if( off == ccP ) //INPUT DOES NOT CONTAIN ESCAPE SEQUENCES
@@ -164,12 +164,12 @@
     _IO_
 
     }
-        if( *pEther ) return ;
+        if( ether ) return ;
         __Z( ccP ) ;
         __Z( pcP ) ;
         __( cbP ) ;
         __NZ( pbP ) ;
-        if( *pEther ) return ;
+        if( ether ) return ;
     {
     IFbEcAREFUL    
 {
