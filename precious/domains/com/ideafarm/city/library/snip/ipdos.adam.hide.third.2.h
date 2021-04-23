@@ -33048,6 +33048,7 @@ examples
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.360021e1.etherc.snapwordsf!||
  voidT tracePoolTalliesF( tinS& tinP ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.360021e3.etherc.tracepooltalliesf!||
+ voidT traceMemoryGrainRptF( tinS& tinP ) ;
 
 /**/
     FRIENDS_etherC
@@ -33224,6 +33225,7 @@ each textC object contains an unmodifiable string of strokes
 
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.textC : 1snip.1500000e.textc END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.spouseC : 1snip.15000083.spousec BEGIN
+
 
 //
 // Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
@@ -40097,6 +40099,11 @@ base class to make a derived class of objects easily contained by a stackC objec
     countT                          idLineBlammoCt  ;
     countT                          idiFileBlammoCt ;
     countT                          idBlammo        ;
+    byteT                           pbMemoryBitsAll[     ( TOCK >> 1 ) / SB ] ;
+    byteT                           pbMemoryBitsCode[    ( TOCK >> 1 ) / SB ] ;
+    byteT                           pbMemoryBitsStack[   ( TOCK >> 1 ) / SB ] ;
+    byteT                           pbMemoryBitsShared[  ( TOCK >> 1 ) / SB ] ;
+    byteT                           pbMemoryBitsPrivate[ ( TOCK >> 1 ) / SB ] ;
 
     //PUT PLATFORM DEPENDENT MEMBERS HERE SO THAT OFFSETS TO THE OTHER MEMBERS ARE INVARIANT
     #if defined( ifcENABLEtHIRDpARTIES )

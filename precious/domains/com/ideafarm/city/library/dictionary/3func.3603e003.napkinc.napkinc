@@ -11,9 +11,10 @@
     }
         BLAMMO ;
     
-        etRock.traceF( tinP , T("napkinC::napkinC: traced  pool tallies; now calling BLAMMO") ) ;
+        etRock.traceF( tinP , T("napkinC::napkinC: traced  pool tallies and memory grain report; now calling BLAMMO") ) ;
+        etRock.traceMemoryGrainRptF( tinP ) ;
         etRock.tracePoolTalliesF( tinP ) ;
-        etRock.traceF( tinP , T("napkinC::napkinC: tracing pool tallies") ) ;
+        etRock.traceF( tinP , T("napkinC::napkinC: tracing pool tallies and memory grain report") ) ;
         etRock.traceF( tinP , T("napkinC::napkinC: could not allocate pbNapkin [idLineCtP,idiFileCtP,cbP,postP]: ")+TF2(idLineCtP,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T(" ")+TF2(idiFileCtP,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T(" ")+TF2(cbP,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T(" ")+T(postP) ) ;
 
         etherC& etRock = etherC::etRockIF( tinP ) ;

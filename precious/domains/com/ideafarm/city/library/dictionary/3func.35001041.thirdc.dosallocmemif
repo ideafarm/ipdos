@@ -8,6 +8,17 @@
 
 
 }
+    #endif
+        processGlobal1I.pbMemoryBitsPrivate[ offByte ] |= mask ;
+        processGlobal1I.pbMemoryBitsAll[     offByte ] |= mask ;
+        if( offByte >= sizeof processGlobal1I.pbMemoryBitsPrivate ) { BLAMMO ; }
+        byteT  mask     = (byteT)( 1 << offBit ) ;
+        countT offBit   = offGrain % SB ;
+        countT offByte  = offGrain / SB ;
+        countT offGrain = (countT)pvP / TOCK ;
+    #if defined( SHOWmEMgRAINS )
+    //CS:PSEUDOdUPLICATE: 35001041 3500105b 3300000d 3300002d
+
     osTraceWrongNodeIF( tinP , (byteT*)pvP , "dosAllocMemIF: pvP" ) ;
     #endif
         pvP = (voidT*)tinP.brcRaw ;

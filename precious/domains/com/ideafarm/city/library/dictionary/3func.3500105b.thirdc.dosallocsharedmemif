@@ -27,6 +27,17 @@
                         //{
                         //if( thirdC::c_strstrIF( ostoOsName , "grabMemorySpaceC" ) )
 
+                        #endif
+                            processGlobal1I.pbMemoryBitsShared[ offByte ] |= mask ;
+                            processGlobal1I.pbMemoryBitsAll[    offByte ] |= mask ;
+                            if( offByte >= sizeof processGlobal1I.pbMemoryBitsPrivate ) { BLAMMO ; }
+                            byteT  mask     = (byteT)( 1 << offBit ) ;
+                            countT offBit   = offGrain % SB ;
+                            countT offByte  = offGrain / SB ;
+                            countT offGrain = (countT)pv / TOCK ;
+                        #if defined( SHOWmEMgRAINS )
+                        //CS:PSEUDOdUPLICATE: 35001041 3500105b 3300000d 3300002d
+
                         handleP.osF( ifcIDtYPEhANDLE_SHAREDmEMORY , (countT)osh , 0 , (countT)pv ) ;
             
                         }
