@@ -1894,3 +1894,11 @@
     *_pSwSoixlOldApi = (countT)tracePoolTalliesF__GF ;
     _pSwSoixlOldApi->ungrabF( tinP ) ;
 }
+{
+    TN( tNameSoixlOld , "traceMemoryGrainRptF_" ) ;
+    _pSwSoixlOldApi->grabF( tinP , TAG( TAGiDnULL ) ) ;
+    _psttLeverSoixlOldApi = tNameSoixlOld ;
+    if( *_pSwSoixlOldApi ) { BLAMMO ; }
+    *_pSwSoixlOldApi = (countT)traceMemoryGrainRptF__GF ;
+    _pSwSoixlOldApi->ungrabF( tinP ) ;
+}

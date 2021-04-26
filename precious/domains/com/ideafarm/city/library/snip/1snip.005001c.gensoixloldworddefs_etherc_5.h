@@ -2750,3 +2750,14 @@ voidT tracePoolTalliesF__GF( tinS& tinP , etherC& etherP , soulC& slP , const st
     if( !POOP ) etherP.tracePoolTalliesF( tinP ) ;
     if( tinP.fingerprint && _psttNameP && slP ) ;
 }
+
+voidT traceMemoryGrainRptF__GF( tinS& tinP , etherC& etherP , soulC& slP , const strokeS* const _psttNameP )
+{
+    countT idArgNext = 1 ;
+    ZE( byteT* , pbFieldNext ) ;
+    ZE( countT , idTypeNext ) ;
+    ZE( flagsT , flagsNext ) ;
+    ZE( countT , cbFieldNext ) ;
+    if( !POOP ) etherP.traceMemoryGrainRptF( tinP ) ;
+    if( tinP.fingerprint && _psttNameP && slP ) ;
+}

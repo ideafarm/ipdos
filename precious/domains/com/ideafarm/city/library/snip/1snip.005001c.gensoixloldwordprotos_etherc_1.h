@@ -472,3 +472,5 @@ voidT cioSetArgF_3_GF( tinS& tinP , etherC& etherP , soulC& slP , const strokeS*
 voidT traceF_4P73_GF( tinS& tinP , etherC& etherP , soulC& slP , const strokeS* const _psttNameP ) ;
 
 voidT tracePoolTalliesF__GF( tinS& tinP , etherC& etherP , soulC& slP , const strokeS* const _psttNameP ) ;
+
+voidT traceMemoryGrainRptF__GF( tinS& tinP , etherC& etherP , soulC& slP , const strokeS* const _psttNameP ) ;

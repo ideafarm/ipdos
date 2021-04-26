@@ -235,3 +235,4 @@
     "    . cioSetArgF_3       . ?? ")+T(postName)+T("\r\n"
     "    . traceF_4@73       . ?? ")+T(postName)+T("\r\n"
     "    . tracePoolTalliesF_       . ?? ")+T(postName)+T("\r\n"
+    "    . traceMemoryGrainRptF_       . ?? ")+T(postName)+T("\r\n"
