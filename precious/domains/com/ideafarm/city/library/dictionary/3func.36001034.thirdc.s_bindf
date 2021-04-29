@@ -46,6 +46,12 @@
             BOSS( WHATgbo , BOSfAIL , bind( handleP.osF( ifcIDtYPEhANDLE_SOCKET ) , (sockaddr*)&info , sizeof info ) )
 
             bAgain = !*this && ( bNoQuit || ( bNoQuitEarly && !thPrimeIF( tinP ) ) || ( cTriesP && -- cTriesP ) ) ;
+
+            cDebug5 = cTriesP ;
+            cDebug4 = !thPrimeIF( tinP ) ;
+            cDebug3 = bNoQuitEarly ;
+            cDebug2 = bNoQuit ;
+            cDebug1 = *this ;
         {
         do
         ZE( boolT , bAgain ) ;
@@ -54,6 +60,12 @@
     boolT bFail = 1 ;
     boolT bNoQuitEarly = !cTriesP ;
     boolT bNoQuit = cTriesP == - 1 ;
+
+    ZE( countT , cDebug5 ) ;
+    ZE( countT , cDebug4 ) ;
+    ZE( countT , cDebug3 ) ;
+    ZE( countT , cDebug2 ) ;
+    ZE( countT , cDebug1 ) ;
 
     *(countT*)info.sin6_addr.u.Byte = tinP.brcRaw ; //U: SUPPORTS ONLY IPV4 (NOT IPV6)
     BOSdOnOTtEST( WHATgbo , htonl( *(const countT*)nicNameP ) )

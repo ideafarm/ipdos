@@ -31,25 +31,40 @@
             cTls ++ ;
             if( postNameP ) thirdC::c_memsetIF( tinP , pbData , cbP ) ; //tlsBlobC RELIES ON THIS LINE TO SMUDGE ITS FOOT FINGERPRINTS
             pbData = pbc ;
-            if( pbe < pbc + cbP ) { BLAMMO ; } //IF BLOW HERE THEN NEED TO MAKE TLS LARGER FOR THIS THREAD
+
+            }
+                BLAMMO ;                                //IF BLOW HERE THEN NEED TO MAKE TLS LARGER FOR THIS THREAD
+                if( pEther ) tlsTraceF( *pEther ) ;
+            {
+            if( pbe < pbc + cbP )
 
             }
                 thirdC::c_memcpyIF( tinP , pbc , postInGroupP , costaInGroupP )  ; pbc += costaInGroupP    ; // postInGroup
-                if( pbe < pbc + costaInGroupP ) { BLAMMO ; } //IF BLOW HERE THEN NEED TO MAKE TLS LARGER FOR THIS THREAD
+                }
+                    BLAMMO ;                                    //IF BLOW HERE THEN NEED TO MAKE TLS LARGER FOR THIS THREAD
+                    if( pEther ) tlsTraceF( *pEther ) ;
+                {
+                if( pbe < pbc + costaInGroupP )
             {
             if( costaInGroupP )
             }
                 thirdC::c_memcpyIF( tinP , pbc , postNameP , costaNameP )           ; pbc += costaNameP       ; // postName
-                if( pbe < pbc + costaNameP ) { BLAMMO ; } //IF BLOW HERE THEN NEED TO MAKE TLS LARGER FOR THIS THREAD
+                }
+                    BLAMMO ;                            //IF BLOW HERE THEN NEED TO MAKE TLS LARGER FOR THIS THREAD
+                    if( pEther ) tlsTraceF( *pEther ) ;
+                {
+                if( pbe < pbc + costaNameP )
             {
             if( costaNameP )
-            *(countT*)pbc = costaInGroupP                                                        ; pbc += sizeof( countT ) ; // costaInGroup
-            *(countT*)pbc = costaNameP                                                           ; pbc += sizeof( countT ) ; // costaName
-            *(countT*)pbc = 0                                                                    ; pbc += sizeof( countT ) ; // offNextInGroup
-            *(countT*)pbc = 0                                                                    ; pbc += sizeof( countT ) ; // offNextObject
-            *(countT*)pbc = offElder                                                             ; pbc += sizeof( countT ) ; // offElder
-            *(countT*)pbc = 1                                                                    ; pbc += sizeof( countT ) ; // cRef
-            *(countT*)pbc = sizeof( countT ) * 6 + costaNameP + costaInGroupP + cbP              ; pbc += sizeof( countT ) ; // cbEntry
+            *(countT*)pbc = costaInGroupP                                                                        ; pbc += sizeof( countT ) ; // costaInGroup
+            *(countT*)pbc = costaNameP                                                                           ; pbc += sizeof( countT ) ; // costaName
+            *(countT*)pbc = 0                                                                                    ; pbc += sizeof( countT ) ; // offNextInGroup
+            *(countT*)pbc = 0                                                                                    ; pbc += sizeof( countT ) ; // offNextObject
+            *(countT*)pbc = offElder                                                                             ; pbc += sizeof( countT ) ; // offElder
+            *(countT*)pbc = 1                                                                                    ; pbc += sizeof( countT ) ; // cRef
+            *(countT*)pbc = idiFileP                                                                             ; pbc += sizeof( countT ) ; // idiFile
+            *(countT*)pbc = idLineP                                                                              ; pbc += sizeof( countT ) ; // idLine
+            *(countT*)pbc = ( TLSeNTRYoFF_endNotUsed - 1 ) * sizeof( countT ) + costaNameP + costaInGroupP + cbP ; pbc += sizeof( countT ) ; // cbEntry
             //if( tinP.pc Utility[ 0 ] && costaInGroupP ) { CONoUTrAW( postInGroupP ) ; CONoUTrAW( "\r\n" ) ; }
             //if( tinP.pc Utility[ 0 ] && costaNameP    ) { CONoUTrAW( postNameP    ) ; CONoUTrAW( "\r\n" ) ; }
             //if( tinP.pc Utility[ 0 ]                  ) { CONoUTrAW3( "tinS::newF/entry formatted at " , (countT)pbc , "\r\n" ) ; }
@@ -87,8 +102,12 @@
             {
             if( offElder )
 
-            if( cbTls <= th.offTopEntry + 7 * sizeof( countT ) ) { BLAMMO ; } //IF BLOW HERE THEN NEED TO MAKE TLS LARGER FOR THIS THREAD
-            if( cbTls <= th.offTopEntry                        ) { BLAMMO ; } //IF BLOW HERE THEN THE FOLLOWING CODE HAS A BUG
+            }
+                BLAMMO ;                        //IF BLOW HERE THEN NEED TO MAKE TLS LARGER FOR THIS THREAD
+                if( pEther ) tlsTraceF( *pEther ) ;
+            {
+            if( cbTls <= th.offTopEntry + TLSeNTRYoFF_endNotUsed * sizeof( countT ) )
+            if( cbTls <= th.offTopEntry                                             ) { BLAMMO ; } //IF BLOW HERE THEN THE FOLLOWING CODE HAS A BUG
 
             //if( !thirdC::c_strcmpIF( *this , postThreadName , "tmWorkerF" ) ) { CONoUTrAW5( "" , (countT)&th.offTopEntry , "    tlsNewF / !pbData so just set [offTopEntry]:    " , th.offTopEntry , "\r\n" ) ; }
 

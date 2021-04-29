@@ -27928,6 +27928,7 @@ it is illegal to modify any member other than pc Utility in the definition of an
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400c.tinS.tlsDelF!||
  voidT tlsCheckF( voidT ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.36024015.tins.tlsCheckF!||
+ voidT tlsTraceF( etherC& etherP ) ;
  byteT* pbF( countT idP = 1 ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400d.tinS.pbF!||
 
@@ -32366,7 +32367,7 @@ examples
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.340ef.etherC.ifcIdCitizenFromExternalEmailF!||
  voidT ifcJobF( tinS& tinP , stackC& stCoursesP , const countT idAdamP , soulC& sOrderPrimaryP , stackC& stOrdersP , const strokeS* const psttOldCommentP , countT cTriesP = 0 , const nicNameC nicNameP = nicNameC() ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34141.etherC.ifcJobF!||
- countT ifcHireF( tinS& tinP , const strokeS* const psttOldCommentP , const countT idAdamP , const strokeS* const psttArgsP = 0 , flagsT flagsP = flHIRE_null , const countT time1LimitP = 0 , const sCountT time2LimitP = 0 , const countT cTriesP = 0 , nicNameC nicNameP = nicNameC() ) ;
+ countT ifcHireF( tinS& tinP , const strokeS* const psttOldCommentP , countT idAdamP , const strokeS* const psttArgsP = 0 , flagsT flagsP = flHIRE_null , const countT time1LimitP = 0 , const sCountT time2LimitP = 0 , const countT cTriesP = 0 , nicNameC nicNameP = nicNameC() ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34131.etherC.ifcHireF!||
  voidT ifcNicknameFromIdCitizenF( tinS& tinP , strokeS*& psttP , const countT idP ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.340d6.etherC.ifcNicknameFromIdCitizenF!||
@@ -45393,6 +45394,8 @@ i am nonconformant in that all of my member function definitions are in a single
     countT  cDel                          ;
     countT  cSteps                        ;
     countT  pcStepLFAt[ CmAXsTEPtLS * 3 ] ;
+
+    voidT traceF( tinS& tinP , etherC& etherP ) ;
 }
 ;
 

@@ -21109,7 +21109,6 @@ for each previous absentee
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200232.flset END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200233.tlsentryoff BEGIN
 
-
 //
 // Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
@@ -21124,12 +21123,15 @@ for each previous absentee
 
 /*3*/
 #define TLSeNTRYoFF_cbEntry                 0
-#define TLSeNTRYoFF_cRef                    1
-#define TLSeNTRYoFF_offElder                2
-#define TLSeNTRYoFF_offNextObject           3
-#define TLSeNTRYoFF_offNextInGroup          4
-#define TLSeNTRYoFF_costaName               5
-#define TLSeNTRYoFF_costaInGroup            6
+#define TLSeNTRYoFF_idLine                  1
+#define TLSeNTRYoFF_idiFile                 2
+#define TLSeNTRYoFF_cRef                    3
+#define TLSeNTRYoFF_offElder                4
+#define TLSeNTRYoFF_offNextObject           5
+#define TLSeNTRYoFF_offNextInGroup          6
+#define TLSeNTRYoFF_costaName               7
+#define TLSeNTRYoFF_costaInGroup            8
+#define TLSeNTRYoFF_endNotUsed              9
 /*3*/
 
 
