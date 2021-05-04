@@ -17,7 +17,7 @@
     if( deltaOverflowFix )
     rememberF( tinP , bP ) ;
 
-    if( !code ) code = (count01T)( 0xff00 + bP ) ;
+    if( !code ) code = (count01T)( 0xff00 + bP ) ;                                               //         IF DIDN'T FIND A PRIOR OCCURRANCE THEN ENCODE AS LITERAL
 
     }
         }
@@ -33,20 +33,20 @@
         }
             break ;
             if( ++ off > offNew ) off = offMin ;
-            code = (count01T)( offNew - off ) ;
+            code = (count01T)( offNew - off ) ;                                                  //         SET THE CODE TO ITS DISTANCE BACK FROM THE END
         {
-        if( pbFrame[ off % CBfRAMEsPOUSE ] == bP )
+        if( pbFrame[ off % CBfRAMEsPOUSE ] == bP )                                               //         IF FOUND A BYTE CONTAINING THE VALUE TO BE ENCODED
     {
-    while( off < offNew )
+    while( off < offNew )                                                                        //         SEARCH OVER [off,offNew)
 
-    byteT* pbFrame = ppbFrame[ stFrame - idFrameNew + idFrame ] ;
-    countT idFrame = 1 + off / CBfRAMEsPOUSE ; //N1
-    const countT offLooped = off ; //N1
-    if( off < offMin ) off = offMin ;
-    countT& off = pcCursor[ bP ] ; //N1
-    const countT offMin = ( idFrameMin - 1 ) * CBfRAMEsPOUSE ; //N1
-    const countT idFrameMin = idFrameNew <= CfRAMESsPOUSE ? 1 : 1 + idFrameNew - CfRAMESsPOUSE ; //N1
-    const countT idFrameNew = 1 + offNew / CBfRAMEsPOUSE ; //N1
+    byteT* pbFrame = ppbFrame[ stFrame - idFrameNew + idFrame ] ;                                //         ? FRAME THAT CONTAINS THE BYTE AT OFFSET off ?
+    countT idFrame = 1 + off / CBfRAMEsPOUSE ;                                                   //N1       FRAME THAT CONTAINS THE BYTE AT OFFSET off
+    const countT offLooped = off ;                                                               //N1
+    if( off < offMin ) off = offMin ;                                                            //         CONSTRAIN off TO BE >= MIN
+    countT& off = pcCursor[ bP ] ;                                                               //N1       USE THE VALUE TO SELECT A CURSOR ELEMENT
+    const countT offMin = ( idFrameMin - 1 ) * CBfRAMEsPOUSE ;                                   //N1       OLDEST BYTE STILL AVAILABLE
+    const countT idFrameMin = idFrameNew <= CfRAMESsPOUSE ? 1 : 1 + idFrameNew - CfRAMESsPOUSE ; //N1       OLDEST FRAME STILL AVAILABLE
+    const countT idFrameNew = 1 + offNew / CBfRAMEsPOUSE ;                                       //N1       CURRENT FRAME
     ZE( count01T , code ) ;
     _IO_
 
@@ -58,6 +58,7 @@
 /*1*/count01T momC::operator ()( tinS& tinP , const byteT bP )/*1*/
 /**/
 */
+the distance back to the earliest remembered occurrance of the byte value is used as its encoded value
 /*
 
 //

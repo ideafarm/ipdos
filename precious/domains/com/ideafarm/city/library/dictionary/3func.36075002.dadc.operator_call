@@ -12,11 +12,10 @@
     rememberF( tinP , bb ) ;
 
     }
-        bb = pbFrame[ off ] ;                               //U::20210325@2255: OBSERVED pbFrame 0 WHEN stFrame.cPlates IS 1 AND idFrameNew IS 1 AND idFrame IS 1 AND ppbFrame[ 1 ] IS NONZERO (ALL OTHER ELTS ARE 0)could not bind
-        countT off = ( offNew - cP ) % CBfRAMEsPOUSE ;
-        byteT* pbFrame = ppbFrame[           cPlates - idFrameNew + idFrame ] ;
-        countT cPlates = stFrame ;  //U:: TO FIND A BUG:  IF pbFrame IS AGAIN OBSERVED TO BE 0 IN WDW, I WILL BE ABLE TO INSPECT ALL VALUES USED TO CALCULATE IT
-                                    //U:: CONJ: SOMETHING IS VOLATILE HERE
+        bb = pbFrame[ off ] ;
+        countT off = ( offNew - cP ) % CBfRAMEsPOUSE ;                                      //         OFFSET WITHIN THAT FRAME
+        byteT* pbFrame = ppbFrame[           cPlates - idFrameNew + idFrame ] ;             //         FRAME CONTAINING THE REMEMBERED VALUE POINTED TO
+        countT cPlates = stFrame ;
 
         //}
         //    LOGrAW5( "offNew,cP: " , offNew , " " , cP , "\r\n" ) ;
@@ -35,11 +34,11 @@
         //TO DEBUG A BUG
 
         //byteT* pbFrame = (byteT*)&stFrame[ stFrame - idFrameNew + idFrame ] ;
-        countT idFrame    = 1 + ( offNew - cP ) / CBfRAMEsPOUSE ; //N1
-        countT idFrameNew = 1 +   offNew        / CBfRAMEsPOUSE ; //N1
+        countT idFrame    = 1 + ( offNew - cP ) / CBfRAMEsPOUSE ;                           //N1       FRAME CONTAINING THE REMEMBERED VALUE THAT cP POINTS TO
+        countT idFrameNew = 1 +   offNew        / CBfRAMEsPOUSE ;                           //N1       FRAME CONTAINING THE NEXT BYTE TO BE REMEMBERED
     {
     else
-    if( cP >= 0xff00 ) bb = (byteT)( cP & 0xff ) ;
+    if( cP >= 0xff00 ) bb = (byteT)( cP & 0xff ) ;                                          //         LITERAL
     ZE( byteT , bb ) ;
 
     _IO_

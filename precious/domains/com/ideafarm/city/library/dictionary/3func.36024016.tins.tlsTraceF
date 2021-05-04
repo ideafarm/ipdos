@@ -25,6 +25,10 @@
             pbc = pbTls + offNextObject ;
             }
                 break ;
+
+                OStEXTC(  ostoSay , th.offTopEntry + sizeof( countT ) + cbEntry , 0 ) ;
+                OStEXTAK( ostoSay , "\r\n\r\noffEnd         :    " ) ;
+
                 if( pbc - pbTls != th.offTopEntry ) { idReasonBlammo = 5 ; }
                 if( cTlsVerify  != cTls           ) { idReasonBlammo = BM_HIGH | cTlsVerify ; }
             {
@@ -84,11 +88,11 @@
     OStEXTAK( ostoSay , "tls trace\r\n\r\ncTls           :    " ) ;
     OStEXT(   ostoSay , TUCK * TUCK ) ;      // "TUCK FOR EA LINE, FOR A TUCK OF ENTRIES
 
-    th.traceF( *this , etherP ) ;
+    th.traceF( *this ) ;
 
     tlsHeaderS& th = *(tlsHeaderS*)pbTls ;
 {
-/*1*/voidT tinS::tlsTraceF( etherC& etherP )/*1*/
+/*1*/voidT tinS::tlsTraceF( voidT )/*1*/
 
 
 /**/

@@ -5438,7 +5438,7 @@ examples
 /**/
 /*1*//*CmAXsTEPtLS*//*1*/
 
-#define CmAXsTEPtLS ( TUCK << 0 )
+#define CmAXsTEPtLS ( TUCK >> 4 )
 
 
 //
@@ -27928,7 +27928,7 @@ it is illegal to modify any member other than pc Utility in the definition of an
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400c.tinS.tlsDelF!||
  voidT tlsCheckF( voidT ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.36024015.tins.tlsCheckF!||
- voidT tlsTraceF( etherC& etherP ) ;
+ voidT tlsTraceF( voidT ) ;
  byteT* pbF( countT idP = 1 ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400d.tinS.pbF!||
 
@@ -45395,7 +45395,7 @@ i am nonconformant in that all of my member function definitions are in a single
     countT  cSteps                        ;
     countT  pcStepLFAt[ CmAXsTEPtLS * 3 ] ;
 
-    voidT traceF( tinS& tinP , etherC& etherP ) ;
+    voidT traceF( tinS& tinP ) ;
 }
 ;
 
@@ -45408,3 +45408,45 @@ i am nonconformant in that all of my member function definitions are in a single
 //
 
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.tlsHeaderS : 1snip.15000190.tlsHeaderS END
+//
+// Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 29 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+/*
+*/
+
+/**/
+
+/*1*/class _export circleC/*1*/
+{
+    etherC&      ether ;
+    const countT cbCircle ;
+    countT       cIn ;    
+    byteT*       pbCircle ;
+
+
+    public :
+
+    ~circleC( voidT ) ;
+    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3614b002.circleC.dt_circleC!||
+    circleC( tinS& tinP , etherC& etherP , const countT cbCircleP = TOCK ) ;
+    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3614b003.circleC.circleC!||
+    inline voidT operator << ( byteT bP ) { pbCircle[ ( cIn ++ ) % cbCircle ] = bP ; }        // "cIn % cbCircle" IS REFERRED TO AS THE "CURSOR"
+    byteT operator []( countT offrP ) const ;
+    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3614b004.circleC.operator_element!||
+    countT findF( byteT bP ) ;
+    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3614b005.circleC.findF!||
+}
+;
+                            
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 29 years.
+//
+// Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+

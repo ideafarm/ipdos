@@ -21,7 +21,7 @@
         if( processGlobal1I._grabC_pgw ) grabBookNow.ungrabF( tinP ) ;
 
         }
-            tinP.tlsDelF( LF , pbtScratchBuffer ) ;
+            processGlobal3I.heap.delF( tinP , pbtScratchBuffer ) ;
             tinP.tlsDelF( LF , *(byteT**)&pBk0Doomed ) ;
             DELzOMBIE( pBk0Doomed ) ;
 
@@ -192,9 +192,9 @@
                     ZE( byteT* , pbtBook0 ) ;
 
                     }
-                        TELL( "booksC::writeF / called tlsNewF 1" )
-                        pbtScratchBuffer = tinP.tlsNewF( LF , cbtBuffer ) ;
-                        TELL( "booksC::writeF / calling tlsNewF 1" )
+                        TELL( "booksC::writeF / called heapC::newF 1" )
+                        pbtScratchBuffer = processGlobal3I.heap.newF( tinP , LF , cbtBuffer ) ;
+                        TELL( "booksC::writeF / calling heapC::newF 1" )
                         _IO_
                     {
                     const countT cbtBook0  = sizeof( book0C ) ;

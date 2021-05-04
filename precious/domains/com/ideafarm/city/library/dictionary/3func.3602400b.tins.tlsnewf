@@ -10,6 +10,7 @@
 }
     return pbData ;
 
+    //if( !thirdC::c_strcmpIF( tinP , postThreadName , "tmNodeF" ) ) tlsTraceF() ; //U::DISABLE IN PRODUCTION
     tlsCheckF() ;
 
     //}
@@ -34,7 +35,7 @@
 
             }
                 BLAMMO ;                                //IF BLOW HERE THEN NEED TO MAKE TLS LARGER FOR THIS THREAD
-                if( pEther ) tlsTraceF( *pEther ) ;
+                tlsTraceF() ;
             {
             if( pbe < pbc + cbP )
 
@@ -42,7 +43,7 @@
                 thirdC::c_memcpyIF( tinP , pbc , postInGroupP , costaInGroupP )  ; pbc += costaInGroupP    ; // postInGroup
                 }
                     BLAMMO ;                                    //IF BLOW HERE THEN NEED TO MAKE TLS LARGER FOR THIS THREAD
-                    if( pEther ) tlsTraceF( *pEther ) ;
+                    tlsTraceF() ;
                 {
                 if( pbe < pbc + costaInGroupP )
             {
@@ -51,7 +52,7 @@
                 thirdC::c_memcpyIF( tinP , pbc , postNameP , costaNameP )           ; pbc += costaNameP       ; // postName
                 }
                     BLAMMO ;                            //IF BLOW HERE THEN NEED TO MAKE TLS LARGER FOR THIS THREAD
-                    if( pEther ) tlsTraceF( *pEther ) ;
+                    tlsTraceF() ;
                 {
                 if( pbe < pbc + costaNameP )
             {
@@ -104,7 +105,7 @@
 
             }
                 BLAMMO ;                        //IF BLOW HERE THEN NEED TO MAKE TLS LARGER FOR THIS THREAD
-                if( pEther ) tlsTraceF( *pEther ) ;
+                tlsTraceF() ;
             {
             if( cbTls <= th.offTopEntry + TLSeNTRYoFF_endNotUsed * sizeof( countT ) )
             if( cbTls <= th.offTopEntry                                             ) { BLAMMO ; } //IF BLOW HERE THEN THE FOLLOWING CODE HAS A BUG
@@ -218,6 +219,7 @@
     if( !thirdC::c_strcmpIF( *this , postThreadName , "tmWorkerF" ) )
 
     tlsCheckF() ;
+    //if( !thirdC::c_strcmpIF( tinP , postThreadName , "tmNodeF" ) ) tlsTraceF() ; //U::DISABLE IN PRODUCTION
 
     }
         if( POOP ) return 0 ;
