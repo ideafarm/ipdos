@@ -33271,7 +33271,6 @@ each textC object contains an unmodifiable string of strokes
 
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.spouseC : 1snip.15000083.spousec BEGIN
 
-
 //
 // Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
@@ -33280,27 +33279,19 @@ each textC object contains an unmodifiable string of strokes
 //
 
 /*
+this class remembers bytes, in up to CfRAMESsPOUSE (ff) frames of CBfRAMEsPOUSE (tuck) each
 */
 /**/
 /*1*/class _export spouseC/*1*/
 {
- byteT*  pbFrameNew ; //THIS IS ANOTHER CACHE; ppbFrame IS NOT USED BECAUSE THE NECESSARY TESTS WOULD ELIMINATE SOME OF THE GAIN, AND THE CODE WOULD BE LESS SIMPLE
-
  protected :
 
  const countT idLineCt ;
  const countT idiFileCt ;
  const byteT  pbBitsCt[ CBbITScT ] ;
- etherC& ether ;
- stackC  stFrame ;
- countT  offNew ; //N1
- byteT*  ppbFrame[ 1 + CfRAMESsPOUSE ] ; // OFFSET ii CACHES TO PLATE ii OF stFrame (OFFSET 0 IS NOT USED)
- countT  deltaOverflowFix ;
+ etherC&      ether ;
+ circleC      circle ;
 
- circleC circle ;
-
- voidT refresh_ppbFrame_F( byteT* const pbFrameNewP ) ; // tinP NOT USED, FOR MAX SPEED
- //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34004.spouseC.refresh_ppbFrame_F!||
  spouseC( tinS& tinP , etherC& etherP , const countT idLineCtP , const countT idiFileCtP , const byteT* const pbBitsCtP ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34001.spouseC.spouseC!||
  voidT rememberF( tinS& tinP , const byteT bP ) ;
@@ -33335,8 +33326,6 @@ each textC object contains an unmodifiable string of strokes
 
 /*1*/class _export momC : public spouseC/*1*/
 {
- countT  pcCursor[ TUCK ] ; //N1
-
  public :
 
 /**/
