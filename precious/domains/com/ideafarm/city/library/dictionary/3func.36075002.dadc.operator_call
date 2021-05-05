@@ -8,10 +8,12 @@
 
 
 }
-    return bb ;
-    rememberF( tinP , bb ) ;
+    return bbBetter ;
+    rememberF( tinP , bbBetter ) ;
 
     }
+        bbBetter = circle[ - cP ] ;
+
         bb = pbFrame[ off ] ;
         countT off = ( offNew - cP ) % CBfRAMEsPOUSE ;                                      //         OFFSET WITHIN THAT FRAME
         byteT* pbFrame = ppbFrame[           cPlates - idFrameNew + idFrame ] ;             //         FRAME CONTAINING THE REMEMBERED VALUE POINTED TO
@@ -38,7 +40,12 @@
         countT idFrameNew = 1 +   offNew        / CBfRAMEsPOUSE ;                           //N1       FRAME CONTAINING THE NEXT BYTE TO BE REMEMBERED
     {
     else
-    if( cP >= 0xff00 ) bb = (byteT)( cP & 0xff ) ;                                          //         LITERAL
+    }
+        bbBetter = (byteT)( cP & 0xff ) ;                                          //         LITERAL
+        bb       = (byteT)( cP & 0xff ) ;                                          //         LITERAL
+    {
+    if( cP >= 0xff00 )
+    ZE( byteT , bbBetter ) ;
     ZE( byteT , bb ) ;
 
     _IO_

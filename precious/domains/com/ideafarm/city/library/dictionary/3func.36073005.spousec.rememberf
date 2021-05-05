@@ -10,12 +10,13 @@
 }
     }
         offNew -= deltaOverflowFix ;
+        tinP.pEther->traceF( tinP , T("spouseC::rememberF: fixup [deltaOverflowFix]:    ")+TF2(deltaOverflowFix,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
         deltaOverflowFix = MAXcOUNTT - CBfRAMEsPOUSE * CfRAMESsPOUSE + 1 ; //DERIVED CLASSES MUST NOTICE THAT THIS IS NONZE, USE IT TO FIX ITSELF, AND RESET THIS
     {
     if( !offNew ) //HANDLES OVERFLOW
     ++ offNew ;
 
-    //if( !( offNew % 0x10000 ) ) { CONoUTrAW3( "\r        \r" , offNew , "" ) ; }
+    if( !( offNew % TICK ) ) tinP.pEther->traceF( tinP , T("spouseC::rememberF: offNew:    ")+TF2(offNew,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
 
     }
         else refresh_ppbFrame_F( pbFrameNew ) ;         // WILL NOT SHIFT ELEMENTS; WILL ONLY REMEMBER THE NEW ELT
@@ -32,6 +33,9 @@
     if( offInFrame == CBfRAMEsPOUSE - 1 )
     pbFrameNew[ offInFrame ] = bP ;
     countT offInFrame = offNew % CBfRAMEsPOUSE ;
+
+    circle << bP ;
+
     _IO_
 
     }

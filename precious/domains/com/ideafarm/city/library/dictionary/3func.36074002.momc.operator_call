@@ -8,7 +8,8 @@
 
 
 }
-    return code ;
+    return (count01T)codeBetter ;
+    //return code ;
     }
         deltaOverflowFix = 0 ;
         for( countT off = 0 ; off < offEnd ; off ++ ) pcCursor[ off ] -= deltaOverflowFix ;
@@ -18,6 +19,15 @@
     rememberF( tinP , bP ) ;
 
     if( !code ) code = (count01T)( 0xff00 + bP ) ;                                               //         IF DIDN'T FIND A PRIOR OCCURRANCE THEN ENCODE AS LITERAL
+
+    if( codeBetter & 0xffff0000 ) { BLAMMO ; }
+
+    ;
+        : - codeBetter                                                                           // MAKE POSITIVE [1,cbCircle]: A:ASSUME: cbCircle < 0xff00
+        ? 0xff00 + bP                                                                            // NO PRIOR OCCURRANCE SO ENCODE AS LITERAL
+    codeBetter = !codeBetter
+
+    countT codeBetter = circle.findF( bP ) ;
 
     }
         }

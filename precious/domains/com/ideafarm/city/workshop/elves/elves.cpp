@@ -2997,7 +2997,6 @@ void elf_obey_C::liveF( void )
                 //THIS LIST IS IN REVERSE ORDER OF WHAT WILL APPEAR IN ipdos.h
                 char* ppostFrom[] =
                 {
-                    "1snip.15*.circleC"                         ,
                     "1snip.15*.tlsHeaderS"                      ,
                     "1snip.15*.nodeListS"                       ,
                     "1snip.15*.nodeEntryS"                      ,
@@ -3218,6 +3217,7 @@ void elf_obey_C::liveF( void )
                     "1snip.15*.dadC"                            ,
                     "1snip.15*.momC"                            ,
                     "1snip.15*.spouseC"                         ,
+                    "1snip.15*.circleC"                         ,
                     "1snip.15*.textC"                           ,
                     "1snip.15*.htmlS"                           ,
                     "1snip.15*.etherC"                          ,

@@ -33227,6 +33227,48 @@ each textC object contains an unmodifiable string of strokes
 //
 
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.textC : 1snip.1500000e.textc END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.tlsHeaderS : 1snip.15000190.tlsHeaderS END
+//
+// Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 29 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+/*
+*/
+
+/**/
+
+/*1*/class _export circleC/*1*/
+{
+    etherC&      ether ;
+    const countT cbCircle ;
+    countT       cIn ;    
+    byteT*       pbCircle ;
+
+    public :
+
+    ~circleC( voidT ) ;
+    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3614b002.circleC.dt_circleC!||
+    circleC( tinS& tinP , etherC& etherP , const countT cbCircleP = CBcIRCLEdFLT ) ;
+    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3614b003.circleC.circleC!||
+    inline voidT operator << ( byteT bP ) { pbCircle[ ( cIn ++ ) % cbCircle ] = bP ; }        // "cIn % cbCircle" IS REFERRED TO AS THE "CURSOR"
+    byteT operator []( countT offrP ) const ;
+    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3614b004.circleC.operator_element!||
+    countT findF( byteT bP ) ;
+    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3614b005.circleC.findF!||
+}
+;
+                            
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 29 years.
+//
+// Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.spouseC : 1snip.15000083.spousec BEGIN
 
 
@@ -33254,6 +33296,8 @@ each textC object contains an unmodifiable string of strokes
  countT  offNew ; //N1
  byteT*  ppbFrame[ 1 + CfRAMESsPOUSE ] ; // OFFSET ii CACHES TO PLATE ii OF stFrame (OFFSET 0 IS NOT USED)
  countT  deltaOverflowFix ;
+
+ circleC circle ;
 
  voidT refresh_ppbFrame_F( byteT* const pbFrameNewP ) ; // tinP NOT USED, FOR MAX SPEED
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34004.spouseC.refresh_ppbFrame_F!||
@@ -45399,49 +45443,6 @@ i am nonconformant in that all of my member function definitions are in a single
 }
 ;
 
-
-//
-// Respecting the rights of other people is an important part of empowering one another.
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 29 years.
-//
-// Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.tlsHeaderS : 1snip.15000190.tlsHeaderS END
-//
-// Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 29 years.
-// Respecting the rights of other people is an important part of empowering one another.
-//
-
-/*
-*/
-
-/**/
-
-/*1*/class _export circleC/*1*/
-{
-    etherC&      ether ;
-    const countT cbCircle ;
-    countT       cIn ;    
-    byteT*       pbCircle ;
-
-
-    public :
-
-    ~circleC( voidT ) ;
-    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3614b002.circleC.dt_circleC!||
-    circleC( tinS& tinP , etherC& etherP , const countT cbCircleP = TOCK ) ;
-    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3614b003.circleC.circleC!||
-    inline voidT operator << ( byteT bP ) { pbCircle[ ( cIn ++ ) % cbCircle ] = bP ; }        // "cIn % cbCircle" IS REFERRED TO AS THE "CURSOR"
-    byteT operator []( countT offrP ) const ;
-    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3614b004.circleC.operator_element!||
-    countT findF( byteT bP ) ;
-    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3614b005.circleC.findF!||
-}
-;
-                            
 
 //
 // Respecting the rights of other people is an important part of empowering one another.
