@@ -376,7 +376,7 @@ TELL( "i'm outa here" )
                         etThread.delF( tinP , pbc2 ) ;
                         }
                             etThread.strFuseF( tinP , psttr , TF3(pwtg->swTally,flFORMAT_UNSIGNED,9)+tName+tc ) ;
-                            TN( tName , "" ) ; tName = T(processGlobal3I.mapWhat(pwtg->idWhatLever)) ;
+                            TN( tName , "" ) ; tName = T(processGlobal4I.mapWhat(pwtg->idWhatLever)) ;
         
                             pwtg->idWhatLever = pwtg->swTally.leverF( tinP , c2f.c2 ) ;
                             count2S& c2f = *(count2S*)pbc2 ;
@@ -630,7 +630,7 @@ TASK( tmWhereRptF )
                     etThread.delF( tinP , psttw ) ;
                     tFileName = T("\\")+T(psttw ) ;
                     etThread.strToFileNameF( tinP , psttw ) ;
-                    etThread.strMakeF( tinP , LF , psttw , T("ideafarm.rpt.monitor.where.fine.")+T(bAdam?"adam.":(bClass?"class.":"thread."))+(bClass||bAdam?(bClass?T(processGlobal3I.mapAdamClass(c5l.c1)):TF1(c5l.c1)):TF1(c5l.c1)+T(".")+TF1(c5l.c2)+T(".")+tLifiName)+T(".")+TF1(processGlobal3I.mapWhat(bAdam||bClass?c5l.c2:c5l.c3))+T(".")+TF1(bAdam||bClass?c5l.c3:c5l.c4)+T(".")+TF1(bAdam||bClass?c5l.c4:c5l.c5) ) ; ___( psttw ) ;
+                    etThread.strMakeF( tinP , LF , psttw , T("ideafarm.rpt.monitor.where.fine.")+T(bAdam?"adam.":(bClass?"class.":"thread."))+(bClass||bAdam?(bClass?T(processGlobal4I.mapAdamClass(c5l.c1)):TF1(c5l.c1)):TF1(c5l.c1)+T(".")+TF1(c5l.c2)+T(".")+tLifiName)+T(".")+TF1(processGlobal4I.mapWhat(bAdam||bClass?c5l.c2:c5l.c3))+T(".")+TF1(bAdam||bClass?c5l.c3:c5l.c4)+T(".")+TF1(bAdam||bClass?c5l.c4:c5l.c5) ) ; ___( psttw ) ;
                     ZE( strokeS* , psttw ) ;
                 {
                 TN( tFileName , "" ) ;
@@ -697,7 +697,7 @@ TASK( tmWhereRptF )
                             lifiEntryS entry( tinP , pwtf->lifiLever2.c1 , pwtf->lifiLever2.c2 , "" ) ;
                         {
                         if( !tName.csF( tinP ) )
-                        TN( tName , "" ) ; tName = T(processGlobal7I.source.postFileTitleF(tinP,processGlobal7I.source.idFileRankF(tinP,pwtf->lifiLever2.c2))) ;
+                        TN( tName , "" ) ; tName = T(processGlobal8I.source.postFileTitleF(tinP,processGlobal8I.source.idFileRankF(tinP,pwtf->lifiLever2.c2))) ;
     
                         pwtf->lifiLever2 = *(count2S*)(byteT*)pwtf->swTally2.leverF( tinP , c2f.c2 ) ;
                         count2S& c2f = *(count2S*)pbc2 ;
@@ -742,7 +742,7 @@ TASK( tmWhereRptF )
                             lifiEntryS entry( tinP , pwtf->lifiLever1.c1 , pwtf->lifiLever1.c2 , "" ) ;
                         {
                         if( !tName.csF( tinP ) )
-                        TN( tName , "" ) ; tName = T(processGlobal7I.source.postFileTitleF(tinP,processGlobal7I.source.idFileRankF(tinP,pwtf->lifiLever1.c2))) ;
+                        TN( tName , "" ) ; tName = T(processGlobal8I.source.postFileTitleF(tinP,processGlobal8I.source.idFileRankF(tinP,pwtf->lifiLever1.c2))) ;
     
                         pwtf->lifiLever1 = *(count2S*)(byteT*)pwtf->swTally1.leverF( tinP , c2f.c2 ) ;
                         count2S& c2f = *(count2S*)pbc2 ;
@@ -768,7 +768,7 @@ TASK( tmWhereRptF )
                 TELL( "sorting the tally 1 plates by tally value" )
     
                 }
-                    etThread.strMakeF( tinP , LF , psttr , t1f+TT(timeN1,timeN2)+t2+TF1(idReportP)+(bAdam?t21b+TF1(c5l.c1):bClass?t21c+TF1(processGlobal3I.mapAdamClass(c5l.c1)):t21+TF1(c5l.c1)+tp+TF1(c5l.c2)+tb+tLifiName)+t225+T(processGlobal3I.mapWhat(bAdam||bClass?c5l.c2:c5l.c3))+t22+TF1(bAdam||bClass?c5l.c3:c5l.c4)+t23+TF1(bAdam||bClass?c5l.c4:c5l.c5)+t3 , cstte ) ; ___( psttr ) ;
+                    etThread.strMakeF( tinP , LF , psttr , t1f+TT(timeN1,timeN2)+t2+TF1(idReportP)+(bAdam?t21b+TF1(c5l.c1):bClass?t21c+TF1(processGlobal4I.mapAdamClass(c5l.c1)):t21+TF1(c5l.c1)+tp+TF1(c5l.c2)+tb+tLifiName)+t225+T(processGlobal4I.mapWhat(bAdam||bClass?c5l.c2:c5l.c3))+t22+TF1(bAdam||bClass?c5l.c3:c5l.c4)+t23+TF1(bAdam||bClass?c5l.c4:c5l.c5)+t3 , cstte ) ; ___( psttr ) ;
                     countT cstte = 0x1000 + t1f.csF( tinP ) + t2.csF( tinP ) + t21.csF( tinP ) + t22.csF( tinP ) + t23.csF( tinP ) + t3.csF( tinP ) + t4.csF( tinP ) + t5.csF( tinP ) + tNotesF.csF( tinP ) + cLines * 0x200 ;
     
                     }
@@ -1577,7 +1577,7 @@ TELL( "i am outa here" )
                                 stRecycle_pwtGrossP << (countT)pwtgc ;
                                 pwtgc->purgeF( tinP ) ; //U::
                                 writeGrossReportF( tinP , etThread , stRpt , *pwtgc , stFlavor ) ;
-                                stRpt << psttOldC( tinP , etThread , T(" \r\n[CW]: ")+T(processGlobal3I.mapAdamClass(cLeverTalliesGrossClass))+T("\r\n") ) ;
+                                stRpt << psttOldC( tinP , etThread , T(" \r\n[CW]: ")+T(processGlobal4I.mapAdamClass(cLeverTalliesGrossClass))+T("\r\n") ) ;
                             {
                             if( pwtgc )
                             whereTalliesGrossS*& pwtgc = *(whereTalliesGrossS**)&(countT&)swWhereTalliesGrossClass ;
@@ -2401,7 +2401,7 @@ TASK( tmRptMainF )
             stRptP << psttr5 ; psttr5 = 0 ;
             etThread.strFuseF( tinP , psttr5 , TF3(wtgP.swTally,flFORMAT_UNSIGNED,9)+tName+tc ) ;
             ZE( strokeS* , psttr5 ) ;
-            TN( tName , "" ) ; tName = T(processGlobal3I.mapWhat(wtgP.idWhatLever)) ;
+            TN( tName , "" ) ; tName = T(processGlobal4I.mapWhat(wtgP.idWhatLever)) ;
             
             wtgP.idWhatLever = wtgP.swTally.leverF( tinP , c2f.c2 ) ;
             count2S& c2f = *(count2S*)pbc2 ;
@@ -2546,7 +2546,7 @@ voidT writeTalkingReportF( tinS& tinP , etherC& etThread , stackC& stRptP , swit
             if( !tName.csF( tinP ) )
             TN( tName , postf ) ;
 
-            osTextT* postf = processGlobal7I.source.postFileTitleF( tinP , processGlobal7I.source.idFileRankF( tinP , pczLifiP[ off ] ) ) ;
+            osTextT* postf = processGlobal8I.source.postFileTitleF( tinP , processGlobal8I.source.idFileRankF( tinP , pczLifiP[ off ] ) ) ;
         {
         if( off % 2 )
     {
@@ -3167,7 +3167,7 @@ voidT writeLogF( tinS& tinP , etherC& etThread , const byteT* const pbCircleP , 
                                 else if( info.idException == ifcIDeVENTeXCEPTIONmONITORED_ACCESSvIOLATION ) etherP.strFuseF( tinP , psttl , T(" bWrite: ")+TF1(info.pcInfo[0])+T("\r\n pvTarget: ")+TF1(info.pcInfo[1])+T("\r\n") ) ;
                                      if( info.idException == ifcIDeVENTeXCEPTIONmONITORED_NOTlISTED       ) etherP.strFuseF( tinP , psttl , T(" raw exception code: ")+TF1(info.pcInfo[0])+T("\r\n") ) ;
                                 if( info.idException != ifcIDeVENTeXCEPTIONmONITORED_GRUNT ) { etherP.strFuseF( tinP , psttl , T(" pvOffendingCode: ")+TF1((countT)info.pvOffendingCode)+T("\r\n") ) ; ___( psttl ) ; }
-                                etherP.strFuseF( tinP , psttl , T(processGlobal3I.mapExceptionType(info.idException))+T(" exception\r\n") , 0 , 0 , strokeS() , 0 , 0 , /*U::SOUL?*/ 0x10000 ) ; ___( psttl ) ;
+                                etherP.strFuseF( tinP , psttl , T(processGlobal4I.mapExceptionType(info.idException))+T(" exception\r\n") , 0 , 0 , strokeS() , 0 , 0 , /*U::SOUL?*/ 0x10000 ) ; ___( psttl ) ;
                                 ZE( strokeS* , psttl ) ;
                                 tinS& tin = *(tinS*)info.pbTin ;
                 

@@ -46,7 +46,7 @@
         //        LOGrAW5( "_IO_ process global [valueExpectedByInOut,*pcWatchedByInOut]: " , pg1.valueExpectedByInOut , " != " , *pg1.pcWatchedByInOut , "\r\n" ) ;_
         //    {
         //    if( pg1.pcWatchedByInOut && *pg1.pcWatchedByInOut != pg1.valueExpectedByInOut )
-        //    processGlobal1S& pg1 = processGlobal1S::_processGlobal1I_IF() ;_
+        //    processGlobal2S& pg1 = processGlobal2S::_processGlobal2I_IF() ;_
         //{
         //
         //}
@@ -104,7 +104,7 @@
                         OStEXTA( ostoSay , postTitle ) ;_
                     {
                     if( postTitle )
-                    const osTextT* postTitle = processGlobal7S::_processGlobal7I_IF().source.postFileTitleF( tinP , processGlobal7S::_processGlobal7I_IF().source.idFileRankF( tinP , idiFileCt ) ) ;_
+                    const osTextT* postTitle = processGlobal8S::_processGlobal8I_IF().source.postFileTitleF( tinP , processGlobal8S::_processGlobal8I_IF().source.idFileRankF( tinP , idiFileCt ) ) ;_
                     OStEXTAK( ostoSay , ") ++    " ) ;_
                     OStEXTC9( ostoSay , idLineCt ) ;_
                     OStEXTAK( ostoSay , "(" ) ;_
@@ -217,7 +217,7 @@
     //    ZE( countT , cNest ) ;
     //{
 
-    if( F(processGlobal1I._thirdC_flagsModeProcess1) & flMODEpROCESS1_INoUTfRAMEfORCEcOLLECTaPPtELEMETRY ) { BLAMMO ; } //U:: THIS FLAG CANNOT BE SUPPORTED UNTIL CODE THAT MUST SUPPRESS inOutFrameC APP TELEMETRY IGNORES IT ; THIS COULD BE DONE WITH A NEW THREAD MODE FLAG
+    if( F(processGlobal2I._thirdC_flagsModeProcess1) & flMODEpROCESS1_INoUTfRAMEfORCEcOLLECTaPPtELEMETRY ) { BLAMMO ; } //U:: THIS FLAG CANNOT BE SUPPORTED UNTIL CODE THAT MUST SUPPRESS inOutFrameC APP TELEMETRY IGNORES IT ; THIS COULD BE DONE WITH A NEW THREAD MODE FLAG
 
     tinP.pInOutFrame = this ;
 {
@@ -238,18 +238,18 @@ idWhat1Save( tinP.monitor.idWhat1 ) ,
                         : flINoUTfRAMEc_DOnOTcOLLECTaPPtELEMETRY          //TO DISABLE GENERALLY  (ENABLE THIS LINE IN PRODUCTION IFF WANT MAXIMUM SPEED)
 
                         ? flINoUTfRAMEc_null
-                    : processGlobal1I.idAdamRoot == ifcIDaDAM_SCRATCH07      //THIS LINE ENABLES TELEMETRY FOR THE NULL ADAM DUT
+                    : processGlobal2I.idAdamRoot == ifcIDaDAM_SCRATCH07      //THIS LINE ENABLES TELEMETRY FOR THE NULL ADAM DUT
                     ? flINoUTfRAMEc_DOnOTcOLLECTaPPtELEMETRY
                 )
-                  || processGlobal1I.idAdamRoot == ifcIDaDAM_SCRATCH08      //THIS LINE DISABLES TELEMETRY FOR THE REPORTER
-                  || F(processGlobal1I._thirdC_flagsModeProcess1) & flMODEpROCESS1_INoUTfRAMEdOnOTcOLLECTaPPtELEMETRY
+                  || processGlobal2I.idAdamRoot == ifcIDaDAM_SCRATCH08      //THIS LINE DISABLES TELEMETRY FOR THE REPORTER
+                  || F(processGlobal2I._thirdC_flagsModeProcess1) & flMODEpROCESS1_INoUTfRAMEdOnOTcOLLECTaPPtELEMETRY
                      F(tinP.flagsThreadMode4) & flTHREADmODE4_INoUTfRAMEdOnOTcOLLECTaPPtELEMETRY
                 (
                 :
                 ? flINoUTfRAMEc_null
             : F(tinP.flagsThreadMode4) & flTHREADmODE4_INoUTfRAMEfORCEcOLLECTaPPtELEMETRY
             ? flINoUTfRAMEc_null
-        F(processGlobal1I._thirdC_flagsModeProcess1) & flMODEpROCESS1_INoUTfRAMEfORCEcOLLECTaPPtELEMETRY
+        F(processGlobal2I._thirdC_flagsModeProcess1) & flMODEpROCESS1_INoUTfRAMEfORCEcOLLECTaPPtELEMETRY
     (
     |
     )

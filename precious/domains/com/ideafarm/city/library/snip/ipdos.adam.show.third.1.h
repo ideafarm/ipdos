@@ -238,13 +238,13 @@ class   /*ff*/sessionC/*ff*/                    ; /*ff*//**//*ff*/
 class   /*ff*/plateC/*ff*/                      ; /*ff*//**//*ff*/
 struct  /*ff*/httpReplyS/*ff*/                  ; /*ff*//**//*ff*/
 struct  /*ff*/sockOdometerS/*ff*/               ; /*ff*//**//*ff*/
-struct  /*ff*/processGlobal1S/*ff*/             ; /*ff*//**//*ff*/
 struct  /*ff*/processGlobal2S/*ff*/             ; /*ff*//**//*ff*/
 struct  /*ff*/processGlobal3S/*ff*/             ; /*ff*//**//*ff*/
 struct  /*ff*/processGlobal4S/*ff*/             ; /*ff*//**//*ff*/
 struct  /*ff*/processGlobal5S/*ff*/             ; /*ff*//**//*ff*/
 struct  /*ff*/processGlobal6S/*ff*/             ; /*ff*//**//*ff*/
 struct  /*ff*/processGlobal7S/*ff*/             ; /*ff*//**//*ff*/
+struct  /*ff*/processGlobal8S/*ff*/             ; /*ff*//**//*ff*/
 struct  /*ff*/adamGlobal1S/*ff*/                ; /*ff*//**//*ff*/
 struct  /*ff*/adamGlobal2S/*ff*/                ; /*ff*//**//*ff*/
 struct  /*ff*/adamGlobal3S/*ff*/                ; /*ff*//**//*ff*/
@@ -1892,7 +1892,7 @@ it is illegal to refer to this symbol in the definition of an adam
     countT taskFP##_workF( countT argP )                                                                                    \
     {                                                                                                                       \
         TINSL                                                                                                               \
-        if( tinP.monitor.idThread <= ClOWtHREADS && !( ++ processGlobal1S::_processGlobal1I_IF().pcPhaseLow[ tinP.monitor.idThread ] ) ) { BLAMMO ; } \
+        if( tinP.monitor.idThread <= ClOWtHREADS && !( ++ processGlobal2S::_processGlobal2I_IF().pcPhaseLow[ tinP.monitor.idThread ] ) ) { BLAMMO ; } \
         _IO_ TELLsYSlIFInAME( #taskFP )                                                                                        \
                                                                                                                             \
         OStEXT(   _ostoTmp , 0x80 )                                                                                         \
@@ -1967,7 +1967,7 @@ it is illegal to refer to this symbol in the definition of an adam
                 tinP.pSgnUtility = &_sgnUtility ;                                                                           \
                                                                                                                             \
                 {                                                                                                           \
-                    /*etherC::ifcSayIF( T("ADAM CELL (idAdam,osPid): ")+TF1(processGlobal1S::_processGlobal1I_IF().idAdamRoot)+T(" ")+TF1(tinP.osPid)+T(" ")+TF1(tinP.osTid)+T(" \"")+T(tinP.postThreadName)+T("\"") , flSAY_APPEND | flSAY_LOG ) ;*/ \
+                    /*etherC::ifcSayIF( T("ADAM CELL (idAdam,osPid): ")+TF1(processGlobal2S::_processGlobal2I_IF().idAdamRoot)+T(" ")+TF1(tinP.osPid)+T(" ")+TF1(tinP.osTid)+T(" \"")+T(tinP.postThreadName)+T("\"") , flSAY_APPEND | flSAY_LOG ) ;*/ \
                     etThread.osTimeNowF( tinP , tinP.time1 , tinP.time2 ) ;                                                 \
                     if( F( ((thirdC&)etThread).third_flagsModeAdam1I_IF( tinP ) ) & flADAMmODE1_SEEtHREADSaSfILES )         \
                     {                                                                                                       \
@@ -1981,7 +1981,7 @@ it is illegal to refer to this symbol in the definition of an adam
                     (countT&)_stackTop = espAM() ;                                                                          \
                     if( tinP.idPhase1 < ifcIDpHASEtHREAD_WORKING ) tinP.idPhase1 = ifcIDpHASEtHREAD_WORKING ;               \
                     _IO_                                                                                                    \
-                    if( tinP.monitor.idThread <= ClOWtHREADS && !( ++ processGlobal1S::_processGlobal1I_IF().pcPhaseLow[ tinP.monitor.idThread ] ) ) { BLAMMO ; }
+                    if( tinP.monitor.idThread <= ClOWtHREADS && !( ++ processGlobal2S::_processGlobal2I_IF().pcPhaseLow[ tinP.monitor.idThread ] ) ) { BLAMMO ; }
 
 
 //
@@ -2021,7 +2021,7 @@ it is illegal to refer to this symbol in the definition of an adam
                                                                                                                                                                     \
                         {                                                                                                                                           \
                             TINSL /*THIS IS NEEDED BECAUSE tinP WAS DELETED IF I AM tmWindowsF */                                                                   \
-                            if( tinP.monitor.idThread <= ClOWtHREADS && !( ++ processGlobal1S::_processGlobal1I_IF().pcPhaseLow[ tinP.monitor.idThread ] ) ) { BLAMMO ; } \
+                            if( tinP.monitor.idThread <= ClOWtHREADS && !( ++ processGlobal2S::_processGlobal2I_IF().pcPhaseLow[ tinP.monitor.idThread ] ) ) { BLAMMO ; } \
                             if( tinP.idPhase1 < ifcIDpHASEtHREAD_EPILOGkIDS ) tinP.idPhase1 = ifcIDpHASEtHREAD_EPILOGkIDS ;                                         \
                             tinP.idPhase2 = 0 ;                                                                                                                     \
                             TELL( "DONE0: after returning from application code" ) ;                                                                                \
@@ -2058,7 +2058,7 @@ it is illegal to refer to this symbol in the definition of an adam
                                 TELL( "DONE0: destroying all adam objects that remain on the thread stack" ) ;                                                      \
                             }                                                                                                                                       \
                             if( tinP.idPhase1 < ifcIDpHASEtHREAD_EPILOGnOkIDS ) tinP.idPhase1 = ifcIDpHASEtHREAD_EPILOGnOkIDS ;                                     \
-                            if( tinP.monitor.idThread <= ClOWtHREADS && !( ++ processGlobal1S::_processGlobal1I_IF().pcPhaseLow[ tinP.monitor.idThread ] ) ) { BLAMMO ; } \
+                            if( tinP.monitor.idThread <= ClOWtHREADS && !( ++ processGlobal2S::_processGlobal2I_IF().pcPhaseLow[ tinP.monitor.idThread ] ) ) { BLAMMO ; } \
                         }                                                                                                                                           \
                     }                                                                                                                                               \
                                                                                                                                                                     \
@@ -2110,7 +2110,7 @@ it is illegal to refer to this symbol in the definition of an adam
                     }                                                                                                                                               \
                                                                                                                                                                     \
                     TELL( "DONE0: i am outa here" )                                                                                                                 \
-                    if( tinP.monitor.idThread <= ClOWtHREADS ) processGlobal1S::_processGlobal1I_IF().pcPhaseLow[ tinP.monitor.idThread ] = - 1 ;                   \
+                    if( tinP.monitor.idThread <= ClOWtHREADS ) processGlobal2S::_processGlobal2I_IF().pcPhaseLow[ tinP.monitor.idThread ] = - 1 ;                   \
                     dec02AM( cAllThreads ) ; /* MUST BE THE VERY LAST THING THAT THIS THREAD DOES */                                                                \
                 }                                                                                                                                                   \
             }                                                                                                                                                       \
@@ -8510,7 +8510,7 @@ it is illegal to refer to this symbol in the definition of an adam
         whatP                                                                                                                                           \
         countT _brcRawExp = (countT)(expP) ;                                                                                                            \
         typeP ;                                                                                                                                         \
-        processGlobal1S& pg1 = processGlobal1S::_processGlobal1I_IF() ;                                                                                 \
+        processGlobal2S& pg1 = processGlobal2S::_processGlobal2I_IF() ;                                                                                 \
         if( F(pg1.flCt) & flCTdTg_napHomeI && !( F(pg1.flDt) & flCTdTg_napHomeI ) )                                                                     \
         {                                                                                                                                               \
             static countT idMeOk ;                                                                                                                      \
@@ -8544,7 +8544,7 @@ it is illegal to refer to this symbol in the definition of an adam
         errno = 0 ;                                                                                                                                     \
         countT _brcRawExp = (countT)(expP) ;                                                                                                            \
         typeP ;                                                                                                                                         \
-        processGlobal1S& pg1 = processGlobal1S::_processGlobal1I_IF() ;                                                                                 \
+        processGlobal2S& pg1 = processGlobal2S::_processGlobal2I_IF() ;                                                                                 \
         if( F(pg1.flCt) & flCTdTg_napHomeI && !( F(pg1.flDt) & flCTdTg_napHomeI ) )                                                                     \
         {                                                                                                                                               \
             static countT idMeOk ;                                                                                                                      \
@@ -8576,7 +8576,7 @@ it is illegal to refer to this symbol in the definition of an adam
         whatP                                                                                                                                           \
         countT _brcRawExp = (countT)(expP) ;                                                                                                            \
         typeP ;                                                                                                                                         \
-        processGlobal1S& pg1 = processGlobal1S::_processGlobal1I_IF() ;                                                                                 \
+        processGlobal2S& pg1 = processGlobal2S::_processGlobal2I_IF() ;                                                                                 \
         if( F(pg1.flCt) & flCTdTg_napHomeI && !( F(pg1.flDt) & flCTdTg_napHomeI ) )                                                                     \
         {                                                                                                                                               \
             static countT idMeOk ;                                                                                                                      \
@@ -8608,7 +8608,7 @@ it is illegal to refer to this symbol in the definition of an adam
         whatP                                                                                                                                           \
         countT _brcRawExp = (countT)(expP) ;                                                                                                            \
         typeP ;                                                                                                                                         \
-        processGlobal1S& pg1 = processGlobal1S::_processGlobal1I_IF() ;                                                                                 \
+        processGlobal2S& pg1 = processGlobal2S::_processGlobal2I_IF() ;                                                                                 \
         if( F(pg1.flCt) & flCTdTg_napHomeI && !( F(pg1.flDt) & flCTdTg_napHomeI ) )                                                                     \
         {                                                                                                                                               \
             static countT idMeOk ;                                                                                                                      \
@@ -8637,7 +8637,7 @@ it is illegal to refer to this symbol in the definition of an adam
                                                                                                                                                         \
     {                                                                                                                                                   \
         _brcRaw = (countT)(expP) ;                                                                                                                      \
-        processGlobal1S& pg1 = processGlobal1S::_processGlobal1I_IF() ;                                                                                 \
+        processGlobal2S& pg1 = processGlobal2S::_processGlobal2I_IF() ;                                                                                 \
         if( F(pg1.flCt) & flCTdTg_napHomeI && !( F(pg1.flDt) & flCTdTg_napHomeI ) )                                                                     \
         {                                                                                                                                               \
             static countT idMe ;                                                                                                                        \
@@ -8652,7 +8652,7 @@ it is illegal to refer to this symbol in the definition of an adam
                                                                                                                                                         \
     {                                                                                                                                                   \
         _brcm04Raw = (measure04T)(expP) ;                                                                                                               \
-        processGlobal1S& pg1 = processGlobal1S::_processGlobal1I_IF() ;                                                                                 \
+        processGlobal2S& pg1 = processGlobal2S::_processGlobal2I_IF() ;                                                                                 \
         if( F(pg1.flCt) & flCTdTg_napHomeI && !( F(pg1.flDt) & flCTdTg_napHomeI ) )                                                                     \
         {                                                                                                                                               \
             static countT idMe ;                                                                                                                        \
@@ -8668,7 +8668,7 @@ it is illegal to refer to this symbol in the definition of an adam
         countT _idWhatSaveBos = tinP.monitor.idWhat1 ;                                                                                                  \
         whatP                                                                                                                                           \
         countT _brcRawExp = (countT)(expP) ;                                                                                                            \
-        processGlobal1S& pg1 = processGlobal1S::_processGlobal1I_IF() ;                                                                                 \
+        processGlobal2S& pg1 = processGlobal2S::_processGlobal2I_IF() ;                                                                                 \
         if( F(pg1.flCt) & flCTdTg_napHomeI && !( F(pg1.flDt) & flCTdTg_napHomeI ) )                                                                     \
         {                                                                                                                                               \
             static countT idMe ;                                                                                                                        \
@@ -8686,7 +8686,7 @@ it is illegal to refer to this symbol in the definition of an adam
         countT _idWhatSaveBos = tinP.monitor.idWhat1 ;                                                                                                  \
         whatP                                                                                                                                           \
         measure04T _brcm04RawExp = (measure04T)(expP) ;                                                                                                 \
-        processGlobal1S& pg1 = processGlobal1S::_processGlobal1I_IF() ;                                                                                 \
+        processGlobal2S& pg1 = processGlobal2S::_processGlobal2I_IF() ;                                                                                 \
         if( F(pg1.flCt) & flCTdTg_napHomeI && !( F(pg1.flDt) & flCTdTg_napHomeI ) )                                                                     \
         {                                                                                                                                               \
             static countT idMe ;                                                                                                                        \
@@ -8704,7 +8704,7 @@ it is illegal to refer to this symbol in the definition of an adam
         countT _idWhatSaveBos = tinP.monitor.idWhat1 ;                                                                                                  \
         whatP                                                                                                                                           \
         { expP ; }                                                                                                                                      \
-        processGlobal1S& pg1 = processGlobal1S::_processGlobal1I_IF() ;                                                                                 \
+        processGlobal2S& pg1 = processGlobal2S::_processGlobal2I_IF() ;                                                                                 \
         if( F(pg1.flCt) & flCTdTg_napHomeI && !( F(pg1.flDt) & flCTdTg_napHomeI ) )                                                                     \
         {                                                                                                                                               \
             static countT idMe ;                                                                                                                        \
@@ -8718,7 +8718,7 @@ it is illegal to refer to this symbol in the definition of an adam
                                                                                                                                                         \
     {                                                                                                                                                   \
         { expP ; }                                                                                                                                      \
-        processGlobal1S& pg1 = processGlobal1S::_processGlobal1I_IF() ;                                                                                 \
+        processGlobal2S& pg1 = processGlobal2S::_processGlobal2I_IF() ;                                                                                 \
         if( F(pg1.flCt) & flCTdTg_napHomeI && !( F(pg1.flDt) & flCTdTg_napHomeI ) )                                                                     \
         {                                                                                                                                               \
             static countT idMe ;                                                                                                                        \
@@ -10244,8 +10244,8 @@ it is illegal to refer to this symbol in the definition of an adam
             flagsT stamp = flagsP & ( FL_maskIdGroup | FL_maskIdType ) ;                                                    \
              __( flPrefixP##_null - stamp ) ;                                                                               \
             flagsT idg = flagsP & FL_maskIdGroup ;                                                                          \
-            __( idg >= processGlobal1S::_processGlobal1I_IF().ccValidFlags ) ;                                              \
-            if( !POOP ) { __( flagsP & ~processGlobal1S::_processGlobal1I_IF().pcValidFlags[ idg ] ) ; }                    \
+            __( idg >= processGlobal2S::_processGlobal2I_IF().ccValidFlags ) ;                                              \
+            if( !POOP ) { __( flagsP & ~processGlobal2S::_processGlobal2I_IF().pcValidFlags[ idg ] ) ; }                    \
         }
 
 #endif
@@ -10557,7 +10557,7 @@ it is illegal to refer to this symbol in the definition of an adam
 \<A HREF=\"5.0010174.1.0.html\"\>definition\</A\>
 obsolete
  JOT no longer uses napJot
- now it uses processGlobal4I.processGloBegin
+ now it uses processGlobal5I.processGloBegin
 it is illegal to refer to this symbol in the definition of an adam
 */
 /*1*//*NAPjOT(ecP)*//*1*/
@@ -12491,7 +12491,7 @@ these values are used in the foreign domain name system
 */
 /**/
 /*1*//*FaLLsET(flagsP)*//*1*/
-#define FaLLsET(flagsP) ( processGlobal1S::_processGlobal1I_IF().pcValidFlags[ flagsP & FL_maskIdGroup ] )
+#define FaLLsET(flagsP) ( processGlobal2S::_processGlobal2I_IF().pcValidFlags[ flagsP & FL_maskIdGroup ] )
 
 
 //
@@ -15298,7 +15298,7 @@ see QUITO
     {                                                                                                                   \
         OStEXT( ostoTitle , 0x100 )                                                                                     \
         OStEXTAK( ostoTitle , "idAdam:" ) ;                                                                              \
-        OStEXTC( ostoTitle , processGlobal1S::_processGlobal1I_IF().idAdamRoot , 0 ) ;                                                   \
+        OStEXTC( ostoTitle , processGlobal2S::_processGlobal2I_IF().idAdamRoot , 0 ) ;                                                   \
         OStEXTAK( ostoTitle , " ; idThread:" )  ;                                                                      \
         OStEXTC( ostoTitle , tinP.monitor.idThread , 0 ) ;                                                                    \
         OStEXTAK( ostoTitle , " ; thread:\"" ) ;                                                                       \
@@ -15930,8 +15930,8 @@ see QUITO
 /*
 \<A HREF=\"5.0010247.1.0.html\"\>definition\</A\>
 these flag values are used by oo flagsT objects
- in processGlobal1I.flCt, a set flag indicates that construction has completed
- in processGlobal1I.flDt, a set flag indicates that destruction has begun
+ in processGlobal2I.flCt, a set flag indicates that construction has completed
+ in processGlobal2I.flDt, a set flag indicates that destruction has begun
 */
 /*1*//*flCTdTg*//*1*/
 /**/
@@ -16690,7 +16690,7 @@ after i return, that countT object will contain 1
             OStEXTAK( ostoBuf , "." ) ;                                                                                        \
             OStEXTC( ostoBuf , idiFile , 0 ) ;                                                                                \
             OStEXTAK( ostoBuf , "    " ) ;                                                                                     \
-            OStEXTA( ostoBuf , processGlobal7I.source.postFileTitleF( tinP , processGlobal7I.source.idFileRankF( tinP , idiFile ) ) ) ;                                     \
+            OStEXTA( ostoBuf , processGlobal8I.source.postFileTitleF( tinP , processGlobal8I.source.idFileRankF( tinP , idiFile ) ) ) ;                                     \
             OStEXTAK( ostoBuf , "\r\n" ) ;                                                                                     \
         }                                                                                                                       \
                                                                                                                                 \
@@ -19965,8 +19965,8 @@ i am used with a soulC object to use that object as a forth-like program executo
 #define IFbADpEEK(slP,psttP,idTypeP)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      \
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    \
     SOIXLoLDpEEK                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       \
-    if( !slP )                       { __1 ; if( !( F(tinP.flagsThreadMode2) & flTHREADmODE2_SOIXLoLDnOpOPUPoNeRROR ) ) { POPUP( T("Stack object \"")+T(slP.postNameF(tinP))+T("\" is empty, so root word \"")+T(psttP)+T("\" cannot pop the \"")+T(processGlobal3I.mapSoulItem(idTypeP))+T("\" object that it expects. ")+T("(argument pop ")+TF1(idArgNext)+T(")") ) ; } }                                                                   \
-    else if( idTypeNext != idTypeP ) { __1 ; if( !( F(tinP.flagsThreadMode2) & flTHREADmODE2_SOIXLoLDnOpOPUPoNeRROR ) ) { POPUP( T("The poppable item on stack object \"")+T(slP.postNameF(tinP))+T("\" is of type \"")+T(processGlobal3I.mapSoulItem(idTypeNext))+T("\", but root word \"")+T(psttP)+T("\" wants to pop a \"")+T(processGlobal3I.mapSoulItem(idTypeP))+T("\" object. ")+T("(argument pop ")+TF1(idArgNext)+T(")") ) ; } }
+    if( !slP )                       { __1 ; if( !( F(tinP.flagsThreadMode2) & flTHREADmODE2_SOIXLoLDnOpOPUPoNeRROR ) ) { POPUP( T("Stack object \"")+T(slP.postNameF(tinP))+T("\" is empty, so root word \"")+T(psttP)+T("\" cannot pop the \"")+T(processGlobal4I.mapSoulItem(idTypeP))+T("\" object that it expects. ")+T("(argument pop ")+TF1(idArgNext)+T(")") ) ; } }                                                                   \
+    else if( idTypeNext != idTypeP ) { __1 ; if( !( F(tinP.flagsThreadMode2) & flTHREADmODE2_SOIXLoLDnOpOPUPoNeRROR ) ) { POPUP( T("The poppable item on stack object \"")+T(slP.postNameF(tinP))+T("\" is of type \"")+T(processGlobal4I.mapSoulItem(idTypeNext))+T("\", but root word \"")+T(psttP)+T("\" wants to pop a \"")+T(processGlobal4I.mapSoulItem(idTypeP))+T("\" object. ")+T("(argument pop ")+TF1(idArgNext)+T(")") ) ; } }
 
 
 //
@@ -20002,7 +20002,7 @@ i am used with a soulC object to use that object as a forth-like program executo
             countT idtWant = (idtWantP) ;                                                               \
             POPUP(                                                                                      \
                 T(#classP " object \"")+T(_psttNameP)+T("\" wants to pop a \"")+                         \
-                T(processGlobal3I.mapSoulItem(idtWant))+T("\" but there is no item to pop.  ")+            \
+                T(processGlobal4I.mapSoulItem(idtWant))+T("\" but there is no item to pop.  ")+            \
                 T("(argument pop ")+TF1(idArgNext)+T(")")                                               \
             ) ;                                                                                         \
         }                                                                                               \
@@ -20043,8 +20043,8 @@ i am used with a soulC object to use that object as a forth-like program executo
         {                                                                                               \
             POPUP(                                                                                      \
                 T(#classP " object \"")+T(_psttNameP)+T("\" expected ")+                                \
-                T(processGlobal3I.mapSoulItem(idtWant))+T(" but sees ")+                                \
-                T(processGlobal3I.mapSoulItem(idTypeNext))+T(" so cannot pop.  ")+T("(argument pop ")+  \
+                T(processGlobal4I.mapSoulItem(idtWant))+T(" but sees ")+                                \
+                T(processGlobal4I.mapSoulItem(idTypeNext))+T(" so cannot pop.  ")+T("(argument pop ")+  \
                 TF1(idArgNext)+T(")")                                                                   \
             ) ;                                                                                         \
         }                                                                                               \
@@ -27479,7 +27479,7 @@ add constants here as needed to avoid this
             OStEXTA(  ostoLine , bFile ? "  " : "\r\n  " ) ;                                                    \
             OStEXTC(  ostoLine , *pcc , 0 ) ;                                                                   \
             OStEXTAK( ostoLine , "  " ) ;                                                                       \
-            OStEXTA(  ostoLine , !bFile ? "" : processGlobal7S::_processGlobal7I_IF().source.postFileTitleF( tinP , processGlobal7S::_processGlobal7I_IF().source.idFileRankF( tinP , *pcc ) ) ) ; \
+            OStEXTA(  ostoLine , !bFile ? "" : processGlobal8S::_processGlobal8I_IF().source.postFileTitleF( tinP , processGlobal8S::_processGlobal8I_IF().source.idFileRankF( tinP , *pcc ) ) ) ; \
             LOGrAW( ostoLine ) ;                                                                                \
             pcc ++ ;                                                                                            \
             bFile = !bFile ;                                                                                    \
@@ -29101,7 +29101,7 @@ can be used for sCountC as well as measureT and sCountT and countT
 
 /*1*//*NEWdELcLASS(idP,classP)*//*1*/
 
-#define NEWdELcLASS(idP,classP)  NEWdELcLASS0( classP , classDefinedInAdamDefinition##idP , sizeof( classP ) , processGlobal3S::_processGlobal3I_IF() )
+#define NEWdELcLASS(idP,classP)  NEWdELcLASS0( classP , classDefinedInAdamDefinition##idP , sizeof( classP ) , processGlobal4S::_processGlobal4I_IF() )
 
 
 //
@@ -29661,14 +29661,14 @@ can be used for sCountC as well as measureT and sCountT and countT
 */
 /**/
 
-/*1*//*NEWdELcLASS0(classP,typeP,cbSizeP,processGlobal3IP)*//*1*/
+/*1*//*NEWdELcLASS0(classP,typeP,cbSizeP,processGlobal4IP)*//*1*/
 
 //U::I NEED INOUT, SO TRY TO MAKE THIS WORK
 // INOUT IS NOT USED, TO AVOID BLOWING STACK DURING INOUT TRACING
 
 #if defined( ENABLEdROPnOTES )
 
-    #define NEWdELcLASS0(classP,typeP,cbSizeP,processGlobal3IP)                                                                                 \
+    #define NEWdELcLASS0(classP,typeP,cbSizeP,processGlobal4IP)                                                                                 \
                                                                                                                                                 \
         voidT classP::operator delete( voidT* pvP )                                                                                             \
         {                                                                                                                                       \
@@ -29695,7 +29695,7 @@ can be used for sCountC as well as measureT and sCountT and countT
             _IO_                                                                                                                                \
             countT cbaFoot = cbFootP ? cbFootP + 2 * sizeof( countT ) : 0 ;                                                                     \
             ZE( voidT* , pvn ) ;                                                                                                                \
-            if( !tinP.pPoolUse ) *(byteT**)&pvn = (processGlobal3IP).heap.newF( tinP , LF , ( cbaFoot + cbP ) ) ;                               \
+            if( !tinP.pPoolUse ) *(byteT**)&pvn = (processGlobal4IP).heap.newF( tinP , LF , ( cbaFoot + cbP ) ) ;                               \
             else                                                                                                                                \
             {                                                                                                                                   \
                 PUSE.newF( tinP , LF , *(byteT**)&pvn , ( cbaFoot + cbP ) ) ;                                                                   \
@@ -29784,7 +29784,7 @@ can be used for sCountC as well as measureT and sCountT and countT
 
 #else
 
-    #define NEWdELcLASS0(classP,typeP,cbSizeP,processGlobal3IP)                                                                                 \
+    #define NEWdELcLASS0(classP,typeP,cbSizeP,processGlobal4IP)                                                                                 \
                                                                                                                                                 \
         voidT classP::operator delete( voidT* pvP )                                                                                             \
         {                                                                                                                                       \
@@ -29811,7 +29811,7 @@ can be used for sCountC as well as measureT and sCountT and countT
             _IO_                                                                                                                                \
             countT cbaFoot = cbFootP ? cbFootP + 2 * sizeof( countT ) : 0 ;                                                                     \
             ZE( voidT* , pvn ) ;                                                                                                                \
-            if( !tinP.pPoolUse ) *(byteT**)&pvn = (processGlobal3IP).heap.newF( tinP , LF , ( cbaFoot + cbP ) ) ;                               \
+            if( !tinP.pPoolUse ) *(byteT**)&pvn = (processGlobal4IP).heap.newF( tinP , LF , ( cbaFoot + cbP ) ) ;                               \
             else                                                                                                                                \
             {                                                                                                                                   \
                 PUSE.newF( tinP , LF , *(byteT**)&pvn , ( cbaFoot + cbP ) ) ;                                                                   \
@@ -29927,7 +29927,7 @@ can be used for sCountC as well as measureT and sCountT and countT
 
 /*1*//*NEWdELcLASSb(classP)*//*1*/
 
-#define NEWdELcLASSb(classP)  NEWdELcLASS0( classP , classP , sizeof( classP ) , processGlobal3I )
+#define NEWdELcLASSb(classP)  NEWdELcLASS0( classP , classP , sizeof( classP ) , processGlobal4I )
 
 
 //
@@ -33034,7 +33034,7 @@ plateC& fooC::operator +=( plateC& plateP )                                     
 
 /*1*//*NEWdELcLASSbSIZED(classP)*//*1*/
 
-#define NEWdELcLASSbSIZED(classP)  NEWdELcLASS0( classP , classP , SIZEOF_##classP , processGlobal3I )
+#define NEWdELcLASSbSIZED(classP)  NEWdELcLASS0( classP , classP , SIZEOF_##classP , processGlobal4I )
 
 
 //
@@ -33176,8 +33176,8 @@ it is illegal to refer to this symbol in the definition of an adam
             else                                                                                                            \
             {                                                                                                               \
                 flagsT idg = flagsP & FL_maskIdGroup ;                                                                      \
-                if( idg >= processGlobal1S::_processGlobal1I_IF().ccValidFlags ) bOk = 0 ;                                  \
-                else if( flagsP & ~processGlobal1S::_processGlobal1I_IF().pcValidFlags[ idg ] ) bOk = 0 ;                   \
+                if( idg >= processGlobal2S::_processGlobal2I_IF().ccValidFlags ) bOk = 0 ;                                  \
+                else if( flagsP & ~processGlobal2S::_processGlobal2I_IF().pcValidFlags[ idg ] ) bOk = 0 ;                   \
             }                                                                                                               \
         }
 
@@ -37199,7 +37199,7 @@ obsoleted by coding style standard: use osTextT strings for name elements so tha
             OStEXTA(  ostoLine , bFile ? "  " : "\r\n  " ) ;                                                    \
             OStEXTC(  ostoLine , *pcc , 0 ) ;                                                                   \
             OStEXTAK( ostoLine , "  " ) ;                                                                       \
-            OStEXTA(  ostoLine , !bFile ? "" : processGlobal7S::_processGlobal7I_IF().source.postFileTitleF( tinP , processGlobal7S::_processGlobal7I_IF().source.idFileRankF( tinP , *pcc ) ) ) ; \
+            OStEXTA(  ostoLine , !bFile ? "" : processGlobal8S::_processGlobal8I_IF().source.postFileTitleF( tinP , processGlobal8S::_processGlobal8I_IF().source.idFileRankF( tinP , *pcc ) ) ) ; \
             CONoUTrAW( ostoLine ) ;                                                                             \
             pcc ++ ;                                                                                            \
             bFile = !bFile ;                                                                                    \
@@ -40049,7 +40049,7 @@ this can be used to zombie new and delete when tinP is not available, e.g. in ro
                                                                                                                                                                     \
         {                                                                                                                                                           \
             byteT* _pbx = (byteT*)(pbP) ;                                                                                                                           \
-            if( _pbx && ( (byteT*)_pbx < processGlobal0S::_processGlobal0I_IF().pbHeap || (byteT*)_pbx >= processGlobal0S::_processGlobal0I_IF().pbHeapEnd ) )      \
+            if( _pbx && ( (byteT*)_pbx < processGlobal1S::_processGlobal1I_IF().pbHeap || (byteT*)_pbx >= processGlobal1S::_processGlobal1I_IF().pbHeapEnd ) )      \
             {                                                                                                                                                       \
                 dropNoteS* pNote = PUSE.pDropNoteF( tinP , _pbx ) ;                                                                                                 \
                 if( pNote )                                                                                                                                         \
@@ -44955,7 +44955,7 @@ arguments
 
 /*1*//*TRACE(postP)*//*1*/
 
-#define TRACE(postP) processGlobal3S::_processGlobal3I_IF().bksTrace.writeF( tinP , (postP) , 0 , 0 , 0 , flBOOKScwRITE_ALLoRnONE | flBOOKScwRITE_ALLOWoDDlENGTH ) ;
+#define TRACE(postP) processGlobal4S::_processGlobal4I_IF().bksTrace.writeF( tinP , (postP) , 0 , 0 , 0 , flBOOKScwRITE_ALLoRnONE | flBOOKScwRITE_ALLOWoDDlENGTH ) ;
 
 
 //

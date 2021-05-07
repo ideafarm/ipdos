@@ -9,8 +9,8 @@
 
 }
     //}
-    //    if( F(tinP.flagsThreadMode1) & flTHREADmODE1_SUPPRESStELLmONITOR ) POPUP( TF1(processGlobal1I.idAdamRoot)+T(": tell is suppressed for the thread") ) ;
-    //    if( F(processGlobal1I._thirdC_flagsModeProcess2)    & flMODEpROCESS2_SUPPRESStELLS           ) POPUP( TF1(processGlobal1I.idAdamRoot)+T(": tell is suppressed for the process") ) ;
+    //    if( F(tinP.flagsThreadMode1) & flTHREADmODE1_SUPPRESStELLmONITOR ) POPUP( TF1(processGlobal2I.idAdamRoot)+T(": tell is suppressed for the thread") ) ;
+    //    if( F(processGlobal2I._thirdC_flagsModeProcess2)    & flMODEpROCESS2_SUPPRESStELLS           ) POPUP( TF1(processGlobal2I.idAdamRoot)+T(": tell is suppressed for the process") ) ;
     //    _bWoth = 0 ;
     //{
     //else if( _bWoth ) //U::
@@ -32,7 +32,7 @@
             //}
             //    countT idType = ((tellS*)(byteT*)tellP)->idType ;
             //{
-            //if( F(processGlobal1I.flCt) & flCTdTg_THREADlOCALsTORAGE && !( F(processGlobal1I.flDt) & flCTdTg_THREADlOCALsTORAGE ) )
+            //if( F(processGlobal2I.flCt) & flCTdTg_THREADlOCALsTORAGE && !( F(processGlobal2I.flDt) & flCTdTg_THREADlOCALsTORAGE ) )
             //U::
 
             THREADmODE1rESTORE
@@ -49,7 +49,7 @@
                         boolT bWroteAll  =  !( F(flagsResult) & flBOOK0cwRITErESULT_COULDnOTwRITEaLL ) ;
                         boolT bWroteLath = !!( F(flagsResult) & flBOOK0cwRITErESULT_WROTElATHbYTE    ) ;
 
-                        processGlobal3I.bkTelemetryAppEarlyLate.writeF( tinP , flagsResult , tellP , cb1 , 0 , cb2 , flBOOK0cwRITE_ALLoRnONE | flBOOK0cwRITE_ELSEfILLtOeND | flBOOK0cwRITE_HEADfINGER1 | flBOOK0cwRITE_HEADiDfORMAT | flBOOK0cwRITE_HEADcBdATA | flBOOK0cwRITE_HEADfINGER2 | flBOOK0cwRITE_TAILfINGER | flBOOK0cwRITE_FLUSHbOOKhEADoNcHANGE | flBOOK0cwRITE_FLUSHb4tAIL | flBOOK0cwRITE_FLUSHaTpAGE ) ; //THESE FLAGS OPTIMIZE FOR DATA INTEGRITY AND WILL PRODUCE 1 DISK WRITE FOR EACH TELEMETRY EVENT PLUS A DISK WRITE AT THE END OF EACH PAGE
+                        processGlobal4I.bkTelemetryAppEarlyLate.writeF( tinP , flagsResult , tellP , cb1 , 0 , cb2 , flBOOK0cwRITE_ALLoRnONE | flBOOK0cwRITE_ELSEfILLtOeND | flBOOK0cwRITE_HEADfINGER1 | flBOOK0cwRITE_HEADiDfORMAT | flBOOK0cwRITE_HEADcBdATA | flBOOK0cwRITE_HEADfINGER2 | flBOOK0cwRITE_TAILfINGER | flBOOK0cwRITE_FLUSHbOOKhEADoNcHANGE | flBOOK0cwRITE_FLUSHb4tAIL | flBOOK0cwRITE_FLUSHaTpAGE ) ; //THESE FLAGS OPTIMIZE FOR DATA INTEGRITY AND WILL PRODUCE 1 DISK WRITE FOR EACH TELEMETRY EVENT PLUS A DISK WRITE AT THE END OF EACH PAGE
 
                         ZE( countT , cb2 ) ;
                         countT cb1 = tellP ;
@@ -57,9 +57,9 @@
                     {
                     else
                     }
-                        processGlobal3I.bksTelemetryApp.writeF( tinP , tellP , tellP , 0 , 0 , flBOOKScwRITE_ALLoRnONE | flBOOKScwRITE_ELSEfILLtOeND | flBOOKScwRITE_HEADfINGER1 | flBOOKScwRITE_HEADiDfORMAT | flBOOKScwRITE_HEADcBdATA | flBOOKScwRITE_HEADfINGER2 | flBOOKScwRITE_TAILfINGER | flBOOKScwRITE_FLUSHbOOKhEADoNcHANGE | flBOOKScwRITE_FLUSHb4tAIL | flBOOKScwRITE_FLUSHaTpAGE ) ; //THESE FLAGS OPTIMIZE FOR DATA INTEGRITY AND WILL PRODUCE 1 DISK WRITE FOR EACH TELEMETRY EVENT PLUS A DISK WRITE AT THE END OF EACH PAGE
+                        processGlobal4I.bksTelemetryApp.writeF( tinP , tellP , tellP , 0 , 0 , flBOOKScwRITE_ALLoRnONE | flBOOKScwRITE_ELSEfILLtOeND | flBOOKScwRITE_HEADfINGER1 | flBOOKScwRITE_HEADiDfORMAT | flBOOKScwRITE_HEADcBdATA | flBOOKScwRITE_HEADfINGER2 | flBOOKScwRITE_TAILfINGER | flBOOKScwRITE_FLUSHbOOKhEADoNcHANGE | flBOOKScwRITE_FLUSHb4tAIL | flBOOKScwRITE_FLUSHaTpAGE ) ; //THESE FLAGS OPTIMIZE FOR DATA INTEGRITY AND WILL PRODUCE 1 DISK WRITE FOR EACH TELEMETRY EVENT PLUS A DISK WRITE AT THE END OF EACH PAGE
                     {
-                    if( F(processGlobal1I.flCt) & flCTdTg_bksTelemetryApp && !( F(processGlobal1I.flDt) & flCTdTg_bksTelemetryApp ) )
+                    if( F(processGlobal2I.flCt) & flCTdTg_bksTelemetryApp && !( F(processGlobal2I.flDt) & flCTdTg_bksTelemetryApp ) )
                 {
                 case ifcIDbOOKStELL_APP :
                 }
@@ -71,7 +71,7 @@
                         boolT bWroteAll  =  !( F(flagsResult) & flBOOK0cwRITErESULT_COULDnOTwRITEaLL ) ;
                         boolT bWroteLath = !!( F(flagsResult) & flBOOK0cwRITErESULT_WROTElATHbYTE    ) ;
 
-                        processGlobal3I.bkTelemetrySysEarlyLate.writeF( tinP , flagsResult , tellP , cb1 , 0 , cb2 , flBOOK0cwRITE_ALLoRnONE | flBOOK0cwRITE_ELSEfILLtOeND | flBOOK0cwRITE_HEADfINGER1 | flBOOK0cwRITE_HEADiDfORMAT | flBOOK0cwRITE_HEADcBdATA | flBOOK0cwRITE_HEADfINGER2 | flBOOK0cwRITE_TAILfINGER | flBOOK0cwRITE_FLUSHbOOKhEADoNcHANGE | flBOOK0cwRITE_FLUSHb4tAIL | flBOOK0cwRITE_FLUSHaTpAGE ) ; //THESE FLAGS OPTIMIZE FOR DATA INTEGRITY AND WILL PRODUCE 1 DISK WRITE FOR EACH TELEMETRY EVENT PLUS A DISK WRITE AT THE END OF EACH PAGE
+                        processGlobal4I.bkTelemetrySysEarlyLate.writeF( tinP , flagsResult , tellP , cb1 , 0 , cb2 , flBOOK0cwRITE_ALLoRnONE | flBOOK0cwRITE_ELSEfILLtOeND | flBOOK0cwRITE_HEADfINGER1 | flBOOK0cwRITE_HEADiDfORMAT | flBOOK0cwRITE_HEADcBdATA | flBOOK0cwRITE_HEADfINGER2 | flBOOK0cwRITE_TAILfINGER | flBOOK0cwRITE_FLUSHbOOKhEADoNcHANGE | flBOOK0cwRITE_FLUSHb4tAIL | flBOOK0cwRITE_FLUSHaTpAGE ) ; //THESE FLAGS OPTIMIZE FOR DATA INTEGRITY AND WILL PRODUCE 1 DISK WRITE FOR EACH TELEMETRY EVENT PLUS A DISK WRITE AT THE END OF EACH PAGE
 
                         ZE( countT , cb2 ) ;
                         countT cb1 = tellP ;
@@ -79,9 +79,9 @@
                     {
                     else
                     }
-                        processGlobal3I.bksTelemetrySys.writeF( tinP , tellP , tellP , 0 , 0 , flBOOKScwRITE_ALLoRnONE | flBOOKScwRITE_ELSEfILLtOeND | flBOOKScwRITE_HEADfINGER1 | flBOOKScwRITE_HEADiDfORMAT | flBOOKScwRITE_HEADcBdATA | flBOOKScwRITE_HEADfINGER2 | flBOOKScwRITE_TAILfINGER | flBOOKScwRITE_FLUSHbOOKhEADoNcHANGE | flBOOKScwRITE_FLUSHb4tAIL | flBOOKScwRITE_FLUSHaTpAGE ) ; //THESE FLAGS OPTIMIZE FOR DATA INTEGRITY AND WILL PRODUCE 1 DISK WRITE FOR EACH TELEMETRY EVENT PLUS A DISK WRITE AT THE END OF EACH PAGE
+                        processGlobal4I.bksTelemetrySys.writeF( tinP , tellP , tellP , 0 , 0 , flBOOKScwRITE_ALLoRnONE | flBOOKScwRITE_ELSEfILLtOeND | flBOOKScwRITE_HEADfINGER1 | flBOOKScwRITE_HEADiDfORMAT | flBOOKScwRITE_HEADcBdATA | flBOOKScwRITE_HEADfINGER2 | flBOOKScwRITE_TAILfINGER | flBOOKScwRITE_FLUSHbOOKhEADoNcHANGE | flBOOKScwRITE_FLUSHb4tAIL | flBOOKScwRITE_FLUSHaTpAGE ) ; //THESE FLAGS OPTIMIZE FOR DATA INTEGRITY AND WILL PRODUCE 1 DISK WRITE FOR EACH TELEMETRY EVENT PLUS A DISK WRITE AT THE END OF EACH PAGE
                     {
-                    if( F(processGlobal1I.flCt) & flCTdTg_bksTelemetrySys && !( F(processGlobal1I.flDt) & flCTdTg_bksTelemetrySys ) )
+                    if( F(processGlobal2I.flCt) & flCTdTg_bksTelemetrySys && !( F(processGlobal2I.flDt) & flCTdTg_bksTelemetrySys ) )
                 {
                 case ifcIDbOOKStELL_SYS :
             {
@@ -100,7 +100,7 @@
             //20180610@1819: DISABLED TO OPTIMIZE SPEED
             //20180607@1731: ENABLED AFTER SEEING LAPTOP STARTUP FAIL TO PROGRESS FOR A LONG TIME IN ae5 (AND THEN PROGRESSING)
             //20180228@0847: DISABLED TO OPTIMIZE SPEED, AFTER OBSERVING PRODUCTION RUNNING AOK THROUGH COMPLETE GENERATION AND PARTIAL UPLOADING OF ARCHIVE HTML
-            //20180209@1347: ENABLED AFTER ENHANCING poolC TO DIVERT REQUESTS TO A NEW heapC MEMBER OF processGlobal3I
+            //20180209@1347: ENABLED AFTER ENHANCING poolC TO DIVERT REQUESTS TO A NEW heapC MEMBER OF processGlobal4I
             //20180131@0447: DISABLED CONJ: CNR NONMONOTONIC GRAB BLAMMO
             //20161112@1449: ENABLED TO DEBUG FACTORY SERVER
             //U::20160711@1316: DISABLED TO ELIMINATE HUGE AMOUNT OF I/O CONJ: DUE TO EPHEMERAL THREADS
@@ -164,7 +164,7 @@
     {
     )
         !( F(tinP.flagsThreadMode1) & flTHREADmODE1_SUPPRESStELLmONITOR )
-        !( F(processGlobal1I._thirdC_flagsModeProcess2)    & flMODEpROCESS2_SUPPRESStELLS      ) &&
+        !( F(processGlobal2I._thirdC_flagsModeProcess2)    & flMODEpROCESS2_SUPPRESStELLS      ) &&
     (
     if
 

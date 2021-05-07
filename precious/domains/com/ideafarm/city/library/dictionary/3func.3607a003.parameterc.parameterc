@@ -118,7 +118,7 @@
         else
         }
             //THE BASIC IDEA WAS TO SEARCH FOR A MEMORY SPACE NOT OCCUPIED BY A MONITOR (1050104)
-            // COMMENTED OUT CAUSE I DON'T SEE WHY I WOULD EVER WANT TO SEARCH FOR AN INACTIVE HOME: if( !( processGlobal1I.idHome & fliIDhOME_HOMELESS ) ) processGlobal1I._thirdC_flagsModeProcess2 |= flMODEpROCESS2_IDhOSTsEARCH ; //U::USED TO ONLY BE DONE WHEN idHomeDiskOverrideG IS SET; THIS LINE MUST BE EDITED TO RESTORE THE ORIGINAL INTENDED FUNCTIONALITY, WHATEVER THAT WAS
+            // COMMENTED OUT CAUSE I DON'T SEE WHY I WOULD EVER WANT TO SEARCH FOR AN INACTIVE HOME: if( !( processGlobal2I.idHome & fliIDhOME_HOMELESS ) ) processGlobal2I._thirdC_flagsModeProcess2 |= flMODEpROCESS2_IDhOSTsEARCH ; //U::USED TO ONLY BE DONE WHEN idHomeDiskOverrideG IS SET; THIS LINE MUST BE EDITED TO RESTORE THE ORIGINAL INTENDED FUNCTIONALITY, WHATEVER THAT WAS
 
             if( costaToP >= 0x9 ) thirdC::c_itoaIF( postToP , ifcIDaDAM_KERNEL1DRIVER ) ;
         {
@@ -128,13 +128,13 @@
         {
         if( bFiler )
 
-        if( processGlobal1I.idHome & fliIDhOME_HOMELESS ) processGlobal1I._thirdC_flagsModeProcess2 |= /*flMODEpROCESS2_DOnOThIREaDAMS |*/ flMODEpROCESS2_DOnOTdISPLAYtHIRDpARTYaDS ;
+        if( processGlobal2I.idHome & fliIDhOME_HOMELESS ) processGlobal2I._thirdC_flagsModeProcess2 |= /*flMODEpROCESS2_DOnOThIREaDAMS |*/ flMODEpROCESS2_DOnOTdISPLAYtHIRDpARTYaDS ;
 
         }
             bDriver = 1 ;
-            //CONoUTrAW3( "\r\nparameterC 3 new [idHome]: " , processGlobal1I.idHome , "" ) ; //U::
-            *(countT*)&processGlobal1I.idHome |= fliIDhOME_HOMELESS ;
-            //CONoUTrAW3( "\r\nparameterC 3 old [idHome]: " , processGlobal1I.idHome , "" ) ; //U::
+            //CONoUTrAW3( "\r\nparameterC 3 new [idHome]: " , processGlobal2I.idHome , "" ) ; //U::
+            *(countT*)&processGlobal2I.idHome |= fliIDhOME_HOMELESS ;
+            //CONoUTrAW3( "\r\nparameterC 3 old [idHome]: " , processGlobal2I.idHome , "" ) ; //U::
         {
         else if( postArgs == thirdC::c_strstrIF( postArgs , posti ) )
         if( !*postArgs ) bDriver = 1 ;
@@ -143,16 +143,16 @@
 
         }
             }
-                //CONoUTrAW3( "\r\nparameterC 2 new [idHome]: " , processGlobal1I.idHome , "" ) ; //U::
-                *(countT*)&processGlobal1I.idHome |= fliIDhOME_HOMELESS ;
-                //CONoUTrAW3( "\r\nparameterC 2 old [idHome]: " , processGlobal1I.idHome , "" ) ; //U::
+                //CONoUTrAW3( "\r\nparameterC 2 new [idHome]: " , processGlobal2I.idHome , "" ) ; //U::
+                *(countT*)&processGlobal2I.idHome |= fliIDhOME_HOMELESS ;
+                //CONoUTrAW3( "\r\nparameterC 2 old [idHome]: " , processGlobal2I.idHome , "" ) ; //U::
             {
             if( !idHomeDisk )
 
             }
                 #endif
 
-                    CreateDirectory( processGlobal1I.postPathHomeTmp , 0 ) ;
+                    CreateDirectory( processGlobal2I.postPathHomeTmp , 0 ) ;
 
                     *( posto ++ ) = 'p' ;
                     *( posto ++ ) = 'm' ;
@@ -162,15 +162,15 @@
                     *( posto ++ ) = *( posti ++ ) ;
                     *( posto ++ ) = *( posti ++ ) ;
                     *( posto ++ ) = *( posti ++ ) ;
-                    osTextT* posto = processGlobal1I.postPathHomeTmp ;
+                    osTextT* posto = processGlobal2I.postPathHomeTmp ;
                     const osTextT* posti = postExe ;
 
                 #if defined( __NT__ )
 
                 }
-                    *(countT*)&processGlobal1I.idHome |= flagSave ;
-                    *(countT*)&processGlobal1I.idHome = idHomeDisk ;
-                    countT flagSave = processGlobal1I.idHome & 0xff000000 ; //A: ASSUME: sizeof( countT ) == 4
+                    *(countT*)&processGlobal2I.idHome |= flagSave ;
+                    *(countT*)&processGlobal2I.idHome = idHomeDisk ;
+                    countT flagSave = processGlobal2I.idHome & 0xff000000 ; //A: ASSUME: sizeof( countT ) == 4
                 {
                 if( idHomeDisk )
                 idHomeDisk = thirdC::c_atoiIF( postExe + 1 + sizeof posth - 1 ) ;
@@ -182,9 +182,9 @@
 
         }
             bFiler = 1 ;
-            //CONoUTrAW3( "\r\nparameterC 1 new [idHome]: " , processGlobal1I.idHome , "" ) ; //U::
-            *(countT*)&processGlobal1I.idHome |= fliIDhOME_HOMELESS ;
-            //CONoUTrAW3( "\r\nparameterC 1 old [idHome]: " , processGlobal1I.idHome , "" ) ; //U::
+            //CONoUTrAW3( "\r\nparameterC 1 new [idHome]: " , processGlobal2I.idHome , "" ) ; //U::
+            *(countT*)&processGlobal2I.idHome |= fliIDhOME_HOMELESS ;
+            //CONoUTrAW3( "\r\nparameterC 1 old [idHome]: " , processGlobal2I.idHome , "" ) ; //U::
         {
         if( thirdC::c_strstrIF( postExe , "ideafarm.0130001" ) )
         ZE( boolT , bFiler ) ;

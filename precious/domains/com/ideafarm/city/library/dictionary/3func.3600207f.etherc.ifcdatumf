@@ -49,10 +49,10 @@
             //memCopyF( tinP , pbOut + 0xb * sizeof(countT) + cbr , postUid                 , costUid        ) ;
             // ENABLE THE COMMENTED OUT CODE (AND EDIT) IN ORDER TO INCLUDE THE UID IN THE DATA
     
-            if( cbd ) memCopyF( tinP , pbOut + 0xb * sizeof(countT) + processGlobal1I.cb_nicNameC_ + cbr , pbP                         , cbd              ) ;
-                      memCopyF( tinP , pbOut + 0xb * sizeof(countT) + processGlobal1I.cb_nicNameC_       , (byteT*)pcResourceId        , cbr              ) ;
-                      memCopyF( tinP , pbOut + 0xb * sizeof(countT)                          , (byteT*)&nicName            , processGlobal1I.cb_nicNameC_      ) ;
-                      memCopyF( tinP , pbOut + 0xa * sizeof(countT)                          , (byteT*)&processGlobal1I.idAdamRoot            , sizeof(countT)   ) ; // a
+            if( cbd ) memCopyF( tinP , pbOut + 0xb * sizeof(countT) + processGlobal2I.cb_nicNameC_ + cbr , pbP                         , cbd              ) ;
+                      memCopyF( tinP , pbOut + 0xb * sizeof(countT) + processGlobal2I.cb_nicNameC_       , (byteT*)pcResourceId        , cbr              ) ;
+                      memCopyF( tinP , pbOut + 0xb * sizeof(countT)                          , (byteT*)&nicName            , processGlobal2I.cb_nicNameC_      ) ;
+                      memCopyF( tinP , pbOut + 0xa * sizeof(countT)                          , (byteT*)&processGlobal2I.idAdamRoot            , sizeof(countT)   ) ; // a
                       memCopyF( tinP , pbOut +   9 * sizeof(countT)                          , (byteT*)&idComputer         , sizeof(countT)   ) ; // 9
                       memCopyF( tinP , pbOut +   8 * sizeof(countT)                          , (byteT*)&flags2             , sizeof(countT)   ) ; // 8
                       memCopyF( tinP , pbOut +   7 * sizeof(countT)                          , (byteT*)&flags1             , sizeof(countT)   ) ; // 8
@@ -66,7 +66,7 @@
     
             const countT cbOutNet = cbOut - sizeof( countT ) ;
             newF( tinP , LF , pbOut , cbOut ) ; ___( pbOut ) ;
-            countT cbOut = 0xb * sizeof( countT ) + processGlobal1I.cb_nicNameC_ + cbr + cbd ;
+            countT cbOut = 0xb * sizeof( countT ) + processGlobal2I.cb_nicNameC_ + cbr + cbd ;
             countT cbr = ( strBodyLengthF( tinP , pcResourceId ) + 1 ) * sizeof( countT ) ; // EXCLUDING THE idFileImmutable OF THE OWNER OF THIS etherC OBJECT
             third.osTimeNowF( tinP , time1 , time2 ) ;
             ZE( sCountT , time2 ) ;
@@ -150,7 +150,7 @@
         if( POOP ) return ;
         FV( flDATUM2 , flags2P ) ;
         FV( flDATUM1 , flags1P ) ;
-        //__( !POOP && processGlobal1I.cb_nicNameC_ - 4 * sizeof( countT ) ) ;
+        //__( !POOP && processGlobal2I.cb_nicNameC_ - 4 * sizeof( countT ) ) ;
         __( cbP && !pbP ) ;
         if( POOP ) return ;
     {

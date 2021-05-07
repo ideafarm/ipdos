@@ -24,7 +24,7 @@
                         ZE( byteT* , pbn ) ;                                // THIS IS USED TO PREVENT pbPendingInOutFramePackets FROM BEING USED BEFORE ITS WOTH countT IS INITIALIZED
                     {
                     else
-                    if( !pPoolUse ) pbPendingInOutFramePackets = processGlobal3I.heap.newF( tinP , LF , cba ) ;
+                    if( !pPoolUse ) pbPendingInOutFramePackets = processGlobal4I.heap.newF( tinP , LF , cba ) ;
 
                     countT cba = sizeof( countT ) + CmAXpENDINGiNoUTfRAMEpACKETS * sizeof( tellInfoAppInOutFrameS ) ;
                 {
@@ -83,21 +83,21 @@
             {
             if( idTinNamed == ifcIDtINnAMED_tinHeartI || idTinNamed == ifcIDtINnAMED_tinBreakI || idTinNamed == ifcIDtINnAMED_tinEarlyLate )
         
-            if( idTinNamed == ifcIDtINnAMED_tinVeryVeryEarlyLateMainI && monitor.idThread <= ClOWtHREADS && !( ++ processGlobal1I.pcPhaseLow[ monitor.idThread ] ) ) { BLAMMO ; }
+            if( idTinNamed == ifcIDtINnAMED_tinVeryVeryEarlyLateMainI && monitor.idThread <= ClOWtHREADS && !( ++ processGlobal2I.pcPhaseLow[ monitor.idThread ] ) ) { BLAMMO ; }
 
-            TELL( "tinS: after setting processGlobal1I.flCt flag" )
+            TELL( "tinS: after setting processGlobal2I.flCt flag" )
             }
                 }
-                    case ifcIDtINnAMED_tinInPoolMain             : { processGlobal1I.flCt |= flCTdTg_tinMainInPool             ; break ; }
-                    case ifcIDtINnAMED_tinVeryEarlyLateMainI     : { processGlobal1I.flCt |= flCTdTg_tinVeryEarlyLateMainI     ; break ; }
-                    case ifcIDtINnAMED_tinVeryVeryEarlyLateMainI : { processGlobal1I.flCt |= flCTdTg_tinVeryVeryEarlyLateMainI ; break ; }
+                    case ifcIDtINnAMED_tinInPoolMain             : { processGlobal2I.flCt |= flCTdTg_tinMainInPool             ; break ; }
+                    case ifcIDtINnAMED_tinVeryEarlyLateMainI     : { processGlobal2I.flCt |= flCTdTg_tinVeryEarlyLateMainI     ; break ; }
+                    case ifcIDtINnAMED_tinVeryVeryEarlyLateMainI : { processGlobal2I.flCt |= flCTdTg_tinVeryVeryEarlyLateMainI ; break ; }
                 {
                 switch( idTinNamed )
     
                 if( pTinF() != this ) { BLAMMO } ;
             {
             if( idTinNamed != ifcIDtINnAMED_tinHeartI && idTinNamed != ifcIDtINnAMED_tinBreakI )
-            TELL( "tinS: setting processGlobal1I.flCt flag and testing pTinF()" )
+            TELL( "tinS: setting processGlobal2I.flCt flag and testing pTinF()" )
         
             TINSL
     
@@ -107,9 +107,9 @@
                 monitor.idDirty ++ ;
         
                 }
-                    thirdC::c_strncpyIF( tinP , processGlobal2I.pLowThread[ monitor.idThread ].postThreadName , postThreadName , sizeof processGlobal2I.pLowThread[ monitor.idThread ].postThreadName ) ;
-                    processGlobal2I.pLowThread[ monitor.idThread ].osTid = osTid ;
-                    if( processGlobal2I.pLowThread[ monitor.idThread ].osTid ) { BLAMMO ; }
+                    thirdC::c_strncpyIF( tinP , processGlobal3I.pLowThread[ monitor.idThread ].postThreadName , postThreadName , sizeof processGlobal3I.pLowThread[ monitor.idThread ].postThreadName ) ;
+                    processGlobal3I.pLowThread[ monitor.idThread ].osTid = osTid ;
+                    if( processGlobal3I.pLowThread[ monitor.idThread ].osTid ) { BLAMMO ; }
                 {
                 if( monitor.idThread <= ClOWtHREADS )
                 
@@ -182,7 +182,7 @@
         
             }
                 idSerial  = ph ? 1 + incv02AM( ph->idSerialLath ) : 0 ;
-                homeS* ph = ( F(processGlobal1I.flCt) & flCTdTg_napHomeI && !( F(processGlobal1I.flDt) & flCTdTg_napHomeI ) ) ? (homeS*)(byteT*)processGlobal3I.napHome : 0 ;
+                homeS* ph = ( F(processGlobal2I.flCt) & flCTdTg_napHomeI && !( F(processGlobal2I.flDt) & flCTdTg_napHomeI ) ) ? (homeS*)(byteT*)processGlobal4I.napHome : 0 ;
             {
             //U::VALIDATE flags...NOTE THAT flags IS NOT VALIDATED. THIS IS BECAUSE I DO NOT HAVE AN POOP TO SET U::CONJ: IT COULD BE VALIDATED NOW THAT I KNOW WHETHER I CAN USE tinP AS MY ELDER)    
         
@@ -310,7 +310,7 @@ cRain( 0 ) ,
 time2( 0 ) ,
 time1( 0 ) ,
 osPid( dosGetInfoBlocksIdProcessIF( tinSelfOrElderP ) ) ,
-osTid( ( putNegAM( fingerprint , FINGERnEG_TINszOMBIE ) , ( this == &processGlobal5I.tinBreak || this == &processGlobal4I.tinHeart ) ? 0 : dosGetInfoBlocksIdThreadIF() ) ) ,
+osTid( ( putNegAM( fingerprint , FINGERnEG_TINszOMBIE ) , ( this == &processGlobal6I.tinBreak || this == &processGlobal5I.tinHeart ) ? 0 : dosGetInfoBlocksIdThreadIF() ) ) ,
 idDesireProcess( 0 ) ,
 idDesire( 0 ) ,
 fingerprint( 0 ) ,
@@ -343,14 +343,14 @@ tally( tinSelfOrElderP ) ,
     idTinNamedP == ifcIDtINnAMED_tinVeryVeryEarlyLateMainI
 (
 top_pTinMainI_
-idTin( 1 + incv02AM( processGlobal1I._tinS_idTinLath ) ) ,
+idTin( 1 + incv02AM( processGlobal2I._tinS_idTinLath ) ) ,
 idSerial( 0 ) ,
 /*1*/tinS::tinS( tinS& tinSelfOrElderP , const countT idLineCtP , const countT idiFileCtP , const byteT* const pbBitsCtP , const countT idThreadP , tinS* const pTinDadP , const osTextT* const postThreadNameP , const flagsT flagsP , const countT idTinNamedP , byteT* const pbTlsP , const countT cbTlsP )/*1*/ :
 
 // "tinSelfOrElderP": USUALLY SO, BUT NOT ALWAYS (AN EXCEPTION TIN WILL BE, YOU GUESSED IT, AN EXCEPTION (S))
 
 //CONJ: THE PRECEDING COMMENT IS OBSOLETE AND NO LONGER TRUE
-// THIS DEFINITION MUST WORK WHEN tinP REFERENCES BYTES THAT ARE ALL SET TO 0 ("tinS. processGlobal3I.tinVeryVeryEarlyLateMain( processGlobal3I.tinVeryVeryEarlyLateMain , TAG( TAGiDnULL ) , flTINs_CONSTRUCTqUIETLY ) ;")
+// THIS DEFINITION MUST WORK WHEN tinP REFERENCES BYTES THAT ARE ALL SET TO 0 ("tinS. processGlobal4I.tinVeryVeryEarlyLateMain( processGlobal4I.tinVeryVeryEarlyLateMain , TAG( TAGiDnULL ) , flTINs_CONSTRUCTqUIETLY ) ;")
 
 /**/
 */

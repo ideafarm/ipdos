@@ -17,10 +17,10 @@
         if( POOP )
         //if( POOP ) dec02AM( tinP.pAdamGlobal1->_thirdC_.cAllOrphanThreads ) ;
 
-        if( !( ++ processGlobal1I.pcPhaseLow[ tinP.monitor.idThread ] ) ) { BLAMMO ; }
+        if( !( ++ processGlobal2I.pcPhaseLow[ tinP.monitor.idThread ] ) ) { BLAMMO ; }
         BOSpOOP
         BOS( WHATgbo , BOSoK , StartServiceCtrlDispatcher( tbl ) )
-        if( !( ++ processGlobal1I.pcPhaseLow[ tinP.monitor.idThread ] ) ) { BLAMMO ; }
+        if( !( ++ processGlobal2I.pcPhaseLow[ tinP.monitor.idThread ] ) ) { BLAMMO ; }
         tinP.pAdamGlobal1->_etherC_.pHdll = phDll = &hDll ;
         handleC hDll( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_DLL ) ; //OPENED BY tmServiceMainF; CANNOT BE CLOSED (FOR UNK REASON) UNTIL AFTER StartServiceCtrlDispatcher RETURNS
 
@@ -28,8 +28,8 @@
         inc02AM( tinP.pAdamGlobal1->_thirdC_.cAllKidThreads ) ;
         //inc02AM( tinP.pAdamGlobal1->_thirdC_.cAllOrphanThreads ) ;
 
-        processGlobal1I.pEtThreadServiceEventHandler = pEtherContainsMe ;
-        processGlobal1I.pTinDadService = &tinP ;
+        processGlobal2I.pEtThreadServiceEventHandler = pEtherContainsMe ;
+        processGlobal2I.pTinDadService = &tinP ;
 
         tbl[ 1 ].lpServiceProc = 0 ;
         tbl[ 1 ].lpServiceName = 0 ;
@@ -38,7 +38,7 @@
         SERVICE_TABLE_ENTRY tbl[ 2 ] ;
     {
     if( !POOP )
-    processGlobal1I._thirdC_flagsModeProcess1 |= flMODEpROCESS1_QUITaTsHUTDOWN ; //I WANT TO SET flMODEpROCESS1_DRIVER BIT AS SOON AS I KNOW THAT I AM THE DRIVER PROCESS
+    processGlobal2I._thirdC_flagsModeProcess1 |= flMODEpROCESS1_QUITaTsHUTDOWN ; //I WANT TO SET flMODEpROCESS1_DRIVER BIT AS SOON AS I KNOW THAT I AM THE DRIVER PROCESS
 
     BOSpOOP
     BOS( WHATgbo , BOSoK , CloseServiceHandle( hsm ) )
@@ -75,7 +75,7 @@
 /*1*/voidT thirdC::osDriverF( tinS& tinP , const osTextT* postNameP )/*1*/
 
 }
-    processGlobal1I.pcPhaseLow[ ifcIDtHREADlOW_tmWindowsOrServiceMainF ] = - 1 ;
+    processGlobal2I.pcPhaseLow[ ifcIDtHREADlOW_tmWindowsOrServiceMainF ] = - 1 ;
     }
         #endif
             tmServiceMainF( (voidT*)&fake ) ;
@@ -83,7 +83,7 @@
             tmServiceMainF( (countT)&fake ) ;
         #if defined( __OS2__ )
 
-        taskS fake( *processGlobal1I.pTinDadService , 0 , 0 , 0 , 0 , 0 , flTHREADlAUNCH_FAKE /* | flTHREADlAUNCH_ORPHAN */ , cHowP , (countT)ppostHowP , (countT)phDll ) ;
+        taskS fake( *processGlobal2I.pTinDadService , 0 , 0 , 0 , 0 , 0 , flTHREADlAUNCH_FAKE /* | flTHREADlAUNCH_ORPHAN */ , cHowP , (countT)ppostHowP , (countT)phDll ) ;
     {
 {
 VOID WINAPI osServiceMainF( DWORD cHowP , LPTSTR* ppostHowP ) // RUNS ON A NEW THREAD CREATED WITHIN StartServiceCtrlDispatcher

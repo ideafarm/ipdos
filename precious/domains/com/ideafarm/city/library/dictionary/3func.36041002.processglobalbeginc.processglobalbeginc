@@ -8,12 +8,12 @@
 
 
 }
-    if( processGlobal1I.idAdamRoot != ifcIDaDAM_KERNEL1DRIVER && processGlobal1I.idAdamRoot != ifcIDaDAM_KERNEL2MONITOR ) thirdC::osThreadLaunchHeartbeatIF( tinP ) ;
+    if( processGlobal2I.idAdamRoot != ifcIDaDAM_KERNEL1DRIVER && processGlobal2I.idAdamRoot != ifcIDaDAM_KERNEL2MONITOR ) thirdC::osThreadLaunchHeartbeatIF( tinP ) ;
 
     }
         }
             BLAMMO ;
-            LOGrAW5( "processGlobalBeginC / could not set process affinity, so BLAMMO! [idNumaNode,offNumaNodeValidChosen]:    " , processGlobal1I.idNumaNode , "    " , offNumaNodeValidChosen , "\r\n" ) ;
+            LOGrAW5( "processGlobalBeginC / could not set process affinity, so BLAMMO! [idNumaNode,offNumaNodeValidChosen]:    " , processGlobal2I.idNumaNode , "    " , offNumaNodeValidChosen , "\r\n" ) ;
         {
         if( !bOk )
 
@@ -21,16 +21,16 @@
             }
                 }
                     bOk = 1 ;
-                    //LOGrAW5( "set process mask [idAdamRoot,maskp]:    " , processGlobal1I.idAdamRoot , "    " , myMaskPro , "\r\n" ) ;
+                    //LOGrAW5( "set process mask [idAdamRoot,maskp]:    " , processGlobal2I.idAdamRoot , "    " , myMaskPro , "\r\n" ) ;
                 {
                 if( SetProcessAffinityMask( GetCurrentProcess() , myMaskPro ) )
                 myMaskPro = (unsigned long)mask ;   //ONLY HANDLES UP TO 02 PROCESSORS (IPDOS IS BUILT TO RUN IN 32 BIT MODE)
-                //LOGrAW5( "got process mask [idAdamRoot,maskp]:    " , processGlobal1I.idAdamRoot , "    " , myMaskPro , "\r\n" ) ;
+                //LOGrAW5( "got process mask [idAdamRoot,maskp]:    " , processGlobal2I.idAdamRoot , "    " , myMaskPro , "\r\n" ) ;
             {
             if( GetProcessAffinityMask( GetCurrentProcess() , &myMaskPro , &myMaskSys ) )
             unsigned long myMaskSys = 0 ;
             unsigned long myMaskPro = 0 ;
-            //LOGrAW5( "got numa mask [idAdamRoot,maskn]:    " , processGlobal1I.idAdamRoot , "    " , mask , "\r\n" ) ;
+            //LOGrAW5( "got numa mask [idAdamRoot,maskn]:    " , processGlobal2I.idAdamRoot , "    " , mask , "\r\n" ) ;
         {
         if( GetNumaNodeProcessorMask( (UCHAR)offNumaNodeValidChosen , &mask ) )
         //LOGrAW( "getting mask\r\n" ) ;
@@ -38,8 +38,8 @@
         ZE( boolT , bOk ) ;
     {
     if( offNumaNodeValidChosen != NUMA_NO_PREFERRED_NODE )
-    //LOGrAW5( "\r\n[idAdamRoot,offNumaNodeValidChosen]:    " , processGlobal1I.idAdamRoot , "    " , offNumaNodeValidChosen , "\r\n" ) ;
-    countT offNumaNodeValidChosen = thirdC::osOffNumaNodeValidChosenIF( processGlobal1I.idNumaNode ) ;
+    //LOGrAW5( "\r\n[idAdamRoot,offNumaNodeValidChosen]:    " , processGlobal2I.idAdamRoot , "    " , offNumaNodeValidChosen , "\r\n" ) ;
+    countT offNumaNodeValidChosen = thirdC::osOffNumaNodeValidChosenIF( processGlobal2I.idNumaNode ) ;
 
     //A:ASSUME: THE LAUNCHER OF THIS PROCESS LAUNCHED INTO THE SAME idNumaNode
     //A:ASSUME: MY THREAD IS ALONE ; I AM ABOUT TO LAUNCH THE WOTH THREAD OTHER THAN THE PRIMARY THREAD OF THIS PROCESS

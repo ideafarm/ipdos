@@ -10,13 +10,13 @@
 }
     return rc ;
 
-    dec02AM( processGlobal1I.cTls ) ;
+    dec02AM( processGlobal2I.cTls ) ;
 
     }
         rc = sf.rc ;
 
         }
-            processGlobal1I.flDt |= flCTdTg_THREADlOCALsTORAGE ;
+            processGlobal2I.flDt |= flCTdTg_THREADlOCALsTORAGE ;
             bTlsEarlyLateIF() = 1 ;
             pTinMainI_IF() = sf.pTin ;
 
@@ -25,7 +25,7 @@
                     }
                         ++ s ; thirdC::dosSleepWinkIF( tinP ) ;
                     {
-                    while( processGlobal1I.cTls > 1 )
+                    while( processGlobal2I.cTls > 1 )
                     sleepC s( tinP , TAG( TAGiDnULL ) ) ;
                 {
                 _IO_
@@ -49,7 +49,7 @@
     
             bTlsEarlyLateIF() = 0 ; if( &pTinF() != &sf.pTin        ) { BLAMMO ; }
                                     if( &pTinF() != &pTinMainI_IF() ) { BLAMMO ; }
-            processGlobal1I.flCt |= flCTdTg_THREADlOCALsTORAGE ;
+            processGlobal2I.flCt |= flCTdTg_THREADlOCALsTORAGE ;
             offFingerVerifyI = ebpAM() - (countT)&sf.fingerVerify ; //MUST BE DONE BEFORE pTinAM OR pTin2AM ARE CALLED ; THIS IS THE OFFSET OF FINGERvERIFY *BELOW* EBP, CALCULATED HERE SO THAT ITS VALUE IS POSITIVE, TO MAKE DEBUGGER DISPLAYS EASIER TO READ
         {
         if( idTypeP == ifcIDtYPEtLS_CONSOLE || idTypeP == ifcIDtYPEtLS_WINDOW || idTypeP == ifcIDtYPEtLS_BENCH )
@@ -59,15 +59,15 @@
 
         tlsStackFrameS sf( idTypeP , postP , cArgP ) ; //CODE SYNC: THE OFFSET OF SOME MEMBERS OF sf FROM [ebp] (THE STACK FRAME) IS HARDCODED IN snip.009*
     {
-    inc02AM( processGlobal1I.cTls ) ;
+    inc02AM( processGlobal2I.cTls ) ;
     ZE( countT , rc ) ;
 
     #endif
         }
             }
-                processGlobal1I.pbMemoryBitsStack[ offByte ] |= mask ;
-                processGlobal1I.pbMemoryBitsAll[   offByte ] |= mask ;
-                if( offByte >= sizeof processGlobal1I.pbMemoryBitsPrivate ) { BLAMMO ; }
+                processGlobal2I.pbMemoryBitsStack[ offByte ] |= mask ;
+                processGlobal2I.pbMemoryBitsAll[   offByte ] |= mask ;
+                if( offByte >= sizeof processGlobal2I.pbMemoryBitsPrivate ) { BLAMMO ; }
                 byteT  mask     = (byteT)( 1 << offBit ) ;
                 countT offBit   = offGrain % SB ;
                 countT offByte  = offGrain / SB ;

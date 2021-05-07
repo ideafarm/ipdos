@@ -23,10 +23,10 @@ DONE( tmServiceMainF )
             //THIS IS ILLEGAL; win32 SILENTLY CRAPS WHEN A SERVICE CALLS HIRE AND/OR FIRE FOR A SERVICE
     
             tinP.flagsThreadMode1 &= ~( F(flTHREADmODE1_DRIVERaDAM) ) ;
-            if( !( ++ processGlobal1I.pcPhaseLow[ tinP.monitor.idThread ] ) ) { BLAMMO ; }
+            if( !( ++ processGlobal2I.pcPhaseLow[ tinP.monitor.idThread ] ) ) { BLAMMO ; }
             TELL( "pMainF has returned" )
             (*pMainF)( &main ) ; //ASSUME: DEFINITION BLOCKS UNTIL QUITTING
-            if( !( ++ processGlobal1I.pcPhaseLow[ tinP.monitor.idThread ] ) ) { BLAMMO ; }
+            if( !( ++ processGlobal2I.pcPhaseLow[ tinP.monitor.idThread ] ) ) { BLAMMO ; }
             tinP.flagsThreadMode1 |= flTHREADmODE1_DRIVERaDAM ;
             TELL( "calling the adam" )
         {
@@ -128,9 +128,9 @@ if( pTaskP && pTaskP->c1 && pTaskP->c2 )
     switch( fdwControl )
     ZE( boolT , bRemoveMyself ) ;
 
-    tinS& tinP = *processGlobal1I.pTinDadService ; //THIS HAS BEEN VERIFIED FOR WINDOWS: I EXECUTE ON THE SAME THREAD THAT CALLED THE DISPATCHER
-    etherC& etThread = *processGlobal1I.pEtThreadServiceEventHandler ;
-    if( !processGlobal1I.pEtThreadServiceEventHandler ) return ;
+    tinS& tinP = *processGlobal2I.pTinDadService ; //THIS HAS BEEN VERIFIED FOR WINDOWS: I EXECUTE ON THE SAME THREAD THAT CALLED THE DISPATCHER
+    etherC& etThread = *processGlobal2I.pEtThreadServiceEventHandler ;
+    if( !processGlobal2I.pEtThreadServiceEventHandler ) return ;
 {
 VOID WINAPI serviceHandlerF( DWORD fdwControl ) // CALLED WITHIN StartServiceCtrlDispatcher; GUARANTEED TO BE ON THREAD 1
 

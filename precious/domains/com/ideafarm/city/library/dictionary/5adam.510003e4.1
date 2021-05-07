@@ -287,7 +287,7 @@ voidT rptLifeF( tinS& tinP , etherC& etThread , stackC& stLifeP )
                                     countT* pcRaceClient1 = pcRaceClient + idFile * 5 ;
                                 {
                                 if( idFile && idFile <= cSourceFilesP )
-                                countT idFile = processGlobal7I.source.idFileRankF( tinP , pcRaceIn1[ 0 ] ) ;
+                                countT idFile = processGlobal8I.source.idFileRankF( tinP , pcRaceIn1[ 0 ] ) ;
                                 countT* pcRaceIn1 = pcRaceIn + idActive * 5 ;
                             {
                             for( countT idActive = 1 ; idActive <= cActive ; idActive ++ )
@@ -475,7 +475,7 @@ voidT rptLifeF( tinS& tinP , etherC& etThread , stackC& stLifeP )
     etThread.strokeF( tinP , T("\r" BLANK79 "\r")+T(psttInShort)+T(" (accumulateInfoF: list the input files)") ) ;
     ZE( strokeS* , pstt1m ) ;
 
-    cSourceFilesP = processGlobal7I.source.cFilesF( tinP ) ;
+    cSourceFilesP = processGlobal8I.source.cFilesF( tinP ) ;
     etThread.strokeF( tinP , T("\r" BLANK79 "\r")+T(psttInShort)+T(" (accumulateInfoF: cSourceFilesP)") ) ;
 
     ep.flagsWatch = etThread.flagsWatch ;
@@ -724,7 +724,7 @@ voidT rptListOfSpeedPagesF( tinS& tinP , etherC& etThread )
 
         etThread.delF( tinP , psttw ) ;
         etThread.strFuseF( tinP , psttLine , T(" ")+T(psttw) ) ; ___( psttLine ) ;
-        etThread.strFromF( tinP , psttw , processGlobal7I.source.idFileImmutableF( tinP , idFile ) , flFORMAT_UNSIGNED | flFORMAT_FILLzE , 7 ) ; ___( psttw ) ;
+        etThread.strFromF( tinP , psttw , processGlobal8I.source.idFileImmutableF( tinP , idFile ) , flFORMAT_UNSIGNED | flFORMAT_FILLzE , 7 ) ; ___( psttw ) ;
 
         etThread.delF( tinP , psttw ) ;
         etThread.strFuseF( tinP , psttLine , T(" ")+T(psttw) ) ; ___( psttLine ) ;
@@ -745,7 +745,7 @@ voidT rptListOfSpeedPagesF( tinS& tinP , etherC& etThread )
         etThread.strFuseF( tinP , psttLine , T(psttw) , 0 , 0 , strokeS() , 0 , 0 , /*U::SOUL?*/ 0x40 + ( (strokeS*)tFileTitle ? ((strokeS*)tFileTitle)->idAdam : 0 ) ) ; ___( psttLine ) ;
         etThread.strFromTimeF( tinP , psttw , pcRace1[ 3 ] , pcRace1[ 4 ] ) ;
 
-        TN( tFileTitle , processGlobal7I.source.postFileTitleF( tinP , idFile ) ) ;
+        TN( tFileTitle , processGlobal8I.source.postFileTitleF( tinP , idFile ) ) ;
 
         if( !pcRace1[ 1 ] ) continue ;
         countT* pcRace1 = pcRaceP + idFile * 5 ;

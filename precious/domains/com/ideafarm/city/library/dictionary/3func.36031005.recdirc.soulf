@@ -21,7 +21,7 @@
         if( psttName )
 
           *(boolT*)pbc = !!psttName             ; pbc += sizeof( boolT   ) ;
-        *(nicNameC*)pbc = nicName                 ; pbc += processGlobal1I.cb_nicNameC_ ;
+        *(nicNameC*)pbc = nicName                 ; pbc += processGlobal2I.cb_nicNameC_ ;
          *(countT*)pbc = cbBlob                 ; pbc += sizeof( countT  ) ;
          *(countT*)pbc = flags                  ; pbc += sizeof( countT  ) ;
          *(countT*)pbc = idPort                 ; pbc += sizeof( countT  ) ;
@@ -31,7 +31,7 @@
     if( pbP )
 
     ether.newF( tinP , LF , pbP , cbs ) ; ___( pbP ) ;
-    countT cbs = sizeof( countT ) * 4 + sizeof( boolT ) + processGlobal1I.cb_nicNameC_ + ( psttName ? sizeof( strokeS ) * ( CSpREFIX + psttName->idAdam ) : 0 ) + cbBlob ;
+    countT cbs = sizeof( countT ) * 4 + sizeof( boolT ) + processGlobal2I.cb_nicNameC_ + ( psttName ? sizeof( strokeS ) * ( CSpREFIX + psttName->idAdam ) : 0 ) + cbBlob ;
 
     }
         if( ether ) return ;

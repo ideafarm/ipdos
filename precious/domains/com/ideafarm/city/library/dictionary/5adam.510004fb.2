@@ -402,13 +402,13 @@ TELL( "cleaning up 0" )
                                                 memorySpace.grab.ungrabF( tinP ) ;
                                                 //etThread.traceF( tinP , T("after  ++++ [swsProcessGlobal3.cFlavors,swsProcessGlobal3] :    ")+TF2(memorySpace.swsProcessGlobal3.cFlavorsF(tinP),flFORMAT_UNSIGNED|flFORMAT_NObIGITvALUES)+tb4+TF2(memorySpace.swsProcessGlobal3,flFORMAT_UNSIGNED|flFORMAT_NObIGITvALUES) ) ;
                                                 //etThread.traceF( tinP , T("swsProcessGlobal3 ++++ [cPlatesNew]:    ")+TF2(memorySpace.swsProcessGlobal3,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
-                                                memorySpace.swsProcessGlobal3.sinkF( tinP , countTC() , (byteT*)&entry , flSTACKsINK_UNIQUE , subtract_processGlobal3EntryS_F ) ;
+                                                memorySpace.swsProcessGlobal3.sinkF( tinP , countTC() , (byteT*)&entry , flSTACKsINK_UNIQUE , subtract_processGlobal4EntryS_F ) ;
                                                 //etThread.traceF( tinP , T("before ++++ [swsProcessGlobal3.cFlavors,swsProcessGlobal3] :    ")+TF2(memorySpace.swsProcessGlobal3.cFlavorsF(tinP),flFORMAT_UNSIGNED|flFORMAT_NObIGITvALUES)+tb4+TF2(memorySpace.swsProcessGlobal3,flFORMAT_UNSIGNED|flFORMAT_NObIGITvALUES) ) ;
                                                 memorySpace.pczLeverAdam = pczLeverAdamMe ;
                                                 countT pczLeverAdamMe[] = { told.idAdamRoot ? told.idAdamRoot : - 1 , told.idAdam ? told.idAdam : - 1 , note.osPid , 0 } ;
                                                 memorySpace.grab.grabF( tinP , TAG( TAGiDnULL ) ) ;
                 
-                                                processGlobal3EntryS entry( tinP , note.osPid , note.pbEarlyGrain , note.cGrains ) ;
+                                                processGlobal4EntryS entry( tinP , note.osPid , note.pbEarlyGrain , note.cGrains ) ;
                                             {
                                             tellInfoSysProcessGlobal1S& note = *(tellInfoSysProcessGlobal1S*)pbNote ;
                                         {
@@ -733,7 +733,7 @@ TELL( "cleaning up 0" )
                                 //}
                                 //    etThread.traceF( tinP , T("telemetry [idType]:    ")+(postSay?T(postSay):TF2(told.idType,flFORMAT_UNSIGNED|flFORMAT_NObIGITvALUES)) ) ;
                                 //    const osTextT* postSay = ps3.mapSay( told.idType ) ;
-                                //    processGlobal3S& ps3 = processGlobal3S::_processGlobal3I_IF() ;
+                                //    processGlobal4S& ps3 = processGlobal4S::_processGlobal4I_IF() ;
                                 //{
                                 //if( bChatter )
                                 //
@@ -771,7 +771,7 @@ TELL( "cleaning up 0" )
                             //    CONoUTrAW( ostoSay ) ;
                             //
                             //    OStEXTAK( ostoSay , "\r\n" ) ;
-                            //    OStEXTA(  ostoSay , processGlobal3S::_processGlobal3I_IF().mapSay( told.idType ) ) ;
+                            //    OStEXTA(  ostoSay , processGlobal4S::_processGlobal4I_IF().mapSay( told.idType ) ) ;
                             //    OStEXTAK( ostoSay , " " ) ;
                             //    OStEXTC(  ostoSay , told.idType , 0 ) ;
                             //    OStEXTAK( ostoSay , " " ) ;
@@ -1190,7 +1190,7 @@ DONE( tmReportF )
                         sRptEvent << (strokeS*)( TF3(total,flFORMAT_UNSIGNED|flFORMAT_NObIGITvALUES,9)+T("total\r\n") ) ;
                         }
                             total += tally ;
-                            sRptEvent << (strokeS*)( TF3(tally,flFORMAT_UNSIGNED|flFORMAT_NObIGITvALUES,9)+T(processGlobal3S::_processGlobal3I_IF().mapSay(idType))+T("\r\n") ) ;
+                            sRptEvent << (strokeS*)( TF3(tally,flFORMAT_UNSIGNED|flFORMAT_NObIGITvALUES,9)+T(processGlobal4S::_processGlobal4I_IF().mapSay(idType))+T("\r\n") ) ;
                             countT tally = pd.swEventTally ;
                             countT idType = pd.cLeverIdType = pd.swEventTally.leverF( tinP , idf ) ;
                         {
@@ -1254,7 +1254,7 @@ DONE( tmReportF )
                                         OStEXTA( ostoRpt , postTitle ) ;
                                     {
                                     if( postTitle )
-                                    const osTextT* postTitle = processGlobal7S::_processGlobal7I_IF().source.postFileTitleF( tinP , processGlobal7S::_processGlobal7I_IF().source.idFileRankF( tinP , idiFile ) ) ;
+                                    const osTextT* postTitle = processGlobal8S::_processGlobal8I_IF().source.postFileTitleF( tinP , processGlobal8S::_processGlobal8I_IF().source.idFileRankF( tinP , idiFile ) ) ;
                                     OStEXTAK( ostoRpt , "    " ) ;
                                     OStEXTCmIN( ostoRpt , idiFile , 7 ) ;
                                     OStEXTAK( ostoRpt , "." ) ;
@@ -1362,16 +1362,16 @@ DONE( tmReportF )
                                                                                     //etRock.traceF( tinP , T("tmReportF a/ 9 / c") ) ; //U:: TO FIND A BUG
                                                                                     }
                                                                                         idAdamRoot = pg1.idAdamRoot ;
-                                                                                        processGlobal1S& pg1 = *(processGlobal1S*)pbCopy ;
+                                                                                        processGlobal2S& pg1 = *(processGlobal2S*)pbCopy ;
                                                                                     {
                                                                                     if( bOk )
-                                                                                    thirdC::dosReadProcessMemoryIF( tinP , pbCopy , sizeof( processGlobal1S ) , bOk , (voidT*)ag1.pProcessGlobal1 , tinCopy.osPid ) ;
+                                                                                    thirdC::dosReadProcessMemoryIF( tinP , pbCopy , sizeof( processGlobal2S ) , bOk , (voidT*)ag1.pProcessGlobal1 , tinCopy.osPid ) ;
                                                                                     ZE( boolT , bOk ) ;
                                                                                     //etRock.traceF( tinP , T("tmReportF a/ 9 / d") ) ; //U:: TO FIND A BUG
                                                                                 {
                                                                                 if( pbCopy )
                                                                                 //etRock.traceF( tinP , T("tmReportF a/ 9 / e") ) ; //U:: TO FIND A BUG
-                                                                                PUSE.newF( tinP , LF , pbCopy , sizeof( processGlobal1S ) ) ; ___( pbCopy ) ;
+                                                                                PUSE.newF( tinP , LF , pbCopy , sizeof( processGlobal2S ) ) ; ___( pbCopy ) ;
                                                                                 ZE( byteT* , pbCopy ) ;
                         
                                                                                 idAdam = ag1.idAdam ;

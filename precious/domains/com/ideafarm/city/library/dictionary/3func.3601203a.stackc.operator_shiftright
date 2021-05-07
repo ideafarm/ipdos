@@ -162,7 +162,7 @@
                                 }
                                     default                           : ccToDo = idType + 2 - ifcSTACKtYPE_PTR_count2S ;
                                     case    ifcSTACKtYPE_timeS        : ccToDo = sizeof( timeS ) / sizeof( countT ) ;
-                                    case    ifcSTACKtYPE_PTR_nicNameC : ccToDo = processGlobal1I.cb_nicNameC_ / sizeof( countT ) ;
+                                    case    ifcSTACKtYPE_PTR_nicNameC : ccToDo = processGlobal2I.cb_nicNameC_ / sizeof( countT ) ;
                                     case    ifcSTACKtYPE_nicNameC     :
                                 {
                                 switch( idType )
@@ -225,7 +225,7 @@
             {
             else if( idType == ifcSTACKtYPE_BLOB )
             else if( idType == ifcSTACKtYPE_timeS                                                                                  ) cbi += cPlates * sizeof( timeS ) ;
-            else if( idType == ifcSTACKtYPE_nicNameC     || idType == ifcSTACKtYPE_PTR_nicNameC                                    ) cbi += cPlates * processGlobal1I.cb_nicNameC_ ;
+            else if( idType == ifcSTACKtYPE_nicNameC     || idType == ifcSTACKtYPE_PTR_nicNameC                                    ) cbi += cPlates * processGlobal2I.cb_nicNameC_ ;
                  if( idType == ifcSTACKtYPE_countT       || idType == ifcSTACKtYPE_sCountT      || idType == ifcSTACKtYPE_measureT ) cbi += cPlates * sizeof( countT ) ;
             countT cbi = 5 * sizeof( countT ) ; //ASSUME: sizeof( flagsT ) == sizeof( countT )
             ZE( byteT* , pbi ) ;

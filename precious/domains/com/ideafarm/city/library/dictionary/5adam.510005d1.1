@@ -392,7 +392,7 @@ sCountT listingInspect_ad5_chatterMaster_CBF( tinS& tinP , aptC& aptP , listWalk
             }
                 dec02AM( cAllThreads ) ; /* MUST BE THE VERY LAST THING THAT THIS THREAD DOES */
                 if( !bFake ) { DEL( pTaskP ) ; } /* MUST BE AS LATE AS POSSIBLE BECAUSE IT GIVES THE SIGN THAT THE THREAD IS DONE.  THE PROCESS MUST SLEEP AFTER RECEIVING THIS SIGN BEFORE ENDING, SO THAT THIS THREAD CAN COMPLETE */
-                if( tinP.monitor.idThread <= ClOWtHREADS ) processGlobal1S::_processGlobal1I_IF().pcPhaseLow[ tinP.monitor.idThread ] = - 1 ;
+                if( tinP.monitor.idThread <= ClOWtHREADS ) processGlobal2S::_processGlobal2I_IF().pcPhaseLow[ tinP.monitor.idThread ] = - 1 ;
                 TELL( "DONE0: i am outa here" )
                 ;
                     : thirdC::os_cAllKidThreadsI_IF( tinP )
@@ -437,7 +437,7 @@ sCountT listingInspect_ad5_chatterMaster_CBF( tinS& tinP , aptC& aptP , listWalk
 
                 }
                     }
-                        if( tinP.monitor.idThread <= ClOWtHREADS && !( ++ processGlobal1S::_processGlobal1I_IF().pcPhaseLow[ tinP.monitor.idThread ] ) ) { BLAMMO ; }
+                        if( tinP.monitor.idThread <= ClOWtHREADS && !( ++ processGlobal2S::_processGlobal2I_IF().pcPhaseLow[ tinP.monitor.idThread ] ) ) { BLAMMO ; }
                         if( tinP.idPhase1 < ifcIDpHASEtHREAD_EPILOGnOkIDS ) tinP.idPhase1 = ifcIDpHASEtHREAD_EPILOGnOkIDS ;
                         }
                             TELL( "DONE0: destroying all adam objects that remain on the thread stack" ) ;
@@ -456,7 +456,7 @@ sCountT listingInspect_ad5_chatterMaster_CBF( tinS& tinP , aptC& aptP , listWalk
                         TELL( "DONE0: after returning from application code" ) ;
                         tinP.idPhase2 = 0 ;
                         if( tinP.idPhase1 < ifcIDpHASEtHREAD_EPILOGkIDS ) tinP.idPhase1 = ifcIDpHASEtHREAD_EPILOGkIDS ;
-                        if( tinP.monitor.idThread <= ClOWtHREADS && !( ++ processGlobal1S::_processGlobal1I_IF().pcPhaseLow[ tinP.monitor.idThread ] ) ) { BLAMMO ; }
+                        if( tinP.monitor.idThread <= ClOWtHREADS && !( ++ processGlobal2S::_processGlobal2I_IF().pcPhaseLow[ tinP.monitor.idThread ] ) ) { BLAMMO ; }
                         TINSL /*THIS IS NEEDED BECAUSE tinP WAS DELETED IF I AM tmWindowsF */
                     {
                     /*DO NOT CLOSE THE CODE BLOCK HERE BECAUSE KID THREADS MIGHT BE USING OBJECTS THAT WOULD DT HERE*/

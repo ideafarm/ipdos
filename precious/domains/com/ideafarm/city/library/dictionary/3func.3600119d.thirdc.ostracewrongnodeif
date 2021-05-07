@@ -43,7 +43,7 @@
                 OStEXTAK( ostoSay , " " ) ;
                 OStEXTCF( ostoSay , osOffNodeWanted , '0' ) ;
                 OStEXTAK( ostoSay , " " ) ;
-                OStEXTCF( ostoSay , processGlobal1I.idNumaNode , '0' ) ;
+                OStEXTCF( ostoSay , processGlobal2I.idNumaNode , '0' ) ;
                 OStEXTAK( ostoSay , " " ) ;
                 OStEXTCF( ostoSay , (countT)pbP , '0' ) ;
                 OStEXTAK( ostoSay , "osTraceWrongNodeIF / warning: memory in another node is being referenced [pbP,idNodeWanted,osOffNodeWanted,osOffNode]: " ) ;
@@ -51,9 +51,9 @@
 #if defined( NEVERdEFINED )
 //DISABLE IN PRODUCTION
             {
-            if( osOffNodeWanted != NUMA_NO_PREFERRED_NODE && processGlobal1I.idNumaNode && info.VirtualAttributes.Valid && info.VirtualAttributes.Node != osOffNodeWanted )
+            if( osOffNodeWanted != NUMA_NO_PREFERRED_NODE && processGlobal2I.idNumaNode && info.VirtualAttributes.Valid && info.VirtualAttributes.Node != osOffNodeWanted )
 
-            countT osOffNodeWanted = osOffNumaNodeValidChosenIF( processGlobal1I.idNumaNode ) ;
+            countT osOffNodeWanted = osOffNumaNodeValidChosenIF( processGlobal2I.idNumaNode ) ;
         {
         if( !POOP )
 

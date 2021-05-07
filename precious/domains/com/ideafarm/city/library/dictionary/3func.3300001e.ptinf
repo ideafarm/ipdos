@@ -23,11 +23,11 @@
             *pcb = 0xbad32000 ; // "bad32000": "bad" <DDNUMB group bigits>
             ZE( countT* , pcb ) ; //CANNOT USE BLAMMO MACRO HERE BECAUSE THAT INVOKES TINSL WHICH INVOKES ME
         {
-        if( osTidMe != processGlobal1I.osTidMain && osTidMe != processGlobal1I.osTidTerminator )
+        if( osTidMe != processGlobal2I.osTidMain && osTidMe != processGlobal2I.osTidTerminator )
         countT osTidMe = dosGetInfoBlocksIdThreadIF() ;
     {
-    //if( F(processGlobal1I._thirdC_flagsProcessState) & flPROCESSsTATE_EXCEPTIONnOThANDLED && bTlsEarlyLateI )
-    if( F(processGlobal1I._thirdC_flagsProcessState) & flPROCESSsTATE_EXCEPTIONnOThANDLED && bTlsEarlyLateIF() )
+    //if( F(processGlobal2I._thirdC_flagsProcessState) & flPROCESSsTATE_EXCEPTIONnOThANDLED && bTlsEarlyLateI )
+    if( F(processGlobal2I._thirdC_flagsProcessState) & flPROCESSsTATE_EXCEPTIONnOThANDLED && bTlsEarlyLateIF() )
 
     //IF YOU DON'T BELIEVE THIS, ENABLE THE CONoUTrAW3 LINE AND RUN A TEST ADAM THAT BLAMMOS AND HAS SYSTEM THREADS
     //THIS IS NEEDED BECAUSE OTHER THREADS CONTINUE TO EXECUTE WHILE THE EXCEPTION HANDLER IS PROCESSING AN EXCEPTION

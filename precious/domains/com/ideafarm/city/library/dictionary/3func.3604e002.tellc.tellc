@@ -34,7 +34,7 @@
         if( bUsePool ) { ___( pbData ) ; }
         }
             ;
-                    : processGlobal3I.heap.newF( tinP , LF , sizeof( tellS ) + cbP )
+                    : processGlobal4I.heap.newF( tinP , LF , sizeof( tellS ) + cbP )
                     ? ( PUSE.newF( tinP , LF , pbFromPool , sizeof( tellS ) + cbP ) , pbFromPool )
                 : bUsePool
                 ? pbZombieP
@@ -61,7 +61,7 @@ bUseZombie( !!pbZombieP ) ,
   if pbZombieP then must be >= sizeof( tellS ) + cbP
   if !pbZombieP then can be 0
  cbZombieP
-  if 0 then *tinP.pPoolUse or processGlobal3I.heap will be used
+  if 0 then *tinP.pPoolUse or processGlobal4I.heap will be used
   for speed, specify bytes on the thread stack if cbP is known at compile time
   can be 0
  pbZombieP

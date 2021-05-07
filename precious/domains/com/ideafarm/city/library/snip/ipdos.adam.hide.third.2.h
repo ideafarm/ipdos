@@ -1758,7 +1758,7 @@ use this rather than _ to avoid the overhead of _
 #define IFsIMULATEoFFLINEpOOP                                                                                           \
                                                                                                                         \
     __NZ( F(tinP.flagsThreadMode3)                     & flTHREADmODE3_SIMULATEoFFLINE  ) ;                             \
-    __NZ( F(processGlobal1I._thirdC_flagsModeProcess1) & flMODEpROCESS1_SIMULATEoFFLINE ) ;
+    __NZ( F(processGlobal2I._thirdC_flagsModeProcess1) & flMODEpROCESS1_SIMULATEoFFLINE ) ;
 
 //
 // Respecting the rights of other people is an important part of empowering one another.
@@ -2154,7 +2154,7 @@ use this rather than _ to avoid the overhead of _
                                                                                                                                                                                                     \
         while( pcc < pce && *pcc )                                                                                                                                                                  \
         {                                                                                                                                                                                           \
-            const osTextT* postzFileTitle = processGlobal7S::_processGlobal7I_IF().source.postFileTitleF( tinP , processGlobal7S::_processGlobal7I_IF().source.idFileRankF( tinP , *pcc ) ) ;       \
+            const osTextT* postzFileTitle = processGlobal8S::_processGlobal8I_IF().source.postFileTitleF( tinP , processGlobal8S::_processGlobal8I_IF().source.idFileRankF( tinP , *pcc ) ) ;       \
                                                                                                                                                                                                     \
             if( postzFileTitle && postP && thirdC::c_strstrIF( tinP , postzFileTitle , postP ) )                                                                                                    \
             {                                                                                                                                                                                       \
@@ -5204,7 +5204,7 @@ examples
                                                                                                                                                                     \
         {                                                                                                                                                           \
             byteT* _pbx = (byteT*)(pbP) ;                                                                                                                           \
-            if( _pbx && ( (byteT*)_pbx < processGlobal0S::_processGlobal0I_IF().pbHeap || (byteT*)_pbx >= processGlobal0S::_processGlobal0I_IF().pbHeapEnd ) )      \
+            if( _pbx && ( (byteT*)_pbx < processGlobal1S::_processGlobal1I_IF().pbHeap || (byteT*)_pbx >= processGlobal1S::_processGlobal1I_IF().pbHeapEnd ) )      \
             {                                                                                                                                                       \
                 dropNoteS* pNote = PUSE.pDropNoteF( tinP , _pbx ) ;                                                                                                 \
                 if( pNote )                                                                                                                                         \
@@ -5283,7 +5283,7 @@ examples
                                                                                                                                                                     \
         {                                                                                                                                                           \
             byteT* _pbx = (byteT*)(pbP) ;                                                                                                                           \
-            if( _pbx && ( (byteT*)_pbx < processGlobal0S::_processGlobal0I_IF().pbHeap || (byteT*)_pbx >= processGlobal0S::_processGlobal0I_IF().pbHeapEnd ) )      \
+            if( _pbx && ( (byteT*)_pbx < processGlobal1S::_processGlobal1I_IF().pbHeap || (byteT*)_pbx >= processGlobal1S::_processGlobal1I_IF().pbHeapEnd ) )      \
             {                                                                                                                                                       \
                 dropNoteS* pNote = PUSE.pDropNoteF( tinP , _pbx ) ;                                                                                                 \
                 if( pNote )                                                                                                                                         \
@@ -5540,7 +5540,7 @@ examples
 
 /*
 normally this should be commented out because it slows execution
-enable it to set bits in processGlobal1S::pbMemoryBits*
+enable it to set bits in processGlobal2S::pbMemoryBits*
 */
 /**/
 /*1*//*SHOWmEMgRAINS*//*1*/
@@ -6851,7 +6851,7 @@ a count8S object contains 8 countT values
 //
 
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.count9S : 1snip.1500003a.count9s END
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.processGlobal0S : 1snip.1500017f.processglobal0s BEGIN
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.processGlobal1S : 1snip.1500017f.processglobal0s BEGIN
 
 
 //
@@ -6865,17 +6865,17 @@ a count8S object contains 8 countT values
 */
 /**/
 
-/*1*/struct _export processGlobal0S/*1*/        //U:: MOST MEMBERS OF processGlobal0S SHOULD BE MIGRATED TO HERE AND THEN ALL OF THE processGlobal?S NAMES SHOULD BE RENUMBERED.  processGlobal0I SHOULD BE CONSTRUCTED AS EARLY AS POSSIBLE
+/*1*/struct _export processGlobal1S/*1*/        //U:: MOST MEMBERS OF processGlobal1S SHOULD BE MIGRATED TO HERE AND THEN ALL OF THE processGlobal?S NAMES SHOULD BE RENUMBERED.  processGlobal1I SHOULD BE CONSTRUCTED AS EARLY AS POSSIBLE
 {
-    const byteT*                    pbHeap ;                    // THIS IS AN OPTIMIZATION BUT MAINLY HERE BECAUSE ___ INSPECTS THESE VALUES BEFORE processGlobal3S::heap IS CT
-    const byteT*                    pbHeapEnd ;                 // THIS IS AN OPTIMIZATION BUT MAINLY HERE BECAUSE ___ INSPECTS THESE VALUES BEFORE processGlobal3S::heap IS CT
+    const byteT*                    pbHeap ;                    // THIS IS AN OPTIMIZATION BUT MAINLY HERE BECAUSE ___ INSPECTS THESE VALUES BEFORE processGlobal4S::heap IS CT
+    const byteT*                    pbHeapEnd ;                 // THIS IS AN OPTIMIZATION BUT MAINLY HERE BECAUSE ___ INSPECTS THESE VALUES BEFORE processGlobal4S::heap IS CT
     
-    ~processGlobal0S( voidT ) ;
+    ~processGlobal1S( voidT ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.36142002.processglobal0s.dt_processglobal0s!||
-    processGlobal0S( voidT ) ;
+    processGlobal1S( voidT ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.36142003.processglobal0s.processglobal0s!||
 
-    static processGlobal0S& _processGlobal0I_IF( voidT ) ;
+    static processGlobal1S& _processGlobal1I_IF( voidT ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.35142004.processglobal0s._processglobal0i_if!||
 }
 ;
@@ -6888,7 +6888,7 @@ a count8S object contains 8 countT values
 // Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
 
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.processGlobal0S : 1snip.1500017f.processglobal0s END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.processGlobal1S : 1snip.1500017f.processglobal0s END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.14*.* : 1snip.14000001.mainft BEGIN
 
 
@@ -18762,7 +18762,7 @@ it is illegal to refer to this symbol anywhere except in napkinC definitions
  voidT ungrabF( tinS& tinP ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34005.grabMemorySpaceC.ungrabF!||
 
- friend class processGlobal3S ;
+ friend class processGlobal4S ;
  friend class napkinC ;
 }
 ;
@@ -19419,7 +19419,7 @@ it is illegal to refer to this symbol anywhere except in napkinC definitions
 /*
 */
 /**/
-/*1*/extern processGlobal1S processGlobal1I ;/*1*/
+/*1*/extern processGlobal2S processGlobal2I ;/*1*/
 
 
 //
@@ -19491,7 +19491,7 @@ it is illegal to refer to this symbol anywhere except in napkinC definitions
 /*
 */
 /**/
-/*1*/extern processGlobal2S processGlobal2I ;/*1*/
+/*1*/extern processGlobal3S processGlobal3I ;/*1*/
 
 
 //
@@ -19539,7 +19539,7 @@ it is illegal to refer to this symbol anywhere except in napkinC definitions
 /*
 */
 /**/
-/*1*/extern processGlobal3S processGlobal3I ;/*1*/
+/*1*/extern processGlobal4S processGlobal4I ;/*1*/
 
 
 //
@@ -19563,7 +19563,7 @@ it is illegal to refer to this symbol anywhere except in napkinC definitions
 /*
 */
 /**/
-/*1*/extern processGlobal4S processGlobal4I ;/*1*/
+/*1*/extern processGlobal5S processGlobal5I ;/*1*/
 
 
 //
@@ -19587,7 +19587,7 @@ it is illegal to refer to this symbol anywhere except in napkinC definitions
 /*
 */
 /**/
-/*1*/extern processGlobal5S processGlobal5I ;/*1*/
+/*1*/extern processGlobal6S processGlobal6I ;/*1*/
 
 
 //
@@ -19611,7 +19611,7 @@ it is illegal to refer to this symbol anywhere except in napkinC definitions
 /*
 */
 /**/
-/*1*/extern processGlobal6S processGlobal6I ;/*1*/
+/*1*/extern processGlobal7S processGlobal7I ;/*1*/
 
 
 //
@@ -19707,7 +19707,7 @@ it is illegal to refer to this symbol anywhere except in napkinC definitions
 /*
 */
 /**/
-/*1*/extern processGlobal7S processGlobal7I ;/*1*/
+/*1*/extern processGlobal8S processGlobal8I ;/*1*/
 
 
 //
@@ -19779,7 +19779,7 @@ it is illegal to refer to this symbol anywhere except in napkinC definitions
 /*
 */
 /**/
-/*1*/extern processGlobal0S processGlobal0I ;/*1*/
+/*1*/extern processGlobal1S processGlobal1I ;/*1*/
 
 
 //
@@ -27861,7 +27861,7 @@ it is illegal to modify any member other than pc Utility in the definition of an
  countT                  cSpins4 ;
  bookMarkS               pBookMark[ CbOOKmARK ] ;    // USED BY pageC TO REGISTER A PENDING SMART POINTER ; INCREASE THE NUMBER
 
- //ASSUME: FIELDS BEFORE HERE CAN BE COPIED AND RESET (SEE THE CT/DT OF processGlobal4I.tinVeryEarlyLateMain AND THE MAIN THREAD'S tinS, IN POOLoLD)
+ //ASSUME: FIELDS BEFORE HERE CAN BE COPIED AND RESET (SEE THE CT/DT OF processGlobal5I.tinVeryEarlyLateMain AND THE MAIN THREAD'S tinS, IN POOLoLD)
  /* suffix begin (not sloshed (copied) from tinS to tinS) */
 
  jotC*                   ppJot[ CsLOTSjOTrEGISTRY ] ;        /*J*/      // THIS IS HERE SO THAT flTHREADlAUNCH_INHERITjOTrEGISTRATIONS CAN BE SUPPORTED
@@ -28123,7 +28123,7 @@ it is illegal to modify any member other than pc Utility in the definition of an
 //CODE SYNCH: 003007f 1750003
 //0030086 003007F: fingerVerify finger ebp/pTin MUST LOCATE AT THE SAME OFFSET IN THE STACK FRAME
 
-//I AM USED ON THE main THREAD, WHICH USES processGlobal1I.pbTlsMain
+//I AM USED ON THE main THREAD, WHICH USES processGlobal2I.pbTlsMain
 //U::RENAME ME TO tlsStackFrameMainS
 
 //CODEsYNCH: 00300a7 003007f
@@ -40087,7 +40087,7 @@ it is illegal to refer to this symbol in the definition of an adam
 //
 
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.fireGroupS : 1snip.15000114.firegroups END
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.processGlobal1S : 1snip.150000c2.processglobal1s BEGIN
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.processGlobal2S : 1snip.150000c2.processglobal1s BEGIN
 
 //
 // Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
@@ -40102,7 +40102,7 @@ it is illegal to refer to this symbol in the definition of an adam
 
 //ALL PROCESS GLOBALS ARE HERE EXCEPT THOSE THAT REQUIRE MEMBERS OF rootAdamGlobal1I
 
-/*1*/struct _export processGlobal1S/*1*/
+/*1*/struct _export processGlobal2S/*1*/
 {
     static const osTextT* const     _handleC_postOldClassName ;
     static countT                   pcPrime[] ;
@@ -40232,20 +40232,20 @@ it is illegal to refer to this symbol in the definition of an adam
 
         #endif
 
-        ~processGlobal1S( voidT ) ;
-        //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34001.processGlobal1S.processGlobal1S!||
+        ~processGlobal2S( voidT ) ;
+        //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34001.processGlobal2S.processGlobal2S!||
 
     #else
 
-        virtual ~processGlobal1S( voidT ) = 0 ;
+        virtual ~processGlobal2S( voidT ) = 0 ;
 
     #endif
     
-    processGlobal1S( voidT ) ;
-    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34001.processGlobal1S.processGlobal1S!||
+    processGlobal2S( voidT ) ;
+    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34001.processGlobal2S.processGlobal2S!||
 
-    static processGlobal1S& _processGlobal1I_IF( voidT ) ;
-    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34002.processGlobal1S._processGlobal1I_IF!||
+    static processGlobal2S& _processGlobal2I_IF( voidT ) ;
+    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34002.processGlobal2S._processGlobal2I_IF!||
 }
 ;
 
@@ -40257,8 +40257,8 @@ it is illegal to refer to this symbol in the definition of an adam
 // Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
 
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.processGlobal1S : 1snip.150000c2.processglobal1s END
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.processGlobal2S : 1snip.150000c3.processglobal2s BEGIN
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.processGlobal2S : 1snip.150000c2.processglobal1s END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.processGlobal3S : 1snip.150000c3.processglobal2s BEGIN
 
 
 //
@@ -40276,17 +40276,17 @@ it is illegal to refer to this symbol in the definition of an adam
 
 // CT:nn DOCUMENTS THE CONSTRUCTION ORDERING BEFORE THESE OBJECTS WERE MIGRATED OUT OF 0glo*
 // THIS INFO CAN BE USED TO ANALYZE BUGS THAT MIGHT BE RELATED TO THE ORDER OF CONSTRUCTION
-// THE ORDER OF CONSTRUCTION CHANGED, FOR CODING CONVENIENCE ONLY, WHEN SOME OF THESE OBJECTS WERE MIGRATED FROM processGlobal2S to adamGlobal2S
+// THE ORDER OF CONSTRUCTION CHANGED, FOR CODING CONVENIENCE ONLY, WHEN SOME OF THESE OBJECTS WERE MIGRATED FROM processGlobal3S to adamGlobal2S
 
-/*1*/struct _export processGlobal2S/*1*/
+/*1*/struct _export processGlobal3S/*1*/
 {
     //pauseC                /*P2*/ /*CT:00*/ pause ; //REMOVE IN PRODUCTION
     lowThreadS              /*P2*/ /*CT:10*/ pLowThread[ 1 + ClOWtHREADS ] ;
 
-    processGlobal2S( voidT ) ;
-    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34001.processGlobal2S.processGlobal2S!||
-    static processGlobal2S& _processGlobal2I_IF( voidT ) ;
-    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34002.processGlobal2S._processGlobal2I_IF!||
+    processGlobal3S( voidT ) ;
+    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34001.processGlobal3S.processGlobal3S!||
+    static processGlobal3S& _processGlobal3I_IF( voidT ) ;
+    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34002.processGlobal3S._processGlobal3I_IF!||
 }
 ;
 
@@ -40298,7 +40298,7 @@ it is illegal to refer to this symbol in the definition of an adam
 // Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
 
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.processGlobal2S : 1snip.150000c3.processglobal2s END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.processGlobal3S : 1snip.150000c3.processglobal2s END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.adamGlobal1S : 1snip.150000bf.adamglobal1s BEGIN
 
 
@@ -40348,13 +40348,13 @@ it is illegal to refer to this symbol in the definition of an adam
     byteT                       pbzpap[ sizeof( poolC ) ] ;
     byteT                       pbzphp[ sizeof( poolC ) ] ;
 
-    processGlobal1S* const       pProcessGlobal1 ; //THESE ARE HERE FOR SPEED AND ALSO FOR THE CONVENIENCE OF THE MONITOR
-    processGlobal2S* const       pProcessGlobal2 ;
-    processGlobal3S* const       pProcessGlobal3 ;
-    processGlobal4S* const       pProcessGlobal4 ;
-    processGlobal5S* const       pProcessGlobal5 ;
-    processGlobal6S* const       pProcessGlobal6 ;
-    processGlobal7S* const       pProcessGlobal7 ;
+    processGlobal2S* const       pProcessGlobal1 ; //THESE ARE HERE FOR SPEED AND ALSO FOR THE CONVENIENCE OF THE MONITOR
+    processGlobal3S* const       pProcessGlobal2 ;
+    processGlobal4S* const       pProcessGlobal3 ;
+    processGlobal5S* const       pProcessGlobal4 ;
+    processGlobal6S* const       pProcessGlobal5 ;
+    processGlobal7S* const       pProcessGlobal6 ;
+    processGlobal8S* const       pProcessGlobal7 ;
 
     adamC*                      _adamC_pAdam ;
     countT                      cYieldHighWater ;
@@ -40568,7 +40568,7 @@ it is illegal to refer to this symbol in the definition of an adam
 //
 
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.doC : 1snip.15000115.doc END
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.processGlobal3S : 1snip.150000e2.processglobal3s BEGIN
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.processGlobal4S : 1snip.150000e2.processglobal3s BEGIN
 
 
 //
@@ -40582,7 +40582,7 @@ it is illegal to refer to this symbol in the definition of an adam
 */
 /**/
 
-/*1*/struct _export processGlobal3S/*1*/
+/*1*/struct _export processGlobal4S/*1*/
 {
     static const mapCTS pMap1[] ;
     static const mapCTS pMap2[] ;
@@ -40749,11 +40749,11 @@ it is illegal to refer to this symbol in the definition of an adam
     mapCTC                                   mapIdPhaseProcess  ;
     cryC                                     cry325 ;
 
-    ~processGlobal3S( voidT ) ;
+    ~processGlobal4S( voidT ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.360cc002.processglobal3s.dt_processglobal3s!||
-    processGlobal3S( voidT ) ;
+    processGlobal4S( voidT ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.360cc003.processglobal3s.processglobal3s!||
-    static processGlobal3S& _processGlobal3I_IF( voidT ) ;
+    static processGlobal4S& _processGlobal4I_IF( voidT ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.350cc004.processglobal3s._processglobal3i_if!||
 }
 ;
@@ -40766,50 +40766,8 @@ it is illegal to refer to this symbol in the definition of an adam
 // Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
 
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.processGlobal3S : 1snip.150000e2.processglobal3s END
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.processGlobal4S : 1snip.150000e3.processglobal4s BEGIN
-
-
-//
-// Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 29 years.
-// Respecting the rights of other people is an important part of empowering one another.
-//
-
-/*
-*/
-/**/
-
-/*1*/struct _export processGlobal4S/*1*/
-{
-    tinS                    /*P4*/ /*CT:12*/ tinHeart ; // USED BY tmHeartF, A RAW THREAD
-    processGlobalBeginC     /*P4*/ /*CT:22*/ processGloBegin ;
-    tinS                    /*P4*/ /*CT:32*/ tinVeryEarlyLateMain ;  // MUST BE CT AFTER tinP.pAdamGlobal1->pPoolHomeTemp AND BEFORE ANY GLOBALS THAT USE IT SUCH AS A grabC OBJECT
-    ranUniC                 /*P4*/ /*CT:42*/ _thugC_ru ;
-    batonC                                   bMemorySpace ;
-    napkinC                                  _marketC_napGoodRegistry ;
-    batonC                  /*P4*/ /*CT:62*/ _thirdC_bBeep ;
-    batonC                  /*P4*/ /*CT:92*/ _etherC_bLog ;
-    grabC                                    _poolC_grab_pPool ;
-
-    processGlobal4S( tinS& tinP ) ;
-    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34001.processGlobal4S.processGlobal4S!||
-    static processGlobal4S& _processGlobal4I_IF( voidT ) ;
-    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34002.processGlobal4S._processGlobal4I_IF!||
-}
-;
-
-
-//
-// Respecting the rights of other people is an important part of empowering one another.
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 29 years.
-//
-// Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.processGlobal4S : 1snip.150000e3.processglobal4s END
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.processGlobal5S : 1snip.150000e4.processglobal5s BEGIN
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.processGlobal4S : 1snip.150000e2.processglobal3s END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.processGlobal5S : 1snip.150000e3.processglobal4s BEGIN
 
 
 //
@@ -40825,9 +40783,17 @@ it is illegal to refer to this symbol in the definition of an adam
 
 /*1*/struct _export processGlobal5S/*1*/
 {
-    tinS                    /*P5*/ /*CT:03*/ tinBreak ; // USED BY exceptionHandlerDefaultF
+    tinS                    /*P4*/ /*CT:12*/ tinHeart ; // USED BY tmHeartF, A RAW THREAD
+    processGlobalBeginC     /*P4*/ /*CT:22*/ processGloBegin ;
+    tinS                    /*P4*/ /*CT:32*/ tinVeryEarlyLateMain ;  // MUST BE CT AFTER tinP.pAdamGlobal1->pPoolHomeTemp AND BEFORE ANY GLOBALS THAT USE IT SUCH AS A grabC OBJECT
+    ranUniC                 /*P4*/ /*CT:42*/ _thugC_ru ;
+    batonC                                   bMemorySpace ;
+    napkinC                                  _marketC_napGoodRegistry ;
+    batonC                  /*P4*/ /*CT:62*/ _thirdC_bBeep ;
+    batonC                  /*P4*/ /*CT:92*/ _etherC_bLog ;
+    grabC                                    _poolC_grab_pPool ;
 
-    processGlobal5S( voidT ) ;
+    processGlobal5S( tinS& tinP ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34001.processGlobal5S.processGlobal5S!||
     static processGlobal5S& _processGlobal5I_IF( voidT ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34002.processGlobal5S._processGlobal5I_IF!||
@@ -40842,8 +40808,8 @@ it is illegal to refer to this symbol in the definition of an adam
 // Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
 
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.processGlobal5S : 1snip.150000e4.processglobal5s END
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.processGlobal6S : 1snip.150000e5.processglobal6s BEGIN
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.processGlobal5S : 1snip.150000e3.processglobal4s END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.processGlobal6S : 1snip.150000e4.processglobal5s BEGIN
 
 
 //
@@ -40859,9 +40825,7 @@ it is illegal to refer to this symbol in the definition of an adam
 
 /*1*/struct _export processGlobal6S/*1*/
 {
-    napkinC                 /*P6*/ /*CT:63*/ napWord1 ; //CS:CODEsYNC: 0030100 0030100 1dd0003
-    napkinC                 /*P6*/ /*CT:73*/ napWord2 ; //CS:CODEsYNC: 0030100 0030100 1dd0003
-    napkinC*                /*P6*/ /*CT:83*/ ppNapWord[ 3 ] ; //CS:CODEsYNC: 0030100 0030100 1dd0003
+    tinS                    /*P5*/ /*CT:03*/ tinBreak ; // USED BY exceptionHandlerDefaultF
 
     processGlobal6S( voidT ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34001.processGlobal6S.processGlobal6S!||
@@ -40878,8 +40842,8 @@ it is illegal to refer to this symbol in the definition of an adam
 // Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
 
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.processGlobal6S : 1snip.150000e5.processglobal6s END
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.processGlobal7S : 1snip.150000e6.processglobal7s BEGIN
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.processGlobal6S : 1snip.150000e4.processglobal5s END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.processGlobal7S : 1snip.150000e5.processglobal6s BEGIN
 
 
 //
@@ -40895,10 +40859,9 @@ it is illegal to refer to this symbol in the definition of an adam
 
 /*1*/struct _export processGlobal7S/*1*/
 {
-    sourceC                 /*P7*/ /*CT:b3*/ source ; //U::CONSTRUCT THIS EARLIER SO THAT IT CAN BE USED EARLIER; IT IS HERE ONLY FOR LAZY REASONS, TO REDUCE THE SCOPE OF THE CURRENT CODE EDITING JOB
-    napkinC                                            _socketC_napIpMapHome ;
-    napkinC                                            _sexC_napGlobalRegistry ;
-    processGlobalEndC                 /*P7*/ /*CT:a3*/ processGloEnd ;
+    napkinC                 /*P6*/ /*CT:63*/ napWord1 ; //CS:CODEsYNC: 0030100 0030100 1dd0003
+    napkinC                 /*P6*/ /*CT:73*/ napWord2 ; //CS:CODEsYNC: 0030100 0030100 1dd0003
+    napkinC*                /*P6*/ /*CT:83*/ ppNapWord[ 3 ] ; //CS:CODEsYNC: 0030100 0030100 1dd0003
 
     processGlobal7S( voidT ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34001.processGlobal7S.processGlobal7S!||
@@ -40915,7 +40878,44 @@ it is illegal to refer to this symbol in the definition of an adam
 // Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
 
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.processGlobal7S : 1snip.150000e6.processglobal7s END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.processGlobal7S : 1snip.150000e5.processglobal6s END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.processGlobal8S : 1snip.150000e6.processglobal7s BEGIN
+
+
+//
+// Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 29 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+/*
+*/
+/**/
+
+/*1*/struct _export processGlobal8S/*1*/
+{
+    sourceC                 /*P7*/ /*CT:b3*/ source ; //U::CONSTRUCT THIS EARLIER SO THAT IT CAN BE USED EARLIER; IT IS HERE ONLY FOR LAZY REASONS, TO REDUCE THE SCOPE OF THE CURRENT CODE EDITING JOB
+    napkinC                                            _socketC_napIpMapHome ;
+    napkinC                                            _sexC_napGlobalRegistry ;
+    processGlobalEndC                 /*P7*/ /*CT:a3*/ processGloEnd ;
+
+    processGlobal8S( voidT ) ;
+    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34001.processGlobal8S.processGlobal8S!||
+    static processGlobal8S& _processGlobal8I_IF( voidT ) ;
+    //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34002.processGlobal8S._processGlobal8I_IF!||
+}
+;
+
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 29 years.
+//
+// Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.processGlobal8S : 1snip.150000e6.processglobal7s END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.adamGlobal2S : 1snip.150000c4.adamglobal2s BEGIN
 
 
@@ -43547,8 +43547,8 @@ associates can be heterogeneous (not all of the same derived class)
     voidT invalidateF( tinS& tinP ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.36009.displayC.invalidateF!||
 
-    inline static displayArgS* pStuffIF(   voidT ) { return !processGlobal1S::_processGlobal1I_IF()._displayC_pDisplay ? 0 : &processGlobal1S::_processGlobal1I_IF()._displayC_pDisplay->stuff ; }
-    inline static displayC*    pDisplayIF( voidT ) { return  processGlobal1S::_processGlobal1I_IF()._displayC_pDisplay ; }
+    inline static displayArgS* pStuffIF(   voidT ) { return !processGlobal2S::_processGlobal2I_IF()._displayC_pDisplay ? 0 : &processGlobal2S::_processGlobal2I_IF()._displayC_pDisplay->stuff ; }
+    inline static displayC*    pDisplayIF( voidT ) { return  processGlobal2S::_processGlobal2I_IF()._displayC_pDisplay ; }
     inline operator const handleC&( voidT ) const { return hWindow ; }
     inline operator       handleC&( voidT ) const { BLAMMO ; return hWindow ; } // WITHOUT THIS LINE, THE COMPILER WILL TREAT (handleC&)*this AS SIMPLY A CAST
 

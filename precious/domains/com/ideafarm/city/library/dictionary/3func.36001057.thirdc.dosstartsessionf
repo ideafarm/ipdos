@@ -80,11 +80,11 @@
 
                         }
                             c_strcatIF( tinP , postAll , ostoSay ) ;
-                            OStEXTC(  ostoSay , processGlobal1I.idNumaNode , 0 ) ;
+                            OStEXTC(  ostoSay , processGlobal2I.idNumaNode , 0 ) ;
                             OStEXTAK( ostoSay , " !idNumaNode " ) ;
                             OStEXT(   ostoSay , TUCK << 2 ) ;
                         {
-                        if( processGlobal1I.idNumaNode && c_strstrIF( tinP , postExeP , "\\ideafarm." ) && ( c_strstrIF( tinP , postExeP , ".ipdos-we" ) || c_strstrIF( tinP , postExeP , ".ipdos-we" ) ) )
+                        if( processGlobal2I.idNumaNode && c_strstrIF( tinP , postExeP , "\\ideafarm." ) && ( c_strstrIF( tinP , postExeP , ".ipdos-we" ) || c_strstrIF( tinP , postExeP , ".ipdos-we" ) ) )
                         c_strcatIF( tinP , postAll , postArgsP ) ;
                         c_strcatIF( tinP , postAll , " " ) ;            //U::postExeP SHOULD BE PASSED AS WOTH PARAM TO CreateProcess TO AVOID SECURITY VULNERABILITY; SEE DOC FOR CreateProcess; THE ISSUE ARISES WHEN postExe CONTAINS A PATH THAT CONTAINS A SPACE, WHICH WILL CAUSE INCORRECTD PARSING
                         c_strcpyIF( tinP , postAll , postExeP ) ;
@@ -145,7 +145,7 @@
                         bOk = 0 ;
                     {
                     if( offNumaNodeValidChosen != NUMA_NO_PREFERRED_NODE )
-                    countT offNumaNodeValidChosen = thirdC::osOffNumaNodeValidChosenIF( processGlobal1I.idNumaNode ) ;
+                    countT offNumaNodeValidChosen = thirdC::osOffNumaNodeValidChosenIF( processGlobal2I.idNumaNode ) ;
                     boolT bOk = 1 ;
                 {
                 if( InitializeProcThreadAttributeList( (_PROC_THREAD_ATTRIBUTE_LIST*)pcInfo2 , 1 , 0 , &cba ) )

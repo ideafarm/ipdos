@@ -58,9 +58,9 @@
     
             }
                 }
-                    inc02AM( home.pFireAll[ processGlobal1I.pFireGroup[ offg ].idGroup - 1 ].cHeartBeats ) ;
+                    inc02AM( home.pFireAll[ processGlobal2I.pFireGroup[ offg ].idGroup - 1 ].cHeartBeats ) ;
                 {
-                if( processGlobal1I.pFireGroup[ offg ].idAdam && processGlobal1I.pFireGroup[ offg ].idGroup && processGlobal1I.pFireGroup[ offg ].idGroup < CfIREaLLrANKS )
+                if( processGlobal2I.pFireGroup[ offg ].idAdam && processGlobal2I.pFireGroup[ offg ].idGroup && processGlobal2I.pFireGroup[ offg ].idGroup < CfIREaLLrANKS )
             {
             for( countT offg = 0 ; offg < CfIREgROUPS ; offg ++ )
             TELL( "working" )
@@ -70,7 +70,7 @@
         sleepC s( tinP , LF , (byteT*)0 ) ; //MUST NOT EVER BE DESTROYED, SINCE THAT WOULD INVOKE TINSL
 
         homeS& home = homeS::homeIF() ;
-        if( !( ++ processGlobal1I.pcPhaseLow[ tinP.monitor.idThread ] ) ) { BLAMMO ; }
+        if( !( ++ processGlobal2I.pcPhaseLow[ tinP.monitor.idThread ] ) ) { BLAMMO ; }
 
         POOPIES
     {
@@ -78,14 +78,14 @@
     _IO_
     TELL( "setting up" )
     if( tinP.monitor.idThread - ifcIDtHREADlOW_tmHeartF ) { BLAMMO ; }
-    if( !( ++ processGlobal1I.pcPhaseLow[ tinP.monitor.idThread ] ) ) { BLAMMO ; }
-    processGlobal4I.tinHeart.osPid = _brcRaw ;
+    if( !( ++ processGlobal2I.pcPhaseLow[ tinP.monitor.idThread ] ) ) { BLAMMO ; }
+    processGlobal5I.tinHeart.osPid = _brcRaw ;
     BOSnOtIN( GetCurrentProcessId() )
-    processGlobal4I.tinHeart.osTid = _brcRaw ;
+    processGlobal5I.tinHeart.osTid = _brcRaw ;
     BOSnOtIN( GetCurrentThreadId() )
     thirdC::osTraceWrongNodeIF( tinP , (byteT*)&_brcRaw , "tmHeartF: _brcRaw" ) ;
     ZE( countT , _brcRaw ) ;
-    tinS& tinP = processGlobal4I.tinHeart ;
+    tinS& tinP = processGlobal5I.tinHeart ;
 
     //TINSL MUST NOT BE USED ANYWHERE ON THIS THREAD; THAT WOULD REFERENCE THE tinS FOR THREAD main (SINCE I EXIST EARLY AND LATE)
 {

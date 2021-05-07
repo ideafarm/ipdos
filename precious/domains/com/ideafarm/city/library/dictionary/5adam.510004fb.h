@@ -22,7 +22,7 @@ TASK0PROTO( tmcMonitorServerF ) ;
 boolT reportGrabF( tinS& tinP , soulC& sRptP , const strokeS* const psttPrefixP , const countT* const pcPanLifiP , const countT osPidP = 0 ) ;
 countT subtract_tinEntryS_F( tinS& tinP , countT& pEther , countT& c1P , countT& c2P , countT& c3P ) ;
 countT subtract_sexEntryS_F( tinS& tinP , countT& pEther , countT& c1P , countT& c2P , countT& c3P ) ;
-countT subtract_processGlobal3EntryS_F( tinS& tinP , countT& pEther , countT& c1P , countT& c2P , countT& c3P ) ;
+countT subtract_processGlobal4EntryS_F( tinS& tinP , countT& pEther , countT& c1P , countT& c2P , countT& c3P ) ;
 countT subtract_napkinEntryS_F( tinS& tinP , countT& pEther , countT& c1P , countT& c2P , countT& c3P ) ;
 voidT buildRemovalUtilityF( tinS& tinP , etherC& etThread ) ;
 voidT unregisterObsoleteDriversF( tinS& tinP , etherC& etThread , const countT idAdamP ) ;
@@ -73,13 +73,13 @@ struct sexEntryS
 
 ;
 }
-    processGlobal3EntryS( tinS& tinP , const countT osPidP , const byteT* const pbEarlyGrainP , const countT cGrainsP ) ;
+    processGlobal4EntryS( tinS& tinP , const countT osPidP , const byteT* const pbEarlyGrainP , const countT cGrainsP ) ;
 
     countT       cGrains ;
     const byteT* pbEarlyGrain ;
     countT       osPid ;
 {
-struct processGlobal3EntryS
+struct processGlobal4EntryS
 
 ;
 }

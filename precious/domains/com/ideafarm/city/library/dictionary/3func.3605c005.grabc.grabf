@@ -84,17 +84,17 @@
                         if( idGrabberOk != idGrabberMe ) { tinP.pcUtility[ 0xf ] = idGrabberOk ; tinP.pcUtility[ 0xe ] = idGrabberMe ; BLAMMO ; }
                         stat.cCollisionsNew = 0 ; //U:MIGHT OVERWRITE A FEW COLLISIONS THAT SHOULD BE COUNTED AS NEW (I.E. SINCE INCREMENTING idGrabberOk)
             
-                        processGlobal1I._grabC_pgw[ ogw ].osTid = 0 ; //MUST BE ZEED LATH; NOTE THAT bDirty IS NOT RESET
-                        processGlobal1I._grabC_pgw[ ogw ].osPid = 0 ;
-                        processGlobal1I._grabC_pgw[ ogw ].idGrabber = 0 ;
-                        processGlobal1I._grabC_pgw[ ogw ].idGrab = 0 ;
+                        processGlobal2I._grabC_pgw[ ogw ].osTid = 0 ; //MUST BE ZEED LATH; NOTE THAT bDirty IS NOT RESET
+                        processGlobal2I._grabC_pgw[ ogw ].osPid = 0 ;
+                        processGlobal2I._grabC_pgw[ ogw ].idGrabber = 0 ;
+                        processGlobal2I._grabC_pgw[ ogw ].idGrab = 0 ;
                         }
-                            processGlobal1I._grabC_pgw[ ogw ].hThread.closeIfF() ;
+                            processGlobal2I._grabC_pgw[ ogw ].hThread.closeIfF() ;
                             _IO_
                         {
-                        processGlobal1I._grabC_pgw[ ogw ].idThread = 0 ;
-                        processGlobal1I._grabC_pgw[ ogw ].flags = 0 ;
-                        processGlobal1I._grabC_pgw[ ogw ].bDirty = 1 ;
+                        processGlobal2I._grabC_pgw[ ogw ].idThread = 0 ;
+                        processGlobal2I._grabC_pgw[ ogw ].flags = 0 ;
+                        processGlobal2I._grabC_pgw[ ogw ].bDirty = 1 ;
         
                         }
                             thirdC::dosWriteStdOutIF( ostoBuf ) ;
@@ -105,7 +105,7 @@
                             OStEXTA( ostoBuf , "THAWED " ) ;
                             OStEXT( ostoBuf , 0x140 )
                         {
-                        if( F(processGlobal1I._grabC_pgw[ogw].flags) & flGRABwANT_CHATTERrESUME )
+                        if( F(processGlobal2I._grabC_pgw[ogw].flags) & flGRABwANT_CHATTERrESUME )
 
                         if( bDebugTrace ) tinP.pEther->traceF( tinP , T("U:: grabC::grabF / 6") , flTRACE_HOMEeCHO | flTRACE_FORCEnOsILENCE , ifcIDtRACEdIVERT_3 ) ; //U:: TO FIND A BUG
                         thirdC::dosSuspendThreadIF( tinP ) ;
@@ -120,7 +120,7 @@
                             OStEXTA( ostoBuf , "FROZEN " ) ;
                             OStEXT( ostoBuf , 0x140 )
                         {
-                        if( F(processGlobal1I._grabC_pgw[ogw].flags) & flGRABwANT_CHATTERrESUME )
+                        if( F(processGlobal2I._grabC_pgw[ogw].flags) & flGRABwANT_CHATTERrESUME )
                         _IO_
                         if( bDebugTrace ) tinP.pEther->traceF( tinP , T("U:: grabC::grabF / 8") , flTRACE_HOMEeCHO | flTRACE_FORCEnOsILENCE , ifcIDtRACEdIVERT_3 ) ; //U:: TO FIND A BUG
                     {
@@ -164,21 +164,21 @@
                                 if( bDebugTrace ) tinP.pEther->traceF( tinP , T("U:: grabC::grabF / b") , flTRACE_HOMEeCHO | flTRACE_FORCEnOsILENCE , ifcIDtRACEdIVERT_3 ) ; //U:: TO FIND A BUG
     /*S*/                       thirdC::dosPriorityIF( tinP , idDesireSave ) ;
     /*S*/    
-    /*S*/                       processGlobal1I._grabC_pgw[ ogw ].bDirty = 0 ;
-    /*S*/                       processGlobal1I._grabC_pgw[ ogw ].idThread = tinP.monitor.idThread ;
-    /*S*/                       processGlobal1I._grabC_pgw[ ogw ].osPid = tinP.osPid ;
-    /*S*/                       processGlobal1I._grabC_pgw[ ogw ].idGrabber = idGrabberMe ; // SCANNER LOOKS FOR THESE OO VALUES
-    /*S*/                       processGlobal1I._grabC_pgw[ ogw ].idGrab = idMe ;           // SCANNER LOOKS FOR THESE OO VALUES
-    /*S*/                       processGlobal1I._grabC_pgw[ ogw ].flags = F(tinP.flagsThreadMode2) & flTHREADmODE2_CHATTERgRABwANTfREEZES ? flGRABwANT_CHATTERrESUME : flGRABwANT_null ;
+    /*S*/                       processGlobal2I._grabC_pgw[ ogw ].bDirty = 0 ;
+    /*S*/                       processGlobal2I._grabC_pgw[ ogw ].idThread = tinP.monitor.idThread ;
+    /*S*/                       processGlobal2I._grabC_pgw[ ogw ].osPid = tinP.osPid ;
+    /*S*/                       processGlobal2I._grabC_pgw[ ogw ].idGrabber = idGrabberMe ; // SCANNER LOOKS FOR THESE OO VALUES
+    /*S*/                       processGlobal2I._grabC_pgw[ ogw ].idGrab = idMe ;           // SCANNER LOOKS FOR THESE OO VALUES
+    /*S*/                       processGlobal2I._grabC_pgw[ ogw ].flags = F(tinP.flagsThreadMode2) & flTHREADmODE2_CHATTERgRABwANTfREEZES ? flGRABwANT_CHATTERrESUME : flGRABwANT_null ;
     /*S*/                   {
     /*S*/                   else
     /*S*/                   }
-    /*S*/                       processGlobal1I._grabC_pgw[ ogw ].osTid = 0 ;
+    /*S*/                       processGlobal2I._grabC_pgw[ ogw ].osTid = 0 ;
     /*S*/                       //LOGrAWtID( "i could not clone a thread handle to myself" ) ; //U:: USED TO BLAMMO HERE; TO MAKE SERVER RELIABLE, I NOW JUST ABANDON SLOTTING
     /*S*/                       //CONoUTrAW( "i could not clone a thread handle to myself\r\n" ) ; //U:: USED TO BLAMMO HERE; TO MAKE SERVER RELIABLE, I NOW JUST ABANDON REGISTERING
     /*S*/                   {
-    /*S*/                   if( !processGlobal1I._grabC_pgw[ ogw ].hThread )
-    /*S*/                   processGlobal1I._grabC_pgw[ ogw ].hThread.osF( ifcIDtYPEhANDLE_THREAD , (countT)osh ) ;
+    /*S*/                   if( !processGlobal2I._grabC_pgw[ ogw ].hThread )
+    /*S*/                   processGlobal2I._grabC_pgw[ ogw ].hThread.osF( ifcIDtYPEhANDLE_THREAD , (countT)osh ) ;
     /*S*/
     /*S*/                   countT osh = thirdC::osHandleCloneIF( tinP , note , oshtMe , ifcIDtYPEhANDLE_THREAD , oshpMe , oshpMe ) ;
     /*S*/
@@ -188,13 +188,13 @@
     /*S*/                   hProcessMe.osF( ifcIDtYPEhANDLE_PROCESS , thirdC::osOpenProcessIF() ) ;
     /*S*/                   handleC hProcessMe( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_PROCESS ) ;
     /*S*/
-    /*S*/                   if( !processGlobal1I._grabC_pgw[ ogw ].bDirty    ) { BLAMMO ; }
-    /*S*/                   if(  processGlobal1I._grabC_pgw[ ogw ].idGrabber ) { BLAMMO ; }
-    /*S*/                   if(  processGlobal1I._grabC_pgw[ ogw ].idGrab    ) { BLAMMO ; }
+    /*S*/                   if( !processGlobal2I._grabC_pgw[ ogw ].bDirty    ) { BLAMMO ; }
+    /*S*/                   if(  processGlobal2I._grabC_pgw[ ogw ].idGrabber ) { BLAMMO ; }
+    /*S*/                   if(  processGlobal2I._grabC_pgw[ ogw ].idGrab    ) { BLAMMO ; }
     /*S*/               {
-    /*S*/               if( !setIfZeAM( processGlobal1I._grabC_pgw[ ogw ].osTid , osTidMe ) ) //ASSUME: IF !osTid THEN THE SLOT IS FREE (I.E. osTid IS THE LATH TO BE ZEED)
+    /*S*/               if( !setIfZeAM( processGlobal2I._grabC_pgw[ ogw ].osTid , osTidMe ) ) //ASSUME: IF !osTid THEN THE SLOT IS FREE (I.E. osTid IS THE LATH TO BE ZEED)
     /*S*/           {
-    /*S*/           if( F(flags) & flGRABc_ISsIGN || !( F(tinP.pAdamGlobal1->_thirdC_.flagsModeAdam1) & flADAMmODE1_LOGdEADLOCKS ) ) for( ogw = 0 ; ogw < processGlobal1I._grabC_cgw ; ogw ++ )
+    /*S*/           if( F(flags) & flGRABc_ISsIGN || !( F(tinP.pAdamGlobal1->_thirdC_.flagsModeAdam1) & flADAMmODE1_LOGdEADLOCKS ) ) for( ogw = 0 ; ogw < processGlobal2I._grabC_cgw ; ogw ++ )
     /*S*/           ZE( countT , ogw ) ;
     /*S*/           ZE( boolT , bRegistered ) ;
     /*S*/       {

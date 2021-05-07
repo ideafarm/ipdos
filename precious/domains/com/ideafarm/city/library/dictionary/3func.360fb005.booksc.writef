@@ -18,10 +18,10 @@
     }
         //if( bDeleteOutParam ) { PUSE( tinP , *(byteT**)ppcpIdAptP ) ; }
 
-        if( processGlobal1I._grabC_pgw ) grabBookNow.ungrabF( tinP ) ;
+        if( processGlobal2I._grabC_pgw ) grabBookNow.ungrabF( tinP ) ;
 
         }
-            processGlobal3I.heap.delF( tinP , pbtScratchBuffer ) ;
+            processGlobal4I.heap.delF( tinP , pbtScratchBuffer ) ;
             tinP.tlsDelF( LF , *(byteT**)&pBk0Doomed ) ;
             DELzOMBIE( pBk0Doomed ) ;
 
@@ -193,7 +193,7 @@
 
                     }
                         TELL( "booksC::writeF / called heapC::newF 1" )
-                        pbtScratchBuffer = processGlobal3I.heap.newF( tinP , LF , cbtBuffer ) ;
+                        pbtScratchBuffer = processGlobal4I.heap.newF( tinP , LF , cbtBuffer ) ;
                         TELL( "booksC::writeF / calling heapC::newF 1" )
                         _IO_
                     {
@@ -381,15 +381,15 @@
                 countT idIn = 1 + incv02AM( idInLath ) ;
                 static countT idInLath ;
             {
-            if( processGlobal1I._grabC_pgw )
+            if( processGlobal2I._grabC_pgw )
         //{
-        //if( !ppcpIdAptP || !tinP.pPoolUse || !processGlobal1I._grabC_pgw )
+        //if( !ppcpIdAptP || !tinP.pPoolUse || !processGlobal2I._grabC_pgw )
         //20171117@2104: ppcpIdAptP SUPPORT IS COMMENTED OUT BECAUSE IT IS NOT CURRENTLY USED AND ITS CURRENT CODE REQUIRES USE OF PUSE, WHICH CAUSES NONMONOTONIC GRABBING.  BEFORE ENABLING, MUST BE REWRITTEN TO AVOID USING PUSE
 
-        //const boolT bTraceDivert1 = this == &processGlobal3I.bksTraceDivert01 ;
-        const boolT bTrace        = this == &processGlobal3I.bksTrace           ;
-        const boolT bTelemetryApp = this == &processGlobal3I.bksTelemetryApp    ;
-        const boolT bTelemetrySys = this == &processGlobal3I.bksTelemetrySys    ;
+        //const boolT bTraceDivert1 = this == &processGlobal4I.bksTraceDivert01 ;
+        const boolT bTrace        = this == &processGlobal4I.bksTrace           ;
+        const boolT bTelemetryApp = this == &processGlobal4I.bksTelemetryApp    ;
+        const boolT bTelemetrySys = this == &processGlobal4I.bksTelemetrySys    ;
         _IO_
     {
     if( cb1P || F(flagsP) & flBOOKScwRITE_SETrEMAINING )
@@ -398,11 +398,11 @@
     //;
     //    : new( 0 , tinP , _pbInOutFrame , sizeof _pbInOutFrame ) inOutFrameC( tinP , LF , IDFILE , BiFCcLASS )
     //    ? 0 
-    //inOutFrameC* pInOutFrame = this == &processGlobal3I.bksTrace || this == &processGlobal3I.bksTraceDivert01 || this == &processGlobal3I.bksTraceDivert02 || this == &processGlobal3I.bksTraceDivert03 || this == &processGlobal3I.bksTraceDivert04 || this == &processGlobal3I.bksTraceDivert05 || this == &processGlobal3I.bksTraceDivert06 || this == &processGlobal3I.bksTraceDivert07 || this == &processGlobal3I.bksTraceDivert08
+    //inOutFrameC* pInOutFrame = this == &processGlobal4I.bksTrace || this == &processGlobal4I.bksTraceDivert01 || this == &processGlobal4I.bksTraceDivert02 || this == &processGlobal4I.bksTraceDivert03 || this == &processGlobal4I.bksTraceDivert04 || this == &processGlobal4I.bksTraceDivert05 || this == &processGlobal4I.bksTraceDivert06 || this == &processGlobal4I.bksTraceDivert07 || this == &processGlobal4I.bksTraceDivert08
     //byteT _pbInOutFrame[ sizeof( inOutFrameC ) ] ;
     //20191008@0844: DON'T KNOW WHY DONE THIS WAY RATHER THAN JUST USE _IO_
 
-    //if( this == &processGlobal3I.bksTelemetrySys || this == &processGlobal3I.bksTelemetryApp /*|| this == &processGlobal3I.bksTrace || this == &processGlobal3I.bksTraceDivert01*/ || this == &processGlobal3I.bksWord || this == &processGlobal3I.bksWords ) return 0 ;  //U:: TO WORKAROUND A BUG (NONMONOTONIC GRABBING)
+    //if( this == &processGlobal4I.bksTelemetrySys || this == &processGlobal4I.bksTelemetryApp /*|| this == &processGlobal4I.bksTrace || this == &processGlobal4I.bksTraceDivert01*/ || this == &processGlobal4I.bksWord || this == &processGlobal4I.bksWords ) return 0 ;  //U:: TO WORKAROUND A BUG (NONMONOTONIC GRABBING)
     //U::DELETE THE NEXT LINE ONCE I AM TESTED TO VERIFY THAT I DO NOT TRIGGER NONMONOTONIC GRABBING BLAMMO
 
     THREADmODE3oN( flTHREADmODE3_POOLaLLOCATEfROMhEAP )
@@ -440,7 +440,7 @@
         {
         if( phWroteP )
         FV( flBOOKScwRITE , flagsP ) ;
-        //__( ppcpIdAptP && ( this == &processGlobal3I.bksTelemetrySys || this == &processGlobal3I.bksTelemetryApp || this == &processGlobal3I.bksTrace || this == &processGlobal3I.bksTraceDivert01 || this == &processGlobal3I.bksWord || this == &processGlobal3I.bksWords ) ) ; //CAPTURE OF TELEMETRY OR TRACE IS GUARANTEED TO NEVER INVOLVE USE OF A poolC INSTANCE; SUCH USAGE COULD EMIT TELEMETRY OR TRACE, CAUSING SCRATCH BOOK OVERFLOW
+        //__( ppcpIdAptP && ( this == &processGlobal4I.bksTelemetrySys || this == &processGlobal4I.bksTelemetryApp || this == &processGlobal4I.bksTrace || this == &processGlobal4I.bksTraceDivert01 || this == &processGlobal4I.bksWord || this == &processGlobal4I.bksWords ) ) ; //CAPTURE OF TELEMETRY OR TRACE IS GUARANTEED TO NEVER INVOLVE USE OF A poolC INSTANCE; SUCH USAGE COULD EMIT TELEMETRY OR TRACE, CAUSING SCRATCH BOOK OVERFLOW
         //__( ppcpIdAptP && *ppcpIdAptP ) ; //20171112@1557: ADDED WITHOUT ANALYSIS WHILE EDITING TO PREALLOCATE TO AVOID USING POOL WHILE grabBookNow IS GRABBED
         if( POOP ) return 0 ;
         __NZ( cbBodyNew < cb1P + cb2P && F(flagsP) & flBOOKScwRITE_ALLoRnONE ) ;

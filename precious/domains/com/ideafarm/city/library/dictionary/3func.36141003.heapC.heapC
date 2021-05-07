@@ -9,13 +9,13 @@
 
 }
     }
-        LOGrAW7(    "heapC [cbHeap,pbHeap,pbEnd]:    " , *(countT*)pbHeap , "    " , processGlobal0I.pbHeap , "    " , processGlobal0I.pbHeapEnd , "\r\n" ) ; //U::TO FIND A LEAK
-        CONoUTrAW7( "heapC [cbHeap,pbHeap,pbEnd]:    " , *(countT*)pbHeap , "    " , processGlobal0I.pbHeap , "    " , processGlobal0I.pbHeapEnd , "\r\n" ) ; //U::TO FIND A LEAK
+        LOGrAW7(    "heapC [cbHeap,pbHeap,pbEnd]:    " , *(countT*)pbHeap , "    " , processGlobal1I.pbHeap , "    " , processGlobal1I.pbHeapEnd , "\r\n" ) ; //U::TO FIND A LEAK
+        CONoUTrAW7( "heapC [cbHeap,pbHeap,pbEnd]:    " , *(countT*)pbHeap , "    " , processGlobal1I.pbHeap , "    " , processGlobal1I.pbHeapEnd , "\r\n" ) ; //U::TO FIND A LEAK
 
-        processGlobal0I.pbHeapEnd = pbHeap + sizeof pbHeap ;
-        processGlobal0I.pbHeap    = pbHeap ;
+        processGlobal1I.pbHeapEnd = pbHeap + sizeof pbHeap ;
+        processGlobal1I.pbHeap    = pbHeap ;
     {
-    if( !processGlobal0I.pbHeap )
+    if( !processGlobal1I.pbHeap )
 
     *(countT*)pbHeap = sizeof pbHeap - sizeof( countT ) ; //FORMAT: LENGTH PREFIXED ALLOCATIONS.  HIGH BIT SET MEANS IN USE.  DELETION COMBINES ALLOCATIONS NOT IN USE
     thirdC::c_memsetIF( tinP , pbHeap , sizeof pbHeap ) ;

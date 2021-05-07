@@ -12,7 +12,7 @@
 
     #endif
 
-        if( !( F(flagsP) & flOPENsHAREDmEMORY_DOnOTsERIALIZE ) && F(processGlobal1I.flCt) & flCTdTg_tinMainInPool && !( F(processGlobal1I.flDt) & flCTdTg_tinMainInPool ) ) processGlobal3I.grabMemorySpace.ungrabF( tinP ) ;
+        if( !( F(flagsP) & flOPENsHAREDmEMORY_DOnOTsERIALIZE ) && F(processGlobal2I.flCt) & flCTdTg_tinMainInPool && !( F(processGlobal2I.flDt) & flCTdTg_tinMainInPool ) ) processGlobal4I.grabMemorySpace.ungrabF( tinP ) ;
 
         }
             }
@@ -34,11 +34,11 @@
                             }
                                 }
                                     break ;
-                                    processGlobal1I._thirdC_pSharedMemInfo[ offr ].pv  = pv ;
-                                    processGlobal1I._thirdC_pSharedMemInfo[ offr ].osh = (countT)osh ;
-                                    thirdC::c_strncpyIF( tinP , processGlobal1I._thirdC_pSharedMemInfo[ offr ].postName , ostoOsName , sizeof processGlobal1I._thirdC_pSharedMemInfo[ offr ].postName ) ;
+                                    processGlobal2I._thirdC_pSharedMemInfo[ offr ].pv  = pv ;
+                                    processGlobal2I._thirdC_pSharedMemInfo[ offr ].osh = (countT)osh ;
+                                    thirdC::c_strncpyIF( tinP , processGlobal2I._thirdC_pSharedMemInfo[ offr ].postName , ostoOsName , sizeof processGlobal2I._thirdC_pSharedMemInfo[ offr ].postName ) ;
                                 {
-                                if( !*processGlobal1I._thirdC_pSharedMemInfo[ offr ].postName )
+                                if( !*processGlobal2I._thirdC_pSharedMemInfo[ offr ].postName )
                             {
                             for( offr = 0 ; offr < CsHAREDmEMiNFO ; offr ++ )
                             ZE( countT , offr ) ;
@@ -81,7 +81,7 @@
                 {
                 if( POOP )
                 BOSpOOP
-                BOS( WHATgbo , BOSoK , MapViewOfFileExNuma( osh , osFlagsMap , 0 , 0 , 0 , 0 , thirdC::osOffNumaNodeValidChosenIF( processGlobal1I.idNumaNode ) ) )
+                BOS( WHATgbo , BOSoK , MapViewOfFileExNuma( osh , osFlagsMap , 0 , 0 , 0 , 0 , thirdC::osOffNumaNodeValidChosenIF( processGlobal2I.idNumaNode ) ) )
     
                 //}
                 //    LOGrAW(    ostoSay ) ;
@@ -123,7 +123,7 @@
                         {
                         if( POOP )
                         BOSpOOP
-                        BOS( WHATgbo , BOSoK , MapViewOfFileExNuma( osh , osFlagsMap , 0 , 0 , 0 , 0 , thirdC::osOffNumaNodeValidChosenIF( processGlobal1I.idNumaNode ) ) )
+                        BOS( WHATgbo , BOSoK , MapViewOfFileExNuma( osh , osFlagsMap , 0 , 0 , 0 , 0 , thirdC::osOffNumaNodeValidChosenIF( processGlobal2I.idNumaNode ) ) )
                     {
                     else
                     }
@@ -133,19 +133,19 @@
                     {
                     if( POOP )
                     BOSpOOP
-                    BOS( WHATgbo , BOSoK , DuplicateHandle( oshMe , (HANDLE)processGlobal1I._thirdC_pSharedMemInfo[ offr ].osh , oshMe , &osh , 0 , 1 , DUPLICATE_SAME_ACCESS ) )
+                    BOS( WHATgbo , BOSoK , DuplicateHandle( oshMe , (HANDLE)processGlobal2I._thirdC_pSharedMemInfo[ offr ].osh , oshMe , &osh , 0 , 1 , DUPLICATE_SAME_ACCESS ) )
                     HANDLE oshMe = (HANDLE)tinP.brcRaw ;
                     BOSdOnOTtEST( WHATgbo , GetCurrentProcess() )
                     ZE( HANDLE , osh ) ;
-                    __( !processGlobal1I._thirdC_pSharedMemInfo[ offr ].pv ) ;
-                    __( !processGlobal1I._thirdC_pSharedMemInfo[ offr ].osh ) ;
+                    __( !processGlobal2I._thirdC_pSharedMemInfo[ offr ].pv ) ;
+                    __( !processGlobal2I._thirdC_pSharedMemInfo[ offr ].osh ) ;
                 {
-                if( !c_strcmpIF( tinP , processGlobal1I._thirdC_pSharedMemInfo[ offr ].postName , ostoOsName ) )
+                if( !c_strcmpIF( tinP , processGlobal2I._thirdC_pSharedMemInfo[ offr ].postName , ostoOsName ) )
             {
             for( countT offr = 0 ; offr < CsHAREDmEMiNFO ; offr ++ )
         {
 
-        if( !( F(flagsP) & flOPENsHAREDmEMORY_DOnOTsERIALIZE ) && F(processGlobal1I.flCt) & flCTdTg_tinMainInPool && !( F(processGlobal1I.flDt) & flCTdTg_tinMainInPool ) ) processGlobal3I.grabMemorySpace.grabF( tinP , TAG( TAGiDnULL ) ) ;
+        if( !( F(flagsP) & flOPENsHAREDmEMORY_DOnOTsERIALIZE ) && F(processGlobal2I.flCt) & flCTdTg_tinMainInPool && !( F(processGlobal2I.flDt) & flCTdTg_tinMainInPool ) ) processGlobal4I.grabMemorySpace.grabF( tinP , TAG( TAGiDnULL ) ) ;
 
         ;
             : FILE_MAP_ALL_ACCESS
@@ -158,7 +158,7 @@
         else                                                  { OStEXTCF( ostoOsName , idMemorySpaceP ? idMemorySpaceP : tinP.pAdamGlobal1->idMemorySpace , '0' ) ; }
         if( F(flagsP) & flOPENsHAREDmEMORY_ALLmEMORYsPACES )  { OStEXTAK( ostoOsName  , "_" ) ; }
         OStEXTAK( ostoOsName  , "." ) ;
-        else                                                  { OStEXTC(  ostoOsName , processGlobal1I.idAdamRoot == ifcIDaDAM_TOOLnAPwORDvIEWER && tinP.pAdamGlobal1->_thirdC_.idHomeOverride ? tinP.pAdamGlobal1->_thirdC_.idHomeOverride : processGlobal1I.idHome , 0 ) ; }
+        else                                                  { OStEXTC(  ostoOsName , processGlobal2I.idAdamRoot == ifcIDaDAM_TOOLnAPwORDvIEWER && tinP.pAdamGlobal1->_thirdC_.idHomeOverride ? tinP.pAdamGlobal1->_thirdC_.idHomeOverride : processGlobal2I.idHome , 0 ) ; }
         if( F(flagsP) & flOPENsHAREDmEMORY_ALLhOMES         ) { OStEXTAK( ostoOsName  , "_" ) ; }
         OStEXTAK( ostoOsName  , "." ) ;
         else                                                  { OStEXTA(  ostoOsName , thirdC::postUserNameIF() ) ; }
@@ -191,7 +191,7 @@
         if( POOP ) return ;
         __( idMemorySpaceP && !( F(tinP.flagsThreadMode3) & flTHREADmODE3_ALLOWeXPLICITmEMORYsPACE ) && thirdC::third_idPhaseAdam_IF( tinP ) >= ifcIDpHASEaDAM_EXEpROLOGaDAMmAIN1 && thirdC::third_idPhaseAdam_IF( tinP ) < ifcIDpHASEaDAM_EXEePILOGaDAMmAINa1 ) ;
         FV(flOPENsHAREDmEMORY,flagsP) ;
-        __( idMemorySpaceP == ifcIDmEMORYsPACE_KERNEL && processGlobal1I.idAdamRoot != ifcIDaDAM_KERNEL2MONITOR && processGlobal1I.idAdamRoot != ifcIDaDAM_KERNEL1DRIVER ) ;
+        __( idMemorySpaceP == ifcIDmEMORYsPACE_KERNEL && processGlobal2I.idAdamRoot != ifcIDaDAM_KERNEL2MONITOR && processGlobal2I.idAdamRoot != ifcIDaDAM_KERNEL1DRIVER ) ;
         __( COSToSfILEnAMEmAX < thirdC::c_strlenIF( tinP , postP ) ) ;
         __( !!thirdC::c_strchrIF( tinP , postP , '\\' ) ) ;
         //__( !!thirdC::c_strchrIF( tinP , postP , '/' ) ) ;

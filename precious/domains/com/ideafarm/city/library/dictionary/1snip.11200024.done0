@@ -11,7 +11,7 @@
             }                                                                                                                                                       \
                 }                                                                                                                                                   \
                     dec02AM( cAllThreads ) ; /* MUST BE THE VERY LAST THING THAT THIS THREAD DOES */                                                                \
-                    if( tinP.monitor.idThread <= ClOWtHREADS ) processGlobal1S::_processGlobal1I_IF().pcPhaseLow[ tinP.monitor.idThread ] = - 1 ;                   \
+                    if( tinP.monitor.idThread <= ClOWtHREADS ) processGlobal2S::_processGlobal2I_IF().pcPhaseLow[ tinP.monitor.idThread ] = - 1 ;                   \
                     TELL( "DONE0: i am outa here" )                                                                                                                 \
                                                                                                                                                                     \
                     }                                                                                                                                               \
@@ -63,7 +63,7 @@
                                                                                                                                                                     \
                     }                                                                                                                                               \
                         }                                                                                                                                           \
-                            if( tinP.monitor.idThread <= ClOWtHREADS && !( ++ processGlobal1S::_processGlobal1I_IF().pcPhaseLow[ tinP.monitor.idThread ] ) ) { BLAMMO ; } \
+                            if( tinP.monitor.idThread <= ClOWtHREADS && !( ++ processGlobal2S::_processGlobal2I_IF().pcPhaseLow[ tinP.monitor.idThread ] ) ) { BLAMMO ; } \
                             if( tinP.idPhase1 < ifcIDpHASEtHREAD_EPILOGnOkIDS ) tinP.idPhase1 = ifcIDpHASEtHREAD_EPILOGnOkIDS ;                                     \
                             }                                                                                                                                       \
                                 TELL( "DONE0: destroying all adam objects that remain on the thread stack" ) ;                                                      \
@@ -100,7 +100,7 @@
                             TELL( "DONE0: after returning from application code" ) ;                                                                                \
                             tinP.idPhase2 = 0 ;                                                                                                                     \
                             if( tinP.idPhase1 < ifcIDpHASEtHREAD_EPILOGkIDS ) tinP.idPhase1 = ifcIDpHASEtHREAD_EPILOGkIDS ;                                         \
-                            if( tinP.monitor.idThread <= ClOWtHREADS && !( ++ processGlobal1S::_processGlobal1I_IF().pcPhaseLow[ tinP.monitor.idThread ] ) ) { BLAMMO ; } \
+                            if( tinP.monitor.idThread <= ClOWtHREADS && !( ++ processGlobal2S::_processGlobal2I_IF().pcPhaseLow[ tinP.monitor.idThread ] ) ) { BLAMMO ; } \
                             TINSL /*THIS IS NEEDED BECAUSE tinP WAS DELETED IF I AM tmWindowsF */                                                                   \
                         {                                                                                                                                           \
                                                                                                                                                                     \

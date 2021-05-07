@@ -18,7 +18,7 @@
                                                 PUSE( tinP , pbPendingInOutFramePackets ) ;
         {
         else          
-        if( !pPoolUse ) processGlobal3I.heap.delF( tinP , pbPendingInOutFramePackets ) ;
+        if( !pPoolUse ) processGlobal4I.heap.delF( tinP , pbPendingInOutFramePackets ) ;
 
         }
             LOGrAW( "-\r\n" ) ;
@@ -135,19 +135,19 @@
         if( tinP.monitor.cGrabbed )
         TELL( "verifying that nothing is now grabbed by this thread" )
 
-        TELL( "~tinS: after setting processGlobal1I.flDt flag" )
+        TELL( "~tinS: after setting processGlobal2I.flDt flag" )
         }
             }
-                case ifcIDtINnAMED_tinInPoolMain             : { processGlobal1I.flDt |= flCTdTg_tinMainInPool             ; break ; }
-                case ifcIDtINnAMED_tinVeryEarlyLateMainI     : { processGlobal1I.flDt |= flCTdTg_tinVeryEarlyLateMainI     ; break ; }
-                case ifcIDtINnAMED_tinVeryVeryEarlyLateMainI : { processGlobal1I.flDt |= flCTdTg_tinVeryVeryEarlyLateMainI ; break ; }
+                case ifcIDtINnAMED_tinInPoolMain             : { processGlobal2I.flDt |= flCTdTg_tinMainInPool             ; break ; }
+                case ifcIDtINnAMED_tinVeryEarlyLateMainI     : { processGlobal2I.flDt |= flCTdTg_tinVeryEarlyLateMainI     ; break ; }
+                case ifcIDtINnAMED_tinVeryVeryEarlyLateMainI : { processGlobal2I.flDt |= flCTdTg_tinVeryVeryEarlyLateMainI ; break ; }
             {
             switch( idTinNamed )
 
             if( pTinF() != this ) { thirdC::dosExitProcessIF( ifcEXITcODEpROCESSiMPOTENT ) ; }
         {
         if( idTinNamed != ifcIDtINnAMED_tinHeartI && idTinNamed != ifcIDtINnAMED_tinBreakI )
-        TELL( "~tinS: setting processGlobal1I.flDt flag and testing pTinF()" )
+        TELL( "~tinS: setting processGlobal2I.flDt flag and testing pTinF()" )
 
         }
             }
@@ -158,7 +158,7 @@
                     thirdC::dosExitProcessIF( ifcEXITcODEpROCESSiMPOTENT ) ;
                     CONoUTrAW( "~tinS: calling ExitProcess because i am being cleaned up and i have kid threads.\r\n" ) ;
                 {
-                if( F(flagsThreadMode3) & flTHREADmODE3_EXCEPTIONcLEANUPdELETIONiNpROGRESS || F(processGlobal1I._thirdC_flagsProcessState) & flPROCESSsTATE_EXCEPTIONnOThANDLED )
+                if( F(flagsThreadMode3) & flTHREADmODE3_EXCEPTIONcLEANUPdELETIONiNpROGRESS || F(processGlobal2I._thirdC_flagsProcessState) & flPROCESSsTATE_EXCEPTIONnOThANDLED )
             {
             while( cKidThreads ) //tmWindowsF must not put itself into this list because main CANNOT BLOCK HERE FOR tmWindowsF TO END BECAUSE tmWindowsF ENDS LATER
             countT cQuiet = 0x40 ; //INCR FROM 01 TO 04 TO AVOID LOGrAW
@@ -177,11 +177,11 @@
 
 //#define SAYnAME(postP) { CONoUTrAW7( "[idTin,idThread,idSerial,name]: " , idTin , " " , monitor.idThread , " " , idSerial , " " ) ; CONoUTrAW( NAME( idTinNamed ) ) ; CONoUTrAW( " " postP ) ; }
 
-//#define NAME(idP) processGlobal3I.mapTinName( idP )
+//#define NAME(idP) processGlobal4I.mapTinName( idP )
 
 /**/
 */
-i work unconditionally so that the monitor receives notice of me and so that processGlobal4I.tinVeryEarlyLateMain is maintained even if impotence occurs
+i work unconditionally so that the monitor receives notice of me and so that processGlobal5I.tinVeryEarlyLateMain is maintained even if impotence occurs
 \<A HREF=\"5.12f0002.1.0.html\"\>definition\</A\>
 /*
 

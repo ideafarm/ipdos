@@ -17,7 +17,7 @@ REST
                 }
                     etThread.strokeF( tinP , T("\r\n") ) ;
                     for( countT off = 0 ; off < CsAMPLES ; off ++ ) etThread.strokeF( tinP , TF3(pcTally[off],flFORMAT_UNSIGNED,9) ) ;
-                    etThread.strokeF( tinP , TF4(idLine&0xfff,flFORMAT_UNSIGNED|flFORMAT_NObASE,5,0xa)+TF3(idiFile,flFORMAT_UNSIGNED|flFORMAT_FILLzE,7)+tb+TF4(idLineNote&0xfff,flFORMAT_UNSIGNED|flFORMAT_NObASE,5,0xa)+TF3(idiFileNote,flFORMAT_UNSIGNED|flFORMAT_FILLzE,7)+tb+TF3(idAdamRoot,flFORMAT_UNSIGNED,8)+TF3(idProcessOld,flFORMAT_UNSIGNED,9)+TP(processGlobal3I.mapdropNoteType(idType),processGlobal3I.mapdropNoteType.costMaxF())+tb ) ;
+                    etThread.strokeF( tinP , TF4(idLine&0xfff,flFORMAT_UNSIGNED|flFORMAT_NObASE,5,0xa)+TF3(idiFile,flFORMAT_UNSIGNED|flFORMAT_FILLzE,7)+tb+TF4(idLineNote&0xfff,flFORMAT_UNSIGNED|flFORMAT_NObASE,5,0xa)+TF3(idiFileNote,flFORMAT_UNSIGNED|flFORMAT_FILLzE,7)+tb+TF3(idAdamRoot,flFORMAT_UNSIGNED,8)+TF3(idProcessOld,flFORMAT_UNSIGNED,9)+TP(processGlobal4I.mapdropNoteType(idType),processGlobal4I.mapdropNoteType.costMaxF())+tb ) ;
                     countT idType             = c7lever.c7 ;
                     countT idProcessOld          = c7lever.c6 ;
                     countT idAdamRoot = c7lever.c5 ;
@@ -35,7 +35,7 @@ REST
         {
         if( pSw )
         switchC*& pSw = *(switchC**)&(countT&)sw_pSw ;
-        etThread.strokeF( tinP , T("\r\n" USCORE127 "\r\n")+T(psttIdName)+tc+TPS("",127,sttd)+T("\r\n\r\n")+T("line ")+TPS("file",7,sttd)+tb+T("linn ")+TPS("filn",7,sttd)+tb+TPS("adam",7,sttd)+tb+TPS("process",8,sttd)+tb+TPS("type",processGlobal3I.mapdropNoteType.costMaxF(),sttd)+tb+TPS("tallies",9*CsAMPLES-1,sttd)+tc ) ;
+        etThread.strokeF( tinP , T("\r\n" USCORE127 "\r\n")+T(psttIdName)+tc+TPS("",127,sttd)+T("\r\n\r\n")+T("line ")+TPS("file",7,sttd)+tb+T("linn ")+TPS("filn",7,sttd)+tb+TPS("adam",7,sttd)+tb+TPS("process",8,sttd)+tb+TPS("type",processGlobal4I.mapdropNoteType.costMaxF(),sttd)+tb+TPS("tallies",9*CsAMPLES-1,sttd)+tc ) ;
         psttIdName = (strokeS*)sw_pSw.leverF( tinP , idp ) ;
     {
     for( countT idp = 1 ; idp <= cPools ; idp ++ )

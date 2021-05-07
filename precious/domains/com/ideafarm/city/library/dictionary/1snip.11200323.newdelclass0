@@ -96,7 +96,7 @@
                 PUSE.newF( tinP , LF , *(byteT**)&pvn , ( cbaFoot + cbP ) ) ;                                                                   \
             {                                                                                                                                   \
             else                                                                                                                                \
-            if( !tinP.pPoolUse ) *(byteT**)&pvn = (processGlobal3IP).heap.newF( tinP , LF , ( cbaFoot + cbP ) ) ;                               \
+            if( !tinP.pPoolUse ) *(byteT**)&pvn = (processGlobal4IP).heap.newF( tinP , LF , ( cbaFoot + cbP ) ) ;                               \
             ZE( voidT* , pvn ) ;                                                                                                                \
             countT cbaFoot = cbFootP ? cbFootP + 2 * sizeof( countT ) : 0 ;                                                                     \
             _IO_                                                                                                                                \
@@ -123,7 +123,7 @@
         {                                                                                                                                       \
         voidT classP::operator delete( voidT* pvP )                                                                                             \
                                                                                                                                                 \
-    #define NEWdELcLASS0(classP,typeP,cbSizeP,processGlobal3IP)                                                                                 \
+    #define NEWdELcLASS0(classP,typeP,cbSizeP,processGlobal4IP)                                                                                 \
 
 #else
 
@@ -212,7 +212,7 @@
                 PUSE.newF( tinP , LF , *(byteT**)&pvn , ( cbaFoot + cbP ) ) ;                                                                   \
             {                                                                                                                                   \
             else                                                                                                                                \
-            if( !tinP.pPoolUse ) *(byteT**)&pvn = (processGlobal3IP).heap.newF( tinP , LF , ( cbaFoot + cbP ) ) ;                               \
+            if( !tinP.pPoolUse ) *(byteT**)&pvn = (processGlobal4IP).heap.newF( tinP , LF , ( cbaFoot + cbP ) ) ;                               \
             ZE( voidT* , pvn ) ;                                                                                                                \
             countT cbaFoot = cbFootP ? cbFootP + 2 * sizeof( countT ) : 0 ;                                                                     \
             _IO_                                                                                                                                \
@@ -239,14 +239,14 @@
         {                                                                                                                                       \
         voidT classP::operator delete( voidT* pvP )                                                                                             \
                                                                                                                                                 \
-    #define NEWdELcLASS0(classP,typeP,cbSizeP,processGlobal3IP)                                                                                 \
+    #define NEWdELcLASS0(classP,typeP,cbSizeP,processGlobal4IP)                                                                                 \
 
 #if defined( ENABLEdROPnOTES )
 
 // INOUT IS NOT USED, TO AVOID BLOWING STACK DURING INOUT TRACING
 //U::I NEED INOUT, SO TRY TO MAKE THIS WORK
 
-/*1*//*NEWdELcLASS0(classP,typeP,cbSizeP,processGlobal3IP)*//*1*/
+/*1*//*NEWdELcLASS0(classP,typeP,cbSizeP,processGlobal4IP)*//*1*/
 
 /**/
 */

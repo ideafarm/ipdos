@@ -99,7 +99,7 @@ DWORD WINAPI tmGorillaRawF( LPVOID pvArgP )
                 }
                     dec02AM( cAllThreads ) ; /* MUST BE THE VERY LAST THING THAT THIS THREAD DOES */
                     if( !bFake ) { DEL( pTaskP ) ; } /* MUST BE AS LATE AS POSSIBLE BECAUSE IT GIVES THE SIGN THAT THE THREAD IS DONE.  THE PROCESS MUST SLEEP AFTER RECEIVING THIS SIGN BEFORE ENDING, SO THAT THIS THREAD CAN COMPLETE */
-                    if( tinP.monitor.idThread <= ClOWtHREADS ) processGlobal1S::_processGlobal1I_IF().pcPhaseLow[ tinP.monitor.idThread ] = - 1 ;_
+                    if( tinP.monitor.idThread <= ClOWtHREADS ) processGlobal2S::_processGlobal2I_IF().pcPhaseLow[ tinP.monitor.idThread ] = - 1 ;_
                     TELL( "DONE0: i am outa here" )
                     ;_
                         : thirdC::os_cAllKidThreadsI_IF( tinP )
@@ -141,7 +141,7 @@ DWORD WINAPI tmGorillaRawF( LPVOID pvArgP )
 
                     }
                         }
-                            if( tinP.monitor.idThread <= ClOWtHREADS && !( ++ processGlobal1S::_processGlobal1I_IF().pcPhaseLow[ tinP.monitor.idThread ] ) ) { BLAMMO ; }
+                            if( tinP.monitor.idThread <= ClOWtHREADS && !( ++ processGlobal2S::_processGlobal2I_IF().pcPhaseLow[ tinP.monitor.idThread ] ) ) { BLAMMO ; }
                             if( tinP.idPhase1 < ifcIDpHASEtHREAD_EPILOGnOkIDS ) tinP.idPhase1 = ifcIDpHASEtHREAD_EPILOGnOkIDS ;_
                             }
                                 TELL( "DONE0: destroying all adam objects that remain on the thread stack" ) ;_
@@ -160,7 +160,7 @@ DWORD WINAPI tmGorillaRawF( LPVOID pvArgP )
                             TELL( "DONE0: after returning from application code" ) ;_
                             tinP.idPhase2 = 0 ;_
                             if( tinP.idPhase1 < ifcIDpHASEtHREAD_EPILOGkIDS ) tinP.idPhase1 = ifcIDpHASEtHREAD_EPILOGkIDS ;_
-                            if( tinP.monitor.idThread <= ClOWtHREADS && !( ++ processGlobal1S::_processGlobal1I_IF().pcPhaseLow[ tinP.monitor.idThread ] ) ) { BLAMMO ; }
+                            if( tinP.monitor.idThread <= ClOWtHREADS && !( ++ processGlobal2S::_processGlobal2I_IF().pcPhaseLow[ tinP.monitor.idThread ] ) ) { BLAMMO ; }
                             TINSL /*THIS IS NEEDED BECAUSE tinP WAS DELETED IF I AM tmWindowsF */
                         {
 
@@ -217,7 +217,7 @@ if( pTaskP )
 
 
 
-                    if( tinP.monitor.idThread <= ClOWtHREADS && !( ++ processGlobal1S::_processGlobal1I_IF().pcPhaseLow[ tinP.monitor.idThread ] ) ) { BLAMMO ; }
+                    if( tinP.monitor.idThread <= ClOWtHREADS && !( ++ processGlobal2S::_processGlobal2I_IF().pcPhaseLow[ tinP.monitor.idThread ] ) ) { BLAMMO ; }
                     _IO_
                     if( tinP.idPhase1 < ifcIDpHASEtHREAD_WORKING ) tinP.idPhase1 = ifcIDpHASEtHREAD_WORKING ;_
                     (countT&)_stackTop = espAM() ;_
@@ -231,7 +231,7 @@ if( pTaskP )
                     {
                     if( F( ((thirdC&)etThread).third_flagsModeAdam1I_IF( tinP ) ) & flADAMmODE1_SEEtHREADSaSfILES )
                     etThread.osTimeNowF( tinP , tinP.time1 , tinP.time2 ) ;_
-                    /*etherC::ifcSayIF( T("ADAM CELL (idAdam,osPid): ")+TF1(processGlobal1S::_processGlobal1I_IF().idAdamRoot)+T(" ")+TF1(tinP.osPid)+T(" ")+TF1(tinP.osTid)+T(" \"")+T(tinP.postThreadName)+T("\"") , flSAY_APPEND | flSAY_LOG ) ;*/
+                    /*etherC::ifcSayIF( T("ADAM CELL (idAdam,osPid): ")+TF1(processGlobal2S::_processGlobal2I_IF().idAdamRoot)+T(" ")+TF1(tinP.osPid)+T(" ")+TF1(tinP.osTid)+T(" \"")+T(tinP.postThreadName)+T("\"") , flSAY_APPEND | flSAY_LOG ) ;*/
                 {
 
                 tinP.pEther = &etThread ;_
@@ -298,7 +298,7 @@ if( pTaskP )
         OStEXT(   _ostoTmp , 0x80 )
 
         _IO_ TELLsYSlIFInAME( "tmGorillaF" )
-        if( tinP.monitor.idThread <= ClOWtHREADS && !( ++ processGlobal1S::_processGlobal1I_IF().pcPhaseLow[ tinP.monitor.idThread ] ) ) { BLAMMO ; }
+        if( tinP.monitor.idThread <= ClOWtHREADS && !( ++ processGlobal2S::_processGlobal2I_IF().pcPhaseLow[ tinP.monitor.idThread ] ) ) { BLAMMO ; }
         TINSL
     {
     countT tmGorillaF_workF( countT argP )

@@ -230,10 +230,10 @@
                                     //thirdC::c_strncpyIF( tinP , info.szTip , oston , sizeof info.szTip ) ;
                                     //}
                                     //    OStEXTAK( oston , ")" )
-                                    //    OStEXTC(  oston , processGlobal1I.idHome , 0 )
+                                    //    OStEXTC(  oston , processGlobal2I.idHome , 0 )
                                     //    OStEXTAK( oston , " (Home " )
                                     //{
-                                    //if( processGlobal1I.idHome > 1 )
+                                    //if( processGlobal2I.idHome > 1 )
                                     //OStEXTAK( oston , "IPDOS (tm) IdeaFarm " "(tm) Piggyback Distributed Operating System" )
                                     //OStEXT( oston , 0x80 )
                                     //    
@@ -400,7 +400,7 @@
                             paperOldC::callSadamsIF( tinP , ether , ifcIDtYPEsTROKEcALLbACK_MOUSE , c8n , 0 ) ;
                             count8S c8n( 1 , 4 , idTool , idAction , xpRaw + 1 , pRootI->mRowsF() - ypRaw ) ;
     
-                            //LOGrAW( T("mouse message ")+T(processGlobal3I.mapWindowMessage(idCmdP))+T(": xpRaw,ypRaw is ")+TF1(xpRaw)+T(" ")+TF1(ypRaw)+T(" ")+TF1(winIfColIF(xpRaw))+T(" ")+TF1(winIfRowIF(ypRaw,pRoot->mRowsF()))+T("\r\n") ) ;
+                            //LOGrAW( T("mouse message ")+T(processGlobal4I.mapWindowMessage(idCmdP))+T(": xpRaw,ypRaw is ")+TF1(xpRaw)+T(" ")+TF1(ypRaw)+T(" ")+TF1(winIfColIF(xpRaw))+T(" ")+TF1(winIfRowIF(ypRaw,pRoot->mRowsF()))+T("\r\n") ) ;
                             //etThread.beeClickF( tinP ) ;
                         
                             const countT ypRaw = p2P >> 0x10 ;
@@ -744,7 +744,7 @@
                 }
                     break ;
                     }
-                        // while( !( F(processGlobal1I._thirdC_flagsProcessState) & flPROCESSsTATE_MAINtHREADcLEANUPiScOMPLETE ) ) { ++ s ; thirdC::dosSleepIF( tinP , TUCK * 0x40 ) ; }
+                        // while( !( F(processGlobal2I._thirdC_flagsProcessState) & flPROCESSsTATE_MAINtHREADcLEANUPiScOMPLETE ) ) { ++ s ; thirdC::dosSleepIF( tinP , TUCK * 0x40 ) ; }
                         // sleepC s( tinP , TAG( TAGiDnULL ) ) ;
                         // etThread.etherFireImpersonateMonitorIF( tinP ) ;
                         // thirdC::third_flagsProcessStateI_IF( tinP , flPROCESSsTATE_WM_CLOSE_RECEIVED , 1 ) ; // main WILL PROCEED TO CLEANUP WHEN IT SEES THIS
@@ -803,7 +803,7 @@
             //    {
             //    if( idCmdP == WM_WINDOWPOSCHANGING )
             //    tn += TT(timeN1,timeN2)+T("| ")+TF3(p1P,flFORMAT_UNSIGNED,9)+TF3(p2P,flFORMAT_UNSIGNED,9)+(postw?T(postw):TF1(idCmdP)) ;
-            //    const osTextT* const postw = processGlobal3I.mapWindowMessage( idCmdP ) ;
+            //    const osTextT* const postw = processGlobal4I.mapWindowMessage( idCmdP ) ;
             //    TN( tn , "" ) ;
             //
             //    etThread.osTimeNowF( tinP , timeN1 , timeN2 ) ;
@@ -823,24 +823,24 @@
                         //{
                         //if( postWm )
                         //OStEXTAK( ostoFile , ".log" ) ;
-                        //OStEXTC( ostoFile , processGlobal1I.idHome , 0 ) ;
+                        //OStEXTC( ostoFile , processGlobal2I.idHome , 0 ) ;
                         //OStEXTAK( ostoFile , "\\ideafarm.rpt." ) ;
                         //OStEXT( ostoFile , 0x100 )
                         //
                         //etherC::ifcSayIF( te , flSAY_APPEND | flSAY_LOG ) ;
-                        //te += idCmdP == idwm_TASKbARiCON ? T(processGlobal3I.mapWindowMessage(p2P)) : TF3(p2P,flFORMAT_UNSIGNED,9) ;
+                        //te += idCmdP == idwm_TASKbARiCON ? T(processGlobal4I.mapWindowMessage(p2P)) : TF3(p2P,flFORMAT_UNSIGNED,9) ;
                         //te += TF3(p1P,flFORMAT_UNSIGNED,9) ;
                         //te += postWm ? TP(postWm,0x21) : TF3( idCmdP,flFORMAT_UNSIGNED,8)+TP("",0x19) ;
                         //te += TT(timeN1,timeN2)+T("| wm: ") ;
                         //TN( te , "" ) ;
-                        //osTextT* postWm = processGlobal3I.mapWindowMessage( idCmdP ) ;
+                        //osTextT* postWm = processGlobal4I.mapWindowMessage( idCmdP ) ;
                         //
                         //etThread.osTimeNowF( tinP , timeN1 , timeN2 ) ;
                         //ZE( sCountT , timeN2 ) ;
                         //ZE( countT , timeN1 ) ;
 
                         //LOGrAW( TT(timeN1,timeN2)+T("| ")+(postWm?T(postWm):TF1(idCmdP))+T(" ")+TF3(p1P,flFORMAT_UNSIGNED,9)+TF3(p2P,flFORMAT_UNSIGNED,8)+T("\r\n") ) ;
-                        //osTextT* postWm = processGlobal3I.mapWindowMessage( idCmdP ) ;
+                        //osTextT* postWm = processGlobal4I.mapWindowMessage( idCmdP ) ;
                         //etThread.osTimeNowF( tinP , timeN1 , timeN2 ) ;
                         //ZE( sCountT , timeN2 ) ;
                         //ZE( countT , timeN1 ) ;
@@ -920,7 +920,7 @@
         //    if( postName ) ;
         //{
         //if( cSkip && !( -- cSkip ) )
-        //osTextT* postName = processGlobal3I.mapWindowMessage( idCmdP ) ; //THIS IS ALL FOR DEBUGGING
+        //osTextT* postName = processGlobal4I.mapWindowMessage( idCmdP ) ; //THIS IS ALL FOR DEBUGGING
         //static countT cSkip = 0x100 ;
         bDoDefault = 1 ;
     {
@@ -942,7 +942,7 @@
     //U::
 
     TINSL
-    ebpTlsAM() = processGlobal1I.ebp_tmWindowsF_ ; //THIS IS NEEDED BECAUSE SOMETIMES THE TLS IS NOT IN THE STACK CHAIN (CONJ: WHEN CALLED BY INTERRUPT E.G. MOUSE)
+    ebpTlsAM() = processGlobal2I.ebp_tmWindowsF_ ; //THIS IS NEEDED BECAUSE SOMETIMES THE TLS IS NOT IN THE STACK CHAIN (CONJ: WHEN CALLED BY INTERRUPT E.G. MOUSE)
 {
 /*1*/countT thirdC::winMessageHandlerWorkF( const countT oshWindowP , const countT idCmdP , const countT p1P , const countT p2P )/*1*/
 

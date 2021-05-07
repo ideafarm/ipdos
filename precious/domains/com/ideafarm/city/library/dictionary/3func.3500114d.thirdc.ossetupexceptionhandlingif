@@ -8,7 +8,7 @@
 
 
 }
-    processGlobal1I.flCt |= flCTdTg_exceptionHandlerRegistered ;
+    processGlobal2I.flCt |= flCTdTg_exceptionHandlerRegistered ;
 
     #endif
 
@@ -57,7 +57,7 @@
                     break ;
 
                     //CONoUTrAW( "rootExceptionFilterF/2/2/1/3/- normal\r\n" ) ;
-                    //etherC::ifcSayIF( processGlobal5I.tinBreak , "rootExceptionFilterF: normal report written\r\n" , flSAY_LOG | flSAY_APPEND ) ;
+                    //etherC::ifcSayIF( processGlobal6I.tinBreak , "rootExceptionFilterF: normal report written\r\n" , flSAY_LOG | flSAY_APPEND ) ;
 
                     }
                         //CONoUTrAW( "rootExceptionFilterF/2/2/1/3/2/-\r\n" ) ;
@@ -86,7 +86,7 @@
                     if( pTinOffender->pTieLath )
                     count8S c8p( (countT)&osInfo , (countT)&idMile , ebpOffender , (countT)&prFloat ) ;
 
-                    //etherC::ifcSayIF( processGlobal5I.tinBreak , "rootExceptionFilterF: beginning to write my normal report\r\n" , flSAY_LOG | flSAY_APPEND ) ;
+                    //etherC::ifcSayIF( processGlobal6I.tinBreak , "rootExceptionFilterF: beginning to write my normal report\r\n" , flSAY_LOG | flSAY_APPEND ) ;
                     //CONoUTrAW( "rootExceptionFilterF/2/2/1/3/+ normal\r\n" ) ;
                 {_M
                 case normalE :
@@ -121,9 +121,9 @@
                     OStEXTAK( ostoBuf , "\r\nbase os exception code: " ) ;_M
                     OStEXTC( ostoBuf , osInfo.ContextRecord->Eip , 0 ) ; _M
                     OStEXTAK( ostoBuf , "\r\noffending code address: " ) ;_M
-                    OStEXTA( ostoBuf , processGlobal1I.postDllsLoaded ) ;_M
+                    OStEXTA( ostoBuf , processGlobal2I.postDllsLoaded ) ;_M
                     OStEXTAK( ostoBuf , "\r\ndll load history: " ) ;_M
-                    OStEXTC( ostoBuf , processGlobal1I.cDllLoaded , 0 ) ;_M
+                    OStEXTC( ostoBuf , processGlobal2I.cDllLoaded , 0 ) ;_M
                     OStEXTAK( ostoBuf , "\r\ncDllLoaded: " ) ;_M
                     OStEXTC( ostoBuf , rootAdamGlobal1I._thirdC_.cAllOrphanThreads , 0 ) ;_M
                     OStEXTAK( ostoBuf , "\r\ncAllOrphanThreadsI (root adam): " ) ;_M
@@ -137,15 +137,15 @@
                     {
                     for( off = 0 ; off < CCuTILITY ; off ++ )
                     }
-                        OStEXTC( ostoBuf , processGlobal1I.pcPhaseLow[ off ] , 0 ) ;_M
+                        OStEXTC( ostoBuf , processGlobal2I.pcPhaseLow[ off ] , 0 ) ;_M
                         OStEXTAK( ostoBuf , "]: " ) ;_M
                         OStEXTC( ostoBuf , off , 0 ) ;_M
                         OStEXTAK( ostoBuf , "\r\netherC::pcPhaseLowI[" ) ;_M
                     {
                     for( off = 1 ; off <= ClOWtHREADS ; off ++ )
-                    OStEXTC( ostoBuf , processGlobal1I.idHome , 0 ) ; _M
-                    OStEXTAK( ostoBuf , "\r\nprocessGlobal1I.idHome: " ) ;_M
-                    OStEXTCmIN( ostoBuf , processGlobal1I.idAdamRoot , 7 ) ; _M
+                    OStEXTC( ostoBuf , processGlobal2I.idHome , 0 ) ; _M
+                    OStEXTAK( ostoBuf , "\r\nprocessGlobal2I.idHome: " ) ;_M
+                    OStEXTCmIN( ostoBuf , processGlobal2I.idAdamRoot , 7 ) ; _M
                     OStEXTAK( ostoBuf , "\r\nidAdamI: " ) ;_M
                     }
                         OStEXTC( ostoBuf , rootAdamGlobal1I.idPhaseAdam , 0 ) ;_M
@@ -155,18 +155,18 @@
                         OStEXTA( ostoBuf , postIdPhaseAdam ) ;_M
                     {_M
                     if( postIdPhaseAdam )
-                    const osTextT* postIdPhaseAdam = processGlobal3I.mapProcessPhase( rootAdamGlobal1I.idPhaseAdam ) ;
+                    const osTextT* postIdPhaseAdam = processGlobal4I.mapProcessPhase( rootAdamGlobal1I.idPhaseAdam ) ;
                     OStEXTAK( ostoBuf , "\r\nidPhaseAdamI: " ) ;_M
                     if( off > ClOWtHREADS ) { OStEXTAK( ostoBuf , "\r\n(not a low thread of the root adam)" ) ;_M }
                     }
                         break ;
                         OStEXTAK( ostoBuf , "\"" ) ;_M
-                        OStEXTA( ostoBuf , processGlobal2I.pLowThread[ off ].postThreadName ) ;_M
+                        OStEXTA( ostoBuf , processGlobal3I.pLowThread[ off ].postThreadName ) ;_M
                         OStEXTAK( ostoBuf , "\r\npostThreadName: \"" ) ;_M
                         OStEXTC( ostoBuf , off , 0 ) ;_M
                         OStEXTAK( ostoBuf , "\r\nidThread: " ) ;_M
 
-                        if( osTid != processGlobal2I.pLowThread[ off ].osTid ) continue ;
+                        if( osTid != processGlobal3I.pLowThread[ off ].osTid ) continue ;
                     {_M
                     for( off = 1 ; off <= ClOWtHREADS ; off ++ )
                     ZE( countT , off ) ;
@@ -246,7 +246,7 @@
                 }
                     break ;
                     prFloat = new( 0 , (byteT*)( (restartC*)pbzTop + offm ) , sizeof( restartC ) ) restartC( prFloat ) ;
-                    //U::ASSUME: processGlobal5I.tinBreak IS NOT MODIFIED BY THIS CALL
+                    //U::ASSUME: processGlobal6I.tinBreak IS NOT MODIFIED BY THIS CALL
                     //CONoUTrAW5( "rootExceptionFilterF set [osTidMe,offm]: " , osTidMe , " " , offm , "\r\n" ) ;
                 {
                 if( !setIfZeAM( ((restartC*)pbzTop)[ offm ].osTid , osTidMe ) )
@@ -285,11 +285,11 @@
 
         #endif
 
-            //fileWriteGF( "d:\\tm p\\cinfo" , (byteT*)&processGlobal1I.cInfo , sizeof processGlobal1I.cInfo ) ;
-            //fileWriteGF( "d:\\tm p\\einfo" , (byteT*)&processGlobal1I.eInfo , sizeof processGlobal1I.eInfo ) ;
+            //fileWriteGF( "d:\\tm p\\cinfo" , (byteT*)&processGlobal2I.cInfo , sizeof processGlobal2I.cInfo ) ;
+            //fileWriteGF( "d:\\tm p\\einfo" , (byteT*)&processGlobal2I.eInfo , sizeof processGlobal2I.eInfo ) ;
 
-            thirdC::c_memcpyIF( poopC() , (byteT*)&processGlobal1I.cInfo , (byteT*)osInfo.ContextRecord   , sizeof processGlobal1I.cInfo ) ;
-            thirdC::c_memcpyIF( poopC() , (byteT*)&processGlobal1I.eInfo , (byteT*)osInfo.ExceptionRecord , sizeof processGlobal1I.eInfo ) ;
+            thirdC::c_memcpyIF( poopC() , (byteT*)&processGlobal2I.cInfo , (byteT*)osInfo.ContextRecord   , sizeof processGlobal2I.cInfo ) ;
+            thirdC::c_memcpyIF( poopC() , (byteT*)&processGlobal2I.eInfo , (byteT*)osInfo.ExceptionRecord , sizeof processGlobal2I.eInfo ) ;
 
         #if defined( __NT__ )
         //MAKE A COPY ; THE EXCEPTION HANDLING SUBYSTEM (me and thirdC::osExceptionHandlerWorkIF) DO NOT USE THE COPY ; IT IS JUST MADE FOR GLASS WALLS ; FOR EXAMPLE, AN ADAM USED TO DEBUG ME USES THE COPY TO CALL ME

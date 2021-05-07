@@ -17,9 +17,9 @@ etThread.traceF( tinP , T("bye!") ) ;
 
 if( !bStop ) ether.ifcHireF( tinP , T("f hiring self") , ifcIDaDAM_SCRATCH0f , T("!stop") , flHIRE_DISPLAYaUTO , nicNameC() ) ;
 
-etThread.traceF( tinP , T("[idNumaNode]: ")+TF2(processGlobal1S::_processGlobal1I_IF().idNumaNode,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
+etThread.traceF( tinP , T("[idNumaNode]: ")+TF2(processGlobal2S::_processGlobal2I_IF().idNumaNode,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
 
-if( !bStop ) *(countT*)&processGlobal1S::_processGlobal1I_IF().idNumaNode = 0x87654321 ;
+if( !bStop ) *(countT*)&processGlobal2S::_processGlobal2I_IF().idNumaNode = 0x87654321 ;
 
 }
     }
@@ -63,7 +63,7 @@ static countT foo = PSAPI_VERSION ;
             OStEXTAK( ostoSay , "[offg,@,offNode]:    " ) ;
             OStEXT(   ostoSay , TUCK << 1 ) ;
         {
-        if( pInfoGrain[ offg ].VirtualAttributes.Node != processGlobal1S::_processGlobal1I_IF().idNumaNode - 1 )
+        if( pInfoGrain[ offg ].VirtualAttributes.Node != processGlobal2S::_processGlobal2I_IF().idNumaNode - 1 )
 
         thirdC::c_strcatIF( tinP , postSay, "\r\n" ) ;
         }
@@ -102,7 +102,7 @@ for( countT offg = 0 ; offg < cGrains ; offg ++ )
 if( cGrains ) ;
 static countT cGrains = sizeof pg1.pcInfoGrain / sizeof pg1.pcInfoGrain[ 0 ] ;
 static PSAPI_WORKING_SET_EX_INFORMATION* pInfoGrain = (PSAPI_WORKING_SET_EX_INFORMATION*)pg1.pcInfoGrain ;
-static processGlobal1S& pg1 = processGlobal1S::_processGlobal1I_IF() ;
+static processGlobal2S& pg1 = processGlobal2S::_processGlobal2I_IF() ;
 
 #if defined( NEVERdEFINED )
 
@@ -165,7 +165,7 @@ fooF( tinP ) ;
 
 //             LOGrAW( "\r\n\r\n" ) ;
 //             LOGrAW( postDllOpenSsl ) ;
-//             LOGrAW( "U::TO FIND A BUG, OPENSSL DLL IS NOT LOADED DURING CT OF processGlobal1I:\r\n" ) ;
+//             LOGrAW( "U::TO FIND A BUG, OPENSSL DLL IS NOT LOADED DURING CT OF processGlobal2I:\r\n" ) ;
 //             CONoUTrAW( "\r\n" ) ;
 //             CONoUTrAW( postDllOpenSsl ) ;
 // 

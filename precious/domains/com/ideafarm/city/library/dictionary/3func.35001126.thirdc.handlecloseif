@@ -33,7 +33,7 @@
             case ifcIDtYPEhANDLE_CLOUD :
             }
                 break ;
-                BOSnOvALUE( WHATgbo , (*processGlobal1I.openSsl_pContextFreeF)( (SSL_CTX*)handleP.osh ) )
+                BOSnOvALUE( WHATgbo , (*processGlobal2I.openSsl_pContextFreeF)( (SSL_CTX*)handleP.osh ) )
                 _IO_
             {
             case ifcIDtYPEhANDLE_openSslContext :
@@ -79,7 +79,7 @@
                 break ;
 
                 if( handleP.cNoteF() ) thirdC::openSsl_wrapperFreeIF( tinP , handleP ) ;
-                //if( handleP.cNoteF() ) { BOSnOvALUE( WHATgbo , (*processGlobal1I.openSsl_pWrapperFreeF)( (SSL*)handleP.cNoteF() ) ) }
+                //if( handleP.cNoteF() ) { BOSnOvALUE( WHATgbo , (*processGlobal2I.openSsl_pWrapperFreeF)( (SSL*)handleP.cNoteF() ) ) }
     
                 handleP.osh = handleP.oshInvalid ;
 
@@ -124,7 +124,7 @@
                 //U:: 20200524@2335: WHY NEEDED?  CAN'T DO THIS EARLY OR LATE.  COMMENTED OUT BECAUSE CAUSES PROCESS C++ INIT TO FAIL WHEN HOME IS CLOAKED
 
                 if( handleP.cNoteF() ) thirdC::openSsl_waveByeIF( tinP , handleP ) ;
-                //if( handleP.cNoteF() ) { BOSnOvALUE( WHATgbo , (*processGlobal1I.openSsl_pWaveByeF)(    (SSL*)handleP.cNoteF() ) ) }
+                //if( handleP.cNoteF() ) { BOSnOvALUE( WHATgbo , (*processGlobal2I.openSsl_pWaveByeF)(    (SSL*)handleP.cNoteF() ) ) }
                 _IO_
             {
             case ifcIDtYPEhANDLE_SOCKET :
@@ -237,7 +237,7 @@
                 #endif
 
                     }
-                        processGlobal3I.heap.delF( tinP , pbd ) ;
+                        processGlobal4I.heap.delF( tinP , pbd ) ;
                         DELzOMBIE( pOsh ) ;
                         byteT* pbd = (byteT*)pOsh ;
                     {
@@ -372,7 +372,7 @@
                                             //if( tinP.pc Utility[ 0 ] ) CONoUTrAW( "thirdC::handleCloseIF / b\r\n" ) ;
                                         
                                             root.openKidF( tinP , hx2 ) ;
-                                            linkedC& root = processGlobal3I._handleC_linked_sm ;
+                                            linkedC& root = processGlobal4I._handleC_linked_sm ;
                                             handleC hx2( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_LINKED ) ;
 
                                             LOGrAW( "walking from the root to document the state of the list (hopefully i've logged enough loop handle values)" ) ;
@@ -396,7 +396,7 @@
                             
                                 //if( tinP.pc Utility[ 0 ] ) CONoUTrAW( "thirdC::handleCloseIF / e\r\n" ) ;
                                 root.openKidF( tinP , hx ) ;
-                                linkedC& root = processGlobal3I._handleC_linked_sm ;
+                                linkedC& root = processGlobal4I._handleC_linked_sm ;
                                 handleC hx( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_LINKED ) ;
                                 //if( tinP.pc Utility[ 0 ] ) CONoUTrAW( "thirdC::handleCloseIF / f\r\n" ) ;
 
@@ -415,18 +415,18 @@
                     //if( tinP.pc Utility[ 0 ] ) CONoUTrAW( "thirdC::handleCloseIF / h\r\n" ) ;
     
                     }
-                        if( F(processGlobal1I.flCt) & flCTdTg_tinMainInPool && !( F(processGlobal1I.flDt) & flCTdTg_tinMainInPool ) ) processGlobal3I.grabMemorySpace.ungrabF( tinP ) ;
+                        if( F(processGlobal2I.flCt) & flCTdTg_tinMainInPool && !( F(processGlobal2I.flDt) & flCTdTg_tinMainInPool ) ) processGlobal4I.grabMemorySpace.ungrabF( tinP ) ;
                         }
                             }
                                 break ;
-                                processGlobal1I._thirdC_pSharedMemInfo[ offr ].pv = 0 ;
-                                processGlobal1I._thirdC_pSharedMemInfo[ offr ].osh = 0 ;
-                                *processGlobal1I._thirdC_pSharedMemInfo[ offr ].postName = 0 ;
+                                processGlobal2I._thirdC_pSharedMemInfo[ offr ].pv = 0 ;
+                                processGlobal2I._thirdC_pSharedMemInfo[ offr ].osh = 0 ;
+                                *processGlobal2I._thirdC_pSharedMemInfo[ offr ].postName = 0 ;
                             {
-                            if( processGlobal1I._thirdC_pSharedMemInfo[ offr ].osh == handleP.osh )
+                            if( processGlobal2I._thirdC_pSharedMemInfo[ offr ].osh == handleP.osh )
                         {
                         for( countT offr = 0 ; offr < CsHAREDmEMiNFO ; offr ++ )
-                        if( F(processGlobal1I.flCt) & flCTdTg_tinMainInPool && !( F(processGlobal1I.flDt) & flCTdTg_tinMainInPool ) ) processGlobal3I.grabMemorySpace.grabF( tinP , TAG( TAGiDnULL ) ) ;
+                        if( F(processGlobal2I.flCt) & flCTdTg_tinMainInPool && !( F(processGlobal2I.flDt) & flCTdTg_tinMainInPool ) ) processGlobal4I.grabMemorySpace.grabF( tinP , TAG( TAGiDnULL ) ) ;
                     {
                     thirdC::dosPriorityIF( tinP , ifcTHREADpRIORITY_SPINLOCK ) ;
                     const countT idDesireSave = thirdC::dosPriorityIF( tinP ) ;
@@ -497,7 +497,7 @@
                 #endif
                     BOSpOOP
                     BOS( WHATgbo , BOSoK , FreeLibrary( (HMODULE)handleP.osh ) )
-                    dec02AM( processGlobal1I.cDllLoaded ) ; //COUNT WILL BE WRONG IF THE NEXT LINE FAILS
+                    dec02AM( processGlobal2I.cDllLoaded ) ; //COUNT WILL BE WRONG IF THE NEXT LINE FAILS
                 #elif defined( __NT__ )
                     //U::
                 #ifdef __OS2__

@@ -59,7 +59,7 @@
 
                 tinP.cYield = 0 ;
                 }
-                    if( !bWoth && ogw < processGlobal1I._grabC_cgw ) break ;
+                    if( !bWoth && ogw < processGlobal2I._grabC_cgw ) break ;
         
                     }
                         }
@@ -75,42 +75,42 @@
                                 OStEXTA( ostoBuf , " " ) ;
                                 OStEXTC( ostoBuf , tinP.monitor.idThread , 0 ) ;
                                 OStEXTA( ostoBuf , " (heater: " ) ;
-                                OStEXTC( ostoBuf , processGlobal1I._grabC_pgw[ ogw ].idThread , 0 ) ;
+                                OStEXTC( ostoBuf , processGlobal2I._grabC_pgw[ ogw ].idThread , 0 ) ;
                                 OStEXTA( ostoBuf , "heatin " ) ;
                                 OStEXT( ostoBuf , 0x140 )
                             {
-                            if( F(processGlobal1I._grabC_pgw[ogw].flags) & flGRABwANT_CHATTERrESUME )
+                            if( F(processGlobal2I._grabC_pgw[ogw].flags) & flGRABwANT_CHATTERrESUME )
         
                             thirdC::osThreadYieldIF( tinP , TAG( TAGiDnULL ) ) ; //THIS WILL GIVE THE WANTER TIME TO GET TO SLEEP
                         
                             if( !hThreadWant ) { BLAMMO ; }
-                            hThreadWant.cloneF( processGlobal1I._grabC_pgw[ ogw ].hThread , dosGetInfoBlocksIdProcessIF( tinP ) , hProcessMe , hProcessWant ) ;
+                            hThreadWant.cloneF( processGlobal2I._grabC_pgw[ ogw ].hThread , dosGetInfoBlocksIdProcessIF( tinP ) , hProcessMe , hProcessWant ) ;
                             handleC hThreadWant( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_THREAD ) ;
         
                             if( !hProcessWant ) { BLAMMO ; }
-                            handleC hProcessWant = hProcessF( tinP , processGlobal1I._grabC_pgw[ ogw ].osPid , dosGetInfoBlocksIdProcessIF( tinP ) ) ;
+                            handleC hProcessWant = hProcessF( tinP , processGlobal2I._grabC_pgw[ ogw ].osPid , dosGetInfoBlocksIdProcessIF( tinP ) ) ;
         
                             hProcessMe.osF( ifcIDtYPEhANDLE_PROCESS , (countT)thirdC::osOpenProcessIF() ) ;
                             handleC hProcessMe( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_PROCESS ) ;
-                            //U:O: if processGlobal1I._grabC_pgw[ ogw ].osPid == tinP.osPid THEN JUST USE PSEUDOHANDLE FOR hProcessWant
+                            //U:O: if processGlobal2I._grabC_pgw[ ogw ].osPid == tinP.osPid THEN JUST USE PSEUDOHANDLE FOR hProcessWant
                             //U:O: USE tinP.osPid
         
-                            if( !processGlobal1I._grabC_pgw[ ogw ].hThread ) { BLAMMO ; }
+                            if( !processGlobal2I._grabC_pgw[ ogw ].hThread ) { BLAMMO ; }
 
                             }
-                                if( processGlobal1I._grabC_pgw[ ogw ].idGrab != idMe || processGlobal1I._grabC_pgw[ ogw ].idGrabber != idGrabberKiss ) continue ;
+                                if( processGlobal2I._grabC_pgw[ ogw ].idGrab != idMe || processGlobal2I._grabC_pgw[ ogw ].idGrabber != idGrabberKiss ) continue ;
 
                                 tinP.cYield = save ;
-                                while( processGlobal1I._grabC_pgw[ ogw ].bDirty ) thirdC::osThreadYieldIF( tinP , TAG( TAGiDnULL ) ) ;
+                                while( processGlobal2I._grabC_pgw[ ogw ].bDirty ) thirdC::osThreadYieldIF( tinP , TAG( TAGiDnULL ) ) ;
                                               tinP.cYield = 0 ;
                                 countT save = tinP.cYield ;
                                 ZE( countT , idCycle2 ) ;
                             {
-                            if( processGlobal1I._grabC_pgw[ ogw ].bDirty ) //SOME DIRTY ENTRIES ARE TENTATIVE AND WILL DISAPPEAR (E.G. IF WANTER IS WILLING TO WITHDRAW FROM KISS BANK)
+                            if( processGlobal2I._grabC_pgw[ ogw ].bDirty ) //SOME DIRTY ENTRIES ARE TENTATIVE AND WILL DISAPPEAR (E.G. IF WANTER IS WILLING TO WITHDRAW FROM KISS BANK)
                         {
-                        if( processGlobal1I._grabC_pgw[ ogw ].idGrab == idMe && processGlobal1I._grabC_pgw[ ogw ].idGrabber == idGrabberKiss )
+                        if( processGlobal2I._grabC_pgw[ ogw ].idGrab == idMe && processGlobal2I._grabC_pgw[ ogw ].idGrabber == idGrabberKiss )
                     {
-                    for( ; ogw < processGlobal1I._grabC_cgw ; ogw ++ )
+                    for( ; ogw < processGlobal2I._grabC_cgw ; ogw ++ )
                     ZE( countT , ogw ) ;
 
                     else        thirdC::osThreadYieldIF( tinP , TAG( TAGiDnULL ) ) ;

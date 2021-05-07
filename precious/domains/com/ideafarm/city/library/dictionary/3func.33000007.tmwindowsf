@@ -13,7 +13,7 @@ DONE( tmWindowsF )
 //DONE WILL NOT DO THIS BECAUSE tinP AND etThread ARE ALREADY GONE
 //WARNING: IF I AM EDITED TO LAUNCH KID THREADS, I MUST EXPLICITLY WAIT HERE FOR THEM ALL TO END
 
-processGlobal1I._thirdC_flagsProcessState |= flPROCESSsTATE_tmWindowsF_HASeNDED | flPROCESSsTATE_MAINtHREADiSaLONE ;
+processGlobal2I._thirdC_flagsProcessState |= flPROCESSsTATE_tmWindowsF_HASeNDED | flPROCESSsTATE_MAINtHREADiSaLONE ;
 
 THREADmODE1rESTORE
 }
@@ -141,7 +141,7 @@ THREADmODE1rESTORE
         {
     
         tinP.idPhase2 = 1 ;
-        processGlobal1I.ebp_tmWindowsF_ = ebpAM() ; //winMessageHandlerWorkF WILL USE THIS VALUE TO FIND tinP
+        processGlobal2I.ebp_tmWindowsF_ = ebpAM() ; //winMessageHandlerWorkF WILL USE THIS VALUE TO FIND tinP
         if( !( F(thirdC::third_flagsModeProcess2I_IF(tinP)) & flMODEpROCESS2_NOsYSTEMtHREADS ) ) { __( tinP.monitor.idThread - ifcIDtHREADlOW_tmWindowsOrServiceMainF ) ; }
         TELL( "setting up" )
     {

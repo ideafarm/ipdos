@@ -67,7 +67,7 @@
 
             PSAPI_WORKING_SET_EX_INFORMATION* pInfoGrainAtLaunch = (PSAPI_WORKING_SET_EX_INFORMATION*)pg1.pcInfoGrain ;
 
-            //CONoUTrAW5( "processGlobal1I / QueryWorkingSetEx [bOk,rc]:    " , bOk , "    " , rc , "\r\n" ) ;
+            //CONoUTrAW5( "processGlobal2I / QueryWorkingSetEx [bOk,rc]:    " , bOk , "    " , rc , "\r\n" ) ;
             countT rc = bOk ? 0 : GetLastError() ;
 
             static BOOL bOk = QueryWorkingSetEx( GetCurrentProcess() , pInfoGrain , sizeof( PSAPI_WORKING_SET_EX_INFORMATION ) * TOCK / 2 ) ;
@@ -79,7 +79,7 @@
             countT offg = -1 ;
             ZE( countT , idColLath ) ;
             //CONoUTrAW3( "[cbGrain]: " , cbGrain , "\r\n" ) ;
-            //CONoUTrAW( "\r\n\r\nAddress Space Usage (ct processGlobal1I):\r\n\r\n" ) ;
+            //CONoUTrAW( "\r\n\r\nAddress Space Usage (ct processGlobal2I):\r\n\r\n" ) ;
 
             if( cGrains != sizeof pInfoGrain / sizeof pInfoGrain[ 0 ] ) { BLAMMO ; }
             countT cGrains = BM_HIGH / cbGrain ;
@@ -88,7 +88,7 @@
         if( pg1.idNumaNode )
         //if( pg1.idAdamRoot != ifcIDaDAM_ADAM && pg1.idAdamRoot != ifcIDaDAM_EVE && pg1.idAdamRoot != ifcIDaDAM_ELF ) //U:: REMOVE THIS LINE IN PRODUCTION
 
-        processGlobal1S& pg1 = processGlobal1S::_processGlobal1I_IF() ;
+        processGlobal2S& pg1 = processGlobal2S::_processGlobal2I_IF() ;
 
     #if defined( __NT__ )
 {
