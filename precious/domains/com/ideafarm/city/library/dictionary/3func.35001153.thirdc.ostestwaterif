@@ -68,7 +68,7 @@
                         }
                             BOSnOvALUEnOtIN( OSsLEEPf( TUCK ) )
                             /*Beep ( 0x100 , TUCK ) ;*/
-                            CONoUTrAW5( "waiting for idHome " , processGlobal2I.idHome , " to become available for " , processGlobal2I.idAdamRoot , "\r\n" ) ;
+                            CONoUTrAW5( "waiting for idHome " , processGlobal2I.idHome , " to become available for " , processGlobal1I.idAdamRoot , "\r\n" ) ;
                         {
                         else
                         if( F(processGlobal2I._thirdC_flagsModeProcess2) & flMODEpROCESS2_IDhOSTsEARCH ) ++ *(countT*)&processGlobal2I.idHome ;
@@ -98,7 +98,7 @@
                     //conGF( bLowMem ) ;
                     //conGF( "osTestWaterIF [bLowMem,bDenied,bOld,bDriver]: " ) ;
 
-                    boolT bDriver = processGlobal2I.idAdamRoot == ifcIDaDAM_KERNEL1DRIVER || processGlobal2I.idAdamRoot == ifcIDaDAM_KERNEL2MONITOR ;
+                    boolT bDriver = processGlobal1I.idAdamRoot == ifcIDaDAM_KERNEL1DRIVER || processGlobal1I.idAdamRoot == ifcIDaDAM_KERNEL2MONITOR ;
                     boolT bOld    = rc == ERROR_ALREADY_EXISTS ;
                     boolT bDenied = rc == ERROR_ACCESS_DENIED ;
                     boolT bLowMem = rc == ERROR_NOT_ENOUGH_MEMORY ;
@@ -143,7 +143,7 @@
                 else
                 if( bDriver || processGlobal2I.idHome & fliIDhOME_HOMELESS ) bOk = 1 ;
 
-                boolT bDriver = processGlobal2I.idAdamRoot == ifcIDaDAM_KERNEL1DRIVER || processGlobal2I.idAdamRoot == ifcIDaDAM_KERNEL2MONITOR ;
+                boolT bDriver = processGlobal1I.idAdamRoot == ifcIDaDAM_KERNEL1DRIVER || processGlobal1I.idAdamRoot == ifcIDaDAM_KERNEL2MONITOR ;
             {
             case ifcIDtYPEtESTwATER_LOOKfORdRIVER :
         {

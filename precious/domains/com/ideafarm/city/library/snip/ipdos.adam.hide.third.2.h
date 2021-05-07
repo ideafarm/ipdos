@@ -6867,6 +6867,7 @@ a count8S object contains 8 countT values
 
 /*1*/struct _export processGlobal1S/*1*/        //U:: MOST MEMBERS OF processGlobal1S SHOULD BE MIGRATED TO HERE AND THEN ALL OF THE processGlobal?S NAMES SHOULD BE RENUMBERED.  processGlobal1I SHOULD BE CONSTRUCTED AS EARLY AS POSSIBLE
 {
+    const countT                    idAdamRoot  ;
     const byteT*                    pbHeap ;                    // THIS IS AN OPTIMIZATION BUT MAINLY HERE BECAUSE ___ INSPECTS THESE VALUES BEFORE processGlobal4S::heap IS CT
     const byteT*                    pbHeapEnd ;                 // THIS IS AN OPTIMIZATION BUT MAINLY HERE BECAUSE ___ INSPECTS THESE VALUES BEFORE processGlobal4S::heap IS CT
     
@@ -40139,7 +40140,6 @@ it is illegal to refer to this symbol in the definition of an adam
     countT                          pcUtility[ 0x10 ] ; //TO FACILITATE DEBUGGING
     flagsT                          flCt        ;
     flagsT                          flDt        ;
-    const countT                    idAdamRoot  ;
     const countT                    idHome      ;
     const countT                    idNumaNode  ;
     countT                          idProcessOld ;

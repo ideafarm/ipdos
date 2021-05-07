@@ -1967,7 +1967,7 @@ it is illegal to refer to this symbol in the definition of an adam
                 tinP.pSgnUtility = &_sgnUtility ;                                                                           \
                                                                                                                             \
                 {                                                                                                           \
-                    /*etherC::ifcSayIF( T("ADAM CELL (idAdam,osPid): ")+TF1(processGlobal2S::_processGlobal2I_IF().idAdamRoot)+T(" ")+TF1(tinP.osPid)+T(" ")+TF1(tinP.osTid)+T(" \"")+T(tinP.postThreadName)+T("\"") , flSAY_APPEND | flSAY_LOG ) ;*/ \
+                    /*etherC::ifcSayIF( T("ADAM CELL (idAdam,osPid): ")+TF1(processGlobal1S::_processGlobal1I_IF().idAdamRoot)+T(" ")+TF1(tinP.osPid)+T(" ")+TF1(tinP.osTid)+T(" \"")+T(tinP.postThreadName)+T("\"") , flSAY_APPEND | flSAY_LOG ) ;*/ \
                     etThread.osTimeNowF( tinP , tinP.time1 , tinP.time2 ) ;                                                 \
                     if( F( ((thirdC&)etThread).third_flagsModeAdam1I_IF( tinP ) ) & flADAMmODE1_SEEtHREADSaSfILES )         \
                     {                                                                                                       \
@@ -15298,7 +15298,7 @@ see QUITO
     {                                                                                                                   \
         OStEXT( ostoTitle , 0x100 )                                                                                     \
         OStEXTAK( ostoTitle , "idAdam:" ) ;                                                                              \
-        OStEXTC( ostoTitle , processGlobal2S::_processGlobal2I_IF().idAdamRoot , 0 ) ;                                                   \
+        OStEXTC( ostoTitle , processGlobal1S::_processGlobal1I_IF().idAdamRoot , 0 ) ;                                                   \
         OStEXTAK( ostoTitle , " ; idThread:" )  ;                                                                      \
         OStEXTC( ostoTitle , tinP.monitor.idThread , 0 ) ;                                                                    \
         OStEXTAK( ostoTitle , " ; thread:\"" ) ;                                                                       \
