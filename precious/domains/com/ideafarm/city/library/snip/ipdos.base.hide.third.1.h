@@ -1,6 +1,4 @@
 
-#define CBcIRCLEdFLT ( TUCK * ( TUCK - 1 ) - 1 )
-
 // IPDOS (tm) <> IdeaFarm (tm) Piggyback Distributed Operating System
 
 // For build environment info, see file "\ideafarm.work\backed.up.never\txt\readme.first.ipdos.build.environment.txt"
@@ -5087,7 +5085,6 @@ in the "IN_NORMAL" macros, it is redefined so that the _ macro sets the high ord
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200082.ifcflagin END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200083._io_ BEGIN
 
-
 //
 // Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
@@ -5113,6 +5110,31 @@ it is illegal to refer to this symbol in the definition of an adam
 #if defined( NEVERdEFINED )
 
     #define _IO_
+
+#elif defined( NEVERdEFINED2 )
+
+    #define _IO_ if( ebpAM() - espAM() > ( TICK << 0 ) ) { *(countT*)-1 = 0 ; } inOutFrameC _inOutFrame( tinP , LF , IDFILE , BiFCcLASS ) ;
+
+    #define _IO_                                                                                                                                    \
+                                                                                                                                                    \
+        inOutFrameC _inOutFrame( tinP , LF , IDFILE , BiFCcLASS ) ;                                                                                 \
+                                                                                                                                                    \
+        if( !( F(tinP.flagsThreadMode4) & flTHREADmODE4_STFU1iOmACRO ) )                                                                            \
+        {                                                                                                                                           \
+            THREADmODE4oN( flTHREADmODE4_STFU1iOmACRO )                                                                                             \
+            {                                                                                                                                       \
+                OStEXT(    ostoSay , TUCK << 0 ) ;                                                                                                  \
+                OStEXTAK(  ostoSay , "[ebp-esp]: " ) ;                                                                                              \
+                OStEXTCF(  ostoSay , ebpAM() - espAM() - sizeof( inOutFrameC ) , '0' ) ;                                                            \
+                OStEXTAK(  ostoSay , "    " ) ;                                                                                                     \
+                OStEXTCF(  ostoSay , IDFILE , 0 ) ;                                                                                                 \
+                OStEXTAK(  ostoSay , "\r\n" ) ;                                                                                                     \
+                CONoUTrAW( ostoSay ) ;                                                                                                              \
+            }                                                                                                                                       \
+            THREADmODE4rESTORE                                                                                                                      \
+        }                                                                                                                                           \
+                                                                                                                                                    \
+        if( ebpAM() - espAM() - sizeof( inOutFrameC ) > ( TICK << 0 ) ) { *(countT*)-1 = 0 ; }
 
 #else
 
@@ -20752,7 +20774,7 @@ for each previous absentee
 /**/
 /*1*//*CBfRAMEsPOUSE*//*1*/
 
-//THESE VALUES LIMIT CODES TO [1,ffef] IOW (0,00ff)
+//THESE VALUES LIMIT CODES TO [1,ffef] IOW (0,00ff)         (THE PAREN INDICATES "EXCLUDING THE VALUES" WHILE THE SQU BRACKETS INDICATE INCLUSION)
 //CODES AT OR ABOVE 00ff ARE RESERVED TO SERVE AS LITERALS FOR BYTE VALUES 0 - ff
 //A: ASSUME: CBfRAMEsPOUSE DIVIDES EVENLY INTO MAXcOUNTT+1, SO THE OVERFLOW FIXUP WILL NOT AFFECT THE OFFSETS WITHIN EACH FRAME
 
@@ -21110,6 +21132,7 @@ for each previous absentee
 
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200232.flset END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200233.tlsentryoff BEGIN
+
 
 //
 // Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
@@ -45763,29 +45786,3 @@ a jPointer is also considered null if it contains one of the special values [JrE
 //
 
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004f0.isnulljpointer END
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004f0.npv BEGIN
-
-
-//
-// Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 29 years.
-// Respecting the rights of other people is an important part of empowering one another.
-//
-
-/*
-*/
-/**/
-/*1*//*NPV(pbP)*//*1*/
-
-#define NPV(pbP) __( (pbP) && ( (countT)(pbP) < JrEQUEST_min || (countT)(pbP) > JrEQUEST_max ) )
-
-
-//
-// Respecting the rights of other people is an important part of empowering one another.
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 29 years.
-//
-// Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004f0.npv END

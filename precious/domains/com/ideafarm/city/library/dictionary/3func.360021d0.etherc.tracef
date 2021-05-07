@@ -242,8 +242,17 @@
 
     //LOGrAWb( "\r\ntraceF [idAdam,flagsP,home.flags,bTraceOk,bDivertOk]:    " , tinP.pAdamGlobal1->idAdam , "    " , flagsP , "    " , home.flags , "    " , bTraceOk , "    " , bDivertOk , "\r\n" ) ; //U:: TO FIND A BUG
 
-    boolT bDivertOk = F(flagsP) & flTRACE_FORCEdIVERT    || !( F(home.flags) & flHOMEs_TRACEnOdIVERT ) ;
-    boolT bTraceOk  = F(flagsP) & flTRACE_FORCEnOsILENCE || !( F(home.flags) & flHOMEs_TRACEsILENCED ) ;
+    ;
+        : 1
+        ? F(flagsP) & flTRACE_FORCEdIVERT    || !( F(home.flags) & flHOMEs_TRACEnOdIVERT )
+    boolT bDivertOk = c_pHome
+
+    ;
+        : 1
+        ? F(flagsP) & flTRACE_FORCEnOsILENCE || !( F(home.flags) & flHOMEs_TRACEsILENCED )
+    boolT bTraceOk = c_pHome
+
+    countT c_pHome = (countT)&home ;
     homeS& home = homeS::homeIF() ;
 {
 /*1*/voidT etherC::traceF( tinS& tinP , const strokeS* const psttP , const flagsT flagsP , const countT idDivertP )/*1*/

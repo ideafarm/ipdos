@@ -1,3 +1,29 @@
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004f0.npv BEGIN
+
+
+//
+// Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 29 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+/*
+*/
+/**/
+/*1*//*NPV(pbP)*//*1*/
+
+#define NPV(pbP) __( (pbP) && ( (countT)(pbP) < JrEQUEST_min || (countT)(pbP) > JrEQUEST_max ) )
+
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 29 years.
+//
+// Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004f0.npv END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004f1.fljotc BEGIN
 
 
@@ -4739,6 +4765,7 @@ after i return, that countT object will contain 1
 #define flTHREADmODE4_INoUTfRAMEfORCEcOLLECTaPPtELEMETRY                                0xe0000410
 #define flTHREADmODE4_DOnOTfLUSHpENDINGaPPtELEMETRY                                     0xe0000810
 #define flTHREADmODE4_DOnOTtESTdROPhEADERS                                              0xe0001010
+#define flTHREADmODE4_STFU1iOmACRO                                                      0xe0002010
 /*3*/
 #define flTHREADmODE4_null    0xe0000010
 
@@ -5424,7 +5451,7 @@ examples
 //
 
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200597.CbOOKmARK END
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200598.CCtLSsTEP BEGIN
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200598.CmAXsTEPtLS BEGIN
 
 //
 // Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
@@ -5448,7 +5475,7 @@ examples
 // Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
 
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200598.CCtLSsTEP END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200598.CmAXsTEPtLS END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200599.targ2cbtls BEGIN
 
 
@@ -5528,6 +5555,33 @@ enable it to set bits in processGlobal1S::pbMemoryBits*
 //
 
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.1120059b.SHOWmEMgRAINS END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.1120059c.CBcIRCLEdFLT BEGIN
+
+//
+// Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 29 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+/*
+this default value is ffef, chosen because spouseC::circle will thus contain at most ffef bytes, so any byte can be referenced with a value less than 00ff
+values at and above 00ff are used by spouseC to encode literal byte values
+*/
+/**/
+/*1*//*CBcIRCLEdFLT*//*1*/
+
+#define CBcIRCLEdFLT ( TUCK * ( TUCK - 1 ) - 1 )
+
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 29 years.
+//
+// Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.1120059c.CBcIRCLEdFLT END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.thirdParties : 1snip.15000014.thirdparties BEGIN
 
 
@@ -25217,49 +25271,6 @@ examples
 //
 
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.thirdInitC : 1snip.1500003d.thirdinitc END
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.sharedMemInfoS : 1snip.15000054.sharedmeminfos BEGIN
-
-
-//
-// Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 29 years.
-// Respecting the rights of other people is an important part of empowering one another.
-//
-
-/*
-\<A HREF=\"5.15000054.1.0.html\"\>definition\</A\>
-it is illegal to refer to this symbol in the definition of an adam
-*/
-/**/
-
-/*1*/struct sharedMemInfoS /*1*/
-{
-/**/
- 
-    countT  osh ;
-    voidT*  pv ;
-    osTextT postName[ COSTsHAREDmEMmAX + 1 ] ;
-
-    public :
-
- ~sharedMemInfoS( voidT ) ;
- //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34001.sharedMemInfoS.dt_sharedMemInfoS!||
- sharedMemInfoS( voidT ) ;
- //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34002.sharedMemInfoS.sharedMemInfoS!||
-/**/
-}
-;
-
-
-//
-// Respecting the rights of other people is an important part of empowering one another.
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 29 years.
-//
-// Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
-//
-
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.sharedMemInfoS : 1snip.15000054.sharedmeminfos END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.fireAllS : 1snip.15000064.firealls BEGIN
 
 
@@ -27929,6 +27940,7 @@ it is illegal to modify any member other than pc Utility in the definition of an
  voidT tlsCheckF( voidT ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.36024015.tins.tlsCheckF!||
  voidT tlsTraceF( voidT ) ;
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.36024016.tins.tlsTraceF!||
  byteT* pbF( countT idP = 1 ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3400d.tinS.pbF!||
 
@@ -33227,7 +33239,8 @@ each textC object contains an unmodifiable string of strokes
 //
 
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.textC : 1snip.1500000e.textc END
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.tlsHeaderS : 1snip.15000190.tlsHeaderS END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.circleC : 1snip.15000191.circleC BEGIN
+
 //
 // Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
@@ -33269,7 +33282,9 @@ each textC object contains an unmodifiable string of strokes
 // Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
 
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.circleC : 1snip.15000191.circleC END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.spouseC : 1snip.15000083.spousec BEGIN
+
 
 //
 // Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
@@ -33322,8 +33337,6 @@ this class remembers bytes, in up to CfRAMESsPOUSE (ff) frames of CBfRAMEsPOUSE 
 */
 /**/
 
-//N1: LOGICALLY, THESE VARIABLE VALUES WOULD RISE WITHOUT BOUND; TO AVOID THIS, A FIXUP IS APPLIED TO offNew
-
 /*1*/class _export momC : public spouseC/*1*/
 {
  public :
@@ -33365,8 +33378,6 @@ this class remembers bytes, in up to CfRAMESsPOUSE (ff) frames of CBfRAMEsPOUSE 
 /*
 */
 /**/
-
-//N1: LOGICALLY, THESE VARIABLE VALUES WOULD RISE WITHOUT BOUND; TO AVOID THIS, A FIXUP IS APPLIED TO offNew
 
 /*1*/class _export dadC : public spouseC/*1*/
 {
@@ -40001,6 +40012,49 @@ base class to make a derived class of objects easily contained by a stackC objec
 //
 
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.bookC : 1snip.15000111.bookc END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.sharedMemInfoS : 1snip.15000054.sharedmeminfos BEGIN
+
+
+//
+// Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 29 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+/*
+\<A HREF=\"5.15000054.1.0.html\"\>definition\</A\>
+it is illegal to refer to this symbol in the definition of an adam
+*/
+/**/
+
+/*1*/struct sharedMemInfoS /*1*/
+{
+/**/
+ 
+    countT  osh ;
+    voidT*  pv ;
+    osTextT postName[ COSTsHAREDmEMmAX + 1 ] ;
+
+    public :
+
+ ~sharedMemInfoS( voidT ) ;
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34001.sharedMemInfoS.dt_sharedMemInfoS!||
+ sharedMemInfoS( voidT ) ;
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34002.sharedMemInfoS.sharedMemInfoS!||
+/**/
+}
+;
+
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 29 years.
+//
+// Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+//
+
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.sharedMemInfoS : 1snip.15000054.sharedmeminfos END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.fireGroupS : 1snip.15000114.firegroups BEGIN
 
 
@@ -40034,7 +40088,6 @@ base class to make a derived class of objects easily contained by a stackC objec
 
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.fireGroupS : 1snip.15000114.firegroups END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.processGlobal1S : 1snip.150000c2.processglobal1s BEGIN
-
 
 //
 // Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
@@ -45440,3 +45493,4 @@ i am nonconformant in that all of my member function definitions are in a single
 // Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
 //
 
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.tlsHeaderS : 1snip.15000190.tlsHeaderS END

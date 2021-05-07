@@ -2683,7 +2683,8 @@ void elf_obey_C::liveF( void )
                 //G:" op st=0x00280000"
                 //B:" op st=0x00210000"
                 //G:" op st=0x00280000"
-                    " op st=0x00010000"
+                //B:" op st=0x00010000"     TOO SMALL FOR BUNDLE
+                    " op st=0x00040000"
                     " segment type code shared"
                     " segment class 'CODE' shared"
                     " segment 'BEGTEXT' shared"
@@ -3993,7 +3994,8 @@ void elf_obey_C::linkF( char* postIdiForeignP )
             //G:" op st=0x00280000"
             //B:" op st=0x00210000"
              //:" op st=0x00280000"
-                " op st=0x00010000"
+            //B:" op st=0x00010000"    TOO SMALL FOR BUNDLE
+                " op st=0x00040000"
                 " segment type code shared"
                 " segment class 'CODE' shared"
                 " segment 'BEGTEXT' shared"

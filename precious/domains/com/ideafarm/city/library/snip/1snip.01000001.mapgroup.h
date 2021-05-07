@@ -757,4 +757,6 @@
     ((countT)0x36147) , "cachedS" ,
     ((countT)0x36148) , "cacheC" ,
     ((countT)0x36149) , "taskDrivenServerJobS" ,
+    ((countT)0x3614a) , "tlsHeaderS" ,
+    ((countT)0x3614b) , "circleC" ,
     ((countT)0x41000) , "citygate" ,
