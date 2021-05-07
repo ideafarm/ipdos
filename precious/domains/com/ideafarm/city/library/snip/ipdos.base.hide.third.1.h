@@ -5113,32 +5113,32 @@ it is illegal to refer to this symbol in the definition of an adam
 
 #elif defined( NEVERdEFINED2 )
 
+    #define _IO_ inOutFrameC _inOutFrame( tinP , LF , IDFILE , BiFCcLASS ) ;
+
     #define _IO_ if( ebpAM() - espAM() > ( TICK << 0 ) ) { *(countT*)-1 = 0 ; } inOutFrameC _inOutFrame( tinP , LF , IDFILE , BiFCcLASS ) ;
 
-    #define _IO_                                                                                                                                    \
-                                                                                                                                                    \
-        inOutFrameC _inOutFrame( tinP , LF , IDFILE , BiFCcLASS ) ;                                                                                 \
-                                                                                                                                                    \
-        if( !( F(tinP.flagsThreadMode4) & flTHREADmODE4_STFU1iOmACRO ) )                                                                            \
-        {                                                                                                                                           \
-            THREADmODE4oN( flTHREADmODE4_STFU1iOmACRO )                                                                                             \
-            {                                                                                                                                       \
-                OStEXT(    ostoSay , TUCK << 0 ) ;                                                                                                  \
-                OStEXTAK(  ostoSay , "[ebp-esp]: " ) ;                                                                                              \
-                OStEXTCF(  ostoSay , ebpAM() - espAM() - sizeof( inOutFrameC ) , '0' ) ;                                                            \
-                OStEXTAK(  ostoSay , "    " ) ;                                                                                                     \
-                OStEXTCF(  ostoSay , IDFILE , 0 ) ;                                                                                                 \
-                OStEXTAK(  ostoSay , "\r\n" ) ;                                                                                                     \
-                CONoUTrAW( ostoSay ) ;                                                                                                              \
-            }                                                                                                                                       \
-            THREADmODE4rESTORE                                                                                                                      \
-        }                                                                                                                                           \
-                                                                                                                                                    \
         if( ebpAM() - espAM() - sizeof( inOutFrameC ) > ( TICK << 0 ) ) { *(countT*)-1 = 0 ; }
 
 #else
 
-    #define _IO_ inOutFrameC _inOutFrame( tinP , LF , IDFILE , BiFCcLASS ) ;
+    #define _IO_                                                                                                                                        \
+                                                                                                                                                        \
+        inOutFrameC _inOutFrame( tinP , LF , IDFILE , BiFCcLASS ) ;                                                                                     \
+                                                                                                                                                        \
+        if( processGlobal1S::_processGlobal1I_IF().idAdamRoot == ifcIDaDAM_SCRATCH0d && !( F(tinP.flagsThreadMode4) & flTHREADmODE4_STFU1iOmACRO ) )    \
+        {                                                                                                                                               \
+            THREADmODE4oN( flTHREADmODE4_STFU1iOmACRO )                                                                                                 \
+            {                                                                                                                                           \
+                OStEXT(    ostoSay , TUCK << 0 ) ;                                                                                                      \
+                OStEXTAK(  ostoSay , "[ebp-esp]: " ) ;                                                                                                  \
+                OStEXTCF(  ostoSay , ebpAM() - espAM() - sizeof( inOutFrameC ) , '0' ) ;                                                                \
+                OStEXTAK(  ostoSay , "    " ) ;                                                                                                         \
+                OStEXTCF(  ostoSay , IDFILE , 0 ) ;                                                                                                     \
+                OStEXTAK(  ostoSay , "\r\n" ) ;                                                                                                         \
+                CONoUTrAW( ostoSay ) ;                                                                                                                  \
+            }                                                                                                                                           \
+            THREADmODE4rESTORE                                                                                                                          \
+        }                                                                                                                                               \
 
 #endif
 
