@@ -16,7 +16,7 @@ REST
     //G:nodeC nodeMe( tinP , etThread , flSEEnODES_ME | flSEEnODES_LOCAL ) ;
     //G:nodeC nodeMe( tinP , etThread ) ;
 
-    while( cDo -- ) etThread.osThreadF( TaRG2cBtLS( tmNodeF , CBtLS ) ) ;
+    while( cDo -- ) etThread.osThreadF( TaRG3fLAGScBtLS( tmNodeF , flTHREADlAUNCH_NOiNoUTfRAMEsUPPORT , CBtLS ) ) ;
 
     countT cDo = TUCK >> 2 ;
 
@@ -45,9 +45,19 @@ REST
 else
 }
     etThread.loafIF( tinP ) ;
-    while( cDo -- ) etThread.ifcHireF( tinP , T("ifcIDaDAM_BANGsIMULATION") , 0 , tHeyKid , flHIRE_DISPLAYtEXT | flHIRE_DEBUG , nicNameC() ) ;
+    }
+        }
+            ++ s ; ether.osSleepF( tinP , TICK >> 5 ) ;
+            sleepC s( tinP , TAG( TAGiDnULL ) ) ;
+        {
+        if( cDo )
+
+        etThread.ifcHireF( tinP , T("ifcIDaDAM_BANGsIMULATION") , 0 , tHeyKid , flHIRE_DISPLAYtEXT | flHIRE_DEBUG , nicNameC() ) ;
+        etThread.traceF( tinP , T("hiring kid [cDo after]:    ")+TF2(cDo,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
+    {
+    while( cDo -- )
     //countT cDo = TUCK >> 5 ;
-    countT cDo = 1 ;
+    countT cDo = 8 ;
 {
 if( !bKid )
 
@@ -93,7 +103,7 @@ DONE( tmAcceptF )
 
         sockListen.listenF( tinP ) ;
 
-        etThread.osThreadF( TaRG2cBtLS( tmRefreshListF , CBtLS ) , (countT)&nodeP , (countT)&bQuitP , (countT)&cKidsP , (countT)&stOpenP , flagsSeeNodesP , (countT)&portMeP ) ; // portMeP IS NOW COMPLETELY KNOWN
+        etThread.osThreadF( TaRG3fLAGScBtLS( tmRefreshListF , flTHREADlAUNCH_NOiNoUTfRAMEsUPPORT , CBtLS ) , (countT)&nodeP , (countT)&bQuitP , (countT)&cKidsP , (countT)&stOpenP , flagsSeeNodesP , (countT)&portMeP ) ; // portMeP IS NOW COMPLETELY KNOWN
         inc02AM( cKidsP ) ;
 
         }
@@ -259,7 +269,7 @@ DONE( tmHireWorkersF )
             stAcceptedP.ungrabF( tinP ) ;
 
             }
-                ether.osThreadF( TaRG2cBtLS( tmWorkerF , CBtLS ) , (countT)&nodeP , (countT)&bQuitP , (countT)&cKidsP , (countT)&stAcceptedP , (countT)&stOpenP , flagsSeeNodesP , (countT)&portMeP , c_psoa ) ;
+                ether.osThreadF( TaRG3fLAGScBtLS( tmWorkerF , flTHREADlAUNCH_NOiNoUTfRAMEsUPPORT , CBtLS ) , (countT)&nodeP , (countT)&bQuitP , (countT)&cKidsP , (countT)&stAcceptedP , (countT)&stOpenP , flagsSeeNodesP , (countT)&portMeP , c_psoa ) ;
                 inc02AM( cKidsP ) ;
                 stAcceptedP >> c_psoa ;
                 ZE( countT , c_psoa ) ;
@@ -715,8 +725,8 @@ TASK( tmRefreshListF )
     sleepC s( tinP , TAG( TAGiDnULL ) ) ;
     etherC& etPrime = etherC::etPrimeIF( tinP ) ;
 
-    ether.osThreadF( TaRG2cBtLS( tmHireWorkersF , CBtLS ) , (countT)this , (countT)&bQuit , (countT)&cKids , (countT)&stAccepted , (countT)&stOpen , flagsSeeNodes , (countT)&portMe ) ;
-    ether.osThreadF( TaRG2cBtLS( tmAcceptF      , CBtLS ) , (countT)this , (countT)&bQuit , (countT)&cKids , (countT)&stAccepted , (countT)&stOpen , flagsSeeNodes , (countT)&portMe ) ;
+    ether.osThreadF( TaRG3fLAGScBtLS( tmHireWorkersF , flTHREADlAUNCH_NOiNoUTfRAMEsUPPORT , CBtLS ) , (countT)this , (countT)&bQuit , (countT)&cKids , (countT)&stAccepted , (countT)&stOpen , flagsSeeNodes , (countT)&portMe ) ;
+    ether.osThreadF( TaRG3fLAGScBtLS( tmAcceptF      , flTHREADlAUNCH_NOiNoUTfRAMEsUPPORT , CBtLS ) , (countT)this , (countT)&bQuit , (countT)&cKids , (countT)&stAccepted , (countT)&stOpen , flagsSeeNodes , (countT)&portMe ) ;
     countT cKids = 2 ;
     ZE( boolT , bQuit ) ;
 

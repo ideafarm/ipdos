@@ -153,7 +153,8 @@ DONE( tmWatchF )
             etRock.traceF( tinP , T("tmWatchF: tracing pool tallies") ) ;
             etherC& etRock = etherC::etRockIF( tinP ) ;
         {
-        if( !( idCycle % ( TUCK << 4 ) ) ) //APPROXIMATELY ONCE PER HOUR
+        //U::if( !( idCycle % ( TUCK << 4 ) ) ) //APPROXIMATELY ONCE PER HOUR
+        if( !( idCycle % ( TUCK >> 6 ) ) )
 #if defined( NEVERdEFINED )
 //U:: COMMENTED OUT TO CONSERVE MEMORY WHILE STUDYING MEMORY USAGE
 
