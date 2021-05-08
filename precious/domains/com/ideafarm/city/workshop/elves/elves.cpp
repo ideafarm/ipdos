@@ -1,4 +1,4 @@
-#define DEBUG
+//#define DEBUG
 
 //U::ENABLE THESE PREPROCESSOR IF/ENDIF IN PRODUCTION
 #if not defined( DEBUG )
@@ -2684,7 +2684,7 @@ void elf_obey_C::liveF( void )
                 //B:" op st=0x00210000"
                 //G:" op st=0x00280000"
                 //B:" op st=0x00010000"     TOO SMALL FOR BUNDLE
-                    " op st=0x00080000"
+                    " op st=0x00080000"     // WORKS FOR nodeC SIMULATOR 8 PROCESSES x 04 nodeC INSTANCES EACH
                     " segment type code shared"
                     " segment class 'CODE' shared"
                     " segment 'BEGTEXT' shared"
@@ -3995,7 +3995,7 @@ void elf_obey_C::linkF( char* postIdiForeignP )
             //B:" op st=0x00210000"
              //:" op st=0x00280000"
             //B:" op st=0x00010000"    TOO SMALL FOR BUNDLE
-                " op st=0x00080000"
+                " op st=0x00080000"     // WORKS FOR nodeC SIMULATOR 8 PROCESSES x 04 nodeC INSTANCES EACH
                 " segment type code shared"
                 " segment class 'CODE' shared"
                 " segment 'BEGTEXT' shared"
