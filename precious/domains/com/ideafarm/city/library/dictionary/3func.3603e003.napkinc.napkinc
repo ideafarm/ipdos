@@ -575,6 +575,11 @@
     //if( thirdC::c_strstrIF( ostoNapkinName , "sexC/data/" ) )
         
     }
+        OStEXTC( ostoNapkinName , tinP.osPid , 0 ) ;
+        OStEXTAK( ostoNapkinName , "." ) ;
+    {
+    else if( bSexReg )      //U:: THIS IS A WORKAROUND TO ELIM OVERFLOW WHEN HAVE MANY PROCESS INSTANCES OF THE SAME ADAM ; THE WORKAROUND DEFEATS THE IDEA OF A GLOBAL REGISTRY
+    }
         //CONoUTrAW( "\r\n" )
         //CONoUTrAW( ostoNapkinName )
         
@@ -591,7 +596,9 @@
     {
     if( bWord )
 
-    const boolT bWord = &processGlobal7I.napWord1 <= this && this <= &processGlobal7I.napWord2 ; //CODEsYNC: 15e0003 0a00001
+    const boolT bSexReg = &processGlobal8I._sexC_napGlobalRegistry == this ;
+
+    const boolT bWord   = &processGlobal7I.napWord1 <= this && this <= &processGlobal7I.napWord2 ; //CODEsYNC: 15e0003 0a00001
 
     //}
     //    }
