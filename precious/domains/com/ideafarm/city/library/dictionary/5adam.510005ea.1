@@ -144,98 +144,111 @@ TASK( tmReportLocalNodesF )
 DONE( tmHearNodeAdvertisementF )
 }
     }
-        nl.idRevisionFinished ++ ;  //THESE CAN BE USED BY APP CODE TO VERIFY THAT THEY HAVE SEEN A CLEAN LIST (NOT BEING REVISED)
-
         }
-            etThread.traceF( tinP , T("error: could not add [nn,nnv4]:    ")+T(nn)+T("    ")+T(nnv4) ) ;
-            nicNameC nnv4 = neTest.port.nnv4F() ;
-            nicNameC nn   = neTest.port ;
-        {
-        if( !bFound )
-
-        }
-            }
-                break ;
-                bFound = 1 ;
-                nl.cElts ++ ;
-                etThread.traceF( tinP , T("adding [nn,nnv4]:    ")+T(nn)+T("    ")+T(nnv4) ) ;
-                nicNameC nnv4 = nl.pEntry[ offi ].port.nnv4F() ;
-                nicNameC nn   = nl.pEntry[ offi ].port ;
-
-                nl.pEntry[ offi ].ttl = 0x8 * ( nl.cElts + 1 ) ;        // TO REMAIN LISTED, A NODE MUST MUST RESPOND WITHIN 8 RESPONSE WAVES
-                nl.pEntry[ offi ]     = neTest ;
-            {
-            if( !nl.pEntry[ offi ].ttl )
-        {
-        if( !bFound ) for( countT offi = 0 ; offi < nl.cEltsMax ; offi ++ )
-
-        }
-            }
-                etThread.traceF( tinP , T("refreshing [nn,nnv4]:    ")+T(nn)+T("    ")+T(nnv4) ) ;
-                nicNameC nnv4 = nl.pEntry[ offi ].port.nnv4F() ;
-                nicNameC nn   = nl.pEntry[ offi ].port ;
-
-                nl.pEntry[ offi ].ttl = 0x8 * ( nl.cElts + 1 ) ;       // ENTRY WILL DISAPPEAR IF NOT REFRESHED ; THIS LINE REFRESHES
-                bFound = 1 ;
-            {
-            if( nl.pEntry[ offi ].ttl && nl.pEntry[ offi ] == neTest )
-        {
-        for( countT offi = 0 ; offi < nl.cEltsMax ; offi ++ )
-        ZE( boolT , bFound ) ;
-
-        }
-            neTest.port = nnWo ;
-
-            if( bIgnore ) continue ;
-
-            boolT bIgnore = bv4 ? ~nnv4 : ~nn ;
-            nicNameC nnv4 = neTest.port.nnv4F() ;
-            nicNameC nn   = neTest.port ;
-
-            boolT bv4     = nnWo.isIPv4F() ;
-
-            etThread.traceF( tinP , T("yippee! [nnWo]:    ")+T(nnWo)+T(nnWo.isIPv4F()?"    IPv4":"    IPv6") ) ;
-            soulNicNameIn >> nnWo ;
-            nicNameC nnWo ;
+            nl.idRevisionFinished ++ ;  //THESE CAN BE USED BY APP CODE TO VERIFY THAT THEY HAVE SEEN A CLEAN LIST (NOT BEING REVISED)
 
             }
-                if( ~nn && ~nnv4 ) break ;
+                etThread.traceF( tinP , T("error: could not add [nn,nnv4]:    ")+T(nn)+T("    ")+T(nnv4) ) ;
                 nicNameC nnv4 = neTest.port.nnv4F() ;
                 nicNameC nn   = neTest.port ;
             {
-        {
-        while( soulNicNameIn )
+            if( !bFound )
 
-        nodeEntryS neTest ;
-
-        }
             }
-                etThread.traceF( tinP , T("removing [nn,nnv4]:    ")+T(nn)+T("    ")+T(nnv4) ) ;
-                nicNameC nnv4 = nl.pEntry[ offi ].port.nnv4F() ;
-                nicNameC nn   = nl.pEntry[ offi ].port ;
+                }
+                    break ;
+                    bFound = 1 ;
+                    nl.cElts ++ ;
+                    etThread.traceF( tinP , T("adding [nn,nnv4]:    ")+T(nn)+T("    ")+T(nnv4) ) ;
+                    nicNameC nnv4 = nl.pEntry[ offi ].port.nnv4F() ;
+                    nicNameC nn   = nl.pEntry[ offi ].port ;
 
-                nl.cElts -- ;
-                nl.pEntry[ offi ] = nodeEntryS() ;
+                    nl.pEntry[ offi ].ttl = 0x8 * ( nl.cElts + 1 ) ;        // TO REMAIN LISTED, A NODE MUST MUST RESPOND WITHIN 8 RESPONSE WAVES
+                    nl.pEntry[ offi ]     = neTest ;
+                {
+                if( !nl.pEntry[ offi ].ttl )
             {
-            if( nl.pEntry[ offi ].ttl && !( -- nl.pEntry[ offi ].ttl ) )
+            if( !bFound ) for( countT offi = 0 ; offi < nl.cEltsMax ; offi ++ )
+
+            }
+                }
+                    etThread.traceF( tinP , T("refreshing [nn,nnv4]:    ")+T(nn)+T("    ")+T(nnv4) ) ;
+                    nicNameC nnv4 = nl.pEntry[ offi ].port.nnv4F() ;
+                    nicNameC nn   = nl.pEntry[ offi ].port ;
+
+                    nl.pEntry[ offi ].ttl = 0x8 * ( nl.cElts + 1 ) ;       // ENTRY WILL DISAPPEAR IF NOT REFRESHED ; THIS LINE REFRESHES
+                    bFound = 1 ;
+                {
+                if( nl.pEntry[ offi ].ttl && nl.pEntry[ offi ] == neTest )
+            {
+            for( countT offi = 0 ; offi < nl.cEltsMax ; offi ++ )
+            ZE( boolT , bFound ) ;
+
+            }
+                neTest.port = nnWo ;
+
+                if( bIgnore ) continue ;
+
+                boolT bIgnore = bv4 ? ~nnv4 : ~nn ;
+                nicNameC nnv4 = neTest.port.nnv4F() ;
+                nicNameC nn   = neTest.port ;
+
+                boolT bv4     = nnWo.isIPv4F() ;
+
+                etThread.traceF( tinP , T("yippee! [nnWo]:    ")+T(nnWo)+T(nnWo.isIPv4F()?"    IPv4":"    IPv6") ) ;
+                soulNicNameIn >> nnWo ;
+                nicNameC nnWo ;
+
+                }
+                    if( ~nn && ~nnv4 ) break ;
+                    nicNameC nnv4 = neTest.port.nnv4F() ;
+                    nicNameC nn   = neTest.port ;
+                {
+            {
+            while( soulNicNameIn )
+
+            nodeEntryS neTest ;
+
+            }
+                }
+                    etThread.traceF( tinP , T("removing [nn,nnv4]:    ")+T(nn)+T("    ")+T(nnv4) ) ;
+                    nicNameC nnv4 = nl.pEntry[ offi ].port.nnv4F() ;
+                    nicNameC nn   = nl.pEntry[ offi ].port ;
+
+                    nl.cElts -- ;
+                    nl.pEntry[ offi ] = nodeEntryS() ;
+                {
+                if( nl.pEntry[ offi ].ttl && !( -- nl.pEntry[ offi ].ttl ) )
+            {
+            for( countT offi = 0 ; offi < nl.cEltsMax ; offi ++ )
+
+            nl.idRevisionBegun ++ ;     //THESE CAN BE USED BY APP CODE TO VERIFY THAT THEY HAVE SEEN A CLEAN LIST (NOT BEING REVISED)
+
+            etThread.traceF( tinP , T("called readF [nnHe,idpHe]:    ")+T(nnHe)+T("    ")+TF2(idpHe,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
+
+            }
+                continue ;
+                etThread.traceF( tinP , T("error: could not read soul nicNameIn") , flTRACE_null , ifcIDtRACEdIVERT_e ) ;
+                POOPRqUIET
+            {
+            if( POOP )
+
+            socki.readF( tinP , soulNicNameIn , idpHe , nnHe , 0 , 0 ) ;
+            soulC soulNicNameIn( tinP , TAG( TAGiDnULL ) ) ;
+            etThread.traceF( tinP , T("calling readF") ) ;
+            ZE( countT , idpHe ) ;
+            nicNameC nnHe ;
         {
-        for( countT offi = 0 ; offi < nl.cEltsMax ; offi ++ )
+        while( !POOP && !ether )
 
-        nl.idRevisionBegun ++ ;     //THESE CAN BE USED BY APP CODE TO VERIFY THAT THEY HAVE SEEN A CLEAN LIST (NOT BEING REVISED)
+        nodeListS& nl = *(nodeListS*)(byteT*)napNodeListP ;
 
-        etThread.traceF( tinP , T("called readF [nnHe,idpHe]:    ")+T(nnHe)+T("    ")+TF2(idpHe,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
-        socki.readF( tinP , soulNicNameIn , idpHe , nnHe , 0 , 0 ) ;
-        soulC soulNicNameIn( tinP , TAG( TAGiDnULL ) ) ;
-        etThread.traceF( tinP , T("calling readF") ) ;
-        ZE( countT , idpHe ) ;
-        nicNameC nnHe ;
+        countT idpMe = socki.bindF( tinP , ifcIDpORT_MULTICASTaDVERTISElANnODES , nnAny , 1 , 0 ) ;
+        socketC socki( tinP , *tinP.pEtScratch , TAG( TAGiDnULL ) , ifcSOCKETtYPE_DATAgRAM , flSOCKETc_null , T(postIPaDDRgROUP_ADVERTISElANnODE) , 0 , 0 , 0 , 0 , 0 ) ;
+
+        SCOOPS
     {
-    while( !POOP && !ether )
-
-    nodeListS& nl = *(nodeListS*)(byteT*)napNodeListP ;
-
-    countT idpMe = socki.bindF( tinP , ifcIDpORT_MULTICASTaDVERTISElANnODES , nnAny , 1 , 0 ) ;
-    socketC socki( tinP , etThread , TAG( TAGiDnULL ) , ifcSOCKETtYPE_DATAgRAM , flSOCKETc_null , T(postIPaDDRgROUP_ADVERTISElANnODE) , 0 , 0 , 0 , 0 , 0 ) ;
+    IFsCRATCH
 
     nicNameC nnAny = socketC::nicNameIF( tinP , etThread , T("::") ) ;
 
