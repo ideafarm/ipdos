@@ -32,7 +32,11 @@
                             TELL( "server: maybe deleting sessionsC instance" )
 
                             }
-                                while( cSession ) { ++ s ; thirdC::dosSleepIF( tinP , TUCK * 0x40 ) ; }
+                                }
+                                    ++ s ; thirdC::dosSleepIF( tinP , TUCK * 0x40 ) ;
+                                    LOGrAW5( "ifcDrivenServerF / terminating [cWorker,cSession]:    " , cWorker , "    " , cSession , "\r\n" ) ;
+                                {
+                                while( cSession || cWorker )
                                 sleepC s( tinP , TAG( TAGiDnULL ) ) ;
                             {
                             TELL( "server: final wait (forever) for all sessions to end" )
@@ -162,7 +166,8 @@
                                                                 {
                                                                 if( POOP )
 
-                                                                ZE( countT , tid ) ; tinP.pEtScratch->osThreadF( tinP , tid , info1P.tmF , 0 , flTHREADlAUNCH_SHOWpONY , 0 , (countT)&stJob , (countT)pJob ) ;
+                                                                ZE( countT , tid ) ; tinP.pEtScratch->osThreadF( tinP , tid , info1P.tmF , 0 , flTHREADlAUNCH_SHOWpONY , 0 , (countT)&stJob , (countT)pJob , (countT)&cWorker ) ;
+                                                                inc02AM( cWorker ) ;
                                                                 //traceF( tinP , T(nnPeer)+T("    ifcDrivenServerF / launching server thread for this client") , flTRACE_null , ifcIDtRACEdIVERT_7 ) ;
                                                                 TELL( "server: launching server thread for this client" )
                                                             {
@@ -566,8 +571,9 @@
 
                         }
                             }
-                                osThreadF( tinP , tid , info1P.tmF , 0 , flTHREADlAUNCH_SHOWpONY , 0 , (countT)&stJob ) ;
+                                osThreadF( tinP , tid , info1P.tmF , 0 , flTHREADlAUNCH_SHOWpONY , 0 , (countT)&stJob , (countT)&cWorker ) ;
                                 ZE( countT , tid ) ;
+                                inc02AM( cWorker ) ;
                             {
                             while( cDo -- )
                             traceF( tinP , T("ifcDrivenServerF / launching workers [cWorkers]:    ")+TF2(cDo,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
@@ -601,6 +607,7 @@
         {
 
         ZE( countT , cSession ) ;
+        ZE( countT , cWorker ) ;
 
         //traceF( tinP , T("ifcDrivenServerF [cSessionMax]:    ")+TF2(info2P.cSessionMax,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
         if( !info2P.cSessionMax ) info2P.cSessionMax = CsESSIONmAXdFLTiFCdRIVENsERVER ;
