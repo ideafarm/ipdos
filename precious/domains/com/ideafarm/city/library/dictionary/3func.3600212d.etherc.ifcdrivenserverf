@@ -16,6 +16,16 @@
             }
                 TELL( "server: destroying locals 3 (sw_cSessionWithPeer)" )
                 }
+                    }
+                        DELzOMBIE( pDoomed ) ;
+                        taskDrivenServerJobS* pDoomed = &jobP ;
+                        taskDrivenServerJobS& jobP = *(taskDrivenServerJobS*)_pbaJob ;
+                        stJob >> pbJob ;
+                        byteT* pbJob = _pbaJob ;
+                        byteT _pbaJob[ sizeof( taskDrivenServerJobS ) ] ;
+                    {
+                    while( stJob )
+
                     TELL( "server: destroying locals 4 (stJob)" )
                     }
                         TELL( "server: destroying locals 5 (after stJob)" )
@@ -34,6 +44,12 @@
                             }
                                 }
                                     ++ s ; thirdC::dosSleepIF( tinP , TUCK * 0x40 ) ;
+
+                                    stJob.ungrabF( tinP ) ;
+                                    new( 0 , tinP , (byteT*)&(countT&)stJob[ - 1 ] , sizeof( taskDrivenServerJobS ) ) taskDrivenServerJobS() ;
+                                    stJob << (byteT*)0 ;
+                                    stJob.grabF( tinP , TAG( TAGiDnULL ) ) ;
+
                                     LOGrAW5( "ifcDrivenServerF / terminating [cWorker,cSession]:    " , cWorker , "    " , cSession , "\r\n" ) ;
                                 {
                                 while( cSession || cWorker )
@@ -166,7 +182,7 @@
                                                                 {
                                                                 if( POOP )
 
-                                                                ZE( countT , tid ) ; tinP.pEtScratch->osThreadF( tinP , tid , info1P.tmF , 0 , flTHREADlAUNCH_SHOWpONY , 0 , (countT)&stJob , (countT)pJob , (countT)&cWorker ) ;
+                                                                ZE( countT , tid ) ; tinP.pEtScratch->osThreadF( tinP , tid , info1P.tmF , 0 , flTHREADlAUNCH_SHOWpONY , 0 , (countT)&info1P.bQuit , (countT)&stJob , (countT)pJob , (countT)&cWorker ) ;
                                                                 inc02AM( cWorker ) ;
                                                                 //traceF( tinP , T(nnPeer)+T("    ifcDrivenServerF / launching server thread for this client") , flTRACE_null , ifcIDtRACEdIVERT_7 ) ;
                                                                 TELL( "server: launching server thread for this client" )
@@ -571,7 +587,7 @@
 
                         }
                             }
-                                osThreadF( tinP , tid , info1P.tmF , 0 , flTHREADlAUNCH_SHOWpONY , 0 , (countT)&stJob , (countT)&cWorker ) ;
+                                osThreadF( tinP , tid , info1P.tmF , 0 , flTHREADlAUNCH_SHOWpONY , 0 , (countT)&info1P.bQuit , (countT)&stJob , (countT)&cWorker ) ;
                                 ZE( countT , tid ) ;
                                 inc02AM( cWorker ) ;
                             {
