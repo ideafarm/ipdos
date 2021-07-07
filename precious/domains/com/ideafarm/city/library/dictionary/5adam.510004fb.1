@@ -74,7 +74,7 @@ REST
             if( idMemory >= ifcIDmEMORYsPACE_RESERVEDmIN && idMemory <= ifcIDmEMORYsPACE_RESERVEDmAX ) continue ;   //CS:CODEsYNC: 510004fb 510004fb
             if( idMemory == ifcIDmEMORYsPACE_KERNEL                                                  ) continue ;   // DONE LATER
         {
-        for( countT idMemory = idmMax ; idMemory > idmMin ; idMemory -- )
+        for( countT idMemory = idmMax ; idMemory >= idmMin ; idMemory -- )
         etThread.traceF( tinP , T("firing the nonkernel queue monitors") ) ;
         sgnDone_tmFireAllF_.waitF( tinP ) ;
         //etThread.traceF( tinP , T("waiting for fire all thread to finish") ) ;

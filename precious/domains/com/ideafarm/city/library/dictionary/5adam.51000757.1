@@ -14,7 +14,9 @@ etherC::loafIF( tinP ) ;
 etThread.traceF( tinP , T("ok") ) ;
 
 }
+    etThread.traceF( tinP , T("flashed sign") ) ;
     sgnGo.giveF( tinP , ifcIDmODEsIGNgIVE_FLASH ) ;
+    etThread.traceF( tinP , T("flashing sign") ) ;
 
     grabAccumulators.ungrabF( tinP ) ;
     mMax = 0 ;
@@ -24,23 +26,26 @@ etThread.traceF( tinP , T("ok") ) ;
     etThread.traceF( tinP , T("----------------------------------------------------------------------- [idCycle,mMin,mMean,mMax]:   ")+TF2(++idCycle,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2((countT)mMin,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2((countT)mSum,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2((countT)mMax,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) , flTRACE_null , ifcIDtRACEdIVERT_1 ) ;
     mSum /= cProcessors ;
     grabAccumulators.grabF( tinP , TAG( TAGiDnULL ) ) ;
+    etThread.traceF( tinP , T("grabbing accumulators") ) ;
 
     }
         etThread.osSleepF( tinP , TOCK >> 6 ) ;
         sleepC s( tinP , TAG( TAGiDnULL ) ) ;
 
         if( cWaiting == cProcessors ) break ;
-        //etThread.traceF( tinP , T("[cWaiting]:   ")+TF2(cWaiting,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
+        etThread.traceF( tinP , T("[cProcessors,cWaiting]:   ")+TF2(cProcessors,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2(cWaiting,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
         countT cWaiting = grabb.idGrabberHighF() - grabb.idGrabberOkF() ;
         const grabC& grabb = sgnGo ;
     {
     for(;;)     // THIS LOOP PREVENTS RACE IN WHICH I GIVE SIGN BEFORE ALL GORILLA THREADS ARE ACTUALLY REGISTERED AS WAITING WITHIN THE grabC OBJECT WITHIN THE SIGN
+    etThread.traceF( tinP , T("looping until gorillas are really ready") ) ;
 
     }
         ether.osSleepF( tinP , TICK >> 4 , TOCK , flSLEEP_null ) ;
         sleepC s( tinP , TAG( TAGiDnULL ) ) ;
     {
     while( !ether && cGorillasWaiting < cProcessors )  // NORMALLY WILL EXECUTE ONLY WO ITERATION ; CODED THIS WAY TO HANDLE HEAVILY LOADED COMPUTER ON WHICH exerciseF DOES NOT COMPLETE WITHIN THE INTENDED PERIOD
+    etThread.traceF( tinP , T("waiting for gorillas to get ready") ) ;
 {
 while( !ether || cExtra -- )
 countT cExtra = 0 ;
@@ -88,7 +93,7 @@ DONE( tmGorillaF )
                 exerciseF( bQuit ) ;
                 //etThread.traceF( tinP , t1 ) ;
             {
-            while( cDo -- )
+            while( !bQuit && cDo -- )
             countT idPriorityRude = etThread.osThreadSwitchingDesireF( tinP , ifcTHREADpRIORITY_LAZIEST ) ;
 
             const countT& bQuit = ether ;
