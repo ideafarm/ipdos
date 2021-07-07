@@ -31,11 +31,7 @@
                 }
                     ++ s ; tinP.pEther->osSleepF( tinP , TOCK ) ;
             
-                    }
-                        break ;
-                        __1                                             //U:: 20200603@1924 CONJ: THIS HAPPENS BECAUSE SOME MEMORY SPACES ARE MONITORED BUT NOT USED
-                    {
-                    if( pbQuitP && *pbQuitP )
+                    if( pbQuitP && *pbQuitP ) break ;
             
                     if( pcpIdBookMinP || F(flagsCt) & flBOOKSc_WRITER ) break ;
             
@@ -146,11 +142,7 @@
             }
                 ++ s ; tinP.pEther->osSleepF( tinP , TOCK ) ;
 
-                }
-                    break ;
-                    __1
-                {
-                if( pbQuitP && *pbQuitP )
+                if( pbQuitP && *pbQuitP ) break ;
         
                 if( pcpIdBookMinP || F(flagsCt) & flBOOKSc_WRITER ) break ;
         
@@ -313,8 +305,12 @@
 
 /**/
 */
+ pcpIdBookMinP
  tinP
 arguments
+so caller must detect !pcpIdBookMinP
+but if pbQuitP and *pbQuitP will return even if no file was ever found
+if !pbQuitP or !*pbQuitP then will block until at least wo file is found
 /*
 
 //

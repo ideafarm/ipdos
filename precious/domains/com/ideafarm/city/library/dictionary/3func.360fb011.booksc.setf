@@ -11,19 +11,22 @@
     THREADmODE3rESTORE
 
     }
-        PUSE( tinP , *(byteT**)&pcpIdBookMax ) ;
-        PUSE( tinP , *(byteT**)&pcpIdBookMin ) ;
-    {
-    if( !( F(flagsCt) & flBOOKSc_DOnOTuSEpUSE ) )
+        }
+            PUSE( tinP , *(byteT**)&pcpIdBookMax ) ;
+            PUSE( tinP , *(byteT**)&pcpIdBookMin ) ;
+        {
+        if( !( F(flagsCt) & flBOOKSc_DOnOTuSEpUSE ) )
 
-    }
-        pcpIdBookMin[ 1 ] ++ ;
-        BOOKnOW.setF( tinP , bFillP ) ;
-        selectBookF( tinP , flBOOKScsELECT_null , pcpIdBookMin ) ;
+        }
+            pcpIdBookMin[ 1 ] ++ ;
+            BOOKnOW.setF( tinP , bFillP ) ;
+            selectBookF( tinP , flBOOKScsELECT_null , pcpIdBookMin ) ;
+        {
+        if( pcpIdBookMin[ 0 ] == 1 && pcpIdBookMax[ 0 ] == 1 && pcpIdBookMin[ 1 ] <= pcpIdBookMax[ 1 ] ) while( pcpIdBookMin[ 1 ] <= pcpIdBookMax[ 1 ] )
     {
-    if( pcpIdBookMin[ 0 ] == 1 && pcpIdBookMax[ 0 ] == 1 && pcpIdBookMin[ 1 ] <= pcpIdBookMax[ 1 ] ) while( pcpIdBookMin[ 1 ] <= pcpIdBookMax[ 1 ] )
+    if( pcpIdBookMin && pcpIdBookMax ) //20210705@0924: ADDED THIS TEST
 
-    if( idStateSpace ) idBookMinMaxF( tinP , pcpIdBookMin , pcpIdBookMax , flBOOKScsELECT_null , 0 ) ;
+    if( idStateSpace ) idBookMinMaxF( tinP , pcpIdBookMin , pcpIdBookMax , flBOOKScsELECT_null , 0 ) ;  //20210705@0924: idBookMinMaxF NOW NO LONGER SETS IMPOTENCE IF QUITTING AND NO BOOK EVER FOUND
     ZE( countT* , pcpIdBookMax ) ;
     ZE( countT* , pcpIdBookMin ) ;
 

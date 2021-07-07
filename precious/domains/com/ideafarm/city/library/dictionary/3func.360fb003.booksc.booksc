@@ -15,7 +15,7 @@
         touchAllBooksF( tinP , &bnu ) ;
         ZE( boolT , bnu ) ;
     {
-    if( tinP.pPoolUse && F(flagsP) & flBOOKSc_RESETcREFoNcT )
+    if( !POOP && tinP.pPoolUse && F(flagsP) & flBOOKSc_RESETcREFoNcT )
 
     THREADmODE3rESTORE
 
@@ -62,6 +62,8 @@
         NEWbOOK1bLAMMOiFcT
     {
     if( !POOP )
+
+    if( pbQuitP && *pbQuitP ) { __1 ; }     //20210707@1320: ADDED BECAUSE NOW setBookNameIdF WILL RETURN ON *pbQuit EVEN IF NO BOOK FILES EXIST
 
     //CONoUTrAW3( "[heap.cNew-cDel]:    " , processGlobal4S::_processGlobal4I_IF().heap.cNewF()-processGlobal4S::_processGlobal4I_IF().heap.cDelF() , "    called setBookNameIdF\r\n" ) ;
     setBookNameIdF( tinP , F(flagsCt) & flBOOKSc_PURGEoNcT ? flBOOKScsELECT_PURGE : flBOOKScsELECT_null , 0 , pbQuitP ) ;
@@ -187,7 +189,7 @@ pcpIdBookScratchMax( 0 ) ,
 pcpIdBookScratchMin( 0 ) ,
 pcpIdBookScratch1(    0 ) ,
 ccMaxIdBook( TUCK >> 5 ) , //20190116@0943: REDUCED FROM TUCK TO TUCK >> 5 IN ORDER TO CONSERVE heapC USAGE; AS OF THIS WRITING SOME CODE SUPPORTS LENGTHS > 1 COUNT BUT OTHER CODE LIMITS NAME TO A SINGLE COUNT
-poop( flPOOP_SMELLY ) ,
+poop( flPOOP_null ) ,   //20210707@1329: CHANGED FROM "SMELLY" ; CONSTRUCTING CODE NOW MUST TEST WHETHER *this IS IMPOTENT BEFORE USING ; THIS CHANGE WAS MADE TO ALLOW tmEatTelemetryF TO TERMINATE FOR MEMORY SPACES THAT HAVE NO booksC FILES ; IMPACT ON OTHER CODE WAS NOT ANALYZED
 /*1*/booksC::booksC( tinS& tinP , const countT idLineCtP , const countT idiFileCtP , const byteT* const pbBitsCtP , const osTextT* const postP , const countT idStateSpaceP , const flagsT flagsP , const countT cbP , const countT cKeepInactiveP , const byteT bFillP , byteT* const pbBooksNoPuseBackP , const countT cbBooksNoPuseBackP , const countT idMemorySpaceP , const boolT* pbQuitP ) :/*1*/
 
 #define MYaLLOC(lvalueP,cbP) { if( pbc + cbP > pbe ) { BLAMMO ; } else { (lvalueP) = pbc ; pbc += (cbP) ; } }

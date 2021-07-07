@@ -37,7 +37,7 @@ REST
         bQuitConsole = 1 ;
         //CONoUTrAW( "firing console\r\n" ) ;
         //etThread.traceF( tinP , T("firing console") ) ;
-    
+
         }    
             DELzOMBIE( pms ) ;
             memorySpaceS* pms = &memorySpaceKernel ;
@@ -50,31 +50,32 @@ REST
             thirdC::third_flagsModeProcess2I_IF(tinP) |= flMODEpROCESS2_SUPPRESStELLS ; //RACE: A THREAD MIGHT HAVE ALREADY INSPECTED THE FLAGS BUT NOT YET WRITTEN TO THE MONITOR; THE CONSEQUENCE IS THAT SOME MESSAGES AREN'T PULLED;  THIS IS AOK AS LONG AS THE QUEUE ISN'T FILLED
             //CONoUTrAW( "firing kernel monitor\r\n" ) ;
         {
-        //etThread.traceF( tinP , T("firing kernel queue monitor") ) ;
+        etThread.traceF( tinP , T("firing kernel queue monitor") ) ;
     
         WAITuNTILaLMOSTaLONE( 2 )
         //CONoUTrAW( "waiting for all threads other than console and kernel monitor to go away\r\n" ) ;
-        //etThread.traceF( tinP , T("waiting for all threads other than kernel queue monitor and console to finish") ) ;
+        etThread.traceF( tinP , T("waiting for all threads other than kernel queue monitor and console to finish") ) ;
     
         THREADmODE1rESTORE
         YELL( "monitoring of every space other than kernel has ended" ) ;
         THREADmODE1oN( flTHREADmODE1_YELL )
-        //etThread.traceF( tinP , T("all nonkernel queue monitors are gone") ) ;
+        etThread.traceF( tinP , T("all nonkernel queue monitors are gone") ) ;
     
         }
             DELzOMBIE( pms ) ;
             memorySpaceS* pms = &memorySpace ;
-            //etThread.traceF( tinP , T("fired  monitor [idMemory]:    ")+TF2(idMemory,flFORMAT_UNSIGNED|flFORMAT_NObIGITvALUES) ) ;
+            etThread.traceF( tinP , T("fired  monitor [idMemory]:    ")+TF2(idMemory,flFORMAT_UNSIGNED|flFORMAT_NObIGITvALUES) ) ;
             memorySpace.sgnDone_tmEatTelemetrySysF_.waitF( tinP ) ;
             memorySpace.bQuitMonitor = memorySpace.bQuitEating = 1 ;
-            //etThread.traceF( tinP , T("firing monitor [idMemory]:    ")+TF2(idMemory,flFORMAT_UNSIGNED|flFORMAT_NObIGITvALUES) ) ;
+            etThread.traceF( tinP , T("firing monitor [idMemory]:    ")+TF2(idMemory,flFORMAT_UNSIGNED|flFORMAT_NObIGITvALUES) ) ;
             memorySpaceS& memorySpace = *(memorySpaceS*)&(countT&)swMemorySpace ;
             cLeverIdMemory = idMemory ;
 
-            if( idMemory >= ifcIDmEMORYsPACE_RESERVEDmIN && idMemory <= ifcIDmEMORYsPACE_RESERVEDmAX ) continue ;
+            if( idMemory >= ifcIDmEMORYsPACE_RESERVEDmIN && idMemory <= ifcIDmEMORYsPACE_RESERVEDmAX ) continue ;   //CS:CODEsYNC: 510004fb 510004fb
+            if( idMemory == ifcIDmEMORYsPACE_KERNEL                                                  ) continue ;   // DONE LATER
         {
         for( countT idMemory = idmMax ; idMemory > idmMin ; idMemory -- )
-        //etThread.traceF( tinP , T("firing the nonkernel queue monitors") ) ;
+        etThread.traceF( tinP , T("firing the nonkernel queue monitors") ) ;
         sgnDone_tmFireAllF_.waitF( tinP ) ;
         //etThread.traceF( tinP , T("waiting for fire all thread to finish") ) ;
     
@@ -163,7 +164,7 @@ REST
                 cLeverIdMemory = idMemory ;
                 swMemorySpace.grabF( tinP , TAG( TAGiDnULL ) ) ;
 
-                if( idMemory >= ifcIDmEMORYsPACE_RESERVEDmIN && idMemory <= ifcIDmEMORYsPACE_RESERVEDmAX ) continue ;
+                if( idMemory >= ifcIDmEMORYsPACE_RESERVEDmIN && idMemory <= ifcIDmEMORYsPACE_RESERVEDmAX ) continue ;   //CS:CODEsYNC: 510004fb 510004fb
             {
             for( countT idMemory = idmMin ; idMemory <= idmMax ; idMemory ++ )
             countT idMinuteZe = timeN1 >> 0x16 ;    // 8:TUCK 01:TOCK 81:TICK 61:MINUTE(QUARTERTICK)

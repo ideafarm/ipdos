@@ -16,7 +16,7 @@ DONE( tmHireF )
         //CONoUTrAW( "setting flHOMEs_FIREtHIShOME\r\n" ) ;
         //U::TO FIND A BUG
     
-        /*PROD*/ /*if( idMe == IDcOMPUTER_IPDOSmASTERcRAFTWORKoLD0 || idMe == IDcOMPUTER_IPDOSmASTERcRAFTWORKoLD0sERVER )*/ ether.ifcHireF( tinP , T("ifcIDaDAM_MONITOR") , ifcIDaDAM_MEMBRANEgLASS , T("!ignoreFireByOperator") , flHIRE_DISPLAYaUTO , nicNameC() ) ;
+//        /*PROD*/ /*if( idMe == IDcOMPUTER_IPDOSmASTERcRAFTWORKoLD0 || idMe == IDcOMPUTER_IPDOSmASTERcRAFTWORKoLD0sERVER )*/ ether.ifcHireF( tinP , T("ifcIDaDAM_MONITOR") , ifcIDaDAM_MEMBRANEgLASS , T("!ignoreFireByOperator") , flHIRE_DISPLAYaUTO , nicNameC() ) ;
 
         //ether.ifcHireF( tinP , T("ifcIDaDAM_MONITOR") , ifcIDaDAM_GORILLAbANG , T("!ignoreFireByOperator") , flHIRE_DISPLAYaUTO , nicNameC() ) ;
         //ether.ifcHireF( tinP , T("ifcIDaDAM_MONITOR") , ifcIDaDAM_KERNEL3BANG , T("!ignoreFireByOperator") , flHIRE_DISPLAYaUTO , nicNameC() ) ;
@@ -338,10 +338,10 @@ if( pTaskP )
 TASK( tmFireAllF )
 
 DONE( tmEatTelemetrySysF )
-//etThread.traceF( tinP , T("tmEatTelemetrySysF / 0") ) ;
+etThread.traceF( tinP , T("tmEatTelemetrySysF / 0") ) ;
 TELL( "cleaning up 0" )
 }
-    //etThread.traceF( tinP , T("tmEatTelemetrySysF / 1") ) ;
+    etThread.traceF( tinP , T("tmEatTelemetrySysF / 1 [idMemorySpaceP]: ")+TF2(idMemorySpaceP,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
     TELL( "cleaning up 1" )
     }
         while( ~hWalk && -- cToDo ) ;
@@ -355,33 +355,29 @@ TELL( "cleaning up 0" )
         countT cToDo = stPeriodData ;
     {
     if( stPeriodData )
-    //etThread.traceF( tinP , T("tmEatTelemetrySysF / 2") ) ;
+    etThread.traceF( tinP , T("tmEatTelemetrySysF / 2 [idMemorySpaceP]: ")+TF2(idMemorySpaceP,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
     TELL( "purging period data" )
 
     sgnDone_tmReportF_.waitF( tinP ) ;
-    //etThread.traceF( tinP , T("tmEatTelemetrySysF / 3") ) ;
+    etThread.traceF( tinP , T("tmEatTelemetrySysF / 3 [idMemorySpaceP]: ")+TF2(idMemorySpaceP,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
     TELL( "waiting for tmReportF to end" )
 
     THREADmODE3rESTORE
-    //etThread.traceF( tinP , T("tmEatTelemetrySysF / 4") ) ;
+    etThread.traceF( tinP , T("tmEatTelemetrySysF / 4 [idMemorySpaceP]: ")+TF2(idMemorySpaceP,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
     }
-        //etThread.traceF( tinP , T("tmEatTelemetrySysF / 5") ) ;
+        etThread.traceF( tinP , T("tmEatTelemetrySysF / 5 [idMemorySpaceP]: ")+TF2(idMemorySpaceP,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
         if( idMemorySpaceP == ifcIDmEMORYsPACE_KERNEL ) bksTelemetrySys.fileFlagsRefF() &= ~flFILEc_DELETE ; // I AM PROBABLY READING THE CURRENT bookC, WHICH IS STILL OPEN FOR WRITING SO CANNOT BE DELETED NOW
         //U::THE NEXT LINE NO LONGER WILL WORK BECAUSE THE DELETE FLAG HAS ALREADY BEEN SPECIFIED WHEN CT fileC ; IT ALSO WOULDN'T WORK BECAUSE IT DOES NOT CHANGE THE FLAGS THAT ARE USED TO CT bookC INSTANCE
 
         }
-            countT foo = 2 ;
-        {
-        if( idMemorySpaceP == 4 )
-
-        }
-            //etThread.traceF( tinP , T("tmEatTelemetrySysF / 6") ) ;
+            etThread.traceF( tinP , T("tmEatTelemetrySysF / 6 [idMemorySpaceP]: ")+TF2(idMemorySpaceP,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
             }
                 //CONoUTrAW( "." ) ;
                 ++ s ; etThread.osSleepF( tinP , TOCK >> 2 ) ;
                 TELL( "napping for a quarter tock" )
             
                 if( bQuitEatingP ) break ;
+
                 }
                     bBookHead = !bBookHead ;
             
@@ -888,7 +884,7 @@ TELL( "cleaning up 0" )
                 TELL( "eating 1" )
             {
             while( !bQuitEatingP && !POOP )
-            //etThread.traceF( tinP , T("tmEatTelemetrySysF / 9") ) ;
+            etThread.traceF( tinP , T("tmEatTelemetrySysF / 9 [idMemorySpaceP]: ")+TF2(idMemorySpaceP,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
             ZE( countT , idDebug ) ;
             TELL( "eating 0" )
             sleepC s( tinP , TAG( TAGiDnULL ) ) ;
@@ -901,9 +897,9 @@ TELL( "cleaning up 0" )
         {
         if( !(const poopC&)bksTelemetrySys )
 
-        //etThread.traceF( tinP , T("tmEatTelemetrySysF / ct'ed bksTelemetrySys [idMemorySpaceP]: ")+TF2(idMemorySpaceP,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
+        etThread.traceF( tinP , T("tmEatTelemetrySysF / ct'ed bksTelemetrySys [idMemorySpaceP]: ")+TF2(idMemorySpaceP,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
         booksC bksTelemetrySys( tinP , TAG( TAGiDnULL ) , "bksTelemetrySys" , ifcIDsTATEsPACE_MULTIPLEaDAMS , idMemorySpaceP == ifcIDmEMORYsPACE_KERNEL ? flBOOKSc_null : flBOOKSc_USEgRABmEMORYsPACEoVERRIDE , 0 , 0 , 0 , 0 , 0 , idMemorySpaceP , &bQuitEatingP ) ;
-        //etThread.traceF( tinP , T("tmEatTelemetrySysF / ct'ing bksTelemetrySys [idMemorySpaceP]: ")+TF2(idMemorySpaceP,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
+        etThread.traceF( tinP , T("tmEatTelemetrySysF / ct'ing bksTelemetrySys [idMemorySpaceP]: ")+TF2(idMemorySpaceP,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
 
         //U:: THE NEXT LINE USED TO SPECIFY THE DELETE FLAG, BUT AS OF 20131222@1558 THIS CAUSES FAILURES ; DELETE FLAG REMOVED WITHOUT ANALYSIS
 
@@ -1066,7 +1062,7 @@ DONE( tmReportF )
                                 {
                                 while( sRpt )
 
-                                etRock.traceF( tinP , T("report pulled [idMemorySpaceP,cFields]:    ")+TF2(idMemorySpaceP,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+TF2((countT)sRpt,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
+                                //etRock.traceF( tinP , T("report pulled [idMemorySpaceP,cFields]:    ")+TF2(idMemorySpaceP,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+TF2((countT)sRpt,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
                                 sReports >> sRpt ;
                                 soulC sRpt( tinP , TAG( TAGiDnULL ) ) ;
                                 _IO_
@@ -1123,13 +1119,13 @@ DONE( tmReportF )
                         { _IO_ sReports << sRptEvent  ; }
                         { _IO_ sReports << sRptTitle  ; }
 
-                        etRock.traceF( tinP , T("report Tin    [idMemorySpaceP,cFields]:    ")+TF2(idMemorySpaceP,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+TF2((countT)sRptTin   ,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
-                        etRock.traceF( tinP , T("report Napkin [idMemorySpaceP,cFields]:    ")+TF2(idMemorySpaceP,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+TF2((countT)sRptNapkin,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
-                        etRock.traceF( tinP , T("report Sex    [idMemorySpaceP,cFields]:    ")+TF2(idMemorySpaceP,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+TF2((countT)sRptSex   ,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
-                        etRock.traceF( tinP , T("report Add    [idMemorySpaceP,cFields]:    ")+TF2(idMemorySpaceP,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+TF2((countT)sRptAdd   ,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
-                        etRock.traceF( tinP , T("report Log    [idMemorySpaceP,cFields]:    ")+TF2(idMemorySpaceP,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+TF2((countT)sRptLog   ,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
-                        etRock.traceF( tinP , T("report Event  [idMemorySpaceP,cFields]:    ")+TF2(idMemorySpaceP,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+TF2((countT)sRptEvent ,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
-                        etRock.traceF( tinP , T("report Title  [idMemorySpaceP,cFields]:    ")+TF2(idMemorySpaceP,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+TF2((countT)sRptTitle ,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
+                        //etRock.traceF( tinP , T("report Tin    [idMemorySpaceP,cFields]:    ")+TF2(idMemorySpaceP,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+TF2((countT)sRptTin   ,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
+                        //etRock.traceF( tinP , T("report Napkin [idMemorySpaceP,cFields]:    ")+TF2(idMemorySpaceP,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+TF2((countT)sRptNapkin,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
+                        //etRock.traceF( tinP , T("report Sex    [idMemorySpaceP,cFields]:    ")+TF2(idMemorySpaceP,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+TF2((countT)sRptSex   ,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
+                        //etRock.traceF( tinP , T("report Add    [idMemorySpaceP,cFields]:    ")+TF2(idMemorySpaceP,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+TF2((countT)sRptAdd   ,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
+                        //etRock.traceF( tinP , T("report Log    [idMemorySpaceP,cFields]:    ")+TF2(idMemorySpaceP,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+TF2((countT)sRptLog   ,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
+                        //etRock.traceF( tinP , T("report Event  [idMemorySpaceP,cFields]:    ")+TF2(idMemorySpaceP,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+TF2((countT)sRptEvent ,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
+                        //etRock.traceF( tinP , T("report Title  [idMemorySpaceP,cFields]:    ")+TF2(idMemorySpaceP,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+TF2((countT)sRptTitle ,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
 
                         soulC sReports(   tinP , TAG( TAGiDnULL ) , flSOUL_null , "soul.reports" , TICK ) ; //20200920@1726: INCREASED FROM ( TOCK << 4 )
                         //etRock.traceF( tinP , T("tmReportF 7/ ") ) ; //U:: TO FIND A BUG
@@ -1963,7 +1959,7 @@ DONE( tmReportF )
                 {
                 if( bDo )
 
-                if( !bDo && idMinute != idMinuteTry ) bDo = 1 ;
+                if( !bDo && ( idMinute != idMinuteTry || ether ) ) bDo = 1 ;    //20210706@1608: IF ether THEN DO REPEATEDLY TO REVEAL WHICH THREADS TAKE THE LONGEST TO SHUT DOWN
 
                 else if( idFoTock ) idFoTock = 0 ;
                 }
@@ -1992,7 +1988,7 @@ DONE( tmReportF )
 
         //LOGrAW3( "tmReportF 1 [flHOMEsuTILITY_SNAPsHOT]: " , F(home.flagsUtility) & flHOMEsuTILITY_SNAPsHOT , "\r\n" ) ;
         //CONoUTrAW3( "tmReportF " , idMemorySpaceP , ":  a\r\n" ) ;
-        //etRock.traceF( tinP , T("tmReportF e/ ") ) ; //U:: TO FIND A BUG
+        etRock.traceF( tinP , T("tmReportF e/ [idMemorySpaceP]: ")+TF2(idMemorySpaceP,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
         _IO_
     {
     while( !bQuitMonitorP )
