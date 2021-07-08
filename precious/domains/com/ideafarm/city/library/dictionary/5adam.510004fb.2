@@ -1028,7 +1028,7 @@ DONE( tmReportF )
     }
 //#endif
         }
-            bCompileReportP.ungrabF( tinP ) ;
+            if( bSerialize ) bCompileReportP.ungrabF( tinP ) ;
 
             }
                 }
@@ -1101,8 +1101,8 @@ DONE( tmReportF )
 
                         tFile += T(".rpt.kernel.idMemorySpace.")+TF3(idMemorySpaceP,flFORMAT_UNSIGNED|flFORMAT_NObIGITvALUES|flFORMAT_FOREIGN|flFORMAT_FILLzE,3)+T(".")+TF2(idMinute,flFORMAT_UNSIGNED|flFORMAT_NObIGITvALUES|flFORMAT_FOREIGN|flFORMAT_FILLzE)+T(".txt") ;
                         else                                                              tFile += T("minute") ;
-                        if( bSnapShot || F(home.flagsUtility) & flHOMEsuTILITY_SNAPsHOT ) tFile += textC(ifcIDtEXTgEN_TIMEnOW,tinP,TAG(TAGiDnULL))+T(".")+T(postSnapShotRequestP&&*postSnapShotRequestP?postSnapShotRequestP:"snapshot") ;
-                        TN( tFile , "" ) ; tFile = T("///ideafarm/ephemeral/reports/") ;
+                        if( bSnapShot || F(home.flagsUtility) & flHOMEsuTILITY_SNAPsHOT ) tFile += T(postSnapShotRequestP&&*postSnapShotRequestP?postSnapShotRequestP:"snapshot") ;
+                        TN( tFile , "" ) ; tFile = T("///ideafarm/ephemeral/reports/")+textC(ifcIDtEXTgEN_TIMEnOWfOREIGN,tinP,TAG(TAGiDnULL))+T(".") ;
                         //etRock.traceF( tinP , T("tmReportF 5/ ") ) ; //U:: TO FIND A BUG
 
                         //LOGrAW3( "tmReportF 2 [flHOMEsuTILITY_SNAPsHOT]: " , F(home.flagsUtility) & flHOMEsuTILITY_SNAPsHOT , "\r\n" ) ;
@@ -1936,7 +1936,10 @@ DONE( tmReportF )
             {
             if( !bQuitMonitorP )
 
-            bCompileReportP.grabF( tinP , TAG( TAGiDnULL ) ) ;  // AN OPTIMIZATION TO SERIALIZE USE OF CPU AND ADDRESS SPACE
+            if( bSerialize ) bCompileReportP.grabF( tinP , TAG( TAGiDnULL ) ) ;  // AN OPTIMIZATION TO SERIALIZE USE OF CPU AND ADDRESS SPACE ; 20210707@1737: CONDITIONALLY DISABLED SERIALIZATION SO CAN GET QUICK REPORTS DURING TERMINATION
+
+            boolT bSerialize = !ether ;
+
             _IO_
         {
         if( !bQuitMonitorP )
@@ -1959,7 +1962,19 @@ DONE( tmReportF )
                 {
                 if( bDo )
 
-                if( !bDo && ( idMinute != idMinuteTry || ether ) ) bDo = 1 ;    //20210706@1608: IF ether THEN DO REPEATEDLY TO REVEAL WHICH THREADS TAKE THE LONGEST TO SHUT DOWN
+                }
+                    }
+                        bDo = 1 ;
+                        etRock.traceF( tinP , T("not napping, because a minute has passed") ) ;
+                    {
+                    else if( idMinute != idMinuteTry )
+                    }
+                        bDo = 1 ;
+                        etRock.traceF( tinP , T("not napping, because i have been fired") ) ;
+                    {
+                    if( ether )         //20210706@1608: IF ether THEN DO REPEATEDLY WITHOUT NAPPING, TO REVEAL WHICH THREADS TAKE THE LONGEST TO SHUT DOWN
+                {
+                if( !bDo )
 
                 else if( idFoTock ) idFoTock = 0 ;
                 }
