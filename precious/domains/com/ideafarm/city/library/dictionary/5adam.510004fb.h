@@ -17,6 +17,8 @@ TASK0PROTO( tmFireAllF ) ;
 TASK0PROTO( tmConsoleF ) ;
 TASK0PROTO( tmCloakF ) ;
 TASK0PROTO( tmHireF ) ;
+TASK0PROTO( tmCatchEventsF ) ;
+
 TASK0PROTO( tmcMonitorServerF ) ;
 
 boolT reportGrabF( tinS& tinP , soulC& sRptP , const strokeS* const psttPrefixP , const countT* const pcPanLifiP , const countT osPidP = 0 ) ;
