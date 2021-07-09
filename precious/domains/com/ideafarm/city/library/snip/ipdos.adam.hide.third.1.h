@@ -5086,7 +5086,6 @@ in the "IN_NORMAL" macros, it is redefined so that the _ macro sets the high ord
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200082.ifcflagin END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200083._io_ BEGIN
 
-
 //
 // Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See https://github.com/ideafarm/ipdos for permitted uses.
 //
@@ -5108,6 +5107,7 @@ it is illegal to refer to this symbol in the definition of an adam
 //20160523@2009: DISABLED TO GET MOST RAPID EXECUTION TO COLLECT FAILURE HISTORY FOR SERVER
 //20160525@0921: ENABLED TO MAXIMIZE GLASS WALLS
 //20201008@1520: DISABLED TO INVESTIGATE SLOOOOW EXECUTION
+//20210709@1526: NEVERdEFINED3: DISABLE THIS CHATTER SINCE I WANT TO USE SCRATCH0d
 
 #if defined( NEVERdEFINED )
 
@@ -5121,7 +5121,7 @@ it is illegal to refer to this symbol in the definition of an adam
 
         if( ebpAM() - espAM() - sizeof( inOutFrameC ) > ( TICK << 0 ) ) { *(countT*)-1 = 0 ; }
 
-#else
+#elif defined( NEVERdEFINED3 )
 
     #define _IO_                                                                                                                                        \
                                                                                                                                                         \
@@ -5141,6 +5141,13 @@ it is illegal to refer to this symbol in the definition of an adam
             }                                                                                                                                           \
             THREADmODE4rESTORE                                                                                                                          \
         }                                                                                                                                               \
+
+
+#else
+
+    #define _IO_                                                                                                                                        \
+                                                                                                                                                        \
+        inOutFrameC _inOutFrame( tinP , LF , IDFILE , BiFCcLASS ) ;                                                                                     \
 
 #endif
 

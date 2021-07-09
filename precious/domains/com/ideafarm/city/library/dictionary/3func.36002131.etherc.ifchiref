@@ -67,6 +67,7 @@
             }
                 if( F(flagsP) & flHIRE_MONITORkIDS ) flProcessHire |= flPROCESShIRE_MONITORkIDS ;
                 flProcessHire |= flPROCESShIRE_MONITORtHIS ;
+                traceF( tinP , T("ifcHireF: setting process flags to emit monitoring (debug) events") ) ;
             {
             if( F(flagsP) & flHIRE_MONITORtHIS )
         
@@ -112,7 +113,8 @@
                 dllOpenF( tinP , hDll , T("///ideafarm/ephemeral/domains/com/ideafarm/city/park/exedll/1/hover/ideafarm.")+TF3(idAdamP,flFORMAT_UNSIGNED|flFORMAT_FILLzE|flFORMAT_FOREIGN,8)+T(".ipdos-wd") ) ;
                 TN( tDisplay , "" ) ;
                 TN( tDebug , "" ) ;
-                flagsP &= flHIRE_WAIT ;
+
+                flagsP &= ~( F( flHIRE_DEBUG | flHIRE_DISPLAYgRAPHICS | flHIRE_DISPLAYtEXT | flHIRE_DISPLAYnONE ) ) ;  // THESE ARE THE FLAGS THAT WILL BE SET "AUTOMATICALLY" I.E. BY QUERYING THE DLL
             {
             if( F(flagsP) & flHIRE_DISPLAYaUTO )
         
