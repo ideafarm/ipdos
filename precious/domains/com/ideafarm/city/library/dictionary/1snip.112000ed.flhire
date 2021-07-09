@@ -1,6 +1,6 @@
 
 //
-// Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+// Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See https://github.com/ideafarm/ipdos for permitted uses.
 //
 // This proprietary software was crafted at great expense and with great hardship by one man.  It took 29 years.
 // Respecting the rights of other people is an important part of empowering one another.
@@ -8,7 +8,8 @@
 
 
 /*3*/
-#define flHIRE_DISPLAYnONE                /*fl*/
+#define flHIRE_MONITORkIDS                /*fl*/
+#define flHIRE_MONITORtHIS                /*fl*/
 #define flHIRE_DISPLAYtEXT                /*fl*/
 #define flHIRE_DISPLAYgRAPHICS            /*fl*/
 #define flHIRE_DISPLAYaUTO                /*fl*/
@@ -19,9 +20,18 @@
 /*1*//*flHIRE*//*1*/
 /**/
 */
+ this comment is obsolete
  yes: adam will be hired and a gui interface will appear
  no: adam will be hired but will not be visible
 flHIRE_SHOW
+ no effect unless flHIRE_MONITORtHIS is also set
+ all kid processes of the process being hired will also emit event notices
+flHIRE_MONITORkIDS
+ kernel monitor will receive these notices
+ the process will emit event notices to a presumed debugger parent process
+flHIRE_MONITORtHIS
+ Open Watcom wdw (windowed debugger) will be launched to debug the process being hired
+flHIRE_DEBUG
  yes: will return when the thread monitoring the process has ended
  no: will return as soon as the process has started
 flHIRE_WAIT
@@ -32,6 +42,6 @@ flHIRE_WAIT
 // Respecting the rights of other people is an important part of empowering one another.
 // This proprietary software was crafted at great expense and with great hardship by one man.  It took 29 years.
 //
-// Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See IDEAFARM.COM for permitted uses.
+// Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See https://github.com/ideafarm/ipdos for permitted uses.
 //
 
