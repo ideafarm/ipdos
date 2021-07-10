@@ -11,6 +11,47 @@ DONE( tmHireF )
 }
     }
         }
+            etThread.traceF( tinP , T("ContinueDebugEvent failed [rc]:    ")+TF2(rc,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
+            rc = GetLastError() ;
+        {
+        if( !bOk )
+
+        bOk = ContinueDebugEvent( info3.dwProcessId , info3.dwThreadId , DBG_EXCEPTION_NOT_HANDLED ) ;
+
+        }
+            default : { etThread.traceF( tinP , T("event [cBegun,cEnded,eventDescription]:    ")+TF2(cBegun,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2(cEnded,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+T("unexpected")+tb4+TF2((countT)info3.dwDebugEventCode,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ; break ; }
+            case  9 : { etThread.traceF( tinP , T("event [cBegun,cEnded,eventDescription]:    ")+TF2(cBegun,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2(cEnded,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+T("RIP_EVENT"                 ) )             ; break ; }
+            case  8 : { etThread.traceF( tinP , T("event [cBegun,cEnded,eventDescription]:    ")+TF2(cBegun,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2(cEnded,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+T("OUTPUT_DEBUG_STRING_EVENT" ) )             ; break ; }
+            case  7 : { etThread.traceF( tinP , T("event [cBegun,cEnded,eventDescription]:    ")+TF2(cBegun,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2(cEnded,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+T("UNLOAD_DLL_DEBUG_EVENT"    ) )             ; break ; }
+            case  6 : { etThread.traceF( tinP , T("event [cBegun,cEnded,eventDescription]:    ")+TF2(cBegun,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2(cEnded,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+T("LOAD_DLL_DEBUG_EVENT"      ) )             ; break ; }
+            case  5 : { etThread.traceF( tinP , T("event [cBegun,cEnded,eventDescription]:    ")+TF2(cBegun,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2(cEnded,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+T("EXIT_PROCESS_DEBUG_EVENT"  ) ) ; cEnded ++ ; break ; }
+            case  4 : { etThread.traceF( tinP , T("event [cBegun,cEnded,eventDescription]:    ")+TF2(cBegun,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2(cEnded,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+T("EXIT_THREAD_DEBUG_EVENT"   ) )             ; break ; }
+            case  3 : { etThread.traceF( tinP , T("event [cBegun,cEnded,eventDescription]:    ")+TF2(cBegun,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2(cEnded,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+T("CREATE_PROCESS_DEBUG_EVENT") ) ; cBegun ++ ; break ; }
+            case  2 : { etThread.traceF( tinP , T("event [cBegun,cEnded,eventDescription]:    ")+TF2(cBegun,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2(cEnded,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+T("CREATE_THREAD_DEBUG_EVENT" ) )             ; break ; }
+            case  1 : { etThread.traceF( tinP , T("event [cBegun,cEnded,eventDescription]:    ")+TF2(cBegun,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2(cEnded,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+T("EXCEPTION_DEBUG_EVENT"     ) )             ; break ; }
+        {
+        switch( info3.dwDebugEventCode )
+
+        }
+            etThread.traceF( tinP , T("WaitForDebugEvent failed [rc]:    ")+TF2(rc,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
+            printf( " %d\r\n" , rc ) ;
+            rc = GetLastError() ;
+        {
+        if( !bOk )
+
+        bOk = WaitForDebugEvent( &info3 , INFINITE ) ;
+    {
+    while( !cBegun || cEnded < cBegun )     //U:: THIS IS A BUG; WILL GET MULTIPLE EXIT PROCESS EVENTS, WO FOR EACH KID PROCESS THAT ENDS; TO FIX, COUNT THE NUMBER OF CREATE PROCESS EVENTS
+    TN( tb4 , "    " ) ;
+    ZE( countT , cEnded ) ;
+    ZE( countT , cBegun ) ;
+    memset( (char*)&info3 , 0 , sizeof info3 ) ;
+    DEBUG_EVENT info3 ;
+    ZE( countT , rc ) ;
+    ZE( boolT , bOk ) ;
+
+    }
+        }
             bOk = ContinueDebugEvent( info.dwProcessId , info.dwThreadId , DBG_EXCEPTION_NOT_HANDLED ) ;
             etThread.traceF( tinP , T("event [dwDebugEventCode]:    ")+TF2((countT)info.dwDebugEventCode,flFORMAT_UNSIGNED|flFORMAT_NObIGITvALUES) ) ;
         {
@@ -35,14 +76,14 @@ DONE( tmHireF )
         //CONoUTrAW( "setting flHOMEs_FIREtHIShOME\r\n" ) ;
         //U::TO FIND A BUG
     
-//        /*PROD*/ /*if( idMe == IDcOMPUTER_IPDOSmASTERcRAFTWORKoLD0 || idMe == IDcOMPUTER_IPDOSmASTERcRAFTWORKoLD0sERVER )*/ ether.ifcHireF( tinP , T("ifcIDaDAM_MONITOR") , ifcIDaDAM_MEMBRANEgLASS , T("!ignoreFireByOperator") , flHIRE_DISPLAYaUTO | flHIRE_MONITORtHIS | flHIRE_MONITORkIDS , nicNameC() ) ;
+        /*PROD*/ /*if( idMe == IDcOMPUTER_IPDOSmASTERcRAFTWORKoLD0 || idMe == IDcOMPUTER_IPDOSmASTERcRAFTWORKoLD0sERVER )*/ ether.ifcHireF( tinP , T("ifcIDaDAM_MONITOR") , ifcIDaDAM_MEMBRANEgLASS , T("!ignoreFireByOperator") , flHIRE_DISPLAYaUTO | flHIRE_MONITORtHIS | flHIRE_MONITORkIDS , nicNameC() ) ;
 
         //ether.ifcHireF( tinP , T("ifcIDaDAM_MONITOR") , ifcIDaDAM_GORILLAbANG , T("!ignoreFireByOperator") , flHIRE_DISPLAYaUTO , nicNameC() ) ;
         //ether.ifcHireF( tinP , T("ifcIDaDAM_MONITOR") , ifcIDaDAM_KERNEL3BANG , T("!ignoreFireByOperator") , flHIRE_DISPLAYaUTO , nicNameC() ) ;
 
         //ether.ifcHireF( tinP , T("ifcIDaDAM_MONITOR") , ifcIDaDAM_ROOThTTPsERVER , T("!ignoreFireByOperator") , flHIRE_DISPLAYaUTO , nicNameC() ) ;
 
-        ether.ifcHireF( tinP , T("ifcIDaDAM_MONITOR") , ifcIDaDAM_CLOUD , T("!ignoreFireByOperator") , flHIRE_DISPLAYaUTO | flHIRE_MONITORtHIS | flHIRE_MONITORkIDS , nicNameC() ) ;
+        //ether.ifcHireF( tinP , T("ifcIDaDAM_MONITOR") , ifcIDaDAM_CLOUD , T("!ignoreFireByOperator") , flHIRE_DISPLAYaUTO | flHIRE_MONITORtHIS | flHIRE_MONITORkIDS , nicNameC() ) ;
 
         //ether.ifcHireF( tinP , T("ifcIDaDAM_MONITOR") , ifcIDaDAM_ACCESSeVENTS3bOOKbYhASHbYTE1 , T("!ignoreFireByOperator") , flHIRE_DISPLAYaUTO , nicNameC() ) ;
         
