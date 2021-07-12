@@ -27,8 +27,9 @@ DONE( tmHireF )
             while( fliPendingSnapShotRequestP )
             etThread.traceF( tinP , T("waiting for all exception freeze reports to be written") ) ;
 
-            osTidExceptionP = info3.dwThreadId ;                                       //U::BUG: 20210710@1309: RACE
-            osPidExceptionP = info3.dwProcessId ;                                      //U::BUG: 20210710@1309: RACE
+            tEventP     = tEvent ;
+            osTidEventP = info3.dwThreadId ;                                       //U::BUG: 20210710@1309: RACE
+            osPidEventP = info3.dwProcessId ;                                      //U::BUG: 20210710@1309: RACE
             thirdC::c_strcpyIF( tinP , postSnapShotRequestP , "exception.freeze" ) ;   //U::BUG: 20210710@1309: RACE
 
             }
@@ -46,49 +47,61 @@ DONE( tmHireF )
         if( info3.dwDebugEventCode == 1 && !info3.u.Exception.dwFirstChance )
 
         }
-            default : { etThread.traceF( tinP , T("event [cBegun,cEnded,osPid,osTid,eventDescription                          ]:    ")+TF2(cBegun,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2(cEnded,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2((countT)info3.dwProcessId,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2((countT)info3.dwThreadId,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)                                                                                          +tb4+T("unexpected")+tb4+TF2((countT)info3.dwDebugEventCode,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ; break ; }
-            case  9 : { etThread.traceF( tinP , T("event [cBegun,cEnded,osPid,osTid,eventDescription                          ]:    ")+TF2(cBegun,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2(cEnded,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2((countT)info3.dwProcessId,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2((countT)info3.dwThreadId,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)                                                                                          +tb4+T("RIP_EVENT"                 ) )             ; break ; }
-            case  8 : { etThread.traceF( tinP , T("event [cBegun,cEnded,osPid,osTid,eventDescription                          ]:    ")+TF2(cBegun,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2(cEnded,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2((countT)info3.dwProcessId,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2((countT)info3.dwThreadId,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)                                                                                          +tb4+T("OUTPUT_DEBUG_STRING_EVENT" ) )             ; break ; }
-            case  7 : { etThread.traceF( tinP , T("event [cBegun,cEnded,osPid,osTid,eventDescription                          ]:    ")+TF2(cBegun,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2(cEnded,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2((countT)info3.dwProcessId,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2((countT)info3.dwThreadId,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)                                                                                          +tb4+T("UNLOAD_DLL_DEBUG_EVENT"    ) )             ; break ; }
-            case  6 : { etThread.traceF( tinP , T("event [cBegun,cEnded,osPid,osTid,eventDescription                          ]:    ")+TF2(cBegun,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2(cEnded,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2((countT)info3.dwProcessId,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2((countT)info3.dwThreadId,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)                                                                                          +tb4+T("LOAD_DLL_DEBUG_EVENT"      ) )             ; break ; }
-            case  5 : { etThread.traceF( tinP , T("event [cBegun,cEnded,osPid,osTid,eventDescription                          ]:    ")+TF2(cBegun,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2(cEnded,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2((countT)info3.dwProcessId,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2((countT)info3.dwThreadId,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)                                                                                          +tb4+T("EXIT_PROCESS_DEBUG_EVENT"  ) ) ; cEnded ++ ; break ; }
-            case  4 : { etThread.traceF( tinP , T("event [cBegun,cEnded,osPid,osTid,eventDescription                          ]:    ")+TF2(cBegun,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2(cEnded,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2((countT)info3.dwProcessId,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2((countT)info3.dwThreadId,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)                                                                                          +tb4+T("EXIT_THREAD_DEBUG_EVENT"   ) )             ; break ; }
-            case  3 : { etThread.traceF( tinP , T("event [cBegun,cEnded,osPid,osTid,eventDescription                          ]:    ")+TF2(cBegun,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2(cEnded,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2((countT)info3.dwProcessId,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2((countT)info3.dwThreadId,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)                                                                                          +tb4+T("CREATE_PROCESS_DEBUG_EVENT") ) ; cBegun ++ ; break ; }
-            case  2 : { etThread.traceF( tinP , T("event [cBegun,cEnded,osPid,osTid,eventDescription                          ]:    ")+TF2(cBegun,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2(cEnded,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2((countT)info3.dwProcessId,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2((countT)info3.dwThreadId,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)                                                                                          +tb4+T("CREATE_THREAD_DEBUG_EVENT" ) )             ; break ; }
-            case  1 : { etThread.traceF( tinP , T("event [cBegun,cEnded,osPid,osTid,eventDescription,wothChance,exCode,exNotes]:    ")+TF2(cBegun,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2(cEnded,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2((countT)info3.dwProcessId,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2((countT)info3.dwThreadId,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2((countT)info3.u.Exception.dwFirstChance,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2((countT)info3.u.Exception.ExceptionRecord.ExceptionCode,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+T("EXCEPTION_DEBUG_EVENT"     )+tb4+tExNotes ) ; break ; }
-        {
-        switch( info3.dwDebugEventCode )
+            etThread.traceF( tinP , T("event [cBegun,cEnded,osPid,osTid,event]:    ")+TF2(cBegun,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2(cEnded,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2((countT)info3.dwProcessId,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2((countT)info3.dwThreadId,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+tEvent ) ;
 
-        }
             }
-                default                                   : { tExNotes = T("(unexpected exception code)         ") ; break ; }
-                case EXCEPTION_INVALID_HANDLE             : { tExNotes = T("EXCEPTION_INVALID_HANDLE            ") ; break ; }
-                case EXCEPTION_GUARD_PAGE                 : { tExNotes = T("EXCEPTION_GUARD_PAGE                ") ; break ; }
-                case EXCEPTION_INVALID_DISPOSITION        : { tExNotes = T("EXCEPTION_INVALID_DISPOSITION       ") ; break ; }
-                case EXCEPTION_STACK_OVERFLOW             : { tExNotes = T("EXCEPTION_STACK_OVERFLOW            ") ; break ; }
-                case EXCEPTION_NONCONTINUABLE_EXCEPTION   : { tExNotes = T("EXCEPTION_NONCONTINUABLE_EXCEPTION  ") ; break ; }
-                case EXCEPTION_ILLEGAL_INSTRUCTION        : { tExNotes = T("EXCEPTION_ILLEGAL_INSTRUCTION       ") ; break ; }
-                case EXCEPTION_IN_PAGE_ERROR              : { tExNotes = T("EXCEPTION_IN_PAGE_ERROR             ") ; break ; }
-                case EXCEPTION_PRIV_INSTRUCTION           : { tExNotes = T("EXCEPTION_PRIV_INSTRUCTION          ") ; break ; }
-                case EXCEPTION_INT_OVERFLOW               : { tExNotes = T("EXCEPTION_INT_OVERFLOW              ") ; break ; }
-                case EXCEPTION_INT_DIVIDE_BY_ZERO         : { tExNotes = T("EXCEPTION_INT_DIVIDE_BY_ZERO        ") ; break ; }
-                case EXCEPTION_FLT_UNDERFLOW              : { tExNotes = T("EXCEPTION_FLT_UNDERFLOW             ") ; break ; }
-                case EXCEPTION_FLT_STACK_CHECK            : { tExNotes = T("EXCEPTION_FLT_STACK_CHECK           ") ; break ; }
-                case EXCEPTION_FLT_OVERFLOW               : { tExNotes = T("EXCEPTION_FLT_OVERFLOW              ") ; break ; }
-                case EXCEPTION_FLT_INVALID_OPERATION      : { tExNotes = T("EXCEPTION_FLT_INVALID_OPERATION     ") ; break ; }
-                case EXCEPTION_FLT_INEXACT_RESULT         : { tExNotes = T("EXCEPTION_FLT_INEXACT_RESULT        ") ; break ; }
-                case EXCEPTION_FLT_DIVIDE_BY_ZERO         : { tExNotes = T("EXCEPTION_FLT_DIVIDE_BY_ZERO        ") ; break ; }
-                case EXCEPTION_FLT_DENORMAL_OPERAND       : { tExNotes = T("EXCEPTION_FLT_DENORMAL_OPERAND      ") ; break ; }
-                case EXCEPTION_ARRAY_BOUNDS_EXCEEDED      : { tExNotes = T("EXCEPTION_ARRAY_BOUNDS_EXCEEDED     ") ; break ; }
-                case EXCEPTION_SINGLE_STEP                : { tExNotes = T("EXCEPTION_SINGLE_STEP               ") ; break ; }
-                case EXCEPTION_BREAKPOINT                 : { tExNotes = T("EXCEPTION_BREAKPOINT                ") ; break ; }
-                case EXCEPTION_DATATYPE_MISALIGNMENT      : { tExNotes = T("EXCEPTION_DATATYPE_MISALIGNMENT     ") ; break ; }
-                case EXCEPTION_ACCESS_VIOLATION           : { tExNotes = T("EXCEPTION_ACCESS_VIOLATION          ") ; break ; }
+                }
+                    break ;
+                    }
+                        case EXCEPTION_ACCESS_VIOLATION           : { tEvent += T("[wothChance,code]:    ")+tb4+TF2((countT)info3.u.Exception.dwFirstChance,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2((countT)info3.u.Exception.ExceptionRecord.ExceptionCode,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ; break ; }
+                    {
+                    switch( info3.u.Exception.ExceptionRecord.ExceptionCode )
+
+                    }
+                        default                                   : { tEvent += T("(unexpected exception code)           ") ; break ; }
+                        case EXCEPTION_INVALID_HANDLE             : { tEvent += T("EXCEPTION_INVALID_HANDLE              ") ; break ; }
+                        case EXCEPTION_GUARD_PAGE                 : { tEvent += T("EXCEPTION_GUARD_PAGE                  ") ; break ; }
+                        case EXCEPTION_INVALID_DISPOSITION        : { tEvent += T("EXCEPTION_INVALID_DISPOSITION         ") ; break ; }
+                        case EXCEPTION_STACK_OVERFLOW             : { tEvent += T("EXCEPTION_STACK_OVERFLOW              ") ; break ; }
+                        case EXCEPTION_NONCONTINUABLE_EXCEPTION   : { tEvent += T("EXCEPTION_NONCONTINUABLE_EXCEPTION    ") ; break ; }
+                        case EXCEPTION_ILLEGAL_INSTRUCTION        : { tEvent += T("EXCEPTION_ILLEGAL_INSTRUCTION         ") ; break ; }
+                        case EXCEPTION_IN_PAGE_ERROR              : { tEvent += T("EXCEPTION_IN_PAGE_ERROR               ") ; break ; }
+                        case EXCEPTION_PRIV_INSTRUCTION           : { tEvent += T("EXCEPTION_PRIV_INSTRUCTION            ") ; break ; }
+                        case EXCEPTION_INT_OVERFLOW               : { tEvent += T("EXCEPTION_INT_OVERFLOW                ") ; break ; }
+                        case EXCEPTION_INT_DIVIDE_BY_ZERO         : { tEvent += T("EXCEPTION_INT_DIVIDE_BY_ZERO          ") ; break ; }
+                        case EXCEPTION_FLT_UNDERFLOW              : { tEvent += T("EXCEPTION_FLT_UNDERFLOW               ") ; break ; }
+                        case EXCEPTION_FLT_STACK_CHECK            : { tEvent += T("EXCEPTION_FLT_STACK_CHECK             ") ; break ; }
+                        case EXCEPTION_FLT_OVERFLOW               : { tEvent += T("EXCEPTION_FLT_OVERFLOW                ") ; break ; }
+                        case EXCEPTION_FLT_INVALID_OPERATION      : { tEvent += T("EXCEPTION_FLT_INVALID_OPERATION       ") ; break ; }
+                        case EXCEPTION_FLT_INEXACT_RESULT         : { tEvent += T("EXCEPTION_FLT_INEXACT_RESULT          ") ; break ; }
+                        case EXCEPTION_FLT_DIVIDE_BY_ZERO         : { tEvent += T("EXCEPTION_FLT_DIVIDE_BY_ZERO          ") ; break ; }
+                        case EXCEPTION_FLT_DENORMAL_OPERAND       : { tEvent += T("EXCEPTION_FLT_DENORMAL_OPERAND        ") ; break ; }
+                        case EXCEPTION_ARRAY_BOUNDS_EXCEEDED      : { tEvent += T("EXCEPTION_ARRAY_BOUNDS_EXCEEDED       ") ; break ; }
+                        case EXCEPTION_SINGLE_STEP                : { tEvent += T("EXCEPTION_SINGLE_STEP                 ") ; break ; }
+                        case EXCEPTION_BREAKPOINT                 : { tEvent += T("EXCEPTION_BREAKPOINT                  ") ; break ; }
+                        case EXCEPTION_DATATYPE_MISALIGNMENT      : { tEvent += T("EXCEPTION_DATATYPE_MISALIGNMENT       ") ; break ; }
+                        case EXCEPTION_ACCESS_VIOLATION           : { tEvent += T("EXCEPTION_ACCESS_VIOLATION            ") ; break ; }
+                    {
+                    switch( info3.u.Exception.ExceptionRecord.ExceptionCode )
+                {
+                case EXCEPTION_DEBUG_EVENT :
             {
-            switch( info3.u.Exception.ExceptionRecord.ExceptionCode )
+            switch( info3.dwDebugEventCode )
+
+            }
+                case RIP_EVENT                   : { tEvent = T("RIP_EVENT                     ") ; break ; }
+                case OUTPUT_DEBUG_STRING_EVENT   : { tEvent = T("OUTPUT_DEBUG_STRING_EVENT     ") ; break ; }
+                case UNLOAD_DLL_DEBUG_EVENT      : { tEvent = T("UNLOAD_DLL_DEBUG_EVENT        ") ; break ; }
+                case LOAD_DLL_DEBUG_EVENT        : { tEvent = T("LOAD_DLL_DEBUG_EVENT          ") ; break ; }
+                case EXIT_PROCESS_DEBUG_EVENT    : { tEvent = T("EXIT_PROCESS_DEBUG_EVENT      ") ; break ; }
+                case EXIT_THREAD_DEBUG_EVENT     : { tEvent = T("EXIT_THREAD_DEBUG_EVENT       ") ; break ; }
+                case CREATE_PROCESS_DEBUG_EVENT  : { tEvent = T("CREATE_PROCESS_DEBUG_EVENT    ") ; break ; }
+                case CREATE_THREAD_DEBUG_EVENT   : { tEvent = T("CREATE_THREAD_DEBUG_EVENT     ") ; break ; }
+                case EXCEPTION_DEBUG_EVENT       : { tEvent = T("EXCEPTION_DEBUG_EVENT         ") ; break ; }
+            {
+            switch( info3.dwDebugEventCode )
         {
-        if( info3.dwDebugEventCode == 1 )
-        TN( tExNotes , "" ) ;
+        TN( tEvent , "" ) ;
 
         }
             etThread.traceF( tinP , T("WaitForDebugEvent failed [rc]:    ")+TF2(rc,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
@@ -115,7 +128,7 @@ DONE( tmHireF )
         //CONoUTrAW( "setting flHOMEs_FIREtHIShOME\r\n" ) ;
         //U::TO FIND A BUG
     
-        /*PROD*/ /*if( idMe == IDcOMPUTER_IPDOSmASTERcRAFTWORKoLD0 || idMe == IDcOMPUTER_IPDOSmASTERcRAFTWORKoLD0sERVER )*/ ether.ifcHireF( tinP , T("ifcIDaDAM_MONITOR") , ifcIDaDAM_MEMBRANEgLASS , T("!ignoreFireByOperator") , flHIRE_DISPLAYaUTO | flHIRE_MONITORtHIS | flHIRE_MONITORkIDS , nicNameC() ) ;
+//        /*PROD*/ /*if( idMe == IDcOMPUTER_IPDOSmASTERcRAFTWORKoLD0 || idMe == IDcOMPUTER_IPDOSmASTERcRAFTWORKoLD0sERVER )*/ ether.ifcHireF( tinP , T("ifcIDaDAM_MONITOR") , ifcIDaDAM_MEMBRANEgLASS , T("!ignoreFireByOperator") , flHIRE_DISPLAYaUTO | flHIRE_MONITORtHIS | flHIRE_MONITORkIDS , nicNameC() ) ;
 
         //ether.ifcHireF( tinP , T("ifcIDaDAM_MONITOR") , ifcIDaDAM_GORILLAbANG , T("!ignoreFireByOperator") , flHIRE_DISPLAYaUTO , nicNameC() ) ;
         //ether.ifcHireF( tinP , T("ifcIDaDAM_MONITOR") , ifcIDaDAM_KERNEL3BANG , T("!ignoreFireByOperator") , flHIRE_DISPLAYaUTO , nicNameC() ) ;
@@ -124,7 +137,7 @@ DONE( tmHireF )
 
         //ether.ifcHireF( tinP , T("ifcIDaDAM_MONITOR") , ifcIDaDAM_CLOUD , T("!ignoreFireByOperator") , flHIRE_DISPLAYaUTO | flHIRE_MONITORtHIS | flHIRE_MONITORkIDS , nicNameC() ) ;
 
-        //ether.ifcHireF( tinP , T("ifcIDaDAM_MONITOR") , ifcIDaDAM_SCRATCH0d , T("!ignoreFireByOperator") , flHIRE_DISPLAYaUTO | flHIRE_MONITORtHIS | flHIRE_MONITORkIDS , nicNameC() ) ;
+        ether.ifcHireF( tinP , T("ifcIDaDAM_MONITOR") , ifcIDaDAM_SCRATCH0d , T("!ignoreFireByOperator") , flHIRE_DISPLAYaUTO | flHIRE_MONITORtHIS | flHIRE_MONITORkIDS , nicNameC() ) ;
 
         //ether.ifcHireF( tinP , T("ifcIDaDAM_MONITOR") , ifcIDaDAM_ACCESSeVENTS3bOOKbYhASHbYTE1 , T("!ignoreFireByOperator") , flHIRE_DISPLAYaUTO , nicNameC() ) ;
         
@@ -212,8 +225,9 @@ DONE( tmHireF )
     
     //U::if( !( F(thirdC::third_flagsModeProcess2I_IF(tinP)) & flMODEpROCESS2_NOsYSTEMtHREADS ) ) { __( tinP.monitor.idThread - ifcIDtHREADlOW_tmHireF ) ; }
 
-    countT&  osTidExceptionP            = *(countT*)pTaskP->c5 ;
-    countT&  osPidExceptionP            = *(countT*)pTaskP->c4 ;
+    textC&   tEventP                    =  *(textC*)pTaskP->c6 ;
+    countT&  osTidEventP                = *(countT*)pTaskP->c5 ;
+    countT&  osPidEventP                = *(countT*)pTaskP->c4 ;
     osTextT* postSnapShotRequestP       = (osTextT*)pTaskP->c3 ;
     flagsT&  fliPendingSnapShotRequestP = *(flagsT*)pTaskP->c2 ;
     countT&  cHamburgersP               = *(countT*)pTaskP->c1 ;
@@ -1017,8 +1031,9 @@ TELL( "cleaning up 0" )
     }
         etThread.osThreadF( tinP , countTC() , tmReportF , &sgnDone_tmReportF_ , flTHREADlAUNCH_null , 0 , (countT)pcArg ) ;
 
-        pcArg[ 0x9 ] = (countT)&osTidExceptionP ;
-        pcArg[ 0x8 ] = (countT)&osPidExceptionP ;
+        pcArg[ 0xa ] = (countT)&tEventP ;
+        pcArg[ 0x9 ] = (countT)&osTidEventP ;
+        pcArg[ 0x8 ] = (countT)&osPidEventP ;
         pcArg[ 0x7 ] = (countT)&bCompileReportP ;
         pcArg[ 0x6 ] = (countT)postSnapShotRequestP ;
         pcArg[ 0x5 ] = (countT)&fliPendingSnapShotRequestP ;
@@ -1027,7 +1042,7 @@ TELL( "cleaning up 0" )
         pcArg[ 0x2 ] = (countT)&stPeriodData ;
         pcArg[ 0x1 ] = idMemorySpaceP ;
         pcArg[ 0x0 ] = (countT)&bQuitEatingP ;
-        etThread.newF( tinP , LF , pcArg , 0xa ) ; ___( pcArg ) ;
+        etThread.newF( tinP , LF , pcArg , 0xb ) ; ___( pcArg ) ;
         ZE( countT* , pcArg ) ;
     {
 
@@ -1058,8 +1073,9 @@ TELL( "cleaning up 0" )
     tinP.c4Tell.c1 = idMemorySpaceP ;
 
     etThread.delF( tinP , pcArgP ) ;
-    countT&      osTidExceptionP            =  *(countT*)pcArgP[ 0xa ] ;
-    countT&      osPidExceptionP            =  *(countT*)pcArgP[ 0x9 ] ;
+    textC&       tEventP                    =   *(textC*)pcArgP[ 0xb ] ;
+    countT&      osTidEventP                =  *(countT*)pcArgP[ 0xa ] ;
+    countT&      osPidEventP                =  *(countT*)pcArgP[ 0x9 ] ;
     batonC&      bCompileReportP            =  *(batonC*)pcArgP[ 0x8 ] ;
     osTextT*     postSnapShotRequestP       =  (osTextT*)pcArgP[ 0x7 ] ;
     flagsT&      fliPendingSnapShotRequestP =  *(flagsT*)pcArgP[ 0x6 ] ;
@@ -1593,7 +1609,7 @@ DONE( tmReportF )
                             
                                 sRptTin << (strokeS*)( TF3(tinCopy.monitor.idThread,flFORMAT_UNSIGNED|flFORMAT_NObIGITvALUES,9)+TP(tinCopy.postThreadName,0x10)+T(" ")+TF3(tinCopy.monitor.idStep,flFORMAT_UNSIGNED|flFORMAT_NObIGITvALUES,9)+TF3(head.cStepsNew,flFORMAT_UNSIGNED|flFORMAT_NObIGITvALUES,9)+tc4+T(tinCopy.postTell)+T("\r\n" DASH256 "\r\n") ) ;
 
-                                if( osPidExceptionP == tinCopy.osPid && osTidExceptionP == tinCopy.osTid ) sRptTin << (strokeS*)( T("******** EXCEPTION ********\r\n") ) ;
+                                if( osPidEventP == tinCopy.osPid && osTidEventP == tinCopy.osTid ) sRptTin << (strokeS*)( tEventP+T("\r\n") ) ;
                     
                                 //CONoUTrAW( TF2(idCycle,flFORMAT_UNSIGNED|flFORMAT_NObIGITvALUES)+T(": ")+TF2(head.idAdamRoot,flFORMAT_UNSIGNED|flFORMAT_NObIGITvALUES)+T(".")+TF2(head.idAdam,flFORMAT_UNSIGNED|flFORMAT_NObIGITvALUES)+T(" ")+T(tinCopy.postThreadName)+T("\r\n") ) ;
                     
@@ -2169,8 +2185,9 @@ DONE( tmReportF )
     etherC& etRock = etherC::etRockIF( tinP ) ;
 
     etThread.delF( tinP , pcArgP ) ;
-    countT&       osTidExceptionP            =       *(countT*)pcArgP[ 0x9 ] ;
-    countT&       osPidExceptionP            =       *(countT*)pcArgP[ 0x8 ] ;
+    textC&        tEventP                    =        *(textC*)pcArgP[ 0xa ] ;
+    countT&       osTidEventP                =       *(countT*)pcArgP[ 0x9 ] ;
+    countT&       osPidEventP                =       *(countT*)pcArgP[ 0x8 ] ;
     batonC&       bCompileReportP            =       *(batonC*)pcArgP[ 0x7 ] ;
     osTextT*      postSnapShotRequestP       =       (osTextT*)pcArgP[ 0x6 ] ;
     flagsT&       fliPendingSnapShotRequestP =       *(flagsT*)pcArgP[ 0x5 ] ;
