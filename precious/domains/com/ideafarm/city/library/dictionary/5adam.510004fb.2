@@ -19,6 +19,33 @@ DONE( tmHireF )
         bOk = ContinueDebugEvent( info3.dwProcessId , info3.dwThreadId , DBG_EXCEPTION_NOT_HANDLED ) ;
 
         }
+            etThread.traceF( tinP , T("resuming execution of the excepting process") ) ;
+
+            }
+                ++ s ; etThread.osSleepF( tinP , TOCK >> 2 ) ;
+            {
+            while( fliPendingSnapShotRequestP )
+            etThread.traceF( tinP , T("waiting for all exception freeze reports to be written") ) ;
+
+            osTidExceptionP = info3.dwThreadId ;                                       //U::BUG: 20210710@1309: RACE
+            osPidExceptionP = info3.dwProcessId ;                                      //U::BUG: 20210710@1309: RACE
+            thirdC::c_strcpyIF( tinP , postSnapShotRequestP , "exception.freeze" ) ;   //U::BUG: 20210710@1309: RACE
+
+            }
+                ++ s ; etThread.osSleepF( tinP , TOCK >> 2 ) ;
+            {
+            while( setIfZeAM( fliPendingSnapShotRequestP , mask ) )
+            sleepC s( tinP , TAG( TAGiDnULL ) ) ;
+
+            while( cSpace -- ) mask = mask << 1 | 1 ;
+            countT cSpace = ifcIDmEMORYsPACE_max - ifcIDmEMORYsPACE_min + 1 - ( ifcIDmEMORYsPACE_RESERVEDmAX - ifcIDmEMORYsPACE_RESERVEDmIN + 1 ) ;
+            ZE( flagsT , mask ) ;
+
+            etThread.traceF( tinP , T("requesting exception freeze report") ) ;
+        {
+        if( info3.dwDebugEventCode == 1 && !info3.u.Exception.dwFirstChance )
+
+        }
             default : { etThread.traceF( tinP , T("event [cBegun,cEnded,osPid,osTid,eventDescription                          ]:    ")+TF2(cBegun,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2(cEnded,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2((countT)info3.dwProcessId,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2((countT)info3.dwThreadId,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)                                                                                          +tb4+T("unexpected")+tb4+TF2((countT)info3.dwDebugEventCode,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ; break ; }
             case  9 : { etThread.traceF( tinP , T("event [cBegun,cEnded,osPid,osTid,eventDescription                          ]:    ")+TF2(cBegun,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2(cEnded,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2((countT)info3.dwProcessId,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2((countT)info3.dwThreadId,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)                                                                                          +tb4+T("RIP_EVENT"                 ) )             ; break ; }
             case  8 : { etThread.traceF( tinP , T("event [cBegun,cEnded,osPid,osTid,eventDescription                          ]:    ")+TF2(cBegun,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2(cEnded,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2((countT)info3.dwProcessId,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2((countT)info3.dwThreadId,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)                                                                                          +tb4+T("OUTPUT_DEBUG_STRING_EVENT" ) )             ; break ; }
@@ -63,7 +90,6 @@ DONE( tmHireF )
         if( info3.dwDebugEventCode == 1 )
         TN( tExNotes , "" ) ;
 
-
         }
             etThread.traceF( tinP , T("WaitForDebugEvent failed [rc]:    ")+TF2(rc,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
             printf( " %d\r\n" , rc ) ;
@@ -97,6 +123,8 @@ DONE( tmHireF )
         //ether.ifcHireF( tinP , T("ifcIDaDAM_MONITOR") , ifcIDaDAM_ROOThTTPsERVER , T("!ignoreFireByOperator") , flHIRE_DISPLAYaUTO , nicNameC() ) ;
 
         //ether.ifcHireF( tinP , T("ifcIDaDAM_MONITOR") , ifcIDaDAM_CLOUD , T("!ignoreFireByOperator") , flHIRE_DISPLAYaUTO | flHIRE_MONITORtHIS | flHIRE_MONITORkIDS , nicNameC() ) ;
+
+        //ether.ifcHireF( tinP , T("ifcIDaDAM_MONITOR") , ifcIDaDAM_SCRATCH0d , T("!ignoreFireByOperator") , flHIRE_DISPLAYaUTO | flHIRE_MONITORtHIS | flHIRE_MONITORkIDS , nicNameC() ) ;
 
         //ether.ifcHireF( tinP , T("ifcIDaDAM_MONITOR") , ifcIDaDAM_ACCESSeVENTS3bOOKbYhASHbYTE1 , T("!ignoreFireByOperator") , flHIRE_DISPLAYaUTO , nicNameC() ) ;
         
@@ -184,9 +212,13 @@ DONE( tmHireF )
     
     //U::if( !( F(thirdC::third_flagsModeProcess2I_IF(tinP)) & flMODEpROCESS2_NOsYSTEMtHREADS ) ) { __( tinP.monitor.idThread - ifcIDtHREADlOW_tmHireF ) ; }
 
-    countT& cHamburgersP = *(countT*)pTaskP->c1 ;
+    countT&  osTidExceptionP            = *(countT*)pTaskP->c5 ;
+    countT&  osPidExceptionP            = *(countT*)pTaskP->c4 ;
+    osTextT* postSnapShotRequestP       = (osTextT*)pTaskP->c3 ;
+    flagsT&  fliPendingSnapShotRequestP = *(flagsT*)pTaskP->c2 ;
+    countT&  cHamburgersP               = *(countT*)pTaskP->c1 ;
 {
-if( pTaskP && pTaskP->c1 )
+if( pTaskP && pTaskP->c1 && pTaskP->c2 && pTaskP->c3 && pTaskP->c4 && pTaskP->c5 )
 TASK( tmHireF )
 
 #endif
@@ -792,7 +824,7 @@ TELL( "cleaning up 0" )
                                         {
                                         if( !setIfZeAM( fliPendingSnapShotRequestP , mask ) )
                                         while( cSpace -- ) mask = mask << 1 | 1 ;
-                                        countT cSpace = ifcIDmEMORYsPACE_max - ifcIDmEMORYsPACE_min + 1 ;
+                                        countT cSpace = ifcIDmEMORYsPACE_max - ifcIDmEMORYsPACE_min + 1 - ( ifcIDmEMORYsPACE_RESERVEDmAX - ifcIDmEMORYsPACE_RESERVEDmIN + 1 ) ;
                                         ZE( flagsT , mask ) ;
 
                                         TELL( "SNAPsHOT" )
@@ -982,7 +1014,23 @@ TELL( "cleaning up 0" )
     {
     THREADmODE3oN( flTHREADmODE3_ALLOWeXPLICITmEMORYsPACE )
 
-    etThread.osThreadF( tinP , countTC() , tmReportF , &sgnDone_tmReportF_ , flTHREADlAUNCH_null , 0 , (countT)&bQuitEatingP , idMemorySpaceP , (countT)&stPeriodData , (countT)&memorySpace , idMinuteZeP , (countT)&fliPendingSnapShotRequestP , (countT)postSnapShotRequestP , (countT)&bCompileReportP ) ;
+    }
+        etThread.osThreadF( tinP , countTC() , tmReportF , &sgnDone_tmReportF_ , flTHREADlAUNCH_null , 0 , (countT)pcArg ) ;
+
+        pcArg[ 0x9 ] = (countT)&osTidExceptionP ;
+        pcArg[ 0x8 ] = (countT)&osPidExceptionP ;
+        pcArg[ 0x7 ] = (countT)&bCompileReportP ;
+        pcArg[ 0x6 ] = (countT)postSnapShotRequestP ;
+        pcArg[ 0x5 ] = (countT)&fliPendingSnapShotRequestP ;
+        pcArg[ 0x4 ] = idMinuteZeP ;
+        pcArg[ 0x3 ] = (countT)&memorySpace ;
+        pcArg[ 0x2 ] = (countT)&stPeriodData ;
+        pcArg[ 0x1 ] = idMemorySpaceP ;
+        pcArg[ 0x0 ] = (countT)&bQuitEatingP ;
+        etThread.newF( tinP , LF , pcArg , 0xa ) ; ___( pcArg ) ;
+        ZE( countT* , pcArg ) ;
+    {
+
     signC sgnDone_tmReportF_( tinP , TAG( TAGiDnULL ) ) ;
     TELL( "launching tmReportF" )
 
@@ -1010,15 +1058,17 @@ TELL( "cleaning up 0" )
     tinP.c4Tell.c1 = idMemorySpaceP ;
 
     etThread.delF( tinP , pcArgP ) ;
-    batonC&      bCompileReportP            =  *(batonC*)pcArgP[ 8 ] ;
-    osTextT*     postSnapShotRequestP       =  (osTextT*)pcArgP[ 7 ] ;
-    flagsT&      fliPendingSnapShotRequestP =  *(flagsT*)pcArgP[ 6 ] ;
-    countT&      cHamburgersP               =  *(countT*)pcArgP[ 5 ] ;
-    countT       idMinuteZeP                =            pcArgP[ 4 ] ;
-    switchC&     swMemorySpaceP             = *(switchC*)pcArgP[ 3 ] ;
-    countT&      cLeverIdMemoryP            =  *(countT*)pcArgP[ 2 ] ;
-    countT       idMemorySpaceP             =            pcArgP[ 1 ] ;
-    boolT&       bQuitEatingP               =   *(boolT*)pcArgP[ 0 ] ;
+    countT&      osTidExceptionP            =  *(countT*)pcArgP[ 0xa ] ;
+    countT&      osPidExceptionP            =  *(countT*)pcArgP[ 0x9 ] ;
+    batonC&      bCompileReportP            =  *(batonC*)pcArgP[ 0x8 ] ;
+    osTextT*     postSnapShotRequestP       =  (osTextT*)pcArgP[ 0x7 ] ;
+    flagsT&      fliPendingSnapShotRequestP =  *(flagsT*)pcArgP[ 0x6 ] ;
+    countT&      cHamburgersP               =  *(countT*)pcArgP[ 0x5 ] ;
+    countT       idMinuteZeP                =            pcArgP[ 0x4 ] ;
+    switchC&     swMemorySpaceP             = *(switchC*)pcArgP[ 0x3 ] ;
+    countT&      cLeverIdMemoryP            =  *(countT*)pcArgP[ 0x2 ] ;
+    countT       idMemorySpaceP             =            pcArgP[ 0x1 ] ;
+    boolT&       bQuitEatingP               =   *(boolT*)pcArgP[ 0x0 ] ;
     countT* pcArgP = (countT*)pTaskP->c1 ;
 {
 if( pTaskP && pTaskP->c1 )
@@ -1161,11 +1211,11 @@ DONE( tmReportF )
                         //etRock.traceF( tinP , T("tmReportF 3/ ") ) ; //U:: TO FIND A BUG
 
                         }
-                            if( !fliPendingSnapShotRequestP ) *postSnapShotRequestP = 0 ;
+                            if( !fliPendingSnapShotRequestP ) *postSnapShotRequestP = 0 ;   //A:ASSUME: FLAGS ARE SET BEFORE SETTING STRING
 
                             }
                                 if( oldf == setIfEqualsAM( fliPendingSnapShotRequestP , newf , oldf ) ) break ;
-                                flagsT newf = oldf & ~fliMaskPending ;
+                                flagsT newf = oldf & ~fliMyBit ;
                                 flagsT oldf = fliPendingSnapShotRequestP ;
                             {
                             for(;;)
@@ -1176,9 +1226,11 @@ DONE( tmReportF )
 
                         tFile += T(".rpt.kernel.idMemorySpace.")+TF3(idMemorySpaceP,flFORMAT_UNSIGNED|flFORMAT_NObIGITvALUES|flFORMAT_FOREIGN|flFORMAT_FILLzE,3)+tDot+TF2(idMinute,flFORMAT_UNSIGNED|flFORMAT_NObIGITvALUES|flFORMAT_FOREIGN|flFORMAT_FILLzE)+T(".txt") ;
                         else                                                              tFile += T("minute") ;
-                        if( bSnapShot || F(home.flagsUtility) & flHOMEsuTILITY_SNAPsHOT ) tFile += T(postSnapShotRequestP&&*postSnapShotRequestP?postSnapShotRequestP:"snapshot") ;
+                        if( bSnapShot || F(home.flagsUtility) & flHOMEsuTILITY_SNAPsHOT ) tFile += T(postSnapShotRequestP&&*postSnapShotRequestP?postSnapShotRequestP:"snapshot") ;  //U:: BUG: RACE: THIS CODE RACES WITH REQUESTOR SETTING STRING
                         TN( tFile , "" ) ; tFile = T("///ideafarm/ephemeral/reports/")+TF3(idRpt,flFORMAT_UNSIGNED|flFORMAT_NObIGITvALUES|flFORMAT_FOREIGN|flFORMAT_FILLzE,8)+tDot+textC(ifcIDtEXTgEN_TIMEnOWfOREIGN,tinP,TAG(TAGiDnULL))+tDot ;
                         //etRock.traceF( tinP , T("tmReportF 5/ ") ) ; //U:: TO FIND A BUG
+
+                        // BUG: RACE: WO WAY TO ELIMINATE THE RACE IS TO NAP HERE (IFF bSnapShot) UNTIL STRING IS NOT NULL ; THIS CHANGE WOULD REQUIRE ALL REQUESTERS TO SET THE STRING
 
                         TN( tDot , "." ) ;
                         countT idRpt = 1 + incv02AM( idRptLath ) ;
@@ -1540,6 +1592,8 @@ DONE( tmReportF )
                                 ZE( boolT , bDash ) ;
                             
                                 sRptTin << (strokeS*)( TF3(tinCopy.monitor.idThread,flFORMAT_UNSIGNED|flFORMAT_NObIGITvALUES,9)+TP(tinCopy.postThreadName,0x10)+T(" ")+TF3(tinCopy.monitor.idStep,flFORMAT_UNSIGNED|flFORMAT_NObIGITvALUES,9)+TF3(head.cStepsNew,flFORMAT_UNSIGNED|flFORMAT_NObIGITvALUES,9)+tc4+T(tinCopy.postTell)+T("\r\n" DASH256 "\r\n") ) ;
+
+                                if( osPidExceptionP == tinCopy.osPid && osTidExceptionP == tinCopy.osTid ) sRptTin << (strokeS*)( T("******** EXCEPTION ********\r\n") ) ;
                     
                                 //CONoUTrAW( TF2(idCycle,flFORMAT_UNSIGNED|flFORMAT_NObIGITvALUES)+T(": ")+TF2(head.idAdamRoot,flFORMAT_UNSIGNED|flFORMAT_NObIGITvALUES)+T(".")+TF2(head.idAdam,flFORMAT_UNSIGNED|flFORMAT_NObIGITvALUES)+T(" ")+T(tinCopy.postThreadName)+T("\r\n") ) ;
                     
@@ -2009,7 +2063,6 @@ DONE( tmReportF )
                 idCycle ++ ;
 
                 //LOGrAW7( "tmReportF [fliPendingSnapShotRequestP,bSnapShot,idMemorySpaceP]: " , fliPendingSnapShotRequestP , " " , bSnapShot , " " , idMemorySpaceP , "\r\n" ) ;
-                boolT bSnapShot = fliPendingSnapShotRequestP & fliMaskPending ;
                 //CONoUTrAW3( "tmReportF " , idMemorySpaceP , ":  9\r\n" ) ;
                 _IO_
             {
@@ -2031,6 +2084,14 @@ DONE( tmReportF )
 //U::WORKAROUND: THE USE OF THE BATON IN THE NEXT LINE REQUIRES REGRESSION DEBUGGING.  THE GOAL IS TO REDUCE ADDRESS SPACE FOOTPRINT TO HOPEVULLY ELIMMINATE THE ADDRESS SPACE EXHAUSTION BLAMMO ON FACTORY3
 
         }
+            ) ) ;
+                    : "not napping, because a minute has passed"
+                    ? "not napping, because i have been fired"
+                : ether
+                ? "not napping, because a snapshot has been requested"
+            etRock.traceF( tinP , T( bSnapShot
+            bSnapShot = fliPendingSnapShotRequestP & fliMyBit ;
+
             }
                 else etThread.osSleepF( tinP , TUCK * 0x40 ) ;
                 }
@@ -2041,19 +2102,7 @@ DONE( tmReportF )
                 {
                 if( bDo )
 
-                }
-                    }
-                        bDo = 1 ;
-                        etRock.traceF( tinP , T("not napping, because a minute has passed") ) ;
-                    {
-                    else if( idMinute != idMinuteTry )
-                    }
-                        bDo = 1 ;
-                        etRock.traceF( tinP , T("not napping, because i have been fired") ) ;
-                    {
-                    if( ether )         //20210706@1608: IF ether THEN DO REPEATEDLY WITHOUT NAPPING, TO REVEAL WHICH THREADS TAKE THE LONGEST TO SHUT DOWN
-                {
-                if( !bDo )
+                if( !bDo && ( ether || idMinute != idMinuteTry ) ) bDo = 1 ;    //20210706@1608: IF ether THEN DO REPEATEDLY WITHOUT NAPPING, TO REVEAL WHICH THREADS TAKE THE LONGEST TO SHUT DOWN
 
                 else if( idFoTock ) idFoTock = 0 ;
                 }
@@ -2074,9 +2123,10 @@ DONE( tmReportF )
                 ZE( sCountT , timeN2 ) ;
                 ZE( countT  , timeN1 ) ;
             {
-            while( !bQuitMonitorP && !etThread && !( fliPendingSnapShotRequestP & fliMaskPending ) ) // SNAPsHOT REQUEST IS OBEYED IMMEDIATELY
+            while( !bQuitMonitorP && !etThread && !( fliPendingSnapShotRequestP & fliMyBit ) ) // SNAPsHOT REQUEST IS OBEYED IMMEDIATELY
             sleepC s( tinP , TAG( TAGiDnULL ) ) ;
         {
+        ZE( boolT   , bSnapShot ) ;
         ZE( sCountT , timeR2 ) ;
         ZE( countT  , timeR1 ) ;
 
@@ -2104,26 +2154,34 @@ DONE( tmReportF )
 
     tinP.c4Tell.c1 = idMemorySpaceP ;
 
-    flagsT fliMaskPending = 1 << idMemorySpaceP - ifcIDmEMORYsPACE_min ;
+    const flagsT fliMyBit = 1 << idMemorySpaceP - ifcIDmEMORYsPACE_min - cSkip ;       //A:ASSUME: THE NUMBER OF NONRESERVED MEMORY SPACE VALUES IS NOT GREATER THAN THE NUMBER OF BITS IN A flagsT INSTANCE
+
+    ;
+        : 0
+        ? ifcIDmEMORYsPACE_RESERVEDmAX - ifcIDmEMORYsPACE_RESERVEDmIN + 1
+    countT cSkip = idMemorySpaceP > ifcIDmEMORYsPACE_RESERVEDmAX
 
     homeS& home = homeS::homeIF() ;
     //CONoUTrAW3( "tmReportF " , idMemorySpaceP , ":  b\r\n" ) ;
     //etRock.traceF( tinP , T("tmReportF g/ ") ) ; //U:: TO FIND A BUG
 
-    batonC&       bCompileReportP            =       *(batonC*)pTaskP->c8 ;
-    osTextT*      postSnapShotRequestP       =       (osTextT*)pTaskP->c7 ;
-    flagsT&       fliPendingSnapShotRequestP =       *(flagsT*)pTaskP->c6 ;
-    countT        idMinuteZeP                =                 pTaskP->c5 ;
-    memorySpaceS& memorySpaceP               = *(memorySpaceS*)pTaskP->c4 ;
-    stackC&       stPeriodDataP              =       *(stackC*)pTaskP->c3 ;
-    countT        idMemorySpaceP             =                 pTaskP->c2 ;
-    boolT&        bQuitMonitorP              =        *(boolT*)pTaskP->c1 ;
-
     //etRock.traceF( tinP , T("tmReportF h/ ") ) ; //U:: TO FIND A BUG
     etherC& etRock = etherC::etRockIF( tinP ) ;
-{
-if( pTaskP && pTaskP->c1 && pTaskP->c2 && pTaskP->c3 && pTaskP->c4 && pTaskP->c6 && pTaskP->c7 && pTaskP->c8 )
 
+    etThread.delF( tinP , pcArgP ) ;
+    countT&       osTidExceptionP            =       *(countT*)pcArgP[ 0x9 ] ;
+    countT&       osPidExceptionP            =       *(countT*)pcArgP[ 0x8 ] ;
+    batonC&       bCompileReportP            =       *(batonC*)pcArgP[ 0x7 ] ;
+    osTextT*      postSnapShotRequestP       =       (osTextT*)pcArgP[ 0x6 ] ;
+    flagsT&       fliPendingSnapShotRequestP =       *(flagsT*)pcArgP[ 0x5 ] ;
+    countT        idMinuteZeP                =                 pcArgP[ 0x4 ] ;
+    memorySpaceS& memorySpaceP               = *(memorySpaceS*)pcArgP[ 0x3 ] ;
+    stackC&       stPeriodDataP              =       *(stackC*)pcArgP[ 0x2 ] ;
+    countT        idMemorySpaceP             =                 pcArgP[ 0x1 ] ;
+    boolT&        bQuitMonitorP              =        *(boolT*)pcArgP[ 0x0 ] ;
+    countT* pcArgP = (countT*)pTaskP->c1 ;
+{
+if( pTaskP && pTaskP->c1 )
 TASK( tmReportF )
 
     }

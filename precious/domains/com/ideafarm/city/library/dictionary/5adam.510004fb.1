@@ -134,7 +134,8 @@ REST
         //grabC grabFoo1( tinP , TAG( TAGiDnULL ) ) ;
         //etThread.traceF( tinP , T("launching grabC deadlocker threads") ) ;
 
-        etThread.osThreadF( TaRG1( tmHireF ) , (countT)&cHamburgers ) ;
+        etThread.osThreadF( TaRG1( tmHireF ) , (countT)&cHamburgers , (countT)&fliPendingSnapShotRequest , (countT)postSnapShotRequest , (countT)&osPidException , (countT)&osTidException ) ;
+
         //U::TO QUIET THE CONSOLE FOR CRAFTWORK: etThread.osThreadF( TaRG1( tmConsoleF ) , (countT)&bQuitConsole , (countT)&cLeverIdMemory , (countT)&swMemorySpace ) ;
         etThread.osThreadF( tinP , countTC() , tmFireAllF , &sgnDone_tmFireAllF_ ) ;
         signC sgnDone_tmFireAllF_( tinP , TAG( TAGiDnULL ) , 0 , ifcIDgRABlAYER_7BASEmISC2 ) ;
@@ -146,6 +147,8 @@ REST
             }
                 etThread.osThreadF( TaRG2sGNdONE( tmEatTelemetrySysF , memorySpace.sgnDone_tmEatTelemetrySysF_ ) , (countT)pcArg ) ;
 
+                pcArg[ 0xa ] = (countT)&osTidException ;
+                pcArg[ 0x9 ] = (countT)&osPidException ;
                 pcArg[ 0x8 ] = (countT)&bCompileReport ;
                 pcArg[ 0x7 ] = (countT)postSnapShotRequest ;
                 pcArg[ 0x6 ] = (countT)&fliPendingSnapShotRequest ;
@@ -155,7 +158,7 @@ REST
                 pcArg[ 0x2 ] = (countT)&cLeverIdMemory ;
                 pcArg[ 0x1 ] = idMemory ;
                 pcArg[ 0x0 ] = (countT)&memorySpace.bQuitEating ;
-                etThread.newF( tinP , LF , pcArg , 9 ) ; ___( pcArg ) ;
+                etThread.newF( tinP , LF , pcArg , 0xb ) ; ___( pcArg ) ;
                 ZE( countT* , pcArg ) ;
 
                 swMemorySpace.ungrabF( tinP ) ;
@@ -172,6 +175,8 @@ REST
             ZE( sCountT , timeN2 ) ;
             ZE( countT  , timeN1 ) ;
         {
+        ZE( countT , osTidException ) ;
+        ZE( countT , osPidException ) ;
         batonC bCompileReport( tinP , TAG( TAGiDnULL ) , 0 , ifcIDgRABlAYER_7BASEmISC1 , flBATONc_NOTjEALOUS ) ;
         switchC swMemorySpace( tinP , etThread , TAG( TAGiDnULL ) , flSTACKc_null , cLeverIdMemory , 0 , sizeof( memorySpaceS ) ) ;
         osTextT postSnapShotRequest[ TUCK ] = "" ;

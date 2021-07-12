@@ -2684,7 +2684,8 @@ void elf_obey_C::liveF( void )
                 //B:" op st=0x00210000"
                 //G:" op st=0x00280000"
                 //B:" op st=0x00010000"     TOO SMALL FOR BUNDLE
-                    " op st=0x00080000"     // WORKS FOR nodeC SIMULATOR 8 PROCESSES x 04 nodeC INSTANCES EACH
+                //B:TOO SMALL FOR CLOUD IN BUNDLE ON FACTORY6    " op st=0x00080000"     // WORKS FOR nodeC SIMULATOR 8 PROCESSES x 04 nodeC INSTANCES EACH
+                    " op st=0x00100000"
                     " segment type code shared"
                     " segment class 'CODE' shared"
                     " segment 'BEGTEXT' shared"
@@ -3995,7 +3996,8 @@ void elf_obey_C::linkF( char* postIdiForeignP )
             //B:" op st=0x00210000"
              //:" op st=0x00280000"
             //B:" op st=0x00010000"    TOO SMALL FOR BUNDLE
-                " op st=0x00080000"     // WORKS FOR nodeC SIMULATOR 8 PROCESSES x 04 nodeC INSTANCES EACH
+            //B:TOO SMALL FOR CLOUD IN BUNDLE ON FACTORY6    " op st=0x00080000"     // WORKS FOR nodeC SIMULATOR 8 PROCESSES x 04 nodeC INSTANCES EACH
+                " op st=0x00100000"
                 " segment type code shared"
                 " segment class 'CODE' shared"
                 " segment 'BEGTEXT' shared"
