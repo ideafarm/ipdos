@@ -28,9 +28,9 @@ DONE( tmHireF )
             etThread.traceF( tinP , T("waiting for all exception freeze reports to be written") ) ;
 
             tEventP     = tEvent ;
-            osTidEventP = info3.dwThreadId ;                                       //U::BUG: 20210710@1309: RACE
-            osPidEventP = info3.dwProcessId ;                                      //U::BUG: 20210710@1309: RACE
-            thirdC::c_strcpyIF( tinP , postSnapShotRequestP , "exception.freeze" ) ;   //U::BUG: 20210710@1309: RACE
+            osTidEventP = info3.dwThreadId ;                                    //U::BUG: 20210710@1309: RACE
+            osPidEventP = info3.dwProcessId ;                                   //U::BUG: 20210710@1309: RACE
+            thirdC::c_strcpyIF( tinP , postSnapShotRequestP , "exception" ) ;   //U::BUG: 20210710@1309: RACE
 
             }
                 ++ s ; etThread.osSleepF( tinP , TOCK >> 2 ) ;
@@ -44,18 +44,36 @@ DONE( tmHireF )
 
             etThread.traceF( tinP , T("requesting exception freeze report") ) ;
         {
-        if( info3.dwDebugEventCode == 1 && !info3.u.Exception.dwFirstChance )
+        if( info3.dwDebugEventCode == EXCEPTION_DEBUG_EVENT && !info3.u.Exception.dwFirstChance )   //REQUEST SNAPSHOTS WHILE KEEPING EXCEPTING PROCESS FROZEN
+
+        if( info3.dwDebugEventCode != EXCEPTION_DEBUG_EVENT || !info3.u.Exception.dwFirstChance ) etThread.traceF( tinP , T("event [cBegun,cEnded,osPid,osTid,event]:    ")+TF2(cBegun,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2(cEnded,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2((countT)info3.dwProcessId,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2((countT)info3.dwThreadId,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+tEvent ) ;
+        //P:PERSONALITY: I AM SILENT FOR WOTH CHANCE EXCEPTION EVENTS BECAUSE THESE MIGHT BE WAD WAC ("WORKING AS DESIGNED WORKING AS CODED").  I AM ONLY INTERESTED IN EXCEPTIONS THAT THE MONITORED PROCESS DOES NOT HANDLE
 
         }
-            etThread.traceF( tinP , T("event [cBegun,cEnded,osPid,osTid,event]:    ")+TF2(cBegun,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2(cEnded,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2((countT)info3.dwProcessId,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2((countT)info3.dwThreadId,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+tEvent ) ;
-
             }
                 }
                     break ;
+
                     }
-                        case EXCEPTION_ACCESS_VIOLATION           : { tEvent += T("[wothChance,code]:    ")+tb4+TF2((countT)info3.u.Exception.dwFirstChance,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2((countT)info3.u.Exception.ExceptionRecord.ExceptionCode,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ; break ; }
+                        tEvent += tb4+TF2((countT)info3.u.Exception.ExceptionRecord.ExceptionInformation[ii],flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ;
+
+                        }
+                            }
+                                case EXCEPTION_IN_PAGE_ERROR    : { tEvent += T("    [bWrite1OrDataExecution8,at,osStatusCode]:") ; break ; }
+                                case EXCEPTION_ACCESS_VIOLATION : { tEvent += T("    [bWrite1OrDataExecution8,at]:"             ) ; break ; }
+                            {
+                            else switch( info3.u.Exception.ExceptionRecord.ExceptionCode )
+                            }
+                                default                                  : { tEvent += T("    notes:"                                       ) ; break ; }
+                                case ifcIDeVENTeXCEPTIONmONITORED_BLAMMO : { tEvent += T("    [idLine,idiFile,idLineCt,idiFileCt,idBlammo]:") ; break ; }
+                                case ifcIDeVENTeXCEPTIONmONITORED_GRUNT  : { tEvent += T("    [idLine,idiFile,idSubType,idType]:"           ) ; break ; }
+                            {
+                            if( ifcExCode ) switch( ifcExCode )
+                        {
+                        if( !ii )
                     {
-                    switch( info3.u.Exception.ExceptionRecord.ExceptionCode )
+                    for( countT ii = 0 ; ii < info3.u.Exception.ExceptionRecord.NumberParameters ; ii ++ )
+                    tEvent += tb4+T("[flags,at,cNotes]:    ")+TF2((countT)info3.u.Exception.ExceptionRecord.ExceptionFlags,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2((countT)info3.u.Exception.ExceptionRecord.ExceptionAddress,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2((countT)info3.u.Exception.ExceptionRecord.NumberParameters,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ;
 
                     }
                         }
@@ -65,9 +83,9 @@ DONE( tmHireF )
                                 : T("(unexpected exception code) [code]:    ")+TF2((countT)info3.u.Exception.ExceptionRecord.ExceptionCode,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)
                                 ? T(postException)
                             tEvent += postException
-                            const osTextT* const postException = processGlobal4S::_processGlobal4I_IF().mapExceptionType( ifcCode ) ;
+                            const osTextT* const postException = processGlobal4S::_processGlobal4I_IF().mapExceptionType( ifcExCode ) ;
 
-                            countT ifcCode = info3.u.Exception.ExceptionRecord.ExceptionCode & ~( 0xf0000000 ) | 0xd0000000 ;       //A:ASSUME: 02 BITS
+                            ifcExCode = info3.u.Exception.ExceptionRecord.ExceptionCode & ~( 0xf0000000 ) | 0xd0000000 ;       //A:ASSUME: 02 BITS
                         {
                         default                                   :
                         case EXCEPTION_INVALID_HANDLE             : { tEvent += T("EXCEPTION_INVALID_HANDLE              ") ; break ; }
@@ -94,6 +112,7 @@ DONE( tmHireF )
                         case EXCEPTION_ACCESS_VIOLATION           : { tEvent += T("EXCEPTION_ACCESS_VIOLATION            ") ; break ; }
                     {
                     switch( info3.u.Exception.ExceptionRecord.ExceptionCode )
+                    ZE( countT , ifcExCode ) ;
                 {
                 case EXCEPTION_DEBUG_EVENT :
             {
@@ -1252,6 +1271,7 @@ DONE( tmReportF )
                         //etRock.traceF( tinP , T("tmReportF 4/ ") ) ; //U:: TO FIND A BUG
 
                         tFile += T(".rpt.kernel.idMemorySpace.")+TF3(idMemorySpaceP,flFORMAT_UNSIGNED|flFORMAT_NObIGITvALUES|flFORMAT_FOREIGN|flFORMAT_FILLzE,3)+tDot+TF2(idMinute,flFORMAT_UNSIGNED|flFORMAT_NObIGITvALUES|flFORMAT_FOREIGN|flFORMAT_FILLzE)+T(".txt") ;
+                        if( bEvent ) tFile += T(".event") ;
                         else                                                              tFile += T("minute") ;
                         if( bSnapShot || F(home.flagsUtility) & flHOMEsuTILITY_SNAPsHOT ) tFile += T(postSnapShotRequestP&&*postSnapShotRequestP?postSnapShotRequestP:"snapshot") ;  //U:: BUG: RACE: THIS CODE RACES WITH REQUESTOR SETTING STRING
                         TN( tFile , "" ) ; tFile = T("///ideafarm/ephemeral/reports/")+TF3(idRpt,flFORMAT_UNSIGNED|flFORMAT_NObIGITvALUES|flFORMAT_FOREIGN|flFORMAT_FILLzE,8)+tDot+textC(ifcIDtEXTgEN_TIMEnOWfOREIGN,tinP,TAG(TAGiDnULL))+tDot ;
@@ -1618,7 +1638,11 @@ DONE( tmReportF )
                     
                                 ZE( boolT , bDash ) ;
                             
-                                if( osPidEventP == tinCopy.osPid && osTidEventP == tinCopy.osTid ) sRptTin << (strokeS*)( tEventP+T("\r\n") ) ;
+                                }
+                                    sRptTin << (strokeS*)( T("event:    ")+tEventP+T("\r\n") ) ;
+                                    bEvent = 1 ;
+                                {
+                                if( osPidEventP == tinCopy.osPid && osTidEventP == tinCopy.osTid )
                     
                                 sRptTin << (strokeS*)( TF3(tinCopy.monitor.idThread,flFORMAT_UNSIGNED|flFORMAT_NObIGITvALUES,9)+TP(tinCopy.postThreadName,0x10)+T(" ")+TF3(tinCopy.monitor.idStep,flFORMAT_UNSIGNED|flFORMAT_NObIGITvALUES,9)+TF3(head.cStepsNew,flFORMAT_UNSIGNED|flFORMAT_NObIGITvALUES,9)+tc4+T(tinCopy.postTell)+T("\r\n" DASH256 "\r\n") ) ;
 
@@ -1741,6 +1765,7 @@ DONE( tmReportF )
                 if( !bQuitMonitorP )
                 ZE( countT , cbBookOut ) ;
                 ZE( byteT* , pbBookOut ) ;
+                ZE( boolT , bEvent ) ;
                 //CONoUTrAW3( "tmReportF " , idMemorySpaceP , ":  5\r\n" ) ;
                 //etRock.traceF( tinP , T("tmReportF a/ k") ) ; //U:: TO FIND A BUG
 
