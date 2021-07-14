@@ -3834,7 +3834,13 @@ void elf_obey_C::translateF( const char* postGroupP , int bPauseP )
 
 void elf_obey_C::compileF( char* postPrefixP , char* postIdiForeignP , char* postSuffixP )
 {
-    int bExe = !!strcmp( postPrefixP , "5adam" ) ;
+    int bExe  = !!strcmp( postPrefixP , "5adam" ) ;
+    int bBoot =  !strcmp( postPrefixP , "4boot" ) ;
+
+    if( bBoot )
+    {
+        int foo = 2 ;
+    }
 
     char postDefShort[ 0x100 ] ;
     strcpy( postDefShort , postPrefixP ) ;
@@ -3906,8 +3912,8 @@ void elf_obey_C::compileF( char* postPrefixP , char* postIdiForeignP , char* pos
                 FindClose( oshFind ) ; oshFind = INVALID_HANDLE_VALUE ;
             }
     
-            { char postCmd[ 0x200 ] = "\\ideafarm.home.1\\ephemeral\\domains\\com\\ideafarm\\city\\workshop\\exe\\ideafarm.filepile.ipdos \\ideafarm.home.1\\ephemeral\\domains\\com\\ideafarm\\city\\workshop\\1raw\\" ; strcat( postCmd , postRaw ) ; strcat( postCmd , " -d \\ideafarm.home.1\\precious\\domains\\com\\ideafarm\\city\\library\\dictionary\\" ) ; strcat( postCmd , postDefShort ) ; system( postCmd ) ; }
-    
+                                               { char postCmd[ 0x200 ] = "\\ideafarm.home.1\\ephemeral\\domains\\com\\ideafarm\\city\\workshop\\exe\\ideafarm.filepile.ipdos \\ideafarm.home.1\\ephemeral\\domains\\com\\ideafarm\\city\\workshop\\1raw\\" ; strcat( postCmd , postRaw ) ; strcat( postCmd , " -d \\ideafarm.home.1\\precious\\domains\\com\\ideafarm\\city\\library\\dictionary\\" ) ; strcat( postCmd , postDefShort                     ) ; system( postCmd ) ; }
+            if( bBoot )                        { char postCmd[ 0x200 ] = "\\ideafarm.home.1\\ephemeral\\domains\\com\\ideafarm\\city\\workshop\\exe\\ideafarm.filepile.ipdos \\ideafarm.home.1\\ephemeral\\domains\\com\\ideafarm\\city\\workshop\\1raw\\" ; strcat( postCmd , postRaw ) ; strcat( postCmd , " -d \\ideafarm.home.1\\precious\\domains\\com\\ideafarm\\city\\library\\dictionary\\1snip.01000002.cnotcppheader"                            ) ; system( postCmd ) ; }
                                                { char postCmd[ 0x200 ] = "\\ideafarm.home.1\\ephemeral\\domains\\com\\ideafarm\\city\\workshop\\exe\\ideafarm.filepile.ipdos \\ideafarm.home.1\\ephemeral\\domains\\com\\ideafarm\\city\\workshop\\1raw\\" ; strcat( postCmd , postRaw ) ; strcat( postCmd , " -d \\ideafarm.home.1\\precious\\domains\\com\\ideafarm\\city\\library\\dictionary\\1snip.1a000005.includeGenMake.adam.show.third"           ) ; system( postCmd ) ; }
                                                { char postCmd[ 0x200 ] = "\\ideafarm.home.1\\ephemeral\\domains\\com\\ideafarm\\city\\workshop\\exe\\ideafarm.filepile.ipdos \\ideafarm.home.1\\ephemeral\\domains\\com\\ideafarm\\city\\workshop\\1raw\\" ; strcat( postCmd , postRaw ) ; strcat( postCmd , " -d \\ideafarm.home.1\\precious\\domains\\com\\ideafarm\\city\\library\\dictionary\\1snip.1a000006.ifcENABLEtHIRDpARTIES"                    ) ; system( postCmd ) ; }
             if( !strcmp( postSuffixP , "1" ) ) { char postCmd[ 0x200 ] = "\\ideafarm.home.1\\ephemeral\\domains\\com\\ideafarm\\city\\workshop\\exe\\ideafarm.filepile.ipdos \\ideafarm.home.1\\ephemeral\\domains\\com\\ideafarm\\city\\workshop\\1raw\\" ; strcat( postCmd , postRaw ) ; strcat( postCmd , " -d \\ideafarm.home.1\\precious\\domains\\com\\ideafarm\\city\\library\\dictionary\\1snip.1a000007.ifcENABLEtHIRDpARTIESmULTIPLEmONITORfAKE" ) ; system( postCmd ) ; }

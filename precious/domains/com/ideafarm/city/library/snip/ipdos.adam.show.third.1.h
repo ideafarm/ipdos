@@ -781,9 +781,9 @@ examples
 #define flSESSION_FULLsCREEN                    0xe0001001
 #define flSESSION_KID                           0xe0002001
 #define flSESSION_MONITORtHIS                   0xe0004001
-#define flSESSION_MONITORkIDS                   0xe0004001
-#define flSESSION_REGISTERpROCESShANDLE         0xe0008001
-#define flSESSION_REGISTERtHREADhANDLE          0xe0010001
+#define flSESSION_MONITORkIDS                   0xe0008001
+#define flSESSION_REGISTERpROCESShANDLE         0xe0010001
+#define flSESSION_REGISTERtHREADhANDLE          0xe0020001
 /*3*/
 #define flSESSION_null    0xe0000001
 
@@ -5085,6 +5085,7 @@ in the "IN_NORMAL" macros, it is redefined so that the _ macro sets the high ord
 
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200082.ifcflagin END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200083._io_ BEGIN
+
 
 //
 // Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See https://github.com/ideafarm/ipdos for permitted uses.
@@ -9818,9 +9819,18 @@ some of these flags are not currently supported
 flHIRE_WAIT
  no: will return as soon as the process has started
  yes: will return when the thread monitoring the process has ended
+flHIRE_DEBUG
+ Open Watcom wdw (windowed debugger) will be launched to debug the process being hired
+flHIRE_MONITORtHIS
+ the process will emit event notices to a presumed debugger parent process
+ kernel monitor will receive these notices
+flHIRE_MONITORkIDS
+ all kid processes of the process being hired will also emit event notices
+ no effect unless flHIRE_MONITORtHIS is also set
 flHIRE_SHOW
  no: adam will be hired but will not be visible
  yes: adam will be hired and a gui interface will appear
+ this comment is obsolete
 */
 /**/
 /*1*//*flHIRE*//*1*/

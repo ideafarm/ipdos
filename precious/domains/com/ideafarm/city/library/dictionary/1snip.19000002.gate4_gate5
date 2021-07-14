@@ -14,10 +14,17 @@
     #if defined( __OS2__ )
 
     #endif
-        sCountT rc = threadLocalStorageNoTlsF( ifcIDtYPEtLS_CONSOLE , 0 , 0 , (countT)cHowP , (const osTextT**)ppostHowP ) ;
+
+        sCountT rc = c_main1OuterF( cHowP , ppostHowP ) ;
+
     #else
+
         sCountT rc = threadLocalStorageNoTlsF( ifcIDtYPEtLS_WINDOW , 0 , 0 , 0 , 0 , (countT)hWindowingClientIP , (countT)hPreviousWindowingClientP , (osTextT*)postP , (countT)idCmdShowP ) ;
+
     #if defined( LOCALgRAPHIC )
+
+    //U:: DO THIS ALSO FOR GRAPHICS PROCESSES BY DEFINING A c_main1OuterWinF THAT PASSES IN THE PARAMETERS PROVIDED TO WinMain
+    //20210714@1441:  MIGRATED CODE IN main INTO main2InnerF (CALLED WITHIN A _try BLOCK BY c_main1OuterF) TO PROTECT IT WITHIN _try _except, AND THIS WAS DONE ONLY FOR WINDOWS 10 CONSOLE PROCESSES ;
 
     VirtualQuery( &foo , &info , sizeof info ) ;
     static MEMORY_BASIC_INFORMATION info ;
