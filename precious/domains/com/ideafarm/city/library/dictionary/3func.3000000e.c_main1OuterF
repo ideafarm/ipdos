@@ -13,7 +13,7 @@
     }
         puts( "\r\nc_main1OuterF / this should never display\r\n" ) ;
     {
-    _except( rptExceptionF() )
+    _except( rptExceptionF( GetExceptionInformation() ) )
     }
         rc = main2InnerF( cHowP , ppostHowP ) ;
     {
@@ -26,9 +26,9 @@
 }
     return EXCEPTION_CONTINUE_SEARCH ;
 
-    puts( "\r\nrptExceptionF / U::put code here to report on the exception\r\n" ) ;
+    printf( "\r\nrptExceptionF / U::put code here to report on the exception [pInfoP]:    %d\r\n" , (int)pInfoP ) ;
 {
-int rptExceptionF( void )
+int rptExceptionF( EXCEPTION_POINTERS* pInfoP )
 
 
 /**/

@@ -16046,6 +16046,7 @@ TASK0PROTO( tmcHttpServerWorkerF ) ;
 //
 
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.17*.* : 1snip.1700022a.tmchttpserverworkerf END
+/*1*/countT _stdcall rootExceptionFilterF( voidT* pvOsInfoP ) ;/*1*/
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.tellInfoAppInOutFrameS : 1snip.15000188.tellinfoappinoutframes BEGIN
 
 
