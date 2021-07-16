@@ -46,7 +46,7 @@ DONE( tmHireF )
         {
         if( info3.dwDebugEventCode == EXCEPTION_DEBUG_EVENT && !info3.u.Exception.dwFirstChance )   //REQUEST SNAPSHOTS WHILE KEEPING EXCEPTING PROCESS FROZEN
 
-        if( info3.dwDebugEventCode != EXCEPTION_DEBUG_EVENT || !info3.u.Exception.dwFirstChance ) etThread.traceF( tinP , T("event [cBegun,cEnded,osPid,osTid,event]:    ")+TF2(cBegun,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2(cEnded,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2((countT)info3.dwProcessId,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2((countT)info3.dwThreadId,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+tEvent ) ;
+        //if( info3.dwDebugEventCode != EXCEPTION_DEBUG_EVENT || !info3.u.Exception.dwFirstChance ) etThread.traceF( tinP , T("event [cBegun,cEnded,osPid,osTid,event]:    ")+TF2(cBegun,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2(cEnded,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2((countT)info3.dwProcessId,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2((countT)info3.dwThreadId,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+tEvent ) ;
         //P:PERSONALITY: I AM SILENT FOR WOTH CHANCE EXCEPTION EVENTS BECAUSE THESE MIGHT BE WAD WAC ("WORKING AS DESIGNED WORKING AS CODED").  I AM ONLY INTERESTED IN EXCEPTIONS THAT THE MONITORED PROCESS DOES NOT HANDLE
 
         }
@@ -166,6 +166,8 @@ DONE( tmHireF )
         //ether.ifcHireF( tinP , T("ifcIDaDAM_MONITOR") , ifcIDaDAM_ROOThTTPsERVER , T("!ignoreFireByOperator") , flHIRE_DISPLAYaUTO , nicNameC() ) ;
 
         //ether.ifcHireF( tinP , T("ifcIDaDAM_MONITOR") , ifcIDaDAM_CLOUD , T("!ignoreFireByOperator") , flHIRE_DISPLAYaUTO | flHIRE_MONITORtHIS | flHIRE_MONITORkIDS , nicNameC() ) ;
+
+        //ether.ifcHireF( tinP , T("ifcIDaDAM_MONITOR") , ifcIDaDAM_SCRATCH0f , T("!ignoreFireByOperator") , flHIRE_DISPLAYaUTO | flHIRE_MONITORtHIS | flHIRE_MONITORkIDS , nicNameC() ) ;
 
         //ether.ifcHireF( tinP , T("ifcIDaDAM_MONITOR") , ifcIDaDAM_SCRATCH0d , T("!ignoreFireByOperator") , flHIRE_DISPLAYaUTO | flHIRE_MONITORtHIS | flHIRE_MONITORkIDS , nicNameC() ) ;
 

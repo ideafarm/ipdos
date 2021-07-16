@@ -13,7 +13,7 @@
     }
         puts( "\r\nc_threadTry1OuterF / this should never display\r\n" ) ;
     {
-    _except( rptExceptionF( GetExceptionInformation() , pExceptionHandlerFP ) )
+    _except( rptExceptionF( GetExceptionInformation() , pExceptionHandlerFP , bMainP ) )
     }
         rc = threadTry2InnerF( bMainP , c1P , c2P , c3P ) ;
     {
@@ -24,15 +24,15 @@
 /*1*/int _export __watcall c_threadTry1OuterF( unsigned bMainP , unsigned pExceptionHandlerFP , unsigned c1P , unsigned c2P , unsigned c3P )/*1*/
 
 }
-    return EXCEPTION_CONTINUE_SEARCH ;  //THIS IS DONE SO THE DEBUGGER (KERNEL MONITOR) WILL RECEIVE THE 2ND CHANCE NOTIFICATION AND PRODUCE AN EXCEPTION MINUTE REPORT
+    return rc ;
 
-    printf( "\r\nrptExceptionF / called  rootExceptionFilterF [pInfoP]:    %d\r\n" , (int)pInfoP ) ;
-    rcnu = (*(rootExceptionFilter_NT_FT)pExceptionHandlerFP)( (EXCEPTION_POINTERS*)pInfoP ) ;  //U:: rcnu MIGHT NEED TO BE OBEYED FOR E.G. restartC HANDLING
-    printf( "\r\nrptExceptionF / calling rootExceptionFilterF [pInfoP]:    %d\r\n" , (int)pInfoP ) ;
+    //printf( "\r\nrptExceptionF / called  rootExceptionFilterF [bMainP,pInfoP,rc]:    %d    %d    %d\r\n" , bMainP , (int)pInfoP , rc ) ;
+    rc = (*(rootExceptionFilter_NT_FT)pExceptionHandlerFP)( (EXCEPTION_POINTERS*)pInfoP ) ;  //U:: rc MIGHT NEED TO BE OBEYED FOR E.G. restartC HANDLING
+    //printf( "\r\nrptExceptionF / calling rootExceptionFilterF [bMainP,pInfoP]:    %d    %d\r\n" , bMainP , (int)pInfoP ) ;
 
-    unsigned rcnu = 0 ;
+    unsigned rc = 0 ;
 {
-int rptExceptionF( EXCEPTION_POINTERS* pInfoP , unsigned pExceptionHandlerFP )
+int rptExceptionF( EXCEPTION_POINTERS* pInfoP , unsigned pExceptionHandlerFP , unsigned bMainP )
 
 typedef long _stdcall (*rootExceptionFilter_NT_FT)( EXCEPTION_POINTERS* ) ;       //CS:DUPLICATEcODE: 3500114d 3000000e
 
