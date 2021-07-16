@@ -18,8 +18,11 @@
 
     #if defined( __NT__ )
 
+    hP.osF( ifcIDtYPEhANDLE_EXCEPTIONhANDLER , (countT)pHandler , 0 , (countT)pHandlerOld ) ;
+    pHandlerOld = (rootExceptionFilterFT)tinP.brcRaw ;
     BOSdOnOTtEST( WHATgbo , SetUnhandledExceptionFilter( pHandler ) ) //THIS IS DONE IN CT'OR IN ORDER TO AVOID NEEDING TO CT ANOTHER OBJECT EARLY IN THE GLOBAL STATIC LIST
-    rootExceptionFilterFT pHandler = (rootExceptionFilterFT)rootExceptionFilterF ;
+    rootExceptionFilter_NT_FT pHandler = (rootExceptionFilter_NT_FT)rootExceptionFilterF ;
+    ZE( rootExceptionFilterFT , pHandlerOld ) ;
 
     //WINDOWS 7 BUG: THE HANDLER WILL BE CALLED RECURSIVELY IFF MAIN THREAD
 
@@ -30,9 +33,9 @@
     {
     IFbEcAREFUL
 {
-/*1*/voidT thirdC::osSetupExceptionHandlingIF( tinS& tinP )/*1*/
+/*1*/voidT thirdC::osSetupExceptionHandlingIF( tinS& tinP , handleC& hP )/*1*/
 
-typedef long _stdcall (*rootExceptionFilterFT)( _EXCEPTION_POINTERS* pOsInfoP ) ;
+typedef long _stdcall (*rootExceptionFilter_NT_FT)( EXCEPTION_POINTERS* pOsInfoP ) ;       //CS:DUPLICATEcODE: 3500114d 3000000e
 
 /**/
 */

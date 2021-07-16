@@ -1,3 +1,4 @@
+typedef long _stdcall (*rootExceptionFilterFT)( void* pOsInfoP ) ;
 
 // IPDOS (tm) <> IdeaFarm (tm) Piggyback Distributed Operating System
 
@@ -31700,7 +31701,7 @@ plateC& fooC::operator +=( plateC& plateP )                                     
  friend class cC ;                                                                                                                                                                                                                                          \
  friend class windowOldC ; /*U::WORKAROUND SO THAT wrapRenderF CAN SEE 2 *IfcRenderingHander* MEMBERS.  THESE MEMBERS SHOULD PROBABLY BE MOVED TO thirdC */                                                                                                    \
  friend class paperOldC  ; /*U::WORKAROUND SO THAT wrapRenderF CAN SEE 2 *IfcRenderingHander* MEMBERS.  THESE MEMBERS SHOULD PROBABLY BE MOVED TO thirdC */                                                                                                    \
- friend countT _stdcall rootExceptionFilterF( voidT* pvOsInfoP ) ;                                                                                                                                                                              \
+ friend unsigned _stdcall rootExceptionFilterF( void* pvOsInfoP ) ;                                                                                                                                                                              \
  friend boolT thirdC::osExceptionHandlerWorkIF( const countT cArgP ) ;
 
 
@@ -32228,7 +32229,7 @@ plateC& fooC::operator +=( plateC& plateP )                                     
  friend batonC::batonC( tinS& tinP , const countT idLineCtP , const countT idiFileCtP , const byteT* const pbBitsCtP , const osTextT* const postP , const countT idGroupP , const flagsT flagsP , byteT* const pbZombieP , const countT cbZombieP , const countT idMemorySpaceP ) ;       \
  friend voidT handleC::closeIfF( voidT ) ;                                                                                                                                                                                                                  \
  friend voidT handleC::cloneF( const handleC& handleP , const countT osPidOwnerToP , const handleC& hProcessToP , const handleC& hProcessFromP ) ;                                                                                                          \
- friend countT _stdcall rootExceptionFilterF( voidT* pOsInfoP ) ;                                                                                                                                                                                             \
+ friend unsigned _stdcall rootExceptionFilterF( void* pvOsInfoP ) ;                                                                                                                                                                              \
  friend class infoFileS ;                                                                                                                                                                                                                                   \
  friend class infoDisk1S ;                                                                                                                                                                                                                                  \
  friend class infoBoxGetPutS ;
@@ -45698,32 +45699,3 @@ else the reference to it that is kept within the jotC instance will become a zom
 //
 
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004ee.jrequest END
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004ef.zej BEGIN
-
-
-//
-// Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See https://github.com/ideafarm/ipdos for permitted uses.
-//
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 29 years.
-// Respecting the rights of other people is an important part of empowering one another.
-//
-
-/*
-use me rather than ZE() to ask PUSE to allocate from a jotC that i have constructed rather than from the sexC instances that PUSE normally uses
-*/
-
-/**/
-
-/*1*//*ZEJ(classP,iP)*//*1*/
-
-#define ZEJ(classP,iP,jotP) if( !(jotP).idSlotJotF( tinP ) ) { BLAMMO ; } classP iP = (classP)( JrEQUEST_min - 1 + (jotP).idSlotJotF( tinP ) )
-
-
-//
-// Respecting the rights of other people is an important part of empowering one another.
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 29 years.
-//
-// Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See https://github.com/ideafarm/ipdos for permitted uses.
-//
-
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004ef.zej END

@@ -1,3 +1,32 @@
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004ef.zej BEGIN
+
+
+//
+// Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See https://github.com/ideafarm/ipdos for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 29 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+/*
+use me rather than ZE() to ask PUSE to allocate from a jotC that i have constructed rather than from the sexC instances that PUSE normally uses
+*/
+
+/**/
+
+/*1*//*ZEJ(classP,iP)*//*1*/
+
+#define ZEJ(classP,iP,jotP) if( !(jotP).idSlotJotF( tinP ) ) { BLAMMO ; } classP iP = (classP)( JrEQUEST_min - 1 + (jotP).idSlotJotF( tinP ) )
+
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 29 years.
+//
+// Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See https://github.com/ideafarm/ipdos for permitted uses.
+//
+
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004ef.zej END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004f0.isinitializedjpointer BEGIN
 
 
@@ -11730,31 +11759,6 @@ TASK0PROTO( tm_sessionsC_watchF ) ;
 //
 
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.17*.* : 1snip.1700007b.httpeatkeyvaluepairsdefaultcbf END
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.17*.* : 1snip.1700007c.dfltexceptionhandlerf BEGIN
-
-
-//
-// Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See https://github.com/ideafarm/ipdos for permitted uses.
-//
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 29 years.
-// Respecting the rights of other people is an important part of empowering one another.
-//
-
-/*
-*/
-/**/
-
-/*1*/countT _stdcall rootExceptionFilterF( voidT* pvOsInfoP ) ;/*1*/
-
-
-//
-// Respecting the rights of other people is an important part of empowering one another.
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 29 years.
-//
-// Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See https://github.com/ideafarm/ipdos for permitted uses.
-//
-
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.17*.* : 1snip.1700007c.dfltexceptionhandlerf END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.17*.* : 1snip.1700007d.adammainf BEGIN
 
 
@@ -16046,7 +16050,6 @@ TASK0PROTO( tmcHttpServerWorkerF ) ;
 //
 
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.17*.* : 1snip.1700022a.tmchttpserverworkerf END
-/*1*/countT _stdcall rootExceptionFilterF( voidT* pvOsInfoP ) ;/*1*/
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.tellInfoAppInOutFrameS : 1snip.15000188.tellinfoappinoutframes BEGIN
 
 
@@ -29290,7 +29293,7 @@ applications should avoid using thirdC objects
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34140.thirdC.osHandleCloseIF!||
  static countT osOpenHandleCritSecIF( tinS& tinP ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34141.thirdC.osOpenHandleCritSecIF!||
- static voidT osSetupExceptionHandlingIF( tinS& tinP ) ;
+ static voidT osSetupExceptionHandlingIF( tinS& tinP , handleC& hP ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3414d.thirdC.osSetupExceptionHandlingIF!||
  static countT osInvalidHandleValueIF( tinS& tinP , const countT idTypeP ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.3414e.thirdC.osInvalidHandleValueIF!||

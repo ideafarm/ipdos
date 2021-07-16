@@ -13,15 +13,21 @@
     #elif defined( __NT__ )
     #if defined( __OS2__ )
 
-    #endif
+    }
+        #endif
 
-        sCountT rc = c_main1OuterF( cHowP , ppostHowP ) ;
+            rc = c_main1OuterF( cHowP , ppostHowP , hZits.osF( ifcIDtYPEhANDLE_EXCEPTIONhANDLER ) ) ;
 
-    #else
+        #else
 
-        sCountT rc = threadLocalStorageNoTlsF( ifcIDtYPEtLS_WINDOW , 0 , 0 , 0 , 0 , (countT)hWindowingClientIP , (countT)hPreviousWindowingClientP , (osTextT*)postP , (countT)idCmdShowP ) ;
+            rc = threadLocalStorageNoTlsF( ifcIDtYPEtLS_WINDOW , 0 , 0 , 0 , 0 , (countT)hWindowingClientIP , (countT)hPreviousWindowingClientP , (osTextT*)postP , (countT)idCmdShowP ) ;
 
-    #if defined( LOCALgRAPHIC )
+        #if defined( LOCALgRAPHIC )
+
+        handleC hZits( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_EXCEPTIONhANDLER ) ; //WOULD LIKE THIS TO BE THE WOTH STATIC, BUT IT DOESN'T WORK THAT EARLY ; 20210715@1125: MOVED TO HERE FROM mainThreadWorkF
+        TINSL
+    {
+    ZE( sCountT , rc ) ;
 
     //U:: DO THIS ALSO FOR GRAPHICS PROCESSES BY DEFINING A c_main1OuterWinF THAT PASSES IN THE PARAMETERS PROVIDED TO WinMain
     //20210714@1441:  MIGRATED CODE IN main INTO main2InnerF (CALLED WITHIN A _try BLOCK BY c_main1OuterF) TO PROTECT IT WITHIN _try _except, AND THIS WAS DONE ONLY FOR WINDOWS 10 CONSOLE PROCESSES ;

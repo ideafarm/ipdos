@@ -67,11 +67,16 @@
 #include <winsock2.h>
 #include <ws2tcpip.h>
 
-MYpREFIX void _export           c_debugF( void ) ;
-MYpREFIX void _export __watcall c_getaddrinfoF( char* pbListP , unsigned cbListP , const char* const postNameP ) ;
-MYpREFIX void _export           c_traceHelperIF( unsigned pP ) ;
-MYpREFIX int  _export __watcall c_main1OuterF( unsigned cHowP , char** ppostHowP ) ;
-MYpREFIX int  _export __watcall main2InnerF( unsigned cHowP , char** ppostHowP ) ;
+MYpREFIX void     _export           c_debugF( void ) ;
+MYpREFIX void     _export __watcall c_getaddrinfoF( char* pbListP , unsigned cbListP , const char* const postNameP ) ;
+MYpREFIX void     _export           c_traceHelperIF( unsigned pP ) ;
+MYpREFIX int      _export __watcall c_main1OuterF( unsigned cHowP , char** ppostHowP , unsigned pExceptionHandlerFP ) ;
+MYpREFIX int      _export __watcall main2InnerF( unsigned cHowP , char** ppostHowP ) ;
+
+#if defined( __cplusplus )
+    unsigned _export _stdcall  rootExceptionFilterF( void* pvOsInfoP ) ;
+#else
+#endif
 
 MYpREFIX void     __watcall c_openSsl_setupIF(              unsigned* pEcP , openSsl_pInitFT            pInitFP                                                                                                                                                                                                      ) ;
 MYpREFIX void     __watcall c_openSsl_waveByeIF(            unsigned* pEcP , openSsl_pWaveByeFT         pWaveByeFP       , SSL* pSslP                                                                                                                                                                                ) ;
