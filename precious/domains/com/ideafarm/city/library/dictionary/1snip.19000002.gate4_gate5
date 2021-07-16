@@ -14,9 +14,11 @@
     #if defined( __OS2__ )
 
     }
+        processGlobal1S::_processGlobal1I_IF().phExceptionHandler = 0 ;
+
         #endif
 
-            rc = c_threadTry1OuterF( cHowP , ppostHowP , hZits.osF( ifcIDtYPEhANDLE_EXCEPTIONhANDLER ) ) ;
+            rc = c_threadTry1OuterF( 1 , processGlobal1S::_processGlobal1I_IF().phExceptionHandler->osF( ifcIDtYPEhANDLE_EXCEPTIONhANDLER ) , cHowP , (countT)ppostHowP , 0 ) ;
 
         #else
 
@@ -24,7 +26,9 @@
 
         #if defined( LOCALgRAPHIC )
 
-        handleC hZits( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_EXCEPTIONhANDLER ) ; //WOULD LIKE THIS TO BE THE WOTH STATIC, BUT IT DOESN'T WORK THAT EARLY ; 20210715@1125: MOVED TO HERE FROM mainThreadWorkF
+        processGlobal1S::_processGlobal1I_IF().phExceptionHandler = &hExceptionHandler ;
+        handleC hExceptionHandler( tinP , TAG( TAGiDnULL ) , ifcIDtYPEhANDLE_EXCEPTIONhANDLER ) ; //WOULD LIKE THIS TO BE THE WOTH STATIC, BUT IT DOESN'T WORK THAT EARLY ; 20210715@1125: MOVED TO HERE FROM mainThreadWorkF
+
         TINSL
     {
     ZE( sCountT , rc ) ;

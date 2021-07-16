@@ -70,7 +70,7 @@
 MYpREFIX void     _export           c_debugF( void ) ;
 MYpREFIX void     _export __watcall c_getaddrinfoF( char* pbListP , unsigned cbListP , const char* const postNameP ) ;
 MYpREFIX void     _export           c_traceHelperIF( unsigned pP ) ;
-MYpREFIX int      _export __watcall c_threadTry1OuterF( unsigned cHowP , char** ppostHowP , unsigned pExceptionHandlerFP ) ;
+MYpREFIX int      _export __watcall c_threadTry1OuterF( unsigned bMainP , unsigned pExceptionHandlerFP , unsigned c1P , unsigned c2P , unsigned c3P ) ;     //CS:PSEUDOdUPLICATE CODE: 01000002 
 MYpREFIX int      _export __watcall threadTry2InnerF( unsigned bMainP , unsigned c1P , unsigned c2P , unsigned c3P ) ;
 
 #if defined( __cplusplus )

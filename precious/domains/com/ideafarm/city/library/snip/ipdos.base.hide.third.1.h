@@ -1,3 +1,4 @@
+/*1*/extern "C" int _export __watcall c_threadTry1OuterF( unsigned bMainP , unsigned pExceptionHandlerFP , unsigned c1P , unsigned c2P , unsigned c3P ) ;/*1*/
 typedef long _stdcall (*rootExceptionFilterFT)( void* pOsInfoP ) ;
 
 // IPDOS (tm) <> IdeaFarm (tm) Piggyback Distributed Operating System
@@ -2159,7 +2160,6 @@ examples
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200025.task END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.11200026.done BEGIN
 
-
 //
 // Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See https://github.com/ideafarm/ipdos for permitted uses.
 //
@@ -2178,33 +2178,33 @@ examples
 
 #ifdef __OS2__
 
-    #define DONE(taskFP)                                                                                                    \
-                                                                                                                            \
-                        DONE0                                                                                               \
-                                                                                                                            \
-        TASK0PROTO( taskFP )                                                                                                \
-        {                                                                                                                   \
-            threadLocalStorageF( ifcIDtYPEtLS_KID , taskFP##_workF , (countT)argP , 0 , 0 , 0 , 0 , #taskFP ) ;             \
+    #define DONE(taskFP)                                                                                                                                                                                    \
+                                                                                                                                                                                                            \
+                        DONE0                                                                                                                                                                               \
+                                                                                                                                                                                                            \
+        TASK0PROTO( taskFP )                                                                                                                                                                                \
+        {                                                                                                                                                                                                   \
+            threadLocalStorageF( ifcIDtYPEtLS_KID , taskFP##_workF , (countT)argP , 0 , 0 , 0 , 0 , #taskFP ) ;                                                                                             \
         }
 
 #elif defined( __NT__ )
 
-    #define DONE(taskFP)                                                                                                    \
-                                                                                                                            \
-                        DONE0                                                                                               \
-                                                                                                                            \
-        TASK0PROTO( taskFP )                                                                                                \
-        {                                                                                                                   \
-            /* TO USE THIS CODE, REPLACE "DONE" WITH THIS DEFINITION AND THEN REMOVE THE COMMENT DELIMITERS */              \
-            /* 20210321@2028: ADDED TO INSPECT STACK SIZE    */                                                             \
-            /* ZE( countT , foo ) ;                          */                                                             \
-            /* ZE( countT , goo ) ;                          */                                                             \
-            /* static countT addr1 = (countT)&foo ;          */                                                             \
-            /* static countT addr2 = (countT)&goo ;          */                                                             \
-            /* static MEMORY_BASIC_INFORMATION info ;        */                                                             \
-            /* VirtualQuery( &foo , &info , sizeof info ) ;  */                                                             \
-                                                                                                                            \
-            return threadLocalStorageF( ifcIDtYPEtLS_KID , taskFP##_workF , (countT)argP , 0 , 0 , 0 , 0 , #taskFP ) ;      \
+    #define DONE(taskFP)                                                                                                                                                                                    \
+                                                                                                                                                                                                            \
+                        DONE0                                                                                                                                                                               \
+                                                                                                                                                                                                            \
+        TASK0PROTO( taskFP )                                                                                                                                                                                \
+        {                                                                                                                                                                                                   \
+            /* TO USE THIS CODE, REPLACE "DONE" WITH THIS DEFINITION AND THEN REMOVE THE COMMENT DELIMITERS */                                                                                              \
+            /* 20210321@2028: ADDED TO INSPECT STACK SIZE    */                                                                                                                                             \
+            /* ZE( countT , foo ) ;                          */                                                                                                                                             \
+            /* ZE( countT , goo ) ;                          */                                                                                                                                             \
+            /* static countT addr1 = (countT)&foo ;          */                                                                                                                                             \
+            /* static countT addr2 = (countT)&goo ;          */                                                                                                                                             \
+            /* static MEMORY_BASIC_INFORMATION info ;        */                                                                                                                                             \
+            /* VirtualQuery( &foo , &info , sizeof info ) ;  */                                                                                                                                             \
+                                                                                                                                                                                                            \
+            return c_threadTry1OuterF( 0 , processGlobal1S::_processGlobal1I_IF().phExceptionHandler->osNoTinF( ifcIDtYPEhANDLE_EXCEPTIONhANDLER ) , (countT)taskFP##_workF , (countT)argP , (countT)#taskFP ) ;    \
         }
 
 #endif

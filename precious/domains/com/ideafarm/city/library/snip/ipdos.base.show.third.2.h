@@ -6963,7 +6963,6 @@ a count8S object contains 8 countT values
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.count9S : 1snip.1500003a.count9s END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.processGlobal1S : 1snip.1500017f.processglobal1s BEGIN
 
-
 //
 // Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See https://github.com/ideafarm/ipdos for permitted uses.
 //
@@ -6980,7 +6979,8 @@ a count8S object contains 8 countT values
     const countT                    idAdamRoot  ;
     const byteT*                    pbHeap ;                    // THIS IS AN OPTIMIZATION BUT MAINLY HERE BECAUSE ___ INSPECTS THESE VALUES BEFORE processGlobal4S::heap IS CT
     const byteT*                    pbHeapEnd ;                 // THIS IS AN OPTIMIZATION BUT MAINLY HERE BECAUSE ___ INSPECTS THESE VALUES BEFORE processGlobal4S::heap IS CT
-    
+    handleC*                        phExceptionHandler ;    
+
     ~processGlobal1S( voidT ) ;
     //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.36142002.processglobal0s.dt_processglobal0s!||
     processGlobal1S( voidT ) ;
@@ -18200,6 +18200,7 @@ examples
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34007.handleC.osF!||
  voidT osF( const countT idTypeVerifyP , const countT oshP , const countT osPidOwnerP = 0 , const countT cNoteP = 0 ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34008.handleC.osF!||
+ countT osNoTinF( const countT idTypeVerifyP ) const ;
  boolT operator ==( const handleC& oshP ) const ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34009.handleC.operator_equals!||
  boolT operator !=( const handleC& oshP ) const ;
