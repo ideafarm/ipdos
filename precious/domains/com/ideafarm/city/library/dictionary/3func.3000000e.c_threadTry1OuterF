@@ -11,17 +11,17 @@
     return rc ;
 
     }
-        puts( "\r\nc_main1OuterF / this should never display\r\n" ) ;
+        puts( "\r\nc_threadTry1OuterF / this should never display\r\n" ) ;
     {
     _except( rptExceptionF( GetExceptionInformation() , pExceptionHandlerFP ) )
     }
-        rc = main2InnerF( cHowP , ppostHowP ) ;
+        rc = threadTry2InnerF( 1 , cHowP , (unsigned)ppostHowP , 0 ) ;
     {
     _try
 
     int rc = 0 ;
 {
-/*1*/int _export __watcall c_main1OuterF( unsigned cHowP , char** ppostHowP , unsigned pExceptionHandlerFP )/*1*/
+/*1*/int _export __watcall c_threadTry1OuterF( unsigned cHowP , char** ppostHowP , unsigned pExceptionHandlerFP )/*1*/
 
 }
     return EXCEPTION_CONTINUE_SEARCH ;  //THIS IS DONE SO THE DEBUGGER (KERNEL MONITOR) WILL RECEIVE THE 2ND CHANCE NOTIFICATION AND PRODUCE AN EXCEPTION MINUTE REPORT
