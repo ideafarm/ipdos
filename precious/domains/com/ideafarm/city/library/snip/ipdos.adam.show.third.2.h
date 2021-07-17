@@ -8638,7 +8638,7 @@ typedef boolT (*/*ff*/diskWalkSearchCBFT/*ff*/)( tinS& tinP , countT& cDirsP , c
 //FOR NT: typedef long _stdcall (*rootExceptionFilterFT)( _EXCEPTION_POINTERS* pOsInfoP ) ;
 
 
-typedef long _stdcall (*rootExceptionFilterFT)( void* pOsInfoP ) ;
+/*1*/typedef long _stdcall (*rootExceptionFilterFT)( void* pOsInfoP ) ;/*1*/
 
 
 
