@@ -1,32 +1,3 @@
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004ef.zej BEGIN
-
-
-//
-// Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See https://github.com/ideafarm/ipdos for permitted uses.
-//
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 29 years.
-// Respecting the rights of other people is an important part of empowering one another.
-//
-
-/*
-use me rather than ZE() to ask PUSE to allocate from a jotC that i have constructed rather than from the sexC instances that PUSE normally uses
-*/
-
-/**/
-
-/*1*//*ZEJ(classP,iP)*//*1*/
-
-#define ZEJ(classP,iP,jotP) if( !(jotP).idSlotJotF( tinP ) ) { BLAMMO ; } classP iP = (classP)( JrEQUEST_min - 1 + (jotP).idSlotJotF( tinP ) )
-
-
-//
-// Respecting the rights of other people is an important part of empowering one another.
-// This proprietary software was crafted at great expense and with great hardship by one man.  It took 29 years.
-//
-// Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See https://github.com/ideafarm/ipdos for permitted uses.
-//
-
-//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004ef.zej END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.11*.* : 1snip.112004f0.isinitializedjpointer BEGIN
 
 
@@ -6963,6 +6934,7 @@ a count8S object contains 8 countT values
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.count9S : 1snip.1500003a.count9s END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.processGlobal1S : 1snip.1500017f.processglobal1s BEGIN
 
+
 //
 // Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See https://github.com/ideafarm/ipdos for permitted uses.
 //
@@ -8649,6 +8621,35 @@ typedef boolT (*/*ff*/diskWalkSearchCBFT/*ff*/)( tinS& tinP , countT& cDirsP , c
 //
 
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.14*.* : 1snip.14000040.diskWalkSearchCBFT END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.14*.* : 1snip.14000041.rootExceptionFilterFT BEGIN
+
+
+//
+// Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See https://github.com/ideafarm/ipdos for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 29 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+/*
+*/
+/**/
+
+//FOR NT: typedef long _stdcall (*rootExceptionFilterFT)( _EXCEPTION_POINTERS* pOsInfoP ) ;
+
+
+typedef long _stdcall (*rootExceptionFilterFT)( void* pOsInfoP ) ;
+
+
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 29 years.
+//
+// Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See https://github.com/ideafarm/ipdos for permitted uses.
+//
+
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.14*.* : 1snip.14000041.rootExceptionFilterFT END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.17*.* : 1snip.17000001.peekf BEGIN
 
 
@@ -16050,6 +16051,35 @@ TASK0PROTO( tmcHttpServerWorkerF ) ;
 //
 
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.17*.* : 1snip.1700022a.tmchttpserverworkerf END
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.17*.* : 1snip.1700022b.c_threadTry1OuterF BEGIN
+
+
+//
+// Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See https://github.com/ideafarm/ipdos for permitted uses.
+//
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 29 years.
+// Respecting the rights of other people is an important part of empowering one another.
+//
+
+/*
+*/
+/**/
+
+/*1*/voidT _export emitWordIF( const countT idLineP , const countT idFileP ) ;/*1*/
+
+
+/*1*/extern "C" int _export __watcall c_threadTry1OuterF( unsigned bMainP , unsigned pExceptionHandlerFP , unsigned c1P , unsigned c2P , unsigned c3P ) ;/*1*/
+
+//CS:PSEUDOdUPLICATE CODE: 01000002 
+
+//
+// Respecting the rights of other people is an important part of empowering one another.
+// This proprietary software was crafted at great expense and with great hardship by one man.  It took 29 years.
+//
+// Copyright (c) 1992-2021 Wo Of Ideafarm.  All rights reserved.  See https://github.com/ideafarm/ipdos for permitted uses.
+//
+
+//SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.17*.* : 1snip.1700022b.c_threadTry1OuterF END
 //SOURCE: \ideafarm.home.1\precious\domains\com\ideafarm\city\library\dictionary\1snip.15*.tellInfoAppInOutFrameS : 1snip.15000188.tellinfoappinoutframes BEGIN
 
 
@@ -18201,6 +18231,7 @@ examples
  voidT osF( const countT idTypeVerifyP , const countT oshP , const countT osPidOwnerP = 0 , const countT cNoteP = 0 ) ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34008.handleC.osF!||
  countT osNoTinF( const countT idTypeVerifyP ) const ;
+ //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.36053017.handlec.osNoTinF!||
  boolT operator ==( const handleC& oshP ) const ;
  //||!kt|///ideafarm/precious/domains/com/ideafarm/city/library/dictionary/3func.34009.handleC.operator_equals!||
  boolT operator !=( const handleC& oshP ) const ;
