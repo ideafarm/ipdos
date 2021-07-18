@@ -11,11 +11,30 @@ REST
 
 etherC::loafIF( tinP ) ;
 
+}
+    ++ s ; ether.osSleepF( tinP , TOCK >> 2 ) ;
+
+    }
+        etThread.traceF( tinP , T("launched [cLaunched,cAlive]:    ")+TF2(++cLaunched,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2(cAliveSnap,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED) ) ;
+
+        etThread.osThreadF( TaRG1( tmWorkF ) , (countT)&cAlive ) ;
+        inc02AM( cAlive ) ;
+    {
+    if( cAliveSnap < 0x10 )
+
+    countT cAliveSnap = cAlive ;
+{
+while( !ether )
+TN( tb4 , "    " ) ;
+sleepC s( tinP , TAG( TAGiDnULL ) ) ;
+ZE( countT , cAlive ) ;
+ZE( countT , cLaunched ) ;
 
 TODO
 
-( tmWorkF )
+DONE( tmWorkF )
 }
+    dec02AM( cAliveP ) ;
     }
         etThread.delF( tinP , pNicName ) ;
         }
@@ -32,15 +51,19 @@ TODO
                         {
                         if( POOP )
 
+                        etThread.delF( tinP , postIn ) ;
                         }
+                            //CONoUTrAW( postIn + offi - 1 ) ;
                             sGet.readF( tinP , postIn + ( offi ++ ) , 1 ) ;
                         {
-                        while( !POOP && offi < sizeof postIn - 1 )
+                        while( !POOP && offi < TOCK - 1 )
+                        //CONoUTrAW( "\r\n" ) ;
                         ZE( countT , offi ) ;
                         etThread.traceF( tinP , T("reading reply") ) ;
 
-                        thirdC::c_memsetIF( tinP , postIn , sizeof postIn ) ;
-                        osTextT postIn[ TUCK << 4 ] ;
+                        thirdC::c_memsetIF( tinP , postIn , TOCK ) ;
+                        etThread.newF( tinP , LF , postIn , TOCK ) ; ___( postIn ) ;
+                        ZE( osTextT* , postIn ) ;
                     {
                     else
                     }
@@ -49,15 +72,16 @@ TODO
                     {
                     if( POOP )
 
-                    etThread.traceF( tinP , T("wrote   request ")+tIdCycle ) ;
+                    etThread.traceF( tinP , T("wrote   request") ) ;
                     sGet.writeF( tinP , (osTextT*)tRequest ) ;
-                    etThread.traceF( tinP , T("writing request ")+tIdCycle ) ;
+                    etThread.traceF( tinP , T("writing request") ) ;
 
                     etThread.osTimeNowF( tinP , timeA1 , timeA2 ) ;
                     ZE( sCountT , timeA2 ) ;
                     ZE( countT  , timeA1 ) ;
 
-                    TN( tRequest , "" ) ; tRequest = T("GET / HTTP/1.1\r\nHost: ideafarm.com\r\n\r\n") ;
+                    //TN( tRequest , "" ) ; tRequest = T("GET / HTTP/1.1\r\nHost: ideafarm.com\r\n\r\n") ;
+                    TN( tRequest , "" ) ; tRequest = T("GET / HTTP/1.1\r\nHost: ideafarm.com") ;                     // INTENTIONALLY INCOMPLETE
 
                     //etThread.traceF( tinP , T("[idpMeBound,idpMe,nnMe]:    ")+TF2(idpMeBound,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+TF2(idpMe,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+T("    ")+T(nnMe) ) ;
                 {
@@ -81,7 +105,7 @@ TODO
 
             sGet.connectF( tinP , 0x50 , pNicName[ 0 ] , 1 ) ;
             etThread.traceF( tinP , T("connecting") ) ;
-            socketC sGet( tinP , *tinP.pEtScratch , TAG( TAGiDnULL ) , 0 , flSOCKETc_null , 0 , countTC( SOCKETtIMEOUTdEFAULTlAN ) , countTC( SOCKETtIMEOUTdEFAULTlAN ) , countTC( SOCKETtIMEOUTdEFAULTlAN ) ) ;
+            socketC sGet( tinP , *tinP.pEtScratch , TAG( TAGiDnULL ) /*, 0 , flSOCKETc_null , 0 , countTC( SOCKETtIMEOUTdEFAULTlAN ) , countTC( SOCKETtIMEOUTdEFAULTlAN ) , countTC( SOCKETtIMEOUTdEFAULTlAN )*/ ) ;
         {
         else
         }
@@ -99,9 +123,11 @@ TODO
         SCOOPS
     {
     IFsCRATCH
+
+    countT& cAliveP = *(countT*)pTaskP->c1 ;
 {
-if( pTaskP )
-( tmWorkF )
+if( pTaskP && pTaskP->c1 )
+TASK( tmWorkF )
 
 /*1*/WAKEsHOWtEXT( "scr" )/*1*/
 /**/

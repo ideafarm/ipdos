@@ -236,6 +236,8 @@
                                                     TELL( "server: preparing to serve the accepted socket" )
                                                     //traceF( tinP , T(nnPeer)+T("    ifcDrivenServerF / preparing to serve this client") , flTRACE_null , ifcIDtRACEdIVERT_7 ) ;
                                                     if( bHeIsWatchDeadman1 ) traceF( tinP , T("ifcDrivenServerF / counting this new session"), flTRACE_HOMEeCHOdEADMAN1 | flTRACE_FORCEnOsILENCE | flTRACE_ECHOoNLY ) ;
+
+                                                    stRecentPeer.sinkF( tinP , countTC() , nnPeer , flSTACKsINK_UNIQUE ) ;
                                                 {
                                                 else if( pso )
                                                 }
@@ -264,9 +266,17 @@
                                                         bSilent |= 1 ; //TO PREVENT WO PEER FROM OPENING MANY SESSIONS TO DOS ATTACK
                                                         if( bHeIsWatchDeadman1 ) traceF( tinP , T("ifcDrivenServerF / setting bSilent (too many sessions with this nnPeer)"), flTRACE_HOMEeCHOdEADMAN1 | flTRACE_FORCEnOsILENCE | flTRACE_ECHOoNLY ) ;
                                                     {
-                                                    if( 0x10 < cSession )
+                                                    if( cSession || stRecentPeer( nnPeer ) )   //20210717@1537: CHANGED FROM "0x10 < cSession" TO "cSession" SO EACH PEER IS ONLY ALLOWED WO SESSION AT A TIME
                                                     if( bHeIsWatchDeadman1 ) traceF( tinP , T("ifcDrivenServerF / checking session count with this nnPeer [cSessionMax,cSession]:    ")+TF2(info2P.cSessionMax,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2(cSession,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED), flTRACE_HOMEeCHOdEADMAN1 | flTRACE_FORCEnOsILENCE | flTRACE_ECHOoNLY ) ;
                                                     countT cSession = sw_cSessionWithPeer ;
+                                                {
+
+                                                }
+                                                    if( timeN2 || timeN1 > TICK >> 2 || stRecentPeer > TUCK << 2 ) stRecentPeer.purgeF( tinP ) ;
+                                                    osTimeSubtractF( tinP , timeN1 , timeN2 , timeLathPurgeRecentPeer1 , timeLathPurgeRecentPeer2 ) ;
+                                                    osTimeNowF( tinP , timeN1 , timeN2 ) ;
+                                                    ZE( sCountT , timeN2 ) ;
+                                                    ZE( countT  , timeN1 ) ;
                                                 {
 
                                                 lever_nnPeer = nnPeer ;
@@ -528,6 +538,7 @@
                                     SCOOPS
                                 {
                                 while( !info1P.bQuit )
+
                                 ZE( countT , idAccept ) ;
                                 threadC th( tinP , *this , TAG( TAGiDnULL ) , tmLoadSilentF , cArg_tmLoadSilent , flTHREADlAUNCH_SHOWpONY ) ;
                                 TELL( "server: launching thread tmLoadSilentF" )
@@ -622,6 +633,11 @@
             _IO_
         {
 
+        osTimeNowF( tinP , timeLathPurgeRecentPeer1 , timeLathPurgeRecentPeer2 ) ;
+        ZE( sCountT , timeLathPurgeRecentPeer2 ) ;
+        ZE( countT  , timeLathPurgeRecentPeer1 ) ;
+
+        stackC stRecentPeer( tinP , third , TAG( TAGiDnULL ) , flSTACKc_DOnOTsERIALIZE , ifcSTACKtYPE_nicNameC ) ;
         ZE( countT , cSession ) ;
         ZE( countT , cWorker ) ;
 
