@@ -1,3 +1,4 @@
+#define SOCKETtIMEOUTdEFAULTwANiMPATIENT ( TOCK << 2 )
 
 // IPDOS (tm) <> IdeaFarm (tm) Piggyback Distributed Operating System
 

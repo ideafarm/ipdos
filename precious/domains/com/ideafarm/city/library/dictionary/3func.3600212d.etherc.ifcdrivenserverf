@@ -263,11 +263,14 @@
 
                                                 }
                                                     }
+                                                        stBadPeer.sinkF( tinP , countTC() , nnPeer , flSTACKsINK_UNIQUE ) ;
+                                                        traceF( tinP , T("ifcDrivenServerF / remembering bad peer [cBadPeer,nnPeer]:    ")+TF2((countT)stBadPeer,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+T(nnPeer) , flTRACE_HOMEeCHOdEADMAN1 | flTRACE_FORCEnOsILENCE | flTRACE_ECHOoNLY ) ;
+
                                                         bSilent |= 1 ; //TO PREVENT WO PEER FROM OPENING MANY SESSIONS TO DOS ATTACK
-                                                        if( bHeIsWatchDeadman1 ) traceF( tinP , T("ifcDrivenServerF / setting bSilent (too many sessions with this nnPeer)"), flTRACE_HOMEeCHOdEADMAN1 | flTRACE_FORCEnOsILENCE | flTRACE_ECHOoNLY ) ;
+                                                        /*if( bHeIsWatchDeadman1 )*/ traceF( tinP , T("ifcDrivenServerF / setting bSilent (too many sessions with this nnPeer)"), flTRACE_HOMEeCHOdEADMAN1 | flTRACE_FORCEnOsILENCE | flTRACE_ECHOoNLY ) ;
                                                     {
-                                                    if( cSession || stRecentPeer( nnPeer ) )   //20210717@1537: CHANGED FROM "0x10 < cSession" TO "cSession" SO EACH PEER IS ONLY ALLOWED WO SESSION AT A TIME
-                                                    if( bHeIsWatchDeadman1 ) traceF( tinP , T("ifcDrivenServerF / checking session count with this nnPeer [cSessionMax,cSession]:    ")+TF2(info2P.cSessionMax,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2(cSession,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED), flTRACE_HOMEeCHOdEADMAN1 | flTRACE_FORCEnOsILENCE | flTRACE_ECHOoNLY ) ;
+                                                    if( cSession || stBadPeer( nnPeer ) || stRecentPeer( nnPeer ) )   //20210717@1537: CHANGED FROM "0x10 < cSession" TO "cSession" SO EACH PEER IS ONLY ALLOWED WO SESSION AT A TIME
+                                                    /*if( bHeIsWatchDeadman1 )*/ traceF( tinP , T("ifcDrivenServerF / checking session count with this nnPeer [cSessionMax,cSession]:    ")+TF2(info2P.cSessionMax,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED)+tb4+TF2(cSession,flFORMAT_NObIGITvALUES|flFORMAT_UNSIGNED), flTRACE_HOMEeCHOdEADMAN1 | flTRACE_FORCEnOsILENCE | flTRACE_ECHOoNLY ) ;
                                                     countT cSession = sw_cSessionWithPeer ;
                                                 {
 
@@ -637,6 +640,7 @@
         ZE( sCountT , timeLathPurgeRecentPeer2 ) ;
         ZE( countT  , timeLathPurgeRecentPeer1 ) ;
 
+        stackC stBadPeer(    tinP , third , TAG( TAGiDnULL ) , flSTACKc_DOnOTsERIALIZE , ifcSTACKtYPE_nicNameC ) ;
         stackC stRecentPeer( tinP , third , TAG( TAGiDnULL ) , flSTACKc_DOnOTsERIALIZE , ifcSTACKtYPE_nicNameC ) ;
         ZE( countT , cSession ) ;
         ZE( countT , cWorker ) ;
